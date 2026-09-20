@@ -3,8 +3,8 @@ extends Node
 ## The residents get a clock.
 ##
 ## Reads game/data/resident_schedules.json — the hand transcription of
-## design/ORISON_ARCHETYPE_SCHEDULES.md — and, on the same real-local-time
-## clock the sky already obeys (day_night_director.gd), tells
+## design/ORISON_ARCHETYPE_SCHEDULES.md — and, on the durable campaign
+## clock also read by the sky, tells
 ## ResidentRoutines where each of the eighteen should be: home, a room in
 ## the building, the bodega across the street, the Harukiya under it, or
 ## "out", which is an honest despawn through the lobby door.
@@ -19,8 +19,9 @@ extends Node
 ## Determinism: WalkTest runs under DAYNIGHT=0 and this director goes
 ## inert there — the canonical 03:00 building keeps its pre-schedule
 ## behaviour byte for byte. SCHEDULE=1 forces the director on (for
-## schedule-specific tests), SCHEDULE=0 forces it off, SCHEDULE_DAY and
-## SCHEDULE_DOY pin the calendar the way DAYNIGHT_FORCE pins the clock.
+## schedule-specific tests), SCHEDULE=0 forces it off. SCHEDULE_MINUTE,
+## SCHEDULE_DAY and SCHEDULE_DOY explicitly pin schedule test queries.
+## DAYNIGHT_FORCE affects presentation only; it never rewrites this clock.
 
 const SCHEDULE_PATH := "res://data/resident_schedules.json"
 const DAY_NAMES := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
@@ -126,17 +127,15 @@ func _process(delta: float) -> void:
 ## ---- clock ----------------------------------------------------------
 
 static func minute_now() -> float:
-	# Same envs, same precedence as DayNightDirector._minute_now, so the
-	# sky and the residents can never disagree about what time it is.
-	var force := OS.get_environment("DAYNIGHT_FORCE")
+	var force := OS.get_environment("SCHEDULE_MINUTE")
 	if force != "":
-		if DayNightDirector.STATE_MINUTES.has(force):
-			return float(DayNightDirector.STATE_MINUTES[force])
+		if force.is_valid_float() and float(force) >= 0.0 and float(force) < 1440.0:
+			return float(force)
 		var bits := force.split(":")
-		if bits.size() == 2 and bits[0].is_valid_int():
+		if bits.size() == 2 and bits[0].is_valid_int() and bits[1].is_valid_int() \
+				and int(bits[0]) >= 0 and int(bits[0]) < 24 \
+				and int(bits[1]) >= 0 and int(bits[1]) < 60:
 			return float(int(bits[0]) * 60 + int(bits[1]))
-	if OS.get_environment("DAYNIGHT") == "0":
-		return 180.0
 	var clock := CampaignClock.new()
 	return clock.minute_of_day() if clock.bind_state() else 180.0
 

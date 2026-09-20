@@ -1,0 +1,1138 @@
+{
+ "tool_version": 2,
+ "summary": {
+  "requirements": 102,
+  "by_status": {
+   "ABSENT": 61,
+   "HUMAN_ACCEPTED": 1,
+   "PROGRAMMED": 5,
+   "RUNTIME_PROVEN": 12,
+   "SHELL_ONLY": 4,
+   "SPATIALLY_PROVEN": 19
+  },
+  "blockers_by_scope": {
+   "FIRST_SLICE_TECHNICAL": 5,
+   "GOLDEN_SHIFT_V2": 6,
+   "FULL_BUILDING_STRUCTURAL": 61,
+   "FULL_BUILDING_RUNTIME": 24,
+   "PRODUCTION_CUTOVER": 75,
+   "V1_RETIREMENT": 77
+  },
+  "v1_fallbacks": 6,
+  "heuristic_conclusions": 11,
+  "anchor_only_findings": 1,
+  "stale_checkpoint_ids": 1
+ },
+ "queried_scopes": [
+  "FIRST_SLICE_TECHNICAL"
+ ],
+ "requirements": [
+  {
+   "id": "ritual.F01_WATCHMAN_DETECTOR",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_WATCHMAN_DETECTOR"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_WATCHMAN_DETECTOR",
+    "checkpoint:design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_NIGHT_REGISTER",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_NIGHT_REGISTER"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_NIGHT_REGISTER",
+    "checkpoint:design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_SIGNAL_REGISTER",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_SIGNAL_REGISTER"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_SIGNAL_REGISTER",
+    "checkpoint:design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_TOUR_KEY_GUARD",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_TOUR_KEY_GUARD"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_TOUR_KEY_GUARD",
+    "checkpoint:design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "job.lena_radiator_round_2b",
+   "dimension": "15 jobs and case routes",
+   "scope": {
+    "job": "lena_radiator_round_2b",
+    "unit": "2B",
+    "anchors": [
+     "F02_B_RADIATOR_01",
+     "LobbyPorterBoard",
+     "B1_BOILER_01"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "data:game/data/maintenance_jobs.json"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  }
+ ],
+ "blockers_by_scope": {
+  "FIRST_SLICE_TECHNICAL": [
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "job.lena_radiator_round_2b"
+  ],
+  "GOLDEN_SHIFT_V2": [
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "job.lena_radiator_round_2b",
+   "golden.eleven_beats"
+  ],
+  "FULL_BUILDING_STRUCTURAL": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "circ.F01.public_core",
+   "circ.F01.service_core",
+   "circ.F01.service_route",
+   "floor.F01",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2B.storage",
+   "unit.2C",
+   "unit.2D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service"
+  ],
+  "FULL_BUILDING_RUNTIME": [
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "unit.2C",
+   "unit.2D",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "job.lena_radiator_round_2b",
+   "case.juno_feedback_tetris",
+   "acoustic.v2_rederivation",
+   "save.unit_rect_facts"
+  ],
+  "PRODUCTION_CUTOVER": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "circ.F01.public_core",
+   "circ.F01.service_core",
+   "circ.F01.service_route",
+   "floor.F01",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2B.storage",
+   "unit.2C",
+   "unit.2D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "job.lena_radiator_round_2b",
+   "case.juno_feedback_tetris",
+   "acoustic.v2_rederivation",
+   "save.unit_rect_facts",
+   "evidence.whole_building_stations",
+   "human.whole_building_navigation",
+   "golden.eleven_beats"
+  ],
+  "V1_RETIREMENT": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "circ.F01.public_core",
+   "circ.F01.service_core",
+   "circ.F01.service_route",
+   "floor.F01",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2B.storage",
+   "unit.2C",
+   "unit.2D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "job.lena_radiator_round_2b",
+   "case.juno_feedback_tetris",
+   "acoustic.v2_rederivation",
+   "save.bedside_return",
+   "save.unit_rect_facts",
+   "evidence.whole_building_stations",
+   "human.whole_building_navigation",
+   "golden.eleven_beats",
+   "retirement.authorization"
+  ]
+ },
+ "v1_fallbacks": [],
+ "anchor_only": [
+  {
+   "anchor": "FLOATING_ANCHOR",
+   "level": "F01",
+   "note": "anchor with no containing programmed space"
+  }
+ ],
+ "v1_room_coverage": {
+  "matched": [
+   "F01_LOBBY",
+   "F02_A_BATH",
+   "F02_A_BED",
+   "F02_A_MAIN",
+   "F02_B_MAIN"
+  ],
+  "aliased": [
+   {
+    "v1": "F01_OFFICE",
+    "v2": "F01_WATCH"
+   }
+  ],
+  "subdivided": [],
+  "unrepresented": [
+   "F01_HALL",
+   "F02_GONE_ROOM"
+  ],
+  "pseudo_rooms_excluded": [
+   "F01_NAVIGATION"
+  ]
+ },
+ "stale_checkpoint_ids": [
+  {
+   "token": "F02_GONE_ROOM",
+   "source": "design/ORISON_V2_MINI_GRAYBOX_CHECKPOINT_2026-08-28.md",
+   "note": "checkpointed identifier absent from current v2 layout"
+  }
+ ],
+ "evidence_conflicts": [
+  {
+   "token": "B1_BOILER_01",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_NIGHT_REGISTER",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_SIGNAL_REGISTER",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_TOUR_KEY_GUARD",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_WATCHMAN_DETECTOR",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F02_B_RADIATOR_01",
+   "source": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  }
+ ],
+ "unresolved": [
+  {
+   "id": "job.lena_radiator_round_2b",
+   "dimension": "15 jobs and case routes",
+   "scope": {
+    "job": "lena_radiator_round_2b",
+    "unit": "2B",
+    "anchors": [
+     "F02_B_RADIATOR_01",
+     "LobbyPorterBoard",
+     "B1_BOILER_01"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "data:game/data/maintenance_jobs.json"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  }
+ ],
+ "queue": [
+  {
+   "id": "M08E-f01-rituals-2b-b1",
+   "scope": "Build and spatially prove the F01 ritual desk spaces/identities, apartment 2B, and the B1 service route (boiler endpoint) in the v2 schema.",
+   "prerequisite": "M08D runtime-parity checkpoint (done)",
+   "outstanding": [
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR"
+   ],
+   "blocked_consumers": [
+    "FirstShiftDirector",
+    "ServiceRoundDirector",
+    "NightRegister",
+    "WatchStationNetwork",
+    "lena_radiator_round_2b"
+   ],
+   "required_ids": [
+    "F01_WATCHMAN_DETECTOR",
+    "F01_NIGHT_REGISTER",
+    "F01_SIGNAL_REGISTER",
+    "F01_TOUR_KEY_GUARD",
+    "B1_BOILER_01",
+    "F02_B_RADIATOR_01",
+    "LobbyPorterBoard",
+    "2B unit spaces"
+   ],
+   "automated_proof": "extended OrisonV2BlockoutTest census + clearance stations; drift-clean spatial dependency audit",
+   "human_evidence": "graybox route-readability frames for the new spaces; owner acceptance JSON",
+   "files_change": [
+    "game/data/orison_v2_blockout.json",
+    "game/scripts/building/orison_v2_*.gd",
+    "game/tests/orison_v2_*",
+    "design/ORISON_V2_M08E_*"
+   ],
+   "files_forbidden": [
+    "game/data/building_layout.json",
+    "art/data/*",
+    "game/scenes/building/orison_root.tscn",
+    "game/scripts/game/reality_game_state.gd",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "All four ritual identities, unit 2B and the B1 boiler endpoint resolve uniquely in v2 with SPATIALLY_PROVEN status."
+  },
+  {
+   "id": "M08F-runtime-composition-of-m08e",
+   "scope": "Compose and runtime-prove the M08E spaces: first shift ritual, service round and night register under the v2 runtime root; authority census 1:1.",
+   "prerequisite": "M08E-f01-rituals-2b-b1",
+   "outstanding": [
+    "job.lena_radiator_round_2b"
+   ],
+   "blocked_consumers": [
+    "golden shift beats 1-3",
+    "service round proof"
+   ],
+   "required_ids": [
+    "B1_BOILER_01",
+    "F02_B_RADIATOR_01",
+    "LobbyPorterBoard",
+    "F01_WATCHMAN_DETECTOR",
+    "F01_NIGHT_REGISTER",
+    "F01_SIGNAL_REGISTER",
+    "F01_TOUR_KEY_GUARD"
+   ],
+   "automated_proof": "two-root matrix extension covering first shift + service round; save round trip",
+   "human_evidence": "none new (runtime milestone)",
+   "files_change": [
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/tests/orison_v2_*"
+   ],
+   "files_forbidden": [
+    "game/scripts/game/work_orders.gd",
+    "game/data/maintenance_jobs.json",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "M08D authority census reports 1:1 for FirstShiftDirector and ServiceRoundDirector under explicit v2 selection.  FIRST_SLICE_TECHNICAL clean - production cutover NOT implied."
+  },
+  {
+   "id": "M10-golden-shift-v2",
+   "scope": "Author and human-run the eleven golden-shift beats under EXPLICIT v2 selection (K3 matrix); v1 stays the production default throughout.",
+   "prerequisite": "M08F-runtime-composition-of-m08e",
+   "outstanding": [
+    "golden.eleven_beats",
+    "job.lena_radiator_round_2b"
+   ],
+   "blocked_consumers": [
+    "K3 save/reload human matrix"
+   ],
+   "required_ids": [
+    "golden-shift boundaries (byte-identical)"
+   ],
+   "automated_proof": "golden_loop equivalent targeting the v2 selector",
+   "human_evidence": "eleven-beat human run card + golden-shift acceptance receipt",
+   "files_change": [
+    "game/tests/*",
+    "design/"
+   ],
+   "files_forbidden": [
+    "save owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "GOLDEN_SHIFT_V2 scope clean - still not a production-default authorization."
+  },
+  {
+   "id": "M11-structural-floors",
+   "scope": "Build remaining canonical floors structurally: F03 full program, F05, F06, B1 full program, ROOF; electrical + fire risers; declared service-hall openings.",
+   "prerequisite": "M08F-runtime-composition-of-m08e",
+   "outstanding": [
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "circ.F01.public_core",
+    "circ.F01.public_landing",
+    "circ.F01.service_core",
+    "circ.F01.service_route",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "f01.common_room",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "floor.F01",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "service.electrical_riser",
+    "service.fire_service"
+   ],
+   "blocked_consumers": [
+    "resident schedules above F04",
+    "building personality floors",
+    "maintenance activities"
+   ],
+   "required_ids": [
+    "floor levels F05/F06/B1/ROOF",
+    "per-floor circulation records"
+   ],
+   "automated_proof": "completeness ledger floor dimension all >= SPATIALLY_PROVEN",
+   "human_evidence": "per-floor graybox acceptance",
+   "files_change": [
+    "game/data/orison_v2_blockout.json",
+    "generator"
+   ],
+   "files_forbidden": [
+    "v1 layout/scenes",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "All eight canonical floors PROGRAMMED and SPATIALLY_PROVEN with circulation and riser endpoints."
+  },
+  {
+   "id": "M12-apartments-by-case-dependency",
+   "scope": "Build occupied apartments in case-dependency order (units with active case routes first), then transient 4D.",
+   "prerequisite": "M11-structural-floors",
+   "outstanding": [
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2B.storage",
+    "unit.2C",
+    "unit.2D"
+   ],
+   "blocked_consumers": [
+    "17 reality cases",
+    "resident routines/haunts",
+    "organism incident reconstruction"
+   ],
+   "required_ids": [
+    "per-unit space sets with domestic minimums"
+   ],
+   "automated_proof": "domestic-minimum dimension complete per unit",
+   "human_evidence": "per-unit room acceptance (room sentence profiles)",
+   "files_change": [
+    "game/data/orison_v2_blockout.json"
+   ],
+   "files_forbidden": [
+    "game/data/reality_cases.json",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Every occupied unit >= SPATIALLY_PROVEN with all six domestic functions present."
+  },
+  {
+   "id": "M13-sealed-vacant-authoring",
+   "scope": "Author sealed (2D/3C/5D/6D) thresholds and vacant conditions as deliberate absence.",
+   "prerequisite": "M12-apartments-by-case-dependency",
+   "outstanding": [
+    "unit.2D"
+   ],
+   "blocked_consumers": [
+    "window_glow sealed set",
+    "mail/dead letters"
+   ],
+   "required_ids": [
+    "sealed unit thresholds on public route"
+   ],
+   "automated_proof": "sealed threshold census",
+   "human_evidence": "owner confirmation absence reads as authored",
+   "files_change": [
+    "game/data/orison_v2_blockout.json"
+   ],
+   "files_forbidden": [
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Each sealed unit has a public threshold and an authored closed state; no accidental navigable gap."
+  },
+  {
+   "id": "M14-service-topology-and-acoustics",
+   "scope": "Regenerate acoustic graph and service networks from v2 topology, retaining externally consumed node ids; retire adapter positional overrides.",
+   "prerequisite": "M11-structural-floors",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack"
+   ],
+   "blocked_consumers": [
+    "audio propagation",
+    "cases",
+    "VirusSoundDirector"
+   ],
+   "required_ids": [
+    "externally consumed acoustic node ids"
+   ],
+   "automated_proof": "acoustic graph integrity + case sound-origin tests under v2",
+   "human_evidence": "listening pass",
+   "files_change": [
+    "game/data/acoustic_graph.json (regenerated from v2)",
+    "generator"
+   ],
+   "files_forbidden": [
+    "game/scripts/audio owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Graph positions derive from v2; adapter positional overrides retired."
+  },
+  {
+   "id": "M15-whole-building-runtime-matrix",
+   "scope": "Whole-building runtime consumer and save matrix: every job, case, interaction, resident, wake and organism fact resolves and reconstructs under explicit v2 selection.",
+   "prerequisite": "M12-apartments-by-case-dependency + M14-service-topology-and-acoustics",
+   "outstanding": [
+    "case.juno_feedback_tetris",
+    "job.lena_radiator_round_2b",
+    "save.unit_rect_facts"
+   ],
+   "blocked_consumers": [
+    "all reality cases",
+    "organism ledger reconstruction",
+    "resident schedules"
+   ],
+   "required_ids": [
+    "every migration-contract identity"
+   ],
+   "automated_proof": "full-root consumer census + two-root save matrix over every historical fixture",
+   "human_evidence": "none (runtime milestone)",
+   "files_change": [
+    "game/tests"
+   ],
+   "files_forbidden": [
+    "save owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "FULL_BUILDING_RUNTIME scope clean."
+  },
+  {
+   "id": "M16-whole-building-performance-navigation",
+   "scope": "Whole-building performance stations, human navigation acceptance, resident schedule proof.",
+   "prerequisite": "M15-whole-building-runtime-matrix",
+   "outstanding": [
+    "evidence.whole_building_stations",
+    "human.whole_building_navigation"
+   ],
+   "blocked_consumers": [
+    "release evidence matrix"
+   ],
+   "required_ids": [
+    "per-floor capture stations"
+   ],
+   "automated_proof": "route/performance matrix at documented budgets",
+   "human_evidence": "whole-building navigation acceptance JSON (scope beyond route readability)",
+   "files_change": [
+    "game/tests",
+    "art/renders/orison_v2"
+   ],
+   "files_forbidden": [
+    "v1 evidence",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Whole-building route budget met and owner-accepted."
+  },
+  {
+   "id": "M09-production-cutover-proposal",
+   "scope": "Evidence-backed production default switch: flip BuildingRootSelector.DEFAULT_ID with a tagged v1 fallback and rollback instructions.  May exist earlier only as a dormant proposal template.",
+   "prerequisite": "M16-whole-building-performance-navigation (PRODUCTION_CUTOVER scope must be clean)",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "case.juno_feedback_tetris",
+    "circ.F01.public_core",
+    "circ.F01.public_landing",
+    "circ.F01.service_core",
+    "circ.F01.service_route",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "evidence.whole_building_stations",
+    "f01.common_room",
+    "f01.lobby",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "f01.street_vestibule",
+    "f01.watch_station",
+    "floor.F01",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "golden.eleven_beats",
+    "human.whole_building_navigation",
+    "job.lena_radiator_round_2b",
+    "region.arcade_hall",
+    "region.arcade_portal",
+    "region.arcade_throat",
+    "region.construction_seam",
+    "region.shops",
+    "region.street",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "save.unit_rect_facts",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack",
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2B.storage",
+    "unit.2C",
+    "unit.2D"
+   ],
+   "blocked_consumers": [
+    "default boot path"
+   ],
+   "required_ids": [
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "automated_proof": "completeness ledger --blockers-for production-cutover exits 0; full gate suite green under both roots",
+   "human_evidence": "owner authorization JSON with authorization.production_cutover=true",
+   "files_change": [
+    "game/scripts/building/building_root_selector.gd (DEFAULT_ID only)",
+    "design/ORISON_V2_M09_CUTOVER_PROPOSAL_*"
+   ],
+   "files_forbidden": [
+    "everything on the pre-M09 forbidden list (saves, jobs, cases, v1 scene/layout, evidence)"
+   ],
+   "exit": "Owner-signed production-cutover authorization; DEFAULT_ID flips with a one-line revert as rollback."
+  },
+  {
+   "id": "M17-v1-fallback-window",
+   "scope": "Post-cutover rollback window: v1 stays selectable and tagged; regressions revert the one-line DEFAULT_ID change.",
+   "prerequisite": "M09-production-cutover-proposal",
+   "outstanding": [
+    "rollback window observation period"
+   ],
+   "blocked_consumers": [],
+   "required_ids": [
+    "tagged v1 fallback commit"
+   ],
+   "automated_proof": "both roots stay green for the window",
+   "human_evidence": "owner closes the window explicitly",
+   "files_change": [],
+   "files_forbidden": [
+    "v1 generation, scenes and evidence"
+   ],
+   "exit": "Window closed by the owner with no rollback."
+  },
+  {
+   "id": "M18-v1-retirement",
+   "scope": "Retire the v1 fallback: remove the anonymous-bed fallback, freeze v1 generation as a migration fixture, retire adapter aliases id-by-id.",
+   "prerequisite": "M17-v1-fallback-window",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "case.juno_feedback_tetris",
+    "circ.F01.public_core",
+    "circ.F01.public_landing",
+    "circ.F01.service_core",
+    "circ.F01.service_route",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "evidence.whole_building_stations",
+    "f01.common_room",
+    "f01.lobby",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "f01.street_vestibule",
+    "f01.watch_station",
+    "floor.F01",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "golden.eleven_beats",
+    "human.whole_building_navigation",
+    "job.lena_radiator_round_2b",
+    "region.arcade_hall",
+    "region.arcade_portal",
+    "region.arcade_throat",
+    "region.construction_seam",
+    "region.shops",
+    "region.street",
+    "retirement.authorization",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "save.bedside_return",
+    "save.unit_rect_facts",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack",
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2B.storage",
+    "unit.2C",
+    "unit.2D"
+   ],
+   "blocked_consumers": [],
+   "required_ids": [
+    "every adapter alias with consumer census"
+   ],
+   "automated_proof": "spatial dependency audit accepts the deliberate stale-preserved deltas; v2-only matrix replaces the two-root matrix",
+   "human_evidence": "owner retirement authorization (authorization.v1_retirement=true)",
+   "files_change": [
+    "selector",
+    "adapter",
+    "manifest"
+   ],
+   "files_forbidden": [
+    "save owners"
+   ],
+   "exit": "No TEMPORARY_V1_FALLBACK flag remains anywhere in this ledger; v1 tagged as frozen fixture."
+  }
+ ],
+ "evidence_intake": {
+  "admitted": [
+   {
+    "file": "design/ORISON_V2_MINI_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_MINI_M08_RUNTIME_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 3
+   },
+   {
+    "file": "design/ORISON_V2_MINI_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md",
+    "marker": "ACCEPTANCE",
+    "epoch": 8
+   },
+   {
+    "file": "design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 7
+   },
+   {
+    "file": "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 9
+   }
+  ],
+  "not_evidence": [],
+  "rejected_runtime_receipts": [
+   {
+    "file": "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json",
+    "reasons": [
+     "root-relative test source and SHA-256 required"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "art/data/building_layout.json": "ca4cfbb0b83493d5c9bdf818f0cefd6fcd15eb1cd23fece51253a859e0f7c8e3",
+  "game/data/orison_v2_blockout.json": "7cc1e2ae71b9ff2f7f3a336edc5faebd408534f0f949d17ebc0978d0b971fe31",
+  "tools/orison_spatial_dependency_manifest.json": "34310c447beb23f933dc67479d5074a1f02bb2887e8251fa89d7be6ef167fc9c",
+  "design/ORISON_V2_MINI_HUMAN_ACCEPTANCE_2026-08-28.json": "4cc85a6e7e205ef59f962b83fc2309a87d26d23667201a9ab689548496c71876",
+  "design/ORISON_V2_MINI_GRAYBOX_CHECKPOINT_2026-08-28.md": "568f4d0af42aa2356e7b95d558c5d8de355f4eb46ebb4d6d21a27cc07fec0ed2",
+  "design/ORISON_V2_MINI_M08_RUNTIME_CHECKPOINT_2026-08-28.md": "dfd996d8aaa1d7a451438f624c10dbe64e841679c19037bc32ceaf0de821d008",
+  "design/ORISON_V2_MINI_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md": "43c98b40d7e507411b8c11b850142af367891d121b0ebb32b9e6eee70ed8d70f",
+  "design/ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md": "b8937ba54b98ccf92f319324d895ef2074b8e6e92d7d64f81ad73693ed015f0c",
+  "design/ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md": "918306777588439dffc0c4d8e739e2c58603cdb07a7733aa940ee1a136ee7af9",
+  "game/scripts/building/orison_v2_anchor_adapter.gd": "00ab8b203cb37926876e11d633d43ff5d9df406a708d4faacd5677e707c6efba",
+  "art/renders/orison_v2/mini_checkpoint/scene_capture_receipt.json": "3aaa3b5a506c6a2615ff7d94232d77036c3292038bc2869ccc9073f9375194b3",
+  "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json": "fd308b3c8c2d9c0372fef53baea91e543c442851754886aed030aa98d79007af"
+ }
+}

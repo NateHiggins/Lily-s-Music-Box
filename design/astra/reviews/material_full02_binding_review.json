@@ -1,0 +1,1445 @@
+{
+  "schema": "astra.material_full02.binding_review.v1",
+  "reviewed_at_utc": "2026-09-05T09:49:01.206411+00:00",
+  "scope": "Read-only independent review; no engine or live source mutation. Focus binder aliases, prop rows, registration rebuild ordering. Wardrobe producer geometry reviewed separately by dream_forensics.",
+  "result_path": "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_02/result.json",
+  "result_sha256": "d51ec57d10aa785875b1dfdf609d7e4c4d20eaabe21ca8036c5864002409dcdf",
+  "probe_sha256": "ca8994dc76f0b3a7c94757d2dce2fa44c438d08d404131e0c1d01bf8aae066af",
+  "verification": {
+    "retained_artifacts_rehashed": 58,
+    "artifact_hash_mismatches": [],
+    "before_after_source_entry_count": 4043,
+    "before_after_maps_and_head_equal": true,
+    "both_diff_hashes_verified": true,
+    "retained_source_copies_verified_against_recorded_manifest": 28,
+    "engine_manifests_equal": true,
+    "engine_binary_rehashed_by_this_review": false,
+    "whole_live_asset_tree_rehashed": false,
+    "selected_sources": {
+      "game/scripts/reality/apartment_encroachment.gd": {
+        "run_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+        "current_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db"
+      },
+      "game/scripts/building/surface_pass.gd": {
+        "run_sha256": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+        "current_sha256": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327"
+      },
+      "game/scripts/building/building_root.gd": {
+        "run_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+        "current_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4"
+      },
+      "game/tests/vulkan_composed_root_test.gd": {
+        "run_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+        "current_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+      }
+    }
+  },
+  "observed_result": {
+    "actual_engine_runner_exit": 1,
+    "diagnostic_gate_exit": 1,
+    "checks": 314,
+    "passed": 306,
+    "failed_labels": [
+      "material before_measured actual build and installed ownership invariants",
+      "material cycle_0 actual build and installed ownership invariants",
+      "material cycle_1 actual build and installed ownership invariants",
+      "material cycle_2 actual build and installed ownership invariants",
+      "material cycle_3 actual build and installed ownership invariants",
+      "material cycle_4 actual build and installed ownership invariants",
+      "material cycle_5 actual build and installed ownership invariants",
+      "material before_retirement actual build and installed ownership invariants"
+    ],
+    "non_material_renderer_checks": 305,
+    "all_non_material_renderer_checks_passed": true,
+    "png_count": 18,
+    "images_visually_reviewed_by_this_review": false,
+    "retirement": {
+      "applicable": true,
+      "owned_case_materials_observed": 1048,
+      "released": true,
+      "retained_material_ids": []
+    },
+    "raw_footer": "[VULKAN COMPOSED] checks=314 failures=8",
+    "raw_footer_line": 4640,
+    "diagnostics": {
+      "diagnostic_gate_exit": 1,
+      "reasons": [
+        "actual engine/runner exit 1",
+        "functional checks failed or missing"
+      ],
+      "unpair_errors": 0,
+      "soft_shadow_underflows": 0,
+      "non_inherited_error_headers": {},
+      "inherited_manifest_errors": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        }
+      ],
+      "warnings": {
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+        "WARNING: no legal wall for found piece cam_noel_witches": 1
+      },
+      "retention": [],
+      "functional_checks_meaningful": false,
+      "expected_unpair_red_observed": false,
+      "expected_viewport_guard_red_observed": false,
+      "execution_scope": "full",
+      "full_candidate_scope_completed": false,
+      "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+    },
+    "wrapper_streams_empty": true
+  },
+  "observations": [
+    {
+      "stage": "before_measured",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06",
+        "immediate actual state/lifecycle consumer or restoration failure"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 2,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369509803318944,
+            -9223369509769764514,
+            -9223369509736209453,
+            -9223369509702655023
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369509669101052,
+            -9223369509635546622,
+            -9223369509601997181,
+            -9223369509568442752
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369605265677006,
+            -9223369605232122576,
+            -9223369605198568146,
+            -9223369605165013716
+          ],
+          "missing_ids": [
+            -9223369509400670475,
+            -9223369509367116037,
+            -9223369509333561597,
+            -9223369509300047460
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509803318944,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509769764514,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509736209453,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509702655023,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509669101052,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509635546622,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509601997181,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369509568442752,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": true,
+      "refresh": {
+        "facts_unchanged": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "mutated": true,
+        "passed": false,
+        "same_frame_restored": true,
+        "scope": "actual installed build/prop rows; explicit production force hook and lifecycle push; no field tick or replacement geometry",
+        "tested_current_materials": 960
+      }
+    },
+    {
+      "stage": "cycle_0",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 0.5,
+        "governed_steps": 4,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369349580906144,
+            -9223369349547351714,
+            -9223369349513796653,
+            -9223369349480242223
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369349446688252,
+            -9223369349413133822,
+            -9223369349379584381,
+            -9223369349346029952
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369366458784469,
+            -9223369366425230035,
+            -9223369366391675601,
+            -9223369366358121167
+          ],
+          "missing_ids": [
+            -9223369349178257804,
+            -9223369349144703255,
+            -9223369349111148816,
+            -9223369349077594368
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349580906144,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349547351714,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349513796653,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349480242223,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349446688252,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349413133822,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349379584381,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369349346029952,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_1",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 0.5,
+        "governed_steps": 6,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369265711603360,
+            -9223369265678048930,
+            -9223369265644493869,
+            -9223369265610939439
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369265577385468,
+            -9223369265543831038,
+            -9223369265510281597,
+            -9223369265476727168
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369280878205646,
+            -9223369280844651216,
+            -9223369280811096786,
+            -9223369280777542356
+          ],
+          "missing_ids": [
+            -9223369265308954891,
+            -9223369265275400453,
+            -9223369265241846013,
+            -9223369265208331876
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265711603360,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265678048930,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265644493869,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265610939439,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265577385468,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265543831038,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265510281597,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369265476727168,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_2",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369184795090592,
+            -9223369184761536162,
+            -9223369184727981101,
+            -9223369184694426671
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369184660872700,
+            -9223369184627318270,
+            -9223369184593768829,
+            -9223369184560214400
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369199978470101,
+            -9223369199944915667,
+            -9223369199911361233,
+            -9223369199877806799
+          ],
+          "missing_ids": [
+            -9223369184392442252,
+            -9223369184358887703,
+            -9223369184325333264,
+            -9223369184291778816
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184795090592,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184761536162,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184727981101,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184694426671,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184660872700,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184627318270,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184593768829,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369184560214400,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_3",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369103022939808,
+            -9223369102989385378,
+            -9223369102955830317,
+            -9223369102922275887
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369102888721916,
+            -9223369102855167486,
+            -9223369102821618045,
+            -9223369102788063616
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369115974949582,
+            -9223369115941395152,
+            -9223369115907840722,
+            -9223369115874286292
+          ],
+          "missing_ids": [
+            -9223369102620291339,
+            -9223369102586736901,
+            -9223369102553182461,
+            -9223369102519668324
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369103022939808,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102989385378,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102955830317,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102922275887,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102888721916,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102855167486,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102821618045,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369102788063616,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_4",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223369016351841952,
+            -9223369016318287522,
+            -9223369016284732461,
+            -9223369016251178031
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "installed_count": 264,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223369016217624060,
+            -9223369016184069630,
+            -9223369016150520189,
+            -9223369016116965760
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223369030595697365,
+            -9223369030562142931,
+            -9223369030528588497,
+            -9223369030495034063
+          ],
+          "missing_ids": [
+            -9223369015949193612,
+            -9223369015915639063,
+            -9223369015882084624,
+            -9223369015848530176
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016351841952,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016318287522,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016284732461,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016251178031,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016217624060,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016184069630,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016150520189,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223369016116965760,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_5",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 10,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223368930435718816,
+            -9223368930402164386,
+            -9223368930368609325,
+            -9223368930335054895
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 268,
+          "unique": 268,
+          "invalid": 0,
+          "installed_count": 268,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "installed_count": 251,
+          "extra_ids": [
+            -9223368930301500924,
+            -9223368930267946494,
+            -9223368930234397053,
+            -9223368930200842624
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [
+            -9223368943387728590,
+            -9223368943354174160,
+            -9223368943320619730,
+            -9223368943287065300
+          ],
+          "missing_ids": [
+            -9223368930033070347,
+            -9223368929999515909,
+            -9223368929965961469,
+            -9223368929932447332
+          ]
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930435718816,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930402164386,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930368609325,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930335054895,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930301500924,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930267946494,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930234397053,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930200842624,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": false,
+      "refresh": {}
+    },
+    {
+      "stage": "before_retirement",
+      "issues": [
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "immediate actual state/lifecycle consumer or restoration failure"
+      ],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 10,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_count": 405,
+          "extra_ids": [
+            -9223368633344777264,
+            -9223368633311222830,
+            -9223368633277669027,
+            -9223368633244114593
+          ],
+          "missing_ids": []
+        },
+        "F03": {
+          "slots": 268,
+          "unique": 268,
+          "invalid": 0,
+          "installed_count": 268,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F04": {
+          "slots": 254,
+          "unique": 254,
+          "invalid": 0,
+          "installed_count": 250,
+          "extra_ids": [
+            -9223368633210559973,
+            -9223368633177010560,
+            -9223368633143456125,
+            -9223368633109896702
+          ],
+          "missing_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "installed_count": 233,
+          "extra_ids": [],
+          "missing_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "installed_count": 235,
+          "extra_ids": [],
+          "missing_ids": []
+        }
+      },
+      "stale_case_rows": [
+        {
+          "case": "cal_memory_radio",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368930033070347,
+          "path": "F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "cal_memory_radio",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368929999515909,
+          "path": "F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "cal_memory_radio",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368929965961469,
+          "path": "F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "cal_memory_radio",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368929932447332,
+          "path": "F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633344777264,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633311222830,
+          "path": "F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633277669027,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "mina_caption_crisis",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633244114593,
+          "path": "F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633210559973,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633177010560,
+          "path": "F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633143456125,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+          "source_linked": true
+        },
+        {
+          "case": "peter_form_corridor",
+          "live": false,
+          "marker_ok": true,
+          "material_id": -9223368633109896702,
+          "path": "F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+          "source_linked": true
+        }
+      ],
+      "refresh_exercised": true,
+      "refresh": {
+        "facts_unchanged": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "mutated": true,
+        "passed": false,
+        "same_frame_restored": true,
+        "scope": "actual installed build/prop rows; explicit production force hook and lifecycle push; no field tick or replacement geometry",
+        "tested_current_materials": 967
+      }
+    }
+  ],
+  "causal_findings": [
+    {
+      "id": "foreign_case_claim",
+      "evidence": "reach_props lines898-902 trusts an existing encroachment_case before any floor check; lines906-908 select unowned draws solely by overlapping y/xz bounds. Actual row paths prove F03/3A in Mina2A, F05/5A in Peter4A, F06/6B in Cal5B.",
+      "boundary": "Authored storey spacing is3.2m (separate producer review), while selection upper bound isfloor_y+3.6. No new geometry or source-cache collision is needed."
+    },
+    {
+      "id": "competing_binders",
+      "evidence": "fields insertion/build and raw log order F02,F04,F06,F05,F03. _bind_storey755-778 installs per-ancestor field, but781-794 then processes all descendant case rows under BuildingRoot, without verifying their floor ancestor.",
+      "consequence": "A later floor can replace an earlier registry consumer. Registry clear is local, so global installed-identity equality is not guaranteed."
+    },
+    {
+      "id": "alias_and_stale_rows",
+      "evidence": "_storey_material duplicates wrong-floor materials preserving encroachment_case metadata; previous case-owned copies are excluded from alias seeding. _bind_storey789 skips stale rows rather than retargeting them, while reach_props898 reacquires installed wrong-case metadata on subsequent sweeps.",
+      "consequence": "F02/F04 registries retain exactly the4 stale row IDs each. F06 early observations show4 extra/4 missing; final observation instead shows4 staleCal rows and a correctF06 registry. Wrong-owner identity can alternate across callbacks."
+    },
+    {
+      "id": "actual_consumer_impact",
+      "evidence": "_apply_prop_states956-957 skips stale rows. Before_measured and before_retirement actual refresh checks fail; both record exact force/intensity/facts and sampled material-state restoration.",
+      "consequence": "This is a real missed state-consumer/ownership defect, not an invalid ID sign or an object-retention failure."
+    }
+  ],
+  "repair_constraints": [
+    "Resolve actual floor ownership using the existing floor_nodes identity/provider before both existing-case reuse and geometric first claim. Preserve controlled spatial fallback for true root-level props and batched bounds.",
+    "Prevent the case-row fallback from rewriting geometry under a different known floor ancestor. Do not merely prune the arrays or remove duplicate checks.",
+    "If deliberately seeded old wrong-case metadata is supported, declare and test its reassignment/restoration policy rather than silently retaining the existing-case fast path.",
+    "Keep SurfacePass cache identity/governor behavior and private/actor exclusion intact; no evidence from this run requires globally disabling cache sharing.",
+    "Strengthen ownership fixtures with actual adjacent-floor wardrobe producers, all pass orders, same-floor sharing, true root-level props, repeat/late callbacks, current draw/row/registry equality and actual refresh/lifecycle."
+  ],
+  "limitations": [
+    "No new engine run, no runtime tracing between recorded observations; ordering mechanism is a source-based inference corroborated by exact probe IDs and raw binder order.",
+    "All eight observation assertions fail, but issue lists differ: first16, middle15 each, final15 with a different F06 manifestation.",
+    "The separate additive signed-ObjectID gate issue must be fixed independently; original run actual8 GDScript failures and native exit1 remain red. The retained run gate already fails those functional checks.",
+    "The focused36-check ownership green did not cover actual cross-floor wardrobe ownership, as its original review stated. This result narrows and supersedes any broader inference from that fixture.",
+    "No performance improvement or visual acceptance claim follows from this binding review."
+  ]
+}

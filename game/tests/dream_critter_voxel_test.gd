@@ -1,7 +1,7 @@
 extends Node
 ## Focused DREAM-CRITTER-VOXEL receipt.  This does not boot Orison and does
 ## not create a new light field; it proves the authored morphs and the one
-## shared production binding in under a second.
+## shared controller binding. This is not composed V2 runtime evidence.
 
 const ControllerScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
 const FieldControllerScript := preload("res://scripts/dream/field/dream_field_controller.gd")
@@ -96,10 +96,55 @@ func _ready() -> void:
 			"the one shared fauna material holds that texture")
 	_check(controller.mesh_instance.material_override == controller.material,
 			"one material overrides the complete sixteen-species batch")
+	var material_id: int = controller.material.get_instance_id()
+	var texture_id: int = texture.get_instance_id()
+	exposure.add_lamp(Vector3(0.0, 1.5, 0.0), Vector3.RIGHT, 4.0,
+			cos(deg_to_rad(25.0)), 1.0, 1.0)
+	_check(exposure.upload(texture) and not exposure.is_dirty(),
+			"the world owner uploads changed field bytes into the bound texture")
+	_check(not exposure.upload(texture), "unchanged world bytes need no upload")
+	_check(controller.material.get_instance_id() == material_id
+			and controller.material.get_shader_parameter("exposure_tex").get_instance_id() == texture_id,
+			"field updates retain the same material and sampler object")
 	controller.unbind_voxel_optics()
 	_check(controller._voxel_texture == null
 			and float(controller.material.get_shader_parameter("voxel_optics_enabled")) == 0.0,
-			"teardown unbinds the voxel sampler")
+			"explicit unbind releases the voxel sampler")
+	controller.free()
+	# A root may provide its texture before setup constructs the draw. Retain
+	# the dimensions too; caching only the texture silently lost this binding.
+	controller = ControllerScript.new()
+	controller.bind_voxel_optics(texture, ExposureScript.EXTENT_M,
+			ExposureScript.HEIGHT_M)
+	add_child(controller)
+	controller.setup(field_controller, 0xC81773)
+	_check(controller.material.get_shader_parameter("exposure_tex") == texture
+			and float(controller.material.get_shader_parameter("voxel_optics_enabled")) == 1.0
+			and float(controller.material.get_shader_parameter("exposure_extent")) == ExposureScript.EXTENT_M
+			and float(controller.material.get_shader_parameter("exposure_height")) == ExposureScript.HEIGHT_M,
+			"setup realizes a world binding supplied before the material exists")
+	var departed_material: ShaderMaterial = controller.material
+	remove_child(controller)
+	_check(controller._voxel_texture == null
+			and departed_material.get_shader_parameter("exposure_tex") == null
+			and float(departed_material.get_shader_parameter("voxel_optics_enabled")) == 0.0,
+			"tree teardown clears a sampler even when a diagnostic retains the material")
+	controller.free()
+	# GPU samplers are transient. Reconstructed presentation starts unbound;
+	# only a newly built world owner may hand over the current world texture.
+	texture = null
+	exposure = ExposureScript.new()
+	texture = exposure.make_texture()
+	controller = ControllerScript.new()
+	add_child(controller)
+	controller.setup(field_controller, 0xC81773)
+	_check(controller._voxel_texture == null and controller.critters.is_empty(),
+			"reconstructed presentation carries no prior-world texture or population")
+	controller.bind_voxel_optics(texture, ExposureScript.EXTENT_M, ExposureScript.HEIGHT_M)
+	_check(controller.material.get_shader_parameter("exposure_tex") == texture
+			and departed_material.get_shader_parameter("exposure_tex") == null,
+			"new world binding does not reactivate the departed material")
+	controller.free()
 
 	print("[DREAM-CRITTER-VOXEL] checks=%d failures=%d species=16 triangles=%d "
 			% [checks, failures, batch_triangles]

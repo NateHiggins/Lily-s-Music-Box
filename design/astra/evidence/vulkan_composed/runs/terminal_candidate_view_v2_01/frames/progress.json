@@ -1,0 +1,140 @@
+{
+	"arcade_observations": [],
+	"captures": [
+		{
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\terminal_candidate_view_v2_01\\frames/v2_actual_f04_semantic_stance.png",
+			"name": "v2_actual_f04_semantic_stance",
+			"reviewed": false,
+			"scope": "controlled composition, not traversal or human acceptance",
+			"size": [
+				1280.0,
+				720.0
+			],
+			"viewport": "/root",
+			"written": true
+		},
+		{
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\terminal_candidate_view_v2_01\\frames/v2_actual_f04_phone.png",
+			"name": "v2_actual_f04_phone",
+			"reviewed": false,
+			"scope": "controlled composition, not traversal or human acceptance",
+			"size": [
+				320.0,
+				240.0
+			],
+			"viewport": "/root/VulkanComposedRootTest/HarnessPhoneCameraHost/@SubViewport@1460",
+			"written": true
+		}
+	],
+	"checks": [
+		{
+			"label": "campaign calendar seeded at authored 03:00 without host time",
+			"passed": true
+		},
+		{
+			"label": "Vulkan Forward+ is active",
+			"passed": true
+		},
+		{
+			"label": "CampaignShell composed the selected real root",
+			"passed": true
+		},
+		{
+			"label": "root startup succeeded",
+			"passed": true
+		},
+		{
+			"label": "real production player exists",
+			"passed": true
+		},
+		{
+			"label": "V2 genuinely has no V1 zone APIs",
+			"passed": true
+		},
+		{
+			"label": "actual V2 production terminal is present",
+			"passed": true
+		},
+		{
+			"label": "profile photo directory is available",
+			"passed": true
+		},
+		{
+			"label": "production phone lens shares selected root world",
+			"passed": true
+		},
+		{
+			"label": "V2 F04 uses actual semantic stance",
+			"passed": true
+		},
+		{
+			"label": "V2 operator anchor resolves uniquely at its authored position",
+			"passed": true
+		},
+		{
+			"label": "V2 operator belongs to the authored terminal stance envelope",
+			"passed": true
+		},
+		{
+			"label": "V2 terminal resolves one actual SignalScope mesh",
+			"passed": true
+		},
+		{
+			"label": "V2 original bedside terminal view is blocked by actual physics geometry",
+			"passed": true
+		},
+		{
+			"label": "V2 operator camera has a clear physics segment to SignalScope",
+			"passed": true
+		},
+		{
+			"label": "V2 actual terminal front faces its authored operator",
+			"passed": true
+		},
+		{
+			"label": "V2 composes a DeskZone bound to its actual call interface",
+			"passed": true
+		},
+		{
+			"label": "capture written v2_actual_f04_semantic_stance",
+			"passed": true
+		},
+		{
+			"label": "capture written v2_actual_f04_phone",
+			"passed": true
+		},
+		{
+			"label": "actual shell retired",
+			"passed": true
+		},
+		{
+			"label": "actual selected world retired",
+			"passed": true
+		}
+	],
+	"execution_scope": "full",
+	"functional_failures": 0,
+	"incomplete_run_not_final_proof": true,
+	"populations": [
+		{
+			"population": {
+				"classes": {
+					"Label3D": 38,
+					"MeshInstance3D": 1278,
+					"MultiMeshInstance3D": 1,
+					"Sprite3D": 1
+				},
+				"eligible": 1287,
+				"geometry": 1318,
+				"layer_zero": 0,
+				"owner_hidden": 31
+			},
+			"station": "v2_f04",
+			"zone_gate_applicability": "absent in this root"
+		}
+	],
+	"root": "v2",
+	"stage": "after_retirement",
+	"transitions": [],
+	"variant": "candidate"
+}

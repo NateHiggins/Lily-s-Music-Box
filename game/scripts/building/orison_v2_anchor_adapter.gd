@@ -32,7 +32,12 @@ func explicit_bed() -> Node3D:
 func resolve_return_anchor(identity: String) -> Dictionary:
 	if identity != "F04_B_BED": return {}
 	var stance := resolve("F04_B_BEDSIDE_RETURN") as Node3D
-	return {"id": identity, "position": stance.global_position} if stance else {}
+	if stance == null: return {}
+	var result := {"id": identity, "position": stance.global_position}
+	var bed := explicit_bed()
+	if bed != null:
+		result["facing_position"] = bed.global_position + Vector3.UP * .2
+	return result
 
 func anonymous_bed_fallback(production_layout: Dictionary) -> Dictionary:
 	for floor: Dictionary in production_layout.get("floors", []):

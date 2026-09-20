@@ -16,6 +16,12 @@ var minute := 700.0
 
 
 func _ready() -> void:
+	var directory_error := DirAccess.make_dir_recursive_absolute(
+			ProjectSettings.globalize_path("user://tests"))
+	if directory_error != OK:
+		push_error("Open Shift matrix save directory could not be created (error %d)" % directory_error)
+		get_tree().quit(2)
+		return
 	RealityState.persistence_enabled = false
 	var original_path := RealityState.save_path
 	for disposition: String in DISPOSITIONS:
@@ -72,10 +78,12 @@ func _exercise(disposition: String, from_root: String, to_root: String) -> void:
 		"meddle":
 			_surface(radiator, "turn_valve").interact(null)
 	var expected := ecosystem.situation.state()
-	var expected_porter: Dictionary = \
-			RealityState.data.get("porter_actor", {}).duplicate(true)
-	var expected_beliefs: Dictionary = \
-			RealityState.data.get("npc_observations", {}).duplicate(true)
+	# JSON restores integer schema tags as floats. Compare the exact saved
+	# representation, preserving every value rather than failing on 2 vs 2.0.
+	var expected_porter: Dictionary = JSON.parse_string(JSON.stringify(
+			RealityState.data.get("porter_actor", {})))
+	var expected_beliefs: Dictionary = JSON.parse_string(JSON.stringify(
+			RealityState.data.get("npc_observations", {})))
 	var save_path := "user://tests/open_shift_%s_%s_%s.json" % [
 		disposition, from_root, to_root]
 	RealityState.save_path = save_path

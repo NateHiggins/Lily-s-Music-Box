@@ -1,0 +1,35 @@
+{
+  "scope": "non-Godot actual generated wrapper command against isolated PowerShell stubs",
+  "tests_sha256": "6464c028faf8136222d8467a5fc09a903b22b19da6eff6150fd98ad7a9a9a32c",
+  "runs": [
+    {
+      "label": "original_red",
+      "source": "originals/run_haunt.py",
+      "source_sha256": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+      "command": [
+        "python",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\runner_boundary_revision\\test_boundary.py",
+        "Boundary.test_timeout_write_error_keeps_124",
+        "-v"
+      ],
+      "exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "19b4ee9c1e21577a5e7772277c7bfa1a84c730738ba98695fc9609662ad305f0"
+    },
+    {
+      "label": "candidate_green",
+      "source": "proposed/run_haunt.py",
+      "source_sha256": "adc60a6a7c84386d77707c7555685f1993a80afc1f924bce1968f55a05aa0599",
+      "command": [
+        "python",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\runner_boundary_revision\\test_boundary.py",
+        "-v"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "827849d0e044259cfee7e0cad774998dad48e48fef88ed6c02d7ce9b5282a970"
+    }
+  ]
+}

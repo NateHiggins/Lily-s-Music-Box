@@ -1,0 +1,22 @@
+{
+  "runner": "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/OrisonV2TerminalAccessTest.tscn",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_terminal_access\\runs\\05_footprint_omission\\shots",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_terminal_access\\runs\\05_footprint_omission\\godot.stdout.log",
+    "TimeoutSeconds": 60,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  }
+}

@@ -23,6 +23,8 @@ func _ready() -> void:
 	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(margin)
 	_rows = VBoxContainer.new()
+	# Empty caption rows still cover the bottom of the viewport.
+	_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_rows.alignment = BoxContainer.ALIGNMENT_END
 	_rows.add_theme_constant_override("separation", 6)
 	margin.add_child(_rows)

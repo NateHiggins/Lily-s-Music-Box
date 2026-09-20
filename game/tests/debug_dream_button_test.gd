@@ -38,7 +38,24 @@ func _ready() -> void:
 		_finish()
 		return
 
+	var player_before: Node = shell.active_world.player
+	var prior_process := player_before.is_processing()
+	var prior_physics := player_before.is_physics_processing()
+	var key := InputEventKey.new()
+	key.keycode = KEY_F1
+	key.physical_keycode = KEY_F1
+	key.pressed = true
+	get_viewport().push_input(key, true)
+	key.pressed = false
+	get_viewport().push_input(key, true)
+	_check("F1 holds the player before the Dreamworld handoff",
+			panel._body.visible and not player_before.is_processing()
+			and not player_before.is_physics_processing()
+			and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE)
 	button.emit_signal("pressed")
+	_check("the Dreamworld button releases debug's player suspension",
+			player_before.is_processing() == prior_process
+			and player_before.is_physics_processing() == prior_physics)
 	_check("the button arms the authored production dream",
 			shell.dream_director.phase() == "armed"
 			and bool(shell.dream_director.dream_state().debug_preview)

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "Mini Orison",
+    "levels": {"F01": 0.0, "F02": 3.2},
+    "residents": {"1A": "Test Resident"}
+  },
+  "floors": [
+    {
+      "id": "F01",
+      "z": 0.0,
+      "rooms": [
+        {"id": "F01_LOBBY", "rect": [-5.0, -9.0, 5.0, -3.0], "kind": "lobby"},
+        {"id": "F01_A_MAIN", "rect": [-5.0, 0.0, 0.0, 5.0], "kind": "living"}
+      ],
+      "markers": [
+        {"kind": "clock", "id": "F01_LOBBY_CLOCK_01", "pos": [0.0, -8.0, 1.5], "yaw_deg": 0},
+        {"kind": "door", "id": "F01_DOOR_01", "pos": [0.0, -9.0, 0.0], "yaw_deg": 0, "w": 0.9}
+      ],
+      "furniture": [
+        {"id": "1A_bed0", "asm": "bed", "at": [-2.5, 2.5], "yaw": 0}
+      ],
+      "sockets": [
+        {"id": "1A_FRIDGE_FACE", "pos": [-4.5, 1.0, 1.2]}
+      ],
+      "vent_registers": []
+    }
+  ],
+  "vantry_points": [
+    {"id": "F01_A_MAIN_VANTRY_POINT", "floor": "F01", "room": "F01_A_MAIN", "pos": [-1.0, 1.0, 2.4], "yaw_deg": 90, "network": "vantry"}
+  ],
+  "ventilation_registers": [],
+  "bookshelves": [],
+  "stairs": [],
+  "elevator": {"id": "MINI_ELEVATOR", "shaft": [1.0, -1.0, 3.0, 1.0], "stops": {"F01": 0.0, "F02": 3.2}}
+}

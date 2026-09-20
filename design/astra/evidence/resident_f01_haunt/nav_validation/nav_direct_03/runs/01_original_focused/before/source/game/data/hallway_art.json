@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "expected_count": 8,
+ "pieces": [
+  {"id":"basement_know_your_exit","floor":"B1","room":"B1_HALL","atlas":"hallway_art_lower.png","col":1,"row":1,"wall":"north","along":0.70,"medium":"poster"},
+  {"id":"lobby_orison_1928","floor":"F01","room":"F01_LOBBY","atlas":"hallway_art_lower.png","col":0,"row":0,"wall":"west","along":0.50,"medium":"photo","height":1.58},
+  {"id":"first_our_queens","floor":"F01","room":"F01_HALL","atlas":"hallway_art_lower.png","col":0,"row":1,"wall":"east","along":0.66,"medium":"poster"},
+  {"id":"second_queensboro","floor":"F02","room":"F02_HALL","atlas":"hallway_art_lower.png","col":1,"row":0,"wall":"north","along":0.70,"medium":"print"},
+  {"id":"third_rooftop_party","floor":"F03","room":"F03_HALL","atlas":"hallway_art_upper.png","col":0,"row":0,"wall":"west","along":0.55,"medium":"photo"},
+  {"id":"fourth_impossible_stairs","floor":"F04","room":"F04_HALL","atlas":"hallway_art_upper.png","col":1,"row":0,"wall":"north","along":0.30,"medium":"painting"},
+  {"id":"fifth_lights_on","floor":"F05","room":"F05_HALL","atlas":"hallway_art_upper.png","col":0,"row":1,"wall":"east","along":0.55,"medium":"poster"},
+  {"id":"sixth_make_room","floor":"F06","room":"F06_HALL","atlas":"hallway_art_upper.png","col":1,"row":1,"wall":"west","along":0.35,"medium":"poster"}
+ ]
+}

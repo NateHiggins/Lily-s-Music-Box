@@ -1,0 +1,16 @@
+--- a/game/tests/resident_nav_direct_segment_test.gd
++++ b/game/tests/resident_nav_direct_segment_test.gd
+@@ -36,6 +36,13 @@
+ 	_check("validated clear short segment uses exact endpoints", _direct(START, GOAL))
+ 	_check("reverse clear short segment uses exact endpoints", _direct(GOAL, START))
+ 	_check("length bound retains graph", not _direct(Vector3(-0.7, 0.03, 0), Vector3(0.7, 0.03, 0)))
++	_check("exact maximum length is admitted", _direct(Vector3(-0.625, 0.03, 0), Vector3(0.625, 0.03, 0)))
++	_check("just beyond maximum length retains graph", not _direct(Vector3(-0.625, 0.03, 0), Vector3(0.6251, 0.03, 0)))
++	_check("foot above upper bound retains graph", not _direct(START + Vector3.UP * 0.051, GOAL + Vector3.UP * 0.051))
++	# The physical floor extends to +/-4, but the authored slab ends at +/-3.
++	# These centres fit the plan while the conservative .33 m rim does not.
++	_check("authored outer slab rim prevents outward shortcut", not _direct(Vector3(2, 0.03, 0), Vector3(2.8, 0.03, 0)))
++	_check("authored outer slab rim prevents reverse shortcut", not _direct(Vector3(2.8, 0.03, 0), Vector3(2, 0.03, 0)))
+ 	_check("different endpoint height retains graph", not _direct(START, GOAL + Vector3.UP * 0.02))
+ 	_check("slab datum is not an actor foot offset", not _direct(START - Vector3.UP * 0.03, GOAL - Vector3.UP * 0.03))
+ 	_check("envelope contains production Body capsule", _contains_body_contract())

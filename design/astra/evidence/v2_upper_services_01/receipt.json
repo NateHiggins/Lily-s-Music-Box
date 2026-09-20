@@ -1,0 +1,76 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "888e4c3",
+  "radiators_added": 6,
+  "medicine_cabinets_added": 6,
+  "toasters_added": 4,
+  "bath_details_added": 18,
+  "total_installed_radiators": 12,
+  "total_heat_demands": 23,
+  "total_accessories": 22,
+  "total_bath_details": 36,
+  "total_saved_controls": 116,
+  "suites": [
+    {
+      "run": "apartment_batch_final",
+      "checks": 17984,
+      "stdout_sha256": "ec68d5ad03198aea24ef22a1faf7e3d4bfbd504e830a2afd62b0c796cbbb4f00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "household_state",
+      "checks": 94,
+      "stdout_sha256": "337c9160d9c4dc0a895a912cba0c22674b8410cb77be08938e1afbabda7fb8e1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "upper_kitchens",
+      "checks": 957,
+      "stdout_sha256": "821c815d250233a67543bc72a08d8202c63676f5d056ba1ac21e3e600220e266",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "upper_lighting",
+      "checks": 8249,
+      "stdout_sha256": "543b362790a43877af457cf68c536deb0856d48d9d7fa2fb940504ae25278cfa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": 27284,
+  "captures": 34,
+  "source_sha256": {
+    "game/data/orison_v2_blockout.json": "63b4e9bace20c8eef0e97d2d4d6c2f7b5f1b7d807c9d8633a8cb31f502bd20c7",
+    "game/data/orison_v2/heating.json": "1b657f3881bc3f4fc8a74b86a943465c6136229a6bf752ab3df818bbeeb3993d",
+    "game/data/orison_v2/household_accessories.json": "c5286d30440cb5acd3d7ff68fe0e51027a70992dcfb7b2c4294f67536fd4b2db",
+    "game/data/orison_v2/bath_details.json": "ea96ee19f5e002caf030b4da99579a8815f66b6e7453b415c40e644e04dff5b6",
+    "game/tests/data/v2_upper_services_probes.json": "1a7fe1f5db27935bbfe81b612daef0d8180bf2f4478a768c0d48f4d444fa831b",
+    "game/scripts/building/orison_v2_heating.gd": "9ce6fd39f6c90ee82cc4cb18fb61efca77ba3c2eb378bfd630692fe732db7130",
+    "game/scripts/building/orison_v2_household_accessories.gd": "fdcfa3ac0bec1fe431b8fc3296a4c14b06eb28e30fc8d672b686a1ee88f7707b",
+    "game/scripts/building/orison_v2_household_state.gd": "b8b8bd57f4ece95d4de9e6206a2529f63ff73259f32352a39c9c7742371a04b5",
+    "game/scripts/building/orison_v2_bath_details.gd": "a4b9482c142223f0ba2440e535a0863a8c13c4c1825d65f12533c8674dd6ac23",
+    "game/tests/orison_v2_apartment_batch_test.gd": "1481542a5eebb0e7d24f1640a7c9c4a74f5ae8fc59931a2f3821c584fc2d81b4",
+    "game/tests/orison_v2_household_state_test.gd": "909796e4fd0f0cd7794ed190add3b08a72bcf94408c0ea77b45159efc1b3f6f1",
+    "game/tests/orison_v2_upper_kitchen_test.gd": "0ae3cb189773224473cf22b0f28d29c5424bc365475c849eca0d3c73b1a8a670",
+    "game/tests/orison_v2_upper_services_shot.gd": "ad83e5b54b92857ef9bfa8295af17c7032b09c122641240e0005b7aa5b69c1fd",
+    "game/tests/OrisonV2UpperServicesShot.tscn": "32fd423ec26df16f6ba8e86d632ee6f1b28a0cfcb56282c391be3188c6d71667",
+    "design/astra/work/v2_upper_services_01/build.py": "c8e1a7573d313c32cc3d32308e9b5081f3f3d31a18bff67042cf52b770ff8e56",
+    "design/astra/work/v2_upper_services_01/check.py": "4bbd424412a84774489536f91cb2acfe67f7cb76653bb97ca1509b7f0723de39",
+    "design/astra/work/v2_upper_services_01/inspect.py": "d3d361fb7b703710394273e0c5d4caf12a49a2d08aa5d08463d3d44d71920995",
+    "design/astra/work/v2_upper_services_01/source_checks.json": "5620eca9b3c02758d39d4f6b4521da0558de1595a0d90c593b1f2e4a6be16717",
+    "design/astra/work/v2_upper_services_01/routes.json": "ef3c56652a004e0d65c76c06071eb9d5376888ac6de4c7fe47fedfa44aade762"
+  },
+  "protected_files": [
+    "game/data/building_layout.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_furniture.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/upper_floor_programs.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/scripts/building/building_root_selector.gd",
+    "game/scripts/props/radiator_prop.gd",
+    "game/scripts/props/medicine_cabinet_prop.gd",
+    "game/scripts/props/toaster_prop.gd"
+  ],
+  "limits": "Bounded source, physical controls, saved-state, material and fixed-view capture proof. Physical utility routing, played routes, listening, full performance and human acceptance remain open. V1 default; V2 incomplete; S2J open."
+}

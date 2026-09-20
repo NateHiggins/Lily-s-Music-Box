@@ -63,6 +63,10 @@ const GAME_SCENE := "res://scenes/campaign/CampaignShell.tscn"
 enum LaunchMode { CINEMATIC, DEBUG }
 
 var launch_mode := LaunchMode.CINEMATIC
+var _last_launch_result: Dictionary = {}
+# Only the scene operation is replaceable in the button-handler fixture;
+# campaign validation, archival, persistence and launch gates remain real.
+var _scene_change_for_tests := Callable()
 var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
 	"fullscreen": false,
@@ -155,12 +159,62 @@ func _ensure_action_event(action: StringName, event: InputEvent) -> void:
 		InputMap.action_add_event(action, event)
 
 
-func begin_game(mode: LaunchMode, new_campaign := false) -> void:
-	launch_mode = mode
+func begin_game(mode: LaunchMode, new_campaign := false,
+		replace_existing := false) -> bool:
+	_last_launch_result = {}
 	if new_campaign:
-		RealityState.start_new_campaign()
+		var status := RealityState.load_status()
+		# Begin is only a fresh-profile action. The explicit title replacement
+		# choice is the sole normal caller that sets replace_existing.
+		if (bool(status.get("has_saved_campaign", true))
+				or str(status.get("status", "protected")) != "missing") \
+				and not replace_existing:
+			return _refuse_launch("replacement_choice_required",
+					"A saved night is already here. Choose New Campaign to start over.")
+		if not RealityState.start_new_campaign():
+			var save_result := RealityState.last_save_result()
+			_last_launch_result = {
+				"ok": false, "code": "new_campaign_failed",
+				"message": ("The new night could not be saved. Your save files are protected; recovery is needed before continuing."
+						if bool(save_result.get("protection_required", false)) else
+						"The new night could not be saved. No campaign has been opened."),
+				"save_result": save_result,
+			}
+			return false
+	elif mode == LaunchMode.CINEMATIC and not RealityState.can_continue():
+		return _refuse_launch("continue_unavailable",
+				"This saved night cannot be continued. Your save has been kept.")
+	# Debug never creates a new campaign implicitly. The storage/clock guards
+	# still protect unsupported or invalid data; presentation mode is no bypass.
+	var clock := CampaignClock.new()
+	if not clock.bind_state():
+		return _refuse_launch("invalid_calendar",
+				"The saved night has an unreadable date. Your save has been kept.")
+	var previous_mode := launch_mode
+	launch_mode = mode
 	apply_render_profile()
-	get_tree().change_scene_to_file(GAME_SCENE)
+	var changed: Error = _scene_change_for_tests.call(GAME_SCENE) \
+			if _scene_change_for_tests.is_valid() else get_tree().change_scene_to_file(GAME_SCENE)
+	if changed != OK:
+		launch_mode = previous_mode
+		apply_render_profile()
+		return _refuse_launch("scene_change_failed",
+				"The night could not open. Your save is available; please try again.")
+	_last_launch_result = {"ok": true, "code": "launched"}
+	return true
+
+
+func _refuse_launch(code: String, message: String) -> bool:
+	_last_launch_result = {"ok": false, "code": code, "message": message}
+	return false
+
+
+func last_launch_result() -> Dictionary:
+	return _last_launch_result.duplicate(true)
+
+
+func set_scene_change_for_tests(operation: Callable) -> void:
+	_scene_change_for_tests = operation
 
 
 func apply_render_profile() -> void:

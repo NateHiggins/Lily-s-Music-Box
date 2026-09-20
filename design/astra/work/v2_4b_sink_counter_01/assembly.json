@@ -1,0 +1,261 @@
+{
+  "source_records": [
+    {
+      "id": "4B_kitchen_countertop_w",
+      "rect": [
+        -10.899999999999999,
+        9.01,
+        -10.18,
+        9.59
+      ],
+      "z0": 0.86,
+      "h": 0.045,
+      "mat": "countertop"
+    },
+    {
+      "id": "4B_kitchen_countertop_e",
+      "rect": [
+        -9.68,
+        9.01,
+        -9.55,
+        9.59
+      ],
+      "z0": 0.86,
+      "h": 0.045,
+      "mat": "countertop"
+    },
+    {
+      "id": "4B_kitchen_countertop_s",
+      "rect": [
+        -10.18,
+        9.01,
+        -9.68,
+        9.12
+      ],
+      "z0": 0.86,
+      "h": 0.045,
+      "mat": "countertop"
+    },
+    {
+      "id": "4B_kitchen_countertop_n",
+      "rect": [
+        -10.18,
+        9.5,
+        -9.68,
+        9.59
+      ],
+      "z0": 0.86,
+      "h": 0.045,
+      "mat": "countertop"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "4B_kitchen_countertop_w",
+      "material": "countertop",
+      "low": [
+        -0.9699999999999989,
+        0.86,
+        -0.27999999999999936
+      ],
+      "high": [
+        -0.25,
+        0.905,
+        0.3000000000000007
+      ]
+    },
+    {
+      "id": "4B_kitchen_countertop_e",
+      "material": "countertop",
+      "low": [
+        0.25,
+        0.86,
+        -0.27999999999999936
+      ],
+      "high": [
+        0.379999999999999,
+        0.905,
+        0.3000000000000007
+      ]
+    },
+    {
+      "id": "4B_kitchen_countertop_s",
+      "material": "countertop",
+      "low": [
+        -0.25,
+        0.86,
+        0.19000000000000128
+      ],
+      "high": [
+        0.25,
+        0.905,
+        0.3000000000000007
+      ]
+    },
+    {
+      "id": "4B_kitchen_countertop_n",
+      "material": "countertop",
+      "low": [
+        -0.25,
+        0.86,
+        -0.27999999999999936
+      ],
+      "high": [
+        0.25,
+        0.905,
+        -0.1899999999999995
+      ]
+    },
+    {
+      "id": "post_-0.9_-0.22",
+      "material": "wood_dark",
+      "low": [
+        -0.935,
+        0,
+        -0.255
+      ],
+      "high": [
+        -0.865,
+        0.86,
+        -0.185
+      ]
+    },
+    {
+      "id": "post_-0.9_0.22",
+      "material": "wood_dark",
+      "low": [
+        -0.935,
+        0,
+        0.185
+      ],
+      "high": [
+        -0.865,
+        0.86,
+        0.255
+      ]
+    },
+    {
+      "id": "post_0.28_-0.22",
+      "material": "wood_dark",
+      "low": [
+        0.24500000000000002,
+        0,
+        -0.255
+      ],
+      "high": [
+        0.31500000000000006,
+        0.86,
+        -0.185
+      ]
+    },
+    {
+      "id": "post_0.28_0.22",
+      "material": "wood_dark",
+      "low": [
+        0.24500000000000002,
+        0,
+        0.185
+      ],
+      "high": [
+        0.31500000000000006,
+        0.86,
+        0.255
+      ]
+    },
+    {
+      "id": "rail_-0.255",
+      "material": "wood_dark",
+      "low": [
+        -0.935,
+        0.69,
+        -0.28
+      ],
+      "high": [
+        0.315,
+        0.86,
+        -0.23
+      ]
+    },
+    {
+      "id": "rail_0.255",
+      "material": "wood_dark",
+      "low": [
+        -0.935,
+        0.69,
+        0.23
+      ],
+      "high": [
+        0.315,
+        0.86,
+        0.28
+      ]
+    },
+    {
+      "id": "end_-0.9",
+      "material": "wood_dark",
+      "low": [
+        -0.935,
+        0.69,
+        -0.245
+      ],
+      "high": [
+        -0.865,
+        0.86,
+        0.245
+      ]
+    },
+    {
+      "id": "end_0.28",
+      "material": "wood_dark",
+      "low": [
+        0.24500000000000002,
+        0.69,
+        -0.245
+      ],
+      "high": [
+        0.31500000000000006,
+        0.86,
+        0.245
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "yaw": 0,
+      "id": "4B_sink_counter",
+      "position": [
+        -14.42,
+        0,
+        5.85
+      ],
+      "kind": "furniture"
+    },
+    {
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "yaw": 0,
+      "id": "F04_4B_KITCHEN_SINK_01",
+      "position": [
+        -14.42,
+        0,
+        5.85
+      ],
+      "kind": "fixture"
+    },
+    {
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "yaw": 0,
+      "id": "F04_4B_KITCHEN_SINK_STANCE",
+      "position": [
+        -14.42,
+        0,
+        4.7
+      ],
+      "kind": "clearance"
+    }
+  ],
+  "source_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+}

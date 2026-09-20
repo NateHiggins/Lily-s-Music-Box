@@ -1,0 +1,48 @@
+{
+  "source_sha256": {
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "aba61ef98661f8a0da98073fa334e1d6cbf76f007d5100a7c5aad0fb4fbc009b",
+    "game/scripts/building/orison_v2_lamp_atmosphere.gd": "99492482c69c7f4503d1b8cf85a771885737ffdbe15eb73e01aafb7a6960879e",
+    "game/scripts/lamp/lamp_optical_receivers.gd": "b4a23fa35ec6bf2cdfe9d2b07359e41d525aecfbb5bb14e244c04956e7fd8cf9",
+    "game/shaders/lamp_glass_surface.gdshader": "98404a3bdd7f3d135750ba373021238b1caee018284333d9d4f1d06c8b760267",
+    "game/shaders/lamp_optical_glass_haze.gdshader": "5d49b5a5308c74225297d6ac5351baa1f270216b711d81ffdacc5bb29c49957f",
+    "game/tests/lamp_glass_material_test.gd": "576ae354ee003aa45059d077f55868e2e8338f2344dd201fd6dcdb38ed0672a8",
+    "game/tests/orison_v2_glass_review.gd": "3bd4a44a39f0504a8b08ea0e9fe86489e6b11fd90dd98536fb3475b0cc52b4dd",
+    "game/tests/orison_v2_lamp_review.gd": "42f484200390082a2a7a54a5658df0759fa95f9b0a9301f0ab063c643f7dcb52"
+  },
+  "native_restore_exact": true,
+  "haze_difference_bounds": [
+    38,
+    5,
+    1267,
+    680
+  ],
+  "haze_difference_mean_rgb": [
+    0.40947591145833334,
+    0.41984809027777775,
+    0.29772352430555554
+  ],
+  "placement": {
+    "draw_calls": {
+      "glass_0_native": 616,
+      "glass_1_haze": 617,
+      "glass_2_native": 616
+    },
+    "field_material_count": 3,
+    "native_surface_unchanged": true,
+    "receiver": "/root/OrisonV2GlassReview/OrisonV2Runtime/OrisonV2Blockout/3B_abed_ns/@MeshInstance3D@2061/LampGlassHaze",
+    "world_center": "(-11.72, 6.9725, -0.190001)"
+  },
+  "material_measurements": {
+    "clear": 0.0692810490727425,
+    "field_without_lights": 0.0,
+    "logical_off": 0.0,
+    "native_shadow": 0.0,
+    "restored": 0.0692810490727425,
+    "two_lights": 0.0692810490727425
+  },
+  "checks": {
+    "focused_final": 13,
+    "composed": 38
+  },
+  "full_material_acceptance": false
+}

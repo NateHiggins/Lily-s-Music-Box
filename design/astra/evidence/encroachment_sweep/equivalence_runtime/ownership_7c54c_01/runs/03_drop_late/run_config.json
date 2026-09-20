@@ -1,0 +1,100 @@
+{
+  "schema": "astra.encroachment-equivalence.run.v1",
+  "phase": "drop_late",
+  "variant": "drop_late",
+  "started_utc": "2026-09-05T09:31:00.466158+00:00",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\runtime_plan_01\\runner_bridge.ps1",
+    "-InvocationPath",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\03_drop_late\\invocation.json"
+  ],
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/EncroachmentSweepEquivalenceTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\03_drop_late\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\03_drop_late\\shots",
+    "TimeoutSeconds": 60,
+    "ExtraArgs": [
+      "--verbose"
+    ]
+  },
+  "before": {
+    "all_game_files_sha256": "27ff2f55d349896440fefb3170ff1874fee3da8803eee00f1cb5b240eca38a6b",
+    "runtime_text_sha256": "a4270404981d21907491e77fb63e7acb70f4e5f86e22524e66ade248965f630a",
+    "copied_sources": {
+      "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+      "game/scripts/dream/dream_organelle_lifecycle.gd": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82",
+      "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+      "game/scripts/reality/apartment_encroachment.gd": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+      "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+      "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+      "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+      "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+      "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+      "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+      "game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+      "game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+      "game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+      "game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5"
+    },
+    "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+    "instruments": {
+      "assess.py": "ad97c7a00b04aec764b8bec8260df806ddc3b7ed4e9e047e8b492f3d46f4b28d",
+      "execute.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+      "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+      "offline_validation.json": "f00c97d03697dfb280a9a8bfedab198dfc34d9aa717ccbc20eab9b1cbbf40e73",
+      "package.json": "b0f642b796db85d356e75b47065c8829d20eabb851490598a5b09585e94e354c",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+      "test_runtime_plan.py": "6b51ba303c17f6bcf8b4e486bb676c45c274bc2871e351cc72e4c26d8c2cc10a",
+      "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "expected_native_exit": 1,
+  "expected_diagnostic_gate_exit": 1,
+  "expected_control_acceptance_exit": 0,
+  "expected_checks": 171,
+  "prior_results": [
+    {
+      "phase": "candidate",
+      "path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\01_candidate\\result.json",
+      "sha256": "8d73beafb9d87065871115494ce26ec100866fa89ade24b417a6fee11cab49aa"
+    },
+    {
+      "phase": "priority",
+      "path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\02_priority\\result.json",
+      "sha256": "8bb26568729dce0cb62f1836ec1f7167afcb3d0059f25beb282af0db569dda46"
+    }
+  ],
+  "selected_copy_sha256": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\03_drop_late\\APPDATA",
+  "profile_existed_before_run": false,
+  "cleared_environment_keys": [
+    "APPDATA"
+  ],
+  "explicit_environment": {
+    "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_7c54c_01\\runs\\03_drop_late\\APPDATA",
+    "ENCROACH_SWEEP_VARIANT": "drop_late",
+    "CAMPAIGN_TIME_FREEZE": "1"
+  },
+  "scope": "Headless synthetic actual-method/material equivalence only; no composed building, callback, visual or performance acceptance."
+}

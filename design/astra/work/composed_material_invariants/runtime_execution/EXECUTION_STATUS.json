@@ -1,0 +1,13 @@
+{
+  "status": "ORIGINAL_E132_PLAN_EXECUTED_AS_FAILED_PARSER_ATTEMPT; NEXT_BASELINE_PREPARED_SEPARATELY",
+  "original_plan": "runtime_plan.json",
+  "original_plan_limit": "Retained as the pre-run plan; its clean counts and material outcomes were not observed",
+  "actual_first_run": "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_01/result.json",
+  "root_reported_actual_runner_exit": 124,
+  "root_reported_elapsed_seconds": 180.534,
+  "root_reported_result_sha256": "ece9c004a275052d0c476da93c0d199b9c1816082f0f2d55ea808a84a600ecff",
+  "actual_scope": "Eight parser errors and script-load failure before composition; no material, capture or performance result; original fixture restored",
+  "next_plan": "../revisions/typed_booleans_01/runtime_plan.json",
+  "next_fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+  "frozen_original_helpers": "environment_contract.py, invoke_wrapper.py and source_operation.py remain byte-unchanged from the initial invocation"
+}

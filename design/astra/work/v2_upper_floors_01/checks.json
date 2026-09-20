@@ -1,0 +1,22 @@
+{
+  "new_levels": 2,
+  "new_spaces": 58,
+  "occupied_room_programs": 6,
+  "restricted_thresholds": 2,
+  "stairs_added": 4,
+  "lift_landings_added": 4,
+  "windows_added": 24,
+  "live_doors": 30,
+  "wall_intervals": 164,
+  "godot": "NOT_RUN",
+  "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+  "leaf_sweep_poses": 6030,
+  "capsule_radius": 0.38,
+  "occupied_room_routes": 42,
+  "rejected_controls": [
+    "missing_stair",
+    "displaced_entry",
+    "changed_existing_room",
+    "unlocked_restricted"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "mode": "reader",
+  "boundary": "",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\reader\\command.ps1"
+  ],
+  "runner_pid": 13528,
+  "started_utc": "2026-09-05T05:05:01.233610+00:00",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+  "nonce": "c7faad2d-49df-4fe4-8c2c-96e1e2625240",
+  "runner_exit": 0,
+  "finished_utc": "2026-09-05T05:05:01.834885+00:00",
+  "diagnostic_headers": [],
+  "summary_lines": [
+    "[SAVE RESTART] PASS mode=reader failures=0"
+  ],
+  "report": {
+    "can_continue": true,
+    "failures": 0,
+    "last_save_result": {},
+    "load_status": {
+      "has_saved_campaign": true,
+      "reason": "",
+      "status": "loaded"
+    },
+    "mode": "reader",
+    "pid": 19840,
+    "projection": {
+      "clock": {
+        "calendar_mode": "gregorian",
+        "day_of_month": 10.0,
+        "elapsed_minutes": 0.0,
+        "epoch_date": "1928-11-10",
+        "month": 11.0,
+        "schema_version": 2.0,
+        "start_doy": 314.0,
+        "start_minute_of_day": 807.0,
+        "start_weekday": "sat",
+        "timezone": "America/New_York",
+        "utc_offset_minutes": -300.0,
+        "year": 1928.0
+      },
+      "dream": {},
+      "item": {},
+      "job": {},
+      "seed": "3fc39fe9e3b8e931",
+      "version": 4.0
+    },
+    "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+    "samples": 0,
+    "write_blocked": false
+  },
+  "passed": true
+}

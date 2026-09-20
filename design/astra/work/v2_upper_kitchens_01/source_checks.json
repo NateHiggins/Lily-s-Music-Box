@@ -1,0 +1,212 @@
+{
+  "volumes": [
+    {
+      "id": "5A_prep_cabinet",
+      "volume": [
+        -10.364999999999998,
+        0,
+        -6.955,
+        -9.535,
+        0.9,
+        -6.42
+      ],
+      "wall_owners": [
+        "F05_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "5A_k_wall_cupboard",
+      "volume": [
+        -10.5,
+        1.65,
+        -6.793,
+        -9.399999999999999,
+        2.35,
+        -6.42
+      ],
+      "wall_owners": [
+        "F05_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "5B_prep_cabinet",
+      "volume": [
+        -9.229999999999999,
+        0,
+        6.685,
+        -8.695,
+        0.9,
+        7.515
+      ],
+      "wall_owners": [
+        "F05_B_KITCHEN:west"
+      ]
+    },
+    {
+      "id": "5B_k_wall_cupboard",
+      "volume": [
+        -9.23,
+        1.65,
+        6.55,
+        -8.857,
+        2.35,
+        7.6499999999999995
+      ],
+      "wall_owners": [
+        "F05_B_KITCHEN:west"
+      ]
+    },
+    {
+      "id": "5C_prep_cabinet",
+      "volume": [
+        3.87,
+        0,
+        4.525,
+        4.405,
+        0.9,
+        5.355
+      ],
+      "wall_owners": [
+        "F05_C_BATH:east"
+      ]
+    },
+    {
+      "id": "5C_k_wall_cupboard",
+      "volume": [
+        3.87,
+        1.65,
+        4.390000000000001,
+        4.243,
+        2.35,
+        5.49
+      ],
+      "wall_owners": [
+        "F05_C_BATH:east"
+      ]
+    },
+    {
+      "id": "6A_prep_cabinet",
+      "volume": [
+        -10.364999999999998,
+        0,
+        -6.955,
+        -9.535,
+        0.9,
+        -6.42
+      ],
+      "wall_owners": [
+        "F06_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "6A_k_wall_cupboard",
+      "volume": [
+        -10.5,
+        1.65,
+        -6.793,
+        -9.399999999999999,
+        2.35,
+        -6.42
+      ],
+      "wall_owners": [
+        "F06_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "6B_prep_cabinet",
+      "volume": [
+        -9.229999999999999,
+        0,
+        6.685,
+        -8.695,
+        0.9,
+        7.515
+      ],
+      "wall_owners": [
+        "F06_B_KITCHEN:west"
+      ]
+    },
+    {
+      "id": "6B_k_wall_cupboard",
+      "volume": [
+        -9.23,
+        1.65,
+        6.55,
+        -8.857,
+        2.35,
+        7.6499999999999995
+      ],
+      "wall_owners": [
+        "F06_B_KITCHEN:west"
+      ]
+    },
+    {
+      "id": "6C_prep_cabinet",
+      "volume": [
+        3.87,
+        0,
+        4.525,
+        4.405,
+        0.9,
+        5.355
+      ],
+      "wall_owners": [
+        "F06_C_BATH:east"
+      ]
+    },
+    {
+      "id": "6C_k_wall_cupboard",
+      "volume": [
+        3.87,
+        1.65,
+        4.390000000000001,
+        4.243,
+        2.35,
+        5.49
+      ],
+      "wall_owners": [
+        "F06_C_BATH:east"
+      ]
+    }
+  ],
+  "appliance_motion_poses": 1276,
+  "relocated_anchors": {
+    "F05_5C_KITCHEN_SINK_01_STANCE": [
+      4.85,
+      0,
+      4.9
+    ],
+    "F06_6C_KITCHEN_SINK_01_STANCE": [
+      4.85,
+      0,
+      4.9
+    ],
+    "F05_C_KITCHEN_SWITCH_STANCE": [
+      5.6,
+      0,
+      4.9
+    ],
+    "F06_C_KITCHEN_SWITCH_STANCE": [
+      5.6,
+      0,
+      4.9
+    ],
+    "F05_C_KITCHEN_SWITCH": [
+      5.6,
+      1.12,
+      3.94
+    ],
+    "F06_C_KITCHEN_SWITCH": [
+      5.6,
+      1.12,
+      3.94
+    ]
+  },
+  "approaches": 134,
+  "status": "SOURCE_PASS",
+  "base": "73b65e6",
+  "new_furniture": 12,
+  "new_anchors": 18,
+  "total_furniture": 169,
+  "triangles": 864
+}

@@ -1,0 +1,326 @@
+{
+  "schema": "astra.audio_repair_runtime.matrix_directory_green.v1",
+  "started_at_utc": "2026-09-05T03:12:11.124677+00:00",
+  "scope": "One actual two-root CampaignShell matrix rerun after checked harness directory creation, with fresh task-local profile and final frozen audio sources. Prior fresh-profile exit-4 red preserved in parent receipt. No visual or release-performance acceptance.",
+  "context": {
+    "engine": "Godot 4.7.1 stable",
+    "mode": "headless",
+    "gpu": "RTX 4080",
+    "cpu": "i7-13700KF",
+    "elapsed_meaning": "wall-clock process duration only"
+  },
+  "red_controls": [
+    {
+      "receipt": "../base_runtime/receipt.json",
+      "suite": "M08F first fresh-profile run",
+      "exit": 1,
+      "checks": "28/29",
+      "cause": "missing user://tests parent"
+    },
+    {
+      "receipt": "../m11b_runtime/receipt.json",
+      "suite": "M11A first fresh-profile run",
+      "exit": 3,
+      "checks": "37/40",
+      "cause": "missing user://tests parent"
+    }
+  ],
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "runs": [
+    {
+      "suite": "two_root_campaign_matrix",
+      "scene": "res://tests/orison_v2_two_root_matrix_test.tscn",
+      "command": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -Scene 'res://tests/orison_v2_two_root_matrix_test.tscn' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_repair_runtime\\matrix_directory_green\\verbose_launch\\two_root_campaign_matrix.stdout.log' -TimeoutSeconds 180 -ExtraArgs @('--verbose')"
+      ],
+      "started_at_utc": "2026-09-05T03:12:11.319317+00:00",
+      "finished_at_utc": "2026-09-05T03:13:44.507350+00:00",
+      "elapsed_seconds": 93.005,
+      "runner_exit": 0,
+      "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_repair_runtime\\matrix_directory_green\\verbose_launch\\userdata\\two_root_campaign_matrix",
+      "test_directory_existed_before": false,
+      "test_directory_exists_after": true,
+      "test_directory_files_after": [],
+      "diagnostic_lines": [
+        "WARNING: invalid ORISON_BUILDING_ROOT='invalid'; using committed v1 default",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "summary_lines": [
+        "  PASS  explicit v2 selection",
+        "  PASS  explicit v1 selection",
+        "  PASS  absent selector committed default is v1",
+        "  PASS  invalid selector safely resolves v1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' at thread -1",
+        "[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed",
+        "[PASSAGE HOURS] OPEN; 10 grilles folded",
+        "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+        "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+        "[NAV] 4 schedule anchors installed in PASSAGE",
+        "[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered",
+        "[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered",
+        "  PASS  v1 selector instantiates complete production root",
+        "  PASS  v1 production player constructed",
+        "  PASS  v1 authority census has one route owner each",
+        "  PASS  v1 anonymous-bed fallback remains reconstructable",
+        "  PASS  first production interaction responds",
+        "  PASS  v2 production root starts",
+        "  PASS  all first-slice anchors resolve once",
+        "  PASS  production player and pause/accessibility surface composed",
+        "  PASS  F01 production interaction implementations composed",
+        "  PASS  F02 job/case/chirp/acoustic owners composed",
+        "  PASS  F04 call/audio owners composed",
+        "  PASS  v2 wake uses explicit bedside semantic stance",
+        "  PASS  no duplicate gameplay authorities",
+        "  PASS  forced adapter failure restores global state",
+        "  PASS  success teardown restores global state",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' at thread -1",
+        "[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed",
+        "[PASSAGE HOURS] OPEN; 10 grilles folded",
+        "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+        "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+        "[NAV] 4 schedule anchors installed in PASSAGE",
+        "[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered",
+        "[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' at thread -1",
+        "[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed",
+        "[PASSAGE HOURS] OPEN; 10 grilles folded",
+        "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+        "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+        "[NAV] 4 schedule anchors installed in PASSAGE",
+        "[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered",
+        "[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered",
+        "  PASS  v1_to_v1 save reconstructs semantic facts through CampaignShell",
+        "  PASS  v2_to_v2 save reconstructs semantic facts through CampaignShell",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' at thread -1",
+        "[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed",
+        "[PASSAGE HOURS] OPEN; 10 grilles folded",
+        "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+        "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+        "[NAV] 4 schedule anchors installed in PASSAGE",
+        "[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered",
+        "[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered",
+        "  PASS  v1_to_v2 save reconstructs semantic facts through CampaignShell",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed.png-ecd92569940c0f2d24b73e0dc14b6b0b.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_rough.png-ada7fa12d9093e95907015229a22b111.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png' at thread -1",
+        "Loading resource: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png remapped: res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "Loading resource: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex remapped: res://.godot/imported/T_fx_fx_ceiling_soffit_failed_normal.png-975be601d686e4f41d7fb0f22ab143d3.ctex",
+        "Completed load for: 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' remapped 'res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png' at thread -1",
+        "[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed",
+        "[PASSAGE HOURS] OPEN; 10 grilles folded",
+        "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+        "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+        "[NAV] 4 schedule anchors installed in PASSAGE",
+        "[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered",
+        "[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered",
+        "  PASS  v2_to_v1 save reconstructs semantic facts through CampaignShell",
+        "  PASS  production layout remains byte-stable",
+        "ORISON V2 TWO-ROOT MATRIX: PASS totals={ \"v1_to_v1\": 1, \"v2_to_v2\": 1, \"v1_to_v2\": 1, \"v2_to_v1\": 1 } checks=24"
+      ],
+      "stdout_path": "two_root_campaign_matrix.stdout.log",
+      "stderr_path": "two_root_campaign_matrix.stdout.log.stderr",
+      "warning_interpretation": "All raw diagnostics preserved. Diagnostic classification is recorded after inspection; no leak waiver."
+    }
+  ],
+  "source_before": {
+    "head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+    "diff_sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+    "diff_path": "source_before.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/audio/audio_policy.gd",
+        "bytes": 16012,
+        "sha256": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+      },
+      {
+        "path": "game/scripts/props/night_register_prop.gd",
+        "bytes": 58513,
+        "sha256": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf"
+      },
+      {
+        "path": "game/tests/NightRegisterAudioLifecycleTest.tscn",
+        "bytes": 213,
+        "sha256": "51655533f960c9f09bfaa0ac657ceb094bfa899bd90bc485b7ee00c722457577"
+      },
+      {
+        "path": "game/tests/night_register_audio_lifecycle_test.gd",
+        "bytes": 5387,
+        "sha256": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+        "bytes": 6724,
+        "sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4"
+      },
+      {
+        "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+        "bytes": 9253,
+        "sha256": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/audit_orison_v2_completeness.py",
+        "bytes": 134179,
+        "sha256": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 71517,
+        "sha256": "2d203c1ae30a4328843c8cc5b15d5c97b2a2b0533a08eaccb9511a57bb9184a3"
+      }
+    ]
+  },
+  "source_after": {
+    "head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+    "diff_sha256": "fa2ca3c5b8a0e4b9013bb6a78c8609d85b7d6f1efe0d198e2e48d0e65892a51e",
+    "diff_path": "source_after.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/audio/audio_policy.gd",
+        "bytes": 16012,
+        "sha256": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+      },
+      {
+        "path": "game/scripts/props/night_register_prop.gd",
+        "bytes": 58513,
+        "sha256": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf"
+      },
+      {
+        "path": "game/tests/NightRegisterAudioLifecycleTest.tscn",
+        "bytes": 213,
+        "sha256": "51655533f960c9f09bfaa0ac657ceb094bfa899bd90bc485b7ee00c722457577"
+      },
+      {
+        "path": "game/tests/night_register_audio_lifecycle_test.gd",
+        "bytes": 5387,
+        "sha256": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+        "bytes": 6724,
+        "sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4"
+      },
+      {
+        "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+        "bytes": 9253,
+        "sha256": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/audit_orison_v2_completeness.py",
+        "bytes": 134179,
+        "sha256": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 73334,
+        "sha256": "5ca128e0f55b5bedf9accbd067b06fb92a450b3f7f1c2fcee92584bfab36e306"
+      }
+    ]
+  },
+  "source_unchanged_during_runs": false,
+  "finished_at_utc": "2026-09-05T03:13:44.695996+00:00",
+  "functional_exit_verdict": "PASS",
+  "shutdown_retention_detected": false,
+  "owner_controls_receipt": "../../../audio_ownership/owner_controls_v2/owner_controls.json",
+  "diagnostic_classification_status": "PENDING_MANUAL_INSPECTION",
+  "artifact_hashes": [
+    {
+      "path": "run_matrix_green.py",
+      "sha256": "203b353f68e18135098645a6560c426de1968a5a9918d4786e2d7a9360b2e205",
+      "bytes": 6932
+    },
+    {
+      "path": "source_after.game_tools.diff",
+      "sha256": "fa2ca3c5b8a0e4b9013bb6a78c8609d85b7d6f1efe0d198e2e48d0e65892a51e",
+      "bytes": 65646
+    },
+    {
+      "path": "source_before.game_tools.diff",
+      "sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+      "bytes": 63799
+    },
+    {
+      "path": "two_root_campaign_matrix.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "two_root_campaign_matrix.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "two_root_campaign_matrix.stdout.log",
+      "sha256": "fdec38f0d3ae723da82f303e07daadbbba71f212f8ccf6d219f612c5a86428df",
+      "bytes": 2966947
+    },
+    {
+      "path": "two_root_campaign_matrix.stdout.log.stderr",
+      "sha256": "de8c510166f330b198fc27da11a2acc276ecec3a993a44f281707e2128f22068",
+      "bytes": 3832
+    }
+  ]
+}

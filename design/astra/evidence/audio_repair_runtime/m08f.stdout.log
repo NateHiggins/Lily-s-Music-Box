@@ -1,0 +1,40 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+[SCHEDULE] director live: 18 residents on the clock
+[ORISON V2 RUNTIME] ready startup_ms=586.120
+  PASS  production-composed v2 root starts
+  PASS  one production gameplay authority: F01_WATCHMAN_DETECTOR
+  PASS  one preserved spatial owner: F01_WATCHMAN_DETECTOR
+  PASS  one production gameplay authority: F01_NIGHT_REGISTER
+  PASS  one preserved spatial owner: F01_NIGHT_REGISTER
+  PASS  one production gameplay authority: F01_SIGNAL_REGISTER
+  PASS  one preserved spatial owner: F01_SIGNAL_REGISTER
+  PASS  one production gameplay authority: F01_TOUR_KEY_GUARD
+  PASS  one preserved spatial owner: F01_TOUR_KEY_GUARD
+  PASS  one production gameplay authority: F02_B_RADIATOR_01
+  PASS  one preserved spatial owner: F02_B_RADIATOR_01
+  PASS  one production gameplay authority: B1_BOILER_01
+  PASS  one preserved spatial owner: B1_BOILER_01
+  PASS  one lifecycle and save authority per contract
+  PASS  review-only cues are absent from production runtime
+  PASS  central formatter produces carrier-neutral prompts
+  PASS  ritual denial states refuse invented acts
+  PASS  service-set call issues exactly one authored radiator obligation
+  PASS  premature mechanisms cannot counterfeit progress
+  PASS  resident threshold acknowledges the production work order
+  PASS  radiator, porter board, and boiler evidence earns repairability
+  PASS  duplicate interaction cannot double-advance
+  PASS  real 2B radiator authority records the repair
+  PASS  resident return closes the authored service round
+  PASS  production event trace preserves the complete round
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+[SCHEDULE] director live: 18 residents on the clock
+[ORISON V2 RUNTIME] ready startup_ms=180.616
+  PASS  save, destroy, CampaignShell reconstruct, and load preserve round facts
+  PASS  v2 wake uses explicit bedside-return contract
+[M08F PERF] cold_ms=590.008 compose_ms=180.616 save_ms=0.505 reconstruct_ms=195.457 nodes=3035 collisions=561 cpu_ms=0.625 physics_ms=55.438
+  PASS  production layout remains byte-stable
+  PASS  committed selector remains v1
+ORISON V2 M08F RUNTIME: PASS checks=29

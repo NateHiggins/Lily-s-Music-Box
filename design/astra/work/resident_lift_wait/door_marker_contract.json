@@ -1,0 +1,1917 @@
+{
+  "counts": {
+    "eligible": 117,
+    "yaw_0": 51,
+    "hinge_match": 102,
+    "yaw_-90": 53,
+    "yaw_180": 1,
+    "yaw_90": 1,
+    "yaw_90.0": 5,
+    "yaw_270.0": 6,
+    "cabinet_excluded": 3
+  },
+  "center_authored": [],
+  "unmatched": [
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "F01_BODEGA_DOOR",
+      "pos": [
+        18.2,
+        -11.92,
+        0.0
+      ],
+      "yaw_deg": 0,
+      "w": 0.9,
+      "h": 2.1,
+      "leaf": "open",
+      "exterior": true,
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "F01_BAR_WC_DOOR",
+      "pos": [
+        -10.85,
+        -36.17,
+        -2.8
+      ],
+      "yaw_deg": 0,
+      "w": 0.7,
+      "h": 2.0,
+      "leaf": "closed",
+      "exterior": true,
+      "subtype": "exterior_service",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "F01_BAR_DOOR",
+      "pos": [
+        5.9,
+        -28.42,
+        0.0
+      ],
+      "yaw_deg": 180,
+      "w": 0.9,
+      "h": 2.1,
+      "leaf": "open",
+      "exterior": true,
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "F01_BAR_RED_DOOR",
+      "pos": [
+        4.15,
+        -33.95,
+        -2.8
+      ],
+      "yaw_deg": 90,
+      "w": 0.9,
+      "h": 2.05,
+      "leaf": "closed",
+      "swing": "out",
+      "finish_variant": 1,
+      "exterior": true,
+      "subtype": "exterior_service"
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+      "pos": [
+        11.34,
+        -43.35,
+        0.0
+      ],
+      "yaw_deg": 90.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "open",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+      "pos": [
+        11.34,
+        -48.95,
+        0.0
+      ],
+      "yaw_deg": 90.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_KEYS_CUT",
+      "pos": [
+        11.34,
+        -52.55,
+        0.0
+      ],
+      "yaw_deg": 90.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+      "pos": [
+        11.34,
+        -57.95,
+        0.0
+      ],
+      "yaw_deg": 90.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 1
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+      "pos": [
+        11.34,
+        -62.55,
+        0.0
+      ],
+      "yaw_deg": 90.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+      "pos": [
+        16.66,
+        -63.449999999999996,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 0
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+      "pos": [
+        16.66,
+        -57.05,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_PAWNBROKER",
+      "pos": [
+        16.66,
+        -52.449999999999996,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+      "pos": [
+        16.66,
+        -50.449999999999996,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "locked",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_OTIS___SON",
+      "pos": [
+        16.66,
+        -45.849999999999994,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "closed",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "floor": "F01",
+      "kind": "door",
+      "id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+      "pos": [
+        16.66,
+        -43.849999999999994,
+        0.0
+      ],
+      "yaw_deg": 270.0,
+      "w": 0.95,
+      "h": 2.1,
+      "leaf": "open",
+      "exterior": true,
+      "zone": "PASSAGE",
+      "subtype": "storefront",
+      "finish_variant": 2
+    }
+  ],
+  "matched": [
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_02",
+      "hinge": [
+        -0.48,
+        9.795
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 24,
+      "opening_index": 2,
+      "center": [
+        0.0,
+        9.795
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_03",
+      "hinge": [
+        -5.33,
+        -5.529999999999999
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 28,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -5.05
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_04",
+      "hinge": [
+        -5.33,
+        5.68
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 28,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        6.16
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_05",
+      "hinge": [
+        5.33,
+        -5.805
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 29,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -5.325
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_06",
+      "hinge": [
+        5.33,
+        3.905
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 29,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        4.385
+      ]
+    },
+    {
+      "floor": "B1",
+      "id": "B1_DOOR_07",
+      "hinge": [
+        11.3,
+        1.02
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        11.3,
+        1.5
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_03",
+      "hinge": [
+        -5.33,
+        5.515000000000001
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        5.970000000000001
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_04",
+      "hinge": [
+        5.33,
+        -3.7650000000000006
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -3.3100000000000005
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_05",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_06",
+      "hinge": [
+        -0.455,
+        -9.795
+      ],
+      "yaw": 0,
+      "width": 0.91,
+      "wall_index": 25,
+      "opening_index": 2,
+      "center": [
+        0.0,
+        -9.795
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_07",
+      "hinge": [
+        -11.854999999999999,
+        5.4
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -11.45,
+        5.4
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_08",
+      "hinge": [
+        -7.655,
+        5.4
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 1,
+      "center": [
+        -7.25,
+        5.4
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_09",
+      "hinge": [
+        -11.9,
+        5.995
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 32,
+      "opening_index": 0,
+      "center": [
+        -11.9,
+        6.4
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_10",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 34,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_11",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 35,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_12",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 37,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_13",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F01",
+      "id": "F01_DOOR_14",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 41,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_03",
+      "hinge": [
+        -5.33,
+        5.515000000000001
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        5.970000000000001
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_04",
+      "hinge": [
+        -5.33,
+        0.6299999999999994
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 12,
+      "opening_index": 2,
+      "center": [
+        -5.33,
+        1.1099999999999994
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_05",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_06",
+      "hinge": [
+        -8.705,
+        9.825
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 20,
+      "opening_index": 1,
+      "center": [
+        -8.3,
+        9.825
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_07",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_08",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_09",
+      "hinge": [
+        -7.015,
+        5.37
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 36,
+      "opening_index": 0,
+      "center": [
+        -6.609999999999999,
+        5.37
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_10",
+      "hinge": [
+        6.704999999999999,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 0,
+      "center": [
+        7.109999999999999,
+        6.25
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_11",
+      "hinge": [
+        11.645000000000001,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 1,
+      "center": [
+        12.05,
+        6.25
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_12",
+      "hinge": [
+        7.81,
+        4.585
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 40,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        4.99
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_13",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_14",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 43,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F02",
+      "id": "F02_DOOR_15",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 46,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_03",
+      "hinge": [
+        -5.33,
+        5.515000000000001
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        5.970000000000001
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_04",
+      "hinge": [
+        -5.33,
+        0.6299999999999994
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 12,
+      "opening_index": 2,
+      "center": [
+        -5.33,
+        1.1099999999999994
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_05",
+      "hinge": [
+        5.33,
+        -3.7650000000000006
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -3.3100000000000005
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_06",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_07",
+      "hinge": [
+        -8.705,
+        9.825
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 20,
+      "opening_index": 1,
+      "center": [
+        -8.3,
+        9.825
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_08",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_09",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_10",
+      "hinge": [
+        -7.015,
+        5.37
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 36,
+      "opening_index": 0,
+      "center": [
+        -6.609999999999999,
+        5.37
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_11",
+      "hinge": [
+        7.81,
+        4.585
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 40,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        4.99
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_12",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_13",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 43,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F03",
+      "id": "F03_DOOR_14",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 46,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_03",
+      "hinge": [
+        -5.33,
+        3.414999999999999
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        3.869999999999999
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_04",
+      "hinge": [
+        -5.33,
+        0.6299999999999994
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 12,
+      "opening_index": 2,
+      "center": [
+        -5.33,
+        1.1099999999999994
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_05",
+      "hinge": [
+        5.33,
+        -3.7650000000000006
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -3.3100000000000005
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_06",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_07",
+      "hinge": [
+        -8.705,
+        9.85
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 20,
+      "opening_index": 1,
+      "center": [
+        -8.3,
+        9.85
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_08",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_09",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_10",
+      "hinge": [
+        -7.71,
+        3.4850000000000003
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 34,
+      "opening_index": 0,
+      "center": [
+        -7.71,
+        3.89
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_11",
+      "hinge": [
+        -7.015,
+        4.52
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 35,
+      "opening_index": 0,
+      "center": [
+        -6.609999999999999,
+        4.52
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_12",
+      "hinge": [
+        -6.66,
+        7.415
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 0,
+      "center": [
+        -6.66,
+        7.82
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_13",
+      "hinge": [
+        6.704999999999999,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 0,
+      "center": [
+        7.109999999999999,
+        6.25
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_14",
+      "hinge": [
+        11.645000000000001,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 1,
+      "center": [
+        12.05,
+        6.25
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_15",
+      "hinge": [
+        7.81,
+        4.585
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 44,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        4.99
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_16",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 46,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_17",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 47,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F04",
+      "id": "F04_DOOR_18",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 50,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_03",
+      "hinge": [
+        -5.33,
+        5.515000000000001
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        5.970000000000001
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_04",
+      "hinge": [
+        -5.33,
+        0.6299999999999994
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 12,
+      "opening_index": 2,
+      "center": [
+        -5.33,
+        1.1099999999999994
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_05",
+      "hinge": [
+        5.33,
+        -3.7650000000000006
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -3.3100000000000005
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_06",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_07",
+      "hinge": [
+        -8.705,
+        9.85
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 20,
+      "opening_index": 1,
+      "center": [
+        -8.3,
+        9.85
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_08",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_09",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_10",
+      "hinge": [
+        -7.015,
+        5.37
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 36,
+      "opening_index": 0,
+      "center": [
+        -6.609999999999999,
+        5.37
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_11",
+      "hinge": [
+        6.704999999999999,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 0,
+      "center": [
+        7.109999999999999,
+        6.25
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_12",
+      "hinge": [
+        11.645000000000001,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 1,
+      "center": [
+        12.05,
+        6.25
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_13",
+      "hinge": [
+        7.81,
+        4.585
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 40,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        4.99
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_14",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_15",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 43,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F05",
+      "id": "F05_DOOR_16",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 46,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_01",
+      "hinge": [
+        -2.42,
+        6.75
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 10,
+      "opening_index": 0,
+      "center": [
+        -1.94,
+        6.75
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_02",
+      "hinge": [
+        -5.33,
+        -2.1050000000000004
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 0,
+      "center": [
+        -5.33,
+        -1.6500000000000004
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_03",
+      "hinge": [
+        -5.33,
+        5.515000000000001
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 12,
+      "opening_index": 1,
+      "center": [
+        -5.33,
+        5.970000000000001
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_04",
+      "hinge": [
+        -5.33,
+        0.6299999999999994
+      ],
+      "yaw": -90,
+      "width": 0.96,
+      "wall_index": 12,
+      "opening_index": 2,
+      "center": [
+        -5.33,
+        1.1099999999999994
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_05",
+      "hinge": [
+        5.33,
+        -3.7650000000000006
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 0,
+      "center": [
+        5.33,
+        -3.3100000000000005
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_06",
+      "hinge": [
+        5.33,
+        -0.13499999999999973
+      ],
+      "yaw": -90,
+      "width": 0.91,
+      "wall_index": 13,
+      "opening_index": 1,
+      "center": [
+        5.33,
+        0.3200000000000003
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_07",
+      "hinge": [
+        -8.705,
+        9.85
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 20,
+      "opening_index": 1,
+      "center": [
+        -8.3,
+        9.85
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_08",
+      "hinge": [
+        -9.214999999999998,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 30,
+      "opening_index": 0,
+      "center": [
+        -8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_09",
+      "hinge": [
+        -7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 31,
+      "opening_index": 0,
+      "center": [
+        -7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_10",
+      "hinge": [
+        -7.015,
+        5.37
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 36,
+      "opening_index": 0,
+      "center": [
+        -6.609999999999999,
+        5.37
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_11",
+      "hinge": [
+        6.704999999999999,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 0,
+      "center": [
+        7.109999999999999,
+        6.25
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_12",
+      "hinge": [
+        11.645000000000001,
+        6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 38,
+      "opening_index": 1,
+      "center": [
+        12.05,
+        6.25
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_13",
+      "hinge": [
+        7.81,
+        4.585
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 40,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        4.99
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_14",
+      "hinge": [
+        8.405,
+        -6.25
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 42,
+      "opening_index": 0,
+      "center": [
+        8.809999999999999,
+        -6.25
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_15",
+      "hinge": [
+        7.81,
+        -5.3950000000000005
+      ],
+      "yaw": -90,
+      "width": 0.81,
+      "wall_index": 43,
+      "opening_index": 0,
+      "center": [
+        7.81,
+        -4.99
+      ]
+    },
+    {
+      "floor": "F06",
+      "id": "F06_DOOR_16",
+      "hinge": [
+        6.204999999999999,
+        -2.84
+      ],
+      "yaw": 0,
+      "width": 0.81,
+      "wall_index": 46,
+      "opening_index": 0,
+      "center": [
+        6.609999999999999,
+        -2.84
+      ]
+    },
+    {
+      "floor": "ROOF",
+      "id": "ROOF_DOOR_01",
+      "hinge": [
+        -1.33,
+        -3.25
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 4,
+      "opening_index": 0,
+      "center": [
+        -0.8500000000000001,
+        -3.25
+      ]
+    },
+    {
+      "floor": "ROOF",
+      "id": "ROOF_DOOR_02",
+      "hinge": [
+        0.9199999999999999,
+        -7.2
+      ],
+      "yaw": 0,
+      "width": 0.96,
+      "wall_index": 11,
+      "opening_index": 0,
+      "center": [
+        1.4,
+        -7.2
+      ]
+    }
+  ]
+}

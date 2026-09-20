@@ -1,0 +1,24 @@
+{
+  "status": "SOURCE_AND_REQUEST_REVISION_PREPARED_NO_ENGINE",
+  "head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "source_bindings_verified": 19,
+  "existing_fixture_baseline_verified": {
+    "game/tests/orison_v2_reservation_display_test.gd": "595cf3dacf207140053b8ff4602c740af479ba141679dd2e6be177c4dc83661e",
+    "game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721"
+  },
+  "new_fixture": {
+    "game/tests/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c",
+    "game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721"
+  },
+  "unchanged_production_original_and_candidate_files": 4,
+  "reused_runtime_files_unchanged": 5,
+  "all_authored_targets_unchanged": 78,
+  "expected_runtime_checks": [
+    28,
+    25,
+    28,
+    39
+  ],
+  "timeout_seconds": 180,
+  "gdscript_compile_clearance": false
+}

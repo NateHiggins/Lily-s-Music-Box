@@ -1,0 +1,71 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/MaintenanceErrandTest.tscn remapped: res://tests/MaintenanceErrandTest.tscn
+Loading resource: res://tests/maintenance_errand_test.gd remapped: res://tests/maintenance_errand_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Completed load for: 'res://tests/maintenance_errand_test.gd' remapped 'res://tests/maintenance_errand_test.gd' at thread -1
+Completed load for: 'res://tests/MaintenanceErrandTest.tscn' remapped 'res://tests/MaintenanceErrandTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  [errand ok] shop_inventory.json loads and validates
+  [errand ok] exactly one stock record is authored, for carbon_transmitter_capsule
+  [errand ok] the record binds the item to HARDWARE PAINT, verb buy, on the authored counter anchor
+  [errand ok] unknown item is refused
+  [errand ok] the wrong shop is refused
+  [errand ok] no open job: the counter refuses
+  [errand ok] wrong job stage (acknowledged): refused, no prompt
+  [errand ok] wrong job stage (diagnosed): refused
+  [errand ok] refused transactions mutate nothing
+  [errand ok] awaiting_part opens the counter and its prompt
+  [errand ok] the valid transaction succeeds
+  [errand ok] exactly one item is added
+  [errand ok] acquisition drives the job to repairable through WorkOrders
+  [errand ok] part_acquired fired exactly once
+  [errand ok] repeating the transaction cannot duplicate the part
+  [errand ok] a satisfied counter goes quiet
+  [errand ok] fresh campaign forgets item and job
+  [errand ok] save/load preserves acquired-but-unconsumed and the job stage
+  [errand ok] the explicit inventory contract restores the same fact
+  [errand ok] restore rejects a record with no provenance
+  [errand ok] consumption succeeds once
+  [errand ok] consumption cannot repeat
+  [errand ok] a consumed part is spent, not deleted
+  [errand ok] part_consumed fired exactly once
+  [errand ok] save/load after consumption does not resurrect the item
+  [errand ok] the minimal order contract the chirp hunt uses is unchanged
+  [errand ok] the K2 lifecycle still enforces its ruled order
+ERRAND TRACE: acquired=["carbon_transmitter_capsule@hardware_paint"] consumed=["carbon_transmitter_capsule"] job=awaiting_part item_held=false
+MAINTENANCE ERRAND TEST: PASS
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

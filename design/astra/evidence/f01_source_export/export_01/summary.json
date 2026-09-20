@@ -1,0 +1,38 @@
+{
+  "status": "TWO_EXPORT_BYTE_OWNERSHIP_ALIAS_CHECKS_PASS_HUMAN_PENDING",
+  "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "comparison_path": "evidence/f01_source_export/export_01/comparison.json",
+  "comparison_sha256": "26f9068807e68c70c8c65b492c3d9f8d317b77702339d318c0e858a7629bbc30",
+  "binding_sha256": "92d9927dfa4a8fc13a7cd24f2bbd507861e49673ec7ced671953fb0e85eaded6",
+  "counts": {
+    "cells": 17,
+    "sources": 5286,
+    "primitives": 609,
+    "triangles": 183726,
+    "vertices": 345536,
+    "aliases": 531,
+    "multi_target_aliases": 47,
+    "semantics": 189
+  },
+  "runs": [
+    {
+      "mode": "a",
+      "outer_result_sha256": "687b0fcd3a6f354e452cbaa1dc7b18564417ac3667953bb45cf12376d8625846",
+      "output": "C:\\OrisonF01Reconstruction\\astra_77dc_export_a_01",
+      "elapsed_seconds": 95.20300000000134,
+      "all_process_exits": 0
+    },
+    {
+      "mode": "b",
+      "outer_result_sha256": "b205ea1b4343df04b88a47ad5bf0bcd40c343f61da35dc7ba7f8f071bf5d1eb5",
+      "output": "C:\\OrisonF01Reconstruction\\astra_77dc_export_b_01",
+      "elapsed_seconds": 86.53199999999924,
+      "all_process_exits": 0
+    }
+  ],
+  "input_boundary": "2,071 path existence/content records, including 17 protected paths; unchanged across both exports.",
+  "independent_scope": "36 geometry file hashes, catalog ownership, actual cell addressing, alias completeness and counts.",
+  "existing_core_scope": "Nine canonical equivalence checks for vertex, triangle, world-triangle, attribute, material, collision, bounds, alias union and transform payloads passed in each fresh run.",
+  "diagnostics": "Both actual Blender and controller stderr streams are empty; root read both raw Blender stdout streams, containing version/catalog/library information and one generation marker each.",
+  "limits": "External deterministic reconstruction only. No generated production asset, provider, streaming, traversal, human acceptance or release proof."
+}

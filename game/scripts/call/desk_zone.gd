@@ -6,12 +6,14 @@ extends Area3D
 
 var call_interface: CallInterface
 var seated_player: PlayerController
+## V1 keeps its existing footprint; composed roots may bind an authored use area.
+var interaction_footprint := Vector2(1.6, 1.8)
 
 
 func _ready() -> void:
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(1.6, 1.6, 1.8)
+	box.size = Vector3(interaction_footprint.x, 1.6, interaction_footprint.y)
 	shape.shape = box
 	shape.position = Vector3(0, 0.8, 0)
 	add_child(shape)

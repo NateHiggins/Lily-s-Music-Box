@@ -1,0 +1,18 @@
+{
+  "schema": "astra.v2-terminal-access.offline-controls.v1",
+  "status": "PASS",
+  "actual_exit": 0,
+  "engine_runs": 0,
+  "at_utc": "2026-09-05T12:17:44.218505+00:00",
+  "scope": "synthetic assessor and request/restoration/artifact controls only; no Godot parsing or live installation",
+  "source_hashes": {
+    "assess.py": "d7d9a7133d4e5fd98166564d20167117aaa18916b4472e3299e610711ffdbfd0",
+    "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "run.py": "14b60a7f90ffdab2b3cbf885c8a9bd8ed6f47c005a2d7989fcf852754785a9ee",
+    "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "test_assess.py": "9e9f32527c24c333ec87b1e340b2656b061aad36118132fcd2aad5c449e590e4",
+    "test_runner_contract.py": "c73d39fa44ed4629a386318571c71f99e2d9eb734b3d6003ea5ed7aa0d487f37"
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "4291312ba1ba981dd16f11a083e7c9947886ef4976d26e6b5c4df36303e8b837"
+}

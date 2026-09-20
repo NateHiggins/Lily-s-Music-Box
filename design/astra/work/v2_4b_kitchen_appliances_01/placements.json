@@ -1,0 +1,70 @@
+{
+  "fittings": [
+    {
+      "id": "F04_B_STOVE_01",
+      "kind": "stove",
+      "unit": "4B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4B",
+      "properties": {
+        "monitor_top": false
+      }
+    }
+  ],
+  "anchors": [
+    {
+      "id": "F04_B_STOVE_01",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -13.25,
+        0,
+        5.85
+      ],
+      "yaw": 0,
+      "kind": "fixture"
+    },
+    {
+      "id": "F04_B_STOVE_01_STANCE",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -13.25,
+        0,
+        4.7
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "clearance"
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -11.85,
+        0,
+        5.85
+      ],
+      "yaw": 0,
+      "kind": "fixture"
+    },
+    {
+      "id": "F04_B_FRIDGE_01_STANCE",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -11.85,
+        0,
+        4.7
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "clearance"
+    }
+  ]
+}

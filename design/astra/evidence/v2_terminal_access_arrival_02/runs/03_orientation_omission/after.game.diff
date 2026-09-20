@@ -1,0 +1,66 @@
+diff --git a/game/scripts/building/orison_v2_runtime_root.gd b/game/scripts/building/orison_v2_runtime_root.gd
+index 71dd227..5d42435 100644
+--- a/game/scripts/building/orison_v2_runtime_root.gd
++++ b/game/scripts/building/orison_v2_runtime_root.gd
+@@ -124,6 +124,10 @@ func _compose_authorities() -> void:
+ 	call_interface.name = "CallInterface"
+ 	call_interface.world = _blockout
+ 	add_child(call_interface)
++	if not _compose_call_station(terminal):
++		startup_failed = true
++		push_error("ORISON V2 RUNTIME: invalid support desk anchors")
++		return
+ 	virus_director = VirusSoundDirector.new()
+ 	virus_director.name = "VirusSoundDirector"
+ 	virus_director.setup(self)
+@@ -173,6 +177,30 @@ func _compose_authorities() -> void:
+ 	safety_net.setup(player)
+ 	add_child(safety_net)
+ 
++func _compose_call_station(terminal: SignalTerminalProp) -> bool:
++	var operator := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
++	var use := adapter.resolve("F04_B_TERMINAL_USE") as MeshInstance3D
++	if operator == null or use == null or terminal == null:
++		return false
++	var bounds: AABB = use.global_transform * use.get_aabb()
++	var toward_operator: Vector3 = operator.global_position - terminal.global_position
++	toward_operator.y = 0.0
++	if toward_operator.length_squared() < 0.000001 or bounds.size.x <= 0.0 or bounds.size.z <= 0.0:
++		return false
++	# The instrument face is local +X. Preserve the authored anchor transform;
++	# only the mounted production consumer turns toward its operator.
++	# The ordinary player ray does not hit an Area from inside it. Keep this
++	# target inside the existing terminal-use footprint, ahead of the stance.
++	var desk := DeskZone.new()
++	desk.name = "F04_B_DESK_ZONE"
++	desk.call_interface = call_interface
++	desk.interaction_footprint = Vector2(bounds.size.x, bounds.size.z)
++	_blockout.add_child(desk)
++	var center: Vector3 = bounds.position + bounds.size * 0.5
++	desk.global_position = Vector3(center.x, operator.global_position.y, center.z)
++	return true
++
++
+ ## WHO IS ACTUALLY HOME TO SEE IT.
+ ##
+ ## The observation ledger gates in-flat sight on presence, and an unbound
+diff --git a/game/scripts/call/desk_zone.gd b/game/scripts/call/desk_zone.gd
+index 0206b1c..e6b66d3 100644
+--- a/game/scripts/call/desk_zone.gd
++++ b/game/scripts/call/desk_zone.gd
+@@ -6,12 +6,14 @@ extends Area3D
+ 
+ var call_interface: CallInterface
+ var seated_player: PlayerController
++## V1 keeps its existing footprint; composed roots may bind an authored use area.
++var interaction_footprint := Vector2(1.6, 1.8)
+ 
+ 
+ func _ready() -> void:
+ 	var shape := CollisionShape3D.new()
+ 	var box := BoxShape3D.new()
+-	box.size = Vector3(1.6, 1.6, 1.8)
++	box.size = Vector3(interaction_footprint.x, 1.6, interaction_footprint.y)
+ 	shape.shape = box
+ 	shape.position = Vector3(0, 0.8, 0)
+ 	add_child(shape)

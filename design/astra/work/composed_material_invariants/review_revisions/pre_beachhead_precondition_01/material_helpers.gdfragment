@@ -1,0 +1,344 @@
+# Material-only observations follow the existing render/no-op timers.
+# IDs/WeakRefs never become a second material or World3D lifetime owner.
+const MATERIAL_CASE_UNITS := {
+	"mina_caption_crisis": "2A", "peter_form_corridor": "4B",
+	"juno_feedback_tetris": "2C", "mae_contradictory_antiques": "6C",
+	"cal_memory_radio": "5B", "omar_unrepairable": "3B",
+}
+var material_observations: Array = []
+var material_case_refs := {}
+var material_finish_ids := {}
+var material_cache_consumers := {}
+var material_retirement := {"applicable": false}
+
+
+func _observe_material_ownership(stage: String, exercise_refresh: bool) -> void:
+	var enc = world.get("apartment_encroachment")
+	var surface = world.get("surface_pass")
+	var issues: Array = []
+	if enc == null or surface == null:
+		material_observations.append({"stage": stage, "owner_missing": true})
+		_check("material " + stage + " actual production owners exist", false)
+		return
+	var record := {"stage": stage, "owner_source_sha256": FileAccess.get_sha256(enc.get_script().resource_path),
+		"outside_measured_intervals": true, "surface_governor": _surface_state(),
+		"cases": {}, "registries": {}, "private_geometry": 0, "actor_geometry": 0,
+		"cache_consumers": [], "excluded_draws": [], "refresh_exercised": exercise_refresh}
+	var expected_keys: Array = MATERIAL_CASE_UNITS.keys()
+	expected_keys.sort()
+	var actual_keys: Array = enc.surfaces.keys()
+	actual_keys.sort()
+	if actual_keys != expected_keys: issues.append("actual build did not publish exactly the six shipped case finishes")
+	if not surface.props_tier_on or not surface._lever_queue.is_empty():
+		issues.append("material precondition: prop tier must be active and its production queue settled")
+	if not enc._props_ready: issues.append("actual production reach callback has not completed")
+	var installed_by_floor := {}
+	var cache_ids := {}
+	for key in surface._cache:
+		var cached = surface._cache[key]
+		if cached is ShaderMaterial: cache_ids[cached.get_instance_id()] = str(key)
+	# Independent consumer census: the current draw chooses a full override
+	# before a surface override. Private/actor ancestry is read directly.
+	for floor_id in enc.fields:
+		installed_by_floor[floor_id] = {}
+		if not enc.storey_materials.has(floor_id):
+			issues.append("field has no actual active material registry: " + str(floor_id))
+		var floor_node: Node = world.floor_nodes.get(floor_id)
+		if floor_node == null:
+			issues.append("missing actual floor owner " + str(floor_id))
+			continue
+		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+			var draw := node as MeshInstance3D
+			if not _material_boundary(draw).is_empty() or draw.mesh == null: continue
+			var active: Array = []
+			if draw.material_override != null:
+				active.append({"slot": -1, "material": draw.material_override})
+			else:
+				for index in draw.mesh.get_surface_count():
+					active.append({"slot": index, "material": draw.get_surface_override_material(index)})
+			for item in active:
+				var material := item.material as ShaderMaterial
+				if not _material_layered(material): continue
+				var material_id: int = material.get_instance_id()
+				installed_by_floor[floor_id][material_id] = true
+				if not _material_field_matches(material, floor_id, enc):
+					issues.append("installed floor draw samples wrong/unbound field: " + str(world.get_path_to(draw)))
+				if int(item.slot) >= 0 and cache_ids.has(material_id):
+					var consumer_key := str(world.get_path_to(draw)) + ":" + str(item.slot)
+					if not material_cache_consumers.has(consumer_key):
+						material_cache_consumers[consumer_key] = {"draw": weakref(draw), "slot": int(item.slot),
+							"material_id": material_id, "cache_key": cache_ids[material_id]}
+	for case_id in MATERIAL_CASE_UNITS:
+		var case_record := {"unit": MATERIAL_CASE_UNITS[case_id], "finishes": [], "props": []}
+		var authored := _material_authored_unit(str(MATERIAL_CASE_UNITS[case_id]))
+		var floor_id := str(authored.get("floor", ""))
+		var unit: Dictionary = enc.units.get(case_id, {})
+		if authored.is_empty() or unit.is_empty() or not enc.fields.has(floor_id):
+			issues.append("actual authored unit or case field missing: " + str(case_id))
+			record.cases[case_id] = case_record
+			continue
+		if unit.floor_node != world.floor_nodes.get(floor_id) or not (unit.rect as Vector4).is_equal_approx(authored.rect):
+			issues.append("build unit provider disagrees with authored room bounds: " + str(case_id))
+		for row in enc.surfaces.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			var material := row.material as ShaderMaterial
+			if not is_instance_valid(draw) or material == null:
+				issues.append("invalid actual finish row: " + str(case_id))
+				continue
+			var path := str(world.get_path_to(draw)) if world.is_ancestor_of(draw) else "detached:" + str(draw.name)
+			var slot := int(row.surface)
+			var material_id := material.get_instance_id()
+			var live := world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \
+				and draw.material_override == null and draw.get_surface_override_material(slot) == material
+			var guard_ok := _material_boundary(draw).is_empty() and str(draw.name).contains("_finish_") \
+				and world.floor_nodes[floor_id].is_ancestor_of(draw)
+			var marker_ok := str(material.get_meta("living_storey", "")) == floor_id \
+				and material.get_shader_parameter("has_encroachment") == true
+			var rect = material.get_shader_parameter("unit_rect")
+			if not live or not guard_ok or not marker_ok or not (rect is Vector4 and rect.is_equal_approx(authored.rect)):
+				issues.append("finish build guard/marker/installed identity failure: " + path + ":" + str(slot))
+			var key := path + ":" + str(slot)
+			if material_finish_ids.has(key) and material_finish_ids[key] != material_id:
+				issues.append("actual finish replaced across ordinary transitions: " + key)
+			material_finish_ids[key] = material_id
+			material_case_refs[material_id] = weakref(material)
+			case_record.finishes.append({"path": path, "slot": slot, "material_id": material_id,
+				"live": live, "guard_ok": guard_ok, "marker_ok": marker_ok})
+		for row in enc.prop_rows.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			var material := row.material as ShaderMaterial
+			if not is_instance_valid(draw) or material == null:
+				issues.append("invalid actual prop row: " + str(case_id))
+				continue
+			var path := str(world.get_path_to(draw)) if world.is_ancestor_of(draw) else "detached:" + str(draw.name)
+			var material_id := material.get_instance_id()
+			var live: bool = world.is_ancestor_of(draw) and draw.material_override == material
+			var marker_ok := str(material.get_meta("encroachment_case", "")) == case_id \
+				and str(material.get_meta("living_storey", "")) == floor_id
+			var linked := material.has_meta("encroachment_shared") and material.get_meta("encroachment_shared") == row.shared
+			if not live or not marker_ok or not linked or not _material_boundary(draw).is_empty():
+				issues.append("prop installed owner/marker/source link failure: " + path)
+			if not _material_field_matches(material, floor_id, enc):
+				issues.append("prop samples wrong/unbound field: " + path)
+			if live:
+				installed_by_floor[floor_id][material_id] = true
+			material_case_refs[material_id] = weakref(material)
+			case_record.props.append({"path": path, "material_id": material_id,
+				"live": live, "marker_ok": marker_ok, "source_linked": linked})
+		if case_record.finishes.is_empty() or case_record.props.is_empty():
+			issues.append("case lacks actual nonempty finish/prop consumer: " + str(case_id))
+		record.cases[case_id] = case_record
+	for floor_id in enc.storey_materials:
+		var registry: Array = enc.storey_materials[floor_id]
+		var unique := {}
+		var invalid := 0
+		for material in registry:
+			if not is_instance_valid(material): invalid += 1
+			else: unique[material.get_instance_id()] = true
+		var expected: Dictionary = installed_by_floor.get(floor_id, {})
+		var actual_ids: Array = unique.keys()
+		var expected_ids: Array = expected.keys()
+		actual_ids.sort()
+		expected_ids.sort()
+		record.registries[floor_id] = {"slots": registry.size(), "unique": unique.size(),
+			"invalid": invalid, "material_ids": actual_ids, "installed_ids": expected_ids}
+		if invalid != 0 or registry.size() != unique.size() or actual_ids != expected_ids:
+			issues.append("registry differs from unique installed consumers: " + str(floor_id))
+	# A cached first-owner surface must remain the real installed draw while
+	# the ordinary governor mutates that very cached resource.
+	for key in material_cache_consumers:
+		var consumer: Dictionary = material_cache_consumers[key]
+		var draw := consumer.draw.get_ref() as MeshInstance3D
+		var cached = surface._cache.get(consumer.cache_key)
+		var live := is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \
+			and draw.mesh != null and consumer.slot >= 0 and consumer.slot < draw.mesh.get_surface_count() \
+			and draw.material_override == null and cached is ShaderMaterial \
+			and cached.get_instance_id() == consumer.material_id \
+			and draw.get_surface_override_material(consumer.slot) == cached
+		var budget_matches := cached is ShaderMaterial and _material_number_equals(cached.get_shader_parameter("parallax_budget"), surface.budget)
+		if not live: issues.append("SurfacePass cache lost installed first-owner consumer: " + str(key))
+		if not budget_matches: issues.append("SurfacePass cache governor value differs from actual budget: " + str(key))
+		record.cache_consumers.append({"key": key, "material_id": consumer.material_id, "live": live, "budget_matches": budget_matches})
+	if material_cache_consumers.is_empty(): issues.append("no actual installed SurfacePass cache consumer was observed")
+	for node in world.find_children("*", "MeshInstance3D", true, false):
+		var draw := node as MeshInstance3D
+		var boundary := _material_boundary(draw)
+		if boundary.is_empty() or draw.mesh == null: continue
+		if boundary == "private": record.private_geometry += 1
+		elif boundary == "actor": record.actor_geometry += 1
+		var materials: Array = [draw.material_override]
+		var excluded_ids: Array = []
+		var draw_contaminated := false
+		for index in draw.mesh.get_surface_count():
+			materials.append(draw.get_surface_override_material(index))
+		for material in materials:
+			if material == null: continue
+			excluded_ids.append(material.get_instance_id())
+			var contaminated := material.has_meta("living_storey") or material.has_meta("encroachment_case")
+			if material is ShaderMaterial:
+				for floor_id in enc.fields:
+					contaminated = contaminated or material.get_shader_parameter("living_tex") == enc.fields[floor_id].texture()
+			if contaminated:
+				draw_contaminated = true
+				issues.append("excluded actual geometry acquired building field/owner: " + str(world.get_path_to(draw)))
+		record.excluded_draws.append({"path": str(world.get_path_to(draw)), "boundary": boundary,
+			"material_ids": excluded_ids, "contaminated": draw_contaminated})
+	if record.private_geometry == 0 or record.actor_geometry == 0:
+		issues.append("actual private and actor exclusion populations must both be nonempty")
+	if exercise_refresh:
+		record.refresh = _exercise_actual_material_refresh(enc)
+		if record.refresh.passed != true: issues.append("immediate actual state/lifecycle consumer or restoration failure")
+	record.issues = issues
+	material_observations.append(record)
+	_check("material " + stage + " actual build and installed ownership invariants", issues.is_empty())
+
+
+func _material_boundary(draw: Node) -> String:
+	var cursor := draw
+	while cursor != null and cursor != world:
+		if cursor is SubViewport: return "private"
+		if cursor is CharacterBody3D or cursor.is_in_group("resident_placeholders") \
+			or cursor.is_in_group("animated_residents") or str(cursor.name).begins_with("NPC_"):
+			return "actor"
+		if cursor.is_queued_for_deletion(): return "retiring"
+		cursor = cursor.get_parent()
+	return "" if cursor == world else "detached"
+
+
+func _material_layered(material: ShaderMaterial) -> bool:
+	return material != null and material.shader != null \
+		and material.shader.resource_path.get_file().begins_with("orison_surface")
+
+
+func _material_field_matches(material: ShaderMaterial, floor_id: String, enc) -> bool:
+	if not enc.fields.has(floor_id): return false
+	var field = enc.fields[floor_id]
+	return material.get_shader_parameter("has_living") == true \
+		and material.get_shader_parameter("living_tex") == field.texture() \
+		and material.get_shader_parameter("living_origin") == field.origin \
+		and material.get_shader_parameter("living_size") == field.size_m
+
+
+func _material_authored_unit(unit: String) -> Dictionary:
+	var bounds := Rect2()
+	var found := false
+	var floor_id := ""
+	for floor_data in world.layout.floors:
+		for room in floor_data.get("rooms", []):
+			if str(room.get("unit", "")) != unit: continue
+			var r: Array = room.rect
+			var rect := Rect2(Vector2(float(r[0]), -float(r[3])), Vector2(float(r[2]) - float(r[0]), float(r[3]) - float(r[1])))
+			bounds = bounds.merge(rect) if found else rect
+			found = true
+			floor_id = str(floor_data.id)
+	if not found: return {}
+	return {"floor": floor_id, "rect": Vector4(bounds.position.x, bounds.position.y, bounds.end.x, bounds.end.y)}
+
+
+func _exercise_actual_material_refresh(enc) -> Dictionary:
+	var forced: Dictionary = enc._forced
+	var facts: Dictionary = RealityState.data.duplicate(true)
+	var before_state := _actual_material_state_snapshot(enc)
+	var poisoned := {}
+	var okay := true
+	# Under the beachhead threshold; synchronous probe and restoration occur
+	# before another physics/render frame. No alternate finish/prop is made.
+	enc._forced = forced.duplicate(true)
+	for index in MATERIAL_CASE_UNITS.size():
+		var case_id: String = MATERIAL_CASE_UNITS.keys()[index]
+		enc._forced[case_id] = 0.21 + 0.035 * index
+	enc.refresh()
+	for case_id in MATERIAL_CASE_UNITS:
+		var value: float = enc._forced[case_id]
+		var floor_id := str(_material_authored_unit(MATERIAL_CASE_UNITS[case_id]).get("floor", ""))
+		for row in enc.surfaces.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			if not is_instance_valid(draw) or draw.mesh == null or not world.is_ancestor_of(draw):
+				okay = false
+				continue
+			var slot := int(row.surface)
+			if slot < 0 or slot >= draw.mesh.get_surface_count():
+				okay = false
+				continue
+			var material := draw.get_surface_override_material(slot) as ShaderMaterial
+			if material == null:
+				okay = false
+				continue
+			okay = okay and material == row.material and _material_number_equals(material.get_shader_parameter("intensity"), value)
+			if not poisoned.has(material.get_instance_id()):
+				poisoned[material.get_instance_id()] = {"material": material, "value": material.get_shader_parameter("living_lifecycle_stage"), "floor": floor_id}
+			material.set_shader_parameter("living_lifecycle_stage", -17.0)
+		for row in enc.prop_rows.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			if not is_instance_valid(draw) or not world.is_ancestor_of(draw):
+				okay = false
+				continue
+			var material := draw.material_override as ShaderMaterial
+			if material == null:
+				okay = false
+				continue
+			var amount = material.get_shader_parameter("mask_amount")
+			okay = okay and material == row.material and amount is Vector4 \
+				and amount.is_equal_approx(Vector4(0, 0.35 * value, 0.25 * value, 0))
+			if not poisoned.has(material.get_instance_id()):
+				poisoned[material.get_instance_id()] = {"material": material, "value": material.get_shader_parameter("living_lifecycle_stage"), "floor": floor_id}
+			material.set_shader_parameter("living_lifecycle_stage", -17.0)
+	for floor_id in enc.fields:
+		enc._push_living_lifecycle(floor_id, enc.fields[floor_id])
+	for item in poisoned.values():
+		if not enc.fields.has(item.floor):
+			okay = false
+			continue
+		okay = okay and _material_number_equals(item.material.get_shader_parameter("living_lifecycle_stage"), float(enc.fields[item.floor].lifecycle_stage()))
+	# Always restore even when a control fails; poisoning must not contaminate
+	# subsequent captures or masquerade as a production visual difference.
+	for item in poisoned.values(): item.material.set_shader_parameter("living_lifecycle_stage", item.value)
+	enc._forced = forced
+	enc.refresh()
+	var after_state := _actual_material_state_snapshot(enc)
+	okay = okay and RealityState.data == facts and before_state == after_state
+	return {"passed": okay, "tested_current_materials": poisoned.size(), "facts_unchanged": RealityState.data == facts,
+		"same_frame_restored": before_state == after_state, "before_state": before_state, "after_state": after_state,
+		"scope": "actual installed build/prop rows; explicit production force hook and lifecycle push; no field tick or replacement geometry"}
+
+
+func _actual_material_state_snapshot(enc) -> Dictionary:
+	var snapshot := {}
+	for case_id in MATERIAL_CASE_UNITS:
+		for row in enc.surfaces.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			if not is_instance_valid(draw) or not world.is_ancestor_of(draw) or draw.mesh == null: continue
+			if int(row.surface) < 0 or int(row.surface) >= draw.mesh.get_surface_count(): continue
+			var material := draw.get_surface_override_material(int(row.surface)) as ShaderMaterial
+			if material == null: continue
+			var key := str(world.get_path_to(draw)) + ":surface_" + str(row.surface)
+			snapshot[key] = {"id": material.get_instance_id(), "intensity": material.get_shader_parameter("intensity"),
+				"lifecycle": material.get_shader_parameter("living_lifecycle_stage")}
+		for row in enc.prop_rows.get(case_id, []):
+			var draw := row.mesh as MeshInstance3D
+			if not is_instance_valid(draw) or not world.is_ancestor_of(draw): continue
+			var material := draw.material_override as ShaderMaterial
+			if material == null: continue
+			var amount = material.get_shader_parameter("mask_amount")
+			var amount2 = material.get_shader_parameter("mask2_amount")
+			snapshot[str(world.get_path_to(draw)) + ":override"] = {"id": material.get_instance_id(),
+				"amount": [amount.x, amount.y, amount.z, amount.w] if amount is Vector4 else null,
+				"amount2": [amount2.x, amount2.y, amount2.z, amount2.w] if amount2 is Vector4 else null,
+				"lifecycle": material.get_shader_parameter("living_lifecycle_stage")}
+	return snapshot
+
+
+func _material_number_equals(value, expected: float) -> bool:
+	return (value is int or value is float) and is_equal_approx(float(value), expected)
+
+
+func _check_material_retirement() -> void:
+	if selected != "v1":
+		material_retirement = {"applicable": false, "reason": "V2 does not compose this ApartmentEncroachment owner"}
+		return
+	var retained: Array = []
+	for material_id in material_case_refs:
+		if material_case_refs[material_id].get_ref() != null: retained.append(material_id)
+	material_retirement = {"applicable": true, "owned_case_materials_observed": material_case_refs.size(),
+		"retained_material_ids": retained, "released": material_case_refs.size() > 0 and retained.is_empty()}
+	_check("material actual unique case materials retired with production root", material_retirement.released)

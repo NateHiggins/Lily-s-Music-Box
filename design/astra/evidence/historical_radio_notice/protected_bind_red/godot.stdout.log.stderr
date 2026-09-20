@@ -1,0 +1,6 @@
+WARNING: save version 99 is newer than supported version 4; running read-only
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] load_game (res://scripts/game/reality_game_state.gd:157)
+       [1] _test_protected_empty_clock (res://tests/campaign_calendar_test.gd:205)
+       [2] _ready (res://tests/campaign_calendar_test.gd:16)

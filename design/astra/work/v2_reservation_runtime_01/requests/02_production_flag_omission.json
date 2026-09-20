@@ -1,0 +1,22 @@
+{
+  "runner": "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\02_production_flag_omission\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\02_production_flag_omission\\shots",
+    "TimeoutSeconds": 60,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "base_commit": null,
+  "source": "synthetic contradiction manifest",
+  "decisions": [
+    {"room": "T1_A", "object": "a_rug", "verdict": "MOVE",
+     "expected": {"position": [0.5, 0.5], "tolerance_m": 0.05},
+     "rationale": "target far away: position drift beyond tolerance"},
+    {"room": "T1_A", "object": "a_box1", "verdict": "REPLACE",
+     "replacement": "a_box2",
+     "rationale": "both old and new still present"}
+  ]
+}

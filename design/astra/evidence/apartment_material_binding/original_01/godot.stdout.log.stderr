@@ -1,0 +1,7 @@
+[BIND FAIL] initial registration is nonempty and unique
+[BIND FAIL] same installed material on two draws registers once
+[BIND FAIL] same cached full override reuses a floor copy
+SCRIPT ERROR: Invalid call. Nonexistent 'bool' constructor.
+   at: _run (res://tests/apartment_material_binding_test.gd:92)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/apartment_material_binding_test.gd:92)

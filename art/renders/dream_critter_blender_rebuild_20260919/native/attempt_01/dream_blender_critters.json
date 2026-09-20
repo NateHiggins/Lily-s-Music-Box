@@ -1,0 +1,194 @@
+{
+	"baseline": false,
+	"batches": [
+		{
+			"draw_slots": 9,
+			"kinds": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"material_id": -9223371953757222699,
+			"mesh_instance_id": 83131107542
+		},
+		{
+			"draw_slots": 8,
+			"kinds": [
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"material_id": -9223371940402558756,
+			"mesh_instance_id": 96468994271
+		}
+	],
+	"checks": [
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "seam_grazer retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "crystal_listener retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "fold_crab retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "tardigrade retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "stentor retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "lacrymaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "vorticella retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euplotes retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "spirostomum retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "heliozoan retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euglena retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "volvox retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "noctiluca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "bacillaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "salpingoeca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "mesodinium retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "all sixteen enum kinds are unique animals and actual shader kind IDs",
+			"passed": true
+		},
+		{
+			"label": "sixteen animals retain two primary controller meshes and materials",
+			"passed": true
+		},
+		{
+			"label": "the one exposure texture is the existing RG8 world grid",
+			"passed": true
+		},
+		{
+			"label": "both warehouse batches admit the Blender presentation",
+			"passed": false
+		},
+		{
+			"label": "departed providers and the shared atlas are released",
+			"passed": true
+		},
+		{
+			"label": "retained materials release both world and pose samplers",
+			"passed": true
+		},
+		{
+			"label": "no native script, shader or runtime errors",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": 1,
+	"logs": {
+		"errors": [],
+		"stderr": [],
+		"warnings": []
+	},
+	"packed_kinds": [
+		0,
+		4,
+		1,
+		5,
+		2,
+		6,
+		3,
+		7,
+		8,
+		9,
+		10,
+		12,
+		13,
+		14,
+		11,
+		15
+	],
+	"provider_errors": [
+		"Euplotes must retain its fourteen tips and eight authored cirral groups: res://assets/dream/critters_blender/euplotes/euplotes_lod0.manifest.json",
+		"Euplotes must retain its fourteen tips and eight authored cirral groups: res://assets/dream/critters_blender/euplotes/euplotes_lod0.manifest.json"
+	],
+	"schema": "dream_blender_critter_diagnostic.v1",
+	"scope": "Native imported researched anatomy, absolute morph atlas, stable section mapping, existing controller cycles, controlled review poses and sampler retirement; not campaign runtime_contract or artistic acceptance.",
+	"setup_usec": 2551742,
+	"texture_id": -9223371954830964553
+}

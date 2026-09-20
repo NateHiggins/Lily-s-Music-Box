@@ -1,0 +1,43 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "b3aae2a",
+  "added_receivers": 6,
+  "household_receiver_total": 12,
+  "added_tables": 6,
+  "furniture_total": 175,
+  "added_anchors": 12,
+  "route_destinations": 151,
+  "route_points": 26686,
+  "checks": 19955,
+  "runs": [
+    {
+      "name": "apartment_batch_final",
+      "checks": 18954,
+      "stdout_sha256": "ff0c6626f443669fe7ab126287cee1e9016f14513073e64b28606471cd93cd29",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "upper_approaches",
+      "checks": 1001,
+      "stdout_sha256": "ac1e90a331f6daa04af55b680dfa84b34c41f2a9160b9e8e7a87316e572c1f5e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "final_captures": 12,
+  "source_sha256": {
+    "game/data/orison_v2_blockout.json": "426901b7c7bee3dc1f5b12299235645b1684d3b04f74181179891a9eba1865d7",
+    "game/data/orison_v2/domestic_furniture.json": "b9fd1ccb585d1e39bff6be68812b23705e39e03c5c4d57c20fb14554e7e6071f",
+    "game/data/orison_v2/domestic_radios.json": "0e061bbebc1bab9c8d1fe3895f0c93d79f84ec60337f372d618cfed9c3f8d4b0",
+    "game/scripts/building/orison_v2_radio_prop.gd": "a24f1a52c0086fc797a856e69772ca93f5fd6ba71a4931e09ba43f274b103993",
+    "game/scripts/building/orison_v2_radios.gd": "b05e1a3335b9fadc5b030206ec7edb766038df6171c2a118206e3c6cb77d38dd",
+    "game/tests/orison_v2_apartment_batch_test.gd": "9b9280f3d9ecace4a46551beb782fb2bef10f73533f0b470c770916ca5fcdc0e",
+    "game/tests/orison_v2_upper_kitchen_test.gd": "81d14972ef6de44b1d9da5e4efd3e86545427e3caefd5eb3cdef1133363d2aa6",
+    "game/tests/orison_v2_upper_radios_shot.gd": "94f09c062c8040f02811ffac17fdfdda7e4d4c9658c83963745ae84ce2f4319f",
+    "game/tests/OrisonV2UpperRadiosShot.tscn": "1afb23fe7615c593c17161cfbe5846d3613d654657463a24fa69a27ebcf80d39",
+    "game/tests/data/v2_upper_radio_probes.json": "44dc2b77b98b34258d8ec62e8e99abd860eca89c38a41de71a656f47e9ca23dd",
+    "design/astra/work/v2_upper_radios_01/build.py": "74608f361e4c41d2e9b17214bfb63c715c8382cccf9c5c73377634c8894380c7",
+    "design/astra/work/v2_upper_radios_01/source_checks.json": "b71a4edb6b6277385de1a3e3abd5f9130c276e1a03c3e79d74f0e955df046cc4",
+    "design/astra/work/v2_storage_tables_boards_batch_01/build.py": "69f7f234cd926e81ec1d82db53c187528ab4db695c3d422f2c29698cd90d339b"
+  },
+  "limits": "Native local programme murmur and power interaction, not historical broadcast-content completion. No radio persistence added. Prepared source routes, capsules, rays and captures are not full played-route, listening, performance or human art acceptance. V2 incomplete; V1 default; S2J open."
+}

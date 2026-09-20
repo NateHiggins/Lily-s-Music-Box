@@ -1,0 +1,339 @@
+{
+  "status": "SOURCE_PASS",
+  "base": "3d615be",
+  "equipment": 14,
+  "supports": 1,
+  "new_anchors": 30,
+  "route_destinations": 166,
+  "route_points": 29645,
+  "probes": [
+    {
+      "id": "5B_comparison_table",
+      "kind": "table_rect",
+      "unit": "5B",
+      "room": "F05_B_KITCHEN",
+      "bounds": [
+        [
+          -0.575,
+          0.0,
+          -0.23
+        ],
+        [
+          0.575,
+          0.75,
+          0.23
+        ]
+      ],
+      "stance": "5B_comparison_table_STANCE",
+      "support": {}
+    },
+    {
+      "id": "5A_pins1",
+      "kind": "pinboard",
+      "unit": "5A",
+      "room": "F05_A_MAIN",
+      "bounds": [
+        [
+          -0.625,
+          0.0,
+          -0.032
+        ],
+        [
+          0.625,
+          0.85,
+          -0.0
+        ]
+      ],
+      "stance": "5A_pins1_STANCE",
+      "support": {}
+    },
+    {
+      "id": "5A_pins2",
+      "kind": "pinboard",
+      "unit": "5A",
+      "room": "F05_A_STUDY",
+      "bounds": [
+        [
+          -0.525,
+          0.0,
+          -0.032
+        ],
+        [
+          0.525,
+          0.7,
+          -0.0
+        ]
+      ],
+      "stance": "5A_pins2_STANCE",
+      "support": {}
+    },
+    {
+      "id": "5A_floorstack",
+      "kind": "bookpile",
+      "unit": "5A",
+      "room": "F05_A_MAIN",
+      "bounds": [
+        [
+          -0.06150150150150151,
+          0.0,
+          -0.12766266266266266
+        ],
+        [
+          0.0996946946946947,
+          0.1774294294294294,
+          0.09994494494494495
+        ]
+      ],
+      "stance": "5A_floorstack_STANCE",
+      "support": {}
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "kind": "radio",
+      "unit": "5B",
+      "room": "F05_B_KITCHEN",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "stance": "5B_k_hob_radio0_STANCE",
+      "support": {
+        "id": "5B_comparison_table",
+        "position": [
+          -0.27,
+          0.745,
+          0
+        ]
+      }
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "kind": "radio",
+      "unit": "5B",
+      "room": "F05_B_KITCHEN",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "stance": "5B_k_hob_radio1_STANCE",
+      "support": {
+        "id": "5B_comparison_table",
+        "position": [
+          0.27,
+          0.745,
+          0
+        ]
+      }
+    },
+    {
+      "id": "5B_story_radio",
+      "kind": "radio",
+      "unit": "5B",
+      "room": "F05_B_MAIN",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "stance": "5B_story_radio_STANCE",
+      "support": {
+        "id": "5B_din_t",
+        "position": [
+          0,
+          0.735,
+          -0.32
+        ]
+      }
+    },
+    {
+      "id": "5C_story_colorboard",
+      "kind": "pinboard",
+      "unit": "5C",
+      "room": "F05_C_MAIN",
+      "bounds": [
+        [
+          -0.55,
+          0.0,
+          -0.032
+        ],
+        [
+          0.55,
+          0.8,
+          -0.0
+        ]
+      ],
+      "stance": "5C_story_colorboard_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_tripod",
+      "kind": "tripod",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.3,
+          0,
+          -0.30868287439113956
+        ],
+        [
+          0.3,
+          1.432368056652129,
+          0.3
+        ]
+      ],
+      "stance": "6A_tripod_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_soft1",
+      "kind": "softbox",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.26,
+          0,
+          -0.26
+        ],
+        [
+          0.26,
+          1.6928319311007214,
+          0.26723257813204243
+        ]
+      ],
+      "stance": "6A_soft1_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_soft2",
+      "kind": "softbox",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.26,
+          0,
+          -0.26
+        ],
+        [
+          0.26,
+          1.6928319311007214,
+          0.26723257813204243
+        ]
+      ],
+      "stance": "6A_soft2_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_gearcrate",
+      "kind": "crate",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.261,
+          0.0,
+          -0.21100000000000002
+        ],
+        [
+          0.261,
+          0.36,
+          0.21100000000000002
+        ]
+      ],
+      "stance": "6A_gearcrate_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_coil1",
+      "kind": "cablecoil",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.11923879532511286,
+          0.0050717967697244916,
+          -0.11923879532511286
+        ],
+        [
+          0.3973854576660711,
+          0.03259980212744561,
+          0.11923879532511286
+        ]
+      ],
+      "stance": "6A_coil1_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6A_coil2",
+      "kind": "cablecoil",
+      "unit": "6A",
+      "room": "F06_A_MAIN",
+      "bounds": [
+        [
+          -0.09923879532511287,
+          0.0050717967697244916,
+          -0.1214039515755309
+        ],
+        [
+          0.3812888558453173,
+          0.032570412527631,
+          0.09923879532511287
+        ]
+      ],
+      "stance": "6A_coil2_STANCE",
+      "support": {}
+    },
+    {
+      "id": "6C_story_old_radio",
+      "kind": "radio",
+      "unit": "6C",
+      "room": "F06_C_MAIN",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "stance": "6C_story_old_radio_STANCE",
+      "support": {
+        "id": "6C_din_t",
+        "position": [
+          -0.2,
+          0.735,
+          0.15
+        ]
+      }
+    }
+  ]
+}

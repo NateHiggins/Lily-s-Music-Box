@@ -1,0 +1,98 @@
+{
+  "status": "PREPARATION_COMPLETE_ENGINE_UNRUN_LIVE_GAME_UNCHANGED",
+  "recorded_at_utc": "2026-09-05T08:44:02.050799+00:00",
+  "source_binding": {
+    "status": "PREPARED_ONLY_NO_ENGINE_RUN_OR_LIVE_INSTALL",
+    "original_source": "design/astra/work/encroachment_sweep/revisions/ownership_7c54c_01/originals/game/scripts/reality/apartment_encroachment.gd",
+    "candidate_source": "design/astra/work/encroachment_sweep/revisions/ownership_7c54c_01/proposed/game/scripts/reality/apartment_encroachment.gd",
+    "original_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "candidate_sha256": "b5b977c6cdd83d4e60b1ea333822d26489651819efa3ed99163dcea180183a94",
+    "comparison": "same ownership repair; only reach_props method differs",
+    "adapter": "Normalize CRLF to LF; remove the single global class_name declaration so exact production methods can coexist. No method or preload adaptation.",
+    "scope": "Deterministic actual-method material/ownership equivalence under authored fixture bounds; production build and composed rendering remain separate.",
+    "artifacts": {
+      "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+      "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+      "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+      "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b"
+    }
+  },
+  "pure_python_controls": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\ownership_7c54c_01",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exit": 0,
+    "tests": 19,
+    "stdout": "controls.stdout.log",
+    "stderr": "controls.stderr.log"
+  },
+  "engine_checks": "NOT_RUN",
+  "expected_complete_fixture_check_count": 171,
+  "direct_dependency_hashes_at_preparation": {
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+    "game/scripts/dream/dream_organelle_lifecycle.gd": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82",
+    "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+    "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+    "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+    "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554"
+  },
+  "dependency_limit": "Bounded direct seam sources only. Freeze and bind complete runtime inputs again at execution.",
+  "static_review": [
+    "Exact reach_props-only delta reviewed; no definite semantic blocker found.",
+    "Independent draft review found detached row path diagnostic risk; ancestry guard now labels detached rows.",
+    "Nullable has_living parameters use direct comparison, never bool(null).",
+    "Actual lifecycle stage_name strings verified lowercase; STAIN/EXCHANGE assertions corrected before any run."
+  ],
+  "open_boundaries": [
+    "Godot parse/runtime clearance",
+    "production build and actual case finish ownership",
+    "real-root callbacks and governor/lifecycle composition",
+    "rendered content and sampled transition cost"
+  ],
+  "artifacts": {
+    "controls.stderr.log": "4c86df874cb3a0219d5d525ad23c7bcd2c252ab53e2d9bc0c52194bcfdfca4e0",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "drop_late.patch": "94e4c600fd38b2b5f2f02739c08a86654aacca21ad91b1fa836aa9546baf897d",
+    "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "gate_contract_revision/originals/controls.stderr.log": "deeac54bf3f113f840026197aae5ee327584599b4f6f8a8e014a2ee894e4abdd",
+    "gate_contract_revision/originals/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gate_contract_revision/originals/drop_late.patch": "94e4c600fd38b2b5f2f02739c08a86654aacca21ad91b1fa836aa9546baf897d",
+    "gate_contract_revision/originals/gate.py": "54f4f642e58e4c38f1a757fd52595ca62e7698c058548cd5c7ef315b98439218",
+    "gate_contract_revision/originals/preparation.json": "603eac49b707932f20ab80698901b24e0383fb0349c677c7526578e4321007f8",
+    "gate_contract_revision/originals/prepare.py": "4c429a5cee991d68f1d7671760f143860cc95775019cdc46d131a2abad0b9de3",
+    "gate_contract_revision/originals/priority.patch": "386cc539d7f7b71ff7150cc2d752ffe663eb2ba98df8cd642e09ba83a0b94e91",
+    "gate_contract_revision/originals/proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "gate_contract_revision/originals/proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+    "gate_contract_revision/originals/README.md": "68a15a1469f0bd3d2ae3ef5f5d974f21c4dc574e782120be2cd5a8f7b296df8d",
+    "gate_contract_revision/originals/seal_preparation.py": "041721f21b3564067586f5bda03be896d5cecf3feb342a6af6bae2abafa119c2",
+    "gate_contract_revision/originals/test_gate.py": "d053a193458fc370eaf52b3a37bfd44b3d770ba742a585eedd7a6d73073bc76e",
+    "gate_contract_revision/originals/test_prepare.py": "6f8366cda3a0ffea8904e8d0dbbf284f2e34c7e88db359bbe4c86853b1e1d84e",
+    "preparation.json": "603eac49b707932f20ab80698901b24e0383fb0349c677c7526578e4321007f8",
+    "prepare.py": "4c429a5cee991d68f1d7671760f143860cc95775019cdc46d131a2abad0b9de3",
+    "priority.patch": "386cc539d7f7b71ff7150cc2d752ffe663eb2ba98df8cd642e09ba83a0b94e91",
+    "proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+    "README.md": "0865d9c1815ef6bfcca542f21f071a54c4da6f526bc120d4d3ee55cc69c31941",
+    "seal_preparation.py": "4c6c264e8aeea3bd19b125e154a7ce00b25791a2b9cdd717a9f144aeb3302ef8",
+    "test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+    "test_prepare.py": "6f8366cda3a0ffea8904e8d0dbbf284f2e34c7e88db359bbe4c86853b1e1d84e"
+  }
+}

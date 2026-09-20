@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source": "game/assets/building/floor_01_cells/passage.gltf",
+  "source_sha256": "cace2d1422ac8233e1bb959e63726fdc6e8ac06a96c753148dc0e06299383134",
+  "references": [
+    {
+      "path": "art/references/arcade_ceiling/arcadeceiling1.png",
+      "sha256": "d36f89a1552b8d795a997c7bb91a8405cbe09dad528286521721f196f2456d4b"
+    },
+    {
+      "path": "art/references/arcade_ceiling/arcadeceiling2.png",
+      "sha256": "cab04a2d34427ffe4760f363b62ca5366bf7b99586e8761b3186cd3f2ee3527c"
+    }
+  ],
+  "inspiration": "Turquoise open geometric relief, nested brass borders, stepped ochre mouldings and compact fan crowns; no photographic projection.",
+  "output": "game/assets/building/orison_v2/passage/passage.gltf",
+  "panels": 100,
+  "added_draws": 3,
+  "added_triangles": 22344,
+  "added_lights": 0,
+  "added_collision_bodies": 0,
+  "original_meshes_preserved": 31,
+  "status": "SOURCE_CHECKED_GODOT_NOT_RUN",
+  "buffer_sha256": "18fbeac6f802a8d4a4b05fdb561b86f29d1c31e9e265ed87f2efc3d075452f37"
+}

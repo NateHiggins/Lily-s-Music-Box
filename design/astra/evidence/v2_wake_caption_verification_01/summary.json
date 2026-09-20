@@ -1,0 +1,27 @@
+{
+  "base": "710a150",
+  "boundary": {
+    "checks": 33,
+    "failures": []
+  },
+  "caption_checks": 65,
+  "routes": {
+    "boundary_02": {
+      "waypoints": 8,
+      "failures": []
+    },
+    "captions_01": {
+      "waypoints": 20,
+      "failures": []
+    },
+    "earned_regression": {
+      "waypoints": 138,
+      "failures": []
+    }
+  },
+  "stderr_bytes": {
+    "boundary_02": 0,
+    "captions_01": 0,
+    "earned_regression": 0
+  }
+}

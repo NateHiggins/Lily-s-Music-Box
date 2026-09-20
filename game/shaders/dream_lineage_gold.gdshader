@@ -261,8 +261,9 @@ void fragment() {
 	vec2 irradiance_field = texture(exposure_tex, vec3(
 			v_world.x / exposure_extent, v_world.z / exposure_extent,
 			irradiance_y)).rg;
+	vec3 optical_spectrum;
 	vec4 irradiance = dream_irradiance(v_world, n, irradiance_field,
-			lamp_origin);
+			lamp_origin,optical_spectrum);
 	float awake = irradiance.w;
 	vec4 incarnation_tissue = dream_incarnation_surface(v_world,
 			v_world.xz, irradiance_field.r, awake, awake, 0.0, 0,
@@ -502,6 +503,7 @@ void fragment() {
 	// singles the direct tracker in magenta; view 2 identifies authored gaze
 	// classes from root/room through branch-tip to camera. Non-eye anatomy is
 	// suppressed so an anchor census can be read in one frame.
+	ALBEDO *= mix(vec3(1.0),optical_spectrum,clamp(irradiance.w,0.0,1.0));
 	if (eye_debug_view > 0) {
 		vec3 debug_colour = vec3(0.002, 0.001, 0.003);
 		if (v_eye_state.x > 0.5) {

@@ -1,0 +1,853 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "game/scripts/arcade/swc_entity.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/arcade/swc_package.gd",
+      "direct_players": 2,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction",
+        "Diegetic"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/audio/ambient_soundscape.gd",
+      "direct_players": 2,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Ambience",
+        "Ambience"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/audio/audio_policy.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "State"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/audio/music_director.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "GhostRadio"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/audio/virus_sound_director.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/elevator.gd",
+      "direct_players": 2,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction",
+        "Machinery"
+      ],
+      "semantic_cues": [
+        "state.elevator_travel",
+        "navigation.elevator_arrival"
+      ]
+    },
+    {
+      "path": "game/scripts/building/exterior_detail_pass.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Machinery"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/maintenance_headquarters.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/period_reality_layer.gd",
+      "direct_players": 2,
+      "helper_keys": [],
+      "explicit_buses": [
+        "World",
+        "World"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/room0.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/street_traffic.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "World"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/building/switch_plate.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.switch_on",
+        "interaction.switch_off"
+      ]
+    },
+    {
+      "path": "game/scripts/building/wayfinding_signage_pass.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Navigation"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/call/call_interface.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Telephone"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/cases/case_interactable.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Dialogue"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/cases/mina_case_gameplay.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Dialogue"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/device/service_set_prop.gd",
+      "direct_players": 4,
+      "helper_keys": [],
+      "explicit_buses": [
+        "UI",
+        "UI",
+        "UI",
+        "UI"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/dream/dream_cellular_audio_pool.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/dream/dream_embrace.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/dream/sleep_pressure_director.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/game/maintenance_shop_counter.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.counter_issue"
+      ]
+    },
+    {
+      "path": "game/scripts/player/player_controller.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/baked_furniture_interaction.gd",
+      "direct_players": 7,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction",
+        "Machinery",
+        "Interaction",
+        "Broadcast",
+        "Interaction",
+        "Interaction",
+        "Diegetic"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/bodega_signage_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.inspection_read"
+      ]
+    },
+    {
+      "path": "game/scripts/props/boiler_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "thud",
+        "tick",
+        "hum_loop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/bookshelf_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/boxfan_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "buzz_loop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/building_entry_sign.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.inspection_read"
+      ]
+    },
+    {
+      "path": "game/scripts/props/case_door_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.door_locked"
+      ]
+    },
+    {
+      "path": "game/scripts/props/clock_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/darts_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/dead_letters_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/domestic_radio_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "murmur_loop"
+      ],
+      "explicit_buses": [
+        "Broadcast"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/domestic_witness_clock.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/door_check_closer_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/door_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.door_move",
+        "interaction.door_latch",
+        "interaction.door_locked"
+      ]
+    },
+    {
+      "path": "game/scripts/props/dumbwaiter_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "creak"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/elevator_interlock_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/entrance_marquee_dress.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.inspection_read"
+      ]
+    },
+    {
+      "path": "game/scripts/props/exhaust_fan_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "hum_loop",
+        "tick",
+        "hum_loop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/fire_line_cabinet_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/flue_breast_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "hum_loop",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/fridge_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick",
+        "creak",
+        "hum_loop",
+        "water_droplets"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/functional_prop.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Machinery"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/fuse_panel_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "power_down",
+        "knock",
+        "buzz_loop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/harukiya_signage_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "creak"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/kettle_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "hum_loop",
+        "whistle_loop",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/lamp_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/landmark_entry_door.gd",
+      "direct_players": 2,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction",
+        "Interaction"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/laundry_airer_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/lobby_bulletin_board.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Interaction"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/lobby_orison_ad_board.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.inspection_read"
+      ]
+    },
+    {
+      "path": "game/scripts/props/mail_chute_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "thud",
+        "knock",
+        "creak",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/medicine_cabinet_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "door_squeak"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/monitor_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/otis_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/passage_pushcart.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Architecture"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/point_ball_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/porch_deck_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "creak",
+        "thud"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/possessed_domestic_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/radiator_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "tick",
+        "radiator_whistle"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/roof_tank_ballcock_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "sink_water",
+        "knock"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/shop_sign_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "interaction.inspection_read"
+      ]
+    },
+    {
+      "path": "game/scripts/props/soda_acid_extinguisher_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/songbook_terminal_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "hum_loop",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/speaker_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "buzz_loop",
+        "knock"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/stove_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick",
+        "hum_loop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/tap_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "shower_water",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/toaster_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "hum_loop",
+        "tick",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/tour_key_guard_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "knock"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/tv_prop.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Broadcast"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/vantry_point_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "nav.vantry_fault"
+      ]
+    },
+    {
+      "path": "game/scripts/props/washer_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "agitate_loop",
+        "thud",
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/watch_register_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/watch_station_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "knock",
+        "pop"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/props/watchman_clock_prop.gd",
+      "direct_players": 0,
+      "helper_keys": [
+        "tick"
+      ],
+      "explicit_buses": [],
+      "semantic_cues": [
+        "navigation.watch_clock_beat"
+      ]
+    },
+    {
+      "path": "game/scripts/reality/intrusions.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Hazard"
+      ],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/songbook/mic_recorder.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/ui/songbook_panel.gd",
+      "direct_players": 5,
+      "helper_keys": [],
+      "explicit_buses": [],
+      "semantic_cues": []
+    },
+    {
+      "path": "game/scripts/ui/title_screen.gd",
+      "direct_players": 1,
+      "helper_keys": [],
+      "explicit_buses": [
+        "Nondiegetic"
+      ],
+      "semantic_cues": []
+    }
+  ],
+  "summary": {
+    "files_with_audio_construction": 71,
+    "direct_player_constructions": 49,
+    "make_emitter_calls": 76,
+    "literal_semantic_requests": 16,
+    "helper_key_counts": {
+      "tick": 25,
+      "knock": 14,
+      "hum_loop": 9,
+      "pop": 7,
+      "creak": 5,
+      "thud": 4,
+      "buzz_loop": 3,
+      "murmur_loop": 1,
+      "water_droplets": 1,
+      "power_down": 1,
+      "whistle_loop": 1,
+      "door_squeak": 1,
+      "radiator_whistle": 1,
+      "sink_water": 1,
+      "shower_water": 1,
+      "agitate_loop": 1
+    },
+    "explicit_bus_counts": {
+      "Interaction": 12,
+      "Hazard": 6,
+      "Machinery": 4,
+      "UI": 4,
+      "World": 3,
+      "Broadcast": 3,
+      "Diegetic": 2,
+      "Ambience": 2,
+      "Dialogue": 2,
+      "State": 1,
+      "GhostRadio": 1,
+      "Navigation": 1,
+      "Telephone": 1,
+      "Architecture": 1,
+      "Nondiegetic": 1
+    },
+    "semantic_cue_counts": {
+      "interaction.inspection_read": 5,
+      "interaction.door_locked": 2,
+      "state.elevator_travel": 1,
+      "navigation.elevator_arrival": 1,
+      "interaction.switch_on": 1,
+      "interaction.switch_off": 1,
+      "interaction.counter_issue": 1,
+      "interaction.door_move": 1,
+      "interaction.door_latch": 1,
+      "nav.vantry_fault": 1,
+      "navigation.watch_clock_beat": 1
+    },
+    "unclassified_direct_players": 0,
+    "unknown_literal_semantic_cues": 0,
+    "invalid_catalog_cues": 0,
+    "legacy_helper_budget_excess": 0
+  },
+  "unclassified_direct_sites": [],
+  "unknown_literal_semantic_cues": [],
+  "catalog_failures": [],
+  "legacy_helper_budget_excess": {}
+}
+AUDIO EMITTER AUDIT: PASS (49 direct players; 16 literal semantic requests)

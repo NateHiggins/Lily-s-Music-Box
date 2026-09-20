@@ -1,0 +1,875 @@
+{
+  "schema_version": 1,
+  "furniture": {
+    "2A_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    },
+    "2B_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2B_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    },
+    "3B_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "3B_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    },
+    "4B_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "2A_deck": {
+      "support_source": {
+        "id": "2A_cof",
+        "position": [
+          0,
+          0.3838806653817981,
+          0
+        ]
+      }
+    },
+    "3B_radio": {
+      "support_source": {
+        "id": "3B_tools0",
+        "position": [
+          0,
+          1.822,
+          -0.035
+        ]
+      }
+    },
+    "3A_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "3A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    },
+    "4A_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "4A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    },
+    "5A_plantable": {
+      "source_component": {
+        "assembly": "5A_plantable",
+        "component": "complete_drafting_table"
+      }
+    },
+    "6A_deskwall": {
+      "source_component": {
+        "assembly": "6A_deskwall",
+        "members": [
+          "6A_deskwall",
+          "6A_dwleg_s",
+          "6A_dwleg_n"
+        ]
+      }
+    },
+    "5A_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "5B_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "5C_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "6A_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "6B_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "6C_k_wall_cupboard": {
+      "source_component": {
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
+      }
+    },
+    "5B_k_hob_radio0": {
+      "support_source": {
+        "id": "5B_comparison_table",
+        "position": [
+          -0.27,
+          0.745,
+          0
+        ]
+      }
+    },
+    "5B_k_hob_radio1": {
+      "support_source": {
+        "id": "5B_comparison_table",
+        "position": [
+          0.27,
+          0.745,
+          0
+        ]
+      }
+    },
+    "5B_story_radio": {
+      "support_source": {
+        "id": "5B_din_t",
+        "position": [
+          0,
+          0.735,
+          -0.32
+        ]
+      }
+    },
+    "6C_story_old_radio": {
+      "support_source": {
+        "id": "6C_din_t",
+        "position": [
+          -0.2,
+          0.735,
+          0.15
+        ]
+      }
+    }
+  },
+  "receivers": {
+    "DomesticRadio_2A": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.175
+        ],
+        [
+          0.275,
+          0.35,
+          0.145
+        ]
+      ]
+    },
+    "DomesticRadio_2B": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.17
+        ],
+        [
+          0.24,
+          0.35,
+          0.12
+        ]
+      ]
+    },
+    "DomesticRadio_3B": {
+      "bounds": [
+        [
+          -0.24,
+          0,
+          -0.17
+        ],
+        [
+          0.53,
+          0.38,
+          0.12
+        ]
+      ]
+    },
+    "DomesticRadio_4B": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.17
+        ],
+        [
+          0.24,
+          0.35,
+          0.12
+        ]
+      ]
+    },
+    "DomesticRadio_3A": {
+      "bounds": [
+        [
+          -0.17,
+          0,
+          -0.12
+        ],
+        [
+          0.29,
+          0.25,
+          0.12
+        ]
+      ]
+    },
+    "DomesticRadio_4A": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.175
+        ],
+        [
+          0.275,
+          0.35,
+          0.145
+        ]
+      ]
+    },
+    "DomesticRadio_5A": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.175
+        ],
+        [
+          0.275,
+          0.35,
+          0.145
+        ]
+      ]
+    },
+    "DomesticRadio_5B": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.175
+        ],
+        [
+          0.53,
+          0.38,
+          0.145
+        ]
+      ]
+    },
+    "DomesticRadio_5C": {
+      "bounds": [
+        [
+          -0.17,
+          0,
+          -0.12
+        ],
+        [
+          0.29,
+          0.25,
+          0.12
+        ]
+      ]
+    },
+    "DomesticRadio_6A": {
+      "bounds": [
+        [
+          -0.195,
+          0,
+          -0.14
+        ],
+        [
+          0.195,
+          0.298,
+          0.09
+        ]
+      ]
+    },
+    "DomesticRadio_6B": {
+      "bounds": [
+        [
+          -0.53,
+          0,
+          -0.185
+        ],
+        [
+          0.225,
+          0.35,
+          0.14
+        ]
+      ]
+    },
+    "DomesticRadio_6C": {
+      "bounds": [
+        [
+          -0.225,
+          0,
+          -0.185
+        ],
+        [
+          0.53,
+          0.38,
+          0.14
+        ]
+      ]
+    }
+  },
+  "accessories": {
+    "F02_2A_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F02_2A_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F02_2B_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F02_2B_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F03_3A_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F03_3A_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F03_3B_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F03_3B_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.78
+      ]
+    },
+    "F04_4A_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F04_4A_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F04_B_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.29,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F04_4B_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    "F05_5A_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0.14999999999999858,
+        0,
+        -1.1349999999999998
+      ]
+    },
+    "F05_5A_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        5.755839955992562e-17,
+        0,
+        -0.9400000000000004
+      ]
+    },
+    "F05_5B_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        5.755839955992562e-17,
+        0,
+        -0.9400000000000004
+      ]
+    },
+    "F05_5C_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        -1.1021821192326173e-16,
+        0,
+        -0.8999999999999995
+      ]
+    },
+    "F06_6A_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0.14999999999999858,
+        0,
+        -1.1349999999999998
+      ]
+    },
+    "F06_6A_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        5.755839955992562e-17,
+        0,
+        -0.9400000000000004
+      ]
+    },
+    "F06_6B_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        6.337547185587548e-17,
+        0,
+        -1.0349999999999993
+      ]
+    },
+    "F06_6B_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        5.755839955992562e-17,
+        0,
+        -0.9400000000000004
+      ]
+    },
+    "F06_6C_TOASTER_01": {
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        -0.039999999999999966,
+        0,
+        -1.1349999999999998
+      ]
+    },
+    "F06_6C_MIRROR_01": {
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        -1.1021821192326173e-16,
+        0,
+        -0.8999999999999995
+      ]
+    }
+  }
+}

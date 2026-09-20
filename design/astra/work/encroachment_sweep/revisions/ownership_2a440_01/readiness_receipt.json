@@ -1,0 +1,48 @@
+{
+  "status": "OFFLINE_READY_ENGINE_UNRUN_NO_LIVE_INSTALL",
+  "source_binding": {
+    "status": "PREPARED_NOT_INSTALLED_ENGINE_UNRUN",
+    "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\apartment_floor_ownership_01\\proposed\\game\\scripts\\reality\\apartment_encroachment.gd",
+    "file": "game/scripts/reality/apartment_encroachment.gd",
+    "sha256": {
+      "originals": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+      "proposed": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776"
+    },
+    "scope": "Only reach_props changes. Floor providers and both admission paths retained; one fresh mesh census per call. No persistent cache or callback suppression.",
+    "preserved_historical_revision": "ownership_7c54c_01"
+  },
+  "checks": {
+    "apply_check": {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\revisions\\ownership_2a440_01\\encroachment_sweep.patch"
+      ],
+      "exit": 0,
+      "stdout": "apply_check.stdout.log",
+      "stderr": "apply_check.stderr.log"
+    },
+    "controller_plan": {
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\runtime_plan_2a440_01\\execute.py",
+        "plan"
+      ],
+      "exit": 0,
+      "stdout": "controller_plan.stdout.log",
+      "stderr": "controller_plan.stderr.log"
+    }
+  },
+  "equivalence_expected_checks": 171,
+  "offline_source_gate_controls": 23,
+  "offline_reused_controller_controls": 25,
+  "independent_review": "dream_forensics read exact patch: no definite semantic/type blocker; floor identity and authored priority preserved; no engine or carried-object reassignment claim.",
+  "bindings": {
+    "design/astra/work/encroachment_sweep/equivalence_revisions/ownership_2a440_01/preparation_receipt.json": "b14ce67e547f1d029b5c88870d41980e0e468b61289ef68255ea219b89852363",
+    "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/package.json": "581d257769535d35a27891722ea74fa75487ab567bae639c131f978b48c0f607",
+    "design/astra/work/encroachment_sweep/revisions/ownership_2a440_01/encroachment_sweep.patch": "30829a7818e220767860505522ff85be818f3071187be4eda4116bbdb9cdf3d8"
+  },
+  "pending": "Explicit lane handoff; focused four-run comparison, then actual composed optimizer validation/cost."
+}

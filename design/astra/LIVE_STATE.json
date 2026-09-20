@@ -1,0 +1,568 @@
+{
+  "canonical_branch": "codex/astra-canonical-20260904",
+  "completeness_source": {
+    "audit_id": "orison_v2_completeness",
+    "path": "evidence/renderer_material_commit_audits_01/orison_v2_completeness.stdout.txt",
+    "receipt_path": "evidence/renderer_material_commit_audits_01/receipt.json",
+    "receipt_sha256": "e6bf834a3ff0848f0104031dbfe3451b7ae43b0c86948f4a5af6613948ff6e8d",
+    "repository_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "sha256": "eeefd38e403dfaad4424f638457a7b305c60b0213155cb77132a7038ae4e8c7e"
+  },
+  "frozen_sanitation_base": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "latest_accepted_landing": {
+    "commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+    "runtime_revalidation": "SCOPED_TESTS_PASS_AFTER_REPAIRS; no new human acceptance",
+    "source_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+    "status": "INTEGRATED"
+  },
+  "latest_calendar_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+  "latest_repair_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "latest_save_title_commit": "9548301873807117a870aeb6e517173e81a4713f",
+  "ledger_evidence_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "policy": "The selected static audit binds renderer/material commit 77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4 and2328 stable explicit text/glTF inputs. Its broader text suffix coverage is declared in the binding receipt; native assets have separate protected/runtime manifests. The two owners and fourteen fixtures are committed with exact failed/control/final evidence. Later V2 fixture/C1 work is not included. Historical runtime receipts retain their original HEAD and captured overlays. Static or bounded runtime success grants no human, visual or release acceptance.",
+  "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+  "schema_version": 1,
+  "latest_time_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+  "latest_navigation_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "latest_renderer_material_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "current_f01_source_replay": {
+    "path": "evidence/f01_source_replay/installed_01/receipt.json",
+    "sha256": "020e2bca59cc397687398b6ae717d7ac323b2a3a8a2bdb9b7bd6ef679bf68a95",
+    "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "source_reference": "c34ad283df148496fbd98e68638470835c930c5c",
+    "status": "SOURCE_REPLAY_VALIDATED",
+    "scope": "Ten attributable source files committed with their source-bound tests. The selected static audit at renderer/material HEAD excludes these later additions; no geometry adoption.",
+    "integration_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50"
+  },
+  "current_f01_export": {
+    "path": "evidence/f01_source_export/export_01/summary.json",
+    "sha256": "764ce33a56f6b9f6bea11b491ae33a17fd77508be5e8d63acd2053edd052ce0c",
+    "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "status": "TWO_EXPORT_BYTE_OWNERSHIP_ALIAS_CHECKS_PASS_HUMAN_PENDING",
+    "scope": "External deterministic reconstruction only. No generated production asset, provider, streaming, traversal, human acceptance or release proof.",
+    "evidence_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50"
+  },
+  "latest_f01_source_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+  "current_v2_terminal_repair": {
+    "status": "FOCUSED_INPUT_AND_CAPTURE_VERIFIED_COMMITTED",
+    "base_head": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+    "input_review": "reviews/v2_terminal_access_arrival_02_review.json",
+    "input_review_sha256": "9128b8815edbf5d603220cacfeee9c05f66e89efed862c2fb1cda3e67baa0c04",
+    "capture_review": "reviews/v2_terminal_candidate_view_01.json",
+    "capture_review_sha256": "3a11228440443cc91524df8718e95138039afb5dc1810a2510178510ce3fd871",
+    "sources": {
+      "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+    },
+    "scope": "39-check actual controlled-pose input with selective negatives and21-check operator/phone capture. No traversal, complete case, performance, visual or human acceptance.",
+    "integration_commit": "02fcb18a209624c9b609b65fb44b05b45c65de09"
+  },
+  "latest_v2_terminal_commit": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "current_v2_reservation_display": {
+    "status": "FOCUSED_RUNTIME_AND_MATCHED_CAPTURE_VERIFIED_COMMITTED",
+    "base_head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+    "review": "reviews/v2_reservation_completed_03.json",
+    "review_sha256": "7e3062fdacbe72402234bc034840c4e564f9ab9b56d71416c76599e85d963773",
+    "scope": "78 display-only guides suppressed in V2 production; dedicated review defaults visible. 28/25/28 runtime checks, terminal39 and directly viewed21 capture. Art, traversal, performance and human acceptance remain open.",
+    "integration_commit": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97"
+  },
+  "latest_v2_reservation_display_commit": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+  "current_f01_provider": {
+    "status": "OPTIONAL_INPUTS_INSTALLED_ORIGINAL_PRODUCTION_ROOT_RESTORED_NATIVE_WORK_PAUSED_BY_OWNER",
+    "base_head": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+    "continuation": "work/f01_provider_execution_05/README.md",
+    "source_seal_sha256": "7cc02545352dc4bb2076a2ef501416be40cf00455fc4024471f3cc9f79e5f6b0",
+    "observed": "Clean revised import; registry44; legacy22 with independently established found-art warning; candidate32 functional pass with foreign native overlap, exact additive recovery. No controlled candidate acceptance.",
+    "owner_steering": "Godot reauthorized; preserve exclusive serial lane and prepare fresh continuation baselines.",
+    "remaining": "Fresh candidate/omission/restored sequence; matched capture, physical routes, save/export and actual V2 consumer; no selector or release approval.",
+    "baseline_note": "execution_05 and capture_01 baselines predate connected V2 source edits; prepare a new baseline before resuming and preserve prior seals."
+  },
+  "current_v2_connected_world": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN",
+    "base_head": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+    "continuation": "work/v2_connected_world_01/README.md",
+    "source_checks": "work/v2_connected_world_01/source_checks.json",
+    "scope": "Actual explicit V2 runtime composes street and bodega with shared services; named front-door frame and arrival; derived open portal. No streaming or default cutover.",
+    "native_status": "Paused under owner source-work instruction. Previous runtime proofs remain scoped to their recorded hashes.",
+    "remaining": "Native compilation, composed reconstruction test, capsule route and purchase, matched views; full V2 remains unfinished."
+  },
+  "current_v2_default_preparation": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "409bcac716ede34da837879296fd961472a8a913",
+    "continuation": "work/v2_default_source_01/README.md",
+    "source_checks": "work/v2_default_source_01/source_checks.json",
+    "scope": "Runtime atmosphere using production sky and DayNightDirector; schedule-driven durable shop simulation; seven individually reviewed spatial bindings.",
+    "owner_steering": "Continue everything possible without launching Godot toward V2 default.",
+    "remaining": "Structural and runtime cutover contract remains open; prepared selector patch is unapplied."
+  },
+  "current_v2_f03_program": {
+    "status": "SOURCE_GEOMETRY_IMPLEMENTED_NATIVE_UNRUN",
+    "base_head": "7e8377e7441e1e1c86cd73e67458fe5d2befd6d5",
+    "continuation": "work/v2_f03_program_01/README.md",
+    "source_checks": "work/v2_f03_program_01/source_checks.json",
+    "scope": "F03 public/service connection and 3B domestic room geometry; riser bypass and supported service threshold; existing Omar radiator mounted.",
+    "remaining": "Functional fittings, remaining F03 apartments, actual vertical/capsule/controller proof, full cutover requirements. Godot remains unlaunched."
+  },
+  "current_v2_f03_fittings": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "5ecd79c938fbbab8b8143e22204eb9a4527e923a",
+    "continuation": "work/v2_f03_fittings_01/README.md",
+    "source_checks": "work/v2_f03_fittings_01/source_checks.json",
+    "audits": "evidence/v2_f03_fittings_01/receipt.json",
+    "scope": "Five existing 3B domestic appliance implementations mounted at named anchors; original settings and fridge acoustic identity preserved; five operating stances.",
+    "remaining": "Native compile, moving-body clearance, targeting, saved-state and visual proof; WC, sleeping furniture and repair-work presentation; spatial binding review and full cutover requirements."
+  },
+  "current_v2_f03_furniture": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "80262a365e9dcf421f3546a2637eb94e4576d8ad",
+    "continuation": "work/v2_f03_furniture_01/README.md",
+    "source_checks": "work/v2_f03_furniture_01/source_checks.json",
+    "audits": "evidence/v2_f03_furniture_02/receipt.json",
+    "scope": "Individual source-derived 3B bed, machinist bench and WC; existing WC flush behavior and V2 teardown; named placements and standing clearance.",
+    "remaining": "Native compile, actual traversal/input, material and audio review, saved-state proof; tools, operable repair-work and remaining interiors; spatial binding review and cutover contract."
+  },
+  "current_v2_f03_storage": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "3a4ffbd7907fa6e3320388eceaf776c650be639b",
+    "continuation": "work/v2_f03_storage_01/README.md",
+    "source_checks": "work/v2_f03_storage_01/source_checks.json",
+    "audits": "evidence/v2_f03_storage_01/receipt.json",
+    "scope": "Original 3B nightstand, two sorting shelves and wardrobe with existing leaf interaction; scoped material coverage and sampled swing versus standing positions.",
+    "remaining": "Native compile, input/animation/audio/visual and saved-state proof; individual spatial binding review, bench equipment and repair interactions, remaining apartments and cutover."
+  },
+  "current_v2_native_resume": {
+    "status": "FOCUSED_NATIVE_PASS_VISUAL_REVIEW_FAIL_DEFAULT_UNCHANGED",
+    "base_head": "50884aed1c5f4006778faccc12f6ef93dd451741",
+    "continuation": "work/v2_native_resume_01/README.md",
+    "receipt": "evidence/v2_native_resume_01/receipt.json",
+    "native_permission": "Owner explicitly resumed Godot; use shared serial runner.",
+    "results": "Rendered connected world 212/0; shop simulation 19/0; final stderr empty.",
+    "remaining": "Superseded in part by current_v2_completion_resume; full visual acceptance, spatial reviews and cutover remain open."
+  },
+  "current_v2_completion_resume": {
+    "status": "ACTIVE_CANONICAL_V2_IMPLEMENTATION_DEFAULT_UNCHANGED",
+    "owner_steering": "Continue working toward V2 until finished; Godot authorized through the shared serial runner.",
+    "canonical_worktree": "C:/PleaseRemainOnTheLine-astra",
+    "latest_committed_head": "17c7b3b",
+    "lighting": "2277a22: four room fixtures, bench lamp, four physical switches; 374 connected-world checks pass. Player-camera room views captured with carried lamp off.",
+    "domestic_route": "eea3c0d: four production 3B doors; 51-check continuous player-input route through entry/main/kitchen/alcove/bath/service exit passes, including lamp/wardrobe/WC targeting.",
+    "save_reconstruction": "e3fa1b4: detached prop-event lifecycle repaired; four lifetime checks and all 30 four-direction disk-save/calendar matrix checks pass. Known V1 found-art warning remains.",
+    "vertical_route": "28433d2: stacked-stair false ceiling repaired; 61-waypoint primary/service/B1 climb and return passes. Structural suite now checks F03/F04 stations on their authored floors.",
+    "service_runtime": "Current M08F 29-check direct-owner service-round/save reconstruction passes with empty stderr; not upgraded to unmeasured resource-retention proof.",
+    "evidence": [
+      "evidence/v2_3b_lighting_02/README.md",
+      "evidence/v2_3b_routes_01/README.md",
+      "evidence/v2_save_resume_01/README.md",
+      "evidence/v2_vertical_route_01/README.md",
+      "evidence/v2_runtime_resume_01/README.md",
+      "evidence/f01_provider_execution_07/README.md",
+      "evidence/v2_passage_connection_01/README.md",
+      "evidence/v2_passage_connection_02/README.md",
+      "evidence/v2_passage_residency_01/README.md",
+      "evidence/v2_street_boundaries_01/README.md",
+      "evidence/v2_case_one_placement_01/README.md",
+      "evidence/v2_golden_repair_01/README.md",
+      "evidence/v2_visit_clock_01/README.md",
+      "evidence/v2_2a_controls_01/README.md",
+      "evidence/v2_mina_routine_01/README.md",
+      "evidence/v2_lamp_integration_01/README.md",
+      "evidence/v2_lamp_particles_01/README.md",
+      "evidence/v2_lamp_finish_01/README.md",
+      "evidence/v2_subway_relocation_01/README.md",
+      "evidence/v2_earned_conversation_01/README.md",
+      "evidence/v2_recurrence_route_01/README.md",
+      "evidence/v2_mina_physical_residue_01/README.md"
+    ],
+    "next": "Finish waking architectural/room presentation and remaining V2 program; profile expanded exposure storage/upload cost before release. Played Mina Dream/wake is now verified, not all cases/hazards or full visual approval.",
+    "remaining": "V2 is unfinished: construction seam/Passage, actual streaming/F01 provider acceptance, complete golden shift, F05/F06/full B1/roof, remaining apartments and cast, derived acoustic topology, full consumer/resource/performance and human acceptance, selector cutover. No release or default flip claimed.",
+    "connected_route": "37f0307: 18 continuous player-input waypoints, building/street/bodega/return; actual door/counter targeting and wrong-shop inventory authority pass.",
+    "f01_provider": "Exact optional provider integrated after 32/30/32 controlled comparison, paired 305-check/18-image captures, and actual Windows packed-resource validation. Legacy provider and V1 selector defaults retained.",
+    "passage_route": "Real V2 resident arcade integration: 13 geometry cells, source doors/lights/signs/hours, shared hardware counter. 36 continuous input waypoints with physical capsule acquisition and return; 374 composition checks; 34-check disk/calendar/inventory matrix in all four V1/V2 directions; 18-waypoint bodega regression. Shared shop-service initialization repaired.",
+    "passage_residency": "Production threaded geometry residency: 42 actual-input waypoints, two cycles, zero retired geometry/mesh WeakRefs, door/cart identity preserved, exact shader/texture parity; final stage peak 7.311 ms. Five in-flight shutdown checks, 369 composition checks and 34 four-direction disk-save checks pass. Physical actors remain allocated; no disk actor persistence or full performance acceptance claimed.",
+    "street_boundaries": "Retained west spans plus covered east construction dogleg integrated; 24 continuous waypoints, 13 west/default compatibility checks and 18-waypoint bodega regression pass. Surrounding fabric and whole-world containment remain unfinished.",
+    "case_one_placement": "Seven case-owned objects/source positions mapped to named V2 reservations, supported desks and distinct cards/book/pencil, main pendant; 21-waypoint actual input route. Caption cycling now advances from durable selection; 38 disk-save checks in all four V1/V2 directions pass. Full golden shift and resident manifestation remain open.",
+    "golden_first_repair": "67 continuous V2 input waypoints: physical listening-head inspection, actual hardware acquisition, return and repair of same head; purchased capsule consumed, source quiet, first stabilization and conversation_pending. First-calibration bypass repaired with red/green full Mina gameplay controls. Physical resident encounter and full recurrence/wake remain open.",
+    "visit_clock": "Earned shift transition advances authoritative campaign time to next 23:43, saving time and recurrence together; 21 boundary/disk-reload controls and rendered legacy golden loop 87/87 pass. Full V2 resident/recurrence/wake remains open.",
+    "case_room_control": "2A pendant moved unchanged into shared semantic circuit with physical wall switch; 25-waypoint carried-lamp-off route and 439 composed rendered checks pass, empty stderr. No disk switch state or apartment completion claimed.",
+    "mina_routine": "Physical timetable-driven Mina: bodega, domestic, mail, laundry and observed off-map round trips pass. Corrected own-skeleton idle and case activation. 73-waypoint actual complaint/repair; 17 laundry and 16 mail player waypoints; 521 composition, 29 service and 38 four-direction disk-save checks pass. Exact actor travel persistence and activities remain open.",
+    "lamp_optics": "Shared voxel air and world-space dust now consume the preserved thermal controller; real spotlight and modeled lens follow the same state. Optional validated disk snapshots restore across all four V1/V2 directions. Final composed 31/0, focused driver 22/0, save recovery 195/195, matrix 42/0. Photographic overlay absent; native mesh shadows retained; ecological field untouched. Full visual/material/performance acceptance remains open. See v2_lamp_particles_01 packet.",
+    "lamp_tuning": "V2 base energy 1.5, finite aperture .018 m, neutral scattering. Frozen thermal/pose review, 32 composed checks, 73-waypoint physical repair pass; stderr empty. Forced composed voxel compute median .019744 ms/max .060608 ms; total-effect GPU overhead not established. Base beam tuning checkpoint, not complete cellular/material optical acceptance.",
+    "subway_entrance": "Owner-requested kiosk relocation: entire source assembly rotated along opposite sidewalk outside arcade, real pavement opening, existing closed gate preserved. Final 18-waypoint loop and approach plus 76-waypoint repair/conversation pass; empty stderr. See v2_subway_relocation_01.",
+    "earned_conversation": "76 continuous waypoints now reach physical Mina after actual repair, persist the first-stable interpretation and release movement. Recurrence/integration/dream/wake remain open.",
+    "lamp_material_performance": "Dust phase response preserves native mesh shadows and multi-light attenuation; empty fog skips noise; logical-off releases the lamp-owned fog pass and teardown restores environment state. Material controls 5/0 and composed 35/0, empty stderr. Frozen fog optimization differs by <=1 8-bit code value. Paired 720p atmosphere estimates 0.225-0.315 ms with order-bias caveats; ordinary composed forced injection median .020160 ms. Full cellular/glass/SSS material integration and release performance remain open. See v2_lamp_material_performance_01.",
+    "lamp_glass_integration": "Actual 3B bedside glass receives native clear dielectric shading plus a lamp-only optical haze layer sharing the air/dust field. V2-local registry handles late lights, receiver removal, failure hiding and owned render-mask restoration. Focused final 13/0, composed 38/0, empty stderr; native/haze/native capture restores exact pixels and measures 616/617/616 draws. Clear bedside consumer only, not identified green table glass. Cellular families and human/full performance acceptance remain open. See v2_lamp_glass_integration_01.",
+    "lamp_material_families": "Opaque globe/flesh lids separated from transparent cornea/membrane; native wet/gold/fiber/crystal shadow response verified. Dream architecture/lineage/fauna now consume instantaneous optics in Dream and late V2 surfaces, preserving ecological accumulation. Six scoped suites: 150 checks, no failures, empty stderr. Cloud interiors, full mesh voxel occlusion, spectral transfer, authored anatomy and full material acceptance remain open. See v2_lamp_all_materials_01.",
+    "lamp_scene_shadow": "Actual opaque scene depth now shadows the room and hero near optical cascades in V2 and Dream. Shared spectrum, thickness-dependent membrane transfer, and raw compute export inclusion repaired. 142 scoped checks plus packed negative/candidate pass; final stderr empty. Sealed cloud transport and internal-depth occlusion proven technically but not yet attached to authored creature interiors. Performance records include separate geometry-view and near-cascade costs. Full material/art/human acceptance remains open. See v2_lamp_scene_shadow_01.",
+    "lamp_tessellate_interior": "Actual Tessellate wine tissue now integrates 24-step cloudy depth transport beneath unchanged authored triangles; opaque existing parts supply internal silhouettes. 147 scoped checks pass, empty final stderr. Interleaved material delta median .281 ms; combined V2 optical estimate 1.064 ms median at 720p on RTX 4080, with timing spread and no worst-case guarantee. Visual/S2J and full-game acceptance remain open. See v2_lamp_tessellate_interior_01.",
+    "earned_recurrence_and_wake": "138 continuous V2 waypoints earn both visits, factual calibration, real talk, integration and exactly one dream request; real save consumed by actual CampaignShell Dream/V2 reconstruction. Fixed missing V2 factual wake residue binding: negative 14-check boundary exposes omission, final 17/17 includes disk reload/idempotence and old-world release; existing Mina gameplay regression passes. Actual fridge/caption presentation and played Dream route remain open. See evidence/v2_recurrence_route_01/README.md.",
+    "mina_physical_presentation": "Actual 2A monitor-top fridge and source-exact 476-triangle sofa mounted. Earned refrigerator residue follows the moving food door; original local case captions attach to sofa, desk, window and moving Mina. 43 checks across 20 kitchen/room waypoints, full 138-waypoint earned-case regression, and 19/19 Dream/wake/lifetime/disk checks pass; final stderr empty. Remote captions/full apartment and 4B presentation remain open. See evidence/v2_mina_physical_residue_01/README.md.",
+    "wake_room_source_checkpoint": "Bed and nightstand integrated from existing assembly geometry with new V2 specifications. Deterministic/static checks pass; Dream boundary and six-waypoint wake egress check authored but unexecuted because foreign Jawbreaker Godot test owns lane. See evidence/v2_4b_wake_room_01/README.md. No engine or visual acceptance claimed.",
+    "wake_room_lighting_checkpoint": "4B alcove ceiling fixture and physical switch added through existing semantic circuit owner. Existing lighting records unchanged; anchor checks pass. Extended pending earned-wake test covers actual switch ray/input, power toggle/restore and return to bedside. Engine lane remained occupied by Jawbreaker/comparison tests; runtime and visual verification still pending. See evidence/v2_4b_wake_lighting_01/README.md.",
+    "remote_captions_source_checkpoint": "V2 remote caption display now consumes acoustic arrivals only for mounted FunctionalProp subjects; retains original thresholds/sampling/cap/text and attaches to actual subject. Rejects inactive-stage arrivals and clears old recurrence text. Eight scoped scripts pass independent gdtoolkit syntax parsing. Added actual composed-room signal controls and boundary lifetime check, still unrun because shared Godot lane remains occupied. See evidence/v2_remote_captions_01/README.md.",
+    "wake_and_caption_verification": "33/33 earned Dream boundary checks, eight wake/switch waypoints, 65 checks across 20 caption-route waypoints, and full 138-waypoint earned recurrence regression pass with empty final stderr. Corrected standalone test mouse capture and world-space review camera; no production behavior changed this checkpoint. Initial failed switch test preserved. 4B enclosure/default wake presentation remain visually unfinished. See evidence/v2_wake_caption_verification_01/README.md.",
+    "wake_enclosure_source_fix": "Found missing 3.4 m east alcove boundary: moved full wall ownership to alcove, removed duplicate approach ownership, and fitted opening to shared span (1.8 m). Before/after source checks and independent syntax parsing pass. Added three owned collision-ray checks to earned boundary test. Runtime/capture validation pending because foreign Jawbreaker Godot tests occupy lane. See evidence/v2_4b_enclosure_01/README.md.",
+    "wake_enclosure_verification": "Missing east wall verified fixed: 36 checks and eight physical wake/switch waypoints, empty stderr. V2 authored facing target then passes 37-check real Dream/wake/lifetime/disk run; actual wake capture faces bed and no longer shows sky gap. Corrected test Node type declaration. Legacy CoreLoop compatibility also passes with empty stderr, including unchanged orientation for anchors without a facing target. See evidence/v2_4b_enclosure_01/README.md.",
+    "played_dream_harness": "Added OrisonV2PlayedDreamTest: ordinary forward input through live room-door routes, autonomous pursuit/hazards and natural ending; records distance/rooms/collision/outcome/captures then inherits real wake/4B/disk checks. Shared boundary completion now has an overridable hook and fails cleanly. Syntax/source checks pass; runtime pending because foreign Godot occupied lane. See evidence/v2_played_dream_01/README.md.",
+    "architectural_material_integration": "Owner correctly identified unmaterialed V2 architecture. Added seven catalogue architectural families to runtime generator and enabled cached layered surface assignment on physical V2 meshes; existing material records unchanged. Removed overlapping BedHomeContext/demo light/nearby route band in playable root. Actual earned boundary: 46/46 checks, 1,057 bound meshes with real opaque texture maps, empty stderr. Wake capture still too dark after demo-light removal; real fixture diagnostics pending (foreign Godot lane). No visual/performance acceptance. See evidence/v2_architectural_materials_01/README.md.",
+    "architectural_light_diagnosis": "Real 4B fixture confirmed powered/visible, correct floor/world position and live energy (~1.498). Baseline and 3.0 energy-scale trial each pass 46 checks with empty stderr. Trial brightened bedding without resolving wall readability and was reverted to 1.25. No accepted lighting change. Played-Dream launch refused again by foreign Jawbreaker tests; dedicated engine window needed.",
+    "played_dream_verification": "Actual earned Dream traversed using normal run/forward/lamp-toggle inputs with autonomous hazards/pursuit: final 61.44 m through six rooms, natural capture, real V2 wake, eight bedside/switch waypoints and disk reload; 53 checks pass, empty stderr. Lamp-on control reached two rooms/7.51 m and natural trunk contact with 1.333 s warning. Longer run exposed 48 m exposure tile overflow and early runner impact; expanded tile to 96 m at unchanged .5 m cells and enforced non-positional minimum warning. Focused hazards45/exposure36 pass with expected negative-control warnings. Full visual/performance acceptance remains open. See evidence/v2_played_dream_01/README.md."
+  },
+  "exposure_packing_candidate": {
+    "status": "SOURCE_READY_RUNTIME_PENDING",
+    "packet": "evidence/v2_exposure_packing_01/README.md",
+    "change": "Pack only live room columns into the unchanged 96 m RG8 volume; exact dense-reference, GPU readback and paired timing harness added. Syntax passes; runtime repeatedly refused due to foreign Jawbreaker Godot runs. No measured speedup or parity claimed. Candidate remains uncommitted pending verification.",
+    "next": "Obtain free serial Godot lane, run DreamExposurePackingTest and DreamExposureTest, inspect stderr and timings, then retain or revise candidate and replay the played Dream route."
+  },
+  "v2_4b_main_furnishing": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_main_furnishing_01/README.md",
+    "scope": "Source-derived 4B couch and bookshelf mounted through two V2 furniture anchors; six catalog book-cover materials added using shipped textures. Source geometry, containment, route-clearance and repeatability checks pass; prior 10 furniture and 42 material records preserved. Generator now rejects missing textures before writes. Boundary lifetime/reconstruction assertions added but not run.",
+    "constraint": "Owner requested no Godot; no engine launched. Exposure packing remains a separate uncommitted runtime-pending candidate.",
+    "next": "When owner permits Godot, verify material loading, actual main-room route, Dream retirement/wake reconstruction, visuals and exposure-packing measurements."
+  },
+  "v2_4b_bath_furnishing": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_bath_furnishing_01/README.md",
+    "scope": "Source toilet and functional lavatory mounted through 4B bath anchors. V2 sinks now receive solid visual-bounds collision; existing 3B sinks affected. Source checks/repeatability/syntax pass; prior records preserved.",
+    "constraint": "No Godot launched per owner instruction. Runtime routes, controls, lifecycle and visual checks pending.",
+    "next": "Continue V2 source integration. BoilerTend is not yet composed in V2; do not mistake tap mounting for dynamic boiler/service integration."
+  },
+  "v2_hot_water": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_hot_water_01/README.md",
+    "scope": "One existing BoilerTend composed after four V2 taps/shower mount; initial and subsequent plant output feeds existing temperature readers. Shared boiler/tap/balance owners unchanged.",
+    "checks": "Syntax and source ordering/identity checks pass; real V2 two-reconstruction harness prepared but not run.",
+    "remaining": "Godot forbidden for now. Dynamic radiator balance, plant persistence, full plumbing topology and runtime/visual acceptance remain open."
+  },
+  "v2_4b_room_lighting": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_room_lighting_01/README.md",
+    "scope": "Main-room pendant and bath flush-dome with separate physical switches; source anchors/circuit preservation/syntax pass. 2B radiator now explicitly binds inventory and graph identity.",
+    "limits": "No Godot launched. Switch targeting, appearance, fixture budgeting, radiator custody and new boundary assertions remain unverified. Existing development lights remain. Whole-building heat balance and plant persistence still open."
+  },
+  "v2_4b_kitchen_appliances": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_kitchen_appliances_01/README.md",
+    "scope": "Authored 4B gas range and oak icebox mounted via kitchen anchors. Shared V2 loader now adds solid bodies to stoves/fridges as well as sinks. Source identity, placement, preservation and syntax checks pass.",
+    "limits": "No Godot launched. Existing 2A/3B appliance routes also need collision regression. Counter-supported kitchen sink, lighting and visual presentation remain unfinished."
+  },
+  "v2_4b_sink_counter": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_sink_counter_01/README.md",
+    "scope": "Authored four-piece worktop with new open support frame, compact kitchen TapProp and countertop catalogue material integrated. 144 triangles. Source winding, bowl clearance, preservation, repeatability and syntax pass.",
+    "limits": "No Godot launched. Coarse counter collision requires sink targeting/physical route checks. Kitchen lighting, pipe presentation, complete service/persistence and visual acceptance remain open."
+  },
+  "v2_4b_service_lighting": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_service_lighting_01/README.md",
+    "scope": "Kitchen and private-hall flush-dome fixtures with physical switches through existing room circuits. Source placement, doorway clearance, preservation and syntax checks pass. Playable reservations confirmed hidden and non-colliding.",
+    "limits": "No Godot launched. Physical switch use, budget behavior, illumination, wake tests and visuals remain pending; existing development lights retained."
+  },
+  "v2_4b_terminal_desk": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_terminal_desk_01/README.md",
+    "scope": "New oak-topped terminal desk replaces schematic workspace blocks only in playable V2. Existing instrument, desk zone, semantic identity and lighting preserved. Source dimensions, winding, stance clearance, repeatability and syntax pass.",
+    "limits": "No Godot launched. Solid desk collision, terminal targeting, physical use, lifecycle and appearance remain unverified; coarse collider does not establish knee clearance."
+  },
+  "v2_furniture_collision_pieces": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_furniture_collision_pieces_01/README.md",
+    "scope": "Desk and sink counter now use collisions from their visible frame blocks, preserving open centre/cutout. Nine and twelve pieces; optional bounded validated data, other furniture unchanged. Source openness/solid surfaces, preservation, regeneration and syntax pass.",
+    "limits": "No Godot launched. Physics rays, actual player/prop clearance, targeting, lifecycle and added-shape cost remain pending. Sink fixture retains its separate body."
+  },
+  "v2_4b_closet": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_closet_01/README.md",
+    "scope": "Shared equipment-shelf design placed in closet, production DoorProp replaces placeholder leaf, and switched ceiling fixture added. Source containment, approach/sweep estimates, preservation, repeatability and syntax pass.",
+    "limits": "No Godot launched. Narrow-route passage, physical interactions, hardware sweep, lighting, lifecycle and visuals remain pending. Fixed shelf containers are not interactive inventory storage."
+  },
+  "v2_4b_right_hinge_doors": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_right_hinge_doors_01/README.md",
+    "scope": "Hall and bathroom now use production DoorProp with authored right hinges and positive scale. Source hinge/latch, swing direction, desk-clearance estimate and syntax checks pass. Pending desk physics rays corrected from building-local to world coordinates.",
+    "limits": "No Godot launched. New leaves start closed; physical interactions, route passage, swept hardware clearance, reconstruction and visuals remain pending. V2 is not the default."
+  },
+  "v2_4b_entry_door": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_entry_door_01/README.md",
+    "scope": "4B entry now uses the production apartment subtype and unit identity with authored left hinge and inward swing. Prior eight specs, layout and shared DoorProp preserved. Sampled collider sweep stays in vestibule/threshold. Four-door route and wake reconstruction checks prepared.",
+    "limits": "No Godot launched. Physical opening, passage, closing, collision restoration, reconstruction and appearance remain unverified. Previous runtime receipts predate the solid 4B doors; no default cutover."
+  },
+  "v2_4b_shower": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_shower_01/README.md",
+    "scope": "4B shower mounted with shared materials and existing boiler supply; six water fittings now composed. Both V2 showers receive low receptor collision and independent physical hot/cold targets. Existing shared tap, player and boiler owners preserved. Source geometry/preservation/syntax checks pass; player-input and lifecycle checks prepared.",
+    "limits": "No Godot launched. Actual valve/curtain targeting, receptor stepping, 3B/4B routes, flow presentation, materials and lifetime remain pending. Saved valve/curtain state, full plumbing and default cutover remain open."
+  },
+  "v2_sink_controls": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_sink_controls_01/README.md",
+    "scope": "Four V2 sinks now use physical hot/cold targets and lower-hull plus splash collision. Removed the broad sink Area that dispatched to the curtain-only handler. Shower control factory shared with placement and receptor data preserved. All six water fittings covered by prepared control/lifetime checks; 4B sink input routes prepared.",
+    "limits": "No Godot launched. Runtime targeting, physical routes, water presentation and lifecycle remain pending. Lower sink hull remains coarse; stopper access, precise bowl collision, saved valve state and default cutover remain open."
+  },
+  "v2_apartment_batches": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "owner_workflow": "Work in category passes across apartments: toilets, sinks, remaining furniture/props. Do not return to one-fixture-per-turn work. Godot remains prohibited for now.",
+    "packet": "evidence/v2_apartment_batches_01/README.md",
+    "inventory": "work/v2_apartment_batches_01/apartment_inventory.json",
+    "scope": "21 additions: two toilets, four sinks, two showers, three appliances, eight source furniture pieces and two open sink stands. All four detailed V2 apartments now have complete toilet/sink/shower/stove/fridge source rosters. 28 furniture, 20 fittings, 12 water consumers. Prior records preserved; regeneration, placement/material and syntax checks pass. Batch reconstruction/active-tween teardown harness prepared.",
+    "next": "Batch room lighting/switches, seating/tables/work surfaces, storage and small props across available rooms; establish remaining source units' V2 room programs and repeat category passes.",
+    "limits": "No Godot launched. Twenty source unit IDs lack detailed V2 apartment rooms. Actual passage, interactions, dynamic clearances, visuals, performance and lifecycle remain pending. Full furnishing and default cutover are not complete."
+  },
+  "v2_apartment_lighting_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_lighting_batch_01/README.md",
+    "scope": "15 fixtures, 15 physical switches and 15 stances complete the source circuit roster for all 26 detailed apartment spaces. Existing records and shared power/budget owners preserved. Source placement and repeatability pass; circuit-isolation/reconstruction and authored-stance input checks prepared.",
+    "limits": "Godot remains prohibited. Physical targeting, lighting/material appearance, performance, persistence and lifecycle unverified. V1 remains default."
+  },
+  "v2_apartment_seating_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_seating_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "19 furniture pieces: four meal tables, eight dining chairs, writing desk, three work chairs, fabric worktable and two shelves. 47 furniture total. Five obsolete solid 2B planning masses retire after replacements mount. Old furniture preserved; placement, 2621 approach samples and repeatability pass.",
+    "next": "Continue category passes for storage/surface props and apartment doors, then remaining unit room programs. Preserve the owner direction to batch across apartments.",
+    "limits": "Source only; no Godot. Twenty source unit IDs lack detailed V2 rooms. Fixed chairs and coarse table hulls do not establish sitting or knee clearance. Full routes, runtime/visual acceptance, performance and default cutover remain pending."
+  },
+  "v2_apartment_doors_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_doors_batch_01/README.md",
+    "scope": "Eight production leaves complete all sixteen doors in the four detailed apartments. Two 2A swing sides and bedroom approach corrected to keep the resident route clear; Mina opens her own home doors through the shared API. Seven furniture/stance anchors relocated after detecting overlap with separately owned case tables.",
+    "checks": "Source sweeps against furniture/fittings/case tables, 1647 resident-route samples and 3755 player-route samples pass. All affected GDScript syntax parses; runtime input, timetable and teardown checks prepared.",
+    "next": "Continue category passes for storage and surface props, audit full room/wall programs and extend the remaining twenty source unit IDs. Include separate case/service collision owners in occupancy checks.",
+    "limits": "Godot prohibited; physical motion, target visibility, hardware/jamb clearance, visuals, acoustics, persistence, performance and lifecycle unverified. V2 not complete or default; S2J remains open."
+  },
+  "v2_apartment_surface_props_and_walls_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_surface_props_and_walls_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "19 support-owned surface props across all four detailed apartments; 9148 triangles using shared furniture materials. Fifteen missing wall intervals across eleven room edges now have explicit bounded ownership; all 26 detailed apartment boundaries audited. Existing semantic records preserved.",
+    "checks": "Support/material/separation and repeatability checks pass. New wall solids avoid furniture/fitting estimates and separate case tables; 6754 source route samples pass. Existing seating/lighting/door checks and independent syntax parse pass. Composition, teardown, aperture and malformed-input engine checks prepared.",
+    "next": "Batch remaining cabinetry/storage, coffee tables, boards and equipment. Establish room programs for twenty other source unit IDs, remaining levels/services and persistence. Run prepared runtime/visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. Physical contact/targeting, visuals, voxel shadow participation, complete routes, seams/light containment, performance and lifecycle remain unverified. Small fixed decoration adds no collision or inventory behavior. V2 incomplete; V1 remains default; S2J open."
+  },
+  "v2_storage_tables_boards_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_storage_tables_boards_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "Ten pieces: four kitchen wall cupboards, two coffee tables, two pinboards, toolboard and parts crate. 1116 triangles; furniture total 57. Added canonical timber/plywood to the runtime material contract with all 49 old definitions preserved. Kitchen component metadata distinguishes upper cabinets from incomplete lower aggregates.",
+    "checks": "3D placement and wall support; 6876 source route samples; 17 domestic/service leaves at 201 sweep samples each; standing clearances; preservation and byte-identical regeneration pass. Seating, lighting, door, wall and surface-prop checks pass. Independent syntax parse passes; category/material/lifetime engine checks prepared.",
+    "next": "Remaining lower kitchen cabinetry decisions and television/reel-deck/radio integration with real media/interaction owners. Detailed room programs for twenty other source unit IDs; remaining building levels, services and persistence. Runtime/visual acceptance when Godot is permitted.",
+    "limits": "Godot remains prohibited. Fixed storage and boards have no opening/removal/inventory mechanics. Coffee collision is a conservative solid box. No runtime physics, targeting, materials/optics, performance or lifecycle acceptance. V2 incomplete and V1 remains default; S2J open."
+  },
+  "v2_household_radios_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_household_radios_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "Four household receivers on four dedicated tables across 2A/2B/3B/4B; source profile families, power/tuning behavior, bounded programme audio and event/lifetime owners reused. V2 adds canonical material binding and speaker feet. 2016 table triangles, 61 furniture records total, eight new anchors.",
+    "checks": "Support contact, 3D occupancy, 6876 source route samples, 209 operator-approach samples, 17 door sweeps and 404 sightline samples pass. Existing category checks, preservation, byte-identical regeneration and independent syntax parse pass. Physical target, isolated power/audio and active-playback teardown engine checks prepared.",
+    "next": "Lower kitchen cabinetry and specialist bench-radio/reel-deck integration; legacy television markers use the existing projector/media path. Detailed programs for twenty other source units, remaining levels/services and persistence; runtime/visual review when Godot is permitted.",
+    "limits": "Godot remains prohibited. Radio envelopes are source estimates; no actual targeting, audio, material/optical, event, performance or lifecycle acceptance. Listening state is local and not persisted. V2 incomplete, V1 remains default, S2J open."
+  },
+  "v2_prep_cabinets_specialist_devices_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_prep_cabinets_specialist_devices_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "kitchen_programs": "work/v2_prep_cabinets_batch_01/kitchen_programs.json",
+    "scope": "Four sliding preparation cabinets across 2A/2B/3B/4B; Mina reel deck on glass coffee table; Omar specialist valve radio on equipment shelf using native switch/audio. 67 furniture records, ten added anchors, 756 source triangles plus 192 runtime cabinet triangles and native radio knob. All four kitchen source role rosters complete with separate fittings/cupboards/prep cabinets; legacy aggregate meshes remain explicitly uninstalled.",
+    "checks": "Prior 61 furniture and protected data/shared owners preserved; finite bounded material geometry and byte-identical regeneration pass. 6876 source route samples, 231 cabinet approaches, 17 sweeps, 101 slider poses, actual device support contact and receiver sightline pass. Existing category source checks and independent syntax parse pass. Cabinet aperture/targeting/reversal, malformed mechanisms, specialist audio isolation and active-teardown engine checks prepared.",
+    "next": "Apartment projector/media integration; detailed room programs for twenty other source unit IDs; remaining building levels/services and persistence. Execute prepared category-wide runtime and visual checks when Godot is permitted.",
+    "limits": "Godot remains prohibited. No actual physics, targeting, motion, audio lifetime, materials/voxel shadows, performance or visual acceptance. Support coarse hulls have disclosed contact margins. Reel deck has no playback; cabinets have no inventory/cooking/persistence. V2 incomplete, V1 remains default, S2J open."
+  },
+  "v2_apartment_projectors_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_projectors_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "Three authored media markers (2A/3B/4B) now have projectors on dedicated stands, fitted interaction bodies, catalogue materials and independent existing reels. 70 furniture plus three projector children, six added anchors. V2 wrapper parks inactive decoders/buffers, preserves running latch transitions, clears stale reels/history, samples wall backing, and retires playback on teardown. Shared projector/station/shader/media owners remain unchanged.",
+    "checks": "67 prior furniture preserved; exact authored marker coverage, bounded meshes, clip hashes and byte-identical regeneration pass. 6876 source route samples, 183 approaches, 17 door sweeps, 27 projection rays sampled at 101 points and operator sightlines pass. Existing category source checks and independent syntax parse pass; engine composition/playback/negative-ray/lifetime checks prepared.",
+    "next": "Detailed room programs and category-wide furnishings for the twenty remaining source unit IDs; remaining building levels/services and persistence. Run prepared apartment composition, traversal, lighting/material, playback and teardown checks when Godot is permitted.",
+    "limits": "Godot remains prohibited. No actual targeting, decoding, physical placement, visual/voxel-lighting, performance, lifecycle or default-cutover acceptance. Projector image is the existing quad, with sampled wall backing and shadowed spotlight; no voxel film projection claim. Ordinary film silent, no new resident/possession schedule, local power state not persisted. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_apartment_expansion": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "1aa22cc",
+    "packet": "evidence/v2_apartment_expansion_01/README.md",
+    "inventory": "work/v2_apartment_expansion_01/current_inventory.json",
+    "source_validation": "work/v2_apartment_expansion_01/source_validation.json",
+    "scope": "3A Malcolm Reed and 4A Peter Wren: twelve rooms, four circulation spaces, 22 furniture, ten fittings, twelve circuits, eight doors, nine openings, eight windows and 91 anchors. Six detailed apartment programs, 92 furniture and 30 fittings total. Repaired 2A/3A bathroom riser conflicts, widened their bathroom doors, corrected 2A approach and 4B WC stance; fixed risers/stairs/lifts retained.",
+    "checks": "Preservation, byte-identical generation, four negative controls, full new boundaries, core connectivity, 3D placement including solid risers and eight leaves sampled through 100 degrees pass. Eleven existing category checks and four independent GDScript syntax parses pass. Six-unit composition/circuit/supply/cabinet/door/lifetime engine checks prepared.",
+    "next": "Category-wide personal objects, domestic receivers and heating for the new programs; sixteen remaining residential labels with authored occupied/vacant/sealed/storage roles, plus shared/service roles 1B and 1C. Continue building/service and persistence migration. Run prepared runtime and visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. No engine compilation, actual physical routes, targeting, water/audio/light behavior, material/voxel-shadow, resident migration, performance or acceptance proof. Source inventory corrects older twenty-unit wording; not all source labels are residences. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_six_home_equipment_dressing": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "0b3b240",
+    "packet": "evidence/v2_household_completion_01/README.md",
+    "inventory": "work/v2_household_completion_01/current_inventory.json",
+    "scope": "Twelve additions complete household receiver and surface-dressing coverage across six developed homes: two radios/tables, four kitchen props, propagation bottles, seed jars, legal papers and authored rubber plant. 95 furniture, 26 surface props, six receivers and 375 anchors total. Catalog soil and terracotta join the runtime material generator. Malcolm retains crystal/headphone profile with oak base, listening prompt and bounded 1.6m emitter; Peter retains Atwater Kent/cone. Shared geometry census includes solid risers.",
+    "checks": "Prior content and 51 material definitions preserved; 53-entry material contract validated. Three negative controls, byte-identical regeneration, eleven category checks and seven GDScript syntax parses pass. 118 old/new operating stances checked; receiver approaches 342 samples. Six-home composition/audio/profile/plant-material/teardown engine checks prepared.",
+    "next": "Batch remaining heat emitters and functional bathroom/kitchen accessories across all developed homes. Continue sixteen pending residential programs with authored dispositions, shared/service roles, building/services and persistence; run engine and visual checks when permitted.",
+    "limits": "Godot remains prohibited. Headphone audio is a bounded spatial approximation; no wearing or binaural ownership. Plant and surface props are fixed. No actual compilation, movement, targeting, audio perception, materials/voxel shadows, resident navigation, performance, lifecycle or acceptance proof. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_six_home_heating": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "7c9a536",
+    "packet": "evidence/v2_heating_batch_01/README.md",
+    "source_validation": "work/v2_heating_batch_01/source_validation.json",
+    "scope": "Four new radiators complete six installed households; eight anchors, 383 total. Existing 23-demand HeatBalance receives boiler output through the same BoilerTend as hot taps. Seventeen unbuilt emitters keep logical authored demand. Household controls, shared casting/materials and collision; five household wrappers isolate 2B packing, including previously coupled 3B. Six acoustic endpoints use scoped adapter restoration.",
+    "checks": "375 old anchors and protected domain/data owners preserved; full network exactly matches authored source. Byte-identical generation, three negative controls, twelve category checks and five GDScript syntax parses pass. 166 stances, 138 approaches, 404 valve sightline samples, six analytic own-hull rays and existing source routes/door sweeps pass. Projector paths preserved after relocation. Full budget, cold/restore, inventory, collision/target, acoustic/lifetime engine checks prepared.",
+    "next": "Category-wide functional bathroom/kitchen accessories; sixteen remaining residential programs with original dispositions, shared/service spaces, building migration and persistence. Run heating and all pending runtime/visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. No actual simulation, physics, targeting, listening, material/voxel-shadow, propagation, lifetime, performance or visual acceptance. Seventeen emitters unbuilt; new valve state not persisted. Household heat tint follows model while 2B keeps situation-driven visuals. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_six_home_functional_accessories": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "d7f9f8e",
+    "packet": "evidence/v2_household_accessories_01/README.md",
+    "source_validation": "work/v2_household_accessories_01/source_validation.json",
+    "inventory": "work/v2_household_accessories_01/current_inventory.json",
+    "scope": "Six toasters and six medicine cabinets on existing prep cabinets and bathroom sinks. Canonical identities, hinges, resident contents and 4B side tray retained. Solid moving mirror leaves; one shared 384x512 reflected viewport with explicit shutdown; child transforms and acoustic restoration owned by existing supports/adapter. No layout additions; 95 furniture, 30 fittings, 26 surface props, six receivers, six radiators and twelve accessories across six developed homes.",
+    "checks": "294 contact samples, 582 mechanism poses, 1212 sightline samples, 6864 existing route samples and 25 domestic door sweeps pass. Twenty protected files unchanged; three negative geometry controls; two byte-identical generations; thirteen category replays and six syntax parses pass. Prepared two-lifetime engine tests cover real rays, cycles, tray, cabinet contents/door collision, shared mirror selection, acoustic restoration and teardown.",
+    "next": "Continue category-wide apartment completion and remaining sixteen residential programs with authored dispositions, shared/service spaces, building migration and persistence. Run pending engine, lighting/material, traversal and performance checks when Godot is permitted.",
+    "limits": "Godot prohibited. Source estimates and syntax only; no compilation, production physics/targeting, visual/voxel-light, audio, reflection performance, disposal or human acceptance. No new electrical supply model or persistence for these mechanisms. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_arcade_ceiling_reference_detail": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "1a8eaab",
+    "packet": "evidence/v2_arcade_ceiling_01/README.md",
+    "source_manifest": "../../art/data/orison_v2/arcade_ceiling_source.json",
+    "owner_direction": "Use newest Downloads arcadeceiling1.png and arcadeceiling2.png as arcade ceiling detail inspiration.",
+    "scope": "100 turquoise enamel open-work panels, brass framing, stepped ochre borders and two fan crowns fitted to existing glass barrel. V2 passage variant preserves 31 original meshes/collision/materials and references existing resources. Three added batches, 22344 triangles, zero added lights; initial load and residency share the new cell path.",
+    "checks": "Source clearances, gable backing, two rejecting geometry controls, byte-identical generation, resource paths/buffer lengths/triangle winding and three script syntax parses pass. Residency engine test extended. Geometry preview is a flat-colour source drawing.",
+    "limits": "Godot prohibited. Engine import, material/lighting appearance, flashlight/voxel shadows, residency execution and performance remain pending. V1 default, V2 incomplete; prior apartment completion work remains integrated."
+  },
+  "v2_household_control_persistence": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "312c001",
+    "packet": "evidence/v2_household_persistence_01/README.md",
+    "source_checks": "work/v2_household_persistence_01/source_checks.json",
+    "scope": "One additive RealityState household control block for 56 semantic settings: 39 circuits, five ordinary radiator supply positions, six prep cabinet doors and six medicine cabinet doors. 2B radiator keeps case authority. Event saves, normal snapshot capture, silent endpoint restoration, valid live-load/reset adoption, malformed-payload refusal and pre-consumer teardown disconnection.",
+    "checks": "All 56 source identities resolve uniquely. Six syntax parses and three related category source checks pass; existing save/storage/domain owners and all layout/furnishing data preserved. Real disk round-trip/two world lifetimes/invalid and protected-save/live reset/quiet restore/disposal test scene prepared only.",
+    "next": "Continue whole-apartment categories and sixteen remaining residential programs with original dispositions, shared/service spaces and other durable mechanisms. Execute pending runtime and visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. No runtime persistence, reconstruction, physics, audio or save compatibility execution proved. Only listed control settings enter this schema; other mechanisms remain pending. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_bathroom_detail_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "0123c92",
+    "packet": "evidence/v2_bath_details_01/README.md",
+    "source_checks": "work/v2_bath_details_01/source_checks.json",
+    "scope": "18 support-owned assemblies across six homes: soap dishes and bars, pedestal towel rails with hanging linen, tank-clip toilet roll holders. Existing material library; seven shared mesh batches, 42 instances, 6552 rendered triangles. No new input/save/light/collision owners.",
+    "checks": "Source geometry, 6864 route samples, 25 door sweeps, 18 control sightlines, malformed geometry rejection and deterministic generation pass. Three syntax parses and existing household persistence/accessory/heating/prep checks pass. Two-world apartment batch engine test extended only.",
+    "next": "Remaining residential programs and shared/service spaces; runtime placement, material, voxel/light, interaction, lifecycle and performance checks when Godot is permitted.",
+    "limits": "Godot prohibited. Geometry study is a flat-colour source projection. No engine behavior or appearance proved; V2 incomplete, V1 default, S2J open."
+  },
+  "v2_upper_floor_programs": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "27f407b",
+    "packet": "evidence/v2_upper_floors_01/README.md",
+    "source_checks": "work/v2_upper_floors_01/source_checks.json",
+    "inventory": "work/v2_upper_floors_01/current_inventory.json",
+    "scope": "F05/F06 added: 58 spaces, 30 native door leaves, 24 windows, four stair links, ten platforms and four lift landing provisions. Six occupied room programs for Nadia, Cal, Iris, Sacha, Jonah and Mae; locked 5D fire-damaged and 6D storage thresholds. Existing lower-floor records preserved.",
+    "checks": "Single wall ownership and complete boundaries, semantic portals/windows, stair fit, 6030 leaf sweep poses, .38 m capsule plan paths to 42 occupied rooms and stair arrivals, restricted-room exclusion and four rejecting controls pass. Six script parses and existing household category source replays pass. Official upper-floor completeness is PROGRAMMED for 18 obligations; exit 2 preserves outstanding gates.",
+    "next": "Furnish and service the six new occupied apartments in category batches, add room lighting and resident consumers; eight other numbered apartment programs plus B1 housing/shared spaces remain. Execute new and queued runtime checks when Godot is permitted.",
+    "limits": "Godot prohibited. New floors are unfurnished room programs, not complete homes. Lift landings are not functioning elevators; plan paths are not played door/stair routes. No visual/material/voxel/performance or human acceptance claim. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_upper_apartment_fixtures": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "7fe366c",
+    "packet": "evidence/v2_upper_fixtures_01/README.md",
+    "source_checks": "work/v2_upper_fixtures_01/source_checks.json",
+    "inventory": "work/v2_upper_fixtures_01/current_inventory.json",
+    "scope": "Six upper homes: six toilets, twelve sinks, six showers, six stoves, six fridges and six open sink stands; 78 new anchors. Native materials, controls and authored 5B/6C monitor-top versus four icebox variants retained. Existing boiler discovers eighteen new water fittings. Totals: 107 domestic furniture, 60 fittings. Restricted 5D/6D preserved.",
+    "checks": "Original records and eleven protected native/canon/material/selector files preserved. 6030 door poses, 1276 appliance motion samples, 42 room routes and 36 fixture approaches pass source clearance. Four negative controls, four syntax parses and existing persistence/heating/accessory/prep/bath source checks pass. Two-lifetime fixture test prepared. Official upper-floor completeness exit 2; eighteen PROGRAMMED obligations.",
+    "next": "Batch upper-home sleep, seating, storage and work furniture, accessories, lighting and installed heat. Eight other numbered residential programs plus B1/shared/service scope remain. Run pending runtime and visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. Source plan drawing and envelope checks only. No runtime water, targeting, walking, sequential door/appliance use, materials/voxel light, audio, performance or lifecycle proof. Physical utility routing remains pending. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_upper_apartment_furniture": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "base_head": "c8908f2",
+    "packet": "evidence/v2_upper_furniture_01/README.md",
+    "source_checks": "work/v2_upper_furniture_01/source_checks.json",
+    "inventory": "work/v2_upper_furniture_01/current_inventory.json",
+    "scope": "Fifty pieces across six upper homes: eight beds, eight bedside stands, eight wardrobes, six dining groups, Nadia drafting/stool/shelf/model table, Sacha original desk/chair, Mae sofa/coffee table. Authored variants retained. C wardrobes share studio storage wall. 100 anchors and 20776 source triangles; 157 total domestic furniture records.",
+    "checks": "Original records and nine protected native/canon/material/selector files preserved. 6030 room-door poses, 2960 wardrobe leaf poses, 1276 appliance samples and 86 approach routes to all 42 occupied rooms pass in source, including fully open wardrobes. Four negative controls and four script syntax parses pass; existing persistence/heating/accessory/prep/bath source regressions pass. Prepared two-lifetime furniture test. Official upper-floor completeness exits 2 with eighteen PROGRAMMED obligations.",
+    "next": "Batch kitchen preparation/storage and household accessories, resident equipment and props, room lighting and installed heat in the upper homes. Eight other numbered residential programs and B1/shared/service scope remain. Run pending engine and visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. Source projections and geometry checks only; no actual compilation, targeting, traversal, sequential operation, visual/material/voxel-light, listening, performance or lifecycle proof. Beds and chairs are fixed; no new sleep/sitting mechanic or wardrobe persistence. V2 incomplete, V1 default, S2J open."
+  },
+  "v2_engine_resumption": {
+    "status": "SCOPED_RUNTIME_REPAIRS_AND_RENDERED_BASELINE",
+    "base_head": "e36fbcb",
+    "engine_permission": "Owner explicitly permits Godot again; historical no-engine entries describe their original validation boundary.",
+    "packet": "evidence/v2_engine_resume_01/README.md",
+    "receipt": "evidence/v2_engine_resume_01/receipt.json",
+    "scope": "Compile fixes for domestic door and prepared tests; numeric bath-detail origin validation; safe household schema validation and physics-consistent kitchen panel reconstruction. Five actual Forward+ captures in 5A, 5B, 5C, 6A and 6C.",
+    "next": "Batch upper-home room lighting, kitchen preparation/storage, accessories, installed heat and resident equipment; continue eight remaining numbered programs and B1/shared/service scope. Use captured production composition to guide placement and material review.",
+    "limits": "V2 incomplete; V1 default; S2J open. Fixed viewpoints and bounded runtime checks do not prove played traversal, full performance, listening or human acceptance. Upper homes still lack room lights and remaining dressing. Existing historical packets remain source-only at their original commits."
+  },
+  "v2_upper_apartment_lighting": {
+    "status": "CIRCUITS_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "e4a0964",
+    "packet": "evidence/v2_upper_lighting_01/README.md",
+    "receipt": "evidence/v2_upper_lighting_01/receipt.json",
+    "source_checks": "work/v2_upper_lighting_01/source_checks.json",
+    "scope": "All 42 occupied upper rooms: six pendants, six kitchen fixtures, thirty schoolhouse domes, 42 physical switches and 126 anchors. Existing resident energy profiles and native materials retained. 81 total room circuits; 98 existing-owner saved household controls.",
+    "checks": "7054 source route points; actual capsule and interaction rays at every switch; isolated toggling, native storey gates, malformed controls and two-world lifetimes. Full save round trip and old 56-control roster verified. Final three suites: 25446 checks, zero failures. Fifteen matched Forward+ captures inspected.",
+    "next": "Batch upper kitchen preparation/storage, accessories, installed heat and resident equipment. Continue eight remaining numbered apartment programs plus B1/shared/service scope and resident/utility migration.",
+    "limits": "Godot permitted. Current circuits and five rendered viewpoints verified, not complete apartments or full lighting/art acceptance. Strong window fixture highlights, appliance shadow banding and faint glass-table reading remain review items. No played-route or full-performance proof. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_upper_kitchen_storage": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "73b65e6",
+    "packet": "evidence/v2_upper_kitchens_01/README.md",
+    "receipt": "evidence/v2_upper_kitchens_01/receipt.json",
+    "source_checks": "work/v2_upper_kitchens_01/source_checks.json",
+    "scope": "Six operable preparation cabinets and six fixed wall cupboards across 5A/5B/5C/6A/6B/6C. 18 new anchors; six C-kitchen switch/approach anchor adjustments. 169 furniture records and 104 existing-owner saved controls. Original material and mechanism families retained.",
+    "checks": "1276 conservative appliance motion poses; 134 source approaches with 24102 route points. Four Godot suites: 26426 checks, zero failures. Actual cabinet and sink rays, all 42 upper light switches, standing capsules, saved transforms and two-world teardown. Twelve production captures inspected.",
+    "next": "Batch upper-home accessories, installed heat and resident equipment/props. Continue eight remaining numbered apartment programs, B1/shared/services, physical utilities and resident migration.",
+    "limits": "Godot permitted. Fixed wall cupboards have no inventory/opening mechanic. Captures are close interaction views with lamp occlusion/cropped extremities; no full-room art, continuous played-route or full-performance acceptance. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_upper_household_services": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "888e4c3",
+    "packet": "evidence/v2_upper_services_01/README.md",
+    "receipt": "evidence/v2_upper_services_01/receipt.json",
+    "source_checks": "work/v2_upper_services_01/source_checks.json",
+    "scope": "Six upper radiators, six medicine cabinets, four authored toasters and eighteen bath details. Twelve installed emitters in the unchanged 23-demand heat budget, 22 accessories, 36 bath details, 116 saved controls. Twelve new radiator/approach anchors.",
+    "checks": "580 accessory motion poses; 156 source destinations; 27698 route points. Four Godot suites: 27284 checks, zero failures. 34 rendered views inspected.",
+    "next": "Upper resident surface dressing, equipment/shelving/media apparatus, remaining residential/shared/service programs and resident migration.",
+    "limits": "Physical utility routing, continuous played routes, listening, full performance and human acceptance remain open. Dark radiator faces and surface/shadow banding remain review items. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_upper_surface_objects": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "2953357",
+    "packet": "evidence/v2_upper_surface_props_01/README.md",
+    "receipt": "evidence/v2_upper_surface_props_01/receipt.json",
+    "scope": "29 source-authored objects across six upper kitchens and resident work/table surfaces, including Nadia site model. 55 total surface props; 12712 added source triangles. Existing support geometry/materials retained.",
+    "checks": "Four-corner/board contact, overlap and door-sweep checks. 18332-check full apartment regression passes; fourteen production support-group views inspected.",
+    "next": "Wall storage/bookshelves and remaining resident equipment/media. Continue remaining residential/shared/service programs, physical utilities and migration.",
+    "limits": "Four homes currently share dining surfaces for resident work objects; separate equipment/workroom programs remain. Faint solvent glass and strong highlights/shadow transitions remain art review items. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_resident_bookshelves": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "1ddf9d7",
+    "packet": "evidence/v2_bookshelves_01/README.md",
+    "receipt": "evidence/v2_bookshelves_01/receipt.json",
+    "scope": "All eight authored resident bookcases, 16 semantic anchors, native sorting and lifting sectional glass. Resident library permutations join the existing household save owner, now 124 settings.",
+    "checks": "18550 checks across save/reconstruction, bookshelf interaction and apartment regression; zero final failures and empty final stderr. Eight production captures inspected.",
+    "next": "Remaining upper resident equipment/media and wall work; remaining residential/shared/service programs, physical utilities and migration.",
+    "limits": "Sacha book spines and other dark case interiors remain lighting review. No continuous played-route/full-performance/human acceptance. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_upper_household_radios": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "b3aae2a",
+    "packet": "evidence/v2_upper_radios_01/README.md",
+    "receipt": "evidence/v2_upper_radios_01/receipt.json",
+    "scope": "Six upper household receivers on dedicated tables; 12 total receivers, 175 furniture records, twelve new anchors. Native resident profiles, supported speakers, covered portable material and correct headphone prompts. Wireless service cards describe actual listening state.",
+    "checks": "19955 final checks, zero failures; all 151 upper capsules clear. 26686 source route points. Twelve final room/lamp captures inspected, with actual E power/audio/card gates.",
+    "next": "Remaining upper specialist radio/projector sets, studio equipment and display boards; remaining residential/shared/service programs and migration.",
+    "limits": "Native local programme murmur only; no radio persistence added. Dark chassis/horn faces remain art review. No full played-route, listening, performance or human acceptance. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_upper_resident_equipment": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "3d615be",
+    "packet": "evidence/v2_upper_equipment_01/README.md",
+    "receipt": "evidence/v2_upper_equipment_01/receipt.json",
+    "scope": "Fourteen authored objects and one comparison table; four native specialist receivers. 190 furniture records, 775 anchors. Fixed studio equipment adds no invented mechanics.",
+    "checks": "20438 checks, zero failures, empty stderr; 166 destinations, 29645 source route points; fourteen installed captures inspected.",
+    "next": "Reconcile current main and pipeline gates, then implement the owner-directed Blender family waves alongside remaining V2 programs.",
+    "limits": "Legacy scoped evidence, not runtime_contract. Dark/cropped simplified equipment needs art review. No full played-route, performance or human acceptance. V2 incomplete; V1 default; S2J open."
+  }
+}

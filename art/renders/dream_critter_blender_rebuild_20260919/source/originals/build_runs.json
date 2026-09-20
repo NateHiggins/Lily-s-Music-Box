@@ -1,0 +1,53 @@
+[
+  {
+    "label": "seam_grazer_build",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\build_dream_critter.py",
+      "--",
+      "--species",
+      "seam_grazer",
+      "--output-root",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13",
+      "--seed",
+      "241000",
+      "--lod",
+      "both"
+    ]
+  },
+  {
+    "label": "crystal_listener_build",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\build_dream_critter.py",
+      "--",
+      "--species",
+      "crystal_listener",
+      "--output-root",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13",
+      "--seed",
+      "241001",
+      "--lod",
+      "both"
+    ]
+  },
+  {
+    "label": "fold_crab_build",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\build_dream_critter.py",
+      "--",
+      "--species",
+      "fold_crab",
+      "--output-root",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13",
+      "--seed",
+      "241002",
+      "--lod",
+      "both"
+    ]
+  }
+]

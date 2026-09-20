@@ -1,0 +1,138 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+[DOOR READINESS] PASS frame 0 closed actual leaf blocks the centre crossing
+[DOOR READINESS] PASS frame 0 neighbouring masonry remains blocking
+[DOOR READINESS] PASS frame 0 the hold position is outside the physical leaf sweep
+[DOOR READINESS] PASS frame 0 closed owner reports no passage readiness
+[DOOR READINESS] PASS frame 0 stage 0 holds on the opening request
+[DOOR READINESS] PASS frame 0 stage 0 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 0 stage 2 holds on the opening request
+[DOOR READINESS] PASS frame 0 stage 2 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 0 stage 4 holds on the opening request
+[DOOR READINESS] PASS frame 0 stage 4 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 0 stage 7 holds on the opening request
+[DOOR READINESS] PASS frame 0 stage 7 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 0 stage 8 holds on the opening request
+[DOOR READINESS] PASS frame 0 stage 8 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 0 open flag alone is insufficient during the real tween
+[DOOR READINESS] PASS frame 0 actual opening reaches settled state within the frame budget
+[DOOR READINESS] PASS frame 0 stage 0 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 0 stage 2 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 0 stage 4 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 0 stage 7 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 0 stage 8 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 0 no capsule overlaps the leaf while residents wait
+[DOOR READINESS] PASS frame 0 settled owner reports passage readiness
+[DOOR READINESS] PASS frame 0 settled leaf releases stage 0
+[DOOR READINESS] PASS frame 0 settled leaf releases stage 2
+[DOOR READINESS] PASS frame 0 settled leaf releases stage 4
+[DOOR READINESS] PASS frame 0 settled leaf releases stage 7
+[DOOR READINESS] PASS frame 0 settled leaf releases stage 8
+[DOOR READINESS] PASS frame 0 full production walk crosses the real leaf without body contact
+[DOOR READINESS] PASS frame 0 departure closes behind the resident asynchronously
+[DOOR READINESS] PASS frame 0 close animation settles
+[DOOR READINESS] PASS frame 0 full HOME return opens and waits for the actual leaf
+[DOOR READINESS] PASS frame 0 full HOME return reaches home without any body exclusion
+[DOOR READINESS] PASS frame 0 HOME return closes the actual leaf behind the resident
+[DOOR READINESS] PASS frame 0 return close settles
+[DOOR READINESS] PASS frame 0 locked owner holds stage 0
+[DOOR READINESS] PASS frame 0 locked owner holds stage 2
+[DOOR READINESS] PASS frame 0 locked owner holds stage 4
+[DOOR READINESS] PASS frame 0 locked owner holds stage 7
+[DOOR READINESS] PASS frame 0 locked owner holds stage 8
+[DOOR READINESS] PASS frame 0 unlocking retries through the actual owner while still holding
+[DOOR READINESS] PASS frame 0 retried opening settles
+[DOOR READINESS] PASS frame 0 a player closing the leaf cannot resume the resident prematurely
+[DOOR READINESS] PASS frame 0 close-request fixture settles
+[DOOR READINESS] PASS frame 0 refused close during opening stays pending
+[DOOR READINESS] PASS frame 0 pending close retries and completes its cycle when accepted
+[DOOR READINESS] PASS frame 0 accepted close settles
+[DOOR READINESS] PASS frame 0 locked-close fixture opens
+[DOOR READINESS] PASS frame 0 locked close remains pending without overriding the lock
+[DOOR READINESS] PASS frame 0 unlocking permits the pending close through its owner
+[DOOR READINESS] PASS frame 0 passed stage 0 continues during asynchronous closing
+[DOOR READINESS] PASS frame 0 far stage 0 keeps approaching
+[DOOR READINESS] PASS frame 0 no-door stage 0 keeps moving
+[DOOR READINESS] PASS frame 0 passed stage 2 continues during asynchronous closing
+[DOOR READINESS] PASS frame 0 far stage 2 keeps approaching
+[DOOR READINESS] PASS frame 0 no-door stage 2 keeps moving
+[DOOR READINESS] PASS frame 0 passed stage 4 continues during asynchronous closing
+[DOOR READINESS] PASS frame 0 far stage 4 keeps approaching
+[DOOR READINESS] PASS frame 0 no-door stage 4 keeps moving
+[DOOR READINESS] PASS frame 0 passed stage 7 continues during asynchronous closing
+[DOOR READINESS] PASS frame 0 far stage 7 keeps approaching
+[DOOR READINESS] PASS frame 0 no-door stage 7 keeps moving
+[DOOR READINESS] PASS frame 0 passed stage 8 continues during asynchronous closing
+[DOOR READINESS] PASS frame 0 far stage 8 keeps approaching
+[DOOR READINESS] PASS frame 0 no-door stage 8 keeps moving
+[DOOR READINESS] PASS frame 0 final owned tween settles before retirement
+[DOOR READINESS] PASS frame 0 private world retires
+[DOOR READINESS] PASS frame 1 closed actual leaf blocks the centre crossing
+[DOOR READINESS] PASS frame 1 neighbouring masonry remains blocking
+[DOOR READINESS] PASS frame 1 the hold position is outside the physical leaf sweep
+[DOOR READINESS] PASS frame 1 closed owner reports no passage readiness
+[DOOR READINESS] PASS frame 1 stage 0 holds on the opening request
+[DOOR READINESS] PASS frame 1 stage 0 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 1 stage 2 holds on the opening request
+[DOOR READINESS] PASS frame 1 stage 2 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 1 stage 4 holds on the opening request
+[DOOR READINESS] PASS frame 1 stage 4 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 1 stage 7 holds on the opening request
+[DOOR READINESS] PASS frame 1 stage 7 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 1 stage 8 holds on the opening request
+[DOOR READINESS] PASS frame 1 stage 8 uses its idle clip while waiting
+[DOOR READINESS] PASS frame 1 open flag alone is insufficient during the real tween
+[DOOR READINESS] PASS frame 1 actual opening reaches settled state within the frame budget
+[DOOR READINESS] PASS frame 1 stage 0 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 1 stage 2 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 1 stage 4 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 1 stage 7 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 1 stage 8 waits throughout the moving leaf
+[DOOR READINESS] PASS frame 1 no capsule overlaps the leaf while residents wait
+[DOOR READINESS] PASS frame 1 settled owner reports passage readiness
+[DOOR READINESS] PASS frame 1 settled leaf releases stage 0
+[DOOR READINESS] PASS frame 1 settled leaf releases stage 2
+[DOOR READINESS] PASS frame 1 settled leaf releases stage 4
+[DOOR READINESS] PASS frame 1 settled leaf releases stage 7
+[DOOR READINESS] PASS frame 1 settled leaf releases stage 8
+[DOOR READINESS] PASS frame 1 full production walk crosses the real leaf without body contact
+[DOOR READINESS] PASS frame 1 departure closes behind the resident asynchronously
+[DOOR READINESS] PASS frame 1 close animation settles
+[DOOR READINESS] PASS frame 1 full HOME return opens and waits for the actual leaf
+[DOOR READINESS] PASS frame 1 full HOME return reaches home without any body exclusion
+[DOOR READINESS] PASS frame 1 HOME return closes the actual leaf behind the resident
+[DOOR READINESS] PASS frame 1 return close settles
+[DOOR READINESS] PASS frame 1 locked owner holds stage 0
+[DOOR READINESS] PASS frame 1 locked owner holds stage 2
+[DOOR READINESS] PASS frame 1 locked owner holds stage 4
+[DOOR READINESS] PASS frame 1 locked owner holds stage 7
+[DOOR READINESS] PASS frame 1 locked owner holds stage 8
+[DOOR READINESS] PASS frame 1 unlocking retries through the actual owner while still holding
+[DOOR READINESS] PASS frame 1 retried opening settles
+[DOOR READINESS] PASS frame 1 a player closing the leaf cannot resume the resident prematurely
+[DOOR READINESS] PASS frame 1 close-request fixture settles
+[DOOR READINESS] PASS frame 1 refused close during opening stays pending
+[DOOR READINESS] PASS frame 1 pending close retries and completes its cycle when accepted
+[DOOR READINESS] PASS frame 1 accepted close settles
+[DOOR READINESS] PASS frame 1 locked-close fixture opens
+[DOOR READINESS] PASS frame 1 locked close remains pending without overriding the lock
+[DOOR READINESS] PASS frame 1 unlocking permits the pending close through its owner
+[DOOR READINESS] PASS frame 1 passed stage 0 continues during asynchronous closing
+[DOOR READINESS] PASS frame 1 far stage 0 keeps approaching
+[DOOR READINESS] PASS frame 1 no-door stage 0 keeps moving
+[DOOR READINESS] PASS frame 1 passed stage 2 continues during asynchronous closing
+[DOOR READINESS] PASS frame 1 far stage 2 keeps approaching
+[DOOR READINESS] PASS frame 1 no-door stage 2 keeps moving
+[DOOR READINESS] PASS frame 1 passed stage 4 continues during asynchronous closing
+[DOOR READINESS] PASS frame 1 far stage 4 keeps approaching
+[DOOR READINESS] PASS frame 1 no-door stage 4 keeps moving
+[DOOR READINESS] PASS frame 1 passed stage 7 continues during asynchronous closing
+[DOOR READINESS] PASS frame 1 far stage 7 keeps approaching
+[DOOR READINESS] PASS frame 1 no-door stage 7 keeps moving
+[DOOR READINESS] PASS frame 1 passed stage 8 continues during asynchronous closing
+[DOOR READINESS] PASS frame 1 far stage 8 keeps approaching
+[DOOR READINESS] PASS frame 1 no-door stage 8 keeps moving
+[DOOR READINESS] PASS frame 1 final owned tween settles before retirement
+[DOOR READINESS] PASS frame 1 private world retires
+[DOOR READINESS] RESULT 134/134

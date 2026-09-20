@@ -1,0 +1,4798 @@
+[
+  {
+    "path": "game/data/acoustic_graph.json",
+    "sha256": "a818d7b1bed814f50906dbb69c24fe65d5581a1ceafed74c45be04676af37396"
+  },
+  {
+    "path": "game/data/apartment_life_profiles.json",
+    "sha256": "4e95df23064554da46244e19efd5caa15e53b6575baf3dc7072c77b45957b25d"
+  },
+  {
+    "path": "game/data/audio_cues.json",
+    "sha256": "40244ba6d8fa9583696a3548b85ff4c8e3c3102c59b8581c95703c84fc9a6510"
+  },
+  {
+    "path": "game/data/building_layout.json",
+    "sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+  },
+  {
+    "path": "game/data/campaign_calendar.json",
+    "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+  },
+  {
+    "path": "game/data/case01_dialogue.json",
+    "sha256": "e868ff02803afcdc1e73032a0c166b59e52f29c88b29e8aa56ccca9cbb44c33b"
+  },
+  {
+    "path": "game/data/character_memory_art.json",
+    "sha256": "a6f5d7eb14da16826b1e9936ce4ec614c6baf0bf20313b614b6fcef095c282b7"
+  },
+  {
+    "path": "game/data/character_wall_art.json",
+    "sha256": "2b6485a40a28a6717d59ec6e19a6710c2e43b61e3babc0dd0e240e0bbc780a62"
+  },
+  {
+    "path": "game/data/corruption_lineages.json",
+    "sha256": "87140bef316ccb2fbe51c5806a24a9c61fabd8fc1e5c8ccc47505efee164b864"
+  },
+  {
+    "path": "game/data/creature_index.json",
+    "sha256": "a7b531be49840d02e86019262d9b6a03c126293f0c8441ca910c2d0b97a7a915"
+  },
+  {
+    "path": "game/data/dead_letters.json",
+    "sha256": "7367c32f0dc982704d222cbfa73063f90a64112d2c5c543391eb3aee35ecde05"
+  },
+  {
+    "path": "game/data/domestic_anomaly_props.json",
+    "sha256": "63a7610cec7bd88ebaa1f563dce0dd3f7eac25a6caa9e1094921346597833a79"
+  },
+  {
+    "path": "game/data/domestic_radios.json",
+    "sha256": "04e4c73126c38b293c6af6f82cd3c12cf257ff06468723eb5201ebc20329416a"
+  },
+  {
+    "path": "game/data/domestic_witness_clocks.json",
+    "sha256": "65e1d42c4541eb843bfb9550f602f728f3562bafc0b4b8aaf9e026c407c3b9c6"
+  },
+  {
+    "path": "game/data/dream_module_catalog.json",
+    "sha256": "414ca11a57dab11baa2019d8e56e8d77f4c18ba919261a12a4d6385740f4c9dc"
+  },
+  {
+    "path": "game/data/dream_plate_catalog.json",
+    "sha256": "eb828bb39bb00c48f98e3721af07a8e02b8287e28646df4d29c578cd9c268cff"
+  },
+  {
+    "path": "game/data/dream_profiles.json",
+    "sha256": "0e602f49a10527c69b2f3c5a84a6d6576b2e60481e0ddc8a442d0d6d4945dce1"
+  },
+  {
+    "path": "game/data/fixture_light_map.json",
+    "sha256": "98303e02ca99a9fb8cf5c393dee499abac0b1985eadd6108b64ace985b9b6e59"
+  },
+  {
+    "path": "game/data/found_art_catalog.json",
+    "sha256": "fb85f5285b0f47bb55bc767a09e5de7fa66ad6cfd55baed601449c2918c4a87a"
+  },
+  {
+    "path": "game/data/hallway_art.json",
+    "sha256": "be83005bcc66bbf3e732f4b133f6283ac670fbef05540bfcaa53434bd74346db"
+  },
+  {
+    "path": "game/data/historical_radio_reallocation.json",
+    "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+  },
+  {
+    "path": "game/data/house_english_lexicon.json",
+    "sha256": "342b5b8ca223ce25f0d1bf49144603b65394296f5e71ee9691524e3147704455"
+  },
+  {
+    "path": "game/data/house_telephones.json",
+    "sha256": "6cf8fcade499a71e588589c1a201ac3dbe2b9600092cef8a08ec22e1ff1e609b"
+  },
+  {
+    "path": "game/data/library.json",
+    "sha256": "6da0ef002150cf8eb36b8c6c6b126074a4fad34731a48964944795ad97cc6a28"
+  },
+  {
+    "path": "game/data/light_provenance.json",
+    "sha256": "cc7deb8c85f9774f4da8187b9b5e1e387fac6e83a087e68a01351e7a105ea967"
+  },
+  {
+    "path": "game/data/lobby_notices.json",
+    "sha256": "9cf668e63b8d6e54fb8c1ab887e58f516817ad3eddc245a153235c61026784a3"
+  },
+  {
+    "path": "game/data/mail_catalog.json",
+    "sha256": "f6d5876cb969e6a134485bde1fea32dd4af1fb21141de4a1022b464f6280ec1d"
+  },
+  {
+    "path": "game/data/mailbank_cards.json",
+    "sha256": "71aff7f1c560697c0781c34ec691a83371c876726b3525cd6baedefc7396e013"
+  },
+  {
+    "path": "game/data/maintenance_activities.json",
+    "sha256": "fd97e233857a2c6425a8010cf3c90b5ce6784b486e235cebf7d7afc6c6520c1c"
+  },
+  {
+    "path": "game/data/maintenance_jobs.json",
+    "sha256": "840200ab68241dc8cb682b174d4a51f7f0e2048e1f94224730c6570b433ee970"
+  },
+  {
+    "path": "game/data/material_catalog.json",
+    "sha256": "7228c972c236b5d01da82c44e8b9473b232afac17931479895ca92cc0acc621d"
+  },
+  {
+    "path": "game/data/move_repertoire.json",
+    "sha256": "5d3ef97ce29159b197227d680d4ed24266df5cc2a3006a2a59adeb61b551d162"
+  },
+  {
+    "path": "game/data/music_catalog.json",
+    "sha256": "0b3b97684a906888ff05ca107da4bf264ac6d00c2a9f4e4f54aca1deec58ac1a"
+  },
+  {
+    "path": "game/data/orison_v2/exterior/exterior_geometry.json",
+    "sha256": "103ff82aa9acce0eb45dbc961ea9840f3e850add6d4da798e1bb50964fee772c"
+  },
+  {
+    "path": "game/data/orison_v2/exterior/regions.json",
+    "sha256": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a"
+  },
+  {
+    "path": "game/data/orison_v2/exterior/shop_buckets.json",
+    "sha256": "a7964efeffc7b968f3bbf98cfce5c418edefb60ae58d1486f0d2555c245e7dc2"
+  },
+  {
+    "path": "game/data/orison_v2_blockout.json",
+    "sha256": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568"
+  },
+  {
+    "path": "game/data/orison_v2_shared_frames.json",
+    "sha256": "5d9b98876b699d306a3ed47b9a796b03fb2f5a1ad65922b4237dc94b859c21a0"
+  },
+  {
+    "path": "game/data/otis.json",
+    "sha256": "c5e95da13d385daa0b37eb41a4d82ace6fb62281ddbb9ae70dbf69a06da5371b"
+  },
+  {
+    "path": "game/data/prop_catalog.json",
+    "sha256": "f04383ee48f021f99b0c967be5aa54d1589e594a1d5bd2ba9191164a3fd2723d"
+  },
+  {
+    "path": "game/data/prop_service_wire.json",
+    "sha256": "79cc0a7c298c3f433f17841ad353a846efe76a9abaae25237c7baacba2c8f6fc"
+  },
+  {
+    "path": "game/data/reality_affected_props.json",
+    "sha256": "de20c0381ea9f65a01176d2d8760bbb4deb2878e55e02c903ed90c86a0366733"
+  },
+  {
+    "path": "game/data/reality_cases.json",
+    "sha256": "3442b0b1b3d01c24276fdf9259fd624d9ea555316ee21778f17e0207f3cae9b9"
+  },
+  {
+    "path": "game/data/reality_rules.json",
+    "sha256": "d07cd3fe6ff31172d9832bc9b896371dfb94664af6876977a8e959fc0dc61d74"
+  },
+  {
+    "path": "game/data/resident_animation_profiles.json",
+    "sha256": "444adbce57adcf8be7e70b7cef8f40d99d941d09db6b2fe6f920e4ffcf1047f3"
+  },
+  {
+    "path": "game/data/resident_hero_models.json",
+    "sha256": "e0b0c85125e69353416c731078f866c9073af56c5217ba0e25208491467be285"
+  },
+  {
+    "path": "game/data/resident_schedules.json",
+    "sha256": "6d6bda4ae833acc23fa922ecc043d8aac5f54a196d68aa0c408730e80943f6b7"
+  },
+  {
+    "path": "game/data/resident_story_details.json",
+    "sha256": "8c2c9c5ce12b1945588ebba4f99b75dd9fd9499de01ec3b149920629b969b348"
+  },
+  {
+    "path": "game/data/runtime_material_sets.json",
+    "sha256": "80143c1c087a9a2fe155fc61e9bd7e2ed65d82c18135c42d4dd9ca8ca43833a0"
+  },
+  {
+    "path": "game/data/shop_inventory.json",
+    "sha256": "deda103cf28cac55ced8ad5f4efdd5a18e7b2e8aa520f873c0cc03fa2f9b17e8"
+  },
+  {
+    "path": "game/data/signage_plates.json",
+    "sha256": "bd917067a52c4bf86fcee3055c75aa6ef7f7e6003ba225b5ac7cd097db31eef2"
+  },
+  {
+    "path": "game/data/songbook/last_train_home.json",
+    "sha256": "d302183413df6ae75bec9ec80e090995a2a6c7893f0d51e8d367df43deb68228"
+  },
+  {
+    "path": "game/data/stair_landing_art.json",
+    "sha256": "c325c7169052aa429700fcc1662309f04f55a0ea9c6f1ca2f2eb9a5242379549"
+  },
+  {
+    "path": "game/data/trivia_darts.json",
+    "sha256": "497e8850b6cfe315d0f314ad1e1a0f32af2e72534c3eed2b3ba15bac919ae58a"
+  },
+  {
+    "path": "game/data/viral_seed_features.json",
+    "sha256": "a92f6537a2015e92b73c5aeed0298c2aa70b5cd71d738e6c9a7b1770dd38887d"
+  },
+  {
+    "path": "game/project.godot",
+    "sha256": "37497964f47cfe67919ef51e55b2a5a53b12b5051f17eede37bbdf600c4c72b4"
+  },
+  {
+    "path": "game/scenes/building/orison_root.tscn",
+    "sha256": "680566eeb063687ed984e17bff1c623d5b33a9a95d58c426430916362e0997c3"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_blockout.tscn",
+    "sha256": "e0024040574ed0c07990a94561c8bdd79aa978ec34f7e3c87f81639bdb1b36b7"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_exterior_cell.tscn",
+    "sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_f01_review.tscn",
+    "sha256": "d40aa4f8661b61e7f1e4fd05798e462dd5ba6011bdb70d784cd0335d997972ca"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_f02_review.tscn",
+    "sha256": "19299e796415022aa2107ebf88762b7e8320cf7ecc1d3c842149061566023910"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_f04_review.tscn",
+    "sha256": "dfdc127b8eef418cc924ffcf5ccd81a957b9c8894d1cbd4b94d9921d46102d35"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_integrated_review.tscn",
+    "sha256": "f718080df88c78ae37417153e24a16711d25a41870ca9936320ca4589a85d7d4"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_m08e_spatial_review.tscn",
+    "sha256": "734b10db5355a8186bd8f41d4c003e5da5756b2a7e6bc9a6680c001dd58423d5"
+  },
+  {
+    "path": "game/scenes/building/orison_v2_runtime.tscn",
+    "sha256": "ec64e93f147ed5fb9d7d0d3f4e1a4a185bdd5ffc26cf691a1ce41361cbc7f2fd"
+  },
+  {
+    "path": "game/scenes/campaign/CampaignShell.tscn",
+    "sha256": "8cadcb82a90cf25ec3db15640ee62095b8c18284750f9fed828f52f94e34564c"
+  },
+  {
+    "path": "game/scenes/dream/DreamMazeRoot.tscn",
+    "sha256": "83549f6883036845b036875a734f17bc773e1aa87fad25d26819d7b9823ab539"
+  },
+  {
+    "path": "game/scenes/phoneos/Phone3D.tscn",
+    "sha256": "938748f1ba5eaa79b6637e984173e1171f828da539c588ab37bef52d85f7869c"
+  },
+  {
+    "path": "game/scenes/phoneos/PhoneShell.tscn",
+    "sha256": "bd94be63ba018ad9f48d83e989ce727ab05da3fb75f17220766936b4040050bd"
+  },
+  {
+    "path": "game/scenes/ui/title_screen.tscn",
+    "sha256": "7e7f540eab05662ae0fbad788fc8e09c4276abac6c990866a975a806cb328b2d"
+  },
+  {
+    "path": "game/scripts/arcade/arcade_attract.gd",
+    "sha256": "b1d5f96684d2360f9740748331a2bd4737dc63e37277d5a186e6883eff6b2517"
+  },
+  {
+    "path": "game/scripts/arcade/arcade_catalog.gd",
+    "sha256": "beaaabcd0b42e21f7313d1e03552af04e009e5a244f8f7a73ea7ed3e77789302"
+  },
+  {
+    "path": "game/scripts/arcade/arcade_machine.gd",
+    "sha256": "d8d4310dab0137cff0b105df4cc3635caba51c54d9ba3f2edd56a91228c01df5"
+  },
+  {
+    "path": "game/scripts/arcade/swc_breakable.gd",
+    "sha256": "90d75dfd08c161f7c2b691aa0d4de5d7b24f9892208b6231baf478a1e7e37a05"
+  },
+  {
+    "path": "game/scripts/arcade/swc_door.gd",
+    "sha256": "8db6ef068a09a0e7755a4fb55ab5f4994abc54bb19ee3bbf59c0a5651ddf1d10"
+  },
+  {
+    "path": "game/scripts/arcade/swc_enemy.gd",
+    "sha256": "592956822ff85212679255bbff03b6655bf13132f2f6c4f25f435dc7016ad645"
+  },
+  {
+    "path": "game/scripts/arcade/swc_enemy_spawner.gd",
+    "sha256": "e189ef41c99fefc4ad1e238eaa8de4bf9967f4a6747ab866babd8369b0c9414e"
+  },
+  {
+    "path": "game/scripts/arcade/swc_entity.gd",
+    "sha256": "c876235612c2c70d5b79d972b68d284228871ababe11f82aee37f839a5e99de9"
+  },
+  {
+    "path": "game/scripts/arcade/swc_formats.gd",
+    "sha256": "fc80f6845181c8c90e6e8a0e9c3298b185a3692e2b46f91d76737ae1b5377649"
+  },
+  {
+    "path": "game/scripts/arcade/swc_graybox.gd",
+    "sha256": "e4856c0cabd6e7d2b441ee1a2da4a5766e4d67ae1c30c71ea238bc63387d578d"
+  },
+  {
+    "path": "game/scripts/arcade/swc_held_object.gd",
+    "sha256": "8f71f63d7c357b7a7f209d76bbfb55d06d4dab50e0d32ba503aec9d1de4adc1f"
+  },
+  {
+    "path": "game/scripts/arcade/swc_objective.gd",
+    "sha256": "5cb9384c366761dde305aeb026900dbd11a5ee022d6ecb76e2e361a468bf52fe"
+  },
+  {
+    "path": "game/scripts/arcade/swc_package.gd",
+    "sha256": "fc26fd5a3e24420f44060c21d64cf1369af5522ce85703c5a30e9ef1eef80e85"
+  },
+  {
+    "path": "game/scripts/arcade/swc_package_source.gd",
+    "sha256": "a42ecd9b51682f9bd036b0c1023275feb584a23303c065eeb126ebf1204867c9"
+  },
+  {
+    "path": "game/scripts/arcade/swc_pickup.gd",
+    "sha256": "4378e8d1801283b54d74edb8f1adcd549a83315bb9e942d9ba6e1491a2fed245"
+  },
+  {
+    "path": "game/scripts/arcade/swc_player.gd",
+    "sha256": "f53f25fca3149db1db053e6ebf46217d22ae018dc096d64abaa1171420e4d33d"
+  },
+  {
+    "path": "game/scripts/arcade/swc_scene.gd",
+    "sha256": "bb2e5da7c493c59af75ac1c8f89a5d10f4f1d6c5b51aa7cb0db6f758d8cf8ae8"
+  },
+  {
+    "path": "game/scripts/arcade/swc_trigger_volume.gd",
+    "sha256": "ef21fcb0daab3e4cddcbbda57b3cd5ec17e10c33a4375bff22e92eb8f567ea8f"
+  },
+  {
+    "path": "game/scripts/arcade/swc_view_modes.gd",
+    "sha256": "0607e1f5a45addf09d29aeba686aaa3925cd65973e4f46f72b5710caba1f52f3"
+  },
+  {
+    "path": "game/scripts/arcade/swc_weapon.gd",
+    "sha256": "5a2c57723545740188a902ff0c27053edfedc9fc5bfbebae1da6b547c0611f6d"
+  },
+  {
+    "path": "game/scripts/arcade/swc_world_builder.gd",
+    "sha256": "7e0eaca415015937d8472afde8c8c27e3a0742510fedf0b5202b419a7c17d23a"
+  },
+  {
+    "path": "game/scripts/audio/acoustic_graph.gd",
+    "sha256": "6d4994639b1b9a0c4d689956eb89ec647fa30dd5607e9ee2cab27d335ca8d3ba"
+  },
+  {
+    "path": "game/scripts/audio/ambient_soundscape.gd",
+    "sha256": "3be5289f6c0ea750cdc14a80e31b93dab89f82479bc014a932b879f0534f3b75"
+  },
+  {
+    "path": "game/scripts/audio/audio_policy.gd",
+    "sha256": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+  },
+  {
+    "path": "game/scripts/audio/conductor_clock.gd",
+    "sha256": "f75d596432337b67c72c905cfcdb54b2b338bf249db98e796eab734856ca3387"
+  },
+  {
+    "path": "game/scripts/audio/music_director.gd",
+    "sha256": "6ce1760bd8132a5081620e8d2d961241541c5f6b82aec1e0ee4b469d6489f347"
+  },
+  {
+    "path": "game/scripts/audio/prop_audio.gd",
+    "sha256": "a7d46096925c0e675930cc0b6e4e699f82ab4ab36d2a1410817f66592dfb085c"
+  },
+  {
+    "path": "game/scripts/audio/virus_sound_director.gd",
+    "sha256": "5f1cdcf427f0786178e55f0c568874c6c420b90e3d8e5389b4d60bb718b15ee7"
+  },
+  {
+    "path": "game/scripts/building/arcade_row.gd",
+    "sha256": "6a25719df1762cf5e15dcf84f9a9ede79782d31ee6c4c75930cc9ffd25ab3e12"
+  },
+  {
+    "path": "game/scripts/building/atmospheric_decal_pass.gd",
+    "sha256": "2b135749a645ec620923f1bc7d2b7613644fc967cb048c65a297157d5d4f1805"
+  },
+  {
+    "path": "game/scripts/building/broadcast_director.gd",
+    "sha256": "42c826838aa7975221a7ea5cb42b97447aaa950fc0cce6b5d1ef663b248807f8"
+  },
+  {
+    "path": "game/scripts/building/building_root.gd",
+    "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4"
+  },
+  {
+    "path": "game/scripts/building/building_root_selector.gd",
+    "sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802"
+  },
+  {
+    "path": "game/scripts/building/celestial_ephemeris.gd",
+    "sha256": "7ce7682c5dee1fdee5d9bc6fb8c29f22bc11556851e0db88e35a30af609e993c"
+  },
+  {
+    "path": "game/scripts/building/commensal_director.gd",
+    "sha256": "7401c020f84263b2d355d75861390cafeabcca20d156e5c85de186fc6bc39d52"
+  },
+  {
+    "path": "game/scripts/building/day_night_director.gd",
+    "sha256": "f8e2b2dae83ac53e05c471e19e0c4103274e2ebe88e24c39e237a357fba5abee"
+  },
+  {
+    "path": "game/scripts/building/domestic_radio_pass.gd",
+    "sha256": "88cf81547c62fff57d79d6d515ee62311cc7a82f27323adc9c4a2ca26d77fa9c"
+  },
+  {
+    "path": "game/scripts/building/door_glow.gd",
+    "sha256": "443a1a5e343c7ff5044c6b46d8c119f9db4e6f5dc96b3d445eec4d603aa1a495"
+  },
+  {
+    "path": "game/scripts/building/elevator.gd",
+    "sha256": "cd74647c4cf932be877a13ddabfcf30c2a8ca466f72e09314aa855344313d6f0"
+  },
+  {
+    "path": "game/scripts/building/exterior_detail_pass.gd",
+    "sha256": "fdfaea56372dbbabaa4e3106bb70361fa3469520c121f95df42e46cd04959299"
+  },
+  {
+    "path": "game/scripts/building/exterior_ground_decal.gd",
+    "sha256": "c36815a52945fe7825e6ab148f529ec50c27dd9bd0cd2a7f63ddca9f587b5fac"
+  },
+  {
+    "path": "game/scripts/building/floor_coverage_pass.gd",
+    "sha256": "7455ad859e66988fc97e91c739a752acb93e68bce4d8676eff868943a0ea9cb0"
+  },
+  {
+    "path": "game/scripts/building/found_art_pass.gd",
+    "sha256": "7188d6c7000472b898a1c0b47c89b7eeaf95cbb3d00863bb7687e4ecda396907"
+  },
+  {
+    "path": "game/scripts/building/furniture_interaction_pass.gd",
+    "sha256": "7879b5ab4c88dfb50ecb4813997bdca2baaeca29d988ff8110fcfd724b7d2cdf"
+  },
+  {
+    "path": "game/scripts/building/harukiya_interactables.gd",
+    "sha256": "5bd5c3d3b9adb038252db369abf4155432ee4bf1c02b8938c6dad1cc152396ac"
+  },
+  {
+    "path": "game/scripts/building/harukiya_state_director.gd",
+    "sha256": "6fcdfb6e9b170fb81ef2fc77c1dc45d571b3d51f1874660b690696b65982e4a5"
+  },
+  {
+    "path": "game/scripts/building/heightmap_pass.gd",
+    "sha256": "ad1c03a337bf210b462a93a6020e170bcd77048c54a3624efc3f6b6ece9d68a7"
+  },
+  {
+    "path": "game/scripts/building/house_telephone_network.gd",
+    "sha256": "09068aa1920e5a09fa04b9194e04dce12644273ee6de078cb451c14e98865da0"
+  },
+  {
+    "path": "game/scripts/building/light_debug_handle.gd",
+    "sha256": "78e9fc6fce9078be858ca223f0f3c2bc7f5a51418fac1d0ec0a6dde1c0983308"
+  },
+  {
+    "path": "game/scripts/building/light_rig.gd",
+    "sha256": "ca3618f7846d2e12e19b7800ba80b099dbf37872ff99e11aab2481e79ab01dff"
+  },
+  {
+    "path": "game/scripts/building/live_weather_service.gd",
+    "sha256": "a1c41ec2adf3222a5f7f00147a1e91fd44c84820506e0a55cdb12149a485af3c"
+  },
+  {
+    "path": "game/scripts/building/maintenance_headquarters.gd",
+    "sha256": "e46684fe3908c6b28c03fdc6031c9a4096eb5d1d6947493b49eb5481b73b8f0b"
+  },
+  {
+    "path": "game/scripts/building/moon_fill.gd",
+    "sha256": "8734c29b6e03e8f9f7c75540e48614084327c27765591fb3f00ec3f4736e454a"
+  },
+  {
+    "path": "game/scripts/building/orison_detail_pass.gd",
+    "sha256": "f9b2ac25b7dadc82ea9a954dc607167d13f1acf222ed80e98a31ac822d1a4029"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_anchor_adapter.gd",
+    "sha256": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_blockout.gd",
+    "sha256": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_exterior_cell.gd",
+    "sha256": "1c5ed89bd27b579b98628f913eaa51eac39b50fa68ad78954f282aa71746488c"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_exterior_semantic_state.gd",
+    "sha256": "20f7f668faed68d705e45dbce5b2e2d07e163806f434de4a91283e40cd8a3567"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_exterior_spatial_resolver.gd",
+    "sha256": "b777b410c51000b3584e9e7746f8c514c6d3f59850446be5732009f3ada43507"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_frame_contract.gd",
+    "sha256": "ae0604d2322c3acaa91b21739927db45a74c83cf10a06a8e3430c0e1d204ddae"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_m08e_spatial_cues.gd",
+    "sha256": "70ad050846e19d2aafa4114beb927d7bbbfd14cd251a4da4a65240ffcadf61cf"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_readability_cues.gd",
+    "sha256": "106ac52b7a48a67a2f626d388401a4c199ba05d43658095681717bb81adc83aa"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_review_controller.gd",
+    "sha256": "a1b79a4a8b558187b01919b371180a7b85639a745f4594ef62ef0e31ae3633c1"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_runtime_root.gd",
+    "sha256": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_semantic_anchor.gd",
+    "sha256": "a19fde66c1b1035bb4ea7e52e8f5611fbb06447204a684ff1aaa0c9b8c61ada4"
+  },
+  {
+    "path": "game/scripts/building/orison_v2_shop_bucket_registry.gd",
+    "sha256": "40a46307cc2590cde20debffab63f4df4141b0d46921105ab8de3261a72e4a16"
+  },
+  {
+    "path": "game/scripts/building/passage_finish_pass.gd",
+    "sha256": "ab0fd9b9ab4d22c269a131b635bd291b39363db30bcff28394f93039b6cc33e8"
+  },
+  {
+    "path": "game/scripts/building/passage_hours_director.gd",
+    "sha256": "9cd757828adcfd5aead2ad9e27077148e3123adbde69ac620fd724432cdf7c98"
+  },
+  {
+    "path": "game/scripts/building/period_reality_layer.gd",
+    "sha256": "ce36fc0a611aa19f80488cb8cdc7353a94c33d37c63d22900a545aa478904d0a"
+  },
+  {
+    "path": "game/scripts/building/planar_mirror_renderer.gd",
+    "sha256": "91f2721d1e66db0bebd78ce6019fba0a91b91dfdedd5bda419a5cb878d9dd9e5"
+  },
+  {
+    "path": "game/scripts/building/prop_warehouse.gd",
+    "sha256": "ab0c8d09a9be431544b29d12d1cc360b29eaf215eb7a70081c6fb485d580e735"
+  },
+  {
+    "path": "game/scripts/building/railing_polish.gd",
+    "sha256": "9ab7051afbbaa1c258b9b5921b36afb5a7411daad1c0d5c691bdea3352ea984d"
+  },
+  {
+    "path": "game/scripts/building/room0.gd",
+    "sha256": "963cfb7a4e1bca67c823132ec11b143271d138a998bcd567aaafed1f2c0de28a"
+  },
+  {
+    "path": "game/scripts/building/story_decal.gd",
+    "sha256": "0086f486f3a40df84bdca25e835b5a8ece08138c9bf066815aec44473cea8f66"
+  },
+  {
+    "path": "game/scripts/building/street_traffic.gd",
+    "sha256": "041a4b10e60da263e34b45b1e4e5e2c40ad73c520b83fefa5ab8b6922cffd28f"
+  },
+  {
+    "path": "game/scripts/building/surface_pass.gd",
+    "sha256": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327"
+  },
+  {
+    "path": "game/scripts/building/switch_plate.gd",
+    "sha256": "36f6044560c6b49dead1180ca79c8238f9a7bf69b5552fae83760508b3845459"
+  },
+  {
+    "path": "game/scripts/building/switch_system.gd",
+    "sha256": "02b941569fe82591796035954ec55719c142207699ae2e7830f5383d5597247b"
+  },
+  {
+    "path": "game/scripts/building/vantry_point_network.gd",
+    "sha256": "37345934896706e4b94295bd41c83abc8caecbef25610a2e10fc21b98286c0cd"
+  },
+  {
+    "path": "game/scripts/building/wall_art_law.gd",
+    "sha256": "523589b0ba1b39110d28470ee6202177f47adaba4af5281a36346733206f27ac"
+  },
+  {
+    "path": "game/scripts/building/watch_station_network.gd",
+    "sha256": "bf9c540810fd494e3e0b4cbda222a5aabecb99b46af83a50bc065e706c72aad6"
+  },
+  {
+    "path": "game/scripts/building/wayfinding_signage_pass.gd",
+    "sha256": "0c865850bf07c8c43308f482896cf539549e48537dc21778de80a87b46373bc3"
+  },
+  {
+    "path": "game/scripts/building/weather_fx.gd",
+    "sha256": "18568c0f2bc1bdd0c1fd1b14c3f026432375cd4f59d2d437f99db3ab8439c776"
+  },
+  {
+    "path": "game/scripts/building/window_glow.gd",
+    "sha256": "3abae7d368f00e8d88673ccd28dbcccc374da3e8498ffed8c24ee01e4b822c17"
+  },
+  {
+    "path": "game/scripts/call/call_interface.gd",
+    "sha256": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c"
+  },
+  {
+    "path": "game/scripts/call/case_library.gd",
+    "sha256": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c"
+  },
+  {
+    "path": "game/scripts/call/desk_zone.gd",
+    "sha256": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e"
+  },
+  {
+    "path": "game/scripts/campaign/core_loop_director.gd",
+    "sha256": "666ee97c1c921b2864d654f3ed5d17c2dabc74b06c64541a0071d51b5c8f1aa0"
+  },
+  {
+    "path": "game/scripts/cases/apartment_reality_controller.gd",
+    "sha256": "8222c3e99d33884d1e2ba1a024fa1b02fffe9c2757e821873f8bd0df2cadf355"
+  },
+  {
+    "path": "game/scripts/cases/case_interactable.gd",
+    "sha256": "6cddae1f7b3ed2bfd44ace38a6637428808afdfe6a33820652cae733df53f6d5"
+  },
+  {
+    "path": "game/scripts/cases/mina_caption_manifestation.gd",
+    "sha256": "e4023a6a6a50f86266c20ab46c6b3955fa41b0f639696bd318affcf0a1a93fd8"
+  },
+  {
+    "path": "game/scripts/cases/mina_case_gameplay.gd",
+    "sha256": "d8744b8405b05a46d1a8c23f9394bee7f5c34e3e9b34dc91c1c663d2d332d62b"
+  },
+  {
+    "path": "game/scripts/cases/portal_rule_display.gd",
+    "sha256": "1ea357e639b40b9b4ba790d0f0de9487644436a82164e4cbeb3c8a2939e1e619"
+  },
+  {
+    "path": "game/scripts/cases/reality_affected_prop.gd",
+    "sha256": "e3c9534f5321f8a0e115f29e41e52a9064278625b0225001e48dffc65f877ff4"
+  },
+  {
+    "path": "game/scripts/cases/reality_threshold.gd",
+    "sha256": "c55689d16607b3e9f70bb1337f1580faf56187a36e8bb22b97e150298f8d4a29"
+  },
+  {
+    "path": "game/scripts/characters/animated_resident.gd",
+    "sha256": "3a3bc9ed6c4c53dfc931665c2cdccb3b397a8651ee07f1a5c7e8498e7217bab5"
+  },
+  {
+    "path": "game/scripts/characters/npc_placeholder.gd",
+    "sha256": "61d8d4a6a425f84ff06ad58af8838edf5f65901dfe75feb9592136e5755c5220"
+  },
+  {
+    "path": "game/scripts/characters/porter_actor.gd",
+    "sha256": "0f36c72da299c5264a23967998e46001c17787a51462d3745d4c8dacca354f15"
+  },
+  {
+    "path": "game/scripts/characters/resident_moves_library.gd",
+    "sha256": "7e1cccd3750c14bfd151cc80cf4795a59a9e4b87a3264bb263b5f1541b665b0b"
+  },
+  {
+    "path": "game/scripts/characters/resident_nav.gd",
+    "sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8"
+  },
+  {
+    "path": "game/scripts/characters/resident_routines.gd",
+    "sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a"
+  },
+  {
+    "path": "game/scripts/characters/schedule_director.gd",
+    "sha256": "fe4e1597bbd91cf5cac3b5bb4b6ba4595f2051dc6ab4fffdc146f5ef00a0345e"
+  },
+  {
+    "path": "game/scripts/device/service_set_carrier.gd",
+    "sha256": "c4295504652b9ee574fb7616159aa5023bac09c3a581ace5808c4c5d637ada1e"
+  },
+  {
+    "path": "game/scripts/device/service_set_prop.gd",
+    "sha256": "795bf3f161a84b2309d8efec70043a312b862cbdcfbe77a2ee78365042d565d3"
+  },
+  {
+    "path": "game/scripts/dream/campaign_shell.gd",
+    "sha256": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f"
+  },
+  {
+    "path": "game/scripts/dream/critters/dream_critter_controller.gd",
+    "sha256": "b3a8dcbb7a66aab47732da3443c3405822fe9364c93f37924d1f5061af5b075a"
+  },
+  {
+    "path": "game/scripts/dream/critters/dream_critter_generator.gd",
+    "sha256": "b28b9818fc0e052706f83411b8f194e5f170c3a7055d1e7eb5ddcadeaf1b8f16"
+  },
+  {
+    "path": "game/scripts/dream/critters/dream_critter_species.gd",
+    "sha256": "f96265430858867d5079933312f14808c28e2d8fd9abba685a3ddfb23585c29c"
+  },
+  {
+    "path": "game/scripts/dream/dream_atlas.gd",
+    "sha256": "a35e52a1455186348d6b5ca3cab246c1df1d1376e1220a9c4094ab5cf5a6ae49"
+  },
+  {
+    "path": "game/scripts/dream/dream_caption_layer.gd",
+    "sha256": "317dbaf13123b9a86417a6788966470e77a50b92d31e2482b797a6d2d00325a2"
+  },
+  {
+    "path": "game/scripts/dream/dream_cellular_audio_pool.gd",
+    "sha256": "9e1ec34d7da4187da920c16b5cb3c1903eb0d0c560ae97cf92c8046484b48c19"
+  },
+  {
+    "path": "game/scripts/dream/dream_director.gd",
+    "sha256": "4c35224867c577d4c390fb9b44ba7868992d690260b7d7b27f66ba9262faf340"
+  },
+  {
+    "path": "game/scripts/dream/dream_ecology_director.gd",
+    "sha256": "0840d470c199610b5e02094ddc9f38391e7469aa347e120da3f0a889d49e3ee6"
+  },
+  {
+    "path": "game/scripts/dream/dream_embrace.gd",
+    "sha256": "b7bbca6c8283450b3a11c831c14ac5ac1b05f4b8ebc752c2f50f89d9a9c1306f"
+  },
+  {
+    "path": "game/scripts/dream/dream_exposure_field.gd",
+    "sha256": "d8bef64c5097dbc6b9f3e3aa28fc3649ec3ab1c4f2f5fa4f6571333851d69e2d"
+  },
+  {
+    "path": "game/scripts/dream/dream_fauna_channels.gd",
+    "sha256": "d1b6ff5cd360950d5b23fde7ff10f8b5f5a52193370afa6f8d59ec52913a5661"
+  },
+  {
+    "path": "game/scripts/dream/dream_fauna_director.gd",
+    "sha256": "d9692076ea9d94bb37d2de307f467909ffdd447a5ac0edac0aa9b67d95dfd8cd"
+  },
+  {
+    "path": "game/scripts/dream/dream_fauna_parts.gd",
+    "sha256": "55cb8fdcac01343fea962f73f124473c520a626dbdcd2302d6820c01842213a8"
+  },
+  {
+    "path": "game/scripts/dream/dream_hazard.gd",
+    "sha256": "359c83d2db509814ae7e07544a5bd1fa4ed7a9a7e5ee18a2b15b263e272c2360"
+  },
+  {
+    "path": "game/scripts/dream/dream_hazard_field.gd",
+    "sha256": "f0b9a3d983c8e17e1d3a87bbf4a7da4e38b9bcfa61888d2c338cfb42df6c230b"
+  },
+  {
+    "path": "game/scripts/dream/dream_hazard_growth.gd",
+    "sha256": "351bcfe9d837e8b19f0d104aa6329da03185fcdd450da6b8ca950b53364c8127"
+  },
+  {
+    "path": "game/scripts/dream/dream_incarnation_plate_cache.gd",
+    "sha256": "713fdeeaf68c7d30a06575438e155ae783f35cba4152da8fff5f99410dd529c9"
+  },
+  {
+    "path": "game/scripts/dream/dream_incarnation_profile.gd",
+    "sha256": "90e261b263cb244e34c9283ea19f9db5c6b01c96a7ce5bc7b5d1262ae622613f"
+  },
+  {
+    "path": "game/scripts/dream/dream_lineage_body.gd",
+    "sha256": "4a397c34b8a4fbc4829fd63710cecfed8b3c6a3848a3300240bf90abf095d618"
+  },
+  {
+    "path": "game/scripts/dream/dream_maze_builder.gd",
+    "sha256": "ef9378e3873737afa56c1d77dd43d0b7c023bcf632e5590dd1ed612a9e2c4b02"
+  },
+  {
+    "path": "game/scripts/dream/dream_maze_root.gd",
+    "sha256": "243fe441e344b81e149487c1756fa08b3826eaab1fb574df7feec1544e6076b2"
+  },
+  {
+    "path": "game/scripts/dream/dream_microbiology_light.gd",
+    "sha256": "063a9d6f73b5816636f7396ee0f118fcba070cee5832122a52a72cc5eaf581ec"
+  },
+  {
+    "path": "game/scripts/dream/dream_microbiology_mechanics.gd",
+    "sha256": "4e9837fd0e776cddfeee92324d1347d8cb78daa1cf384f83d205439e8ac15583"
+  },
+  {
+    "path": "game/scripts/dream/dream_moss_colony.gd",
+    "sha256": "1335673ec22988f18b4c722e675a99be34a7a44342c098ce2d76307e3334523e"
+  },
+  {
+    "path": "game/scripts/dream/dream_moss_colony_renderer.gd",
+    "sha256": "a521ae898d47fe477d16e377ddb152c2822a42ec313fee41764fd9df6dd03794"
+  },
+  {
+    "path": "game/scripts/dream/dream_organelle_lifecycle.gd",
+    "sha256": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82"
+  },
+  {
+    "path": "game/scripts/dream/dream_orison_furnisher.gd",
+    "sha256": "706d20e686fa90d3d399c2a89f074b7add31bfaca1175626ee934263bf47fc76"
+  },
+  {
+    "path": "game/scripts/dream/dream_orison_interior.gd",
+    "sha256": "6a533dc026f80a0e3ca4944ce6c1305c086e2b0ed685d133e85b489d7b75856a"
+  },
+  {
+    "path": "game/scripts/dream/dream_pursuer.gd",
+    "sha256": "1374eca1581b0ba1f559e788cc76b756160eb892eb365add21f79c6f7015eb67"
+  },
+  {
+    "path": "game/scripts/dream/dream_residue.gd",
+    "sha256": "346f517b86a5883b81af847aca3b8d68e4eb035210893b5b08f2a76d6a90226f"
+  },
+  {
+    "path": "game/scripts/dream/dream_room_builder.gd",
+    "sha256": "e72d40bb6a2c5937f2d6a831d6377fdf3e8a8fd35eda3c166055a34dc6475472"
+  },
+  {
+    "path": "game/scripts/dream/dream_view_portal.gd",
+    "sha256": "2412742d2b9feff97fe5e630e0d65b8df4f192b7f9ce3a0448b05ab24a133fcd"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_behavior_profile.gd",
+    "sha256": "7367a0153ea08e94b6282ca8618a223917d0ecf0c74b26df318c4d023eff7583"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_contact_profile.gd",
+    "sha256": "54500afc4bfc94debb2e9ec1557e92568c34343cf531f689ec55f868dc831106"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_contact_sensor.gd",
+    "sha256": "f15bfd02a8103e2bf7e5e8d6ccbe627e8f021a09eaf35ee490fb89dde48f2310"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_gold_skeleton.gd",
+    "sha256": "3914e33faba1286360317c01e2b89bd7d18042841bcaab425cfd53148d75fcc2"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_halo_controller.gd",
+    "sha256": "46574180e22adac57342370dadf796fa69771b86ed62838afccfe46c951f7f92"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_hero_tentacle.gd",
+    "sha256": "fdd53b64a5a700fae783b85721daf5bd4b62e3d5dc4f58c17fd7307bd5bbe396"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_material_profile.gd",
+    "sha256": "092cffbf600466521c1147aa5c140d7d6d54eb4709304d85bf4e4116432bd4e7"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_membrane.gd",
+    "sha256": "c8efb61b27ea35705f63d5ece9c6edab58e90f0338a0529bddc6187ca2878ddf"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_ocular_assembly.gd",
+    "sha256": "844820ebbad72af1fb49232194465c57d1c024ea3870c38340be3d78fc6398fa"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_sucker_controller.gd",
+    "sha256": "8cc21431cd85de3ad0146e0ad1bedbcadb3cf73d7cbda91329120f1bac5b1276"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_surface_transformer.gd",
+    "sha256": "cc61937b7d9c38c2974840d8d5319489e689f2a8f6edd232cc70760fb63e85f8"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_target_profile.gd",
+    "sha256": "c62e8847dcfa1f28cd0e36fc327d9670227ea7b663fa239ca6ccc34b414a1428"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_tentacle_behavior.gd",
+    "sha256": "895860fb4e79a9e3a8dec3381e51d2514f2e27a61522f51322faeb53b6b90e61"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_tentacle_controller.gd",
+    "sha256": "e41040bbc1a2fcd89355befa5767454b7e75ed9bdf646f3a946a68d6168f5a48"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_tentacle_debug.gd",
+    "sha256": "170d3210e4dcd50004a3f4ad8b7f01fac5b51de9037d6244a304847b9133f97d"
+  },
+  {
+    "path": "game/scripts/dream/entity/dream_tentacle_rig.gd",
+    "sha256": "14f504ec74064d0090d0c3ca20d8698a61aea9a4b164e9217f391e495401adfa"
+  },
+  {
+    "path": "game/scripts/dream/field/dream_field_controller.gd",
+    "sha256": "15ef65a0a92f4d700ef563f5fa9ca17c62a1a0528737fda7de5be97da2e1a429"
+  },
+  {
+    "path": "game/scripts/dream/field/dream_field_state.gd",
+    "sha256": "72e1ebf73371cfc67d858ae5648ebf1ccdc411726637ced7e9105ded303e492b"
+  },
+  {
+    "path": "game/scripts/dream/field/dream_surface_tendrils.gd",
+    "sha256": "eef87fc1816b00e7b4b3d3c320d9e1de58a72f8546ccbd717f381c38e51d208d"
+  },
+  {
+    "path": "game/scripts/dream/margin/dream_margin_controller.gd",
+    "sha256": "5383484100b4b174feeba2bcaf4862acb9612204b5e8603ed7a8848d76f147f8"
+  },
+  {
+    "path": "game/scripts/dream/margin/dream_palp_behavior.gd",
+    "sha256": "d6a434dc20375b2c836d86a5f683ff9cf803e16791b35c85108abf8a4c476d70"
+  },
+  {
+    "path": "game/scripts/dream/margin/dream_palp_morphology.gd",
+    "sha256": "bb80fa15dc62b871b9ffae14cf08c719ddc7c18e19eddcf408200b2cb399aaf9"
+  },
+  {
+    "path": "game/scripts/dream/margin/dream_palp_neighbors.gd",
+    "sha256": "fb508d0cec822496d193527807b2f33e279561de7eb5bb92f6fa7f309142543b"
+  },
+  {
+    "path": "game/scripts/dream/margin/dream_palp_renderer.gd",
+    "sha256": "c7c1e3b65d08089a51b476b7765be150273d8c59bf94587592efaeb6ec6b6553"
+  },
+  {
+    "path": "game/scripts/dream/sleep_pressure_director.gd",
+    "sha256": "d78b95a361ca172671acc6630c01d510c2498d0626d19aec641eb7899636b453"
+  },
+  {
+    "path": "game/scripts/game/attention_ledger.gd",
+    "sha256": "012c5a92ed6cbbced0490dc3201101dd8f5fcb6c8dd15eb1ece2f13922328517"
+  },
+  {
+    "path": "game/scripts/game/campaign_clock.gd",
+    "sha256": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd"
+  },
+  {
+    "path": "game/scripts/game/campaign_clock_driver.gd",
+    "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+  },
+  {
+    "path": "game/scripts/game/chirp_hunt.gd",
+    "sha256": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28"
+  },
+  {
+    "path": "game/scripts/game/first_shift_director.gd",
+    "sha256": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd"
+  },
+  {
+    "path": "game/scripts/game/historical_radio_notice.gd",
+    "sha256": "c0cc3393dcef068ce9d25dcc26f073b5e97d328c1c2532523bf51fc6b101023d"
+  },
+  {
+    "path": "game/scripts/game/maintenance_activity_director.gd",
+    "sha256": "d088f30312273c9ab742d705e9e6310aa4256283b35b4beee63ff7177802687e"
+  },
+  {
+    "path": "game/scripts/game/maintenance_activity_library.gd",
+    "sha256": "40e7a75314a50bd89faf908300cf685991cf74243e8329b5566e63e3adb8db9f"
+  },
+  {
+    "path": "game/scripts/game/maintenance_activity_run.gd",
+    "sha256": "3cabdfba25efd75a9463cd43ae1d0b08bd030614bdee95027dbdc8f833103366"
+  },
+  {
+    "path": "game/scripts/game/maintenance_inventory.gd",
+    "sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+  },
+  {
+    "path": "game/scripts/game/maintenance_job_library.gd",
+    "sha256": "9a50d66644a45e055d5dea3b8b8832a0dd6e22abfcd4009e8af7196e85873d8c"
+  },
+  {
+    "path": "game/scripts/game/maintenance_shop_counter.gd",
+    "sha256": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078"
+  },
+  {
+    "path": "game/scripts/game/maintenance_shop_service.gd",
+    "sha256": "696b8c24b074fae73ca6110db955d618a0913f7b4997214be68b5cffe9a9f60c"
+  },
+  {
+    "path": "game/scripts/game/open_shift_radiator_ecosystem.gd",
+    "sha256": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815"
+  },
+  {
+    "path": "game/scripts/game/open_shift_situation.gd",
+    "sha256": "3feb4b48bbee13d21d40bb45f23b67a0a77eb8de48365bf00409053feaab4448"
+  },
+  {
+    "path": "game/scripts/game/reality_case_manager.gd",
+    "sha256": "9f87767311cb4914f69b56ecbc80a9916e5d0bf62dd3a234dd539a4d2676dcde"
+  },
+  {
+    "path": "game/scripts/game/reality_game_state.gd",
+    "sha256": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae"
+  },
+  {
+    "path": "game/scripts/game/reality_rule_director.gd",
+    "sha256": "e18fc5d9f322d3ee0cbe431b578c85c0be0a95fcaaa4cfaccd765856d9e6902e"
+  },
+  {
+    "path": "game/scripts/game/reality_save_storage.gd",
+    "sha256": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f"
+  },
+  {
+    "path": "game/scripts/game/service_round_director.gd",
+    "sha256": "7cb56d93ec3322e52dacc5d5c7b9f0cbcf824c06bbef9fc2d689a7732bfc2cbb"
+  },
+  {
+    "path": "game/scripts/game/work_orders.gd",
+    "sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+  },
+  {
+    "path": "game/scripts/game_boot.gd",
+    "sha256": "b57c35e033478ad2355e885ed9712256014d50f1bee059b63a05b2302a56abcf"
+  },
+  {
+    "path": "game/scripts/generated/material_sets.gd",
+    "sha256": "ae10e85d2944f057aa57ec93c5d47ee3d5c74a4560607817a4f9a50cdc7f547a"
+  },
+  {
+    "path": "game/scripts/generated/surface_calibration.gd",
+    "sha256": "1444821124306250e7031a67729fb4d78e5db57ac059177e8ec9ed64a0c77763"
+  },
+  {
+    "path": "game/scripts/language/house_english.gd",
+    "sha256": "0e79a7c9c3d696f3ddcb8ba86b0631e1ccb12af629aa9ca0544e11fbc8f4dbb3"
+  },
+  {
+    "path": "game/scripts/material_library.gd",
+    "sha256": "28b6b3d46264b424c15301963cb86ff24d162c121a30fe8a3531f11664f0b628"
+  },
+  {
+    "path": "game/scripts/minigames/darts_game.gd",
+    "sha256": "685c4d8ef968863b0732a431b67cc5e3389e1b638abcd86e7ef319fa3874a81c"
+  },
+  {
+    "path": "game/scripts/minigames/dead_letters.gd",
+    "sha256": "ff006dbcd77570a64995256095c65d03e1182173702f0ac8a8636154b4d35c11"
+  },
+  {
+    "path": "game/scripts/minigames/otis.gd",
+    "sha256": "f171db51ced2ddf7d04c3577d7bc5385c1d7df6d413a2ffada9d698d6c13ece2"
+  },
+  {
+    "path": "game/scripts/minigames/point_ball.gd",
+    "sha256": "fa97c08cc26e11faa4387de8c26acca262ce234dddbe70722a575c63a5eb8e81"
+  },
+  {
+    "path": "game/scripts/minigames/point_ball_ai.gd",
+    "sha256": "14d9347e6477e1b2c9d29e1e9f2b9428eae4d9c6eecbe5ef1b6f936ce97546ed"
+  },
+  {
+    "path": "game/scripts/minigames/shelf_sort.gd",
+    "sha256": "cab805c3bd1e296398e0ffc88cada59fefd9e98821a86b2eddef9543fc7bad29"
+  },
+  {
+    "path": "game/scripts/minigames/trivia_darts.gd",
+    "sha256": "77431deabc2563d98856c5c93a2c773c30bb5eea606baab53cc1f0814b4249ac"
+  },
+  {
+    "path": "game/scripts/phoneos/cart_maze.gd",
+    "sha256": "1833f1aaa779b6d839b424208f3a3011ab5d732cd0cd44640ead085bae0259ba"
+  },
+  {
+    "path": "game/scripts/phoneos/cart_pairs.gd",
+    "sha256": "207703049a372e3a47eb06a373d18b3fb084aeed7990fbb72b5be5638c4068ba"
+  },
+  {
+    "path": "game/scripts/phoneos/cart_shards.gd",
+    "sha256": "f820f76b26af491308ad4294aec864ebae6a74ceeb7d1974672fe3821d8fad0d"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_3d.gd",
+    "sha256": "1f9dced20da73a220c3a39fea0925654878e4492d0e74da5a9b25747d51e271d"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_3d_viewer.gd",
+    "sha256": "9ac2321d42b57111bb42adc183ee1e0f2d504aa51dbdad4ccaee5737432a7636"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_camera.gd",
+    "sha256": "ef6bd1cd6689f6d5b8c36fea84335a30fa046922622d59bc11a1aad3729dabd8"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_carrier.gd",
+    "sha256": "f9d9767b44ae2fa0cf9aa5dadaede9210af6d0478e34d131042e9ef8097d7fe1"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_device.gd",
+    "sha256": "40bcc2d6a1ecfa042b9e3a09b02443c4b29cccbec209a8917b3946f528bc84ec"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_light_mask.gd",
+    "sha256": "7d922caf09d9bd4bbc64d0ffa820cfafd1b27fa5d7c925d64455171317a18141"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_os.gd",
+    "sha256": "cb8f5ee2d8f26662cd2d36afb40cbd09891fdcf625e1218cc9fb29c21dee3340"
+  },
+  {
+    "path": "game/scripts/phoneos/phone_shell.gd",
+    "sha256": "e3f2d69fc68e3b7917b71e8f07eb5f54f613d80cb26d4bd9e2fece816c0c9769"
+  },
+  {
+    "path": "game/scripts/phoneos/term_grid.gd",
+    "sha256": "82b0ec60393a250f6bda4399b9ce4d6ff2c569cb06628a0db9f0b8146e31e41c"
+  },
+  {
+    "path": "game/scripts/player/player_controller.gd",
+    "sha256": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859"
+  },
+  {
+    "path": "game/scripts/player/safety_net.gd",
+    "sha256": "a1419b888017b72c3a5359d7c900939878aab4cfdcc4183f14f4a3dffbd9d90f"
+  },
+  {
+    "path": "game/scripts/props/arcade_cabinet_prop.gd",
+    "sha256": "6cdd1ac30a8cce3ac1e42165ed03ed0f030df94fb77bce27a28068ba79238801"
+  },
+  {
+    "path": "game/scripts/props/baked_furniture_interaction.gd",
+    "sha256": "79693c5623ab062e2e7e48d5b174f94f4037d08a0b39720dbad1daeab3c122ea"
+  },
+  {
+    "path": "game/scripts/props/bar_seat_zone.gd",
+    "sha256": "185c0b66776b627b7502006a92b67464a2a8f1b96872c172706a8b7cfff335b0"
+  },
+  {
+    "path": "game/scripts/props/bench_zone.gd",
+    "sha256": "ea83817fd7812f4e1b71d3143e4da1858dd9a260388762babcb92fd87a2daed4"
+  },
+  {
+    "path": "game/scripts/props/bodega_signage_prop.gd",
+    "sha256": "4db118d859a7c9d62696350c4d70e375b4dec1ff620eb5d8b1f81ed0c5eb2b2b"
+  },
+  {
+    "path": "game/scripts/props/boiler_prop.gd",
+    "sha256": "d69cbaeff0e6fde4592e0e17caab58c17dd1923ffde48941ab2249182f15d06b"
+  },
+  {
+    "path": "game/scripts/props/boiler_tend.gd",
+    "sha256": "5b45123567b398443dffbb4d806683bcf2f25653230a31501fc445a6a84e0c23"
+  },
+  {
+    "path": "game/scripts/props/bookshelf_prop.gd",
+    "sha256": "ae5d0a1c96265f6728a3a9756d38f944b1f4b526811a2e745233ac184865cfc3"
+  },
+  {
+    "path": "game/scripts/props/boxfan_prop.gd",
+    "sha256": "908e04b551e483cb7dcda9e6a8333e9ac35f62d37be4b0402ea9ed45255dbee6"
+  },
+  {
+    "path": "game/scripts/props/building_entry_sign.gd",
+    "sha256": "31fdd382f3ea04d8ceee9bd2dbbf213a5bda472f8295af0f06b86c187a799be8"
+  },
+  {
+    "path": "game/scripts/props/case_door_prop.gd",
+    "sha256": "176fd83cc9ed051f3dc863b75b62254bbea335ec24ea6916943321a8843c890c"
+  },
+  {
+    "path": "game/scripts/props/ceiling_light_prop.gd",
+    "sha256": "7ae408291b5831265c7d86cfd61e7cb82f64fa91936f9d469c26440cb313d67c"
+  },
+  {
+    "path": "game/scripts/props/character_memory_art.gd",
+    "sha256": "044c1d719916282b5f7667ffcf802de48e539dfbdc1499817b119b1f642acf89"
+  },
+  {
+    "path": "game/scripts/props/clock_prop.gd",
+    "sha256": "f05c024048749e30bf4b189704bedbda117551c498b92f23e61cd4e067c23b06"
+  },
+  {
+    "path": "game/scripts/props/darts_prop.gd",
+    "sha256": "d50bb86001852b53b240323acd6d61db737d95383b8b6aeea5a7586f9dc3b129"
+  },
+  {
+    "path": "game/scripts/props/dead_letters_prop.gd",
+    "sha256": "4c94f01d0c9ea95f637b81c42d53d79b839aa4577c2d3d42b0a62b2b3881bdd5"
+  },
+  {
+    "path": "game/scripts/props/domestic_radio_prop.gd",
+    "sha256": "abb3b7abcc68bcf43a1e2f1d46bc925174a7c62318fb60a8ee7ad3bd93c595d4"
+  },
+  {
+    "path": "game/scripts/props/domestic_witness_clock.gd",
+    "sha256": "86e3fc391fa4b49f11cb2e7021eda39da3d1241b9344e69371ffc50639222040"
+  },
+  {
+    "path": "game/scripts/props/door_anomaly_prop.gd",
+    "sha256": "cfbb734636d1859329c4bb845defdf746742e5ddb253beb9fe31ae64002ca4dd"
+  },
+  {
+    "path": "game/scripts/props/door_check_closer_prop.gd",
+    "sha256": "0060fbda322e09a349c2f75016ea773bf5de1fae05b1f610e241cd9097894fe9"
+  },
+  {
+    "path": "game/scripts/props/door_prop.gd",
+    "sha256": "b4dbf255da788e96b1719b2b83db27c686ab64212351a71bf0f43c4841c7b0df"
+  },
+  {
+    "path": "game/scripts/props/dumbwaiter_prop.gd",
+    "sha256": "fa2f5ab1890ad1e6a731be691f87dcc6ad1a2b72f3b64bb6891fe31d3a5d63bb"
+  },
+  {
+    "path": "game/scripts/props/elevator_interlock_prop.gd",
+    "sha256": "14d9048e78547065547f4603b001595b561ce33f0a7f4db18ba4f1dc7834f3c9"
+  },
+  {
+    "path": "game/scripts/props/entrance_marquee_dress.gd",
+    "sha256": "e0bb500fbe711f5ce71fcd59cca73ca8ddeea99ea0794896fcc617d8e1dd8d47"
+  },
+  {
+    "path": "game/scripts/props/exhaust_fan_prop.gd",
+    "sha256": "82288be8abf1e1d2fdce0b69510ad7d895a40019eb3eff30e6e0a9a6cd923ab0"
+  },
+  {
+    "path": "game/scripts/props/fire_line_cabinet_prop.gd",
+    "sha256": "75c4393f66364aed8a0a42aa44222f1354c9f269f55d0db0f217e3a11efe24b8"
+  },
+  {
+    "path": "game/scripts/props/flue_breast_prop.gd",
+    "sha256": "a82ad23b3c7c2bd76f797d77d1fb85881ed916b206eedd493291acdc9f186ddf"
+  },
+  {
+    "path": "game/scripts/props/fortune_answer_prop.gd",
+    "sha256": "352c6943e647a33aa2fc709389dda4a4c13e5c6f1a4c86c072787022412b81f7"
+  },
+  {
+    "path": "game/scripts/props/fridge_prop.gd",
+    "sha256": "223e05bd53f3b9f3ea459ccf1badc47077e9fdf40640ce34d89f3fac64ec4327"
+  },
+  {
+    "path": "game/scripts/props/functional_prop.gd",
+    "sha256": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca"
+  },
+  {
+    "path": "game/scripts/props/fuse_panel_prop.gd",
+    "sha256": "577f904431556bfee04b6abbb58507428272fe62d58d710e0c5227791ef4db13"
+  },
+  {
+    "path": "game/scripts/props/harukiya_signage_prop.gd",
+    "sha256": "01f0d57e7257eb85e33b46160e851a86a8c40beec49ec1d925e47785348063b6"
+  },
+  {
+    "path": "game/scripts/props/heat_balance.gd",
+    "sha256": "ae67494107e377f68cf4314adc7d7e022f48f817c7fb6c627667e1007c894b09"
+  },
+  {
+    "path": "game/scripts/props/house_switchboard_prop.gd",
+    "sha256": "68043ec0bdfab58e2ae62faf3a9151e4def523ceba1e6e958873ed34d70c7ca2"
+  },
+  {
+    "path": "game/scripts/props/inspectable_zone.gd",
+    "sha256": "3d7c888c4116fa04deef0d131aa816f387e8e481f8194c06d0ebad6ab58cd534"
+  },
+  {
+    "path": "game/scripts/props/kettle_prop.gd",
+    "sha256": "d2f3922a0c7c2a3cae4d4ce4184a3e1e8500132f66295937bf93deb218bb443d"
+  },
+  {
+    "path": "game/scripts/props/lamp_prop.gd",
+    "sha256": "1d24a30427610b78c7e642e5e7457798412ab3a5533b1eb177aeb572e68b3d2a"
+  },
+  {
+    "path": "game/scripts/props/landmark_entry_door.gd",
+    "sha256": "1d78f870121fa22bff58cb594268dec8a82827166d800ed0f9504b99342ad6ad"
+  },
+  {
+    "path": "game/scripts/props/laundry_airer_prop.gd",
+    "sha256": "be045bba0295c20942e9afe69ee6043ea6d5c994b7a45ff9296bff138fb0fc07"
+  },
+  {
+    "path": "game/scripts/props/light_fixture_prop.gd",
+    "sha256": "e9e9790115a1efb1463f9a06918c30c9486d00b91e1c73c74bcc10b4a21f47d6"
+  },
+  {
+    "path": "game/scripts/props/lobby_bulletin_board.gd",
+    "sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865"
+  },
+  {
+    "path": "game/scripts/props/lobby_orison_ad_board.gd",
+    "sha256": "bac75fb042b57329db54958c5add96bdc7f8e9cd0be398810ea846deafc73724"
+  },
+  {
+    "path": "game/scripts/props/mail_bank_prop.gd",
+    "sha256": "8336a42c75dcd9b91a63f2e835830d0971bda9997067d7946032b8cad3b221a1"
+  },
+  {
+    "path": "game/scripts/props/mail_box_zone.gd",
+    "sha256": "e4c90da520cbfb9d83d265ee1abaa5648ef9105c2e670a48454938f85c0ad888"
+  },
+  {
+    "path": "game/scripts/props/mail_chute_prop.gd",
+    "sha256": "886d9e424e5f4eabf15e5a41701f2763573fa71226f46c714feadf40bc999be3"
+  },
+  {
+    "path": "game/scripts/props/medicine_cabinet_prop.gd",
+    "sha256": "8180f70ec1877e63e8c66e0cafcbd363bdb5ed6232b2a064a237ee0861164496"
+  },
+  {
+    "path": "game/scripts/props/monitor_prop.gd",
+    "sha256": "bb89b5b759dddc12dd87f868a42b40b0e35ca42cc61b2e8075d9298fcfd7bea9"
+  },
+  {
+    "path": "game/scripts/props/neon_sign_prop.gd",
+    "sha256": "bb5f87c413c8cb3f097b62e40aeb3f15795aed9e96d5334467ce19ae676ce25a"
+  },
+  {
+    "path": "game/scripts/props/night_register_prop.gd",
+    "sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e"
+  },
+  {
+    "path": "game/scripts/props/otis_prop.gd",
+    "sha256": "56e72a5e99a789ff56b8f3e48369078bf50fb0795fcedebe08eb18580d47a74c"
+  },
+  {
+    "path": "game/scripts/props/passage_pushcart.gd",
+    "sha256": "5d87c91e3cd6ce4c1ff76f27fd02a55e87ae456961f82ced515af1d046a7ec23"
+  },
+  {
+    "path": "game/scripts/props/point_ball_prop.gd",
+    "sha256": "45aefcadc52b8142499d3ca908e917289dac6403778cf7703712f020ef994f23"
+  },
+  {
+    "path": "game/scripts/props/porch_deck_prop.gd",
+    "sha256": "0274fe0d3595e6f4ef2187842532091dd69ca851adc6ea7831611f5c3ecee391"
+  },
+  {
+    "path": "game/scripts/props/possessed_domestic_prop.gd",
+    "sha256": "26b30ab9a31a1b8f9106e94baa0ad6d2a7a3eba5ebe46387e0554a7b6f34910b"
+  },
+  {
+    "path": "game/scripts/props/projector_prop.gd",
+    "sha256": "4720c15b2e3b408139dc539bac4e0c1b09ab215c0f77343be07733ac771e201b"
+  },
+  {
+    "path": "game/scripts/props/prop_control_area.gd",
+    "sha256": "859e3620ef4b44beedd7d839c3efccfb1cf6598a9353c12ec9b722407d0ff55e"
+  },
+  {
+    "path": "game/scripts/props/radiator_interaction_surface.gd",
+    "sha256": "37491fbe7269ac5f0bfab6a47d359483d7b3f4ba8e5ca45b8c9597a3532063dc"
+  },
+  {
+    "path": "game/scripts/props/radiator_prop.gd",
+    "sha256": "6a87e4961275578b9d68af8d3dbb21dcc56d6ee22f143137a8447b2cb1fdd219"
+  },
+  {
+    "path": "game/scripts/props/roof_tank_ballcock_prop.gd",
+    "sha256": "587f2dd2ed257d06294736175481eb65b609c779ac4927d4876359ede97d1787"
+  },
+  {
+    "path": "game/scripts/props/shop_sign_prop.gd",
+    "sha256": "3c7938b4a8127c6c3262a5c76807e29214110333050d0e68080b096c439a6320"
+  },
+  {
+    "path": "game/scripts/props/signal_terminal_prop.gd",
+    "sha256": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3"
+  },
+  {
+    "path": "game/scripts/props/smoke_detector_prop.gd",
+    "sha256": "d1658755b6db3a41e29e2203afdd86e9e8197eabbb51c52f290a0086d75a79fc"
+  },
+  {
+    "path": "game/scripts/props/soda_acid_extinguisher_prop.gd",
+    "sha256": "9de9caef2289c9e990ead92e5707ff20caa3cd752b52d19ece4be01914ab898d"
+  },
+  {
+    "path": "game/scripts/props/songbook_terminal_prop.gd",
+    "sha256": "4088081f6d35f9cc1e20cc9467dc0d8878d86a3eb9318dccec193d0fa7ac0e04"
+  },
+  {
+    "path": "game/scripts/props/speaker_prop.gd",
+    "sha256": "d681521653d6def18e3a183a064140e94bebba5de8e60212d154473355afdcf9"
+  },
+  {
+    "path": "game/scripts/props/static_mesh_batcher.gd",
+    "sha256": "aceeec571a9caf6d8a61ddc349f0e9378bff50bbc92bacaba7c635723b6a1004"
+  },
+  {
+    "path": "game/scripts/props/stove_prop.gd",
+    "sha256": "7ee4fce09cfd3a61084e46513c55409067924c9fbb2f2cd74ed6f0f375dcea89"
+  },
+  {
+    "path": "game/scripts/props/tap_prop.gd",
+    "sha256": "d4b59e25ce2773105b53a760d2378541d3ba0d15a2a678a1086bbd0150f07e70"
+  },
+  {
+    "path": "game/scripts/props/toaster_prop.gd",
+    "sha256": "6c3dc4c73cd5a1c2d68c709ded30c4730e242e08752d19232891c99250d69397"
+  },
+  {
+    "path": "game/scripts/props/tour_key_guard_prop.gd",
+    "sha256": "2d207e89cf3506efdaa4f4b619058c712d93d8229c379c9bf553798ef2f37235"
+  },
+  {
+    "path": "game/scripts/props/tv_prop.gd",
+    "sha256": "dddbb99e8f0fa421fc6e9d8a9cbdae24120c7680d05f329da55c57019a4a45df"
+  },
+  {
+    "path": "game/scripts/props/vantry_point_prop.gd",
+    "sha256": "d308e64df4030b5339e985a3e851d70630276e9203672b6f26dcb28ba54cfd92"
+  },
+  {
+    "path": "game/scripts/props/vault_light_glow.gd",
+    "sha256": "104f7e91f77406cad31b46fdeeb7736b6b91b6e80c610eb0cfd24c07e2b393ad"
+  },
+  {
+    "path": "game/scripts/props/washer_prop.gd",
+    "sha256": "525593d567a97851a2c99a1d54c1bc181b76c86de158185c3ae25c768d82511b"
+  },
+  {
+    "path": "game/scripts/props/watch_register_prop.gd",
+    "sha256": "99e105ceaded35435323ba21f2cd6fba013c9ab8d8d7e3b9ea1f717849ce8490"
+  },
+  {
+    "path": "game/scripts/props/watch_station_prop.gd",
+    "sha256": "31441ba9e25ce2abcb8ba9751a6ec32db9e8b76477be35a6798054f1e0b7cb29"
+  },
+  {
+    "path": "game/scripts/props/watchman_clock_prop.gd",
+    "sha256": "ce8e9f1cf2b0ff9478002bfa7d5f72120410945aef88d8d9ae608a2b188f5c34"
+  },
+  {
+    "path": "game/scripts/reality/apartment_encroachment.gd",
+    "sha256": "b7b7588589e5d1751c8c3d1486979c1e3a41ad18b0fd4a4274ab6251a8133227"
+  },
+  {
+    "path": "game/scripts/reality/building_personality_director.gd",
+    "sha256": "6879c8215e3b6f48aeaa78a878f347ea0022350465d1bc72adaf65a8fa7a76b8"
+  },
+  {
+    "path": "game/scripts/reality/corruption_lineage_registry.gd",
+    "sha256": "12e543f77a342bb4a4cb6d52bc3c283be87c6793002f7ee191c8c9a04aa077db"
+  },
+  {
+    "path": "game/scripts/reality/domestic_witness_system.gd",
+    "sha256": "3edc1c8229648e645afdd85cb4e98a548dcc33cc94f8d67de33bfc18d311eabc"
+  },
+  {
+    "path": "game/scripts/reality/intrusions.gd",
+    "sha256": "26df12a2ed5d446203f8f5f243ed9b67cc1d864fb4980f045edbe10b6d760e12"
+  },
+  {
+    "path": "game/scripts/reality/living_field.gd",
+    "sha256": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5"
+  },
+  {
+    "path": "game/scripts/reality/npc_observation_ledger.gd",
+    "sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+  },
+  {
+    "path": "game/scripts/reality/organism_incidents.gd",
+    "sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87"
+  },
+  {
+    "path": "game/scripts/reality/poltergeist_library.gd",
+    "sha256": "05fc7d0c6dc4adc812c9cadc88f9a3130d2ac20c2a365fc9efab75665ab5f532"
+  },
+  {
+    "path": "game/scripts/reality/sanity_director.gd",
+    "sha256": "4f4ecb8857e0aed643d5f37f6d50cb3d396579544abdf8364fe9fa15fd25d578"
+  },
+  {
+    "path": "game/scripts/songbook/bar_pa.gd",
+    "sha256": "101432fb5883c5a14b6615a9a6af45b27c883fdc44e969575c2bc349fce12178"
+  },
+  {
+    "path": "game/scripts/songbook/mic_recorder.gd",
+    "sha256": "86b42a75f04fbd68e429e8d39f91966b33a501a11c7e88425d8c6989219ac667"
+  },
+  {
+    "path": "game/scripts/songbook/phonautogram_forge.gd",
+    "sha256": "320d53e30eab43da58ae45793e2f3ddbe68b5d81134c789d2d114efe8785afdc"
+  },
+  {
+    "path": "game/scripts/songbook/phonautogram_reader.gd",
+    "sha256": "393938188f25fc3cc7ce6be5c46fb77bcc44f9d2c9b5e66ea49ddc90e5c7ede2"
+  },
+  {
+    "path": "game/scripts/songbook/song_resource.gd",
+    "sha256": "37af726500e04edc502d7e8701289796818cb0dbe0013608e3b62a561b0e4b1c"
+  },
+  {
+    "path": "game/scripts/songbook/song_synth.gd",
+    "sha256": "71fd25bc91faa7bfe2412ce73b238a637fcba339e228f5fec588d3b5b5020956"
+  },
+  {
+    "path": "game/scripts/songbook/songbook_store.gd",
+    "sha256": "9d988ddd08bd95a7c9b9b400c9c3108d90b12bba958fe5d403ec3be091289cfe"
+  },
+  {
+    "path": "game/scripts/ui/accessibility_copy.gd",
+    "sha256": "e55ed4956d8ec26df04df8ee6078b3488bda40516f30190495a1a0358c171d00"
+  },
+  {
+    "path": "game/scripts/ui/arcade_panel.gd",
+    "sha256": "116fc7a3244832580542ae3d609c0c217e147da817d440a6371b51d48636821e"
+  },
+  {
+    "path": "game/scripts/ui/audio_caption_layer.gd",
+    "sha256": "eb81c2fa3f78d3b74340cd90a61c11b76c9b4a4bcb6a38ae8ff81ff273420a6e"
+  },
+  {
+    "path": "game/scripts/ui/bookshelf_panel.gd",
+    "sha256": "4159f2abcf34f5301efc07cb0ab1315402686836af10d5b6f406255729821f66"
+  },
+  {
+    "path": "game/scripts/ui/building_debug.gd",
+    "sha256": "ef62c59aec3e6cc8b5c820a04bb169669778093e68e9b630f554a59c2e575ba0"
+  },
+  {
+    "path": "game/scripts/ui/case_dialogue_panel.gd",
+    "sha256": "0578c023dc18c7a414ff27c0e1ff36c85f03a1eb1b80b360f6d36bb51be949fc"
+  },
+  {
+    "path": "game/scripts/ui/darts_panel.gd",
+    "sha256": "3f50f820fa1e9d5e9defe5d94637f82eee09541196872aa6a827f0c341b8346c"
+  },
+  {
+    "path": "game/scripts/ui/dead_letters_panel.gd",
+    "sha256": "d3803a7773ca687c893a3f7d4c1eedfb19cf6465c6c421def60697e919fb61f1"
+  },
+  {
+    "path": "game/scripts/ui/fourth_wall.gd",
+    "sha256": "d5bc07e57f9bc43614eb7c737466ac724ea2ca25bd5420f8fd1688fe4f134a96"
+  },
+  {
+    "path": "game/scripts/ui/maintenance_activity_panel.gd",
+    "sha256": "e4ea334c84e98b998779666485ea57833f7fc5d7c8592ff05f2439c0435424d8"
+  },
+  {
+    "path": "game/scripts/ui/objective_tracker.gd",
+    "sha256": "37b40aefaa057d55039869622066f5e44d3adc34722916b138a3ea2ca9e61dd7"
+  },
+  {
+    "path": "game/scripts/ui/otis_panel.gd",
+    "sha256": "96049c74d6c63e983b14c901954672144cfb75e7d532d821bc49df0161f0a233"
+  },
+  {
+    "path": "game/scripts/ui/pause_services.gd",
+    "sha256": "9fb0b1c253733c40c97642cebaf181210a56224b729a97a24ceac2d0d2eb22d4"
+  },
+  {
+    "path": "game/scripts/ui/point_ball_panel.gd",
+    "sha256": "27009d41a1dfaf2a80c1d9e7caf9d7b7a6bdd5e500ad4dea1ef53370f6066558"
+  },
+  {
+    "path": "game/scripts/ui/prop_service_wire.gd",
+    "sha256": "26fea56cfadde5b0dd929f59b6486a7258d3f0cc2a259c070d945e2c0be0b4b2"
+  },
+  {
+    "path": "game/scripts/ui/save_status_notice.gd",
+    "sha256": "2b624958748a97a46abdff6c5276c2041ba839f6c3caa42a67c291af58928256"
+  },
+  {
+    "path": "game/scripts/ui/shot_capture.gd",
+    "sha256": "771f62ee83515e35f8bac43350237eef2fb29eade4bb1112d05c3ee44cebee13"
+  },
+  {
+    "path": "game/scripts/ui/songbook_panel.gd",
+    "sha256": "53a742ea40830e5db9342ec6c91d132fdb7fe55a87e7ad507a2fb76cb99cff8c"
+  },
+  {
+    "path": "game/scripts/ui/telegram_hud.gd",
+    "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6"
+  },
+  {
+    "path": "game/scripts/ui/telegram_style.gd",
+    "sha256": "f72ceb036652a6601c0e326c2ee11fd66af4594138f73ea09c32560beaf89baf"
+  },
+  {
+    "path": "game/scripts/ui/title_screen.gd",
+    "sha256": "78d5deb0996766faf4bee39ca09b0553ca1a433c6aef71e920adbd6377d97a1d"
+  },
+  {
+    "path": "game/scripts/ui/touch_controls.gd",
+    "sha256": "73e89fe46b978f644c2fa818f154e716fc8c37dd547c6605e801e0ffdf6f9af9"
+  },
+  {
+    "path": "game/shaders/dream_architecture_relief.gdshaderinc",
+    "sha256": "973cd7715d588b4037983fb2c0871a12a917e9599860868a957fe7279de9e2ef"
+  },
+  {
+    "path": "game/shaders/dream_cilia.gdshader",
+    "sha256": "d3c380927c0fbdc6e4ea5d53ca3de984cf3d168aa8af812cb097bef49455fb32"
+  },
+  {
+    "path": "game/shaders/dream_corruption_layers.gdshaderinc",
+    "sha256": "aab8d6db58bd11195f949084bab714fc0b29e1049f53b799ffd0c725264e5e39"
+  },
+  {
+    "path": "game/shaders/dream_critter.gdshader",
+    "sha256": "d9d44c7c7c6216ee7f4e99e7093182187a6d10d6850eab14d0f4d5462230723f"
+  },
+  {
+    "path": "game/shaders/dream_crystal.gdshader",
+    "sha256": "ef5db0449b871892ac864ac3c8beb7a9161fb889490d63c8c01c840bf09e6482"
+  },
+  {
+    "path": "game/shaders/dream_embrace.gdshader",
+    "sha256": "f26d995e18f747b83b00aac28f6065de740d500f4a195470703b603a4a46bfc4"
+  },
+  {
+    "path": "game/shaders/dream_entity_surface.gdshaderinc",
+    "sha256": "bfb44e2302f6d425c382babccb55f489e23bb20ad41c945432466ac0e6febbcc"
+  },
+  {
+    "path": "game/shaders/dream_eye.gdshader",
+    "sha256": "4b4408758d9edb4798b8c91de49b1af522d050a90284744edf44a99331d9e70b"
+  },
+  {
+    "path": "game/shaders/dream_eyelid.gdshader",
+    "sha256": "83cf7efcb6d9f2c165f42d1c5369f29d814cd856641d7a23a26331c0c45bd5f7"
+  },
+  {
+    "path": "game/shaders/dream_fauna.gdshader",
+    "sha256": "555afb3faffc42996c97cc8cc4eae3282c1dbabbbfe4c6f208042aa45a0cea6d"
+  },
+  {
+    "path": "game/shaders/dream_fauna_style.gdshaderinc",
+    "sha256": "0c8bc30ccf1ad7fd78d5fd1a6a991a37ce9fbb688e3079e29aad0dd6af49ad0c"
+  },
+  {
+    "path": "game/shaders/dream_field_sdf.gdshaderinc",
+    "sha256": "6d6fc1ec56d3f0b50238ceb4e180ed98a2d829bee83116304f8b31f7357d4fc7"
+  },
+  {
+    "path": "game/shaders/dream_gold.gdshader",
+    "sha256": "23a133097a8238dd387abafd4b0bb73cd64e89afc9dac500d40e17e07ac7d560"
+  },
+  {
+    "path": "game/shaders/dream_halo.gdshader",
+    "sha256": "40f0ed90b591327ab92a98ab83caed013a4983ab1c1e1246ec08afc564ddf4d1"
+  },
+  {
+    "path": "game/shaders/dream_hero_skin.gdshader",
+    "sha256": "5716d30cf2c68c781d35a42ea79bdb4ce9cd32eb87633796e1cf9eb7ba44f8b8"
+  },
+  {
+    "path": "game/shaders/dream_incarnation.gdshaderinc",
+    "sha256": "4c6b74bd55e8b30d0d15a9bee0425347273a0ad66aeda6f80e498b2cd1ef0424"
+  },
+  {
+    "path": "game/shaders/dream_irradiance.gdshaderinc",
+    "sha256": "14ee1b8b4476276c229bb011ae0b666f2ea99ddbdb06d2292cad8bcb13be956a"
+  },
+  {
+    "path": "game/shaders/dream_klimt.gdshader",
+    "sha256": "f9b5242e1aaf0bf1f2d9b18c4862d3e973fe0b10a6912745b727722f36d273e3"
+  },
+  {
+    "path": "game/shaders/dream_lineage_gold.gdshader",
+    "sha256": "982088d639a16b3b2f33552526851e5bf10698730cab6a743b0248a1156603ab"
+  },
+  {
+    "path": "game/shaders/dream_membrane.gdshader",
+    "sha256": "42e87300f0dc23e7da3aa3ec92676ca11d9672e7129202f5c133c9f358ceb98c"
+  },
+  {
+    "path": "game/shaders/dream_palp.gdshader",
+    "sha256": "09a5fa6098d232377f3d1c671c97b1cabbd20b3795105a5725a93f78210f9949"
+  },
+  {
+    "path": "game/shaders/dream_phase_transition.gdshaderinc",
+    "sha256": "36934c48c205d306e5775e0af3577a0083a839ae2e838c346b87c0e2eed2b600"
+  },
+  {
+    "path": "game/shaders/dream_residue.gdshader",
+    "sha256": "eebe92f43082a4bfa21d22094d4b34634b917134b1bc55763985f6be97ea0d76"
+  },
+  {
+    "path": "game/shaders/dream_sucker.gdshader",
+    "sha256": "67300fa05501f9b42d58ec7a4ff7ed34586dc14819a214599f93d8348075a99c"
+  },
+  {
+    "path": "game/shaders/dream_tendrils.gdshader",
+    "sha256": "07778c267d74efbc592df80a624ff8be474425aab6e76d5ec1ab213a7e0cc2e4"
+  },
+  {
+    "path": "game/shaders/dream_tentacle.gdshader",
+    "sha256": "b586017c71ab09ab99e33fa3be00e7001d03d30fedd09a0603d782b140237ef6"
+  },
+  {
+    "path": "game/shaders/floor_coverage.gdshader",
+    "sha256": "65e0d27b3ea0aa878428db210472c3901558d741008eee11fc1e1905f083b7bb"
+  },
+  {
+    "path": "game/shaders/orison_surface.gdshader",
+    "sha256": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab"
+  },
+  {
+    "path": "game/shaders/orison_surface.gdshaderinc",
+    "sha256": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554"
+  },
+  {
+    "path": "game/shaders/orison_surface_cutout.gdshader",
+    "sha256": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4"
+  },
+  {
+    "path": "game/shaders/planar_mirror.gdshader",
+    "sha256": "1e5d5ef5c4b8a3d28e3481ff1c9ccbb339cf69446b8fd73bf14cbe44827106a7"
+  },
+  {
+    "path": "game/shaders/projected_film.gdshader",
+    "sha256": "ce6fd4577bcb2912c589e3abfe4ae9d0911ec548135f0643fd3997cdee304dae"
+  },
+  {
+    "path": "game/shaders/scope_screen.gdshader",
+    "sha256": "93466ed4e58525f3f526fb696a036661f629d660975048b9ca485b51c90a2647"
+  },
+  {
+    "path": "game/shaders/tv_screen.gdshader",
+    "sha256": "c0f7b463c93f50f900c38ce77d2647e7eecdfee7d1719f2a7de67797834d8bbc"
+  },
+  {
+    "path": "game/shaders/wall_encroachment.gdshader",
+    "sha256": "8530d60cd9e95fed6a7f14751f93beea5a6df29bb0848da22576d58e7b92cfcb"
+  },
+  {
+    "path": "game/tests/admin_prereq_contract_test.gd",
+    "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+  },
+  {
+    "path": "game/tests/AdminPrereqContractTest.tscn",
+    "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f"
+  },
+  {
+    "path": "game/tests/ambient_weather_audio_test.gd",
+    "sha256": "d237bea15fcc84138351300fd0192a9e33d1db325a05e30f3e143f80495a512e"
+  },
+  {
+    "path": "game/tests/AmbientWeatherAudioTest.tscn",
+    "sha256": "b2cd83b2b7b1d7ea829b262928e55a87a9a3f0992640f025286f941c75a1795a"
+  },
+  {
+    "path": "game/tests/apartment_encroachment_test.gd",
+    "sha256": "7f9ab5b459394eb6093288e0d0700aad909297d84e7e2edde45410cd715bc41d"
+  },
+  {
+    "path": "game/tests/apartment_material_binding_test.gd",
+    "sha256": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a"
+  },
+  {
+    "path": "game/tests/ApartmentEncroachmentTest.tscn",
+    "sha256": "49935cd7b7b0397aef56f98f414abf84707af48c5b9783619d3c0bec33ae4f2f"
+  },
+  {
+    "path": "game/tests/ApartmentMaterialBindingTest.tscn",
+    "sha256": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f"
+  },
+  {
+    "path": "game/tests/arcade_feed_shot.gd",
+    "sha256": "3fa491c72de435c087ba5625670619ef07b72cfad4540d32d29b43cae078b139"
+  },
+  {
+    "path": "game/tests/arcade_light_census.gd",
+    "sha256": "f479b747a7106d074c7d2725bfbdb6cc1c671a1088e31fee267911ab29a7fa75"
+  },
+  {
+    "path": "game/tests/arcade_memory_test.gd",
+    "sha256": "4407ac3f438ddc142026819d4a16e222752b9c8f44ddf24afd92e877603610d3"
+  },
+  {
+    "path": "game/tests/arcade_prop_shot.gd",
+    "sha256": "789dfe93b7e9646a44a678618effa37c012551add592dc0c4a8f92ef29f94659"
+  },
+  {
+    "path": "game/tests/arcade_shot.gd",
+    "sha256": "2e14b1ec1b1f44318e8d73375cb51653099a71219841129fabdfc653c922e1a1"
+  },
+  {
+    "path": "game/tests/arcade_test.gd",
+    "sha256": "b1f7b1413a0a7624e462e8240f6d8c202a93dd073f104fb9c7d5d57cf0c745e3"
+  },
+  {
+    "path": "game/tests/ArcadeFeedShot.tscn",
+    "sha256": "614d6077fbdc2882851785aa79392305b720a5b5d61a49a60673ade784974d5d"
+  },
+  {
+    "path": "game/tests/ArcadeLightCensus.tscn",
+    "sha256": "e77155f0f246d7142e449d988d82d79007935dbd26de401e97890a498be2b74c"
+  },
+  {
+    "path": "game/tests/ArcadeMemoryTest.tscn",
+    "sha256": "b4900dbe3d5c5cc8002fb88ab2013bc88d780e09e110965b622b293f503b84e7"
+  },
+  {
+    "path": "game/tests/ArcadePropShot.tscn",
+    "sha256": "a5f60ce39ea0f1afdeb768b997b107198325d7ecacb7846d877b45be1b3fcde5"
+  },
+  {
+    "path": "game/tests/ArcadeShot.tscn",
+    "sha256": "905f103967312791e0eb12e990b6da7fe42d4361a9abeb603af8710ba2489135"
+  },
+  {
+    "path": "game/tests/ArcadeTest.tscn",
+    "sha256": "81d5e6404233e02fead38d1991b821cd6f1cea518789300243481b61d9ccddfe"
+  },
+  {
+    "path": "game/tests/arrival_car_shot.gd",
+    "sha256": "eb91a723c62b54c098d4243f47ba56fbfeb6f1a3bbc6239df9b2c140835969f8"
+  },
+  {
+    "path": "game/tests/arrival_car_test.gd",
+    "sha256": "88813caf9dad5d625b5981d2ad01d95ab1dc699a8f46408e3ce63cbb254ecb2e"
+  },
+  {
+    "path": "game/tests/ArrivalCarShot.tscn",
+    "sha256": "dfb3f7a73bdffd2b9371c307bfdd10a50361ad070f25548a2e05a12d37392c1f"
+  },
+  {
+    "path": "game/tests/ArrivalCarTest.tscn",
+    "sha256": "1a7d5960a3879de3a539a1f4a44b7ff0b140f7a37430f59c2f5ea1eac3e07139"
+  },
+  {
+    "path": "game/tests/art_placement_audit.gd",
+    "sha256": "5bc35e02514fff0d0288f0a55d570870dae8c1b9e9ec12149980d5679a9b2599"
+  },
+  {
+    "path": "game/tests/ArtPlacementAudit.tscn",
+    "sha256": "e0a836c3b240b6dd580899ecb6e5e1ad0a64ccb08aa51b9f4c510860ed1014ec"
+  },
+  {
+    "path": "game/tests/atrium_shot.gd",
+    "sha256": "72db88af34bb8a1ef6b12763a51214cd723043a215d2b3d4a1303dc268bb6af8"
+  },
+  {
+    "path": "game/tests/AtriumShot.tscn",
+    "sha256": "01428b5abe533d573e477579084e5de808d6edcec824df88f28f8c7d3c1819c1"
+  },
+  {
+    "path": "game/tests/attention_ledger_test.gd",
+    "sha256": "a4c93326304420bc7de0dd003160c329190a207ce7be6bd7517c378d2b96215b"
+  },
+  {
+    "path": "game/tests/AttentionLedgerTest.tscn",
+    "sha256": "8d55ae81103753f593ecfa4222d4de7b955ffe86c1b52c9ff6a2d0613c3ae7d1"
+  },
+  {
+    "path": "game/tests/audio_caption_test.gd",
+    "sha256": "98b79377a78953ceb1d7bd0764867eeb5887b5eedacd12b5b8cb4dee3b7d2b49"
+  },
+  {
+    "path": "game/tests/audio_policy_live_test.gd",
+    "sha256": "352a6931e107275be2197d96c6abf80cf2627eed211985db6cf43c5267d32330"
+  },
+  {
+    "path": "game/tests/audio_policy_test.gd",
+    "sha256": "2e0f050f284c26dc80a26abfdafa5dd2f1cca1938081a48f16c42f8c51b1de9f"
+  },
+  {
+    "path": "game/tests/AudioCaptionTest.tscn",
+    "sha256": "5b43f4a34ca732ad716bfc90bae71565970e33f4ab7f2d486fa933e84ab15863"
+  },
+  {
+    "path": "game/tests/AudioPolicyLiveTest.tscn",
+    "sha256": "71eda2fd4cd3b758b841c31a86882aba992cb3400dbfa2a0fcdb92f716a7b38e"
+  },
+  {
+    "path": "game/tests/AudioPolicyTest.tscn",
+    "sha256": "d0d506242ea1b56c6c80deee025708a6e239d19b8ed78361b67da0c6bad7dee0"
+  },
+  {
+    "path": "game/tests/b1_roof_vertical_services_shot.gd",
+    "sha256": "1c33aeb959d1cc141f3d356b5cc8cb82d9313392b6f1dd20ce34765dc5e81ba5"
+  },
+  {
+    "path": "game/tests/B1RoofVerticalServicesShot.tscn",
+    "sha256": "37118cf7825710970d99b3b5c2162fd7e8ddc5471033001fbd2aa2649093b53b"
+  },
+  {
+    "path": "game/tests/bookshelf_test.gd",
+    "sha256": "8182725cdd534aa67e83ad4407fb90d880c299d7f8ed22ece8fcbd7a4acbe4ed"
+  },
+  {
+    "path": "game/tests/BookshelfTest.tscn",
+    "sha256": "586825839a796e287a4d2303f901f90ec4a643bbcbe4503fd6a705a297c89a97"
+  },
+  {
+    "path": "game/tests/boot_cost_probe.gd",
+    "sha256": "69057c8cf172690eb8f13775b97d8abb50ae367a308048b0f06ec7e03a3bbab3"
+  },
+  {
+    "path": "game/tests/BootCostProbe.tscn",
+    "sha256": "2208e1473e1249e93656cdb1a0c888122879c3df9ecb76bc6a722099ded6e8ef"
+  },
+  {
+    "path": "game/tests/campaign_calendar_baseline_test.gd",
+    "sha256": "1cef2c9026b6ec40f106c46f734f2289cd3356646828b813e961f747ccbe71c0"
+  },
+  {
+    "path": "game/tests/campaign_calendar_test.gd",
+    "sha256": "fc29e87706c185cddaa45ac5021533f360a9516d94fdd6a63c8b9b54f81472d0"
+  },
+  {
+    "path": "game/tests/CampaignCalendarBaselineTest.tscn",
+    "sha256": "f89f15e5f23e99f2c90b5b55d5c07ba59dd4069428231b75689cecd78eff6240"
+  },
+  {
+    "path": "game/tests/CampaignCalendarTest.tscn",
+    "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+  },
+  {
+    "path": "game/tests/cart_maze_test.gd",
+    "sha256": "496e5eb8f1b6c9ebf9e64237f1ed0ec51b4ebbc6b7d119cd90ddf222b2c79aab"
+  },
+  {
+    "path": "game/tests/cart_pairs_test.gd",
+    "sha256": "9e58c6115b675a88c6a4180273f194ebab453eaa47814dc30270d6e8fdc4bcf3"
+  },
+  {
+    "path": "game/tests/cart_shards_test.gd",
+    "sha256": "aadff43f817dc74a85b739e7f4bfbb5996427649a40fce14137d5b7450b25fb6"
+  },
+  {
+    "path": "game/tests/CartMazeTest.tscn",
+    "sha256": "8efcda1e03aeaccd973df4693c979bdcc8992dae97097c2b1e5b0531a3edd45c"
+  },
+  {
+    "path": "game/tests/CartPairsTest.tscn",
+    "sha256": "0a1e7df46003521004b840f0aae4418ed6b6561431b94982d7840813a3336861"
+  },
+  {
+    "path": "game/tests/CartShardsTest.tscn",
+    "sha256": "12d26050f05755ce5281ee08efa35f7769db2e3e0c23516f912d9f3faf2d29de"
+  },
+  {
+    "path": "game/tests/ceiling_streaming_audit.gd",
+    "sha256": "ba785b802b22c8b2b545ef78c523af9d525d09566ef01a22473e4c53bd2685b9"
+  },
+  {
+    "path": "game/tests/CeilingStreamingAudit.tscn",
+    "sha256": "49fdae91bdb78dce0e994068d0756b066eb27786e6239881d35b05f426084f68"
+  },
+  {
+    "path": "game/tests/celestial_ephemeris_test.gd",
+    "sha256": "e98b0da2a9c560ef01ac6360ab7da1922ea1cb4ee161a2175f01ef2a8117d67e"
+  },
+  {
+    "path": "game/tests/CelestialEphemerisTest.tscn",
+    "sha256": "c3a67d5e2711eff866e7efa3a92389224306a3b764ac7f07e38c5322b329ccad"
+  },
+  {
+    "path": "game/tests/chirp_reachable_live_test.gd",
+    "sha256": "1eae5e315d468ca84b4428fe00a8d3687e20a1b7b8d012592a936e047a6fe861"
+  },
+  {
+    "path": "game/tests/chirp_reachable_shot.gd",
+    "sha256": "9175f83751658213dadc7eda1c79e9608a6dbefd15657497f1e1907d4cfb73bc"
+  },
+  {
+    "path": "game/tests/chirp_reachable_test.gd",
+    "sha256": "e697822290a1d11b25e586c355750b6b5e6a44152baf9762eb39da66e98b56bb"
+  },
+  {
+    "path": "game/tests/ChirpReachableLiveTest.tscn",
+    "sha256": "7cfe6235cd2e095d9e280754881bc2ffac8a380badda4a20dba2bc6ffeb1ad74"
+  },
+  {
+    "path": "game/tests/ChirpReachableShot.tscn",
+    "sha256": "3c670891cf7c0401c2da18e167b738fb53590d45a9633cafbc24e90bc0a0c7dd"
+  },
+  {
+    "path": "game/tests/ChirpReachableTest.tscn",
+    "sha256": "ce3028b82276bf69b81e8e255dbd2882f211640bc3f34a7a33e458ede1b906e0"
+  },
+  {
+    "path": "game/tests/clip_sheet.gd",
+    "sha256": "e740b983bf85d3f02d7928800f5c3c8b07b6a5d04f7b23c800f062da54eb8fac"
+  },
+  {
+    "path": "game/tests/ClipSheet.tscn",
+    "sha256": "15e6cbd53726280272b6202809c787be4b2460f5de2c4baea2eb843837446389"
+  },
+  {
+    "path": "game/tests/clock_answers_live_test.gd",
+    "sha256": "2e8bdeea818265ad24ef99c7c6296af41a3565e41bd0be81eba832c8051a1e7f"
+  },
+  {
+    "path": "game/tests/clock_answers_shot.gd",
+    "sha256": "a5728e5eab85e092d5575becc7fdf4d58e5ba7c43ed634a0934279d6e34ed947"
+  },
+  {
+    "path": "game/tests/clock_answers_test.gd",
+    "sha256": "83b43e07fbdbc40651b0d70929c07d840835c5c52c1c58df9481ba86971c64a8"
+  },
+  {
+    "path": "game/tests/ClockAnswersLiveTest.tscn",
+    "sha256": "709c770847305e7de295ff305f3366f1b07e543b05d08e95dc4ac1e9ccf36540"
+  },
+  {
+    "path": "game/tests/ClockAnswersShot.tscn",
+    "sha256": "e5f0da2a4a08cd24dda143e199f4906c22985fe7e17a9c041d1cebce454e50af"
+  },
+  {
+    "path": "game/tests/ClockAnswersTest.tscn",
+    "sha256": "82a13538cb6b5388d59bf6bfff436f981d904ae30b4e859543f47095548206ed"
+  },
+  {
+    "path": "game/tests/commensal_shot.gd",
+    "sha256": "e9a2fd07eadf20ba1558e5669238f79bcf4e0face3f4da2a2a2dc9b877cab662"
+  },
+  {
+    "path": "game/tests/commensal_test.gd",
+    "sha256": "d658d1fb5a43189e747ca6700b2455b0128e8be9d5444256d4c705240c91d98b"
+  },
+  {
+    "path": "game/tests/CommensalShot.tscn",
+    "sha256": "44a4101552fd787c66a1ca6ba1541a79a705218b15c12a6790ba57d384fb413a"
+  },
+  {
+    "path": "game/tests/CommensalTest.tscn",
+    "sha256": "4ccfac7c24ce6d4208586416e5b9cd43c13cd3dcbbff5379732fc0e7fef785c7"
+  },
+  {
+    "path": "game/tests/controller_input_test.gd",
+    "sha256": "6dd6c1b7dab53328c4657651cf40f49a1a0697a8dc4ee6999c76ec32fdbb381d"
+  },
+  {
+    "path": "game/tests/controller_settings_test.gd",
+    "sha256": "1e04bbda44c02230f5c4e8a2cbc748a3b526cff00a8a39a3a6da91de85955bd2"
+  },
+  {
+    "path": "game/tests/ControllerInputTest.tscn",
+    "sha256": "58567ea667f063355738119bb2f118576df67d8868de448409bb3d2b0c1855a2"
+  },
+  {
+    "path": "game/tests/ControllerSettingsTest.tscn",
+    "sha256": "0600062b272702f031b39e70a3eb8f6ff349449cb7eb568ca53ce3ffd1b5df5b"
+  },
+  {
+    "path": "game/tests/core_loop_test.gd",
+    "sha256": "a5ccd056f452256c91f39fab0d820e7aa476df476f7b91d2935ec7d47b8919ed"
+  },
+  {
+    "path": "game/tests/CoreLoopTest.tscn",
+    "sha256": "054e1efe19e945e1453ae8beda6cb54ed3f79af6524b83ee8ca5eba314800285"
+  },
+  {
+    "path": "game/tests/coverage_shot.gd",
+    "sha256": "6b92d2ac0b74f2959d248a1027624986b5e989d305b7a22f7d5c2a4b3a10272f"
+  },
+  {
+    "path": "game/tests/CoverageShot.tscn",
+    "sha256": "f9e3e0e75ba9af923456f214af8a84ccfcea5e122c0e3ad0910b0d2daf23a13b"
+  },
+  {
+    "path": "game/tests/darts_test.gd",
+    "sha256": "2a9db82ca68f4cef8de1ee153589116c130eec1e75de01c147c686ef4f482c80"
+  },
+  {
+    "path": "game/tests/DartsTest.tscn",
+    "sha256": "44c47032776d8555084013d6b258dcab4c250da2818a32278582b409d6b6135d"
+  },
+  {
+    "path": "game/tests/dead_letters_test.gd",
+    "sha256": "f91ad3d8e0196b7ce7cc5b66b53a81f54965d2ca7fc75b23b4416e2d3a61309e"
+  },
+  {
+    "path": "game/tests/DeadLettersTest.tscn",
+    "sha256": "71a314cc4d19877ce9597741fe1b23c9929fb9fa4619edf3affabc4be1523ddc"
+  },
+  {
+    "path": "game/tests/debug_dream_button_test.gd",
+    "sha256": "f0411cf6c52bc3776dda0c10565796ea6d692f864d06f73ab47f4db61f2eefa0"
+  },
+  {
+    "path": "game/tests/DebugDreamButtonTest.tscn",
+    "sha256": "db38c9e3fc2351b968dbdf02624b0fcc0cafd4e9304894474c696e1f0e85fd7a"
+  },
+  {
+    "path": "game/tests/domestic_radio_live_test.gd",
+    "sha256": "5d4849d4da08bde75f97a31160f391908fb905397ca26024aa027772f8987d0e"
+  },
+  {
+    "path": "game/tests/domestic_radio_shot.gd",
+    "sha256": "ef0b5849c88735cc5824467fec873f23e117a7c1faff68fbc82f2077cce67419"
+  },
+  {
+    "path": "game/tests/domestic_radio_test.gd",
+    "sha256": "1452cae7cda479cfd5e32ceb920f36879f6b5101e28f689e10e3a003a6b991ec"
+  },
+  {
+    "path": "game/tests/DomesticRadioLiveTest.tscn",
+    "sha256": "5c642dc9470cd6be8f1e5e9ef2bf91578fa19f62120b16df5b19a43b3017be3a"
+  },
+  {
+    "path": "game/tests/DomesticRadioShot.tscn",
+    "sha256": "3f662b77c6e2d82e049f78ee9ffdf02fc0c41bb5c876874199d489cdb24956c3"
+  },
+  {
+    "path": "game/tests/DomesticRadioTest.tscn",
+    "sha256": "3054038395c746ccb3a64c9cc2dade6bc8b5119d92a8e01e19b15883a9139e7e"
+  },
+  {
+    "path": "game/tests/door_check_live_test.gd",
+    "sha256": "636ed766739d86e7458011de971658203d3d9b5cb7a1b865a42b57c8abdc08f4"
+  },
+  {
+    "path": "game/tests/door_check_shot.gd",
+    "sha256": "d59a1c56d402df53b1d1ee11f12a662ea5747646ee1ad3765643bf149aa0927b"
+  },
+  {
+    "path": "game/tests/door_check_test.gd",
+    "sha256": "b94e3481bf94fc997f4ce18418b571a21e89ea7bbe79d1e5875d0da86e2c7f8c"
+  },
+  {
+    "path": "game/tests/DoorCheckLiveTest.tscn",
+    "sha256": "90654897990b176f397d301f27118a0e6d360ff307706c23d1644dd3dc2835bb"
+  },
+  {
+    "path": "game/tests/DoorCheckShot.tscn",
+    "sha256": "ef790ba826365b07245e92b56d2c0b477d9557927485795ce68e2b94454a4834"
+  },
+  {
+    "path": "game/tests/DoorCheckTest.tscn",
+    "sha256": "800e89d03de20148678794077db2aff214d93b150ca494dab7fb3dc247d12ee8"
+  },
+  {
+    "path": "game/tests/dream_architecture_lifecycle_live_test.gd",
+    "sha256": "040ce33c344b435cc7e8935bd582d2ec2920a8527c1a70f225ed1cd2450f7aad"
+  },
+  {
+    "path": "game/tests/dream_architecture_lifecycle_shot.gd",
+    "sha256": "990be139b3c82d36bdf908bcd54af053a7b5ecad24458594b51922503043d142"
+  },
+  {
+    "path": "game/tests/dream_atlas_test.gd",
+    "sha256": "7c40ba2c2a8c08f1d4da611726bd52728572ecd3d6d4d5463df329d49c75b2b1"
+  },
+  {
+    "path": "game/tests/dream_boundary_test.gd",
+    "sha256": "5246ba1afbda2cee1929c67c39cb47cc5ad1cbedb09a6d297936a6fe54c4383b"
+  },
+  {
+    "path": "game/tests/dream_boundary_waking_stub.gd",
+    "sha256": "a20fad06e8db18511e0c6e5d5d912b55fd3d705d2c0824e29221282b904b6286"
+  },
+  {
+    "path": "game/tests/dream_cellular_audio_live_test.gd",
+    "sha256": "cf76ea37e5802d5048366ddb033604cc19aeedda7f51f3274d2989c1be4ec225"
+  },
+  {
+    "path": "game/tests/dream_cellular_audio_test.gd",
+    "sha256": "612177e45ead146fd0636cdc09501eb461e57a6b56ff8e2eb4d8c187081c5270"
+  },
+  {
+    "path": "game/tests/dream_critter_test.gd",
+    "sha256": "0d22d1d9252dc08dfe932d636327885c4c084699189a59758a574d03f868b8f7"
+  },
+  {
+    "path": "game/tests/dream_ecology_e3_test.gd",
+    "sha256": "517ed07e3b54732485fa87f27509f08c40f035a83ffd2a4af4c0e5d241ce9249"
+  },
+  {
+    "path": "game/tests/dream_ecology_e3a_shot.gd",
+    "sha256": "8b06448b435862f29c5cdb5dd242ed406879690b5ba6fc0285c59e68b3a543af"
+  },
+  {
+    "path": "game/tests/dream_ecology_test.gd",
+    "sha256": "68a0c4deb45af40327c8b5e6ab96d69465e638dd2d7f2c87fbaa6c3a9767fbe2"
+  },
+  {
+    "path": "game/tests/dream_embrace_shot.gd",
+    "sha256": "fa48f0f959e34224ed3767522556ea048dd9bb2f1131f71776fd7b9c1ffeec17"
+  },
+  {
+    "path": "game/tests/dream_embrace_test.gd",
+    "sha256": "ee0180f783f8678d1bdaa331a595fbefb643051911ce4d70d25b8026a26f5d70"
+  },
+  {
+    "path": "game/tests/dream_encounter_lifecycle_shot.gd",
+    "sha256": "bf0b3edf4416a9586bbdb088c07a071d43e1297434ccf8a509f5b422cbce7a1a"
+  },
+  {
+    "path": "game/tests/dream_encounter_lifecycle_test.gd",
+    "sha256": "ad6a22201a4ea658e7d244876935f8a8274b256050903af470816086bfc9a582"
+  },
+  {
+    "path": "game/tests/dream_environment_shot.gd",
+    "sha256": "cc29803af8842cafbcad5c1c9535cb41842063bf451f98a2846905d9255d2d0a"
+  },
+  {
+    "path": "game/tests/dream_exposure_shot.gd",
+    "sha256": "ebc0344548d27a3db7efc477f14c458bfa5a52879b994f1306c225ba01683a0a"
+  },
+  {
+    "path": "game/tests/dream_exposure_test.gd",
+    "sha256": "3b782a611f90704ec3d03680e897f58a1977a57edcbf2fdd42ffae4eb98f9244"
+  },
+  {
+    "path": "game/tests/dream_fauna_breath_shot.gd",
+    "sha256": "204635306544409d1e866a0e0283c346f76eed0ee56d9880989c10bcb88e475a"
+  },
+  {
+    "path": "game/tests/dream_fauna_lifecycle_shot.gd",
+    "sha256": "2cc48dbf0137a58059d3b093fa4a22256197ed559d98372e8628bb97e85541d9"
+  },
+  {
+    "path": "game/tests/dream_fauna_lifecycle_test.gd",
+    "sha256": "0e762efb0e37d06db01998a6308e1a4cf858dec9ce7c85d962c380bd607d0464"
+  },
+  {
+    "path": "game/tests/dream_fauna_shot.gd",
+    "sha256": "b89880c49e8b3b3dc2db762de33a33572263ed02bed9ceea07fa809ff2b4302e"
+  },
+  {
+    "path": "game/tests/dream_fauna_skin_shot.gd",
+    "sha256": "3ae0537e034eac2185850351fffa673ea29cef89e3c7fca50cc3246721a62ca8"
+  },
+  {
+    "path": "game/tests/dream_fauna_style_shot.gd",
+    "sha256": "1e3f1851f1a8b50eb9044c352a165ad0e5ded7c1612985873cecf2b0d91395a6"
+  },
+  {
+    "path": "game/tests/dream_fauna_test.gd",
+    "sha256": "158c6f6264ba5250b7d1337018725849b8510137237cfa09230f9d3355d459a6"
+  },
+  {
+    "path": "game/tests/dream_fauna_trophic_shot.gd",
+    "sha256": "28b91b659e743a22428f485b75d7707b02241caef4c107fcc34baaf7c65d1c3d"
+  },
+  {
+    "path": "game/tests/dream_fauna_visible_test.gd",
+    "sha256": "998e98a4528d07a0b8c2bccaedf5a1d2f90177b7e43ecfee53f00b42cbad8426"
+  },
+  {
+    "path": "game/tests/dream_field_test.gd",
+    "sha256": "43431cad6656d46eda1f86d0b7aac95c9a694c2d25382e1edf6a8076d8d09c8d"
+  },
+  {
+    "path": "game/tests/dream_fractal_run_test.gd",
+    "sha256": "62235a450ba0068364ab43967c5f967b67ad2b4fa2e6f9553de5816cf1419ca4"
+  },
+  {
+    "path": "game/tests/dream_hazard_test.gd",
+    "sha256": "5fef4183996b1042681de21aff453bbca52e52ea714cf6a024dcfcde0dee89fa"
+  },
+  {
+    "path": "game/tests/dream_hero_lifecycle_live_test.gd",
+    "sha256": "fe840e2fab51b177b14289564ac5f25c9a9444700a751ad67b6d471759051bbf"
+  },
+  {
+    "path": "game/tests/dream_hero_lifecycle_shot.gd",
+    "sha256": "05167d30a03ea4d0af76a5ef6b8868c30272b6aecb884712e72e0adc897cd668"
+  },
+  {
+    "path": "game/tests/dream_hero_lifecycle_test.gd",
+    "sha256": "d4746bb48ac437a25c129663e8497fbf2e8de6fb04cd8b4765d320ee6a1dc5a7"
+  },
+  {
+    "path": "game/tests/dream_hero_rest_shot.gd",
+    "sha256": "8800d251d2ad44f2a3f1999ab0a2308ca8485ee650299a86b779cb19e178e589"
+  },
+  {
+    "path": "game/tests/dream_hero_rest_test.gd",
+    "sha256": "eb1bd86ded9a7cd41a542dc8b74a7722bfed0be394ebce408b17bd0394ded44a"
+  },
+  {
+    "path": "game/tests/dream_hero_sweep.gd",
+    "sha256": "f7ac0e097c995ac763d2d71dc2f1aec794eee6d7a30553c3c56936bdbb5ea295"
+  },
+  {
+    "path": "game/tests/dream_incarnation_lifecycle_shot.gd",
+    "sha256": "0895dfc41a9e46f0692d8545761b8edd56439e0d0ff1692b98c586d6f4debf61"
+  },
+  {
+    "path": "game/tests/dream_incarnation_plate_test.gd",
+    "sha256": "73733a04802f4a998c5b6c279963d1b192b821546717d807328d935e4ed44455"
+  },
+  {
+    "path": "game/tests/dream_incarnation_test.gd",
+    "sha256": "7eaeeaeb55505801c55062bee23c300ced0f2143ff2a37f49bcce907f1f10c63"
+  },
+  {
+    "path": "game/tests/dream_irradiance_shot.gd",
+    "sha256": "31df83aac5938c4d34a0fc14ab4cc0eca0d5916763ccde0638b3e92a3b23e284"
+  },
+  {
+    "path": "game/tests/dream_irradiance_test.gd",
+    "sha256": "7d4a387b404f36edbdbd845585cd8ef66e3a5886011e0fea901a249e1d9e190f"
+  },
+  {
+    "path": "game/tests/dream_layers_shot.gd",
+    "sha256": "0415754d64b533ff5579199e85f48c1b3dc6f26480ea853dce62edece55bf253"
+  },
+  {
+    "path": "game/tests/dream_light_control_harness.gd",
+    "sha256": "3ee2ff2151331a14c230036a3fa90525b79df3ce557ef01351337f7277598be0"
+  },
+  {
+    "path": "game/tests/dream_light_control_shot.gd",
+    "sha256": "51411a4462a6f5d9138ec93c23367d8df11de8119420e7038cd6f492a282b34a"
+  },
+  {
+    "path": "game/tests/dream_light_control_test.gd",
+    "sha256": "0d3912a5feba925885fdabc879f8cf4a9798f72be3b0366694310887028f7ed3"
+  },
+  {
+    "path": "game/tests/dream_lineage_shot.gd",
+    "sha256": "4926d2a9bfbf4f8006258b8aac786515a74e1eb3bccbce7fac7b2b9a6d8ef908"
+  },
+  {
+    "path": "game/tests/dream_lineage_test.gd",
+    "sha256": "ec5d7ac06d7e2d7693771c6e9b7420cd059fa3a988b3c44e011fc0f0d3104c4f"
+  },
+  {
+    "path": "game/tests/dream_margin_death_stain_shot.gd",
+    "sha256": "41160a3fd4f4d045a0d733966bc124ea9833b7e8f51486b7620bf5358bd05fab"
+  },
+  {
+    "path": "game/tests/dream_margin_lifecycle_shot.gd",
+    "sha256": "bc719d2045a9cfa90ecd2cf92f36d70833de4d1e11ac25d4e6edd5d1fed0f6ce"
+  },
+  {
+    "path": "game/tests/dream_margin_lifecycle_test.gd",
+    "sha256": "27131bae0aceaa7d77103b811c8446a491b8cf57e1d85f3a8ad8acae805832f8"
+  },
+  {
+    "path": "game/tests/dream_margin_test.gd",
+    "sha256": "d9a2892902977f92e2d72384e8d577e2a5e9dddddce125616549570a6935a43f"
+  },
+  {
+    "path": "game/tests/dream_microbiology_encounter_shot.gd",
+    "sha256": "e7b91d93e03236418bcfc40d2d4c49fd5fffe44701f6b1fd139850f6e3248aca"
+  },
+  {
+    "path": "game/tests/dream_microbiology_encounter_test.gd",
+    "sha256": "17895ac23816bc00ee66434b932d785adc1c25d63a6d5a37db827a00ea3062c2"
+  },
+  {
+    "path": "game/tests/dream_microbiology_light_live_test.gd",
+    "sha256": "47d26850ce1ba98a031c8a09e76f440efa7f10a392bee73f7ffa2426f8a42149"
+  },
+  {
+    "path": "game/tests/dream_microbiology_light_shot.gd",
+    "sha256": "c4d24086c6e6fe0ae4919f85f70dd0d2c191c89983f4727288a34b2f42ab4d34"
+  },
+  {
+    "path": "game/tests/dream_microbiology_light_test.gd",
+    "sha256": "cf3912253532ef08a4296b4a70385a3c3878f55b62d61538ce905541ec709cb0"
+  },
+  {
+    "path": "game/tests/dream_microbiology_mechanics_live_test.gd",
+    "sha256": "3f6f5ee4a5977051593fef0c1e0b5b52596b7815536ca4235ee9cfbbe3d4d958"
+  },
+  {
+    "path": "game/tests/dream_microbiology_mechanics_shot.gd",
+    "sha256": "7383c2ec1648fff5e7c716e46afb349316d557baf8ab6174709b211af8998830"
+  },
+  {
+    "path": "game/tests/dream_microbiology_mechanics_test.gd",
+    "sha256": "fa44cf0a25f8315f4b65d351d92665364ac2bca0cc32b7acc0096f3b11d5b78f"
+  },
+  {
+    "path": "game/tests/dream_microbiology_secretion_shot.gd",
+    "sha256": "5b33ae1faa10b46e9770bad621b6460f48ba538e3ab239c42eeb7ed1ceb17801"
+  },
+  {
+    "path": "game/tests/dream_mina_incarnation_shot.gd",
+    "sha256": "bfe07a500f8d3666f83512688907a216de46933a60f5016a99ce8537fb9bdb56"
+  },
+  {
+    "path": "game/tests/dream_moss_ecology_test.gd",
+    "sha256": "2ba0170e93091ca3005e155d82c54bbe20eea84d905fa64def53c617d8cb4aec"
+  },
+  {
+    "path": "game/tests/dream_moss_lifecycle_shot.gd",
+    "sha256": "89be4a0206a3eed05bb91a06c02fc07444a36160415191be983795367fba1a00"
+  },
+  {
+    "path": "game/tests/dream_moss_presentation_test.gd",
+    "sha256": "2648989db8c7b5190e63b7165ce45877375d11e67d9ddf1d8fc001a6f32253ca"
+  },
+  {
+    "path": "game/tests/dream_organelle_lifecycle_test.gd",
+    "sha256": "534d15e4827a2dd043cf3eff67a64f35d476d52936c5f50a7e313ab4afce1d96"
+  },
+  {
+    "path": "game/tests/dream_organelle_signal_shot.gd",
+    "sha256": "ed79ff772dfb7a9d8477a188ff1696b9d6c8b3403a972662428a46d6451c7d10"
+  },
+  {
+    "path": "game/tests/dream_perception_test.gd",
+    "sha256": "2d344cb94cf61c70efe752b8153c74fb8292f0e642bb3c7f718fae283f7374f0"
+  },
+  {
+    "path": "game/tests/dream_profile_shot.gd",
+    "sha256": "1b373a029f6b9058000f916c737704912d00edb4c6a56571af30f84d5de39c95"
+  },
+  {
+    "path": "game/tests/dream_profile_test.gd",
+    "sha256": "d452815b41d6c84490f88310c93a09f9645d55c40fc266caf7bb4ec38b0f47ec"
+  },
+  {
+    "path": "game/tests/dream_pursuit_shot.gd",
+    "sha256": "597f9e2cf5a6ea9141dd775dc822b14fb1592c029e018cb50ee6d77a45bd9f8f"
+  },
+  {
+    "path": "game/tests/dream_pursuit_test.gd",
+    "sha256": "c8d6a0a3ab3956e033c3f207b26bd0f900efa2fee1e71ccd8db4e7d6115e94a2"
+  },
+  {
+    "path": "game/tests/dream_recursion_price.gd",
+    "sha256": "1d6a7e329ebd0d0f68cd9f23ee24686ec197dc000474bf1e6b384525b657b3e5"
+  },
+  {
+    "path": "game/tests/dream_room_builder_test.gd",
+    "sha256": "bc9b49fc3fe39a116172895182f8cb8dbcfccda6a3429bac2c3f5e6347221b6e"
+  },
+  {
+    "path": "game/tests/dream_service_answer_production_test.gd",
+    "sha256": "aba5db7be2ff93668b8f3d35ae8ebd84b942b883db3aaf2e870bf3a2f6aecaf2"
+  },
+  {
+    "path": "game/tests/dream_service_answer_shot.gd",
+    "sha256": "87beeba2e46949475fc8a8109f3278fe225d027c5ba44147ade7cfa5edd3d3d3"
+  },
+  {
+    "path": "game/tests/dream_service_answer_test.gd",
+    "sha256": "77e61655d6764a41112c655f28c8e5d3860fea876a70e2b2bad1e891b91786fb"
+  },
+  {
+    "path": "game/tests/dream_stage.gd",
+    "sha256": "ca0bc7e7b688a50d8cb53fcd81b4bbacf06a42c9f996645e569ee2756c5a0686"
+  },
+  {
+    "path": "game/tests/dream_stage_shot.gd",
+    "sha256": "1a262fbe71cb772d64800ec72ad72c8acc02f693847624c8d9b45ed1a888ba07"
+  },
+  {
+    "path": "game/tests/dream_step12_cilia_shot.gd",
+    "sha256": "c6544681e7b9c298c1a3245aab1707107a47039ac3653384fa0d60652d8bcecb"
+  },
+  {
+    "path": "game/tests/dream_surface_target_shot.gd",
+    "sha256": "adc4dcf5cd945e3a42f8558238ab329454915a87147c516c3654bff552e7a7ea"
+  },
+  {
+    "path": "game/tests/dream_surface_target_test.gd",
+    "sha256": "7ccff88314b91162094c321c854ae18d8a6bc0171d1e770ba657f39155c2ec5f"
+  },
+  {
+    "path": "game/tests/dream_tentacle_test.gd",
+    "sha256": "36b7f367ab584e12626ccbf2a7624148ff2cfaa6c8e99e8cee8dba29d3b29707"
+  },
+  {
+    "path": "game/tests/dream_walk.gd",
+    "sha256": "a6644a5e3823e834465246c343d873aa8fdb2e39493f74a55b401b30a8135f38"
+  },
+  {
+    "path": "game/tests/DreamArchitectureLifecycleLiveTest.tscn",
+    "sha256": "aa26e17d3add615b139d1ff5362a566518ad7e8132208bc0121e437f879178dd"
+  },
+  {
+    "path": "game/tests/DreamArchitectureLifecycleShot.tscn",
+    "sha256": "7ea4bb2510035ba5bde7ef6a4cebe6788cc95373b33e6bb614213751f8d2d0da"
+  },
+  {
+    "path": "game/tests/DreamAtlasTest.tscn",
+    "sha256": "3a0ce12c4a5691236c40ef385411a0f7b0a86e9e0ba4e48cb658632829113072"
+  },
+  {
+    "path": "game/tests/DreamBoundaryTest.tscn",
+    "sha256": "f88acd5c6e99e82796dbd6976e425423bea2dc9db47125e2eff2733fd37402d1"
+  },
+  {
+    "path": "game/tests/DreamBoundaryWakingStub.tscn",
+    "sha256": "657a32f39f4a230a343da3afbfc630bc590c3e5e4b2d34be54560c7ac22338ca"
+  },
+  {
+    "path": "game/tests/DreamCellularAudioLiveTest.tscn",
+    "sha256": "81bc725cd8b8b576a17a642f917bac2562012c4499de560510fd14be07cfd4c0"
+  },
+  {
+    "path": "game/tests/DreamCellularAudioTest.tscn",
+    "sha256": "69f34c662bec0b1231c4de5d49afe037e689a18946f8508805cd9fd328f8e99d"
+  },
+  {
+    "path": "game/tests/DreamCritterTest.tscn",
+    "sha256": "3f7016d8f7065fd2d7f9cc3c6b3084e62b1e5e12d6d39cb8f6d2f9d429f1015b"
+  },
+  {
+    "path": "game/tests/DreamEcologyE3AShot.tscn",
+    "sha256": "6dbda535ae843559a36ed77e6fd4f928a8ddfccfe91bc1ded533029c4539126e"
+  },
+  {
+    "path": "game/tests/DreamEcologyE3Test.tscn",
+    "sha256": "fca0246ab576df53f5e11c3963430b2b8284dcef8da28ea5a8147dae6530635f"
+  },
+  {
+    "path": "game/tests/DreamEcologyTest.tscn",
+    "sha256": "2b77e58fb339216933af5cbf021ba1bad6973c3620112b0f63b7ddeab85505a5"
+  },
+  {
+    "path": "game/tests/DreamEmbraceShot.tscn",
+    "sha256": "705c87cbacd89b094e36e3ce3d0e17bfb6b637705be4b89d0c6e11f50ae2f539"
+  },
+  {
+    "path": "game/tests/DreamEmbraceTest.tscn",
+    "sha256": "d0cc3cc8c7a2605951f84b189ebf5da5b7f361e8eb973443616c8aa430f6705e"
+  },
+  {
+    "path": "game/tests/DreamEncounterLifecycleShot.tscn",
+    "sha256": "8cb0af71f1890475a9c4e55a64c9d1887f43940efd563e093f17cce756b3a913"
+  },
+  {
+    "path": "game/tests/DreamEncounterLifecycleTest.tscn",
+    "sha256": "3c8c77ebe283f4cf5c987a88bb5c93d8850cb380044189a55bb9fa897627f786"
+  },
+  {
+    "path": "game/tests/DreamEnvironmentShot.tscn",
+    "sha256": "2ae80ef0a5fdfd81782c230122914ca69bac34a1c33c9cf02bd4292d4387a84f"
+  },
+  {
+    "path": "game/tests/DreamExposureShot.tscn",
+    "sha256": "5c87f259cff5fa7174e0c06ac6c114fc5f7b572d2f870c885197d07e9f6f3f3c"
+  },
+  {
+    "path": "game/tests/DreamExposureTest.tscn",
+    "sha256": "e987575d724a2537ea48e584f2b041ae1b937b7b5141984118e7e7daf211db77"
+  },
+  {
+    "path": "game/tests/DreamFaunaBreathShot.tscn",
+    "sha256": "86c53a4b6af9cd2806f127ff480e2ebb5671d888db731dfb823880b907abc64a"
+  },
+  {
+    "path": "game/tests/DreamFaunaLifecycleShot.tscn",
+    "sha256": "c20a198096068f29f50496070df60883d908a549ecd6ebc6a510b2211c70a06b"
+  },
+  {
+    "path": "game/tests/DreamFaunaLifecycleTest.tscn",
+    "sha256": "a2624783e35a015db6d0997cecb90ebe3fe586c34dcfff53c3745d63b90ea863"
+  },
+  {
+    "path": "game/tests/DreamFaunaShot.tscn",
+    "sha256": "5f4449769327c838629980489dfb427863720a60d5f4bd4e4ef0d38077557bf0"
+  },
+  {
+    "path": "game/tests/DreamFaunaSkinShot.tscn",
+    "sha256": "edaf1bc1d1fddedb8c02016fa0c81c91e04727226132483462208a54563f0e9b"
+  },
+  {
+    "path": "game/tests/DreamFaunaStyleShot.tscn",
+    "sha256": "8481ab8b97f574361f36e6d438bb92a6aee18a6eb44f356c0b8ae6a8080e304f"
+  },
+  {
+    "path": "game/tests/DreamFaunaTest.tscn",
+    "sha256": "46a26b7c0675b9813611c6f9d53fe37d93630bdc45ae1bd54ee7a88c00e836dc"
+  },
+  {
+    "path": "game/tests/DreamFaunaTrophicShot.tscn",
+    "sha256": "0ed2ee43daafda1d9542d19f3ae36c9fec0837edd5693b5b74506cd80a2a7588"
+  },
+  {
+    "path": "game/tests/DreamFaunaVisibleTest.tscn",
+    "sha256": "57c69625ae9f1ca7ed7c38099e04353f249705b007791713281dd3251acf0fc5"
+  },
+  {
+    "path": "game/tests/DreamFieldTest.tscn",
+    "sha256": "58a5ce90709db86643d73c8237227276ddede730ea293f3138e804c19805ffe8"
+  },
+  {
+    "path": "game/tests/DreamFractalRunTest.tscn",
+    "sha256": "25ac05ca40f60b6e5adde414a5438f8d140947f844873582a770859a11f80246"
+  },
+  {
+    "path": "game/tests/DreamHazardTest.tscn",
+    "sha256": "40c32b1158cd10ce1a4fa3f3ad9680f3f3ed043f3364a84a7a5c29aa65e7f751"
+  },
+  {
+    "path": "game/tests/DreamHeroLifecycleLiveTest.tscn",
+    "sha256": "96252c0599125934e5dc1c453fe6b6ada9356ca5af6b4dba51735eb14bfdee27"
+  },
+  {
+    "path": "game/tests/DreamHeroLifecycleShot.tscn",
+    "sha256": "a8887bb889e7f302d1ee6892dbca7d1c904b223ffa0f1828b25802605d215c5a"
+  },
+  {
+    "path": "game/tests/DreamHeroLifecycleTest.tscn",
+    "sha256": "3ffbc68021995db31e0a242affb34a12e566ad40e3d85395feccce000ef37516"
+  },
+  {
+    "path": "game/tests/DreamHeroRestShot.tscn",
+    "sha256": "19cb64e16357230063a06e326f93a4f78d3079826e8a9b034060726efc89b1de"
+  },
+  {
+    "path": "game/tests/DreamHeroRestTest.tscn",
+    "sha256": "13766c509ae8bb231645f736b44a26f788d59f45b391d931f6292bf11749d311"
+  },
+  {
+    "path": "game/tests/DreamHeroSweep.tscn",
+    "sha256": "6a7826c9a18a2d05abc292b9b36c9bd5243484aa50f6a61c46273736b1d811a3"
+  },
+  {
+    "path": "game/tests/DreamIncarnationLifecycleShot.tscn",
+    "sha256": "911596235a2145201d21ba81ddf6645952a6d1945629b63d22b79963c08d76b9"
+  },
+  {
+    "path": "game/tests/DreamIncarnationPlateTest.tscn",
+    "sha256": "39e4d231962d6c04b5167fcdcbddc25fcb07a1d35d12c78ce53da6b4adba2467"
+  },
+  {
+    "path": "game/tests/DreamIncarnationTest.tscn",
+    "sha256": "13afaaa4c6624b6c9d54beb8dc2727b23cd385b6383c225b9c61864b021d4186"
+  },
+  {
+    "path": "game/tests/DreamIrradianceShot.tscn",
+    "sha256": "ac3f00d402c6d27ceb440152164fd3bc59d0eaefc639b73f073a25ff2b2c1447"
+  },
+  {
+    "path": "game/tests/DreamIrradianceTest.tscn",
+    "sha256": "d86f3673c2c60e0c6bb5f95dd098335f8524122b638d7baf813c97abcd9c951e"
+  },
+  {
+    "path": "game/tests/DreamLayersShot.tscn",
+    "sha256": "e305f76820eb89c354db94d1dedda415b221ca0d2f3e5568a77c57c28d245137"
+  },
+  {
+    "path": "game/tests/DreamLightControlShot.tscn",
+    "sha256": "8d3a5d39dd761832464ff51a75d3f1a22344c06bdbce9fe2058e13cf7a9a67f7"
+  },
+  {
+    "path": "game/tests/DreamLightControlTest.tscn",
+    "sha256": "63099fbef9111c6443f6301b46188b8f35553899afd71e8666801bc487a824f1"
+  },
+  {
+    "path": "game/tests/DreamLineageShot.tscn",
+    "sha256": "5e5c174f275170f002de105dd8bf51a2100d2c11c0cf520c517f81061cacdc2d"
+  },
+  {
+    "path": "game/tests/DreamLineageTest.tscn",
+    "sha256": "8eef5e45d0790d081d866faaee32d1bc2e62e9b1384aa369e8c261ed3586b116"
+  },
+  {
+    "path": "game/tests/DreamMarginDeathStainShot.tscn",
+    "sha256": "e7b40ccfe65be67315f72cbec4fbebb3e446e8e238f9684657ccc7eb1ec2435e"
+  },
+  {
+    "path": "game/tests/DreamMarginLifecycleShot.tscn",
+    "sha256": "5817accd0bdfb1b93bf2aab650194ac483387e27d1a84dae7693c9ca000f7cb5"
+  },
+  {
+    "path": "game/tests/DreamMarginLifecycleTest.tscn",
+    "sha256": "301d019a5621f54621071c8141949bdc93b20d27c3e64ae8007b328997de6950"
+  },
+  {
+    "path": "game/tests/DreamMarginTest.tscn",
+    "sha256": "e8ccf16628313499d424d9dd0dfb86a0537ff3332c3713682d3cd3b1bd611f31"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyEncounterShot.tscn",
+    "sha256": "72e8af23203fd56010b98806cc742029c03c96ce6cd54ea500867f83b4338570"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyEncounterTest.tscn",
+    "sha256": "048fe9d748504256c369c5ed4846214519707c76e0aed52c40b0b90a8d44c136"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyLightLiveTest.tscn",
+    "sha256": "5940d355d5f0d53a4c28746097e20506c67b54f59d3ef81d638e68256ca9327d"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyLightShot.tscn",
+    "sha256": "632132642cc2f4735f57b680239755f093f2620a244ac0e3065a115783a2fa8d"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyLightTest.tscn",
+    "sha256": "b12ea2000b06c9b9ade8db86e7e781e33e643badef6aabd43ba3bcec456a5772"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyMechanicsLiveTest.tscn",
+    "sha256": "337268dd10b5473bf73833625da283583f59345049e77bbce017389090637d77"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyMechanicsShot.tscn",
+    "sha256": "a4a942e22bb414901eda63e205b034b61dc63e64944f1cef9e705cf3c1751350"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologyMechanicsTest.tscn",
+    "sha256": "262f00ac809ffecc4e1a8acec14738e9caa5159f4cc95f525ae89a2d9bd4d941"
+  },
+  {
+    "path": "game/tests/DreamMicrobiologySecretionShot.tscn",
+    "sha256": "4ddfa3fe69e32ff9ceebeda153290ef3da4c34bc52b2df3a27002127f4e86f09"
+  },
+  {
+    "path": "game/tests/DreamMinaIncarnationShot.tscn",
+    "sha256": "17c6adce53269ffa090a6ae64ef4406b772268ff80f5f94fa977a0b011bbeceb"
+  },
+  {
+    "path": "game/tests/DreamMossEcologyTest.tscn",
+    "sha256": "53e80fc27a865c60caa3c774194db5c4bfbc6f66221d5d8473e6f8ecc047fb13"
+  },
+  {
+    "path": "game/tests/DreamMossLifecycleShot.tscn",
+    "sha256": "acb8e7aa5cc9794c08a309a5a202a1dc57b97c6f3bd9c387d50452ada6a8a935"
+  },
+  {
+    "path": "game/tests/DreamMossPresentationTest.tscn",
+    "sha256": "fa47c5041afe07fb82065e1e3be10de2bb30e04b4206886e26c31a0be2dbfb59"
+  },
+  {
+    "path": "game/tests/DreamOrganelleLifecycleTest.tscn",
+    "sha256": "3ce1f51a176194cabf28e7eaf0ed21be4c9d46d729bf3d5a455bc4f764f139d9"
+  },
+  {
+    "path": "game/tests/DreamOrganelleSignalShot.tscn",
+    "sha256": "de464a0cbc9c65351892341a6842c35b54d6930222b77f7163f29795b1f4ee8a"
+  },
+  {
+    "path": "game/tests/DreamPerceptionTest.tscn",
+    "sha256": "7cc577209cd22ebbf674ef2a831eccdc1468fbc5d183c10a4d27d9438fc0dda9"
+  },
+  {
+    "path": "game/tests/DreamProfileShot.tscn",
+    "sha256": "c2dbb3ded327e186cf0be6c8a3811c7cbaef161c0258d65a44f1862cd3e12d20"
+  },
+  {
+    "path": "game/tests/DreamProfileTest.tscn",
+    "sha256": "77659b38e1891ec291b14e54759fbfa087020578511ba7a45323fe2c626d73a1"
+  },
+  {
+    "path": "game/tests/DreamPursuitShot.tscn",
+    "sha256": "86f1bd9d045e59ff732b1f532dfb8d5f781d8cff02ae952b70fec85507249f81"
+  },
+  {
+    "path": "game/tests/DreamPursuitTest.tscn",
+    "sha256": "a70b96bdbb67b5a3fbbe6945410c9f77a687ab60f0edac35c1cef7f3cc777a7d"
+  },
+  {
+    "path": "game/tests/DreamRecursionPrice.tscn",
+    "sha256": "82e627d0b95aead8d070af21ef34074170ae9bf6b828def9bfbfb92942174cc5"
+  },
+  {
+    "path": "game/tests/DreamRoomBuilderTest.tscn",
+    "sha256": "cd967045a74568def6200052cea2b70c17d5a77ec57786f5272b6376cb79c2d4"
+  },
+  {
+    "path": "game/tests/DreamServiceAnswerProductionTest.tscn",
+    "sha256": "81e3f98b2ee40ea5cf92d3ff2cb6acc313eec6da7305d812af63b9afb01201bc"
+  },
+  {
+    "path": "game/tests/DreamServiceAnswerShot.tscn",
+    "sha256": "abc8623ee9b9966cda8fca5e6a00f0eb319cbee3cb6cc2b35d70a227548c029d"
+  },
+  {
+    "path": "game/tests/DreamServiceAnswerTest.tscn",
+    "sha256": "b7d3012e43e049533225222ed827577b4070d03a4b476c8afc967fb5f91af165"
+  },
+  {
+    "path": "game/tests/DreamStageShot.tscn",
+    "sha256": "0b44e42860094ed86cbf31ce9665becb270cbd027dfd64232429add4400c324e"
+  },
+  {
+    "path": "game/tests/DreamStep12CiliaShot.tscn",
+    "sha256": "1a50209585a6f10a6cc1a2e4998409d4e3384227529e8952865871ca4b1dd953"
+  },
+  {
+    "path": "game/tests/DreamSurfaceTargetShot.tscn",
+    "sha256": "953135c6bc3c04405ce94558669b0a1198d57b53ec16979b8b4bd19097b30536"
+  },
+  {
+    "path": "game/tests/DreamSurfaceTargetTest.tscn",
+    "sha256": "f55975a9aa0e0cbe47a048b8e1b866ef1432effeca4a6d28e495965ae0362ef0"
+  },
+  {
+    "path": "game/tests/DreamTentacleTest.tscn",
+    "sha256": "d7aa389fc9fae53364a965fddd7af25bbad0a5a221b2eafc5af6d924c811f150"
+  },
+  {
+    "path": "game/tests/DreamWalk.tscn",
+    "sha256": "69c3e35ed9dd5f79e6574dcfb6781362e568c9f81ca005f783531a13bf157acb"
+  },
+  {
+    "path": "game/tests/extinguisher_boards_live_test.gd",
+    "sha256": "89556264cf952304efabd9ecbaeb1fb6122846372d17a295e1a0d001c5c4b795"
+  },
+  {
+    "path": "game/tests/extinguisher_boards_shot.gd",
+    "sha256": "1ab047bba6155c025905b19837a169c3bf7df4d50d582caf9b3b86df8086ffc1"
+  },
+  {
+    "path": "game/tests/extinguisher_boards_test.gd",
+    "sha256": "6633b8230c813580e012e831978be11c8caf072cb730f6c6d144b1bf9ac35d98"
+  },
+  {
+    "path": "game/tests/extinguisher_live_test.gd",
+    "sha256": "25e781170e26ea176ab6f16e2377d2a5eecf14489d7cf8fd8617fea62e88b96d"
+  },
+  {
+    "path": "game/tests/extinguisher_shot.gd",
+    "sha256": "6f66a6e46cbc6e73319b464cb5e412e258282bb30af055b098a2e3eb79373411"
+  },
+  {
+    "path": "game/tests/extinguisher_test.gd",
+    "sha256": "9954041e7182a5d95419af49fdc050c3268ac9ef208f20f5718b61567116a105"
+  },
+  {
+    "path": "game/tests/ExtinguisherBoardsLiveTest.tscn",
+    "sha256": "39c2be03b5102b000dd4649d1d6ac8fe09d62c3893637f36544f6ab1f053e827"
+  },
+  {
+    "path": "game/tests/ExtinguisherBoardsShot.tscn",
+    "sha256": "07d8e232e7724743082d1f29b074cf4bde99e28327802260f08e8bc6b9c2adfe"
+  },
+  {
+    "path": "game/tests/ExtinguisherBoardsTest.tscn",
+    "sha256": "8f11892e48ca79b67171dbd451bb44735ffdae2cf26be3904b36ecf64ba29952"
+  },
+  {
+    "path": "game/tests/ExtinguisherLiveTest.tscn",
+    "sha256": "9679e6a204277d24e56c6d73d0f8c515f2330d9b5e7e86f028e4f4c035f4b476"
+  },
+  {
+    "path": "game/tests/ExtinguisherShot.tscn",
+    "sha256": "14f181913daa01490f7eac0b4ea725eb0053aa5e0ec1be5045bd51cbeb3d3a1c"
+  },
+  {
+    "path": "game/tests/ExtinguisherTest.tscn",
+    "sha256": "029e0b80bb4056eaffcd6f2b9cea2ae1eeddb308315b29bbb7763bff7fdc2ba8"
+  },
+  {
+    "path": "game/tests/F011DBedroomShot.tscn",
+    "sha256": "39d838ddf9f52001b4449bf2b50bc36ec40c23d2e1158fe58331dd927008cccf"
+  },
+  {
+    "path": "game/tests/f01_1d_bedroom_shot.gd",
+    "sha256": "676c7b3134acd1ebd6e231c4f54cc2f9d9f255f7c7d84f9f9d8350ead383a430"
+  },
+  {
+    "path": "game/tests/f01_arrival_room_shot.gd",
+    "sha256": "414d017adb31604d346dfb74f92c21fb6636a9574d1c21d16b8121ad65766a03"
+  },
+  {
+    "path": "game/tests/f01_common_room_shot.gd",
+    "sha256": "ce56da4f5bd1d4d39ca9573790c9abc9983c245c08667fe8b772c072c5def663"
+  },
+  {
+    "path": "game/tests/f01_flats_shot.gd",
+    "sha256": "71711b04b80c9fdf1a3873221b016ebd3ef9f4861d2981222d936ddad696ea4f"
+  },
+  {
+    "path": "game/tests/f01_service_circulation_shot.gd",
+    "sha256": "121c376139df4c0b89fd80d0c10e99c18a899312dcd7ed21b605ca78672dc4ca"
+  },
+  {
+    "path": "game/tests/f01_support_rooms_shot.gd",
+    "sha256": "b32f0fc10e63215100c4cf64a332980fd7cf86be69ef2f3138fc554ac04cc920"
+  },
+  {
+    "path": "game/tests/F01ArrivalRoomShot.tscn",
+    "sha256": "77f31c5189e09f89d8bb39e799b236204103c3f85f229f38d13cf7474bff8d25"
+  },
+  {
+    "path": "game/tests/F01CommonRoomShot.tscn",
+    "sha256": "3a87c09dc9ba0c7c8b681b9818c4fdb095b9975a0e669071fbe70c1444108224"
+  },
+  {
+    "path": "game/tests/F01FlatsShot.tscn",
+    "sha256": "98b2949e22fd58c36c31384c60296c5331d1b4ed339b5120cca4f53691b46331"
+  },
+  {
+    "path": "game/tests/F01ServiceCirculationShot.tscn",
+    "sha256": "13e2d6bfe1f990170be8e0b792b550f88490eeded7593f1ced3d0c8220ffc003"
+  },
+  {
+    "path": "game/tests/F01SupportRoomsShot.tscn",
+    "sha256": "5679c428796bf274b223082b374924172f6636ae4360009a7b5c8b4265f867af"
+  },
+  {
+    "path": "game/tests/f02_case_one_rooms_shot.gd",
+    "sha256": "5bd2d7acae6a9765c0b55d9e5d2718d6411dd322d6b06a0bebd794be7d16bc94"
+  },
+  {
+    "path": "game/tests/f02_juno_apartment_shot.gd",
+    "sha256": "c918d2e595dbf7c62bd9c5e5f09655dcd18c9d5f1253c6d8cd6ca151cff6131c"
+  },
+  {
+    "path": "game/tests/f02_sealed_apartment_shot.gd",
+    "sha256": "d9bce8fc0579df9489c6d0e13ad8fb4d8cc0613f2aaa5de5d170f849cdcc4e78"
+  },
+  {
+    "path": "game/tests/f02_service_circulation_shot.gd",
+    "sha256": "348c7294a6fa8d3903094d055b7fedb073ddb050cd47eb95563c88784a8ca1f7"
+  },
+  {
+    "path": "game/tests/f02_supporting_apartment_shot.gd",
+    "sha256": "f88857aab63e45a91afee25a08b8d898380e8f57cb9817a3fc56ef53e2744035"
+  },
+  {
+    "path": "game/tests/F02CaseOneRoomsShot.tscn",
+    "sha256": "21dfaaeb823dec85f3566c492c64c8b6c96941245ce36970f2a92a11f3f7ae2f"
+  },
+  {
+    "path": "game/tests/F02JunoApartmentShot.tscn",
+    "sha256": "463b7a53047e89f454a3977d65deb8ca251916739689708c1a704584b944622e"
+  },
+  {
+    "path": "game/tests/F02SealedApartmentShot.tscn",
+    "sha256": "fe68f5733e847a14e968b1765c7c724b5ffa7c452b66f22625ee00ed35b60578"
+  },
+  {
+    "path": "game/tests/F02ServiceCirculationShot.tscn",
+    "sha256": "da12f13eab97ba02823dcd0471d4c6a651128a66537f35ef0aee2262f4a74587"
+  },
+  {
+    "path": "game/tests/F02SupportingApartmentShot.tscn",
+    "sha256": "c8c9b6f3070d4856347e30cdbece1d408d76940e3561dac14e1126c251ea11f0"
+  },
+  {
+    "path": "game/tests/f04_player_route_shot.gd",
+    "sha256": "761cfcaa7f1dc9a2ebd58150cfc511466816cca71fed6838376b72ddb0a63b70"
+  },
+  {
+    "path": "game/tests/F04PlayerRouteShot.tscn",
+    "sha256": "5e0e7d56e11b45c4b20964327ac4773b83f0ec86dd9f0574a73efe82fa0584de"
+  },
+  {
+    "path": "game/tests/film_look_shot.gd",
+    "sha256": "6b79fd6b595ae25cee30aa55ba841ad5a61e2f1f3768de26a06b7524b453d327"
+  },
+  {
+    "path": "game/tests/FilmLookShot.tscn",
+    "sha256": "211a87278e9122e985a4a863bb71ce7e5b46035383c16a5c6b123be2c6a83cfd"
+  },
+  {
+    "path": "game/tests/final_map_route_test.gd",
+    "sha256": "63cbe01097787305f24c6b5440ec6b8b5b1de632b008fef9e6c6fb4af2cc63d5"
+  },
+  {
+    "path": "game/tests/FinalMapRouteTest.tscn",
+    "sha256": "12a5f472e9cb0615b9d7667d9e06d72133e2752554725dac4f76dd67531a172f"
+  },
+  {
+    "path": "game/tests/fire_line_live_test.gd",
+    "sha256": "2419bf7e0d5934a3dd6bd96df2983c37c79c130d731f20c82cf15a69e169b9a8"
+  },
+  {
+    "path": "game/tests/fire_line_shot.gd",
+    "sha256": "2cf0feaeeb5f33410cae6288a38e7313d6fa095fb4a3eaadb8051f799e85bf46"
+  },
+  {
+    "path": "game/tests/fire_line_test.gd",
+    "sha256": "99e5d8881ea88cc6cf7d83d5ff54c0f48c3e3d57269b01dabdac28848357b20a"
+  },
+  {
+    "path": "game/tests/FireLineLiveTest.tscn",
+    "sha256": "1d13d9d7a57fea16c709b4d99671f4b95b2e41f570eb77a443961da719a143ef"
+  },
+  {
+    "path": "game/tests/FireLineShot.tscn",
+    "sha256": "c6742dc89967eea382f275b30e47df5468d7c6a3bf29f813236d094f03f6bdba"
+  },
+  {
+    "path": "game/tests/FireLineTest.tscn",
+    "sha256": "13fdd7c5b8699672f4d471c03ee5b628c6a87ebb7c7796514ddcd5f795de4716"
+  },
+  {
+    "path": "game/tests/first_minute_live_test.gd",
+    "sha256": "3c244884e033de1ad73f84e4b021dfa8cba5f0200b45582a0168ad0b5c81e555"
+  },
+  {
+    "path": "game/tests/first_minute_shot.gd",
+    "sha256": "daf59972171b7c50000597fb15a5db8f054ed705bc51f6bc80585a6c3357941c"
+  },
+  {
+    "path": "game/tests/first_minute_test.gd",
+    "sha256": "d2f8265d992eb403b1066a329044a43b0a90dbbd19fb188dffefee00ed53f5b1"
+  },
+  {
+    "path": "game/tests/first_shift_custody_test.gd",
+    "sha256": "aae271b12b3adf95714c5f56d53b610ab114c9ac9087c32fbf8dfdc6cd852616"
+  },
+  {
+    "path": "game/tests/first_shift_open_line_live_test.gd",
+    "sha256": "98301bd914837d103efa1d5c69b2b9abf13edd866e1fa4245f424b98211481c3"
+  },
+  {
+    "path": "game/tests/first_shift_opening_live_test.gd",
+    "sha256": "ad955966de0043c25e06a6b8d13a2004415f54be1f84ce50167a0c7ed434f9f0"
+  },
+  {
+    "path": "game/tests/first_shift_ritual_test.gd",
+    "sha256": "5bf32f80c5b770540769067e4dcd027cf09ac28689928193978d152009dcc2c7"
+  },
+  {
+    "path": "game/tests/first_step_live_test.gd",
+    "sha256": "2f036d6769855de6d7f7e5604e5c6b1cc9c25955973b7ed9c613cb6e1468e1a1"
+  },
+  {
+    "path": "game/tests/first_step_shot.gd",
+    "sha256": "6376fe950d6e3359d917b3885ccefbbd9ddc1b05653852a50b15ced9b5c80b8c"
+  },
+  {
+    "path": "game/tests/first_step_test.gd",
+    "sha256": "23f3a74e65425708ce6f2f2c9c52746d7008a70e72d08592347a539e821530d1"
+  },
+  {
+    "path": "game/tests/FirstMinuteLiveTest.tscn",
+    "sha256": "4f2c29b0babbc9f3054ff5a07fc85d342db9aba019958a2f9e96990eb5579e86"
+  },
+  {
+    "path": "game/tests/FirstMinuteShot.tscn",
+    "sha256": "0c7800b618aa7319e5ef22c660ba7fa67bb7fef7f5e24e3ceac30be05f1f6eb7"
+  },
+  {
+    "path": "game/tests/FirstMinuteTest.tscn",
+    "sha256": "c8daae944ab77410ae51b16677261bac854f9ceb7ef05d3437064480bc394710"
+  },
+  {
+    "path": "game/tests/FirstShiftCustodyTest.tscn",
+    "sha256": "552abe02538fe4492d0ee445cf34f7747701f8be5582a2bddf9d96d4a7da8d61"
+  },
+  {
+    "path": "game/tests/FirstShiftOpeningLiveTest.tscn",
+    "sha256": "39fe9351e04b1a5bbecdb514c46039128cb35c606892629aaaf7a47691cfa7a8"
+  },
+  {
+    "path": "game/tests/FirstShiftOpenLineLiveTest.tscn",
+    "sha256": "0789b4c72bfc693ed80ebe00a3ef11316f6ca3bf97a5bf86dabf27ac1e2b0c54"
+  },
+  {
+    "path": "game/tests/FirstShiftRitualTest.tscn",
+    "sha256": "10803a519ab63a3bebe776f832161ed12230ebd948b39ab0095c350d7f866caf"
+  },
+  {
+    "path": "game/tests/FirstStepLiveTest.tscn",
+    "sha256": "17f13257e1571f37b8e3cb3dc65e5f953ee2c33a8240ed878ee4a1e2897492e3"
+  },
+  {
+    "path": "game/tests/FirstStepShot.tscn",
+    "sha256": "e73ff693e381658e15ea6b6a86bf5c6e999fd61d6415796a3223137b136425c6"
+  },
+  {
+    "path": "game/tests/FirstStepTest.tscn",
+    "sha256": "259c8e7691df69e9b545654803685320664c32ead95bb3cd8db3924ac20eeaa7"
+  },
+  {
+    "path": "game/tests/floor_residency_measurement.gd",
+    "sha256": "e466d12221c823aa428d08eae80f1d55e324df6243296bd48f7a24b87963e252"
+  },
+  {
+    "path": "game/tests/FloorResidencyMeasurement.tscn",
+    "sha256": "2a9db45fa17aaa832b1d3008cb64d338c4a85953ca77d022a0eeaec4e0bcade2"
+  },
+  {
+    "path": "game/tests/fortune_answer_test.gd",
+    "sha256": "f643c793484dcdf81a6689387d010ae1754cce75538ab38b4bc98344d52dbd5e"
+  },
+  {
+    "path": "game/tests/FortuneAnswerTest.tscn",
+    "sha256": "84cfccad33a2aa69918d007f012f22c1a184b3d16f852465a4f05c361807d474"
+  },
+  {
+    "path": "game/tests/free_cam.gd",
+    "sha256": "e9eb5a1572f161adc226fb56302d519a8069b7e83a8b3a93e6c579336b7861cb"
+  },
+  {
+    "path": "game/tests/FreeCam.tscn",
+    "sha256": "3d43f7cef5aa712295eda12974c801aae67b8afa8f278bf3b9bffe8d00ab203c"
+  },
+  {
+    "path": "game/tests/friends_privacy_surface_test.gd",
+    "sha256": "95324bdd40367b0714dc36383e1513e90d99e908a5986a96d460685576485bb3"
+  },
+  {
+    "path": "game/tests/FriendsPrivacySurfaceTest.tscn",
+    "sha256": "3b0924838572a017ad83938ee4c41e885252e000afa899cfbe00a75e989b87cd"
+  },
+  {
+    "path": "game/tests/gate_d_join_test.gd",
+    "sha256": "5f349a994ea22f373c9aa326c52a816f1486935abfdf312aefcd18ba74d13fd8"
+  },
+  {
+    "path": "game/tests/GateDJoinTest.tscn",
+    "sha256": "7b079921f6802307ccf630c19fb59f52bc1a9922673fad599a9c4559f0e814b2"
+  },
+  {
+    "path": "game/tests/gateway_shot.gd",
+    "sha256": "004cefbc5a980f9b6a9e5fec6a7e0ee658c854a2a38f7cd50c5d997ced2ec364"
+  },
+  {
+    "path": "game/tests/GatewayShot.tscn",
+    "sha256": "66de15696198e6a8c9512b66a1591b04e5ea8b8596d49f0aad37e630f510e379"
+  },
+  {
+    "path": "game/tests/golden_loop_test.gd",
+    "sha256": "3def8b27045cc7ef45c89b4b747a1d8d11bb304aa0c7d4a10088a38b794902f9"
+  },
+  {
+    "path": "game/tests/GoldenLoopTest.tscn",
+    "sha256": "9df1aa8d73988bbad25f008de1915061ca62684d5ba9952b502cbad48e7baf5c"
+  },
+  {
+    "path": "game/tests/harukiya_shot.gd",
+    "sha256": "4bc83893cbf966204a81f92141f234f987a111f27ea62a14da318b22093fe92e"
+  },
+  {
+    "path": "game/tests/HarukiyaShot.tscn",
+    "sha256": "0864279ff0d524b55eac5c81526fea50ca0aac9bdb61c0bae64b66eab7b71512"
+  },
+  {
+    "path": "game/tests/historical_radio_lobby_shot.gd",
+    "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157"
+  },
+  {
+    "path": "game/tests/historical_radio_notice_test.gd",
+    "sha256": "d800373fbb437f4cce4c1b9736f3973392a3100df80a35920af6dc10bec3ae6b"
+  },
+  {
+    "path": "game/tests/historical_radio_notice_test.tscn",
+    "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+  },
+  {
+    "path": "game/tests/HistoricalRadioLobbyShot.tscn",
+    "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+  },
+  {
+    "path": "game/tests/house_english_test.gd",
+    "sha256": "76f3c6ca6257488304032b28f2dd87d4cc6678b261f37c4a3a819a9615cffad4"
+  },
+  {
+    "path": "game/tests/house_telephone_live_shot.gd",
+    "sha256": "eec8860ae82af97f09571250eb4c677aeb120d7b2353a570ed18f6035d2b8685"
+  },
+  {
+    "path": "game/tests/house_telephone_live_test.gd",
+    "sha256": "1e154b7f0310035eb07b100f87fd031b5a97f6385917cfcdc6b5cdf90a113457"
+  },
+  {
+    "path": "game/tests/house_telephone_shot.gd",
+    "sha256": "28056f55a9568dc4925e203d89861430f698f49e195a29e6a8a4cbd081ca5ea4"
+  },
+  {
+    "path": "game/tests/house_telephone_test.gd",
+    "sha256": "d92b95061214cf51a047bbe83fa51e05a2cb5e250674839152779993800ca72c"
+  },
+  {
+    "path": "game/tests/HouseEnglishTest.tscn",
+    "sha256": "fc79a984eda39ac1e2a74e4ca4133362c93971ed9bcb1b325b5f5e3a107f93a8"
+  },
+  {
+    "path": "game/tests/HouseTelephoneLiveShot.tscn",
+    "sha256": "8da6ce94ab1d96bab4124c1de3db59454c2b78fd69699b73e14eeb6c3eb3f433"
+  },
+  {
+    "path": "game/tests/HouseTelephoneLiveTest.tscn",
+    "sha256": "e9dab55a02303dcbef13753bafc617e827b33fb308016a7e1c35c474f2f5e8d7"
+  },
+  {
+    "path": "game/tests/HouseTelephoneShot.tscn",
+    "sha256": "c95b838eb96e7c1f0db28cc910a3cb3180cee4af430bcc635e49c2eb8520273b"
+  },
+  {
+    "path": "game/tests/HouseTelephoneTest.tscn",
+    "sha256": "10f49704584d5ba34ae13f2858d7dfc92d9a02a7ef73e881bbeb367235b44850"
+  },
+  {
+    "path": "game/tests/interaction_inventory.gd",
+    "sha256": "95b01cdaf4ab66fdf5fb8039760f91e451c0da50965d1a7922339c5f7f2a178d"
+  },
+  {
+    "path": "game/tests/InteractionInventory.tscn",
+    "sha256": "8aeef982247758bf186ed356199303e2eeec851dd9c2497f70f6ed31388345c4"
+  },
+  {
+    "path": "game/tests/juno_profile_shot.gd",
+    "sha256": "fb8f960ad1aa2c6107857008026230091093cdb2dfca11ef11fb252be13d64b3"
+  },
+  {
+    "path": "game/tests/JunoProfileShot.tscn",
+    "sha256": "8f18052214dd8f979d830a41f7438c4cb400621bacdec17cf5c1c1353801f39d"
+  },
+  {
+    "path": "game/tests/lamp_cookie_render_test.gd",
+    "sha256": "f854db9812704796602948a98c04706ad8789ed1790d46de6e992d32a568d922"
+  },
+  {
+    "path": "game/tests/lamp_cycle_shot.gd",
+    "sha256": "021b7d368cd102cb45da2ffec4b9faf60e04b5c91b375d16d22c98e8d6295dfe"
+  },
+  {
+    "path": "game/tests/lamp_shot.gd",
+    "sha256": "1adc457c650ffcf40c5951f571f5d134adac3ef5ffb62f0b22b30fa043a870fa"
+  },
+  {
+    "path": "game/tests/LampCookieRenderTest.tscn",
+    "sha256": "b9088d815d3cbd03b1a0463039e39198866738aa6f6dc57305695fd8f22eb8a7"
+  },
+  {
+    "path": "game/tests/LampCycleShot.tscn",
+    "sha256": "f4a62616ed260f883dbebe06c211268f818ff2dd3fa1e09fbeaea530cdabb61a"
+  },
+  {
+    "path": "game/tests/LampShot.tscn",
+    "sha256": "2605ad2024ed329851d0c8902c9b9f7fd238ab2b741312b54f836f23055222ae"
+  },
+  {
+    "path": "game/tests/landing_plate_live_test.gd",
+    "sha256": "1ea8d20988534f56f6d883e65db0f4566aa5cee0e3785c5f8a07ec8134c2cc1e"
+  },
+  {
+    "path": "game/tests/landing_plate_shot.gd",
+    "sha256": "b723e695ff33c7d0a579b594b62e1261a4fb2178a9fd27b90a5b62a9cbe8b4f6"
+  },
+  {
+    "path": "game/tests/landing_plate_test.gd",
+    "sha256": "3f842505b902872d53b437540fff6604f8380c12ce752059ad7c3216a8a7f465"
+  },
+  {
+    "path": "game/tests/LandingPlateLiveTest.tscn",
+    "sha256": "4a25f9f631e858a07404b55c77f0de6cb2d5c8b4b131b0ba90106861078f9166"
+  },
+  {
+    "path": "game/tests/LandingPlateShot.tscn",
+    "sha256": "1df0650db11d9f12f311eaf4c293eeabecfff544bbe06858c31bf7b4547ca7c1"
+  },
+  {
+    "path": "game/tests/LandingPlateTest.tscn",
+    "sha256": "df022ff01fb79194622fe88e4685064bf54d9a13867841f33139e3f07a139183"
+  },
+  {
+    "path": "game/tests/light_punch_test.gd",
+    "sha256": "aa3f1b89816d3237b25e7eaf1420421616bb616929b615497722c2f9dca7ff18"
+  },
+  {
+    "path": "game/tests/light_state_probe.gd",
+    "sha256": "e81532e90f3f31e03e4d3be5b6a15b28c8118c5d31c2f51d029ae895d04d1469"
+  },
+  {
+    "path": "game/tests/lighting_audit.gd",
+    "sha256": "2c0c3d55e7824319f2f3cec82bada8bdcecfa895d2cac4b13e052d418f53218e"
+  },
+  {
+    "path": "game/tests/lighting_debug_test.gd",
+    "sha256": "b9f36d779c1d524dd7929fb9807689c2f322c32b012e56e6956c9c95bc56b3da"
+  },
+  {
+    "path": "game/tests/LightingAudit.tscn",
+    "sha256": "166d8c7f640538da2707c8949df339d6d627199af8e3cb7b727cd1f7ccccaee0"
+  },
+  {
+    "path": "game/tests/LightingDebugTest.tscn",
+    "sha256": "1fe0e5b8c9115ceba112d68508c6e80f085aac0c7596f5b20583eca3fe6ce86c"
+  },
+  {
+    "path": "game/tests/LightPunchTest.tscn",
+    "sha256": "ba07717b4ed50f655b6b7ea03c3ae08072cb75efa128c7004af9d5e7aa88d543"
+  },
+  {
+    "path": "game/tests/LightStateProbe.tscn",
+    "sha256": "8f8f5fac62ef1861e2e5e89fff6a5b3f6cef95765b019b2746458b7ebbdab07b"
+  },
+  {
+    "path": "game/tests/lineup_shot.gd",
+    "sha256": "16ceeb11e8fa7e0f7ace809a57936433c0e18f579caa5a55ff5ea3b37d9658a0"
+  },
+  {
+    "path": "game/tests/LineupShot.tscn",
+    "sha256": "6fb21c1484312bba2e2b72dfaa84c771d4c93fce7f7657dce6b1492ce10ac0b2"
+  },
+  {
+    "path": "game/tests/live_weather_service_test.gd",
+    "sha256": "74dc5e26d99fc197ce2ccd37e30f61e00e48f283cec5cdfc260ced54efd2e01b"
+  },
+  {
+    "path": "game/tests/LiveWeatherServiceTest.tscn",
+    "sha256": "46ad09315b39c18cfd65affe5fa9d681bd3f0ad03ed26c5704344637fac98d27"
+  },
+  {
+    "path": "game/tests/living_field_test.gd",
+    "sha256": "f96daa0b753804b0df575c90b90b2d7e08d9fdc345f47709c0ab9fce7c6e0783"
+  },
+  {
+    "path": "game/tests/LivingFieldTest.tscn",
+    "sha256": "46cbe4b320f51d9a2a8e5b7003794eff617b653dd8d35c4028f4c01be7c83985"
+  },
+  {
+    "path": "game/tests/mae_profile_shot.gd",
+    "sha256": "ec4da6d3038f4b4c2604bc8d1b33fcf953b77d5752b63abed2b12d4c21f26834"
+  },
+  {
+    "path": "game/tests/MaeProfileShot.tscn",
+    "sha256": "19e0c8ef46e5a1ba5190c7d748ead8ddd88878e58f0c727d728752e5feb77900"
+  },
+  {
+    "path": "game/tests/mail_bank_test.gd",
+    "sha256": "e93559af5ecd231316245f71539de14fe891da028441a50d11441b47d921e77d"
+  },
+  {
+    "path": "game/tests/MailBankTest.tscn",
+    "sha256": "53966cc80bc110e46b465479e6b187f28e5a437eb69e5d1d98227febe6f442cd"
+  },
+  {
+    "path": "game/tests/maintenance_activity_live_test.gd",
+    "sha256": "4c5b579b4feded5efe675e2d561152f20c53575939a551710c778f39ccefa6ce"
+  },
+  {
+    "path": "game/tests/maintenance_activity_test.gd",
+    "sha256": "fc61fe88c648811fd7a54173951dc270782a161e4701d5756110f4e50d8a289d"
+  },
+  {
+    "path": "game/tests/maintenance_annunciator_shot.gd",
+    "sha256": "5ccc93ee2f0c32aa02143771d95c8355600a2413186b8f43b9968c05047b849f"
+  },
+  {
+    "path": "game/tests/maintenance_ballcock_live_test.gd",
+    "sha256": "53f702c4afeaaac2b5dc3f3178cfdf3fe88886132ff41883d4e25266c301898b"
+  },
+  {
+    "path": "game/tests/maintenance_ballcock_shot.gd",
+    "sha256": "2e25d6646ae096fe4b24b6369e84a6ed52e640e05a7f2d673ca4ca4a82e3ca18"
+  },
+  {
+    "path": "game/tests/maintenance_ballcock_test.gd",
+    "sha256": "5841fd9fa02383402686bf0336ad50afbeacb8e4f7f52cee25871ca28cd2b923"
+  },
+  {
+    "path": "game/tests/maintenance_boiler_shot.gd",
+    "sha256": "42df88a33846d1461eaba954128dbc9612c3202e12514ff856646c2a199ca9e5"
+  },
+  {
+    "path": "game/tests/maintenance_chute_live_test.gd",
+    "sha256": "522514ec2cee59c93ff20510c97a205a539f3b2272db5b49380be0dc9bf3c56d"
+  },
+  {
+    "path": "game/tests/maintenance_chute_shot.gd",
+    "sha256": "099bdab7113e687480919d8f6dfb56325da698783ae9a07addd25b9467e45738"
+  },
+  {
+    "path": "game/tests/maintenance_chute_test.gd",
+    "sha256": "951b97e93ae251ea41916848172d6749d7d5a3cd71cb4faf24b9284a9d483c41"
+  },
+  {
+    "path": "game/tests/maintenance_counter_test.gd",
+    "sha256": "a25848ac9e1275563602081e5335c72aa973eaa899de04998609ceec1e2aa6dc"
+  },
+  {
+    "path": "game/tests/maintenance_dumbwaiter_live_test.gd",
+    "sha256": "402ab99f64a382482292d5839fe29c63eb0550e57dce94270473e4939a9341b4"
+  },
+  {
+    "path": "game/tests/maintenance_dumbwaiter_shot.gd",
+    "sha256": "e9020a8c909b0af111ba370fb215e5086214d4be9a0b134f8c1abea67b6e5615"
+  },
+  {
+    "path": "game/tests/maintenance_dumbwaiter_test.gd",
+    "sha256": "b4dcde0b2c89ed09acf32269882a667b079263d9dabd397d936e44b3ef068531"
+  },
+  {
+    "path": "game/tests/maintenance_errand_test.gd",
+    "sha256": "52d1d9633560367323f687f0c6a54cbecd8990123a18debb3dcb649e765d8198"
+  },
+  {
+    "path": "game/tests/maintenance_fuse_live_test.gd",
+    "sha256": "7b1255d2a3d659b37e49a5f27f15cb803df4c037eb52407bcb307e4720cd7be8"
+  },
+  {
+    "path": "game/tests/maintenance_fuse_shot.gd",
+    "sha256": "a620ae25ebeec75dbd04f80b633f1c11bcf5901d034f22b28d0701088d90d9d7"
+  },
+  {
+    "path": "game/tests/maintenance_fuse_test.gd",
+    "sha256": "b0665145d6bad9df961f48385edb5bdd8ca85aab860009fd96718c840a5c895d"
+  },
+  {
+    "path": "game/tests/maintenance_interlock_live_test.gd",
+    "sha256": "5f7152ad6ec408a3798146255135429d8d6673552c01bc07bb2803e7da3d6ffd"
+  },
+  {
+    "path": "game/tests/maintenance_interlock_shot.gd",
+    "sha256": "5c142507df4fb349c386c56d511d76727117965c878b872da1de22dea78f8be4"
+  },
+  {
+    "path": "game/tests/maintenance_interlock_test.gd",
+    "sha256": "4d3416907cc34f835e19f0943defb4b843c9d8849bcfd565978252b6b31ac3b8"
+  },
+  {
+    "path": "game/tests/maintenance_job_test.gd",
+    "sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+  },
+  {
+    "path": "game/tests/maintenance_panel_input_test.gd",
+    "sha256": "9b30c3a316d6bfdfab77a65f5edb38f1d4c2ee59c4d834292e8ad936e70a4597"
+  },
+  {
+    "path": "game/tests/maintenance_service_round_route_shot.gd",
+    "sha256": "bb9cccccfc44d0abf43967a3e6a64edabec9e196a02831646c7356124e7c6c58"
+  },
+  {
+    "path": "game/tests/maintenance_service_round_shot.gd",
+    "sha256": "1bf79f112b648985fd1644f12e79f95b5a65e7d59523e2f7b4844ff584403285"
+  },
+  {
+    "path": "game/tests/maintenance_service_round_test.gd",
+    "sha256": "03c7ef85d516f92b0508f077ca2707e712407b2f966d971566d5e8a6e88a9d04"
+  },
+  {
+    "path": "game/tests/maintenance_watchman_live_test.gd",
+    "sha256": "b0d46989363252a36899372cf2ebdd4be2b431505e35e95f2f9540007cb75bc7"
+  },
+  {
+    "path": "game/tests/maintenance_watchman_shot.gd",
+    "sha256": "3e15148274485903d2e1d3480857d0d03f732f90f62eae8d28d4c6a04c723121"
+  },
+  {
+    "path": "game/tests/maintenance_watchman_test.gd",
+    "sha256": "9fc613a0659919a42ddb75374bef2254c65e12c73728063065ca5f066722137f"
+  },
+  {
+    "path": "game/tests/MaintenanceActivityLiveTest.tscn",
+    "sha256": "73c9e3f19bbe33641af80bbd91d5d2dc289ef879910799af265e0fa901f322cc"
+  },
+  {
+    "path": "game/tests/MaintenanceActivityTest.tscn",
+    "sha256": "daa129abbd15f2b770a852fd145e0aecb3a186e403b75db1c0960bd0e6126614"
+  },
+  {
+    "path": "game/tests/MaintenanceAnnunciatorShot.tscn",
+    "sha256": "d5e50124572d6cd356cd8d0c23c0334be222a8572b840b80c6fac69d6a686109"
+  },
+  {
+    "path": "game/tests/MaintenanceBallcockLiveTest.tscn",
+    "sha256": "be675f7513c6fd6127555635768eecdba103c2cc6a7f71d015e1215ebe09624e"
+  },
+  {
+    "path": "game/tests/MaintenanceBallcockShot.tscn",
+    "sha256": "9da231f14350818817ffe7ed370c5fd5c0d05fccc1b1638750a5976604218a89"
+  },
+  {
+    "path": "game/tests/MaintenanceBallcockTest.tscn",
+    "sha256": "4bf33eb70bb225f5d4b3df8d61ce46e7605dcbf82ff50c235fcdb61a1b83cfd3"
+  },
+  {
+    "path": "game/tests/MaintenanceBoilerShot.tscn",
+    "sha256": "8577b282881e0c1a1013c99abb902294971f4c30d35715bba488609768e1fe2a"
+  },
+  {
+    "path": "game/tests/MaintenanceChuteLiveTest.tscn",
+    "sha256": "19c0dada3115a29efe1cf199c2ce8d4f5aa58ba922c1614d45a7976ad6155225"
+  },
+  {
+    "path": "game/tests/MaintenanceChuteShot.tscn",
+    "sha256": "3284cc670cbdab9cc4837ca20c1b98bd3c2c4dbe0eb2dc5f26377505b6765fdc"
+  },
+  {
+    "path": "game/tests/MaintenanceChuteTest.tscn",
+    "sha256": "3442f0d1db3b2a47e563c5cd317c58c17baf8beb7cfed3869c3dd1c039ca65cb"
+  },
+  {
+    "path": "game/tests/MaintenanceCounterTest.tscn",
+    "sha256": "5fdb0ad3810d9583ae964c5efae7a7ac73f5332b71302c90b574347ff780f9ef"
+  },
+  {
+    "path": "game/tests/MaintenanceDumbwaiterLiveTest.tscn",
+    "sha256": "a6ded5a352270a1fa25308ac53adc824160958ac8c05c73dbbd4675c90d7dd42"
+  },
+  {
+    "path": "game/tests/MaintenanceDumbwaiterShot.tscn",
+    "sha256": "a550abe1e8e646e9c8bb960e43b1b28e984ddb9b15a48b2361d2ce2ff47e0242"
+  },
+  {
+    "path": "game/tests/MaintenanceDumbwaiterTest.tscn",
+    "sha256": "c6c1e42cb654f223f1453c8bdbe4540cf71c8bed2dbd502d359cd695c6631d04"
+  },
+  {
+    "path": "game/tests/MaintenanceErrandTest.tscn",
+    "sha256": "6e98be4fa47fc8336a978c08fff2aa5a63dd924d3ba488fb50d01c445d2633c8"
+  },
+  {
+    "path": "game/tests/MaintenanceFuseLiveTest.tscn",
+    "sha256": "728e42530774fb56e7e439d92f1e06029db2c935f0ad652f8a300930437fac95"
+  },
+  {
+    "path": "game/tests/MaintenanceFuseShot.tscn",
+    "sha256": "c1a16797cc1dddba0b9c4db0c4292891b35febfdb04e6f99d98f206c352c75be"
+  },
+  {
+    "path": "game/tests/MaintenanceFuseTest.tscn",
+    "sha256": "c029ea090ee0d4e44e0afbd7d547fe09e957afc5e0a2baac674302ea30ffd87d"
+  },
+  {
+    "path": "game/tests/MaintenanceInterlockLiveTest.tscn",
+    "sha256": "1551b0d9494ce7a956b8a5420e980037c12d5ad3072d6b14b53556e73e82c540"
+  },
+  {
+    "path": "game/tests/MaintenanceInterlockShot.tscn",
+    "sha256": "11b1f1ac3b1df777a3f736c34659a9b854bcb7de50820168ae61ffb645e11288"
+  },
+  {
+    "path": "game/tests/MaintenanceInterlockTest.tscn",
+    "sha256": "73a3b646ac75bff50cb9602300ef929164bb92fdfcae9c75a508206dae470fe2"
+  },
+  {
+    "path": "game/tests/MaintenanceJobTest.tscn",
+    "sha256": "b61d588bd08f229246f4d1917f92dd7890bec87366190d56fc7de4c90c402684"
+  },
+  {
+    "path": "game/tests/MaintenancePanelInputTest.tscn",
+    "sha256": "e298bb95b3af3ad82c1870d0b30ed268adf813bf103b245cf785dd00c5d56bcb"
+  },
+  {
+    "path": "game/tests/MaintenanceServiceRoundRouteShot.tscn",
+    "sha256": "e0dba55c5fccd1ac140bb07a4927f4947f711ba71df1812537799e67c66e462b"
+  },
+  {
+    "path": "game/tests/MaintenanceServiceRoundShot.tscn",
+    "sha256": "178e7f0d88d93dd1f85de68eb416634b1827c13a38670a9ac3ed93dcf0181a6b"
+  },
+  {
+    "path": "game/tests/MaintenanceServiceRoundTest.tscn",
+    "sha256": "d64e284d877a38385a53d207912676dcbf28d4c6b049d1a5f5104401cfb1d2ce"
+  },
+  {
+    "path": "game/tests/MaintenanceWatchmanLiveTest.tscn",
+    "sha256": "fd1b1b99d264119707c4057dbe88fbbe8080144c272f7e11aae50a2b47a4f487"
+  },
+  {
+    "path": "game/tests/MaintenanceWatchmanShot.tscn",
+    "sha256": "5dac8041ccde0e06c76b08473dc35924f44d16c04061fa51a15d986e386e6959"
+  },
+  {
+    "path": "game/tests/MaintenanceWatchmanTest.tscn",
+    "sha256": "7b85c068771a23cc1c8fe3711f830f37cd24e90759cbc72ed7384e6340c2c93f"
+  },
+  {
+    "path": "game/tests/material_library_test.gd",
+    "sha256": "5331334dffc2582351a5b5b60822ad4db135ebccd1a9b4f98b731186cdbbbf1c"
+  },
+  {
+    "path": "game/tests/MaterialLibraryTest.tscn",
+    "sha256": "609f9b456e68c95455c2037f8407273d4b879d9373d5e964d33169f0864d6f92"
+  },
+  {
+    "path": "game/tests/mina_case_gameplay_test.gd",
+    "sha256": "1f1a807b440aa84eeac735123e2ff3e736e52235277a24f3f69554e5745d1380"
+  },
+  {
+    "path": "game/tests/mina_character_test.gd",
+    "sha256": "c5d3ff00ee694e331d039f13feb24c4000f9b65b5b280789d96bc2db27eb751c"
+  },
+  {
+    "path": "game/tests/mina_waking_residue_shot.gd",
+    "sha256": "6f4db1916839b0a6895f675811cfa34fb5242f741d9dca289329940bc73b72ea"
+  },
+  {
+    "path": "game/tests/MinaCaseGameplayTest.tscn",
+    "sha256": "ac3f63332fce9fe0b016448d826751205fa4b5f92fddd2991f5b3f95be79940e"
+  },
+  {
+    "path": "game/tests/MinaCharacterTest.tscn",
+    "sha256": "04a5a4e1d0c3aec757446c94f3f4377154fa96ab7c18345a1050c2c5a30c9cfd"
+  },
+  {
+    "path": "game/tests/MinaWakingResidueShot.tscn",
+    "sha256": "f80ff4ec6e049c9442a64a5af959dd1f492a6a0bff20f759fdce9946efab90a7"
+  },
+  {
+    "path": "game/tests/Model28RShot.tscn",
+    "sha256": "38abbe119804d6890a98b10275b2a1220708e48f8d6f0309b3ce29bafcc2f711"
+  },
+  {
+    "path": "game/tests/Model28RTest.tscn",
+    "sha256": "0a997b471e3b303fa71ea14813a4aa2b4a764ca533ba6bb795632607764636e5"
+  },
+  {
+    "path": "game/tests/model_28r_shot.gd",
+    "sha256": "f515cab2a7c59ae6627971cfc1a15d0d54f309cb524ec106d504efa876734a90"
+  },
+  {
+    "path": "game/tests/model_28r_test.gd",
+    "sha256": "c9225a1725584e4ab59e344624b3da6bde578cd69eb5a9fb83e91eb1c7f5711e"
+  },
+  {
+    "path": "game/tests/music_director_test.gd",
+    "sha256": "9d69dd02db0b476452193d79103d4dc992090b2fe645459c895031558e11e9e5"
+  },
+  {
+    "path": "game/tests/MusicDirectorTest.tscn",
+    "sha256": "10e3d1f9152f9e794668cba6f4a38b8f61ee4c518968da6873291fcb18e00f03"
+  },
+  {
+    "path": "game/tests/neon_batch_test.gd",
+    "sha256": "2fd025643877c128d6180633d65901e11c627c165a3da25fe340bc413eebac32"
+  },
+  {
+    "path": "game/tests/NeonBatchTest.tscn",
+    "sha256": "2def853fe1129e98d3805bfae6e8e08f7319ed88fbe42da605d38d34bc6efb08"
+  },
+  {
+    "path": "game/tests/night_register_audio_lifecycle_test.gd",
+    "sha256": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc"
+  },
+  {
+    "path": "game/tests/night_register_live_test.gd",
+    "sha256": "79086a605c125228f915e9a0615cf8d34d1304f25d0d65e5fd0f63b39d1ee95f"
+  },
+  {
+    "path": "game/tests/night_register_shot.gd",
+    "sha256": "e1a7098d4a0945284c073df321cba3b468f2ea7e454827a5346741729d1c2f8e"
+  },
+  {
+    "path": "game/tests/night_register_test.gd",
+    "sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+  },
+  {
+    "path": "game/tests/NightRegisterAudioLifecycleTest.tscn",
+    "sha256": "51655533f960c9f09bfaa0ac657ceb094bfa899bd90bc485b7ee00c722457577"
+  },
+  {
+    "path": "game/tests/NightRegisterLiveTest.tscn",
+    "sha256": "43cd43034f3220b1bcebeb91279acd16f474ad837deba477cc7372146739799c"
+  },
+  {
+    "path": "game/tests/NightRegisterShot.tscn",
+    "sha256": "f4fa95f8f7edd6db22e1af7a13f0bcd18f34da0cbc6e5b9999c15a3a2400278c"
+  },
+  {
+    "path": "game/tests/NightRegisterTest.tscn",
+    "sha256": "ffef1493519089b7a8676f00053b847ec2e6f433888c7e5ad19b4b00a5b81700"
+  },
+  {
+    "path": "game/tests/npc_hearing_presence_test.gd",
+    "sha256": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122"
+  },
+  {
+    "path": "game/tests/NpcHearingPresenceTest.tscn",
+    "sha256": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6"
+  },
+  {
+    "path": "game/tests/open_shift_abandon_test.gd",
+    "sha256": "1eb8008b62b240e9789a50473608e6714db13623f08516fc9ac801363eef66f0"
+  },
+  {
+    "path": "game/tests/open_shift_authority_test.gd",
+    "sha256": "d75d6c9491b87ae90bab7a186389e465bbfc83aaad54f368a64a4eaf68ed5e7e"
+  },
+  {
+    "path": "game/tests/open_shift_evidence_shot.gd",
+    "sha256": "7632c03daf1586630b3ec97f136675129eee3046cdd89726a19e4d2ab6edba75"
+  },
+  {
+    "path": "game/tests/open_shift_ignore_test.gd",
+    "sha256": "264f613b3c3a52e24cb4c2b087b73c5581ca7bbece9d4ccdfac64d154880feae"
+  },
+  {
+    "path": "game/tests/open_shift_meddle_test.gd",
+    "sha256": "dc9fa956110f6be3c53724683592f03e8aaa15c963f2c05e507570c0961c4618"
+  },
+  {
+    "path": "game/tests/open_shift_save_matrix_test.gd",
+    "sha256": "affb9e3d4295ce222c818b948c7f41ada5c568bbc23fa2f41072fa2f1b40ac5f"
+  },
+  {
+    "path": "game/tests/open_shift_situation_test.gd",
+    "sha256": "a88b0484b74d60810808a7b3037456e36566e284467bbe92999fe050be15596c"
+  },
+  {
+    "path": "game/tests/open_shift_work_test.gd",
+    "sha256": "3b672c7d51c280cee6e77cf2b818eaed666e43d2529fc208f636369d1de5641f"
+  },
+  {
+    "path": "game/tests/OpenShiftAbandonTest.tscn",
+    "sha256": "21317f88a5f6216aea7c62aacc3f544379fef38189b773a13c52483587c40239"
+  },
+  {
+    "path": "game/tests/OpenShiftAuthorityTest.tscn",
+    "sha256": "1892ada76704f558540eab9e4ecbb5ea1c14f309cd2602b6acd4ed5fbf55dab2"
+  },
+  {
+    "path": "game/tests/OpenShiftEvidenceShot.tscn",
+    "sha256": "f4381815ed5da671c0d44c5da1c71141679c3da4ec46773ad67042471f0c2dd7"
+  },
+  {
+    "path": "game/tests/OpenShiftIgnoreTest.tscn",
+    "sha256": "807f4695bcb251d28ac957eea1e1b79328affebe118a5a3bdab8f44a23a2266a"
+  },
+  {
+    "path": "game/tests/OpenShiftMeddleTest.tscn",
+    "sha256": "69d040baffbb98bd0f52f29f27709aee34919deecaac260b68cf84fc46fd7bad"
+  },
+  {
+    "path": "game/tests/OpenShiftSaveMatrixTest.tscn",
+    "sha256": "f9784e9bc82ee61ae08c7d2ede39aa38eb621faf7dc29a473eca6ea5d1eda4ad"
+  },
+  {
+    "path": "game/tests/OpenShiftSituationTest.tscn",
+    "sha256": "cbe285f9ea8425f73e617a9b938706d746eef3351525bb415e4a076b88504399"
+  },
+  {
+    "path": "game/tests/OpenShiftWorkTest.tscn",
+    "sha256": "dace734cf4597462d78b01f3f255b5f7adb86e8fafb70b67e323394389d08711"
+  },
+  {
+    "path": "game/tests/organism_incidents_test.gd",
+    "sha256": "d72f2c3f3d7fa52b489e623854ffa6053bdd53d76b49a8981476eff2aeee08bf"
+  },
+  {
+    "path": "game/tests/OrganismIncidentsTest.tscn",
+    "sha256": "1f8b34dd7eae631b30c0de10022340ac4bce4e61ec5b6873bba1bfa058049cf9"
+  },
+  {
+    "path": "game/tests/orison_v2_blockout_guard_test.gd",
+    "sha256": "48f0c2c35456fe6b1862e0c4e5f6fc9f7c7efbaef6cf4595ef0bdd2f65f84b92"
+  },
+  {
+    "path": "game/tests/orison_v2_blockout_test.gd",
+    "sha256": "63a53e3cf023403107eaac5d3540fa03f8f8b97e125fbfe0864e437917398a66"
+  },
+  {
+    "path": "game/tests/orison_v2_f04_shot.gd",
+    "sha256": "310da6acaea2e1dda9e991418c4f616ca293bceefcdb3a14817b6ed04b7fd456"
+  },
+  {
+    "path": "game/tests/orison_v2_integrated_shot.gd",
+    "sha256": "bb7c700c02c179c9da2b9bb7bc37744bbd1b6b456e194b43707b790f3350a528"
+  },
+  {
+    "path": "game/tests/orison_v2_integrated_test.gd",
+    "sha256": "989cafd9e066847903756c33408ed855932ba6dfdf3521ef00bdd3c9314d3086"
+  },
+  {
+    "path": "game/tests/orison_v2_m08e_spatial_shot.gd",
+    "sha256": "e0498afa41b9002672a9e5362885b5c4ee0891d985892217fd821f74af1d6eef"
+  },
+  {
+    "path": "game/tests/orison_v2_m08e_spatial_test.gd",
+    "sha256": "e7f576b7c49fedaa3b0bf214d0824e02ae550e9300a1729d25e3f674ea7144d4"
+  },
+  {
+    "path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+    "sha256": "be2ea45723054848b3069c171d48df6ba50aec9628a970904838d1d7aa7b592f"
+  },
+  {
+    "path": "game/tests/orison_v2_m08f_runtime_shot.tscn",
+    "sha256": "fc3d7fcf738a3e0cf2561cec0d8ac035c4461045ecc4fcc672da77f832899eae"
+  },
+  {
+    "path": "game/tests/orison_v2_m08f_runtime_test.gd",
+    "sha256": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d"
+  },
+  {
+    "path": "game/tests/orison_v2_m08f_runtime_test.tscn",
+    "sha256": "e585a92c4b92a7e8edf32347049d7f0d435ef11ba9a7d45a2ecfb2142131b5c9"
+  },
+  {
+    "path": "game/tests/orison_v2_m11a_exterior_capture_lifecycle_test.gd",
+    "sha256": "0bde826f730a1c18361b6a8d691c5bbc2f89cdd8c5976cf53f227a18ee23da06"
+  },
+  {
+    "path": "game/tests/orison_v2_m11a_first_exterior_cell_shot.gd",
+    "sha256": "2906706b23bee4496774645d7b9c7985c9587ee07073cf0943d0e5128275507c"
+  },
+  {
+    "path": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "sha256": "ad3fc25fdd82a0c158b94aa05738986cb0165216e4765d7099b014e07b6d8e8c"
+  },
+  {
+    "path": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "sha256": "a8956f5e7721d97ad07a2423f0073137ee81c7978b100faa21b72d3d2fafb684"
+  },
+  {
+    "path": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "sha256": "550e5b3af4dcd24f54c3aa9cebc856d8840b57603f42144d19140db205f9cfe1"
+  },
+  {
+    "path": "game/tests/orison_v2_presence_ledger_test.gd",
+    "sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+  },
+  {
+    "path": "game/tests/orison_v2_presence_ledger_test.tscn",
+    "sha256": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+  },
+  {
+    "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+    "sha256": "b79249e3a392056b160ebc45e10bb8d07ae901fd696c25b360f139715bf06c86"
+  },
+  {
+    "path": "game/tests/orison_v2_two_root_matrix_test.tscn",
+    "sha256": "17cfb47de9a81b181e762d7e6904b95863b662f9d07c7e72752137449a2af59a"
+  },
+  {
+    "path": "game/tests/OrisonV2BlockoutGuardTest.tscn",
+    "sha256": "bbbb452dd28f16fe16054e433fbf7de14ed64a8c2f2179e6f1cc76b698219f8b"
+  },
+  {
+    "path": "game/tests/OrisonV2BlockoutTest.tscn",
+    "sha256": "6688f521df4209dcab80e7c35ac15f028bdcc1b362005834ab9e33fa102f835e"
+  },
+  {
+    "path": "game/tests/OrisonV2F04Shot.tscn",
+    "sha256": "1ef58e4888c7e858688439972ddd6ba64c568ffc9e84d7976160e3c074a4b3a8"
+  },
+  {
+    "path": "game/tests/OrisonV2IntegratedShot.tscn",
+    "sha256": "a40c41be8a6528b9d273647cee60d647e92cc74319392793cf7a6fde0a9c4756"
+  },
+  {
+    "path": "game/tests/OrisonV2IntegratedTest.tscn",
+    "sha256": "ed6214d3c4b4a95a91a727093bedf5f0c915847711d2b8b6ce40415b3b297b16"
+  },
+  {
+    "path": "game/tests/OrisonV2M08ESpatialShot.tscn",
+    "sha256": "90b2ac7385ddf23ff3b3ac4fc3cd2186681d746f5789cedbd497e87101a23906"
+  },
+  {
+    "path": "game/tests/OrisonV2M08ESpatialTest.tscn",
+    "sha256": "d1ef9888b1003c4400f7894825e28c348e8b373c0c28840e13ba0eb74b9061c3"
+  },
+  {
+    "path": "game/tests/OrisonV2M11AExteriorCaptureLifecycleTest.tscn",
+    "sha256": "43fb1d6600c7cd7b508aa4b4f2dc60295b968f64d06c326d2ac09f76741e5d7d"
+  },
+  {
+    "path": "game/tests/OrisonV2M11AFirstExteriorCellShot.tscn",
+    "sha256": "51f00db7c0b67fbf8d0b7e7c32292132a23e55fd537d9d2d3104eb6dd8f98f42"
+  },
+  {
+    "path": "game/tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+    "sha256": "59ff56f8993493b7cf0a96fce9382a8b09507544451c00c0ae2b5c205ffe3314"
+  },
+  {
+    "path": "game/tests/OrisonV2M11BServiceOpeningsShot.tscn",
+    "sha256": "ff3d4d1574e5b8f0bb001d46a34fef77439fef320d7c8c8ed10547c0e5e9d0bb"
+  },
+  {
+    "path": "game/tests/OrisonV2M11BServiceOpeningsTest.tscn",
+    "sha256": "51d2dcd3205ca8018733abea62afc726991c490235a71c49d209d8db05363913"
+  },
+  {
+    "path": "game/tests/otis_panel_input_test.gd",
+    "sha256": "6736143075d9255b0c166570ffc20675619b4729ae286023b0a6d33dceb3b22f"
+  },
+  {
+    "path": "game/tests/otis_test.gd",
+    "sha256": "685eea204455bdb4e6cf8673165d41fde56c1202d20f44a55063bcdc343abfb3"
+  },
+  {
+    "path": "game/tests/OtisPanelInputTest.tscn",
+    "sha256": "d70b02d3dabd8d4b9f68ed80b3074a53a5e5903fa09bcc46a865f894949946e2"
+  },
+  {
+    "path": "game/tests/OtisTest.tscn",
+    "sha256": "4549160f0ff3d82b8eff7517bcd8c65cab4b83d0a89778c993897e203995e105"
+  },
+  {
+    "path": "game/tests/panel_shots.gd",
+    "sha256": "ee0f759a7685b7551076a8c6a53f5f0072429adbb8f5744f11df7a376e6e5bcb"
+  },
+  {
+    "path": "game/tests/PanelShots.tscn",
+    "sha256": "1b76db53e1ee472c1b8a7101dbfb91b4ffa91c789205b1fb59e148ace1461ba5"
+  },
+  {
+    "path": "game/tests/passage_finish_shot.gd",
+    "sha256": "57810dc78934cbc2404da4b499d4fbc25c281075c5892b32eee8165a4eb0ddfb"
+  },
+  {
+    "path": "game/tests/passage_finish_test.gd",
+    "sha256": "0c63dd34fe9c1db91c375fe64596624e2af50c20d4257b870c1af3fd27c6c0b9"
+  },
+  {
+    "path": "game/tests/passage_hours_test.gd",
+    "sha256": "b09ec6b2cff6c4849bf383c5c2f9a32721f8b643653e4b750c35fd2e9c23e60b"
+  },
+  {
+    "path": "game/tests/passage_nav_test.gd",
+    "sha256": "82d80acee12da8c77a1238a6b54e8502053dbe52c85069baeaff43b607a17098"
+  },
+  {
+    "path": "game/tests/passage_ownership_audit.gd",
+    "sha256": "4ec38d4ebaa742a9c9119eba039db01aac048b3aca4800c6f96cff503a6d218d"
+  },
+  {
+    "path": "game/tests/passage_shot.gd",
+    "sha256": "70bf17bf96396e6cc9b6d50653c18e37a9a4e7c6531a40e3d2df253156e5123e"
+  },
+  {
+    "path": "game/tests/passage_visibility_test.gd",
+    "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732"
+  },
+  {
+    "path": "game/tests/PassageFinishShot.tscn",
+    "sha256": "5672baee50d16aa41ef00954bfc02fc5329a16236cf3a0053f5cd62801d247b1"
+  },
+  {
+    "path": "game/tests/PassageFinishTest.tscn",
+    "sha256": "8834f366114c4108ed0cd2ecb5bdc21db18f788499964ac9ce22cd6a085ee409"
+  },
+  {
+    "path": "game/tests/PassageHoursTest.tscn",
+    "sha256": "1bbb9854e3fe129c671a509cab66be4ea1df51ca570b13f65cef3e00331d093f"
+  },
+  {
+    "path": "game/tests/PassageNavTest.tscn",
+    "sha256": "09e210714493d9f6d9bd028c5c98f8274a48f5c3476241d97d180ad13c5f6ad6"
+  },
+  {
+    "path": "game/tests/PassageOwnershipAudit.tscn",
+    "sha256": "19addac3b988be7321aa5c2f38e36899d7e5a30c72260935b3a7b27a736e9c0a"
+  },
+  {
+    "path": "game/tests/PassageShot.tscn",
+    "sha256": "24270d8b459226ab5d41f5b48f681e5275c7c3bfdb57b0a2d90e720f5a4edd07"
+  },
+  {
+    "path": "game/tests/PassageVisibilityTest.tscn",
+    "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd"
+  },
+  {
+    "path": "game/tests/pause_services_test.gd",
+    "sha256": "9b00ef77ccd2e89702d4229a3ce1fe7e642dcdeb51d41170ff5ff0e3ad5fa57b"
+  },
+  {
+    "path": "game/tests/PauseServicesTest.tscn",
+    "sha256": "83f2618dbe1d09c54630994c3d1259ae148a05229c55cbe0bef477ae79c8c981"
+  },
+  {
+    "path": "game/tests/Perf.tscn",
+    "sha256": "9f1b7e4edd6d98aa7ed924aea3b4143d853ced27375fa893f38765f3d3f1b1c3"
+  },
+  {
+    "path": "game/tests/perf_probe.gd",
+    "sha256": "43f15065e2cd85ae63c522301451370652976766b7dfc32cb9e89d5e559f0111"
+  },
+  {
+    "path": "game/tests/period_reality_layer_test.gd",
+    "sha256": "ba4c53df5d45c8376fa49d50d6288c83b5f7e336013bfd7142ff0cf493a3c4e3"
+  },
+  {
+    "path": "game/tests/PeriodRealityLayerTest.tscn",
+    "sha256": "1fcafcad299884cc8be0d7fd5cfd3a63a40d3bda82b0d5c80973adfefd3f55db"
+  },
+  {
+    "path": "game/tests/phonautograph_shot.gd",
+    "sha256": "3553ff85ed6727cbaa3d94db89f19f526c0f72ef885c48a4eca52558d2cffe9c"
+  },
+  {
+    "path": "game/tests/PhonautographShot.tscn",
+    "sha256": "fc5430a8a2e801e1c9102d3fe5f633ac61571a463caac29e3626e3a75bb49bee"
+  },
+  {
+    "path": "game/tests/phone_camera_test.gd",
+    "sha256": "d86541b5fe66222dcdbc04ee8455f04355629931299922b5062f249e1fd8969e"
+  },
+  {
+    "path": "game/tests/phone_carry_shots.gd",
+    "sha256": "1bef4326a219abd4188c34a8bad11609de3a4b2f38720b774c1e5ef1a38f246f"
+  },
+  {
+    "path": "game/tests/phone_light_shots.gd",
+    "sha256": "bb11152ab959bbb9d33c54c7918240d2882d663132f16b83cab8b59501fd2fc1"
+  },
+  {
+    "path": "game/tests/PhoneCameraTest.tscn",
+    "sha256": "f8fc3f4173a10d22d7803f9ef171939ce8caacde87fe6f3be3d4ffce72572580"
+  },
+  {
+    "path": "game/tests/PhoneCarryShots.tscn",
+    "sha256": "0a2aac3a7e7b9b45f3c78350d2a7096cd8a270b4719a22a84f8bae6d2aff0b4e"
+  },
+  {
+    "path": "game/tests/PhoneLightShots.tscn",
+    "sha256": "a2bb9ce5fb806e1985ec499f6cc71bd89f75ebaabd8498a23bc07cfe8c7527b8"
+  },
+  {
+    "path": "game/tests/phoneos_shots.gd",
+    "sha256": "5b0f0fd54d2a14f01dab20c939c4b1a3651bce991bc43298f9b76690a62d9e7b"
+  },
+  {
+    "path": "game/tests/PhoneOSShots.tscn",
+    "sha256": "781aac05c973cd4db5344ff408c59442a93cce9c4f6368596a976e4c89ed9676"
+  },
+  {
+    "path": "game/tests/piano_repair_truck_shot.gd",
+    "sha256": "9a45fe811249b7114d3abd15e07b4c090535010c12d61de77f25ce0f51964ab6"
+  },
+  {
+    "path": "game/tests/piano_repair_truck_test.gd",
+    "sha256": "f361479ce40ff9d3c2e1f54b9812ea56599994078012012ee6a152920c4405aa"
+  },
+  {
+    "path": "game/tests/PianoRepairTruckShot.tscn",
+    "sha256": "df17841136985137ef584012c8ece5b203afb77d032c9e65b3ce12bc9152d281"
+  },
+  {
+    "path": "game/tests/PianoRepairTruckTest.tscn",
+    "sha256": "cc4761ba134ef1a3c0e2e6c5c001507bef5abbf2e0e697ac95e6c6e6df775a5f"
+  },
+  {
+    "path": "game/tests/planar_mirror_shot.gd",
+    "sha256": "e482873ff027db719df212fa03385cad379a30e7cc486f54fef6647f9a7195b2"
+  },
+  {
+    "path": "game/tests/PlanarMirrorShot.tscn",
+    "sha256": "148a5bd799b34c53ace677b61295b5412e2d19fe102517d70ad6c696f4a80fd0"
+  },
+  {
+    "path": "game/tests/point_ball_test.gd",
+    "sha256": "abf925cd069a89cdef258e3d86830c33a342acade60771272694d683f70641e9"
+  },
+  {
+    "path": "game/tests/PointBallTest.tscn",
+    "sha256": "184535dac0b86792ed6f420aa92742798a4e6aa451d45cb0615f49e0ed3e469b"
+  },
+  {
+    "path": "game/tests/possession_propagation_test.gd",
+    "sha256": "99b13869b812991e7e8ea619a215d5a2a64af6151a232379bdd8e359c6251db8"
+  },
+  {
+    "path": "game/tests/PossessionPropagationTest.tscn",
+    "sha256": "5045ccc4f21539c2bfb274abbeee25984c0f1cd800b360add03a5b76796bade1"
+  },
+  {
+    "path": "game/tests/presentation_audit.gd",
+    "sha256": "7a45fa85133bbdc54eccc6b179b628a6d069cbed32d160870cb6ec22336f6d73"
+  },
+  {
+    "path": "game/tests/PresentationAudit.tscn",
+    "sha256": "9afcfe8b94594823b5898892e11c3523855e9854638218862ce284d64808e12b"
+  },
+  {
+    "path": "game/tests/project_identity_test.gd",
+    "sha256": "c58faf8b10db03a5b1349864426a5cf6d59994e5bdbb01503adefc8b89861ef9"
+  },
+  {
+    "path": "game/tests/ProjectIdentityTest.tscn",
+    "sha256": "94ffb354f9c300617983cd86d583b160653a72e9c999d2143165c28a5b218daf"
+  },
+  {
+    "path": "game/tests/projector_prop_shot.gd",
+    "sha256": "1a747c3d2c383245ad50c30fb100b76e824bf9b4a65c6dcec7e0c5d5ebec053b"
+  },
+  {
+    "path": "game/tests/projector_video_shot.gd",
+    "sha256": "373bed2b35a85367819aa24fd199df120fc8cc0838567440f6c57fe407fa54c1"
+  },
+  {
+    "path": "game/tests/ProjectorPropShot.tscn",
+    "sha256": "82bf2035da30ea20df717fee2cff9bc00cd8663626b8f4613df94b769f61badc"
+  },
+  {
+    "path": "game/tests/ProjectorVideoShot.tscn",
+    "sha256": "23df85d93633377c56f067df58408d8b67f07fcfa904417c291c560c10b78ee7"
+  },
+  {
+    "path": "game/tests/prop_tick_probe.gd",
+    "sha256": "8c6f43b0b08fade1b048d6dc0b32a68810003bd4f2fe9cb39b4cf703a463bb24"
+  },
+  {
+    "path": "game/tests/prop_tick_profile.gd",
+    "sha256": "285de06352e1a6c9758ed12bee3f659446976e96c415e9ee59ffc87bb6eb95b4"
+  },
+  {
+    "path": "game/tests/PropTickProbe.tscn",
+    "sha256": "5c250b301a1a74654d3a089ac1f6b110e3e1131b9522f7cafda67f33bc327f4e"
+  },
+  {
+    "path": "game/tests/PropTickProfile.tscn",
+    "sha256": "a81e4321a5f865171b68c1cd6aa66eb06bde1dd864611e6264e003c63b047e24"
+  },
+  {
+    "path": "game/tests/radiator_consequence_02_shot.gd",
+    "sha256": "b3ffa389017651203633c34c17d271d40f73701d6e77598b8649c4930c7ee391"
+  },
+  {
+    "path": "game/tests/radiator_prop_rebuild_test.gd",
+    "sha256": "610fd16762c82761ffe366a3858091cfa6b69db7560c0ab295a6eca0e22ab629"
+  },
+  {
+    "path": "game/tests/RadiatorConsequence02Shot.tscn",
+    "sha256": "bf90d34109bc2ac8d31a6ce59fdbcf0f2784d1bef7a32683c70ff1263642934c"
+  },
+  {
+    "path": "game/tests/RadiatorPropRebuildTest.tscn",
+    "sha256": "32407445d9a62a9b407bbbb17280ca42434d4b3e1cc7fde74e78fc3505a88819"
+  },
+  {
+    "path": "game/tests/reality_case_test.gd",
+    "sha256": "62f3e0ea96a1cb9a5660d60b61b1045fc10ba0b1f2878020dd9be475a00ece1d"
+  },
+  {
+    "path": "game/tests/reality_invalid_load_control.gd",
+    "sha256": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196"
+  },
+  {
+    "path": "game/tests/reality_invalid_load_control.tscn",
+    "sha256": "6cccb95896149b46b113fdd5fd1ba57d841e36ccc1cd7a162da7bd4eeab1e3d0"
+  },
+  {
+    "path": "game/tests/reality_rule_test.gd",
+    "sha256": "7d926a2b6905e1ee37145dcbbffb7171bc522454e6ad3a17393fc506908ab3cc"
+  },
+  {
+    "path": "game/tests/reality_save_compat_test.gd",
+    "sha256": "4397353412fec1804168158fa59c6b56ff5950b0e49b7464177352149ce59a20"
+  },
+  {
+    "path": "game/tests/reality_save_recovery_test.gd",
+    "sha256": "bb9aa9031a98f389d12e867c5e2a1d20c625b05c6c19c8868eeac1149b87ab6f"
+  },
+  {
+    "path": "game/tests/reality_save_recovery_test.tscn",
+    "sha256": "6412943296fe2eb79ec213fff31e02856acbf3851e9f635a800f67ca8b24b583"
+  },
+  {
+    "path": "game/tests/reality_save_restart_worker.gd",
+    "sha256": "8323f2db31d2ec52ae7204db6b27ef4cb0514ca95e325fc21a9a08bd570864c4"
+  },
+  {
+    "path": "game/tests/reality_save_restart_worker.tscn",
+    "sha256": "c009d65e3152aca024826dea5550f7deed05a415bb86ac2dd64c505a8644ae88"
+  },
+  {
+    "path": "game/tests/RealityCaseTest.tscn",
+    "sha256": "55e9fe45e59aa1db16d7f4b5dc368b8f66bd57c28836faa31996c64987975004"
+  },
+  {
+    "path": "game/tests/RealityRuleTest.tscn",
+    "sha256": "0eba9ae285281324c4eb6515645d54e99c2e2a77ac8577f94abf1d43b4a03c1d"
+  },
+  {
+    "path": "game/tests/RealitySaveCompatTest.tscn",
+    "sha256": "2e6a48b876baaaa8ba887e35b0d5f35c381cf9d7ad6f8333bafbed717ab6cb9e"
+  },
+  {
+    "path": "game/tests/release_presentation_test.gd",
+    "sha256": "af0f0157aa7791aa4f44d4ca1df9e17b2c895fab012d07e5ab9f43a0fb12b62f"
+  },
+  {
+    "path": "game/tests/ReleasePresentationTest.tscn",
+    "sha256": "3307d7278f8394e73e5966b5ed217a39dcb87d94d3103bceb9ed21b23f54a974"
+  },
+  {
+    "path": "game/tests/resident_cast_test.gd",
+    "sha256": "07ffb730f3b5f3d087e5e493de4c9e65d6f71ee75c313ee1da5483e426d0e742"
+  },
+  {
+    "path": "game/tests/resident_f01_haunt_test.gd",
+    "sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f"
+  },
+  {
+    "path": "game/tests/resident_floor_test.gd",
+    "sha256": "68ca71553f9b7cb424ccb17a2fbbba45ea01e85de2260c100654748e7a5335d9"
+  },
+  {
+    "path": "game/tests/resident_lift_waiting_test.gd",
+    "sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0"
+  },
+  {
+    "path": "game/tests/ResidentCastTest.tscn",
+    "sha256": "2042f55074420875b5d5c11d4dd9a9f34b3a8c88c20b2ee4d6f64a958321b7f7"
+  },
+  {
+    "path": "game/tests/ResidentF01HauntTest.tscn",
+    "sha256": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6"
+  },
+  {
+    "path": "game/tests/ResidentFloorTest.tscn",
+    "sha256": "69b99a48ca5af7c12c0607a2d8e2ecde59dae998f83e2df713804799b328ad56"
+  },
+  {
+    "path": "game/tests/ResidentLiftWaitingTest.tscn",
+    "sha256": "0702fc39ebf6834f63d3b69dc1eac1590ff6f4c9fa5a2314d14e03f53904db3a"
+  },
+  {
+    "path": "game/tests/road_clearance_test.gd",
+    "sha256": "eab726dbb0de6fe6673bcc4d60e2ef7145b805c20e8088c3fb08ad1035a7cf77"
+  },
+  {
+    "path": "game/tests/RoadClearanceTest.tscn",
+    "sha256": "679db696c617e3ee05298dc418b8dbc5a4f240f4a9231cd08aa2f65cd7265f35"
+  },
+  {
+    "path": "game/tests/room_luma_audit.gd",
+    "sha256": "a746d2e26b0f7343cc88f5d7c834afe057ff1ae8910e0917722a43a6ef2135f9"
+  },
+  {
+    "path": "game/tests/RoomLumaAudit.tscn",
+    "sha256": "eeb3a2976f449394ff51702347bac88ffa6a4334842c86a3ae57a4a1f5970af5"
+  },
+  {
+    "path": "game/tests/route_probe.gd",
+    "sha256": "682bdca5f9deb26b914453ee493f0b19c80b4018d157697d5fbdd46e74ae7f28"
+  },
+  {
+    "path": "game/tests/RouteProbe.tscn",
+    "sha256": "237d646f4b57dba6b2da44bc6dab888c720fbcecab0fedd2606bc901159ef98d"
+  },
+  {
+    "path": "game/tests/schedule_live_probe.gd",
+    "sha256": "b95dbb20c1278a8ce36262f0139524b58b29a3af5102bf2df80af29250e49f0b"
+  },
+  {
+    "path": "game/tests/schedule_test.gd",
+    "sha256": "f288e55ba66a20dc861afd1dfc0747432afef5eb1829dbd03fa95766676dee3f"
+  },
+  {
+    "path": "game/tests/ScheduleLiveProbe.tscn",
+    "sha256": "29107036067ee2eb95acd853cd500f99e1fb871ee2e28ee4188dba7fe59b028e"
+  },
+  {
+    "path": "game/tests/ScheduleTest.tscn",
+    "sha256": "6090962aa7721930e14048b4083cb43f75bdf5b92a24fca4b02696f4382472b2"
+  },
+  {
+    "path": "game/tests/Screenshot.tscn",
+    "sha256": "982cbfe073bd7e5e54af208a320f5e968a785d51ff2c96c459220e05b6ae7fdb"
+  },
+  {
+    "path": "game/tests/screenshot_run.gd",
+    "sha256": "0174142be6a83a9ed7aa1088f9ef4c86d3548ff4935da784f015d5ddfceb14ce"
+  },
+  {
+    "path": "game/tests/service_set_shot.gd",
+    "sha256": "50541cb2dcc3db161978773e1987e8a133470aa8fc912364292c51e8520e81ce"
+  },
+  {
+    "path": "game/tests/service_set_test.gd",
+    "sha256": "ed58a2642cab5133ccfb6c6e9f325fa4c0b74023780aaf5b402d1848cc84a72b"
+  },
+  {
+    "path": "game/tests/service_wire_response_test.gd",
+    "sha256": "d7f2ce0bedd7a20410a9618d4d9a767d6d37f0ff1b73f532c0292703c4b33a17"
+  },
+  {
+    "path": "game/tests/ServiceSetShot.tscn",
+    "sha256": "8f4034168e1c8339a291c3fc34284e5ca20d41133a3e8364bcbc080459b00ded"
+  },
+  {
+    "path": "game/tests/ServiceSetTest.tscn",
+    "sha256": "6fdf4aec66322b486792e1666eddc33f4254e6a3e7ba9424ca42e363624acbbb"
+  },
+  {
+    "path": "game/tests/ServiceWireResponseTest.tscn",
+    "sha256": "9d6b48982deb8016d98d776f365c85dd61cd94ccdf0837e1890a224f165682cf"
+  },
+  {
+    "path": "game/tests/shader_parse_check.gd",
+    "sha256": "fee28e915f3f684bfe95dc55de5beb78307e8db99f77b6427036379f35520f7f"
+  },
+  {
+    "path": "game/tests/ShaderParseCheck.tscn",
+    "sha256": "465cc2f34d417c4b876fff9028011f73bbab450d59a663e6025d568b8b30f87e"
+  },
+  {
+    "path": "game/tests/shadow_policy_shot.gd",
+    "sha256": "d58544e26228d08b13f297dda082d76afe98c75181600e7a8d2b119c4cc2301c"
+  },
+  {
+    "path": "game/tests/ShadowPolicyShot.tscn",
+    "sha256": "a992645457dc479bbb9871ffa8d1ced4d03bd266341957df817d2474367b974f"
+  },
+  {
+    "path": "game/tests/shelf_sort_test.gd",
+    "sha256": "1917f1f82f49b90c28e3a4d958ebfdbce0734f1bea4dee38a9979bd060707de1"
+  },
+  {
+    "path": "game/tests/ShelfSortTest.tscn",
+    "sha256": "7345d6fab8eec91b69dde075e8219493cc2536912dab37eca0ff4e54d34af311"
+  },
+  {
+    "path": "game/tests/shop_entry_test.gd",
+    "sha256": "9e9629050a8cd0357933b600635c55f6f39fad88e4a50f9f23a86dc9cd12f37b"
+  },
+  {
+    "path": "game/tests/ShopEntryTest.tscn",
+    "sha256": "36ae6dcc55afd7b549c9f3210a3eb54ba8ca7cd80cf95c3edf301dfca062aaf9"
+  },
+  {
+    "path": "game/tests/shot_harness.gd",
+    "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5"
+  },
+  {
+    "path": "game/tests/sleep_onset_shot.gd",
+    "sha256": "345d750b3f446def03b4cc40ae58d981294feeedb8cb7af4914175ec16c1108d"
+  },
+  {
+    "path": "game/tests/sleep_pressure_test.gd",
+    "sha256": "a3e40a55063bbf31dd4929c85fe57e82eee4b0947ded5c3446e18f65f930cc58"
+  },
+  {
+    "path": "game/tests/SleepOnsetShot.tscn",
+    "sha256": "f8e64384ce601e562a1eabc18cc112f2793aff2d3faea34d7ce3b8fe99feef29"
+  },
+  {
+    "path": "game/tests/SleepPressureTest.tscn",
+    "sha256": "0fbc711e9e5523fc5c19313dcb08db994650b38bccba5416c6bfd3658d028f45"
+  },
+  {
+    "path": "game/tests/songbook_mic_consent_test.gd",
+    "sha256": "0a4b374c50a635aadd93a343fbf6b89997278f79066be6f010e05a07d0f1350c"
+  },
+  {
+    "path": "game/tests/songbook_test.gd",
+    "sha256": "b35608dae80a052b56b971a19279539fce398461efd0d3b431af94b8ef0b0e49"
+  },
+  {
+    "path": "game/tests/SongbookMicConsentTest.tscn",
+    "sha256": "4d7edbf3b27c97e568689b7fd74479f7021bcccc59eb2c8cc4426dae7dccb55b"
+  },
+  {
+    "path": "game/tests/SongbookTest.tscn",
+    "sha256": "13ce23cde2687ee0af734ec9bff01e7b218df266b95a2bfbdcea424b1a20b4e3"
+  },
+  {
+    "path": "game/tests/stair_direction_live_test.gd",
+    "sha256": "f6e76bdeb9908f887795ac80d69faadc8ed991748c9afffdc061149c19101d01"
+  },
+  {
+    "path": "game/tests/stair_direction_shot.gd",
+    "sha256": "65200b4080b9a4daae252c1b4949ba5b672b501ef0b97e0e802eba665ce577eb"
+  },
+  {
+    "path": "game/tests/stair_direction_test.gd",
+    "sha256": "29d9cfa9624820a7f4608ddcc4a33fb1d2848432cd2ef76f1ef6e9a23c60bb11"
+  },
+  {
+    "path": "game/tests/StairDirectionLiveTest.tscn",
+    "sha256": "f6424d70c48417117401051a88de861af7b0b1c5ac32592bdeac161a4af5d852"
+  },
+  {
+    "path": "game/tests/StairDirectionShot.tscn",
+    "sha256": "0fb5cd2428ee5ca5658f5ceb89b4ee085c27108e1166997380f3d2637ae25b77"
+  },
+  {
+    "path": "game/tests/StairDirectionTest.tscn",
+    "sha256": "16edc95b8e2700aff7aac3687029e59bc8802236e9d212c75a81200defe49cc5"
+  },
+  {
+    "path": "game/tests/street_block_probe.gd",
+    "sha256": "729905f14a4404d1ae91fd9600f90ca36e982dc9dda749689755b9022147ea85"
+  },
+  {
+    "path": "game/tests/street_containment_test.gd",
+    "sha256": "dc2da17db411eb566b047468711afa57f1e91aef444f17125f499ba65e371706"
+  },
+  {
+    "path": "game/tests/street_core_visibility_test.gd",
+    "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45"
+  },
+  {
+    "path": "game/tests/street_end_shot.gd",
+    "sha256": "65f8d1557ed97f95ec337428c708e54b2c34558d844699cd475cc93e7b6b98dd"
+  },
+  {
+    "path": "game/tests/street_id_shot.gd",
+    "sha256": "1f3b83ea5a5f5ac0665545c638ceb202884d877e513929aae01a7360c5fc6899"
+  },
+  {
+    "path": "game/tests/street_ownership_probe.gd",
+    "sha256": "fc8e72d1378a77596b3d318713091722db6310672c37ee0164340a3b4a2ee5d7"
+  },
+  {
+    "path": "game/tests/street_shot.gd",
+    "sha256": "dc62d219334dd471cc0b96623732ed3a6de30044067d710f988a81b7648497c8"
+  },
+  {
+    "path": "game/tests/street_stagger_test.gd",
+    "sha256": "32fc2958e00bf3d9860bade0514bd5087ccc1877800fb25c5465c9654aa2e533"
+  },
+  {
+    "path": "game/tests/StreetBlockProbe.tscn",
+    "sha256": "a0d4e48d4d82e95f0821c0da62f7ee055b0f56f8f5f7bf973eab9001e964231f"
+  },
+  {
+    "path": "game/tests/StreetContainmentTest.tscn",
+    "sha256": "758be81639120e473cc943095aad100545a640f53fbfb88c2123d3fae084461b"
+  },
+  {
+    "path": "game/tests/StreetCoreVisibilityTest.tscn",
+    "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae"
+  },
+  {
+    "path": "game/tests/StreetEndShot.tscn",
+    "sha256": "cfb7bdad284445fb44c21f1fc2c411f03256c4a7fea6e4c6052b4c275a22323c"
+  },
+  {
+    "path": "game/tests/StreetIdShot.tscn",
+    "sha256": "b6241ca1c0d424ebdcb557af699cf79a75de1aedc86c7c1b60d4d62b6fb7911e"
+  },
+  {
+    "path": "game/tests/StreetOwnershipProbe.tscn",
+    "sha256": "2d127352a19c1ea7fd2bc04bbfadfe63d5f0a857835d034b73cb456e95751b54"
+  },
+  {
+    "path": "game/tests/StreetShot.tscn",
+    "sha256": "aca4b7569eccf04a8858ee22e229a915faf021d3d7be0514905860ae415a89cc"
+  },
+  {
+    "path": "game/tests/StreetStaggerTest.tscn",
+    "sha256": "f37d3cdefa07d0a2a45cb87f7c5485be36ffff1d969b62e2d0859852b5d7bbfb"
+  },
+  {
+    "path": "game/tests/submission_census.gd",
+    "sha256": "5a3fd7424704bf1f98f082660964b6e2f72699a16ab336fc0c481d66b613d046"
+  },
+  {
+    "path": "game/tests/SubmissionCensus.tscn",
+    "sha256": "26bd960f79b54ad6fa49d1c849422de62573a0bfa7fd85ad33a3aeae369dec1f"
+  },
+  {
+    "path": "game/tests/surface_census.gd",
+    "sha256": "03a24fbb14b3cacadfcd4691388caaf23cc3c17b5e690aa643bf58e22975e48a"
+  },
+  {
+    "path": "game/tests/surface_shot.gd",
+    "sha256": "21ea7b3dba727b681ad4ec6d5ed2d643f7dd01585e7e148d7956339df89c8bb3"
+  },
+  {
+    "path": "game/tests/SurfaceCensus.tscn",
+    "sha256": "a3acd07ddf4e2a57137a387452a16c646d7bde73729a98a6f50cc4f9f5c62ca1"
+  },
+  {
+    "path": "game/tests/SurfaceShot.tscn",
+    "sha256": "81ee29dc60c9dd4323053eadf8e71df6243b238f3ad7b7b5e3244882ba2decd2"
+  },
+  {
+    "path": "game/tests/telegram_style_shot.gd",
+    "sha256": "bc354957cb55efd7ffa88bb3716414bf6423794fb2494a94851a61004a60d142"
+  },
+  {
+    "path": "game/tests/TelegramStyleShot.tscn",
+    "sha256": "0a7ab8e33d97a8c82159c1e010d230aa11f8b517dc8cd6661b924e89ab9e2a0d"
+  },
+  {
+    "path": "game/tests/tentacle_asset_probe.gd",
+    "sha256": "93bad53f523db5798106046df9322dd54e3f4a68eee5a988a6b9502ba316dbcd"
+  },
+  {
+    "path": "game/tests/TentacleAssetProbe.tscn",
+    "sha256": "9c90ebaad73ee874d0c647d5911df408d8ae20013180ff4ff335a6d496b68ea9"
+  },
+  {
+    "path": "game/tests/title_continue_actual_launch_test.gd",
+    "sha256": "785962c3ce3abc977a6c602a6976fe955b6c28bf9946a690054fe625e0ac779a"
+  },
+  {
+    "path": "game/tests/title_save_legacy_control_test.gd",
+    "sha256": "eb9f020189576701c6322c5ce7740868b2fa70f1bb6d2c7fe30a25b737ace89d"
+  },
+  {
+    "path": "game/tests/title_save_recovery_shot.gd",
+    "sha256": "c9070993cb82bd9667f012fde4608d207a1ea003216b6b0095b628c71ebc28f5"
+  },
+  {
+    "path": "game/tests/title_save_recovery_test.gd",
+    "sha256": "65c97ee42a23de5f9c1a861629666bf319f37ee8b287b9d61028fda59a61669f"
+  },
+  {
+    "path": "game/tests/title_screen_audio_test.gd",
+    "sha256": "942ae2f1f084ba7bc119f3b352f9163cf284457f8fa9f24eafa9452ebbb0dace"
+  },
+  {
+    "path": "game/tests/title_screen_shot.gd",
+    "sha256": "90b86852381b4d0868310e7cdbdefd79e4843709a84360ad9d74221bc5db79bf"
+  },
+  {
+    "path": "game/tests/title_screen_test.gd",
+    "sha256": "4db4a66648d57cf4fb1a65242ae9a2ba917c1f696bae21e0cb6d7a903bb781b1"
+  },
+  {
+    "path": "game/tests/TitleContinueActualLaunchTest.tscn",
+    "sha256": "23e707f57fc8180804eaac90b9e522736f7f741c6af555fb7fcb8d54c767236e"
+  },
+  {
+    "path": "game/tests/TitleSaveLegacyControlTest.tscn",
+    "sha256": "782e8dd1b921905827720ff7a21df1e795adc70ab01581515cae1ace0b8e7ed3"
+  },
+  {
+    "path": "game/tests/TitleSaveRecoveryShot.tscn",
+    "sha256": "b9497cf74f71701c63e3c07b4bfda234382352c0e243c96914b686ac4f71b371"
+  },
+  {
+    "path": "game/tests/TitleSaveRecoveryTest.tscn",
+    "sha256": "04562b81e694cf591740728d261ca9bc97d208b70273d04dbccb069e2cf94e08"
+  },
+  {
+    "path": "game/tests/TitleScreenAudioTest.tscn",
+    "sha256": "a56d19f65cc0bd1a8315c93bae43b35cc4056a0709408edefbda63bf159deb29"
+  },
+  {
+    "path": "game/tests/TitleScreenShot.tscn",
+    "sha256": "1bad5a7a26a94e3acbc66f266322f58cd69c01f697c5921cc3b4293b069f15a5"
+  },
+  {
+    "path": "game/tests/TitleScreenTest.tscn",
+    "sha256": "5a08cd9c844d89cb611a88d9bbd61b27c4a2d1bbecd79ac2f40ee0f8f69cad76"
+  },
+  {
+    "path": "game/tests/tour_key_live_test.gd",
+    "sha256": "ce555a4ee8a338e0834a526c160d3318c6c69a4807356743df5f8569e9e3c5c7"
+  },
+  {
+    "path": "game/tests/tour_key_shot.gd",
+    "sha256": "b281745429bcd87523b3ddf46b3d75b318bf234cc4dc8fda6ef57895392ff27b"
+  },
+  {
+    "path": "game/tests/tour_key_test.gd",
+    "sha256": "03efc35f7cd31f0bccf3ede38536d6573021e7cbe7b934db12a928a5f2c5affe"
+  },
+  {
+    "path": "game/tests/TourKeyLiveTest.tscn",
+    "sha256": "729c96ef38ede8874d2d0a530577ce4bec5e12f45302d063ea10963daf72801f"
+  },
+  {
+    "path": "game/tests/TourKeyShot.tscn",
+    "sha256": "efb86b302f1247e7fff972f1a7520f225693e902ad06144739bce447f39d4719"
+  },
+  {
+    "path": "game/tests/TourKeyTest.tscn",
+    "sha256": "856f45018c30d36ae77e7c80104131291505912180e470979bc0300769c14513"
+  },
+  {
+    "path": "game/tests/traffic_night_readability_shot.gd",
+    "sha256": "463418a68a127243fb0bfbb656271ce35280c9fc1db08348bc3eeaa2116f8eb2"
+  },
+  {
+    "path": "game/tests/traffic_night_readability_test.gd",
+    "sha256": "980e8526b73d462b3f2352990b87e213d20f1741aedffede26fd00040799f20e"
+  },
+  {
+    "path": "game/tests/TrafficNightReadabilityShot.tscn",
+    "sha256": "9c0a776f2e7866f47af78228bd00c5779324c8d242b14febc4d691dfaa030fbc"
+  },
+  {
+    "path": "game/tests/TrafficNightReadabilityTest.tscn",
+    "sha256": "7e263bf5de34babe1dc716128267062c8cf869802db185ce0b37b9a043c2383d"
+  },
+  {
+    "path": "game/tests/transit_shelter_shot.gd",
+    "sha256": "0cad96c3f43b1367daad84aa14b9f7ed141ed00ff2ed9d3d7b9dda89c7a74613"
+  },
+  {
+    "path": "game/tests/transit_shelter_test.gd",
+    "sha256": "5798d11ae8a0ed18c84e715e8240981cf0697c4e3514d59087dd2aa846940337"
+  },
+  {
+    "path": "game/tests/TransitShelterShot.tscn",
+    "sha256": "431fc8435058a3ae6a2e56f0b529f782de829b9437714572df108c6d46598a30"
+  },
+  {
+    "path": "game/tests/TransitShelterTest.tscn",
+    "sha256": "9cdbc141d4ed4a2406c87fd527fe074d5c60006f0e6054af00e5de19be34069b"
+  },
+  {
+    "path": "game/tests/trivia_darts_test.gd",
+    "sha256": "aa8a27b811b1faaedb1f2245c7572006a674a20f5b5e26c3a6ff1698dd5f2160"
+  },
+  {
+    "path": "game/tests/TriviaDartsTest.tscn",
+    "sha256": "73879277ba6c074c45d7d1ad7254d374e2289eff92b174a064ac30a8deb245f3"
+  },
+  {
+    "path": "game/tests/unit_direction_live_test.gd",
+    "sha256": "6aede0550e33da9e558d251ab85c4ea380181e1f07bfa7adc816d10aeb41bca4"
+  },
+  {
+    "path": "game/tests/unit_direction_shot.gd",
+    "sha256": "6bc1f08001764b269c38c17c2f68177433ae6a9d569fbb0b22437380c13bb0e5"
+  },
+  {
+    "path": "game/tests/unit_direction_test.gd",
+    "sha256": "fd6ffd74a96942e8bd3d85b7b27312c04d884396072ef2bfa97093cf81a62fb3"
+  },
+  {
+    "path": "game/tests/UnitDirectionLiveTest.tscn",
+    "sha256": "272c9c9294495c8f073fe9f91954dfc707b1e879570d76ea76bf0ee099818d47"
+  },
+  {
+    "path": "game/tests/UnitDirectionShot.tscn",
+    "sha256": "4d8e72329c105e5907e27f27c46d78d1484e62a9666ad276db9cd1c7d8e481bc"
+  },
+  {
+    "path": "game/tests/UnitDirectionTest.tscn",
+    "sha256": "82654b5cf1bba0f915c5e0daa415a9ce1a721a90c93b9888a55fc8134b2b95ce"
+  },
+  {
+    "path": "game/tests/vantry_depth_shot.gd",
+    "sha256": "8be8c3f5432d5def72f051124c00730dbe6305d60de70ecb9aaaa5c5a625b08a"
+  },
+  {
+    "path": "game/tests/vantry_elevation_shot.gd",
+    "sha256": "51b80f66afadb600a31ce0d9c699de47b73e519f4ac4d677a2a05d413f1f55bc"
+  },
+  {
+    "path": "game/tests/vantry_gateway_shot.gd",
+    "sha256": "1c81daef98db24db072cea01f41089600d6eb572eb85a80a79f0b4f98d301f8f"
+  },
+  {
+    "path": "game/tests/vantry_gateway_test.gd",
+    "sha256": "70dd88a808df03ada16eb93871e33048bfbc545e6c1bffb0613bb076ae6ded8f"
+  },
+  {
+    "path": "game/tests/vantry_night_shot.gd",
+    "sha256": "ff2690715a2776bdfac3b0b6540574a5a855e72e167e661ea8d9a4635f3923c7"
+  },
+  {
+    "path": "game/tests/VantryDepthShot.tscn",
+    "sha256": "52237e635d175dc5d2c0ca0a778647bbd2ae3d00f6bff10fa4936adb9b0844a8"
+  },
+  {
+    "path": "game/tests/VantryElevationShot.tscn",
+    "sha256": "cd126879162bb9f503fbf4d04581fe3eb2f8e9748ec07507e8152539c77c761b"
+  },
+  {
+    "path": "game/tests/VantryGatewayShot.tscn",
+    "sha256": "4c30bb16957e1fec6a287c91875408073c674b3af2fa6f7f744f9ea49ccc08d5"
+  },
+  {
+    "path": "game/tests/VantryGatewayTest.tscn",
+    "sha256": "50e9c269ec02e74aaf3b8638e164d93afef744dcbe2d814a457633e02f230242"
+  },
+  {
+    "path": "game/tests/VantryNightShot.tscn",
+    "sha256": "137eaf47d18038d4b25b3984b14cf3e48a7c0460adc87ca34aecbea69ce9acac"
+  },
+  {
+    "path": "game/tests/vulkan_composed_root_test.gd",
+    "sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  {
+    "path": "game/tests/VulkanComposedRootTest.tscn",
+    "sha256": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663"
+  },
+  {
+    "path": "game/tests/walk_test.gd",
+    "sha256": "28a5a8258dd8926235e45576b7efe3a26b7af421a44d2a5817a9e41c344365ed"
+  },
+  {
+    "path": "game/tests/WalkTest.tscn",
+    "sha256": "948e76ba734ba3508915b145fd4175eaf274fd655053abadc4862a13fa3f923b"
+  },
+  {
+    "path": "game/tests/walkthrough_shots.gd",
+    "sha256": "85a90fab13c0952b15523e5eff4b38a4c1dd54fb6b9e82daa383d86e4298b961"
+  },
+  {
+    "path": "game/tests/WalkthroughShots.tscn",
+    "sha256": "20c672759a4e23b6c3b614d1b718222d0bd368fd8b57bbd36a1d4bcd2d12d7d9"
+  },
+  {
+    "path": "game/tests/wall_art_law_test.gd",
+    "sha256": "aebcbdd9131930c3ea6e6edefed30caca9bb9e65529cc27acaa2019ac13c1940"
+  },
+  {
+    "path": "game/tests/WallArtLawTest.tscn",
+    "sha256": "75797945b3a317f976c66e5fd15c15d8dbf0e603a4911e0919717fbc0b042f52"
+  },
+  {
+    "path": "game/tests/wardrobe_interaction_shot.gd",
+    "sha256": "3522180d296a1e6fb7d9fe42a0472a7c82cf21a2e3c943f8f622b8565ff7dcbb"
+  },
+  {
+    "path": "game/tests/WardrobeInteractionShot.tscn",
+    "sha256": "1f93329bf8af8b81f7655ed5b65c0f03e5631e761242d8626d2ac04b8a77e8c4"
+  },
+  {
+    "path": "game/tests/warehouse_teleport_test.gd",
+    "sha256": "7b953dc685ecb03b5b26ad6c7a440d5e5f8d7b7b14ab5a7763c3a4f164ed5b4f"
+  },
+  {
+    "path": "game/tests/WarehouseTeleportTest.tscn",
+    "sha256": "3d3518bf23328c230871551e6b04c55b8e4011fdccbab11d181cc59401806d66"
+  },
+  {
+    "path": "game/tests/watch_pair_live_test.gd",
+    "sha256": "5ee7bb939a31a2ba47853cc4cb0c5b81b17e731b3937cfea94c53b0cdbe814e4"
+  },
+  {
+    "path": "game/tests/watch_pair_shot.gd",
+    "sha256": "1812978a3ed13d6b9ddd0cd8132e013d02952a142098a0c3f0da0dda5623c66a"
+  },
+  {
+    "path": "game/tests/watch_pair_test.gd",
+    "sha256": "00ba52446a19a28178f303187da1f50eea32463adef77cb40778e063bff6e8b2"
+  },
+  {
+    "path": "game/tests/watch_register_live_test.gd",
+    "sha256": "69c9d18f61550c762e2cf0fbb6a15a928b3355fbc7e16ec7bf0c92320ca67077"
+  },
+  {
+    "path": "game/tests/watch_register_shot.gd",
+    "sha256": "41009c56bffee106483ba31b7f21cb5846b553e770b0cc87c28ef5df3b3a668d"
+  },
+  {
+    "path": "game/tests/watch_register_test.gd",
+    "sha256": "068e787d911aad319eb50bc39c51b166db5ba052fb01c83655aa2c8621f44d90"
+  },
+  {
+    "path": "game/tests/watch_station_live_test.gd",
+    "sha256": "d664b98783e4d0f572bf0c2d4610ee57ad5f2039436783c33f373546e6f18ac9"
+  },
+  {
+    "path": "game/tests/watch_station_shot.gd",
+    "sha256": "2f8bc830c19108b479599eafd51b8777d7c9282cb124487cdc1af53fe053c6a7"
+  },
+  {
+    "path": "game/tests/watch_station_test.gd",
+    "sha256": "856101f3dacd663e76f8b17e8c11ac135c01b9d13a2f79c49ae5b0f97fb1f209"
+  },
+  {
+    "path": "game/tests/WatchPairLiveTest.tscn",
+    "sha256": "db4859baddfe8fb34e24c756eaeea17050661474388310fe343d5c6389b2259a"
+  },
+  {
+    "path": "game/tests/WatchPairShot.tscn",
+    "sha256": "58a43cdd1e048ccbe48c7dcab343b536013e79344be06fe788f956df45806479"
+  },
+  {
+    "path": "game/tests/WatchPairTest.tscn",
+    "sha256": "ac4796cdcdae1fe08361f96c37a03ac8f49636ee0695a89393f1e024bce922eb"
+  },
+  {
+    "path": "game/tests/WatchRegisterLiveTest.tscn",
+    "sha256": "34868205f955ebc6648ed13fd251bb1117b2a624a16ee426bda6d75864bbeea2"
+  },
+  {
+    "path": "game/tests/WatchRegisterShot.tscn",
+    "sha256": "5e5260cb695a43fa65e01c4926e1fa19a5331bc917116581d6fce2c8568d77c9"
+  },
+  {
+    "path": "game/tests/WatchRegisterTest.tscn",
+    "sha256": "23418f1cec7fcf4f0b017a362619d09511742dc57d905338b54fc4cff6c21529"
+  },
+  {
+    "path": "game/tests/WatchStationLiveTest.tscn",
+    "sha256": "6729d38bf23ba24197b4bd133a78a5f4dab929d68198521ccf4d23ccc901401c"
+  },
+  {
+    "path": "game/tests/WatchStationShot.tscn",
+    "sha256": "33617d4fe8bfd0319044c5a8b9f6beb247a52b7c9ed9b84e36553cfd3986218b"
+  },
+  {
+    "path": "game/tests/WatchStationTest.tscn",
+    "sha256": "e32a0a56e907e7fb5c4a902ce7d93f998e4eafe8f750e4cbccad198948a02925"
+  },
+  {
+    "path": "game/tests/weather_flash_accessibility_test.gd",
+    "sha256": "f9b1c2632f49ffa9a4f3b112711c2d3a02a6ad0ed12a8e747e8c455a75270d4e"
+  },
+  {
+    "path": "game/tests/weather_perf_probe.gd",
+    "sha256": "614f86b3c7c8faf3cad954d244f7aa090fbca935bf26f1b0c9357a7e3b623df5"
+  },
+  {
+    "path": "game/tests/weather_sky_shot.gd",
+    "sha256": "f05d46e0adeb96fedc96c699067c0bdb1b75125c6491f6e61d6772df0cb57de9"
+  },
+  {
+    "path": "game/tests/weather_sky_test.gd",
+    "sha256": "9af880c96522b6bf1c1eeff063afe967f804277a04c88c2bbf250fd2356271ef"
+  },
+  {
+    "path": "game/tests/WeatherFlashAccessibilityTest.tscn",
+    "sha256": "b2b8539ccc7211d0811d8301eb4847f37579b6d6a5022069c49fa1f15794bd06"
+  },
+  {
+    "path": "game/tests/WeatherPerf.tscn",
+    "sha256": "041e2711694694dc68c21965d07e56afc0c84e4578cd5d3c314b33ac6ca4079f"
+  },
+  {
+    "path": "game/tests/WeatherSkyShot.tscn",
+    "sha256": "40ae855bfd9d753f202bfc2039c92069f08fb9bea48df21d8b44af776f2bd3d5"
+  },
+  {
+    "path": "game/tests/WeatherSkyTest.tscn",
+    "sha256": "92d3858e8cd6e038a279313070b9aa236f535f91456cfadb53e10798d8ead685"
+  },
+  {
+    "path": "game/tests/window_shot.gd",
+    "sha256": "9acdf8d87d4dc974aacd96ef41f88702a8f6ffcf954810de2e7e3bade0934126"
+  },
+  {
+    "path": "game/tests/WindowShot.tscn",
+    "sha256": "503071c6759b362340149fab10358110e1494c5396e6a611af7b6e2d11ad6b41"
+  },
+  {
+    "path": "game/tests/world_time_coherence_test.gd",
+    "sha256": "c48a4d4df79aa5a35692477d918380772f721e0c2bb02776fe888641b85d8fec"
+  },
+  {
+    "path": "game/tests/world_timestamp_test.gd",
+    "sha256": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262"
+  },
+  {
+    "path": "game/tests/WorldTimeCoherenceTest.tscn",
+    "sha256": "d503e95bcf568f91347e6850086c4869b2b45835c1b403931c0820048cdd1590"
+  },
+  {
+    "path": "game/tests/WorldTimestampTest.tscn",
+    "sha256": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931"
+  }
+]

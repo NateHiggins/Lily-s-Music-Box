@@ -1,0 +1,81 @@
+{
+  "status": "PREPARATION_ONLY_ENGINE_UNRUN_LIVE_GAME_UNCHANGED",
+  "source_binding": {
+    "status": "PREPARED_ONLY_NO_ENGINE_RUN_OR_LIVE_INSTALL",
+    "original_source": "design/astra/work/encroachment_sweep/revisions/ownership_2a440_01/originals/game/scripts/reality/apartment_encroachment.gd",
+    "candidate_source": "design/astra/work/encroachment_sweep/revisions/ownership_2a440_01/proposed/game/scripts/reality/apartment_encroachment.gd",
+    "original_sha256": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "candidate_sha256": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "comparison": "same ownership repair; only reach_props method differs",
+    "adapter": "Normalize CRLF to LF; remove the single global class_name declaration so exact production methods can coexist. No method or preload adaptation.",
+    "scope": "Deterministic actual-method material/ownership equivalence under authored fixture bounds; production build and composed rendering remain separate.",
+    "artifacts": {
+      "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+      "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+      "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330",
+      "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336"
+    }
+  },
+  "pure_python_controls": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\ownership_2a440_01",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "tests": 23,
+    "exit": 0,
+    "stdout": "controls.stdout.log",
+    "stderr": "controls.stderr.log"
+  },
+  "expected_complete_fixture_check_count": 171,
+  "unchanged_historical_contract": {
+    "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e"
+  },
+  "direct_dependency_hashes_at_preparation": {
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+    "game/scripts/dream/dream_organelle_lifecycle.gd": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82",
+    "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+    "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+    "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+    "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+    "game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca"
+  },
+  "dependency_limit": "Bounded direct inputs only. Runtime controller must freeze and snapshot all game inputs during actual runs.",
+  "engine_checks": "NOT_RUN",
+  "performance_claim": "NONE",
+  "open_scope": [
+    "Current-source Godot parse and all four equivalence runs",
+    "Actual composed candidate material/render/lifecycle and matched cost"
+  ],
+  "artifacts": {
+    "controls.stderr.log": "93c63b2606e5391026352c5dd2d76e7a71f8884af6fcd9a5f5850b65caddb48f",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "drop_late.patch": "5db1b1c6e83fbc5f3de0875130c93da2b945589226e5fa80fd8016bc0d933ce7",
+    "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "preparation.json": "4b9832f24089a46d9b0e3c47d21e6ea892483e0afeb86ca9a4e9f8df125b61f2",
+    "prepare.py": "32db34ec939bd9d10b8dfca63ef1ec4b3a8afdb580068bdab09886ff220cfa5c",
+    "priority.patch": "25940dc42778b08a023b3c6e5b048fedef98b564fef29ceeeb3994da759b536c",
+    "proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330",
+    "README.md": "a5b0d243b1d66ef91a45e748aa863a8e43e3527123be080ea93d44f4040e1252",
+    "seal_preparation.py": "75c72e9580a95fe9db7141d7d14f3f6868601151151d859a30b1ff25ab60c64a",
+    "test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+    "test_prepare.py": "37d48e85741a422d24bb0d272b26cff5dbf5ee7e7a7a8b45e05f339eba0966fe"
+  }
+}

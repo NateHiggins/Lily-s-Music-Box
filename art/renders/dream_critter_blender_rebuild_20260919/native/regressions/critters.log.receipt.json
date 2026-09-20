@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 114.95,
+  "exit_code": 0,
+  "finished_utc": "2026-09-20T00:19:26Z",
+  "started_utc": "2026-09-20T00:17:31Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "DREAM CRITTER TEST: PASS (70/70)"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/blender_pass_work/native_all16_regressions/critters.log.stderr",
+  "stderr_sha256": "f980833b4725048d8467feeedef921979669800577ea7430b316fd31ed6e6512",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/blender_pass_work/native_all16_regressions/critters.log",
+  "stdout_sha256": "41c1fe2bcd31f189bc6da61f3ba0dd27fa3708b0b91a19d229fa8103527f2b1d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/DreamCritterTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\blender_pass_work\\native_all16_regressions\\critters_shots",
+ "source": {
+  "dirty_paths": 300,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "9235060ca0c1c7c1853e22a1d310604d4299058a",
+  "repository_tree": "38ef76e93ff9f973c94965d629c5f9e776b6009f",
+  "runtime_inputs_sha256": "f6f0af2d2ba19e6470f7cc832380add39b0872a00dfe69ac0c624e89530e4d47",
+  "test_path": "game/tests/dream_critter_test.gd",
+  "test_sha256": "c43a9788d8a7e1308029f0baa3995457c5aa910e6d5a3081b948e45544e56e24"
+ },
+ "windowed": true
+}

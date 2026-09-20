@@ -1,0 +1,24 @@
+{
+  "species": "volvox",
+  "lod": 0,
+  "triangles": 13176,
+  "mesh_objects": 4,
+  "builder_sha256": "471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb",
+  "blender_version": "5.2.0 LTS",
+  "blender_build": "fbe6228777e7",
+  "blend_sha256": "bd73bbad052bff3a2ba6660dcf4a304951d9931b6d8df71b3e6b261f3b9db528",
+  "glb_sha256": "a70ff0ff765011672c84059d0004c0fa9ee9fc087fcffb51fcfe8a1bff06928a",
+  "manifest_sha256": "f2db076ac773ff79e4d327167ccd60577fe3f0536ace07419fbac3430cb11ec5",
+  "region_ids": {
+    "skin": 1,
+    "internal": 2,
+    "claw": 3,
+    "cilia": 4,
+    "window": 5,
+    "scintillon": 6
+  },
+  "coordinate_frame": "Godot: side/up/forward; Blender: x/-z/y",
+  "model_source": "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v8\\volvox_model.py",
+  "model_sha256": "30a0c9a8a4ad266d1ffbf42d13515ae5a84ac6649e4c9c9b8a95f15482148c70",
+  "motion_profile": "volvox_daughter_inversion"
+}

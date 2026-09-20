@@ -30,6 +30,7 @@ var interval := 1.0
 var spring_reserve := 0.18
 var reserve_duration_seconds := EIGHT_DAYS_SECONDS
 var work_orders: WorkOrders
+var _campaign_clock := CampaignClock.new()
 
 var _hour: Node3D
 var _minute: Node3D
@@ -277,9 +278,7 @@ func _process(delta: float) -> void:
 func _show_time() -> void:
 	if _hour == null:
 		return
-	var t := Time.get_time_dict_from_system()
-	var total_minutes := float(int(t.hour) * 60 + int(t.minute)) \
-			+ float(t.second) / 60.0
+	var total_minutes := _campaign_clock.minute_of_day()
 	if clock_variant == "vantry_master":
 		total_minutes += MASTER_ERROR_MINUTES
 	var h := fmod(total_minutes / 60.0, 12.0)
@@ -294,10 +293,10 @@ func interact_prompt() -> String:
 	if clock_variant == "vantry_master":
 		return "[E]  Try sealed Vantry setting cover"
 	if _winding:
-		return "Hold E — winding…"
+		return "Winding the clock…"
 	if spring_reserve >= 0.95:
 		return "The eight-day movement is fully wound"
-	return "Hold E — wind the clock"
+	return "Wind the clock"
 
 
 func interact(player: Node) -> Dictionary:

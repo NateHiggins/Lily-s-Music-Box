@@ -1,0 +1,12 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-NonInteractive",
+    "-Command",
+    "$ErrorActionPreference='Stop'; @((Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(Godot.*|blender)\\.exe$' } | Select-Object ProcessId,Name,ExecutablePath)) | ConvertTo-Json -Compress"
+  ],
+  "exit_code": 0,
+  "processes": [],
+  "empty": true
+}

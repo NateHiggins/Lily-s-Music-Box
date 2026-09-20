@@ -1,0 +1,34 @@
+{
+  "schema": "astra.resident-nav-checkpoint.config.v1",
+  "owned_sources": {
+    "game/scripts/characters/resident_nav.gd": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44",
+    "game/scripts/characters/resident_routines.gd": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+    "game/tests/resident_nav_direct_segment_test.gd": "bda5bf9892c756ebf31448b11e4138762027dacd9712bf86553ff55253c45f0a",
+    "game/tests/ResidentNavDirectSegmentTest.tscn": "2efa1804cda593dbd019d0815051670b00257ae0e11e7b00cf1ee7247947fa99",
+    "game/tests/resident_f01_haunt_test.gd": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+    "game/tests/ResidentF01HauntTest.tscn": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6",
+    "game/tests/resident_lift_waiting_test.gd": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+    "game/tests/ResidentLiftWaitingTest.tscn": "0702fc39ebf6834f63d3b69dc1eac1590ff6f4c9fa5a2314d14e03f53904db3a"
+  },
+  "package_roots": [
+    "design/astra/evidence/resident_lift_waiting",
+    "design/astra/evidence/resident_f01_haunt",
+    "design/astra/work/resident_lift_wait",
+    "design/astra/work/resident_f01_haunt"
+  ],
+  "reviews": [
+    "design/astra/reviews/resident_lift_waiting_review.md"
+  ],
+  "final_aggregate": {
+    "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/aggregate.json",
+    "sha256": "5ead54ffedbf6f8dde19b633a7ebe1eab06b4fa2b38d2efff45ec9901f19282f"
+  },
+  "previous_aggregate": {
+    "path": "design/astra/evidence/resident_lift_waiting/validation.json",
+    "sha256": "1a9f0b0725c6fc41a540366dd8ecfa9235cd6182b3758aafd3e4a7045abf7596"
+  },
+  "protected_binding": {
+    "path": "design/astra/evidence/final_batch.json",
+    "sha256": "0e12841b02e5bbdcc11bd14cf0c94061bcabf7279be8bf5e2ffe1e74caaf0e36"
+  }
+}

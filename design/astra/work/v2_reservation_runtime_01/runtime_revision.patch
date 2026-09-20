@@ -1,0 +1,373 @@
+--- a/runtime/run.py
++++ b/runtime/run.py
+@@ -1,4 +1,4 @@
+-"""Explicit terminal-only phases. The copied core is imported for utilities only."""
++"""Reservation phases and the unchanged terminal regression. The copied core is imported for utilities only."""
+ from pathlib import Path
+ import argparse
+ import json
+@@ -12,14 +12,15 @@
+ HERE = Path(__file__).resolve().parent
+ BASE = HERE.parent
+ ROOT = BASE.parents[3]
+-EVIDENCE = ROOT / "design/astra/evidence/v2_terminal_access_arrival_02"
+-OWNERS = ["game/scripts/building/orison_v2_runtime_root.gd", "game/scripts/call/desk_zone.gd"]
++EVIDENCE = ROOT / "design/astra/evidence/v2_reservation_display_01"
++OWNERS = ["game/scripts/building/orison_v2_blockout.gd", "game/scripts/building/orison_v2_runtime_root.gd"]
+ core.HERE = HERE
+ core.ROOT = ROOT
+ core.RUNNER = ROOT / "tools/run_godot_serial.ps1"
+ core.BRIDGE = HERE / "runner_bridge.ps1"
+ _instruments = core.instrument_paths
+-core.instrument_paths = lambda: {**_instruments(), "terminal_preparation.json": BASE / "preparation.json"}
++core.instrument_paths = lambda: {**_instruments(), "reservation_preparation.json": BASE / "preparation.json",
++    "terminal_39_preparation.json": BASE.with_name("v2_terminal_access_arrival_02") / "preparation.json"}
+ sha, dump = core.sha, core.dump
+ 
+ 
+@@ -38,12 +39,7 @@
+ 
+ def owner_sources(plan, phase):
+     row = next(x for x in plan["sequence"] if x["run_name"] == phase)
+-    return row, {OWNERS[0]: BASE / row["root_source"], OWNERS[1]: BASE / row["desk_source"]}
+-
+-
+-def require_previous_fixtures(current, expected):
+-    if set(current) != set(expected) or current != expected:
+-        raise ValueError("exact previously installed fixture bytes required")
++    return row, {rel:BASE/path for rel,path in row["sources"].items()}
+ 
+ 
+ def install():
+@@ -51,36 +47,26 @@
+     if core.git("rev-parse", "HEAD").decode().strip() != plan["required_install_head"]: raise ValueError("reviewed execution HEAD differs")
+     if core.godot_processes(): raise ValueError("lane busy before installation")
+     for rel in OWNERS:
+-        if sha(ROOT / rel) != plan["source_bindings_sha256"][rel]: raise ValueError("original production bytes required")
+-    previous = manifest["replace_exact_previous_fixtures"]
+-    if set(previous) != set(manifest["install"]): raise ValueError("fixture replacement set differs")
+-    require_previous_fixtures({rel: sha(ROOT / rel) if (ROOT / rel).is_file() else None for rel in previous}, previous)
++        if sha(ROOT / rel) != plan["source_bindings_sha256"][rel]: raise ValueError("original reservation / accepted terminal bytes required")
++    for rel in manifest["install"]:
++        if (ROOT / rel).exists(): raise ValueError("new reservation fixture already exists")
+     EVIDENCE.mkdir(parents=True, exist_ok=False)
+-    for rel in [*OWNERS, *previous]:
++    for rel in OWNERS:
+         target = EVIDENCE / "preinstall" / rel
+         target.parent.mkdir(parents=True, exist_ok=True)
+         shutil.copy2(ROOT / rel, target)
+-        expected = previous[rel] if rel in previous else plan["source_bindings_sha256"][rel]
+-        if sha(target) != expected: raise ValueError("preinstall backup hash mismatch")
+-    try:
+-        for rel in manifest["install"]:
+-            shutil.copy2(BASE / "proposed" / rel, ROOT / rel)
+-        if any(sha(ROOT / rel) != value for rel,value in manifest["install"].items()):
+-            raise ValueError("revised fixture install mismatch")
+-    except Exception:
+-        for rel in previous:
+-            if sha(ROOT / rel) not in (previous[rel], manifest["install"][rel]):
+-                raise ValueError("refuse to overwrite unexpected fixture during install rollback")
+-        for rel in previous: shutil.copy2(EVIDENCE / "preinstall" / rel, ROOT / rel)
+-        raise
++        if sha(target) != plan["source_bindings_sha256"][rel]: raise ValueError("preinstall backup hash mismatch")
++    for rel in manifest["install"]: shutil.copy2(BASE / "proposed" / rel, ROOT / rel)
++    if any(sha(ROOT/rel) != value for rel,value in manifest["install"].items()): raise ValueError("fixture install hash mismatch")
+     rows = dict(core.all_game_rows())
+-    dump(EVIDENCE / "install.json", {"status": "TWO_EXACT_PREVIOUS_FIXTURES_BACKED_UP_AND_REPLACED_ORIGINAL_PRODUCTION", "previous_fixtures": previous, "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "package_sha256": sha(HERE / "package.json")})
++    dump(EVIDENCE / "install.json", {"status": "ONLY_TWO_NEW_RESERVATION_FIXTURES_INSTALLED_PRODUCTION_UNCHANGED", "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "package_sha256": sha(HERE / "package.json")})
+ 
+ 
+ def verify_artifacts(out, result):
+-    mandatory = {"godot.stdout.log", "godot.stdout.log.stderr", "runner.stdout.log", "runner.stderr.log", "shots/terminal_access.json", "command.json", "invocation.json", "run_config.json", "process_observations.json", "prelaunch_processes.json", "before.all_game_files.json", "after.all_game_files.json", "before.runtime_text.json", "after.runtime_text.json", "before.game.diff", "after.game.diff"}
++    mandatory = {"godot.stdout.log", "godot.stdout.log.stderr", "runner.stdout.log", "runner.stderr.log", "command.json", "invocation.json", "run_config.json", "process_observations.json", "prelaunch_processes.json", "before.all_game_files.json", "after.all_game_files.json", "before.runtime_text.json", "after.runtime_text.json", "before.game.diff", "after.game.diff"}
+     plan, manifest = package()
+-    _, desired = owner_sources(plan, result["phase"])
++    spec, desired = owner_sources(plan, result["phase"])
++    mandatory.add("shots/"+spec["receipt_name"])
+     copied_expected = {**manifest["production_bindings"], **manifest["install"], **{rel:sha(path) for rel,path in desired.items()}}
+     for label in ("before", "after"):
+         if result[label]["copied_sources"] != copied_expected: raise ValueError("copied source contract differs from phase")
+@@ -98,7 +84,8 @@
+ 
+ 
+ def parameters_for(out, plan):
+-    return {"ProjectPath": str(ROOT / "game"), "Scene": plan["scene"], "LogPath": str(out / "godot.stdout.log"), "ShotDir": str(out / "shots"), "TimeoutSeconds": 60, "Windowed": True, "ExtraArgs": ["--verbose", "--audio-driver", "Dummy", "--resolution", "1280x720", "--rendering-method", "forward_plus", "--rendering-driver", "vulkan"]}
++    spec = next(row for row in plan["sequence"] if row["run_name"] == out.name)
++    return {"ProjectPath": str(ROOT / "game"), "Scene": spec["scene"], "LogPath": str(out / "godot.stdout.log"), "ShotDir": str(out / "shots"), "TimeoutSeconds": 60, "Windowed": True, "ExtraArgs": ["--verbose", "--audio-driver", "Dummy", "--resolution", "1280x720", "--rendering-method", "forward_plus", "--rendering-driver", "vulkan"]}
+ 
+ 
+ def require_prepared_request(request, out, plan):
+@@ -135,7 +122,7 @@
+     if sorted(x["sha256"] for x in before["engine_binaries"]) != manifest["engine_sha256"]: raise ValueError("installed engine differs from reviewed engine")
+     prelaunch = core.godot_processes(); dump(out / "prelaunch_processes.json", prelaunch)
+     if prelaunch: raise ValueError("lane busy at final prelaunch")
+-    config = {"schema": "astra.v2-terminal-access.run.v1", "phase": phase, "before": before, "started_at_utc": core.utc(), "fresh_APPDATA": str(profile), "cleared_environment_keys": removed, "parameters": parameters, "package_sha256": sha(HERE / "package.json")}
++    config = {"schema": "astra.v2-reservation-display.run.v1", "phase": phase, "before": before, "started_at_utc": core.utc(), "fresh_APPDATA": str(profile), "cleared_environment_keys": removed, "parameters": parameters, "package_sha256": sha(HERE / "package.json")}
+     dump(out / "run_config.json", config)
+     samples = []; started = time.perf_counter()
+     with (out / "runner.stdout.log").open("wb") as stdout, (out / "runner.stderr.log").open("wb") as stderr:
+@@ -148,7 +135,7 @@
+     dump(out / "process_observations.json", samples)
+     after = core.snapshot(out, "after")
+     read = lambda rel: (out / rel).read_text(encoding="utf-8-sig", errors="replace") if (out / rel).is_file() else ""
+-    try: probe = json.loads(read("shots/terminal_access.json"))
++    try: probe = json.loads(read("shots/"+phase_spec["receipt_name"]))
+     except (ValueError, OSError): probe = None
+     census_rows = {int(row["pid"]): row for sample in samples for row in sample["processes"]}
+     child = (probe or {}).get("pid")
+@@ -179,16 +166,16 @@
+         verify_artifacts(out, result)
+         if result["assessment"]["control_contract_exit"] != 0: raise ValueError("prior run requires review")
+         read = lambda rel: (out / rel).read_text(encoding="utf-8-sig", errors="replace")
+-        probe = json.loads(read("shots/terminal_access.json"))
++        prior_spec = next(row for row in plan["sequence"] if row["run_name"] == prior)
++        probe = json.loads(read("shots/"+prior_spec["receipt_name"]))
+         reproduced = assess.assess(probe, read("godot.stdout.log"), read("godot.stdout.log.stderr"), read("runner.stdout.log") + "\n" + read("runner.stderr.log"), result["actual_runner_exit"], result["before"] == result["after"], result["pid_ancestry_verified"], result["before"]["engine_binaries"] == result["after"]["engine_binaries"], prior)
+         if reproduced != result["assessment"]: raise ValueError("prior assessment was altered or cannot be reproduced")
+         restored = json.loads((EVIDENCE / (prior + ".restoration.json")).read_text())
+         _, restored_sources = owner_sources(plan, restored.get("target_phase", ""))
+         require_restoration(restored, {rel:sha(path) for rel,path in restored_sources.items()})
+     if core.godot_processes(): raise ValueError("lane busy before source transition")
+-    previous = "01_original" if index < 2 else "02_candidate"
+-    _, previous_sources = owner_sources(plan, previous)
+-    wanted = {**state["files"], **{rel:sha(path) for rel,path in previous_sources.items()}}
++    _, candidate_sources = owner_sources(plan, "01_candidate")
++    wanted = state["files"] if index == 0 else {**state["files"], **{rel:sha(path) for rel,path in candidate_sources.items()}}
+     if dict(core.all_game_rows()) != wanted: raise ValueError("unexpected source before phase")
+     _, desired = owner_sources(plan, phase)
+     for rel,path in desired.items(): shutil.copy2(path, ROOT / rel)
+@@ -202,8 +189,8 @@
+         if processes:
+             restoration["status"] = "RESTORATION_REFUSED_ACTIVE_PROCESS"
+         else:
+-            target_phase = "02_candidate" if "omission" in phase or (verdict == 0 and index > 0) else "01_original"
+-            _, restored = owner_sources(plan, target_phase)
++            target_phase = "01_candidate" if "omission" in phase or verdict == 0 or index > 0 else "preinstall"
++            restored = {rel:EVIDENCE/"preinstall"/rel for rel in OWNERS} if target_phase == "preinstall" else owner_sources(plan, target_phase)[1]
+             if any(sha(ROOT/rel) != sha(path) for rel,path in desired.items()): raise ValueError("refuse to overwrite unexpected owned-source edit")
+             for rel,path in restored.items(): shutil.copy2(path, ROOT/rel)
+             restoration.update(status="EXACT_OWNED_SOURCES_RESTORED", target_phase=target_phase, hashes={rel:sha(ROOT/rel) for rel in OWNERS})
+--- a/runtime/assess.py
++++ b/runtime/assess.py
+@@ -1,132 +1,111 @@
+-"""Terminal receipt contract; known native debt is bounded by preserved raw pairs."""
++"""Reservation admission; terminal regression delegates to the unchanged39 oracle."""
+ from pathlib import Path
+ from collections import Counter
++import copy
+ import json
+ import math
+ import re
++import terminal_assess
+ 
+ HERE = Path(__file__).resolve().parent
+ PLAN = json.loads((HERE.parent / "preparation.json").read_text(encoding="utf-8"))
++TERMINAL = HERE.parent.with_name("v2_terminal_access_arrival_02")
++# Exact copied assessor bytes; only its plan location is overridden explicitly.
++terminal_assess.PLAN = json.loads((TERMINAL / "preparation.json").read_text(encoding="utf-8"))
+ KNOWN = json.loads((HERE / "known_diagnostics.json").read_text(encoding="utf-8"))
+-PREFIX = "[V2 TERMINAL ACCESS]"
+ 
+ 
+-def finite_vec(value):
+-    if not isinstance(value, list) or len(value) != 3 or any(type(v) not in (int, float) or not math.isfinite(v) for v in value):
+-        raise ValueError("invalid coordinate payload")
+-    return value
++def geometry(rows):
++    result = copy.deepcopy(rows)
++    for row in result.values():
++        row.pop("visible", None); row.pop("visible_in_tree", None)
++    return result
+ 
+ 
+-def close_vec(value, expected):
+-    return all(abs(a-b) <= 1e-4 for a,b in zip(finite_vec(value), expected))
++def visible_count(rows, paths):
++    count = 0
++    for path in paths:
++        row = rows[path]
++        if row["visible"] is True and row["visible_in_tree"] is True: count += 1
++        elif row["visible"] is not False or row["visible_in_tree"] is not False: raise ValueError("partial/inherited display state")
++    return count
+ 
+ 
+-def require_arrival_and_operator_origins(diag, flags):
+-    arrival = diag["arrival"]
+-    if not isinstance(arrival, dict): raise ValueError("missing arrival witness")
+-    curb = [-3.6, 0.1, 24.72]
+-    eye = [-3.6, 1.51, 24.72]
+-    if close_vec(arrival["before_position"], curb) or not close_vec(arrival["position"], curb) or not close_vec(arrival["camera_position"], eye):
+-        raise ValueError("actual deferred arrival transition not observed")
+-    for key in ("observed", "settled", "director_owns_world", "intro_complete"):
+-        if arrival[key] is not True: raise ValueError("arrival completion witness missing")
+-    if flags.get("deferred first-shift arrival settles before controlled placement") is not True:
+-        raise ValueError("arrival check failed")
+-    if type(arrival["waited_process_frames"]) is not int or not 1 <= arrival["waited_process_frames"] <= 120 or arrival["stable_process_frames"] != 2:
+-        raise ValueError("arrival wait not witnessed")
+-    if arrival["phase_before"] != "complete" or arrival["phase_after"] != "complete": raise ValueError("arrival changed seeded ritual")
+-    if not close_vec(arrival["velocity"], [0,0,0]) or not close_vec(arrival["camera_local_rotation"], [0,0,0]): raise ValueError("arrival pose incomplete")
+-    yaw = arrival["yaw"]
+-    if type(yaw) not in (int, float) or not math.isfinite(yaw) or abs(yaw - math.atan2(-3.6, 14.9)) > 1e-4: raise ValueError("arrival yaw differs")
+-    if arrival["noclip"] is not False or arrival["call_locked"] is not False or arrival["collision_layer"] != 1 or arrival["collision_mask"] != 1: raise ValueError("arrival actor flags differ")
+-    operator = [-9.9, 9.6, 1.25]
+-    operator_eye = [-9.9, 11.01, 1.25]
+-    if not close_vec(diag["operator_position"], operator): raise ValueError("operator anchor changed")
+-    for key, label in [("first_ray", "first ray starts from the authored operator and eye"), ("second_ray", "second ray starts from the authored operator and eye")]:
+-        ray = diag[key]
+-        if not close_vec(ray["from"], operator_eye) or not close_vec(ray["camera_position"], operator_eye) or not close_vec(ray["actor_position"], operator):
+-            raise ValueError(key + " origin is not the authored operator")
+-        if ray["physics_processing"] is not False or flags.get(label) is not True: raise ValueError("operator stance precondition failed")
+-        delta = [a-b for a,b in zip(finite_vec(ray["to"]), ray["from"])]
+-        toward = [a-b for a,b in zip(finite_vec(diag["scope_position"]), ray["from"])]
+-        length = math.sqrt(sum(v*v for v in delta)); distance = math.sqrt(sum(v*v for v in toward))
+-        if abs(length-2.1) > 1e-4 or distance == 0 or sum(a*b for a,b in zip(delta,toward))/(length*distance) < 0.9999:
+-            raise ValueError("actual ordinary ray range or aim differs")
++def validate_witness(witness, flags):
++    if witness.get("complete") is not True: raise ValueError("incomplete witness")
++    targets = PLAN["target_paths"]
++    env, lift = PLAN["envelope_paths"], PLAN["landing_paths"]
++    if witness["target_paths"] != targets or witness["envelope_paths"] != env or witness["landing_paths"] != lift: raise ValueError("authored target identity list changed")
++    review, hidden, production = witness["review"], witness["hidden"], witness["production_targets"]
++    if set(review) != set(hidden) or len(review) <= 78 or set(production) != set(targets): raise ValueError("full generated population or target census incomplete")
++    for rows in (review,hidden,production):
++        for path in targets:
++            row = rows[path]
++            required = {"class","script","metadata","transform","global_transform","global_position_values","visible","visible_in_tree","layers","local_aabb","world_aabb","world_aabb_values","mesh_class","box_size","surface_count","materials","collision_descendants"}
++            if not isinstance(row,dict) or not required.issubset(row): raise ValueError("target geometry payload incomplete")
++            if row["class"] != "MeshInstance3D" or row["mesh_class"] != "BoxMesh" or row["surface_count"] != 1 or row["collision_descendants"] != []: raise ValueError("target shape/collision contract changed")
++            if any(not isinstance(row[key],str) or not re.fullmatch(r"(?:[0-9a-f]{2})+",row[key]) for key in ("transform","global_transform","local_aabb","world_aabb","box_size")): raise ValueError("invalid exact target geometry encoding")
++            if not isinstance(row["world_aabb_values"],list) or len(row["world_aabb_values"]) != 2: raise ValueError("unreadable world bounds")
++            for vec in [row["global_position_values"],*row["world_aabb_values"]]:
++                if not isinstance(vec,list) or len(vec)!=3 or any(type(v) not in (int,float) or not math.isfinite(v) for v in vec): raise ValueError("nonfinite geometry values")
++            if not isinstance(row["materials"],list) or len(row["materials"]) != 1: raise ValueError("target material missing")
++    if geometry(review) != geometry(hidden): raise ValueError("generated geometry or semantic record changed")
++    if geometry(production) != geometry({path:review[path] for path in targets}): raise ValueError("production target geometry changed")
++    other = lambda rows:{path:[row.get("visible"),row.get("visible_in_tree")] for path,row in rows.items() if path not in targets and "visible" in row}
++    if other(review) != other(hidden): raise ValueError("non-target display changed")
++    collisions = lambda rows:{path:row for path,row in rows.items() if "collision_layer" in row or "shape_class" in row}
++    if not collisions(review) or collisions(review) != collisions(hidden): raise ValueError("collision owner records absent or changed")
++    for key in ("review","hidden","production","shell","acoustic"):
++        if witness["retirement"][key] is not True: raise ValueError("actual retirement/restoration missing")
++    expected = {
++        "dedicated review displays all seventy envelopes": visible_count(review,env)==70,
++        "dedicated review displays all eight landing clearances": visible_count(review,lift)==8,
++        "hidden blockout suppresses all seventy envelopes": visible_count(hidden,env)==0,
++        "hidden blockout suppresses all eight landing clearances": visible_count(hidden,lift)==0,
++        "production selects reservation suppression before construction": witness["production_flag"] is False,
++        "production suppresses all seventy envelopes": visible_count(production,env)==0,
++        "production suppresses all eight landing clearances": visible_count(production,lift)==0,
++    }
++    if type(witness["production_flag"]) is not bool or any(flags.get(label) is not value for label,value in expected.items()): raise ValueError("display payload contradicts actual checks")
+ 
+ 
+ def assess(probe, stdout, stderr, wrapper, native, source_ok, pid_ok, engine_ok, phase):
+     spec = next(row for row in PLAN["sequence"] if row["run_name"] == phase)
+-    expected = spec["predicted_failure_labels_not_runtime_results"]
+-    reasons = []
++    if spec["kind"] == "terminal":
++        return terminal_assess.assess(probe,stdout,stderr,wrapper,native,source_ok,pid_ok,engine_ok,"02_candidate")
++    reasons=[]
+     if not source_ok: reasons.append("source_binding_failed")
+     if not pid_ok: reasons.append("actual_engine_pid_ancestry_missing")
+     if not engine_ok: reasons.append("installed_engine_binding_failed")
+-    if native not in (0, 1): reasons.append("runner_refusal_timeout_or_unexpected_exit")
+-    if "Godot Engine v4.7.1.stable.official.a13da4feb" not in stdout or "Vulkan " not in stdout or "Forward+" not in stdout:
+-        reasons.append("actual_windowed_engine_identity_missing")
+-    debt, unknown, retention = [], [], []
+-    allowed_errors = {tuple(row) for row in KNOWN["errors"]}
+-    allowed_warnings = {tuple(row) for row in KNOWN["warnings"]}
+-    lines = (stdout + "\n" + stderr + "\n" + wrapper).splitlines()
+-    for i, line in enumerate(lines):
+-        if any(x in line for x in ("ObjectDB instances leaked", "resources still in use at exit", "Unreferenced static string")):
+-            retention.append(line)
+-        if not line.startswith(("ERROR:", "SCRIPT ERROR:", "WARNING:")): continue
+-        pair = (line, lines[i + 1].strip() if i + 1 < len(lines) else "")
+-        if pair in (allowed_warnings if line.startswith("WARNING:") else allowed_errors): debt.append(pair)
+-        else: unknown.append(pair)
+-    if unknown: reasons.append("unknown_native_diagnostic")
+-    if retention: reasons.append("retention_diagnostic")
+-    if not isinstance(probe, dict):
+-        reasons.append("missing_or_unreadable_probe")
+-        probe = {}
+-    rows = probe.get("checks", [])
+-    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+-        reasons.append("malformed_check_rows")
+-        rows = []
+-    labels = [row.get("label") for row in rows if isinstance(row, dict)]
+-    if labels != PLAN["full_unique_ordered_labels"] or len(rows) != 39 or len(set(labels)) != 39:
+-        reasons.append("exact_unique_39_label_contract_failed")
+-    if any(type(row.get("passed")) is not bool for row in rows if isinstance(row, dict)):
+-        reasons.append("non_boolean_check")
+-    failed = [row.get("label") for row in rows if isinstance(row, dict) and row.get("passed") is not True]
+-    if probe.get("schema") != "astra.v2-terminal-access.probe.v2" or probe.get("root") != "v2" or probe.get("renderer") != "forward_plus" or type(probe.get("pid")) is not int or probe.get("pid", 0) <= 0:
+-        reasons.append("probe_identity_invalid")
+-    if type(probe.get("failures")) is not int or probe.get("failures") != len(failed): reasons.append("failure_count_inconsistent")
+-    raw = re.findall(r"^\[V2 TERMINAL ACCESS\] (PASS|FAIL) (.+)$", stdout, re.M)
+-    wanted_raw = [("PASS" if row.get("passed") is True else "FAIL", row.get("label")) for row in rows if isinstance(row, dict)]
+-    if raw != wanted_raw: reasons.append("raw_check_rows_do_not_match_probe")
+-    if re.findall(r"^\[V2 TERMINAL ACCESS\] checks=(\d+) failures=(\d+)$", stdout, re.M) != [("39", str(len(failed)))]:
+-        reasons.append("completion_footer_missing_or_inconsistent")
+-    if len(rows) < 3 or any(row.get("passed") is not True for row in rows[-3:]): reasons.append("actual_retirement_or_acoustic_restore_failed")
+-    diag = probe.get("diagnostics", {})
+-    required = {"complete", "arrival", "operator_position", "scope_front", "operator_direction", "front_dot", "terminal_position", "terminal_basis", "semantic_position", "semantic_basis", "scope_position", "scope_basis", "desk_count", "call_count", "desk_size", "first_ray", "second_ray", "world_events", "case_open_delay_factor", "first_interact_action_dispatched", "seated_E_action_dispatched", "reentry_action_dispatched", "escape_key_dispatched", "scope"}
+-    if not isinstance(diag, dict) or not required.issubset(diag) or diag.get("complete") is not True:
+-        reasons.append("complete_input_geometry_payload_missing")
+-    else:
+-        flags = {row["label"]: row["passed"] for row in rows if isinstance(row, dict) and "label" in row and "passed" in row}
+-        try:
+-            require_arrival_and_operator_origins(diag, flags)
+-        except (TypeError, ValueError, KeyError, ZeroDivisionError):
+-            reasons.append("arrival_or_authored_operator_ray_origin_invalid")
+-        try:
+-            front, direction = diag["scope_front"], diag["operator_direction"]
+-            values = [*front, *direction, diag["front_dot"]]
+-            if len(front) != 3 or len(direction) != 3 or any(type(v) not in (int, float) or not math.isfinite(v) for v in values): raise ValueError()
+-            dot = sum(a*b for a,b in zip(front, direction)) / math.sqrt(sum(a*a for a in front)*sum(a*a for a in direction))
+-            if abs(dot - diag["front_dot"]) > 1e-5 or flags.get("actual scope front faces the operator") != (dot >= 0.99): raise ValueError()
+-            if flags.get("V2 owns exactly one actual DeskZone") != (diag["desk_count"] == 1): raise ValueError()
+-            for key, label in [("first_ray", "ordinary player ray acquires the actual desk Area"), ("second_ray", "standing player can reacquire the same physical desk")]:
+-                ray = diag[key]
+-                if not isinstance(ray, dict) or type(ray.get("target_is_desk")) is not bool or ray.get("hit_from_inside") is not False or flags.get(label) != ray["target_is_desk"]: raise ValueError()
+-            if diag["first_interact_action_dispatched"] is not True: raise ValueError()
+-        except (TypeError, ValueError, KeyError, ZeroDivisionError): reasons.append("payload_and_check_geometry_inconsistent")
+-    if failed != expected: reasons.append("failure_set_differs_from_exact_planned_variant")
+-    if native != spec["expected_native_exit"]: reasons.append("native_exit_differs_from_planned_variant")
+-    ordinary_red = bool(reasons or native != 0 or failed)
+-    return {"diagnostic_gate_exit": int(ordinary_red), "control_contract_exit": int(bool(reasons)),
+-        "ordinary_product_status": "FAILED" if ordinary_red else "PASSED_IN_FOCUSED_SCOPE",
+-        "reasons": reasons, "failed_labels": failed, "passed": len(rows)-len(failed), "total": len(rows),
+-        "known_diagnostic_debt": [{"header": pair[0], "detail": pair[1], "count": count} for pair,count in Counter(debt).items()],
+-        "unknown_diagnostics": unknown, "retention": retention,
+-        "negative_control_scope_only": bool(expected and not reasons)}
++    if native not in (0,1): reasons.append("runner_refusal_timeout_or_unexpected_exit")
++    if "Godot Engine v4.7.1.stable.official.a13da4feb" not in stdout or "Vulkan " not in stdout or "Forward+" not in stdout: reasons.append("actual_windowed_engine_identity_missing")
++    debt,unknown,retention=[],[],[]
++    allowed_errors={tuple(row) for row in KNOWN["errors"]}; allowed_warnings={tuple(row) for row in KNOWN["warnings"]}
++    lines=(stdout+"\n"+stderr+"\n"+wrapper).splitlines()
++    for i,line in enumerate(lines):
++        if any(x in line for x in ("ObjectDB instances leaked","resources still in use at exit","Unreferenced static string")):retention.append(line)
++        if not line.startswith(("ERROR:","SCRIPT ERROR:","WARNING:")):continue
++        pair=(line,lines[i+1].strip() if i+1<len(lines) else "")
++        if pair in (allowed_warnings if line.startswith("WARNING:") else allowed_errors):debt.append(pair)
++        else:unknown.append(pair)
++    if unknown:reasons.append("unknown_native_diagnostic")
++    if retention:reasons.append("retention_diagnostic")
++    if not isinstance(probe,dict):reasons.append("missing_or_unreadable_probe");probe={}
++    rows=probe.get("checks",[])
++    if not isinstance(rows,list) or any(not isinstance(row,dict) for row in rows):reasons.append("malformed_check_rows");rows=[]
++    labels=[row.get("label") for row in rows]
++    if labels!=PLAN["full_unique_ordered_labels"] or len(rows)!=28 or len(set(labels))!=28:reasons.append("exact_unique_28_label_contract_failed")
++    if any(type(row.get("passed")) is not bool for row in rows):reasons.append("non_boolean_check")
++    failed=[row.get("label") for row in rows if row.get("passed") is not True]
++    if probe.get("schema")!="astra.v2-reservation-display.probe.v1" or probe.get("root")!="v2" or probe.get("renderer")!="forward_plus" or type(probe.get("pid")) is not int or probe.get("pid",0)<=0:reasons.append("probe_identity_invalid")
++    if type(probe.get("failures")) is not int or probe.get("failures")!=len(failed):reasons.append("failure_count_inconsistent")
++    raw=re.findall(r"^\[V2 RESERVATION\] (PASS|FAIL) (.+)$",stdout,re.M)
++    if raw!=[("PASS" if row.get("passed") is True else "FAIL",row.get("label")) for row in rows]:reasons.append("raw_check_rows_do_not_match_probe")
++    if re.findall(r"^\[V2 RESERVATION\] checks=(\d+) failures=(\d+)$",stdout,re.M)!=[("28",str(len(failed)))]:reasons.append("completion_footer_missing_or_inconsistent")
++    if len(rows)<3 or any(row.get("passed") is not True for row in rows[-3:]):reasons.append("actual_retirement_or_acoustic_restore_failed")
++    try:validate_witness(probe.get("witnesses",{}),{row["label"]:row["passed"] for row in rows})
++    except (KeyError,ValueError,TypeError,AttributeError):reasons.append("reservation_geometry_display_witness_invalid")
++    if failed!=spec["predicted_failure_labels_not_runtime_results"]:reasons.append("failure_set_differs_from_exact_planned_variant")
++    if native!=spec["expected_native_exit"]:reasons.append("native_exit_differs_from_planned_variant")
++    red=bool(reasons or native or failed)
++    return {"diagnostic_gate_exit":int(red),"control_contract_exit":int(bool(reasons)),"ordinary_product_status":"FAILED" if red else "PASSED_IN_FOCUSED_SCOPE","reasons":reasons,"failed_labels":failed,"passed":len(rows)-len(failed),"total":len(rows),"known_diagnostic_debt":[{"header":p[0],"detail":p[1],"count":n} for p,n in Counter(debt).items()],"unknown_diagnostics":unknown,"retention":retention,"negative_control_scope_only":bool(failed and not reasons)}

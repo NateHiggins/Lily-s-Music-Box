@@ -1,0 +1,163 @@
+{
+	"captures": [
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\raw_01\\shots/01_initial.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": false,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\raw_01\\shots/02_blocked.png",
+			"height": 720,
+			"orange_sample_pixels": 0,
+			"target_layers": 0,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\raw_01\\shots/03_restored.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": false,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\raw_01\\shots/04_light_deleted.png",
+			"height": 720,
+			"orange_sample_pixels": 0,
+			"target_layers": 0,
+			"target_visible_property": true,
+			"width": 1280
+		}
+	],
+	"case": "raw",
+	"checks": [
+		{
+			"label": "known case",
+			"passed": true
+		},
+		{
+			"label": "actual Forward+ renderer",
+			"passed": true
+		},
+		{
+			"label": "01_initial PNG saved",
+			"passed": true
+		},
+		{
+			"label": "01_initial target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "01_initial unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "second blocker survives first release",
+			"passed": true
+		},
+		{
+			"label": "layer gate preserves owner's visible property",
+			"passed": true
+		},
+		{
+			"label": "unchanged blocker requests cause no scenario churn",
+			"passed": true
+		},
+		{
+			"label": "02_blocked PNG saved",
+			"passed": true
+		},
+		{
+			"label": "02_blocked target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "02_blocked unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "last release restores authored mask and empties blockers",
+			"passed": true
+		},
+		{
+			"label": "03_restored PNG saved",
+			"passed": true
+		},
+		{
+			"label": "03_restored target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "03_restored unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "neighbor mask and visibility remain owned by neighbor",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted PNG saved",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "light actually retired before final capture",
+			"passed": true
+		},
+		{
+			"label": "red control retains layer transitions with no rebind",
+			"passed": true
+		}
+	],
+	"counts": {
+		"changes": 15,
+		"rebinds": 0,
+		"unchanged_calls": 10
+	},
+	"engine": {
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (official)",
+		"timestamp": 0
+	},
+	"functional_failures": 0,
+	"pid": 18148,
+	"renderer": "forward_plus",
+	"schema": "astra-vulkan-pairing-probe-v1",
+	"scope": "standalone primitive scene; external log gate required; no production or human acceptance",
+	"stage_times": [
+		{
+			"elapsed_usec": 88084,
+			"stage": "first_hide_8_frames"
+		},
+		{
+			"elapsed_usec": 646066,
+			"stage": "six_hide_restore_cycles_36_frames"
+		}
+	],
+	"user_data_dir": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/vulkan_layer_pairing/runs/raw_01/APPDATA/AstraVulkanPairing"
+}

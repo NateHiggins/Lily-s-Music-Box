@@ -1,0 +1,178 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/ApartmentMaterialBindingTest.tscn remapped: res://tests/ApartmentMaterialBindingTest.tscn
+Loading resource: res://tests/apartment_material_binding_test.gd remapped: res://tests/apartment_material_binding_test.gd
+Loading resource: res://shaders/orison_surface.gdshader remapped: res://shaders/orison_surface.gdshader
+Loading resource: res://shaders/orison_surface.gdshaderinc remapped: res://shaders/orison_surface.gdshaderinc
+Loading resource: res://shaders/dream_corruption_layers.gdshaderinc remapped: res://shaders/dream_corruption_layers.gdshaderinc
+Completed load for: 'res://shaders/dream_corruption_layers.gdshaderinc' remapped 'res://shaders/dream_corruption_layers.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshaderinc' remapped 'res://shaders/orison_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshader' remapped 'res://shaders/orison_surface.gdshader' at thread -1
+Loading resource: res://shaders/orison_surface_cutout.gdshader remapped: res://shaders/orison_surface_cutout.gdshader
+Completed load for: 'res://shaders/orison_surface_cutout.gdshader' remapped 'res://shaders/orison_surface_cutout.gdshader' at thread -1
+Loading resource: res://shaders/dream_tentacle.gdshader remapped: res://shaders/dream_tentacle.gdshader
+Loading resource: res://shaders/dream_entity_surface.gdshaderinc remapped: res://shaders/dream_entity_surface.gdshaderinc
+Completed load for: 'res://shaders/dream_entity_surface.gdshaderinc' remapped 'res://shaders/dream_entity_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/dream_tentacle.gdshader' remapped 'res://shaders/dream_tentacle.gdshader' at thread -1
+Loading resource: res://shaders/dream_eye.gdshader remapped: res://shaders/dream_eye.gdshader
+Completed load for: 'res://shaders/dream_eye.gdshader' remapped 'res://shaders/dream_eye.gdshader' at thread -1
+Loading resource: res://shaders/dream_eyelid.gdshader remapped: res://shaders/dream_eyelid.gdshader
+Completed load for: 'res://shaders/dream_eyelid.gdshader' remapped 'res://shaders/dream_eyelid.gdshader' at thread -1
+Loading resource: res://shaders/dream_cilia.gdshader remapped: res://shaders/dream_cilia.gdshader
+Completed load for: 'res://shaders/dream_cilia.gdshader' remapped 'res://shaders/dream_cilia.gdshader' at thread -1
+Loading resource: res://shaders/dream_crystal.gdshader remapped: res://shaders/dream_crystal.gdshader
+Completed load for: 'res://shaders/dream_crystal.gdshader' remapped 'res://shaders/dream_crystal.gdshader' at thread -1
+Loading resource: res://shaders/dream_gold.gdshader remapped: res://shaders/dream_gold.gdshader
+Completed load for: 'res://shaders/dream_gold.gdshader' remapped 'res://shaders/dream_gold.gdshader' at thread -1
+Loading resource: res://shaders/dream_sucker.gdshader remapped: res://shaders/dream_sucker.gdshader
+Completed load for: 'res://shaders/dream_sucker.gdshader' remapped 'res://shaders/dream_sucker.gdshader' at thread -1
+Loading resource: res://shaders/dream_membrane.gdshader remapped: res://shaders/dream_membrane.gdshader
+Completed load for: 'res://shaders/dream_membrane.gdshader' remapped 'res://shaders/dream_membrane.gdshader' at thread -1
+Loading resource: res://shaders/dream_tendrils.gdshader remapped: res://shaders/dream_tendrils.gdshader
+Completed load for: 'res://shaders/dream_tendrils.gdshader' remapped 'res://shaders/dream_tendrils.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/dream_tentacle.glb remapped: res://assets/dream/tentacle/dream_tentacle.glb
+Loading resource: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn remapped: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn
+Completed load for: 'res://assets/dream/tentacle/dream_tentacle.glb' remapped 'res://assets/dream/tentacle/dream_tentacle.glb' at thread -1
+Loading resource: res://shaders/dream_hero_skin.gdshader remapped: res://shaders/dream_hero_skin.gdshader
+Completed load for: 'res://shaders/dream_hero_skin.gdshader' remapped 'res://shaders/dream_hero_skin.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/T_dream_hero_anatomy.png remapped: res://assets/dream/tentacle/T_dream_hero_anatomy.png
+Loading resource: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex remapped: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex
+Completed load for: 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' remapped 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' at thread -1
+Loading resource: res://shaders/dream_residue.gdshader remapped: res://shaders/dream_residue.gdshader
+Completed load for: 'res://shaders/dream_residue.gdshader' remapped 'res://shaders/dream_residue.gdshader' at thread -1
+Loading resource: res://shaders/dream_critter.gdshader remapped: res://shaders/dream_critter.gdshader
+Completed load for: 'res://shaders/dream_critter.gdshader' remapped 'res://shaders/dream_critter.gdshader' at thread -1
+Loading resource: res://shaders/dream_palp.gdshader remapped: res://shaders/dream_palp.gdshader
+Completed load for: 'res://shaders/dream_palp.gdshader' remapped 'res://shaders/dream_palp.gdshader' at thread -1
+Completed load for: 'res://tests/apartment_material_binding_test.gd' remapped 'res://tests/apartment_material_binding_test.gd' at thread -1
+Completed load for: 'res://tests/ApartmentMaterialBindingTest.tscn' remapped 'res://tests/ApartmentMaterialBindingTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F04 binds 2 materials
+[BIND PASS] initial registration is nonempty and unique
+[BIND PASS] same installed material on two draws registers once
+[BIND PASS] same cached full override reuses a floor copy
+[BIND PASS] full override cache source remains unbound
+[BIND PASS] different storeys have different installed full overrides
+[BIND PASS] foreign storey full override is copied, not rebound
+[BIND PASS] surface cache first-owner reference remains live
+[BIND PASS] foreign storey surface copy is separate
+[BIND PASS] both storeys sample their own field
+[BIND PASS] inactive surface beneath a full override is not registered
+[BIND PASS] storey scan excludes cabinet world
+[BIND PASS] storey scan excludes residents and player
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[ENCROACH] living field on F02 binds 4 materials
+[BIND PASS] twelve repeated storey sweeps preserve unique exact registry
+[ENCROACH] living field on F02 binds 4 materials
+[BIND PASS] late draw reuses the existing non-case floor copy
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[BIND PASS] real tier queue invokes one reach callback
+[BIND PASS] case rows include floor and root-level draws only
+[BIND PASS] first reach retains exact installed root prop row
+[BIND PASS] first reach retains exact installed finish row
+[BIND PASS] root-level case draw remains in the floor registry
+[BIND PASS] existing array consumers observe current registry
+[BIND PASS] global reach still excludes private and dynamic draws
+[BIND PASS] first refresh immediately reaches installed root prop
+[BIND PASS] finish refresh reaches installed case material
+[BIND PASS] neighbor case intensity remains zero
+[BIND PASS] lifecycle immediately reaches both installed prop owners
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[BIND PASS] repeated reach preserves registry and installed identity
+[ENCROACH] 4 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 3 materials
+[BIND PASS] late case prop gets an immediate live row and state
+[SURFACE] governor: gpu 30.0 ms with no parallax left -> prop tier OFF (4 draws queued)
+[SURFACE] governor: gpu 1.0 ms with headroom -> prop tier ON (4 draws queued)
+[ENCROACH] 4 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 3 materials
+[SURFACE] governor: gpu 30.0 ms with no parallax left -> prop tier OFF (4 draws queued)
+[SURFACE] governor: gpu 1.0 ms with headroom -> prop tier ON (4 draws queued)
+[ENCROACH] 4 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 3 materials
+[SURFACE] governor: gpu 30.0 ms with no parallax left -> prop tier OFF (4 draws queued)
+[SURFACE] governor: gpu 1.0 ms with headroom -> prop tier ON (4 draws queued)
+[ENCROACH] 4 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 3 materials
+[SURFACE] governor: gpu 30.0 ms with no parallax left -> prop tier OFF (4 draws queued)
+[SURFACE] governor: gpu 1.0 ms with headroom -> prop tier ON (4 draws queued)
+[ENCROACH] 4 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 3 materials
+[BIND PASS] replaced material no longer receives floor updates
+[BIND PASS] SurfacePass cache cardinality remains stable
+[ENCROACH] 3 prop draws reached across 2 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 3 materials
+[BIND PASS] retired root prop is removed from registry and case rows
+[ENCROACH] living field on F02 binds 7 materials
+[BIND PASS] field rebind keeps material identities while updating textures
+[BIND PASS] field rebind leaves neighbor field intact
+[BIND PASS] registration remains presentation-only
+APARTMENT MATERIAL BINDING: FAIL (33/36)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

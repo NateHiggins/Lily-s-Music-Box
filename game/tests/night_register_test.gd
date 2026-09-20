@@ -56,6 +56,7 @@ func _ready() -> void:
 	_conclusions()
 	_presentation_rule()
 	_ownership()
+	await _teardown()
 
 	print("NIGHT REGISTER TEST: %s (%d/%d)"
 			% ["PASS" if failures == 0 else "FAIL", checks - failures, checks])
@@ -102,12 +103,33 @@ func _fresh_board() -> void:
 	# live in `RealityState`, so a board that is "fresh" while the save still
 	# holds the previous section's signatures is not fresh at all -- it comes
 	# up reading them, which is exactly what a real one should do.
+	_retire_board()
 	RealityState.reset_campaign_for_tests()
 	work_orders.setup(null)
-	board.queue_free()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
+
+
+func _retire_board() -> void:
+	# Sections run synchronously: deferred deletion would leave the previous
+	# fixture subscribed to every later WorkOrders transition in this frame.
+	if is_instance_valid(board):
+		board.free()
+	board = null
+
+
+func _teardown() -> void:
+	_retire_board()
+	building.free()
+	building = null
+	work_orders.free()
+	work_orders = null
+	# Let source-owned audio retirement reach the mixer before app shutdown.
+	# Production teardown does the release; the fixture supplies its lifetime.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().create_timer(0.1).timeout
 
 
 ## SR7-H: a round the board will actually accept a signature for -- report
@@ -537,11 +559,13 @@ func _signing() -> void:
 			line.has("at") and not bool(line.report_out)
 			and (line.keys_out as Array).is_empty()
 			and str(line.job_id) == JOB_2A)
+	_check("the recorded hour declares the campaign elapsed-minute basis",
+			str(line.get("at_basis", "")) == "campaign_elapsed_minutes")
 	# THE THESIS, ASSERTED. The board records the CLAIM. It writes nothing
 	# about where anybody went and nothing that would verify the claim.
 	var extra: Array[String] = []
 	for key in line.keys():
-		if str(key) not in ["at", "filing", "filing_printed", "report_out",
+		if str(key) not in ["at", "at_basis", "filing", "filing_printed", "report_out",
 				"keys_out", "job_id", "job_stage"]:
 			extra.append(str(key))
 	_check("and records NOTHING beyond the claim and its circumstances (%s)"
@@ -701,7 +725,7 @@ func _presentation_rule() -> void:
 	# because the rule derives it from `WorkOrders` -- which its own owner
 	# persists -- and this board writes not a word of it down.
 	var before := board.presented_job_id()
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
@@ -718,7 +742,7 @@ func _presentation_rule() -> void:
 	board.take_slip()
 	_check("002 taken and acknowledged", board.latched_job() == JOB_2B
 			and work_orders.job_stage(JOB_2B) == "acknowledged")
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
@@ -731,7 +755,7 @@ func _presentation_rule() -> void:
 	work_orders.record_job_repair(JOB_2B,
 			{"quality": "good", "note": "vent freed"})
 	work_orders.close_job(JOB_2B)
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
@@ -852,18 +876,45 @@ func _conclusions() -> void:
 
 # --- what the board is not ---------------------------------------------------
 
+func _without_comment_lines(source: String) -> String:
+	# Only whole comment lines are omitted. Inline comments and all code
+	# remain visible to the ownership checks, regardless of file endings.
+	var code := ""
+	for raw in source.replace("\r\n", "\n").split("\n"):
+		if not raw.strip_edges().begins_with("#"):
+			code += raw + "\n"
+	return code
+
+
+func _comment_line_controls() -> void:
+	for ending in ["\n", "\r\n"]:
+		var label := "LF" if ending == "\n" else "CRLF"
+		var comments: String = ending.join([
+				"# issue_job close_job record_job diagnose_job offer_opening_report",
+				" \t# RealityCases activate_case resolve_case reopen_case leaf_state =",
+				"# _work_orders.call(\"close_job\")",
+				"_work_orders.call(\"job_stage\")"])
+		_check("%s ownership scan ignores whole comment lines only" % label,
+				_without_comment_lines(comments)
+						== "_work_orders.call(\"job_stage\")\n")
+		var foreign_calls: String = ending.join([
+				"_work_orders.call(\"issue_job\") # still executable",
+				"_work_orders.call(\"close_job\")",
+				"RealityCases.resolve_case(\"foreign\")",
+				"leaf_state = true"])
+		_check("%s ownership scan retains actual foreign-owner calls" % label,
+				_without_comment_lines(foreign_calls)
+						== foreign_calls.replace("\r\n", "\n") + "\n")
+
+
 func _ownership() -> void:
+	_comment_line_controls()
 	# Read as text, deliberately. Behaviour proves what the board DOES; only
 	# the source proves what it cannot do at all, and "there is no second
 	# ledger" is a claim about absence.
 	var source := FileAccess.get_file_as_string(
 			"res://scripts/props/night_register_prop.gd")
-	var code := ""
-	for raw in source.split("
-"):
-		if not raw.strip_edges().begins_with("#"):
-			code += raw + "
-"
+	var code := _without_comment_lines(source)
 	_check("the board is not a work order owner: no issue path exists",
 			not code.contains("issue_job"))
 	_check("and it never activates, resolves or reopens a case",

@@ -2,6 +2,11 @@
 // and fauna. exposure_tex.r stays durable; .g is the reversible rate-limited
 // lamp response written at 15 Hz by DreamExposureField.
 
+#include "res://shaders/lamp_optical_sample.gdshaderinc"
+// Material response normalization, separate from the physical field and the
+// ecological accumulation law. Unbound/Compatibility retains legacy response.
+uniform float optical_response_gain = 4.0;
+
 uniform float irradiance_retained_gain : hint_range(0.0, 0.5) = 0.24;
 uniform float irradiance_incidence_floor : hint_range(0.0, 1.0) = 0.68;
 uniform vec2 irradiance_band_neon = vec2(0.30, 0.58);
@@ -28,11 +33,19 @@ uniform vec4 incarnation_fauna = vec4(0.0, 0.0, 0.0, 1.0);
 
 // x neon, y oblique, z molten, w scalar.
 vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
-		vec2 field, vec3 light_origin) {
+		vec2 field, vec3 light_origin, out vec3 spectrum) {
+	spectrum = vec3(1.0);
 	vec3 toward_light = normalize(light_origin - world_position);
 	float incidence = mix(irradiance_incidence_floor, 1.0,
 			abs(dot(normalize(world_normal), toward_light)));
-	float scalar = clamp(field.g * incidence
+	float direct = field.g;
+	if (lamp_optical_bound) {
+		LampOpticalSample optical = sample_lamp_optics(world_position);
+		float luminance = dot(optical.radiance,vec3(0.2126,0.7152,0.0722));
+		direct = clamp(luminance * optical_response_gain,0.0,1.0);
+		if (luminance > 0.000001) spectrum = clamp(optical.radiance/luminance,vec3(0.0),vec3(4.0));
+	}
+	float scalar = clamp(direct * incidence
 			+ field.r * irradiance_retained_gain, 0.0, 1.0);
 	float neon = 1.0 - smoothstep(irradiance_band_neon.x,
 			irradiance_band_neon.y, scalar);
@@ -42,7 +55,15 @@ vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
 			irradiance_band_oblique.w, scalar));
 	float molten = smoothstep(irradiance_band_molten.x,
 			irradiance_band_molten.y, scalar);
-	return vec4(neon, oblique, molten, scalar);
+	// Retained conversion can select a dormant colour band, but cannot stand
+	// in for live lamp energy in gold, wet-film and cellular reflection terms.
+	return vec4(neon, oblique, molten, lamp_optical_bound ? direct * incidence : scalar);
+}
+
+vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
+		vec2 field, vec3 light_origin) {
+	vec3 spectrum;
+	return dream_irradiance(world_position,world_normal,field,light_origin,spectrum);
 }
 
 vec3 dream_irradiance_hue(vec3 colour) {

@@ -1,5 +1,10 @@
 # Orison v2 shared frames ruling — 2026-08-30
 
+**Historical ruling: its host-date/weekday clauses are superseded by the
+owner-accepted [campaign calendar ruling of 2026-09-05](ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md).
+The campaign now begins on November 10, 1928; only local time of day may be
+sampled once. The original text below is retained as history.**
+
 This document records the machine-readable rulings lifted into
 **orison_v2_shared_frames.json**. It does not claim spatial proof.
 

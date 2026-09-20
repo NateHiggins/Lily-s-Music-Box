@@ -1,0 +1,13 @@
+{
+  "schema": "astra.bounded_notice_mutation.v1",
+  "source": "game/scripts/game/campaign_clock.gd",
+  "mutation": "calendar_clamp_omitted",
+  "old": "\tvar seconds := mini(86399,\n\t\t\tint(floor(fposmod(total, float(MINUTES_PER_DAY)) * 60.0 + 0.00001)))",
+  "new": "\tvar seconds := int(floor(fposmod(total, float(MINUTES_PER_DAY)) * 60.0 + 0.00001))",
+  "original_sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+  "mutated_sha256": "1bdf5650c3d19f2763cc09c0d8735b0c9a28d088de37a9f0e0238bcdd0099b1c",
+  "restored_sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+  "restored_byte_identically": true,
+  "runner_exit": 1,
+  "run_receipt": "calendar_clamp_omitted/run_receipt.json"
+}

@@ -1,0 +1,2 @@
+& 'C:\PleaseRemainOnTheLine-astra\tools\run_godot_serial.ps1' -ProjectPath 'C:\PleaseRemainOnTheLine-astra\game' -Scene res://tests/VulkanComposedRootTest.tscn -LogPath 'C:\PleaseRemainOnTheLine-astra\design\astra\evidence\vulkan_composed\runs\f01_provider_owner_first_cells_04\stdout.log' -TimeoutSeconds 180 -Windowed -ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720', '--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')
+exit $LASTEXITCODE

@@ -1,0 +1,79 @@
+{
+  "scope": "Scoped provenance for known warnings; retained open debt, not warning-free release. No raw receipt rewritten or engine run used to relabel.",
+  "first_strict_rejection": "design/astra/evidence/resident_f01_haunt/original_haunt_02_strict_review_01/review.json",
+  "sources": [
+    {
+      "result": "design\\astra\\evidence\\resident_f01_haunt\\original_haunt_02\\result.json",
+      "result_sha256": "326ea5ae361ec6492a03be5a7a08379371736296dfc759d1fa842560d1bd82b1",
+      "raw_stderr": "design\\astra\\evidence\\resident_f01_haunt\\original_haunt_02\\godot.stdout.log.stderr",
+      "raw_stderr_sha256": "d71f2db72710a3d1a575648935cf3d873aff4023cd51ac5714adf822c6794783",
+      "native_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "execution_scope": "F01 source-bound lifecycle",
+      "warning_contexts": [
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "native_site": "at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "native_site": "at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "",
+          "native_site": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 966
+        },
+        {
+          "header": "WARNING: no legal wall for found piece cam_noel_witches",
+          "detail": "",
+          "native_site": "at: push_warning (core/variant/variant_utility.cpp:1033)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "result": "design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\result.json",
+      "result_sha256": "1dd7f238faaaf3a84e03a3d1f9113804ec32124b2ff549ce9648ca84041f0c9e",
+      "raw_stderr": "design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\stdout.log.stderr",
+      "raw_stderr_sha256": "d03a0e28ed9be26c48b35d43ae3eb9c46ff030263dcc3eae581f1807881dac21",
+      "native_exit": 0,
+      "gate_exit": 0,
+      "source_unchanged": true,
+      "execution_scope": "full",
+      "warning_contexts": [
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "native_site": "at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "native_site": "at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "",
+          "native_site": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 1038
+        },
+        {
+          "header": "WARNING: no legal wall for found piece cam_noel_witches",
+          "detail": "",
+          "native_site": "at: push_warning (core/variant/variant_utility.cpp:1033)",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "known_classification_limits": "Require exact RGB8/header/native site; exact GENERAL registry/OBS duplicate detail and callback site; exact found-art header/site/owner. All other warning/error/retention/pairing classes remain rejected. A classifier revision is still pending root review/application."
+}

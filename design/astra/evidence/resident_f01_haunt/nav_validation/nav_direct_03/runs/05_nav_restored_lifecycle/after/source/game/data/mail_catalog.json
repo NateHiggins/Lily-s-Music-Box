@@ -1,0 +1,33 @@
+{
+  "deliveries": [
+    {
+      "id": "welcome_note",
+      "kind": "letter",
+      "title": "FROM THE MANAGEMENT OFFICE",
+      "body": "New maintenance tenant, box 4B. Welcome to the Orison. Work orders, notices and parts arrive here — check it between shifts. The box is brass because everything in this lobby was installed by people who expected the building to outlive them. It has. — N. Quell, Management",
+      "when": {"always": true}
+    },
+    {
+      "id": "notice_hum",
+      "kind": "letter",
+      "title": "TENANT NOTICE — RE: THE HUM",
+      "body": "Several tenants have asked about the low electrical hum. The hum is normal. The building has always hummed. If the hum stops, please contact maintenance immediately, at any hour. Do not investigate the quiet yourself. — Management",
+      "when": {"always": true}
+    },
+    {
+      "id": "pkg_contact_mic",
+      "kind": "package",
+      "title": "PACKAGE — SEV TECHNICAL SALVAGE",
+      "body": "One (1) contact microphone, piezo, hard-wired, with alligator clip and a hand-wound coil of shielded cable. Invoice marked PAID — DESK ACCOUNT. A note in pencil on the packing slip: 'For listening to what the pipes say when they think you're a wall. You'll want this before you go downstairs. — S.'",
+      "upgrade": "contact_mic",
+      "when": {"case": "mina_caption_crisis", "min_repairs": 1}
+    },
+    {
+      "id": "mina_keepsake",
+      "kind": "package",
+      "title": "PARCEL — M. VALE, 2A",
+      "body": "A stenographer's notebook, hard blue covers, spiral bound. Every page is blank. On the flyleaf, typed: PROPERTY LOG — CONTENTS ACCURATE AS WRITTEN. Nothing else is written.",
+      "when": {"case": "mina_caption_crisis", "resolved": true}
+    }
+  ]
+}

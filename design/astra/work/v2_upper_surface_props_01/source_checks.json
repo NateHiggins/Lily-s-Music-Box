@@ -1,0 +1,415 @@
+{
+  "status": "SOURCE_PASS",
+  "base": "2953357",
+  "added": 29,
+  "total": 55,
+  "source_triangles": 12712,
+  "placements": [
+    {
+      "id": "5A_k_kmug",
+      "support": "F05_5A_KITCHEN_SINK_01",
+      "volume": [
+        -10.718042260651806,
+        0.9195,
+        -8.07,
+        -10.641957739348193,
+        1.0195,
+        -7.963372216587789
+      ],
+      "contact": 0.9195,
+      "source_kind": "mug"
+    },
+    {
+      "id": "5A_k_kdishrack",
+      "support": "F05_5A_KITCHEN_SINK_01",
+      "volume": [
+        -10.905,
+        0.9195,
+        -8.285,
+        -10.635,
+        1.1206933867841664,
+        -8.155000000000001
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "5B_k_kmug",
+      "support": "F05_5B_KITCHEN_SINK_01",
+      "volume": [
+        -7.048042260651806,
+        0.9195,
+        6.6633722165877876,
+        -6.971957739348194,
+        1.0195,
+        6.77
+      ],
+      "contact": 0.9195,
+      "source_kind": "mug"
+    },
+    {
+      "id": "5B_k_kdishrack",
+      "support": "F05_5B_KITCHEN_SINK_01",
+      "volume": [
+        -7.055,
+        0.9195,
+        6.8549999999999995,
+        -6.785,
+        1.1206933867841664,
+        6.985
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "5C_k_kmug",
+      "support": "F05_5C_KITCHEN_SINK_01",
+      "volume": [
+        4.063372216587788,
+        0.9195,
+        4.271957739348194,
+        4.17,
+        1.0195,
+        4.348042260651805
+      ],
+      "contact": 0.9195,
+      "source_kind": "mug"
+    },
+    {
+      "id": "5C_k_kdishrack",
+      "support": "F05_5C_KITCHEN_SINK_01",
+      "volume": [
+        4.255,
+        0.9195,
+        4.085,
+        4.385000000000001,
+        1.1206933867841664,
+        4.3549999999999995
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "6A_k_kmug",
+      "support": "F06_6A_KITCHEN_SINK_01",
+      "volume": [
+        -10.718042260651806,
+        0.9195,
+        -8.07,
+        -10.641957739348193,
+        1.0195,
+        -7.963372216587789
+      ],
+      "contact": 0.9195,
+      "source_kind": "mug"
+    },
+    {
+      "id": "6A_k_kdishrack",
+      "support": "F06_6A_KITCHEN_SINK_01",
+      "volume": [
+        -10.905,
+        0.9195,
+        -8.285,
+        -10.635,
+        1.1206933867841664,
+        -8.155000000000001
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "6B_k_kmug",
+      "support": "F06_6B_KITCHEN_SINK_01",
+      "volume": [
+        -7.048042260651806,
+        0.9195,
+        6.6633722165877876,
+        -6.971957739348194,
+        1.0195,
+        6.77
+      ],
+      "contact": 0.9195,
+      "source_kind": "mug"
+    },
+    {
+      "id": "6B_k_kdishrack",
+      "support": "F06_6B_KITCHEN_SINK_01",
+      "volume": [
+        -7.055,
+        0.9195,
+        6.8549999999999995,
+        -6.785,
+        1.1206933867841664,
+        6.985
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "6C_k_kdishrack",
+      "support": "F06_6C_KITCHEN_SINK_01",
+      "volume": [
+        4.255,
+        0.9195,
+        4.085,
+        4.385000000000001,
+        1.1206933867841664,
+        4.3549999999999995
+      ],
+      "contact": 0.9195,
+      "source_kind": "dishrack"
+    },
+    {
+      "id": "5A_model",
+      "support": "5A_modtable",
+      "volume": [
+        -10.950000000000001,
+        0.745,
+        -10.92,
+        -10.35,
+        0.97,
+        -10.479999999999999
+      ],
+      "contact": 0.745,
+      "source_kind": "sitemodel"
+    },
+    {
+      "id": "5A_papers1",
+      "support": "5A_plantable",
+      "volume": [
+        -13.444466666666667,
+        0.8,
+        -4.918506106106106,
+        -13.21755855855856,
+        0.8500000000000001,
+        -4.609355355355355
+      ],
+      "contact": 0.8,
+      "source_kind": "papers"
+    },
+    {
+      "id": "5A_papers2",
+      "support": "5A_plantable",
+      "volume": [
+        -13.431497297297298,
+        0.8,
+        -4.486143743743743,
+        -13.212214414414415,
+        0.8350000000000001,
+        -4.182923723723723
+      ],
+      "contact": 0.8,
+      "source_kind": "papers"
+    },
+    {
+      "id": "5A_mug1",
+      "support": "5A_plantable",
+      "volume": [
+        -13.37,
+        0.8,
+        -5.128042260651806,
+        -13.263372216587788,
+        0.9,
+        -5.051957739348194
+      ],
+      "contact": 0.8,
+      "source_kind": "mug"
+    },
+    {
+      "id": "5A_mug2",
+      "support": "5A_planshelf",
+      "volume": [
+        -10.266627783412211,
+        1.412,
+        -11.988042260651806,
+        -10.16,
+        1.512,
+        -11.911957739348193
+      ],
+      "contact": 1.412,
+      "source_kind": "mug"
+    },
+    {
+      "id": "5B_story_headphones",
+      "support": "5B_din_t",
+      "volume": [
+        -11.426,
+        0.735,
+        3.106881964260827,
+        -11.214,
+        1.0009816875913513,
+        3.265
+      ],
+      "contact": 0.735,
+      "source_kind": "headphones"
+    },
+    {
+      "id": "5B_story_lead",
+      "support": "5B_din_t",
+      "volume": [
+        -11.079238795325113,
+        0.735,
+        3.100761204674887,
+        -10.626510769930688,
+        0.7624986157579065,
+        3.299238795325113
+      ],
+      "contact": 0.735,
+      "source_kind": "cablecoil"
+    },
+    {
+      "id": "5C_story_solvents",
+      "support": "5C_din_t",
+      "volume": [
+        -1.9228298298298299,
+        0.745,
+        9.391392520045976,
+        -1.5800451380409661,
+        1.0046396396396395,
+        9.699756756756758
+      ],
+      "contact": 0.745,
+      "source_kind": "bottles"
+    },
+    {
+      "id": "5C_story_studies",
+      "support": "5C_din_t",
+      "volume": [
+        -1.3798544144144145,
+        0.745,
+        9.469178098098098,
+        -1.1421715315315315,
+        0.825,
+        9.78670922922923
+      ],
+      "contact": 0.745,
+      "source_kind": "papers"
+    },
+    {
+      "id": "6A_phones",
+      "support": "6A_deskwall",
+      "volume": [
+        -10.743118035739174,
+        0.77,
+        -11.956,
+        -10.585,
+        1.0359816875913512,
+        -11.744
+      ],
+      "contact": 0.77,
+      "source_kind": "headphones"
+    },
+    {
+      "id": "6A_cans",
+      "support": "6A_deskwall",
+      "volume": [
+        -10.238607479954025,
+        0.77,
+        -12.039524431528603,
+        -10.09646846846847,
+        0.9,
+        -11.704906906906906
+      ],
+      "contact": 0.77,
+      "source_kind": "bottles"
+    },
+    {
+      "id": "6A_detail_capture_papers",
+      "support": "6A_deskwall",
+      "volume": [
+        -9.599198898898898,
+        0.77,
+        -11.978546846846847,
+        -9.289886986986986,
+        0.8275,
+        -11.751431531531532
+      ],
+      "contact": 0.77,
+      "source_kind": "papers"
+    },
+    {
+      "id": "6A_detail_capture_mug",
+      "support": "6A_deskwall",
+      "volume": [
+        -8.888042260651806,
+        0.77,
+        -11.916627783412212,
+        -8.811957739348193,
+        0.87,
+        -11.81
+      ],
+      "contact": 0.77,
+      "source_kind": "mug"
+    },
+    {
+      "id": "6B_story_draft",
+      "support": "6B_din_t",
+      "volume": [
+        -11.51710990990991,
+        0.745,
+        2.9940440840840843,
+        -11.276294054054054,
+        0.8475,
+        3.314011971971972
+      ],
+      "contact": 0.745,
+      "source_kind": "papers"
+    },
+    {
+      "id": "6B_story_references",
+      "support": "6B_din_t",
+      "volume": [
+        -11.149469469469468,
+        0.745,
+        3.1175025025025027,
+        -10.950305305305305,
+        0.9307177177177177,
+        3.3492542542542543
+      ],
+      "contact": 0.745,
+      "source_kind": "bookpile"
+    },
+    {
+      "id": "6B_story_cold_coffee",
+      "support": "6B_din_t",
+      "volume": [
+        -10.77,
+        0.745,
+        3.291957739348194,
+        -10.663372216587788,
+        0.845,
+        3.3680422606518063
+      ],
+      "contact": 0.745,
+      "source_kind": "mug"
+    },
+    {
+      "id": "6C_story_oddments",
+      "support": "6C_din_t",
+      "volume": [
+        -1.776,
+        0.735,
+        9.354000000000001,
+        -1.224,
+        0.883,
+        9.446
+      ],
+      "contact": 0.735,
+      "source_kind": "jarrow"
+    },
+    {
+      "id": "6C_story_catalogues",
+      "support": "6C_din_t",
+      "volume": [
+        -1.4310760760760761,
+        0.735,
+        9.665150150150149,
+        -1.240980980980981,
+        0.9514764764764765,
+        9.933008008008008
+      ],
+      "contact": 0.735,
+      "source_kind": "bookpile"
+    }
+  ]
+}

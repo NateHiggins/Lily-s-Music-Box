@@ -1,0 +1,11 @@
+# Visit transition uses the campaign clock
+
+Mina's earned shift-clock transition previously displayed 11:43 PM while leaving campaign time unchanged. It now advances forward to the next actual 23:43, retaining the civil date when possible and crossing midnight when that time has already arrived or passed. The montage initially says it is returning for the next shift; it displays 11:43 only after the authoritative jump. Protected/unavailable clocks do not begin the transition, and out-of-range advances do not reopen the case.
+
+The explicit jump uses CampaignClock.advance_seconds without a separate save. The synchronous case-owner reopen commits the updated clock and recurrence together. Automatic time still has its sole existing driver; no host-calendar reads or second time source were added.
+
+`before.log` fails three of ten controls: both missing time jumps and the missed rollover. `after.log` passes 15 checks, adding the exact-23:43 boundary. `persistence.log` passes 21 checks with empty stderr, including a single automatic disk snapshot containing both facts, actual disk reload, and refusal of repeated interaction once the clock is disabled. Each scenario owns a unique user://tests save path; the player's save is not used.
+
+`legacy_golden.log` records the subsequent existing full golden-loop regression. This packet does not prove the entire V2 golden shift or authorize default cutover.
+
+Regression reassessment: legacy_golden.log reached all 87 checks with two obsolete HUD assertions. The HUD was already disabled in production; the fixture now checks durable guidance and the absence of a panel. legacy_golden_02 exposed reuse of a deleted test primary with its retained .bak (save protection correctly refused it). Each run now owns a random test filename and removes its own sidecars. legacy_golden_03 reached every gameplay block, with two stale cleanup-filename assertions and dummy-renderer texture sampling errors. legacy_golden_04 was stopped by the old 57-second fixture watchdog after rendered startup took 37 seconds. The fixture watchdog is now 165 seconds within the unchanged 180-second shared runner ceiling. The rendered legacy_golden_05 completes all 13 blocks and 87/87 checks with zero failures; stderr contains only the pre-existing found-art placement warning. The original failures remain preserved.

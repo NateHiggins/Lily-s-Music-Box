@@ -146,6 +146,11 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 		return NONE
 	if not _condition_live(lamp_on, speed):
 		return NONE
+	# A room can become live shortly before a sprint reaches its hazard.
+	# Preserve the authored reaction time even when geometric distance alone
+	# cannot provide it. Positional voids above remain governed by real gravity.
+	if tell_started_s < 0.0 or elapsed - tell_started_s + 0.000001 < minimum_warning_s:
+		return NONE
 	contacted = true
 	contact_s = elapsed
 	return outcome

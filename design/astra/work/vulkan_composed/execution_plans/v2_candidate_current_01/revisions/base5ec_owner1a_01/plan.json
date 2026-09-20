@@ -1,0 +1,114 @@
+{
+  "schema": "astra.vulkan_composed.v2_candidate_execution_plan.v2",
+  "status": "offline_preparation_not_runtime_evidence",
+  "prepared_at_utc": "2026-09-05T10:45:51.389849+00:00",
+  "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "run_name": "candidate_v2_foundations_01",
+  "root": "v2",
+  "variant": "candidate",
+  "execution_scope": "full",
+  "selected_scene": "res://scenes/building/orison_v2_runtime.tscn",
+  "fixture_scene": "res://tests/VulkanComposedRootTest.tscn",
+  "timeout_seconds": 180,
+  "required_ordered_check_labels": [
+    "campaign calendar seeded at authored 03:00 without host time",
+    "Vulkan Forward+ is active",
+    "CampaignShell composed the selected real root",
+    "root startup succeeded",
+    "real production player exists",
+    "V2 genuinely has no V1 zone APIs",
+    "actual V2 production terminal is present",
+    "profile photo directory is available",
+    "production phone lens shares selected root world",
+    "V2 F04 uses actual semantic stance",
+    "capture written v2_actual_f04_semantic_stance",
+    "capture written v2_actual_f04_phone",
+    "actual shell retired",
+    "actual selected world retired"
+  ],
+  "required_check_count": 14,
+  "required_capture_names": [
+    "v2_actual_f04_semantic_stance",
+    "v2_actual_f04_phone"
+  ],
+  "required_transition_count": 0,
+  "required_separate_world_case_executed": false,
+  "required_v2_street_passage_applicability": "absent",
+  "pinned_source_sha256": {
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scenes/building/orison_v2_runtime.tscn": "ec64e93f147ed5fb9d7d0d3f4e1a4a185bdd5ffc26cf691a1ce41361cbc7f2fd",
+    "game/scenes/building/orison_v2_blockout.tscn": "e0024040574ed0c07990a94561c8bdd79aa978ec34f7e3c87f81639bdb1b36b7",
+    "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+    "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/building/orison_v2_frame_contract.gd": "ae0604d2322c3acaa91b21739927db45a74c83cf10a06a8e3430c0e1d204ddae",
+    "game/scripts/building/orison_v2_readability_cues.gd": "106ac52b7a48a67a2f626d388401a4c199ba05d43658095681717bb81adc83aa",
+    "game/scripts/building/orison_v2_semantic_anchor.gd": "a19fde66c1b1035bb4ea7e52e8f5611fbb06447204a684ff1aaa0c9b8c61ada4",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/data/orison_v2_shared_frames.json": "5d9b98876b699d306a3ed47b9a796b03fb2f5a1ad65922b4237dc94b859c21a0",
+    "design/astra/work/vulkan_composed/run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "design/astra/work/vulkan_composed/gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "design/astra/work/vulkan_composed/pair_bookkeeping_case.py": "a8e29f230442b21668ca04ea5b33f9f92194d8a58994c1373040a00e30073ae5",
+    "design/astra/work/composed_material_invariants/runtime_execution/environment_contract.py": "1cef5f798ae56210d72489884c76524f9bda7c7f2cde9298bde942128f4b01fe",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776"
+  },
+  "preparation_owner_observation": {
+    "path": "game/scripts/reality/apartment_encroachment.gd",
+    "sha256": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "policy": "Required execution binding in this revision, also declared in pinned_source_sha256. V2 does not instantiate ApartmentEncroachment; this is source-state binding, not optimizer runtime proof."
+  },
+  "normal_material_environment": {
+    "ENCROACH": "1",
+    "ENCROACH_FORCE": "",
+    "ENCROACH_DEBUG_VIEW": "0",
+    "ENCROACH_DEBUG": "0",
+    "LIVING": "1",
+    "LIVING_ALL": "0"
+  },
+  "wrapper_environment": {
+    "ORISON_BUILDING_ROOT": "v2",
+    "VULKAN_COMPOSED_VARIANT": "candidate",
+    "VULKAN_COMPOSED_SCOPE": "full",
+    "CAMPAIGN_TIME_FREEZE": "1",
+    "WEATHER_SEED": "19281110",
+    "TITLE_SCREEN_SILENT": "1",
+    "APPDATA": "fresh run-local APPDATA",
+    "SHOT_DIR": "fresh run-local frames"
+  },
+  "fixture_environment": {
+    "DAYNIGHT_FORCE": "night",
+    "SCHEDULE": "0",
+    "explicit_campaign_clock": "1928-11-10 03:00, frozen test configuration",
+    "sleep_manual_clock": true,
+    "persistence_enabled": false
+  },
+  "expected_success": {
+    "actual_engine_exit": 0,
+    "diagnostic_gate_exit": 0,
+    "functional_failures": 0,
+    "all_checks_passed": true,
+    "real_shell_and_world_retirement": true,
+    "both_pngs_independently_inspected": true
+  },
+  "gaps_requiring_external_review": [
+    "Ordinary gate checks all present assertions but does not pin exact ordered check labels or explicit retirement assertions independently. Require the 14 labels declared here.",
+    "Ordinary gate records warnings, not a warning allowlist. Inspect every raw diagnostic; retained loader exceptions remain exact, not general error acceptance.",
+    "No V2 run is executed by this plan. Final source/engine hashes and full snapshots must come from the later isolated run.",
+    "Explicit root lane handoff, exact required HEAD and source hashes, empty engine lane and fresh output names are execution prerequisites.",
+    "No traversal, material observer, V1 zones/arcades/mirror, lift lifecycle, optimized-owner timing or production default cutover claim."
+  ],
+  "revision": {
+    "id": "base5ec_owner1a_01",
+    "supersedes_original_sha256": {
+      "plan.json": "9802665b19a6644b29be7d8a0ee50344d463cb04b18c1311fe9762cb377feb1d",
+      "README.md": "74f977d7ad8e460c76d1c28c8695e8fda4903b50a84fec4ffe2386322cbe52b7"
+    },
+    "reason": "The prior machine plan sampled the temporary d67 V1 material observer while its README required the base5ec fixture. This revision declares base5ec explicitly and requires owner1a and HEADda before invocation. Original bytes remain unchanged and copied under originals."
+  },
+  "required_head": "da68962aaeaabf56851abb7190dda14d7ff5675f"
+}

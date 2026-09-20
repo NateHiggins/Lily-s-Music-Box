@@ -245,6 +245,38 @@ class AuditError(Exception):
 # the heuristic classification for contracts confirmed by hand.
 # --------------------------------------------------------------------------
 KNOWN_CONTRACTS: dict[str, dict] = {
+    # Reviewed vocabulary collisions; retain visibility without pretending
+    # these local labels are aliases of anonymous v1 furniture anchors.
+    "id_reference:game/scripts/building/orison_v2_domestic_furniture.gd:bed": {
+        "spatial": [],
+        "disposition": "SAFE_TO_CHANGE",
+        "confidence": "HIGH",
+        "rationale": "Local furniture kind whitelist; this is not the v1 anonymous bed anchor.",
+    },
+    "id_reference:game/scripts/building/orison_v2_domestic_furniture.gd:desk": {
+        "spatial": [],
+        "disposition": "SAFE_TO_CHANGE",
+        "confidence": "HIGH",
+        "rationale": "Local furniture kind whitelist; this is not the v1 anonymous desk anchor.",
+    },
+    "id_reference:game/data/orison_v2/domestic_furniture.json:bed": {
+        "spatial": [],
+        "disposition": "SAFE_TO_CHANGE",
+        "confidence": "HIGH",
+        "rationale": "Furniture.kind assembly vocabulary; the mounted object uses furniture.id, not this v1 anonymous bed name.",
+    },
+    "id_reference:game/data/orison_v2/domestic_furniture.json:desk": {
+        "spatial": [],
+        "disposition": "SAFE_TO_CHANGE",
+        "confidence": "HIGH",
+        "rationale": "Furniture.kind assembly vocabulary; the mounted object uses furniture.id, not this v1 anonymous desk name.",
+    },
+    "id_reference:game/data/orison_v2/mina_routine.json:desk": {
+        "spatial": [],
+        "disposition": "SAFE_TO_CHANGE",
+        "confidence": "HIGH",
+        "rationale": "Mina route-local AStar label joined by paths and places; not a v1 desk lookup. Route points are transformed through the declared interior frame.",
+    },
     # -- Owner-first F01 production cut (M11C2). ---------------------------
     "asset_path:game/scripts/building/floor01_cell_registry.gd:*": {
         "authority": ["RUNTIME_LOOKUP"],
@@ -815,9 +847,17 @@ class Scanner:
                         finding.hit(i, symbol, context=line.strip()[:160],
                                     distance=distance, gameplay=True)
 
-            v3 = VECTOR3_LITERAL_RE.findall(line)
+            all_v3 = list(VECTOR3_LITERAL_RE.finditer(line))
+            # A literal inside an existing node's translated_local transform
+            # is an offset owned by that node, even though the destination is
+            # global_transform. Inspect each literal separately: an absolute
+            # camera/spawn coordinate on the same line must still be caught.
+            v3 = [match.groups() for match in all_v3 if not re.search(
+                r"\b[A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*\.global_transform"
+                r"\.translated_local\(\s*$", line[:match.start()])]
+            self.stats["vector3_total"] += len(all_v3)
+            self.stats["vector3_stats_only"] += len(all_v3) - len(v3)
             if v3:
-                self.stats["vector3_total"] += len(v3)
                 mag = max(abs(float(c)) for triple in v3 for c in triple)
                 gameplay = (strong_ctx or distance or
                             (weak_ctx and mag >= WEAK_MAGNITUDE))

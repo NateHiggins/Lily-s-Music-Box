@@ -1,0 +1,15 @@
+{
+  "schema": "astra.v2-terminal-operator-view.invocation.v1",
+  "started_at_utc": "2026-09-05T11:30:14.808991+00:00",
+  "status": "PREFLIGHT",
+  "orchestrator_sha256": "62ba391ad6ab3b91cc3740a1ee10b5c5cccf0390572631f67ccbc10f47050176",
+  "prior_offline_preflight": "A read-only hash lookup used the wrong building/apartment_encroachment.gd path and raised FileNotFoundError. No source was installed and no engine was launched. Correct owner is scripts/reality/apartment_encroachment.gd.",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "design/astra/work/vulkan_composed/run_case.py",
+    "v2",
+    "candidate",
+    "terminal_operator_view_v2_01"
+  ],
+  "scope": "single ordinary diagnostic; predicted failures remain gate red; no acceptance exception"
+}

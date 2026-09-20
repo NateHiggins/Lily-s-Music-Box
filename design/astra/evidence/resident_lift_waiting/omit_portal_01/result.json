@@ -1,0 +1,281 @@
+{
+  "schema": "astra-resident-lift-waiting-v1",
+  "mode": "lift",
+  "scene": "res://tests/ResidentLiftWaitingTest.tscn",
+  "test_path": "game/tests/resident_lift_waiting_test.gd",
+  "test_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_lift_waiting\\omit_portal_01\\command.ps1"
+  ],
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_lift_waiting\\omit_portal_01\\APPDATA",
+  "cleared_environment_keys": [
+    "ORISON_BUILDING_ROOT",
+    "SHOT_DIR",
+    "REALITY_TIME_OVERRIDE",
+    "REALITY_TIME",
+    "CAMPAIGN_TIME_FREEZE",
+    "DAYNIGHT_FORCE",
+    "SCHEDULE",
+    "VULKAN_PAIRING_CASE"
+  ],
+  "started_utc": "2026-09-05T06:38:58.163109+00:00",
+  "before": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3891,
+    "all_game_files_sha256": "a0474f01b90422f7eedf4a10bf4036462dbe4f536d4ba477f68cc0f61e8c9627",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "b781a9999677a2eaf3fce84d6f44c022506dc5cd31ef4560dc951df83d8fb5a6",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "4ea90db96a120e2f3e271ae7275a33ef50bd6c12e35d0bc9b43b907f0507a28d",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "scope": "Actual V1 resident lift route diagnostics; no performance, full haunt/day, or visual acceptance",
+  "finished_utc": "2026-09-05T06:39:58.635084+00:00",
+  "native_exit": 1,
+  "elapsed_seconds": 57.3024099999966,
+  "runner_pid": 16536,
+  "godot_process_observations": [
+    {
+      "elapsed_seconds": 0.5086176999975578,
+      "processes": [
+        {
+          "pid": 26536,
+          "parent_pid": 16536,
+          "executable": "Godot_v4.7.1-stable_win64_console.exe"
+        },
+        {
+          "pid": 8940,
+          "parent_pid": 26536,
+          "executable": "Godot_v4.7.1-stable_win64.exe"
+        }
+      ]
+    }
+  ],
+  "after": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3891,
+    "all_game_files_sha256": "a0474f01b90422f7eedf4a10bf4036462dbe4f536d4ba477f68cc0f61e8c9627",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "b781a9999677a2eaf3fce84d6f44c022506dc5cd31ef4560dc951df83d8fb5a6",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "4ea90db96a120e2f3e271ae7275a33ef50bd6c12e35d0bc9b43b907f0507a28d",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "source_unchanged": true,
+  "suite_completion": false,
+  "diagnostic_gate": {
+    "exit": 1,
+    "reasons": [
+      "native/runner exit 1",
+      "expected suite/capture completion absent or failed",
+      "2 non-inherited error headers"
+    ],
+    "light_unpair_count": 0,
+    "softshadow_underflow_count": 0,
+    "inherited_host_manifest_errors": 5,
+    "retention": [],
+    "non_inherited_errors": {
+      "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.925, 9.63, 7.4)": 1,
+      "ERROR: No wall-safe resident route on F04: (1.925, 9.63, 7.4) -> (9.7428, 9.63, 3.205)": 1
+    },
+    "warning_headers": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 965,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    }
+  },
+  "actual_renderer_lines": [
+    "Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080",
+    "[RENDER] forward_plus"
+  ],
+  "summary_lines": [
+    "[RESIDENT LIFT WAIT] RESULT 13 passed, 9 failed"
+  ],
+  "passing_assertion_lines": 13,
+  "visual_review": "NO_CAPTURE_REQUESTED",
+  "artifacts": [
+    {
+      "path": "after/game/scripts/building/building_root.gd",
+      "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "bytes": 134673
+    },
+    {
+      "path": "after/game/scripts/building/elevator.gd",
+      "sha256": "cd74647c4cf932be877a13ddabfcf30c2a8ca466f72e09314aa855344313d6f0",
+      "bytes": 33019
+    },
+    {
+      "path": "after/game/scripts/characters/resident_nav.gd",
+      "sha256": "2dce5e536aa301ae8aaa098bc160581ded1c24e52a7f7317ee40b182240f9fe5",
+      "bytes": 26160
+    },
+    {
+      "path": "after/game/scripts/characters/resident_routines.gd",
+      "sha256": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5",
+      "bytes": 43978
+    },
+    {
+      "path": "after/game/tests/resident_lift_waiting_test.gd",
+      "sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "bytes": 16210
+    },
+    {
+      "path": "after/game/tests/ResidentLiftWaitingTest.tscn",
+      "sha256": "0702fc39ebf6834f63d3b69dc1eac1590ff6f4c9fa5a2314d14e03f53904db3a",
+      "bytes": 198
+    },
+    {
+      "path": "after.all_game_files.json",
+      "sha256": "e76e7adc1fd1e168a98a991a1b49fff7833ef11c3f8e01c7a8a942e7d8b3780a",
+      "bytes": 551011
+    },
+    {
+      "path": "after.game.diff",
+      "sha256": "8935b102b0a3e24818838ad9134f8466a8edc13b8bcac8b77e60c37d6630fd7e",
+      "bytes": 7503
+    },
+    {
+      "path": "after.runtime_inputs.json",
+      "sha256": "906c96ac23a78df3b0e5cde404c4bd70369fb760f9c8614a8e5e72fa50d1d16c",
+      "bytes": 51869
+    },
+    {
+      "path": "before/game/scripts/building/building_root.gd",
+      "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "bytes": 134673
+    },
+    {
+      "path": "before/game/scripts/building/elevator.gd",
+      "sha256": "cd74647c4cf932be877a13ddabfcf30c2a8ca466f72e09314aa855344313d6f0",
+      "bytes": 33019
+    },
+    {
+      "path": "before/game/scripts/characters/resident_nav.gd",
+      "sha256": "2dce5e536aa301ae8aaa098bc160581ded1c24e52a7f7317ee40b182240f9fe5",
+      "bytes": 26160
+    },
+    {
+      "path": "before/game/scripts/characters/resident_routines.gd",
+      "sha256": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5",
+      "bytes": 43978
+    },
+    {
+      "path": "before/game/tests/resident_lift_waiting_test.gd",
+      "sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "bytes": 16210
+    },
+    {
+      "path": "before/game/tests/ResidentLiftWaitingTest.tscn",
+      "sha256": "0702fc39ebf6834f63d3b69dc1eac1590ff6f4c9fa5a2314d14e03f53904db3a",
+      "bytes": 198
+    },
+    {
+      "path": "before.all_game_files.json",
+      "sha256": "e76e7adc1fd1e168a98a991a1b49fff7833ef11c3f8e01c7a8a942e7d8b3780a",
+      "bytes": 551011
+    },
+    {
+      "path": "before.game.diff",
+      "sha256": "8935b102b0a3e24818838ad9134f8466a8edc13b8bcac8b77e60c37d6630fd7e",
+      "bytes": 7503
+    },
+    {
+      "path": "before.runtime_inputs.json",
+      "sha256": "906c96ac23a78df3b0e5cde404c4bd70369fb760f9c8614a8e5e72fa50d1d16c",
+      "bytes": 51869
+    },
+    {
+      "path": "command.ps1",
+      "sha256": "c154e8d6882dfbe19f3069c730465a3dc467a178683bd74d940beb26827139ff",
+      "bytes": 590
+    },
+    {
+      "path": "godot.stdout.log",
+      "sha256": "475a2b76636fb4c8daa79a5d0296f52b2feec786cdd1881354494add56cc5a09",
+      "bytes": 711758
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "sha256": "c323cb62df0f365f20d48e91ce82b9605ccd0b52a2253141c3d38b01d07c46b4",
+      "bytes": 414449
+    },
+    {
+      "path": "godot_process_observations.json",
+      "sha256": "e9f92ed53db2ae945c5a88ff44d5e360e8cf930878dd2cbdcb571b974067214b",
+      "bytes": 347
+    },
+    {
+      "path": "pairing_parser.source.py",
+      "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+      "bytes": 11935
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "84ba1e26d373b4d059f553210353c7f072f493d3d8bd1b87f86c0965dbd6f6d7",
+      "bytes": 2642
+    },
+    {
+      "path": "run_godot_serial.source.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "bytes": 8191
+    },
+    {
+      "path": "run_waiting.source.py",
+      "sha256": "4ea90db96a120e2f3e271ae7275a33ef50bd6c12e35d0bc9b43b907f0507a28d",
+      "bytes": 13108
+    },
+    {
+      "path": "runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner_pid.json",
+      "sha256": "f7d28604445a4959374c040a9034de8b27d14c0b05902ec61e67a7d4cc6a1266",
+      "bytes": 76
+    },
+    {
+      "path": "shots/resident_lift_waiting.json",
+      "sha256": "08e1aabe4fd0010ed9843fd45c35baf0af996f072b8a0123f37adf45477ff4a6",
+      "bytes": 65844
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "scope": "Nine completed runs plus two new failed fixture attempts; counts use immutable artifact maps and filesystem presence/stat only, no live assets rehashed.",
+  "by_run": [
+    {
+      "run": "nav_direct_03\\runs\\01_original_focused",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 24491539
+    },
+    {
+      "run": "nav_direct_03\\runs\\02_candidate_focused",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 24515106
+    },
+    {
+      "run": "nav_direct_03\\runs\\03_candidate_lifecycle",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25621645
+    },
+    {
+      "run": "nav_direct_03\\runs\\04_nav_call_omission_lifecycle",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25614849
+    },
+    {
+      "run": "nav_direct_03\\runs\\05_nav_restored_lifecycle",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25622440
+    },
+    {
+      "run": "nav_direct_03\\runs\\06_coordinate_omission_lifecycle",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25612781
+    },
+    {
+      "run": "nav_direct_03\\runs\\07_coordinate_restored_lifecycle",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25621795
+    },
+    {
+      "run": "nav_direct_03\\runs\\08_waiting_regression",
+      "recorded_artifacts_excluding_result": 2366,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25704741
+    },
+    {
+      "run": "nav_direct_03\\runs\\09_passage_regression",
+      "recorded_artifacts_excluding_result": 2365,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 25596433
+    },
+    {
+      "run": "nav_direct_01\\runs\\01_original_focused",
+      "recorded_artifacts_excluding_result": 2365,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 24484088
+    },
+    {
+      "run": "nav_direct_02\\runs\\01_original_focused",
+      "recorded_artifacts_excluding_result": 2365,
+      "raw_log_files": 4,
+      "raw_source_copies": 2340,
+      "recorded_artifact_bytes": 24486689
+    }
+  ],
+  "recorded_artifacts_excluding_11_result_jsons": 26023,
+  "result_jsons": 11,
+  "actual_raw_log_files": 44,
+  "missing_recorded_files": [],
+  "recorded_artifact_bytes": 277372106,
+  "raw_source_copies": 25740,
+  "distinct_source_payload_hashes": 1175,
+  "repeated_source_copy_instances": 24565,
+  "source_payload_hashes_repeated": 1175,
+  "repeated_source_copy_bytes": 242433764,
+  "source_pool_policy": "No source pool or raw-source rewrite introduced. Exact repeated before/after and cross-run bytes remain in place; Git may deduplicate identical blobs.",
+  "distinct_all_artifact_hashes": 1281
+}

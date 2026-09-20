@@ -476,7 +476,12 @@ func _build_car_identity(index: int, x0: float, x1: float,
 ## tear is loud, emits debris, stops at night or admits anything but traffic.
 ## It does make every centimetre of collision visible and closes Check 1's
 ## south-pavement leak without extending another unexplained wall.
-func _build_street_ends(parent: Node3D) -> void:
+func build_boundaries_only(parent: Node3D, open_east_north: bool = false) -> void:
+	add_to_group("storm_reflectors")
+	_build_street_ends(parent, open_east_north)
+	_emit_boxes(parent)
+
+func _build_street_ends(parent: Node3D, open_east_north: bool = false) -> void:
 	var body := StaticBody3D.new()
 	body.name = "StreetEndWeatherBoundary"
 	# Layer 1 is normal player collision.  The extra diagnostic bit lets the
@@ -503,9 +508,10 @@ func _build_street_ends(parent: Node3D) -> void:
 		# Three physical spans, three visible owners.  The two pavement pieces
 		# are construction hoarding; the live carriageway remains visually open
 		# to traffic but terminates for the player in dense, localised weather.
-		_add_boundary_shape(body, "%sNorthWorks" % label,
-				[x, NORTH_WALK_C, 1.20], [0.36, NORTH_WALK_D, 2.40],
-				"construction_hoarding")
+		if not (open_east_north and label == "East"):
+			_add_boundary_shape(body, "%sNorthWorks" % label,
+					[x, NORTH_WALK_C, 1.20], [0.36, NORTH_WALK_D, 2.40],
+					"construction_hoarding")
 		_add_boundary_shape(body, "%sStormCore" % label,
 				[x, ROAD_C, 1.20], [0.36, ROAD_D, 2.40],
 				"storm_curtain")
@@ -515,6 +521,7 @@ func _build_street_ends(parent: Node3D) -> void:
 
 		for walk in [[NORTH_WALK_C, NORTH_WALK_D, "north"],
 				[SOUTH_WALK_C, SOUTH_WALK_D, "south"]]:
+			if open_east_north and label == "East" and walk[2] == "north": continue
 			var centre: float = walk[0]
 			var depth: float = walk[1]
 			_box([x, centre, 1.20], [0.36, depth, 2.40],
@@ -543,12 +550,12 @@ func _build_street_ends(parent: Node3D) -> void:
 				"part": "road", "owner": "storm_curtain",
 				"centre": ROAD_C, "depth": ROAD_D})
 
-	_build_street_end_hoarding_faces(parent)
-	_build_street_end_marker_lamps(parent)
+	_build_street_end_hoarding_faces(parent, open_east_north)
+	_build_street_end_marker_lamps(parent, open_east_north)
 	boundary_count = body.get_child_count()
 
 
-func _build_street_end_hoarding_faces(parent: Node3D) -> void:
+func _build_street_end_hoarding_faces(parent: Node3D, open_east_north: bool = false) -> void:
 	# A baked wet-board face lets the architecture read under canonical 03:00
 	# ambient without spending a real light.  The subtle warm pool belongs to
 	# the instanced oil beacon below; it is material response, not illumination.
@@ -590,9 +597,10 @@ void fragment() {
 	# Vantry approach 02 sees the outward side of EastSouthWorks; there the raw
 	# batched collision box became a five-metre black rectangle.  Eight quads
 	# remain one draw and move no boundary.
-	multimesh.instance_count = 8
 	var faces := [[-20.10, -12.10, 5.30], [-20.10, -26.105, 4.422],
 			[20.60, -12.10, 5.30], [20.60, -26.105, 4.422]]
+	if open_east_north: faces.remove_at(2)
+	multimesh.instance_count = faces.size() * 2
 	for i in faces.size():
 		var row: Array = faces[i]
 		var x: float = row[0]
@@ -616,7 +624,7 @@ void fragment() {
 	parent.add_child(instance)
 
 
-func _build_street_end_marker_lamps(parent: Node3D) -> void:
+func _build_street_end_marker_lamps(parent: Node3D, open_east_north: bool = false) -> void:
 	# Four glow-only work beacons, one draw and zero real fixtures. They label
 	# the pavement works without casting another shadow map.
 	# (2026-08-16: this said "zero entries in the 16/16 light budget". That
@@ -637,9 +645,10 @@ func _build_street_end_marker_lamps(parent: Node3D) -> void:
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = sphere
-	multimesh.instance_count = 4
 	var lamps := [[-20.10, -12.10, 2.34], [-20.10, -26.105, 2.34],
 			[20.60, -12.10, 2.34], [20.60, -26.105, 2.34]]
+	if open_east_north: lamps.remove_at(2)
+	multimesh.instance_count = lamps.size()
 	for i in lamps.size():
 		multimesh.set_instance_transform(i,
 				Transform3D(Basis.IDENTITY, GameBoot.b2g(lamps[i])))

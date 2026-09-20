@@ -1,0 +1,8 @@
+ERROR: Condition "len == 0" is true. Returning: FAILED
+   at: update (core/crypto/hashing_context.cpp:54)
+   GDScript backtrace (most recent call first):
+       [0] _hash (res://scripts/game/reality_save_storage.gd:254)
+       [1] _journal_bytes (res://scripts/game/reality_save_storage.gd:160)
+       [2] write_snapshot (res://scripts/game/reality_save_storage.gd:101)
+       [3] _test_write_boundaries (res://tests/reality_save_recovery_test.gd:88)
+       [4] _ready (res://tests/reality_save_recovery_test.gd:24)

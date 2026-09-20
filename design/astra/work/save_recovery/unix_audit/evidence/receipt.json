@@ -1,0 +1,29 @@
+{
+  "scope": "isolated synthetic Python fixtures; no live scans or live edits",
+  "runs": [
+    {
+      "candidate": "original",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\save_recovery\\unix_audit\\run_checks.py",
+        "--child",
+        "original"
+      ],
+      "exit": 1,
+      "expected": 1,
+      "matches": true
+    },
+    {
+      "candidate": "candidate",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\save_recovery\\unix_audit\\run_checks.py",
+        "--child",
+        "candidate"
+      ],
+      "exit": 0,
+      "expected": 0,
+      "matches": true
+    }
+  ]
+}

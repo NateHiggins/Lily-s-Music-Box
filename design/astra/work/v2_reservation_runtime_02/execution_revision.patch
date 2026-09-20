@@ -1,0 +1,433 @@
+--- historical/runtime/run.py
++++ execution/runtime/run.py
+@@ -6,13 +6,14 @@
+ import shutil
+ import subprocess
+ import time
++import tempfile
+ import assess
+ import core
+ 
+ HERE = Path(__file__).resolve().parent
+ BASE = HERE.parent
+ ROOT = BASE.parents[3]
+-EVIDENCE = ROOT / "design/astra/evidence/v2_reservation_display_01"
++EVIDENCE = ROOT / "design/astra/evidence/v2_reservation_display_02"
+ OWNERS = ["game/scripts/building/orison_v2_blockout.gd", "game/scripts/building/orison_v2_runtime_root.gd"]
+ core.HERE = HERE
+ core.ROOT = ROOT
+@@ -85,7 +86,7 @@
+ 
+ def parameters_for(out, plan):
+     spec = next(row for row in plan["sequence"] if row["run_name"] == out.name)
+-    return {"ProjectPath": str(ROOT / "game"), "Scene": spec["scene"], "LogPath": str(out / "godot.stdout.log"), "ShotDir": str(out / "shots"), "TimeoutSeconds": 60, "Windowed": True, "ExtraArgs": ["--verbose", "--audio-driver", "Dummy", "--resolution", "1280x720", "--rendering-method", "forward_plus", "--rendering-driver", "vulkan"]}
++    return {"ProjectPath": str(ROOT / "game"), "Scene": spec["scene"], "LogPath": str(out / "godot.stdout.log"), "ShotDir": str(out / "shots"), "TimeoutSeconds": 180, "Windowed": True, "ExtraArgs": ["--verbose", "--audio-driver", "Dummy", "--resolution", "1280x720", "--rendering-method", "forward_plus", "--rendering-driver", "vulkan"]}
+ 
+ 
+ def require_prepared_request(request, out, plan):
+@@ -94,8 +95,104 @@
+ 
+ 
+ def require_restoration(receipt, expected):
+-    if receipt.get("status") != "EXACT_OWNED_SOURCES_RESTORED" or receipt.get("process_census") != [] or receipt.get("hashes") != expected:
++    if (receipt.get("status") != "EXACT_OWNED_SOURCES_RESTORED" or receipt.get("process_census") != []
++            or any(receipt.get(key) != expected for key in ("hashes", "expected_hashes", "restoration_input_hashes", "observed_final_hashes"))
++            or sorted(receipt.get("restored_paths", [])) != sorted(expected)):
+         raise ValueError("prior exact restoration proof missing or failed")
++
++
++def classify_lane(samples, child, wrapper_pid):
++    rows = {int(row["pid"]): row for sample in samples for row in sample["processes"]}
++    def owned(pid):
++        seen = set()
++        while pid in rows and pid not in seen:
++            seen.add(pid)
++            pid = rows[pid].get("parent_pid")
++            if pid == wrapper_pid: return True
++        return False
++    conflicts = []
++    for sample in samples:
++        for row in sample["processes"]:
++            current = rows[int(row["pid"])]
++            if (row.get("parent_pid"), row.get("executable")) != (current.get("parent_pid"), current.get("executable")):
++                conflicts.append(row)
++    foreign = [row for row in rows.values() if not owned(int(row["pid"]))]
++    actual = rows.get(child, {}).get("executable", "").lower() == core.ENGINE_NAME.lower() and owned(child)
++    return {"actual_child_ancestry_verified": actual, "owned_pids": sorted(pid for pid in rows if owned(pid)),
++        "foreign_processes": foreign, "conflicting_pid_observations": conflicts,
++        "lane_contract_exit": int(bool(foreign or conflicts)), "exclusive_performance_claim": False,
++        "scope": "Sampled Windows Godot-name census only; Linux/container engines require separate root admission. Foreign overlap stops progression independently of functional results."}
++
++
++def atomic_owner_copy(source, target):
++    temporary = None
++    try:
++        with tempfile.NamedTemporaryFile(dir=target.parent, prefix=target.name + ".astra-", suffix=".tmp", delete=False) as stream:
++            temporary = Path(stream.name)
++            stream.write(source.read_bytes())
++        if sha(temporary) != sha(source): raise ValueError("atomic source copy mismatch")
++        os.replace(temporary, target)
++    finally:
++        if temporary is not None and temporary.exists(): temporary.unlink()
++
++
++def transition_and_run(phase, desired, pre_hashes, success_restore, failure_restore, action):
++    receipt_path = EVIDENCE / (phase + ".restoration.json")
++    if receipt_path.exists(): raise ValueError("historical restoration receipt already exists")
++    desired_hashes = {rel:sha(path) for rel,path in desired.items()}
++    restoration = {"phase": phase, "status": "TRANSITION_NOT_COMPLETED", "pre_transition_hashes": pre_hashes,
++        "desired_hashes": desired_hashes, "copied_paths": [], "restored_paths": []}
++    verdict = 1
++    try:
++        if set(desired) != set(OWNERS) or set(pre_hashes) != set(OWNERS): raise ValueError("owned transition path set mismatch")
++        if core.godot_processes(): raise ValueError("lane busy before protected source transition")
++        if {rel:sha(ROOT/rel) for rel in OWNERS} != pre_hashes: raise ValueError("source changed before protected transition")
++        for rel,path in desired.items():
++            if sha(ROOT/rel) != pre_hashes[rel]: raise ValueError("source changed during transition")
++            atomic_owner_copy(path, ROOT/rel)
++            if sha(ROOT/rel) != desired_hashes[rel]: raise ValueError("installed owner hash mismatch")
++            restoration["copied_paths"].append(rel)
++        verdict = action()
++        return verdict
++    except BaseException as error:
++        restoration["execution_failure"] = {"type": type(error).__name__, "message": str(error)}
++        raise
++    finally:
++        try:
++            processes = core.godot_processes()
++            restoration["process_census"] = processes
++            if processes:
++                restoration["status"] = "RESTORATION_REFUSED_ACTIVE_PROCESS"
++                raise ValueError("active Godot process remains; source restoration refused")
++            target_phase, restored, expected = success_restore if verdict == 0 else failure_restore
++            restoration.update(target_phase=target_phase, expected_hashes=expected,
++                restoration_input_hashes={rel:sha(path) for rel,path in restored.items()})
++            if set(restored) != set(OWNERS) or restoration["restoration_input_hashes"] != expected:
++                restoration["status"] = "RESTORATION_REFUSED_INVALID_BOUND_INPUT"
++                raise ValueError("restoration source bytes differ from sealed expectations")
++            current = {rel:sha(ROOT/rel) for rel in OWNERS}
++            if any(value not in (pre_hashes[rel], desired_hashes[rel]) for rel,value in current.items()):
++                restoration["status"] = "RESTORATION_REFUSED_UNEXPECTED_OWNED_EDIT"
++                raise ValueError("refuse to overwrite unexpected owned-source edit")
++            for rel,path in restored.items():
++                if sha(ROOT/rel) != current[rel]: raise ValueError("owned source changed during restoration")
++                atomic_owner_copy(path, ROOT/rel)
++                if sha(ROOT/rel) != expected[rel]: raise ValueError("restored hash differs from bound expectation")
++                restoration["restored_paths"].append(rel)
++            restoration["hashes"] = {rel:sha(ROOT/rel) for rel in OWNERS}
++            restoration["status"] = "EXACT_OWNED_SOURCES_RESTORED"
++        except BaseException as error:
++            if not restoration["status"].startswith("RESTORATION_REFUSED"):
++                restoration["status"] = "RESTORATION_FAILED"
++            restoration["restoration_failure"] = {"type": type(error).__name__, "message": str(error)}
++            raise
++        finally:
++            observed = {}
++            for rel in OWNERS:
++                try: observed[rel] = sha(ROOT/rel) if (ROOT/rel).is_file() else None
++                except OSError as error: observed[rel] = {"read_error": str(error)}
++            restoration["observed_final_hashes"] = observed
++            dump(receipt_path, restoration)
+ 
+ 
+ def run_installed(phase, plan, manifest, state, desired):
+@@ -137,22 +234,18 @@
+     read = lambda rel: (out / rel).read_text(encoding="utf-8-sig", errors="replace") if (out / rel).is_file() else ""
+     try: probe = json.loads(read("shots/"+phase_spec["receipt_name"]))
+     except (ValueError, OSError): probe = None
+-    census_rows = {int(row["pid"]): row for sample in samples for row in sample["processes"]}
+     child = (probe or {}).get("pid")
+-    pid_ok = census_rows.get(child, {}).get("executable", "").lower() == core.ENGINE_NAME.lower()
+-    cursor = child
+-    for _ in range(8):
+-        cursor = census_rows.get(cursor, {}).get("parent_pid")
+-        if cursor == process.pid: break
+-    pid_ok = pid_ok and cursor == process.pid
++    lane_contract = classify_lane(samples, child, process.pid)
++    pid_ok = lane_contract["actual_child_ancestry_verified"]
+     verdict = assess.assess(probe, read("godot.stdout.log"), read("godot.stdout.log.stderr"), read("runner.stdout.log") + "\n" + read("runner.stderr.log"), process.returncode, before == after, pid_ok, before["engine_binaries"] == after["engine_binaries"], phase)
+-    result = {**config, "after": after, "actual_runner_exit": process.returncode, "serial_process_seconds": serial_elapsed, "source_unchanged": before == after, "pid_ancestry_verified": pid_ok, "assessment": verdict, "artifacts": {p.relative_to(out).as_posix(): sha(p) for p in out.rglob("*") if p.is_file() and "APPDATA" not in p.relative_to(out).parts}}
++    result = {**config, "after": after, "actual_runner_exit": process.returncode, "wrapper_pid": process.pid,
++        "lane_contract": lane_contract, "serial_process_seconds": serial_elapsed, "source_unchanged": before == after, "pid_ancestry_verified": pid_ok, "assessment": verdict, "artifacts": {p.relative_to(out).as_posix(): sha(p) for p in out.rglob("*") if p.is_file() and "APPDATA" not in p.relative_to(out).parts}}
+     try: verify_artifacts(out, result)
+     except (ValueError, OSError) as error:
+         verdict["reasons"].append(str(error)); verdict["diagnostic_gate_exit"] = 1; verdict["control_contract_exit"] = 1
+     dump(out / "result.json", result)
+-    print(json.dumps({"phase": phase, "actual_runner_exit": process.returncode, "assessment": verdict, "receipt": str(out / "result.json")}), flush=True)
+-    return verdict["control_contract_exit"]
++    print(json.dumps({"phase": phase, "actual_runner_exit": process.returncode, "assessment": verdict, "lane_contract": lane_contract, "receipt": str(out / "result.json")}), flush=True)
++    return max(verdict["control_contract_exit"], lane_contract["lane_contract_exit"])
+ 
+ 
+ def phase_run(phase):
+@@ -168,6 +261,8 @@
+         read = lambda rel: (out / rel).read_text(encoding="utf-8-sig", errors="replace")
+         prior_spec = next(row for row in plan["sequence"] if row["run_name"] == prior)
+         probe = json.loads(read("shots/"+prior_spec["receipt_name"]))
++        lane_contract = classify_lane(json.loads(read("process_observations.json")), probe.get("pid"), result["wrapper_pid"])
++        if lane_contract != result.get("lane_contract") or lane_contract["lane_contract_exit"] != 0: raise ValueError("prior sampled engine overlap requires review")
+         reproduced = assess.assess(probe, read("godot.stdout.log"), read("godot.stdout.log.stderr"), read("runner.stdout.log") + "\n" + read("runner.stderr.log"), result["actual_runner_exit"], result["before"] == result["after"], result["pid_ancestry_verified"], result["before"]["engine_binaries"] == result["after"]["engine_binaries"], prior)
+         if reproduced != result["assessment"]: raise ValueError("prior assessment was altered or cannot be reproduced")
+         restored = json.loads((EVIDENCE / (prior + ".restoration.json")).read_text())
+@@ -178,24 +273,10 @@
+     wanted = state["files"] if index == 0 else {**state["files"], **{rel:sha(path) for rel,path in candidate_sources.items()}}
+     if dict(core.all_game_rows()) != wanted: raise ValueError("unexpected source before phase")
+     _, desired = owner_sources(plan, phase)
+-    for rel,path in desired.items(): shutil.copy2(path, ROOT / rel)
+-    verdict = 1
+-    try:
+-        verdict = run_installed(phase, plan, manifest, state, desired)
+-        return verdict
+-    finally:
+-        processes = core.godot_processes()
+-        restoration = {"phase": phase, "process_census": processes, "status": "UNCHANGED"}
+-        if processes:
+-            restoration["status"] = "RESTORATION_REFUSED_ACTIVE_PROCESS"
+-        else:
+-            target_phase = "01_candidate" if "omission" in phase or verdict == 0 or index > 0 else "preinstall"
+-            restored = {rel:EVIDENCE/"preinstall"/rel for rel in OWNERS} if target_phase == "preinstall" else owner_sources(plan, target_phase)[1]
+-            if any(sha(ROOT/rel) != sha(path) for rel,path in desired.items()): raise ValueError("refuse to overwrite unexpected owned-source edit")
+-            for rel,path in restored.items(): shutil.copy2(path, ROOT/rel)
+-            restoration.update(status="EXACT_OWNED_SOURCES_RESTORED", target_phase=target_phase, hashes={rel:sha(ROOT/rel) for rel in OWNERS})
+-        dump(EVIDENCE / (phase + ".restoration.json"), restoration)
+-        if processes: raise ValueError("active Godot process remains; source restoration refused")
++    candidate_restore = ("01_candidate", candidate_sources, {rel:sha(path) for rel,path in candidate_sources.items()})
++    failure_restore = candidate_restore if index > 0 else ("preinstall", {rel:EVIDENCE/"preinstall"/rel for rel in OWNERS}, {rel:plan["source_bindings_sha256"][rel] for rel in OWNERS})
++    return transition_and_run(phase, desired, {rel:wanted[rel] for rel in OWNERS}, candidate_restore, failure_restore,
++        lambda: run_installed(phase, plan, manifest, state, desired))
+ 
+ 
+ if __name__ == "__main__":
+--- historical/runtime/test_runner_contract.py
++++ execution/runtime/test_runner_contract.py
+@@ -35,12 +35,84 @@
+ 
+     def test_failed_missing_and_active_process_restoration_refuse(self):
+         expected = {"game/a.gd": "abcd"}
+-        good = {"status": "EXACT_OWNED_SOURCES_RESTORED", "process_census": [], "hashes": expected}
++        good = {"status": "EXACT_OWNED_SOURCES_RESTORED", "process_census": [], "restored_paths": list(expected),
++            **{key:expected for key in ("hashes", "expected_hashes", "restoration_input_hashes", "observed_final_hashes")}}
+         run.require_restoration(good, expected)
+         for key, value in [("status", "FAILED"), ("process_census", [{"pid": 77}]), ("hashes", {"game/a.gd": "wrong"})]:
+             bad = {**good, key: value}
+             with self.subTest(key=key), self.assertRaises(ValueError): run.require_restoration(bad, expected)
+         with self.assertRaises(ValueError): run.require_restoration({}, expected)
++
++    def test_180_second_cap_is_exact_in_actual_and_all_requests(self):
++        for phase in run.assess.PLAN["sequence"]:
++            request = json.loads((run.BASE / phase["request"]).read_text())
++            self.assertEqual(request["parameters"]["TimeoutSeconds"], 180)
++            self.assertEqual(run.parameters_for(run.EVIDENCE / "runs" / phase["run_name"], run.assess.PLAN)["TimeoutSeconds"], 180)
++
++    def test_owned_launcher_and_child_are_admitted(self):
++        samples = [{"processes":[{"pid":2,"parent_pid":1,"executable":"launcher.exe"},
++            {"pid":3,"parent_pid":2,"executable":run.core.ENGINE_NAME}]}]
++        result = run.classify_lane(samples, 3, 1)
++        self.assertTrue(result["actual_child_ancestry_verified"])
++        self.assertEqual(result["owned_pids"], [2,3])
++        self.assertEqual(result["lane_contract_exit"], 0)
++
++    def test_foreign_engine_that_disappears_still_blocks_progression(self):
++        owned = {"pid":3,"parent_pid":1,"executable":run.core.ENGINE_NAME}
++        foreign = {"pid":7,"parent_pid":99,"executable":run.core.ENGINE_NAME}
++        samples = [{"processes":[owned,foreign]}, {"processes":[owned]}, {"processes":[]}]
++        result = run.classify_lane(samples, 3, 1)
++        self.assertTrue(result["actual_child_ancestry_verified"])
++        self.assertEqual(result["foreign_processes"], [foreign])
++        self.assertEqual(result["lane_contract_exit"], 1)
++
++    def transition_control(self, fault):
++        with tempfile.TemporaryDirectory() as folder:
++            root = Path(folder); evidence = root / "evidence"; evidence.mkdir()
++            desired, backups, pre = {}, {}, {}
++            for index, rel in enumerate(run.OWNERS):
++                live = root / rel; live.parent.mkdir(parents=True, exist_ok=True); live.write_bytes(f"old{index}".encode())
++                pre[rel] = run.sha(live)
++                backup = root / "backup" / rel; backup.parent.mkdir(parents=True, exist_ok=True); backup.write_bytes(live.read_bytes()); backups[rel] = backup
++                candidate = root / "candidate" / rel; candidate.parent.mkdir(parents=True, exist_ok=True); candidate.write_bytes(f"candidate{index}".encode()); desired[rel] = candidate
++            expected_candidate = {rel:run.sha(path) for rel,path in desired.items()}
++            original_copy = run.atomic_owner_copy; calls = []
++            def copy_owner(source, target):
++                calls.append((source,target))
++                if fault == "second_copy" and len(calls) == 2: raise OSError("injected second copy failure")
++                if fault == "restore_write" and len(calls) == 3: raise OSError("injected restoration write failure")
++                original_copy(source,target)
++                if fault == "restore_hash" and len(calls) == 3: target.write_bytes(b"unexpected restored bytes")
++            def action():
++                if fault == "foreign_edit": (root/run.OWNERS[0]).write_bytes(b"foreign edit: preserve")
++                return 0 if fault == "success" else 1
++            if fault == "backup": backups[run.OWNERS[0]].write_bytes(b"corrupt backup")
++            census = [[],[{"pid":909}]] if fault == "active" else [[],[]]
++            with patch.object(run,"ROOT",root), patch.object(run,"EVIDENCE",evidence), patch.object(run,"atomic_owner_copy",side_effect=copy_owner), patch.object(run.core,"godot_processes",side_effect=census):
++                if fault == "success":
++                    self.assertEqual(run.transition_and_run("fixture",desired,pre,("01_candidate",desired,expected_candidate),("preinstall",backups,pre),action),0)
++                else:
++                    with self.assertRaises((ValueError,OSError)):
++                        run.transition_and_run("fixture",desired,pre,("01_candidate",desired,expected_candidate),("preinstall",backups,pre),action)
++            receipt = json.loads((evidence/"fixture.restoration.json").read_text())
++            if fault in ("success","second_copy"):
++                expected = expected_candidate if fault == "success" else pre
++                run.require_restoration(receipt,expected)
++                self.assertEqual({rel:run.sha(root/rel) for rel in run.OWNERS},expected)
++            else:
++                self.assertNotEqual(receipt["status"],"EXACT_OWNED_SOURCES_RESTORED")
++                self.assertIn("restoration_failure",receipt)
++            if fault == "second_copy": self.assertEqual(len(receipt["copied_paths"]),1)
++            if fault == "foreign_edit": self.assertEqual((root/run.OWNERS[0]).read_bytes(),b"foreign edit: preserve")
++            if fault == "active": self.assertEqual(receipt["status"],"RESTORATION_REFUSED_ACTIVE_PROCESS")
++
++    def test_success_restores_exact_candidate_and_receipt(self): self.transition_control("success")
++    def test_second_copy_failure_restores_both_originals_and_retains_receipt(self): self.transition_control("second_copy")
++    def test_foreign_owned_edit_is_preserved_with_refusal_receipt(self): self.transition_control("foreign_edit")
++    def test_corrupt_preinstall_backup_is_rejected_with_receipt(self): self.transition_control("backup")
++    def test_restoration_write_failure_retains_receipt(self): self.transition_control("restore_write")
++    def test_restoration_hash_failure_retains_receipt(self): self.transition_control("restore_hash")
++    def test_active_process_refuses_restoration_with_receipt(self): self.transition_control("active")
+ 
+     def test_artifact_map_omission_and_mutated_log_refuse(self):
+         with tempfile.TemporaryDirectory() as folder:
+--- historical/README.md
++++ execution/README.md
+@@ -8,19 +8,19 @@
+ 
+ All four weak-reference retirement observations and acoustic restoration are explicit receipt fields and checks. The fixture does not teleport actors, run input actions or claim collision-bearing travel. The unchanged 39-check terminal fixture separately owns controlled arrival/operator position, physical acquisition, real input, audio, call ownership and retirement.
+ 
+-`runtime/run.py` reuses the established `core.py`, `support.py` and JSON-splat PowerShell bridge as imported utilities. It explicitly overrides their historical locations. Its four requests stay windowed Forward+ with fresh profiles, a 60-second canonical serial cap, exact source/engine/PID/artifact bindings, ordinary native-error gating and retained known warning debt. The terminal phase delegates to an exact copy of the sealed arrival-02 assessor with its exact original 39-check preparation, captured as an instrument. No terminal assertion is rewritten for the display change.
++`runtime/run.py` reuses the established `core.py`, `support.py` and JSON-splat PowerShell bridge as imported utilities. It explicitly overrides their historical locations. Its four requests stay windowed Forward+ with fresh profiles, a 180-second canonical serial cap, exact source/engine/PID/artifact bindings, ordinary native-error gating and retained known warning debt. The terminal phase delegates to an exact copy of the sealed arrival-02 assessor with its exact original 39-check preparation, captured as an instrument. No terminal assertion is rewritten for the display change.
+ 
+ After root review and a new exclusive source/engine handoff:
+ 
+ ```powershell
+-python design/astra/work/v2_reservation_runtime_01/runtime/run.py install
+-python design/astra/work/v2_reservation_runtime_01/runtime/run.py 01_candidate
+-python design/astra/work/v2_reservation_runtime_01/runtime/run.py 02_production_flag_omission
+-python design/astra/work/v2_reservation_runtime_01/runtime/run.py 03_restored_candidate
+-python design/astra/work/v2_reservation_runtime_01/runtime/run.py 04_terminal_regression
++python design/astra/work/v2_reservation_runtime_02/runtime/run.py install
++python design/astra/work/v2_reservation_runtime_02/runtime/run.py 01_candidate
++python design/astra/work/v2_reservation_runtime_02/runtime/run.py 02_production_flag_omission
++python design/astra/work/v2_reservation_runtime_02/runtime/run.py 03_restored_candidate
++python design/astra/work/v2_reservation_runtime_02/runtime/run.py 04_terminal_regression
+ ```
+ 
+-Installation requires the original blockout `0bdbâ€¦`, accepted terminal runtime `03dâ€¦`, DeskZone `2208â€¦`, unchanged terminal fixture `800dâ€¦`/`58efâ€¦`, and the pending terminal-checkpoint HEAD. It adds only the two new reservation fixture files, backs up the two production owners, and leaves production unchanged until phase 01. Execution HEAD is deliberately unbound until root sends its completed terminal checkpoint; installation refuses while it is pending. Every phase keeps unrelated game inputs frozen and refuses an occupied engine lane. These controls cannot prevent an unrelated process from launching between censuses; a new refusal must be preserved and reviewed additively.
++Installation requires the original blockout `0bdbÃ¢â‚¬Â¦`, accepted terminal runtime `03dÃ¢â‚¬Â¦`, DeskZone `2208Ã¢â‚¬Â¦`, unchanged terminal fixture `800dÃ¢â‚¬Â¦`/`58efÃ¢â‚¬Â¦`, and terminal-checkpoint HEAD `02fcb18a209624c9b609b65fb44b05b45c65de09`. It adds only the two new reservation fixture files, backs up the two production owners, and leaves production unchanged until phase 01. Execution HEAD is now bound; captured `af9c` provenance remains historical. The install baseline records all current game files without claiming every unowned path equals HEAD. Every phase keeps unrelated game inputs frozen and refuses an occupied engine lane. These controls cannot prevent an unrelated process from launching between censuses; a new refusal must be preserved and reviewed additively.
+ 
+ | Phase | Prediction, not result | Native / ordinary gate |
+ |---|---:|---:|
+@@ -31,7 +31,7 @@
+ 
+ The single omission removes only production's `show_reservation_volumes=false` line by using the exact accepted terminal `03d` runtime while keeping the candidate blockout. Its three expected failures are the production flag, 70 visible envelopes and eight visible clearances. The default and hidden bare-blockout comparisons must still pass. No extra renderer negatives are planned. A negative control remains an ordinary product red; `control_contract_exit=0` means only that its exact expected failure was observed. The controller restores candidate bytes after the omission and leaves a clean candidate installed after successful completion. Unexpected first-candidate failure restores the original owners; any unresolved restoration refusal requires root review.
+ 
+-Fresh focused evidence is `design/astra/evidence/v2_reservation_display_01`. Source snapshots copy 17 selected game files plus the bound full game manifest, rather than introducing another large asset archive. The earlier failed terminal receipts retain their original source and interpretation.
++Fresh focused evidence is `design/astra/evidence/v2_reservation_display_02`. Source snapshots copy 17 selected game files plus the bound full game manifest, rather than introducing another large asset archive. The earlier failed terminal receipts retain their original source and interpretation.
+ 
+ ## Candidate-compatible capture binding
+ 
+@@ -45,8 +45,20 @@
+ 
+ Require actual native/base gate 0, all 21 existing labels, completed payload, exact source equality and retirement. Require camera `(-9.9,11.01,1.25)` and operator `(-9.9,9.6,1.25)` from the payload, clear actual SignalScope sightline, retained original bedside obstruction, and both reservation meshes hidden with unchanged bounds/no collision descendants. The capture's old root-axis front observation is valid only with this exact unchanged SignalScope Z90 geometry and the separately passing physical-cap oracle in the 39-check regression; it is not a new general model-orientation contract.
+ 
+-Inspect both PNGs directly: normal `v2_actual_f04_semantic_stance` at 1280Ã—720 and phone `v2_actual_f04_phone` at 320Ã—240. Compare with the completed terminal-only baseline captured before this display change. Pixel review, input proof, native errors and source integrity remain separate results. No walk, furniture completion, lift implementation or performance acceptance follows from the display flag or elapsed duration.
++Inspect both PNGs directly: normal `v2_actual_f04_semantic_stance` at 1280Ãƒâ€”720 and phone `v2_actual_f04_phone` at 320Ãƒâ€”240. Compare with the completed terminal-only baseline captured before this display change. Pixel review, input proof, native errors and source integrity remain separate results. No walk, furniture completion, lift implementation or performance acceptance follows from the display flag or elapsed duration.
+ 
+ The unchanged existing `OrisonV2BlockoutTest` remains a separately callable geometry regression under the same candidate. Its source hash is recorded; its existing assertions must not be lowered. The focused structural comparison does not substitute for a new perceptual review.
+ 
+ `offline_validation_01` retains an actual Python visibility-validator omission red (exit1) and restored13-test green (exit0). These are parser/controller controls, not Godot results.
++
++## Reviewed execution revision
++
++This sibling preserves the entire original `v2_reservation_runtime_01` package; `historical_parent.json` binds all of its original bytes, including the earlier 13-control red/green proof. The original production/fixture proposals, canonical runner, bridge, core utilities, known diagnostic set and terminal39 assessor are unchanged. `execution_revision.patch` identifies the new controller/request/document changes.
++
++The two-owner transition now runs inside restoration handling. Atomic single-path copies avoid half-written owner files; a failure between owners still restores recognized pre-transition/desired bytes. First-candidate failure restores bound preinstall originals; later failures and omission completion restore bound candidate sources. All restoration inputs are checked before writes, each restored hash is verified immediately, and independent restoration receipts survive copy failure, unknown edit, corrupt backup, active native process and failed restoration write/hash. Unknown edits are preserved. A refused or failed receipt blocks progression; it must be resolved through separately reviewed additive recovery, never rewritten.
++
++A separate lane contract classifies observed launcher/engine ancestry and foreign native PIDs, including a foreign process that disappears before the final census. Its failure stops progression while preserving the ordinary functional/native assessment. Default admission is strict: no active native Godot and no overlapping container engine work admitted by root. The native census cannot see Linux containers; root must drain the completed Docker demonstration first. No sampled census provides an absolute exclusivity or performance guarantee.
++
++The candidate capture uses the same strict lane policy through root's external invocation. `capture_binding.json` binds the completed terminal-only baseline result and viewed review; no new baseline run is required. Both candidate PNGs still need direct review.
++
++`offline_validation_02` contains the updated 23-test controller/assessor proof and a new actual Python red that omits only foreign-PID rejection. The copied `offline_validation_01` remains historical evidence for the earlier instrument. Neither constitutes a Godot result.
+--- historical/capture_binding.json
++++ execution/capture_binding.json
+@@ -56,5 +56,21 @@
+     "F04_B_TERMINAL_USE",
+     "F04_B_TERMINAL_STANCE"
+   ],
+-  "scope": "Unchanged existing controlled operator/phone capture, with independently validated final pose and all21 checks. The unchanged39 terminal regression owns actual input and physical SignalScope front; capture is no traversal/input/performance proof. Actual pixels require direct review."
++  "scope": "Unchanged existing controlled operator/phone capture, with independently validated final pose and all21 checks. The unchanged39 terminal regression owns actual input and physical SignalScope front; capture is no traversal/input/performance proof. Actual pixels require direct review.",
++  "required_execution_head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
++  "matched_baseline": {
++    "result": "design/astra/evidence/vulkan_composed/runs/terminal_candidate_view_v2_01/result.json",
++    "result_sha256": "f6856b6bd3fca585a12123222c9fc9ba88698f923dd816124e34b6ddd40fe249",
++    "review": "design/astra/reviews/v2_terminal_candidate_view_01.json",
++    "review_sha256": "3a11228440443cc91524df8718e95138039afb5dc1810a2510178510ce3fd871",
++    "scope": "Completed accepted terminal-only21 capture; reuse these two reviewed PNGs, no additional unchanged baseline."
++  },
++  "lane_policy": {
++    "native_prelaunch": "Require empty native Godot census and separately drained Linux/container batch before source transition.",
++    "during_run": "Any sampled foreign native Godot PID is a lane-contract failure independent of functional/base gate; stop progression and preserve exact rows.",
++    "restoration": "Require empty current native census; exact5ec restore and immediate source hash verification, additive refusal if occupied or unrecognized source.",
++    "capture_acceptance": "No observed foreign engine overlap; record external invocation/source transitions, raw native outcome, actual21 labels/retirement and inspect both PNGs directly.",
++    "exclusive_performance_claim": false,
++    "sampling_limit": "Census observations cannot prove absence of unsampled or unlabelled external engine work."
++  }
+ }
+--- historical/requests/01_candidate.json
++++ execution/requests/01_candidate.json
+@@ -3,9 +3,9 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\01_candidate\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\01_candidate\\shots",
+-    "TimeoutSeconds": 60,
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\01_candidate\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\01_candidate\\shots",
++    "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+       "--verbose",
+--- historical/requests/02_production_flag_omission.json
++++ execution/requests/02_production_flag_omission.json
+@@ -3,9 +3,9 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\02_production_flag_omission\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\02_production_flag_omission\\shots",
+-    "TimeoutSeconds": 60,
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\02_production_flag_omission\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\02_production_flag_omission\\shots",
++    "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+       "--verbose",
+--- historical/requests/03_restored_candidate.json
++++ execution/requests/03_restored_candidate.json
+@@ -3,9 +3,9 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\03_restored_candidate\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\03_restored_candidate\\shots",
+-    "TimeoutSeconds": 60,
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\03_restored_candidate\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\03_restored_candidate\\shots",
++    "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+       "--verbose",
+--- historical/requests/04_terminal_regression.json
++++ execution/requests/04_terminal_regression.json
+@@ -3,9 +3,9 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2TerminalAccessTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\04_terminal_regression\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_01\\runs\\04_terminal_regression\\shots",
+-    "TimeoutSeconds": 60,
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\04_terminal_regression\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\04_terminal_regression\\shots",
++    "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+       "--verbose",

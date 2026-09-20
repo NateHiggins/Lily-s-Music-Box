@@ -1,0 +1,551 @@
+--- a/game/scripts/game/chirp_hunt.gd
++++ b/game/scripts/game/chirp_hunt.gd
+@@ -97,10 +97,10 @@
+ 		evidence = spine.job_library.job(JOB_ID).get(
+ 				"evidence_flags", []).duplicate()
+ 	if stage == "" \
+-			or not spine.adopt_job(JOB_ID, "reported", stage, evidence):
++			or not spine.adopt_job(JOB_ID, "reported", stage, evidence, LEGACY_ORDER_ID):
+ 		if spine.job_stage(JOB_ID) == "missing":
+ 			return
+-	spine.retire_order(LEGACY_ORDER_ID)
++	spine.retire_order(LEGACY_ORDER_ID, JOB_ID)
+ 
+ 
+ ## Mina's reported origin. K4 routes her actual complaint; the entry point
+--- a/game/scripts/game/maintenance_inventory.gd
++++ b/game/scripts/game/maintenance_inventory.gd
+@@ -14,6 +14,10 @@
+ signal part_consumed(item_id: String)
+ 
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ func setup() -> void:
+ 	if not RealityState.data.has("maintenance_items"):
+ 		RealityState.data.maintenance_items = {}
+@@ -25,9 +29,11 @@
+ 	var items := _items()
+ 	if items.has(item_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	items[item_id] = {
+ 		"shop_id": shop_id, "consumed": false,
+-		"acquired_at": Time.get_unix_time_from_system(),
++		"acquired_at": _clock.elapsed_minutes(), "acquired_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.commit()
+ 	part_acquired.emit(item_id, shop_id)
+@@ -38,8 +44,11 @@
+ 	var items := _items()
+ 	if not items.has(item_id) or bool(items[item_id].consumed):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	items[item_id].consumed = true
+-	items[item_id].consumed_at = Time.get_unix_time_from_system()
++	items[item_id].consumed_at = _clock.elapsed_minutes()
++	items[item_id].consumed_at_basis = TIMESTAMP_BASIS
+ 	RealityState.commit()
+ 	part_consumed.emit(item_id)
+ 	return true
+--- a/game/scripts/game/work_orders.gd
++++ b/game/scripts/game/work_orders.gd
+@@ -27,6 +27,10 @@
+ signal job_stage_changed(job_id: String, from_stage: String,
+ 		to_stage: String, state: Dictionary)
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var tracker: ObjectiveTracker
+ var job_library: MaintenanceJobLibrary
+ 
+@@ -48,9 +52,12 @@
+ 	var orders: Dictionary = RealityState.data.get("work_orders", {})
+ 	if orders.has(order_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	orders[order_id] = {
+ 		"title": title, "objective": objective, "source": source,
+-		"status": "issued", "issued_at": Time.get_unix_time_from_system(),
++		"status": "issued", "issued_at": _clock.elapsed_minutes(),
++		"issued_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.data.work_orders = orders
+ 	RealityState.commit()
+@@ -73,8 +80,11 @@
+ 	var order := _order(order_id)
+ 	if order.is_empty() or str(order.get("status", "")) == "closed":
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	order.status = "closed"
+-	order.closed_at = Time.get_unix_time_from_system()
++	order.closed_at = _clock.elapsed_minutes()
++	order.closed_at_basis = TIMESTAMP_BASIS
+ 	RealityState.commit()
+ 	if tracker:
+ 		tracker.show_objective(str(order.title), closing_note)
+@@ -126,10 +136,12 @@
+ 	var jobs := _jobs()
+ 	if jobs.has(job_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	jobs[job_id] = {
+ 		"stage": "issued", "origin": origin, "evidence": [],
+ 		"repair_result": {},
+-		"issued_at": Time.get_unix_time_from_system(),
++		"issued_at": _clock.elapsed_minutes(), "issued_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.commit()
+ 	_present_job(job_id)
+@@ -221,17 +233,31 @@
+ ## it refuses to overwrite an existing record, and the record is validated
+ ## like a restore. The caller owns the mapping; this owns the legality.
+ func adopt_job(job_id: String, origin: String, stage: String,
+-		evidence: Array) -> bool:
++		evidence: Array, legacy_order_id := "") -> bool:
+ 	if _jobs().has(job_id):
++		return false
++	var legacy := _order(legacy_order_id).duplicate(true)
++	if not legacy_order_id.is_empty() and legacy.is_empty():
+ 		return false
+ 	var record := {
+ 		"stage": stage, "origin": origin, "evidence": evidence.duplicate(),
+ 		"repair_result": {},
+-		"issued_at": Time.get_unix_time_from_system(),
+ 		"migrated_from": "legacy_order",
+ 	}
+ 	if not _valid_job_record(job_id, record):
+ 		return false
++	if not _clock.bind_state():
++		return false
++	# Adoption is observed now; it cannot establish the original issue time.
++	record.adopted_at = _clock.elapsed_minutes()
++	record.adopted_at_basis = TIMESTAMP_BASIS
++	if not legacy_order_id.is_empty():
++		record.legacy_order_id = legacy_order_id
++		record.legacy_order = legacy
++		# Preserve old units and any existing qualification verbatim.
++		for fact in ["issued_at", "issued_at_basis"]:
++			if legacy.has(fact):
++				record[fact] = legacy[fact]
+ 	_jobs()[job_id] = record
+ 	RealityState.commit()
+ 	_present_job(job_id)
+@@ -243,18 +269,32 @@
+ 
+ ## Delete a legacy simple order whose fault has been adopted by the
+ ## data-authored lifecycle. Migration cleanup only.
+-func retire_order(order_id: String) -> bool:
++func retire_order(order_id: String, successor_job_id := "") -> bool:
+ 	var orders: Dictionary = RealityState.data.get("work_orders", {})
+ 	if not orders.has(order_id):
+ 		return false
++	if not successor_job_id.is_empty():
++		var successor := _job(successor_job_id)
++		if successor.is_empty() or not _clock.bind_state():
++			return false
++		# Coexisting authored progress wins, but its source history is not discarded.
++		# Conflicting archival history refuses retirement rather than overwriting it.
++		if successor.has("legacy_order"):
++			if successor.get("legacy_order_id", "") != order_id \
++					or successor.legacy_order != orders[order_id]:
++				return false
++		else:
++			successor.legacy_order_id = order_id
++			successor.legacy_order = orders[order_id].duplicate(true)
+ 	orders.erase(order_id)
+ 	RealityState.commit()
+ 	return true
+ 
+ 
+ ## Authoritative facts only, as pure data for the K4 persistence wiring.
+-## Objective text and any other presentation is deliberately absent: it is
+-## reconstructed from the job library on restore.
++## Active objective text is reconstructed from the job library on restore.
++## An opaque legacy_order archive may retain its original labels as history;
++## no presentation or deadline reads those archived labels or timestamps.
+ func serialize_jobs() -> Dictionary:
+ 	return {"jobs": _jobs().duplicate(true)}
+ 
+--- a/game/scripts/props/night_register_prop.gd
++++ b/game/scripts/props/night_register_prop.gd
+@@ -215,6 +215,10 @@
+ ## `sign_register()` moves the last one into RealityState.
+ var slip_taken := false
+ var keys_out := {APARTMENT_HOOK: false, PLANT_HOOK: false}
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var signed_lines := 0
+ 
+ ## SR7-H. The slide's detent, 0..4, where 0 is blank and is where it rests.
+@@ -615,8 +619,10 @@
+ 		# words there or there are no words.
+ 		_balk(1.6, "index")
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	var line := {
+-		"at": Time.get_unix_time_from_system(),
++		"at": _clock.elapsed_minutes(), "at_basis": TIMESTAMP_BASIS,
+ 		# THE KEY IS `filing`, and that is not a preference. It is what
+ 		# `FirstShiftDirector.accept_signed_register` reads. The director
+ 		# also requires `report_out` false and `keys_out` empty before it
+--- a/game/scripts/reality/organism_incidents.gd
++++ b/game/scripts/reality/organism_incidents.gd
+@@ -71,6 +71,10 @@
+ }
+ const DEFAULT_VOICE := "%s, %s. There is something growing in here that isn't damp, and it came in from the corridor. Please come and look."
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var encroachment: Node
+ var work_orders: WorkOrders
+ var root: Node
+@@ -248,6 +252,12 @@
+ 
+ 
+ func _report(unit: String, case_id: String, presence: Dictionary) -> void:
++	if not _clock.bind_state():
++		return
++	# Work-order commits/signals can protect the save before this report
++	# finishes. Keep the validated event time; later write refusal remains
++	# visible through RealityState and does not mean this report persisted.
++	var observed_minute := _clock.elapsed_minutes()
+ 	var flat: Dictionary = flats[unit]
+ 	var ledger: Dictionary = RealityState.data.organism_incidents
+ 	var n := int(ledger.get(unit, {}).get("count", 0)) + 1
+@@ -261,7 +271,8 @@
+ 	var at: Vector3 = presence.at
+ 	ledger[unit] = {
+ 		"count": n, "order_id": order_id, "case_id": case_id, "owner": owner,
+-		"reported_at": Time.get_unix_time_from_system(), "condition": "", "prop": "",
++		"reported_at": observed_minute, "reported_at_basis": TIMESTAMP_BASIS,
++		"condition": "", "prop": "",
+ 		"rolls": 0, "fixed": false, "closed": false, "at": [at.x, at.y, at.z],
+ 	}
+ 	RealityState.data.organism_incidents = ledger
+--- /dev/null
++++ b/game/tests/world_timestamp_test.gd
+@@ -0,0 +1,300 @@
++extends Node
++## Real owner operations and real save/load; no new methods needed by the old-
++## source red. Survey presence is injected at the existing report callback. This
++## does not claim a physical route, real organism dwell or separate-process proof.
++
++const INCIDENTS = preload("res://scripts/reality/organism_incidents.gd")
++const SAVE_PATH := "user://tests/world_timestamp/campaign.json"
++const BASIS := "campaign_elapsed_minutes"
++const JOB := "lena_radiator_round_2b"
++const CHIRP := "vantry_chirp_2a"
++const LEGACY := "WO-VANTRY-001"
++var checks := 0
++var failures := 0
++var samples := 0
++var clock := CampaignClock.new()
++var inventory: MaintenanceInventory
++var work_orders: WorkOrders
++var incidents: Node
++var building: StandInBuilding
++var board: NightRegisterProp
++
++class StandInBuilding extends Node3D:
++	var work_orders: WorkOrders
++
++
++func _ready() -> void:
++	CampaignTime.set_frozen_for_tests(true)
++	var old_path := RealityState.save_path
++	RealityState.save_path = SAVE_PATH
++	RealityState.persistence_enabled = true
++	RealityState.new_campaign_time_provider = _sample
++	_check(not FileAccess.file_exists(SAVE_PATH), "isolated profile has no previous fixture")
++	_check(RealityState.start_new_campaign(), "real New creates the authored campaign")
++	_check(samples == 1 and clock.minute_of_day() == 1439.0, "creation samples 23:59 exactly once")
++	_build_owners()
++	_new_events()
++	_legacy_events_and_adoption()
++	_mid_report_latch()
++	_protected_clock()
++	# Free observers before their owners; allow actual source-owned audio retirement.
++	building.free()
++	incidents.free()
++	inventory.free()
++	work_orders.free()
++	RealityState.new_campaign_time_provider = Callable()
++	RealityState.persistence_enabled = false
++	RealityState.reset_campaign_for_tests()
++	RealityState.save_path = old_path
++	await get_tree().process_frame
++	await get_tree().process_frame
++	await get_tree().create_timer(0.1).timeout
++	print("WORLD TIMESTAMPS: %s %d/%d" % ["PASS" if failures == 0 else "FAIL", checks - failures, checks])
++	get_tree().quit(0 if failures == 0 else 1)
++
++
++func _sample() -> Dictionary:
++	samples += 1
++	return {"hour": 23, "minute": 59}
++
++
++func _build_owners() -> void:
++	inventory = MaintenanceInventory.new()
++	add_child(inventory)
++	inventory.setup()
++	work_orders = WorkOrders.new()
++	add_child(work_orders)
++	work_orders.setup(null)
++	work_orders.bind_job_library(MaintenanceJobLibrary.load_default())
++	incidents = INCIDENTS.new()
++	incidents.work_orders = work_orders
++	incidents.flats = {"2C": {"unit": "2C", "resident": "Juno Kells", "resident_id": "juno_kells"}}
++	incidents.set_physics_process(false)
++	add_child(incidents)
++	building = StandInBuilding.new()
++	building.work_orders = work_orders
++	add_child(building)
++
++
++func _new_events() -> void:
++	_check(clock.advance_to(2.5) and clock.minute_of_day() == 1.5,
++			"fixture crosses midnight; elapsed minutes differ from the wrapped dial")
++	_check(inventory.grant("new_part", "hardware"), "real inventory grants a part")
++	_stamp(inventory.item_state("new_part"), "acquired_at", 2.5)
++	_check(inventory.grant("unspent_part", "hardware"), "guard fixture retains an unspent part")
++	_check(work_orders.issue("new_simple", "CLOCK", "Inspect the clock."), "real simple order issues")
++	_stamp(RealityState.data.work_orders.new_simple, "issued_at", 2.5)
++	_check(work_orders.issue_job(JOB, "reported"), "real authored job issues")
++	_stamp(work_orders.job_state(JOB), "issued_at", 2.5)
++	incidents._report("2C", "mina_caption_crisis", {"at": Vector3.ZERO, "count": 6})
++	var report: Dictionary = RealityState.data.organism_incidents.get("2C", {})
++	_stamp(report, "reported_at", 2.5)
++	_stamp(RealityState.data.work_orders.get(report.get("order_id", ""), {}), "issued_at", 2.5)
++	_check(incidents.reports_filed == 1 and work_orders.is_active(str(report.get("order_id", ""))),
++			"incident callback still uses the real work-order lifecycle")
++	board = NightRegisterProp.new()
++	board.name = "WorldTimestampRegister"
++	board.prop_type = "night_register"
++	building.add_child(board)
++	_prepare_signature()
++	_check(board.sign_register(), "real register signs a completed apparatus round")
++	_stamp(RealityState.data.night_register.lines.back(), "at", 2.5)
++	var first_line: Dictionary = RealityState.data.night_register.lines.back().duplicate(true)
++	_check(clock.advance_to(4329.25), "clock advances beyond three days")
++	_check(inventory.consume("new_part"), "real inventory consumes once")
++	_stamp(inventory.item_state("new_part"), "consumed_at", 4329.25)
++	_stamp(inventory.item_state("new_part"), "acquired_at", 2.5)
++	_check(work_orders.close("new_simple"), "real simple order closes")
++	_stamp(RealityState.data.work_orders.new_simple, "closed_at", 4329.25)
++	_stamp(RealityState.data.work_orders.new_simple, "issued_at", 2.5)
++	_check(not inventory.consume("new_part") and not work_orders.close("new_simple"),
++			"repeated events cannot restamp consumed or closed facts")
++	_prepare_signature()
++	_check(board.sign_register(), "second real round appends a line")
++	_stamp(RealityState.data.night_register.lines.back(), "at", 4329.25)
++	_check(_equal(RealityState.data.night_register.lines.front(), first_line), "later signing preserves the earlier line")
++	_roundtrip("new qualified timestamps")
++	_check(samples == 1, "writes, multi-day advance and explicit load do not sample again")
++
++
++func _legacy_events_and_adoption() -> void:
++	var legacy_order := {"title": "OLD CHIRP", "objective": "Find the point.",
++			"source": "Orison house circuit", "status": "closed",
++			"issued_at": 1700000000.125, "closed_at": 1700000300.75,
++			"unknown_additive": {"retain": true}}
++	RealityState.data.work_orders[LEGACY] = legacy_order.duplicate(true)
++	RealityState.data.work_orders.legacy_open = {"title": "OLD CLOCK", "objective": "Inspect.",
++			"status": "active", "issued_at": 1700000001.25}
++	RealityState.data.maintenance_items.legacy_part = {"shop_id": "hardware", "consumed": false,
++			"acquired_at": 1700000002.5}
++	RealityState.data.maintenance_jobs[JOB].issued_at = 1700000003.75
++	RealityState.data.maintenance_jobs[JOB].erase("issued_at_basis")
++	RealityState.data.organism_incidents["2C"].reported_at = 1700000004.5
++	RealityState.data.organism_incidents["2C"].erase("reported_at_basis")
++	var old_line := {"at": 1700000005.125, "filing": "no_fault_found", "report_out": false, "keys_out": []}
++	RealityState.data.night_register.lines.append(old_line.duplicate(true))
++	_roundtrip("legacy unqualified timestamps before migration")
++	_check(not inventory.item_state("legacy_part").has("acquired_at_basis")
++			and inventory.item_state("legacy_part").acquired_at == 1700000002.5,
++			"loading does not relabel host seconds as campaign minutes")
++	_check(clock.advance_to(5761.5), "new observed actions have a later campaign minute")
++	_check(inventory.consume("legacy_part") and work_orders.close("legacy_open"),
++			"legacy records continue through their existing owner operations")
++	_stamp(inventory.item_state("legacy_part"), "consumed_at", 5761.5)
++	_stamp(RealityState.data.work_orders.legacy_open, "closed_at", 5761.5)
++	_check(inventory.item_state("legacy_part").acquired_at == 1700000002.5
++			and not inventory.item_state("legacy_part").has("acquired_at_basis")
++			and RealityState.data.work_orders.legacy_open.issued_at == 1700000001.25
++			and not RealityState.data.work_orders.legacy_open.has("issued_at_basis"),
++			"new consumption/closure stamps do not change the unknown basis of old acquisition/issuance")
++	ChirpHunt.migrate_legacy(work_orders)
++	var adopted := work_orders.job_state(CHIRP)
++	_check(work_orders.status(LEGACY) == "missing" and str(adopted.get("stage", "")) == "awaiting_part",
++			"real ChirpHunt migration preserves the original closed-to-awaiting-part mapping")
++	_stamp(adopted, "adopted_at", 5761.5)
++	_check(str(adopted.get("legacy_order_id", "")) == LEGACY and _equal(adopted.get("legacy_order", {}), legacy_order),
++			"adoption keeps the exact source record before the live legacy order is retired")
++	_check(adopted.get("issued_at") == legacy_order.issued_at and not adopted.has("issued_at_basis"),
++			"adoption preserves original issuance units without inventing a new issue time")
++	var before := adopted.duplicate(true)
++	ChirpHunt.migrate_legacy(work_orders)
++	_check(_equal(work_orders.job_state(CHIRP), before), "repeat adoption is idempotent")
++	_roundtrip("mixed legacy and campaign timestamp provenance")
++	ChirpHunt.migrate_legacy(work_orders)
++	_check(_equal(work_orders.job_state(CHIRP), before), "adoption after reload cannot duplicate or restamp the record")
++	var items := inventory.serialize()
++	var jobs := work_orders.serialize_jobs()
++	_check(inventory.restore(items) and work_orders.restore_jobs(jobs), "existing domain restore APIs accept both provenances")
++	_check(_equal(inventory.serialize(), items) and _equal(work_orders.serialize_jobs(), jobs),
++			"domain serialization/restore preserves timestamp values, basis and legacy archive")
++	_check(RealityState.data.organism_incidents["2C"].reported_at == 1700000004.5
++			and not RealityState.data.organism_incidents["2C"].has("reported_at_basis")
++			and _equal(RealityState.data.night_register.lines.back(), old_line),
++			"later activity does not convert old incident or signed-line times")
++	_check(samples == 1, "legacy restore and adoption do not sample a host time")
++	# A different legacy save can contain both the authored job and old order.
++	# Existing progress wins; retiring old paperwork must still retain its source.
++	var existing := {"stage": "repaired", "origin": "discovered", "evidence": [],
++			"repair_result": {"quality": "good"}, "issued_at": 600.0, "issued_at_basis": BASIS}
++	var coexist := work_orders.serialize_jobs()
++	coexist.jobs[CHIRP] = existing.duplicate(true)
++	_check(work_orders.restore_jobs(coexist), "real restore installs the coexistence fixture")
++	RealityState.data.work_orders[LEGACY] = legacy_order.duplicate(true)
++	ChirpHunt.migrate_legacy(work_orders)
++	var kept := work_orders.job_state(CHIRP)
++	_check(work_orders.status(LEGACY) == "missing" and _equal(kept.get("legacy_order", {}), legacy_order),
++			"retirement archives the source even when the authored job already exists")
++	kept.erase("legacy_order")
++	kept.erase("legacy_order_id")
++	_check(_equal(kept, existing), "coexistence preserves current job facts without fabricating adoption or issuance")
++	_roundtrip("existing authored job plus retired legacy source")
++	before = work_orders.job_state(CHIRP)
++	ChirpHunt.migrate_legacy(work_orders)
++	_check(_equal(work_orders.job_state(CHIRP), before), "coexistence remains idempotent after reload")
++	var conflicting := legacy_order.duplicate(true)
++	conflicting.issued_at = 1700000009.5
++	RealityState.data.work_orders[LEGACY] = conflicting.duplicate(true)
++	ChirpHunt.migrate_legacy(work_orders)
++	_check(_equal(RealityState.data.work_orders.get(LEGACY, {}), conflicting)
++			and _equal(work_orders.job_state(CHIRP), before),
++			"conflicting source history refuses retirement instead of overwriting either record")
++
++
++func _mid_report_latch() -> void:
++	# Signal-induced protection, not a claimed disk fault: the real issue commit
++	# succeeds, then its production order_issued signal raises the real save latch.
++	# Activation/report publication continue in memory while later writes refuse.
++	_check(clock.advance_to(7201.25) and RealityState.save_game(),
++			"mid-report fixture begins at a saved exact campaign minute")
++	var earlier: Dictionary = RealityState.data.organism_incidents["2C"].duplicate(true)
++	var reports_before: int = incidents.reports_filed
++	var latch := {"calls": 0, "primary_bytes": PackedByteArray(), "order_id": ""}
++	var on_issue := func(order_id: String, _order: Dictionary) -> void:
++		latch.calls += 1
++		latch.order_id = order_id
++		latch.primary_bytes = FileAccess.get_file_as_bytes(SAVE_PATH)
++		RealityState.block_invalid_campaign_clock("Fixture signal-induced mid-report protection")
++	work_orders.order_issued.connect(on_issue)
++	incidents._report("2C", "mina_caption_crisis", {"at": Vector3.ZERO, "count": 6})
++	work_orders.order_issued.disconnect(on_issue)
++	var report: Dictionary = RealityState.data.organism_incidents.get("2C", {})
++	_check(latch.calls == 1 and reports_before + 1 == incidents.reports_filed
++			and int(report.get("count", -1)) == int(earlier.count) + 1,
++			"real issue signal raises protection inside exactly one report callback")
++	_stamp(report, "reported_at", 7201.25)
++	_check(not clock.bind_state() and clock.elapsed_minutes() == 0.0 and samples == 1,
++			"post-issue clock is unavailable; observed report time did not use its zero fallback")
++	var outcome := RealityState.last_save_result()
++	_check(RealityState.save_write_blocked and not bool(outcome.get("ok", true))
++			and outcome.get("stage") == "write_latch" and outcome.get("protection_required") == true,
++			"continued in-memory report does not claim successful persistence")
++	_check(FileAccess.get_file_as_bytes(SAVE_PATH) == latch.primary_bytes,
++			"activation and report leave the primary at its last successful issue commit")
++	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
++	_check(saved is Dictionary and _equal(saved.get("organism_incidents", {}).get("2C", {}), earlier)
++			and saved.get("work_orders", {}).get(latch.order_id, {}).get("status") == "issued"
++			and work_orders.is_active(str(latch.order_id)),
++			"disk retains earlier incident plus issued order while runtime report is newer")
++	RealityState.load_game()
++	_check(RealityState.can_continue() and _equal(RealityState.data.organism_incidents.get("2C", {}), earlier)
++			and work_orders.status(str(latch.order_id)) == "issued" and clock.elapsed_minutes() == 7201.25,
++			"real reload adopts only completed saved facts and clears the injected latch")
++
++
++func _protected_clock() -> void:
++	_check(work_orders.issue("guard_open", "GUARD", "Inspect."), "guard fixture has an open simple order")
++	RealityState.data.maintenance_jobs.erase(JOB)
++	_prepare_signature()
++	_check(RealityState.save_game(), "save guard fixture before testing invalid clock")
++	var primary := FileAccess.get_file_as_bytes(SAVE_PATH)
++	RealityState.data.campaign_clock.schema_version = 99
++	var before := _projection()
++	_check(not inventory.grant("blocked_part", "hardware") and not inventory.consume("unspent_part"),
++			"invalid clock cannot fabricate acquisition/consumption at elapsed zero")
++	_check(not work_orders.issue("blocked_order", "NO", "NO") and not work_orders.close("guard_open"),
++			"invalid clock cannot stamp a simple order")
++	_check(not work_orders.issue_job(JOB, "reported") and not work_orders.adopt_job(JOB, "reported", "issued", []),
++			"invalid clock cannot stamp issued or adopted jobs")
++	incidents._report("2C", "mina_caption_crisis", {"at": Vector3.ZERO, "count": 6})
++	_check(not board.sign_register(), "invalid clock cannot sign a false timestamp")
++	_check(_equal(_projection(), before), "failed timestamped actions leave all four owners' durable facts unchanged")
++	_check(RealityState.save_write_blocked and FileAccess.get_file_as_bytes(SAVE_PATH) == primary and samples == 1,
++			"clock refusal preserves the saved bytes and never falls back to host sampling")
++
++
++func _prepare_signature() -> void:
++	_check(board.take_slip() and board.replace_slip() and board.select_outcome("no_fault_found"),
++			"actual apparatus prepares a signature without a route claim")
++
++
++func _roundtrip(label: String) -> void:
++	_check(RealityState.save_game(), label + ": real write succeeds")
++	var expected := _projection()
++	var saved_clock: Dictionary = RealityState.data.campaign_clock.duplicate(true)
++	RealityState.load_game()
++	_check(RealityState.can_continue() and _equal(_projection(), expected)
++			and _equal(RealityState.data.campaign_clock, saved_clock), label + ": real load retains all values and clock")
++
++
++func _projection() -> Dictionary:
++	var out := {}
++	for key in ["maintenance_items", "work_orders", "maintenance_jobs", "organism_incidents", "night_register"]:
++		out[key] = RealityState.data.get(key, {}).duplicate(true)
++	return out
++
++
++func _stamp(record: Dictionary, field: String, expected: float) -> void:
++	_check(record.get(field + "_basis") == BASIS and absf(float(record.get(field, -1.0)) - expected) < 0.00001,
++			field + " records exact campaign elapsed minutes with its own basis")
++
++
++func _equal(first: Variant, second: Variant) -> bool:
++	# JSON numbers deserialize as floats; compare canonical saved facts, not VM types.
++	return JSON.parse_string(JSON.stringify(first)) == JSON.parse_string(JSON.stringify(second))
++
++
++func _check(ok: bool, label: String) -> void:
++	checks += 1
++	if not ok:
++		failures += 1
++		printerr("[WORLD TIMESTAMP FAIL] " + label)
+--- /dev/null
++++ b/game/tests/WorldTimestampTest.tscn
+@@ -0,0 +1,6 @@
++[gd_scene load_steps=2 format=3]
++
++[ext_resource type="Script" path="res://tests/world_timestamp_test.gd" id="1"]
++
++[node name="WorldTimestampTest" type="Node"]
++script = ExtResource("1")

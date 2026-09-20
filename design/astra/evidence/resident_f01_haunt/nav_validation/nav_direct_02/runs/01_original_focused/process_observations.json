@@ -1,0 +1,27 @@
+[
+  {
+    "elapsed_seconds": 0.4535203999985242,
+    "processes": [
+      {
+        "pid": 8404,
+        "parent_pid": 9424,
+        "executable": "Godot_v4.7.1-stable_win64_console.exe"
+      },
+      {
+        "pid": 33340,
+        "parent_pid": 8404,
+        "executable": "Godot_v4.7.1-stable_win64.exe"
+      }
+    ]
+  },
+  {
+    "elapsed_seconds": 180.46486910000021,
+    "processes": [
+      {
+        "pid": 33340,
+        "parent_pid": 8404,
+        "executable": "Godot_v4.7.1-stable_win64.exe"
+      }
+    ]
+  }
+]

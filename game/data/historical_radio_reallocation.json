@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "ny_radio_reallocation_1928_11_11",
+  "notice_heading": "NEW YORK WIRELESS",
+  "notice_date_line": "11 NOVEMBER 1928 / 3 A.M. E.S.T.",
+  "effective": {
+    "year": 1928,
+    "month": 11,
+    "day_of_month": 11,
+    "minute_of_day": 180
+  },
+  "assignments": [
+    {
+      "station": "WEAF",
+      "before_kc": 610,
+      "after_kc": 660
+    },
+    {
+      "station": "WJZ",
+      "before_kc": 660,
+      "after_kc": 760
+    },
+    {
+      "station": "WOR",
+      "before_kc": 710,
+      "after_kc": 710
+    }
+  ],
+  "shared_after": {
+    "stations": [
+      "WNYC",
+      "WMCA"
+    ],
+    "kc": 570
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "key": "95bf669490ffbd85",
+  "kind": "generated_name",
+  "token": "_build_voice_pool",
+  "file": "game/scripts/audio/audio_policy.gd",
+  "tier": "production",
+  "subsystem": "audio",
+  "symbols": [
+    "_build_voice_pool"
+  ],
+  "lines": [
+    336
+  ],
+  "count": 1,
+  "context": [
+    "\"PolicyVoice%02d\" % i"
+  ],
+  "gameplay_binding": false,
+  "authority": [
+    "GENERATED_IDENTITY"
+  ],
+  "spatial": [
+    "SEMANTIC_ANCHOR"
+  ],
+  "disposition": "REGENERATE_CONSUMER",
+  "confidence": "MEDIUM",
+  "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+  "resolved_target": null,
+  "target_exists": null
+}

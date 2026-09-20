@@ -1,0 +1,2352 @@
+{
+  "schema": "dream_critter_reference_map_proposal",
+  "schema_version": "0.1-proposal",
+  "evidence_class": "INERT",
+  "artifact_kind": "planning_only_design_metadata",
+  "date": "2026-09-19",
+  "status": "PROPOSAL; not a runtime manifest, acceptance or implementation proof",
+  "source_versions": {
+    "dossier": {
+      "commit": "e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+      "path": "design/DREAM_BIOLOGY_REFERENCE_DOSSIER_2026-09-19.md",
+      "raw_utf8_sha256": "dfc949c49b849fecc7993d1accc3dd01feaccc40059a078d085b3295887d7326",
+      "access": "Read from local Git object; no merge or checkout change."
+    },
+    "runtime_reference": {
+      "commit": "b98cecb2e4605bae7dd949ed147639b3d662b595",
+      "path": "game/scripts/dream/critters/dream_critter_species.gd",
+      "note": "Audited reference revision; not a claim that current working tree is pristine."
+    },
+    "temporal_ledger": {
+      "commit": "e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+      "path": "design/DREAM_TEMPORAL_SPECIMEN_LEDGER.md",
+      "note": "Older audit with 23 numbered classifications; historical statuses do not prove current runtime."
+    },
+    "temporal_rule": {
+      "commit": "e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+      "path": "design/DREAM_TEMPORAL_BIOLOGY.md"
+    },
+    "prior_brief": {
+      "path": "C:/Users/nate_/OneDrive/Documents/New Game Plus/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19_BRIEF.md",
+      "note": "Complementary Blender proposal; not promoted by this map."
+    },
+    "inventory_report": {
+      "title": "The Dream’s Alien Life, and How to See It",
+      "date": "2026-09-19",
+      "access": "User-supplied report; compared with pinned local Git refs, no remote refresh.",
+      "main": "e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+      "accepted_voxel": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+      "s2_backup": "d8a57d0f0f4b8391149a563f6d367697a2faef7f",
+      "main_checkout_backup": "e06270f7b6266fb5d14b28ff1cea5d007b39aa33",
+      "lamp_optics": "4aa4585",
+      "prepared_branch_before_this_update": "aa505a3d30da3b310d41c5a47ac8304af6dddb94"
+    }
+  },
+  "scope": {
+    "specimen_count": 16,
+    "specimen_owner": "DreamCritterController",
+    "dossier_grouped_organ_category_count": 18,
+    "dossier_grouped_organ_categories": [
+      "hero limb",
+      "margin palps",
+      "branches",
+      "cilia",
+      "living architecture",
+      "seam grazer",
+      "crystal listener",
+      "fold crab",
+      "encrusting flora",
+      "grazer armour",
+      "wine anemone",
+      "ribbon display",
+      "ocellus lens",
+      "incarnations",
+      "pursuer",
+      "hazards",
+      "cellular surface",
+      "living gold"
+    ],
+    "temporal_ledger_numbered_classification_count": 23,
+    "distinction": "The 18 grouped dossier categories, 23 older ledger classifications and 16 species are different inventories.",
+    "direct_dossier_species_coverage": [
+      0,
+      1,
+      2,
+      6,
+      11
+    ],
+    "species_without_direct_dossier_specimen": [
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      12,
+      13,
+      14,
+      15
+    ],
+    "ledger_individual_critter_rows": {
+      "0": 7,
+      "1": 8,
+      "2": 9
+    },
+    "category_mapping_limit": "Proposed reference roles only, not transfer of ownership or new organ rulings.",
+    "excluded_runtime_scope": [
+      "DreamFaunaDirector density families",
+      "hero and margin implementation",
+      "maze pursuit",
+      "hazards",
+      "case incarnations",
+      "new packet/receptor/save owners"
+    ]
+  },
+  "role_definitions": {
+    "biological_mechanism": "Evidence of operation in an identified organism; observation/model limits remain explicit.",
+    "comparative_anatomy": "Observed structure, attachment or comparative mechanical analogy; no assumed taxonomic/functional equivalence.",
+    "artistic_interpretation": "Proposed form, material, composition or interpretive lesson from artwork, objects or arrangement.",
+    "optical_technique": "Imaging or localized optical-change reference; distinguishes illumination, labeling, pigment and emission."
+  },
+  "reference_only_rules": [
+    {
+      "status": "inherited_dossier_rule",
+      "rule": "Use reference URLs for form, proportion, part layout, motion and palette only; no tracing, projection, photobashing, baking, displacement/normal extraction or shipped source-image bytes."
+    },
+    {
+      "status": "inherited_dossier_rule",
+      "rule": "No dossier image goes to an image generator as an input or style image."
+    },
+    {
+      "status": "inherited_dossier_rule",
+      "rule": "COPYRIGHT_REFERENCE_ONLY material is viewed in its own page, never saved into repository or review sheets."
+    },
+    {
+      "status": "inherited_dossier_rule",
+      "rule": "Any later permissible review reproduction must follow applicable attribution/use conditions. This companion establishes no rights and reproduces no images."
+    },
+    {
+      "status": "inherited_dossier_recommendation",
+      "rule": "Describe AI substance plates verbally and avoid naming living artists or studios. Recorded as a recommendation, not a new ruling."
+    },
+    {
+      "status": "current_task_constraint",
+      "rule": "No remote assets, image bytes, downloads, production edits, generation or runtime scripts are part of this artifact."
+    },
+    {
+      "status": "integration_constraint",
+      "rule": "The user's removal of conspicuous stripes remains in force. Dossier bands/grids do not require restoring them or making species identical."
+    },
+    {
+      "status": "integration_constraint",
+      "rule": "Preserve behavior owners and species laws. Source motion or era does not authorize a new receptor, gameplay action or waking-world prop."
+    },
+    {
+      "status": "integration_constraint",
+      "rule": "Generic anatomy or art analogies do not close species-specific mechanism gaps; retain complementary primary papers."
+    }
+  ],
+  "verification_statement": {
+    "remote_verification_performed": false,
+    "licence_verification_performed": false,
+    "image_inspection_performed_for_this_companion": false,
+    "metadata_method": "Copy numbered source-table metadata from the supplied Git object and validate local JSON cross-references.",
+    "dossier_reported_counts_not_newly_audited": {
+      "sources_cited": 100,
+      "confirmed": 95,
+      "corrected": 4,
+      "licence_not_confirmed": 1
+    },
+    "source_text_limit": "Ellipses in dossier titles, attributions and cautions are preserved rather than silently completed."
+  },
+  "shared_integration_cautions": [
+    "Dossier 44 explicitly lacks stalk contraction; 45 does not establish daughter inversion.",
+    "Dossier 27 sensory stereocilia are not a motile-cilia movement reference.",
+    "Dossier 19, 21, 27, 28, 55, 59 and 68 include labeling/coloring/illumination effects; 36 includes illumination-dependent diffraction. These do not establish natural pigment or intrinsic emission.",
+    "Dossier 62 and 72 concern human-arranged diatoms, not living Bacillaria cohesion.",
+    "Dossier 92, 94 and 100 disclose incomplete visual verification; 95, 99 and 100 link secondary pages. None is newly certified here.",
+    "Dossier 100 equates fictional hydraulic muscles and muscular hydrostats too strongly; retain speculative body logic rather than universal 'swell then extend' mechanics.",
+    "Dossier 63 has inconsistent review-copy wording versus its reference-only category. Retain URL-only use until resolved; it is not adopted for these specimens.",
+    "R/G affects optical appearance, not a new Noctiluca flash trigger.",
+    "Neutral grey renders are diagnostic, not final art direction. Maintain species distinction within the project's wine, flesh, mineral and jewel vocabulary."
+  ],
+  "dossier_reference_catalog": [
+    {
+      "dossier_reference_number": 2,
+      "title": "Blaschka glass model of a radiolarian (University of Tuebingen zoological collection, F-I-30)",
+      "creator": "Leopold and Rudolf Blaschka (model); photograph by Valentin Marquardt, Model c. 1863-1890 (Blaschka marine...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Blaschka glass model of a radiolarian (University of Tuebingen zoological collection, F-I-30)**. Leopold and Rudolf Blaschka (model); photograph by Valentin Marquardt, Model c. 1863-1890 (Blaschka marine...",
+      "url": "https://commons.wikimedia.org/wiki/File:F-I-30_Blaschka-Radiolarium.jpg",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living gold, crystal listener",
+      "source_interpretation_as_written": "This is the material bridge from a flat Haeckel plate to a lit 3D object. It shows how thin radiating spines, a translucent body and refraction read under real light. Use it to calibrate spine thickness, highlight behaviour and transparency when the living_gold and crystal_listener skeletons...",
+      "source_cautions_as_written": "This is a photograph of a 3D object, so the photographer's CC BY-SA 4.0 applies: attribute Valentin Marquardt and keep share-alike on any review derivative. Never trace, project or bake it. Commons...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 6,
+      "title": "Die Polycladen (Seeplanarien) des Golfes von Neapel - Atlas (Fauna und Flora des Golfes von...",
+      "creator": "Arnold Lang, 1884 (Leipzig: W. Engelmann)",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Die Polycladen (Seeplanarien) des Golfes von Neapel - Atlas (Fauna und Flora des Golfes von...**. Arnold Lang, 1884 (Leipzig: W. Engelmann)",
+      "url": "https://archive.org/details/diepolycladensee00lang",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "seam grazer, margin palps",
+      "source_interpretation_as_written": "This is the period ancestor of the seam_grazer's tomographic reading. The serial-section plates are literally slices through a flatworm, so a designer can stack them to build the creature's flat body as a sequence of cross-sections. The whole-animal plates give the ruffled margin and the branching...",
+      "source_cautions_as_written": "Tissue guards partly obscure some captions in the scan. The text volume is separate (https://archive.org/details/diepolycladensee01lang). Form reference only.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 11,
+      "title": "Kunstformen der Natur, plate 71: Stephoidea (ring-skeleton radiolarians)",
+      "creator": "Ernst Haeckel, 1904 (Kunstformen issued in parts...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Kunstformen der Natur, plate 71: Stephoidea (ring-skeleton radiolarians)**. Ernst Haeckel, 1904 (Kunstformen issued in parts...",
+      "url": "https://commons.wikimedia.org/wiki/File:Haeckel_Stephoidea.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living gold, crystal listener, margin palps",
+      "source_interpretation_as_written": "This is the main silhouette library for living_gold. Read the silica ring and spine as the antique gold wire and the living plasma as the enamel fill. The ring-hinge-ring joints are models for the gold-finger articulation of margin_palps. A cage-inside-a-ring is a natural chamber for the...",
+      "source_cautions_as_written": "Haeckel idealised and symmetrised his subjects, so treat this as a style and form reference, not accurate morphology. The lithographic colours are pale naturalist tints, so re-key them to the...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 15,
+      "title": "On Growth and Form (first edition)",
+      "creator": "D'Arcy Wentworth Thompson, 1917 (Cambridge University Press)",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**On Growth and Form (first edition)**. D'Arcy Wentworth Thompson, 1917 (Cambridge University Press)",
+      "url": "https://archive.org/details/ongrowthform1917thom",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "fold crab, cellular surface, living gold",
+      "source_interpretation_as_written": "The transformation grids are the best period model for the fold_crab's impossible folding. A crab carapace warped smoothly through a bent grid, with the grid itself drawn as gold wire, suggests a body that folds through a dimension the viewer cannot see. The cell-partition geometry (walls meeting...",
+      "source_cautions_as_written": "Many figures are borrowed from other authors, so trace provenance before citing a figure. Do not use the enlarged later edition (for example https://archive.org/details/ongrowthform00thom, a 1945...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 16,
+      "title": "3D reconstruction of neuronal allometry and neuromuscular projections in asexual planarians...",
+      "creator": "Jing Lu, Hao Xu, Dongyue Wang, Yanlu Chen, Takeshi Inoue, Liang Gao,..., 2025-03-28",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**3D reconstruction of neuronal allometry and neuromuscular projections in asexual planarians...**. Jing Lu, Hao Xu, Dongyue Wang, Yanlu Chen, Takeshi Inoue, Liang Gao,..., 2025-03-28",
+      "url": "https://elifesciences.org/articles/101103",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "seam grazer, margin palps",
+      "source_interpretation_as_written": "Exactly the 'flatworm body plan seen in tomographic sections' that the seam_grazer needs. Its optical slices and segmented layers show how a flat body is built from stacked sheets, which can be animated as a creature that reveals itself slice by slice. The crossing muscle-fibre lattice also shows...",
+      "source_cautions_as_written": "This is a multi-panel scientific figure set with labels and scale bars, so crop mentally to the renderings. Figure numbering and panel content are summarised from the article page and PMC.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 18,
+      "title": "Anthocyrtium hispidum Haeckel - Radiolarian (focus-stacked micrograph)",
+      "creator": "Picturepest (Flickr 59923990@N05); slide prepared by Andreas Drews, 2017-07-02",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Anthocyrtium hispidum Haeckel - Radiolarian (focus-stacked micrograph)**. Picturepest (Flickr 59923990@N05); slide prepared by Andreas Drews, 2017-07-02",
+      "url": "https://commons.wikimedia.org/wiki/File:Anthocyrtium_hispidum_Haeckel_-_Radiolarian_(34986365113).jpg",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living gold, crystal listener, margin palps",
+      "source_interpretation_as_written": "The best open reference in this set for the 'gold finger' and crystal_listener skeleton. The negative rendering already gives a light lattice on a dark ground, which is how gold wire sits on the aubergine-black enamel. Study how pore size grades from the dome to the skirt, how the spines taper,...",
+      "source_cautions_as_written": "This is a modern micrograph, so it may be shown only in the Dream. Radiolaria also appear in 1904 Haeckel plates, which belong to another lane. Alternate in the same lane: the NOAA 1983 'Diatoms...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 19,
+      "title": "Brainbow dentate gyrus, hippocampus",
+      "creator": "Tamily Weissman (Jeff Lichtman Lab), not stated on record (Brainbow...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Brainbow dentate gyrus, hippocampus**. Tamily Weissman (Jeff Lichtman Lab), not stated on record (Brainbow...",
+      "url": "https://brainbow.watzekdi.net/items/show/6",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "branches, hero limb, incarnations",
+      "source_interpretation_as_written": "This is the richest open reference for dendritic arborization with individual trees kept distinct. It reads like enamel cells of many colours packed side by side, which is close to cloisonne already. Use it for the branching rules of 'branches' and the hero_limb dendrite reaching for a synapse....",
+      "source_cautions_as_written": "The full-size file is behind a request and licence-agreement step (S3 link), and its dimensions are not stated. Brainbow files on Commons are small (for example the CC BY 3.0 Chedotal and Richards...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 20,
+      "title": "Bronchiolar epithelium 3 - SEM (ciliated airway surface)",
+      "creator": "Charles Daghlian (Dartmouth Rippel Electron Microscope Facility), 2006-10-07",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Bronchiolar epithelium 3 - SEM (ciliated airway surface)**. Charles Daghlian (Dartmouth Rippel Electron Microscope Facility), 2006-10-07",
+      "url": "https://commons.wikimedia.org/wiki/File:Bronchiolar_epithelium_3_-_SEM.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cilia, cellular surface",
+      "source_interpretation_as_written": "The clearest open reference for how motile cilia actually pack: tuft density, the length-to-cell ratio, and the contrast between ciliated and non-ciliated cells. Use it to set the proportions of cilia fields on the Dream's surface. Alternate ciliated and bare enamel cells as the SEM shows. Animate...",
+      "source_cautions_as_written": "This is greyscale SEM and its form needs a full re-palette into enamel. It is a fixed specimen, so it gives no motion; take the motion from the NOAA comb jelly entry.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 21,
+      "title": "Gephyrocapsa oceanica color (coloured SEM of a coccolithophore)",
+      "creator": "NEON ja (photograph); Richard Bartz (colouring), 2007-01-17",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Gephyrocapsa oceanica color (coloured SEM of a coccolithophore)**. NEON ja (photograph); Richard Bartz (colouring), 2007-01-17",
+      "url": "https://commons.wikimedia.org/wiki/File:Gephyrocapsa_oceanica_color.jpg",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living gold, grazer armour, encrusting flora",
+      "source_interpretation_as_written": "A direct model for a tessellated sphere of interlocking enamel plates, each a radially partitioned rosette. Read each coccolith as one cloisonne cell and its radial ribs as gold wire. Useful for grazer_armour (overlapping plates, like chiton valves), for the jewelfruit (a geode-like mineral...",
+      "source_cautions_as_written": "The colours are artificial Photoshop colouring, so take form only and not palette. The original greyscale is at https://commons.wikimedia.org/wiki/File:Gephyrocapsa_oceanica.jpg (CC BY-SA 2.5, seen...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 26,
+      "title": "Membranipora membranacea (kelp lace bryozoan colony)",
+      "creator": "Alexis Garretson (via iNaturalist), 2021-01-17",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Membranipora membranacea (kelp lace bryozoan colony)**. Alexis Garretson (via iNaturalist), 2021-01-17",
+      "url": "https://commons.wikimedia.org/wiki/File:Membranipora_membranacea_110439662.jpg",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "encrusting flora, cellular surface",
+      "source_interpretation_as_written": "The most literal natural cloisonne in the set: a lattice of walled cells, each wall a wire and each cell an enamel pocket, growing outward in rows. Use it for how encrusting_flora colonises a surface: growth-front shape, cell aspect ratio, and how rows bend around obstacles. It also fits...",
+      "source_cautions_as_written": "This is a macro photograph, not a micrograph. Lophophores are not visible, since the colony looks retracted. For a voxel-scale colony with emerald accents, an alternate is the CC BY-SA 4.0 Volvox...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 27,
+      "title": "Mouse Cochlea (hair-cell stereocilia bundles, fluorescence)",
+      "creator": "Elizabeth Carroll Driver, Ph.D., NIDCD, National Institutes of Health, uploaded 2018-05-14",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Mouse Cochlea (hair-cell stereocilia bundles, fluorescence)**. Elizabeth Carroll Driver, Ph.D., NIDCD, National Institutes of Health, uploaded 2018-05-14",
+      "url": "https://www.flickr.com/photos/nihgov/42112495551",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cilia, incarnations, margin palps",
+      "source_interpretation_as_written": "Serves the stereocilia-bundle part of 'cilia', the ciliated whisker palp, and the tympanum/cochlea incarnation. The repeating chevrons in a strict row are a ready ornamental motif, like Klimt-like gold chevrons set in plum enamel cells. The colour-coded immunolabelling also shows how the Dream...",
+      "source_cautions_as_written": "The page gave no original-size dimensions, so check the resolution before relying on it. Higher-resolution cochlear SEM from Wellcome (David Furness, https://wellcomecollection.org/works/en4kavac)...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 28,
+      "title": "Neutrophil engulfing Bacillus anthracis (coloured SEM)",
+      "creator": "Volker Brinkmann (PLoS Pathogens cover), 2005-11",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Neutrophil engulfing Bacillus anthracis (coloured SEM)**. Volker Brinkmann (PLoS Pathogens cover), 2005-11",
+      "url": "https://commons.wikimedia.org/wiki/File:Neutrophil_with_anthrax_copy.jpg",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "pursuer, hazards",
+      "source_interpretation_as_written": "Use it for the pursuer's body language: a soft, lumpy cell that throws out sheets and fingers to cover its target. Take the ratio of cell to prey and the ruffled leading edge. This is how the pursuer should deform at the moment of catch, with enamel cells stretching and wire walls bowing.",
+      "source_cautions_as_written": "The colours are false, so take form only. The famous 1950s David Rogers 'neutrophil chasing bacteria' film shows true chemotaxis but is credited to the Rogers estate / Vanderbilt and is not openly...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 33,
+      "title": "Bedford's Flatworm (Pseudobiceros bedfordi, Persian carpet flatworm)",
+      "creator": "Jan Derk, 2004-2006",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Bedford's Flatworm (Pseudobiceros bedfordi, Persian carpet flatworm)**. Jan Derk, 2004-2006",
+      "url": "https://commons.wikimedia.org/wiki/File:Bedford's_Flatworm.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "seam grazer, ribbon display",
+      "source_interpretation_as_written": "The body-plan reference for seam_grazer: a flat, bilateral, leaf-thin glider with frilled front edges, which is the outline that tomographic slices would cut through. Its real pattern, a near-black ground with pink lines and gold spots, is already close to aubergine-black cloisonné with gold wire,...",
+      "source_cautions_as_written": "Modest resolution. The Commons page gives two different shoot locations and dates, so cite it as 2004-2006.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 34,
+      "title": "Chromatophore activity during natural pattern expression by the squid Sepioteuthis lessoniana...",
+      "creator": "Suzuki M., Kimura T., Ogawa H., Hotta K., Oka K., 2011",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Chromatophore activity during natural pattern expression by the squid Sepioteuthis lessoniana...**. Suzuki M., Kimura T., Ogawa H., Hotta K., Oka K., 2011",
+      "url": "https://commons.wikimedia.org/wiki/File:Chromatophore-Activity-during-Natural-Pattern-Expression-by-the-Squid-Sepioteuthis-lessoniana-pone.0018244.s004.ogv",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "hero limb, ribbon display, incarnations",
+      "source_interpretation_as_written": "Motion reference for the cephalopod skin of the hero_limb body and for any display organ made of enamel cells that swell and shrink independently. Each chromatophore can be one wine or plum cell that dilates inside its gold wire. The small oscillations suit the biological-oscillator incarnation.",
+      "source_cautions_as_written": "Small field and a clinical framing. Read the rhythm and cell behaviour, not the colour. The same paper has two more supplementary clips (s002, s003).",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 35,
+      "title": "Colonie de bryozoaires (Watersipora subatra) fixée à un caillou",
+      "creator": "Olivier Dugornay (IFREMER), 2019-04-06",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Colonie de bryozoaires (Watersipora subatra) fixée à un caillou**. Olivier Dugornay (IFREMER), 2019-04-06",
+      "url": "https://commons.wikimedia.org/wiki/File:Colonie_de_bryozoaires_(Watersipora_subatra)_fixée_à_un_caillou_(Ifremer_00618-73040_-_28936).jpg",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "encrusting flora, cellular surface, cilia",
+      "source_interpretation_as_written": "A colony split into walled cells is the biological version of cloisonné: each zooid is a cell with a wall around it and a living crown on top. Take the wall-to-cell ratio for the gold wire of encrusting_flora and the crowns for small ciliated palps that open and close across the crust. A 46-second...",
+      "source_cautions_as_written": "The real colours are orange and black; re-key them to wine enamel and gold. Watersipora is an invasive species, which is irrelevant for reference.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 36,
+      "title": "Ctenophore (comb jelly), video short, Gulf of Mexico 2018 (EX1803)",
+      "creator": "NOAA Ocean Exploration (ROV Deep Discoverer, NOAA Ship Okeanos..., 2018",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Ctenophore (comb jelly), video short, Gulf of Mexico 2018 (EX1803)**. NOAA Ocean Exploration (ROV Deep Discoverer, NOAA Ship Okeanos..., 2018",
+      "url": "https://oceanexplorer.noaa.gov/multimedia/video-shorts-ex1803-ctneophore1/",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cilia, ribbon display, margin palps",
+      "source_interpretation_as_written": "Use it as the timing reference for the metachronal wave. Step through the frames and measure the phase lag between neighbouring comb plates, then drive the Dream's cilia rows with that lag so they behave as a phased array. The colour is structural (diffraction), not pigment, so translate the...",
+      "source_cautions_as_written": "The rainbow comes from the ROV lights; do not treat it as the animal's own colour. For a still, the companion image is the NOAA / Kevin Raskoff 2002 photo of comb rows on Mertensia ovum (PD,...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 39,
+      "title": "Photographs of living siphonophores (Munro et al. 2018, figure plate)",
+      "creator": "C. Munro, S. Siebert, F. Zapata, M. Howison, A. Damian-Serrano, S...., 2018",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Photographs of living siphonophores (Munro et al. 2018, figure plate)**. C. Munro, S. Siebert, F. Zapata, M. Howison, A. Damian-Serrano, S...., 2018",
+      "url": "https://commons.wikimedia.org/wiki/File:Photographs_of_living_siphonophores.jpg",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "ribbon display, cilia, living gold",
+      "source_interpretation_as_written": "The best single sheet for the ribbon_display body plan. A siphonophore is a colony of repeated modules strung along one stem, which suits a ribbon display made of repeated enamel cells. Take the proportions of bell to stem to module spacing from Praya and Apolemia. On aubergine-black the...",
+      "source_cautions_as_written": "Photographed against black lab or blue-water backgrounds, so read form only. Several different taxa share one plate; check each panel's label before citing a species.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 43,
+      "title": "USNM PAL 83935 Hallucigenia sparsa, Image 1 (Burgess Shale fossil)",
+      "creator": "Han Zeng (photographer), Smithsonian NMNH Department of Paleobiology, Photograph undated; specimen Middle...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**USNM PAL 83935 Hallucigenia sparsa, Image 1 (Burgess Shale fossil)**. Han Zeng (photographer), Smithsonian NMNH Department of Paleobiology, Photograph undated; specimen Middle...",
+      "url": "https://commons.wikimedia.org/wiki/File:USNM_PAL_83935_Hallucigenia_sparsa_Image_1.jpg",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "fold crab, seam grazer",
+      "source_interpretation_as_written": "The history of this animal is the Dream's 'misread' theme in miniature. It was first reconstructed walking on its spines and upside down, then flipped. Use that misreading on purpose for fold_crab: limbs that can be read two ways and fold into impossible orientations. Take the segment rhythm and...",
+      "source_cautions_as_written": "This is a fossil smear, so read form only. A search snippet said USNM 83935 is the holotype, but I could not open the Smithsonian record to confirm it. In a 1927 world it could only be Walcott's...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 44,
+      "title": "Vorticella vortex (DSC 1703), bright-field video of ciliary feeding current",
+      "creator": "Brandon Seah, 2011-08-24",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Vorticella vortex (DSC 1703), bright-field video of ciliary feeding current**. Brandon Seah, 2011-08-24",
+      "url": "https://commons.wikimedia.org/wiki/File:Vorticella_vortex_DSC_1703.webm",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cilia, margin palps, incarnations",
+      "source_interpretation_as_written": "Motion reference for a ciliated whisker or cilia crown that feeds by pulling the medium in rather than by touching. Use the particle paths to animate the Dream's cilia drawing dust or light inward. The bell on its stalk also makes a good margin palp silhouette. The steady beat can stand in for the...",
+      "source_cautions_as_written": "Grey bright-field footage and very short. Read the motion, not the look. Stalk contraction is not shown in this clip.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 45,
+      "title": "Большой вольвокс (Big Volvox), DIC micrograph video",
+      "creator": "Alexander Klepnev, 2019-07-11",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Большой вольвокс (Big Volvox), DIC micrograph video**. Alexander Klepnev, 2019-07-11",
+      "url": "https://commons.wikimedia.org/wiki/File:Большой_вольвокс.webm",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cellular surface, cilia",
+      "source_interpretation_as_written": "The reference for a cellular surface made of repeated cells on a closed skin, and for colonies nested inside colonies, which suits voxel-scale colony surfaces. The cell spacing maps onto enamel cells between gold wires. The daughter spheres can be jewel-like emerald inclusions. Its slow tumbling...",
+      "source_cautions_as_written": "DIC gives a grey-green relief look; recolour to the game palette. The same author has other CC BY 4.0 Volvox clips on Commons.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 46,
+      "title": "A monograph of the British marine annelids, Part I (Nemerteans), Plate IX: Lineus marinus (=...",
+      "creator": "William Carmichael McIntosh (1838-1931), 1873",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**A monograph of the British marine annelids, Part I (Nemerteans), Plate IX: Lineus marinus (=...**. William Carmichael McIntosh (1838-1931), 1873",
+      "url": "https://commons.wikimedia.org/wiki/File:A_monograph_of_the_British_marine_annelids_(PL._IX)_BHL38577749.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "ribbon display, seam grazer",
+      "source_interpretation_as_written": "The actual ribbon worm that ribbon_display names but had no source for. Use its coiling, how it knots on itself and how the ribbon tapers, so the display's double-helix ribbons coil and knot the same way. The living animal's dark brown to purplish-black body sits close to the aubergine ground.",
+      "source_cautions_as_written": "The Commons page does not say whether this plate is coloured; check the BHL page (https://www.biodiversitylibrary.org/page/38577749). For a modern, very high-resolution photograph of a live...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 47,
+      "title": "Black rockfish otolith cross section - USGS",
+      "creator": "Vanessa von Biela / U.S. Geological Survey, 18 March 2011",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Black rockfish otolith cross section - USGS**. Vanessa von Biela / U.S. Geological Survey, 18 March 2011",
+      "url": "https://commons.wikimedia.org/wiki/File:Black_rockfish_otolith_cross_section_-_USGS.jpg",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "crystal listener, incarnations",
+      "source_interpretation_as_written": "A dedicated otolith image for crystal_listener, which until now had only radiolarian skeletons. It shows a mineral stone the ear grows layer by layer. Use its outline and banding rhythm for the listener's ear-stones, as layered gold-and-plum cabochons. The bands read like tree rings, so this image...",
+      "source_cautions_as_written": "The page states CC BY-SA 3.0 even though a USGS employee's official work would normally be public domain; follow the stricter stated licence. Period-safe statocyst companion: Encyclopaedia...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 48,
+      "title": "Decapoda (Kunstformen der Natur, plate 86), Library of Congress scan (Commons title...",
+      "creator": "Ernst Haeckel (artist, 1834-1919); Adolf Giltsch (lithographer,..., 1904",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Decapoda (Kunstformen der Natur, plate 86), Library of Congress scan (Commons title...**. Ernst Haeckel (artist, 1834-1919); Adolf Giltsch (lithographer,..., 1904",
+      "url": "https://commons.wikimedia.org/wiki/File:Decapoda._-_Behnfukkreble_LCCN2015648966.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "fold crab, grazer armour",
+      "source_interpretation_as_written": "The first freely licensed real arthropod walking limb. Count the segments of each leg, see where the leg narrows at every joint and how the segments zig-zag in the resting pose. The same plate shows how the armoured carapace meets the leg bases. Haeckel already symmetrised the crabs into ornament,...",
+      "source_cautions_as_written": "This is a different plate from the Kunstformen entries already listed (71, 49, 93, 33, 27). Gait remains open: no freely licensed crab-walking footage was confirmed in this pass.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 49,
+      "title": "Demonstration Set of Cloisonne Technique (LACMA M.91.251.3a-f)",
+      "creator": "Namikawa Yasuyuki (1845-1927), 19th century",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Demonstration Set of Cloisonne Technique (LACMA M.91.251.3a-f)**. Namikawa Yasuyuki (1845-1927), 19th century",
+      "url": "https://commons.wikimedia.org/wiki/File:Demonstration_Set_of_Cloisonne_Technique_LACMA_M.91.251.3a-f.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living gold, cellular surface, branches",
+      "source_interpretation_as_written": "The style law shown as a process: real cloisonne being built stage by stage, which is how the Dream grows an organ. The wire outline comes first, the cells fill colour by colour, then the surface floods and is polished smooth. Use the six stages as keyframes for an organ growing in, and use the...",
+      "source_cautions_as_written": "The Commons date 'c. 1850' cannot be right for a maker born in 1845; follow LACMA's '19th century'. The wire is silver per the Commons description, not gold. LACMA's current record...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 55,
+      "title": "Mycelium (hyphae of Podospora anserina, JC-1 fluorescence, 630x)",
+      "creator": "Christian Scheckhuber (Wikimedia user Zodarion73), 28 August 2002",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Mycelium (hyphae of Podospora anserina, JC-1 fluorescence, 630x)**. Christian Scheckhuber (Wikimedia user Zodarion73), 28 August 2002",
+      "url": "https://commons.wikimedia.org/wiki/File:Mycelium.JPG",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living architecture, cellular surface",
+      "source_interpretation_as_written": "The dossier's first mycelium source. It is also a real micrograph that already glows warm on a dark ground, which suits the style-law bridge as well. Take the thread width, the branching and the beaded glow along each hypha as the model for living_architecture's filaments: gold-wire tubes carrying...",
+      "source_cautions_as_written": "The glow comes from a fluorescent stain, not the fungus's own colour. The image shows a few hyphae, not a whole network. For network growth in motion there is 'Mycelium in Terrarium, lots of life! -...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 58,
+      "title": "Projective Ornament",
+      "creator": "Claude Fayette Bragdon (1866-1946), 1915",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Projective Ornament**. Claude Fayette Bragdon (1866-1946), 1915",
+      "url": "https://archive.org/details/projective-ornament",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "fold crab, living gold",
+      "source_interpretation_as_written": "The first source for the fold_crab's 'impossible higher-dimensional folding', and it is period-safe. Bragdon shows what a four-dimensional body looks like when projected or unfolded into our space: cubes nested inside cubes and joined corner to corner, and nets of cells laid flat. Use it to design...",
+      "source_cautions_as_written": "The figure numbers come from archive.org's OCR text; check them against the page images. Companion: Bragdon, A Primer of Higher Space (1913), https://archive.org/details/a-primer-of-higher-space. It...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 59,
+      "title": "Rheinberg 2 diatom (diatoms under Rheinberg illumination)",
+      "creator": "Frank Fox (www.mikro-foto.de), 16 December 2011",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Rheinberg 2 diatom (diatoms under Rheinberg illumination)**. Frank Fox (www.mikro-foto.de), 16 December 2011",
+      "url": "https://commons.wikimedia.org/wiki/File:Rheinberg_2_diatom.jpg",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living gold",
+      "source_interpretation_as_written": "This fills two holes at once. It is the dossier's first freely licensed diatom for living_gold, and it is real microscopy on a coloured dark ground for the style-law bridge. Rheinberg lighting shows the palette can come from the microscope's own lighting, not only from stylisation. Take the shell...",
+      "source_cautions_as_written": "The Commons page names neither the species nor the filter colours. View the full file to confirm the ground falls near wine or aubergine before presenting it as a palette match. A sibling frame by...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 62,
+      "title": "Arrangirte Diatomeen 1889 (diatoms)",
+      "creator": "Matthias Burba (photographer); maker of the 1889 slide not named on..., Slide 1889; photograph 2007",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Arrangirte Diatomeen 1889 (diatoms)**. Matthias Burba (photographer); maker of the 1889 slide not named on..., Slide 1889; photograph 2007",
+      "url": "https://www.nikonsmallworld.com/galleries/2007-photomicrography-competition/arrangirte-diatomeen-1889-diatoms",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living gold, margin palps",
+      "source_interpretation_as_written": "This is period-safe evidence that ornamental diatom arrangements existed well before 1927, so the waking world may contain such a slide, drawn to our own design. Darkfield glass glowing on black is effectively gold on an aubergine ground. The radial arrangement shows how biomineral cells can be...",
+      "source_cautions_as_written": "The photograph is modern and copyrighted, so study it only. The page does not identify the 1889 slide's maker, so do not attribute it. The 1889 slide is period; this modern photograph of it is not.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 63,
+      "title": "Clathrin-mediated Endocytosis (molecular animation)",
+      "creator": "Janet Iwasa (University of Utah), with Tom Kirchhausen (Harvard..., 2012 (per the release file name...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Clathrin-mediated Endocytosis (molecular animation)**. Janet Iwasa (University of Utah), with Tom Kirchhausen (Harvard..., 2012 (per the release file name...",
+      "url": "https://iwasa.biochem.utah.edu/projects/clathrin.html",
+      "licence_as_written": "copyright, ref only (checker corrected from CC BY-NC)",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "hero limb, cellular surface",
+      "source_interpretation_as_written": "The vesicle cycle's return trip, complementing Goodsell's fusion scene. The clathrin cage is a ready-made model for gold wire enclosing enamel cells. Study how the cage assembles over time, how the bud deepens, and the pinch-off moment. Use them for vesicles being built and carried along the...",
+      "source_cautions_as_written": "The exact licence is CC BY-NC-ND 3.0 US. The allowed licence list has no no-derivatives (ND) option, so treat it as non-commercial with no derivatives: show the unaltered file in review only with...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 66,
+      "title": "Excitatory and Inhibitory Synapses (Molecular Landscape watercolour)",
+      "creator": "David S. Goodsell (RCSB Protein Data Bank), 2018",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Excitatory and Inhibitory Synapses (Molecular Landscape watercolour)**. David S. Goodsell (RCSB Protein Data Bank), 2018",
+      "url": "https://pdb101.rcsb.org/sci-art/goodsell-gallery/excitatory-and-inhibitory-synapses",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "hero limb, branches",
+      "source_interpretation_as_written": "This is the main reference for the hero_limb crossing the cleft. Read from it the vesicle size against the cleft width, how crowded the presynaptic face is, and how a fusing vesicle opens into the gap. Goodsell's method (one flat hue per molecule class, separated by contour lines) is the closest...",
+      "source_cautions_as_written": "Dream-only: the knowledge dates from after 1927. CC BY still only allows study under the studio rule: never trace it or turn it into textures. Credit Goodsell/RCSB whenever it appears in a review...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 68,
+      "title": "Front foot (tarsus) of a male diving beetle",
+      "creator": "Dr Igor Robert Siwanowicz (HHMI Janelia Research Campus), 2016",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Front foot (tarsus) of a male diving beetle**. Dr Igor Robert Siwanowicz (HHMI Janelia Research Campus), 2016",
+      "url": "https://www.nikonsmallworld.com/galleries/2016-photomicrography-competition/front-foot-tarsus-of-a-male-diving-beetle",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "margin palps, fold crab",
+      "source_interpretation_as_written": "An arthropod walking limb that ends in suction discs joins two organs in one specimen. It gives segment proportions and joint rhythm for the fold_crab limb, and it is the sucker-probe variant for margin_palps. The array of discs in graded sizes is a jewellery setting found in nature.",
+      "source_cautions_as_written": "The confocal pseudocolour is the photographer's choice. The note that the discs are used for gripping comes from general beetle biology, not from the gallery caption.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 69,
+      "title": "Glass model of the sea anemone Peachia hastata",
+      "creator": "Leopold and Rudolf Blaschka (model); photograph by Commons user..., Model undated on the file page...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Glass model of the sea anemone Peachia hastata**. Leopold and Rudolf Blaschka (model); photograph by Commons user..., Model undated on the file page...",
+      "url": "https://commons.wikimedia.org/wiki/File:Peachia_hastata.jpg",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "wine anemone",
+      "source_interpretation_as_written": "Nineteenth-century craftsmen already solved our problem: soft living tissue made as a precious, hard, translucent material. Study tentacle count, taper and curl, the lip disc, and how glass handles translucency. It is period-safe, so a Blaschka-like object is fair for the 1927 world. The same...",
+      "source_cautions_as_written": "The CC0 covers the photo, but the studio rule still bans tracing or texturing it. The glass-model idiom can drift toward pale aquarium colour, so push toward wine and plum.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 71,
+      "title": "Outbreak (hand-cut paper sculpture)",
+      "creator": "Rogan Brown, 2014",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Outbreak (hand-cut paper sculpture)**. Rogan Brown, 2014",
+      "url": "https://roganbrown.com/artwork/3543642-Outbreak.html",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "cellular surface, hazards",
+      "source_interpretation_as_written": "A model for turning microbial colonies into layered relief ornament at voxel scale: stacked planes on spacers, lace-like perforation, and density that thins from colony core to fringe. It also gives a template for how a hazard's overgrowth spreads across a surface.",
+      "source_cautions_as_written": "Monochrome white paper, so use it for form and layering only. The artist freely mixes invented forms with real ones, so check any shape against a real specimen before using it.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 72,
+      "title": "The Diatomist (short documentary on Klaus Kemp)",
+      "creator": "Matthew Killip (director); subject Klaus Kemp (1937-2022), diatom..., 2014",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**The Diatomist (short documentary on Klaus Kemp)**. Matthew Killip (director); subject Klaus Kemp (1937-2022), diatom..., 2014",
+      "url": "https://www.thisiscolossal.com/2014/09/diatomist/",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living gold, margin palps",
+      "source_interpretation_as_written": "Two uses. First, motion: moving a single shell with a fine bristle models the gold-finger palp's precise articulations. Second, composition: finished rosettes show biomineral cells set like jewels in rings of alternating shapes, a direct grammar for the living_gold arrangements. Pair it with the...",
+      "source_cautions_as_written": "The URL is a press article that embeds the film, not an archive record. A 2024 CG homage, 'Diatoms' by Optical Arts (opticalarts.studio/work/projects/diatoms), studies how light refracts through...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 76,
+      "title": "'Dragonfly' corsage ornament (Dragonfly-woman)",
+      "creator": "René Lalique (1860-1945), c. 1897-1898",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**'Dragonfly' corsage ornament (Dragonfly-woman)**. René Lalique (1860-1945), c. 1897-1898",
+      "url": "https://gulbenkian.pt/museu/en/works/dragonfly-corsage-ornament/",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "fold crab, margin palps, living gold",
+      "source_interpretation_as_written": "The literal version of the style law. Plique-à-jour wings are transparent enamel cells partitioned by gold wire, and the wings are hinged and articulated. Use it for fold_crab (jointed arthropod limbs, and wings that fold at gold hinges, a good lead-in to the 'impossible folding'). Use it for the...",
+      "source_cautions_as_written": "The museum photograph is not openly licensed: look only, never copy. The Walters Art Museum (CC0 policy) has Lalique plique-à-jour pieces, e.g. Orchid Comb 57.936 and Pansy Brooch 57.943, if an...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 79,
+      "title": "Esquisses décoratives (portfolio of decorative designs derived from Haeckel's radiolaria)",
+      "creator": "René Binet (1866-1911), preface by Gustave Geffroy, c. 1902 (Smithsonian Libraries...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Esquisses décoratives (portfolio of decorative designs derived from Haeckel's radiolaria)**. René Binet (1866-1911), preface by Gustave Geffroy, c. 1902 (Smithsonian Libraries...",
+      "url": "https://library.si.edu/digital-library/book/esquissesdeycor00bine",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living gold, crystal listener, encrusting flora, margin palps",
+      "source_interpretation_as_written": "This is the main precedent for the living_gold and crystal_listener skeletons. Study how Binet keeps the radiolarian's radial symmetry and pore lattice but thickens every bar into a jeweller's gold wire. Use that same thickening rule to turn the lattices into cloisonne cells. Page through for...",
+      "source_cautions_as_written": "Plates are uncaptioned as to species, so pair each with the Haeckel source plate from the scientific lane before calling it a specific radiolarian. Use the scan for form and proportion only. Do not...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 80,
+      "title": "Freundinnen (Wasserschlangen I) / Water Serpents I",
+      "creator": "Gustav Klimt (1862-1918), 1904, minor amendments 1907",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Freundinnen (Wasserschlangen I) / Water Serpents I**. Gustav Klimt (1862-1918), 1904, minor amendments 1907",
+      "url": "https://sammlung.belvedere.at/objects/3828/",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "ribbon display, margin palps, cellular surface",
+      "source_interpretation_as_written": "The closest Klimt to a living ribbon animal. It shows how a long soft body can be carried by a gold-cell field so that the ornament reads as the animal's own tissue. Use it for ribbon_display (ribbon worms, siphonophore streamers), for the flat-ribbon margin palp, and for the density and size...",
+      "source_cautions_as_written": "Belvedere download terms are private and scientific use only, so keep it to internal review.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 81,
+      "title": "Group I, Primordial Chaos, No. 16 (WU/Rosen series)",
+      "creator": "Hilma af Klint (1862-1944), 1906-1907",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Group I, Primordial Chaos, No. 16 (WU/Rosen series)**. Hilma af Klint (1862-1944), 1906-1907",
+      "url": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint,_1906-07,_Primordial_Chaos_-_No_16.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "ribbon display, cilia, incarnations",
+      "source_interpretation_as_written": "Reference for a helical ribbon and filament rhythm: the loops read like a flagellum or a ribbon worm's undulation. Use it for ribbon_display's double-helix and for single cilia beating strokes. The tight gold spiral is also a clean motif for the incarnations' wax-cylinder groove and...",
+      "source_cautions_as_written": "Made in 1906-07 but not shown publicly until 1986. It is period-safe as an object, but no 1927 character could have seen it, so keep it in the Dream only.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 82,
+      "title": "La Main aux algues et aux coquillages (Hand with Seaweed and Shells), Nancy exemplar",
+      "creator": "Émile Gallé (1846-1904); photograph by Jean-Pierre Dalbéra, 1904 (object); photographed 2010",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**La Main aux algues et aux coquillages (Hand with Seaweed and Shells), Nancy exemplar**. Émile Gallé (1846-1904); photograph by Jean-Pierre Dalbéra, 1904 (object); photographed 2010",
+      "url": "https://commons.wikimedia.org/wiki/File:La_main_aux_algues_et_aux_coquillages_(Emile_Gall%C3%A9)_(4935426077).jpg",
+      "licence_as_written": "CC BY",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "margin palps, hero limb, encrusting flora",
+      "source_interpretation_as_written": "The best decorative precedent for a limb that is half body, half sea-floor. Use it for the soft palp's translucent, jelly-like skin and for hero_limb reaching upward. Use it for encrusting_flora: study how the shells sit on the surface as raised mineral bosses rather than decals. It also shows how...",
+      "source_cautions_as_written": "CC BY 2.0 needs attribution if the photo is ever reproduced. Photographed in a vitrine, so expect reflections and don't read them as form.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 83,
+      "title": "La porte monumentale de R. Binet (Exposition universelle, Paris 1900), Neurdein photograph...",
+      "creator": "Neurdein Frères (photographers); gate designed by René Binet, 1900",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**La porte monumentale de R. Binet (Exposition universelle, Paris 1900), Neurdein photograph...**. Neurdein Frères (photographers); gate designed by René Binet, 1900",
+      "url": "https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/la-porte-monumentale-de-r-binet",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living architecture, crystal listener, living gold",
+      "source_interpretation_as_written": "Shows a microscopic skeleton blown up to architecture at 30 m. Use it to proportion living_architecture and a large crystal_listener: the rhythm of pore rings, the ratio of rib thickness to span, and a spiny crown seen against sky. The cabochons set into the lattice at night are a direct precedent...",
+      "source_cautions_as_written": "Black-and-white photograph, so none of the gate's colour survives. Take palette from other sources.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 85,
+      "title": "Medallion with Saint Paul from an Icon Frame (Jumati/Djumati enamels)",
+      "creator": "Byzantine court workshop (Constantinople), c. 1100",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Medallion with Saint Paul from an Icon Frame (Jumati/Djumati enamels)**. Byzantine court workshop (Constantinople), c. 1100",
+      "url": "https://www.metmuseum.org/art/collection/search/464546",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "cellular surface, living gold",
+      "source_interpretation_as_written": "The ground-truth reference for how true cloisonne partitions an image. Study the thickness of the gold wire against cell size, the way wires follow drapery flow and hair as dense parallel runs, and the slightly pitted, glassy enamel surface. Use it to set the shader and tessellation rules for...",
+      "source_cautions_as_written": "Its palette is blues and flesh tones, not wine and plum, so take structure from it, not colour. Sister medallions (Peter 464543, John the Baptist 464550, Christ 464551, the Virgin 464548) are on the...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 86,
+      "title": "Pectoral and Necklace of Sithathoryunet with the Name of Senwosret II",
+      "creator": "Egyptian royal workshop, Middle Kingdom, Dynasty 12, c. 1887-1878 B.C.",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Pectoral and Necklace of Sithathoryunet with the Name of Senwosret II**. Egyptian royal workshop, Middle Kingdom, Dynasty 12, c. 1887-1878 B.C.",
+      "url": "https://www.metmuseum.org/art/collection/search/544232",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "living gold, grazer armour, cellular surface",
+      "source_interpretation_as_written": "Reference for gold cells filled with solid mineral rather than glass, a good read for grazer_armour's tessellated chiton plates and radula rows. Carnelian gives the wine-red, lapis gives near-black depth, and turquoise with green feldspar give emerald accents, which is close to the style palette....",
+      "source_cautions_as_written": "None beyond the studio reference-only rule.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 88,
+      "title": "The Misshapen Polyp Floated on the Shores, a Sort of Smiling and Hideous Cyclops, plate 3 of...",
+      "creator": "Odilon Redon (1840-1916), 1883",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**The Misshapen Polyp Floated on the Shores, a Sort of Smiling and Hideous Cyclops, plate 3 of...**. Odilon Redon (1840-1916), 1883",
+      "url": "https://www.artic.edu/artworks/79347/the-misshapen-polyp-floated-on-the-shores-a-sort-of-smiling-and-hideous-cyclops-plate-3-of-8-from-les-origines",
+      "licence_as_written": "CC0",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "ocellus lens, seam grazer, cellular surface",
+      "source_interpretation_as_written": "Reference for a limbless soft body carrying one large eye, the seam_grazer's flatworm-like body plan read as a single lens. Also useful for tone: the creature is unsettling but tender, which suits the brief's line of 'sensuous and readable, never clinical'. Use the soft edge where the body...",
+      "source_cautions_as_written": "Monochrome. Other Les Origines plates are on the AIC site (Cover-Frontispiece 1920.1577) if the full sequence is wanted.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 91,
+      "title": "A mimoid impersonating a helicopter (illustration of Lem's Solaris), plus Symmetriad 1-3 and...",
+      "creator": "Dominique Signoret, 2006",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**A mimoid impersonating a helicopter (illustration of Lem's Solaris), plus Symmetriad 1-3 and...**. Dominique Signoret, 2006",
+      "url": "https://commons.wikimedia.org/wiki/File:Mimoid.jpg",
+      "licence_as_written": "CC BY-SA",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "living architecture, incarnations, cellular surface, crystal listener, living gold",
+      "source_interpretation_as_written": "This is the closest existing image of the Dream's core behaviour: a being that copies an observed thing and misreads what it is for. Use it to set how close an incarnation should stay to its specimen (outline faithful, material and purpose wrong). Use the Symmetriad 1-3 sequence for...",
+      "source_cautions_as_written": "Low resolution (800x538). The palette is cold blue and red, so do not adopt it. CC BY-SA means crediting the artist on any review slide.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 92,
+      "title": "Amazing Stories, Vol. 2 No. 5, August 1927: cover for H. G. Wells's The War of the Worlds",
+      "creator": "Frank R. Paul (1884-1963); publisher/editor Hugo Gernsback, August 1927",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Amazing Stories, Vol. 2 No. 5, August 1927: cover for H. G. Wells's The War of the Worlds**. Frank R. Paul (1884-1963); publisher/editor Hugo Gernsback, August 1927",
+      "url": "https://commons.wikimedia.org/wiki/File:Amazing_Stories_1927_08.jpg",
+      "licence_as_written": "PD",
+      "period_safe_as_written": "yes",
+      "dossier_serves_as_written": "fold crab, hero limb, incarnations",
+      "source_interpretation_as_written": "This is the period baseline for how 1927 imagined alien limbs: jointed stilts and grasping machinery, blocked in flat colour. It works in two ways. First, it can guide a waking-world newsstand prop, which must be repainted in the studio's own hand. Second, it is a foil: the Dream's fold_crab...",
+      "source_cautions_as_written": "I did not check the limb details of this specific cover against the image; look at it before briefing. Any in-game magazine must be new art. Never use the scan as a texture.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 93,
+      "title": "Annihilation (2018): the Shimmer, crystal trees and the humanoid mimic (VFX breakdown)",
+      "creator": "Double Negative (VFX supervisor Andrew Whitehurst) for Alex..., 2018-03-12 (article); 2018 (film)",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Annihilation (2018): the Shimmer, crystal trees and the humanoid mimic (VFX breakdown)**. Double Negative (VFX supervisor Andrew Whitehurst) for Alex..., 2018-03-12 (article); 2018 (film)",
+      "url": "https://vfxblog.com/2018/03/12/mandelbulbs-mutations-and-motion-capture-the-visual-effects-of-annihilation/",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "encrusting flora, living gold",
+      "source_interpretation_as_written": "(1) Growth by shards breaking through the ground reads as a biomineral skeleton forming, useful for living_gold growth timing. (2) The mirror dance is a direct precedent for a being that learns a specimen by copying its motion, for the pursuer's learning beat and for incarnations. (3) The film's...",
+      "source_cautions_as_written": "DO NOT IMITATE: the petrol-rainbow iridescence and the Mandelbulb and lighthouse forms are the film's signature, and rainbow sheen would also break our wine, plum and gold palette. Treat this as...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 94,
+      "title": "Arrival (2016): heptapod design",
+      "creator": "Carlos Huante (creature designer) for Denis Villeneuve's film, 2016",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Arrival (2016): heptapod design**. Carlos Huante (creature designer) for Denis Villeneuve's film, 2016",
+      "url": "https://www.carlos-huante-monstruo.com/arrival",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "ribbon display, hero limb, incarnations, fold crab, crystal listener",
+      "source_interpretation_as_written": "A signal emitted as a closed ring and read all at once is a model for ribbon_display and for the oscillator / wax-cylinder-groove incarnation (circular records of a rhythm). The palm pressed to the glass is a model for hero_limb meeting a boundary at the synaptic cleft. Hansen's prism experiment...",
+      "source_cautions_as_written": "Huante's page loads its images by script, so my text fetch confirmed only that the project page exists; my description of the heptapods comes from the film and published accounts. DO NOT IMITATE the...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 95,
+      "title": "Codex Seraphinianus: flora and metamorphosis plates (the plant that grows into a chair; the...",
+      "creator": "Luigi Serafini, Drawn 1976-78; first published 1981...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Codex Seraphinianus: flora and metamorphosis plates (the plant that grows into a chair; the...**. Luigi Serafini, Drawn 1976-78; first published 1981...",
+      "url": "https://en.wikipedia.org/wiki/Codex_Seraphinianus",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "incarnations, encrusting flora, living architecture",
+      "source_interpretation_as_written": "The whole book models confident misreading: a naturalist's plate format applied to things whose purposes are wrong. The chair-plant captures the Dream's logic in one image: an organism growing toward a human object's shape without its purpose. Use it for the tone of incarnation plates and for...",
+      "source_cautions_as_written": "The archive.org uploads of the Codex are unauthorised scans; do not use them. Serafini's motifs are recognisable, so take the logic, not the drawings.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 96,
+      "title": "Expedition: Darwin IV plates (Groveback, Daggerwrist, Eosapien, Emperor Sea Strider,...",
+      "creator": "Wayne Douglas Barlowe, 1990 (Workman Publishing); adapted as...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Expedition: Darwin IV plates (Groveback, Daggerwrist, Eosapien, Emperor Sea Strider,...**. Wayne Douglas Barlowe, 1990 (Workman Publishing); adapted as...",
+      "url": "https://waynebarlowe.com/artwork/expedition/",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "crystal listener, margin palps, fold crab, encrusting flora, living architecture",
+      "source_interpretation_as_written": "Body logic: a whole fauna built without eyes or jaws, so sensing happens through pits, sonar and odd openings. That is exactly the problem crystal_listener and margin_palps face, making a sense organ read clearly without being an eye. The Groveback, a body so slow it becomes landscape, is a model...",
+      "source_cautions_as_written": "DO NOT IMITATE closely: the Eosapien and Daggerwrist silhouettes are iconic, and so are the Alien Planet CG versions. The palette is earthy ochre, not ours.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 99,
+      "title": "Necronom IV (negative reference: also covers Beksiński's fantastic period and Scorn)",
+      "creator": "H. R. Giger, 1976",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Necronom IV (negative reference: also covers Beksiński's fantastic period and Scorn)**. H. R. Giger, 1976",
+      "url": "https://www.wikiart.org/en/h-r-giger/necronom-iv-1976",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "negative reference",
+      "source_interpretation_as_written": "A NEGATIVE reference showing what hazards (inflammation, immune rejection) and the pursuer must avoid: fused flesh and machine, ribbed tubes, grey-black airbrush, sexualised threat. Keep our inflammation and rejection readable and warm instead: swelling, heat bloom, gold wire straining at the...",
+      "source_cautions_as_written": "MUST NOT IMITATE. The same flag applies to Zdzisław Beksiński's fantastic period (from 1972; the main collection is the Historical Museum in Sanok, https://muzeum.sanok.pl/en/zdzislaw-beksinski/)...",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    },
+    {
+      "dossier_reference_number": 100,
+      "title": "Snaiad: para-tetrapod anatomy (two-headed body plan, hydraulic muscles)",
+      "creator": "C. M. Kösemen (Nemo Ramjet), Begun 2004-05; official website...",
+      "creator_field_note": "Verbatim creator/date attribution from the combined dossier work field; any ellipsis is present in the source.",
+      "work_as_written": "**Snaiad: para-tetrapod anatomy (two-headed body plan, hydraulic muscles)**. C. M. Kösemen (Nemo Ramjet), Begun 2004-05; official website...",
+      "url": "https://en.wikipedia.org/wiki/Snaiad",
+      "licence_as_written": "copyright, ref only",
+      "period_safe_as_written": "no",
+      "dossier_serves_as_written": "hero limb, margin palps, incarnations",
+      "source_interpretation_as_written": "Two lessons. (1) An organ that reads as one thing (a face) but does another: the same trick as the Dream misreading a specimen's purpose, useful for incarnations. (2) Hydraulic muscle is a muscular hydrostat, the actual mechanism behind hero_limb and the soft palp: swell first, then extend, with...",
+      "source_cautions_as_written": "I could not verify the plates on the official site (expired certificate). Do not copy the two-headed silhouette, which is the project's signature.",
+      "verification": {
+        "basis": "Inherited from dossier e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+        "new_remote_or_licence_audit": false
+      }
+    }
+  ],
+  "supplemental_source_catalog": [
+    {
+      "supplemental_id": "euglena_crawling_2019",
+      "title": "Swimming Euglena respond to confinement with a behavioral change enabling effective crawling",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6522345/",
+      "role": "biological_mechanism",
+      "takeaway": "Coordinated pellicle deformation and traveling body shape changes under confinement.",
+      "limitation": "The seam-grazer use is a comparative movement analogy, not its lineage.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "magnetosome_support_2006",
+      "title": "Magnetosomes are cell membrane invaginations organized by the actin-like protein MamK",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16373532/",
+      "role": "comparative_anatomy",
+      "takeaway": "Membrane compartments and cytoskeletal filaments support biological crystals.",
+      "limitation": "Does not establish acoustic sensing, a statocyst or the rotating resonator.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "joint_membrane_2013",
+      "title": "The architecture of the joint head cuticle and its transition to the arthrodial membrane in the terrestrial crustacean Porcellio scaber",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23396132/",
+      "role": "comparative_anatomy",
+      "takeaway": "Stiff joint surfaces transition into soft continuous arthrodial membrane.",
+      "limitation": "Does not establish impossible shortening or the exact crab limb plan.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "tardigrade_tun_2013",
+      "title": "Desiccation Tolerance in the Tardigrade Richtersius coronifer Relies on Muscle Mediated Structural Reorganization",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3877342/",
+      "role": "biological_mechanism",
+      "takeaway": "Active musculature and pharyngeal rearrangement during tun formation.",
+      "limitation": "Fluorescent labels are not natural color; room scale and optical-depth law are fiction.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "stentor_cortex_1973",
+      "title": "The Contractile Process in the Ciliate, Stentor coeruleus: I. The Role of Microtubules and Filaments",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2108994/",
+      "role": "biological_mechanism",
+      "takeaway": "Longitudinal cortical microtubular and myonemal organization supports coordinated deformation.",
+      "limitation": "Does not validate detached crowns or the game's trigger.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "stentor_habituation_2023",
+      "title": "Single-cell analysis of habituation in Stentor coeruleus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9877177/",
+      "role": "biological_mechanism",
+      "takeaway": "Individual contraction probability can change step-like under repeated stimulation.",
+      "limitation": "Current timed amplitude reduction is an authored abstraction.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "lacrymaria_origami_2024",
+      "title": "Curved crease origami and topological singularities enable hyperextensibility of L. olor",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38843314/",
+      "role": "biological_mechanism",
+      "takeaway": "Continuous cortical/membrane organization stores helical pleats.",
+      "limitation": "Does not support disconnected segments or literal transfer of scale and timing.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "lacrymaria_dataset_2024",
+      "title": "Curved crease origami at cellular scales enables hyper-extensibility of Lacrymaria olor: authors' microscopy dataset",
+      "url": "https://datadryad.org/dataset/doi%3A10.5061/dryad.4xgxd25g0",
+      "role": "comparative_anatomy",
+      "takeaway": "Confocal, SEM and TEM records clarify cortex, pleats and cilia relationships.",
+      "limitation": "URL only; no dataset downloaded; contrast is not natural color.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "vorticella_mechanics_2010",
+      "title": "Mechanics of Vorticella Contraction",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2884240/",
+      "role": "biological_mechanism",
+      "takeaway": "Off-axis contractile core and stalk geometry explain coiling and coupled motion.",
+      "limitation": "Simplified mechanical-model geometry is not complete literal anatomy.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "vorticella_highspeed_2007",
+      "title": "Power-Limited Contraction Dynamics of Vorticella convallaria: An Ultrafast Biological Spring",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2134882/",
+      "role": "biological_mechanism",
+      "takeaway": "High-speed observations distinguish contraction wave and cell response.",
+      "limitation": "Supplies contraction evidence absent from dossier 44; game timing remains authored.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "euplotes_walking_2022",
+      "title": "A unicellular walker controlled by a microtubule-based finite state machine",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9474717/",
+      "role": "biological_mechanism",
+      "takeaway": "Ventral cirri, subcortical connections and structured gait transitions.",
+      "limitation": "Fourteen bundles on eight controls is a declared abstraction.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "spirostomum_myoneme_2026",
+      "title": "A centrin-Sfi1 myoneme fishnet powers ultrafast calcium-triggered contraction in the giant ciliate Spirostomum ambiguum",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2601408123",
+      "role": "biological_mechanism",
+      "takeaway": "Fishnet geometry and volume conservation connect local contraction to whole-cell deformation.",
+      "limitation": "Structural evidence does not prescribe exterior stripes; game size/timing remain authored.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "heliozoan_axopodia_2001",
+      "title": "The ultrastructure of contractile tubules in the heliozoon Actinophrys sol and their possible involvement in rapid axopodial contraction",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11596916/",
+      "role": "biological_mechanism",
+      "takeaway": "Contractile structures accompany food-associated axopodial contraction.",
+      "limitation": "Retain the paper's mechanistic qualifications; skeletal radiolarian spines are not equivalent.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "euglena_mechanics_2012",
+      "title": "Reverse engineering the euglenoid movement",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3497777/",
+      "role": "biological_mechanism",
+      "takeaway": "Pellicle-strip organization and sliding constrain deformation.",
+      "limitation": "Does not establish a new runtime phototaxis receptor.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "volvox_inversion_2015",
+      "title": "Elasticity and glocality: initiation of embryonic inversion in Volvox",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4685841/",
+      "role": "biological_mechanism",
+      "takeaway": "Connected embryonic cellular sheet bends and inverts through coordinated shape changes.",
+      "limitation": "Developmental inversion is not a recurring adult habit; false colors are not a palette.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "noctiluca_scintillons_2020",
+      "title": "Molecular and biochemical basis for the loss of bioluminescence in the dinoflagellate Noctiluca scintillans along the west coast of the USA",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7351363/",
+      "role": "biological_mechanism",
+      "takeaway": "Scintillon compartments and large vacuolar system support localized luminescent anatomy.",
+      "limitation": "Not all populations are luminous; no new ordinary-play or irradiance-triggered receptor follows.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "bacillaria_attachment_1992",
+      "title": "Cell attachment in the motile colonial diatom Bacillaria paxillifer",
+      "url": "https://www.researchgate.net/publication/233102392_CELL_ATTACHMENT_IN_THE_MOTILE_COLONIAL_DIATOMBACILLARIA_PAXILLIFER",
+      "role": "biological_mechanism",
+      "takeaway": "Valve-to-valve sliding retains overlap; mucilage-mediated attachment is proposed.",
+      "limitation": "Proposed mucilage explanation does not establish interlocking teeth; author-uploaded paper.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "salpingoeca_morphogenesis_2020",
+      "title": "Biophysical principles of choanoflagellate self-organization",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31896587/",
+      "role": "biological_mechanism",
+      "takeaway": "Basally secreted ECM constrains rosette packing and cell polarity.",
+      "limitation": "Does not establish cyclic mature-rosette unfurling or a new runtime receptor.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "salpingoeca_author_pdf_2020",
+      "title": "Biophysical principles of choanoflagellate self-organization: authors' full paper",
+      "url": "https://kumarlab.berkeley.edu/wp-content/uploads/2020/01/1909447117.full_.pdf",
+      "role": "biological_mechanism",
+      "takeaway": "Figures and methods distinguish basal ECM, cells and outward collar complexes.",
+      "limitation": "Same study as PubMed entry, not independent corroboration; model spheres/colors are abstractions.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "mesodinium_oral_2012",
+      "title": "Ultrastructure of the oral apparatus of Mesodinium rubrum from Korea",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22888970/",
+      "role": "comparative_anatomy",
+      "takeaway": "Distinct oral tentacles, microtubular support and cirral attachments.",
+      "limitation": "Studied strain does not establish every Mesodinium species' anatomy.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    },
+    {
+      "supplemental_id": "mesodinium_organelles_2015",
+      "title": "Insights into transcriptional changes that accompany organelle sequestration from the stolen nucleus of Mesodinium rubrum",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4609049/",
+      "role": "biological_mechanism",
+      "takeaway": "Retained prey nuclei and plastids have a functional relationship.",
+      "limitation": "Retained organelles are not daughter colonies; no new jumping/ecology behavior follows.",
+      "provenance": "Earlier complementary research and Blender brief; not numbered in the dossier.",
+      "licence": "Not audited in this companion; URL reference only.",
+      "verification": "Carried from earlier research; no new remote verification in this task."
+    }
+  ],
+  "shared_supplemental_art_sources": [
+    {
+      "supplemental_id": "alex_ries_ventgarden",
+      "title": "Subnautica: Below Zero - Ventgarden",
+      "creator": "Alex Ries",
+      "url": "https://abiogenesis.artstation.com/projects/0XXnqy",
+      "role": "artistic_interpretation",
+      "takeaway": "Relate visible interior organization and habitat attachment.",
+      "limitation": "Speculative art, not microbiological evidence; not numbered in the dossier.",
+      "licence": "Not audited here; URL reference only."
+    },
+    {
+      "supplemental_id": "terryl_whitlatch_interview",
+      "title": "Interview with Terryl Whitlatch",
+      "creator": "Terryl Whitlatch; interview by Andrew Leon Hudson",
+      "url": "https://www.sffworld.com/2016/03/interview-with-terryl-whitlatch/",
+      "role": "artistic_interpretation",
+      "takeaway": "Prepare aligned exterior, support/internal structure and motion studies before production.",
+      "limitation": "Apply method to protist cortices and compartments, not vertebrate skeletons.",
+      "licence": "Not audited here; URL reference only."
+    }
+  ],
+  "specimens": [
+    {
+      "species_id": 0,
+      "species_name": "seam_grazer",
+      "dossier_organ_categories": [
+        "seam grazer"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Direct flatworm and tomography lineage.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 6,
+          "role": "comparative_anatomy",
+          "takeaway": "Serial sections and flatworm body proportions.",
+          "limitation": "Sections inform continuous anatomy, not disconnected tissue plates."
+        },
+        {
+          "dossier_reference_number": 16,
+          "role": "comparative_anatomy",
+          "takeaway": "Three-dimensional planarian anatomical layers and internal relationships.",
+          "limitation": "Imaging layers are not evidence that the animal consists of separate sheets."
+        },
+        {
+          "dossier_reference_number": 33,
+          "role": "comparative_anatomy",
+          "takeaway": "Thin frilled outline and low mantle.",
+          "limitation": "Do not import the pictured stripes."
+        },
+        {
+          "dossier_reference_number": 71,
+          "role": "artistic_interpretation",
+          "takeaway": "Layered interior readability and relief depth.",
+          "limitation": "Invented paper sculpture does not establish biological structure."
+        },
+        {
+          "dossier_reference_number": 88,
+          "role": "artistic_interpretation",
+          "takeaway": "Soft silhouette and unsettling but tender tone.",
+          "limitation": "Does not require adding the pictured eye."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "euglena_crawling_2019",
+          "role": "comparative_anatomy",
+          "takeaway": "Comparative movement mechanism for a fictional flatworm-derived grazer.",
+          "limitation": "Does not replace the ledger's flatworm/tomography lineage."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Ledger row 7: a wall is misread as two faces of one membrane; preserve both-sides identity.",
+        "Flatworm/tomography is primary. Euglena is only a comparative movement mechanism."
+      ],
+      "work_priority": {
+        "rank": 14,
+        "group": "fictional_template",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 1,
+      "species_name": "crystal_listener",
+      "dossier_organ_categories": [
+        "crystal listener",
+        "living gold"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Direct lineage; motion evidence remains incomplete.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 2,
+          "role": "comparative_anatomy",
+          "takeaway": "Supported mineral cage and spine proportions.",
+          "limitation": "A crafted glass model is not living motion."
+        },
+        {
+          "dossier_reference_number": 11,
+          "role": "comparative_anatomy",
+          "takeaway": "Radial structures and bounded cavities.",
+          "limitation": "Historical illustrations do not establish joint mechanics."
+        },
+        {
+          "dossier_reference_number": 18,
+          "role": "comparative_anatomy",
+          "takeaway": "Cage and spine-root hierarchy.",
+          "limitation": "Microscopy brightness is not emission."
+        },
+        {
+          "dossier_reference_number": 47,
+          "role": "comparative_anatomy",
+          "takeaway": "Contained ear-stone and layered growth.",
+          "limitation": "Static section is not a moving statocyst; do not restore broad bands."
+        },
+        {
+          "dossier_reference_number": 79,
+          "role": "artistic_interpretation",
+          "takeaway": "Readable support thickness and openings.",
+          "limitation": "Do not copy exact lattice geometry or assign taxa to unidentified plates."
+        },
+        {
+          "dossier_reference_number": 83,
+          "role": "artistic_interpretation",
+          "takeaway": "Rib-to-span proportion at enlarged scale.",
+          "limitation": "Architecture is not biological scaling evidence."
+        },
+        {
+          "dossier_reference_number": 96,
+          "role": "artistic_interpretation",
+          "takeaway": "Sensing remains legible without an ordinary eye.",
+          "limitation": "Do not borrow iconic alien silhouettes."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "magnetosome_support_2006",
+          "role": "comparative_anatomy",
+          "takeaway": "Membrane compartments and cytoskeletal filaments support biological crystals.",
+          "limitation": "Does not establish acoustic sensing, a statocyst or the rotating resonator."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Ledger row 8: receiving is misread as being addressed; preserve receptor ownership.",
+        "Radiolarian plus otolith/statocyst is primary; magnetosomes are an attachment analogy.",
+        "Supports remain attached while the resonator rotates inside the still shell."
+      ],
+      "work_priority": {
+        "rank": 15,
+        "group": "fictional_template",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 2,
+      "species_name": "fold_crab",
+      "dossier_organ_categories": [
+        "fold crab"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Direct lineage; live walking/folding footage is a gap.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 48,
+          "role": "comparative_anatomy",
+          "takeaway": "Segment proportions and joint narrowing.",
+          "limitation": "Static plate supplies no live gait."
+        },
+        {
+          "dossier_reference_number": 68,
+          "role": "comparative_anatomy",
+          "takeaway": "Attachment and contact detail.",
+          "limitation": "Beetle tarsus is an analogy; do not add suction discs."
+        },
+        {
+          "dossier_reference_number": 15,
+          "role": "artistic_interpretation",
+          "takeaway": "Transformation grids as anatomical reasoning.",
+          "limitation": "Mathematical interpretation does not prove the impossible law."
+        },
+        {
+          "dossier_reference_number": 58,
+          "role": "artistic_interpretation",
+          "takeaway": "Projection and unfolding logic.",
+          "limitation": "Check figure identity before detailed use; not arthropod motion."
+        },
+        {
+          "dossier_reference_number": 76,
+          "role": "artistic_interpretation",
+          "takeaway": "Rigid mineral cells over articulated interfaces.",
+          "limitation": "Jewelry is a material/hinge analogy; image remains URL-only."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "joint_membrane_2013",
+          "role": "comparative_anatomy",
+          "takeaway": "Stiff joint surfaces transition into soft continuous arthrodial membrane.",
+          "limitation": "Does not establish impossible shortening or the exact crab limb plan."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Ledger row 9: distance is negotiable; preserve fixed-endpoint shortening.",
+        "Reference 43 was considered but not adopted: fossil reconstruction history does not establish reversible anatomy.",
+        "Retain front mouth-limbs and mineral cups; add no transport-packet behavior."
+      ],
+      "work_priority": {
+        "rank": 16,
+        "group": "fictional_template",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 3,
+      "species_name": "tardigrade",
+      "dossier_organ_categories": [
+        "cellular surface",
+        "living gold"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct tardigrade specimen; artistic support only.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 82,
+          "role": "artistic_interpretation",
+          "takeaway": "Cloudy translucent tissue and raised interfaces.",
+          "limitation": "Glass does not establish cuticle or organ anatomy."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Restrained compartment boundaries and material thickness.",
+          "limitation": "Do not make the animal an armored gold-cell pattern."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "tardigrade_tun_2013",
+          "role": "biological_mechanism",
+          "takeaway": "Active musculature and pharyngeal rearrangement during tun formation.",
+          "limitation": "Fluorescent labels are not natural color; room scale and optical-depth law are fiction."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Retain eight integrated lobopods, continuous cuticle and contained pharyngeal/gut anatomy.",
+        "Cat scale and excess optical depth are fiction.",
+        "Older ledger has no individual tardigrade entry."
+      ],
+      "work_priority": {
+        "rank": 1,
+        "group": "directly_researched",
+        "pilot": true
+      }
+    },
+    {
+      "species_id": 4,
+      "species_name": "stentor",
+      "dossier_organ_categories": [
+        "cilia",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Stentor specimen; ciliary and feeding-current analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 20,
+          "role": "comparative_anatomy",
+          "takeaway": "Rooted ciliary fields and controlled density.",
+          "limitation": "Fixed airway tissue is not a Stentor oral apparatus or movement record."
+        },
+        {
+          "dossier_reference_number": 44,
+          "role": "comparative_anatomy",
+          "takeaway": "Oral feeding-current organization.",
+          "limitation": "Vorticella footage does not establish Stentor contraction or learning."
+        },
+        {
+          "dossier_reference_number": 69,
+          "role": "artistic_interpretation",
+          "takeaway": "Readable translucent crown and aperture.",
+          "limitation": "Crafted anemone model is not ciliate anatomy."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Localized compartment definition.",
+          "limitation": "Keep structure within tissue, not broad exterior stripes."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "stentor_cortex_1973",
+          "role": "biological_mechanism",
+          "takeaway": "Longitudinal cortical microtubular and myonemal organization supports coordinated deformation.",
+          "limitation": "Does not validate detached crowns or the game's trigger."
+        },
+        {
+          "supplemental_id": "stentor_habituation_2023",
+          "role": "biological_mechanism",
+          "takeaway": "Individual contraction probability can change step-like under repeated stimulation.",
+          "limitation": "Current timed amplitude reduction is an authored abstraction."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Keep the current timed visual-habituation sequence; do not imply a repeated-stimulus receptor.",
+        "Real habituation can alter response probability rather than contraction amplitude.",
+        "Body, crown and interior share one deformation."
+      ],
+      "work_priority": {
+        "rank": 5,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 5,
+      "species_name": "lacrymaria",
+      "dossier_organ_categories": [
+        "cilia",
+        "ribbon display"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Lacrymaria specimen; silhouette, gesture and material analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 46,
+          "role": "comparative_anatomy",
+          "takeaway": "Continuous long soft-axis silhouette.",
+          "limitation": "Nemertean form is not the neck mechanism."
+        },
+        {
+          "dossier_reference_number": 81,
+          "role": "artistic_interpretation",
+          "takeaway": "Continuous curve gesture and unfolding rhythm.",
+          "limitation": "Still artwork supplies no measured motion law."
+        },
+        {
+          "dossier_reference_number": 82,
+          "role": "artistic_interpretation",
+          "takeaway": "Thin translucent transitions and attached soft form.",
+          "limitation": "Do not turn continuous membrane into rigid glass segments."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "lacrymaria_origami_2024",
+          "role": "biological_mechanism",
+          "takeaway": "Continuous cortical/membrane organization stores helical pleats.",
+          "limitation": "Does not support disconnected segments or literal transfer of scale and timing."
+        },
+        {
+          "supplemental_id": "lacrymaria_dataset_2024",
+          "role": "comparative_anatomy",
+          "takeaway": "Confocal, SEM and TEM records clarify cortex, pleats and cilia relationships.",
+          "limitation": "URL only; no dataset downloaded; contrast is not natural color."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Continuous body-neck-head envelope and stored pleats are essential.",
+        "Current reach, search phase and bias remain authoritative.",
+        "Neither octopus hydrostats nor ribbon worms substitute for cellular origami."
+      ],
+      "work_priority": {
+        "rank": 3,
+        "group": "directly_researched",
+        "pilot": true
+      }
+    },
+    {
+      "species_id": 6,
+      "species_name": "vorticella",
+      "dossier_organ_categories": [
+        "cilia",
+        "margin palps",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Direct feeding footage; contraction needs supplemental research.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 44,
+          "role": "biological_mechanism",
+          "takeaway": "Feeding-current motion around the oral ciliary ring.",
+          "limitation": "Dossier explicitly states that stalk contraction is not shown."
+        },
+        {
+          "dossier_reference_number": 20,
+          "role": "comparative_anatomy",
+          "takeaway": "Rooted cilia and density transitions.",
+          "limitation": "Airway tissue is only a packing analogy."
+        },
+        {
+          "dossier_reference_number": 69,
+          "role": "artistic_interpretation",
+          "takeaway": "Transparent crown, aperture and taper.",
+          "limitation": "Glass anemone does not establish bell/stalk anatomy."
+        },
+        {
+          "dossier_reference_number": 82,
+          "role": "artistic_interpretation",
+          "takeaway": "Cloudy membrane and material continuity.",
+          "limitation": "Reflections and glass optics are not tissue mechanics."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "vorticella_mechanics_2010",
+          "role": "biological_mechanism",
+          "takeaway": "Off-axis contractile core and stalk geometry explain coiling and coupled motion.",
+          "limitation": "Simplified mechanical-model geometry is not complete literal anatomy."
+        },
+        {
+          "supplemental_id": "vorticella_highspeed_2007",
+          "role": "biological_mechanism",
+          "takeaway": "High-speed observations distinguish contraction wave and cell response.",
+          "limitation": "Supplies contraction evidence absent from dossier 44; game timing remains authored."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Keep continuous sheath, fixed holdfast and shared bell/crown endpoint.",
+        "Measure sheath contour and core shortening separately.",
+        "Preserve fast withdrawal and slower recovery."
+      ],
+      "work_priority": {
+        "rank": 2,
+        "group": "directly_researched",
+        "pilot": true
+      }
+    },
+    {
+      "species_id": 7,
+      "species_name": "euplotes",
+      "dossier_organ_categories": [
+        "cilia",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Euplotes specimen; surface and attachment analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 20,
+          "role": "comparative_anatomy",
+          "takeaway": "Cilia-root density and bare/ciliated differentiation.",
+          "limitation": "Does not establish cirral composition or gait."
+        },
+        {
+          "dossier_reference_number": 68,
+          "role": "comparative_anatomy",
+          "takeaway": "Readable attachment and contact detail.",
+          "limitation": "Do not transfer suction discs or hard insect legs."
+        },
+        {
+          "dossier_reference_number": 76,
+          "role": "artistic_interpretation",
+          "takeaway": "Articulated material contrast.",
+          "limitation": "Restrained interface analogy, not armor blueprint."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Controlled material boundaries.",
+          "limitation": "Do not replace cortex with heavy tiling."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "euplotes_walking_2022",
+          "role": "biological_mechanism",
+          "takeaway": "Ventral cirri, subcortical connections and structured gait transitions.",
+          "limitation": "Fourteen bundles on eight controls is a declared abstraction."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Document fourteen visible bundles mapped to eight current controls.",
+        "Every terminal branch follows its insertion frame through stance and swing."
+      ],
+      "work_priority": {
+        "rank": 7,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 8,
+      "species_name": "spirostomum",
+      "dossier_organ_categories": [
+        "cilia",
+        "ribbon display",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Spirostomum specimen; composition and surface analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 20,
+          "role": "comparative_anatomy",
+          "takeaway": "Ordered rooted ciliary surface.",
+          "limitation": "No contraction mechanism follows from fixed airway tissue."
+        },
+        {
+          "dossier_reference_number": 46,
+          "role": "comparative_anatomy",
+          "takeaway": "Continuous elongated silhouette.",
+          "limitation": "Worm outline does not establish protist interiors."
+        },
+        {
+          "dossier_reference_number": 80,
+          "role": "artistic_interpretation",
+          "takeaway": "Long-form compositional flow.",
+          "limitation": "Do not transfer decorative bands or figurative forms."
+        },
+        {
+          "dossier_reference_number": 81,
+          "role": "artistic_interpretation",
+          "takeaway": "Coherent axial rhythm.",
+          "limitation": "Still imagery does not measure contraction timing."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "spirostomum_myoneme_2026",
+          "role": "biological_mechanism",
+          "takeaway": "Fishnet geometry and volume conservation connect local contraction to whole-cell deformation.",
+          "limitation": "Structural evidence does not prescribe exterior stripes; game size/timing remain authored."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Preserve coupled shortening, widening and twist with interior containment.",
+        "Cortical fishnet remains structural, not luminous exterior stripes."
+      ],
+      "work_priority": {
+        "rank": 6,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 9,
+      "species_name": "heliozoan",
+      "dossier_organ_categories": [
+        "living gold",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct heliozoan specimen; radial-layout analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 11,
+          "role": "comparative_anatomy",
+          "takeaway": "Radial spacing and root hierarchy.",
+          "limitation": "Rigid radiolarian skeleton is not retractile axopodia."
+        },
+        {
+          "dossier_reference_number": 18,
+          "role": "comparative_anatomy",
+          "takeaway": "Readable radial silhouette and feature density.",
+          "limitation": "Do not turn membrane-covered rays into bare mineral spikes."
+        },
+        {
+          "dossier_reference_number": 79,
+          "role": "artistic_interpretation",
+          "takeaway": "Radial visual hierarchy.",
+          "limitation": "Do not transfer rigid lattice mechanics to soft rays."
+        },
+        {
+          "dossier_reference_number": 82,
+          "role": "artistic_interpretation",
+          "takeaway": "Soft cortex and slender attachments.",
+          "limitation": "Glass is only a material reference."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "heliozoan_axopodia_2001",
+          "role": "biological_mechanism",
+          "takeaway": "Contractile structures accompany food-associated axopodial contraction.",
+          "limitation": "Retain the paper's mechanistic qualifications; skeletal radiolarian spines are not equivalent."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Selected-ray retraction preserves root and sheath continuity.",
+        "A transport knot is a proposed state-driven visual, not new prey simulation."
+      ],
+      "work_priority": {
+        "rank": 9,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 10,
+      "species_name": "euglena",
+      "dossier_organ_categories": [
+        "ribbon display",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Euglena specimen; artistic support only.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 81,
+          "role": "artistic_interpretation",
+          "takeaway": "Continuous curved gesture.",
+          "limitation": "No evidence of flagellar mechanics or eyespot operation."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Local compartment definition.",
+          "limitation": "No tiled cortex or broad decorative spirals."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "euglena_crawling_2019",
+          "role": "biological_mechanism",
+          "takeaway": "Coordinated pellicle deformation and traveling body shape changes under confinement.",
+          "limitation": "The seam-grazer use is a comparative movement analogy, not its lineage."
+        },
+        {
+          "supplemental_id": "euglena_mechanics_2012",
+          "role": "biological_mechanism",
+          "takeaway": "Pellicle-strip organization and sliding constrain deformation.",
+          "limitation": "Does not establish a new runtime phototaxis receptor."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Preserve pellicle-driven traveling deformation and contained plastids.",
+        "Visible eyespot does not imply implemented directional phototaxis.",
+        "Comb rows are not a substitute for this flagellum."
+      ],
+      "work_priority": {
+        "rank": 8,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 11,
+      "species_name": "volvox",
+      "dossier_organ_categories": [
+        "cellular surface",
+        "cilia"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Direct colony video; inversion requires supplemental research.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 45,
+          "role": "biological_mechanism",
+          "takeaway": "Parent cell spacing, contained daughters and rotation.",
+          "limitation": "Dossier description does not establish daughter inversion; DIC relief is not literal surface relief."
+        },
+        {
+          "dossier_reference_number": 49,
+          "role": "artistic_interpretation",
+          "takeaway": "Distinct neighboring regions and controlled boundaries.",
+          "limitation": "Cloisonne process is not cell development."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Boundary thickness relative to cell size.",
+          "limitation": "Avoid restoring the broad gold lattice."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "volvox_inversion_2015",
+          "role": "biological_mechanism",
+          "takeaway": "Connected embryonic cellular sheet bends and inverts through coordinated shape changes.",
+          "limitation": "Developmental inversion is not a recurring adult habit; false colors are not a palette."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Model a connected daughter sheet and real phialopore.",
+        "Inversion is embryonic development; repeat exhibit loop is an abstraction.",
+        "Parent and daughter poses retain existing state ownership."
+      ],
+      "work_priority": {
+        "rank": 4,
+        "group": "directly_researched",
+        "pilot": true
+      }
+    },
+    {
+      "species_id": 12,
+      "species_name": "noctiluca",
+      "dossier_organ_categories": [
+        "cellular surface",
+        "ribbon display"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Noctiluca specimen; transparency and optical-change analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 39,
+          "role": "comparative_anatomy",
+          "takeaway": "Transparent compartments and spacious interior hierarchy.",
+          "limitation": "Siphonophore modules are not Noctiluca organelles."
+        },
+        {
+          "dossier_reference_number": 34,
+          "role": "optical_technique",
+          "takeaway": "Localized optical change with readable boundaries.",
+          "limitation": "Chromatophore expansion is not scintillon emission or its trigger."
+        },
+        {
+          "dossier_reference_number": 82,
+          "role": "artistic_interpretation",
+          "takeaway": "Translucent tissue with locally dense features.",
+          "limitation": "Do not fill the vacuole with glass beads."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "noctiluca_scintillons_2020",
+          "role": "biological_mechanism",
+          "takeaway": "Scintillon compartments and large vacuolar system support localized luminescent anatomy.",
+          "limitation": "Not all populations are luminous; no new ordinary-play or irradiance-triggered receptor follows."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Keep dominant clear vacuole and localized active periphery.",
+        "Mechanical/debug state remains flash trigger; R/G changes optical appearance, not receptor ownership.",
+        "Debug stimulus does not prove ordinary-play sensing."
+      ],
+      "work_priority": {
+        "rank": 10,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 13,
+      "species_name": "bacillaria",
+      "dossier_organ_categories": [
+        "living gold",
+        "cellular surface"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "Diatom imagery present, but not Bacillaria colony mechanics.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 59,
+          "role": "optical_technique",
+          "takeaway": "Frustule relief and illumination-dependent appearance.",
+          "limitation": "Species/filter colors unspecified; Rheinberg color is not natural pigment."
+        },
+        {
+          "dossier_reference_number": 62,
+          "role": "artistic_interpretation",
+          "takeaway": "Proportion and clarity of discrete silica forms.",
+          "limitation": "Human-arranged slide is not a living colony; URL-only."
+        },
+        {
+          "dossier_reference_number": 72,
+          "role": "artistic_interpretation",
+          "takeaway": "Controlled shell placement and legibility.",
+          "limitation": "Human arrangement is not biological movement or attachment."
+        },
+        {
+          "dossier_reference_number": 79,
+          "role": "artistic_interpretation",
+          "takeaway": "Readable mineral structure.",
+          "limitation": "Radiolarian ornament does not replace valve anatomy."
+        },
+        {
+          "dossier_reference_number": 86,
+          "role": "artistic_interpretation",
+          "takeaway": "Thickness and weight of mineral compartments.",
+          "limitation": "Keep parallel sliding raft, not ornamental rosette."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "bacillaria_attachment_1992",
+          "role": "biological_mechanism",
+          "takeaway": "Valve-to-valve sliding retains overlap; mucilage-mediated attachment is proposed.",
+          "limitation": "Proposed mucilage explanation does not establish interlocking teeth; author-uploaded paper."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Rigid frustules retain persistent neighbor overlap.",
+        "Do not claim mechanical interlocking teeth are established biology."
+      ],
+      "work_priority": {
+        "rank": 11,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 14,
+      "species_name": "salpingoeca",
+      "dossier_organ_categories": [
+        "cellular surface",
+        "encrusting flora"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Salpingoeca specimen; colony-layout analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 26,
+          "role": "comparative_anatomy",
+          "takeaway": "Distinct repeated units and readable growth front.",
+          "limitation": "Bryozoan zooids do not establish collars or basal ECM."
+        },
+        {
+          "dossier_reference_number": 35,
+          "role": "comparative_anatomy",
+          "takeaway": "Repeated living units sharing a substrate.",
+          "limitation": "Macrocolonial form is not this rosette's anatomy."
+        },
+        {
+          "dossier_reference_number": 49,
+          "role": "artistic_interpretation",
+          "takeaway": "Distinct connected regions in one coherent design.",
+          "limitation": "Manufacturing process is not morphogenesis."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Controlled boundaries and shared material vocabulary.",
+          "limitation": "Do not harden ECM into wire partitions."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "salpingoeca_morphogenesis_2020",
+          "role": "biological_mechanism",
+          "takeaway": "Basally secreted ECM constrains rosette packing and cell polarity.",
+          "limitation": "Does not establish cyclic mature-rosette unfurling or a new runtime receptor."
+        },
+        {
+          "supplemental_id": "salpingoeca_author_pdf_2020",
+          "role": "biological_mechanism",
+          "takeaway": "Figures and methods distinguish basal ECM, cells and outward collar complexes.",
+          "limitation": "Same study as PubMed entry, not independent corroboration; model spheres/colors are abstractions."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Inward basal poles, common ECM and outward collars remain primary.",
+        "Cyclic unfurling is authored presentation; no new bacterial receptor implied.",
+        "Cells remain separate and joined through matrix."
+      ],
+      "work_priority": {
+        "rank": 12,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    },
+    {
+      "species_id": 15,
+      "species_name": "mesodinium",
+      "dossier_organ_categories": [
+        "cellular surface",
+        "incarnations"
+      ],
+      "mapping_status": "PROPOSED reference crosswalk; no new canon, organ owner or behavior",
+      "dossier_coverage": "No direct Mesodinium specimen; compartment and interpretive-art analogies.",
+      "dossier_source_uses": [
+        {
+          "dossier_reference_number": 66,
+          "role": "artistic_interpretation",
+          "takeaway": "Membrane boundaries and organized crowded compartments.",
+          "limitation": "Synapse illustration is not Mesodinium anatomy."
+        },
+        {
+          "dossier_reference_number": 85,
+          "role": "artistic_interpretation",
+          "takeaway": "Distinct bounded material regions.",
+          "limitation": "Do not create arbitrary orbiting jewelry beads."
+        },
+        {
+          "dossier_reference_number": 91,
+          "role": "artistic_interpretation",
+          "takeaway": "Shape, substance and purpose can be differently interpreted.",
+          "limitation": "Speculation is not biology; no new incarnation owner."
+        }
+      ],
+      "supplemental_source_uses": [
+        {
+          "supplemental_id": "mesodinium_oral_2012",
+          "role": "comparative_anatomy",
+          "takeaway": "Distinct oral tentacles, microtubular support and cirral attachments.",
+          "limitation": "Studied strain does not establish every Mesodinium species' anatomy."
+        },
+        {
+          "supplemental_id": "mesodinium_organelles_2015",
+          "role": "biological_mechanism",
+          "takeaway": "Retained prey nuclei and plastids have a functional relationship.",
+          "limitation": "Retained organelles are not daughter colonies; no new jumping/ecology behavior follows."
+        }
+      ],
+      "behavior_and_interpretation_limits": [
+        "Host and retained foreign compartments stay distinct and contained.",
+        "Retained organelles are not daughter colonies.",
+        "Do not add jumping behavior."
+      ],
+      "work_priority": {
+        "rank": 13,
+        "group": "directly_researched",
+        "pilot": false
+      }
+    }
+  ],
+  "contextual_reference_uses": [
+    {
+      "dossier_reference_number": 19,
+      "role": "optical_technique",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Brainbow labeling does not establish natural pigments."
+    },
+    {
+      "dossier_reference_number": 21,
+      "role": "optical_technique",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Colored SEM does not establish natural pigments."
+    },
+    {
+      "dossier_reference_number": 27,
+      "role": "comparative_anatomy",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Sensory stereocilia are not motile cilia; fluorescence is not natural color."
+    },
+    {
+      "dossier_reference_number": 28,
+      "role": "optical_technique",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Colored SEM does not establish natural pigments."
+    },
+    {
+      "dossier_reference_number": 36,
+      "role": "optical_technique",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Illumination-dependent diffraction is not intrinsic emission."
+    },
+    {
+      "dossier_reference_number": 43,
+      "role": "comparative_anatomy",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Fossil reconstruction history does not establish reversible living anatomy; not adopted for the crab."
+    },
+    {
+      "dossier_reference_number": 55,
+      "role": "optical_technique",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Fluorescence does not establish natural pigments."
+    },
+    {
+      "dossier_reference_number": 63,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Review-copy wording conflicts with reference-only category; retain URL-only handling; not adopted for specimens."
+    },
+    {
+      "dossier_reference_number": 92,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Dossier discloses incomplete visual verification; not adopted for specimens."
+    },
+    {
+      "dossier_reference_number": 93,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "The film's petrol-rainbow iridescence and signature forms are excluded; no source-image input or new palette is authorized."
+    },
+    {
+      "dossier_reference_number": 94,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Dossier discloses incomplete visual verification; not adopted for specimens."
+    },
+    {
+      "dossier_reference_number": 95,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Dossier links a secondary page; not newly verified or adopted for specimens."
+    },
+    {
+      "dossier_reference_number": 99,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Negative stylistic reference on a secondary page, not a positive anatomy source."
+    },
+    {
+      "dossier_reference_number": 100,
+      "role": "artistic_interpretation",
+      "disposition": "integration_caution_only",
+      "takeaway": "Retain source limits when integrating the dossier.",
+      "limitation": "Unverified original plates and secondary page; fictional hydraulics are not general muscular-hydrostat evidence."
+    }
+  ],
+  "local_validation": {
+    "json_parse_roundtrip": "passed",
+    "species_count": 16,
+    "stable_species_ids": "0 through 15, once each",
+    "adopted_dossier_reference_count": 37,
+    "context_only_dossier_reference_count": 14,
+    "dossier_reference_catalog_count": 51,
+    "dossier_source_use_count": 62,
+    "supplemental_mechanism_source_count": 21,
+    "unresolved_dossier_references": [],
+    "unresolved_supplemental_references": [],
+    "remote_or_scientific_validation_claim": false,
+    "work_order": "16 unique IDs; first thirteen are 3–15; last three 0,1,2; pilots 3,6,5,11"
+  },
+  "work_order": {
+    "status": "planned; no rebuilt species assets delivered",
+    "rule": "Finish the thirteen directly researched organisms before the three fictional templates, which have researched analogies. Canonical runtime IDs remain unchanged.",
+    "species_ids": [
+      3,
+      6,
+      5,
+      11,
+      4,
+      8,
+      7,
+      10,
+      9,
+      12,
+      13,
+      14,
+      15,
+      0,
+      1,
+      2
+    ],
+    "pilots": [
+      3,
+      6,
+      5,
+      11
+    ],
+    "waves": [
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        10,
+        9,
+        12
+      ],
+      [
+        13,
+        14,
+        15
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "first_checkpoint": [
+      3,
+      6
+    ],
+    "wider_zoo": "Rescue and debug display of existing hero/organelle assets is separate from this species regeneration queue. Designed families and other unexhibited groups receive labeled placeholders."
+  }
+}

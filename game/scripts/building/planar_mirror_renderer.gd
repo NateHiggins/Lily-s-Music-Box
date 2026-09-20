@@ -20,6 +20,7 @@ var _camera: Camera3D
 var _active: MedicineCabinetProp
 var _material: ShaderMaterial
 var _texture_bound := false
+var _stopped := false
 
 
 func setup(main_camera: Camera3D) -> void:
@@ -52,7 +53,7 @@ func setup(main_camera: Camera3D) -> void:
 
 
 func _bind_texture() -> void:
-	if _view == null or not is_inside_tree():
+	if _stopped or not is_instance_valid(_view) or not is_inside_tree():
 		return
 	_material = ShaderMaterial.new()
 	_material.shader = SHADER
@@ -61,22 +62,22 @@ func _bind_texture() -> void:
 	# A cabinet can win selection on the first process tick, before this deferred
 	# texture exists. Complete that same binding instead of waiting for a switch
 	# to some other mirror that may never happen.
-	if _active != null:
+	if is_instance_valid(_active):
 		_active.set_live_mirror_material(_material)
 
 
 func _process(_delta: float) -> void:
-	if _main_camera == null or _camera == null:
+	if _stopped or not is_instance_valid(_main_camera) or not is_instance_valid(_camera):
 		_sleep()
 		return
 	var candidate := _choose_mirror()
 	if candidate != _active:
-		if _active != null:
+		if is_instance_valid(_active):
 			_active.set_live_mirror_material(null)
 		_active = candidate
-		if _active != null and _texture_bound:
+		if is_instance_valid(_active) and _texture_bound:
 			_active.set_live_mirror_material(_material)
-	if _active == null or not _texture_bound:
+	if not is_instance_valid(_active) or not _texture_bound:
 		_sleep()
 		return
 	_pose_reflection(_active)
@@ -135,13 +136,30 @@ func _reflect_vector(vector: Vector3, normal: Vector3) -> Vector3:
 
 
 func _sleep() -> void:
-	if _view:
+	if is_instance_valid(_view):
 		_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
-	if _active != null:
+	if is_instance_valid(_active):
 		_active.set_live_mirror_material(null)
-		_active = null
+	_active = null
 	set_meta("active_unit", "")
 
 
 func active_mirror() -> MedicineCabinetProp:
 	return _active
+
+
+func shutdown() -> void:
+	_stopped = true
+	set_process(false)
+	_sleep()
+	_texture_bound = false
+	# The shader holds the viewport texture. Break that reference before the
+	# world or its cabinets retire, including shutdown before deferred binding.
+	if _material != null: _material.set_shader_parameter("mirror_view", null)
+	_material = null
+	_main_camera = null
+	if is_instance_valid(_view): _view.world_3d = null
+
+
+func _exit_tree() -> void:
+	shutdown()

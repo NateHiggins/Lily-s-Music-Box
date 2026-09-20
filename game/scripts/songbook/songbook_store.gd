@@ -51,7 +51,7 @@ static func save_version(song: SongResource, lyrics: Dictionary,
 		"title": song.title,
 		"lyrics": lyrics,
 		"strict_meter": strict_meter,
-		"created": Time.get_datetime_string_from_system(),
+		"created": CampaignClock.new().datetime_string(),
 		"vocal_stem": vocal_path,
 		# TASKS.md G1a: the version's one immutable too-fast reconstruction.
 		# Recipients hear base + vocal varisped together at exactly this

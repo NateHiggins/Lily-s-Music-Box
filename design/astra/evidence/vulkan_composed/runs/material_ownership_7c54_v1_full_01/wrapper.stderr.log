@@ -1,0 +1,8 @@
+Exception: C:\PleaseRemainOnTheLine-astra\design\astra\evidence\vulkan_composed\runs\material_ownership_7c54_v1_full_01\command.ps1:1
+Line |
+   1 |  & 'C:\PleaseRemainOnTheLine-astra\tools\run_godot_serial.ps1' -Projec …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | TIMEOUT: 'res://tests/VulkanComposedRootTest.tscn' was still running at the 180-second ceiling and was
+     | terminated by the runner. The ceiling ended this run, not the suite - it reported no verdict. Re-run with a
+     | higher -TimeoutSeconds if the suite is legitimately this expensive, or diagnose a hang. Partial log:
+     | C:\PleaseRemainOnTheLine-astra\design\astra\evidence\vulkan_composed\runs\material_ownership_7c54_v1_full_01\stdout.log

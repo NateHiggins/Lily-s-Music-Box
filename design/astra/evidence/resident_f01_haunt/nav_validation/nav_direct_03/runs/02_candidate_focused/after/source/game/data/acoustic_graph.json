@@ -1,0 +1,11601 @@
+{
+ "nodes": [
+  {
+   "id": "BASEMENT_HEADER_WEST",
+   "pos": [
+    -5.85,
+    0.0,
+    -2.3
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "heating",
+   "frequency_band": [
+    30,
+    400
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "BASEMENT_HEADER_EAST",
+    "F01_LOBBY_RADIATOR_01",
+    "F02_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "BASEMENT_HEADER_EAST",
+   "pos": [
+    5.85,
+    0.0,
+    -2.3
+   ],
+   "room": "B1_BOILER",
+   "network": "heating",
+   "frequency_band": [
+    30,
+    400
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_BOILER_01",
+    "BASEMENT_HEADER_WEST",
+    "F01_D_RADIATOR_01",
+    "F02_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "B1_BOILER_01",
+   "pos": [
+    9.05,
+    1.55,
+    -2.8
+   ],
+   "room": "B1_BOILER",
+   "network": "heating",
+   "frequency_band": [
+    25,
+    300
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "BASEMENT_HEADER_EAST",
+    "B1_FLUE_BASE"
+   ]
+  },
+  {
+   "id": "B1_WATER_MAIN",
+   "pos": [
+    -13.48,
+    7.0,
+    -1.85
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 14,
+   "damping": 0.22,
+   "infection_receptivity": 0.62,
+   "connections": [
+    "B1_WASHER_01",
+    "B1_WASHER_02",
+    "B1_LAUNDRY_JOIST"
+   ]
+  },
+  {
+   "id": "B1_LAUNDRY_JOIST",
+   "pos": [
+    -11.8,
+    7.8,
+    -0.35
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    900
+   ],
+   "delay_ms": 28,
+   "damping": 0.22,
+   "infection_receptivity": 0.48,
+   "connections": [
+    "B1_LAUNDRY_AIRER_01",
+    "B1_WATER_MAIN"
+   ]
+  },
+  {
+   "id": "B1_WASHER_01",
+   "pos": [
+    -13.28,
+    5.45,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    40,
+    2000
+   ],
+   "delay_ms": 20,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_WATER_MAIN",
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_WASHER_02",
+   "pos": [
+    -13.28,
+    6.6,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "water",
+   "frequency_band": [
+    40,
+    2000
+   ],
+   "delay_ms": 20,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_WATER_MAIN",
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_LAUNDRY_AIRER_01",
+   "pos": [
+    -12.95,
+    8.05,
+    -2.8
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    900
+   ],
+   "delay_ms": 32,
+   "damping": 0.22,
+   "infection_receptivity": 0.52,
+   "connections": [
+    "B1_LAUNDRY_JOIST"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    -0.26
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_STORAGE_CAGES_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    -5.05,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_LAUNDRY_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    6.16,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_BOILER_LT_CAGE_BULB",
+   "pos": [
+    9.58,
+    4.385,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_ELECTRICAL_LT_CAGE_BULB",
+   "pos": [
+    9.58,
+    -5.325,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_COAL_LT_CAGE_BULB",
+   "pos": [
+    12.475,
+    1.5,
+    -0.24
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_NOOK_LAMP",
+   "pos": [
+    -0.94,
+    -0.65,
+    -2.43
+   ],
+   "room": "ATRIUM",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "B1_ATRIUM_FRUIT_1",
+   "pos": [
+    0.48,
+    0.212,
+    -1.408
+   ],
+   "room": "B1",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_LOBBY_RADIATOR_01",
+   "pos": [
+    -4.6,
+    -9.3,
+    0.35
+   ],
+   "room": "LOBBY",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "BASEMENT_HEADER_WEST",
+    "F01_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_LOBBY_CLOCK_01",
+   "pos": [
+    5.225,
+    -8.97,
+    1.95
+   ],
+   "room": "LOBBY",
+   "network": "signal",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_NEON_BLADE",
+   "pos": [
+    3.35,
+    -10.0,
+    6.6
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_NEON_TENANT",
+   "pos": [
+    -6.4,
+    -10.12,
+    3.15
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_MARQUEE_LT_01",
+   "pos": [
+    -0.78,
+    -10.86,
+    3.24
+   ],
+   "room": "LOBBY",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_MARQUEE_LT_02",
+   "pos": [
+    0.78,
+    -10.86,
+    3.24
+   ],
+   "room": "LOBBY",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01WC_LT_SCONCE",
+   "pos": [
+    -13.57,
+    6.48,
+    1.62
+   ],
+   "room": "F01WC",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "1A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    1.62
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    0.35
+   ],
+   "room": "1A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_LOBBY_RADIATOR_01",
+    "F02_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_1A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    0.9
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_1A_KETTLE_01",
+   "pos": [
+    -8.03,
+    -0.64,
+    0.905
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_1A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    0.0
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "1D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    1.62
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    0.35
+   ],
+   "room": "1D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_1D_FRIDGE_01",
+    "BASEMENT_HEADER_EAST",
+    "F02_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_1D_TOASTER_01",
+   "pos": [
+    8.242,
+    -1.32,
+    0.9
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_1D_KETTLE_01",
+   "pos": [
+    8.99,
+    -1.19,
+    0.905
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_1D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    0.0
+   ],
+   "room": "1D",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F01_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    2.94
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_LOBBY_LT_CHANDELIER",
+   "pos": [
+    0.0,
+    -8.29,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_COMMON_B_LT_PENDANT_SHADE",
+   "pos": [
+    -8.705,
+    7.525,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_STORAGE_C_LT_CAGE_BULB",
+   "pos": [
+    9.58,
+    4.385,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_OFFICE_LT_PENDANT_SHADE",
+   "pos": [
+    -11.765,
+    4.035,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_PACKAGE_LT_CAGE_BULB",
+   "pos": [
+    -7.695,
+    4.035,
+    2.96
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    2.96
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    2.96
+   ],
+   "room": "1A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_D_BED_LT_FLUSH_DOME",
+   "pos": [
+    9.58,
+    -7.95,
+    2.96
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    -3.625,
+    2.96
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_D_OFFICE_LT_PENDANT_SHADE",
+   "pos": [
+    6.61,
+    -1.92,
+    2.96
+   ],
+   "room": "1D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_ATRIUM_FRUIT_1",
+   "pos": [
+    0.311,
+    -0.611,
+    1.392
+   ],
+   "room": "F01",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_PORTAL_LT_W",
+   "pos": [
+    11.48,
+    -27.516,
+    2.82
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_PORTAL_LT_E",
+   "pos": [
+    20.33,
+    -27.516,
+    2.82
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_00",
+   "pos": [
+    14.0,
+    -31.2,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_01",
+   "pos": [
+    14.0,
+    -35.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_02",
+   "pos": [
+    14.0,
+    -41.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_03",
+   "pos": [
+    14.0,
+    -45.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_04",
+   "pos": [
+    14.0,
+    -49.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_05",
+   "pos": [
+    14.0,
+    -53.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_06",
+   "pos": [
+    14.0,
+    -57.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "PASSAGE_AISLE_LT_07",
+   "pos": [
+    14.0,
+    -61.0,
+    3.72
+   ],
+   "room": "PASSAGE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_LT_0",
+   "pos": [
+    17.55,
+    -10.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_LT_1",
+   "pos": [
+    17.55,
+    -7.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_LT_2",
+   "pos": [
+    17.55,
+    -4.2,
+    3.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BODEGA_RADIO",
+   "pos": [
+    16.55,
+    -10.55,
+    0.05
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_KARAOKE_SPK_0",
+   "pos": [
+    -2.95,
+    -37.3,
+    -1.9
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_KARAOKE_SPK_1",
+   "pos": [
+    1.45,
+    -37.3,
+    -1.9
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_STAGE_SIGN",
+   "pos": [
+    -0.7,
+    -37.55,
+    -0.38
+   ],
+   "room": "",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DARTS",
+   "pos": [
+    -11.08,
+    -33.0,
+    -0.29
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_LOBBY",
+   "pos": [
+    4.875,
+    -29.3,
+    2.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WELL",
+   "pos": [
+    -2.6,
+    -33.4,
+    1.6
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAIR",
+   "pos": [
+    5.3,
+    -32.6,
+    0.55
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_CAN0",
+   "pos": [
+    -3.2,
+    -29.7,
+    -1.06
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_CAN1",
+   "pos": [
+    -0.25,
+    -29.7,
+    -1.06
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_POOL",
+   "pos": [
+    -7.4,
+    -31.25,
+    -0.6
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB0",
+   "pos": [
+    -8.2,
+    -35.3,
+    -0.62
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB1",
+   "pos": [
+    -5.2,
+    -35.3,
+    -0.62
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_TAB2",
+   "pos": [
+    -1.2,
+    -34.9,
+    -0.62
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAGE0",
+   "pos": [
+    -1.9,
+    -36.55,
+    -0.95
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_STAGE1",
+   "pos": [
+    0.5,
+    -36.55,
+    -0.95
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK0",
+   "pos": [
+    3.92,
+    -36.6,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK1",
+   "pos": [
+    3.92,
+    -33.2,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_DECK2",
+   "pos": [
+    3.92,
+    -32.05,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WEST0",
+   "pos": [
+    -11.34,
+    -35.4,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WEST1",
+   "pos": [
+    -11.34,
+    -31.3,
+    -1.3
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "F01_BAR_LT_WC",
+   "pos": [
+    -10.62,
+    -37.1,
+    -0.45
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "pos": [
+    11.46,
+    -43.825,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "pos": [
+    10.05,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "pos": [
+    7.5,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "pos": [
+    4.95,
+    -42.0,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "pos": [
+    11.46,
+    -49.425,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "pos": [
+    10.05,
+    -47.6,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "pos": [
+    5.95,
+    -47.6,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_KEYS_CUT",
+   "pos": [
+    11.46,
+    -53.025,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "pos": [
+    10.05,
+    -52.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "pos": [
+    6.95,
+    -52.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "pos": [
+    11.46,
+    -58.425,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "pos": [
+    10.05,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "pos": [
+    7.75,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "pos": [
+    5.45,
+    -56.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "pos": [
+    11.46,
+    -63.025,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "pos": [
+    10.05,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "pos": [
+    7.5,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "pos": [
+    4.95,
+    -61.7,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "pos": [
+    16.54,
+    -62.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "pos": [
+    17.95,
+    -61.4,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "pos": [
+    22.05,
+    -61.4,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_RADIO_SERVICE",
+   "pos": [
+    16.54,
+    -56.575,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "pos": [
+    17.95,
+    -57.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "pos": [
+    21.05,
+    -57.2,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_PAWNBROKER",
+   "pos": [
+    16.54,
+    -51.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
+   "pos": [
+    17.95,
+    -53.3,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "pos": [
+    22.05,
+    -53.3,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_NEWS_CIGARS",
+   "pos": [
+    16.54,
+    -49.975,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "pos": [
+    17.95,
+    -49.85,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "pos": [
+    20.05,
+    -49.85,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "pos": [
+    16.54,
+    -45.375,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "pos": [
+    17.95,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "pos": [
+    20.5,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "pos": [
+    23.05,
+    -46.55,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_LT_LUNCHEONETTE",
+   "pos": [
+    16.54,
+    -43.375,
+    2.66
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "pos": [
+    17.95,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "pos": [
+    20.5,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "pos": [
+    23.05,
+    -41.8,
+    2.92
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "pos": [
+    22.7,
+    -59.72,
+    2.24
+   ],
+   "room": "SITE",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "B1_ELECTRICAL_HUB"
+   ]
+  },
+  {
+   "id": "2A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    4.82
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    3.55
+   ],
+   "room": "2A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_2A_FRIDGE_01",
+    "F01_A_RADIATOR_01",
+    "F03_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_2A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    4.1
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_2A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    3.2
+   ],
+   "room": "2A",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F02_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_A_MONITOR_01",
+   "pos": [
+    -11.85,
+    -5.55,
+    3.96
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_A_LAMP_01",
+   "pos": [
+    -12.15,
+    -5.45,
+    3.96
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "2B_LT_SCONCE",
+   "pos": [
+    -5.59,
+    4.39,
+    4.82
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    6.16,
+    3.55
+   ],
+   "room": "2B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_2B_FRIDGE_01",
+    "F02_PORCH_DECK",
+    "BASEMENT_HEADER_WEST",
+    "F03_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_2B_TOASTER_01",
+   "pos": [
+    -5.83,
+    7.182,
+    4.1
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_2B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    3.2
+   ],
+   "room": "2B",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F02_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "2C_LT_SCONCE",
+   "pos": [
+    5.59,
+    5.21,
+    4.82
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.385,
+    3.55
+   ],
+   "room": "2C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_2C_FRIDGE_01",
+    "BASEMENT_HEADER_EAST",
+    "F03_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_2C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    3.2
+   ],
+   "room": "2C",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F02_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_C_SPEAKER_01",
+   "pos": [
+    13.05,
+    5.985,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_SPEAKER_02",
+   "pos": [
+    13.05,
+    2.185,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_MONITOR_01",
+   "pos": [
+    9.18,
+    4.085,
+    3.96
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_BOXFAN_01",
+   "pos": [
+    11.75,
+    5.1,
+    3.2
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "2D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    4.82
+   ],
+   "room": "2D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    3.55
+   ],
+   "room": "2D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F01_D_RADIATOR_01",
+    "F03_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F02_FLUE_BREAST",
+   "pos": [
+    10.0,
+    9.1,
+    3.2
+   ],
+   "room": "2C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F02_FLUE"
+   ]
+  },
+  {
+   "id": "F02_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    3.2
+   ],
+   "room": "F02",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F02_B_RADIATOR_01",
+    "PORCH_BASE",
+    "F03_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F02_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    5.95
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "2A_LT_SCONCE",
+    "F02_2A_TOASTER_01",
+    "F02_A_MONITOR_01",
+    "F02_A_LAMP_01",
+    "2B_LT_SCONCE",
+    "F02_2B_TOASTER_01",
+    "2C_LT_SCONCE",
+    "F02_C_SPEAKER_01",
+    "F02_C_SPEAKER_02",
+    "F02_C_MONITOR_01",
+    "F02_C_BOXFAN_01",
+    "2D_LT_SCONCE",
+    "F02_CORRIDOR_DOME_01",
+    "F02_CORRIDOR_DOME_02",
+    "F02_CORRIDOR_DOME_03",
+    "F02_CORRIDOR_DOME_04",
+    "F02_CORRIDOR_DOME_05",
+    "F02_CORRIDOR_DOME_06",
+    "F02_CORRIDOR_DOME_07",
+    "F02_CORRIDOR_DOME_08",
+    "F02_A_BED_LT_FLUSH_DOME",
+    "F02_A_MAIN_LT_PENDANT_SHADE",
+    "F02_B_ALCOVE_LT_FLUSH_DOME",
+    "F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+    "F02_B_MAIN_LT_PENDANT_SHADE",
+    "F02_C_BED1_LT_FLUSH_DOME",
+    "F02_C_BED2_LT_FLUSH_DOME",
+    "F02_C_MAIN_LT_PENDANT_SHADE",
+    "F02_WSTOR_LT_CAGE_BULB",
+    "F02_HALL_LT_FLUSH_DOME",
+    "F02_UTILITY_LT_CAGE_BULB",
+    "F02_ATRIUM_FRUIT_1",
+    "B1_ELECTRICAL_HUB",
+    "F02_CORRLIGHT_N",
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    5.95
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    6.14
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    6.16
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    6.16
+   ],
+   "room": "2A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_B_ALCOVE_LT_FLUSH_DOME",
+   "pos": [
+    -12.275,
+    8.075,
+    6.16
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "pos": [
+    -8.205,
+    8.075,
+    6.16
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    4.585,
+    6.16
+   ],
+   "room": "2B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_BED1_LT_FLUSH_DOME",
+   "pos": [
+    7.545,
+    7.95,
+    6.16
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_BED2_LT_FLUSH_DOME",
+   "pos": [
+    11.615,
+    7.95,
+    6.16
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    2.685,
+    6.16
+   ],
+   "room": "2C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_WSTOR_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    1.11,
+    6.16
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    6.16
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    6.16
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F02_ATRIUM_FRUIT_1",
+   "pos": [
+    1.23,
+    -0.483,
+    4.592
+   ],
+   "room": "F02",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "3A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    8.02
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    6.75
+   ],
+   "room": "3A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_A_RADIATOR_01",
+    "F04_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_3A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    7.3
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_3A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    6.4
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "3B_LT_SCONCE",
+   "pos": [
+    -5.59,
+    4.39,
+    8.02
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    6.16,
+    6.75
+   ],
+   "room": "3B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_3B_FRIDGE_01",
+    "F03_PORCH_DECK",
+    "F03_UTILITY_ANOMALY",
+    "F02_B_RADIATOR_01",
+    "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_3B_TOASTER_01",
+   "pos": [
+    -5.83,
+    7.182,
+    7.3
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_3B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    6.4
+   ],
+   "room": "3B",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F03_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_B_LAMP_01",
+   "pos": [
+    -10.4,
+    6.29,
+    7.31
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "3C_LT_SCONCE",
+   "pos": [
+    5.59,
+    5.21,
+    8.02
+   ],
+   "room": "3C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.385,
+    6.75
+   ],
+   "room": "3C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F02_C_RADIATOR_01",
+    "F04_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "3D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    8.02
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    6.75
+   ],
+   "room": "3D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F03_3D_FRIDGE_01",
+    "F02_D_RADIATOR_01",
+    "F04_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_3D_TOASTER_01",
+   "pos": [
+    8.242,
+    -1.32,
+    7.3
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_3D_KETTLE_01",
+   "pos": [
+    8.99,
+    -1.19,
+    7.305
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_3D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    6.4
+   ],
+   "room": "3D",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F03_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_D_SPEAKER_01",
+   "pos": [
+    11.38,
+    -4.125,
+    6.4
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_SPEAKER_02",
+   "pos": [
+    11.38,
+    -6.525,
+    6.4
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_FLUE_BREAST",
+   "pos": [
+    10.0,
+    9.1,
+    6.4
+   ],
+   "room": "3C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F03_FLUE"
+   ]
+  },
+  {
+   "id": "F03_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    6.4
+   ],
+   "room": "F03",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F03_B_RADIATOR_01",
+    "F02_PORCH_DECK",
+    "F04_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F03_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    9.15
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "3A_LT_SCONCE",
+    "F03_3A_TOASTER_01",
+    "F03_3A_FRIDGE_01",
+    "3B_LT_SCONCE",
+    "F03_3B_TOASTER_01",
+    "F03_B_LAMP_01",
+    "3C_LT_SCONCE",
+    "3D_LT_SCONCE",
+    "F03_3D_TOASTER_01",
+    "F03_3D_KETTLE_01",
+    "F03_D_SPEAKER_01",
+    "F03_D_SPEAKER_02",
+    "F03_CORRIDOR_DOME_01",
+    "F03_CORRIDOR_DOME_02",
+    "F03_CORRIDOR_DOME_03",
+    "F03_CORRIDOR_DOME_04",
+    "F03_CORRIDOR_DOME_05",
+    "F03_CORRIDOR_DOME_06",
+    "F03_CORRIDOR_DOME_07",
+    "F03_CORRIDOR_DOME_08",
+    "F03_A_BED_LT_FLUSH_DOME",
+    "F03_A_MAIN_LT_PENDANT_SHADE",
+    "F03_B_ALCOVE_LT_FLUSH_DOME",
+    "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+    "F03_B_MAIN_LT_PENDANT_SHADE",
+    "F03_C_BED1_LT_FLUSH_DOME",
+    "F03_C_BED2_LT_FLUSH_DOME",
+    "F03_C_MAIN_LT_PENDANT_SHADE",
+    "F03_D_BED_LT_FLUSH_DOME",
+    "F03_D_MAIN_LT_PENDANT_SHADE",
+    "F03_D_OFFICE_LT_PENDANT_SHADE",
+    "F03_WSTOR_LT_CAGE_BULB",
+    "F03_HALL_LT_FLUSH_DOME",
+    "F03_UTILITY_LT_CAGE_BULB",
+    "F03_ATRIUM_FRUIT_1",
+    "F02_CORRLIGHT_S",
+    "F03_CORRLIGHT_N",
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    9.15
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    9.34
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    9.36
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    9.36
+   ],
+   "room": "3A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+   "pos": [
+    -12.275,
+    8.075,
+    9.36
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "pos": [
+    -8.205,
+    8.075,
+    9.36
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    4.585,
+    9.36
+   ],
+   "room": "3B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_C_BED1_LT_FLUSH_DOME",
+   "pos": [
+    7.545,
+    7.95,
+    9.36
+   ],
+   "room": "3C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_C_BED2_LT_FLUSH_DOME",
+   "pos": [
+    11.615,
+    7.95,
+    9.36
+   ],
+   "room": "3C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_C_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    2.685,
+    9.36
+   ],
+   "room": "3C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_BED_LT_FLUSH_DOME",
+   "pos": [
+    9.58,
+    -7.95,
+    9.36
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    -3.625,
+    9.36
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_D_OFFICE_LT_PENDANT_SHADE",
+   "pos": [
+    6.61,
+    -1.92,
+    9.36
+   ],
+   "room": "3D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_WSTOR_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    1.11,
+    9.36
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    9.36
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    9.36
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F03_UTILITY_ANOMALY",
+   "pos": [
+    -5.33,
+    2.0,
+    7.4
+   ],
+   "room": "3B",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    240
+   ],
+   "delay_ms": 55,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F03_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F03_ATRIUM_FRUIT_1",
+   "pos": [
+    -0.545,
+    -0.878,
+    7.792
+   ],
+   "room": "F03",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "4A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    11.22
+   ],
+   "room": "4A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    9.95
+   ],
+   "room": "4A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_4A_FRIDGE_01",
+    "F03_A_RADIATOR_01",
+    "F05_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_4A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    10.5
+   ],
+   "room": "4A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_4A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    9.6
+   ],
+   "room": "4A",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F04_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "4B_LT_SCONCE",
+   "pos": [
+    -6.33,
+    6.84,
+    11.22
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_RADIATOR_01",
+   "pos": [
+    -7.96,
+    7.48,
+    9.95
+   ],
+   "room": "4B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_B_FRIDGE_01",
+    "F04_B_DOOR_ANOMALY",
+    "F04_B_CLOCK_01",
+    "F04_PORCH_DECK",
+    "F03_B_RADIATOR_01",
+    "F05_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_LAMP_01",
+   "pos": [
+    -8.15,
+    6.0,
+    10.36
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_MONITOR_01",
+   "pos": [
+    -8.05,
+    5.5,
+    10.36
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_TOASTER_01",
+   "pos": [
+    -10.7,
+    9.3,
+    10.5
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_FRIDGE_01",
+   "pos": [
+    -8.03,
+    8.6,
+    9.6
+   ],
+   "room": "4B",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_BOXFAN_01",
+   "pos": [
+    -13.05,
+    6.1,
+    9.6
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_DOOR_ANOMALY",
+   "pos": [
+    -7.2,
+    6.99,
+    10.6
+   ],
+   "room": "4B",
+   "network": "structural",
+   "frequency_band": [
+    20,
+    200
+   ],
+   "delay_ms": 60,
+   "damping": 0.22,
+   "infection_receptivity": 0.95,
+   "connections": [
+    "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_KETTLE_01",
+   "pos": [
+    -10.5,
+    9.3,
+    10.52
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_CLOCK_01",
+   "pos": [
+    -9.373,
+    2.775,
+    11.18
+   ],
+   "room": "4B",
+   "network": "structural",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 28,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_B_CEILLIGHT_01",
+   "pos": [
+    -10.6,
+    4.6,
+    12.2
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "4C_LT_SCONCE",
+   "pos": [
+    5.59,
+    5.21,
+    11.22
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.385,
+    9.95
+   ],
+   "room": "4C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_4C_FRIDGE_01",
+    "F03_C_RADIATOR_01",
+    "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_4C_TOASTER_01",
+   "pos": [
+    5.87,
+    1.238,
+    10.5
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_4C_KETTLE_01",
+   "pos": [
+    6.0,
+    2.02,
+    10.505
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_4C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    9.6
+   ],
+   "room": "4C",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F04_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "4D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    11.22
+   ],
+   "room": "4D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    9.95
+   ],
+   "room": "4D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_4D_FRIDGE_01",
+    "F03_D_RADIATOR_01",
+    "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_4D_FRIDGE_01",
+   "pos": [
+    10.23,
+    -1.32,
+    9.6
+   ],
+   "room": "4D",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F04_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F04_FLUE_BREAST",
+   "pos": [
+    10.0,
+    9.1,
+    9.6
+   ],
+   "room": "4C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F04_FLUE"
+   ]
+  },
+  {
+   "id": "F04_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    9.6
+   ],
+   "room": "F04",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F04_B_RADIATOR_01",
+    "F03_PORCH_DECK",
+    "F05_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F04_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    12.35
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "4A_LT_SCONCE",
+    "F04_4A_TOASTER_01",
+    "4B_LT_SCONCE",
+    "F04_B_LAMP_01",
+    "F04_B_MONITOR_01",
+    "F04_B_TOASTER_01",
+    "F04_B_BOXFAN_01",
+    "F04_B_KETTLE_01",
+    "F04_B_CEILLIGHT_01",
+    "4C_LT_SCONCE",
+    "F04_4C_TOASTER_01",
+    "F04_4C_KETTLE_01",
+    "4D_LT_SCONCE",
+    "F04_CORRIDOR_DOME_01",
+    "F04_CORRIDOR_DOME_02",
+    "F04_CORRIDOR_DOME_03",
+    "F04_CORRIDOR_DOME_04",
+    "F04_CORRIDOR_DOME_05",
+    "F04_CORRIDOR_DOME_06",
+    "F04_CORRIDOR_DOME_07",
+    "F04_CORRIDOR_DOME_08",
+    "F04_A_BED_LT_FLUSH_DOME",
+    "F04_A_MAIN_LT_PENDANT_SHADE",
+    "F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+    "F04_B_ALCOVE_LT_FLUSH_DOME",
+    "F04_C_BED1_LT_FLUSH_DOME",
+    "F04_C_BED2_LT_FLUSH_DOME",
+    "F04_C_MAIN_LT_PENDANT_SHADE",
+    "F04_D_BED_LT_FLUSH_DOME",
+    "F04_D_MAIN_LT_PENDANT_SHADE",
+    "F04_D_OFFICE_LT_PENDANT_SHADE",
+    "F04_WSTOR_LT_CAGE_BULB",
+    "F04_HALL_LT_FLUSH_DOME",
+    "F04_UTILITY_LT_CAGE_BULB",
+    "F04_ATRIUM_FRUIT_1",
+    "F03_CORRLIGHT_S",
+    "F04_CORRLIGHT_N",
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    12.35
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    12.54
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    12.56
+   ],
+   "room": "4A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    12.56
+   ],
+   "room": "4A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "pos": [
+    -9.305,
+    8.075,
+    12.56
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+   "pos": [
+    -12.275,
+    8.075,
+    12.56
+   ],
+   "room": "4B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_C_BED1_LT_FLUSH_DOME",
+   "pos": [
+    7.545,
+    7.95,
+    12.56
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_C_BED2_LT_FLUSH_DOME",
+   "pos": [
+    11.615,
+    7.95,
+    12.56
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    2.685,
+    12.56
+   ],
+   "room": "4C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_D_BED_LT_FLUSH_DOME",
+   "pos": [
+    9.58,
+    -7.95,
+    12.56
+   ],
+   "room": "4D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_D_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    -3.625,
+    12.56
+   ],
+   "room": "4D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_D_OFFICE_LT_PENDANT_SHADE",
+   "pos": [
+    6.61,
+    -1.92,
+    12.56
+   ],
+   "room": "4D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_WSTOR_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    1.11,
+    12.56
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    12.56
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    12.56
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F04_ATRIUM_FRUIT_1",
+   "pos": [
+    0.803,
+    0.221,
+    10.992
+   ],
+   "room": "F04",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F04_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "5A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    14.42
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    13.15
+   ],
+   "room": "5A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_5A_FRIDGE_01",
+    "F04_A_RADIATOR_01",
+    "F06_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_5A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    13.7
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_5A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    12.8
+   ],
+   "room": "5A",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F05_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_A_LAMP_01",
+   "pos": [
+    -8.98,
+    -4.3,
+    13.63
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "5B_LT_SCONCE",
+   "pos": [
+    -5.59,
+    4.39,
+    14.42
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    6.16,
+    13.15
+   ],
+   "room": "5B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_PORCH_DECK",
+    "F04_B_RADIATOR_01",
+    "F06_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_5B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    12.8
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "5C_LT_SCONCE",
+   "pos": [
+    5.59,
+    5.21,
+    14.42
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.385,
+    13.15
+   ],
+   "room": "5C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_5C_FRIDGE_01",
+    "F04_C_RADIATOR_01",
+    "F06_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_5C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    12.8
+   ],
+   "room": "5C",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_C_BOXFAN_01",
+   "pos": [
+    12.85,
+    0.15,
+    12.8
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "5D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    14.42
+   ],
+   "room": "5D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    13.15
+   ],
+   "room": "5D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F04_D_RADIATOR_01",
+    "F06_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F05_FLUE_BREAST",
+   "pos": [
+    10.0,
+    9.1,
+    12.8
+   ],
+   "room": "5C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F05_FLUE"
+   ]
+  },
+  {
+   "id": "F05_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    12.8
+   ],
+   "room": "F05",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F05_B_RADIATOR_01",
+    "F04_PORCH_DECK",
+    "F06_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F05_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    15.55
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "5A_LT_SCONCE",
+    "F05_5A_TOASTER_01",
+    "F05_A_LAMP_01",
+    "5B_LT_SCONCE",
+    "F05_5B_FRIDGE_01",
+    "5C_LT_SCONCE",
+    "F05_C_BOXFAN_01",
+    "5D_LT_SCONCE",
+    "F05_CORRIDOR_DOME_01",
+    "F05_CORRIDOR_DOME_02",
+    "F05_CORRIDOR_DOME_03",
+    "F05_CORRIDOR_DOME_04",
+    "F05_CORRIDOR_DOME_05",
+    "F05_CORRIDOR_DOME_06",
+    "F05_CORRIDOR_DOME_07",
+    "F05_CORRIDOR_DOME_08",
+    "F05_A_BED_LT_FLUSH_DOME",
+    "F05_A_MAIN_LT_PENDANT_SHADE",
+    "F05_B_ALCOVE_LT_FLUSH_DOME",
+    "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+    "F05_B_MAIN_LT_PENDANT_SHADE",
+    "F05_C_BED1_LT_FLUSH_DOME",
+    "F05_C_BED2_LT_FLUSH_DOME",
+    "F05_C_MAIN_LT_PENDANT_SHADE",
+    "F05_WSTOR_LT_CAGE_BULB",
+    "F05_HALL_LT_FLUSH_DOME",
+    "F05_UTILITY_LT_CAGE_BULB",
+    "F05_ATRIUM_FRUIT_1",
+    "F04_CORRLIGHT_S",
+    "F05_CORRLIGHT_N",
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    15.55
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    15.74
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    15.76
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    15.76
+   ],
+   "room": "5A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+   "pos": [
+    -12.275,
+    8.075,
+    15.76
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "pos": [
+    -8.205,
+    8.075,
+    15.76
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    4.585,
+    15.76
+   ],
+   "room": "5B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_C_BED1_LT_FLUSH_DOME",
+   "pos": [
+    7.545,
+    7.95,
+    15.76
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_C_BED2_LT_FLUSH_DOME",
+   "pos": [
+    11.615,
+    7.95,
+    15.76
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    2.685,
+    15.76
+   ],
+   "room": "5C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_WSTOR_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    1.11,
+    15.76
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    15.76
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    15.76
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F05_ATRIUM_FRUIT_1",
+   "pos": [
+    0.554,
+    -0.61,
+    14.192
+   ],
+   "room": "F05",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F05_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "6A_LT_SCONCE",
+   "pos": [
+    -5.59,
+    -4.77,
+    17.62
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_RADIATOR_01",
+   "pos": [
+    -13.35,
+    -5.05,
+    16.35
+   ],
+   "room": "6A",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F06_6A_FRIDGE_01",
+    "F05_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_6A_TOASTER_01",
+   "pos": [
+    -8.778,
+    -0.77,
+    16.9
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_6A_FRIDGE_01",
+   "pos": [
+    -6.79,
+    -0.77,
+    16.0
+   ],
+   "room": "6A",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F06_A_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_A_MONITOR_01",
+   "pos": [
+    -12.85,
+    -6.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_MONITOR_02",
+   "pos": [
+    -12.85,
+    -5.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_MONITOR_03",
+   "pos": [
+    -12.85,
+    -4.05,
+    16.78
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_BOXFAN_01",
+   "pos": [
+    -6.71,
+    -8.65,
+    16.0
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "6B_LT_SCONCE",
+   "pos": [
+    -5.59,
+    4.39,
+    17.62
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_B_RADIATOR_01",
+   "pos": [
+    -13.35,
+    6.16,
+    16.35
+   ],
+   "room": "6B",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F06_6B_FRIDGE_01",
+    "F06_PORCH_DECK",
+    "F05_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_6B_TOASTER_01",
+   "pos": [
+    -5.83,
+    7.182,
+    16.9
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_6B_FRIDGE_01",
+   "pos": [
+    -5.83,
+    9.17,
+    16.0
+   ],
+   "room": "6B",
+   "network": "structural",
+   "frequency_band": [
+    25,
+    900
+   ],
+   "delay_ms": 34,
+   "damping": 0.22,
+   "infection_receptivity": 0.68,
+   "connections": [
+    "F06_B_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "6C_LT_SCONCE",
+   "pos": [
+    5.59,
+    5.21,
+    17.62
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_C_RADIATOR_01",
+   "pos": [
+    13.35,
+    4.385,
+    16.35
+   ],
+   "room": "6C",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_C_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_6C_TOASTER_01",
+   "pos": [
+    5.87,
+    1.238,
+    16.9
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_6C_KETTLE_01",
+   "pos": [
+    6.0,
+    2.02,
+    16.905
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_6C_FRIDGE_01",
+   "pos": [
+    5.87,
+    3.27,
+    16.0
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "6D_LT_SCONCE",
+   "pos": [
+    5.59,
+    -4.77,
+    17.62
+   ],
+   "room": "6D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_D_RADIATOR_01",
+   "pos": [
+    13.35,
+    -5.325,
+    16.35
+   ],
+   "room": "6D",
+   "network": "heating",
+   "frequency_band": [
+    55,
+    850
+   ],
+   "delay_ms": 38,
+   "damping": 0.22,
+   "infection_receptivity": 0.84,
+   "connections": [
+    "F05_D_RADIATOR_01"
+   ]
+  },
+  {
+   "id": "F06_FLUE_BREAST",
+   "pos": [
+    10.0,
+    9.1,
+    16.0
+   ],
+   "room": "6C",
+   "network": "flue",
+   "frequency_band": [
+    40,
+    1200
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.9,
+   "connections": [
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F06_PORCH_DECK",
+   "pos": [
+    -9.15,
+    10.7,
+    16.0
+   ],
+   "room": "F06",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 22,
+   "damping": 0.22,
+   "infection_receptivity": 0.7,
+   "connections": [
+    "F06_B_RADIATOR_01",
+    "F05_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F06_CORRLIGHT_S",
+   "pos": [
+    0.0,
+    -8.3,
+    18.75
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "6A_LT_SCONCE",
+    "F06_6A_TOASTER_01",
+    "F06_A_MONITOR_01",
+    "F06_A_MONITOR_02",
+    "F06_A_MONITOR_03",
+    "F06_A_BOXFAN_01",
+    "6B_LT_SCONCE",
+    "F06_6B_TOASTER_01",
+    "6C_LT_SCONCE",
+    "F06_6C_TOASTER_01",
+    "F06_6C_KETTLE_01",
+    "F06_6C_FRIDGE_01",
+    "6D_LT_SCONCE",
+    "F06_CORRIDOR_DOME_01",
+    "F06_CORRIDOR_DOME_02",
+    "F06_CORRIDOR_DOME_03",
+    "F06_CORRIDOR_DOME_04",
+    "F06_CORRIDOR_DOME_05",
+    "F06_CORRIDOR_DOME_06",
+    "F06_CORRIDOR_DOME_07",
+    "F06_CORRIDOR_DOME_08",
+    "F06_A_BED_LT_FLUSH_DOME",
+    "F06_A_MAIN_LT_PENDANT_SHADE",
+    "F06_B_ALCOVE_LT_FLUSH_DOME",
+    "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+    "F06_B_MAIN_LT_PENDANT_SHADE",
+    "F06_C_BED1_LT_FLUSH_DOME",
+    "F06_C_BED2_LT_FLUSH_DOME",
+    "F06_C_MAIN_LT_PENDANT_SHADE",
+    "F06_D_BED_LT_FLUSH_DOME",
+    "F06_D_MAIN_LT_PENDANT_SHADE",
+    "F06_D_OFFICE_LT_PENDANT_SHADE",
+    "F06_WSTOR_LT_CAGE_BULB",
+    "F06_HALL_LT_FLUSH_DOME",
+    "F06_UTILITY_LT_CAGE_BULB",
+    "F06_ATRIUM_FRUIT_1",
+    "F05_CORRLIGHT_S",
+    "F06_CORRLIGHT_N",
+    "ROOF_ELECTRICAL_RISER"
+   ]
+  },
+  {
+   "id": "F06_CORRLIGHT_N",
+   "pos": [
+    0.0,
+    8.3,
+    18.75
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_01",
+   "pos": [
+    -4.35,
+    -5.1,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_02",
+   "pos": [
+    -4.35,
+    0.0,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_03",
+   "pos": [
+    -4.35,
+    5.1,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_04",
+   "pos": [
+    4.35,
+    -5.1,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_05",
+   "pos": [
+    4.35,
+    0.0,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_06",
+   "pos": [
+    4.35,
+    5.1,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_07",
+   "pos": [
+    0.0,
+    -8.25,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_DOME_08",
+   "pos": [
+    0.0,
+    8.25,
+    18.94
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_BED_LT_FLUSH_DOME",
+   "pos": [
+    -9.58,
+    -7.95,
+    18.96
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    -3.35,
+    18.96
+   ],
+   "room": "6A",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+   "pos": [
+    -12.275,
+    8.075,
+    18.96
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+   "pos": [
+    -8.205,
+    8.075,
+    18.96
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    -9.58,
+    4.585,
+    18.96
+   ],
+   "room": "6B",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_C_BED1_LT_FLUSH_DOME",
+   "pos": [
+    7.545,
+    7.95,
+    18.96
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_C_BED2_LT_FLUSH_DOME",
+   "pos": [
+    11.615,
+    7.95,
+    18.96
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    2.685,
+    18.96
+   ],
+   "room": "6C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_D_BED_LT_FLUSH_DOME",
+   "pos": [
+    9.58,
+    -7.95,
+    18.96
+   ],
+   "room": "6D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_D_MAIN_LT_PENDANT_SHADE",
+   "pos": [
+    9.58,
+    -3.625,
+    18.96
+   ],
+   "room": "6D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_D_OFFICE_LT_PENDANT_SHADE",
+   "pos": [
+    6.61,
+    -1.92,
+    18.96
+   ],
+   "room": "6D",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_WSTOR_LT_CAGE_BULB",
+   "pos": [
+    -9.58,
+    1.11,
+    18.96
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_HALL_LT_FLUSH_DOME",
+   "pos": [
+    -1.2,
+    -5.0,
+    18.96
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_UTILITY_LT_CAGE_BULB",
+   "pos": [
+    0.0,
+    5.0,
+    18.96
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "F06_ATRIUM_FRUIT_1",
+   "pos": [
+    0.614,
+    -0.318,
+    17.392
+   ],
+   "room": "F06",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "ROOF_VENT_FAN_A",
+   "pos": [
+    -11.5,
+    -6.0,
+    19.75
+   ],
+   "room": "ROOF_OPEN",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 9,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F06_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "ROOF_VENT_FAN_B",
+   "pos": [
+    -3.6,
+    6.75,
+    19.75
+   ],
+   "room": "ROOF_OPEN",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 9,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F06_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "ROOF_VENT_FAN_C",
+   "pos": [
+    6.5,
+    -7.5,
+    19.75
+   ],
+   "room": "ROOF_OPEN",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 9,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F06_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "ROOF_VENT_FAN_D",
+   "pos": [
+    12.0,
+    3.0,
+    19.75
+   ],
+   "room": "ROOF_OPEN",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 9,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F06_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "ROOF_LT_DECK",
+   "pos": [
+    8.6,
+    -2.6,
+    21.72
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
+  },
+  {
+   "id": "ROOF_LT_GARDEN",
+   "pos": [
+    -9.0,
+    6.2,
+    21.5
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
+  },
+  {
+   "id": "ROOF_ATRIUM_FRUIT_1",
+   "pos": [
+    -0.247,
+    -1.08,
+    19.948
+   ],
+   "room": "ROOF",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "ROOF_ELECTRICAL_RISER"
+   ]
+  },
+  {
+   "id": "B1_ELECTRICAL_HUB",
+   "pos": [
+    10.0,
+    -5.0,
+    -2.4
+   ],
+   "room": "B1_ELECTRICAL",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 8,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "B1_WASHER_01",
+    "B1_WASHER_02",
+    "B1_CORRIDOR_DOME_01",
+    "B1_CORRIDOR_DOME_02",
+    "B1_CORRIDOR_DOME_03",
+    "B1_CORRIDOR_DOME_04",
+    "B1_CORRIDOR_DOME_05",
+    "B1_CORRIDOR_DOME_06",
+    "B1_CORRIDOR_DOME_07",
+    "B1_CORRIDOR_DOME_08",
+    "B1_STORAGE_CAGES_LT_CAGE_BULB",
+    "B1_LAUNDRY_LT_CAGE_BULB",
+    "B1_BOILER_LT_CAGE_BULB",
+    "B1_ELECTRICAL_LT_CAGE_BULB",
+    "B1_HALL_LT_FLUSH_DOME",
+    "B1_UTILITY_LT_CAGE_BULB",
+    "B1_COAL_LT_CAGE_BULB",
+    "B1_NOOK_LAMP",
+    "B1_ATRIUM_FRUIT_1",
+    "F01_NEON_BLADE",
+    "F01_NEON_TENANT",
+    "F01_MARQUEE_LT_01",
+    "F01_MARQUEE_LT_02",
+    "F01WC_LT_SCONCE",
+    "1A_LT_SCONCE",
+    "F01_1A_TOASTER_01",
+    "F01_1A_KETTLE_01",
+    "F01_1A_FRIDGE_01",
+    "1D_LT_SCONCE",
+    "F01_1D_TOASTER_01",
+    "F01_1D_KETTLE_01",
+    "F01_CORRIDOR_DOME_01",
+    "F01_CORRIDOR_DOME_02",
+    "F01_CORRIDOR_DOME_03",
+    "F01_CORRIDOR_DOME_04",
+    "F01_CORRIDOR_DOME_05",
+    "F01_CORRIDOR_DOME_06",
+    "F01_CORRIDOR_DOME_07",
+    "F01_CORRIDOR_DOME_08",
+    "F01_LOBBY_LT_CHANDELIER",
+    "F01_COMMON_B_LT_PENDANT_SHADE",
+    "F01_STORAGE_C_LT_CAGE_BULB",
+    "F01_HALL_LT_FLUSH_DOME",
+    "F01_UTILITY_LT_CAGE_BULB",
+    "F01_OFFICE_LT_PENDANT_SHADE",
+    "F01_PACKAGE_LT_CAGE_BULB",
+    "F01_A_BED_LT_FLUSH_DOME",
+    "F01_A_MAIN_LT_PENDANT_SHADE",
+    "F01_D_BED_LT_FLUSH_DOME",
+    "F01_D_MAIN_LT_PENDANT_SHADE",
+    "F01_D_OFFICE_LT_PENDANT_SHADE",
+    "F01_ATRIUM_FRUIT_1",
+    "PASSAGE_PORTAL_LT_W",
+    "PASSAGE_PORTAL_LT_E",
+    "PASSAGE_AISLE_LT_00",
+    "PASSAGE_AISLE_LT_01",
+    "PASSAGE_AISLE_LT_02",
+    "PASSAGE_AISLE_LT_03",
+    "PASSAGE_AISLE_LT_04",
+    "PASSAGE_AISLE_LT_05",
+    "PASSAGE_AISLE_LT_06",
+    "PASSAGE_AISLE_LT_07",
+    "F01_BODEGA_LT_0",
+    "F01_BODEGA_LT_1",
+    "F01_BODEGA_LT_2",
+    "F01_BODEGA_RADIO",
+    "F01_KARAOKE_SPK_0",
+    "F01_KARAOKE_SPK_1",
+    "F01_BAR_STAGE_SIGN",
+    "F01_BAR_LT_DARTS",
+    "F01_BAR_LT_LOBBY",
+    "F01_BAR_LT_WELL",
+    "F01_BAR_LT_STAIR",
+    "F01_BAR_LT_CAN0",
+    "F01_BAR_LT_CAN1",
+    "F01_BAR_LT_POOL",
+    "F01_BAR_LT_TAB0",
+    "F01_BAR_LT_TAB1",
+    "F01_BAR_LT_TAB2",
+    "F01_BAR_LT_STAGE0",
+    "F01_BAR_LT_STAGE1",
+    "F01_BAR_LT_DECK0",
+    "F01_BAR_LT_DECK1",
+    "F01_BAR_LT_DECK2",
+    "F01_BAR_LT_WEST0",
+    "F01_BAR_LT_WEST1",
+    "F01_BAR_LT_WC",
+    "SITE_SHOP_LT_MODEL_LAUNDRY",
+    "SITE_SHOP_IN0_MODEL_LAUNDRY",
+    "SITE_SHOP_IN1_MODEL_LAUNDRY",
+    "SITE_SHOP_IN2_MODEL_LAUNDRY",
+    "SITE_SHOP_LT_SHOE_REBUILDING",
+    "SITE_SHOP_IN0_SHOE_REBUILDING",
+    "SITE_SHOP_IN1_SHOE_REBUILDING",
+    "SITE_SHOP_LT_KEYS_CUT",
+    "SITE_SHOP_IN0_KEYS_CUT",
+    "SITE_SHOP_IN1_KEYS_CUT",
+    "SITE_SHOP_LT_HARDWARE_PAINT",
+    "SITE_SHOP_IN0_HARDWARE_PAINT",
+    "SITE_SHOP_IN1_HARDWARE_PAINT",
+    "SITE_SHOP_IN2_HARDWARE_PAINT",
+    "SITE_SHOP_LT_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+    "SITE_SHOP_LT_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+    "SITE_SHOP_LT_RADIO_SERVICE",
+    "SITE_SHOP_IN0_RADIO_SERVICE",
+    "SITE_SHOP_IN1_RADIO_SERVICE",
+    "SITE_SHOP_LT_PAWNBROKER",
+    "SITE_SHOP_IN0_PAWNBROKER",
+    "SITE_SHOP_IN1_PAWNBROKER",
+    "SITE_SHOP_LT_NEWS_CIGARS",
+    "SITE_SHOP_IN0_NEWS_CIGARS",
+    "SITE_SHOP_IN1_NEWS_CIGARS",
+    "SITE_SHOP_LT_OTIS___SON",
+    "SITE_SHOP_IN0_OTIS___SON",
+    "SITE_SHOP_IN1_OTIS___SON",
+    "SITE_SHOP_IN2_OTIS___SON",
+    "SITE_SHOP_LT_LUNCHEONETTE",
+    "SITE_SHOP_IN0_LUNCHEONETTE",
+    "SITE_SHOP_IN1_LUNCHEONETTE",
+    "SITE_SHOP_IN2_LUNCHEONETTE",
+    "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+    "F02_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "ROOF_ELECTRICAL_RISER",
+   "pos": [
+    0.0,
+    -8.3,
+    19.5
+   ],
+   "room": "ROOF_OPEN",
+   "network": "electrical",
+   "frequency_band": [
+    100,
+    9000
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.55,
+   "connections": [
+    "ROOF_LT_DECK",
+    "ROOF_LT_GARDEN",
+    "ROOF_ATRIUM_FRUIT_1",
+    "F06_CORRLIGHT_S"
+   ]
+  },
+  {
+   "id": "B1_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    -0.52
+   ],
+   "room": "B1",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F01_VANTRY_TRUNK",
+    "B1_STORAGE_CAGES_VANTRY_POINT",
+    "B1_LAUNDRY_VANTRY_POINT",
+    "B1_BOILER_VANTRY_POINT",
+    "B1_ELECTRICAL_VANTRY_POINT",
+    "B1_HALL_VANTRY_POINT",
+    "B1_UTILITY_VANTRY_POINT",
+    "B1_COAL_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F01_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    2.28
+   ],
+   "room": "F01",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F01_LOBBY_CLOCK_01",
+    "B1_VANTRY_TRUNK",
+    "F02_VANTRY_TRUNK",
+    "F01_LOBBY_VANTRY_POINT",
+    "F01_COMMON_B_VANTRY_POINT",
+    "F01_STORAGE_C_VANTRY_POINT",
+    "F01_HALL_VANTRY_POINT",
+    "F01_UTILITY_VANTRY_POINT",
+    "F01_OFFICE_VANTRY_POINT",
+    "F01_PACKAGE_VANTRY_POINT",
+    "F01_RESTROOM_VANTRY_POINT",
+    "F01_A_BED_VANTRY_POINT",
+    "F01_A_BATH_VANTRY_POINT",
+    "F01_A_MAIN_VANTRY_POINT",
+    "F01_D_BED_VANTRY_POINT",
+    "F01_D_BATH_VANTRY_POINT",
+    "F01_D_MAIN_VANTRY_POINT",
+    "F01_D_OFFICE_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F02_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    5.48
+   ],
+   "room": "F02",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F01_VANTRY_TRUNK",
+    "F03_VANTRY_TRUNK",
+    "F02_A_BED_VANTRY_POINT",
+    "F02_A_BATH_VANTRY_POINT",
+    "F02_A_MAIN_VANTRY_POINT",
+    "F02_B_ALCOVE_VANTRY_POINT",
+    "F02_B_BATH_VANTRY_POINT",
+    "F02_B_KITCHEN_VANTRY_POINT",
+    "F02_B_MAIN_VANTRY_POINT",
+    "F02_C_BED1_VANTRY_POINT",
+    "F02_C_BED2_VANTRY_POINT",
+    "F02_C_BATH_VANTRY_POINT",
+    "F02_C_MAIN_VANTRY_POINT",
+    "F02_D_BED_VANTRY_POINT",
+    "F02_D_BATH_VANTRY_POINT",
+    "F02_D_MAIN_VANTRY_POINT",
+    "F02_D_OFFICE_VANTRY_POINT",
+    "F02_WSTOR_VANTRY_POINT",
+    "F02_CORRIDOR_VANTRY_POINT",
+    "F02_HALL_VANTRY_POINT",
+    "F02_UTILITY_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F03_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    8.68
+   ],
+   "room": "F03",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F02_VANTRY_TRUNK",
+    "F04_VANTRY_TRUNK",
+    "F03_A_BED_VANTRY_POINT",
+    "F03_A_BATH_VANTRY_POINT",
+    "F03_A_MAIN_VANTRY_POINT",
+    "F03_B_ALCOVE_VANTRY_POINT",
+    "F03_B_BATH_VANTRY_POINT",
+    "F03_B_KITCHEN_VANTRY_POINT",
+    "F03_B_MAIN_VANTRY_POINT",
+    "F03_C_BED1_VANTRY_POINT",
+    "F03_C_BED2_VANTRY_POINT",
+    "F03_C_BATH_VANTRY_POINT",
+    "F03_C_MAIN_VANTRY_POINT",
+    "F03_D_BED_VANTRY_POINT",
+    "F03_D_BATH_VANTRY_POINT",
+    "F03_D_MAIN_VANTRY_POINT",
+    "F03_D_OFFICE_VANTRY_POINT",
+    "F03_WSTOR_VANTRY_POINT",
+    "F03_CORRIDOR_VANTRY_POINT",
+    "F03_HALL_VANTRY_POINT",
+    "F03_UTILITY_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F04_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    11.88
+   ],
+   "room": "F04",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F03_VANTRY_TRUNK",
+    "F05_VANTRY_TRUNK",
+    "F04_A_BED_VANTRY_POINT",
+    "F04_A_BATH_VANTRY_POINT",
+    "F04_A_MAIN_VANTRY_POINT",
+    "F04_B_VESTIBULE_VANTRY_POINT",
+    "F04_B_BATH_VANTRY_POINT",
+    "F04_B_CLOSET_VANTRY_POINT",
+    "F04_B_KITCHEN_VANTRY_POINT",
+    "F04_B_MAIN_VANTRY_POINT",
+    "F04_B_ALCOVE_VANTRY_POINT",
+    "F04_C_BED1_VANTRY_POINT",
+    "F04_C_BED2_VANTRY_POINT",
+    "F04_C_BATH_VANTRY_POINT",
+    "F04_C_MAIN_VANTRY_POINT",
+    "F04_D_BED_VANTRY_POINT",
+    "F04_D_BATH_VANTRY_POINT",
+    "F04_D_MAIN_VANTRY_POINT",
+    "F04_D_OFFICE_VANTRY_POINT",
+    "F04_WSTOR_VANTRY_POINT",
+    "F04_CORRIDOR_VANTRY_POINT",
+    "F04_HALL_VANTRY_POINT",
+    "F04_UTILITY_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F05_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    15.08
+   ],
+   "room": "F05",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F04_VANTRY_TRUNK",
+    "F06_VANTRY_TRUNK",
+    "F05_A_BED_VANTRY_POINT",
+    "F05_A_BATH_VANTRY_POINT",
+    "F05_A_MAIN_VANTRY_POINT",
+    "F05_B_ALCOVE_VANTRY_POINT",
+    "F05_B_BATH_VANTRY_POINT",
+    "F05_B_KITCHEN_VANTRY_POINT",
+    "F05_B_MAIN_VANTRY_POINT",
+    "F05_C_BED1_VANTRY_POINT",
+    "F05_C_BED2_VANTRY_POINT",
+    "F05_C_BATH_VANTRY_POINT",
+    "F05_C_MAIN_VANTRY_POINT",
+    "F05_D_BED_VANTRY_POINT",
+    "F05_D_BATH_VANTRY_POINT",
+    "F05_D_MAIN_VANTRY_POINT",
+    "F05_D_OFFICE_VANTRY_POINT",
+    "F05_WSTOR_VANTRY_POINT",
+    "F05_CORRIDOR_VANTRY_POINT",
+    "F05_HALL_VANTRY_POINT",
+    "F05_UTILITY_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "F06_VANTRY_TRUNK",
+   "pos": [
+    -0.72,
+    -1.85,
+    18.28
+   ],
+   "room": "F06",
+   "network": "signal",
+   "frequency_band": [
+    180,
+    6200
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.82,
+   "connections": [
+    "F05_VANTRY_TRUNK",
+    "F06_A_BED_VANTRY_POINT",
+    "F06_A_BATH_VANTRY_POINT",
+    "F06_A_MAIN_VANTRY_POINT",
+    "F06_B_ALCOVE_VANTRY_POINT",
+    "F06_B_BATH_VANTRY_POINT",
+    "F06_B_KITCHEN_VANTRY_POINT",
+    "F06_B_MAIN_VANTRY_POINT",
+    "F06_C_BED1_VANTRY_POINT",
+    "F06_C_BED2_VANTRY_POINT",
+    "F06_C_BATH_VANTRY_POINT",
+    "F06_C_MAIN_VANTRY_POINT",
+    "F06_D_BED_VANTRY_POINT",
+    "F06_D_BATH_VANTRY_POINT",
+    "F06_D_MAIN_VANTRY_POINT",
+    "F06_D_OFFICE_VANTRY_POINT",
+    "F06_WSTOR_VANTRY_POINT",
+    "F06_CORRIDOR_VANTRY_POINT",
+    "F06_HALL_VANTRY_POINT",
+    "F06_UTILITY_VANTRY_POINT"
+   ]
+  },
+  {
+   "id": "B1_STORAGE_CAGES_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -4.74,
+    0.22
+   ],
+   "room": "B1_STORAGE_CAGES",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_LAUNDRY_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    6.47,
+    0.22
+   ],
+   "room": "B1_LAUNDRY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_BOILER_VANTRY_POINT",
+   "pos": [
+    9.96,
+    4.695,
+    0.22
+   ],
+   "room": "B1_BOILER",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_ELECTRICAL_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -5.015,
+    0.22
+   ],
+   "room": "B1_ELECTRICAL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    0.22
+   ],
+   "room": "B1_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    0.22
+   ],
+   "room": "B1_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "B1_COAL_VANTRY_POINT",
+   "pos": [
+    12.855,
+    1.81,
+    0.22
+   ],
+   "room": "B1_COAL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "B1_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_LOBBY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    -8.6,
+    3.02
+   ],
+   "room": "F01_LOBBY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_COMMON_B_VANTRY_POINT",
+   "pos": [
+    -8.325,
+    7.835,
+    3.02
+   ],
+   "room": "F01_COMMON_B",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_STORAGE_C_VANTRY_POINT",
+   "pos": [
+    9.96,
+    4.695,
+    3.02
+   ],
+   "room": "F01_STORAGE_C",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    3.02
+   ],
+   "room": "F01_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    3.02
+   ],
+   "room": "F01_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_OFFICE_VANTRY_POINT",
+   "pos": [
+    -11.385,
+    3.725,
+    3.02
+   ],
+   "room": "F01_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_PACKAGE_VANTRY_POINT",
+   "pos": [
+    -8.075,
+    3.725,
+    3.02
+   ],
+   "room": "F01_PACKAGE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_RESTROOM_VANTRY_POINT",
+   "pos": [
+    -12.395,
+    6.04,
+    3.02
+   ],
+   "room": "F01_RESTROOM",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    3.02
+   ],
+   "room": "F01_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    3.02
+   ],
+   "room": "F01_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    3.02
+   ],
+   "room": "F01_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -7.64,
+    3.02
+   ],
+   "room": "F01_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    3.02
+   ],
+   "room": "F01_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    3.02
+   ],
+   "room": "F01_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -1.61,
+    3.02
+   ],
+   "room": "F01_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F01_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    6.22
+   ],
+   "room": "F02_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    6.22
+   ],
+   "room": "F02_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    6.22
+   ],
+   "room": "F02_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_B_ALCOVE_VANTRY_POINT",
+   "pos": [
+    -11.895,
+    8.385,
+    6.22
+   ],
+   "room": "F02_B_ALCOVE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_B_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    3.86,
+    6.22
+   ],
+   "room": "F02_B_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_B_KITCHEN_VANTRY_POINT",
+   "pos": [
+    -8.585,
+    8.385,
+    6.22
+   ],
+   "room": "F02_B_KITCHEN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_B_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    4.895,
+    6.22
+   ],
+   "room": "F02_B_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_C_BED1_VANTRY_POINT",
+   "pos": [
+    7.925,
+    8.26,
+    6.22
+   ],
+   "room": "F02_C_BED1",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_C_BED2_VANTRY_POINT",
+   "pos": [
+    11.995,
+    8.26,
+    6.22
+   ],
+   "room": "F02_C_BED2",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_C_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    4.68,
+    6.22
+   ],
+   "room": "F02_C_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_C_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    2.995,
+    6.22
+   ],
+   "room": "F02_C_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -8.26,
+    6.22
+   ],
+   "room": "F02_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    6.22
+   ],
+   "room": "F02_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    6.22
+   ],
+   "room": "F02_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.99,
+    -1.61,
+    6.22
+   ],
+   "room": "F02_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_WSTOR_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    0.8,
+    6.22
+   ],
+   "room": "F02_WSTOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_CORRIDOR_VANTRY_POINT",
+   "pos": [
+    -0.38,
+    0.31,
+    6.22
+   ],
+   "room": "F02_CORRIDOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    6.22
+   ],
+   "room": "F02_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F02_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    6.22
+   ],
+   "room": "F02_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F02_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    9.42
+   ],
+   "room": "F03_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    9.42
+   ],
+   "room": "F03_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    9.42
+   ],
+   "room": "F03_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_B_ALCOVE_VANTRY_POINT",
+   "pos": [
+    -11.895,
+    8.385,
+    9.42
+   ],
+   "room": "F03_B_ALCOVE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_B_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    3.86,
+    9.42
+   ],
+   "room": "F03_B_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_B_KITCHEN_VANTRY_POINT",
+   "pos": [
+    -8.585,
+    8.385,
+    9.42
+   ],
+   "room": "F03_B_KITCHEN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_B_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    4.895,
+    9.42
+   ],
+   "room": "F03_B_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_C_BED1_VANTRY_POINT",
+   "pos": [
+    7.925,
+    8.26,
+    9.42
+   ],
+   "room": "F03_C_BED1",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_C_BED2_VANTRY_POINT",
+   "pos": [
+    11.995,
+    8.26,
+    9.42
+   ],
+   "room": "F03_C_BED2",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_C_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    4.68,
+    9.42
+   ],
+   "room": "F03_C_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_C_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    2.995,
+    9.42
+   ],
+   "room": "F03_C_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -7.64,
+    9.42
+   ],
+   "room": "F03_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    9.42
+   ],
+   "room": "F03_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    9.42
+   ],
+   "room": "F03_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -1.61,
+    9.42
+   ],
+   "room": "F03_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_WSTOR_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    0.8,
+    9.42
+   ],
+   "room": "F03_WSTOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_CORRIDOR_VANTRY_POINT",
+   "pos": [
+    0.38,
+    0.31,
+    9.42
+   ],
+   "room": "F03_CORRIDOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    9.42
+   ],
+   "room": "F03_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F03_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    9.42
+   ],
+   "room": "F03_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F03_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    12.62
+   ],
+   "room": "F04_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    12.62
+   ],
+   "room": "F04_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    12.62
+   ],
+   "room": "F04_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_VESTIBULE_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    3.585,
+    12.62
+   ],
+   "room": "F04_B_VESTIBULE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    5.41,
+    12.62
+   ],
+   "room": "F04_B_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_CLOSET_VANTRY_POINT",
+   "pos": [
+    -5.763,
+    8.13,
+    12.62
+   ],
+   "room": "F04_B_CLOSET",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_KITCHEN_VANTRY_POINT",
+   "pos": [
+    -8.925,
+    8.385,
+    12.62
+   ],
+   "room": "F04_B_KITCHEN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_MAIN_VANTRY_POINT",
+   "pos": [
+    -11.06,
+    4.275,
+    12.62
+   ],
+   "room": "F04_B_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_B_ALCOVE_VANTRY_POINT",
+   "pos": [
+    -11.895,
+    8.385,
+    12.62
+   ],
+   "room": "F04_B_ALCOVE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_C_BED1_VANTRY_POINT",
+   "pos": [
+    7.925,
+    8.26,
+    12.62
+   ],
+   "room": "F04_C_BED1",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_C_BED2_VANTRY_POINT",
+   "pos": [
+    11.995,
+    8.26,
+    12.62
+   ],
+   "room": "F04_C_BED2",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_C_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    4.68,
+    12.62
+   ],
+   "room": "F04_C_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_C_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    2.995,
+    12.62
+   ],
+   "room": "F04_C_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -7.64,
+    12.62
+   ],
+   "room": "F04_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    12.62
+   ],
+   "room": "F04_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    12.62
+   ],
+   "room": "F04_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -1.61,
+    12.62
+   ],
+   "room": "F04_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_WSTOR_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    0.8,
+    12.62
+   ],
+   "room": "F04_WSTOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_CORRIDOR_VANTRY_POINT",
+   "pos": [
+    -0.38,
+    -0.31,
+    12.62
+   ],
+   "room": "F04_CORRIDOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    12.62
+   ],
+   "room": "F04_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F04_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    12.62
+   ],
+   "room": "F04_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F04_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    15.82
+   ],
+   "room": "F05_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    15.82
+   ],
+   "room": "F05_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    15.82
+   ],
+   "room": "F05_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_B_ALCOVE_VANTRY_POINT",
+   "pos": [
+    -11.895,
+    8.385,
+    15.82
+   ],
+   "room": "F05_B_ALCOVE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_B_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    3.86,
+    15.82
+   ],
+   "room": "F05_B_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_B_KITCHEN_VANTRY_POINT",
+   "pos": [
+    -8.585,
+    8.385,
+    15.82
+   ],
+   "room": "F05_B_KITCHEN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_B_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    4.895,
+    15.82
+   ],
+   "room": "F05_B_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_C_BED1_VANTRY_POINT",
+   "pos": [
+    7.925,
+    8.26,
+    15.82
+   ],
+   "room": "F05_C_BED1",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_C_BED2_VANTRY_POINT",
+   "pos": [
+    11.995,
+    8.26,
+    15.82
+   ],
+   "room": "F05_C_BED2",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_C_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    4.68,
+    15.82
+   ],
+   "room": "F05_C_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_C_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    2.995,
+    15.82
+   ],
+   "room": "F05_C_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -8.26,
+    15.82
+   ],
+   "room": "F05_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    15.82
+   ],
+   "room": "F05_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    15.82
+   ],
+   "room": "F05_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.99,
+    -1.61,
+    15.82
+   ],
+   "room": "F05_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_WSTOR_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    0.8,
+    15.82
+   ],
+   "room": "F05_WSTOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_CORRIDOR_VANTRY_POINT",
+   "pos": [
+    -0.38,
+    0.31,
+    15.82
+   ],
+   "room": "F05_CORRIDOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    15.82
+   ],
+   "room": "F05_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F05_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    15.82
+   ],
+   "room": "F05_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F05_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_A_BED_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -7.64,
+    19.02
+   ],
+   "room": "F06_A_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_A_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    -5.3,
+    19.02
+   ],
+   "room": "F06_A_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_A_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    -3.04,
+    19.02
+   ],
+   "room": "F06_A_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_B_ALCOVE_VANTRY_POINT",
+   "pos": [
+    -11.895,
+    8.385,
+    19.02
+   ],
+   "room": "F06_B_ALCOVE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_B_BATH_VANTRY_POINT",
+   "pos": [
+    -6.23,
+    3.86,
+    19.02
+   ],
+   "room": "F06_B_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_B_KITCHEN_VANTRY_POINT",
+   "pos": [
+    -8.585,
+    8.385,
+    19.02
+   ],
+   "room": "F06_B_KITCHEN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_B_MAIN_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    4.895,
+    19.02
+   ],
+   "room": "F06_B_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_C_BED1_VANTRY_POINT",
+   "pos": [
+    7.925,
+    8.26,
+    19.02
+   ],
+   "room": "F06_C_BED1",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_C_BED2_VANTRY_POINT",
+   "pos": [
+    11.995,
+    8.26,
+    19.02
+   ],
+   "room": "F06_C_BED2",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_C_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    4.68,
+    19.02
+   ],
+   "room": "F06_C_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_C_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    2.995,
+    19.02
+   ],
+   "room": "F06_C_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_D_BED_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -7.64,
+    19.02
+   ],
+   "room": "F06_D_BED",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_D_BATH_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -5.3,
+    19.02
+   ],
+   "room": "F06_D_BATH",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_D_MAIN_VANTRY_POINT",
+   "pos": [
+    9.96,
+    -3.315,
+    19.02
+   ],
+   "room": "F06_D_MAIN",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_D_OFFICE_VANTRY_POINT",
+   "pos": [
+    6.23,
+    -1.61,
+    19.02
+   ],
+   "room": "F06_D_OFFICE",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_WSTOR_VANTRY_POINT",
+   "pos": [
+    -9.2,
+    0.8,
+    19.02
+   ],
+   "room": "F06_WSTOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_CORRIDOR_VANTRY_POINT",
+   "pos": [
+    -0.38,
+    0.31,
+    19.02
+   ],
+   "room": "F06_CORRIDOR",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_HALL_VANTRY_POINT",
+   "pos": [
+    -1.58,
+    -4.69,
+    19.02
+   ],
+   "room": "F06_HALL",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F06_UTILITY_VANTRY_POINT",
+   "pos": [
+    0.38,
+    5.31,
+    19.02
+   ],
+   "room": "F06_UTILITY",
+   "network": "signal",
+   "frequency_band": [
+    240,
+    5600
+   ],
+   "delay_ms": 5,
+   "damping": 0.22,
+   "infection_receptivity": 0.92,
+   "connections": [
+    "F06_VANTRY_TRUNK"
+   ]
+  },
+  {
+   "id": "F01_RESTROOM_VENT_REGISTER",
+   "pos": [
+    -13.22,
+    6.388,
+    2.998
+   ],
+   "room": "F01_RESTROOM",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F01_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F01_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    2.998
+   ],
+   "room": "F01_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F01_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F01_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    2.998
+   ],
+   "room": "F01_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F01_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F02_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    6.198
+   ],
+   "room": "F02_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F02_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F02_B_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    4.218,
+    6.198
+   ],
+   "room": "F02_B_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F02_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F02_C_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    5.038,
+    6.198
+   ],
+   "room": "F02_C_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F02_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F02_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    6.198
+   ],
+   "room": "F02_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F02_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F03_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    9.398
+   ],
+   "room": "F03_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F03_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F03_B_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    4.218,
+    9.398
+   ],
+   "room": "F03_B_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F03_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F03_C_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    5.038,
+    9.398
+   ],
+   "room": "F03_C_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F03_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F03_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    9.398
+   ],
+   "room": "F03_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F03_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F04_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    12.598
+   ],
+   "room": "F04_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F04_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F04_B_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    5.768,
+    12.598
+   ],
+   "room": "F04_B_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F04_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F04_C_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    5.038,
+    12.598
+   ],
+   "room": "F04_C_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F04_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F04_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    12.598
+   ],
+   "room": "F04_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F04_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F05_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    15.798
+   ],
+   "room": "F05_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F05_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F05_B_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    4.218,
+    15.798
+   ],
+   "room": "F05_B_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F05_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F05_C_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    5.038,
+    15.798
+   ],
+   "room": "F05_C_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F05_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F05_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    15.798
+   ],
+   "room": "F05_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F05_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F06_A_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    -4.942,
+    18.998
+   ],
+   "room": "F06_A_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F06_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F06_B_BATH_VENT_REGISTER",
+   "pos": [
+    -7.28,
+    4.218,
+    18.998
+   ],
+   "room": "F06_B_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F06_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F06_C_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    5.038,
+    18.998
+   ],
+   "room": "F06_C_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F06_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F06_D_BATH_VENT_REGISTER",
+   "pos": [
+    7.28,
+    -4.942,
+    18.998
+   ],
+   "room": "F06_D_BATH",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 16,
+   "damping": 0.22,
+   "infection_receptivity": 0.86,
+   "connections": [
+    "F06_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F01_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    2.94
+   ],
+   "room": "F01",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_RESTROOM_VENT_REGISTER",
+    "F01_A_BATH_VENT_REGISTER",
+    "F02_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F02_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    6.14
+   ],
+   "room": "F02",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_V_A_RISER",
+    "F02_A_BATH_VENT_REGISTER",
+    "F03_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F03_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    9.34
+   ],
+   "room": "F03",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_A_RISER",
+    "F03_A_BATH_VENT_REGISTER",
+    "F04_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F04_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    12.54
+   ],
+   "room": "F04",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F03_V_A_RISER",
+    "F04_A_BATH_VENT_REGISTER",
+    "F05_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F05_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    15.74
+   ],
+   "room": "F05",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F04_V_A_RISER",
+    "F05_A_BATH_VENT_REGISTER",
+    "F06_V_A_RISER"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F06_V_A_RISER",
+   "pos": [
+    -7.28,
+    -4.942,
+    18.94
+   ],
+   "room": "F06",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F05_V_A_RISER",
+    "F06_A_BATH_VENT_REGISTER",
+    "ROOF_VENT_FAN_A"
+   ],
+   "riser": "V-A"
+  },
+  {
+   "id": "F01_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    2.94
+   ],
+   "room": "F01",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F02_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    6.14
+   ],
+   "room": "F02",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_V_B_RISER",
+    "F02_B_BATH_VENT_REGISTER",
+    "F03_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F03_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    9.34
+   ],
+   "room": "F03",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_B_RISER",
+    "F03_B_BATH_VENT_REGISTER",
+    "F04_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F04_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    12.54
+   ],
+   "room": "F04",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F03_V_B_RISER",
+    "F04_B_BATH_VENT_REGISTER",
+    "F05_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F05_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    15.74
+   ],
+   "room": "F05",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F04_V_B_RISER",
+    "F05_B_BATH_VENT_REGISTER",
+    "F06_V_B_RISER"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F06_V_B_RISER",
+   "pos": [
+    -7.28,
+    4.528,
+    18.94
+   ],
+   "room": "F06",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F05_V_B_RISER",
+    "F06_B_BATH_VENT_REGISTER",
+    "ROOF_VENT_FAN_B"
+   ],
+   "riser": "V-B"
+  },
+  {
+   "id": "F01_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    2.94
+   ],
+   "room": "F01",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F02_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    6.14
+   ],
+   "room": "F02",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_V_C_RISER",
+    "F02_C_BATH_VENT_REGISTER",
+    "F03_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F03_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    9.34
+   ],
+   "room": "F03",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_C_RISER",
+    "F03_C_BATH_VENT_REGISTER",
+    "F04_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F04_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    12.54
+   ],
+   "room": "F04",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F03_V_C_RISER",
+    "F04_C_BATH_VENT_REGISTER",
+    "F05_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F05_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    15.74
+   ],
+   "room": "F05",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F04_V_C_RISER",
+    "F05_C_BATH_VENT_REGISTER",
+    "F06_V_C_RISER"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F06_V_C_RISER",
+   "pos": [
+    7.28,
+    5.038,
+    18.94
+   ],
+   "room": "F06",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F05_V_C_RISER",
+    "F06_C_BATH_VENT_REGISTER",
+    "ROOF_VENT_FAN_C"
+   ],
+   "riser": "V-C"
+  },
+  {
+   "id": "F01_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    2.94
+   ],
+   "room": "F01",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_D_BATH_VENT_REGISTER",
+    "F02_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F02_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    6.14
+   ],
+   "room": "F02",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F01_V_D_RISER",
+    "F02_D_BATH_VENT_REGISTER",
+    "F03_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F03_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    9.34
+   ],
+   "room": "F03",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F02_V_D_RISER",
+    "F03_D_BATH_VENT_REGISTER",
+    "F04_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F04_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    12.54
+   ],
+   "room": "F04",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F03_V_D_RISER",
+    "F04_D_BATH_VENT_REGISTER",
+    "F05_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F05_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    15.74
+   ],
+   "room": "F05",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F04_V_D_RISER",
+    "F05_D_BATH_VENT_REGISTER",
+    "F06_V_D_RISER"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "F06_V_D_RISER",
+   "pos": [
+    7.28,
+    -4.942,
+    18.94
+   ],
+   "room": "F06",
+   "network": "ventilation",
+   "frequency_band": [
+    35,
+    1800
+   ],
+   "delay_ms": 11,
+   "damping": 0.22,
+   "infection_receptivity": 0.74,
+   "connections": [
+    "F05_V_D_RISER",
+    "F06_D_BATH_VENT_REGISTER",
+    "ROOF_VENT_FAN_D"
+   ],
+   "riser": "V-D"
+  },
+  {
+   "id": "B1_FLUE_BASE",
+   "pos": [
+    9.9,
+    9.375,
+    -1.9
+   ],
+   "room": "B1_BOILER",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 6,
+   "damping": 0.22,
+   "infection_receptivity": 0.6,
+   "connections": [
+    "B1_BOILER_01",
+    "F01_FLUE"
+   ]
+  },
+  {
+   "id": "ROOF_FLUE_TOP",
+   "pos": [
+    10.0,
+    9.375,
+    21.3
+   ],
+   "room": "ROOF",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.8,
+   "connections": [
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F01_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    1.5
+   ],
+   "room": "F01",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "B1_FLUE_BASE",
+    "F02_FLUE"
+   ]
+  },
+  {
+   "id": "F02_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    4.7
+   ],
+   "room": "F02",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_FLUE_BREAST",
+    "F01_FLUE",
+    "F03_FLUE"
+   ]
+  },
+  {
+   "id": "F03_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    7.9
+   ],
+   "room": "F03",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F03_FLUE_BREAST",
+    "F02_FLUE",
+    "F04_FLUE"
+   ]
+  },
+  {
+   "id": "F04_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    11.1
+   ],
+   "room": "F04",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F04_FLUE_BREAST",
+    "F03_FLUE",
+    "F05_FLUE"
+   ]
+  },
+  {
+   "id": "F05_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    14.3
+   ],
+   "room": "F05",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F05_FLUE_BREAST",
+    "F04_FLUE",
+    "F06_FLUE"
+   ]
+  },
+  {
+   "id": "F06_FLUE",
+   "pos": [
+    10.0,
+    9.375,
+    17.5
+   ],
+   "room": "F06",
+   "network": "flue",
+   "frequency_band": [
+    30,
+    1500
+   ],
+   "delay_ms": 12,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F06_FLUE_BREAST",
+    "F05_FLUE",
+    "ROOF_FLUE_TOP"
+   ]
+  },
+  {
+   "id": "PORCH_BASE",
+   "pos": [
+    -9.15,
+    10.7,
+    0.2
+   ],
+   "room": "F01",
+   "network": "structural",
+   "frequency_band": [
+    30,
+    900
+   ],
+   "delay_ms": 15,
+   "damping": 0.22,
+   "infection_receptivity": 0.5,
+   "connections": [
+    "F02_PORCH_DECK"
+   ]
+  }
+ ]
+}

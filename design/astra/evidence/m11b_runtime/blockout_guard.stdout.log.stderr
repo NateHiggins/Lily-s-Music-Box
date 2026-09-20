@@ -1,0 +1,260 @@
+ERROR: ORISON V2: PRIMARY_B1_F01 stair from references missing level F07
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _dangling_stair_level_is_refused (res://tests/orison_v2_blockout_guard_test.gd:62)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:24)
+       [5] _production_layout_still_builds (res://tests/orison_v2_blockout_guard_test.gd:55)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _dangling_stair_level_is_refused (res://tests/orison_v2_blockout_guard_test.gd:62)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:24)
+       [5] _production_layout_still_builds (res://tests/orison_v2_blockout_guard_test.gd:55)
+ERROR: ORISON V2: F02_HALL overlaps F02_A_MAIN on level F02 by 8.000 m2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _overlap_off_f04_is_refused (res://tests/orison_v2_blockout_guard_test.gd:75)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:25)
+       [5] _dangling_stair_level_is_refused (res://tests/orison_v2_blockout_guard_test.gd:63)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _overlap_off_f04_is_refused (res://tests/orison_v2_blockout_guard_test.gd:75)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:25)
+       [5] _dangling_stair_level_is_refused (res://tests/orison_v2_blockout_guard_test.gd:63)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F02_DOOR_02 door connects references undeclared record F02_A_LOBBY
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _door_to_missing_space_is_refused (res://tests/orison_v2_blockout_guard_test.gd:83)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:26)
+       [5] _overlap_off_f04_is_refused (res://tests/orison_v2_blockout_guard_test.gd:76)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _door_to_missing_space_is_refused (res://tests/orison_v2_blockout_guard_test.gd:83)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:26)
+       [5] _overlap_off_f04_is_refused (res://tests/orison_v2_blockout_guard_test.gd:76)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F01_LOBBY_OPENING opening connects references undeclared record NOWHERE
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:93)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:27)
+       [5] _door_to_missing_space_is_refused (res://tests/orison_v2_blockout_guard_test.gd:84)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:93)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:27)
+       [5] _door_to_missing_space_is_refused (res://tests/orison_v2_blockout_guard_test.gd:84)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F01_LOBBY_WINDOW window space references undeclared record F01_GHOST
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:98)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:98)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F01_LIFT_LANDING lift landing shaft references undeclared record NO_SUCH_SHAFT
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:103)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:103)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: ROUTE_B1_F01 route edge via references undeclared record NO_SUCH_STAIR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:108)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:108)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: B1_BOILER_HEAT_FEED service connection to references undeclared record NO_SUCH_RISER
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:113)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:113)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F02_DOOR_02 door connects must name a spaces record, but HEAT_STACK is declared in risers
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:121)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:121)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING shared_wall_owner must name one connected space
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:129)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:28)
+       [5] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:121)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:129)
+       [4] _ready (res://tests/orison_v2_blockout_guard_test.gd:28)
+       [5] _more_referential_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:121)
+       [6] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING is not on its endpoints' shared wall
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:136)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:136)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F04_SERVICE_HALL_CORE_OPENING does not lie entirely on the shared boundary
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:143)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:143)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING_02 conflicts with F02_SERVICE_HALL_CORE_OPENING shared-wall owner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:154)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:154)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: F04_SERVICE_HALL_CORE_DECOY conflicts with F04_SERVICE_HALL_CORE_OPENING single-owner partition
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:168)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:216)
+       [3] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:168)
+       [4] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2: PRIMARY_B1_F01 stair from references missing level F07
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:25)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _a_refusal_builds_nothing (res://tests/orison_v2_blockout_guard_test.gd:177)
+       [3] _ready (res://tests/orison_v2_blockout_guard_test.gd:29)
+       [4] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:168)
+       [5] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)
+ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_blockout.gd:26)
+       [1] _build (res://tests/orison_v2_blockout_guard_test.gd:191)
+       [2] _a_refusal_builds_nothing (res://tests/orison_v2_blockout_guard_test.gd:177)
+       [3] _ready (res://tests/orison_v2_blockout_guard_test.gd:29)
+       [4] _single_owner_opening_faults_are_refused (res://tests/orison_v2_blockout_guard_test.gd:168)
+       [5] _refusal_for (res://tests/orison_v2_blockout_guard_test.gd:222)

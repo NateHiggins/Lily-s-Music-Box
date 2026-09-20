@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-09-05T10:50:02.421113+00:00",
+  "Godot_process_census": {
+    "GodotProcessCount": 0,
+    "Processes": []
+  },
+  "census_command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-Command",
+    "$items = @(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '(?i)godot' } | Select-Object ProcessId,ParentProcessId,Name,ExecutablePath,CommandLine); [pscustomobject]@{ GodotProcessCount = $items.Count; Processes = $items } | ConvertTo-Json -Depth 4"
+  ],
+  "census_exit": 0,
+  "census_stderr": "",
+  "plan_sha256": "c70b374be24588e5935966ba681e875be656c16e5c6afa2951c9d6c100aceab1",
+  "README_sha256": "c6ba9b555e00b9dd6db41f8fe312b3554f5a74e9014ecb29cbf36693f8d0cb7f",
+  "invocation_code_sha256": "47f9df370083d70161ebf23bf7f65aee9b134edc7d4815db5b11b941a92b72cb",
+  "authorized_scope": "One v2 candidate full run; no live edits; subsequent independent artifact/image review"
+}

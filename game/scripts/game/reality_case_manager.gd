@@ -151,7 +151,7 @@ func interact_with_resident(resident_id: String) -> void:
 	if case_id == "":
 		return
 	var state := RealityState.case_state(case_id)
-	if state.stage == "unseen":
+	if state.get("stage", "unseen") == "unseen":
 		activate_case(case_id)
 	# Recurrence belongs to a visit/shift boundary, not to the act of
 	# speaking with a resident. Case gameplay decides when time advances.

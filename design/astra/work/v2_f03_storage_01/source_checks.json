@@ -1,0 +1,28 @@
+{
+  "status": "SOURCE_CHECKS_PASS_NATIVE_UNRUN",
+  "base_head": "3a4ffbd7907fa6e3320388eceaf776c650be639b",
+  "native_godot_started": false,
+  "checks": [
+    "deterministic source extraction",
+    "finite geometry and unit normals",
+    "clockwise triangle winding",
+    "mesh and hull bounds inside finished rooms",
+    "disjoint furniture and fittings",
+    "all F03 standing capsules clear of added furniture and fittings",
+    "named anchor transforms",
+    "wardrobe 0..92 degree sampled leaf sweep versus standing capsules",
+    "all surface material keys explicitly supported",
+    "previous three meshes unchanged",
+    "older layout records preserved except wardrobe approach station",
+    "GDScript syntax",
+    "protected source unchanged"
+  ],
+  "limits": "No native compile, actual collision query, flush audio or input proof, visual approval or persistence acceptance.",
+  "files": {
+    "game/data/orison_v2/domestic_furniture.json": "e9c5f072303bcfcf61732b3b2bcd587e6a0e60d907c0c845faa93a8153d03aab",
+    "game/data/orison_v2_blockout.json": "bf06dc6ed272e9414cf80518f3094fc76717d90bcce951fa8d9987923a3042ea",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "21a9a316a5e34db8d01677d45608134b25513db9f67b0c733296df8eedc430ec",
+    "game/scripts/building/orison_v2_wardrobe.gd": "a15c129afeebd3e5b7d54f171d6cf442a638cd7ad463fc1abc085630944fafef",
+    "game/tests/orison_v2_connected_world_test.gd": "8a569fec442104b5898f97ceb6aacc1bbb82644a901b658674d270a731c2ab11"
+  }
+}

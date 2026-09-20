@@ -3,6 +3,7 @@ extends Node
 ##     godot --headless --path game res://tests/DreamCritterTest.tscn
 var checks := 0
 var failures := 0
+var _world: Node3D
 
 
 func _ready() -> void:
@@ -147,6 +148,7 @@ func _run() -> void:
 			and int(one.limbs) == int(two.limbs)
 			and is_equal_approx(float(one.gold), float(two.gold)))
 	await _in_world()
+	await _retire_world()
 	_finish()
 
 
@@ -164,6 +166,7 @@ func _in_world() -> void:
 		RealityState.ensure_case(case_id,
 				str(RealityCases.definitions[case_id].get("resident_id", "")))
 	var root: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	_world = root
 	add_child(root)
 	# Critters are now correctly gated behind the moss colony's COMPLEX phase.
 	# This legacy harness used to wait for ungated births, which can never
@@ -191,8 +194,15 @@ func _in_world() -> void:
 	_check("the encroachment owns a critter controller", ctrl != null)
 	if ctrl == null:
 		return
+	_check("four subjects are available for the arranged mechanisms",
+			ctrl.critters.size() >= 4)
+	if ctrl.critters.size() < 4:
+		return
+	_lifetime(ctrl.critters[0])
 	var start: Dictionary = {}
 	for c in ctrl.critters:
+		_check("birth %d retains the production 18-40 second lifespan" % int(c.id),
+				float(c.life) >= 18.0 and float(c.life) <= 40.0)
 		start[int(c.id)] = c.pos
 	await get_tree().create_timer(9.0).timeout
 	var cen: Dictionary = ctrl.census()
@@ -231,8 +241,18 @@ func _in_world() -> void:
 			DreamCritterSpecies.Kind.CRYSTAL_LISTENER,
 			DreamCritterSpecies.Kind.FOLD_CRAB,
 			DreamCritterSpecies.Kind.TARDIGRADE]
-	for arranged_i in mini(arranged_kinds.size(), ctrl.critters.size()):
+	# The next 49 seconds of timed probes exceed EVERY normal 18-40 second
+	# life, even before the 21-second startup observation. Keep these four
+	# identified test subjects for that bounded observation window; normal
+	# expiry is asserted independently above and production values are untouched.
+	var arranged_ids: Array[int] = []
+	for arranged_i in arranged_kinds.size():
 		var arranged: Dictionary = ctrl.critters[arranged_i]
+		arranged_ids.append(int(arranged.id))
+		print("[critter fixture] id=%d original_age=%.3f original_life=%.3f" %
+				[int(arranged.id), float(arranged.age), float(arranged.life)])
+		arranged.age = 0.0
+		arranged.life = 120.0
 		arranged.morph = DreamCritterGenerator.generate(arranged_kinds[arranged_i],
 				0xC81700 + arranged_i)
 		arranged.spin = 0.0
@@ -314,9 +334,11 @@ func _in_world() -> void:
 		peak_following = maxi(peak_following, int(cc.get("following_a_palp", 0)))
 	print("[critter] habitat: %d shoved by a palp, %d following one"
 			% [peak_nudged, peak_following])
-	_check("critters and the margin share a world rather than ignoring it "
-			+ "(%d shoved, %d following)" % [peak_nudged, peak_following],
-			peak_nudged + peak_following >= 1)
+	# A timed encounter is still observational: even long-lived animals can
+	# miss every palp. The same shove/follow contract is arranged and asserted
+	# in _habitat(), including a distant-palp negative control.
+	print("[critter] (emergent, not asserted) margin encounters: %d" %
+			(peak_nudged + peak_following))
 	# --- §22: THE HERO, AND WHO IS BRAVE ---------------------------------
 	# The beat only works if individuals differ: several flee and one remains.
 	# §19 already gave every critter a confidence, so this costs no authoring.
@@ -337,6 +359,12 @@ func _in_world() -> void:
 				% [peak_feel, peak_brave, hero_noticed])
 		print("[critter] (emergent, not asserted) felt hero %d, approached %d, "
 				% [peak_feel, peak_brave] + "hero noticed: %s" % hero_noticed)
+	var retained := 0
+	for c in ctrl.critters:
+		if int(c.id) in arranged_ids:
+			retained += 1
+	_check("the four identified mechanism subjects survive the observation window",
+			retained == arranged_ids.size())
 	await _constructed(ctrl, hero)
 	var cen2: Dictionary = ctrl.census()
 	print("[critter] %s" % [cen2])
@@ -393,7 +421,11 @@ func _constructed(ctrl, hero) -> void:
 	# The controller already holds the margin -- it is what makes the margin
 	# habitat rather than scenery -- so there is no need to reach back up to
 	# the encroachment for it.
-	if ctrl.margin != null and not ctrl.margin.palps.is_empty() 			and not ctrl.critters.is_empty():
+	var habitat_ready: bool = ctrl.margin != null and not ctrl.margin.palps.is_empty() \
+			and not ctrl.critters.is_empty()
+	_check("the live margin and animal are available for every habitat mechanism",
+			habitat_ready)
+	if habitat_ready:
 		await _habitat(ctrl.margin, ctrl)
 
 
@@ -417,6 +449,32 @@ func _habitat(margin, ctrl) -> void:
 	if side.length() < 0.5:
 		side = (up.cross(Vector3.FORWARD)).normalized()
 	var all: Array = margin.palps
+
+	# SHOVE AND FOLLOW: preserve the original relationship assertion while
+	# constructing the encounter instead of requiring a chance path crossing.
+	var encounter: Dictionary = all[0].duplicate(true)
+	margin.palps = [encounter]
+	encounter.tip = (c.pos as Vector3) - side * 0.03
+	encounter.contact = 0.0
+	encounter.startle = 0.0
+	c.nudged = 0.0
+	ctrl._use_the_margin(c, 0.016)
+	_check("critters and the margin share a world: a nearby palp shoves the animal",
+			float(c.nudged) > 0.0)
+	encounter.tip = (c.pos as Vector3) + side * 0.35
+	encounter.target = (c.pos as Vector3) + side * 0.70
+	c.morph.curiosity = 0.9
+	c.following = -1
+	ctrl._use_the_margin(c, 0.016)
+	_check("a curious animal follows the nearby palp to its discovery",
+			int(c.following) == int(encounter.id))
+	encounter.tip = (c.pos as Vector3) + side * 1.20
+	c.nudged = 0.0
+	c.following = -1
+	ctrl._use_the_margin(c, 0.016)
+	_check("a distant palp neither shoves nor recruits the animal",
+			float(c.nudged) == 0.0 and int(c.following) == -1)
+	margin.palps = all
 
 	# GROOM. An appendage that is ON something is holding still, and a sociable
 	# animal that finds one holding still works over it.
@@ -619,6 +677,34 @@ func _habitat(margin, ctrl) -> void:
 					looked)
 
 
+## Exercise real expiry with several frame partitions before extending only
+## the four mechanism fixtures. No timer, spawn lottery or renderer is involved.
+func _lifetime(template: Dictionary) -> void:
+	var probe := DreamCritterController.new()
+	var deaths: Array[int] = []
+	probe.critter_died.connect(func(id: int): deaths.append(id))
+	for life_s in [18.0, 40.0]:
+		for step_s in [1.0 / 120.0, 1.0 / 30.0, 0.25]:
+			var subject: Dictionary = template.duplicate(true)
+			subject.morph = DreamCritterGenerator.generate(
+					DreamCritterSpecies.Kind.SEAM_GRAZER, 0xC817F0)
+			subject.age = 0.0
+			subject.life = life_s
+			subject.pause = 1000.0
+			subject.moving = false
+			probe.critters = [subject]
+			deaths.clear()
+			while float(subject.age) + step_s < life_s - 0.001:
+				probe._walk(step_s)
+			_check("%.0fs life survives until its boundary with %.5fs steps" %
+					[life_s, step_s], probe.critters.size() == 1 and deaths.is_empty())
+			probe._walk(life_s - float(subject.age) + 0.001)
+			probe._walk(step_s)
+			_check("%.0fs life expires exactly once with %.5fs steps" %
+					[life_s, step_s], probe.critters.is_empty() and deaths == [int(subject.id)])
+	probe.free()
+
+
 func _closest_palp(margin, at: Vector3) -> Dictionary:
 	var best: Dictionary = margin.palps[0]
 	var best_d := 9.0
@@ -628,6 +714,44 @@ func _closest_palp(margin, at: Vector3) -> Dictionary:
 			best_d = d
 			best = p
 	return best
+
+
+## The mechanism harness must retire its live production world before process
+## exit. Observe actual decoder ownership; a timed sleep cannot prove release.
+func _retire_world() -> void:
+	if _world == null: return
+	var world_ref: WeakRef = weakref(_world)
+	var audio := _playback_observers()
+	_world.queue_free()
+	_world = null
+	var began := Time.get_ticks_msec()
+	var frames := 0
+	while (world_ref.get_ref() != null or _live_playbacks(audio) > 0) \
+			and Time.get_ticks_msec() - began < 2000:
+		await get_tree().process_frame
+		frames += 1
+	_check("the production critter world retires before process exit", world_ref.get_ref() == null)
+	_check("observed production decoders retire through their owners and AudioServer",
+			_live_playbacks(audio) == 0)
+	print("CRITTER RETIREMENT: observed_decoders=%d live_decoders=%d frames=%d elapsed_ms=%d" %
+			[audio.size(), _live_playbacks(audio), frames, Time.get_ticks_msec() - began])
+
+
+func _playback_observers() -> Array[WeakRef]:
+	var result: Array[WeakRef] = []
+	# The policy is an autoload, so its source-owned voices are outside _world.
+	# Observing them does not clear the pool or substitute for host teardown.
+	for node: Node in get_tree().root.find_children("*", "AudioStreamPlayer3D", true, false):
+		var voice := node as AudioStreamPlayer3D
+		if voice.has_stream_playback(): result.append(weakref(voice.get_stream_playback()))
+	return result
+
+
+func _live_playbacks(observers: Array[WeakRef]) -> int:
+	var count := 0
+	for observer: WeakRef in observers:
+		if observer.get_ref() != null: count += 1
+	return count
 
 
 func _finish() -> void:

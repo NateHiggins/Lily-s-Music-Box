@@ -1,0 +1,207 @@
+Hero tentacle source rescue inspection
+Evidence class: INERT
+
+Exact binary recovery only. No export, save, render, regeneration, staging, commit, or Godot execution.
+
+{
+  "source_commit": "e06270f7b6266fb5d14b28ff1cea5d007b39aa33",
+  "source_path": "C:\\ov\\astra-main-acdb4be\\art\\blender\\dream_tentacle.blend",
+  "git_blob": "7c8a1cbfbb47237efd93072ff6b14e94e04d31fa",
+  "bytes": 758368,
+  "sha256": "f090c7cbf569bbf9ac50fcbb2d53071ac5c9e74c0e1d49cbf577703f6c2cca33",
+  "container_header_hex": "28b52ffda041060100253700",
+  "container_format": "Zstandard-compressed blend (magic 28 b5 2f fd)",
+  "exit_code": 0,
+  "elapsed_seconds": 4.281,
+  "source_unchanged_after_inspection": true,
+  "load_record_present": true
+}
+
+Read-only Blender datablock inspection:
+Blender: 5.2.0 LTS; build fbe6228777e7
+Saved file version: 5.2.44
+Scenes: Scene
+Auto-execution enabled: False
+Objects: 110; meshes: 109
+Mesh totals: 22735 vertices; 21574 polygons; 43017 polygon-triangulation triangles.
+Armature modifiers: 109 meshes bound to TENTACLE_RIG.
+Materials / images / actions / linked libraries / text blocks: all empty.
+
+Armatures and bone names:
+TENTACLE_RIG (37 bones):
+  DEF_root_00
+  DEF_root_01
+  DEF_root_02
+  DEF_root_03
+  DEF_root_04
+  DEF_ocular_00
+  DEF_ocular_01
+  DEF_ocular_02
+  DEF_ocular_03
+  DEF_ocular_04
+  DEF_ocular_05
+  DEF_mid_00
+  DEF_mid_01
+  DEF_mid_02
+  DEF_mid_03
+  DEF_mid_04
+  DEF_mid_05
+  DEF_mid_06
+  DEF_mid_07
+  DEF_mid_08
+  DEF_tip_00
+  DEF_tip_01
+  DEF_tip_02
+  DEF_tip_03
+  DEF_tip_04
+  DEF_tip_05
+  DEF_tip_06
+  DEF_tip_07
+  CTL_GOLD_13
+  CTL_EYE
+  CTL_LID_DORSAL
+  CTL_LID_VENTRO
+  CTL_LID_NICT
+  CTL_GOLD_11
+  CTL_GOLD_12
+  CTL_GOLD_10
+  CTL_MEMBRANE
+
+All mesh object names:
+  CILIUM_CRYSTAL_04
+  CILIUM_CRYSTAL_13
+  CILIUM_FLESH_00
+  CILIUM_FLESH_01
+  CILIUM_FLESH_03
+  CILIUM_FLESH_05
+  CILIUM_FLESH_06
+  CILIUM_FLESH_08
+  CILIUM_FLESH_09
+  CILIUM_FLESH_10
+  CILIUM_FLESH_11
+  CILIUM_FLESH_14
+  CILIUM_FLESH_15
+  CILIUM_FLESH_16
+  CILIUM_GOLD_02
+  CILIUM_GOLD_07
+  CILIUM_GOLD_12
+  CILIUM_GOLD_17
+  CRYSTAL_00
+  CRYSTAL_00_CORE
+  CRYSTAL_01
+  CRYSTAL_01_CORE
+  CRYSTAL_02
+  CRYSTAL_02_CORE
+  CRYSTAL_03
+  CRYSTAL_03_CORE
+  CRYSTAL_04
+  CRYSTAL_04_CORE
+  CRYSTAL_05
+  CRYSTAL_05_CORE
+  CRYSTAL_06
+  CRYSTAL_06_CORE
+  CRYSTAL_NODULE_70
+  CRYSTAL_NODULE_71
+  CRYSTAL_NODULE_72
+  CRYSTAL_NODULE_73
+  CRYSTAL_NODULE_74
+  CRYSTAL_NODULE_75
+  CRYSTAL_NODULE_76
+  EYE_CORNEA
+  EYE_GLOBE
+  EYE_IRIS
+  EYE_PUPIL_INTERIOR
+  GOLD_ANCHOR_60
+  GOLD_ANCHOR_61
+  GOLD_ANCHOR_62
+  GOLD_ANCHOR_63
+  GOLD_ANCHOR_64
+  GOLD_ANCHOR_65
+  GOLD_BRANCH_03
+  GOLD_BRANCH_09
+  GOLD_BRANCH_20
+  GOLD_BRANCH_26
+  GOLD_BROW_10
+  GOLD_CRESCENT_02
+  GOLD_CRESCENT_06
+  GOLD_CRESCENT_15
+  GOLD_CRESCENT_21
+  GOLD_CRESCENT_25
+  GOLD_DENDRITES
+  GOLD_KNUCKLE_04
+  GOLD_KNUCKLE_14
+  GOLD_KNUCKLE_19
+  GOLD_KNUCKLE_23
+  GOLD_PLATE_00
+  GOLD_PLATE_08
+  GOLD_PLATE_17
+  GOLD_RIB_05
+  GOLD_RIB_16
+  GOLD_RIB_22
+  GOLD_SPUR_01
+  GOLD_SPUR_07
+  GOLD_SPUR_18
+  GOLD_SPUR_24
+  GOLD_SPUR_27
+  GOLD_SUPPORT_11
+  GOLD_SUPPORT_12
+  GOLD_SUPPORT_13
+  LID_DORSAL
+  LID_NICTITATING
+  LID_VENTROLATERAL
+  MEMBRANE_ROOT
+  SUCKER_0_00
+  SUCKER_0_01
+  SUCKER_0_02
+  SUCKER_0_03
+  SUCKER_0_04
+  SUCKER_0_05
+  SUCKER_0_06
+  SUCKER_0_07
+  SUCKER_0_08
+  SUCKER_0_09
+  SUCKER_0_10
+  SUCKER_0_11
+  SUCKER_0_12
+  SUCKER_1_00
+  SUCKER_1_01
+  SUCKER_1_02
+  SUCKER_1_03
+  SUCKER_1_04
+  SUCKER_1_05
+  SUCKER_1_06
+  SUCKER_1_07
+  SUCKER_1_08
+  SUCKER_1_09
+  SUCKER_1_10
+  SUCKER_1_11
+  SUCKER_1_12
+  TENTACLE_BODY_CAGE
+
+Key meshes:
+  EYE_CORNEA: vertices=540, polygons=504, parent=TENTACLE_RIG
+  EYE_GLOBE: vertices=918, polygons=884, parent=TENTACLE_RIG
+  EYE_IRIS: vertices=440, polygons=400, parent=TENTACLE_RIG
+  EYE_PUPIL_INTERIOR: vertices=120, polygons=97, parent=TENTACLE_RIG
+  LID_DORSAL: vertices=468, polygons=425, parent=TENTACLE_RIG
+  LID_NICTITATING: vertices=468, polygons=425, parent=TENTACLE_RIG
+  LID_VENTROLATERAL: vertices=468, polygons=425, parent=TENTACLE_RIG
+  TENTACLE_BODY_CAGE: vertices=4201, polygons=4201, parent=TENTACLE_RIG
+
+Blender stdout (structured datablock data summarized above):
+00:03.766  blend            | Read blend: "C:\ov\astra-main-acdb4be\art\blender\dream_tentacle.blend"
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
+
+Blender stderr:
+(empty)
+
+Source tools located, read as text only:
+art/blender/scripts/build_dream_tentacle.py
+art/blender/scripts/bake_dream_tentacle.py
+art/blender/scripts/check_dream_tentacle_bind.py
+art/blender/scripts/check_dream_tentacle_clearance.py
+art/blender/scripts/render_dream_tentacle_grey.py
+
+Limits: successful loading and datablock presence do not establish export parity with the shipped GLB, valid current deformation/clearance, visual acceptance, or runtime compatibility. Existing build/bake/render scripts were not executed; several target fixed production output paths. Historical source auto-execution was disabled. No broader backup content restored.

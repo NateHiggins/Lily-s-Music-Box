@@ -1,0 +1,6 @@
+run_godot_serial.ps1: C:\PleaseRemainOnTheLine-astra\design\astra\evidence\resident_f01_haunt\original_haunt_01\command.ps1:1
+Line |
+   1 |  … haunt\original_haunt_01\godot.stdout.log' -TimeoutSeconds 240 -Window …
+     |                                                              ~~~
+     | Cannot validate argument on parameter 'TimeoutSeconds'. The 240 argument is greater than the maximum allowed
+     | range of 180. Supply an argument that is less than or equal to 180 and then try the command again.

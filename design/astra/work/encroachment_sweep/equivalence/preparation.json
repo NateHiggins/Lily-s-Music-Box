@@ -1,0 +1,16 @@
+{
+  "status": "PREPARED_ONLY_NO_ENGINE_RUN_OR_LIVE_INSTALL",
+  "original_source": "design/astra/work/encroachment_sweep/revisions/ownership_69e28e_01/originals/game/scripts/reality/apartment_encroachment.gd",
+  "candidate_source": "design/astra/work/encroachment_sweep/revisions/ownership_69e28e_01/proposed/game/scripts/reality/apartment_encroachment.gd",
+  "original_sha256": "69e28e38740f122fe5bfd47b9f8bc6194fd5e52dda2eae085163deee30977860",
+  "candidate_sha256": "5b2fbabba674cec4ebd8644c006aac5c4033a85b8bb0dfd59d4f1a49b2ce646c",
+  "comparison": "same ownership repair; only reach_props method differs",
+  "adapter": "Normalize CRLF to LF; remove the single global class_name declaration so exact production methods can coexist. No method or preload adaptation.",
+  "scope": "Deterministic actual-method material/ownership equivalence under authored fixture bounds; production build and composed rendering remain separate.",
+  "artifacts": {
+    "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "b3a1d061dd4f28c69ee63faac28cc14cea3878929c6e9f3acb39ab4035727551",
+    "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "ebfa920a547c57dd4cd9918a69fa614e8d585cbb97322af059733efe55163a6c",
+    "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "839cd0e2bbc785e880d5af8ed21a9be4c57a47d2dcdf43841adf562f4ed0da42",
+    "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "11be694ed56482ed02de225ad23a715241923f4e42a0534440da0e5b31efdf55"
+  }
+}

@@ -290,6 +290,9 @@ func return_player_to_safe_anchor() -> bool:
 	player.global_position = anchor.position
 	if "velocity" in player:
 		player.velocity = Vector3.ZERO
+	var facing: Variant = anchor.get("facing_position")
+	if facing is Vector3 and facing.is_finite() and player.has_method("face_world_point"):
+		player.call("face_world_point", facing)
 	return true
 
 

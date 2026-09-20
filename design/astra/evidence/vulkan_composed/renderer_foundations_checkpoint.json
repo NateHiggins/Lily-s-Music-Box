@@ -1,0 +1,45 @@
+{
+  "utc": "2026-09-05T07:29:17.106950+00:00",
+  "status": "PARTIAL_SOURCE_BOUND_FOUNDATION_EVIDENCE; NO_FINAL_BINDING",
+  "current_engine_lane": "released to root after exact diagnostic restoration",
+  "evidence": {
+    "runs/candidate_v1_foundations_01/result.json": "1dd7f238faaaf3a84e03a3d1f9113804ec32124b2ff549ce9648ca84041f0c9e",
+    "runs/foundations_pair_01_omission/result.json": "065a5bfd83634f899a698c3030ff1a6714c6a62f37692a6995727143f3a855f7",
+    "runs/foundations_pair_01_restored/result.json": "621bfa07a03558dd4520890de061e7a060c6d0858719e59bb733abd04b926d3c",
+    "pair_bookkeeping_sequences/foundations_pair_01/receipt.json": "435d1ebe441cc0d71ad4f97c8d58d7d6d86df833585cac1c6299102923a66051",
+    "runs/visibility_phase_census_01/result.json": "6975266e611e94b031751c780f06d35fbcb159302d5be39654d9bd97f9ac54e8",
+    "profile_transactions/visibility_phase_census_01/receipt.json": "e03dab4363e9e62b313b7209673c09a4a9dbf2f231eeb58ad5ac4df881c6ca92",
+    "pair_bookkeeping_controls/receipt.json": "8b1496d038223ef2ff10774c762bb1daf456585699f152807aa581cb3aa403d3",
+    "artifact_map_hardening/receipt.json": "a1447327a9b0ae08c250511080d1d71cf2ed191a9300f437011b99d69cf4f5d4",
+    "candidate_v1_foundations_visual_review.json": "ff3265c006535fe5e22d59355716b5a082f2e7da77d611922db376137233dabc",
+    "foundations_pair_01_visual_review.json": "2485ad313168ba47497f47a2b32948cf064c611b874752d5216f9a8052a29311",
+    "visibility_phase_census_visual_review.json": "85e8417a643c768aa9c79f28190a69557fb92972d5a6ed6e3fa5f7f7ead6cc67",
+    "visibility_phase_census_material_identity.json": "e973ba1fa2cb8ec6254fc78ead41218a2ed7ef851a99e79e6b8e1c7519a1cff5",
+    "visibility_phase_census_summary.json": "de7c68101eaef2471131bc8ca293f4f74ee8ad3301e87c7a3037c66f8b35dac2",
+    "foundations_pair_01_cost.json": "5bd59d295fcd35ee31992455d19efaf2a26f84256a8cd161675741c4ae029739",
+    "pair_bookkeeping_controls/selective_omission_receipt.json": "53581121e92423211bc388022d3113f79fc8cbb6ff68aa383f515a3d00bed023",
+    "artifact_map_hardening/old_map_control_receipt.json": "57456765e1604f5434c674d0f89689c5fdd05e6e3c32edf1bf0bc453b678b977",
+    "fixture_foundations_install/receipt.json": "c94094f5ee78452ec617cdc5a64c26498fa85c7bf1923a5a408c6e6e69c8c6c2",
+    "visual_label_revision/receipt.json": "433d9e7fb29a4a9f5a3d5ce820ca5fae30b158cc7709231f89b57375dced9e7a",
+    "queued_scope_controls/receipt.json": "cb3ebe6637986dce48ac7df8a416369458bc4a14ab626a0a1e37454f41f17727",
+    "runs/raw_v1_01/result.json": "bbdf8649e2cd67293f0f4b12f1e07bff4c35d1b5ae76ec5a9408e39e02a26a50",
+    "runs/candidate_v1_diag_01/result.json": "fbbd33b74213718787ee563c90c02ce7dd13454cb1ce9c29173b86e2b59b03fe"
+  },
+  "current_material_defect": "Duplicate material registration proven; dominant encroachment callback cost remains unclosed",
+  "remaining": [
+    "viewport-guard-only omission on final source",
+    "applicable actual V2 control",
+    "final uninstrumented full V1 against final shared source"
+  ],
+  "claims_excluded": [
+    "human or final art acceptance",
+    "release performance acceptance",
+    "private viewport survival inferred from synthetic replacement",
+    "strict unpair-only acceptance of soft-shadow underflow",
+    "crash/incomplete receipt reclassified as valid negative"
+  ],
+  "retained_prior_failures": {
+    "raw_v1_01": "access violation plus route/viewport/underflow issues; incomplete retirement, never valid intended-only red",
+    "candidate_v1_diag_01": "completed helper-only candidate before viewport repair; actual arcade mask corruption plus unrelated resident route error; failed mixed-cause evidence"
+  }
+}

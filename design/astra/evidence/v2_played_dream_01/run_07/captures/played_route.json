@@ -1,0 +1,301 @@
+{
+	"distance_m": 60.8619909309782,
+	"impacts": [
+		{
+			"contact_s": 14.9500000000003,
+			"hazard_id": "hollow_runner@0.0.1.0.1.2.1.1.1.3",
+			"kind": "conditional",
+			"lamp_on": false,
+			"minimum_warning_s": 0.75,
+			"module": "@0.0.1.0.1.2.1.1.1.3",
+			"outcome": "",
+			"realised_warning_s": 0.566666666666695,
+			"tell_distance_m": 4.54674339294434,
+			"tell_start_s": 14.3833333333336
+		}
+	],
+	"natural_return": true,
+	"observed_lamp_off": true,
+	"outcomes": [
+		{
+			"case_id": "mina_caption_crisis",
+			"outcome": "capture"
+		}
+	],
+	"perceptions": [
+		{
+			"at_s": 1.5,
+			"bearing_deg": 7.30730691184209,
+			"caption": "TRUNK HISS",
+			"first": true,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": true,
+			"sector": "AHEAD"
+		},
+		{
+			"at_s": 2.18333333333333,
+			"bearing_deg": 310.131204265849,
+			"caption": "TRUNK HISS",
+			"first": true,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.3",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "AHEAD LEFT"
+		},
+		{
+			"at_s": 2.56666666666666,
+			"bearing_deg": 291.885740426562,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.3",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "LEFT"
+		},
+		{
+			"at_s": 2.7,
+			"bearing_deg": 22.9765258490384,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "AHEAD RIGHT"
+		},
+		{
+			"at_s": 2.83333333333333,
+			"bearing_deg": 67.9590776754954,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "RIGHT"
+		},
+		{
+			"at_s": 2.89999999999999,
+			"bearing_deg": 119.768979020818,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND RIGHT"
+		},
+		{
+			"at_s": 3.03333333333333,
+			"bearing_deg": 158.399763985223,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND"
+		},
+		{
+			"at_s": 3.16666666666666,
+			"bearing_deg": 0.0635752006912753,
+			"caption": "TRUNK HISS",
+			"first": true,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "AHEAD"
+		},
+		{
+			"at_s": 3.34999999999999,
+			"bearing_deg": 246.6550529502,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.3",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND LEFT"
+		},
+		{
+			"at_s": 3.74999999999999,
+			"bearing_deg": 325.232332464114,
+			"caption": "CHAIN BELOW",
+			"first": true,
+			"hazard_id": "open_lift_void@0.0.1.0.1.2.1.2",
+			"kind": "positional",
+			"lamp_on": false,
+			"sector": "AHEAD LEFT"
+		},
+		{
+			"at_s": 4.36666666666666,
+			"bearing_deg": 292.151441615465,
+			"caption": "CHAIN BELOW",
+			"first": false,
+			"hazard_id": "open_lift_void@0.0.1.0.1.2.1.2",
+			"kind": "positional",
+			"lamp_on": false,
+			"sector": "LEFT"
+		},
+		{
+			"at_s": 4.51666666666666,
+			"bearing_deg": 312.566846308781,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "AHEAD LEFT"
+		},
+		{
+			"at_s": 4.53333333333332,
+			"bearing_deg": 231.333347207785,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND LEFT"
+		},
+		{
+			"at_s": 4.54999999999999,
+			"bearing_deg": 201.65321096198,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND"
+		},
+		{
+			"at_s": 4.91666666666665,
+			"bearing_deg": 246.551329697464,
+			"caption": "CHAIN BELOW",
+			"first": false,
+			"hazard_id": "open_lift_void@0.0.1.0.1.2.1.2",
+			"kind": "positional",
+			"lamp_on": false,
+			"sector": "BEHIND LEFT"
+		},
+		{
+			"at_s": 8.43333333333333,
+			"bearing_deg": 106.703769704689,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "RIGHT"
+		},
+		{
+			"at_s": 8.43333333333333,
+			"bearing_deg": 110.208667616903,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "RIGHT"
+		},
+		{
+			"at_s": 8.80000000000002,
+			"bearing_deg": 112.567746654333,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.1",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "BEHIND RIGHT"
+		},
+		{
+			"at_s": 14.3833333333336,
+			"bearing_deg": 3.64840146733616,
+			"caption": "DRY CREAK",
+			"first": true,
+			"hazard_id": "hollow_runner@0.0.1.0.1.2.1.1.1.3",
+			"kind": "conditional",
+			"lamp_on": false,
+			"sector": "AHEAD"
+		}
+	],
+	"react_to_tell": true,
+	"reacted": true,
+	"rooms": [
+		"@0.0.1.0.1",
+		"@0.0.1.0.1.2",
+		"@0.0.1.0.1.2.1",
+		"@0.0.1.0.1.2.1.1",
+		"@0.0.1.0.1.2.1.1.1",
+		"@0.0.1.0.1.2.1.1.1.3"
+	],
+	"trace": [
+		{
+			"collision_mask": 1,
+			"distance": 0.0,
+			"noclip": false,
+			"position": "(4.07, 0.0, 2.9)",
+			"room": "@0.0.1.0.1",
+			"seconds": 0.0
+		},
+		{
+			"collision_mask": 1,
+			"distance": 4.30784779787064,
+			"noclip": false,
+			"position": "(8.369416, 0.0, 2.652169)",
+			"room": "@0.0.1.0.1.2",
+			"seconds": 0.955
+		},
+		{
+			"collision_mask": 1,
+			"distance": 11.2109328601509,
+			"noclip": false,
+			"position": "(15.26899, 0.0, 2.854806)",
+			"room": "@0.0.1.0.1.2.1",
+			"seconds": 2.96
+		},
+		{
+			"collision_mask": 1,
+			"distance": 18.1226553581655,
+			"noclip": false,
+			"position": "(22.16851, 0.0, 3.233679)",
+			"room": "@0.0.1.0.1.2.1.1",
+			"seconds": 4.96
+		},
+		{
+			"collision_mask": 1,
+			"distance": 31.5648379251361,
+			"noclip": false,
+			"position": "(35.15611, 0.0, 6.46755)",
+			"room": "@0.0.1.0.1.2.1.1",
+			"seconds": 8.015
+		},
+		{
+			"collision_mask": 1,
+			"distance": 32.2558460701257,
+			"noclip": false,
+			"position": "(35.23003, 0.0, 7.153278)",
+			"room": "@0.0.1.0.1.2.1.1.1",
+			"seconds": 8.237
+		},
+		{
+			"collision_mask": 1,
+			"distance": 48.4879476372153,
+			"noclip": false,
+			"position": "(37.28212, 0.0, 23.25303)",
+			"room": "@0.0.1.0.1.2.1.1.1",
+			"seconds": 12.003
+		},
+		{
+			"collision_mask": 1,
+			"distance": 50.0967439394444,
+			"noclip": false,
+			"position": "(37.3943, 0.0, 24.85519)",
+			"room": "@0.0.1.0.1.2.1.1.1.3",
+			"seconds": 12.656
+		},
+		{
+			"collision_mask": 1,
+			"distance": 60.8619909309782,
+			"noclip": false,
+			"position": "(37.56573, 0.0, 35.35776)",
+			"room": "@0.0.1.0.1.2.1.1.1.3",
+			"seconds": 16.018
+		}
+	]
+}

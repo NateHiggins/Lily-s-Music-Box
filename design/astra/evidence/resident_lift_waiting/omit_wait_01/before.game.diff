@@ -1,0 +1,189 @@
+diff --git a/game/scripts/building/building_root.gd b/game/scripts/building/building_root.gd
+index 3d706fd..9b8282e 100644
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -1878,6 +1878,9 @@ func _late_owner_is_dynamic(geometry: Node, floor: Node,
+ 		registered: Dictionary) -> bool:
+ 	var cursor: Node = geometry
+ 	while cursor != null and cursor != floor:
++		# A cabinet viewport owns its world; building zones must not index it.
++		if cursor is SubViewport:
++			return true
+ 		if registered.has(cursor.get_instance_id()):
+ 			return true
+ 		if String(cursor.name).begins_with("NPC_"):
+@@ -2860,11 +2863,26 @@ func _zone_toggle(node: Node3D, eligible: bool,
+ 	if blocks.is_empty():
+ 		_zone_layer_blocks.erase(id)
+ 		if passage_late_saved.has(id):
+-			vi.layers = passage_late_saved[id]
++			_set_zone_layer_mask(vi, int(passage_late_saved[id]))
+ 			passage_late_saved.erase(id)
+ 	else:
+ 		_zone_layer_blocks[id] = blocks
+-		vi.layers = 0
++		_set_zone_layer_mask(vi, 0)
++
++
++## Godot 4.7.1 Forward+ omits ordinary geometry unpairing before layer changes
++## (godotengine/godot#121989, fixed upstream by #122064). Rebind to the SAME
++## scenario while the old mask is intact; then apply the new mask. This never
++## writes Node3D.visible, so the owner/floor/zone visibility contract is retained.
++## The unchanged-mask guard avoids scenario work during repeated region scans.
++func _set_zone_layer_mask(vi: VisualInstance3D, target_layers: int) -> void:
++	if vi.layers == target_layers:
++		return
++	if vi is GeometryInstance3D and vi.is_inside_tree():
++		var world: World3D = vi.get_world_3d()
++		if world != null:
++			RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)
++	vi.layers = target_layers
+ 
+ 
+ ## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility
+diff --git a/game/scripts/characters/resident_nav.gd b/game/scripts/characters/resident_nav.gd
+index e888f27..9c7d5cc 100644
+--- a/game/scripts/characters/resident_nav.gd
++++ b/game/scripts/characters/resident_nav.gd
+@@ -208,8 +208,8 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 	for m in fl.get("markers", []):
+ 		if str(m.get("kind", "")) != "door" or bool(m.get("cabinet", false)):
+ 			continue
+-		var p: Array = m["pos"]
+-		var at := Vector2(float(p[0]), float(p[1]))
++		var portal: Dictionary = _door_portal_spec(m, entry.walls)
++		var at: Vector2 = portal.point
+ 		var joins: Array = []
+ 		var void_hit := false
+ 		var joined := {}
+@@ -233,6 +233,13 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 			joins.append(room)
+ 		door_specs.append({"at": at, "id": str(m.get("id", "")),
+ 				"joins": joins, "void": void_hit})
++		# A centre alone still invites grazing diagonal paths from the sparse
++		# corridor ring. The final approach to each matched aperture is normal
++		# to its wall, with body clearance independent of room-sampling PROBE.
++		if portal.has("normal"):
++			for side in [-1.0, 1.0]:
++				add_node.call(at + Vector2(portal.normal) * float(portal.approach_distance) * side,
++						"door_approach:" + str(m.get("id", "")) + ":" + str(side))
+ 
+ 	if needs_implicit_ring and ring_ids.is_empty():
+ 		var lane_x := (5.33 + CORE_X) * 0.5
+@@ -310,6 +317,40 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 	return entry.points.size()
+ 
+ 
++## collect_door_markers stores each leaf's HINGE; DoorProp extends along
++## local +X. Match that hinge/width/orientation to an authored wall opening
++## before moving the navigation point to its centre. Separately authored
++## exterior/shop anchors and already-centred points keep their coordinates.
++func _door_portal_spec(marker: Dictionary, walls: Array) -> Dictionary:
++	var p: Array = marker["pos"]
++	var hinge := Vector2(float(p[0]), float(p[1]))
++	var width := float(marker.get("w", 0.81))
++	var angle := deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
++	var center := hinge + Vector2(cos(angle), sin(angle)) * width * 0.5
++	for wall in walls:
++		var wa: Array = wall.a
++		var wb: Array = wall.b
++		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
++		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
++				else minf(float(wa[1]), float(wb[1]))
++		var cross := float(wa[1]) if horizontal else float(wa[0])
++		for opening in wall.get("openings", []):
++			if str(opening.get("type", "")) != "door" or str(opening.get("leaf", "closed")) == "none" \
++					or absf(float(opening.get("w", 0.0)) - width) > 0.001:
++				continue
++			var along := start + float(opening.get("at", 0.0))
++			var aperture := Vector2(along, cross) if horizontal else Vector2(cross, along)
++			if hinge.distance_to(aperture) < 0.001:
++				return {"point": hinge}
++			if center.distance_to(aperture) < 0.001:
++				# Same resident radius used by PassageNav's capsule contract;
++				# wall half-thickness plus 8cm margin keeps endpoint bodies clear.
++				var clearance := float(wall.get("t", 0.18)) * 0.5 + 0.33 + 0.08
++				return {"point": aperture, "normal": Vector2(-sin(angle), cos(angle)),
++						"approach_distance": clearance}
++	return {"point": hinge}
++
++
+ func _room_at(rooms: Array, at: Vector2) -> Variant:
+ 	var best: Variant = null
+ 	var best_area := INF
+diff --git a/game/tests/passage_visibility_test.gd b/game/tests/passage_visibility_test.gd
+index de26b56..2af6931 100644
+--- a/game/tests/passage_visibility_test.gd
++++ b/game/tests/passage_visibility_test.gd
+@@ -95,13 +95,16 @@ func _count_unclassified_visible(root: Node) -> int:
+ 
+ 
+ func _ready() -> void:
+-	# The 03:00 composition assertions require the canonical clock. Without
+-	# this pin the test follows the real wall clock and fails in the
+-	# 06:30-02:00 trading window — found 2026-08-16 when a green battery
+-	# went red between runs purely because the machine crossed 2 AM.
++	# DAYNIGHT=0 disables legacy dispatch; it no longer pins campaign time.
++	# The hours/owner composition assertions require an explicit frozen 03:00.
+ 	OS.set_environment("DAYNIGHT", "0")
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.6).timeout
+@@ -193,6 +196,15 @@ func _ready() -> void:
+ 	var late_foreign: Array = root.passage_late_foreign_nodes
+ 	var late_interior: Array = root.passage_late_interior_nodes
+ 	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
++	var hidden_late: Array[Dictionary] = []
++	for geometry in late_interior:
++		if not (geometry.visible and _submits(geometry)):
++			hidden_late.append({"path": str(geometry.get_path()),
++					"visible": geometry.visible, "visible_in_tree": geometry.is_visible_in_tree(),
++					"layers": geometry.layers, "class": geometry.get_class(),
++					"groups": geometry.get_groups()})
++	print("[PASSAGE LATE POPULATION] clock=%s total=%d hidden=%s" % [
++			fixture_clock.datetime_string(), late_interior.size(), JSON.stringify(hidden_late)])
+ 	_check("late-built foreign F01 draws do not submit inside the hall",
+ 			late_foreign.size() > 300 and _all_hidden(late_foreign))
+ 	_check("every named late foreign owner is hidden inside the hall",
+diff --git a/game/tests/street_core_visibility_test.gd b/game/tests/street_core_visibility_test.gd
+index f5ad81f..a77c584 100644
+--- a/game/tests/street_core_visibility_test.gd
++++ b/game/tests/street_core_visibility_test.gd
+@@ -8,6 +8,13 @@ var _failed := 0
+ func _ready() -> void:
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	# The geometry population contract was authored at the canonical 03:00.
++	# Pin the shared clock explicitly; rendering/dispatch flags do not set it.
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.5).timeout
+@@ -16,6 +23,16 @@ func _ready() -> void:
+ 	_check("both enclosed F01 masses produce a material index", core.size() > 1300)
+ 	var harukiya_core: Array = core.filter(func(geometry):
+ 		return root._fully_in_harukiya_core(geometry))
++	print("[STREET CORE POPULATION] total=%d harukiya=%d clock=%s" % [
++			core.size(), harukiya_core.size(), fixture_clock.datetime_string()])
++	var harukiya_census: Array[Dictionary] = []
++	for geometry in root.find_children("*", "GeometryInstance3D", true, false):
++		if root._fully_in_harukiya_core(geometry):
++			harukiya_census.append({"path": str(geometry.get_path()),
++					"indexed": core.has(geometry), "class": geometry.get_class(),
++					"visible": geometry.visible, "layers": geometry.layers,
++					"world_aabb": str(root._measured_world_aabb(geometry))})
++	print("[HARUKIYA SOURCE CENSUS] ", JSON.stringify(harukiya_census))
+ 	_check("the ruled Harukiya prism contributes its own population",
+ 			harukiya_core.size() > 250)
+ 

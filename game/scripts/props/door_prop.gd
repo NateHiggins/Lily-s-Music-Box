@@ -62,6 +62,13 @@ func _ready() -> void:
 	apply_hinge_setback()
 
 
+func _exit_tree() -> void:
+	# The host owns its semantic pool source even after a one-shot has finished.
+	# Leave other doors and other users of the shared voice pool intact.
+	if is_instance_valid(AudioPolicy):
+		AudioPolicy.release_source(StringName(name))
+
+
 ## Landmark subclasses may retain a deliberately authored private acoustic
 ## body. Ordinary leaves use the shared semantic pool and allocate nothing.
 func _build_audio() -> void:
@@ -270,6 +277,12 @@ func npc_set_open(want_open: bool) -> void:
 	if leaf_state == "locked" or _moving or open == want_open:
 		return
 	interact(null)
+
+
+## An NPC may cross only after this owner's real opening motion has settled.
+## A locked leaf remains a refused passage even if someone locked it while open.
+func is_ready_for_passage() -> bool:
+	return is_instance_valid(_body) and leaf_state != "locked" and open and not _moving
 
 
 func _settled() -> void:

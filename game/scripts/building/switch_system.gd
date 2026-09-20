@@ -23,6 +23,18 @@ var switches := 0
 var _layout: Dictionary = {}
 var _room_fixtures: Dictionary = {}
 
+## Semantic layouts already know the circuit's room; avoid V1 coordinate inference.
+func bind_semantic_room(room_id: String, fixture_ids: Array[String]) -> bool:
+	if room_id.is_empty() or fixture_ids.is_empty() or _room_fixtures.has(room_id):
+		return false
+	var unique: Dictionary = {}
+	for identity in fixture_ids:
+		if identity.is_empty() or unique.has(identity):
+			return false
+		unique[identity] = true
+	_room_fixtures[room_id] = fixture_ids.duplicate()
+	return true
+
 const LIGHT_KINDS := {
 	"flush_dome": true, "pendant_shade": true, "sconce_globe": true,
 	"kitchen_linear": true, "cage_bulb": true, "chandelier": true,

@@ -1,0 +1,22 @@
+{
+  "status": "READ_ONLY_REPLAY_EXPLAINS_AUTOMATIC_NAME_FAILURE",
+  "runtime_result_remains_failed": true,
+  "result_sha256": "62f9ce92bad433679fddaa1813d51cc8b0f30285df21c7a8e531b20f27a45a8a",
+  "raw_probe_sha256": "83aaf39d742bf6c9b31041daba6000912d37161591f8a596bc0b536614eb73ab",
+  "restoration_sha256": "1ee99a31061cfbd71a57614fc9bbb102779ccceb84cdf9788e68a28b7a0b1c46",
+  "verified_artifacts": 63,
+  "actual_native_exit": 1,
+  "actual_checks": "25/28",
+  "actual_failed_labels": [
+    "all node identities transforms geometry and semantic records remain exact",
+    "all collision owners shapes and masks remain exact",
+    "every non-reservation display state remains exact"
+  ],
+  "nodes_per_bare_scene": 2237,
+  "anonymous_collision_shapes_per_scene": 527,
+  "mapping_rule": "Only trailing @CollisionShape3D@digits; actual CollisionShape3D class; one-to-one parent-relative mapping; every collision reference resolves.",
+  "normalized_geometry_equal": true,
+  "normalized_collision_equal": true,
+  "normalized_non_target_display_equal": true,
+  "scope": "Explains the three retained comparison failures. No new engine run or product acceptance; raw paths and failed receipt remain unchanged."
+}

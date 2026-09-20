@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "projectors": [
+    {
+      "id": "2A_tv",
+      "unit": "2A",
+      "support": "2A_projector_stand",
+      "position": [
+        0,
+        0.745,
+        0
+      ],
+      "yaw": 0,
+      "reel": "ch_01"
+    },
+    {
+      "id": "3B_tv",
+      "unit": "3B",
+      "support": "3B_projector_stand",
+      "position": [
+        0,
+        0.745,
+        0
+      ],
+      "yaw": 0,
+      "reel": "ch_02"
+    },
+    {
+      "id": "4B_tv",
+      "unit": "4B",
+      "support": "4B_projector_stand",
+      "position": [
+        0,
+        0.745,
+        0
+      ],
+      "yaw": 0,
+      "reel": "ch_03"
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+	"checks": [
+		{
+			"label": "authored campaign calendar is valid",
+			"passed": true
+		},
+		{
+			"label": "V1 default desk footprint and height remain unchanged",
+			"passed": true
+		},
+		{
+			"label": "CampaignShell composes the actual V2 root",
+			"passed": true
+		},
+		{
+			"label": "actual V2 startup succeeds",
+			"passed": true
+		},
+		{
+			"label": "actual production player and camera are present",
+			"passed": true
+		},
+		{
+			"label": "deferred first-shift arrival settles before controlled placement",
+			"passed": true
+		},
+		{
+			"label": "terminal operator and semantic identities resolve uniquely",
+			"passed": true
+		},
+		{
+			"label": "actual SignalScope retains its authored cylinder axis",
+			"passed": true
+		},
+		{
+			"label": "original semantic terminal transform remains exact",
+			"passed": true
+		},
+		{
+			"label": "mounted terminal keeps semantic position scale and stable identity",
+			"passed": true
+		},
+		{
+			"label": "operator anchor remains the authored stance",
+			"passed": true
+		},
+		{
+			"label": "actual scope front faces the operator",
+			"passed": false
+		},
+		{
+			"label": "V2 owns exactly one actual DeskZone",
+			"passed": true
+		},
+		{
+			"label": "desk reuses the sole production call owner",
+			"passed": true
+		},
+		{
+			"label": "call owner retains terminal and acoustic identity",
+			"passed": true
+		},
+		{
+			"label": "desk target uses the authored footprint and ordinary height",
+			"passed": true
+		},
+		{
+			"label": "desk target is at the terminal use area on the operator floor",
+			"passed": true
+		},
+		{
+			"label": "first ray starts from the authored operator and eye",
+			"passed": true
+		},
+		{
+			"label": "ordinary player ray acquires the actual desk Area",
+			"passed": true
+		},
+		{
+			"label": "actual player prompt offers the support desk",
+			"passed": true
+		},
+		{
+			"label": "desk line is silent before occupancy",
+			"passed": true
+		},
+		{
+			"label": "real interact input acquires reciprocal seated ownership",
+			"passed": true
+		},
+		{
+			"label": "real entry opens the call panel and starts the first case",
+			"passed": true
+		},
+		{
+			"label": "real call owner updates the actual terminal stage",
+			"passed": true
+		},
+		{
+			"label": "occupied line plays on the existing Telephone owner",
+			"passed": true
+		},
+		{
+			"label": "entry does not teleport the authored operator",
+			"passed": true
+		},
+		{
+			"label": "seated E releases player desk and call ownership",
+			"passed": true
+		},
+		{
+			"label": "seated E hides the modal and stops the line",
+			"passed": true
+		},
+		{
+			"label": "second ray starts from the authored operator and eye",
+			"passed": true
+		},
+		{
+			"label": "standing player can reacquire the same physical desk",
+			"passed": true
+		},
+		{
+			"label": "ray reentry resumes the same live case and owner",
+			"passed": true
+		},
+		{
+			"label": "actual Escape key releases reciprocal ownership",
+			"passed": true
+		},
+		{
+			"label": "Escape restores world input and stops the line",
+			"passed": true
+		},
+		{
+			"label": "exactly two real ray entries emitted desk interactions",
+			"passed": true
+		},
+		{
+			"label": "opening sequence settles through its actual owner",
+			"passed": true
+		},
+		{
+			"label": "entry and exit do not complete a case or advance campaign time",
+			"passed": true
+		},
+		{
+			"label": "actual V2 world retires",
+			"passed": true
+		},
+		{
+			"label": "actual CampaignShell retires",
+			"passed": true
+		},
+		{
+			"label": "retirement restores original acoustic records",
+			"passed": true
+		}
+	],
+	"diagnostics": {
+		"arrival": {
+			"before_position": [
+				0.0,
+				0.0,
+				-14.25
+			],
+			"call_locked": false,
+			"camera_local_rotation": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"camera_position": [
+				-3.59999990463257,
+				1.50999999046326,
+				24.7199993133545
+			],
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"director_owns_world": true,
+			"intro_complete": true,
+			"noclip": false,
+			"observed": true,
+			"phase_after": "complete",
+			"phase_before": "complete",
+			"position": [
+				-3.59999990463257,
+				0.100000001490116,
+				24.7199993133545
+			],
+			"settled": true,
+			"stable_process_frames": 2,
+			"velocity": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"waited_process_frames": 1,
+			"yaw": -0.237067431211472
+		},
+		"call_count": 1,
+		"case_open_delay_factor": 0.05,
+		"complete": true,
+		"desk_count": 1,
+		"desk_size": [
+			0.799999237060547,
+			1.60000002384186,
+			0.799999952316284
+		],
+		"escape_key_dispatched": true,
+		"first_interact_action_dispatched": true,
+		"first_ray": {
+			"actor_position": [
+				-9.89999961853027,
+				9.60000038146973,
+				1.25
+			],
+			"camera_position": [
+				-9.89999961853027,
+				11.0100002288818,
+				1.25
+			],
+			"collider": "/root/OrisonV2TerminalAccessTest/@Node@8/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_DESK_ZONE",
+			"from": [
+				-9.89999961853027,
+				11.0100002288818,
+				1.25
+			],
+			"hit_from_inside": false,
+			"hit_position": [
+				-9.44999980926514,
+				10.8084163665771,
+				1.34122169017792
+			],
+			"physics_processing": false,
+			"target_is_desk": true,
+			"to": [
+				-8.01548480987549,
+				10.1658058166504,
+				1.63201928138733
+			]
+		},
+		"front_dot": -0.0000000754979012640433,
+		"operator_direction": [
+			-0.84999942779541,
+			0.0,
+			0.0
+		],
+		"operator_position": [
+			-9.89999961853027,
+			9.60000038146973,
+			1.25
+		],
+		"reentry_action_dispatched": true,
+		"scope": "actual input and physics acquisition at a controlled authored pose; no traversal or completed case proof",
+		"scope_basis": [
+			[
+				-0.00000000000000330011807777566,
+				1.0,
+				-0.0000000437113882867379
+			],
+			[
+				-0.0000000754979012640433,
+				-0.0000000437113882867379,
+				-1.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"scope_front": [
+			0.0000000754979012640433,
+			0.0,
+			1.0
+		],
+		"scope_position": [
+			-8.79500007629395,
+			10.5150003433228,
+			1.47399997711182
+		],
+		"seated_E_action_dispatched": true,
+		"second_ray": {
+			"actor_position": [
+				-9.89999961853027,
+				9.60000038146973,
+				1.25
+			],
+			"camera_position": [
+				-9.89999961853027,
+				11.0100002288818,
+				1.25
+			],
+			"collider": "/root/OrisonV2TerminalAccessTest/@Node@8/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_DESK_ZONE",
+			"from": [
+				-9.89999961853027,
+				11.0100002288818,
+				1.25
+			],
+			"hit_from_inside": false,
+			"hit_position": [
+				-9.44999980926514,
+				10.8084163665771,
+				1.34122169017792
+			],
+			"physics_processing": false,
+			"target_is_desk": true,
+			"to": [
+				-8.01548480987549,
+				10.1658058166504,
+				1.63201928138733
+			]
+		},
+		"semantic_basis": [
+			[
+				0.0000000754979012640433,
+				0.0,
+				1.0
+			],
+			[
+				0.0,
+				1.0,
+				0.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"semantic_position": [
+			-9.05000019073486,
+			10.3500003814697,
+			1.25
+		],
+		"terminal_basis": [
+			[
+				0.0000000754979012640433,
+				0.0,
+				1.0
+			],
+			[
+				0.0,
+				1.0,
+				0.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"terminal_position": [
+			-9.05000019073486,
+			10.3500003814697,
+			1.25
+		],
+		"world_events": [
+			{
+				"identity": "F04_B_DESK_ZONE",
+				"position": [
+					-9.05000019073486,
+					9.60000038146973,
+					1.25
+				]
+			},
+			{
+				"identity": "F04_B_DESK_ZONE",
+				"position": [
+					-9.05000019073486,
+					9.60000038146973,
+					1.25
+				]
+			}
+		]
+	},
+	"failures": 1,
+	"pid": 32796,
+	"renderer": "forward_plus",
+	"root": "v2",
+	"schema": "astra.v2-terminal-access.probe.v2",
+	"scope": "real player action and call ownership from controlled operator placement; delayed narrative compressed"
+}

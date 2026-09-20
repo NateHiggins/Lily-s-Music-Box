@@ -1,0 +1,348 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "props": 26,
+  "triangles": 13340,
+  "source_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
+  "checks": [
+    {
+      "id": "3A_k_kmug",
+      "support": "F03_3A_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3A_k_kdishrack",
+      "support": "F03_3A_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "4A_k_kmug",
+      "support": "F04_4A_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "4A_k_kdishrack",
+      "support": "F04_4A_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "3A_story_cuttings",
+      "support": "3A_potting_bench",
+      "rect": [
+        -0.46582282282282284,
+        -0.18860747995402424,
+        -0.12964473764056575,
+        0.11525225225225225
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3A_story_seed_jars",
+      "support": "3A_potting_bench",
+      "rect": [
+        0.13149999999999995,
+        -0.046,
+        0.5685,
+        0.046
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "4A_story_briefs",
+      "support": "4A_writing_table",
+      "rect": [
+        -0.12755723106650413,
+        -0.14490795710529522,
+        0.11053342266278542,
+        0.1719565314070713
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2A_k_kmug",
+      "support": "F02_2A_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2A_k_kdishrack",
+      "support": "F02_2A_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "2B_k_kmug",
+      "support": "F02_2B_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2B_k_kdishrack",
+      "support": "F02_2B_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "3B_k_kmug",
+      "support": "F03_3B_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_k_kdishrack",
+      "support": "F03_3B_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "4B_mug",
+      "support": "4B_sink_counter",
+      "rect": [
+        -0.8400000000000001,
+        -0.10804226065180615,
+        -0.7333722165877881,
+        -0.03195773934819386
+      ],
+      "height": 0.905,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "4B_dishrack",
+      "support": "4B_sink_counter",
+      "rect": [
+        -0.56,
+        -0.13,
+        -0.48000000000000004,
+        0.13
+      ],
+      "height": 0.905,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "2A_papers",
+      "support": "2A_desk",
+      "rect": [
+        -0.1566036036036036,
+        -0.14352952952952952,
+        0.0567117117117117,
+        0.15504904904904904
+      ],
+      "height": 0.735,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2A_mug",
+      "support": "2A_desk",
+      "rect": [
+        0.2949051284837941,
+        0.028030423985751934,
+        0.4254929370317066,
+        0.1548535667634614
+      ],
+      "height": 0.735,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2A_phones",
+      "support": "2A_desk",
+      "rect": [
+        -0.606,
+        -0.04311803573917321,
+        -0.394,
+        0.115
+      ],
+      "height": 0.735,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2B_story_patterns",
+      "support": "2B_fabric_worktable",
+      "rect": [
+        0.2229166673880476,
+        -0.17561906369117036,
+        0.5083109676694322,
+        0.1732463147199438
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "2B_story_notions",
+      "support": "2B_fabric_worktable",
+      "rect": [
+        -0.676,
+        0.024000000000000007,
+        -0.124,
+        0.116
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_tray1",
+      "support": "3B_workbench",
+      "rect": [
+        -0.6060000000000001,
+        -0.29600000000000004,
+        0.12,
+        -0.003999999999999976
+      ],
+      "height": 0.91,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_tray2",
+      "support": "3B_workbench",
+      "rect": [
+        0.444,
+        -0.29600000000000004,
+        0.8560000000000001,
+        -0.003999999999999976
+      ],
+      "height": 0.91,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_jars",
+      "support": "3B_workbench",
+      "rect": [
+        -0.47600000000000003,
+        0.15400000000000003,
+        0.07600000000000001,
+        0.246
+      ],
+      "height": 0.91,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_manuals",
+      "support": "3B_workbench",
+      "rect": [
+        -0.9866112163365801,
+        -0.051126609161870305,
+        -0.7089975046945907,
+        0.26119509409257174
+      ],
+      "height": 0.91,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_mug",
+      "support": "3B_workbench",
+      "rect": [
+        0.21,
+        0.18195773934819387,
+        0.31662778341221204,
+        0.25804226065180613
+      ],
+      "height": 0.91,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3B_coil",
+      "support": "3B_tools1",
+      "rect": [
+        -0.23923879532511286,
+        -0.11923879532511286,
+        0.18631141531831202,
+        0.1338455962314451
+      ],
+      "height": 1.412,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0050717967697244916
+    }
+  ],
+  "limits": "Fixed noninteractive decoration. Drainboard contact is a source estimate. Runtime materials, targeting, lighting and lifetime are not verified."
+}

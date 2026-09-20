@@ -24,6 +24,7 @@ extends Node3D
 ## Far enough east that no streaming volume, nav mesh or occlusion query
 ## will ever reach it, and on a round number so poses are easy to read.
 const ORIGIN := Vector3(400.0, 0.0, 0.0)
+const DreamEcologyWarehouseScript = preload("res://scripts/debug/dream_ecology_warehouse.gd")
 # Large wall-backed props were only 0.73 m apart at 2.6 m centres. Their
 # inspection backers then hid the next row's appliance before the appliance
 # itself entered frame — the refrigerator looked like a blank wall from the
@@ -39,6 +40,7 @@ const WALL_Y := 1.45
 
 var _built := 0
 var _hall := Vector2(12.0, 12.0)   # inside dimensions, set at build
+var _ecology: DreamEcologyWarehouseScript
 
 
 func build(prop_scripts: Dictionary) -> int:
@@ -273,6 +275,28 @@ func hall_aabb() -> AABB:
 	return AABB(ORIGIN - Vector3(_hall.x * 0.5 + 1.0, 1.5,
 			_hall.y * 0.5 + 1.0),
 			Vector3(_hall.x + 2.0, HALL_H + 3.0, _hall.y + 2.0))
+
+
+## The live ecology bay is a separate, lazy debug destination. Catalogue
+## construction and automated prop inspection never instantiate its controllers.
+func open_ecology(player: Node3D = null) -> DreamEcologyWarehouseScript:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
+		push_warning("[WAREHOUSE] Dream ecology is available in DEBUG launches only")
+		return null
+	if not is_instance_valid(_ecology):
+		_ecology = DreamEcologyWarehouseScript.new()
+		_ecology.name = "DreamEcologyWarehouse"
+		# Place the owner before any child collision or controller enters the tree.
+		_ecology.position = Vector3(0, 0, -_hall.y * 0.5 - 11.0)
+		add_child(_ecology)
+		_ecology.setup(player)
+	_ecology.activate(true)
+	return _ecology
+
+
+func close_ecology() -> void:
+	if is_instance_valid(_ecology):
+		_ecology.activate(false)
 
 
 func viewing_stand() -> Vector3:

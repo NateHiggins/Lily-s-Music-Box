@@ -1,0 +1,349 @@
+// Shared six-incarnation surface path. All ordered production incarnations
+// branch here through one bounded presentation profile.
+// Roughness is packed in albedo alpha; height is packed in normal alpha.
+uniform sampler2D incarnation_albedo_0 : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_albedo_1 : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_albedo_2 : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_albedo_3 : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_normal_0 : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_normal_1 : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_normal_2 : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D incarnation_normal_3 : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform float incarnation_stillness : hint_range(0.0, 1.0) = 0.0;
+// LC-6E: classified from the existing case-run clock by DreamMazeRoot.
+// No shader time selects a life stage.
+uniform float incarnation_lifecycle_stage : hint_range(0.0, 7.0) = 3.0;
+
+float incarnation_hash(vec2 p) {
+	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+vec4 incarnation_antitile(sampler2D plate, vec2 uv, float seed) {
+	vec2 cell = floor(uv * 0.071 + seed);
+	float h = fract(sin(dot(cell, vec2(127.1, 311.7))) * 43758.5453);
+	vec2 a = uv + vec2(h * 5.17, fract(h * 7.31) * 3.83);
+	vec2 b = vec2(-uv.y, uv.x) + vec2(3.7 + seed, 8.3 - seed);
+	float seam = smoothstep(0.18, 0.82,
+		fract(sin(dot(cell + 19.0, vec2(269.5, 183.3))) * 24634.6345));
+	return mix(texture(plate, a), texture(plate, b), seam);
+}
+
+vec4 incarnation_substance(int slot, vec2 uv) {
+	if (slot == 1) return incarnation_antitile(incarnation_albedo_1, uv, 2.0);
+	if (slot == 2) return incarnation_antitile(incarnation_albedo_2, uv, 3.0);
+	if (slot == 3) return incarnation_antitile(incarnation_albedo_3, uv, 4.0);
+	return incarnation_antitile(incarnation_albedo_0, uv, 1.0);
+}
+
+vec4 incarnation_relief(int slot, vec2 uv) {
+	if (slot == 1) return incarnation_antitile(incarnation_normal_1, uv, 6.0);
+	if (slot == 2) return incarnation_antitile(incarnation_normal_2, uv, 7.0);
+	if (slot == 3) return incarnation_antitile(incarnation_normal_3, uv, 8.0);
+	return incarnation_antitile(incarnation_normal_0, uv, 5.0);
+}
+
+// Mina's editorial palimpsest: continuous lines with deliberately empty
+// caption fields. It never emits glyphs and never reads annotation state.
+vec4 mina_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 plate = incarnation_substance(slot, uv * 0.78);
+	vec4 relief = incarnation_relief(slot, uv * 0.78);
+	// Use the selected dominant surface plane. World XZ collapses to one line
+	// on a vertical wall and made the editorial layout mathematically unable
+	// to draw a box there.
+	float baseline = smoothstep(0.055, 0.012,
+		abs(fract(uv.y * 0.43 + sin(uv.x * 0.19) * 0.08) - 0.5));
+	vec2 box_uv = abs(fract(uv * vec2(0.087, 0.123)) - 0.5);
+	float bracket = smoothstep(0.035, 0.012,
+		min(abs(box_uv.x - 0.39), abs(box_uv.y - 0.29)));
+	float empty_field = (1.0 - smoothstep(0.26, 0.38, box_uv.x))
+		* (1.0 - smoothstep(0.17, 0.28, box_uv.y));
+	float caption_ink = clamp(max(baseline * 0.42, bracket * 0.58)
+		* (1.0 - empty_field), 0.0, 1.0);
+	float calm = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	caption_ink *= 1.0 - calm * empty_field;
+	vec3 blue_black = plate.rgb * vec3(0.18, 0.23, 0.34);
+	vec3 warm_stock = incarnation_substance(1, uv * 0.64 + 5.1).rgb
+		* vec3(0.20, 0.16, 0.12);
+	vec3 gilt = incarnation_substance(2, uv * 0.91 - 3.7).rgb
+		* vec3(0.74, 0.57, 0.28);
+	vec3 dark = mix(warm_stock, blue_black, 0.58 + caption_ink * 0.32);
+	dark *= 0.78 + relief.a * 0.34;
+	vec3 oblique = mix(dark, blue_black * 1.75,
+		caption_ink * clamp(awake * 1.4, 0.0, 1.0));
+	// Gold boils outward from the surviving ink rim; the centre is spared.
+	float spared = clamp(calm * empty_field
+		+ molten * (1.0 - caption_ink) * 0.56, 0.0, 1.0);
+	vec3 colour = mix(oblique, gilt,
+		molten * (0.28 + caption_ink * 0.72));
+	colour = mix(colour, vec3(0.012, 0.018, 0.032),
+		caption_ink * (0.76 - molten * 0.38));
+	colour += gilt * caption_ink * molten * 0.24;
+	colour = mix(colour, warm_stock * 0.045, spared * 0.94);
+	// The spared field keeps one pressure trace, visible only when Mina is met
+	// with stillness. Broad palm plus four shallow finger dents; material
+	// relief, never a hand, person, label or gameplay signal.
+	vec2 palm_q = fract(uv / 9.0 + vec2(0.31, 0.57)) - 0.5;
+	float palm = smoothstep(0.24, 0.16,
+		length(palm_q / vec2(0.78, 1.0)));
+	float pressure = palm * calm
+		* incarnation_stillness * empty_field;
+	float roughness = mix(plate.a, 0.34, molten * caption_ink);
+	roughness = mix(roughness, 0.16, pressure * 0.38);
+	return vec4(colour, roughness);
+}
+
+// Peter's recursive docket: nested fields remain empty while a single
+// oxblood decision stroke becomes executable under full exposure. It never
+// reads or mutates the demanding-door grammar.
+vec4 peter_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 stock = incarnation_substance(0, uv * 0.82);
+	vec4 stamp = incarnation_substance(1, uv * 0.93 + 3.1);
+	vec4 carbon = incarnation_substance(2, uv * 0.74 - 4.7);
+	vec4 brass = incarnation_substance(3, uv * 1.08 + 7.3);
+	vec4 selected = incarnation_substance(slot, uv * 0.86);
+	vec2 docket = abs(fract(uv * vec2(0.118, 0.154)) - 0.5);
+	float frame = smoothstep(0.035, 0.012,
+		min(abs(docket.x - 0.41), abs(docket.y - 0.34)));
+	vec2 inner = abs(fract(uv * vec2(0.071, 0.093) + 0.19) - 0.5);
+	frame = max(frame, smoothstep(0.028, 0.010,
+		min(abs(inner.x - 0.34), abs(inner.y - 0.25))) * 0.72);
+	float route_phase = fract((uv.x + uv.y * 0.37) * 0.112);
+	float route = smoothstep(0.040, 0.012, abs(route_phase - 0.5));
+	float decision = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float continuing = mix(frame, route, decision);
+	vec3 paper = stock.rgb * vec3(0.34, 0.28, 0.20);
+	vec3 blue_copy = carbon.rgb * vec3(0.28, 0.34, 0.54);
+	vec3 oxblood = stamp.rgb * vec3(0.82, 0.34, 0.30);
+	vec3 legal_brass = brass.rgb * vec3(0.72, 0.52, 0.25);
+	vec3 colour = mix(paper, blue_copy, 0.24 + (1.0 - awake) * 0.18);
+	colour = mix(colour, oxblood, continuing * (0.52 + awake * 0.22));
+	colour = mix(colour, legal_brass,
+		molten * (route * 0.78 + frame * (1.0 - decision) * 0.18));
+	// The open route crosses the existing surface continuously; this is a
+	// colour-space fact only and cannot open, add, or move a door.
+	colour += legal_brass * route * decision * molten * 0.24;
+	// One lower-corner pressure indentation: roughness only, illegible and
+	// incapable of completing a field for him.
+	vec2 corner_q = fract(uv / 11.0 + vec2(0.08, 0.82)) - 0.5;
+	float initial_pressure = smoothstep(0.11, 0.055,
+		length(corner_q / vec2(1.0, 0.55)));
+	float roughness = mix(selected.a, 0.30, molten * continuing);
+	roughness = mix(roughness, 0.18, initial_pressure * 0.32);
+	return vec4(colour, roughness);
+}
+
+// Juno's reciprocal signal field: every visible send has a return, while the
+// standing-wave display remains presentation only. It cannot observe or create
+// channel edges, partitions, pursuit attention, sound, or sustain credit.
+vec4 juno_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 cloth = incarnation_substance(0, uv * 0.76);
+	vec4 brass = incarnation_substance(1, uv * 0.92 + 2.7);
+	vec4 diaphragm = incarnation_substance(2, uv * 0.68 - 5.2);
+	vec4 bakelite = incarnation_substance(3, uv * 1.03 + 8.4);
+	vec4 selected = incarnation_substance(slot, uv * 0.82);
+	float rate = min(incarnation_motion.x, 0.99);
+	float phase = TIME * rate * 6.2831853 + incarnation_motion.y;
+	float carrier = sin((uv.x + world.y * 0.31) * 0.84 + phase);
+	float returning = sin((uv.x - world.y * 0.31) * 0.84 - phase);
+	float standing = abs(carrier + returning) * 0.5;
+	float node = 1.0 - smoothstep(0.03, 0.18, standing);
+	float antinode = smoothstep(0.42, 0.92, standing);
+	float paired_a = smoothstep(0.035, 0.014,
+		abs(fract((uv.x + uv.y * 0.24) * 0.118) - 0.42));
+	float paired_b = smoothstep(0.035, 0.014,
+		abs(fract((uv.x + uv.y * 0.24) * 0.118) - 0.58));
+	float paired = max(paired_a, paired_b);
+	float sustained = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	vec3 lapis_cloth = cloth.rgb * vec3(0.17, 0.20, 0.38);
+	vec3 wine_membrane = diaphragm.rgb * vec3(0.54, 0.18, 0.30);
+	vec3 oxidized = brass.rgb * vec3(0.40, 0.54, 0.34);
+	vec3 warm_brass = brass.rgb * vec3(0.88, 0.62, 0.27);
+	vec3 deep_node = bakelite.rgb * vec3(0.24, 0.18, 0.20);
+	vec3 colour = mix(deep_node, lapis_cloth,
+		0.48 + awake * antinode * 0.24);
+	colour = mix(colour, wine_membrane, paired * (0.42 + awake * 0.18));
+	colour = mix(colour, oxidized, node * 0.34);
+	// At full retained exposure, cancellation resolves visually into one calm
+	// uninterrupted band. This band has no correspondence to channel state.
+	float open_band = smoothstep(0.10, 0.035,
+		abs(fract((uv.y + world.x * 0.07) * 0.091) - 0.5));
+	colour = mix(colour, warm_brass,
+		molten * (antinode * (1.0 - sustained) * 0.62
+		+ open_band * sustained * 0.88));
+	// One quiet material node never moves; waves part around it. Its centre is
+	// deliberately unlit and cannot encode a signal or objective.
+	vec2 quiet_q = fract(uv / 10.0 + vec2(0.43, 0.19)) - 0.5;
+	float quiet = smoothstep(0.16, 0.075, length(quiet_q));
+	colour = mix(colour, lapis_cloth * 0.32, quiet * 0.88);
+	float roughness = mix(selected.a, 0.24,
+		molten * max(antinode, open_band * sustained));
+	roughness = mix(roughness, 0.78, quiet * 0.42);
+	return vec4(colour, roughness);
+}
+
+// Mae's two provenance fields remain simultaneous and equally authoritative.
+// Their optical disagreement never reads or adjudicates the two stored spatial
+// accounts owned by the shared room grammar.
+vec4 mae_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 lacquer = incarnation_substance(0, uv * 0.78);
+	vec4 grain = incarnation_substance(1, uv * 0.86 + 2.3);
+	vec4 paper = incarnation_substance(2, uv * 0.69 - 5.7);
+	vec4 glass = incarnation_substance(3, uv * 0.96 + 7.9);
+	vec4 selected = incarnation_substance(slot, uv * 0.82);
+	float rate = min(incarnation_motion.x, 0.099);
+	float beat = 0.5 + 0.5 * sin(TIME * rate * 6.2831853
+		+ incarnation_motion.y);
+	float estate = 0.5 + 0.5 * sin(uv.x * 0.76 + uv.y * 0.31);
+	float domestic = 0.5 + 0.5 * sin(uv.x * 0.39 - uv.y * 0.71 + 1.8);
+	float disagreement = abs(estate - domestic);
+	float equal_weight = mix(beat, 0.5, awake);
+	vec3 emerald = lacquer.rgb * vec3(0.18, 0.54, 0.37);
+	vec3 lapis = glass.rgb * vec3(0.24, 0.32, 0.66);
+	vec3 wine = lacquer.rgb * vec3(0.42, 0.16, 0.24);
+	vec3 antique = grain.rgb * vec3(0.66, 0.48, 0.24);
+	vec3 provenance_a = mix(wine, emerald, estate);
+	vec3 provenance_b = mix(wine, lapis, domestic);
+	vec3 colour = mix(provenance_a, provenance_b, equal_weight);
+	// Both molten reflection lobes originate at the same stable point. Their
+	// overlap is subtractive darkness, never a synthesized third account.
+	float lobe_a = smoothstep(0.14, 0.025,
+		abs(fract((uv.x + uv.y * 0.42) * 0.083) - 0.34));
+	float lobe_b = smoothstep(0.14, 0.025,
+		abs(fract((uv.x - uv.y * 0.42) * 0.083) - 0.66));
+	float overlap = lobe_a * lobe_b;
+	colour = mix(colour, antique, molten * max(lobe_a, lobe_b) * 0.78);
+	colour = mix(colour, vec3(0.012, 0.015, 0.022), molten * overlap * 0.92);
+	colour += paper.rgb * vec3(0.10, 0.09, 0.07)
+		* retained * disagreement * 0.11;
+	// The histories agree only in one polished hand-height pressure trace.
+	vec2 thumb_q = fract(uv / 9.5 + vec2(0.22, 0.48)) - 0.5;
+	float thumb = smoothstep(0.13, 0.065,
+		length(thumb_q / vec2(0.72, 1.0)));
+	float roughness = mix(selected.a, 0.27,
+		molten * max(lobe_a, lobe_b));
+	roughness = mix(roughness, 0.12, thumb * 0.46);
+	return vec4(colour, roughness);
+}
+
+// Cal's approved presentation language: the shared profile activates id 5.
+vec4 cal_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 glass = incarnation_substance(0, uv * 0.81);
+	vec4 bakelite = incarnation_substance(1, uv * 0.93 + 2.9);
+	vec4 wax = incarnation_substance(2, uv * 0.72 - 4.6);
+	vec4 mica = incarnation_substance(3, uv * 0.88 + 7.2);
+	vec4 selected = incarnation_substance(slot, uv * 0.84);
+	float rate = min(incarnation_motion.x, 0.99);
+	float drift = TIME * rate * 6.2831853 + incarnation_motion.y;
+	float radius = length(vec2(uv.x * 0.74, uv.y));
+	float arc_a = smoothstep(0.045, 0.014,
+		abs(fract(radius * 0.116 + sin(drift) * 0.035) - 0.38));
+	float arc_b = smoothstep(0.038, 0.012,
+		abs(fract(radius * 0.083 - sin(drift) * 0.024) - 0.62));
+	float incomplete = max(arc_a, arc_b)
+		* step(fract(atan(uv.y, uv.x) / 6.2831853 + 0.5), 0.86);
+	float completed = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float far_edge = smoothstep(0.54, 0.92,
+		fract((uv.x + uv.y * 0.19) * 0.071));
+	vec3 black_glass = glass.rgb * vec3(0.22, 0.18, 0.14);
+	vec3 off_station = bakelite.rgb * vec3(0.20, 0.23, 0.36);
+	vec3 carnelian = mica.rgb * vec3(0.72, 0.31, 0.16);
+	vec3 amber = mix(wax.rgb, mica.rgb, 0.46) * vec3(0.92, 0.57, 0.18);
+	vec3 colour = mix(black_glass, off_station, 0.34 + (1.0 - awake) * 0.22);
+	colour = mix(colour, carnelian, incomplete * (0.48 + awake * 0.22));
+	float held_band = smoothstep(0.16, 0.035,
+		abs(fract((uv.y + sin(uv.x * 0.21) * 0.08) * 0.092) - 0.5));
+	float draining = held_band * completed * (1.0 - far_edge);
+	colour = mix(colour, amber,
+		molten * max(incomplete * (1.0 - completed), draining) * 0.86);
+	colour = mix(colour, vec3(0.008, 0.010, 0.016),
+		completed * far_edge * 0.94);
+	// A warm pressure trace remains on the cold side of the glass, outside any
+	// future receiver interaction. It is material roughness, never a hand image.
+	vec2 hand_q = fract(uv / 10.5 + vec2(0.18, 0.66)) - 0.5;
+	float hand = smoothstep(0.19, 0.10,
+		length(hand_q / vec2(0.70, 1.0)));
+	float roughness = mix(selected.a, 0.22,
+		molten * max(incomplete, draining));
+	roughness = mix(roughness, 0.13, hand * 0.38);
+	return vec4(colour, roughness);
+}
+
+// Omar: inspection can reveal every fracture, while gold refuses to lie that
+// a flowing seam has set. The hovering film is a surface response only.
+vec4 omar_surface(vec3 world, vec2 uv, float retained, float molten,
+		float awake, float grazing, int slot) {
+	vec4 steel = incarnation_substance(0, uv * 0.86);
+	vec4 fracture = incarnation_substance(1, uv * 0.74 + 3.8);
+	vec4 solder = incarnation_substance(2, uv * 0.91 - 5.4);
+	vec4 enamel = incarnation_substance(3, uv * 0.82 + 8.1);
+	vec4 selected = incarnation_substance(slot, uv * 0.84);
+	float rate = min(incarnation_motion.x, 0.99);
+	float drift = TIME * rate * 6.2831853 + incarnation_motion.y;
+	vec2 cell = floor(uv * 0.085);
+	vec2 local = fract(uv * 0.085) - 0.5;
+	float branch_a = abs(local.y - sin(local.x * 9.0 + incarnation_hash(cell) * 5.7)
+		* (0.12 + retained * 0.08));
+	float branch_b = abs(local.x + local.y * 0.48
+		- (incarnation_hash(cell + 17.0) - 0.5) * 0.22);
+	float crack = smoothstep(0.070, 0.012, min(branch_a, branch_b));
+	float ring_r = length(local - vec2(incarnation_hash(cell + 2.0) - 0.5,
+		incarnation_hash(cell + 9.0) - 0.5) * 0.22);
+	float inspection = smoothstep(0.035, 0.010, abs(ring_r - 0.24));
+	float complete = smoothstep(incarnation_signature.x, 1.0, retained)
+		* incarnation_signature.y;
+	float pull = 0.5 + 0.5 * sin(drift + world.y * 0.7);
+	float film = crack * complete * smoothstep(0.28, 0.82, pull);
+	vec3 cold = mix(steel.rgb * vec3(0.34, 0.39, 0.47),
+		enamel.rgb * vec3(0.40, 0.22, 0.28), 0.28);
+	vec3 wine = fracture.rgb * vec3(0.46, 0.12, 0.27);
+	vec3 lapis = fracture.rgb * vec3(0.16, 0.24, 0.58);
+	vec3 gold = mix(solder.rgb, vec3(0.94, 0.61, 0.18), 0.58);
+	vec3 colour = mix(cold, wine, crack * (0.60 + retained * 0.26));
+	colour = mix(colour, lapis, inspection * awake * 0.46);
+	float unsettled = crack * molten * (0.62 + 0.38 * sin(drift + uv.y * 0.17));
+	colour = mix(colour, gold, max(unsettled, film) * 0.88);
+	// When the liquid film pulls free, the unchanged wine fracture remains
+	// visibly beneath it instead of becoming a repaired golden line.
+	colour = mix(colour, wine, crack * complete * (1.0 - film) * 0.52);
+	// A deliberately laid-down tool-shaped absence: simple pressure geometry,
+	// never a readable tool image, and the gold leaves space around it.
+	vec2 laid_q = fract(uv / 11.0 + vec2(0.61, 0.22)) - 0.5;
+	float laid = smoothstep(0.105, 0.055, abs(laid_q.y))
+		* smoothstep(0.34, 0.20, abs(laid_q.x));
+	colour = mix(colour, cold * 0.24, laid * 0.72);
+	float roughness = mix(selected.a, 0.18, max(unsettled, film));
+	roughness = mix(roughness, 0.72, laid * 0.42);
+	return vec4(colour, roughness);
+}
+
+vec4 dream_incarnation_surface(vec3 world, vec2 uv, float retained,
+		float molten, float awake, float grazing, int slot, vec4 fallback) {
+	if (incarnation_id > 0.5 && incarnation_id < 1.5) {
+		return mina_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 1.5 && incarnation_id < 2.5) {
+		return peter_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 2.5 && incarnation_id < 3.5) {
+		return juno_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 3.5 && incarnation_id < 4.5) {
+		return mae_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 4.5 && incarnation_id < 5.5) {
+		return cal_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	if (incarnation_id > 5.5 && incarnation_id < 6.5) {
+		return omar_surface(world, uv, retained, molten, awake, grazing, slot);
+	}
+	return fallback;
+}

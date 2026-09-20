@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-05T05:41:05.638845+00:00",
+  "godot_launched": false,
+  "wrapper_sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+  "controls": [
+    {
+      "name": "native read-only process census valid",
+      "passed": true
+    },
+    {
+      "name": "native exit0 with both exact errors is red with distinct counts",
+      "passed": true
+    },
+    {
+      "name": "clean completed source-bound result is green",
+      "passed": true
+    },
+    {
+      "name": "missing completion is red",
+      "passed": true
+    },
+    {
+      "name": "source drift is red",
+      "passed": true
+    },
+    {
+      "name": "missing PID is red",
+      "passed": true
+    },
+    {
+      "name": "old actual V1 failures classify261 underflow and1252 light-unpair",
+      "passed": true
+    }
+  ],
+  "historical_log_replay_counts": {
+    "softshadow": 261,
+    "light_unpair": 1252
+  }
+}

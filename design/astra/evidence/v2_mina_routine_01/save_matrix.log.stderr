@@ -1,0 +1,57 @@
+WARNING: invalid ORISON_BUILDING_ROOT='invalid'; using committed v1 default
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _report_invalid (res://scripts/building/building_root_selector.gd:42)
+       [1] path_for (res://scripts/building/building_root_selector.gd:32)
+       [2] _ready (res://tests/orison_v2_two_root_matrix_test.gd:36)
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _exercise_v1_root (res://tests/orison_v2_two_root_matrix_test.gd:101)
+       [4] _ready (res://tests/orison_v2_two_root_matrix_test.gd:37)
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [4] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [5] _ready (res://scripts/dream/campaign_shell.gd:50)
+       [6] _cross_root_reconstruction (res://tests/orison_v2_two_root_matrix_test.gd:148)
+       [7] _ready (res://tests/orison_v2_two_root_matrix_test.gd:86)
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [4] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [5] _ready (res://scripts/dream/campaign_shell.gd:50)
+       [6] _cross_root_reconstruction (res://tests/orison_v2_two_root_matrix_test.gd:185)
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [4] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [5] _ready (res://scripts/dream/campaign_shell.gd:50)
+       [6] _cross_root_reconstruction (res://tests/orison_v2_two_root_matrix_test.gd:148)
+       [7] _ready (res://tests/orison_v2_two_root_matrix_test.gd:86)
+       [8] _cross_root_reconstruction (res://tests/orison_v2_two_root_matrix_test.gd:231)
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [4] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [5] _ready (res://scripts/dream/campaign_shell.gd:50)
+       [6] _cross_root_reconstruction (res://tests/orison_v2_two_root_matrix_test.gd:185)

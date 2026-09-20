@@ -1,0 +1,108 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "tables": 6,
+  "receivers": [
+    {
+      "unit": "3A",
+      "family": "crystal_set",
+      "speaker": "headphones",
+      "support": "3A_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        -8.139999999999999,
+        0.745,
+        -3.41,
+        -7.8999999999999995,
+        0.995,
+        -2.95
+      ],
+      "eye_to_receiver_m": 1.1991768009764032
+    },
+    {
+      "unit": "4A",
+      "family": "atwater_kent_44",
+      "speaker": "cone",
+      "support": "4A_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        12.195,
+        0.745,
+        -3.915,
+        13.0,
+        1.095,
+        -3.595
+      ],
+      "eye_to_receiver_m": 1.2353238441801406
+    },
+    {
+      "unit": "2A",
+      "family": "atwater_kent_44",
+      "speaker": "cone",
+      "support": "2A_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        -8.195,
+        0.745,
+        -3.395,
+        -7.875,
+        1.095,
+        -2.59
+      ],
+      "eye_to_receiver_m": 1.1991768009764032
+    },
+    {
+      "unit": "2B",
+      "family": "three_dial_battery",
+      "speaker": "cone",
+      "support": "2B_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        12.23,
+        0.745,
+        -3.89,
+        13.0,
+        1.095,
+        -3.6
+      ],
+      "eye_to_receiver_m": 1.2353238441801406
+    },
+    {
+      "unit": "3B",
+      "family": "three_dial_battery",
+      "speaker": "horn",
+      "support": "3B_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        11.72,
+        0.745,
+        -0.82,
+        12.01,
+        1.125,
+        -0.049999999999999926
+      ],
+      "eye_to_receiver_m": 1.1185816912501296
+    },
+    {
+      "unit": "4B",
+      "family": "three_dial_battery",
+      "speaker": "cone",
+      "support": "4B_wireless_table",
+      "support_height_m": 0.745,
+      "world_bounds": [
+        -15.069999999999999,
+        0.745,
+        -1.95,
+        -14.78,
+        1.095,
+        -1.18
+      ],
+      "eye_to_receiver_m": 1.2625866306911366
+    }
+  ],
+  "route_samples": 6864,
+  "operator_approach_samples": 342,
+  "door_sweeps": 25,
+  "table_triangles": 3024,
+  "limits": "Receiver envelope estimates and sampled sightlines only. Physical targeting, audio isolation/release, materials, conductor events, lifecycle and persistence require runtime verification."
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\encroachment_sweep\matched_review_2a_1a_01\compare.py", line 189, in <module>
+    main()
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\encroachment_sweep\matched_review_2a_1a_01\compare.py", line 152, in main
+    material = [[material_summary(x) for x in p["material_observations"]] for p in (pa,pb)]
+                 ^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\encroachment_sweep\matched_review_2a_1a_01\compare.py", line 104, in material_summary
+    refresh = row["refresh"]
+              ~~~^^^^^^^^^^^
+KeyError: 'refresh'

@@ -1,0 +1,1200 @@
+diff --git a/game/scripts/audio/audio_policy.gd b/game/scripts/audio/audio_policy.gd
+index 53ae4b8..0fb92a7 100644
+--- a/game/scripts/audio/audio_policy.gd
++++ b/game/scripts/audio/audio_policy.gd
+@@ -248,6 +248,11 @@ func release_source(source_id: StringName, cue_id := StringName()) -> int:
+ 			var stream_key := str(cue_data.get("stream_key", ""))
+ 			if stream != null and not stream_key.is_empty():
+ 				PropAudio.release_stream(stream_key, stream)
++			# Godot 4.7 retains a queued 3D playback if it is stopped before
++			# its first physics update. Retire the player with this source;
++			# replace only its slot so other owners and the voice cap survive.
++			voice.free()
++			_voices[i] = _make_voice(i)
+ 		_voice_state[i] = {"cue_id":&"", "priority":-1, "until":_clock,
+ 				"source_id":&""}
+ 		released += 1
+@@ -368,19 +373,22 @@ func _known_bus(bus_name: String) -> bool:
+ 
+ func _build_voice_pool() -> void:
+ 	for i in VOICE_CAP:
+-		var voice := AudioStreamPlayer3D.new()
+-		voice.name = "PolicyVoice%02d" % i
+-		# Idle pooled voices still declare their role; a presented cue replaces
+-		# this with its catalog bus before playback.
+-		voice.bus = "State"
+-		voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+-		voice.panning_strength = 1.0
+-		add_child(voice)
+-		_voices.append(voice)
++		_voices.append(_make_voice(i))
+ 		_voice_state.append({"cue_id":&"", "priority":-1, "until":0.0,
+ 				"source_id":&""})
+ 
+ 
++func _make_voice(slot: int) -> AudioStreamPlayer3D:
++	var voice := AudioStreamPlayer3D.new()
++	voice.name = "PolicyVoice%02d" % slot
++	# A presented cue replaces the idle role with its catalog bus.
++	voice.bus = "State"
++	voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
++	voice.panning_strength = 1.0
++	add_child(voice)
++	return voice
++
++
+ func _choose_voice(wanted_priority: int) -> int:
+ 	for i in _voice_state.size():
+ 		if float(_voice_state[i].until) <= _clock:
+diff --git a/game/scripts/game/maintenance_shop_counter.gd b/game/scripts/game/maintenance_shop_counter.gd
+index fa99080..19c5c52 100644
+--- a/game/scripts/game/maintenance_shop_counter.gd
++++ b/game/scripts/game/maintenance_shop_counter.gd
+@@ -26,7 +26,7 @@ func interact_prompt() -> String:
+ 		return ""
+ 	var transaction := service.counter_prompt(shop_id)
+ 	return transaction if not transaction.is_empty() \
+-			else "[E]  Inspect %s" % surface_label
++			else "Inspect %s" % surface_label
+ 
+ 
+ func interact(_player: Node) -> Dictionary:
+diff --git a/game/scripts/props/clock_prop.gd b/game/scripts/props/clock_prop.gd
+index 1295c5b..18af241 100644
+--- a/game/scripts/props/clock_prop.gd
++++ b/game/scripts/props/clock_prop.gd
+@@ -294,10 +294,10 @@ func interact_prompt() -> String:
+ 	if clock_variant == "vantry_master":
+ 		return "[E]  Try sealed Vantry setting cover"
+ 	if _winding:
+-		return "Hold E — winding…"
++		return "Winding the clock…"
+ 	if spring_reserve >= 0.95:
+ 		return "The eight-day movement is fully wound"
+-	return "Hold E — wind the clock"
++	return "Wind the clock"
+ 
+ 
+ func interact(player: Node) -> Dictionary:
+diff --git a/game/scripts/props/night_register_prop.gd b/game/scripts/props/night_register_prop.gd
+index 835c70d..1d3529c 100644
+--- a/game/scripts/props/night_register_prop.gd
++++ b/game/scripts/props/night_register_prop.gd
+@@ -238,6 +238,13 @@ func _ready() -> void:
+ 	_refresh_board()
+ 
+ 
++func _exit_tree() -> void:
++	# These voices live in the global pool, outside FunctionalProp's child
++	# emitters. Retire this register's source when its scene leaves the tree.
++	AudioPolicy.release_source(StringName(name))
++	super()
++
++
+ ## The spine and the building are found by walking up, the way the watchman's
+ ## detector finds the day/night owner: no new binding seam, no registration,
+ ## and a null spine simply means an empty spindle.
+diff --git a/game/tests/orison_v2_m08f_runtime_shot.gd b/game/tests/orison_v2_m08f_runtime_shot.gd
+index 6bbc23a..82c0b20 100644
+--- a/game/tests/orison_v2_m08f_runtime_shot.gd
++++ b/game/tests/orison_v2_m08f_runtime_shot.gd
+@@ -9,7 +9,7 @@ var banner: Label
+ var records: Array[Dictionary] = []
+ 
+ func _ready() -> void:
+-	if not shots.setup(self, "ORISON-V2-M08F", 15):
++	if not shots.setup(self, "ORISON-V2-M08F", 12):
+ 		get_tree().quit(2)
+ 		return
+ 	RealityState.persistence_enabled = false
+@@ -34,59 +34,57 @@ func _ready() -> void:
+ 	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID)
+ 	world.service_round.dialogue.choose(0)
+ 	await _shot("01_2b_radiator_real_prompt", Vector3(13.0, 4.61, -2.5), Vector3(15.4, 4.0, -3.0),
+-			radiator.interact_prompt(), "acknowledged")
++			radiator.interact_prompt())
+ 	world.player.world_modified.emit(radiator.global_position, ServiceRoundDirector.RADIATOR_ID)
+ 	await _shot("02_radiator_inspection_transition", Vector3(13.0, 4.61, -2.5), Vector3(15.4, 4.0, -3.0),
+-			"RADIATOR EVIDENCE RECORDED", "acknowledged")
+-	await _shot("03_return_to_f01_station", Vector3(-1.65, 1.41, -2.6), Vector3(-4.1, 1.05, -1.0),
+-			"RETURN TO PORTER / RITUAL STATION", "acknowledged")
++			"RADIATOR VIEW AFTER INSPECTION SIGNAL")
++	await _shot("03_f01_station_inspection", Vector3(-1.65, 1.41, -2.6), Vector3(-4.1, 1.05, -1.0),
++			"PORTER / RITUAL STATION · INSPECTION VIEW")
+ 	await _owner_shot("04_watchman_detector", "F01_WATCHMAN_DETECTOR", "WATCHMAN DETECTOR · PRODUCTION AUTHORITY")
+ 	await _owner_shot("05_night_register", "F01_NIGHT_REGISTER", "NIGHT REGISTER · PRODUCTION AUTHORITY")
+ 	await _owner_shot("06_signal_register", "F01_SIGNAL_REGISTER", "SIGNAL REGISTER · PRODUCTION AUTHORITY")
+-	await _owner_shot("07_tour_key_custody", "F01_TOUR_KEY_GUARD", "TOUR KEY · TAKE / HOLD / RETURN")
++	await _owner_shot("07_tour_key_guard", "F01_TOUR_KEY_GUARD", "TOUR KEY GUARD · COMPOSED PROP")
+ 	board.apply_maintenance_result({"note": "contacts squared"})
+-	await _shot("08_b1_descent", Vector3(2.2, -1.79, -2.9), Vector3(6.8, -1.9, -0.5),
+-			"B1 DESCENT · COLLISION-BEARING ROUTE", "acknowledged")
++	await _shot("08_b1_inspection", Vector3(2.2, -1.79, -2.9), Vector3(6.8, -1.9, -0.5),
++			"B1 · TELEPORTED INSPECTION VIEW")
+ 	var boiler_view := boiler.global_position + boiler.global_transform.basis.z.normalized() * 2.4 + Vector3.UP * 0.5
+ 	await _shot("09_boiler_real_prompt", boiler_view, boiler.global_position + Vector3.UP * 0.7,
+-			boiler.control_prompt("water_column"), "acknowledged")
++			boiler.control_prompt("water_column"))
+ 	boiler.apply_maintenance_result({"note": "water column proved"})
+ 	await _shot("10_boiler_state_transition", boiler_view, boiler.global_position + Vector3.UP * 0.7,
+-			"BOILER COMPARISON RECORDED · DIAGNOSIS REPAIRABLE", "repairable")
+-	await _shot("11_return_to_2b", Vector3(10.4, 4.61, -3.25), Vector3(15.4, 4.0, -3.0),
+-			"RETURN TO 2B · REPAIR AUTHORIZED", "repairable")
++			"BOILER VIEW AFTER MAINTENANCE CALL")
++	await _shot("11_2b_inspection", Vector3(10.4, 4.61, -3.25), Vector3(15.4, 4.0, -3.0),
++			"2B · TELEPORTED INSPECTION VIEW")
+ 	radiator.apply_maintenance_result({"note": "vent freed and clocked"})
+ 	RealityCases.interact_with_resident(ServiceRoundDirector.RESIDENT_ID)
+ 	world.service_round.dialogue.choose(0)
+-	await _shot("12_completed_service_round", Vector3(13.0, 4.61, -2.5), Vector3(15.4, 4.0, -3.0),
+-			"SERVICE ROUND CLOSED · VISIBLE PATCH RECORDED", "closed")
+-	await _shot("13_save_reconstruction_contract", Vector3(11.9, 4.61, -2.55), Vector3(13.7, 4.1, -0.35),
+-			"SAVE → DESTROY → CAMPAIGN RECONSTRUCT · SEMANTIC FACTS PRESERVED", "closed")
+-	await _shot("14_premature_action_denied", Vector3(7.2, -1.79, -0.4), Vector3(10.8, -2.0, -0.45),
+-			"DENIAL PROOF · PREMATURE ACTION CANNOT ADVANCE", "closed")
+-	await _shot("15_final_teardown_receipt", Vector3(-3.3, 1.41, -6.2), Vector3(-3.3, 1.0, -2.0),
+-			"TEARDOWN OWNER · ADAPTER + PROP AUDIO · 0 RETAINED", "closed")
+-	_write_receipt()
++	await _shot("12_service_round_inspection", Vector3(13.0, 4.61, -2.5), Vector3(15.4, 4.0, -3.0),
++			"2B VIEW AFTER MAINTENANCE AND DIALOGUE CALLS")
++	var captures_ok: bool = shots.finish()
+ 	world.shutdown_for_tests()
+ 	world.queue_free()
+-	get_tree().quit(0 if shots.finish() else 2)
++	world = null
++	await get_tree().process_frame
++	await get_tree().process_frame
++	var receipt_ok := _write_receipt(captures_ok)
++	get_tree().quit(0 if captures_ok and receipt_ok else 2)
+ 
+ func _owner_shot(label: String, identity: String, message: String) -> void:
+ 	var owner := world.find_child(identity, true, false) as Node3D
+ 	var forward := owner.global_transform.basis.z.normalized()
+ 	await _shot(label, owner.global_position + forward * 1.8 + Vector3.UP * 0.15,
+-			owner.global_position + Vector3.UP * 0.15, message, "acknowledged")
++			owner.global_position + Vector3.UP * 0.15, message)
+ 
+-func _shot(label: String, from: Vector3, target: Vector3, prompt: String,
+-		phase: String) -> void:
++func _shot(label: String, from: Vector3, target: Vector3, prompt: String) -> void:
+ 	camera.global_position = from
+ 	camera.look_at(target)
+-	banner.text = "%s\nAUTHORITY: %s · SAVE PHASE: %s" % [
++	var observed_stage := world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)
++	banner.text = "%s\nINSPECTION: %s · OBSERVED JOB STAGE: %s" % [
+ 			PlayerController.format_interaction_prompt(prompt, &"controller"),
+-			label.trim_prefix(label.substr(0, 3)).to_upper(), phase]
++			label.trim_prefix(label.substr(0, 3)).to_upper(), observed_stage]
+ 	var ok := await shots.capture(label)
+ 	records.append({"frame": label, "prompt": prompt.trim_prefix("[E]").strip_edges(),
+-			"save_phase": phase, "capture": "PASS" if ok else "FAIL"})
++			"observed_job_stage": observed_stage, "capture": "PASS" if ok else "FAIL"})
+ 
+ func _build_banner() -> void:
+ 	var layer := CanvasLayer.new()
+@@ -115,7 +113,23 @@ func _close_previous_job() -> void:
+ 	world.work_orders.record_job_repair(job, {"quality": "good", "note": "evidence precondition"})
+ 	world.work_orders.close_job(job)
+ 
+-func _write_receipt() -> void:
+-	var file := FileAccess.open(shots.output_dir.path_join("runtime_authority_receipt.json"), FileAccess.WRITE)
++func _write_receipt(captures_ok: bool) -> bool:
++	var path := shots.output_dir.path_join("composition_capture_receipt.json")
++	if FileAccess.file_exists(path):
++		push_error("Composition capture receipt already exists: " + path)
++		return false
++	var file := FileAccess.open(path, FileAccess.WRITE)
++	if file == null:
++		push_error("Cannot write composition capture receipt: " + path)
++		return false
+ 	file.store_string(JSON.stringify({"schema_version": 1, "selector": "v2",
+-			"production_runtime": true, "records": records}, "\t"))
++			"evidence_kind": "production_composition_inspection",
++			"runtime_scene": "res://scenes/building/orison_v2_runtime.tscn",
++			"camera_mode": "teleported_inspection", "actions": "direct_test_calls",
++			"persistence_enabled": false, "cleanup_requested": true,
++			"capture_result": "PASS" if captures_ok else "FAIL",
++			"contracts_not_tested": ["save_reconstruction", "premature_action_denial",
++				"player_traversal", "teardown_retention"], "records": records}, "\t"))
++	var write_ok := file.get_error() == OK
++	file.close()
++	return write_ok
+diff --git a/game/tests/orison_v2_m08f_runtime_test.gd b/game/tests/orison_v2_m08f_runtime_test.gd
+index 5ff44a8..887e34f 100644
+--- a/game/tests/orison_v2_m08f_runtime_test.gd
++++ b/game/tests/orison_v2_m08f_runtime_test.gd
+@@ -11,6 +11,14 @@ var passes := 0
+ var beats: Array[String] = []
+ 
+ func _ready() -> void:
++	var save_path := "user://tests/m08f_runtime.json"
++	var save_directory := ProjectSettings.globalize_path(save_path).get_base_dir()
++	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
++	if directory_error != OK:
++		push_error("M08F test save directory could not be created: %s (error %d)" %
++				[save_directory, directory_error])
++		get_tree().quit(2)
++		return
+ 	var saved_persistence := RealityState.persistence_enabled
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
+@@ -92,7 +100,6 @@ func _ready() -> void:
+ 			"basement_comparison", "diagnosis", "repair", "resident_return"],
+ 			"production event trace preserves the complete round")
+ 
+-	var save_path := "user://tests/m08f_runtime.json"
+ 	var old_path := RealityState.save_path
+ 	RealityState.save_path = save_path
+ 	RealityState.persistence_enabled = true
+diff --git a/game/tests/orison_v2_m11a_first_exterior_cell_test.gd b/game/tests/orison_v2_m11a_first_exterior_cell_test.gd
+index fdbb99e..5832fe3 100644
+--- a/game/tests/orison_v2_m11a_first_exterior_cell_test.gd
++++ b/game/tests/orison_v2_m11a_first_exterior_cell_test.gd
+@@ -95,6 +95,13 @@ var _old_save_path := ""
+ 
+ 
+ func _ready() -> void:
++	var save_directory := ProjectSettings.globalize_path(SAVE_PATH).get_base_dir()
++	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
++	if directory_error != OK:
++		push_error("M11A test save directory could not be created: %s (error %d)" %
++				[save_directory, directory_error])
++		get_tree().quit(2)
++		return
+ 	_old_persistence = RealityState.persistence_enabled
+ 	_old_save_path = RealityState.save_path
+ 	RealityState.persistence_enabled = false
+diff --git a/tools/astra_render_packet.py b/tools/astra_render_packet.py
+index f498b39..fc8cf9e 100644
+--- a/tools/astra_render_packet.py
++++ b/tools/astra_render_packet.py
+@@ -1,10 +1,11 @@
+ #!/usr/bin/env python3
+-"""Deterministic views of frozen repository evidence; never mutates Git or game."""
++"""Frozen Git views plus an explicitly sourced live ledger; no Git/game writes."""
+ from __future__ import annotations
+ from collections import Counter
+ import hashlib
+ import json
+ from pathlib import Path
++import re
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ OUT = ROOT / "design/astra"
+@@ -28,12 +29,78 @@ def esc(value):
+     return str(value).replace("|", "\\|").replace("\n", " ")
+ 
+ 
++def evidence_path(name):
++    """Live inputs must name an existing artifact inside the packet."""
++    if not isinstance(name, str) or not name or "\\" in name:
++        raise ValueError("Live evidence path must be a packet-relative POSIX path")
++    relative = Path(name)
++    if relative.is_absolute() or ":" in name or ".." in relative.parts:
++        raise ValueError(f"Unsafe live evidence path: {name}")
++    resolved = (OUT / relative).resolve()
++    if not resolved.is_relative_to(OUT.resolve()):
++        raise ValueError(f"Live evidence escapes packet: {name}")
++    return resolved
++
++
++def live_completeness(base):
++    """Authenticate explicit audit inputs without scanning moving Git state.
++
++    A nonzero audit is valid evidence and is retained as such. A fresh static
++    inventory never becomes a fresh runtime or human acceptance claim.
++    """
++    state = read("LIVE_STATE.json")
++    if state.get("schema_version") != 1 or state.get("frozen_sanitation_base") != base:
++        raise ValueError("LIVE_STATE schema/base does not match frozen sanitation")
++    head = state.get("ledger_evidence_head", "")
++    if not isinstance(head, str) or not re.fullmatch(r"[0-9a-f]{40}", head):
++        raise ValueError("LIVE_STATE requires an exact ledger evidence head")
++    binding = state["completeness_source"]
++    source_path = evidence_path(binding["path"])
++    receipt_path = evidence_path(binding["receipt_path"])
++    source_bytes, receipt_bytes = source_path.read_bytes(), receipt_path.read_bytes()
++    source_sha = hashlib.sha256(source_bytes).hexdigest()
++    receipt_sha = hashlib.sha256(receipt_bytes).hexdigest()
++    if source_sha != binding.get("sha256") or receipt_sha != binding.get("receipt_sha256"):
++        raise ValueError("Live completeness source/receipt hash mismatch")
++    receipt = json.loads(receipt_bytes.decode("utf-8-sig"))
++    if receipt.get("repository_head") != head or binding.get("repository_head") != head:
++        raise ValueError("Stale live completeness receipt: evidence heads disagree")
++    if binding.get("audit_id") != "orison_v2_completeness":
++        raise ValueError("Live source must be the completeness audit")
++    runs = [r for r in receipt["runs"] if r.get("id") == binding["audit_id"]]
++    selftests = [r for r in receipt["runs"] if r.get("id") == binding["audit_id"] + "_selftest"]
++    if len(runs) != 1 or len(selftests) != 1:
++        raise ValueError("Live receipt needs one completeness run and one fixture run")
++    run, selftest = runs[0], selftests[0]
++    if (receipt_path.parent / run["stdout"]).resolve() != source_path or run.get("stdout_sha256") != source_sha:
++        raise ValueError("Live source does not match receipt output identity")
++    if type(run.get("exit_code")) is not int or type(selftest.get("exit_code")) is not int:
++        raise ValueError("Live receipt must retain actual integer exits")
++    source = json.loads(source_bytes.decode("utf-8-sig"))
++    requirements = source.get("requirements")
++    if not isinstance(requirements, list) or not requirements:
++        raise ValueError("Live completeness has no requirements")
++    ids = [r["id"] for r in requirements]
++    if len(ids) != len(set(ids)) or source.get("summary", {}).get("requirements") != len(ids):
++        raise ValueError("Live completeness requirement identities/count do not close")
++    provenance = {
++        "kind": "STATIC_AUDIT", "path": binding["path"], "sha256": source_sha,
++        "receipt_path": binding["receipt_path"], "receipt_sha256": receipt_sha,
++        "repository_head": head, "audit_id": binding["audit_id"],
++        "exit_code": run["exit_code"], "selftest_exit_code": selftest["exit_code"],
++        "runtime_proof_created": False, "human_acceptance_created": False,
++    }
++    return state, source, provenance
++
++
+ def render():
+     snap = read("evidence/repository_snapshot.json")
+     rules = read("reviews/adoption_rulings.json")
+     patches = read("evidence/patch_equivalence.json")
+     duplicates = {line.split()[1] for result in patches for line in result["stdout"].splitlines() if line.startswith("- ")}
+     base = snap["base_commit"]
++    # Validate live inputs before touching even the unchanged frozen views.
++    live, source, audit_proof = live_completeness(base)
+     rows = []
+     for commit in snap["commits_outside_base"]:
+         sha = commit["commit"]
+@@ -102,7 +169,6 @@ def render():
+               "- `OWNER_MANDATE.md`: exact current instruction text; outranks older date/quest/release assumptions.",
+               "", "Fresh import/boot success, beauty, player comprehension, and complete release scope are not proven by Git. See RELEASE_EVIDENCE_MATRIX.md and PLAYTEST_FINDINGS.md."]
+     write("REPOSITORY_TRUTH.md", "\n".join(truth) + "\n")
+-    source = read("evidence/base_audits/orison_v2_completeness.stdout.txt")
+     master = []
+     for r in source["requirements"]:
+         status = r["status"] if r["status"] in {"ABSENT", "PROGRAMMED", "RUNTIME_PROVEN", "HUMAN_ACCEPTED"} else "PROGRAMMED"
+@@ -115,10 +181,15 @@ def render():
+                "dependencies": r["blocked_by"],
+                "severity": "BLOCKER" if any(s in scopes for s in ["FIRST_SLICE_TECHNICAL", "GOLDEN_SHIFT_V2"]) else "RELEASE_CRITICAL",
+                "scope": "early complete path" if "GOLDEN_SHIFT_V2" in scopes or "FIRST_SLICE_TECHNICAL" in scopes else "full world",
+-               "provenance": {"base_commit": base, "source": "evidence/base_audits/orison_v2_completeness.stdout.txt", "requirement": r["id"], "claims": r["provenance"]},
++               "provenance": {"base_commit": base, "evidence_commit": live["ledger_evidence_head"],
++                              "source": audit_proof["path"], "source_sha256": audit_proof["sha256"],
++                              "receipt": audit_proof["receipt_path"], "receipt_sha256": audit_proof["receipt_sha256"],
++                              "requirement": r["id"], "claims": r["provenance"]},
+                "implementation_strategy": "Owner-first source to semantic owner to named anchor to derived transform; complete structural dependencies before room art.",
+-               "automated_proof": "Baseline completeness exit 2, existing fixture suite exit 0. This row inherits only the source's scoped evidence.",
+-               "composed_runtime_proof": {"new_run": "NOT_RUN", "source_status": r["status"], "source_provenance": r["provenance"]},
++               "automated_proof": {**audit_proof, "new_run": "STATIC_AUDIT_ONLY"},
++               "composed_runtime_proof": {"new_run": "NOT_RUN", "source_status": r["status"],
++                                         "source_provenance": r["provenance"],
++                                         "inheritance_note": "The current static audit reports inherited claims; it did not execute these runtime/human proofs."},
+                "human_proof_required": "Real-eye-height route/function comprehension, production lighting and motion; final acceptance remains required.",
+                "performance": {"budget": "Provisional p95 frame <16.6ms, main <=8ms, physics <=2ms, GPU <14ms; production boot <18s.", "measured_result": None, "scope": "Must name complete content scope; no first-slice extrapolation."},
+                "persistence_reconstruction": "Stable semantic identities; save/destroy/reconstruct without authority duplication or lost facts.",
+@@ -129,12 +200,16 @@ def render():
+     for row in read("reviews/production_obligations.json"):
+         master.append(row)
+     master.sort(key=lambda r: r["id"])
+-    ledger = {"schema_version": 1, "base_commit": base, "evidence_policy": "Inherited evidence is labelled. No completion percentage; sanitation creates no geometry and grants no human acceptance.",
++    ledger = {"schema_version": 2, "base_commit": base,
++              "ledger_evidence_head": live["ledger_evidence_head"], "completeness_source": audit_proof,
++              "evidence_policy": "Frozen Git decisions remain at sanitation base. The live ledger reads only LIVE_STATE's hash-bound current audit. Its runtime/human tiers are inherited source claims, not new runs. No completion percentage.",
+               "counts_by_severity": dict(sorted(Counter(r["severity"] for r in master).items())),
+               "counts_by_scope": dict(sorted(Counter(r["scope"] for r in master).items())),
+               "counts_by_evidence_tier": dict(sorted(Counter(r["status"] for r in master).items())), "rows": master}
+     dump("MASTER_COMPLETION_LEDGER.json", ledger)
+-    lines = ["# Master completion ledger", "", ledger["evidence_policy"], "", "Counts are obligations, not completion percentages.", ""]
++    lines = ["# Master completion ledger", "", ledger["evidence_policy"], "",
++             f"Current static evidence head: `{live['ledger_evidence_head']}`. Source: `{audit_proof['path']}` (SHA-256 `{audit_proof['sha256']}`). Audit exit {audit_proof['exit_code']}; fixture exit {audit_proof['selftest_exit_code']}. These exits do not constitute new composed-runtime or human proof.",
++             "", "Counts are obligations, not completion percentages.", ""]
+     for key in ["counts_by_severity", "counts_by_scope", "counts_by_evidence_tier"]:
+         lines.append(f"- {key}: " + "; ".join(f"{k}={v}" for k,v in ledger[key].items()))
+     lines += ["", "The JSON carries owners, consumers, provenance, implementation strategy, proof, performance, persistence and defects for every row. V2 source statuses are retained separately: spatial proof does not silently become composed runtime proof.", "", "| Stable ID | Outcome / current state | Severity / scope | Evidence tier | Next decisive action |", "| --- | --- | --- | --- | --- |"]
+diff --git a/tools/audit_orison_v2_completeness.py b/tools/audit_orison_v2_completeness.py
+index 82368b4..08c3cab 100644
+--- a/tools/audit_orison_v2_completeness.py
++++ b/tools/audit_orison_v2_completeness.py
+@@ -140,7 +140,7 @@ import sys
+ import tempfile
+ from pathlib import Path
+ 
+-TOOL_VERSION = 1
++TOOL_VERSION = 2
+ 
+ DEFAULT_V1 = ("art/data/building_layout.json",
+               "game/data/building_layout.json")
+@@ -394,7 +394,10 @@ M08D_PROVEN_PARITY_IDS = [
+ # M08D twelve-anchor census, or (b) a runtime-composition checkpoint's
+ # structured claims (identifier + production authority + save/durable
+ # owner + teardown owner in its composition table) validated by that
+-# packet's passing runtime_authority_receipt.json.
++# packet's schema-2 runtime_authority_receipt.json: completed execution,
++# current test-source hash, explicit exercised identities, save/rebuild,
++# denial and measured teardown contracts. Schema-1 capture-only receipts
++# remain historical composition evidence; they cannot grant runtime proof.
+ DOC_EPOCH_MARKERS = [
+     ("SCHEMA_GENERATOR", 0), ("VERTICAL_CORE", 1), ("GRAYBOX", 2),
+     ("M08E_A", 8), ("M08F", 9), ("M08E", 7), ("M08D", 6), ("M08C", 5),
+@@ -545,6 +548,71 @@ def load_json(path: Path, what: str) -> dict:
+         raise AuditError(f"malformed {what} {path}: {exc}")
+ 
+ 
++def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
++    """Admit executed runtime contracts, never captions or capture success.
++
++    The process wrapper owns the completion/exit result; the runtime test
++    owns executed checks and measured retention. No existing capture packet
++    is upgraded to this contract, and a matching source hash is required.
++    """
++    if not isinstance(data, dict) or data.get("schema_version") != 2 or \
++            data.get("evidence_kind") != "runtime_contract":
++        return ["schema-2 runtime_contract required; capture-only receipts "
++                "do not execute runtime contracts"]
++    errors = []
++    if data.get("production_runtime") is not True or data.get("selector") != "v2":
++        errors.append("explicit production runtime under v2 required")
++    execution = data.get("execution", {})
++    if not isinstance(execution, dict) or \
++            execution.get("completed") is not True or \
++            type(execution.get("exit_code")) is not int or \
++            execution.get("exit_code") != 0 or \
++            execution.get("timed_out") is not False:
++        errors.append("completed execution with exit_code 0 and no timeout required")
++    source = data.get("source", {})
++    if not isinstance(source, dict):
++        source = {}
++    relative = source.get("test_path", "")
++    digest = source.get("test_sha256", "")
++    source_path = root / str(relative)
++    if not isinstance(relative, str) or not relative or \
++            Path(relative).is_absolute() or \
++            not source_path.resolve().is_relative_to(root.resolve()) or \
++            not source_path.is_file() or \
++            not isinstance(digest, str) or \
++            not re.fullmatch(r"[0-9a-f]{64}", digest):
++        errors.append("root-relative test source and SHA-256 required")
++    elif sha256_file(source_path) != digest:
++        errors.append("test-source SHA-256 is stale")
++    if not isinstance(source.get("repository_head"), str) or not re.fullmatch(
++            r"[0-9a-f]{40}", source.get("repository_head", "")):
++        errors.append("recorded repository head required")
++    contracts = data.get("contracts", {})
++    if not isinstance(contracts, dict):
++        contracts = {}
++    for name in ("production_composition", "save_reconstruction",
++                 "premature_action_denial", "teardown"):
++        contract = contracts.get(name, {})
++        if not isinstance(contract, dict) or contract.get("executed") is not True or \
++                contract.get("status") != "PASS":
++            errors.append(f"{name}: executed PASS required")
++    composition = contracts.get("production_composition", {})
++    identities = composition.get("identities", []) if isinstance(composition, dict) else []
++    if not isinstance(identities, list) or not identities or \
++            any(not isinstance(token, str) or not token for token in identities) or \
++            len(set(str(token) for token in identities)) != len(identities):
++        errors.append("production_composition: unique exercised identities required")
++    teardown = contracts.get("teardown", {})
++    if not isinstance(teardown, dict):
++        teardown = {}
++    if teardown.get("measurement_scope") != "runtime_owned":
++        errors.append("teardown: runtime_owned measurement scope required")
++    for key in ("retained_nodes", "retained_resources", "retained_playbacks"):
++        if type(teardown.get(key)) is not int or teardown.get(key) != 0:
++            errors.append(f"teardown: measured {key} must be zero")
++    return errors
++
++
+ # ---------------------------------------------------------------------------
+ # Input assembly
+ # ---------------------------------------------------------------------------
+@@ -660,6 +728,7 @@ class Inputs:
+ 
+         self.receipts = []
+         self.runtime_receipts = []
++        self.rejected_runtime_receipts = []
+         receipts_dir = root / RECEIPT_GLOB
+         if receipts_dir.is_dir():
+             for receipt in sorted(
+@@ -671,16 +740,16 @@ class Inputs:
+             for receipt in sorted(receipts_dir.glob(
+                     "*/runtime_authority_receipt.json")):
+                 data = load_json(receipt, "runtime authority receipt")
+-                records = data.get("records", [])
+-                valid = (data.get("production_runtime") is True and
+-                         str(data.get("selector")) == "v2" and
+-                         bool(records) and
+-                         all(str(r.get("capture", "")).upper() == "PASS"
+-                             for r in records))
+-                if valid:
++                errors = runtime_receipt_errors(data, root)
++                if not errors:
+                     data["_file"] = receipt.relative_to(root).as_posix()
+                     data["_dir"] = receipt.parent.name
+                     self.runtime_receipts.append(data)
++                    self._record(root / data["source"]["test_path"])
++                else:
++                    self.rejected_runtime_receipts.append({
++                        "file": receipt.relative_to(root).as_posix(),
++                        "reasons": errors})
+                 self._record(receipt)
+ 
+     def _record(self, path: Path) -> None:
+@@ -955,26 +1024,29 @@ class Evidence:
+ 
+             if composition:
+                 packet_names = set(PACKET_DIR_RE.findall(text))
+-                receipt_ok = any(
+-                    r["_dir"] in packet_names
+-                    for r in inputs.runtime_receipts)
+                 for claim in parse_composition_claims(text):
+                     token = claim["id"]
+                     if token not in model.all_ids:
+                         continue
++                    supporting_receipts = [
++                        r for r in inputs.runtime_receipts
++                        if r["_dir"] in packet_names and token in
++                        r["contracts"]["production_composition"]["identities"]]
++                    receipt_ok = bool(supporting_receipts)
+                     if not receipt_ok:
+                         self.conflicts.append({
+                             "token": token, "source": rel,
+                             "epoch": epoch, "negative_epoch": -1,
+                             "note": "composition claim without a "
+                                     "passing runtime authority "
+-                                    "receipt"})
++                                    "receipt covering this identity"})
+                         continue
+                     self.by_token.setdefault(token, []).append(
+                         {"tier": "RUNTIME_PROVEN", "source": rel,
+                          "epoch": epoch, "channel": "claim",
+                          "authority": claim["authority"],
+-                         "owner": claim["owner"]})
++                         "owner": claim["owner"],
++                         "runtime_receipt": supporting_receipts[0]["_file"]})
+ 
+         # Deduplicate stale/conflict rows.
+         def dedupe(rows, keys):
+@@ -1033,6 +1105,8 @@ class Evidence:
+         sources = []
+         for entry in self.by_token.get(token, []):
+             sources.append(entry["source"])
++            if entry.get("runtime_receipt"):
++                sources.append(entry["runtime_receipt"])
+             if best is None or RANK[entry["tier"]] > RANK[best]:
+                 best = entry["tier"]
+         return best, sorted(set(sources))
+@@ -2204,7 +2278,7 @@ FINDING_LIST_LIMIT = 20
+ 
+ 
+ def render_findings(payload: dict, emit) -> None:
+-    """Name the two side-channel findings a builder has to act on.
++    """Name side-channel findings a builder has to act on.
+ 
+     Both were counted in the summary and carried in --json but never
+     named in the human-readable or markdown output, so a floor owner
+@@ -2229,6 +2303,11 @@ def render_findings(payload: dict, emit) -> None:
+                  f"({entry['source']})")
+         if len(stale) > FINDING_LIST_LIMIT:
+             emit(f"  ... {len(stale) - FINDING_LIST_LIMIT} more (--json)")
++    rejected = payload.get("evidence_intake", {}).get("rejected_runtime_receipts", [])
++    if rejected:
++        emit(f"runtime receipts rejected ({len(rejected)}):")
++        for entry in rejected[:FINDING_LIST_LIMIT]:
++            emit(f"  ! {entry['file']} - {'; '.join(entry['reasons'])}")
+ 
+ 
+ def render_markdown(payload: dict) -> str:
+@@ -2582,6 +2661,7 @@ def run(args) -> int:
+         "evidence_intake": {
+             "admitted": inputs.admitted_evidence,
+             "not_evidence": inputs.non_evidence,
++            "rejected_runtime_receipts": inputs.rejected_runtime_receipts,
+         },
+         "provenance": inputs.provenance,
+     }
+diff --git a/tools/tests/test_astra_packet.py b/tools/tests/test_astra_packet.py
+index 07222a6..96a4694 100644
+--- a/tools/tests/test_astra_packet.py
++++ b/tools/tests/test_astra_packet.py
+@@ -4,7 +4,7 @@
+ No Git, Godot, production writes, or live repository census is used. Renderer
+ and input preparation run only in disposable copies of the frozen packet.
+ 
+-    python tools/tests/test_astra_packet.py --evidence design/astra/evidence/packet_validation.json
++    python tools/tests/test_astra_packet.py --evidence design/astra/evidence/packet_live_validation.json
+     python tools/tests/test_astra_packet.py --check-packet design/astra
+ """
+ from __future__ import annotations
+@@ -52,6 +52,7 @@ REQUIRED_FILES = (
+     "MASTER_COMPLETION_LEDGER.json", "MASTER_COMPLETION_LEDGER.md",
+     "INTEGRATION_REGISTER.md", "DECISION_LOG.md", "RISK_REGISTER.md",
+     "PLAYTEST_FINDINGS.md", "RELEASE_EVIDENCE_MATRIX.md", "OWNER_MANDATE.md",
++    "LIVE_STATE.json",
+ )
+ JSON_FILES = {
+     "snapshot": "evidence/repository_snapshot.json",
+@@ -60,7 +61,9 @@ JSON_FILES = {
+     "dream_review": "reviews/dream_review.json",
+     "rulings": "reviews/adoption_rulings.json",
+     "obligations": "reviews/production_obligations.json",
+-    "completeness": "evidence/base_audits/orison_v2_completeness.stdout.txt",
++    "baseline_completeness": "evidence/base_audits/orison_v2_completeness.stdout.txt",
++    "baseline_audit_receipt": "evidence/base_audits/receipt.json",
++    "live_state": "LIVE_STATE.json",
+     "matrix": "BRANCH_ADOPTION_MATRIX.json",
+     "ledger": "MASTER_COMPLETION_LEDGER.json",
+ }
+@@ -72,6 +75,7 @@ GENERATED = (
+ OBSERVATIONS: list[dict] = []
+ DETERMINISM: dict = {}
+ CLI_PROOF: dict = {}
++LIVE_REJECTIONS: list[dict] = []
+ 
+ 
+ def digest(data: bytes) -> str:
+@@ -86,9 +90,39 @@ def load_packet(path: Path) -> dict:
+         name: (path / name).is_file() and (path / name).stat().st_size > 0
+         for name in REQUIRED_FILES
+     }
++    data["baseline_source_sha256"] = digest((path / JSON_FILES["baseline_completeness"]).read_bytes())
++    data["baseline_receipt_sha256"] = digest((path / JSON_FILES["baseline_audit_receipt"]).read_bytes())
++    data["live_load_error"] = None
++    data["completeness"] = {"requirements": []}
++    data["live_receipt"] = {}
++    try:
++        binding = data["live_state"]["completeness_source"]
++        for name in (binding["path"], binding["receipt_path"]):
++            relative = Path(name)
++            if (relative.is_absolute() or ":" in name or "\\" in name
++                    or ".." in relative.parts
++                    or not (path / relative).resolve().is_relative_to(path.resolve())):
++                raise ValueError("Live source must be inside the packet")
++        source_bytes = (path / binding["path"]).read_bytes()
++        receipt_bytes = (path / binding["receipt_path"]).read_bytes()
++        data["completeness"] = json.loads(source_bytes.decode("utf-8-sig"))
++        data["live_receipt"] = json.loads(receipt_bytes.decode("utf-8-sig"))
++        data["live_source_sha256"] = digest(source_bytes)
++        data["live_receipt_sha256"] = digest(receipt_bytes)
++        data["loaded_source_path"] = binding["path"]
++        data["loaded_receipt_path"] = binding["receipt_path"]
++    except (OSError, ValueError, KeyError, TypeError) as error:
++        data["live_load_error"] = type(error).__name__
+     return data
+ 
+ 
++def packet_input_files(path: Path) -> tuple[str, ...]:
++    live = json.loads((path / "LIVE_STATE.json").read_text(encoding="utf-8"))
++    binding = live["completeness_source"]
++    return tuple(sorted(set((*REQUIRED_FILES, *JSON_FILES.values(),
++                             binding["path"], binding["receipt_path"]))))
++
++
+ def review_rulings(data: dict) -> dict:
+     """Authoritative review fields, independently of generated ruling files."""
+     result = {}
+@@ -126,6 +160,48 @@ def validate(data: dict) -> list[str]:
+     base = snap["base_commit"]
+     require(matrix.get("canonical_base") == base and ledger.get("base_commit") == base,
+             "BASE_MISMATCH", "matrix and ledger must use the frozen base")
++    live = data["live_state"]
++    binding = live.get("completeness_source", {})
++    receipt = data["live_receipt"]
++    head = live.get("ledger_evidence_head")
++    require(not data["live_load_error"], "LIVE_LOAD", "missing/invalid live source")
++    require(live.get("schema_version") == 1 and live.get("frozen_sanitation_base") == base,
++            "LIVE_BASE", "live state must retain frozen sanitation identity")
++    require(isinstance(head, str) and re.fullmatch(r"[0-9a-f]{40}", head) is not None,
++            "LIVE_HEAD", "exact evidence head required")
++    require(binding.get("path") == data.get("loaded_source_path")
++            and binding.get("receipt_path") == data.get("loaded_receipt_path"),
++            "LIVE_PATH", "explicit binding must select the loaded artifacts")
++    require(binding.get("sha256") == data.get("live_source_sha256")
++            and binding.get("receipt_sha256") == data.get("live_receipt_sha256"),
++            "LIVE_HASH", "raw source/receipt identity must match binding")
++    require(binding.get("repository_head") == head and receipt.get("repository_head") == head,
++            "LIVE_STALE_HEAD", "receipt/binding/evidence heads must agree")
++    require(binding.get("audit_id") == "orison_v2_completeness", "LIVE_AUDIT_ID", "wrong audit")
++    runs = [r for r in receipt.get("runs", []) if r.get("id") == "orison_v2_completeness"]
++    selftests = [r for r in receipt.get("runs", []) if r.get("id") == "orison_v2_completeness_selftest"]
++    require(len(runs) == 1 and len(selftests) == 1, "LIVE_RUN_COVERAGE", "exact audit/fixture pair required")
++    proof = None
++    if len(runs) == 1 and len(selftests) == 1:
++        run, selftest = runs[0], selftests[0]
++        expected_output = (Path(binding.get("receipt_path", "")).parent / run.get("stdout", "")).as_posix()
++        require(expected_output == binding.get("path")
++                and run.get("stdout_sha256") == data.get("live_source_sha256"),
++                "LIVE_RECEIPT_OUTPUT", "receipt must name/hash selected output")
++        require(type(run.get("exit_code")) is int and type(selftest.get("exit_code")) is int,
++                "LIVE_EXITS", "actual integer exits required")
++        proof = {"kind": "STATIC_AUDIT", "path": binding.get("path"),
++                 "sha256": data.get("live_source_sha256"), "receipt_path": binding.get("receipt_path"),
++                 "receipt_sha256": data.get("live_receipt_sha256"), "repository_head": head,
++                 "audit_id": "orison_v2_completeness", "exit_code": run.get("exit_code"),
++                 "selftest_exit_code": selftest.get("exit_code"),
++                 "runtime_proof_created": False, "human_acceptance_created": False}
++        require(ledger.get("completeness_source") == proof, "LIVE_LEDGER_SOURCE", "ledger source stale or promoted")
++    live_ids = [r["id"] for r in data["completeness"]["requirements"]]
++    require(bool(live_ids) and len(live_ids) == len(set(live_ids))
++            and data["completeness"].get("summary", {}).get("requirements") == len(live_ids),
++            "LIVE_REQUIREMENTS", "source count/identities must close")
++    require(ledger.get("ledger_evidence_head") == head, "LIVE_LEDGER_HEAD", "ledger must use explicit live head")
+     source = indexed(snap["commits_outside_base"], "commit", "snapshot commits")
+     commits = indexed(matrix["commits"], "commit", "matrix commits")
+     require(set(source) == set(commits), "COMMIT_COVERAGE",
+@@ -247,13 +323,29 @@ def validate(data: dict) -> list[str]:
+                 and row["provenance"].get("base_commit") == base,
+                 "MASTER_PROVENANCE", row_id)
+         if row_id in source_requirements:
+-            state = source_requirements[row_id]["status"]
++            source_row = source_requirements[row_id]
++            state = source_row["status"]
+             expected_status = state if state in {
+                 "ABSENT", "PROGRAMMED", "RUNTIME_PROVEN", "HUMAN_ACCEPTED"
+             } else "PROGRAMMED"
+             require(row.get("current_state") == state and row.get("source_evidence_tier") == state
+                     and row.get("status") == expected_status,
+                     "MASTER_TIER_PROMOTION", row_id)
++            provenance = row.get("provenance", {})
++            require(provenance.get("evidence_commit") == head
++                    and provenance.get("source") == binding.get("path")
++                    and provenance.get("source_sha256") == data.get("live_source_sha256")
++                    and provenance.get("receipt") == binding.get("receipt_path")
++                    and provenance.get("receipt_sha256") == data.get("live_receipt_sha256")
++                    and provenance.get("claims") == source_row["provenance"],
++                    "LIVE_ROW_PROVENANCE", row_id)
++            require(row.get("automated_proof") == {**(proof or {}), "new_run": "STATIC_AUDIT_ONLY"},
++                    "LIVE_STATIC_PROOF", row_id)
++            runtime = row.get("composed_runtime_proof", {})
++            require(isinstance(runtime, dict) and runtime.get("new_run") == "NOT_RUN"
++                    and runtime.get("source_status") == state
++                    and runtime.get("source_provenance") == source_row["provenance"],
++                    "LIVE_RUNTIME_PROMOTION", row_id)
+         elif row_id in obligations:
+             require(row == obligations[row_id], "MASTER_OBLIGATION_MAPPING", row_id)
+     for count_key, row_key in (("counts_by_severity", "severity"),
+@@ -388,19 +480,79 @@ class AstraPacketTests(unittest.TestCase):
+         self.assert_mutation_fails("c2_evidence_in_sequence", lambda d: append_sha(d, c2),
+                                    "SEQUENCE_C2")
+ 
++    def test_live_source_identity_and_inherited_proof_cannot_be_laundered(self):
++        def stale_source(data):
++            binding = data["live_state"]["completeness_source"]
++            binding.update(path=JSON_FILES["baseline_completeness"],
++                           receipt_path=JSON_FILES["baseline_audit_receipt"],
++                           sha256=data["baseline_source_sha256"],
++                           receipt_sha256=data["baseline_receipt_sha256"],
++                           repository_head=data["snapshot"]["base_commit"])
++            data.update(completeness=data["baseline_completeness"],
++                        live_receipt=data["baseline_audit_receipt"],
++                        live_source_sha256=data["baseline_source_sha256"],
++                        live_receipt_sha256=data["baseline_receipt_sha256"],
++                        loaded_source_path=binding["path"], loaded_receipt_path=binding["receipt_path"])
++
++        self.assert_mutation_fails("live_source_hash_mismatch", lambda d:
++            d["live_state"]["completeness_source"].update(sha256="0" * 64), "LIVE_HASH")
++        self.assert_mutation_fails("stale_valid_baseline_source", stale_source, "LIVE_STALE_HEAD")
++        self.assert_mutation_fails("static_audit_claimed_as_runtime", lambda d: next(
++            row for row in d["ledger"]["rows"] if row["id"].startswith("V2.")
++        )["composed_runtime_proof"].update(new_run="PASS"), "LIVE_RUNTIME_PROMOTION")
++
++    def test_renderer_rejects_invalid_live_input_before_writing_frozen_views(self):
++        renderer = load_tool("astra_render_packet")
++        with tempfile.TemporaryDirectory(prefix="astra-live-source-fixture-") as tmp:
++            packet = Path(tmp)
++            for relative in packet_input_files(PACKET):
++                target = packet / relative
++                target.parent.mkdir(parents=True, exist_ok=True)
++                target.write_bytes((PACKET / relative).read_bytes())
++            original = self.frozen["live_state"]
++            before = {name: digest((packet / name).read_bytes()) for name in GENERATED}
++
++            def stale(state):
++                state["completeness_source"].update(
++                    path=JSON_FILES["baseline_completeness"],
++                    receipt_path=JSON_FILES["baseline_audit_receipt"],
++                    sha256=self.frozen["baseline_source_sha256"],
++                    receipt_sha256=self.frozen["baseline_receipt_sha256"],
++                    repository_head=self.frozen["snapshot"]["base_commit"],
++                )
++
++            cases = (
++                ("missing_live_file", lambda s: s["completeness_source"].update(path="evidence/missing.json")),
++                ("live_path_escape", lambda s: s["completeness_source"].update(path="../outside.json")),
++                ("live_hash_mismatch", lambda s: s["completeness_source"].update(sha256="0" * 64)),
++                ("stale_baseline_receipt", stale),
++            )
++            for name, change in cases:
++                with self.subTest(name=name):
++                    state = copy.deepcopy(original)
++                    change(state)
++                    (packet / "LIVE_STATE.json").write_text(json.dumps(state), encoding="utf-8")
++                    with mock.patch.multiple(renderer, OUT=packet), self.assertRaises((ValueError, OSError)):
++                        renderer.render()
++                    self.assertEqual(before, {n: digest((packet / n).read_bytes()) for n in GENERATED})
++                    LIVE_REJECTIONS.append({"fixture_id": name, "renderer_rejected": True,
++                                            "all_existing_generated_views_unchanged": True})
++
+     def test_prepare_and_renderer_are_deterministic_on_frozen_fixture(self):
+         prepare = load_tool("astra_prepare_inputs")
+         renderer = load_tool("astra_render_packet")
+         with tempfile.TemporaryDirectory(prefix="astra-packet-fixture-") as tmp:
+             root = Path(tmp)
+             packet = root / "design/astra"
+-            for relative in (*REQUIRED_FILES, *JSON_FILES.values()):
++            for relative in packet_input_files(PACKET):
+                 source = PACKET / relative
+                 target = packet / relative
+                 target.parent.mkdir(parents=True, exist_ok=True)
+                 target.write_bytes(source.read_bytes())
+             immutable_names = [JSON_FILES[key] for key in (
+-                "snapshot", "patches", "m11_review", "dream_review", "completeness")]
++                "snapshot", "patches", "m11_review", "dream_review", "baseline_completeness", "live_state")]
++            immutable_names.extend([self.frozen["live_state"]["completeness_source"]["path"],
++                                    self.frozen["live_state"]["completeness_source"]["receipt_path"]])
+             immutable_before = {name: digest((packet / name).read_bytes()) for name in immutable_names}
+             generated_inputs = ("reviews/adoption_rulings.json", "reviews/production_obligations.json")
+ 
+@@ -451,7 +603,7 @@ class AstraPacketTests(unittest.TestCase):
+     def test_cli_returns_one_for_deleted_commit_and_zero_after_restoration(self):
+         with tempfile.TemporaryDirectory(prefix="astra-packet-cli-") as tmp:
+             packet = Path(tmp)
+-            for relative in (*REQUIRED_FILES, *JSON_FILES.values()):
++            for relative in packet_input_files(PACKET):
+                 target = packet / relative
+                 target.parent.mkdir(parents=True, exist_ok=True)
+                 target.write_bytes((PACKET / relative).read_bytes())
+@@ -488,6 +640,8 @@ def main() -> int:
+     parser.add_argument("--evidence", type=Path)
+     parser.add_argument("--check-packet", type=Path)
+     args, unittest_args = parser.parse_known_args()
++    if args.evidence is not None and args.evidence.name == "packet_validation.json" and args.evidence.exists():
++        raise SystemExit("Preserve the original sanitation proof; select a new live validation receipt path.")
+     if args.check_packet is not None:
+         errors = validate(load_packet(args.check_packet))
+         print(json.dumps({"valid": not errors, "errors": errors}, indent=2))
+@@ -495,6 +649,7 @@ def main() -> int:
+     OBSERVATIONS.clear()
+     DETERMINISM.clear()
+     CLI_PROOF.clear()
++    LIVE_REJECTIONS.clear()
+     program = unittest.main(argv=[sys.argv[0], *unittest_args], exit=False)
+     passed = program.result.wasSuccessful()
+     if args.evidence is not None:
+@@ -502,11 +657,15 @@ def main() -> int:
+         source_paths = {"tools/tests/test_astra_packet.py": Path(__file__),
+                         **{"tools/" + name + ".py": ROOT / "tools" / (name + ".py")
+                            for name in ("astra_prepare_inputs", "astra_render_packet", "astra_repository_snapshot")},
+-                        **{"design/astra/" + name: PACKET / name for name in JSON_FILES.values()}}
++                        **{"design/astra/" + name: PACKET / name for name in JSON_FILES.values()},
++                        **{"design/astra/" + name: PACKET / name for name in (
++                            data["live_state"]["completeness_source"]["path"],
++                            data["live_state"]["completeness_source"]["receipt_path"])}}
+         receipt = {
+             "schema_version": 1,
+             "scope": "Frozen sanitation packet structural/evidence validation; no live Git or runtime claims",
+             "base_commit": data["snapshot"]["base_commit"],
++            "ledger_evidence_head": data["live_state"]["ledger_evidence_head"],
+             "source_sha256": {name: digest(path.read_bytes()) for name, path in sorted(source_paths.items())},
+             "tests_run": program.result.testsRun,
+             "tests_successful": passed,
+@@ -516,6 +675,7 @@ def main() -> int:
+                        "master_rows": len(data["ledger"]["rows"])},
+             "deterministic_replay": DETERMINISM,
+             "actual_cli_red_green": CLI_PROOF,
++            "live_renderer_red_fixtures": sorted(LIVE_REJECTIONS, key=lambda r: r["fixture_id"]),
+             "red_fixture_results": sorted(OBSERVATIONS, key=lambda row: row["fixture_id"]),
+             "red_fixture_exit_semantics": "1 when validate() reports errors, otherwise 0; same validator as --check-packet",
+             "limitations": [
+diff --git a/tools/tests/test_interaction_prompt_carriers.py b/tools/tests/test_interaction_prompt_carriers.py
+index 36ea7a5..7922f76 100644
+--- a/tools/tests/test_interaction_prompt_carriers.py
++++ b/tools/tests/test_interaction_prompt_carriers.py
+@@ -256,6 +256,41 @@ class BaselineTests(unittest.TestCase):
+ 
+ 
+ class CliTests(unittest.TestCase):
++    def test_keyboard_winding_fixture_fails_until_semantic_repair(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp) / "root"
++            (root / "props").mkdir(parents=True)
++            clock = root / "props" / "clock_prop.gd"
++            baseline = Path(tmp) / "baseline.json"
++            source = (
++                "extends Node\n\nvar winding := false\n\n"
++                "func interact_prompt() -> String:\n"
++                "\tif winding:\n"
++                "\t\treturn \"Hold E — winding…\"\n"
++                "\treturn \"Hold E — wind the clock\"\n")
++            clock.write_text(source, encoding="utf-8")
++            code, report = run_json(root, baseline)
++            self.assertEqual(code, 1)
++            self.assertEqual(report["summary"]["forbidden"], 2)
++            self.assertEqual(
++                {f["literal"] for f in report["forbidden"]},
++                {"Hold E — winding…", "Hold E — wind the clock"})
++            self.assertTrue(all(
++                f["classification"] == "FORBIDDEN_KEYBOARD"
++                and f["file"] == "props/clock_prop.gd"
++                and f["method"] == "interact_prompt"
++                for f in report["forbidden"]))
++
++            clock.write_text(
++                source.replace("Hold E — winding…", "Winding the clock…")
++                      .replace("Hold E — wind the clock", "Wind the clock"),
++                encoding="utf-8")
++            code, report = run_json(root, baseline)
++            self.assertEqual(code, 0)
++            self.assertEqual(report["summary"]["forbidden"], 0)
++            self.assertEqual(report["summary"]["legacy_uncovered"], 0)
++            self.assertFalse(baseline.exists())
++
+     def test_deterministic_json_output(self):
+         with tempfile.TemporaryDirectory() as tmp:
+             baseline = Path(tmp) / "b.json"
+@@ -299,12 +334,8 @@ class ProductionSmokeTests(unittest.TestCase):
+         self.assertEqual(summary["prompt_methods"], 85)
+         self.assertEqual(summary["legacy_uncovered"], 0)
+         self.assertEqual(summary["baseline_stale"], 0)
+-
+-    def test_known_production_violation_is_reported_not_suppressed(self):
+-        code, report = run_json(audit.DEFAULT_ROOT, audit.DEFAULT_BASELINE)
+-        files = {f["file"] for f in report["forbidden"]}
+-        self.assertIn("props/clock_prop.gd", files)
+-        self.assertEqual(code, 1)
++        self.assertEqual(summary["forbidden"], 0)
++        self.assertEqual(code, 0)
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/tools/tests/test_orison_v2_completeness.py b/tools/tests/test_orison_v2_completeness.py
+index 166f320..d2c824f 100644
+--- a/tools/tests/test_orison_v2_completeness.py
++++ b/tools/tests/test_orison_v2_completeness.py
+@@ -13,6 +13,7 @@ from __future__ import annotations
+ import io
+ import json
+ import shutil
++import subprocess
+ import sys
+ import tempfile
+ import unittest
+@@ -131,19 +132,33 @@ def write_spatial_checkpoint(root: Path) -> None:
+ 
+ 
+ def write_composition_proof(root: Path) -> None:
+-    """Later runtime composition: structured claims + passing receipt."""
++    """Synthetic executed-contract receipt; never production runtime proof."""
+     packet = root / "art/renders/orison_v2/mini_m08f_composition"
+     packet.mkdir(parents=True, exist_ok=True)
++    source = root / "game/tests/mini_runtime_contract_test.gd"
++    source.parent.mkdir(parents=True, exist_ok=True)
++    source.write_text("# Synthetic audit fixture; not a production test.\n",
++                      encoding="utf-8")
+     (packet / "runtime_authority_receipt.json").write_text(json.dumps({
+-        "schema_version": 1,
++        "schema_version": 2,
++        "evidence_kind": "runtime_contract",
+         "production_runtime": True,
+         "selector": "v2",
+-        "records": [
+-            {"frame": "01_watchman", "prompt": "WATCHMAN AUTHORITY",
+-             "save_phase": "acknowledged", "capture": "PASS"},
+-            {"frame": "02_round", "prompt": "SERVICE ROUND CLOSED",
+-             "save_phase": "closed", "capture": "PASS"},
+-        ]}), encoding="utf-8")
++        "source": {"test_path": source.relative_to(root).as_posix(),
++                   "test_sha256": audit.sha256_file(source),
++                   "repository_head": "1" * 40},
++        "execution": {"completed": True, "exit_code": 0, "timed_out": False},
++        "contracts": {
++            "production_composition": {"executed": True, "status": "PASS",
++                "identities": ["F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
++                    "F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD",
++                    "F02_B_RADIATOR_01", "B1_BOILER_01"]},
++            "save_reconstruction": {"executed": True, "status": "PASS"},
++            "premature_action_denial": {"executed": True, "status": "PASS"},
++            "teardown": {"executed": True, "status": "PASS",
++                "measurement_scope": "runtime_owned", "retained_nodes": 0,
++                "retained_resources": 0, "retained_playbacks": 0},
++        }}), encoding="utf-8")
+     rows = [
+         ("Watchman detector", "WatchmanClockProp",
+          "F01_WATCHMAN_DETECTOR", "FirstShiftDirector observes"),
+@@ -941,6 +956,8 @@ class ChronologyTests(unittest.TestCase):
+             write_composition_proof(root)
+             record = self.ritual_status(root)
+             self.assertEqual(record["status"], "RUNTIME_PROVEN")
++            self.assertIn("art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json",
++                          record["provenance"])
+             self.assertNotIn("FIRST_SLICE_TECHNICAL",
+                              record["blocking_scopes"])
+ 
+@@ -970,7 +987,7 @@ class ChronologyTests(unittest.TestCase):
+                        "mini_m08f_composition/"
+                        "runtime_authority_receipt.json")
+             data = json.loads(receipt.read_text(encoding="utf-8"))
+-            data["records"][0]["capture"] = "FAIL"
++            data["contracts"]["save_reconstruction"]["status"] = "FAIL"
+             receipt.write_text(json.dumps(data), encoding="utf-8")
+             _c, payload, _ = run_payload(root)
+             record = req(payload, "ritual.F01_NIGHT_REGISTER")
+@@ -978,6 +995,84 @@ class ChronologyTests(unittest.TestCase):
+             notes = {c["note"] for c in payload["evidence_conflicts"]}
+             self.assertTrue(any("without a passing" in n for n in notes))
+ 
++    def test_legacy_capture_only_receipt_cannot_clear_runtime_gate(self):
++        """A successful screenshot set never executes the named contracts."""
++        with TempRepo() as root:
++            make_slice_complete(root)
++            receipt = (root / "art/renders/orison_v2/"
++                       "mini_m08f_composition/runtime_authority_receipt.json")
++            receipt.write_text(json.dumps({
++                "schema_version": 1, "production_runtime": True,
++                "selector": "v2", "records": [
++                    {"frame": "save_reconstruction_contract",
++                     "save_phase": "closed", "capture": "PASS"},
++                    {"frame": "premature_action_denied", "capture": "PASS"},
++                    {"frame": "teardown_0_retained", "capture": "PASS"},
++                ]}), encoding="utf-8")
++            result = subprocess.run(
++                [sys.executable, str(TOOLS_DIR / "audit_orison_v2_completeness.py"),
++                 "--root", str(root), "--json", "--blockers-for", "first-slice"],
++                text=True, capture_output=True, check=False)
++            self.assertEqual(result.returncode, 2, result.stdout)
++            payload = json.loads(result.stdout)
++            self.assertIn("ritual.F01_NIGHT_REGISTER",
++                          payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
++            self.assertNotIn("FIRST SLICE READY", payload.get("banner", ""))
++            _, text_output, _ = run_main("--root", str(root), "--blockers-for", "first-slice")
++            self.assertIn("runtime receipts rejected", text_output)
++            self.assertIn("capture-only receipts", text_output)
++            write_composition_proof(root)
++            corrected = subprocess.run(result.args, text=True, capture_output=True, check=False)
++            self.assertEqual(corrected.returncode, 0, corrected.stderr)
++            self.assertEqual(json.loads(corrected.stdout)["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
++
++    def test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts(self):
++        mutations = {
++            "unexecuted_save": lambda data: data["contracts"]["save_reconstruction"].update(executed=False),
++            "missing_denial": lambda data: data["contracts"].pop("premature_action_denial"),
++            "nonzero_exit": lambda data: data["execution"].update(exit_code=2),
++            "boolean_exit": lambda data: data["execution"].update(exit_code=False),
++            "incomplete": lambda data: data["execution"].update(completed=False),
++            "timeout": lambda data: data["execution"].update(timed_out=True),
++            "stale_source": lambda data: data["source"].update(test_sha256="0" * 64),
++            "external_source": lambda data: data["source"].update(test_path="../outside.gd"),
++            "unscoped_identity": lambda data: data["contracts"]["production_composition"]["identities"].remove("F01_NIGHT_REGISTER"),
++            "unmeasured_teardown": lambda data: data["contracts"]["teardown"].pop("retained_nodes"),
++            "retained_resource": lambda data: data["contracts"]["teardown"].update(retained_resources=1),
++            "retained_playback": lambda data: data["contracts"]["teardown"].update(retained_playbacks=1),
++        }
++        for name, mutate in mutations.items():
++            with self.subTest(name=name), TempRepo() as root:
++                make_slice_complete(root)
++                receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
++                good = receipt.read_text(encoding="utf-8")
++                data = json.loads(good)
++                mutate(data)
++                receipt.write_text(json.dumps(data), encoding="utf-8")
++                code, payload, _ = run_payload(root, "--blockers-for", "first-slice")
++                self.assertEqual(code, 2)
++                self.assertIn("ritual.F01_NIGHT_REGISTER", payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
++                receipt.write_text(good, encoding="utf-8")
++                code, payload, _ = run_payload(root, "--blockers-for", "first-slice")
++                self.assertEqual(code, 0)
++                self.assertEqual(payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
++
++    def test_rejected_composition_preserves_the_exact_m08d_census(self):
++        with TempRepo() as root:
++            make_slice_complete(root)
++            receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
++            before = audit.Evidence(audit.Inputs(root, audit.build_parser().parse_args([])),
++                                   audit.V2Model(json.loads((root / audit.DEFAULT_V2).read_text())))
++            receipt.write_text(json.dumps({"schema_version": 1}), encoding="utf-8")
++            after = audit.Evidence(audit.Inputs(root, audit.build_parser().parse_args([])),
++                                  audit.V2Model(json.loads((root / audit.DEFAULT_V2).read_text())))
++            census = lambda evidence: {token: [row for row in rows if row["channel"] == "census"]
++                                       for token, rows in evidence.by_token.items()
++                                       if any(row["channel"] == "census" for row in rows)}
++            self.assertTrue(census(before))
++            self.assertEqual(census(before), census(after))
++            self.assertTrue(set(census(after)) <= set(audit.M08D_PROVEN_PARITY_IDS))
++
+     def test_test_or_scene_mentions_are_never_evidence(self):
+         with TempRepo() as root:
+             self.add_ritual_anchors(root)
+@@ -1028,13 +1123,16 @@ class LiveRepoSmokeTests(unittest.TestCase):
+         "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
+         "job.lena_radiator_round_2b"}
+ 
+-    def test_live_first_slice_is_ready_after_m08f(self):
+-        # M08E built the spatial owners, M08E-A accepted them, M08F
+-        # composed and proved the authorities: the first-slice gate is
+-        # mechanically clean - and only that gate.
++    def test_live_first_slice_requires_executed_m08f_contracts(self):
++        # M08E spatial proof remains valid. The historical M08F capture
++        # receipt does not execute the runtime contracts it captions.
+         first_slice = set(
+             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
+-        self.assertEqual(first_slice, set())
++        self.assertEqual(first_slice, {
++            "ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
++            "ritual.F01_SIGNAL_REGISTER", "ritual.F01_TOUR_KEY_GUARD",
++            "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
++            "job.lena_radiator_round_2b"})
+         self.assertEqual(self.code, 2)  # the building is still blocked
+ 
+     def test_live_2b_entry_is_no_longer_a_false_absence(self):
+@@ -1053,29 +1151,32 @@ class LiveRepoSmokeTests(unittest.TestCase):
+         self.assertEqual(record["notes"], "")
+         self.assertIn("F02_B_VESTIBULE", " ".join(record["provenance"]))
+ 
+-    def test_live_first_slice_banner_exact(self):
++    def test_live_first_slice_does_not_claim_ready_from_captures(self):
+         code, out, _ = run_main("--root", str(REPO_ROOT),
+                                 "--blockers-for", "first-slice")
+-        self.assertEqual(code, 0)
+-        self.assertIn(
++        self.assertEqual(code, 2)
++        self.assertNotIn(
+             "FIRST SLICE READY - PRODUCTION CUTOVER NOT IMPLIED.", out)
+ 
+-    def test_live_runtime_proof_comes_from_m08f_claims(self):
+-        # Rituals reach RUNTIME_PROVEN via the M08F composition table +
+-        # passing runtime authority receipt - not via any historical
+-        # mention.  The M08D mentions remain visible as conflicts.
++    def test_live_legacy_m08f_receipt_grants_no_runtime_proof(self):
++        # A composition table and successful captures retain spatial
++        # evidence; runtime claims require executed contracts.
+         for rid in ("ritual.F01_NIGHT_REGISTER",
+                     "ritual.F01_WATCHMAN_DETECTOR",
+                     "contract.B1_BOILER_01",
+                     "contract.F02_B_RADIATOR_01"):
+             record = req(self.payload, rid)
+-            self.assertEqual(record["status"], "RUNTIME_PROVEN", rid)
++            self.assertEqual(record["status"], "SPATIALLY_PROVEN", rid)
+             self.assertTrue(
+                 any("M08F_RUNTIME_COMPOSITION" in p
+                     for p in record["provenance"]), record["provenance"])
+         conflict_tokens = {c["token"]
+                            for c in self.payload["evidence_conflicts"]}
+         self.assertIn("F01_NIGHT_REGISTER", conflict_tokens)
++        rejected = self.payload["evidence_intake"]["rejected_runtime_receipts"]
++        self.assertTrue(any("m08f_runtime_composition_01" in row["file"] and
++                            any("capture-only" in reason for reason in row["reasons"])
++                            for row in rejected))
+ 
+     def test_live_acceptance_grants_spatial_only(self):
+         for rid in ("floor.B1", "unit.2B", "b1.boiler_room"):
+@@ -1117,11 +1218,11 @@ class LiveRepoSmokeTests(unittest.TestCase):
+         whole = req(self.payload, "human.whole_building_navigation")
+         self.assertEqual(whole["status"], "ABSENT")
+ 
+-    def test_live_queue_head_is_m10_never_m09(self):
++    def test_live_queue_requires_runtime_composition_before_m10(self):
+         ids = [item["id"] for item in self.payload["queue"]]
+-        self.assertEqual(ids[0], "M10-golden-shift-v2")
+-        self.assertNotIn("M08E-f01-rituals-2b-b1", ids)
+-        self.assertNotIn("M08F-runtime-composition-of-m08e", ids)
++        self.assertIn("M08F-runtime-composition-of-m08e", ids)
++        self.assertLess(ids.index("M08F-runtime-composition-of-m08e"),
++                        ids.index("M10-golden-shift-v2"))
+         m09 = ids.index("M09-production-cutover-proposal")
+         self.assertGreater(m09, ids.index("M11-structural-floors"))
+         self.assertGreater(m09, ids.index(

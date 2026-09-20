@@ -1,0 +1,195 @@
+{
+  "baseline_updates": false,
+  "missing_selftests": [
+    "audio_emitters"
+  ],
+  "repository_head": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "runs": [
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_audio_emitters.py",
+        "--format",
+        "json",
+        "--check"
+      ],
+      "elapsed_seconds": 0.319,
+      "exit_code": 0,
+      "id": "audio_emitters",
+      "stderr": "audio_emitters.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "audio_emitters.stdout.txt",
+      "stdout_sha256": "9d8c9b432131514fdd4d5d2a01ad1dadd0ad6a201e27a2dae781e32820010ae5"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_data_consumption.py",
+        "--json"
+      ],
+      "elapsed_seconds": 0.303,
+      "exit_code": 1,
+      "id": "data_consumption",
+      "stderr": "data_consumption.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "data_consumption.stdout.txt",
+      "stdout_sha256": "545e75f0f89a37ab10e6b9ed66af49f0ea70fc9819e68f7136e356eb4c24b56b"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_data_consumption.py",
+        "-v"
+      ],
+      "elapsed_seconds": 0.591,
+      "exit_code": 0,
+      "id": "data_consumption_selftest",
+      "stderr": "data_consumption_selftest.stderr.txt",
+      "stderr_sha256": "f5de950b6656ca83d045edb7b4275aa27e4d94bb90e00e736c5ab2214162ee92",
+      "stdout": "data_consumption_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_implementors.py",
+        "--json"
+      ],
+      "elapsed_seconds": 0.229,
+      "exit_code": 0,
+      "id": "interaction_implementors",
+      "stderr": "interaction_implementors.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "interaction_implementors.stdout.txt",
+      "stdout_sha256": "d3813b2142421307f09f66ff4d585f7a558cf8ea3169897990506f9f929ebedd"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_interaction_implementors.py",
+        "-v"
+      ],
+      "elapsed_seconds": 0.601,
+      "exit_code": 0,
+      "id": "interaction_implementors_selftest",
+      "stderr": "interaction_implementors_selftest.stderr.txt",
+      "stderr_sha256": "f8ec82b94845f3afa0c4ac5eb43581ddbf8c3bcca526bb247af85b1f60f55a4d",
+      "stdout": "interaction_implementors_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_prompt_carriers.py",
+        "--json"
+      ],
+      "elapsed_seconds": 0.431,
+      "exit_code": 1,
+      "id": "interaction_prompt_carriers",
+      "stderr": "interaction_prompt_carriers.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "interaction_prompt_carriers.stdout.txt",
+      "stdout_sha256": "81abf0baa1f385b5e99b80abffb52f8bf96a3708325b903dc5033dfccce617d9"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_interaction_prompt_carriers.py",
+        "-v"
+      ],
+      "elapsed_seconds": 0.927,
+      "exit_code": 0,
+      "id": "interaction_prompt_carriers_selftest",
+      "stderr": "interaction_prompt_carriers_selftest.stderr.txt",
+      "stderr_sha256": "96e88a264a5fa9f771fbfecc8badbaab4f4679f67db5403094ac577317439677",
+      "stdout": "interaction_prompt_carriers_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_orison_spatial_dependencies.py",
+        "--json"
+      ],
+      "elapsed_seconds": 4.629,
+      "exit_code": 0,
+      "id": "orison_spatial_dependencies",
+      "stderr": "orison_spatial_dependencies.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "orison_spatial_dependencies.stdout.txt",
+      "stdout_sha256": "1db4a46c977e0110d0b41830e268be535a76a7ebfa60b939a23fdd4f355b775a"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_orison_spatial_dependencies.py",
+        "-v"
+      ],
+      "elapsed_seconds": 4.652,
+      "exit_code": 0,
+      "id": "orison_spatial_dependencies_selftest",
+      "stderr": "orison_spatial_dependencies_selftest.stderr.txt",
+      "stderr_sha256": "b96ded0bb42e13938494cddb384bed9bf46f3ee2dacbccdecb7b4a7f4032d316",
+      "stdout": "orison_spatial_dependencies_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_orison_v2_completeness.py",
+        "--json"
+      ],
+      "elapsed_seconds": 0.218,
+      "exit_code": 2,
+      "id": "orison_v2_completeness",
+      "stderr": "orison_v2_completeness.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "orison_v2_completeness.stdout.txt",
+      "stdout_sha256": "29f91980fbe1df788af0eb05b040e20a65dadd83bb94dc2dc080cf94f32f5db2"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_orison_v2_completeness.py",
+        "-v"
+      ],
+      "elapsed_seconds": 1.464,
+      "exit_code": 0,
+      "id": "orison_v2_completeness_selftest",
+      "stderr": "orison_v2_completeness_selftest.stderr.txt",
+      "stderr_sha256": "63b2c306b1c17c2fec715331c89c707598c4a07970066220b878c1c3d092fced",
+      "stdout": "orison_v2_completeness_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_systemic_situation_authority.py",
+        "--json"
+      ],
+      "elapsed_seconds": 4.374,
+      "exit_code": 0,
+      "id": "systemic_situation_authority",
+      "stderr": "systemic_situation_authority.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "systemic_situation_authority.stdout.txt",
+      "stdout_sha256": "5186e322b55bfecdf9033c903c7ad2bfe77e2f3fa1db489c90a50480c8d5367b"
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\tests\\test_systemic_situation_authority.py",
+        "-v"
+      ],
+      "elapsed_seconds": 3.181,
+      "exit_code": 0,
+      "id": "systemic_situation_authority_selftest",
+      "stderr": "systemic_situation_authority_selftest.stderr.txt",
+      "stderr_sha256": "787247f54aaa02f1e89a3561fd56f36168ec0f86408a4bba196739ce064b8da4",
+      "stdout": "systemic_situation_authority_selftest.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Static audits and their existing fixtures, not runtime or human proof."
+}

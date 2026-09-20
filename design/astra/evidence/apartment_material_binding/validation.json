@@ -1,0 +1,919 @@
+{
+  "schema": "astra.apartment_material_binding.validation.v1",
+  "reviewed_utc": "2026-09-05T08:30:29.275852+00:00",
+  "scope": "focused registration/ownership only; actual material/field/governor consumers, no build/ecology/world-frame or performance acceptance",
+  "artifact_hashes_checked": 1087,
+  "hash_mismatches": [],
+  "current_selected_sources": {
+    "game/scripts/reality/apartment_encroachment.gd": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a"
+  },
+  "current_selected_source_scope": "only these two files checked after lane handoff; no current whole-tree assertion",
+  "runs": [
+    {
+      "name": "original_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/original_01/receipt.json",
+      "receipt_sha256": "df9339f8fdf20cf0e356bd1bcb12061a8664d954efb51c144359890b010352a7",
+      "actual_serial_process_exit": 1,
+      "completed_fixture_exit": null,
+      "runner_condition": "timeout_termination",
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 1,
+      "complete_footer": false,
+      "raw_footer": [],
+      "raw_pass_count": 0,
+      "raw_fail_count": 3,
+      "failed_labels": [
+        "initial registration is nonempty and unique",
+        "same installed material on two draws registers once",
+        "same cached full override reuses a floor copy"
+      ],
+      "diagnostic_count": 1,
+      "distinct_diagnostics": [
+        "SCRIPT ERROR: Invalid call. Nonexistent 'bool' constructor."
+      ],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "c2a3f9fd9d8af4a87cb1408abe3b53a1eb3894134f874a7ebaeb72f135d15fb3",
+          "runtime_inputs_sha256": "63e0233b7d47913534307fe794c42835267d39fb1ca9ade060cf141e1109e75a",
+          "runtime_input_count": 1199,
+          "wrapper": "93e9dafad2dbbd989b16395ec1f9d24c2344f1c68335050e9fb9025af161c5db",
+          "bridge": null
+        },
+        "source_after": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "c2a3f9fd9d8af4a87cb1408abe3b53a1eb3894134f874a7ebaeb72f135d15fb3",
+          "runtime_inputs_sha256": "63e0233b7d47913534307fe794c42835267d39fb1ca9ade060cf141e1109e75a",
+          "runtime_input_count": 1199,
+          "wrapper": "93e9dafad2dbbd989b16395ec1f9d24c2344f1c68335050e9fb9025af161c5db",
+          "bridge": null
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "48b8ad5138e928d010cf08f3e5c9483954357dded873bb1611825b7c12322d5b",
+          "bytes": 7825
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "76b0881013eed9d14cab11ad65f1f0b4a171f6243829f1711fa04e8347340adb",
+          "bytes": 425
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "b278255a386a5c5c8f90158599939f90b79f59ca45e4dd1eec06cb78c6bc3e18",
+          "bytes": 746
+        }
+      }
+    },
+    {
+      "name": "original_02",
+      "receipt": "design/astra/evidence/apartment_material_binding/original_02/receipt.json",
+      "receipt_sha256": "5663968887249019e25f47e49fe1e0dfc7defbd884dcc6cabc0c3b42867a0ab3",
+      "actual_serial_process_exit": 1,
+      "completed_fixture_exit": null,
+      "runner_condition": "lane_refusal",
+      "engine_launch_observed_in_raw_banner": false,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 1,
+      "complete_footer": false,
+      "raw_footer": [],
+      "raw_pass_count": 0,
+      "raw_fail_count": 0,
+      "failed_labels": [],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "93e9dafad2dbbd989b16395ec1f9d24c2344f1c68335050e9fb9025af161c5db",
+          "bridge": null
+        },
+        "source_after": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "93e9dafad2dbbd989b16395ec1f9d24c2344f1c68335050e9fb9025af161c5db",
+          "bridge": null
+        }
+      },
+      "raw_streams": {
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "a92597293e56a7e734f928a5d5e95886bfdec68f89ce4b67a7df63d2ec96f87b",
+          "bytes": 501
+        }
+      }
+    },
+    {
+      "name": "original_03",
+      "receipt": "design/astra/evidence/apartment_material_binding/original_03/receipt.json",
+      "receipt_sha256": "d0cbc1ea6bbbc5d5fdc264731e08ef058ce8ccbef3940f76ad68c2beffafd387",
+      "actual_serial_process_exit": 1,
+      "completed_fixture_exit": null,
+      "runner_condition": "parameter_binding_refusal",
+      "engine_launch_observed_in_raw_banner": false,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 1,
+      "complete_footer": false,
+      "raw_footer": [],
+      "raw_pass_count": 0,
+      "raw_fail_count": 0,
+      "failed_labels": [],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "bae31c693994c2904e505780cd5a14e32b86ee4d5b8ac862f97b00aa563b33dd",
+          "bridge": null
+        },
+        "source_after": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "bae31c693994c2904e505780cd5a14e32b86ee4d5b8ac862f97b00aa563b33dd",
+          "bridge": null
+        }
+      },
+      "raw_streams": {
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "3362b58852776bbfef7291600a0a6850f15b4f546588aa6a373fb7b96cd63fa2",
+          "bytes": 131
+        }
+      }
+    },
+    {
+      "name": "original_04",
+      "receipt": "design/astra/evidence/apartment_material_binding/original_04/receipt.json",
+      "receipt_sha256": "6fe7cdd368de2638bfd0bf25bfea12d3fd6c6e3802690c70c88493fecc8be28f",
+      "actual_serial_process_exit": 18,
+      "completed_fixture_exit": 18,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: FAIL (18/36)"
+      ],
+      "raw_pass_count": 18,
+      "raw_fail_count": 18,
+      "failed_labels": [
+        "initial registration is nonempty and unique",
+        "same installed material on two draws registers once",
+        "same cached full override reuses a floor copy",
+        "foreign storey full override is copied, not rebound",
+        "inactive surface beneath a full override is not registered",
+        "storey scan excludes cabinet world",
+        "storey scan excludes residents and player",
+        "twelve repeated storey sweeps preserve unique exact registry",
+        "late draw reuses the existing non-case floor copy",
+        "case rows include floor and root-level draws only",
+        "first reach retains exact installed floor prop row",
+        "global reach still excludes private and dynamic draws",
+        "first refresh immediately reaches installed floor prop",
+        "repeated reach preserves registry and installed identity",
+        "four real governor off/on cycles preserve live ownership and bound registry",
+        "replaced material no longer receives floor updates",
+        "retired root prop is removed from registry and case rows",
+        "field rebind keeps material identities while updating textures"
+      ],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f899fb2b02691950a76719b19ab365d6e7b79d303a4a7d11c5fb714153432cf9",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "7efe4a8e02e6d95eff1f953ff9aaa803b2d10f4d7f39450467940788ab0937cc",
+          "bytes": 12775
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "1af9f76b01cdcc940e105eba2adf63386f50e7c9db8e369d50eeb53e7c884932",
+          "bytes": 1189
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "candidate_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/candidate_01/receipt.json",
+      "receipt_sha256": "e88db147f3a8f0f0289205bc095f01c684d38ca2ea04998cb0f87f15feb4708e",
+      "actual_serial_process_exit": 0,
+      "completed_fixture_exit": 0,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 1,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: PASS (36/36)"
+      ],
+      "raw_pass_count": 36,
+      "raw_fail_count": 0,
+      "failed_labels": [],
+      "diagnostic_count": 73,
+      "distinct_diagnostics": [
+        "ERROR: The object does not have any 'meta' values with the key 'living_source'."
+      ],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "69e28e38740f122fe5bfd47b9f8bc6194fd5e52dda2eae085163deee30977860",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "e687fed768d7b26cf6a8d83d0abbe625a5ab7ea351afc538f10b3fae36074d96",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "69e28e38740f122fe5bfd47b9f8bc6194fd5e52dda2eae085163deee30977860",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "e687fed768d7b26cf6a8d83d0abbe625a5ab7ea351afc538f10b3fae36074d96",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "04ef40d9acfef928b8cff44ec41542c01a82762ee57f18144863883f3195c2d7",
+          "bytes": 13899
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "f0b09043df850b3c644eff9b8c43d905cf34f58b272a21be4ae461f57c7f32cb",
+          "bytes": 29831
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "candidate_02",
+      "receipt": "design/astra/evidence/apartment_material_binding/candidate_02/receipt.json",
+      "receipt_sha256": "001b5543610ed75e8b0bdc5ec2747febf397b937bd95ace08e6f71c31cc2a554",
+      "actual_serial_process_exit": 0,
+      "completed_fixture_exit": 0,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: PASS (36/36)"
+      ],
+      "raw_pass_count": 36,
+      "raw_fail_count": 0,
+      "failed_labels": [],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f265644ba1915995c9fb610bb98ffe4ecb9a29120bb8127b755cfc956301cc02",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f265644ba1915995c9fb610bb98ffe4ecb9a29120bb8127b755cfc956301cc02",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "04ef40d9acfef928b8cff44ec41542c01a82762ee57f18144863883f3195c2d7",
+          "bytes": 13899
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "duplicate_registration_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/duplicate_registration_01/receipt.json",
+      "receipt_sha256": "ce28508de9c3fcf3880a889325102c63f39746cd45c6e2410e8d56aef3a26ca4",
+      "actual_serial_process_exit": 8,
+      "completed_fixture_exit": 8,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: FAIL (28/36)"
+      ],
+      "raw_pass_count": 28,
+      "raw_fail_count": 8,
+      "failed_labels": [
+        "initial registration is nonempty and unique",
+        "same installed material on two draws registers once",
+        "twelve repeated storey sweeps preserve unique exact registry",
+        "late draw reuses the existing non-case floor copy",
+        "root-level case draw remains in the floor registry",
+        "repeated reach preserves registry and installed identity",
+        "late case prop gets an immediate live row and state",
+        "four real governor off/on cycles preserve live ownership and bound registry"
+      ],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "6c67f41d59daa7853a8daec8468ed0e7f7129d2ed769b4ee35916369b8b08212",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "ee9a8ccc273b42b329b7a679d387b498ce921945c6ea010106aeec4b903b615e",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "6c67f41d59daa7853a8daec8468ed0e7f7129d2ed769b4ee35916369b8b08212",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "ee9a8ccc273b42b329b7a679d387b498ce921945c6ea010106aeec4b903b615e",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "ffaf4a47a2df3db67d5f04a8f4051a2eb20909b1e3abb888ca9722668cd58f86",
+          "bytes": 13382
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "4009642cfd6aac294db339d0c0b1df4101abb20c8b68965891fec523c034822c",
+          "bytes": 547
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "case_owner_marker_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/case_owner_marker_01/receipt.json",
+      "receipt_sha256": "b44843baa30f8034fea2b81b0072b14fb930a674493689205d30e60a6cf0763d",
+      "actual_serial_process_exit": 3,
+      "completed_fixture_exit": 3,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: FAIL (33/36)"
+      ],
+      "raw_pass_count": 33,
+      "raw_fail_count": 3,
+      "failed_labels": [
+        "first reach retains exact installed floor prop row",
+        "first refresh immediately reaches installed floor prop",
+        "four real governor off/on cycles preserve live ownership and bound registry"
+      ],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "f51cc8768592161f046af9775c1ea5c4868f0f1f93a345058921119fe5285b09",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "155dd5ac8e49591a5671c7e3ba6baf3db4f55af5005c1bc4abfe53b696749466",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "f51cc8768592161f046af9775c1ea5c4868f0f1f93a345058921119fe5285b09",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "155dd5ac8e49591a5671c7e3ba6baf3db4f55af5005c1bc4abfe53b696749466",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "3720ae783755708afb69b7f96098ad51c3eb5b44061069649524c3a92f944888",
+          "bytes": 13678
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "c48d0437a6c55e17abfb62efec624a3e7f1eda77183c3b1f3c7f9f1c00d1de5d",
+          "bytes": 221
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "private_world_guard_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/private_world_guard_01/receipt.json",
+      "receipt_sha256": "680be8b60ba09171982db1665db134a3bf69807f2410c4d66b087538ed73988a",
+      "actual_serial_process_exit": 4,
+      "completed_fixture_exit": 4,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: FAIL (32/36)"
+      ],
+      "raw_pass_count": 32,
+      "raw_fail_count": 4,
+      "failed_labels": [
+        "storey scan excludes cabinet world",
+        "case rows include floor and root-level draws only",
+        "global reach still excludes private and dynamic draws",
+        "retired root prop is removed from registry and case rows"
+      ],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "b7b7588589e5d1751c8c3d1486979c1e3a41ad18b0fd4a4274ab6251a8133227",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "04c30527960e1b8af9b533c333326a6a5a3241bcfb764c594bbbdf9b7ed04fb4",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "b7b7588589e5d1751c8c3d1486979c1e3a41ad18b0fd4a4274ab6251a8133227",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "04c30527960e1b8af9b533c333326a6a5a3241bcfb764c594bbbdf9b7ed04fb4",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "87fd869890a8d676194355f78a8435462e7f4778315c4dbeb43997bd70496c49",
+          "bytes": 13651
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "e7b4a75bc0827401befc3f0538f94a9f247bbbfc24f303c26ddb77bbdc8c964a",
+          "bytes": 248
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "root_row_registration_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/root_row_registration_01/receipt.json",
+      "receipt_sha256": "1815655be9d5c313440e789c1692afa9ef3ca4ce74e41d92e219c34ee929fb30",
+      "actual_serial_process_exit": 5,
+      "completed_fixture_exit": 5,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: FAIL (31/36)"
+      ],
+      "raw_pass_count": 31,
+      "raw_fail_count": 5,
+      "failed_labels": [
+        "root-level case draw remains in the floor registry",
+        "existing array consumers observe current registry",
+        "lifecycle immediately reaches both installed prop owners",
+        "late case prop gets an immediate live row and state",
+        "field rebind keeps material identities while updating textures"
+      ],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "ee39eb4f5293275cafaad5e38e9a9bf889aa343f9f8d0203d855c8b6458eb360",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "30ac9719547dbaf7ea4502d349a7031facce20d87d7997d55cefbf1b0dbd6924",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "ee39eb4f5293275cafaad5e38e9a9bf889aa343f9f8d0203d855c8b6458eb360",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "30ac9719547dbaf7ea4502d349a7031facce20d87d7997d55cefbf1b0dbd6924",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "3fb8db34e4ea3c2e75cc97d26d4b27f4695575e837f3235782c753f3122cf97a",
+          "bytes": 13561
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "c30ad308942da0ee7acec27d2fa220597d69426eb4f9e214522abc73479ef559",
+          "bytes": 338
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "name": "restored_01",
+      "receipt": "design/astra/evidence/apartment_material_binding/restored_01/receipt.json",
+      "receipt_sha256": "5ee67e7dc2f48977fc4f41cba8786b77cc20b60338501b408e2e1bd63a7555f6",
+      "actual_serial_process_exit": 0,
+      "completed_fixture_exit": 0,
+      "runner_condition": null,
+      "engine_launch_observed_in_raw_banner": true,
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "complete_footer": true,
+      "raw_footer": [
+        "APARTMENT MATERIAL BINDING: PASS (36/36)"
+      ],
+      "raw_pass_count": 36,
+      "raw_fail_count": 0,
+      "failed_labels": [],
+      "diagnostic_count": 0,
+      "distinct_diagnostics": [],
+      "warning_lines": [],
+      "source_unchanged": true,
+      "engine_unchanged": true,
+      "engine_binaries": [
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+          "bytes": 198152,
+          "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+        },
+        {
+          "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+          "bytes": 178997256,
+          "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+        }
+      ],
+      "source_bindings": {
+        "source_before": {
+          "production": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f265644ba1915995c9fb610bb98ffe4ecb9a29120bb8127b755cfc956301cc02",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        },
+        "source_after": {
+          "production": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+          "fixture": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+          "runtime_inputs_sha256": "f265644ba1915995c9fb610bb98ffe4ecb9a29120bb8127b755cfc956301cc02",
+          "runtime_input_count": 1199,
+          "wrapper": "0c64a3821dbb4f9dd8538f77f7b024787db31de5b23f734a5b1167d3ee30a308",
+          "bridge": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3"
+        }
+      },
+      "raw_streams": {
+        "godot.stdout.log": {
+          "sha256": "04ef40d9acfef928b8cff44ec41542c01a82762ee57f18144863883f3195c2d7",
+          "bytes": 13899
+        },
+        "godot.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stdout.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "runner.stderr.log": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    }
+  ],
+  "ownership_controls": {
+    "candidate_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "controls": [
+      {
+        "name": "duplicate_registration_01",
+        "control_sha256": "6c67f41d59daa7853a8daec8468ed0e7f7129d2ed769b4ee35916369b8b08212",
+        "required_fail_labels": [
+          "initial registration is nonempty and unique",
+          "same installed material on two draws registers once"
+        ],
+        "required_labels_failed": true,
+        "wrapper_exit": 0,
+        "actual_serial_exit": 8,
+        "completed_fixture_exit": 8,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "receipt": "design/astra/evidence/apartment_material_binding/duplicate_registration_01/receipt.json",
+        "receipt_sha256": "ce28508de9c3fcf3880a889325102c63f39746cd45c6e2410e8d56aef3a26ca4",
+        "restored_exact": true,
+        "accepted_control": true
+      },
+      {
+        "name": "case_owner_marker_01",
+        "control_sha256": "f51cc8768592161f046af9775c1ea5c4868f0f1f93a345058921119fe5285b09",
+        "required_fail_labels": [
+          "first reach retains exact installed floor prop row",
+          "first refresh immediately reaches installed floor prop"
+        ],
+        "required_labels_failed": true,
+        "wrapper_exit": 0,
+        "actual_serial_exit": 3,
+        "completed_fixture_exit": 3,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "receipt": "design/astra/evidence/apartment_material_binding/case_owner_marker_01/receipt.json",
+        "receipt_sha256": "b44843baa30f8034fea2b81b0072b14fb930a674493689205d30e60a6cf0763d",
+        "restored_exact": true,
+        "accepted_control": true
+      },
+      {
+        "name": "private_world_guard_01",
+        "control_sha256": "b7b7588589e5d1751c8c3d1486979c1e3a41ad18b0fd4a4274ab6251a8133227",
+        "required_fail_labels": [
+          "storey scan excludes cabinet world",
+          "global reach still excludes private and dynamic draws"
+        ],
+        "required_labels_failed": true,
+        "wrapper_exit": 0,
+        "actual_serial_exit": 4,
+        "completed_fixture_exit": 4,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "receipt": "design/astra/evidence/apartment_material_binding/private_world_guard_01/receipt.json",
+        "receipt_sha256": "680be8b60ba09171982db1665db134a3bf69807f2410c4d66b087538ed73988a",
+        "restored_exact": true,
+        "accepted_control": true
+      },
+      {
+        "name": "root_row_registration_01",
+        "control_sha256": "ee39eb4f5293275cafaad5e38e9a9bf889aa343f9f8d0203d855c8b6458eb360",
+        "required_fail_labels": [
+          "root-level case draw remains in the floor registry",
+          "lifecycle immediately reaches both installed prop owners"
+        ],
+        "required_labels_failed": true,
+        "wrapper_exit": 0,
+        "actual_serial_exit": 5,
+        "completed_fixture_exit": 5,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "receipt": "design/astra/evidence/apartment_material_binding/root_row_registration_01/receipt.json",
+        "receipt_sha256": "1815655be9d5c313440e789c1692afa9ef3ca4ce74e41d92e219c34ee929fb30",
+        "restored_exact": true,
+        "accepted_control": true
+      }
+    ]
+  },
+  "ownership_controls_receipt_sha256": "f6ac30ef4730e6898f816cc08082a975a04a874f439e426b937cfd2c348d3d86",
+  "control_driver_current_sha256": "fd41e59f030becacae6393577b88ad709e510f8e7348bc871759240940970918",
+  "control_driver_binding_limit": "driver hash observed after execution; each executed changed production source is independently copied and bound in its runtime receipt",
+  "final_result": "original_04 has18 expected native assertion failures; candidate_02 and restored_01 pass36/36 with empty diagnostics; four omissions fail their named contracts and restore exact candidate bytes",
+  "historical_failures": {
+    "original_01": "fixture nullable bool runtime error and runner timeout; actual process1, no completed game exit; not intended product red",
+    "original_02": "external project lane refusal; actual process1, no game launch",
+    "original_03": "advanced PowerShell ExtraArgs binding refusal; actual process1, no game launch",
+    "candidate_01": "36/36 assertions and native0 but73 missing-meta engine errors; diagnostic1; not accepted green"
+  },
+  "remaining_boundaries": [
+    "Focused finish row/marker is hand-created; actual build guard/marker requires real-root material invariants.",
+    "No real-root ApartmentEncroachmentTest, DreamArchitectureLifecycleLiveTest or composed performance run performed in this lane.",
+    "No one-census reach_props optimization applied; measured callback-cost improvement remains unproved.",
+    "SurfacePass first-owner cached surface reference preserved; existing copies still lack a new live governor budget propagation mechanism.",
+    "Tier OFF does not call on_props_applied; retirement is verified on the next actual callback or explicit sweep.",
+    "Runtime input binding covers scripts/scenes/JSON/shaders/includes and installed engine binaries, not all binary art/import-cache bytes."
+  ]
+}

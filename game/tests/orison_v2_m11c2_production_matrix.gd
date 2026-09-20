@@ -53,6 +53,9 @@ const M11A_PROCESS_SHARED_MATLIB_KEYS := [
 ]
 
 var _configuration: Script
+var _save_directory := ""
+var _save_bundles: Dictionary = {}
+const SAVE_BUNDLE_SUFFIXES := ["", ".bak", ".txn", ".tmp"]
 var _m11c1: Dictionary = {}
 var _layout: Dictionary = {}
 var _checks: Array[Dictionary] = []
@@ -81,6 +84,10 @@ func _ready() -> void:
 
 func _run() -> void:
 	var globals := _snapshot_globals()
+	if not _prepare_save_directory():
+		_fail("could not create a fresh matrix save directory")
+		await _finish(globals)
+		return
 	_receipt["matrix_harness_sha256"] = FileAccess.get_sha256(
 			MATRIX_HARNESS_PATH)
 	# Compare both providers at the same deterministic public trading hour.
@@ -1503,12 +1510,78 @@ func _room_rect(floor_id: String, room_id: String) -> Array:
 	return []
 
 
+## A fresh invocation owns a fresh directory. Never reopen the historical
+## fixed filenames: missing primary + backup is a production recovery decision.
+func _prepare_save_directory() -> bool:
+	if not _save_directory.is_empty(): return false
+	var parent := ProjectSettings.globalize_path("user://tests/m11c2_runs")
+	if DirAccess.make_dir_recursive_absolute(parent) != OK: return false
+	var token := "%d_%d_%d" % [OS.get_process_id(), Time.get_ticks_usec(), get_instance_id()]
+	var directory := parent.path_join(token)
+	if DirAccess.dir_exists_absolute(directory) or FileAccess.file_exists(directory): return false
+	if DirAccess.make_dir_absolute(directory) != OK: return false
+	if not DirAccess.get_files_at(directory).is_empty() or not DirAccess.get_directories_at(directory).is_empty(): return false
+	_save_directory = directory
+	_receipt["save_fixture_directory"] = directory
+	return true
+
+
+func _claim_save_bundle(save_mode: String, reconstruction_mode: String) -> String:
+	if save_mode not in MODES or reconstruction_mode not in MODES: return ""
+	if _save_directory.is_empty() and not _prepare_save_directory(): return ""
+	var path := _save_directory.path_join("%s_to_%s.json" % [save_mode, reconstruction_mode])
+	if _save_bundles.has(path): return ""
+	for suffix: String in SAVE_BUNDLE_SUFFIXES:
+		if FileAccess.file_exists(path + suffix) or DirAccess.dir_exists_absolute(path + suffix): return ""
+	_save_bundles[path] = {"cleanup_allowed":false}
+	return path
+
+
+func _save_bundle_evidence(path: String, passed: bool) -> Dictionary:
+	if not _save_bundles.has(path) or path.get_base_dir() != _save_directory:
+		return {"ok":false,"reason":"unowned save bundle"}
+	_save_bundles[path].cleanup_allowed = passed
+	var files: Array[Dictionary] = []
+	for suffix: String in SAVE_BUNDLE_SUFFIXES:
+		var artifact := path + suffix
+		if FileAccess.file_exists(artifact):
+			files.append({"path":artifact,"bytes":FileAccess.get_file_as_bytes(artifact).size(),
+				"sha256":FileAccess.get_sha256(artifact)})
+	return {"ok":true,"path":path,"directory":_save_directory,"files":files,
+		"preserved_on_failure":not passed,"cleanup_after_receipt":passed}
+
+
+func _cleanup_successful_save_bundles() -> Dictionary:
+	var removed: Array[String] = []
+	var failures: Array[String] = []
+	for path: String in _save_bundles:
+		if not bool(_save_bundles[path].cleanup_allowed): continue
+		if path.get_base_dir() != _save_directory:
+			failures.append("unowned path: " + path)
+			continue
+		for suffix: String in SAVE_BUNDLE_SUFFIXES:
+			var artifact := path + suffix
+			if not FileAccess.file_exists(artifact): continue
+			if DirAccess.remove_absolute(artifact) == OK: removed.append(artifact)
+			else: failures.append(artifact)
+	# Unknown artifacts and every failed bundle survive. Only an empty directory
+	# created by this invocation can be retired; no recursive deletion is used.
+	if not _save_directory.is_empty() and DirAccess.get_files_at(_save_directory).is_empty() \
+			and DirAccess.get_directories_at(_save_directory).is_empty():
+		if DirAccess.remove_absolute(_save_directory) != OK: failures.append(_save_directory)
+	return {"ok":failures.is_empty(),"removed":removed,"failures":failures}
+
+
 func _campaign_reconstruction(save_mode: String,
 		reconstruction_mode: String) -> Dictionary:
 	var old_path := RealityState.save_path
 	var old_persistence := RealityState.persistence_enabled
 	var transaction_id := "%s_to_%s" % [save_mode, reconstruction_mode]
-	var save_path := "user://tests/m11c2_%s.json" % transaction_id
+	var save_path := _claim_save_bundle(save_mode, reconstruction_mode)
+	if save_path.is_empty():
+		return {"status":"FAIL","transaction_id":transaction_id,
+			"reason":"fresh save bundle could not be claimed","reconstruction_attempted":false,
+			"last_save_result":{},"load_status":{"status":"not_attempted"}}
 	RealityState.save_path = save_path
 	_prepare_campaign_facts()
 	# _prepare_campaign_facts deliberately disables writes while it resets the
@@ -1538,6 +1611,8 @@ func _campaign_reconstruction(save_mode: String,
 			if origin_world != null else {"status": "FAIL"}
 	var save_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
+	var save_result := RealityState.last_save_result()
+	var origin_load_status := RealityState.load_status()
 	var save_ms := _elapsed_ms(save_started)
 	var save_text := FileAccess.get_file_as_string(save_path) if saved else ""
 	var save_bytes := save_text.to_utf8_buffer().size()
@@ -1560,6 +1635,21 @@ func _campaign_reconstruction(save_mode: String,
 	await _settle_teardown(6)
 	var origin_released := origin_weak.get_ref() == null \
 			and (origin_world_weak == null or origin_world_weak.get_ref() == null)
+	# A refused write has no new generation to reconstruct. Retire the origin
+	# above, preserve its bundle, and never recover an older file as this proof.
+	if not saved or not forbidden.is_empty() or str(origin_contract.get("status", "FAIL")) != "PASS":
+		var bundle := _save_bundle_evidence(save_path, false)
+		RealityState.save_path = old_path
+		RealityState.persistence_enabled = old_persistence
+		return {"status":"FAIL","transaction_id":transaction_id,
+			"save_mode":save_mode,"reconstruction_mode":reconstruction_mode,
+			"saved":saved,"last_save_result":save_result,"origin_load_status":origin_load_status,
+			"forbidden_save_fact":forbidden,"origin_world_contract":origin_contract,
+			"origin_shell_released":origin_released,"origin_public_teardown":origin_teardown,
+			"origin_production_cut_resource_release":origin_resource_release,
+			"reconstruction_attempted":false,"reason":"origin save boundary failed",
+			"load_status":{"status":"not_attempted","reason":"origin save boundary failed"},
+			"save_bundle":bundle,"performance":{"save_ms":save_ms,"save_bytes":save_bytes}}
 	# The geometry choice is intentionally changed after the saved root is
 	# destroyed and before CampaignShell reconstructs it.  A passing cross-mode
 	# row therefore proves that provider identity is session authority rather
@@ -1569,7 +1659,18 @@ func _campaign_reconstruction(save_mode: String,
 	RealityState.reset_campaign_for_tests()
 	var load_started := Time.get_ticks_usec()
 	RealityState.load_game()
+	var load_status := RealityState.load_status()
 	var state_load_ms := _elapsed_ms(load_started)
+	if str(load_status.get("status", "")) != "loaded" or RealityState.save_write_blocked:
+		var bundle := _save_bundle_evidence(save_path, false)
+		RealityState.save_path = old_path
+		RealityState.persistence_enabled = old_persistence
+		return {"status":"FAIL","transaction_id":transaction_id,
+			"saved":saved,"last_save_result":save_result,"origin_load_status":origin_load_status,
+			"load_status":load_status,"reconstruction_attempted":false,
+			"reason":"saved generation did not load directly","save_bundle":bundle,
+			"origin_shell_released":origin_released,"origin_public_teardown":origin_teardown,
+			"origin_production_cut_resource_release":origin_resource_release}
 	var reconstruct_started := Time.get_ticks_usec()
 	var shell := CampaignShell.new()
 	var shell_weak: WeakRef = weakref(shell)
@@ -1632,7 +1733,7 @@ func _campaign_reconstruction(save_mode: String,
 			and str(world_contract.get("status", "FAIL")) == "PASS" \
 			and shell_released and focused_lifecycle_clean \
 			and str(_configuration.call("selected_mode")) == reconstruction_mode
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
+	var save_bundle := _save_bundle_evidence(save_path, ok)
 	RealityState.save_path = old_path
 	RealityState.persistence_enabled = old_persistence
 	return {
@@ -1652,6 +1753,11 @@ func _campaign_reconstruction(save_mode: String,
 				str(_configuration.call("selected_mode")) == reconstruction_mode,
 		"provider_identity_absent_from_save": forbidden.is_empty(),
 		"saved": saved,
+		"last_save_result": save_result,
+		"origin_load_status": origin_load_status,
+		"load_status": load_status,
+		"reconstruction_attempted": true,
+		"save_bundle": save_bundle,
 		"performance": {
 			"origin_campaign_shell_compose_ms": origin_compose_ms,
 			"save_ms": save_ms,
@@ -2497,27 +2603,35 @@ func _fail(reason: String) -> void:
 	push_error("  FAIL  " + reason)
 
 
-func _finish(globals: Dictionary) -> void:
-	_restore_globals(globals)
+func _write_matrix_receipt() -> bool:
 	_receipt["checks"] = _checks
 	_receipt["failures"] = _failures
 	_receipt["passes"] = _checks.filter(func(row: Dictionary) -> bool:
 		return bool(row.get("pass", false))).size()
 	_receipt["status"] = "PASS" if _failures.is_empty() else "FAIL"
 	var path := OS.get_environment(RECEIPT_ENV).strip_edges()
-	if path.is_empty():
-		path = DEFAULT_RECEIPT
-	if not path.begins_with("user://") and not path.is_absolute_path():
-		_fail("matrix receipt path must be absolute or user://")
+	if path.is_empty(): path = DEFAULT_RECEIPT
+	if not path.begins_with("user://") and not path.is_absolute_path(): return false
+	var absolute := ProjectSettings.globalize_path(path) if path.begins_with("user://") else path
+	if DirAccess.make_dir_recursive_absolute(absolute.get_base_dir()) != OK: return false
+	var file := FileAccess.open(absolute, FileAccess.WRITE)
+	if file == null: return false
+	var stored := file.store_buffer(JSON.stringify(_receipt, "\t").to_utf8_buffer())
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	return stored and error == OK
+
+
+func _finish(globals: Dictionary) -> void:
+	_restore_globals(globals)
+	if _write_matrix_receipt():
+		var cleanup := _cleanup_successful_save_bundles()
+		_receipt["save_bundle_cleanup"] = cleanup
+		if not bool(cleanup.ok): _fail("matrix test-owned save bundle cleanup failed")
+		if not _write_matrix_receipt(): _fail("could not update M11C2 matrix cleanup receipt")
 	else:
-		var absolute := ProjectSettings.globalize_path(path) \
-				if path.begins_with("user://") else path
-		DirAccess.make_dir_recursive_absolute(absolute.get_base_dir())
-		var file := FileAccess.open(absolute, FileAccess.WRITE)
-		if file == null:
-			_fail("could not write M11C2 matrix receipt")
-		else:
-			file.store_string(JSON.stringify(_receipt, "\t"))
+		_fail("could not write M11C2 matrix receipt; save bundles preserved")
 	print("ORISON V2 M11C2 PRODUCTION MATRIX: %s checks=%d failures=%d" % [
-			_receipt.status, _checks.size(), _failures.size()])
+			"PASS" if _failures.is_empty() else "FAIL", _checks.size(), _failures.size()])
 	get_tree().quit(0 if _failures.is_empty() else mini(255, _failures.size()))

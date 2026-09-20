@@ -95,13 +95,16 @@ func _count_unclassified_visible(root: Node) -> int:
 
 
 func _ready() -> void:
-	# The 03:00 composition assertions require the canonical clock. Without
-	# this pin the test follows the real wall clock and fails in the
-	# 06:30-02:00 trading window — found 2026-08-16 when a green battery
-	# went red between runs purely because the machine crossed 2 AM.
+	# DAYNIGHT=0 disables legacy dispatch; it no longer pins campaign time.
+	# The hours/owner composition assertions require an explicit frozen 03:00.
 	OS.set_environment("DAYNIGHT", "0")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	var fixture_clock := CampaignClock.new()
+	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
+	_check("fixture owns an explicit frozen 03:00 campaign clock",
+			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	await get_tree().create_timer(1.6).timeout
@@ -193,6 +196,15 @@ func _ready() -> void:
 	var late_foreign: Array = root.passage_late_foreign_nodes
 	var late_interior: Array = root.passage_late_interior_nodes
 	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
+	var hidden_late: Array[Dictionary] = []
+	for geometry in late_interior:
+		if not (geometry.visible and _submits(geometry)):
+			hidden_late.append({"path": str(geometry.get_path()),
+					"visible": geometry.visible, "visible_in_tree": geometry.is_visible_in_tree(),
+					"layers": geometry.layers, "class": geometry.get_class(),
+					"groups": geometry.get_groups()})
+	print("[PASSAGE LATE POPULATION] clock=%s total=%d hidden=%s" % [
+			fixture_clock.datetime_string(), late_interior.size(), JSON.stringify(hidden_late)])
 	_check("late-built foreign F01 draws do not submit inside the hall",
 			late_foreign.size() > 300 and _all_hidden(late_foreign))
 	_check("every named late foreign owner is hidden inside the hall",

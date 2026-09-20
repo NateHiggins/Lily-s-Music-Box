@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "activities": {
+    "radiator_vent_service": {
+      "title": "LET THE RADIATOR BREATHE",
+      "apparatus": "one-pipe steam radiator",
+      "location_lane": "apartment",
+      "historical_source": "Hoffman Specialty Company one-pipe radiator air-valve advertisement, House & Garden, October 1920",
+      "transferable_verb": "flow",
+      "story": {
+        "material": "Air must leave the cast sections before steam can enter them.",
+        "human": "A resident has learned the building's moods from which radiator wakes first.",
+        "orison": "The vent answers with breath from a room that is not on this riser."
+      },
+      "steps": [
+        {"id": "shut_supply", "verb": "turn", "target": 0.0, "tolerance": 0.08, "expected_seconds": 5.0, "cue": "Take the handwheel cleanly to its shut detent.", "confirmation": "The stem settles and the pipe stops arguing."},
+        {"id": "free_vent", "verb": "hold_release", "target": 0.5, "tolerance": 0.12, "hold_min_seconds": 1.4, "expected_seconds": 6.0, "cue": "Hold the vent body against the old paint, then let the thread break free.", "confirmation": "The seal gives with one dry click."},
+        {"id": "seat_orifice", "verb": "align", "target": 0.72, "tolerance": 0.07, "expected_seconds": 7.0, "cue": "Clock the replacement so its outlet faces the room, not the paper.", "confirmation": "The orifice sits proud and clear."},
+        {"id": "open_supply", "verb": "turn", "target": 1.0, "tolerance": 0.08, "expected_seconds": 5.0, "cue": "Return the supply valve fully open; never leave a one-pipe valve halfway.", "confirmation": "Air whispers out before the iron begins to tick."}
+      ],
+      "completion": {
+        "note": "vent seated; supply returned fully open",
+        "mechanism_patch": {"vent_grade": 2, "supply_position": 1.0}
+      }
+    },
+    "annunciator_flag_service": {
+      "title": "MAKE THE CALL VISIBLE",
+      "apparatus": "porter's electromagnetic annunciator",
+      "location_lane": "lobby",
+      "historical_source": "E. E. Berthold apartment annunciator fixture, US 1,149,973, 1915",
+      "transferable_verb": "contact",
+      "story": {
+        "material": "A battery pulse trips a flag, rings a bell and can release the street door.",
+        "human": "The porter once knew every caller by the particular violence of their bell.",
+        "orison": "Two apartments pull one flag, then wait for the player to choose which name it means."
+      },
+      "steps": [
+        {"id": "hold_armature", "verb": "hold_release", "target": 0.44, "tolerance": 0.12, "hold_min_seconds": 1.0, "expected_seconds": 5.0, "cue": "Hold the armature off the gummy stop until its spring remembers itself.", "confirmation": "The brass flag drops without scraping."},
+        {"id": "square_contact", "verb": "align", "target": 0.63, "tolerance": 0.07, "expected_seconds": 7.0, "cue": "Bring the silver contact faces square to one another.", "confirmation": "The circuit closes with a small blue certainty."},
+        {"id": "reset_bank", "verb": "turn", "target": 0.0, "tolerance": 0.08, "expected_seconds": 4.0, "cue": "Turn the common reset until every honest call is dark.", "confirmation": "Seven windows clear. One waits half a beat longer."}
+      ],
+      "completion": {
+        "note": "flag armature freed; contact bank tested",
+        "mechanism_patch": {"stuck_flag": false, "contact_alignment": 0.63}
+      }
+    },
+    "boiler_water_column_test": {
+      "title": "ASK THE BOILER ITS LEVEL",
+      "apparatus": "steam-boiler water column and low-water alarm",
+      "location_lane": "basement",
+      "historical_source": "J. A. Leavitt low-water alarm for steam boilers, US 1,364,287, filed 1920",
+      "transferable_verb": "pressure",
+      "story": {
+        "material": "The glass is useful only when both passages communicate honestly with the boiler.",
+        "human": "Every caretaker left a different pencil mark for the level they trusted.",
+        "orison": "The waterline remains in the glass after the isolated column has emptied."
+      },
+      "steps": [
+        {"id": "isolate_column", "verb": "turn", "target": 0.0, "tolerance": 0.08, "expected_seconds": 5.0, "cue": "Isolate the demonstration column before testing its passages.", "confirmation": "The brass stops answer together."},
+        {"id": "prove_drain", "verb": "hold_release", "target": 0.5, "tolerance": 0.12, "hold_min_seconds": 1.8, "expected_seconds": 7.0, "cue": "Hold the test lever until the false column is empty, then release it.", "confirmation": "The glass clears from top to bottom."},
+        {"id": "read_level", "verb": "align", "target": 0.62, "tolerance": 0.06, "expected_seconds": 8.0, "cue": "Set the witness marker where the returning water truly settles.", "confirmation": "Water, pencil line and float agree."},
+        {"id": "return_service", "verb": "turn", "target": 1.0, "tolerance": 0.08, "expected_seconds": 5.0, "cue": "Return the column to its guarded service detent.", "confirmation": "The low-water whistle stays silent."}
+      ],
+      "completion": {
+        "note": "water column proved; service level witnessed",
+        "mechanism_patch": {"water_level": 0.62, "column_proved": true}
+      }
+    },
+    "dumbwaiter_brake_service": {
+      "title": "LET THE BRAKE TAKE IT",
+      "apparatus": "service dumbwaiter counterweight and holding brake",
+      "location_lane": "lobby",
+      "historical_source": "New York dumbwaiter counterweight, lift sheave and automatic holding brake, US 950,828, 1910",
+      "transferable_verb": "regulation",
+      "story": {
+        "material": "The counterweight carries nearly all of the car, so the band holds only the difference. That is why a brake this small is enough, and why letting go before it bites is the whole danger.",
+        "human": "The kitchen this served closed before anyone now living moved in, and the pawl has been holding the car alone ever since.",
+        "orison": "The car comes up carrying the weight of a floor that no longer has a landing."
+      },
+      "steps": [
+        {"id": "take_strain", "verb": "hold_release", "target": 0.58, "tolerance": 0.10, "hold_min_seconds": 1.2, "expected_seconds": 5.0, "cue": "Take the hand rope and hold until the load comes onto your arm.", "confirmation": "The rope stops creeping and goes hard."},
+        {"id": "ease_pawl", "verb": "align", "target": 0.71, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Ease the holding pawl clear while the rope carries the car.", "confirmation": "The pawl lifts out of the ratchet without a sound."},
+        {"id": "prove_balance", "verb": "turn", "target": 0.34, "tolerance": 0.09, "expected_seconds": 7.0, "cue": "Move the car a short way and watch the counterweight answer.", "confirmation": "Car and weight trade places on one rope."},
+        {"id": "seat_band", "verb": "align", "target": 0.88, "tolerance": 0.05, "expected_seconds": 5.0, "cue": "Draw the band back down onto its drum, square and home.", "confirmation": "The band lies flat around the whole drum."},
+        {"id": "prove_bite", "verb": "hold_release", "target": 0.88, "tolerance": 0.07, "hold_min_seconds": 1.5, "expected_seconds": 6.0, "cue": "Hold the rope until you feel the brake take the load, then let go.", "confirmation": "The band bites and the car does not move."}
+      ],
+      "completion": {
+        "note": "pawl freed; band reseated and proved under load",
+        "mechanism_patch": {"band_seated": true, "pawl_lift": 0.0, "rope_strain": 0.0, "brake_bite": 0.88}
+      }
+    },
+    "elevator_interlock_proof": {
+      "title": "CLOSED IS NOT LOCKED",
+      "apparatus": "passenger-elevator landing door interlock",
+      "location_lane": "lobby",
+      "historical_source": "Otis landing-door interlock, E. L. Dunn, US 1,493,069, filed 1921 and granted 1924; hoistway-door interlock definition, American Elevator Safety Code, first edition 1921",
+      "transferable_verb": "continuity",
+      "story": {
+        "material": "The safety circuit runs through two contacts in series, not one. The first proves the door is shut. The second proves the latch has entered its keeper. A jumper laid across them reads as continuity and proves nothing at all.",
+        "human": "Somebody wanted the car to keep answering, and left the wire on. It has been answering ever since.",
+        "orison": "The circuit reads continuous with the door standing open, and the car answers a landing that is not there."
+      },
+      "steps": [
+        {"id": "gauge_keeper", "verb": "align", "target": 0.42, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Set the gauge against the keeper and read how far the latch actually enters.", "confirmation": "The latch is standing shy of its seat."},
+        {"id": "pull_jumper", "verb": "hold_release", "target": 0.63, "tolerance": 0.09, "hold_min_seconds": 1.3, "expected_seconds": 7.0, "cue": "Hold the bridging wire against the terminal spring until the screw backs off, then let it come free.", "confirmation": "The bridge is off. The circuit tells the truth again."},
+        {"id": "true_keeper", "verb": "align", "target": 0.78, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "True the keeper so the latch enters full depth and the roller arm rides square.", "confirmation": "The latch drops its whole length into the keeper."},
+        {"id": "bring_home", "verb": "turn", "target": 1.0, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the landing door fully home until the latch enters the locking device.", "confirmation": "Shut contact, then locked contact. Both made, in that order."},
+        {"id": "prove_refusal", "verb": "hold_release", "target": 0.22, "tolerance": 0.08, "hold_min_seconds": 1.6, "expected_seconds": 7.0, "cue": "Now crack the door and hold the call. An interlock is proved by what it refuses.", "confirmation": "The locked contact opens and the car will not answer."}
+      ],
+      "completion": {
+        "note": "bridging wire removed; keeper trued and the landing interlock proved by refusal",
+        "mechanism_patch": {"jumper_present": false, "keeper_true": 0.78, "door_home": 1.0, "interlock_proved": true}
+      }
+    },
+    "roof_tank_ballcock_service": {
+      "title": "THE FLOAT DOES NOT KNOW",
+      "apparatus": "roof house-tank ball cock, float and overflow",
+      "location_lane": "roof",
+      "historical_source": "Ball or float cock with grooved spindle, renewable seating and a lever weight adjustable to suit different water pressures, T. Hill and J. Houghton, GB 190,216,359, 1902; balanced ball cock closed tightly by a small float, F. Biedenmeister, US 951,172, filed 1909 and granted 1910",
+      "transferable_verb": "timing",
+      "story": {
+        "material": "A float does not know the water level. It makes a force, and that force has to beat what the seat and the supply between them demand. A waterlogged float still rises, and the arm still reads full, and it closes nothing at all.",
+        "human": "The overflow has been running down the back wall long enough to leave a pale stripe in the brick, and nobody on the top floor has had a decent bath in a month.",
+        "orison": "The overflow runs on with the riser shut and the tank standing empty."
+      },
+      "steps": [
+        {"id": "read_the_float", "verb": "align", "target": 0.86, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the tell-tale across to the float and read it against the full mark.", "confirmation": "The float is riding at the full mark. The overflow is still running."},
+        {"id": "shut_the_riser", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Shut the riser stop under the tank so the cock stops feeding while you work.", "confirmation": "The inlet goes quiet. Only the overflow is still talking."},
+        {"id": "lift_the_float", "verb": "hold_release", "target": 0.55, "tolerance": 0.10, "hold_min_seconds": 1.6, "expected_seconds": 8.0, "cue": "Hold the float up off its rod until it stops draining, then let it back down.", "confirmation": "It pours from a split seam. It has been carrying water, not lifting against it."},
+        {"id": "set_the_weight", "verb": "turn", "target": 0.64, "tolerance": 0.07, "expected_seconds": 8.0, "cue": "Run the lever weight out until the arm can close against today's supply pressure.", "confirmation": "The arm has leverage again instead of hope."},
+        {"id": "prove_the_hold", "verb": "hold_release", "target": 0.91, "tolerance": 0.06, "hold_min_seconds": 2.0, "expected_seconds": 8.0, "cue": "Open the riser and hold on the witness until the overflow runs dry.", "confirmation": "The witness dries and stays dry. That is the only proof there is."}
+      ],
+      "completion": {
+        "note": "float drained and reseated; lever weight set to the riser pressure and the cock proved dry on the witness",
+        "mechanism_patch": {"float_waterlogged": false, "weight_set": 0.64, "riser_open": true, "overflow_running": false, "ballcock_serviced": true}
+      }
+    },
+    "mail_chute_choke_clearing": {
+      "title": "THE EMPTY BOX LIES",
+      "apparatus": "lobby mail chute, choke and collection box",
+      "location_lane": "lobby",
+      "historical_source": "Cutler mail chute, J. G. Cutler, US 284,951, 1883, whose front must be at least three-fourths glass so that clogs can be identified, whose lobby box is metal with its door not less than two feet six above the floor, and whose chute carries hinged locking doors for dislodging stuck mail; floor-local choke and expansion chamber for over-thick mail, J. J. Cusick, US 1,450,139, filed 1922 and granted 1923",
+      "transferable_verb": "flow",
+      "story": {
+        "material": "Mail is bent and squeezed to get through the slot and then opens again inside the chute. Two letters that spring open across the choke hold each other up by friction alone, and everything above stands on that arch. Pulling the box empty proves nothing, because the box was never where the trouble was.",
+        "human": "The top floor has been carrying its letters down by hand for a fortnight and nobody once thought to say so.",
+        "orison": "A letter posted on a floor that has no slot reaches the box before the test piece does."
+      },
+      "steps": [
+        {"id": "read_the_glass", "verb": "align", "target": 0.72, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Run the lamp up the glass until you find where the chute stops being empty.", "confirmation": "The box below is empty. The chute is not."},
+        {"id": "unlock_the_cover", "verb": "turn", "target": 1.0, "tolerance": 0.07, "expected_seconds": 5.0, "cue": "Key the locking cover so the glass will move in its grooves.", "confirmation": "The cover is off. The glass is free to draw."},
+        {"id": "take_the_load", "verb": "hold_release", "target": 0.58, "tolerance": 0.09, "hold_min_seconds": 1.5, "expected_seconds": 8.0, "cue": "Hold the catch tray under the choke and draw the glass until the loose mail comes off the arch.", "confirmation": "The weight is off the bridge and in your hand."},
+        {"id": "break_the_arch", "verb": "align", "target": 0.41, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Set the blade at the corner where the two letters bear on each other and break the span.", "confirmation": "The arch goes, and the choke is a hole again."},
+        {"id": "prove_the_drop", "verb": "hold_release", "target": 0.88, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Shut the glass, post a test piece at the slot and hold on the box until it lands.", "confirmation": "It arrives. A chute is proved by what comes out of it."}
+      ],
+      "completion": {
+        "note": "arch broken at the choke, load recovered and the chute proved by a test piece to the box",
+        "mechanism_patch": {"arch_standing": false, "load_taken": true, "cover_locked": true, "glass_drawn": 0.0, "chute_clear": true}
+      }
+    },
+    "fuse_panel_rating_service": {
+      "title": "THE FUSE PROTECTS THE WIRE",
+      "apparatus": "house panelboard, main knife switch and plug fuses",
+      "location_lane": "basement",
+      "historical_source": "Edison-base plug fuse holders accept 15, 20 and 30 ampere plugs interchangeably, which is the period hazard the National Electrical Code still answers by restricting Edison bases to existing work showing no evidence of overfusing or tampering; the cure was invented later, in the nontamperable and noninterchangeable plug fuse of E. H. Taylor for Chase Shawmut, US 2,147,221, filed 1935 and granted 1939, whose stated object is that a plug fuse of larger current carrying capacity than is intended for the circuit cannot be inserted, and that the terminals cannot be bridged by a coin or tinfoil",
+      "transferable_verb": "regulation",
+      "story": {
+        "material": "A fuse is a deliberately weak link sized to the WIRE behind the wall, not to whatever is plugged in at the far end. Put a thirty in a fifteen-ampere circuit and every lamp still lights, nothing ever blows, and the only thing left to fail is the wire itself.",
+        "human": "Somebody got tired of walking down here in the dark with a candle, and fitted the biggest plug that would screw in.",
+        "orison": "The panel draws load on a circuit whose main is open and whose fuse is out in your hand."
+      },
+      "steps": [
+        {"id": "read_the_stamp", "verb": "align", "target": 0.63, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the lamp to the fuse cap and read what is stamped on it against the circuit card.", "confirmation": "Thirty amperes, on a card that says fifteen. Every lamp on it is lit."},
+        {"id": "pull_the_main", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Open the main knife switch. The panel is live until you do, whatever the lamps are doing.", "confirmation": "The blades come clear of the jaws. Now it is dead."},
+        {"id": "draw_the_plug", "verb": "hold_release", "target": 0.55, "tolerance": 0.09, "hold_min_seconds": 1.4, "expected_seconds": 8.0, "cue": "Back the plug out of its Edison base against the spring and let it come free.", "confirmation": "The link inside is whole. It never blew, because it never could."},
+        {"id": "match_the_wire", "verb": "align", "target": 0.34, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Set a plug rated to the conductor behind the wall, not to the load in front of it.", "confirmation": "Fifteen amperes, which is what the wire can carry."},
+        {"id": "prove_under_load", "verb": "hold_release", "target": 0.88, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Close the main and hold while the circuit takes its whole load.", "confirmation": "It holds, and the link stays cool. Now the wire has something in front of it."}
+      ],
+      "completion": {
+        "note": "over-fused plug replaced with one rated to the conductor and proved under full load",
+        "mechanism_patch": {"fitted_rating": 15, "main_open": false, "plug_out": false, "panel_safe": true}
+      }
+    },
+    "watchman_detector_dial": {
+      "title": "THE PAPER HAS TO MOVE",
+      "apparatus": "watchman's time detector, paper dial and station keys",
+      "location_lane": "lobby",
+      "historical_source": "Watchman's clock whose paper dial rotates once in twenty-four hours with the spindle, graduated and numbered, and is embossed with the characters of whichever station key is turned in it, A. Newman of Chicago, US 676,764, patented 18 June 1901; watchman's time-detector in which each key has a barrel of predetermined length differing from the others so that its mark is identified by its position on the dial, and whose stop flange exists because a watchman could otherwise copy a key and work the detector without visiting the station at all, P. Moosmann of Brooklyn, US 1,351,056, filed 1916 and granted 1920",
+      "transferable_verb": "timing",
+      "story": {
+        "material": "The dial turns once round in a day on the clock's own spindle. WHERE a key's mark falls around the dial is when it was made; how far out from the centre is which station made it. A dial that is not on the spindle still takes every mark you give it, and stacks a whole night of them along one line.",
+        "human": "Whoever walked the round last winter brought back a full sheet of marks every morning, and not one person ever looked at where they sat.",
+        "orison": "A station mark stands on the dial at an hour the round has not reached yet."
+      },
+      "steps": [
+        {"id": "read_the_dial", "verb": "align", "target": 0.58, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Run the reading index round last night's dial and see where the marks sit.", "confirmation": "Every station, on one straight line out from the centre. That is a whole night at one instant."},
+        {"id": "stop_the_movement", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Throw the stop lever so the spindle is still before you touch the paper.", "confirmation": "The spindle stands. Now the dial can come off without tearing."},
+        {"id": "seat_the_dial", "verb": "align", "target": 0.44, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Drop a fresh dial on so the drive pin comes up through its index hole, not just the centre.", "confirmation": "The pin is through. The paper is on the spindle now, not merely on the arbor."},
+        {"id": "set_the_datum", "verb": "turn", "target": 0.71, "tolerance": 0.06, "expected_seconds": 8.0, "cue": "Bring the dial's graduation round to the hour the building is actually keeping.", "confirmation": "The datum agrees with the house clock. The marks will mean the hours they claim."},
+        {"id": "prove_the_round", "verb": "hold_release", "target": 0.83, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Turn a station key, hold while the dial carries the mark away, and mark again.", "confirmation": "Two marks, and daylight between them. That is the only thing that proves the paper moved."}
+      ],
+      "completion": {
+        "note": "dial seated on its drive pin, datum set to the house hour and the movement proved by two separated marks",
+        "mechanism_patch": {"dial_seated": true, "movement_running": true, "datum_set": true, "detector_honest": true}
+      }
+    }
+  }
+}

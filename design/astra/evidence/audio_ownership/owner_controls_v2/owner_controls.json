@@ -1,0 +1,94 @@
+{
+  "head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+  "fixture_sha256": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122",
+  "runs": [
+    {
+      "case": "missing_owner_release",
+      "args": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -Scene 'res://tests/NightRegisterAudioLifecycleTest.tscn' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_ownership\\owner_controls_v2\\missing_owner_release.stdout.log' -TimeoutSeconds 30 -ExtraArgs @('--verbose')"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "seconds": 1.375,
+      "source_before": {
+        "game\\scripts\\props\\night_register_prop.gd": "9d56f5f1e30e53266007fd854e9b0beb1ae7b2ac1d84d400f3e470ac78dd3ebd",
+        "game\\scripts\\audio\\audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_after": {
+        "game\\scripts\\props\\night_register_prop.gd": "9d56f5f1e30e53266007fd854e9b0beb1ae7b2ac1d84d400f3e470ac78dd3ebd",
+        "game\\scripts\\audio\\audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_unchanged": true,
+      "stdout_sha256": "f4df940d6e8f4280ddcae26d93c9264eb2666e60ea63ac4fa72c2bcc0f6bde6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runner_stdout": "",
+      "runner_stderr": ""
+    },
+    {
+      "case": "missing_pending_playback_release",
+      "args": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -Scene 'res://tests/NightRegisterAudioLifecycleTest.tscn' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_ownership\\owner_controls_v2\\missing_pending_playback_release.stdout.log' -TimeoutSeconds 30 -ExtraArgs @('--verbose')"
+      ],
+      "exit": 1,
+      "expected_exit": 1,
+      "seconds": 1.297,
+      "source_before": {
+        "game\\scripts\\props\\night_register_prop.gd": "6f2652b7f3c9b4c57e3e9c10b1fef3320d1774dccbaab7ee497088de998f7284",
+        "game\\scripts\\audio\\audio_policy.gd": "39d12377757ca1a7310b4a01b863f4a3a50452b3aa6224710d3e64dcbf732825",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_after": {
+        "game\\scripts\\props\\night_register_prop.gd": "6f2652b7f3c9b4c57e3e9c10b1fef3320d1774dccbaab7ee497088de998f7284",
+        "game\\scripts\\audio\\audio_policy.gd": "39d12377757ca1a7310b4a01b863f4a3a50452b3aa6224710d3e64dcbf732825",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_unchanged": true,
+      "stdout_sha256": "f634bf576e5b986fe5bd78e7348e2ea212fb05ea06e350f38a043afa126c789d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runner_stdout": "",
+      "runner_stderr": ""
+    },
+    {
+      "case": "complete_owner_release",
+      "args": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -Scene 'res://tests/NightRegisterAudioLifecycleTest.tscn' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_ownership\\owner_controls_v2\\complete_owner_release.stdout.log' -TimeoutSeconds 30 -ExtraArgs @('--verbose')"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "seconds": 1.312,
+      "source_before": {
+        "game\\scripts\\props\\night_register_prop.gd": "6f2652b7f3c9b4c57e3e9c10b1fef3320d1774dccbaab7ee497088de998f7284",
+        "game\\scripts\\audio\\audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_after": {
+        "game\\scripts\\props\\night_register_prop.gd": "6f2652b7f3c9b4c57e3e9c10b1fef3320d1774dccbaab7ee497088de998f7284",
+        "game\\scripts\\audio\\audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+        "game\\tests\\night_register_audio_lifecycle_test.gd": "777182faeec41b7dcee7770af104e0d7614c6b0689dd8ab97af7c7e5bc7c3122"
+      },
+      "source_unchanged": true,
+      "stdout_sha256": "11c546e07c661e8782de2d65d8d83ae10a1304e3073c035f272c7a953f626115",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runner_stdout": "",
+      "runner_stderr": ""
+    }
+  ],
+  "production_sources_restored": true
+}

@@ -1,0 +1,113 @@
+{
+  "head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+  "baseline_sha256_before": "0270ebe734980234bd91fb32ee0a73cd9a0493727b68810a06c2a00a0e166569",
+  "records": [
+    {
+      "name": "fixture_red",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_prompt_carriers.py",
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\astra_prompt_fixture_um2b4mg9\\root",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\astra_prompt_fixture_um2b4mg9\\absent_baseline.json",
+        "--json"
+      ],
+      "exit_code": 1,
+      "utc": "2026-09-05T02:51:38.174338+00:00"
+    },
+    {
+      "name": "fixture_green",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_prompt_carriers.py",
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\astra_prompt_fixture_um2b4mg9\\root",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\astra_prompt_fixture_um2b4mg9\\absent_baseline.json",
+        "--json"
+      ],
+      "exit_code": 0,
+      "utc": "2026-09-05T02:51:38.234865+00:00"
+    },
+    {
+      "name": "production_before",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_prompt_carriers.py",
+        "--json"
+      ],
+      "exit_code": 1,
+      "utc": "2026-09-05T02:51:38.670240+00:00"
+    },
+    {
+      "name": "selftest_before",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_interaction_prompt_carriers.py"
+      ],
+      "exit_code": 1,
+      "utc": "2026-09-05T02:51:39.208374+00:00"
+    },
+    {
+      "name": "production_after",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_interaction_prompt_carriers.py",
+        "--json"
+      ],
+      "exit_code": 0,
+      "utc": "2026-09-05T02:52:13.659238+00:00"
+    },
+    {
+      "name": "selftest_after",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_interaction_prompt_carriers.py"
+      ],
+      "exit_code": 0,
+      "utc": "2026-09-05T02:52:14.199371+00:00"
+    },
+    {
+      "name": "diff_check",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "game/scripts/props/clock_prop.gd",
+        "game/scripts/game/maintenance_shop_counter.gd",
+        "tools/tests/test_interaction_prompt_carriers.py"
+      ],
+      "exit_code": 0,
+      "utc": "2026-09-05T02:52:14.217949+00:00"
+    }
+  ],
+  "source_hashes_before": {
+    "game/scripts/props/clock_prop.gd": "8a138387813790faff1266e28999fac905f4da4281411a5300f4f9d22a39a753",
+    "game/scripts/game/maintenance_shop_counter.gd": "e169ac226a15c59ca379efa2e8fc8eee571f1444f1fcb2916523a64cf83c8365",
+    "tools/tests/test_interaction_prompt_carriers.py": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6"
+  },
+  "test_source_state": "fixture proof and clean-production assertions applied; product prompts not yet repaired",
+  "proof_scope": "Source scanner and Python tests; no Godot run",
+  "baseline_sha256_after": "0270ebe734980234bd91fb32ee0a73cd9a0493727b68810a06c2a00a0e166569",
+  "source_hashes_after": {
+    "game/scripts/props/clock_prop.gd": "bc49bce7f3a4fed43ce3ee6a9d9bebcf8c2d0c02120ac168514c45fde0923e23",
+    "game/scripts/game/maintenance_shop_counter.gd": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078",
+    "tools/tests/test_interaction_prompt_carriers.py": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6"
+  },
+  "after_summary": {
+    "ambiguous_dynamic": 2,
+    "baseline_cleanup_opportunities": 2,
+    "baseline_stale": 0,
+    "comment_only": 0,
+    "debug_only": 2,
+    "files_scanned": 118,
+    "forbidden": 0,
+    "legacy_covered": 184,
+    "legacy_uncovered": 0,
+    "outside_prompt_methods": 147,
+    "prompt_methods": 85
+  },
+  "head_after": "cc95005d2c24b6be5cb04e728c5229c5d416954b"
+}

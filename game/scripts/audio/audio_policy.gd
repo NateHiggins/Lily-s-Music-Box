@@ -248,6 +248,11 @@ func release_source(source_id: StringName, cue_id := StringName()) -> int:
 			var stream_key := str(cue_data.get("stream_key", ""))
 			if stream != null and not stream_key.is_empty():
 				PropAudio.release_stream(stream_key, stream)
+			# Godot 4.7 retains a queued 3D playback if it is stopped before
+			# its first physics update. Retire the player with this source;
+			# replace only its slot so other owners and the voice cap survive.
+			voice.free()
+			_voices[i] = _make_voice(i)
 		_voice_state[i] = {"cue_id":&"", "priority":-1, "until":_clock,
 				"source_id":&""}
 		released += 1
@@ -368,17 +373,20 @@ func _known_bus(bus_name: String) -> bool:
 
 func _build_voice_pool() -> void:
 	for i in VOICE_CAP:
-		var voice := AudioStreamPlayer3D.new()
-		voice.name = "PolicyVoice%02d" % i
-		# Idle pooled voices still declare their role; a presented cue replaces
-		# this with its catalog bus before playback.
-		voice.bus = "State"
-		voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
-		voice.panning_strength = 1.0
-		add_child(voice)
-		_voices.append(voice)
+		_voices.append(_make_voice(i))
 		_voice_state.append({"cue_id":&"", "priority":-1, "until":0.0,
 				"source_id":&""})
+
+
+func _make_voice(slot: int) -> AudioStreamPlayer3D:
+	var voice := AudioStreamPlayer3D.new()
+	voice.name = "PolicyVoice%02d" % slot
+	# A presented cue replaces the idle role with its catalog bus.
+	voice.bus = "State"
+	voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+	voice.panning_strength = 1.0
+	add_child(voice)
+	return voice
 
 
 func _choose_voice(wanted_priority: int) -> int:

@@ -1,0 +1,12 @@
+--- before/building_root.gd
++++ after/building_root.gd
+@@ -1878,6 +1878,9 @@
+ 		registered: Dictionary) -> bool:
+ 	var cursor: Node = geometry
+ 	while cursor != null and cursor != floor:
++		# A cabinet viewport owns its world; building zones must not index it.
++		if cursor is SubViewport:
++			return true
+ 		if registered.has(cursor.get_instance_id()):
+ 			return true
+ 		if String(cursor.name).begins_with("NPC_"):

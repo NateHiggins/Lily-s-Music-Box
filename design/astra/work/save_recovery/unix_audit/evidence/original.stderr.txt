@@ -1,0 +1,43 @@
+test_documented_old_stamp_cannot_suppress_new_fix (staged_tests.HostUnixTests.test_documented_old_stamp_cannot_suppress_new_fix) ... FAIL
+test_exact_seed_entropy_and_pure_ids_remain_allowed (staged_tests.HostUnixTests.test_exact_seed_entropy_and_pure_ids_remain_allowed) ... FAIL
+test_unix_named_helper_taint_reaches_renamed_consumer (staged_tests.HostUnixTests.test_unix_named_helper_taint_reaches_renamed_consumer) ... FAIL
+test_unix_world_stamp_requires_fix_and_campaign_value_passes (staged_tests.HostUnixTests.test_unix_world_stamp_requires_fix_and_campaign_value_passes) ... FAIL
+
+======================================================================
+FAIL: test_documented_old_stamp_cannot_suppress_new_fix (staged_tests.HostUnixTests.test_documented_old_stamp_cannot_suppress_new_fix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\save_recovery\unix_audit\proposed\tools\tests\test_systemic_situation_authority.py", line 358, in test_documented_old_stamp_cannot_suppress_new_fix
+    self.assertEqual(len(drift["policy_violations"]), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_exact_seed_entropy_and_pure_ids_remain_allowed (staged_tests.HostUnixTests.test_exact_seed_entropy_and_pure_ids_remain_allowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\save_recovery\unix_audit\proposed\tools\tests\test_systemic_situation_authority.py", line 346, in test_exact_seed_entropy_and_pure_ids_remain_allowed
+    self.assertTrue(self._find(source.replace('_new_dream_seed', 'other_entropy'), path))
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_unix_named_helper_taint_reaches_renamed_consumer (staged_tests.HostUnixTests.test_unix_named_helper_taint_reaches_renamed_consumer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\save_recovery\unix_audit\proposed\tools\tests\test_systemic_situation_authority.py", line 333, in test_unix_named_helper_taint_reaches_renamed_consumer
+    self.assertEqual({hit["scope"] for hit in hits}, {"sample", "remember"})
+AssertionError: Items in the second set but not the first:
+'sample'
+'remember'
+
+======================================================================
+FAIL: test_unix_world_stamp_requires_fix_and_campaign_value_passes (staged_tests.HostUnixTests.test_unix_world_stamp_requires_fix_and_campaign_value_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\save_recovery\unix_audit\proposed\tools\tests\test_systemic_situation_authority.py", line 323, in test_unix_world_stamp_requires_fix_and_campaign_value_passes
+    self.assertTrue(hits)
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

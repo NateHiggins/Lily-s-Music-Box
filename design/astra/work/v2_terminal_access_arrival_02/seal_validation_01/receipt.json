@@ -1,0 +1,13 @@
+{
+  "schema": "astra.v2-terminal-access.arrival-seal-check.v1",
+  "actual_exit": 0,
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-c",
+    "import sys,json\nfrom pathlib import Path\nsys.dont_write_bytecode=True\nsys.path.insert(0,r'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_terminal_access_arrival_02\\runtime')\nimport run\nplan,manifest=run.package()\nfor phase in plan['sequence']:\n    request=json.loads((run.BASE/phase['request']).read_text())\n    run.require_prepared_request(request,run.EVIDENCE/'runs'/phase['run_name'],plan)\ncurrent={rel:run.sha(run.ROOT/rel) for rel in manifest['replace_exact_previous_fixtures']}\nrun.require_previous_fixtures(current,manifest['replace_exact_previous_fixtures'])\nassert all(run.sha(run.ROOT/rel)==plan['source_bindings_sha256'][rel] for rel in run.OWNERS)\nassert not run.EVIDENCE.exists()\nhead=run.core.git('rev-parse','HEAD').decode().strip()\nassert head==plan['required_install_head']\nprocesses=run.core.godot_processes()\nassert not processes\nprint(json.dumps({'status':'READ_ONLY_SEAL_CHECK_PASSED_NO_INSTALL_NO_ENGINE','head':head,'requests_match':6,'checks':len(plan['full_unique_ordered_labels']),'previous_fixtures_match':current,'production_original':True,'new_evidence_absent':True,'source_copy_count':manifest['source_copy_count'],'godot_processes':processes}))\n"
+  ],
+  "preparation_sha256": "bb79be11112e7d23666ce8437cc6604b76be4c293716c747a728b634d87cbd02",
+  "package_sha256": "d0e81f833b08844face2f85cf411e6b3e52a5da2165e33d96975342b53d7e7e0",
+  "stdout_sha256": "c2dc50a31bcd2ace85a059329d014ec10c16b7de022fb40c9395bd98d492997e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

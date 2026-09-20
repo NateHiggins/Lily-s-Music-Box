@@ -1,0 +1,32 @@
+{
+  "actual_exit": 0,
+  "elapsed_seconds": 0.5868058000014571,
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "unittest",
+    "test_gate",
+    "test_variant_case",
+    "test_pair_bookkeeping",
+    "test_pair_artifacts",
+    "-v"
+  ],
+  "scope": "57 pure controls plus offline full artifact-census/strict-gate revalidation of original two completed runs; no engine rerun",
+  "actual_run_revalidation": {
+    "foundations_pair_01_omission": {
+      "strict_artifact_census_verified": true,
+      "strict_gate_reproduced": true,
+      "result_sha256": "065a5bfd83634f899a698c3030ff1a6714c6a62f37692a6995727143f3a855f7",
+      "artifact_count": 75
+    },
+    "foundations_pair_01_restored": {
+      "strict_artifact_census_verified": true,
+      "strict_gate_reproduced": true,
+      "result_sha256": "621bfa07a03558dd4520890de061e7a060c6d0858719e59bb733abd04b926d3c",
+      "artifact_count": 75
+    }
+  },
+  "wrapper_source_sha256": "a8e29f230442b21668ca04ea5b33f9f92194d8a58994c1373040a00e30073ae5",
+  "original_sequence_receipt_preserved": true,
+  "original_sequence_receipt_sha256": "435d1ebe441cc0d71ad4f97c8d58d7d6d86df833585cac1c6299102923a66051"
+}

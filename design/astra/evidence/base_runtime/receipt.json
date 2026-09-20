@@ -1,0 +1,434 @@
+{
+  "all_runner_exits_zero": false,
+  "baseline_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "branch": "codex/astra-canonical-20260904",
+  "controlled_m08f_followup_exit": 0,
+  "engine_requested": "Godot 4.7.1 stable Windows console",
+  "execution_context": {
+    "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\userdata",
+    "cold_warm": "Separate process per scene; imported assets and OS caches are warmed progressively; no cold boot performance claim",
+    "headless": true,
+    "import_state": "Fresh canonical import completed before tests; no --editor import argument during suites",
+    "light_budget": "Unmodified project/source fixtures; headless rendering",
+    "nominal_project_viewport": [
+      1280,
+      720
+    ],
+    "performance_scope": "Only whole-process elapsed and raw suite diagnostics; no GPU/VRAM/gameplay/release performance claim",
+    "project": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "renderer": "headless dummy rendering; project configured Forward+",
+    "root_override": "ORISON_BUILDING_ROOT removed in subprocess environment; suites select explicitly where needed.",
+    "simulation_time_date": "Fixture-specific explicit simulation state where declared; see each bound test source. Not controlled identically across suites.",
+    "user_save_isolation": "APPDATA set only in spawned runner processes; never points to user profile saves."
+  },
+  "findings": [
+    {
+      "cause": "M08F test assigns user://tests/m08f_runtime.json without ensuring its parent exists. New isolated APPDATA has no tests directory; RealityState.save_game FileAccess.open fails. Presence suite creates parent explicitly; same source then passes.",
+      "classification": "TEST_HARNESS_PRECONDITION_DEFECT",
+      "control_run": "m08f_runtime_existing_test_directory",
+      "id": "ASTRA-BASE-M08F-FRESH-PROFILE",
+      "next_action": "After sanitation, make M08F create its own isolated test parent and retain fresh-profile red/green proof. Do not label the original run green or modify production save contract merely for a test fixture.",
+      "red_run": "m08f_runtime",
+      "severity": "MAJOR",
+      "source_paths": [
+        "game/tests/orison_v2_m08f_runtime_test.gd:95",
+        "game/tests/orison_v2_m08f_runtime_test.gd:100",
+        "game/scripts/game/reality_game_state.gd:116",
+        "game/tests/orison_v2_presence_ledger_test.gd:35"
+      ],
+      "status": "REPRODUCED"
+    },
+    {
+      "cause": "M08F emits four leaked ObjectDB instances and two resources still in use; retained project audio identity visible in verbose log if supplied. Exit zero is not shutdown-clean.",
+      "classification": "PROJECT_ASSOCIATED_TEARDOWN_DIAGNOSTIC",
+      "id": "ASTRA-BASE-M08F-RETENTION",
+      "next_action": "Trace service-round audio playback ownership; compare an untouched minimal engine control before any engine-baseline exception.",
+      "severity": "RELEASE_CRITICAL",
+      "status": "REPRODUCED"
+    },
+    {
+      "cause": "Each v1 composition emits no legal wall for found piece cam_noel_witches from FoundArtPass._place_wall_piece. The fallback returns without placing authored art.",
+      "classification": "COMPOSED_PRODUCTION_CONTENT_OMITTED",
+      "id": "ASTRA-BASE-FOUND-ART-MISSING",
+      "next_action": "Resolve the authored placement against legal room-wall geometry in V2 world work; preserve this v1 baseline warning.",
+      "severity": "MAJOR",
+      "source_paths": [
+        "game/scripts/building/found_art_pass.gd:54",
+        "game/scripts/building/building_root.gd:516"
+      ],
+      "status": "REPRODUCED"
+    },
+    {
+      "cause": "Actual V2 ledger test explicitly passes while absent resident earns in_home_hearing belief. Passing 17 checks does not close embodied hearing correctness.",
+      "classification": "KNOWN_RUNTIME_BEHAVIOR_DEFECT_PINNED_BY_TEST",
+      "id": "ASTRA-BASE-HEARING-PRESENCE",
+      "next_action": "Use authoritative actor location and acoustic truth when shared perception foundation lands; preserve provenance.",
+      "severity": "MAJOR",
+      "status": "REPRODUCED"
+    }
+  ],
+  "hardware_reported": {
+    "cpu": "Intel Core i7-13700KF",
+    "gpu": "NVIDIA GeForce RTX 4080"
+  },
+  "head_after": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "production_tracked_diff_after": "",
+  "project_owned_diagnostic_attribution": "Not assumed engine baseline; diagnostic source inspection required.",
+  "runner": "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "runs": [
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/TitleScreenTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\title_screen.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 0,
+        "stderr_warning_lines": 0
+      },
+      "diagnostic_samples": [],
+      "elapsed_seconds": 0.857,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "title_screen",
+      "runner_process_exit": 0,
+      "scene": "res://tests/TitleScreenTest.tscn",
+      "scene_sha256": "5a08cd9c844d89cb611a88d9bbd61b27c4a2d1bbecd79ac2f40ee0f8f69cad76",
+      "scope": "Real title scene contract; silent audio; no entering gameplay or visual assessment.",
+      "started_utc": "2026-09-05T02:30:34.811778+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\title_screen.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\title_screen.stdout.log",
+      "stdout_sha256": "5681fced88420441cbf513fe4053d6f0d0625dda05e816018b6cdf25e6fc1595",
+      "suite_summary_lines": [
+        "[TITLE SCREEN] RESULT: PASS (0 failures)"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/title_screen_test.gd",
+          "sha256": "4db4a66648d57cf4fb1a65242ae9a2ba917c1f696bae21e0cb6d7a903bb781b1"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/orison_v2_m08f_runtime_test.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\m08f_runtime.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 3,
+        "stderr_warning_lines": 3
+      },
+      "diagnostic_samples": [
+        "ERROR:   FAIL  save, destroy, CampaignShell reconstruct, and load preserve round facts",
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details).",
+        "WARNING: could not write Reality Maintenance save"
+      ],
+      "elapsed_seconds": 2.449,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "m08f_runtime",
+      "runner_process_exit": 1,
+      "scene": "res://tests/orison_v2_m08f_runtime_test.tscn",
+      "scene_sha256": "e585a92c4b92a7e8edf32347049d7f0d435ef11ba9a7d45a2ecfb2142131b5c9",
+      "scope": "Actual explicit V2 root and first-shift/service-round authority contracts; synthetic public state progression.",
+      "started_utc": "2026-09-05T02:30:35.672343+00:00",
+      "status": "NONZERO_EXIT",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\m08f_runtime.stdout.log.stderr",
+      "stderr_sha256": "6e87c0bdae4e8ad2086d28b30331b6927a8d04ddedd8bc445d1d36df6ba80b54",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\m08f_runtime.stdout.log",
+      "stdout_sha256": "c5ee5a24a73643a71fed124d08f59b43239718ac947ebf18a0a8f13eddacc2f7",
+      "suite_summary_lines": [
+        "[M08F PERF] cold_ms=583.500 compose_ms=183.033 save_ms=9.761 reconstruct_ms=200.192 nodes=3007 collisions=557 cpu_ms=0.699 physics_ms=68.114",
+        "ORISON V2 M08F RUNTIME: FAIL (1) checks=29"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_m08f_runtime_test.gd",
+          "sha256": "fa1a209dee1699fe555fd0aafe792e07ee9f45c1d27e7db5fb7760ce118dbee7"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/orison_v2_presence_ledger_test.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\presence_ledger.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 0,
+        "stderr_warning_lines": 0
+      },
+      "diagnostic_samples": [],
+      "elapsed_seconds": 2.069,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "presence_ledger",
+      "runner_process_exit": 0,
+      "scene": "res://tests/orison_v2_presence_ledger_test.tscn",
+      "scene_sha256": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78",
+      "scope": "Actual V2 root OpenShift ledger, presence red/green refusal and semantic belief reconstruction; known hearing-presence gap pinned.",
+      "started_utc": "2026-09-05T02:30:38.121441+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\presence_ledger.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\presence_ledger.stdout.log",
+      "stdout_sha256": "7290a607805be02594535043a8469b6021bb83319db5f763d23cacaee3ca62bd",
+      "suite_summary_lines": [
+        "  PASS  KNOWN GAP pinned: hearing ignores presence, so an absent resident still earns an in-home hearing belief",
+        "ORISON V2 PRESENCE LEDGER: PASS checks=17"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_presence_ledger_test.gd",
+          "sha256": "0cc3a3c75f9be51f35f1b78397ea4f6430edc93723f7414383abc7242398c6cf"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OpenShiftAuthorityTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\open_shift_authority.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 0,
+        "stderr_warning_lines": 0
+      },
+      "diagnostic_samples": [],
+      "elapsed_seconds": 1.227,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "open_shift_authority",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OpenShiftAuthorityTest.tscn",
+      "scene_sha256": "1892ada76704f558540eab9e4ecbb5ea1c14f309cd2602b6acd4ed5fbf55dab2",
+      "scope": "Focused public actor/mechanism/observation authority; not complete world traversal.",
+      "started_utc": "2026-09-05T02:30:40.188356+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\open_shift_authority.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\open_shift_authority.stdout.log",
+      "stdout_sha256": "3f2f0e3233718b9eb40adeb95fed33fed2b67fc3c5585a84b9e21db7f957e551",
+      "suite_summary_lines": [
+        "OPEN SHIFT AUTHORITY TEST: PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/open_shift_authority_test.gd",
+          "sha256": "d75d6c9491b87ae90bab7a186389e465bbfc83aaad54f368a64a4eaf68ed5e7e"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OpenShiftSaveMatrixTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\open_shift_save_matrix.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 0,
+        "stderr_warning_lines": 0
+      },
+      "diagnostic_samples": [],
+      "elapsed_seconds": 1.323,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "open_shift_save_matrix",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OpenShiftSaveMatrixTest.tscn",
+      "scene_sha256": "f9784e9bc82ee61ae08c7d2ede39aa38eb621faf7dc29a473eca6ea5d1eda4ad",
+      "scope": "Four dispositions x four selector directions in focused state assembly; no both-root scene composition.",
+      "started_utc": "2026-09-05T02:30:41.419320+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\open_shift_save_matrix.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\open_shift_save_matrix.stdout.log",
+      "stdout_sha256": "3f8680a1eb687e7f900c69f8d59524d300379d8db620b4fd65fc95abf6805c74",
+      "suite_summary_lines": [
+        "OPEN SHIFT SAVE MATRIX: 17/17 PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/open_shift_save_matrix_test.gd",
+          "sha256": "d81bf3e8baf6b84f8b86859dd6f51e77e48480bc627126aa1cb46e487ab17c12"
+        }
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/orison_v2_two_root_matrix_test.tscn",
+        "-TimeoutSeconds",
+        "180",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\two_root_matrix.stdout.log"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 0,
+        "stderr_warning_lines": 6
+      },
+      "diagnostic_samples": [
+        "WARNING: invalid ORISON_BUILDING_ROOT='invalid'; using committed v1 default",
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "elapsed_seconds": 77.012,
+      "engine_exit_semantics": "Runner returns child exit when completed; 73=lane busy, 124=runner timeout, 78=cannot run.",
+      "name": "two_root_matrix",
+      "runner_process_exit": 0,
+      "scene": "res://tests/orison_v2_two_root_matrix_test.tscn",
+      "scene_sha256": "17cfb47de9a81b181e762d7e6904b95863b662f9d07c7e72752137449a2af59a",
+      "scope": "Real v1/v2 production roots plus eight CampaignShell reconstructions; no visual frame-time claim.",
+      "started_utc": "2026-09-05T02:30:42.746989+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\two_root_matrix.stdout.log.stderr",
+      "stderr_sha256": "cbdf2acd1573d748a5676ec780f3a108e99ea478e2954350f5e3c6589811e7c9",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\two_root_matrix.stdout.log",
+      "stdout_sha256": "0fddf78b5f3dfbc6136c5a33019de3a296a6c983fcc3c9205060c42b43922427",
+      "suite_summary_lines": [
+        "[M08D V1 PERF] cold_total_ms=16172.948 nodes=18307 collisions=1636",
+        "[M08D V2 PERF] cold_total_ms=187.726 compose_ms=176.123 nodes=3008 collisions=557 first_interaction_ms=0.223 cpu_ms=0.699 physics_ms=304.564",
+        "[M08D SAVE PERF] v1_to_v1 save_ms=0.427 reconstruct_ms=14239.338",
+        "[M08D SAVE PERF] v2_to_v2 save_ms=0.389 reconstruct_ms=184.143",
+        "[M08D SAVE PERF] v1_to_v2 save_ms=0.434 reconstruct_ms=189.353",
+        "[M08D SAVE PERF] v2_to_v1 save_ms=0.352 reconstruct_ms=14326.812",
+        "ORISON V2 TWO-ROOT MATRIX: PASS totals={ \"v1_to_v1\": 1, \"v2_to_v2\": 1, \"v1_to_v2\": 1, \"v2_to_v1\": 1 } checks=24"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_two_root_matrix_test.gd",
+          "sha256": "639e9a87209a52e5e5cfdee4b2984c9d5be28d97f2f5cf0e457321d3dd141359"
+        }
+      ],
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -Scene 'res://tests/orison_v2_m08f_runtime_test.tscn' -TimeoutSeconds 60 -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\base_runtime\\m08f_runtime_existing_test_directory.stdout.log' -ExtraArgs @('--verbose')"
+      ],
+      "diagnostic_counts": {
+        "stderr_error_or_unicode_or_retention_lines": 2,
+        "stderr_warning_lines": 1
+      },
+      "diagnostic_samples": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit."
+      ],
+      "elapsed_seconds": 2.636,
+      "name": "m08f_runtime_existing_test_directory",
+      "runner_process_exit": 0,
+      "scene": "res://tests/orison_v2_m08f_runtime_test.tscn",
+      "scope": "Controlled follow-up of preserved red M08F; production and test source unchanged, tests directory now exists after presence suite. Verbose diagnostics enabled for retained resource attribution.",
+      "started_utc": "2026-09-05T02:33:05.167304+00:00",
+      "status": "PROCESS_EXIT_ZERO_WITH_DIAGNOSTICS",
+      "stderr_path": "design\\astra\\evidence\\base_runtime\\m08f_runtime_existing_test_directory.stdout.log.stderr",
+      "stderr_sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+      "stdout_path": "design\\astra\\evidence\\base_runtime\\m08f_runtime_existing_test_directory.stdout.log",
+      "stdout_sha256": "b16262db90e563fd556fad459a3b00032a9bb07c823a76d231573efae971db1d",
+      "suite_summary_lines": [
+        "Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg",
+        "Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr",
+        "Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1",
+        "[M08F PERF] cold_ms=713.478 compose_ms=221.679 save_ms=0.589 reconstruct_ms=240.490 nodes=3007 collisions=557 cpu_ms=0.624 physics_ms=46.508",
+        "ORISON V2 M08F RUNTIME: PASS checks=29",
+        "Leaked instance: OggPacketSequence:9223372211119724936 - Reference count: 3",
+        "Leaked instance: AudioStreamOggVorbis:9223372211136502153 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372248918794043 - Reference count: 1",
+        "Leaked instance: OggPacketSequencePlayback:9223372248935571260 - Reference count: 1",
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).",
+        "Resource still in use: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg::OggPacketSequence_x7qxv (OggPacketSequence)",
+        "Resource still in use: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg (AudioStreamOggVorbis)"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "schema": "astra.baseline_runtime.v1",
+  "source_context": "Clean main production bytes; Astra evidence files are untracked and not loaded by game. Import completed by parent before this run.",
+  "status": "BASELINE_RUNS_FINISHED_WITH_REPRODUCED_DEFECTS",
+  "suite_selection_authorities": [
+    "design/ORISON_RUNNER_EXIT_TRUTH_2026-08-29.md",
+    "design/ETHOS_OPEN_SHIFT_2_AUTHORITY_CHECKPOINT_2026-08-28.md",
+    "game/tests/orison_v2_two_root_matrix_test.gd",
+    "game/tests/orison_v2_presence_ledger_test.gd"
+  ],
+  "userdata_files": [
+    "design\\astra\\evidence\\base_runtime\\userdata\\PleaseRemainOnTheLine\\logs\\godot.log",
+    "design\\astra\\evidence\\base_runtime\\userdata\\PleaseRemainOnTheLine\\logs\\godot2026-09-04T22.30.38.log",
+    "design\\astra\\evidence\\base_runtime\\userdata\\PleaseRemainOnTheLine\\logs\\godot2026-09-04T22.30.40.log",
+    "design\\astra\\evidence\\base_runtime\\userdata\\PleaseRemainOnTheLine\\logs\\godot2026-09-04T22.30.41.log",
+    "design\\astra\\evidence\\base_runtime\\userdata\\PleaseRemainOnTheLine\\logs\\godot2026-09-04T22.30.43.log"
+  ],
+  "userdata_isolation_verified": true
+}

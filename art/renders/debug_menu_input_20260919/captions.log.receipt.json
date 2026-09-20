@@ -1,0 +1,70 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 0.47,
+  "exit_code": 0,
+  "finished_utc": "2026-09-20T00:57:20Z",
+  "started_utc": "2026-09-20T00:57:19Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 7,
+  "pass_lines": [
+   "[AUDIO CAPTION] PASS empty caption rows pass a real viewport click to the button below",
+   "[AUDIO CAPTION] PASS a semantic cue reaches the caption surface",
+   "[AUDIO CAPTION] PASS caption parity names only the audible cue and relative sector",
+   "[AUDIO CAPTION] PASS a repeating source sustains one caption instead of stacking copies",
+   "[AUDIO CAPTION] PASS caption traffic is capped at three readable lines",
+   "[AUDIO CAPTION] PASS enabled populated caption rows pass a real viewport click to the button below",
+   "[AUDIO CAPTION] RESULT: PASS 6/6"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/regressions_final/captions.log.stderr",
+  "stderr_sha256": "38de8241e3b14dfa28f79d02324cef7c65fc0248e579a71e1625aba7062de49a",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/regressions_final/captions.log",
+  "stdout_sha256": "05a2818c8e7d037664a4c11642e2d4cd0dbb6435449c16126a50b2587ef01e3c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/AudioCaptionTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 177,
+  "dirty_sample": [
+   "M game/scripts/ui/audio_caption_layer.gd",
+   " M game/scripts/ui/building_debug.gd",
+   " M game/tests/audio_caption_test.gd",
+   " M game/tests/debug_dream_button_test.gd",
+   " M game/tests/dream_ecology_entry_test.gd",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_household_accessories.gd.uid",
+   "?? game/scripts/building/orison_v2_household_radiator.gd.uid",
+   "?? game/scripts/building/orison_v2_household_state.gd.uid",
+   "?? game/scripts/building/orison_v2_lamp_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_laundry.gd.uid"
+  ],
+  "repository_head": "d8916966cbce41d9fd8517215f155a37bea3ebf2",
+  "repository_tree": "72e625d9be9452fe2c6b94d34bebec2b4bf21cf8",
+  "runtime_inputs_sha256": "2979d60dbb1ef4514773c1721606b4ec191b418fdc96e9e024b2342c1573b854",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

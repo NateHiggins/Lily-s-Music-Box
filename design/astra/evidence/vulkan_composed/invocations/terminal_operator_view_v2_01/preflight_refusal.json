@@ -1,0 +1,26 @@
+{
+  "status": "NO_LAUNCH_PREFLIGHT_REFUSAL",
+  "observed_at_utc": "2026-09-05T11:31:03.430693+00:00",
+  "reason": "existing Godot process violates exclusive empty-lane precondition",
+  "engine_launched": false,
+  "fixture_installed": false,
+  "fixture_current_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "controller_actual_exit": 1,
+  "assertion": "receipt[\"processes_before\"] == []",
+  "process_census": [
+    {
+      "ProcessId": 11016,
+      "ParentProcessId": 10980,
+      "Name": "explorer.exe",
+      "CommandLine": "C:\\WINDOWS\\Explorer.EXE"
+    },
+    {
+      "ProcessId": 27084,
+      "ParentProcessId": 11016,
+      "Name": "Godot_v4.7.1-stable_win64.exe",
+      "CommandLine": "\"C:\\PleaseRemainOnTheLine\\Godot_v4.7.1-stable_win64.exe\" "
+    }
+  ],
+  "controller_sha256": "62ba391ad6ab3b91cc3740a1ee10b5c5cccf0390572631f67ccbc10f47050176",
+  "initial_invocation_receipt_sha256": "23258d7716cd8022d604e99c955aaf712465d8d9390c21f6b44fa0f785273695"
+}

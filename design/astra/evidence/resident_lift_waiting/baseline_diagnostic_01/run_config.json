@@ -1,0 +1,52 @@
+{
+  "schema": "astra-resident-lift-waiting-v1",
+  "mode": "lift",
+  "scene": "res://tests/ResidentLiftWaitingTest.tscn",
+  "test_path": "game/tests/resident_lift_waiting_test.gd",
+  "test_sha256": "788b184d098b9090ba5ca18bfdd90a9b520443023df7add7e120621c19b96fb9",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_lift_waiting\\baseline_diagnostic_01\\command.ps1"
+  ],
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_lift_waiting\\baseline_diagnostic_01\\APPDATA",
+  "cleared_environment_keys": [
+    "ORISON_BUILDING_ROOT",
+    "SHOT_DIR",
+    "REALITY_TIME_OVERRIDE",
+    "REALITY_TIME",
+    "CAMPAIGN_TIME_FREEZE",
+    "DAYNIGHT_FORCE",
+    "SCHEDULE",
+    "VULKAN_PAIRING_CASE"
+  ],
+  "started_utc": "2026-09-05T06:22:01.948929+00:00",
+  "before": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3891,
+    "all_game_files_sha256": "f4d405bd32864ba3ef79ea175cc26e62ace15d8f328f8d3f007bae8eb5ebd30a",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "412dd06c5e763a8279b3f1bc6dadde04c9a5f42b5fee2fb598e62f9d77abd306",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "4ea90db96a120e2f3e271ae7275a33ef50bd6c12e35d0bc9b43b907f0507a28d",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "scope": "Actual V1 resident lift route diagnostics; no performance, full haunt/day, or visual acceptance"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base_head": "1c80053",
+  "old_furniture_preserved": 57,
+  "anchors_added": 8,
+  "protected_json": [
+    "game/data/domestic_radios.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/domestic_surface_props.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/orison_v2/mina_routine.json"
+  ],
+  "shared_owners_unchanged": [
+    "game/scripts/props/domestic_radio_prop.gd",
+    "game/scripts/props/functional_prop.gd",
+    "game/scripts/audio/prop_audio.gd",
+    "game/scripts/audio/audio_policy.gd",
+    "game/project.godot",
+    "game/scripts/building/broadcast_director.gd"
+  ],
+  "programme_asset_exists": true,
+  "regeneration_sha256": {
+    "game/data/orison_v2/domestic_furniture.json": "7fb07325a303c544151f1f5cdd93ca83398ffd2e514c0cc2880a5cb2bdc49fb8",
+    "game/data/orison_v2_blockout.json": "54b04e78e32325d324f4a066a40009007bbbca22698cc57c65c8ebb560c8d5af",
+    "game/data/orison_v2/domestic_radios.json": "be76837effc7833c62919d2682319cfd4157ac0c2de740db3c8799df877c1e09",
+    "design/astra/work/v2_household_radios_batch_01/receipt.json": "bc5d2c8ed909bae6ee720e3cfa93d80dddc2b4ecc5f4e8477c09d30b45117f2d"
+  },
+  "limits": "Source proof only; prepared engine targeting/audio/lifetime tests have not run."
+}

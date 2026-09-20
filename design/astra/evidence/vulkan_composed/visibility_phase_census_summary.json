@@ -1,0 +1,174 @@
+{
+  "engine": 0,
+  "gate": 0,
+  "elapsed": 81.887,
+  "checks": 296,
+  "captures": 15,
+  "native_unpair": 0,
+  "native_underflow": 0,
+  "retention": [],
+  "source_unchanged": true,
+  "phase_medians_us": {
+    "harukiya -> street": {
+      "street_gate_us": 34939,
+      "mask_changes": 1785,
+      "remaining_owners_us": 368,
+      "passage_gate_us": 2,
+      "street_index_us": 29638,
+      "total_us": 35333,
+      "layer_assign_us": 429,
+      "rebind_us": 2406,
+      "street_owner_changes_us": 5297
+    },
+    "street -> passage": {
+      "incidents_callback_us": 3362.5,
+      "encroachment_callback_us": 523690.5,
+      "street_gate_us": 33813.0,
+      "mask_changes": 3649.0,
+      "surface_and_callbacks_us": 549169.0,
+      "remaining_owners_us": 6691.0,
+      "passage_gate_us": 578444.0,
+      "street_index_us": 29589.0,
+      "total_us": 618869.0,
+      "layer_assign_us": 937.0,
+      "passage_index_us": 22966.5,
+      "passage_owner_changes_us": 5190.0,
+      "rebind_us": 2580.5,
+      "street_owner_changes_us": 4201.5
+    },
+    "passage -> street": {
+      "incidents_callback_us": 3413.0,
+      "encroachment_callback_us": 522754.5,
+      "street_gate_us": 31848.0,
+      "mask_changes": 1525.0,
+      "surface_and_callbacks_us": 547937.0,
+      "remaining_owners_us": 2696.5,
+      "passage_gate_us": 574329.5,
+      "street_index_us": 29483.0,
+      "total_us": 609102.0,
+      "layer_assign_us": 415.5,
+      "passage_index_us": 22319.0,
+      "passage_owner_changes_us": 3994.0,
+      "rebind_us": 850.5,
+      "street_owner_changes_us": 2407.0
+    },
+    "street -> orison": {
+      "street_gate_us": 34178.5,
+      "mask_changes": 1785.0,
+      "remaining_owners_us": 6271.5,
+      "passage_gate_us": 1.0,
+      "street_index_us": 29807.0,
+      "total_us": 40415.5,
+      "layer_assign_us": 461.5,
+      "rebind_us": 1471.0,
+      "street_owner_changes_us": 4388.5
+    },
+    "orison -> f04": {
+      "street_gate_us": 2.0,
+      "mask_changes": 0.0,
+      "remaining_owners_us": 4046.0,
+      "passage_gate_us": 1.0,
+      "total_us": 4075.5,
+      "layer_assign_us": 0.0,
+      "rebind_us": 0.0
+    },
+    "f04 -> orison": {
+      "street_gate_us": 2.0,
+      "mask_changes": 0.0,
+      "remaining_owners_us": 2921.5,
+      "passage_gate_us": 0.5,
+      "total_us": 2953.0,
+      "layer_assign_us": 0.0,
+      "rebind_us": 0.0
+    },
+    "orison -> street": {
+      "street_gate_us": 34867,
+      "mask_changes": 1785,
+      "remaining_owners_us": 2394,
+      "passage_gate_us": 1,
+      "street_index_us": 29587,
+      "total_us": 37270,
+      "layer_assign_us": 450,
+      "rebind_us": 2383,
+      "street_owner_changes_us": 5181
+    }
+  },
+  "first_last_material_counts": [
+    {
+      "station": "street",
+      "cycle": -1,
+      "census": {
+        "F02": {
+          "duplicate_slots": 240,
+          "invalid_slots": 0,
+          "slots": 686,
+          "unique_count": 446
+        },
+        "F03": {
+          "duplicate_slots": 246,
+          "invalid_slots": 0,
+          "slots": 528,
+          "unique_count": 282
+        },
+        "F04": {
+          "duplicate_slots": 256,
+          "invalid_slots": 0,
+          "slots": 539,
+          "unique_count": 283
+        },
+        "F05": {
+          "duplicate_slots": 258,
+          "invalid_slots": 0,
+          "slots": 518,
+          "unique_count": 260
+        },
+        "F06": {
+          "duplicate_slots": 234,
+          "invalid_slots": 0,
+          "slots": 493,
+          "unique_count": 259
+        }
+      }
+    },
+    {
+      "station": "passage",
+      "cycle": 6,
+      "census": {
+        "F02": {
+          "duplicate_slots": 2010,
+          "invalid_slots": 0,
+          "slots": 2456,
+          "unique_count": 446
+        },
+        "F03": {
+          "duplicate_slots": 2061,
+          "invalid_slots": 0,
+          "slots": 2343,
+          "unique_count": 282
+        },
+        "F04": {
+          "duplicate_slots": 2146,
+          "invalid_slots": 0,
+          "slots": 2429,
+          "unique_count": 283
+        },
+        "F05": {
+          "duplicate_slots": 2163,
+          "invalid_slots": 0,
+          "slots": 2423,
+          "unique_count": 260
+        },
+        "F06": {
+          "duplicate_slots": 1959,
+          "invalid_slots": 0,
+          "slots": 2218,
+          "unique_count": 259
+        }
+      }
+    }
+  ],
+  "restored": {
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  }
+}

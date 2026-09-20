@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "kind": "capture_contract_audit_repair",
+  "repository_head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+  "working_tree_source_hashes": {
+    "game/tests/orison_v2_m08f_runtime_shot.gd": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4",
+    "tools/audit_orison_v2_completeness.py": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46",
+    "tools/tests/test_orison_v2_completeness.py": "2d203c1ae30a4328843c8cc5b15d5c97b2a2b0533a08eaccb9511a57bb9184a3"
+  },
+  "collector_sha256": "af2ca0747cf367431f1c01dcd4c2b23df117e1ab579e8c21b8afaeb4961fc500",
+  "before": {
+    "test_exit": 1,
+    "audit_exit": 2,
+    "audit_sha256": "5023d922ce54d6daf1ff7c3c78a8fa8a1fb06b56351acb6a94ab28c0d920acab",
+    "historical_receipt_sha256": "e26cae96f8bf2a26bf425250d7f33301a0d4190f0223405db8cfe067c445dc5a"
+  },
+  "negative_proof": {
+    "test": "ChronologyTests.test_legacy_capture_only_receipt_cannot_clear_runtime_gate",
+    "before_selftest_exit": 1,
+    "before_legacy_fixture_cli_exit": 0,
+    "before_failure_log": "design/astra/evidence/capture_contract_repair/legacy_negative_before.stderr.txt",
+    "after_legacy_fixture_cli_exit": 2,
+    "corrected_synthetic_fixture_cli_exit": 0
+  },
+  "runs": {
+    "selftests": {
+      "exit_code": 0,
+      "stdout": "design/astra/evidence/capture_contract_repair/selftests_final.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "design/astra/evidence/capture_contract_repair/selftests_final.stderr.txt",
+      "stderr_sha256": "58c0a7fdcbd23c7246b2d6fec66a149f413eec4406b28a5d4e6c7a5bc23493ec"
+    },
+    "audit": {
+      "exit_code": 2,
+      "stdout": "design/astra/evidence/capture_contract_repair/audit_final.stdout.txt",
+      "stdout_sha256": "bb19a8c03f4ffd8926c8ada5a7f3090818d60b20e9981abf6e5dc09efb3d2a48",
+      "stderr": "design/astra/evidence/capture_contract_repair/audit_final.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "first_slice": {
+      "exit_code": 2,
+      "stdout": "design/astra/evidence/capture_contract_repair/first_slice_final.stdout.txt",
+      "stdout_sha256": "9f0636ae7055eaa6a62f5fa6c00dd838c396a78a5409c904a738d172550545c9",
+      "stderr": "design/astra/evidence/capture_contract_repair/first_slice_final.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "selftests_passed": 102,
+  "actual_cli_red_green_pairs": [
+    {
+      "case": "legacy_capture_only",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_legacy_capture_only_red.stdout.txt",
+        "stdout_sha256": "f2c63b4f0fc881f656701ed5e7b81e74627ecdc30eea999eb83ab1acbd9c39b4",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_legacy_capture_only_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_legacy_capture_only_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_legacy_capture_only_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unexecuted_save",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unexecuted_save_red.stdout.txt",
+        "stdout_sha256": "8e681b5a18310f2cccacf39ef21a897c8f48e97bbed93083702b4cdb77ca5444",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unexecuted_save_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unexecuted_save_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unexecuted_save_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "missing_denial",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_missing_denial_red.stdout.txt",
+        "stdout_sha256": "2a7a5f630fbb6bbddc795890367f0d2d84cd266721eb856d1c6e4800afe0fb0a",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_missing_denial_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_missing_denial_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_missing_denial_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "nonzero_exit",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_nonzero_exit_red.stdout.txt",
+        "stdout_sha256": "7f79aa46e415325184c588632e5e4a9cda154d11eb82529e1f6627bc7302d205",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_nonzero_exit_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_nonzero_exit_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_nonzero_exit_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "boolean_exit",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_boolean_exit_red.stdout.txt",
+        "stdout_sha256": "7f8df11006b57bb075bbbdbc11f48de453f6046dd4afaf3704037cd465cdcaa5",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_boolean_exit_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_boolean_exit_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_boolean_exit_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "incomplete",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_incomplete_red.stdout.txt",
+        "stdout_sha256": "985023dd3d852480e03cd3439b76fd010de5d23297d024d655f018522db65731",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_incomplete_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_incomplete_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_incomplete_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "timeout",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_timeout_red.stdout.txt",
+        "stdout_sha256": "6fe7ce6f391c2db226d96e6f91c18d461ec6ac075a46eeac7b04c5775b7ffc66",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_timeout_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_timeout_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_timeout_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "stale_source",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_stale_source_red.stdout.txt",
+        "stdout_sha256": "e69a930ad94ced2bfebea7b0956617df5f31d9a1f92626c6db17a2a9f8e5226d",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_stale_source_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_stale_source_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_stale_source_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "external_source",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_external_source_red.stdout.txt",
+        "stdout_sha256": "f7dd7f6b815279c9348fbb3911ee41c33cf0469a9678d9b0766cea4ca0edfb48",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_external_source_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_external_source_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_external_source_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unscoped_identity",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unscoped_identity_red.stdout.txt",
+        "stdout_sha256": "3452a625d8b416f12688b3618165caaff57cfadf58494a37d774b56d2a443578",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unscoped_identity_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unscoped_identity_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unscoped_identity_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unmeasured_teardown",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unmeasured_teardown_red.stdout.txt",
+        "stdout_sha256": "8afbe11c6fa4de73bf99eff3107a9de05462dba694389fd123f1f4d2a980b38d",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unmeasured_teardown_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_unmeasured_teardown_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_unmeasured_teardown_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "retained_resource",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_retained_resource_red.stdout.txt",
+        "stdout_sha256": "86634c6fe2dda0eeb3862e4923a7be46f61a4858d82bfe83acd3c8b574cf730e",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_retained_resource_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_retained_resource_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_retained_resource_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "retained_playback",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_retained_playback_red.stdout.txt",
+        "stdout_sha256": "937725b6e0592df19f6bcab15f0eb07e7a4700fa97a99639b63c013bab8b852f",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_retained_playback_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_repair/fixture_retained_playback_green.stdout.txt",
+        "stdout_sha256": "b9645f649a9abdcef4e571f1ce414ca7f882a91bbd5bb844e2a34c58856e8939",
+        "stderr": "design/astra/evidence/capture_contract_repair/fixture_retained_playback_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    }
+  ],
+  "historical_receipt_preserved": {
+    "path": "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json",
+    "sha256": "e26cae96f8bf2a26bf425250d7f33301a0d4190f0223405db8cfe067c445dc5a"
+  },
+  "expected_status_demotions": [
+    {
+      "id": "ritual.F01_WATCHMAN_DETECTOR",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_NIGHT_REGISTER",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_SIGNAL_REGISTER",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_TOUR_KEY_GUARD",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.B1_BOILER_01",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.F02_B_RADIATOR_01",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "job.lena_radiator_round_2b",
+      "before": "RUNTIME_PROVEN",
+      "after": "PROGRAMMED"
+    }
+  ],
+  "other_requirement_status_changes": [],
+  "first_slice_blockers_after": [
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "contract.B1_BOILER_01",
+    "contract.F02_B_RADIATOR_01",
+    "job.lena_radiator_round_2b"
+  ],
+  "rejected_receipts": [
+    {
+      "file": "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json",
+      "reasons": [
+        "schema-2 runtime_contract required; capture-only receipts do not execute runtime contracts"
+      ]
+    }
+  ],
+  "limits": [
+    "No Godot execution in this task; capture script has not been rendered or runtime-validated.",
+    "Positive runtime receipts exist only inside disposable synthetic fixtures.",
+    "No historical evidence, live ledger, game product script, Git index or commit was modified.",
+    "The audit checks explicit execution attestation and source identity; it is not a replacement for executing the runtime test."
+  ]
+}

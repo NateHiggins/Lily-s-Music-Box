@@ -19,7 +19,7 @@ extends Node
 const JOB := ChirpHunt.JOB_ID
 const ITEM := "carbon_transmitter_capsule"
 const CASE := "mina_caption_crisis"
-const SAVE_FILE := "user://tests/k6_mina_golden_shift_save.json"
+var SAVE_FILE := "user://tests/k6_mina_golden_shift_%s.json" % Crypto.new().generate_random_bytes(12).hex_encode()
 const EXPECTED_CHECKS := 87
 const EXPECTED_BLOCKS: Array[String] = ["origin_convergence", "boundary_idle",
 		"complaint", "inspection", "errand_out", "acquisition", "return_leg",
@@ -133,10 +133,9 @@ func _ready() -> void:
 
 
 func _watchdog() -> void:
-	# The serialized runner owns the hard 60-second process ceiling. Leave three
-	# seconds for teardown, but allow the now-measured 18 s production boot plus
-	# the symmetric 16.5/15.5 s walked legs to reach the final logic blocks.
-	await get_tree().create_timer(57.0, true, false, true).timeout
+	# The shared runner retains its 180-second ceiling. Rendered production
+	# startup takes about 37 seconds before the two walked errand legs begin.
+	await get_tree().create_timer(165.0, true, false, true).timeout
 	if not _finished:
 		printerr("[K6] WATCHDOG: run exceeded its budget — FAIL")
 		get_tree().quit(1)
@@ -309,8 +308,11 @@ func _inspection() -> void:
 	_check("the fault still chirps while awaiting the part",
 			root.chirp_hunt.fault_active() and not _detector().is_repaired())
 	_checkpoint("awaiting_part")
-	_check("restored objective presents the authored title",
-			root.objective_tracker._title.text == "WORK ORDER 001 — THE CHIRP")
+	# Production retired this HUD; guidance belongs to the authored job facts.
+	_check("restored hardware objective survives without the retired HUD",
+			work_orders.job_library.stage_objective(JOB,work_orders.job_stage(JOB)).contains("hardware counter")
+			and not root.objective_tracker.presentation_enabled
+			and not root.objective_tracker._panel.visible)
 
 
 func _errand_out() -> void:
@@ -471,8 +473,10 @@ func _recurrence() -> void:
 			str(state.stage) == "stabilized"
 			and int(state.repair_count) == 2
 			and bool(state.recurrence_pending))
-	_check("the objective now directs the player to Mina, not another part",
-			root.objective_tracker._title.text == "2A — REAL TALK")
+	_check("recurrence earns Mina's real talk without another part or a HUD panel",
+			root.mina_gameplay._entry_for(state) == "rt_open"
+			and root.shop_service.pending_item("hardware_paint").is_empty()
+			and not root.objective_tracker._panel.visible)
 
 
 func _integration() -> void:
@@ -615,13 +619,15 @@ func _cleanup() -> void:
 	_block("cleanup")
 	var resolved := ProjectSettings.globalize_path(SAVE_FILE)
 	var test_dir := ProjectSettings.globalize_path("user://tests")
-	var contained := resolved.begins_with(test_dir) \
-			and resolved.ends_with("k6_mina_golden_shift_save.json") \
+	var contained := resolved.get_base_dir() == test_dir \
+			and resolved.get_file() == SAVE_FILE.get_file() \
 			and FileAccess.file_exists(SAVE_FILE)
 	_check("the test save resolved inside the dedicated test directory",
 			contained)
 	if contained:
-		DirAccess.remove_absolute(resolved)
+		for suffix in ["", ".bak", ".tmp", ".txn"]:
+			if FileAccess.file_exists(SAVE_FILE + suffix):
+				DirAccess.remove_absolute(resolved + suffix)
 	RealityState.save_path = RealityState.SAVE_PATH
 	_check("the test save file is removed and the player save untouched",
 			not FileAccess.file_exists(SAVE_FILE)

@@ -1,0 +1,2455 @@
+{
+	"atlas": {
+		"atlas_vertices": 31977,
+		"bytes": 19447808,
+		"error": "",
+		"height": 1187,
+		"load_usec": 526597,
+		"pose_count": 19,
+		"ready": true,
+		"templates": [
+			{
+				"atlas_base": 0,
+				"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+				"cilium_anchor_count": 0,
+				"cilium_base": -1,
+				"foot_base": 12425,
+				"kind": 3,
+				"lod": 0,
+				"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+				"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+				"triangles": 17584,
+				"vertices": 12425
+			},
+			{
+				"atlas_base": 12433,
+				"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+				"cilium_anchor_count": 0,
+				"cilium_base": -1,
+				"foot_base": 16747,
+				"kind": 3,
+				"lod": 1,
+				"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+				"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+				"triangles": 4812,
+				"vertices": 4314
+			},
+			{
+				"atlas_base": 16755,
+				"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+				"cilium_anchor_count": 12,
+				"cilium_base": 28577,
+				"foot_base": -1,
+				"kind": 6,
+				"lod": 0,
+				"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+				"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+				"triangles": 18920,
+				"vertices": 11822
+			},
+			{
+				"atlas_base": 28589,
+				"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+				"cilium_anchor_count": 12,
+				"cilium_base": 31965,
+				"foot_base": -1,
+				"kind": 6,
+				"lod": 1,
+				"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+				"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+				"triangles": 4752,
+				"vertices": 3376
+			}
+		],
+		"width": 1024
+	},
+	"baseline": false,
+	"batches": [
+		{
+			"draw_slots": 9,
+			"kinds": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"material_id": -9223371953908217644,
+			"mesh_instance_id": 82980112597
+		},
+		{
+			"draw_slots": 8,
+			"kinds": [
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"material_id": -9223371947683870490,
+			"mesh_instance_id": 89187682536
+		}
+	],
+	"checks": [
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "seam_grazer retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "crystal_listener retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "fold_crab retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "tardigrade retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "stentor retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "lacrymaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "vorticella retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euplotes retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "spirostomum retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "heliozoan retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euglena retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "volvox retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "noctiluca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "bacillaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "salpingoeca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "mesodinium retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "all sixteen enum kinds are unique animals and actual shader kind IDs",
+			"passed": true
+		},
+		{
+			"label": "sixteen animals retain two primary controller meshes and materials",
+			"passed": true
+		},
+		{
+			"label": "the one exposure texture is the existing RG8 world grid",
+			"passed": true
+		},
+		{
+			"label": "both warehouse batches admit the Blender presentation",
+			"passed": true
+		},
+		{
+			"label": "compiled batch has one real render surface",
+			"passed": true
+		},
+		{
+			"label": "compiled batch has one real render surface",
+			"passed": true
+		},
+		{
+			"label": "two batches retain exactly one shared pose atlas",
+			"passed": true
+		},
+		{
+			"label": "species 3 LOD0 imported absolute poses match GPU atlas",
+			"passed": true
+		},
+		{
+			"label": "species 3 LOD0 is within its triangle budget",
+			"passed": true
+		},
+		{
+			"label": "species 3 LOD1 imported absolute poses match GPU atlas",
+			"passed": true
+		},
+		{
+			"label": "species 3 LOD1 is within its triangle budget",
+			"passed": true
+		},
+		{
+			"label": "species 6 LOD0 imported absolute poses match GPU atlas",
+			"passed": true
+		},
+		{
+			"label": "species 6 LOD0 is within its triangle budget",
+			"passed": true
+		},
+		{
+			"label": "species 6 LOD1 imported absolute poses match GPU atlas",
+			"passed": true
+		},
+		{
+			"label": "species 6 LOD1 is within its triangle budget",
+			"passed": true
+		},
+		{
+			"label": "pose texture is nearest-ready full precision without mipmaps",
+			"passed": true
+		},
+		{
+			"label": "Vorticella LOD0 cilium roots match every manifest pose",
+			"passed": true
+		},
+		{
+			"label": "Vorticella LOD1 cilium roots match every manifest pose",
+			"passed": true
+		},
+		{
+			"label": "membrane shares its controller frame, world field and pose atlas",
+			"passed": true
+		},
+		{
+			"label": "thin-window triangles and solid triangles form a bounded disjoint partition",
+			"passed": true
+		},
+		{
+			"label": "paused membrane unbind releases the shared field immediately",
+			"passed": true
+		},
+		{
+			"label": "paused membrane rebind restores the same field immediately",
+			"passed": true
+		},
+		{
+			"label": "membrane shares its controller frame, world field and pose atlas",
+			"passed": true
+		},
+		{
+			"label": "thin-window triangles and solid triangles form a bounded disjoint partition",
+			"passed": true
+		},
+		{
+			"label": "paused membrane unbind releases the shared field immediately",
+			"passed": true
+		},
+		{
+			"label": "paused membrane rebind restores the same field immediately",
+			"passed": true
+		},
+		{
+			"label": "eye reordering preserves compiled mesh and maps every stable section to its species",
+			"passed": true
+		},
+		{
+			"label": "retiring an animal removes all compiled sections for its identity",
+			"passed": true
+		},
+		{
+			"label": "inspection selects the detailed mesh within the original batch triangle cap",
+			"passed": true
+		},
+		{
+			"label": "reset and replacement preserve material, atlas and single world field",
+			"passed": true
+		},
+		{
+			"label": "frame measurement records 240 finite intervals",
+			"passed": true
+		},
+		{
+			"label": "species 3 retains its actual live controller deformation cycle",
+			"passed": true
+		},
+		{
+			"label": "species 6 retains its actual live controller deformation cycle",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_neutral_000.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_neutral_050.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_cutaway_050.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_neutral_100.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_dark.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_oblique.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_03_full_beam.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_neutral_000.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_neutral_050.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_cutaway_050.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_neutral_100.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_cilia_10.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_cilia_11.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_cilia_12.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_dark.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_oblique.png",
+			"passed": true
+		},
+		{
+			"label": "capture writes species_06_full_beam.png",
+			"passed": true
+		},
+		{
+			"label": "departed providers and the shared atlas are released",
+			"passed": true
+		},
+		{
+			"label": "retained materials release both world and pose samplers",
+			"passed": true
+		},
+		{
+			"label": "no native script, shader or runtime errors",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": 0,
+	"frame_sample": {
+		"draw_calls": 232.0,
+		"frames": 240,
+		"median_ms": 20.012,
+		"p95_ms": 20.166,
+		"primitives": 163303.0,
+		"scope": "whole isolated warehouse at fixed tardigrade camera, CPU clocks paused; includes hero/margin/architecture; desktop wall-frame interval, not GPU timing"
+	},
+	"import_parity": [
+		{
+			"cursor": 12425,
+			"kind": 3,
+			"lod": 0,
+			"normal_error": 0.0,
+			"normalized": true,
+			"position_error": 0.0,
+			"samples": 86975
+		},
+		{
+			"cursor": 4314,
+			"kind": 3,
+			"lod": 1,
+			"normal_error": 0.0,
+			"normalized": true,
+			"position_error": 0.0,
+			"samples": 30198
+		},
+		{
+			"cursor": 11822,
+			"kind": 6,
+			"lod": 0,
+			"normal_error": 0.0,
+			"normalized": true,
+			"position_error": 0.0,
+			"samples": 82754
+		},
+		{
+			"cursor": 3376,
+			"kind": 6,
+			"lod": 1,
+			"normal_error": 0.0,
+			"normalized": true,
+			"position_error": 0.0,
+			"samples": 23632
+		}
+	],
+	"live_laws": {
+		"seconds": 18.0000000000003,
+		"state_writes": false,
+		"states": {
+			"3": {
+				"max": 1.0,
+				"min": 0.0,
+				"phase_max": 88.6512623896212,
+				"phase_min": 0.221127346158028
+			},
+			"6": {
+				"max": 1.0,
+				"min": 0.0,
+				"phase_max": 16.3749964660409,
+				"phase_min": 0.189996466040611
+			}
+		}
+	},
+	"logs": {
+		"errors": [],
+		"stderr": [],
+		"warnings": []
+	},
+	"membership": {
+		"inspection": {
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 2,
+			"cilia_base": [
+				-1.0,
+				31965.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 2,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				12425.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 24982,
+			"legacy_sections": 7,
+			"material_id": -9223371953908217644,
+			"membrane_draws": 1,
+			"membrane_instance_id": 89087019232,
+			"membrane_material_id": -9223371947801311010,
+			"membrane_mesh_id": -9223371926527800608,
+			"membrane_triangles": 4953,
+			"mesh_id": -9223371926544577823,
+			"opaque_triangles": 66383,
+			"ready": true,
+			"rebuild_count": 5,
+			"section_map": {
+				"0:0": 7,
+				"0:1": 8,
+				"1:0": 6,
+				"2:0": 2,
+				"3:0": 5,
+				"4:0": 4,
+				"5:0": 0,
+				"6:0": 1,
+				"7:0": 3
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 5,
+					"key": "5:0",
+					"kind": 5,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 28589,
+					"cilium_anchor_count": 12,
+					"cilium_base": 31965,
+					"foot_base": -1,
+					"id": 6,
+					"key": "6:0",
+					"kind": 6,
+					"lod": 1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 4752,
+					"twin": false,
+					"vertices": 3376
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 2,
+					"key": "2:0",
+					"kind": 2,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 7,
+					"key": "7:0",
+					"kind": 7,
+					"lod": -1,
+					"packed_slot": 8,
+					"slot": 8,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 4,
+					"key": "4:0",
+					"kind": 4,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 0,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": 12425,
+					"id": 3,
+					"key": "3:0",
+					"kind": 3,
+					"lod": 0,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 17584,
+					"twin": false,
+					"vertices": 12425
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 1,
+					"key": "1:0",
+					"kind": 1,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:0",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:1",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": true,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				4.0,
+				6.0,
+				5.0,
+				8.0,
+				2.0,
+				7.0,
+				3.0,
+				0.0,
+				1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 91938,
+			"total_triangles": 71336,
+			"triangles": 71336
+		},
+		"retired_id": 0,
+		"visible_twins": 0
+	},
+	"membranes": [
+		{
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 2,
+			"cilia_base": [
+				-1.0,
+				31965.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 2,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				16747.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 18045,
+			"legacy_sections": 7,
+			"material_id": -9223371953908217644,
+			"membrane_draws": 1,
+			"membrane_instance_id": 89087019232,
+			"membrane_material_id": -9223371947801311010,
+			"membrane_mesh_id": -9223371933842666789,
+			"membrane_triangles": 2745,
+			"mesh_id": -9223371933859444015,
+			"opaque_triangles": 55819,
+			"ready": true,
+			"rebuild_count": 2,
+			"section_map": {
+				"0:0": 6,
+				"0:1": 8,
+				"1:0": 7,
+				"2:0": 2,
+				"3:0": 5,
+				"4:0": 4,
+				"5:0": 0,
+				"6:0": 1,
+				"7:0": 3
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 5,
+					"key": "5:0",
+					"kind": 5,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 28589,
+					"cilium_anchor_count": 12,
+					"cilium_base": 31965,
+					"foot_base": -1,
+					"id": 6,
+					"key": "6:0",
+					"kind": 6,
+					"lod": 1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 4752,
+					"twin": false,
+					"vertices": 3376
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 2,
+					"key": "2:0",
+					"kind": 2,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 7,
+					"key": "7:0",
+					"kind": 7,
+					"lod": -1,
+					"packed_slot": 8,
+					"slot": 8,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 4,
+					"key": "4:0",
+					"kind": 4,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 12433,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": 16747,
+					"id": 3,
+					"key": "3:0",
+					"kind": 3,
+					"lod": 1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 4812,
+					"twin": false,
+					"vertices": 4314
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:0",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 1,
+					"key": "1:0",
+					"kind": 1,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:1",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": true,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				4.0,
+				6.0,
+				5.0,
+				8.0,
+				2.0,
+				7.0,
+				0.0,
+				3.0,
+				1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 34382,
+			"total_triangles": 58564,
+			"triangles": 58564
+		},
+		{
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 0,
+			"cilia_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 1,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 12620,
+			"legacy_sections": 8,
+			"material_id": -9223371947683870490,
+			"membrane_draws": 0,
+			"membrane_instance_id": 89372231921,
+			"membrane_material_id": -9223371947499321104,
+			"membrane_mesh_id": 0,
+			"membrane_triangles": 0,
+			"mesh_id": -9223371937684649265,
+			"opaque_triangles": 56000,
+			"ready": true,
+			"rebuild_count": 1,
+			"section_map": {
+				"100000:0": 4,
+				"100001:0": 1,
+				"100002:0": 0,
+				"100003:0": 5,
+				"100004:0": 7,
+				"100005:0": 2,
+				"100006:0": 3,
+				"100007:0": 6
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100002,
+					"key": "100002:0",
+					"kind": 10,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100001,
+					"key": "100001:0",
+					"kind": 9,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100005,
+					"key": "100005:0",
+					"kind": 13,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100006,
+					"key": "100006:0",
+					"kind": 14,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100000,
+					"key": "100000:0",
+					"kind": 8,
+					"lod": -1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100003,
+					"key": "100003:0",
+					"kind": 11,
+					"lod": -1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100007,
+					"key": "100007:0",
+					"kind": 15,
+					"lod": -1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100004,
+					"key": "100004:0",
+					"kind": 12,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				2.0,
+				1.0,
+				4.0,
+				5.0,
+				0.0,
+				6.0,
+				7.0,
+				3.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 12620,
+			"total_triangles": 56000,
+			"triangles": 56000
+		}
+	],
+	"packed_kinds": [
+		0,
+		4,
+		1,
+		5,
+		2,
+		6,
+		3,
+		7,
+		8,
+		9,
+		10,
+		12,
+		13,
+		14,
+		11,
+		15
+	],
+	"providers": [
+		{
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 2,
+			"cilia_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				28577.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 2,
+			"foot_base": [
+				16747.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 25271,
+			"legacy_sections": 7,
+			"material_id": -9223371953908217644,
+			"membrane_draws": 1,
+			"membrane_instance_id": 89087019232,
+			"membrane_material_id": -9223371947801311010,
+			"membrane_mesh_id": -9223371059514832118,
+			"membrane_triangles": 8055,
+			"mesh_id": -9223371059531609339,
+			"opaque_triangles": 64677,
+			"ready": true,
+			"rebuild_count": 9,
+			"section_map": {
+				"10:0": 2,
+				"11:0": 0,
+				"12:0": 6,
+				"13:0": 4,
+				"14:0": 3,
+				"15:0": 1,
+				"8:0": 5,
+				"8:1": 8,
+				"9:0": 7
+			},
+			"sections": [
+				{
+					"atlas_base": 12433,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": 16747,
+					"id": 11,
+					"key": "11:0",
+					"kind": 3,
+					"lod": 1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 4812,
+					"twin": false,
+					"vertices": 4314
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 15,
+					"key": "15:0",
+					"kind": 7,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 10,
+					"key": "10:0",
+					"kind": 2,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 16755,
+					"cilium_anchor_count": 12,
+					"cilium_base": 28577,
+					"foot_base": -1,
+					"id": 14,
+					"key": "14:0",
+					"kind": 6,
+					"lod": 0,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 18920,
+					"twin": false,
+					"vertices": 11822
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 13,
+					"key": "13:0",
+					"kind": 5,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 8,
+					"key": "8:0",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 12,
+					"key": "12:0",
+					"kind": 4,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 9,
+					"key": "9:0",
+					"kind": 1,
+					"lod": -1,
+					"packed_slot": 8,
+					"slot": 8,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 8,
+					"key": "8:1",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 7000,
+					"twin": true,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				4.0,
+				3.0,
+				1.0,
+				0.0,
+				2.0,
+				6.0,
+				5.0,
+				8.0,
+				7.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 165139,
+			"total_triangles": 72732,
+			"triangles": 72732
+		},
+		{
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 0,
+			"cilia_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 1,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 11876,
+			"legacy_sections": 8,
+			"material_id": -9223371947683870490,
+			"membrane_draws": 0,
+			"membrane_instance_id": 89372231921,
+			"membrane_material_id": -9223371947499321104,
+			"membrane_mesh_id": 0,
+			"membrane_triangles": 0,
+			"mesh_id": -9223371926209033504,
+			"opaque_triangles": 56000,
+			"ready": true,
+			"rebuild_count": 3,
+			"section_map": {
+				"100008:0": 6,
+				"100009:0": 4,
+				"100010:0": 1,
+				"100011:0": 0,
+				"100012:0": 7,
+				"100013:0": 5,
+				"100014:0": 3,
+				"100015:0": 2
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100011,
+					"key": "100011:0",
+					"kind": 11,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100010,
+					"key": "100010:0",
+					"kind": 10,
+					"lod": -1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100015,
+					"key": "100015:0",
+					"kind": 15,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100014,
+					"key": "100014:0",
+					"kind": 14,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100009,
+					"key": "100009:0",
+					"kind": 9,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100013,
+					"key": "100013:0",
+					"kind": 13,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100008,
+					"key": "100008:0",
+					"kind": 8,
+					"lod": -1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 100012,
+					"key": "100012:0",
+					"kind": 12,
+					"lod": -1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				2.0,
+				0.0,
+				4.0,
+				3.0,
+				1.0,
+				5.0,
+				6.0,
+				7.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 24506,
+			"total_triangles": 56000,
+			"triangles": 56000
+		}
+	],
+	"reorder": {
+		"after": {
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 2,
+			"cilia_base": [
+				-1.0,
+				31965.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 2,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				16747.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 18045,
+			"legacy_sections": 7,
+			"material_id": -9223371953908217644,
+			"membrane_draws": 1,
+			"membrane_instance_id": 89087019232,
+			"membrane_material_id": -9223371947801311010,
+			"membrane_mesh_id": -9223371933842666789,
+			"membrane_triangles": 2745,
+			"mesh_id": -9223371933859444015,
+			"opaque_triangles": 55819,
+			"ready": true,
+			"rebuild_count": 2,
+			"section_map": {
+				"0:0": 6,
+				"0:1": 8,
+				"1:0": 7,
+				"2:0": 2,
+				"3:0": 5,
+				"4:0": 4,
+				"5:0": 0,
+				"6:0": 1,
+				"7:0": 3
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 5,
+					"key": "5:0",
+					"kind": 5,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 28589,
+					"cilium_anchor_count": 12,
+					"cilium_base": 31965,
+					"foot_base": -1,
+					"id": 6,
+					"key": "6:0",
+					"kind": 6,
+					"lod": 1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 4752,
+					"twin": false,
+					"vertices": 3376
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 2,
+					"key": "2:0",
+					"kind": 2,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 7,
+					"key": "7:0",
+					"kind": 7,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 4,
+					"key": "4:0",
+					"kind": 4,
+					"lod": -1,
+					"packed_slot": 8,
+					"slot": 8,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 12433,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": 16747,
+					"id": 3,
+					"key": "3:0",
+					"kind": 3,
+					"lod": 1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 4812,
+					"twin": false,
+					"vertices": 4314
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:0",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 1,
+					"key": "1:0",
+					"kind": 1,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:1",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 7000,
+					"twin": true,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				5.0,
+				3.0,
+				2.0,
+				1.0,
+				8.0,
+				0.0,
+				6.0,
+				4.0,
+				7.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 34382,
+			"total_triangles": 58564,
+			"triangles": 58564
+		},
+		"before": {
+			"assets": {
+				"atlas_vertices": 31977,
+				"bytes": 19447808,
+				"error": "",
+				"height": 1187,
+				"load_usec": 526597,
+				"pose_count": 19,
+				"ready": true,
+				"templates": [
+					{
+						"atlas_base": 0,
+						"bounds": "[P: (-0.799177, -0.532253, -0.487504), S: (1.596608, 0.994837, 1.030207)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 12425,
+						"kind": 3,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade_lod0.glb",
+						"triangles": 17584,
+						"vertices": 12425
+					},
+					{
+						"atlas_base": 12433,
+						"bounds": "[P: (-0.796162, -0.529925, -0.487504), S: (1.592637, 0.992509, 1.029696)]",
+						"cilium_anchor_count": 0,
+						"cilium_base": -1,
+						"foot_base": 16747,
+						"kind": 3,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/tardigrade/tardigrade.manifest.json",
+						"source": "res://assets/dream/critters_blender/tardigrade/tardigrade.glb",
+						"triangles": 4812,
+						"vertices": 4314
+					},
+					{
+						"atlas_base": 16755,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 28577,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 0,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella_lod0.glb",
+						"triangles": 18920,
+						"vertices": 11822
+					},
+					{
+						"atlas_base": 28589,
+						"bounds": "[P: (-0.484014, -0.498938, -0.427428), S: (0.995752, 1.136184, 0.864124)]",
+						"cilium_anchor_count": 12,
+						"cilium_base": 31965,
+						"foot_base": -1,
+						"kind": 6,
+						"lod": 1,
+						"manifest": "res://assets/dream/critters_blender/vorticella/vorticella.manifest.json",
+						"source": "res://assets/dream/critters_blender/vorticella/vorticella.glb",
+						"triangles": 4752,
+						"vertices": 3376
+					}
+				],
+				"width": 1024
+			},
+			"atlas_dimensions": {
+				"height": 1187,
+				"width": 1024
+			},
+			"atlas_instance_id": -9223371948086523685,
+			"blender_sections": 2,
+			"cilia_base": [
+				-1.0,
+				31965.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"error": "",
+			"fixed_meshes": 2,
+			"foot_base": [
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				16747.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"last_compile_usec": 18045,
+			"legacy_sections": 7,
+			"material_id": -9223371953908217644,
+			"membrane_draws": 1,
+			"membrane_instance_id": 89087019232,
+			"membrane_material_id": -9223371947801311010,
+			"membrane_mesh_id": -9223371933842666789,
+			"membrane_triangles": 2745,
+			"mesh_id": -9223371933859444015,
+			"opaque_triangles": 55819,
+			"ready": true,
+			"rebuild_count": 2,
+			"section_map": {
+				"0:0": 6,
+				"0:1": 8,
+				"1:0": 7,
+				"2:0": 2,
+				"3:0": 5,
+				"4:0": 4,
+				"5:0": 0,
+				"6:0": 1,
+				"7:0": 3
+			},
+			"sections": [
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 5,
+					"key": "5:0",
+					"kind": 5,
+					"lod": -1,
+					"packed_slot": 4,
+					"slot": 4,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 28589,
+					"cilium_anchor_count": 12,
+					"cilium_base": 31965,
+					"foot_base": -1,
+					"id": 6,
+					"key": "6:0",
+					"kind": 6,
+					"lod": 1,
+					"packed_slot": 6,
+					"slot": 6,
+					"triangles": 4752,
+					"twin": false,
+					"vertices": 3376
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 2,
+					"key": "2:0",
+					"kind": 2,
+					"lod": -1,
+					"packed_slot": 5,
+					"slot": 5,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 7,
+					"key": "7:0",
+					"kind": 7,
+					"lod": -1,
+					"packed_slot": 8,
+					"slot": 8,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 4,
+					"key": "4:0",
+					"kind": 4,
+					"lod": -1,
+					"packed_slot": 2,
+					"slot": 2,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": 12433,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": 16747,
+					"id": 3,
+					"key": "3:0",
+					"kind": 3,
+					"lod": 1,
+					"packed_slot": 7,
+					"slot": 7,
+					"triangles": 4812,
+					"twin": false,
+					"vertices": 4314
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:0",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 0,
+					"slot": 0,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 1,
+					"key": "1:0",
+					"kind": 1,
+					"lod": -1,
+					"packed_slot": 3,
+					"slot": 3,
+					"triangles": 7000,
+					"twin": false,
+					"vertices": 4432
+				},
+				{
+					"atlas_base": -1,
+					"cilium_anchor_count": 0,
+					"cilium_base": -1,
+					"foot_base": -1,
+					"id": 0,
+					"key": "0:1",
+					"kind": 0,
+					"lod": -1,
+					"packed_slot": 1,
+					"slot": 1,
+					"triangles": 7000,
+					"twin": true,
+					"vertices": 4432
+				}
+			],
+			"slot_map": [
+				4.0,
+				6.0,
+				5.0,
+				8.0,
+				2.0,
+				7.0,
+				0.0,
+				3.0,
+				1.0,
+				-1.0,
+				-1.0,
+				-1.0
+			],
+			"texture_id": -9223371948086523685,
+			"total_compile_usec": 34382,
+			"total_triangles": 58564,
+			"triangles": 58564
+		}
+	},
+	"review": "Explicit forced law poses 0/0.5/1, neutral/cutaway plus controlled dark/oblique/full-beam lighting. Dark key+ambient+lamp all zero; oblique pinned G=.25; full beam calls original lamp accumulator for9s. These captures are art review, not observed gameplay.",
+	"review_field_samples": [
+		{
+			"exposure": 1.0,
+			"irradiance": 0.541186571121216,
+			"kind": 3,
+			"stage": "full_beam"
+		},
+		{
+			"exposure": 1.0,
+			"irradiance": 0.495899558067322,
+			"kind": 6,
+			"stage": "full_beam"
+		}
+	],
+	"schema": "dream_blender_critter_diagnostic.v1",
+	"scope": "Native imported pilot anatomy, absolute morph atlas, stable section mapping, existing controller cycles, controlled review poses and sampler retirement; not campaign runtime_contract or artistic acceptance.",
+	"setup_usec": 1312641,
+	"texture_id": -9223371954981959498
+}

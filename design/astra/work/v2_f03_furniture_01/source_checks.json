@@ -1,0 +1,26 @@
+{
+  "status": "SOURCE_CHECKS_PASS_NATIVE_UNRUN",
+  "base_head": "80262a365e9dcf421f3546a2637eb94e4576d8ad",
+  "native_godot_started": false,
+  "checks": [
+    "deterministic source extraction",
+    "finite geometry and unit normals",
+    "clockwise triangle winding",
+    "mesh and hull bounds inside finished rooms",
+    "disjoint furniture and fittings",
+    "all F03 standing capsules clear of added furniture and fittings",
+    "named anchor transforms",
+    "older layout preservation except four owned adjustments",
+    "GDScript syntax",
+    "protected source unchanged"
+  ],
+  "limits": "No native compile, actual collision query, flush audio or input proof, visual approval or persistence acceptance.",
+  "files": {
+    "game/data/orison_v2/domestic_furniture.json": "e516209f76d3d387c89e6ba2f3a552f4830f6856e66b89e91aaa9e8f7ce2b2b8",
+    "game/data/orison_v2_blockout.json": "a5bd4632e643cdaf9bfb032d7a22367fe23f68a5a8cc34bbab5cf594cee7b272",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "afe6bbd7f0f152f5e3fe7408426d74c0e27ffc93038d03ce955d5126404db902",
+    "game/scripts/building/orison_v2_water_closet.gd": "9262f00642efb95d513f4c067464638a86d893928b2e19f3d9b18ad77158196c",
+    "game/scripts/building/orison_v2_runtime_root.gd": "f768fa93df77931706a529ec3f02feaa26df322b2136320dc2ba490f59b0c6ea",
+    "game/tests/orison_v2_connected_world_test.gd": "7ccd0430a95e17f6de6a8f473b43d665b6fb31fddf1c05729399d3f54dbba193"
+  }
+}

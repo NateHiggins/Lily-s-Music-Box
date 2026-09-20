@@ -1,0 +1,84 @@
+{
+  "status": "PREPARED_ONLY_NO_LIVE_INSTALL_NO_ENGINE",
+  "controls": {
+    "tests": 3,
+    "exit": 0
+  },
+  "binding": {
+    "status": "PREPARED_ONLY_NO_LIVE_INSTALL_OR_ENGINE",
+    "original_fixture_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+    "fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "original_helper_sha256": "efa7d3af56398ff11818040d9c26dc5edda8c013d13c51864d11dc2df76bae14",
+    "helper_sha256": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+    "only_change": "Explicit bool type on eight exact dynamic-expression local declarations; no assertion, environment, owner, state or timing behavior change",
+    "changed_declarations": [
+      {
+        "line": 711,
+        "name": "live",
+        "before": "\t\t\tvar live := world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \\",
+        "after": "\t\t\tvar live: bool = world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \\"
+      },
+      {
+        "line": 713,
+        "name": "guard_ok",
+        "before": "\t\t\tvar guard_ok := _material_boundary(draw).is_empty() and str(draw.name).contains(\"_finish_\") \\",
+        "after": "\t\t\tvar guard_ok: bool = _material_boundary(draw).is_empty() and str(draw.name).contains(\"_finish_\") \\"
+      },
+      {
+        "line": 715,
+        "name": "marker_ok",
+        "before": "\t\t\tvar marker_ok := str(material.get_meta(\"living_storey\", \"\")) == floor_id \\",
+        "after": "\t\t\tvar marker_ok: bool = str(material.get_meta(\"living_storey\", \"\")) == floor_id \\"
+      },
+      {
+        "line": 736,
+        "name": "marker_ok",
+        "before": "\t\t\tvar marker_ok := str(material.get_meta(\"encroachment_case\", \"\")) == case_id \\",
+        "after": "\t\t\tvar marker_ok: bool = str(material.get_meta(\"encroachment_case\", \"\")) == case_id \\"
+      },
+      {
+        "line": 738,
+        "name": "linked",
+        "before": "\t\t\tvar linked := material.has_meta(\"encroachment_shared\") and material.get_meta(\"encroachment_shared\") == row.shared",
+        "after": "\t\t\tvar linked: bool = material.has_meta(\"encroachment_shared\") and material.get_meta(\"encroachment_shared\") == row.shared"
+      },
+      {
+        "line": 773,
+        "name": "live",
+        "before": "\t\tvar live := is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \\",
+        "after": "\t\tvar live: bool = is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \\"
+      },
+      {
+        "line": 797,
+        "name": "contaminated",
+        "before": "\t\t\tvar contaminated := material.has_meta(\"living_storey\") or material.has_meta(\"encroachment_case\")",
+        "after": "\t\t\tvar contaminated: bool = material.has_meta(\"living_storey\") or material.has_meta(\"encroachment_case\")"
+      },
+      {
+        "line": 990,
+        "name": "live",
+        "before": "\t\tvar live := is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()",
+        "after": "\t\tvar live: bool = is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()"
+      }
+    ],
+    "source_red": "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_01/stdout.log.stderr",
+    "red_scope": "Parser failed before actual build; final runner exit owned by root; no material/performance observation",
+    "runtime": "UNRUN",
+    "ownership_dependency": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "original_measured_fixture": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "artifacts": {
+    "controls.stderr.log": "e242c90646c286fa224d73c35528423b150b13429ae04cba47c831fcf6331c0e",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture.patch": "87eb96d3a0180796f3ee0cccce20d756515f0292d33650cd968504c42eb0f4ed",
+    "preparation.json": "fd4d827c2a31b6c8a3d67dadbb192544dda8b8b1d0e224c5ef68de7bac5a070d",
+    "README.md": "4b2fb79b111cb8f9f3d508f6dcf1c7d2b0947acd159bca46aae02833a6994f31",
+    "runtime_invocation.py": "9d1a60d094e35fe21e7d79d30bbf101b2db95c42ea1fe0e6fc21608484fdeceb",
+    "test_revision.py": "9c0950fbf53de6dd2c5df6d0a749606743d149a0dc9740e5568727122c0bead3",
+    "originals/material_helpers.gdfragment": "efa7d3af56398ff11818040d9c26dc5edda8c013d13c51864d11dc2df76bae14",
+    "proposed/material_helpers.gdfragment": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+    "originals/game/tests/vulkan_composed_root_test.gd": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+    "proposed/game/tests/vulkan_composed_root_test.gd": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "runtime_plan.json": "e2a6a2d59a102be6b3ffc6859f30b09e7068028d5a888a225b521556040f2cb4"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer": "authority_debt",
+  "mode": "read-only independent subagent review",
+  "runs": [
+    "01_original_focused",
+    "02_candidate_focused",
+    "03_candidate_lifecycle"
+  ],
+  "reported_findings": {
+    "raw_rows_footer_json_consistent": [
+      "25/33 native8 diagnostic1/control0",
+      "33/33 native0 diagnostic0/control0",
+      "31/31 native0 diagnostic0/control0"
+    ],
+    "selected_artifact_hashes_checked": 87,
+    "selected_artifact_mismatches": 0,
+    "recomputed_assessment_matches": true,
+    "complete_source_maps_match_exact_planned_batch": true,
+    "manifest_digests_recomputed": true,
+    "PID_ancestry": "wrapper -> console -> engine",
+    "false_acceptance_blocker_found": false
+  },
+  "limits": [
+    "Selected87 artifacts checked; not a second whole artifact-tree hash or live-tree census.",
+    "Elapsed151.185 seconds includes wrapper/snapshot overhead and is not physics-only or performance acceptance.",
+    "Five inherited host-loader ERROR headers and two host warnings are retained on focused runs; lifecycle additionally967 RGB8 conversions and one found-art warning."
+  ]
+}

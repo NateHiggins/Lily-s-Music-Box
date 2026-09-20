@@ -1,0 +1,82 @@
+{
+  "anchors": [
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -13.3,
+        3.0,
+        4.8
+      ],
+      "yaw": 0,
+      "kind": "fixture"
+    },
+    {
+      "id": "F04_B_KITCHEN_SWITCH",
+      "level": "F04",
+      "space": "F04_B_KITCHEN",
+      "position": [
+        -12.35,
+        1.12,
+        3.54
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "interaction"
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "level": "F04",
+      "space": "F04_B_PRIVATE_HALL",
+      "position": [
+        -10.05,
+        3.0,
+        4.9
+      ],
+      "yaw": 0,
+      "kind": "fixture"
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_SWITCH",
+      "level": "F04",
+      "space": "F04_B_PRIVATE_HALL",
+      "position": [
+        -11.01,
+        1.12,
+        3.95
+      ],
+      "yaw": -1.5707963267948966,
+      "kind": "interaction"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "room": "F04_B_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F04_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.25
+      }
+    }
+  ],
+  "switches": [
+    {
+      "id": "F04_B_KITCHEN_SWITCH",
+      "room": "F04_B_KITCHEN"
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_SWITCH",
+      "room": "F04_B_PRIVATE_HALL"
+    }
+  ]
+}

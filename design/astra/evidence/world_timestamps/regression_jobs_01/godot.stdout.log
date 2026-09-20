@@ -1,0 +1,94 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/MaintenanceJobTest.tscn remapped: res://tests/MaintenanceJobTest.tscn
+Loading resource: res://tests/maintenance_job_test.gd remapped: res://tests/maintenance_job_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Completed load for: 'res://tests/maintenance_job_test.gd' remapped 'res://tests/maintenance_job_test.gd' at thread -1
+Completed load for: 'res://tests/MaintenanceJobTest.tscn' remapped 'res://tests/MaintenanceJobTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  [job ok] maintenance_jobs.json loads and validates
+  [job ok] the chirp and first Service Round are the two authored jobs (["lena_radiator_round_2b", "vantry_chirp_2a"])
+  [job ok] steam_hammer_2a is no longer the active graybox job
+  [job ok] required item, 2A Vantry anchor and case binding are data-authored
+  [job ok] the required part is a carbon capsule, never a battery
+  [job ok] eligible dream window is metadata only
+  [job ok] the resident-filed round authors Lena and all three travel anchors
+  [job ok] unknown origin is rejected
+  [job ok] unauthored job id is rejected
+  [job ok] reported origin issues
+  [job ok] duplicate issue is rejected without mutation
+  [job ok] job opens at issued
+  [job ok] job state carries facts only; definition text stays in data
+  [job ok] every skip from issued is rejected without mutation
+  [job ok] acknowledgement converges the origins
+  [job ok] duplicate acknowledgement is safe
+  [job ok] declared evidence flag records
+  [job ok] duplicate evidence is safe
+  [job ok] undeclared evidence flag is rejected
+  [job ok] diagnosis follows acknowledgement
+  [job ok] duplicate diagnosis is safe
+  [job ok] backwards transition is rejected
+  [job ok] a job that needs a part cannot skip awaiting_part
+  [job ok] part need opens awaiting_part
+  [job ok] part arrival makes it repairable
+  [job ok] repair quality outside the vocabulary is rejected
+  [job ok] repair records result and quality
+  [job ok] duplicate repair is safe
+  [job ok] practical repair result is stored
+  [job ok] repaired closes
+  [job ok] a closed job accepts nothing further
+  [job ok] stage-change signal traces the full legal order
+  [job ok] discovered origin issues
+  [job ok] discovered origin acknowledges
+  [job ok] origin survives as recorded history only
+  [job ok] discovered origin runs the identical downstream lifecycle
+  [job ok] both beginnings converge on one stage machine, not two systems
+  [job ok] serialized contract carries no objective text
+  [job ok] fresh campaign forgets the job
+  [job ok] state contract restores
+  [job ok] restoration preserves every authoritative K2 fact
+  [job ok] objective presentation is reconstructed from data, not persisted
+  [job ok] restore rejects a job the data does not author
+  [job ok] restore rejects an unknown stage
+  [job ok] a restored job continues its lifecycle
+  [job ok] legacy issued migrates to an open authored job and retires
+  [job ok] migration is idempotent once the legacy record is gone
+  [job ok] legacy active migrates to acknowledged
+  [job ok] legacy closed-by-inspection migrates to awaiting_part, not repaired
+  [job ok] the minimal order contract for the 4B clock remains unchanged
+LIFECYCLE TRACE: (issue)->issued | issued->acknowledged | acknowledged->diagnosed | diagnosed->awaiting_part | awaiting_part->repairable | repairable->repaired | repaired->closed
+MAINTENANCE JOB TEST: FAIL (1)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

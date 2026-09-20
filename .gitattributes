@@ -6,3 +6,57 @@
 game/assets/building/floor_01_cells/** -text
 game/data/floor_01_cell_registry.json -text
 art/data/m11c2/** -text
+
+# Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
+game/assets/building/orison_v2/exterior/passage_gateway_subway.bin binary
+
+# Deterministic generated Astra views; writers emit LF, tests bind raw bytes.
+design/astra/BRANCH_ADOPTION_MATRIX.json -text
+design/astra/BRANCH_ADOPTION_MATRIX.md -text
+design/astra/REPOSITORY_TRUTH.md -text
+design/astra/MASTER_COMPLETION_LEDGER.json -text
+design/astra/MASTER_COMPLETION_LEDGER.md -text
+design/astra/reviews/adoption_rulings.json -text
+
+# Hash-bound build provenance and historical rehearsal fixture.
+art/data/orison_v2/arcade_ceiling_source.json -text
+art/data/orison_v2/exterior/passage_gateway_source.json -text
+tools/tests/fixtures/m11c1_runtime_rehearsal/historical_inputs.zip -text
+art/data/orison_v2/exterior/street_section_source.json -text
+game/data/orison_v2/exterior/street_frame.json -text
+design/historical_radio_reallocation.json -text
+game/data/historical_radio_reallocation.json -text
+art/data/orison_v2/domestic_furniture_source.json -text
+art/data/orison_v2/domestic_radios_source.json -text
+art/data/orison_v2/heating_source.json -text
+art/data/orison_v2/household_accessories_source.json -text
+art/data/orison_v2/upper_floor_programs_source.json -text
+art/data/orison_v2/exterior/construction_shed_source.json -text
+
+# Exact recovered Blender authoring source; never normalize its bytes.
+art/blender/dream_tentacle.blend binary
+
+# Rescue diagnostics retain captured bytes and source hash contracts.
+art/renders/dream_zoo_warehouse_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+game/assets/dream/tentacle/dream_tentacle.glb binary
+game/assets/dream/tentacle/T_dream_hero_anatomy.png binary
+
+# Dream Blender anatomy: editable sources and hash-bound generated evidence.
+art/blender/dream_critters/** binary
+game/assets/dream/critters_blender/** -text
+art/blender/scripts/build_dream_critter.py -text
+art/blender/scripts/check_dream_critter_anatomy.py -text
+art/blender/scripts/render_dream_critter.py -text
+art/renders/dream_critter_blender_pilots_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+art/blender/scripts/build_dream_critter.py whitespace=-blank-at-eol
+
+# Preserve the exact biology source/proof snapshots used by asset manifests.
+art/blender/scripts/*_model.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/** -text whitespace=-blank-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/**/*.json -diff
+
+# Exact native debug-pointer diagnostics and wrapper receipts.
+art/renders/debug_menu_input_20260919/** -text whitespace=-blank-at-eol
+
+# Exact resident home-door before/after diagnostics.
+art/renders/resident_home_door_20260919/** -text whitespace=-blank-at-eol

@@ -1,0 +1,60 @@
+{
+  "schema": "astra.v2-terminal-access.source-seal.v1",
+  "status": "STATIC_ONLY_READY",
+  "production": {
+    "game/scripts/building/orison_v2_runtime_root.gd": {
+      "original_sha256": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+      "candidate_sha256": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "live_still_original": true
+    },
+    "game/scripts/call/desk_zone.gd": {
+      "original_sha256": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e",
+      "candidate_sha256": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+      "live_still_original": true
+    }
+  },
+  "controls": {
+    "orientation": {
+      "candidate_sha256": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "omission_sha256": "0d918f099a0e19b992a76ae549b4986d89c8a3f54188b3f0f9fa6b82fee66bec",
+      "removed_bytes": 76,
+      "exact_declared_byte_removal": true,
+      "all_other_bytes_including_comment_encoding_and_line_endings_equal": true
+    },
+    "desk": {
+      "candidate_sha256": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "omission_sha256": "0c5552306fb975d23f2eb63095ef5589c444bf0094b102c7be6174141219ca5b",
+      "removed_bytes": 338,
+      "exact_declared_byte_removal": true,
+      "all_other_bytes_including_comment_encoding_and_line_endings_equal": true
+    },
+    "footprint": {
+      "candidate_sha256": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "omission_sha256": "0c80cb42f4f0ee295b500d068424650b5723db5f219652ec409c34e456f21e4b",
+      "removed_bytes": 69,
+      "exact_declared_byte_removal": true,
+      "all_other_bytes_including_comment_encoding_and_line_endings_equal": true
+    }
+  },
+  "fixture_sha256": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b",
+  "scene_sha256": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+  "offline_15_test_source_hashes_still_match": true,
+  "new_test_targets_absent": true,
+  "reused_helpers": {
+    "core.py": {
+      "current_sha256": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "historical_source_sha256": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "byte_identical": true
+    },
+    "support.py": {
+      "current_sha256": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "historical_source_sha256": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "byte_identical": true
+    },
+    "runner_bridge.ps1": {
+      "current_sha256": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "historical_source_sha256": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "byte_identical": true
+    }
+  }
+}

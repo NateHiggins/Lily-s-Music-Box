@@ -1,0 +1,16 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 61 spaces / 26 doors / 89 anchors
+[SURFACE] 320 surfaces layered (293 materials)
+[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ORISON V2 RUNTIME] ready startup_ms=4128.609
+[LIGHTING] 57 sources active in system; 57 full personalities; profiles steady/breathe/mains/beat/dropout=[11, 10, 12, 17, 7]
+MINA DESTINATION: mail_bank time=49.0 failures=["resident blocked at (3.289847, -0.000000, -8.130123); next=[19, 20, 21, 32]; capsule blocked by /root/MinaMailRoutineTest/OrisonV2Runtime/OrisonV2Blockout/F01_RITUAL_DESK_MASS/Collision at (3.290005, -0.000000, -8.147622)", "scheduled destination not reached"]
+MINA ROUTINE: direction=outbound domestic=false mail=true metres=50.0503186248243 failures=["resident blocked at (3.289847, -0.000000, -8.130123); next=[19, 20, 21, 32]; capsule blocked by /root/MinaMailRoutineTest/OrisonV2Runtime/OrisonV2Blockout/F01_RITUAL_DESK_MASS/Collision at (3.290005, -0.000000, -8.147622)", "scheduled destination not reached"]

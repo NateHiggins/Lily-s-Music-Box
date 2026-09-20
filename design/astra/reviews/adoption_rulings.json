@@ -1,0 +1,1483 @@
+{
+  "00907dc59dd5a4ebf50f702b14111370782800b1": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "bb4af3159515934fead9dc150c12d36ed4e34e8f"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Review-only at original commit.",
+    "reason": "Stable binary patch ID equals voxel-line lamp replay. Select one representation only; duplicated existence does not confer acceptance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "00b3911bdf9648fe60f790e44cc4b7d8b5dd1737": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "21c8de357afcf43698c66481ae92be70061a79ee"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 8860ff508d49d14b5c02e480bc964f68a00addcb. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "0429c07078f746d020d9bdad8c3cb72ba6fc452a": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Durable scoped M11AA human receipt; keep with accepted implementation.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "0ea23bfd1296a3779773886b1fc062f10288fa23": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11b_service_openings_02/",
+      "path": "design/ORISON_V2_M11B_HUMAN_ACCEPTANCE_RECEIPT_2026-08-31.md",
+      "receipt_commit": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+      "receipt_git_blob": "ff13fd548215cc04af338417b3cfbc8d758d25b4",
+      "reviewed_commit": "0ea23bfd1296a3779773886b1fc062f10288fa23",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Intentional safe F02/F04 core-to-hall openings and generic second instance, under floor review compositions. No full service-spine or production-selector acceptance.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Accepted darkness and tightly framed F04 core-side view.",
+      "Southern F02/F04 heat/telephone/electrical riser choke remains.",
+      "F03 lacks lateral service hall; corrected detector truthfully exposes ABSENT.",
+      "M08F legacy ServiceSet receipt regression historically exits 0 with four ObjectDB/two appliance_pop.ogg resource warnings; not independently attributed by this review."
+    ],
+    "dependencies": [
+      "0429c07078f746d020d9bdad8c3cb72ba6fc452a"
+    ],
+    "evidence_scope": "Focused fresh production blockout plus real PlayerController, and established F02/F04 review compositions. Human receipt is readable openings, not whole-root proof.",
+    "production_consumer": "game/data/orison_v2_blockout.json -> game/scripts/building/orison_v2_blockout.gd generic shared-wall opening path; tools/audit_orison_v2_completeness.py corrected service-edge detector",
+    "reason": "Exact reviewed commit named by M11B human receipt.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "10e3d0b7141063d3c317c2f74c2c6946be2bcf70": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "930a8a00e0ad7f5351909b2074530a682ce2ed8e",
+        "commit": "10e3d0b7141063d3c317c2f74c2c6946be2bcf70",
+        "lines": "3-21",
+        "path": "art/renders/lamp_voxel_diag1/2026-08-29/runtime_01/DIAGNOSIS.md",
+        "sha256": "26467490c786f33690769c19bbdc9e049a29fef02d7dd1102dd34eb18e852e6c"
+      }
+    ],
+    "classification": "EVIDENCE_ONLY",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "7e84f388f5c369b0ffd14c23636aed87dcd24f78"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "LampVoxelDiag1 test scene with CPU vs rendered shader samples.",
+    "reason": "Preserve independent diagnostic and conceptual boundary; does not alter C1D or implement production optics.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "1a284f4d59e7af3ca3a9f7df699ea4ae2a0b0274": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "1da7dd68acdbfceeb94794fdc00092710d3156f0"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Focused test and initial packet; human visual packet later superseded by c8c52aa.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "1b4b5cc430d47f89f06d87346709eeebf175b098": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "edc18ffb7d5830e05acd98cdaa33a422ea4cb038"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Owner-source sidecar; no production reader.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "1da7dd68acdbfceeb94794fdc00092710d3156f0": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "60a1fa8572a85defc318cdad800b30d1cb061a7d"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Standalone exterior module dependency of accepted M11AA.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "218ba5be85e210b4edb3b5725856787bca2ebc9b": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "5296a44c862f7922b5b37fb4b24eef238a180cf3"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Lifecycle weak-reference typing correction; preserve in series.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "21c8de357afcf43698c66481ae92be70061a79ee": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "5a4a7698382728ea909adff0401437f4637ee17e"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): efb48a617c1e9f0d65fe87e6824a06297c48aa8d. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "22350771eb607b2ad365365f6558a0be1c11426e": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "27d18d1cf1f417608fff3dea459fc2010305c563"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "27d18d1cf1f417608fff3dea459fc2010305c563": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "8860ff508d49d14b5c02e480bc964f68a00addcb"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "29ab68d7e7424076a9f3c065bee1b269e4ba18ae": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "c34ad283df148496fbd98e68638470835c930c5c"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Immutable rehearsal evidence packet.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "2c75967b101c20bd428f0b3951cd18ba2f5867ae": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "54efb2f551ba6279c95a681aabbc22724d31b846"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "34b1354a01a7fde0445de8d00309a5babed0ef90": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "f62d69c04067724e15732498cf94dc9034e2f861"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "LampOpticalInstrument initially review-only; later V1 mounts it only behind DREAM_VOXEL_LIGHT=1. Player/save-owner migration remains incomplete.",
+    "reason": "Optical review and focused profile pass; complete furnished-Orison clean teardown stays blocked and no current-base human rollout receipt is found.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "3855fa5e55d7d39f5bc146741cae7223540a9e53": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Current post-adoption audit results must be rerun; report-only data audit remains nonzero."
+    ],
+    "dependencies": [
+      "dcd7f722f0b1e8e5132f4644bfb31749c4b213ac"
+    ],
+    "evidence_scope": "Static audit fixtures and historical V2 dry run",
+    "production_consumer": "tools/audit_data_consumption.py and Godot resource UID resolution; third dry-run report is evidence only",
+    "reason": "Third dry-run report, not runtime implementation.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "4480a7994727f6529e726c41fc7f972d1f199a98": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Cannot adopt mixed committed/uncommitted bytes as an accepted checkpoint.",
+      "Default geometry provider changes to owner_first_cells inside unchanged v1 selector: unchanged selector does not mean unchanged world geometry.",
+      "All 17 cells resident by default; addressability is not streaming.",
+      "Dirty CampaignShell queue-free/replacement change crosses protected dream reconstruction boundary.",
+      "Matrix aggregate final delta +101 objects/+7 resources marked observational, requiring owner/resource attribution and controls.",
+      "Final export/equivalence/semantic-owner/route/performance/lifecycle/audit/protected-hash closure remains PENDING in checkpoint."
+    ],
+    "dependencies": [
+      "503465defa24d19d55b53c9a17bf8a4affdfb5eb"
+    ],
+    "evidence_scope": "Untracked receipts claim real v1 BuildingRoot in both provider modes; fresh clean replay and full source-hash binding are still required. Checkpoint has pending final closures and human review pending.",
+    "production_consumer": "Committed 46d40e9 contains exporter, cell assets/manifests/JSON registry only. Dirty building_root.gd redirects F01 and depends on untracked Floor01CellRegistry + Floor01GeometryConfiguration; dirty CampaignShell and SurfacePass alter teardown.",
+    "reason": "Prewrite baseline for quarantined candidate, no complete production consumer.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "44821bf288f3c2abdbe0a76470749aff43066d3f": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "1b4b5cc430d47f89f06d87346709eeebf175b098"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Disposable exporter; no production asset mutation.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777": {
+    "acceptance_receipt": null,
+    "classification": "QUARANTINED_DIRTY",
+    "debt": [
+      "Cannot adopt mixed committed/uncommitted bytes as an accepted checkpoint.",
+      "Default geometry provider changes to owner_first_cells inside unchanged v1 selector: unchanged selector does not mean unchanged world geometry.",
+      "All 17 cells resident by default; addressability is not streaming.",
+      "Dirty CampaignShell queue-free/replacement change crosses protected dream reconstruction boundary.",
+      "Matrix aggregate final delta +101 objects/+7 resources marked observational, requiring owner/resource attribution and controls.",
+      "Final export/equivalence/semantic-owner/route/performance/lifecycle/audit/protected-hash closure remains PENDING in checkpoint."
+    ],
+    "dependencies": [
+      "4480a7994727f6529e726c41fc7f972d1f199a98"
+    ],
+    "evidence_scope": "Untracked receipts claim real v1 BuildingRoot in both provider modes; fresh clean replay and full source-hash binding are still required. Checkpoint has pending final closures and human review pending.",
+    "production_consumer": "Committed 46d40e9 contains exporter, cell assets/manifests/JSON registry only. Dirty building_root.gd redirects F01 and depends on untracked Floor01CellRegistry + Floor01GeometryConfiguration; dirty CampaignShell and SurfacePass alter teardown.",
+    "reason": "Committed exporter/assets belong to unfinished candidate with dirty consumer implementation.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "4eba3ad9d79e5e7de7a5349706f47618e9f288ad": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "75044f47c66c7b0325f05178709c3aa67c353a53"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 22350771eb607b2ad365365f6558a0be1c11426e. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "503465defa24d19d55b53c9a17bf8a4affdfb5eb": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "29ab68d7e7424076a9f3c065bee1b269e4ba18ae"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Technical closure recommendation is not human acceptance or production cut.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "5296a44c862f7922b5b37fb4b24eef238a180cf3": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "98cc6c1bc2ca70cbde944c35aef567f0b0f4bcd7"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Isolated target-cell harness, not BuildingRoot integration.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "54efb2f551ba6279c95a681aabbc22724d31b846": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "22350771eb607b2ad365365f6558a0be1c11426e"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "5a4a7698382728ea909adff0401437f4637ee17e": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "a9efdc7b26e85a26c958c018b8b5d01e8deacd88"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Already canonical service-round equivalent.",
+    "reason": "git cherry marks patch-equivalent to main commit 2d1cb1d7; do not replay unrelated Orison changes from S1 line.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "5a8b38a14427f12b5fed44a5a6b8aa6cea3d1287": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "702f8f42149e3831928a192a8a762f31b5d42e5b"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "LampOpticalInstrument initially review-only; later V1 mounts it only behind DREAM_VOXEL_LIGHT=1. Player/save-owner migration remains incomplete.",
+    "reason": "Optical review and focused profile pass; complete furnished-Orison clean teardown stays blocked and no current-base human rollout receipt is found.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "5fce28b94097a49bb8a3ae33a6cc3ec2290d2882": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "a85692bd5994e9fa7b20122f59938ea0abd762af"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "60a1fa8572a85defc318cdad800b30d1cb061a7d": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "629db65376c32e613c23049fd2dbbe80276ab100"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Semantic spatial/state dependency of accepted M11AA module.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "629db65376c32e613c23049fd2dbbe80276ab100": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "3855fa5e55d7d39f5bc146741cae7223540a9e53"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Source-owned shop-bucket dependency of accepted M11AA module.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "702f8f42149e3831928a192a8a762f31b5d42e5b": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "UNKNOWN_REQUIRES_REVIEW",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "b5ac8f7fcaacded5e470f88431219ef91bf9b43a"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "DreamSurfaceHeroPresenter has only review-test callers; no production caller. Three plasmodial GLBs are still absent at final voxel tip.",
+    "reason": "Commit subject and L1C report call assets accepted, but exact S2H owner receipt/source hashes/regeneration are missing. At this commit, presenter references eleven absent resources, including four preloaded materials later supplied by failed C1C.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "75044f47c66c7b0325f05178709c3aa67c353a53": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "aa5e067c7490ba9f45045428dbe1e53c9c74361c"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 27d18d1cf1f417608fff3dea459fc2010305c563. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "3bbbc9124524d28d1c58abd0d59b54a84fdf2b46",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-43;91-121",
+        "path": "art/references/dream_critters_v3/MOTION_ACCEPTANCE_RECEIPT.md",
+        "sha256": "d686422695ac92ba8001854b8d3c806d9ad5e81c67ce3bad47e16bc4aa43e860"
+      }
+    ],
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "f1f4c2369faf8e1fbfe3643fb8b79d713c10e0ed"
+      ],
+      "scoped_implementation_commits": [
+        "7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6",
+        "d441309ead2289eec7824c1b33231bcfa9553f93"
+      ]
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "New species use existing production critter species/controller/shader; voxel binding itself is called only by tests at tip, so production microorganisms have no bound voxel texture.",
+    "reason": "Static atlas and later motion PASS authorize exact 7a7281ff plus d441309e under controlled integration; do not inherit failed ancestors or broaden geometry/material authority.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "7e84f388f5c369b0ffd14c23636aed87dcd24f78": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "00907dc59dd5a4ebf50f702b14111370782800b1"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Lamp L1C review scene; no production rollout.",
+    "reason": "Contains lamp changes plus a different hero-presenter variant. Not patch-equivalent to voxel 34b1354 or a naive 702f+34b pair. Seven referenced GLBs absent; L1D/furnished teardown blocked.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "8860ff508d49d14b5c02e480bc964f68a00addcb": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "efb48a617c1e9f0d65fe87e6824a06297c48aa8d"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "89ab096fba6c1f9e098571f8f01399f3f88f0f0c": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "00b3911bdf9648fe60f790e44cc4b7d8b5dd1737"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 27d18d1cf1f417608fff3dea459fc2010305c563. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "918e011d095af7da470452a7f22c657c6093a147": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "049ed2b5722e791935ca9ba5a2ebd78226d628c1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-11",
+        "path": "art/renders/dream_voxel_v1a/2026-08-30/runtime_01/V1A_REVIEW.md",
+        "sha256": "982be684f0d96e0acd1470abb8a7b7de666921e8c42652e789acb2c690c9736d"
+      }
+    ],
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "cacaa0ae150d7b9c74b408f4b4c3829b0a02a3d8"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "ApartmentEncroachment.bind_player -> _enable_voxel_light_presenter; enabled only by DREAM_VOXEL_LIGHT=1, default Mina case, moss renderers on target floor.",
+    "reason": "Later V1A explicitly accepts retained production data path; accept only as dependency of scoped V1A rehearsal, not default rollout.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "98cc6c1bc2ca70cbde944c35aef567f0b0f4bcd7": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "44821bf288f3c2abdbe0a76470749aff43066d3f"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Explicit source-family stallboard ownership correction required before using exporter.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "9cb9db1c7580f55896f4d44c6a9261ab887f7ac9": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "ade6bae89e052f7b781072a00cd6fe09cc4f34ae"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 2c75967b101c20bd428f0b3951cd18ba2f5867ae. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "a0d0a53e7a322f248724225b3325dd1750f17524": {
+    "acceptance_receipt": null,
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Current post-adoption audit results must be rerun; report-only data audit remains nonzero."
+    ],
+    "dependencies": [
+      "c2dc01771bc25b07f5dcf7a6040102345b8c57d5"
+    ],
+    "evidence_scope": "Static audit fixtures and historical V2 dry run",
+    "production_consumer": "tools/audit_data_consumption.py and Godot resource UID resolution; third dry-run report is evidence only",
+    "reason": "Static guard prerequisite for nested shop durability; nonvisual acceptance not required.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "a85692bd5994e9fa7b20122f59938ea0abd762af": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "2c75967b101c20bd428f0b3951cd18ba2f5867ae"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "a8b8d5a1607cebbe0172cc405e7c3fb00bf044bc": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "EVIDENCE_ONLY",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "5fce28b94097a49bb8a3ae33a6cc3ec2290d2882"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Evidence consumer only.",
+    "reason": "Finalizes scoped checkpoint/receipt; does not independently implement or accept visuals.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "a9e455bfede9f89193c9acd0796eb8fc5a0c3548": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11b_service_openings_02/",
+      "path": "design/ORISON_V2_M11B_HUMAN_ACCEPTANCE_RECEIPT_2026-08-31.md",
+      "receipt_commit": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+      "receipt_git_blob": "ff13fd548215cc04af338417b3cfbc8d758d25b4",
+      "reviewed_commit": "0ea23bfd1296a3779773886b1fc062f10288fa23",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Intentional safe F02/F04 core-to-hall openings and generic second instance, under floor review compositions. No full service-spine or production-selector acceptance.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Accepted darkness and tightly framed F04 core-side view.",
+      "Southern F02/F04 heat/telephone/electrical riser choke remains.",
+      "F03 lacks lateral service hall; corrected detector truthfully exposes ABSENT.",
+      "M08F legacy ServiceSet receipt regression historically exits 0 with four ObjectDB/two appliance_pop.ogg resource warnings; not independently attributed by this review."
+    ],
+    "dependencies": [
+      "0ea23bfd1296a3779773886b1fc062f10288fa23"
+    ],
+    "evidence_scope": "Focused fresh production blockout plus real PlayerController, and established F02/F04 review compositions. Human receipt is readable openings, not whole-root proof.",
+    "production_consumer": "game/data/orison_v2_blockout.json -> game/scripts/building/orison_v2_blockout.gd generic shared-wall opening path; tools/audit_orison_v2_completeness.py corrected service-edge detector",
+    "reason": "Last human-accepted linear boundary; receipt accompanies accepted implementation.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "a9efdc7b26e85a26c958c018b8b5d01e8deacd88": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "afdee9aab64fcc6703aa2cef8018697acd7b533d"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): bd311671abdbbb0561a1c338178d17a4c0de1321. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "aa5e067c7490ba9f45045428dbe1e53c9c74361c": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "fa49d7085f724c06580946309aa8c9af2d226df2"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 8860ff508d49d14b5c02e480bc964f68a00addcb. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "ade6bae89e052f7b781072a00cd6fe09cc4f34ae": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "4eba3ad9d79e5e7de7a5349706f47618e9f288ad"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): 54efb2f551ba6279c95a681aabbc22724d31b846. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "b171ba93357c7f2b50cf9b425c998d72b3a42747": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "d6a42c0aa4e83ee1f59c8f8b5c990ca99a89155f",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-50",
+        "path": "art/renders/dream_surface_s2/2026-08-28/README.md",
+        "sha256": "2827cd7d21dcbfe8f00222cbd880f0a100e496be553a0118d9eec135a7228f0e"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "a8b8d5a1607cebbe0172cc405e7c3fb00bf044bc"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production cellular renderer/shader substrate with six-shot isolated review and S1F closure matrix.",
+    "reason": "S2 README reports accepted read and pixel review, but no independently attributable owner PASS was found; preserve scoped technical proof without inferring owner acceptance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "b4c25bc433fb2c784c3f702628f8e61098613e9b": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "2d1cb1d7b222c02d2fafc8b2664fc8f3f52b0c5b"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): bd311671abdbbb0561a1c338178d17a4c0de1321. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "b5ac8f7fcaacded5e470f88431219ef91bf9b43a": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "d6a42c0aa4e83ee1f59c8f8b5c990ca99a89155f",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-50",
+        "path": "art/renders/dream_surface_s2/2026-08-28/README.md",
+        "sha256": "2827cd7d21dcbfe8f00222cbd880f0a100e496be553a0118d9eec135a7228f0e"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "d6b7d340e7ab67fbd056613ab3b9b642d924229a"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production cellular renderer/shader substrate with six-shot isolated review and S1F closure matrix.",
+    "reason": "S2 README reports accepted read and pixel review, but no independently attributable owner PASS was found; preserve scoped technical proof without inferring owner acceptance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "bb4af3159515934fead9dc150c12d36ed4e34e8f": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "e89fa608874fe2b75ecd0f0b52ab84829c884d82"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Review-only at original commit.",
+    "reason": "Stable binary patch ID equals voxel-line lamp replay. Select one representation only; duplicated existence does not confer acceptance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "bd311671abdbbb0561a1c338178d17a4c0de1321": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "e89fa608874fe2b75ecd0f0b52ab84829c884d82"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "c34ad283df148496fbd98e68638470835c930c5c": {
+    "acceptance_receipt": null,
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": [
+      "Real production floor consumer, indexing, visibility, scene reconstruction and streaming remain unproved.",
+      "Wall finish IDs f01_w00..09 versus f01_wall_00..09 require 30 read-only legacy compatibility textures.",
+      "retail_bar_darts_door-1 is authored inverted furniture box, receipted zero emission.",
+      "ROOF_DOOR_01 remains off-slice dependency; do not fabricate.",
+      "NEWS/CIGARS locked refusal is intended.",
+      "Dark bodega, foreground trunk/pole, tight interior/facade frames remain human pending.",
+      "Reported tiny GPU capture samples are not steady gameplay frame performance.",
+      "Ruff historical exit 1: 11 style findings; source compilation and 59 focused tests passed."
+    ],
+    "dependencies": [
+      "218ba5be85e210b4edb3b5725856787bca2ebc9b"
+    ],
+    "evidence_scope": "Disposable deterministic owner-first exporter and isolated real-cell harness with production APIs; five technical seam frames at 1600x900 Forward+. No human art/readability acceptance receipt found.",
+    "production_consumer": "tools/m11c1_floor01_owner_first + game/tests/orison_v2_m11c1_owner_first adapters; production BuildingRoot deliberately not instantiated or redirected. Sidecar is inert in production.",
+    "reason": "Final source commit bound by rehearsal materialization/runtime receipt.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "c955b43be081a36765d4c4c9934c064816b4f4c6"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Exact reviewed commit named by M11AA human receipt.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "c955b43be081a36765d4c4c9934c064816b4f4c6": {
+    "acceptance_receipt": {
+      "packet": "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/",
+      "path": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+      "receipt_commit": "0429c07078f746d020d9bdad8c3cb72ba6fc452a",
+      "receipt_git_blob": "4b5e10b4bf5c9ec1a0df49f2fed4e84e0cf71852",
+      "reviewed_commit": "c8c52aab3a4ed8822c9da81cd28f377bbe107fd8",
+      "reviewed_commit_is_receipt_ancestor": true,
+      "scope": "Bounded isolated exterior-module route readability: Orison, pavement, bodega threshold, deliveries continuation, return. No production-default or whole-route integration claim.",
+      "status": "PASS_HUMAN_ACCEPTED"
+    },
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "Small accepted Orison sign crop.",
+      "Standalone module still needs seamless production-world consumer and streaming.",
+      "Bodega counter proves no-open-order refusal, not a maintenance-part grant; transmitter capsule remains hardware_paint authority.",
+      "Original capture +53 objects/+6 resources superseded for scoped retention by matched M11AA warmed lifecycle."
+    ],
+    "dependencies": [
+      "1a284f4d59e7af3ca3a9f7df699ea4ae2a0b0274"
+    ],
+    "evidence_scope": "Production-class standalone exterior module with real player/camera and local authored lights, not composed whole game. Earlier m11a packet is superseded for human readability by m11aa.",
+    "production_consumer": "game/scenes/building/orison_v2_exterior_cell.tscn -> orison_v2_exterior_cell.gd -> bucket registry, spatial resolver, semantic state, real PlayerController/WorkOrders/MaintenanceShopService/AudioPolicy. Module is isolated; no selector or BuildingRoot scene mounts it.",
+    "reason": "Initial checkpoint, then-human-pending wording superseded by scoped M11AA receipt.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "c96cc9eb72a30c8d308226bcd94e45bcd7c2ff64": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "10045e096a396a96f022fde14f8e2842084e7055",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-9",
+        "path": "art/renders/dream_color_c1d/2026-08-28/voxel_gate_01/C1D_REVIEW.md",
+        "sha256": "098e09e34578fa6ddfa7080f658d0611c592a708aa05537b93881444829c7f06"
+      }
+    ],
+    "classification": "FAILED_GATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "34b1354a01a7fde0445de8d00309a5babed0ef90"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "C1C runtime shot and S2I/C1B review scenes; no accepted production presentation consumer.",
+    "reason": "C1C technical PASS but visual FAIL is explicitly recorded by the later C1D receipt. Its material/light code and asset imports must not ride along merely as ancestors.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "cacaa0ae150d7b9c74b408f4b4c3829b0a02a3d8": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "930a8a00e0ad7f5351909b2074530a682ce2ed8e",
+        "commit": "10e3d0b7141063d3c317c2f74c2c6946be2bcf70",
+        "lines": "3-21",
+        "path": "art/renders/lamp_voxel_diag1/2026-08-29/runtime_01/DIAGNOSIS.md",
+        "sha256": "26467490c786f33690769c19bbdc9e049a29fef02d7dd1102dd34eb18e852e6c"
+      }
+    ],
+    "classification": "FAILED_GATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "c96cc9eb72a30c8d308226bcd94e45bcd7c2ff64"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "DreamColorC1DRuntimeShot isolated diagnostic raymarch; no production caller.",
+    "reason": "DIAGNOSIS explicitly calls C1D conceptually unsuitable: 0.5 m room exposure field cannot provide intracellular optics. Original C1D lacked independent CPU/shader sample comparison and retained voxel texture.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "d441309ead2289eec7824c1b33231bcfa9553f93": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "3bbbc9124524d28d1c58abd0d59b54a84fdf2b46",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-43;91-121",
+        "path": "art/references/dream_critters_v3/MOTION_ACCEPTANCE_RECEIPT.md",
+        "sha256": "d686422695ac92ba8001854b8d3c806d9ad5e81c67ce3bad47e16bc4aa43e860"
+      }
+    ],
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6"
+      ],
+      "scoped_implementation_commits": [
+        "7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6",
+        "d441309ead2289eec7824c1b33231bcfa9553f93"
+      ]
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "DreamMicroorganismMotionShot invokes existing _apply_law at 30 Hz and binds shared texture in test only.",
+    "reason": "Exact d441309e is specifically named with 7a7281ff in human motion acceptance. Harness/evidence scope, not new production mechanics.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "d6b7d340e7ab67fbd056613ab3b9b642d924229a": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "d6a42c0aa4e83ee1f59c8f8b5c990ca99a89155f",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-50",
+        "path": "art/renders/dream_surface_s2/2026-08-28/README.md",
+        "sha256": "2827cd7d21dcbfe8f00222cbd880f0a100e496be553a0118d9eec135a7228f0e"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "b171ba93357c7f2b50cf9b425c998d72b3a42747"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production cellular renderer/shader substrate with six-shot isolated review and S1F closure matrix.",
+    "reason": "S2 README reports accepted read and pixel review, but no independently attributable owner PASS was found; preserve scoped technical proof without inferring owner acceptance.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "dcd7f722f0b1e8e5132f4644bfb31749c4b213ac": {
+    "acceptance_receipt": null,
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": [
+      "Current post-adoption audit results must be rerun; report-only data audit remains nonzero."
+    ],
+    "dependencies": [
+      "a0d0a53e7a322f248724225b3325dd1750f17524"
+    ],
+    "evidence_scope": "Static audit fixtures and historical V2 dry run",
+    "production_consumer": "tools/audit_data_consumption.py and Godot resource UID resolution; third dry-run report is evidence only",
+    "reason": "Guard UID dependency retained as part of accepted linear chain.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "edc18ffb7d5830e05acd98cdaa33a422ea4cb038": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "134 unresolved cross-owner primitives require CELL_LEGACY_MIXED; target-cell independence and seam traversal unproved at this boundary.",
+      "Source/provenance problem superseded only by M11C1 rehearsal, not production implementation."
+    ],
+    "dependencies": [
+      "f0ac9480fd252b2a412d79606b19b26e993125e6"
+    ],
+    "evidence_scope": "Disposable monolith whole-node split/recomposition, matched isolated frames. PASS_WITH_UNPROVEN_SEAMS and production partition refused.",
+    "production_consumer": "tools/m11c0_floor01_rehearsal and disposable external composition only; production floor loader unchanged",
+    "reason": "Records production partition refusal and scoped rehearsal mechanism pass.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "efb48a617c1e9f0d65fe87e6824a06297c48aa8d": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "bd311671abdbbb0561a1c338178d17a4c0de1321"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Production moss, tentacle, critter, fauna and residue renderer files changed; closure includes isolated and production-style captures, not an end-to-end accepted playthrough.",
+    "reason": "Cumulative cellular presentation substrate and closure; S1F explicitly leaves human visual acceptance pending. S1E failures were later identified as incomplete-import artifacts.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "efc5d61f8fb20d2c5ec1cb81be91190715ee467f": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "3bbbc9124524d28d1c58abd0d59b54a84fdf2b46",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-43;91-121",
+        "path": "art/references/dream_critters_v3/MOTION_ACCEPTANCE_RECEIPT.md",
+        "sha256": "d686422695ac92ba8001854b8d3c806d9ad5e81c67ce3bad47e16bc4aa43e860"
+      }
+    ],
+    "classification": "EVIDENCE_ONLY",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "d441309ead2289eec7824c1b33231bcfa9553f93"
+      ],
+      "scoped_implementation_commits": [
+        "7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6",
+        "d441309ead2289eec7824c1b33231bcfa9553f93"
+      ]
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Receipt consumer only.",
+    "reason": "Documentation-only acceptance commit explicitly says it cannot substitute for the two implementation hashes.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "f0ac9480fd252b2a412d79606b19b26e993125e6": {
+    "acceptance_receipt": null,
+    "classification": "EVIDENCE_ONLY",
+    "debt": [
+      "134 unresolved cross-owner primitives require CELL_LEGACY_MIXED; target-cell independence and seam traversal unproved at this boundary.",
+      "Source/provenance problem superseded only by M11C1 rehearsal, not production implementation."
+    ],
+    "dependencies": [
+      "a9e455bfede9f89193c9acd0796eb8fc5a0c3548"
+    ],
+    "evidence_scope": "Disposable monolith whole-node split/recomposition, matched isolated frames. PASS_WITH_UNPROVEN_SEAMS and production partition refused.",
+    "production_consumer": "tools/m11c0_floor01_rehearsal and disposable external composition only; production floor loader unchanged",
+    "reason": "Disposable cut instruments; production partition FAILED_GATE.",
+    "review_source": "reviews/m11_review.json"
+  },
+  "f1f4c2369faf8e1fbfe3643fb8b79d713c10e0ed": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "049ed2b5722e791935ca9ba5a2ebd78226d628c1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-11",
+        "path": "art/renders/dream_voxel_v1a/2026-08-30/runtime_01/V1A_REVIEW.md",
+        "sha256": "982be684f0d96e0acd1470abb8a7b7de666921e8c42652e789acb2c690c9736d"
+      }
+    ],
+    "classification": "ACCEPTED_CANDIDATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "918e011d095af7da470452a7f22c657c6093a147"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Same default-off ApartmentEncroachment moss bridge; presenter creates its own field; reconstruct_from_durable has no production caller.",
+    "reason": "Explicit human visual PASS 2026-08-31; receipt explicitly remains isolated/unmerged and leaves S2J/L1D unchanged. Dependency closure and actual production save integration are not accepted.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "f62d69c04067724e15732498cf94dc9034e2f861": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "377eecd9da3dfb37703b2367b1779a57b8740bb1",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "3-29",
+        "path": "art/renders/lamp_optics_l1c/review_01/README.md",
+        "sha256": "555ce1461975f645f2696cdd3f11b0ff5353ce639815d8bb80daa18784aec30d"
+      }
+    ],
+    "classification": "TECHNICALLY_PROVEN_BUT_HUMAN_PENDING",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "5a8b38a14427f12b5fed44a5a6b8aa6cea3d1287"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "LampOpticalInstrument initially review-only; later V1 mounts it only behind DREAM_VOXEL_LIGHT=1. Player/save-owner migration remains incomplete.",
+    "reason": "Optical review and focused profile pass; complete furnished-Orison clean teardown stays blocked and no current-base human rollout receipt is found.",
+    "review_source": "reviews/dream_review.json"
+  },
+  "fa49d7085f724c06580946309aa8c9af2d226df2": {
+    "acceptance_receipt": [
+      {
+        "blob_sha": "2f37bdd7bfbdcb13c0b7c86a782f5af3187c9629",
+        "commit": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+        "lines": "7-34",
+        "path": "design/DREAM_SURFACE_S1F_CHECKPOINT_2026-08-28.md",
+        "sha256": "c74554f131fbfecd8c0304095e167d0674b5766f32c2aacfa45545f58b4cd443"
+      }
+    ],
+    "classification": "DUPLICATE",
+    "debt": "See rationale, historical scope, findings and receipt; current composed gameplay and target-machine proof remain open.",
+    "dependencies": {
+      "adoption_note": "Git ancestry is not an instruction to adopt all parents; close source/resource dependencies individually while excluding failed/dirty material.",
+      "git_parent": [
+        "b4c25bc433fb2c784c3f702628f8e61098613e9b"
+      ],
+      "scoped_implementation_commits": []
+    },
+    "evidence_scope": "Mixed isolated review and production-class fixture; detailed scope above. No current canonical integrated acceptance.",
+    "production_consumer": "Use only selected S1F series for any future rehearsal.",
+    "reason": "Stable binary patch equivalent of selected S1F/voxel-line commit(s): efb48a617c1e9f0d65fe87e6824a06297c48aa8d. Earlier worktree imports/receipts remain separate provenance.",
+    "review_source": "reviews/dream_review.json"
+  }
+}

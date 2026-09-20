@@ -1,0 +1,31 @@
+{
+	"distance_m": 2.84999664872885,
+	"natural_return": true,
+	"outcomes": [
+		{
+			"case_id": "mina_caption_crisis",
+			"outcome": "capture"
+		}
+	],
+	"rooms": [
+		"@0.0.1.0.1"
+	],
+	"trace": [
+		{
+			"collision_mask": 1,
+			"distance": 0.0,
+			"noclip": false,
+			"position": "(4.07, 0.0, 2.9)",
+			"room": "@0.0.1.0.1",
+			"seconds": 0.0
+		},
+		{
+			"collision_mask": 1,
+			"distance": 2.84999664872885,
+			"noclip": false,
+			"position": "(1.534756, 0.0, 1.598071)",
+			"room": "@0.0.1.0.1",
+			"seconds": 2.013
+		}
+	]
+}

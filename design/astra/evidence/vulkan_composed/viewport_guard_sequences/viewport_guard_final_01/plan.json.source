@@ -1,0 +1,145 @@
+{
+  "schema": "astra.vulkan_composed.viewport_guard_execution_plan.v1",
+  "status": "PREPARED_ONLY_NO_ENGINE_OR_LIVE_SOURCE_MUTATION",
+  "root": "v1",
+  "recommended_scope": "full",
+  "root_candidate_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+  "viewport_only_selected_sha256": "5308026936229c5728ed93691c24f7f48afb45dc2810788869eca723fe13a665",
+  "helper_only_selected_sha256": "ead71c7487a9cff74fd5e975170629f097cb598f74ecafdcb3396326a852c021",
+  "operation_contract": "select_variant(candidate, viewport_omission): replace exactly the SubViewport ancestry guard and its comment; retain the one same-scenario rebind operation, all other source and CRLF bytes. Restore exact candidate in finally.",
+  "source_bindings": {
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "design/astra/work/vulkan_composed/variant_case.py": "2a0860954c1ee24762a095e53a2ff8a48763ce653b7b9086c185ccdbfc8a5e24",
+    "design/astra/work/vulkan_composed/run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "design/astra/work/vulkan_composed/gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "design/astra/work/vulkan_composed/pair_bookkeeping_case.py": "a8e29f230442b21668ca04ea5b33f9f92194d8a58994c1373040a00e30073ae5",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+  },
+  "owner_binding": {
+    "observed_while_planning": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "final_owner_handoff_required": true,
+    "rule": "Bind the final owner and complete game/tools input snapshot at execution; any later one-census owner requires its explicit source handoff. Keep every non-root input identical across omission/restored. Do not describe this plan as execution on that later owner."
+  },
+  "run_names": {
+    "omission": "viewport_guard_final_01_omission",
+    "restored": "viewport_guard_final_01_restored",
+    "fresh_when_planned": true
+  },
+  "scope_contracts": {
+    "full": {
+      "checks": 305,
+      "captures": 18,
+      "separate_world_case_executed": true
+    },
+    "root_retirement": {
+      "checks": 296,
+      "captures": 15,
+      "separate_world_case_executed": false,
+      "required_exclusion_phase": "[VULKAN COMPOSED PHASE] separate_world_case_explicitly_excluded"
+    }
+  },
+  "required_full_captures": [
+    "initial_street",
+    "initial_passage",
+    "initial_orison",
+    "initial_f04",
+    "initial_harukiya",
+    "before_retirement_passage",
+    "return_harukiya",
+    "actual_f04_mirror",
+    "actual_f04_reflection",
+    "separate_world_initial",
+    "separate_world_restored",
+    "separate_world_blocked",
+    "initial_street_phone",
+    "initial_passage_phone",
+    "initial_orison_phone",
+    "before_retirement_passage_phone",
+    "actual_arcade_before_passage",
+    "actual_arcade_after_passage"
+  ],
+  "narrow_scope_excludes": [
+    "separate_world_initial",
+    "separate_world_restored",
+    "separate_world_blocked"
+  ],
+  "exact_required_retirement_checks": [
+    "actual shell retired",
+    "actual selected world retired"
+  ],
+  "expected_red": {
+    "actual_engine_exit": 1,
+    "diagnostic_gate_exit": 1,
+    "expected_viewport_guard_red_observed": true,
+    "required_reason_set": [
+      "actual engine/runner exit 1",
+      "functional checks failed or missing"
+    ],
+    "required_witness": {
+      "kind": "still_live_baseline_geometry_corrupted",
+      "expected_mask_differs_from_actual": true,
+      "same_own_scenario": true,
+      "owner_state_booted": true
+    },
+    "permitted_failed_labels": [
+      "arcade lifecycle/isolation after street",
+      "arcade lifecycle/isolation after passage",
+      "arcade lifecycle/isolation after orison",
+      "arcade lifecycle/isolation after f04",
+      "arcade lifecycle/isolation after harukiya",
+      "arcade own-world geometry never acquired building masks"
+    ],
+    "permitted_dynamic_failed_label": "return reactivates actual nearby arcade owner <actual recorded cabinet owner path>",
+    "fixed_number_of_failed_assertions_predicted": false,
+    "reason": "Owner retirement/reboot timing may change which isolation checks fail; a specific live mask-corruption witness is mandatory and unrelated/missing checks remain invalid."
+  },
+  "restored_green": {
+    "actual_engine_exit": 0,
+    "diagnostic_gate_exit": 0,
+    "all_checks_pass": true,
+    "same_scope_and_all_non_root_inputs": true,
+    "same_engines_and_wrapper_inputs": true,
+    "exact_candidate_restoration_in_both_transactions": true
+  },
+  "post_run_review": [
+    "Use existing pair_bookkeeping_case.load_run / validate_artifacts to verify immutable artifacts, copied-source bindings and strict gate reproduction; do not apply the paired-native-error assessor to the viewport contract.",
+    "Compare ordered check labels to the retained same-fixture reference for selected scope and require exact305/296 total plus unique passing real shell/world retirement assertions.",
+    "Require36 measured transitions, complete selected captures and inspect every PNG including actual cabinet before/after; an intentionally corrupted capture may be red evidence but must still be captured from a live real owner.",
+    "Review raw streams beyond the gate: no project/script/native pairing errors or retention; only already documented loader and RGB8/found-art warning categories may be inherited. Unknown warning remains unresolved.",
+    "Compare before/after file maps of both runs after removing only building_root; compare engine/wrapper bindings and exact transaction source copies/hashes.",
+    "A crash, timeout, missing probe, legitimate owner unloading without live corruption, failed material/route/capture/retirement check or source drift is invalid evidence, never intended-only red."
+  ],
+  "pairing_proof_decision": {
+    "rerun_for_material_ownership_only": false,
+    "retained_sequence": "design/astra/evidence/vulkan_composed/pair_bookkeeping_sequences/foundations_pair_01/receipt.json",
+    "retained_sequence_sha256": "435d1ebe441cc0d71ad4f97c8d58d7d6d86df833585cac1c6299102923a66051",
+    "scope": "Historical root_retirement source-operation necessity followed by historical exact restored green; not current whole-tree evidence.",
+    "unchanged_relevant_consumers": [
+      "BuildingRoot cde44 including operation and callsites",
+      "SurfacePass2e7fc",
+      "base fixture5ec63",
+      "CampaignShell6d4e9",
+      "ArcadeMachine d8d431",
+      "ArcadeCabinetProp6cdd1"
+    ],
+    "changed_context": [
+      "ApartmentEncroachment c989 to2a440 and possible later one-census changes",
+      "ResidentNav and ResidentRoutines since historical pair"
+    ],
+    "required_current_evidence": "Final-current complete V1 green with raw native diagnostics and retirement; fresh viewport control is separately required.",
+    "rerun_triggers": [
+      "Layer helper or mask/blocker/index logic changes",
+      "Renderer/engine source or binary changes",
+      "Scenario/light/shadow/geometry ownership or teardown contract changes that affect the operation",
+      "Final-current green produces either native pairing signature",
+      "Owner explicitly requests necessity proof on the exact final full-tree snapshot"
+    ]
+  },
+  "limits": [
+    "No new runtime, capture inspection, engine binary hash or full-tree hash was performed while preparing this plan.",
+    "Base fixture is intentional for an isolated arcade red; d67 stronger material proof is separate. Installing d67 would change totals to314/305 and requires a revised declared contract and additive v2 gate.",
+    "V2 has no V1 zone/guard API; only candidate full is applicable there, with two semantic stance/phone captures and real retirement. It is not an omission control."
+  ]
+}

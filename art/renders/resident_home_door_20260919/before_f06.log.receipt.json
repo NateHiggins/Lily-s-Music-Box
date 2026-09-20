@@ -1,0 +1,83 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.7,
+  "exit_code": 1,
+  "finished_utc": "2026-09-20T01:03:14Z",
+  "started_utc": "2026-09-20T01:02:24Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "[RESIDENT LIFT WAIT] FAIL production movement reaches waiting point without body collision"
+  ],
+  "pass_count": 18,
+  "pass_lines": [
+   "[RESIDENT LIFT WAIT] PASS actual legacy routines and navigation exist",
+   "[RESIDENT LIFT WAIT] PASS closest actual home is Sacha Reed in6A",
+   "[RESIDENT LIFT WAIT] PASS reported start is inside the authored home pacing envelope",
+   "[RESIDENT LIFT WAIT] PASS actual public lift target equals recorded endpoint",
+   "[RESIDENT LIFT WAIT] PASS deterministic elevator choice seed exists",
+   "[RESIDENT LIFT WAIT] PASS normal departure chooses elevator stage",
+   "[RESIDENT LIFT WAIT] PASS recorded departure reaches public waiting point",
+   "[RESIDENT LIFT WAIT] PASS original three furniture-blocked exits remain refused",
+   "[RESIDENT LIFT WAIT] PASS F06 has body-proved room detours",
+   "[RESIDENT LIFT WAIT] PASS actual Sacha Body capsule is available",
+   "[RESIDENT LIFT WAIT] PASS portal proof matches actual resident Body dimensions",
+   "[RESIDENT LIFT WAIT] PASS whole recorded route clears actual body, masonry and furniture",
+   "[RESIDENT LIFT WAIT] PASS neighbouring bath masonry blocks the actual body",
+   "[RESIDENT LIFT WAIT] PASS neighbouring bath masonry blocks detour and direct admission",
+   "[RESIDENT LIFT WAIT] PASS recorded switch contact retains conservative endpoint refusal",
+   "[RESIDENT LIFT WAIT] PASS actual NPC door owner opens its home leaf",
+   "[RESIDENT LIFT WAIT] PASS recorded departure adds no unreachable event",
+   "[RESIDENT LIFT WAIT] PASS actual legacy root retired"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/door_prepared/before/f06.log.stderr",
+  "stderr_sha256": "8f25121c851eb5b532ceed16b6b938ecb50bb97081b77204ed6de3d4840dde9c",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/door_prepared/before/f06.log",
+  "stdout_sha256": "797ff08e6ca88d878c0f8d6eba6e91cbcbe8453f7cc53057db0be1ae06d142ce"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ResidentF06RouteTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/door_prepared/before/f06_shots",
+ "source": {
+  "dirty_paths": 172,
+  "dirty_sample": [
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_household_accessories.gd.uid",
+   "?? game/scripts/building/orison_v2_household_radiator.gd.uid",
+   "?? game/scripts/building/orison_v2_household_state.gd.uid",
+   "?? game/scripts/building/orison_v2_lamp_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_laundry.gd.uid",
+   "?? game/scripts/building/orison_v2_medicine_cabinet.gd.uid",
+   "?? game/scripts/building/orison_v2_prep_cabinet.gd.uid",
+   "?? game/scripts/building/orison_v2_projector_prop.gd.uid",
+   "?? game/scripts/building/orison_v2_projectors.gd.uid",
+   "?? game/scripts/building/orison_v2_radio_prop.gd.uid"
+  ],
+  "repository_head": "c697ccbafea0327d2f2ad45907dd050a6b7929b6",
+  "repository_tree": "6243bcb11abe1f018fe74b482879463949b570c8",
+  "runtime_inputs_sha256": "2979d60dbb1ef4514773c1721606b4ec191b418fdc96e9e024b2342c1573b854",
+  "test_path": "game/tests/resident_f06_route_test.gd",
+  "test_sha256": "c87dfd2b357574c4dcd4c90b2af21a05c1b1d9c727bdb3912b562ba31d11cc7a"
+ },
+ "windowed": true
+}

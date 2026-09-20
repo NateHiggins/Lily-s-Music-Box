@@ -36,6 +36,70 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "building/orison_v2_prep_cabinet.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_prep_cabinet.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_prep_cabinet.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "SlidingPanel forwards prompt and action to its cabinet member; the cabinet owns the tween, open state and signal.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "inherited base",
+   "action_source": "props/domestic_radio_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_radio_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_radio_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "inherited from props/domestic_radio_prop.gd via extends chain",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/orison_v2_water_controls.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_water_controls.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_water_controls.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "FixtureBody deliberately returns an empty prompt and no-op action to stop ancestor water activation; the separate valve caps delegate flow to TapProp.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/orison_v2_water_valve.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_water_valve.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_water_valve.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Valve-cap target delegates hot/cold flow to its owning TapProp; no local flow or save state.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "building/room0.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
@@ -747,6 +811,22 @@
    "identity": {
     "family": "control_prompt",
     "file": "props/laundry_airer_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/lobby_bulletin_board.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/lobby_bulletin_board.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/lobby_bulletin_board.gd"
    },
    "method": "control_prompt",
    "protocol": "named-control",

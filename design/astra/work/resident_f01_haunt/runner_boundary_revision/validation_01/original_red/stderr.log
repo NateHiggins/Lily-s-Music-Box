@@ -1,0 +1,17 @@
+test_timeout_write_error_keeps_124 (__main__.Boundary.test_timeout_write_error_keeps_124) ... FAIL
+
+======================================================================
+FAIL: test_timeout_write_error_keeps_124 (__main__.Boundary.test_timeout_write_error_keeps_124)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\test_boundary.py", line 65, in test_timeout_write_error_keeps_124
+    result = self.case("timeout_write_error", "Write-Error 'stub timeout sentinel'; exit 124", 124)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\test_boundary.py", line 61, in case
+    self.assertEqual(result.returncode, expected)
+AssertionError: 1 != 124
+
+----------------------------------------------------------------------
+Ran 1 test in 0.723s
+
+FAILED (failures=1)

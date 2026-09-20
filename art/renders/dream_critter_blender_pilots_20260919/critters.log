@@ -1,0 +1,255 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+[critter ok] 1600 individuals across 4 species, none violates its own species rules (0 violations)
+[critter] within-species spread 0.526 .. 1.621
+[critter ok] ten of one species are individually distinguishable (max 1.62)
+[critter] closest pair from DIFFERENT species: 2.269
+[critter ok] species do not overlap: the closest cross-species pair (2.27) is further apart than the furthest same-species pair (1.62)
+[critter] hue bias 0.00..1.00, wetness 0.25..0.95 across 500
+[critter ok] individuals differ in material balance (hue spread 1.00)
+[critter ok] §26 nothing leaves the Dream colour language (0 strays)
+[critter] two crabs differ in 7 of 7 movement properties
+[critter ok] §20 two of a species move differently in more than speed (7/7)
+[critter ok] seam_grazer carries a thesis and exactly one law
+[critter ok] crystal_listener carries a thesis and exactly one law
+[critter ok] fold_crab carries a thesis and exactly one law
+[critter ok] tardigrade carries a thesis and exactly one law
+[critter ok] each species has its OWN law, not a shared effect (4 laws / 4)
+[critter ok] 400 tardigrades retain four lobopod pairs, circumoral anatomy, double claws and cat scale (0 failures)
+[critter] in 2000: 115 extra-feelered, 20 great-crystal
+[critter ok] rare morphs occur (115) and stay rare (5.8%)
+[critter ok] very rare morphs are very rare (20 in 2000)
+[critter ok] a seed always produces the same individual
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.421 asset_manifest_parse_ms=1.312 asset_manifest_sha256_ms=0.427 bound_files_total_ms=109.479 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=35.909 cell_descriptor_parse_ms=22.160 compatibility_aliases_parse_ms=2.234 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.537 index_ms=1.102 lineage_parsed=false lineage_sha256_ms=35.998 registry_manifest_read_parse_ms=2.649 registry_manifest_validate_ms=3.659 total_ms=116.898
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.093 cell_count=17.0 instantiate_ms=15.045 load_ms=3037.160 total_ms=3054.763
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 540 nodes across 8 floors; 7 stair links; elevator linked; 65 wall-crossing edges rejected; 1516 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 74 materials
+[ENCROACH] living field on F04 binds 79 materials
+[ENCROACH] living field on F06 binds 77 materials
+[ENCROACH] living field on F05 binds 82 materials
+[ENCROACH] living field on F03 binds 85 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director inert: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 759 foreign, 4 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 1080 foreign draws, 37 foreign lights registered
+[STREET] 1665 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 927 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 406 materials
+[ENCROACH] living field on F04 binds 251 materials
+[ENCROACH] living field on F06 binds 231 materials
+[ENCROACH] living field on F05 binds 225 materials
+[ENCROACH] living field on F03 binds 262 materials
+[NAV] room detour validation: 772.509 ms
+[NAV] full collision validation: 1615.777 ms
+[NAV] room detours: 52 body-clear nodes, 176 body-clear links
+[NAV] collision audit: 992 edges cut by real geometry, 0 island nodes relinked, 0 stair legs obstructed
+[SANITY] teresa_call_bells rung 2 (pressure 0.24, 2 acts)
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 927 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 406 materials
+[ENCROACH] living field on F04 binds 251 materials
+[ENCROACH] living field on F06 binds 231 materials
+[ENCROACH] living field on F05 binds 225 materials
+[ENCROACH] living field on F03 binds 262 materials
+[ELEVATOR] F01 -> F04 (8.0s)
+[critter ok] the encroachment owns a critter controller
+[critter ok] four subjects are available for the arranged mechanisms
+[critter ok] 18s life survives until its boundary with 0.00833s steps
+[critter ok] 18s life expires exactly once with 0.00833s steps
+[critter ok] 18s life survives until its boundary with 0.03333s steps
+[critter ok] 18s life expires exactly once with 0.03333s steps
+[critter ok] 18s life survives until its boundary with 0.25000s steps
+[critter ok] 18s life expires exactly once with 0.25000s steps
+[critter ok] 40s life survives until its boundary with 0.00833s steps
+[critter ok] 40s life expires exactly once with 0.00833s steps
+[critter ok] 40s life survives until its boundary with 0.03333s steps
+[critter ok] 40s life expires exactly once with 0.03333s steps
+[critter ok] 40s life survives until its boundary with 0.25000s steps
+[critter ok] 40s life expires exactly once with 0.25000s steps
+[critter ok] birth 0 retains the production 18-40 second lifespan
+[critter ok] birth 1 retains the production 18-40 second lifespan
+[critter ok] birth 2 retains the production 18-40 second lifespan
+[critter ok] birth 3 retains the production 18-40 second lifespan
+[critter ok] birth 4 retains the production 18-40 second lifespan
+[critter ok] birth 5 retains the production 18-40 second lifespan
+[critter ok] birth 6 retains the production 18-40 second lifespan
+[critter ok] birth 7 retains the production 18-40 second lifespan
+[critter] in world: { "live": 8, "born": 8, "species": { "mesodinium": 3, "vorticella": 1, "lacrymaria": 2, "noctiluca": 1, "bacillaria": 1 }, "max": 8, "on_both_sides": 0, "folding_a_leg": 0, "draw_calls": 1, "mesh_surfaces": 1, "materials": 1, "crab_manipulators_per_animal": 2, "cached_crab_joint_rows": 96, "nudged_by_a_palp": 0, "unfolding_at_the_hero": 0, "grooming_a_palp": 0, "hiding_under_a_palp": 0, "riding_a_palp": 0, "used_one_as_a_bridge": 0, "rode_one_out": 0, "following_a_palp": 0, "feeding_on_residue": 0, "feel_hero": 0, "approaching_hero": 0, "photo_receptors": 0, "photo_responding": 0, "photoshocks": 0, "mechanical_receptors": 0, "mechanical_responding": 0, "mechanical_received": 0 }
+[critter ok] individuals are born on surfaces (8 live, 8 born)
+[critter ok] more than one species is present (5)
+[critter] furthest travelled 0.857 m, 0 of 8 airborne
+[critter ok] they walk (furthest 0.857 m in 9 s)
+[critter ok] they stay on the architecture (0 airborne)
+[critter ok] the whole population draws in one mesh
+[critter fixture] id=0 original_age=20.117 original_life=36.492
+[critter fixture] id=1 original_age=16.517 original_life=35.577
+[critter fixture] id=2 original_age=15.617 original_life=37.826
+[critter fixture] id=3 original_age=13.817 original_life=27.179
+[ELEVATOR] F04 -> F01 (8.0s)
+[SANITY] evelyn_paper_jam rung 2 (pressure 0.27, 2 acts)
+[INCIDENTS] Lena Ortiz reports Mina Vale's organism in 2B (326 voxels): ORG-2B-001
+[INCIDENTS] condition in 2B: stove (/root/DreamCritterTest/OrisonRoot/F02_2B_STOVE_01) held
+[ELEVATOR] F01 -> F02 (2.7s)
+[ELEVATOR] F02 -> F01 (2.7s)
+[SANITY] unwitnessed (1 in a row)
+[critter] laws: twin true (gap 0.207 m), spin advanced 33.39 rad, leg folded true (body moved 0.000 m during it)
+[critter] (emergent, not asserted) grazer twinned: true
+[critter ok] crystal listener: its resonator turned (33.39 rad) while its shell orientation is never written at all
+[critter ok] fold crab: a leg went shorter than the gap it spans
+[critter ok] and it did so without the animal moving (0.000 m)
+[critter ok] cat-sized tardigrade: the same body entered its bounded tun contraction
+[ELEVATOR] F01 -> F02 (2.7s)
+[ELEVATOR] F02 -> F03 (2.7s)
+[ELEVATOR] F03 -> F05 (5.3s)
+[SANITY] transient_infinite_checkout rung 3 (pressure 0.41, 2 acts)
+[critter] habitat: 0 shoved by a palp, 0 following one
+[critter] (emergent, not asserted) margin encounters: 0
+[critter ok] the hero is present for the critters to react to
+[ELEVATOR] F05 -> F04 (2.7s)
+[ELEVATOR] F04 -> F01 (8.0s)
+[SANITY] unwitnessed (2 in a row)
+[ELEVATOR] F01 -> F04 (8.0s)
+[critter] hero: 0 felt it, 0 approached anyway, hero noticed one: false
+[critter] (emergent, not asserted) felt hero 0, approached 0, hero noticed: false
+[critter ok] the four identified mechanism subjects survive the observation window
+[critter ok] a seam grazer exists to test the mechanism on
+[critter] constructed: twin=true at (0.0, 200.0, -0.043465) (body at (0.0, 200.0, 0.043465))
+[critter ok] §24 seam grazer: on a 6 cm panel it occupies BOTH faces
+[critter ok] its two appearances are on opposite faces (0.087 m apart)
+[critter ok] and it faces one way, not two
+[critter ok] §22 the hero notices a critter placed beside its club
+[critter ok] the live margin and animal are available for every habitat mechanism
+[critter ok] critters and the margin share a world: a nearby palp shoves the animal
+[critter ok] a curious animal follows the nearby palp to its discovery
+[critter ok] a distant palp neither shoves nor recruits the animal
+[critter ok] §21 a sociable animal grooms an appendage that is holding still
+[critter ok] §21 a nervous animal hides when the margin takes fright
+[critter ok] §21 and it turns toward the anchor, not the tip (-1.00 -> 0.03)
+[critter ok] §21 an animal feeding on residue turns the appendages around it (3)
+[critter ok] §21 and announces it once, not every frame (0)
+[critter ok] §21 a bold animal climbs onto an appendage at its base
+[critter ok] §21 and it is carried by the organ rather than by the floor (0.212 m)
+[critter ok] §21 an animal on an appendage that is still emerging rides it out
+[critter ok] §21 an animal that reaches a resting tip crosses to what it rests on
+[critter ok] §21 but a tip waving in the air is not a bridge
+[critter] branch 144 unfold 1.00 critter_near 0.52 target (-11.12389, 3.951856, 2.085579)
+[critter ok] §21 a branch inspects an animal that comes within its reach
+[critter] { "live": 8, "born": 14, "species": { "seam_grazer": 1, "crystal_listener": 1, "fold_crab": 1, "tardigrade": 1, "euplotes": 3, "vorticella": 1 }, "max": 8, "on_both_sides": 0, "folding_a_leg": 0, "draw_calls": 1, "mesh_surfaces": 1, "materials": 1, "crab_manipulators_per_animal": 2, "cached_crab_joint_rows": 96, "nudged_by_a_palp": 0, "unfolding_at_the_hero": 1, "grooming_a_palp": 0, "hiding_under_a_palp": 0, "riding_a_palp": 0, "used_one_as_a_bridge": 0, "rode_one_out": 1, "following_a_palp": 2, "feeding_on_residue": 1, "feel_hero": 0, "approaching_hero": 0, "photo_receptors": 1, "photo_responding": 0, "photoshocks": 0, "mechanical_receptors": 1, "mechanical_responding": 0, "mechanical_received": 0 }
+[critter ok] the production critter world retires before process exit
+[critter ok] observed production decoders retire through their owners and AudioServer
+CRITTER RETIREMENT: observed_decoders=108 live_decoders=0 frames=2 elapsed_ms=256
+DREAM CRITTER TEST: PASS (70/70)

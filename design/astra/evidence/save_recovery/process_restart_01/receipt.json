@@ -1,0 +1,127 @@
+{
+  "schema": "astra.save_recovery.process_restart.v1",
+  "started_utc": "2026-09-05T04:58:25.533864+00:00",
+  "scope": "real process termination/restart at marked storage boundaries; no power-loss atomicity claim",
+  "source_before": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "14cd055abe05b8c87e1cdf7d48d2b456ed6e870023ef55dbd32794603d954650",
+    "file_count": 1152
+  },
+  "cases": [
+    {
+      "name": "before_promote",
+      "processes": [
+        {
+          "mode": "writer",
+          "boundary": "before_promote",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_01\\before_promote\\writer\\command.ps1"
+          ],
+          "runner_pid": 29432,
+          "started_utc": "2026-09-05T04:58:25.828371+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_01\\before_promote\\appdata",
+          "nonce": "1ef3cd30-c600-403e-80a7-b9306cd3e700",
+          "marker": {
+            "boundary": "before_promote",
+            "gap_delete_error": 0,
+            "nonce": "1ef3cd30-c600-403e-80a7-b9306cd3e700",
+            "operation": "rename",
+            "pid": 29648,
+            "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_01/before_promote/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+            "stage": "promote"
+          },
+          "controller_error": "RuntimeError('Marker PID does not belong to this exact serial-runner process.')",
+          "runner_exit": 1,
+          "finished_utc": "2026-09-05T04:58:41.503770+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] WAIT pid=29648 boundary=before_promote",
+            "[SAVE RESTART] FAIL mode=writer failures=1"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 1,
+            "last_save_result": {
+              "code": "save_write_failed",
+              "ok": false,
+              "protection_required": false,
+              "recovered": true,
+              "stage": "promote_or_verify"
+            },
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "writer",
+            "pid": 29648,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 3.25,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {
+                "active": false,
+                "case_id": "mina_caption_crisis",
+                "night_index": 0.0,
+                "phase": "return_pending",
+                "profile_id": "mina_release_print",
+                "seed_hex": "1928000019280000",
+                "window": {}
+              },
+              "item": {
+                "consumed": true,
+                "shop_id": "hardware"
+              },
+              "job": {
+                "evidence": [
+                  "carbon_capsule_failed"
+                ],
+                "issued_at_basis": "fixture_basis_preserved",
+                "origin": "reported",
+                "repair_result": {
+                  "quality": "good"
+                },
+                "stage": "closed"
+              },
+              "seed": "1928000019280000",
+              "version": 4.0
+            },
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": false
+        }
+      ],
+      "before": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      }
+    }
+  ],
+  "source_after": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "14cd055abe05b8c87e1cdf7d48d2b456ed6e870023ef55dbd32794603d954650",
+    "file_count": 1152
+  },
+  "source_unchanged": true,
+  "finished_utc": "2026-09-05T04:58:41.628251+00:00",
+  "passed": false
+}

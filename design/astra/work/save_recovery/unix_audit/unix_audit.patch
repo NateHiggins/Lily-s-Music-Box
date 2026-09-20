@@ -1,0 +1,152 @@
+--- a/tools/audit_systemic_situation_authority.py
++++ b/tools/audit_systemic_situation_authority.py
+@@ -257,6 +257,7 @@
+     r"Time\.get_time_(?:dict|string)_from_system\(|"
+     r"Time\.get_date_dict_from_system\(|"
+     r"OS\.get_ticks")
++HOST_UNIX_RE = re.compile(r"Time\.get_unix_time_from_system\(")
+ HOST_CALENDAR_RE = re.compile(
+     r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
+ CALENDAR_FIELD_ACCESS_RE = re.compile(
+@@ -378,7 +379,8 @@
+         for name, body in bodies.items():
+             filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
+                 not CALENDAR_DURABLE_RE.search(body)
+-            if HOST_CALENDAR_RE.search(body) and not filename_only:
++            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body)) and not filename_only \
++                    and not _pure_seed_entropy(rel, name, body):
+                 self.calendar_sources.add(name)
+         changed = True
+         while changed:
+@@ -628,6 +630,19 @@
+         "REVIEW", ctx.tier))
+ 
+ 
++def _pure_seed_entropy(rel, scope, body):
++    # Exact existing entropy boundary. It does not return the timestamp or
++    # write a durable fact; the random hexadecimal seed is the returned value.
++    return (rel == "game/scripts/game/reality_game_state.gd" and
++            scope == "_new_dream_seed" and
++            len(HOST_UNIX_RE.findall(body)) == 1 and
++            "RandomNumberGenerator.new()" in body and
++            re.search(r"rng\.seed\s*=.*Time\.get_unix_time_from_system\(", body) and
++            body.count("rng.randi()") == 2 and
++            re.search(r"return[^\n]*\bencoded\b", body) and
++            not CALENDAR_DURABLE_RE.search(body))
++
++
+ def _scan_host_clock(ctx, findings, line, scope, line_no):
+     helper_read = not FUNC_RE.match(line.strip()) and any(
+         re.search(r"\b" + re.escape(source) + r"\s*\(", line)
+@@ -639,7 +654,10 @@
+     campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
+     civil_host_read = HOST_CALENDAR_RE.search(line) or \
+         re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
+-    if civil_host_read and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
++    unix_host_read = HOST_UNIX_RE.search(line)
++    if _pure_seed_entropy(ctx.rel, scope, code_body):
++        return
++    if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
+             not CALENDAR_DURABLE_RE.search(code_body):
+         return  # approved pure non-world filename generator only
+     if campaign_owner and scope == "_sample_local_minute_of_day" and \
+@@ -650,16 +668,17 @@
+         return  # exactly the pure creation-time hour/minute sampler
+     calendar_persistence = (helper_read or civil_host_read) and \
+         CALENDAR_DURABLE_RE.search(code_body)
+-    if campaign_owner or calendar_persistence or civil_host_read:
++    if campaign_owner or calendar_persistence or civil_host_read or unix_host_read:
+         findings.append(make_finding(
+             "host-clock", "HOST_CLOCK_MUTATES_WORLD", ctx.rel, scope,
+             line_no, line, ctx.writer, "authored campaign calendar",
+-            "STRONG", "host calendar or unauthorized clock read can "
++            "STRONG", "host Unix/civil time or unauthorized clock read can "
+             "replace authored campaign time, display host time in the world "
+             "or persist host date fields",
+             "use campaign_calendar.json and the simulation clock; only "
+             "CampaignClock._sample_local_minute_of_day may sample local "
+-            "hour/minute once, without calendar fields or durable writes",
++            "hour/minute once, without calendar fields or durable writes; "
++            "Unix host time is reserved for reviewed seed entropy or pure IDs",
+             "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
+         return
+     profiling = PROFILING_CONTEXT_RE.search(line) or \
+@@ -915,6 +934,12 @@
+                 {"finding": finding, "entry": entry,
+                  "why": "test-tier entry cannot baseline a "
+                         "production finding"})
++        elif finding["tier"] == "production" and \
++                finding["disposition"] in ACTIONABLE and \
++                entry.get("disposition") not in ACTIONABLE:
++            policy_violations.append(
++                {"finding": finding, "entry": entry,
++                 "why": "non-actionable baseline cannot suppress actionable finding"})
+         else:
+             covered.append(finding)
+     vanished = [e for eid, e in sorted(base_by_id.items())
+--- a/tools/tests/test_systemic_situation_authority.py
++++ b/tools/tests/test_systemic_situation_authority.py
+@@ -311,6 +311,53 @@
+             self.assertEqual(payload["comparison"]["removed"], [])
+ 
+ 
++
++class HostUnixTests(unittest.TestCase):
++    _find = HostCalendarTests._find
++    CLOCK = HostCalendarTests.CLOCK
++    def test_unix_world_stamp_requires_fix_and_campaign_value_passes(self):
++        for field in ("issued_at", "closed_at", "acquired_at", "consumed_at", "reported_at", "at"):
++            source = ('func record():\n\tvar stamp := Time.get_unix_time_from_system()\n'
++                      '\tvar facts := {"%s": stamp}\n\tRealityState.data.history = facts\n' % field)
++            hits = self._find(source, "game/scripts/props/night_register_prop.gd")
++            self.assertTrue(hits)
++            self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
++            self.assertEqual(self._find(source.replace('Time.get_unix_time_from_system()',
++                'CampaignClock.new().elapsed_minutes()'), "game/scripts/props/night_register_prop.gd"), [])
++
++    def test_unix_named_helper_taint_reaches_renamed_consumer(self):
++        source = ('func sample():\n\treturn Time.get_unix_time_from_system()\n'
++                  'func pass_stamp():\n\treturn sample()\n'
++                  'func remember():\n\t_state.at = pass_stamp()\n')
++        hits = self._find(source, "game/scripts/game/other_clock.gd")
++        self.assertEqual({hit["scope"] for hit in hits}, {"sample", "remember"})
++        self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
++
++    def test_exact_seed_entropy_and_pure_ids_remain_allowed(self):
++        source = ('func _new_dream_seed() -> String:\n'
++                  '\tvar rng := RandomNumberGenerator.new()\n'
++                  '\trng.seed = int(Time.get_unix_time_from_system() * 1000000.0)\n'
++                  '\tvar high := int(rng.randi())\n\tvar low := int(rng.randi())\n'
++                  '\tvar encoded := "%08x%08x" % [high, low]\n\treturn encoded\n')
++        path = "game/scripts/game/reality_game_state.gd"
++        self.assertEqual(self._find(source, path), [])
++        self.assertTrue(self._find(source.replace('\treturn encoded',
++            '\tRealityState.data.at = Time.get_unix_time_from_system()\n\treturn encoded'), path))
++        self.assertTrue(self._find(source.replace('_new_dream_seed', 'other_entropy'), path))
++        for path, helper in (("game/scripts/songbook/songbook_store.gd", "_new_id"),
++                             ("game/scripts/phoneos/phone_camera.gd", "_new_photo_id")):
++            source = ('func %s() -> String:\n\treturn str(Time.get_unix_time_from_system())\n'
++                      'func capture():\n\tvar path := %s()\n\timg.save_png(path)\n') % (helper, helper)
++            self.assertEqual(self._find(source, path), [])
++
++    def test_documented_old_stamp_cannot_suppress_new_fix(self):
++        source = 'func stamp():\n\tRealityState.data.at = Time.get_unix_time_from_system()\n'
++        finding = self._find(source, "game/scripts/game/work_orders.gd")[0]
++        entry = dict(finding, disposition="DOCUMENT")
++        drift = audit.diff_baseline({"entries": [entry]}, [finding])
++        self.assertEqual(len(drift["policy_violations"]), 1)
++
++
+ class BaselineTests(unittest.TestCase):
+     def test_clean_against_written_baseline(self):
+         with TempRepo() as root:
+@@ -404,7 +451,8 @@
+         with TempRepo() as root:
+             for rel in (COORDINATOR,
+                         "game/scripts/game/verdict_director.gd",
+-                        "game/scripts/ui/goal_banner.gd"):
++                        "game/scripts/ui/goal_banner.gd",
++                        "game/scripts/game/maintenance_inventory.gd"):
+                 (root / rel).write_text("extends Node\n",
+                                         encoding="utf-8")
+             baseline = root / "tools/baseline.json"

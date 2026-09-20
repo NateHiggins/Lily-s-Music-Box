@@ -30,7 +30,7 @@ extends Node3D
 const WALK_SPEED := 1.05
 const RING_X := 4.38          # corridor ring, from the movement audit
 const RING_Z := 8.30
-const LIFT := Vector2(1.9, -5.6)      # Blender XY of the lift hall
+const LIFT_WAIT_CLEARANCE := 0.65    # public side: body radius + wall half-thickness + margin
 
 ## Where each resident goes when they are not at home, and why it is theirs.
 ## `at` is Blender XY; `z` names the storey.
@@ -59,7 +59,7 @@ const HAUNTS := {
 		"why": "the rear door, half out of the building already"},
 	"noel_price": {"at": Vector2(-2.2, 1.2), "floor": "F01",
 		"why": "the light court, where nothing can be handled"},
-	"transient_guests": {"at": Vector2(2.2, -6.2), "floor": "F01",
+	"transient_guests": {"at": Vector2(2.2, -8.3), "floor": "F01",
 		"why": "the vestibule, bags at their feet"},
 	"nadia_quell": {"at": Vector2(0.0, 5.0), "floor": "F06",
 		"why": "the top-floor utility room, checking egress"},
@@ -681,8 +681,10 @@ func _step(actor: Dictionary, delta: float) -> void:
 			# Coming off the lift there is still a walk to finish before
 			# settling: idle only once the route is spent.
 			if int(actor.leg) < actor.path.size():
+				if not _manage_home_door(actor, true):
+					_play(actor, "idle")
+					return
 				_play(actor, "pace")
-				_manage_home_door(actor, true)
 				_follow(actor, node, delta)
 				return
 			_manage_home_door(actor, true)
@@ -749,8 +751,10 @@ func _step(actor: Dictionary, delta: float) -> void:
 				actor.timer = _rng.randf_range(8.0, 30.0)
 				_play(actor, "busy")
 		Stage.TO_LIFT:
+			if not _manage_home_door(actor, false):
+				_play(actor, "idle")
+				return
 			_play(actor, "pace")
-			_manage_home_door(actor, false)
 			if _follow(actor, node, delta):
 				var source := nav.floor_at(node.global_position.y)
 				if elevator == null:
@@ -775,7 +779,9 @@ func _step(actor: Dictionary, delta: float) -> void:
 				var dwell: Array = temper_of(str(actor.slug)).dwell
 				actor.timer = _rng.randf_range(dwell[0], dwell[1])
 		Stage.AT_HAUNT:
-			_manage_home_door(actor, false)
+			if not _manage_home_door(actor, false):
+				_play(actor, "idle")
+				return
 			var arrived := _follow(actor, node, delta)
 			if arrived:
 				_play(actor, "settle")
@@ -887,14 +893,18 @@ func _step(actor: Dictionary, delta: float) -> void:
 					_set_route(actor, actor.home)
 					actor.timer = _rng.randf_range(10.0, 34.0)
 		Stage.ON_STAIRS:
+			if not _manage_home_door(actor, false):
+				_play(actor, "idle")
+				return
 			_play(actor, "pace")
-			_manage_home_door(actor, false)
 			if _follow(actor, node, delta):
 				actor.stage = Stage.AT_HAUNT
 				actor.timer = _rng.randf_range(18.0, 50.0)
 		Stage.RETURN_STAIRS:
+			if not _manage_home_door(actor, true):
+				_play(actor, "idle")
+				return
 			_play(actor, "pace")
-			_manage_home_door(actor, true)
 			if _follow(actor, node, delta):
 				actor.stage = Stage.HOME
 				actor.timer = _rng.randf_range(10.0, 34.0)
@@ -980,22 +990,34 @@ func _nearest_home_door(node: Node3D) -> DoorProp:
 	return nearest
 
 
-func _manage_home_door(actor: Dictionary, returning: bool) -> void:
+## Return readiness for the near-leaf crossing, not merely request delivery.
+## DoorProp retains the tween, lock, sound and collider authority. Once passed,
+## closing is asynchronous; a refused close stays pending for the next update.
+func _manage_home_door(actor: Dictionary, returning: bool) -> bool:
 	var door: DoorProp = actor.get("home_door")
 	if not is_instance_valid(door):
-		return
+		return true
 	var node: Node3D = actor.node
 	var cycle := int(actor.door_cycle)
 	var at_leaf := node.global_position.distance_to(door.global_position)
-	if cycle == 0 and at_leaf < 1.45:
-		door.npc_set_open(true)
-		actor.door_cycle = 1
-	elif cycle == 1:
+	if cycle == 1:
 		var passed := node.global_position.distance_to(actor.home) < 0.48 \
 				if returning else at_leaf > 1.60
 		if passed:
 			door.npc_set_open(false)
-			actor.door_cycle = 2
+			# open flips only when the owner accepts closing (or was already
+			# closing/closed). Do not wait for that animation behind the NPC.
+			if not door.open:
+				actor.door_cycle = 2
+			return true
+	if cycle in [0, 1] and at_leaf < 1.45:
+		# Requests refused by a lock or an existing closing motion are retried.
+		# Cycle 1 rechecks too: a player may close a previously opened leaf.
+		door.npc_set_open(true)
+		if not door.is_ready_for_passage():
+			return false
+		actor.door_cycle = 1
+	return true
 
 
 ## Somewhere else in the same room. Kept short so nobody walks out through
@@ -1006,9 +1028,14 @@ func _near_home(actor: Dictionary) -> Vector3:
 			_rng.randf_range(-1.6, 1.6))
 
 
-## The lift hall on whichever storey they are standing on.
+## The public landing on whichever storey they are standing on. The authored
+## elevator opens south (Blender -Y); the shaft centre is inside the car and
+## cannot be a waiting point before its closed landing doors open.
 func _lift_point(y: float) -> Vector3:
-	return GameBoot.b2g([LIFT.x, LIFT.y, y])
+	var shaft: Array = _layout["elevator"]["shaft"]
+	var center_x := (float(shaft[0]) + float(shaft[2])) * 0.5
+	var south_face := minf(float(shaft[1]), float(shaft[3]))
+	return GameBoot.b2g([center_x, south_face - LIFT_WAIT_CLEARANCE, y])
 
 
 ## Plan a route through the portal graph. Same-floor by contract; the lift

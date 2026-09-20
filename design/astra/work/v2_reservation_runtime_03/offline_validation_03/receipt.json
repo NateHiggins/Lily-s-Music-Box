@@ -1,0 +1,57 @@
+{
+  "schema": "astra.v2-reservation.identity-controls.v3",
+  "status": "PYTHON_ONLY_RED_AND_GREEN_OBSERVED",
+  "tests": 31,
+  "runs": [
+    {
+      "name": "duplicate_alias_guard_omission_red",
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_03\\offline_validation_03\\run_duplicate_alias_red.py",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_03\\runtime",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_03\\offline_validation_03\\duplicate_alias_guard_omitted.py"
+      ],
+      "actual_exit": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "restored_31_controls_green",
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_03\\runtime",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "actual_exit": 0,
+      "expected_exit": 0
+    }
+  ],
+  "sources_sha256": {
+    "runtime/assess.py": "76a40f3b7bc327a4cbb5f37c18b731d0113d8753482c486ae0696660456739c7",
+    "runtime/run.py": "c7bc009067bae3dcd274d41216accb976c2a16b8ceee022120f4708dda161fa6",
+    "runtime/test_assess.py": "d637f0f674fced38de206f81e160e12547252644cdbf77a5c45acb0fe33f24ff",
+    "runtime/test_runner_contract.py": "3e4a6afa3baa16826f7327d8a9bc1caee9578589a37e70c0490550b7dd0cde7f",
+    "proposed/game/tests/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c"
+  },
+  "artifacts_sha256": {
+    "duplicate_alias_guard_omission_red.stderr.log": "eb3b6e87fcf8a52db781b118b98b3916a3b2570929c131a7af90b9839a0ba072",
+    "duplicate_alias_guard_omission_red.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "duplicate_alias_guard_omitted.py": "764f18e91acee359eb065f731b939626432a85340e6b351973e1e35f13724665",
+    "restored_31_controls_green.stderr.log": "430cd45b4c95085e29627bea6374d1845f51e5ac9a9f93f5253fbd11d9f1ff60",
+    "restored_31_controls_green.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_duplicate_alias_red.py": "da66fd6ef698cf5fe7f95c983d214b9c6e5eddf4042325f97d9daaa87ff5a87b",
+    "initial_synthetic_failure/assess.py": "475e4703112c4a9d1e360cb15fb8e9589428d0526c05770d0171d62ff198b09e",
+    "initial_synthetic_failure/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c",
+    "initial_synthetic_failure/receipt.json": "a05627d52f81ae55fb73f2abb4dd321bd94f704b5b76a3affe910f60046558c1",
+    "initial_synthetic_failure/stderr.log": "96a26971e3b2c99747a166539f5775fceb23ffa0e93c9987c3539233a44c772d",
+    "initial_synthetic_failure/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "initial_synthetic_failure/test_assess.py": "d637f0f674fced38de206f81e160e12547252644cdbf77a5c45acb0fe33f24ff"
+  }
+}

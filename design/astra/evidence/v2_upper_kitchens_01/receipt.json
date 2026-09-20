@@ -1,0 +1,78 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "73b65e6",
+  "new_preparation_cabinets": 6,
+  "new_wall_cupboards": 6,
+  "new_anchors": 18,
+  "relocated_anchors": 6,
+  "total_furniture": 169,
+  "total_saved_household_controls": 104,
+  "source_triangles": 864,
+  "native_panel_triangles": 288,
+  "suites": [
+    {
+      "run": "runtime_final",
+      "checks": 829,
+      "failures": 0,
+      "stdout_sha256": "1f1a5dd46d4f9347e9dcba2fa688b065c42cfc3856faf2133f4a5267aeb06589",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "household_state",
+      "checks": 76,
+      "failures": 0,
+      "stdout_sha256": "a862cc1a6e73bbbb71bcbac17f48cce5f7dae9dfac7e15f255114a1a59991460",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "upper_lighting",
+      "checks": 8249,
+      "failures": 0,
+      "stdout_sha256": "40f8ea3addeec11eb08573e09846ded6d42f4b7b50525ab3726813de19f65e18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "apartment_batch",
+      "checks": 17272,
+      "failures": 0,
+      "stdout_sha256": "2d1c5b27ea443d344f9332095c21209b7214ecb12bf3f69a7cfb70ba59900f43",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": 26426,
+  "captures": 12,
+  "source_sha256": {
+    "game/data/orison_v2_blockout.json": "d2b2ccff0cfa5db3b8c6c5433cd0a3a309ae647d0ec53376007bc7062007d618",
+    "game/data/orison_v2/domestic_furniture.json": "b6ed03d3e197d4b98250300c0d97b951fe70618f8f91e9a474ebbb9f653df38d",
+    "game/tests/data/v2_upper_kitchen_probes.json": "10d43897286a0833af4c739e2c1ef3d5dbcc0a05b3d3f444abf396935431e566",
+    "game/tests/data/v2_upper_lighting_probes.json": "e268e90000d045b008ff54e778a9775215ffd17a78e43be315a77e34aff628b0",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "6d3ea3f7108f85ce4fbfa193d77797d46041c34de9562a5588f6f5279cdfe089",
+    "game/scripts/building/orison_v2_household_state.gd": "c33a5010382ee16604eefb3fc50aa88f86be495e279c896fa083e94c2620c5ba",
+    "game/tests/orison_v2_household_state_test.gd": "1b6ef27fde98234422f714d74884544715378f0a2a6c99cc4fe8ea0744c44960",
+    "game/tests/orison_v2_apartment_batch_test.gd": "ea54cea60e23665bdb4c4be005eee29bb56a3298a90278a0a8c3b98a241d5361",
+    "game/tests/orison_v2_upper_kitchen_test.gd": "0399a7e712ed819745ef703caa6378f5a2de23a2683eb7f4da16f4b120845fe7",
+    "game/tests/orison_v2_upper_kitchen_shot.gd": "981f9cf8b9581d6a944b963eacddb19a0413e0462f908609d3a6f5624950873d",
+    "game/tests/OrisonV2UpperKitchenTest.tscn": "6dd95006e2b24faa86f0053cfac31bd0f703f89c0afed59a4c889c715f87e5aa",
+    "game/tests/OrisonV2UpperKitchenShot.tscn": "e3ac32a71411fbf9fc9e18805664ce8f24eaf493040191260d5a06f36ad8d759",
+    "design/astra/work/v2_upper_kitchens_01/build.py": "6887128d63b20ab0637a307c272e9f374fb82c95d089011d8f8ee443c3afc7ce",
+    "design/astra/work/v2_upper_kitchens_01/check.py": "3c1a4caa1eecbdec4f96ee35a71e526d6a226678cc3c7b72580a6dda8b98f4ab",
+    "design/astra/work/v2_upper_kitchens_01/inspect.py": "2c080d14ff8c62f89b858b46198eba9b72b4349a8fe615fc751ecf39c00382c7",
+    "design/astra/work/v2_upper_kitchens_01/routes.json": "4d4d04c1c6dc53840e39f5093d0dd0b7a9cc374d7a07aaf7a17b505e22790a3c",
+    "design/astra/work/v2_upper_kitchens_01/source_checks.json": "5aba6b6677f893d4774e3c7023499ff94a90669c0a45280be1b2f5dd54500c9b"
+  },
+  "protected_files": [
+    "game/data/building_layout.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/upper_floor_programs.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/scripts/building/orison_v2_prep_cabinet.gd",
+    "game/scripts/building/building_root_selector.gd",
+    "game/scripts/building/orison_v2_room_lighting.gd"
+  ],
+  "unrelated_tracked_overlay": {
+    "game/scripts/dream/dream_exposure_field.gd": "9614f78deea7cb35d63bb188396cba36c3988e36ae3043149a32a0dbe9f30906"
+  },
+  "limits": "Source geometry and appliance sweeps, 134 standing approaches, cabinet and sink rays, 42 light controls, saved state and teardown verified. Twelve fixed viewpoints. No continuous played route, complete building, full performance or human acceptance; V1 default and S2J open."
+}

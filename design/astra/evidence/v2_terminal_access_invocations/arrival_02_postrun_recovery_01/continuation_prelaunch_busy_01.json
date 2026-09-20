@@ -1,0 +1,10 @@
+{
+  "command": ["python", "-B", "design/astra/work/continue_v2_terminal_arrival_02.py", "continue"],
+  "actual_exit": 1,
+  "failure": "AssertionError at final empty-engine census before continuation invocation or phase06 creation",
+  "provenance": "Exit and assertion transcribed from exec tool output; no separately captured child stream. Immediate follow-up census was already empty, so the transient foreign process identity is unavailable.",
+  "phase06_directory_absent": true,
+  "phase06_engine_launched": false,
+  "source_changed": false,
+  "recovery_receipt_and_historical_refusal_preserved": true
+}

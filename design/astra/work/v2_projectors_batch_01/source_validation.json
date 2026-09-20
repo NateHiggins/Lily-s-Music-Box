@@ -1,0 +1,39 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base_head": "55d2137",
+  "old_furniture_preserved": 67,
+  "stands_added": 3,
+  "projectors_added": 3,
+  "anchors_added": 6,
+  "stand_triangles": 1512,
+  "protected_owners": [
+    "game/data/domestic_radios.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_radios.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/domestic_surface_props.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/orison_v2/mina_routine.json",
+    "game/scripts/props/projector_prop.gd",
+    "game/scripts/props/tv_prop.gd",
+    "game/scripts/audio/prop_audio.gd",
+    "game/scripts/building/broadcast_director.gd",
+    "game/project.godot",
+    "game/assets/video/clips/clips.json",
+    "game/shaders/projected_film.gdshader"
+  ],
+  "clip_sha256": {
+    "game/assets/video/clips/ch_01.ogv": "013b78b39ee77a0751a6973104e3be04d59aec2544ddf67952d6a9792bf7aa33",
+    "game/assets/video/clips/ch_02.ogv": "01a6eb743200b75b8fddc6f835fef1d87c58e5b824e985652e6dbfd5ab57044d",
+    "game/assets/video/clips/ch_03.ogv": "3941f2145d6003d7c32b7a6cdae8b767ac1980f7c90b101e9af725079a07509a"
+  },
+  "regeneration_sha256": {
+    "game/data/orison_v2/domestic_furniture.json": "4e7cf138331cff2555d24170421fe3398256bbecbabeea486712ff08eefac489",
+    "game/data/orison_v2_blockout.json": "0d00c1f766815fe1b5611073c12fa0a34569ea6d0336fc86c10babbac5611c33",
+    "game/data/orison_v2/domestic_projectors.json": "e22ade1bbda555cb484179b6a245072b3910a772170354cc91d72a9a5bd8c5e0",
+    "design/astra/work/v2_projectors_batch_01/receipt.json": "3d25ac8dffac5c91fe2fe456bea496c6915caae71506a0b26a655f425549d835"
+  },
+  "limits": "Source-only proof; prepared targeting, playback, ray misses, reconstruction and teardown checks not run. No renderer/performance/visual acceptance."
+}

@@ -1,0 +1,54 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 61 spaces / 26 doors / 89 anchors
+[SURFACE] 320 surfaces layered (293 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ORISON V2 RUNTIME] ready startup_ms=4179.457
+[LIGHTING] 57 sources active in system; 57 full personalities; profiles steady/breathe/mains/beat/dropout=[11, 10, 12, 17, 7]
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches physical_mina_complaint = true
+CONNECTED EXTERIOR CHECK: complaint releases movement = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches listening_head_inspection = true
+CONNECTED EXTERIOR CHECK: physical inspection diagnoses the still-chirping head = true
+CONNECTED EXTERIOR CHECK: arcade composes in the same production world = true
+CONNECTED EXTERIOR CHECK: hardware stock uses initialized shared authorities = true
+[SURFACE] 30 surfaces layered (17 materials)
+[SURFACE] 58 surfaces layered (44 materials)
+[SURFACE] 77 surfaces layered (63 materials)
+[SURFACE] 96 surfaces layered (82 materials)
+[SURFACE] 116 surfaces layered (102 materials)
+[SURFACE] 138 surfaces layered (124 materials)
+[SURFACE] 168 surfaces layered (152 materials)
+[SURFACE] 198 surfaces layered (180 materials)
+[SURFACE] 228 surfaces layered (208 materials)
+[SURFACE] 251 surfaces layered (229 materials)
+[SURFACE] 280 surfaces layered (258 materials)
+[SURFACE] 310 surfaces layered (286 materials)
+RESIDENCY_AT_NAVE {"cell_count":13,"load_cycles":1,"peak_activation_ms":2.636,"peak_stage_ms":6.906,"pending_requests":0,"physical_actors_retained":true,"retired_geometry_roots_alive":0,"retired_mesh_resources_alive":0,"stage_records":[{"cell":"passage","fetch_ms":0.005,"instantiate_ms":1.072,"surface_ms":5.829},{"cell":"shop_model_laundry","fetch_ms":0.005,"instantiate_ms":0.612,"surface_ms":3.072},{"cell":"shop_shoe_rebuilding","fetch_ms":0.005,"instantiate_ms":1.11,"surface_ms":2.873},{"cell":"shop_keys_cut","fetch_ms":0.004,"instantiate_ms":0.665,"surface_ms":2.767},{"cell":"shop_hardware_paint","fetch_ms":0.005,"instantiate_ms":1.258,"surface_ms":3.156},{"cell":"shop_funeral_parlour","fetch_ms":0.006,"instantiate_ms":0.507,"surface_ms":3.07},{"cell":"shop_photo_supplies","fetch_ms":0.005,"instantiate_ms":0.509,"surface_ms":3.273},{"cell":"shop_radio_service","fetch_ms":0.005,"instantiate_ms":0.449,"surface_ms":3.318},{"cell":"shop_pawnbroker","fetch_ms":0.006,"instantiate_ms":0.578,"surface_ms":3.259},{"cell":"shop_news_cigars","fetch_ms":0.006,"instantiate_ms":0.41,"surface_ms":2.911},{"cell":"shop_otis_son","fetch_ms":0.007,"instantiate_ms":0.809,"surface_ms":3.313},{"cell":"shop_luncheonette","fetch_ms":0.012,"instantiate_ms":0.701,"surface_ms":3.399}],"state":"RESIDENT","unload_cycles":1}
+CONNECTED EXTERIOR CHECK: arcade geometry reloads asynchronously after leaving the core = true
+CONNECTED EXTERIOR CHECK: authored hardware shop door exists = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door = true
+CONNECTED EXTERIOR CHECK: hardware door opens through ordinary input = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door_close = true
+CONNECTED EXTERIOR CHECK: customer closes the inward leaf before passing the counter = true
+CONNECTED EXTERIOR CHECK: actual source-anchored hardware counter exists = true
+CONNECTED EXTERIOR CHECK: hardware errand uses the actually inspected job without reseeding = true
+CONNECTED EXTERIOR CHECK: right shop offers the awaited part = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_counter = true
+CONNECTED EXTERIOR CHECK: physical counter grants the part exactly once = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_counter_repeat = true
+CONNECTED EXTERIOR CHECK: repeated counter input cannot duplicate the part = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door_exit = true
+CONNECTED EXTERIOR CHECK: return indoors retains the physically acquired part = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches listening_head_repair = true
+CONNECTED EXTERIOR CHECK: same physical head records a good repair through ordinary input = true
+CONNECTED EXTERIOR CHECK: repair consumes the purchased capsule and quiets the source = true
+CONNECTED EXTERIOR CHECK: physical repair grants exactly the first temporary stabilization = true
+CONNECTED EXTERIOR CHECK: repair earns conversation without prematurely closing the job = true
+V2 GOLDEN PHYSICAL REPAIR: 73 waypoints; 0 failures

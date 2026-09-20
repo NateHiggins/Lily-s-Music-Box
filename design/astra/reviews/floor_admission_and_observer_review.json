@@ -1,0 +1,46 @@
+{
+  "schema": "astra.floor_admission_and_observer.independent_review.v1",
+  "reviewed_at_utc": "2026-09-05T10:00:56.753268+00:00",
+  "scope": "Offline source/API/type/lifecycle review only. No engine, live edits, package mutation or adoption. Runtime results belong to the serialized executor.",
+  "floor_package": {
+    "path": "design/astra/work/apartment_floor_ownership_01",
+    "preparation_sha256": "dcdf5036fa98fe0fe6f616b6ac13d8bf930f1a47c0d31e4288209b3cac0bf956",
+    "sealed_file_hashes_verified": 9,
+    "hash_mismatches": [],
+    "candidate_sha256": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "fixture_sha256": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "omission_sha256": "85d9b9a5cdf4ed8828f1f45c2d0ff138b17f0ac39928b3820270483825107627",
+    "expected_checks": 63
+  },
+  "observer_package": {
+    "path": "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01",
+    "source_hashes": {
+      "proposed/game/tests/vulkan_composed_root_test.gd": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+      "proposed/material_helpers.gdfragment": "aec59c518d9c08714b30a69b5f9682dd8cc213e17d495719602d5635d815530c",
+      "refresh.gdfragment": "1cc019fcb129fbccf2aae7d369ac8032010e9622170a6bf8ddfba6e5fde2608c"
+    },
+    "parent_fixture": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5"
+  },
+  "definite_compile_api_or_teardown_blockers_found": [],
+  "source_conclusions": [
+    "Admission by actual declared node identity occurs before both metadata reuse and world-AABB first claim. It prevents the known fresh-root foreign wardrobe rows under unchanged F02,F04,F06,F05,F03 binding order.",
+    "Complete build provider includes B1/F01/ROOF; fixture unit floor identities retain manual fixture compatibility. Nearest declared ancestor governs. No material/source/case dictionary mutation is introduced by the helper.",
+    "True root-level draws have no declared ancestor and retain the original AABB and established metadata behavior. Broad vertical and horizontal bounds and source-sharing behavior remain unchanged; actual batched geometry is not exercised by this fixture.",
+    "The focused test supplies correct actual API types, authored selected layout records, six units/five fields and all eight floor provider identities; actual FurnitureInteractionPass creates the nine mechanisms, whose _ready builds the material draws synchronously under entered floor roots.",
+    "Queued validation executes real SurfacePass queue and callback methods synchronously; it does not prove GPU timing, automatic governor transitions or work spread across physics frames.",
+    "Fixture teardown clears its external SurfacePass cache/callback/row references then queues the producer root and yields twice; no local Node reference is a RefCounted owner. This is root retirement instrumentation, not independent material-weakref retirement coverage.",
+    "The observer captures all live registered lifecycle targets just before the exact production push, including saved originals for case targets already poisoned. It restores the deduplicated union of case-only and registered targets.",
+    "Every case identity/state and lifecycle comparison is evaluated before the accumulated result is combined. Actual refresh() does not write lifecycle, so post-restoration refresh does not overwrite the restored lifecycle values. No strong material reference is returned in the result arrays."
+  ],
+  "unproved_or_deliberately_open": [
+    "Fresh-producer admission does not repair all carried or copied case-tagged materials. Reparenting an existing material can drop the old case row but retain old encroachment_case/state bounds, while the new physical floor binder updates its living field; it will not automatically acquire the destination case.",
+    "The binder itself is unchanged. Calling it with preexisting foreign case rows outside a subsequent admission rebuild can still reproduce the competing-owner problem. The patch prevents those rows in the declared fresh static composition.",
+    "The nine-mechanism fixture has synthetic floor containers and no imported finish or batched meshes, no physics/render/performance acceptance, no all-registry lifecycle probe, and no proof of arbitrary provider replacement or dynamically reparented props.",
+    "No runtime receipt was accepted by this review. Declared63 checks and the stronger observer are source-reviewed proposals; executor must retain actual red/green/control/restoration evidence and then run the actual full build."
+  ],
+  "next_required_evidence": [
+    "Original and exact ancestry-call omission must produce the declared foreign-leaf admission red without unrelated errors; candidate/restored must pass exact63 labels.",
+    "Existing36 material-binding fixture must continue to pass with the new owner. Rebase the separate one-census copies only under root coordination.",
+    "The actual composed root must repeat semantic case/draw/field/registry checks plus the stronger independent refresh/all-registry restoration probe under the final exact owner, preserving all renderer/capture/retirement checks."
+  ]
+}

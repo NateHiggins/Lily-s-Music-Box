@@ -1,0 +1,108 @@
+--- a/game/tests/maintenance_job_test.gd
++++ b/game/tests/maintenance_job_test.gd
+@@ -216,14 +216,29 @@
+ 					"carbon_capsule_failed"]
+ 			and work_orders.status(LEGACY) == "missing",
+ 			"legacy closed-by-inspection migrates to awaiting_part, not repaired")
+-	# A stale legacy record beside an already-authored job is retired without
+-	# clobbering the job's progress.
++	# This job already archives the closed legacy source. A newly issued
++	# record with the same ID is different history: neither source may be
++	# discarded, and the authored job's exact progress must win unchanged.
+ 	work_orders.mark_job_repairable(JOB)
+-	work_orders.issue(LEGACY, "T", "O", "Orison house circuit")
+-	ChirpHunt.migrate_legacy(work_orders)
+-	_check(work_orders.job_stage(JOB) == "repairable"
+-			and work_orders.status(LEGACY) == "missing",
+-			"migration never overwrites an existing authored job")
++	var authored_before := work_orders.job_state(JOB)
++	var archived_before: Dictionary = authored_before.get("legacy_order", {})
++	_check(str(authored_before.stage) == "repairable"
++			and str(authored_before.get("legacy_order_id", "")) == LEGACY
++			and str(archived_before.get("status", "")) == "closed",
++			"existing authored progress retains its prior closed legacy source")
++	work_orders.issue(LEGACY, "T", "O", "Orison house circuit")
++	var incoming_before: Dictionary = (RealityState.data
++			.get("work_orders", {}).get(LEGACY, {}) as Dictionary).duplicate(true)
++	_check(str(incoming_before.get("status", "")) == "issued"
++			and incoming_before != archived_before,
++			"reintroduced legacy record conflicts with the already archived source")
++	ChirpHunt.migrate_legacy(work_orders)
++	_check(work_orders.job_state(JOB) == authored_before,
++			"conflicting migration preserves every authored job fact and archived source")
++	_check(work_orders.status(LEGACY) == "issued"
++			and RealityState.data.get("work_orders", {}).get(LEGACY, {})
++					== incoming_before,
++			"conflicting migration preserves the exact incoming legacy record")
+ 
+ 
+ func _legacy_orders_unchanged() -> void:
+--- a/game/tests/night_register_test.gd
++++ b/game/tests/night_register_test.gd
+@@ -559,11 +559,13 @@
+ 			line.has("at") and not bool(line.report_out)
+ 			and (line.keys_out as Array).is_empty()
+ 			and str(line.job_id) == JOB_2A)
++	_check("the recorded hour declares the campaign elapsed-minute basis",
++			str(line.get("at_basis", "")) == "campaign_elapsed_minutes")
+ 	# THE THESIS, ASSERTED. The board records the CLAIM. It writes nothing
+ 	# about where anybody went and nothing that would verify the claim.
+ 	var extra: Array[String] = []
+ 	for key in line.keys():
+-		if str(key) not in ["at", "filing", "filing_printed", "report_out",
++		if str(key) not in ["at", "at_basis", "filing", "filing_printed", "report_out",
+ 				"keys_out", "job_id", "job_stage"]:
+ 			extra.append(str(key))
+ 	_check("and records NOTHING beyond the claim and its circumstances (%s)"
+@@ -874,18 +876,45 @@
+ 
+ # --- what the board is not ---------------------------------------------------
+ 
++func _without_comment_lines(source: String) -> String:
++	# Only whole comment lines are omitted. Inline comments and all code
++	# remain visible to the ownership checks, regardless of file endings.
++	var code := ""
++	for raw in source.replace("\r\n", "\n").split("\n"):
++		if not raw.strip_edges().begins_with("#"):
++			code += raw + "\n"
++	return code
++
++
++func _comment_line_controls() -> void:
++	for ending in ["\n", "\r\n"]:
++		var label := "LF" if ending == "\n" else "CRLF"
++		var comments: String = ending.join([
++				"# issue_job close_job record_job diagnose_job offer_opening_report",
++				" \t# RealityCases activate_case resolve_case reopen_case leaf_state =",
++				"# _work_orders.call(\"close_job\")",
++				"_work_orders.call(\"job_stage\")"])
++		_check("%s ownership scan ignores whole comment lines only" % label,
++				_without_comment_lines(comments)
++						== "_work_orders.call(\"job_stage\")\n")
++		var foreign_calls: String = ending.join([
++				"_work_orders.call(\"issue_job\") # still executable",
++				"_work_orders.call(\"close_job\")",
++				"RealityCases.resolve_case(\"foreign\")",
++				"leaf_state = true"])
++		_check("%s ownership scan retains actual foreign-owner calls" % label,
++				_without_comment_lines(foreign_calls)
++						== foreign_calls.replace("\r\n", "\n") + "\n")
++
++
+ func _ownership() -> void:
++	_comment_line_controls()
+ 	# Read as text, deliberately. Behaviour proves what the board DOES; only
+ 	# the source proves what it cannot do at all, and "there is no second
+ 	# ledger" is a claim about absence.
+ 	var source := FileAccess.get_file_as_string(
+ 			"res://scripts/props/night_register_prop.gd")
+-	var code := ""
+-	for raw in source.split("
+-"):
+-		if not raw.strip_edges().begins_with("#"):
+-			code += raw + "
+-"
++	var code := _without_comment_lines(source)
+ 	_check("the board is not a work order owner: no issue path exists",
+ 			not code.contains("issue_job"))
+ 	_check("and it never activates, resolves or reopens a case",

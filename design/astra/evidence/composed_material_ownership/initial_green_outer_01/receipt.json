@@ -1,0 +1,47 @@
+{
+  "invocation_sources": {
+    "design\\astra\\work\\foundation_status_review\\run_material_baseline.py": "a4d1d794d28f89671357422674358d3f43b357bf4250c0e2a8b7473be144f495",
+    "design\\astra\\work\\composed_material_invariants\\runtime_execution\\environment_contract.py": "1cef5f798ae56210d72489884c76524f9bda7c7f2cde9298bde942128f4b01fe",
+    "design\\astra\\work\\composed_material_invariants\\runtime_execution\\invoke_wrapper.py": "04f1deae3e1817f90f6445a456153394db19d01c8eee2bf8ca4d6e7d4f6f2771",
+    "design\\astra\\work\\composed_material_invariants\\runtime_execution\\source_operation.py": "4c72a82e658ae835eae6c5e9f6f9b489580c0e70f1ef6e677afde2e980578232"
+  },
+  "operations": {
+    "install": {
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\runtime_execution\\source_operation.py",
+        "install_fixture",
+        "--execute",
+        "--receipt-dir",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\composed_material_ownership\\initial_green_fixture_install_01"
+      ],
+      "exit": 0
+    },
+    "baseline": {
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\runtime_execution\\invoke_wrapper.py",
+        "baseline",
+        "--execute",
+        "--receipt-dir",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\composed_material_ownership\\initial_green_invocation_01"
+      ],
+      "exit": 1
+    },
+    "restore": {
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\runtime_execution\\source_operation.py",
+        "restore_fixture",
+        "--execute",
+        "--receipt-dir",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\composed_material_ownership\\initial_green_fixture_restore_01"
+      ],
+      "exit": 0
+    }
+  },
+  "invocation_sources_unchanged": true
+}

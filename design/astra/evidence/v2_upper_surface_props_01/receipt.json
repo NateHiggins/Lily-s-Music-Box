@@ -1,0 +1,35 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "2953357",
+  "added_props": 29,
+  "total_surface_props": 55,
+  "checks": 18332,
+  "captures": 14,
+  "source_sha256": {
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/tests/data/v2_upper_surface_probes.json": "c044cdf4e9a54076372d05c4338751bce10a7b7ad0c1e1974183bafadec9aa31",
+    "game/scripts/building/orison_v2_surface_props.gd": "597249c9add5def26d8f5c7251d98719be4f6fa2a757c19690d7d9cc493f390e",
+    "game/tests/orison_v2_apartment_batch_test.gd": "fc85ce97b2bd73a025955586a976344f908e98b4c87edceab2b5fa160c533c65",
+    "game/tests/orison_v2_upper_surface_shot.gd": "d1ee4c35bf33f28f6d9dadc6ddad440e4165e364b7b6e528bcbb9365bc1baecc",
+    "game/tests/OrisonV2UpperSurfaceShot.tscn": "742519d8903b9a85425e376a2107bed2314e256de7fdbf8d5582bb2f8709e0ea",
+    "design/astra/work/v2_upper_surface_props_01/build.py": "a09df67dcde45134aa7fb5d6abda2f5c354ddf1fae50a8fc3a57abe8da3343f2",
+    "design/astra/work/v2_upper_surface_props_01/check.py": "5e17ccce9d4908c8e1d10293d19b98b187e390a57215af6ec57555ce669a1d5c",
+    "design/astra/work/v2_upper_surface_props_01/inspect.py": "d70e57336a7042ae7bfebc29600f29ee9e32f078ba13b518b5ecf82274c580e7",
+    "design/astra/work/v2_upper_surface_props_01/source_checks.json": "3322c96fe07632204e7dfe7ab3cc63770974b26870c46250079b0a3c746b2852"
+  },
+  "stdout_sha256": "5d491d8c90353159a38fcc9429334d5120f801161489904486d0b14a822320da",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "protected_files": [
+    "game/data/building_layout.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2_blockout.json",
+    "game/data/orison_v2/domestic_furniture.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/heating.json",
+    "game/data/orison_v2/household_accessories.json",
+    "game/data/orison_v2/bath_details.json",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/scripts/building/building_root_selector.gd"
+  ],
+  "limits": "Fixed dressing only; no new mechanical or saved behavior. Broader room programs, media/equipment, played routes, full performance and human acceptance remain pending. V1 default; V2 incomplete; S2J open."
+}

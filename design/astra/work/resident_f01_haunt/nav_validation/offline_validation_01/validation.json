@@ -1,0 +1,11 @@
+{
+  "scope": "offline contracts, artifacts, CmdletBinding bridge and exact restoration; no Godot",
+  "actual_exit": 0,
+  "tests_sha256": "fb91870cac2e3a2d675cae93387f12cefc9f378e2a49fa992e06d57463728c47",
+  "negative_fixture": {
+    "mutation": "required artifact map guard omitted in separate copy",
+    "actual_exit": 1,
+    "source_sha256": "8ed016aa1bae3ad977b86575fc53f6224e4fb8a93d661ccdca1baf4be39d0d63",
+    "same_test_sha256": "fb91870cac2e3a2d675cae93387f12cefc9f378e2a49fa992e06d57463728c47"
+  }
+}

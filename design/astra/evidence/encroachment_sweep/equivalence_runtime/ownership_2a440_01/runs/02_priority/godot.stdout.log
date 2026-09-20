@@ -1,0 +1,307 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/EncroachmentSweepEquivalenceTest.tscn remapped: res://tests/EncroachmentSweepEquivalenceTest.tscn
+Loading resource: res://tests/encroachment_sweep_equivalence_test.gd remapped: res://tests/encroachment_sweep_equivalence_test.gd
+Loading resource: res://shaders/orison_surface.gdshader remapped: res://shaders/orison_surface.gdshader
+Loading resource: res://shaders/orison_surface.gdshaderinc remapped: res://shaders/orison_surface.gdshaderinc
+Loading resource: res://shaders/dream_corruption_layers.gdshaderinc remapped: res://shaders/dream_corruption_layers.gdshaderinc
+Completed load for: 'res://shaders/dream_corruption_layers.gdshaderinc' remapped 'res://shaders/dream_corruption_layers.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshaderinc' remapped 'res://shaders/orison_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshader' remapped 'res://shaders/orison_surface.gdshader' at thread -1
+Loading resource: res://shaders/orison_surface_cutout.gdshader remapped: res://shaders/orison_surface_cutout.gdshader
+Completed load for: 'res://shaders/orison_surface_cutout.gdshader' remapped 'res://shaders/orison_surface_cutout.gdshader' at thread -1
+Loading resource: res://shaders/dream_tentacle.gdshader remapped: res://shaders/dream_tentacle.gdshader
+Loading resource: res://shaders/dream_entity_surface.gdshaderinc remapped: res://shaders/dream_entity_surface.gdshaderinc
+Completed load for: 'res://shaders/dream_entity_surface.gdshaderinc' remapped 'res://shaders/dream_entity_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/dream_tentacle.gdshader' remapped 'res://shaders/dream_tentacle.gdshader' at thread -1
+Loading resource: res://shaders/dream_eye.gdshader remapped: res://shaders/dream_eye.gdshader
+Completed load for: 'res://shaders/dream_eye.gdshader' remapped 'res://shaders/dream_eye.gdshader' at thread -1
+Loading resource: res://shaders/dream_eyelid.gdshader remapped: res://shaders/dream_eyelid.gdshader
+Completed load for: 'res://shaders/dream_eyelid.gdshader' remapped 'res://shaders/dream_eyelid.gdshader' at thread -1
+Loading resource: res://shaders/dream_cilia.gdshader remapped: res://shaders/dream_cilia.gdshader
+Completed load for: 'res://shaders/dream_cilia.gdshader' remapped 'res://shaders/dream_cilia.gdshader' at thread -1
+Loading resource: res://shaders/dream_crystal.gdshader remapped: res://shaders/dream_crystal.gdshader
+Completed load for: 'res://shaders/dream_crystal.gdshader' remapped 'res://shaders/dream_crystal.gdshader' at thread -1
+Loading resource: res://shaders/dream_gold.gdshader remapped: res://shaders/dream_gold.gdshader
+Completed load for: 'res://shaders/dream_gold.gdshader' remapped 'res://shaders/dream_gold.gdshader' at thread -1
+Loading resource: res://shaders/dream_sucker.gdshader remapped: res://shaders/dream_sucker.gdshader
+Completed load for: 'res://shaders/dream_sucker.gdshader' remapped 'res://shaders/dream_sucker.gdshader' at thread -1
+Loading resource: res://shaders/dream_membrane.gdshader remapped: res://shaders/dream_membrane.gdshader
+Completed load for: 'res://shaders/dream_membrane.gdshader' remapped 'res://shaders/dream_membrane.gdshader' at thread -1
+Loading resource: res://shaders/dream_tendrils.gdshader remapped: res://shaders/dream_tendrils.gdshader
+Completed load for: 'res://shaders/dream_tendrils.gdshader' remapped 'res://shaders/dream_tendrils.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/dream_tentacle.glb remapped: res://assets/dream/tentacle/dream_tentacle.glb
+Loading resource: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn remapped: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn
+Completed load for: 'res://assets/dream/tentacle/dream_tentacle.glb' remapped 'res://assets/dream/tentacle/dream_tentacle.glb' at thread -1
+Loading resource: res://shaders/dream_hero_skin.gdshader remapped: res://shaders/dream_hero_skin.gdshader
+Completed load for: 'res://shaders/dream_hero_skin.gdshader' remapped 'res://shaders/dream_hero_skin.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/T_dream_hero_anatomy.png remapped: res://assets/dream/tentacle/T_dream_hero_anatomy.png
+Loading resource: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex remapped: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex
+Completed load for: 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' remapped 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' at thread -1
+Loading resource: res://shaders/dream_residue.gdshader remapped: res://shaders/dream_residue.gdshader
+Completed load for: 'res://shaders/dream_residue.gdshader' remapped 'res://shaders/dream_residue.gdshader' at thread -1
+Loading resource: res://shaders/dream_critter.gdshader remapped: res://shaders/dream_critter.gdshader
+Completed load for: 'res://shaders/dream_critter.gdshader' remapped 'res://shaders/dream_critter.gdshader' at thread -1
+Loading resource: res://shaders/dream_palp.gdshader remapped: res://shaders/dream_palp.gdshader
+Completed load for: 'res://shaders/dream_palp.gdshader' remapped 'res://shaders/dream_palp.gdshader' at thread -1
+Completed load for: 'res://tests/encroachment_sweep_equivalence_test.gd' remapped 'res://tests/encroachment_sweep_equivalence_test.gd' at thread -1
+Completed load for: 'res://tests/EncroachmentSweepEquivalenceTest.tscn' remapped 'res://tests/EncroachmentSweepEquivalenceTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+[SWEEP PASS] setup declared variant
+Loading resource: res://tests/fixtures/encroachment_sweep/priority.gd remapped: res://tests/fixtures/encroachment_sweep/priority.gd
+Completed load for: 'res://tests/fixtures/encroachment_sweep/priority.gd' remapped 'res://tests/fixtures/encroachment_sweep/priority.gd' at thread -1
+[SWEEP PASS] setup selected production copy loads
+[SWEEP PASS] baseline/reversed=false disabled seam returns zero
+[SWEEP PASS] baseline/reversed=false disabled seam leaves installed graph unchanged
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=false initial analytic membership count is seven
+[SWEEP PASS] baseline/reversed=false nonoverlapping cases claim independently
+[SWEEP PASS] baseline/reversed=false overlap obeys authored priority
+[SWEEP PASS] baseline/reversed=false eight-corner extent reaches beyond outside center
+[SWEEP PASS] baseline/reversed=false vertical slabs separate floors
+[SWEEP PASS] baseline/reversed=false ordinary FunctionalProp remains eligible
+[SWEEP PASS] baseline/reversed=false unknown owner remains exact installed input
+[SWEEP PASS] baseline/reversed=false unclaimed and ineligible draws retain sources
+[SWEEP PASS] baseline/reversed=false case copies preserve source while separating installed owners
+[SWEEP PASS] baseline/reversed=false initial installed A state
+[SWEEP PASS] baseline/reversed=false initial installed B state
+[SWEEP PASS] baseline/reversed=false prop readiness and candidate refresh complete
+[SWEEP PASS] baseline/reversed=false actual installed surface cache remains the lifecycle consumer
+[SWEEP PASS] baseline/reversed=false private world really differs from ordinary world
+[SWEEP PASS] baseline/reversed=false private and actor materials stay outside living state
+[SWEEP PASS] baseline/reversed=false all active case rows target installed draws
+[SWEEP PASS] baseline/reversed=false registry has no duplicate entries
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=false three no-op sweeps preserve every installed identity
+[SWEEP PASS] baseline/reversed=false three no-op sweeps preserve exact observable graph
+[ENCROACH] 10 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 9 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=false late and moved census membership count is ten
+[SWEEP PASS] baseline/reversed=false new draw is discovered on the next sweep
+[SWEEP PASS] baseline/reversed=false previously unclaimed moved draw is reconsidered
+[SWEEP PASS] baseline/reversed=false known metadata survives moved bounds and live sharing
+[SWEEP PASS] baseline/reversed=false replacement gets a fresh installed row and original link
+[SWEEP PASS] baseline/reversed=false updated A state reaches current draw immediately
+[SWEEP PASS] baseline/reversed=false updated B state stays independent
+[SWEEP PASS] baseline/reversed=false new case draws receive the same immediate state
+[SWEEP PASS] baseline/reversed=false boundary exclusions survive subsequent sweep
+[SWEEP PASS] baseline/reversed=false real field classifier reports STAIN
+[SWEEP PASS] baseline/reversed=false actual STAIN reaches installed case and surface finish
+[SWEEP PASS] baseline/reversed=false field texture identity remains exact
+[SWEEP PASS] baseline/reversed=false real field classifier reports EXCHANGE
+[SWEEP PASS] baseline/reversed=false actual EXCHANGE reaches current live rows and finish
+[SWEEP PASS] baseline/reversed=false state and lifecycle updates retain installed identities
+[ENCROACH] 9 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=false detached draw leaves current rows and registry
+[SWEEP PASS] baseline/reversed=false final registry stays unique and installed
+[SWEEP PASS] priority/reversed=false disabled seam returns zero
+[SWEEP PASS] priority/reversed=false disabled seam leaves installed graph unchanged
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=false initial analytic membership count is seven
+[SWEEP PASS] priority/reversed=false nonoverlapping cases claim independently
+[SWEEP PASS] priority/reversed=false eight-corner extent reaches beyond outside center
+[SWEEP PASS] priority/reversed=false vertical slabs separate floors
+[SWEEP PASS] priority/reversed=false ordinary FunctionalProp remains eligible
+[SWEEP PASS] priority/reversed=false unknown owner remains exact installed input
+[SWEEP PASS] priority/reversed=false unclaimed and ineligible draws retain sources
+[SWEEP PASS] priority/reversed=false case copies preserve source while separating installed owners
+[SWEEP PASS] priority/reversed=false initial installed A state
+[SWEEP PASS] priority/reversed=false initial installed B state
+[SWEEP PASS] priority/reversed=false prop readiness and candidate refresh complete
+[SWEEP PASS] priority/reversed=false actual installed surface cache remains the lifecycle consumer
+[SWEEP PASS] priority/reversed=false private world really differs from ordinary world
+[SWEEP PASS] priority/reversed=false private and actor materials stay outside living state
+[SWEEP PASS] priority/reversed=false all active case rows target installed draws
+[SWEEP PASS] priority/reversed=false registry has no duplicate entries
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=false three no-op sweeps preserve every installed identity
+[SWEEP PASS] priority/reversed=false three no-op sweeps preserve exact observable graph
+[ENCROACH] 10 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 9 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=false late and moved census membership count is ten
+[SWEEP PASS] priority/reversed=false new draw is discovered on the next sweep
+[SWEEP PASS] priority/reversed=false previously unclaimed moved draw is reconsidered
+[SWEEP PASS] priority/reversed=false known metadata survives moved bounds and live sharing
+[SWEEP PASS] priority/reversed=false replacement gets a fresh installed row and original link
+[SWEEP PASS] priority/reversed=false updated A state reaches current draw immediately
+[SWEEP PASS] priority/reversed=false updated B state stays independent
+[SWEEP PASS] priority/reversed=false new case draws receive the same immediate state
+[SWEEP PASS] priority/reversed=false boundary exclusions survive subsequent sweep
+[SWEEP PASS] priority/reversed=false real field classifier reports STAIN
+[SWEEP PASS] priority/reversed=false actual STAIN reaches installed case and surface finish
+[SWEEP PASS] priority/reversed=false field texture identity remains exact
+[SWEEP PASS] priority/reversed=false real field classifier reports EXCHANGE
+[SWEEP PASS] priority/reversed=false actual EXCHANGE reaches current live rows and finish
+[SWEEP PASS] priority/reversed=false state and lifecycle updates retain installed identities
+[ENCROACH] 9 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=false detached draw leaves current rows and registry
+[SWEEP PASS] priority/reversed=false final registry stays unique and installed
+[SWEEP PASS] baseline/reversed=true disabled seam returns zero
+[SWEEP PASS] baseline/reversed=true disabled seam leaves installed graph unchanged
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=true initial analytic membership count is seven
+[SWEEP PASS] baseline/reversed=true nonoverlapping cases claim independently
+[SWEEP PASS] baseline/reversed=true overlap obeys authored priority
+[SWEEP PASS] baseline/reversed=true eight-corner extent reaches beyond outside center
+[SWEEP PASS] baseline/reversed=true vertical slabs separate floors
+[SWEEP PASS] baseline/reversed=true ordinary FunctionalProp remains eligible
+[SWEEP PASS] baseline/reversed=true unknown owner remains exact installed input
+[SWEEP PASS] baseline/reversed=true unclaimed and ineligible draws retain sources
+[SWEEP PASS] baseline/reversed=true case copies preserve source while separating installed owners
+[SWEEP PASS] baseline/reversed=true initial installed A state
+[SWEEP PASS] baseline/reversed=true initial installed B state
+[SWEEP PASS] baseline/reversed=true prop readiness and candidate refresh complete
+[SWEEP PASS] baseline/reversed=true actual installed surface cache remains the lifecycle consumer
+[SWEEP PASS] baseline/reversed=true private world really differs from ordinary world
+[SWEEP PASS] baseline/reversed=true private and actor materials stay outside living state
+[SWEEP PASS] baseline/reversed=true all active case rows target installed draws
+[SWEEP PASS] baseline/reversed=true registry has no duplicate entries
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=true three no-op sweeps preserve every installed identity
+[SWEEP PASS] baseline/reversed=true three no-op sweeps preserve exact observable graph
+[ENCROACH] 10 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 9 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=true late and moved census membership count is ten
+[SWEEP PASS] baseline/reversed=true new draw is discovered on the next sweep
+[SWEEP PASS] baseline/reversed=true previously unclaimed moved draw is reconsidered
+[SWEEP PASS] baseline/reversed=true known metadata survives moved bounds and live sharing
+[SWEEP PASS] baseline/reversed=true replacement gets a fresh installed row and original link
+[SWEEP PASS] baseline/reversed=true updated A state reaches current draw immediately
+[SWEEP PASS] baseline/reversed=true updated B state stays independent
+[SWEEP PASS] baseline/reversed=true new case draws receive the same immediate state
+[SWEEP PASS] baseline/reversed=true boundary exclusions survive subsequent sweep
+[SWEEP PASS] baseline/reversed=true real field classifier reports STAIN
+[SWEEP PASS] baseline/reversed=true actual STAIN reaches installed case and surface finish
+[SWEEP PASS] baseline/reversed=true field texture identity remains exact
+[SWEEP PASS] baseline/reversed=true real field classifier reports EXCHANGE
+[SWEEP PASS] baseline/reversed=true actual EXCHANGE reaches current live rows and finish
+[SWEEP PASS] baseline/reversed=true state and lifecycle updates retain installed identities
+[ENCROACH] 9 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] baseline/reversed=true detached draw leaves current rows and registry
+[SWEEP PASS] baseline/reversed=true final registry stays unique and installed
+[SWEEP PASS] priority/reversed=true disabled seam returns zero
+[SWEEP PASS] priority/reversed=true disabled seam leaves installed graph unchanged
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=true initial analytic membership count is seven
+[SWEEP PASS] priority/reversed=true nonoverlapping cases claim independently
+[SWEEP PASS] priority/reversed=true eight-corner extent reaches beyond outside center
+[SWEEP PASS] priority/reversed=true vertical slabs separate floors
+[SWEEP PASS] priority/reversed=true ordinary FunctionalProp remains eligible
+[SWEEP PASS] priority/reversed=true unknown owner remains exact installed input
+[SWEEP PASS] priority/reversed=true unclaimed and ineligible draws retain sources
+[SWEEP PASS] priority/reversed=true case copies preserve source while separating installed owners
+[SWEEP PASS] priority/reversed=true initial installed A state
+[SWEEP PASS] priority/reversed=true initial installed B state
+[SWEEP PASS] priority/reversed=true prop readiness and candidate refresh complete
+[SWEEP PASS] priority/reversed=true actual installed surface cache remains the lifecycle consumer
+[SWEEP PASS] priority/reversed=true private world really differs from ordinary world
+[SWEEP PASS] priority/reversed=true private and actor materials stay outside living state
+[SWEEP PASS] priority/reversed=true all active case rows target installed draws
+[SWEEP PASS] priority/reversed=true registry has no duplicate entries
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[ENCROACH] 7 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 7 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=true three no-op sweeps preserve every installed identity
+[SWEEP PASS] priority/reversed=true three no-op sweeps preserve exact observable graph
+[ENCROACH] 10 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 9 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=true late and moved census membership count is ten
+[SWEEP PASS] priority/reversed=true new draw is discovered on the next sweep
+[SWEEP PASS] priority/reversed=true previously unclaimed moved draw is reconsidered
+[SWEEP PASS] priority/reversed=true known metadata survives moved bounds and live sharing
+[SWEEP PASS] priority/reversed=true replacement gets a fresh installed row and original link
+[SWEEP PASS] priority/reversed=true updated A state reaches current draw immediately
+[SWEEP PASS] priority/reversed=true updated B state stays independent
+[SWEEP PASS] priority/reversed=true new case draws receive the same immediate state
+[SWEEP PASS] priority/reversed=true boundary exclusions survive subsequent sweep
+[SWEEP PASS] priority/reversed=true real field classifier reports STAIN
+[SWEEP PASS] priority/reversed=true actual STAIN reaches installed case and surface finish
+[SWEEP PASS] priority/reversed=true field texture identity remains exact
+[SWEEP PASS] priority/reversed=true real field classifier reports EXCHANGE
+[SWEEP PASS] priority/reversed=true actual EXCHANGE reaches current live rows and finish
+[SWEEP PASS] priority/reversed=true state and lifecycle updates retain installed identities
+[ENCROACH] 9 prop draws reached across 3 case flats
+[ENCROACH] living field on F02 binds 8 materials
+[ENCROACH] living field on F04 binds 1 materials
+[SWEEP PASS] priority/reversed=true detached draw leaves current rows and registry
+[SWEEP PASS] priority/reversed=true final registry stays unique and installed
+[SWEEP PASS] scope material seam leaves persisted facts unchanged
+[SWEEP PASS] retirement all four specimen roots and owners are released
+[SWEEP PASS] receipt explicit receipt directory supplied
+[SWEEP PASS] receipt receipt directory available
+[SWEEP PASS] receipt receipt writable
+ENCROACHMENT SWEEP EQUIVALENCE: FAIL (157/171)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

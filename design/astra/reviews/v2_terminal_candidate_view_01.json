@@ -1,0 +1,192 @@
+{
+  "schema": "astra.v2-terminal-candidate-view.review.v1",
+  "status": "FUNCTIONAL_CAPTURE_PASS_VISUAL_DEBT_REMAINS",
+  "reviewer_sha256": "480ee889ad265ec61fd786fcf964254f83976cd369b2b055153553e350ba00ca",
+  "result_sha256": "f6856b6bd3fca585a12123222c9fc9ba88698f923dd816124e34b6ddd40fe249",
+  "probe_sha256": "d0c3ec8412a5de41f185ab32231105b1f395356a3c7e202fa3d7b3321a164183",
+  "invocation_sha256": "4075b6f338660b093510cd078935a3c23f5f97bbc93a24a4b6d29d7140dc1aa8",
+  "checks": 21,
+  "passed": 21,
+  "native_exit": 0,
+  "gate_exit": 0,
+  "artifact_entries_verified": 24,
+  "stable_source_files": 4056,
+  "operator_diagnostics": {
+    "camera_position": [
+      -9.89999961853027,
+      11.0100002288818,
+      1.25
+    ],
+    "capture_anchor": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_MONITOR_STANCE",
+    "capture_anchor_position": [
+      -9.89999961853027,
+      9.60000038146973,
+      1.25
+    ],
+    "complete": true,
+    "desk_zones": [
+      {
+        "bound_to_actual_call_interface": true,
+        "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_DESK_ZONE",
+        "position": [
+          -9.05000019073486,
+          9.60000038146973,
+          1.25
+        ]
+      }
+    ],
+    "face_dot_operator": 1.0,
+    "face_minimum_dot": 0.5,
+    "kind": "v2_terminal_operator_view",
+    "operator_direction_world": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "operator_scope_sightline": {
+      "blocked": false,
+      "collide_with_areas": false,
+      "collide_with_bodies": true,
+      "collider_class": "",
+      "collider_path": "",
+      "excluded_player_rid_only": true,
+      "from": [
+        -9.89999961853027,
+        11.0100002288818,
+        1.25
+      ],
+      "hit_from_inside": true,
+      "hit_normal": [],
+      "hit_position": [],
+      "length_m": 0.83780974149704,
+      "scope": "physical obstruction only; SignalScope need not be a collider",
+      "to": [
+        -9.27400016784668,
+        10.5150003433228,
+        1.50499999523163
+      ]
+    },
+    "original_bedside_obstruction": {
+      "blocked": true,
+      "collide_with_areas": false,
+      "collide_with_bodies": true,
+      "collider_class": "StaticBody3D",
+      "collider_path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_PRIVATE_HALL/WallNorth_00/Collision",
+      "excluded_player_rid_only": true,
+      "from": [
+        -11.9499998092651,
+        11.0100002288818,
+        8.89999961853027
+      ],
+      "hit_from_inside": true,
+      "hit_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hit_position": [
+        -11.0098695755005,
+        10.9095039367676,
+        6.42000007629395
+      ],
+      "length_m": 8.18709945678711,
+      "scope": "physical obstruction only; SignalScope need not be a collider",
+      "to": [
+        -9.05000019073486,
+        10.7000007629395,
+        1.25
+      ]
+    },
+    "reservation_geometry": [
+      {
+        "albedo_alpha": 0.319999992847443,
+        "camera_cull_mask_overlap": true,
+        "camera_inside_world_bounds": false,
+        "collision_descendants": [],
+        "material_class": "StandardMaterial3D",
+        "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_USE",
+        "position": [
+          -9.05000019073486,
+          10.0,
+          1.25
+        ],
+        "purpose": "terminal fixed-use reservation",
+        "transparency": 1,
+        "visible_in_tree": true,
+        "world_bounds_position": [
+          -9.44999980926514,
+          9.60000038146973,
+          0.850000023841858
+        ],
+        "world_bounds_size": [
+          0.799999237060547,
+          0.799999237060547,
+          0.799999952316284
+        ]
+      },
+      {
+        "albedo_alpha": 0.319999992847443,
+        "camera_cull_mask_overlap": true,
+        "camera_inside_world_bounds": false,
+        "collision_descendants": [],
+        "material_class": "StandardMaterial3D",
+        "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_STANCE",
+        "position": [
+          -9.89999961853027,
+          9.60999965667725,
+          1.25
+        ],
+        "purpose": "0.9 by 1.2 m terminal interaction stance",
+        "transparency": 1,
+        "visible_in_tree": true,
+        "world_bounds_position": [
+          -10.3499994277954,
+          9.59999942779541,
+          0.649999976158142
+        ],
+        "world_bounds_size": [
+          0.899999618530273,
+          0.0200004577636719,
+          1.20000004768372
+        ]
+      }
+    ],
+    "retained_bedside_position": [
+      -11.9499998092651,
+      9.60000038146973,
+      8.89999961853027
+    ],
+    "scope": "controlled operator capture and physics obstruction diagnostics; ray clearance is not interaction or readability proof",
+    "scope_position": [
+      -9.27400016784668,
+      10.5150003433228,
+      1.50499999523163
+    ],
+    "terminal_area_count": 0,
+    "terminal_front_world": [
+      -1.0,
+      0.0,
+      -8.74227765734759e-08
+    ],
+    "terminal_has_interact": false,
+    "terminal_position": [
+      -9.05000019073486,
+      10.3500003814697,
+      1.25
+    ],
+    "terminal_yaw_radians": 3.14159250259399
+  },
+  "images_directly_viewed_by_root": [
+    {
+      "path": "design/astra/evidence/vulkan_composed/runs/terminal_candidate_view_v2_01/frames/v2_actual_f04_semantic_stance.png",
+      "sha256": "d3155880d0725997b647468bb41674ffd4793acfd5cade4af606af94b86c1959"
+    },
+    {
+      "path": "design/astra/evidence/vulkan_composed/runs/terminal_candidate_view_v2_01/frames/v2_actual_f04_phone.png",
+      "sha256": "19ded841e63efec401d9467804d24472dafaf53dc015301411b0167613b11683"
+    }
+  ],
+  "visual_finding": "The actual console now presents its circular green face and front controls toward the operator. The normal support-desk prompt is visible. The phone capture also shows the front. Translucent yellow/teal reservation geometry remains conspicuous across the desk and lower view; surrounding gray-box architecture and coarse handset remain unfinished.",
+  "scope": "Controlled authored operator pose and fixture-mounted production PhoneCamera. The separate39-check fixture establishes input. This capture does not establish walking/body clearance, physical handset use, completed calls, audio listening, performance or human acceptance.",
+  "next_action": "Hide only nonphysical reservation display in production, preserve dedicated review/default geometry, then compare actual views and interaction regression."
+}

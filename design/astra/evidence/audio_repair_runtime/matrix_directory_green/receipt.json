@@ -1,0 +1,218 @@
+{
+  "schema": "astra.audio_repair_runtime.matrix_directory_green.v1",
+  "started_at_utc": "2026-09-05T03:11:33.333771+00:00",
+  "scope": "One actual two-root CampaignShell matrix rerun after checked harness directory creation, with fresh task-local profile and final frozen audio sources. Prior fresh-profile exit-4 red preserved in parent receipt. No visual or release-performance acceptance.",
+  "context": {
+    "engine": "Godot 4.7.1 stable",
+    "mode": "headless",
+    "gpu": "RTX 4080",
+    "cpu": "i7-13700KF",
+    "elapsed_meaning": "wall-clock process duration only"
+  },
+  "red_controls": [
+    {
+      "receipt": "../base_runtime/receipt.json",
+      "suite": "M08F first fresh-profile run",
+      "exit": 1,
+      "checks": "28/29",
+      "cause": "missing user://tests parent"
+    },
+    {
+      "receipt": "../m11b_runtime/receipt.json",
+      "suite": "M11A first fresh-profile run",
+      "exit": 3,
+      "checks": "37/40",
+      "cause": "missing user://tests parent"
+    }
+  ],
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "runs": [
+    {
+      "suite": "two_root_campaign_matrix",
+      "scene": "res://tests/orison_v2_two_root_matrix_test.tscn",
+      "command": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-Scene",
+        "res://tests/orison_v2_two_root_matrix_test.tscn",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_repair_runtime\\matrix_directory_green\\two_root_campaign_matrix.stdout.log",
+        "-TimeoutSeconds",
+        "180",
+        "-ExtraArgs",
+        "--verbose"
+      ],
+      "started_at_utc": "2026-09-05T03:11:33.523637+00:00",
+      "finished_at_utc": "2026-09-05T03:11:34.153989+00:00",
+      "elapsed_seconds": 0.638,
+      "runner_exit": 1,
+      "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\audio_repair_runtime\\matrix_directory_green\\userdata\\two_root_campaign_matrix",
+      "test_directory_existed_before": false,
+      "test_directory_exists_after": false,
+      "test_directory_files_after": [],
+      "diagnostic_lines": [],
+      "summary_lines": [],
+      "stdout_path": "two_root_campaign_matrix.stdout.log",
+      "stderr_path": "two_root_campaign_matrix.stdout.log.stderr",
+      "warning_interpretation": "All raw diagnostics preserved. Diagnostic classification is recorded after inspection; no leak waiver."
+    }
+  ],
+  "source_before": {
+    "head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+    "diff_sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+    "diff_path": "source_before.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/audio/audio_policy.gd",
+        "bytes": 16012,
+        "sha256": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+      },
+      {
+        "path": "game/scripts/props/night_register_prop.gd",
+        "bytes": 58513,
+        "sha256": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf"
+      },
+      {
+        "path": "game/tests/NightRegisterAudioLifecycleTest.tscn",
+        "bytes": 213,
+        "sha256": "51655533f960c9f09bfaa0ac657ceb094bfa899bd90bc485b7ee00c722457577"
+      },
+      {
+        "path": "game/tests/night_register_audio_lifecycle_test.gd",
+        "bytes": 5387,
+        "sha256": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+        "bytes": 6724,
+        "sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4"
+      },
+      {
+        "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+        "bytes": 9253,
+        "sha256": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/audit_orison_v2_completeness.py",
+        "bytes": 134179,
+        "sha256": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 71517,
+        "sha256": "2d203c1ae30a4328843c8cc5b15d5c97b2a2b0533a08eaccb9511a57bb9184a3"
+      }
+    ]
+  },
+  "source_after": {
+    "head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+    "diff_sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+    "diff_path": "source_after.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/audio/audio_policy.gd",
+        "bytes": 16012,
+        "sha256": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+      },
+      {
+        "path": "game/scripts/props/night_register_prop.gd",
+        "bytes": 58513,
+        "sha256": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf"
+      },
+      {
+        "path": "game/tests/NightRegisterAudioLifecycleTest.tscn",
+        "bytes": 213,
+        "sha256": "51655533f960c9f09bfaa0ac657ceb094bfa899bd90bc485b7ee00c722457577"
+      },
+      {
+        "path": "game/tests/night_register_audio_lifecycle_test.gd",
+        "bytes": 5387,
+        "sha256": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+        "bytes": 6724,
+        "sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4"
+      },
+      {
+        "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+        "bytes": 9253,
+        "sha256": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/audit_orison_v2_completeness.py",
+        "bytes": 134179,
+        "sha256": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 71517,
+        "sha256": "2d203c1ae30a4328843c8cc5b15d5c97b2a2b0533a08eaccb9511a57bb9184a3"
+      }
+    ]
+  },
+  "source_unchanged_during_runs": true,
+  "finished_at_utc": "2026-09-05T03:11:34.334252+00:00",
+  "functional_exit_verdict": "FAIL_OR_INCOMPLETE",
+  "shutdown_retention_detected": false,
+  "owner_controls_receipt": "../../audio_ownership/owner_controls_v2/owner_controls.json",
+  "diagnostic_classification_status": "PENDING_MANUAL_INSPECTION",
+  "artifact_hashes": [
+    {
+      "path": "frozen_source_hashes.json",
+      "sha256": "2e997241b0de3e886f088d878167aced9f062387122fcb4dd45e802fb605a040",
+      "bytes": 473
+    },
+    {
+      "path": "run_matrix_green.py",
+      "sha256": "b5bedaf1e398448d74c1bd657de5c21375bec38f32452ed24cdb6a5b4dc2254d",
+      "bytes": 6831
+    },
+    {
+      "path": "source_after.game_tools.diff",
+      "sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+      "bytes": 63799
+    },
+    {
+      "path": "source_before.game_tools.diff",
+      "sha256": "33d7846374b0885709f3086d2ce49beb451785fcd4eb59bd9405a3644cc7b8a4",
+      "bytes": 63799
+    },
+    {
+      "path": "two_root_campaign_matrix.runner.stderr.log",
+      "sha256": "3362b58852776bbfef7291600a0a6850f15b4f546588aa6a373fb7b96cd63fa2",
+      "bytes": 131
+    },
+    {
+      "path": "two_root_campaign_matrix.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

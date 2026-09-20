@@ -1,0 +1,78 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 43.91,
+  "exit_code": 1,
+  "finished_utc": "2026-09-20T00:46:29Z",
+  "started_utc": "2026-09-20T00:45:45Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "[ECOLOGY ENTRY] FAIL actual pointer click on Dream ecology opens the living exhibit"
+  ],
+  "pass_count": 13,
+  "pass_lines": [
+   "[ECOLOGY ENTRY] PASS actual DEBUG menu and warehouse exist",
+   "[ECOLOGY ENTRY] PASS ordinary warehouse construction stays lazy",
+   "[ECOLOGY ENTRY] PASS debug starts with a discoverable collapsed header",
+   "[ECOLOGY ENTRY] PASS F1 opens controls with a usable pointer and live world",
+   "[ECOLOGY ENTRY] PASS debug controls hold walking, stick look and polled switches",
+   "[ECOLOGY ENTRY] PASS clicking outside controls does not recapture the pointer",
+   "[ECOLOGY ENTRY] PASS Escape closes debug and restores capture without opening pause",
+   "[ECOLOGY ENTRY] PASS closing debug restores all prior player process flags",
+   "[ECOLOGY ENTRY] PASS Escape during play still opens ordinary pause services",
+   "[ECOLOGY ENTRY] PASS F1 cannot open debug over the pause surface",
+   "[ECOLOGY ENTRY] PASS Escape closes pause and restores gameplay capture",
+   "[ECOLOGY ENTRY] PASS GO section has a mouse-reachable toggle",
+   "[ECOLOGY ENTRY] PASS Dream ecology control is present"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/attempt01/entry.log.stderr",
+  "stderr_sha256": "b3986b42fb6721f62d35cfe2cff7ec7bc291b14b6bea3be48909ff311a0573a4",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/attempt01/entry.log",
+  "stdout_sha256": "4e3cb523a49872ec7806ac013d1ac13af5e7ee56d1ec395d784c320f90f7453b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/DreamEcologyEntryTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/attempt01/shots",
+ "source": {
+  "dirty_paths": 174,
+  "dirty_sample": [
+   "M game/scripts/ui/building_debug.gd",
+   " M game/tests/dream_ecology_entry_test.gd",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_household_accessories.gd.uid",
+   "?? game/scripts/building/orison_v2_household_radiator.gd.uid",
+   "?? game/scripts/building/orison_v2_household_state.gd.uid",
+   "?? game/scripts/building/orison_v2_lamp_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_laundry.gd.uid",
+   "?? game/scripts/building/orison_v2_medicine_cabinet.gd.uid",
+   "?? game/scripts/building/orison_v2_prep_cabinet.gd.uid",
+   "?? game/scripts/building/orison_v2_projector_prop.gd.uid"
+  ],
+  "repository_head": "d8916966cbce41d9fd8517215f155a37bea3ebf2",
+  "repository_tree": "72e625d9be9452fe2c6b94d34bebec2b4bf21cf8",
+  "runtime_inputs_sha256": "8e5b54d62f98742b2f971234e167279ec5f89742bbd217c2aef7322b20a5b306",
+  "test_path": "game/tests/dream_ecology_entry_test.gd",
+  "test_sha256": "cc5667fd66aa263d5bcd65940396b1e7255d8d1796ab8f68e507266eb22bc28a"
+ },
+ "windowed": true
+}

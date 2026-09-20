@@ -1,0 +1,11 @@
+{
+  "status": "PREPARED_GATE_ONLY_NO_ENGINE_OR_LIVE_GAME_CHANGE",
+  "original_gate_sha256": "be9a2f9aba3a3377332d1678ca01c095f9fcda46a1db9b51d540eb58ced7f4db",
+  "proposed_gate_sha256": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+  "classifier_unchanged_sha256": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+  "original_classification_sha256": "ade9e33ccba9261e74e98cc1d583480aa40f37fa463b66e31613a3ec6d6d0cc9",
+  "source_probe_sha256": "ca8994dc76f0b3a7c94757d2dce2fa44c438d08d404131e0c1d01bf8aae066af",
+  "actual_negative_material_id": -9223370061119417423,
+  "only_change": "Replace positive-only case material_id validity test with exact nonzero signed64 integer predicate; bool excluded; all ownership/native/state/retirement rules unchanged",
+  "actual_run_status": "Still eight material assertion failures; this correction must not turn the runtime red into green"
+}

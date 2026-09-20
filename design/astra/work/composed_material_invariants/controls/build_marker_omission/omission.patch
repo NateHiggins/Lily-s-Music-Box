@@ -1,0 +1,10 @@
+--- a/game/scripts/reality/apartment_encroachment.gd
++++ b/game/scripts/reality/apartment_encroachment.gd
+@@ -206,7 +206,6 @@
+ 					continue
+ 				var material := _material_for(original, plates, rect, floor_y)
+ 				# This unique case material is also retained by the finish refresh row.
+-				material.set_meta("living_storey", floor_id)
+ 				material.set_shader_parameter("grammar", int(spec.get("grammar", 0)))
+ 				var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
+ 				var gilt: Color = spec.get("gilt", Color(0.86, 0.66, 0.30))

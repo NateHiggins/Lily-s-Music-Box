@@ -33,6 +33,18 @@ var _shade: TextureRect
 var _settings_panel: PanelContainer
 var _first_menu_button: Button
 var _services_button: Button
+var _primary_button: Button
+var _new_campaign_button: Button
+var _debug_button: Button
+var _save_notice: Label
+var _replacement_layer: CanvasLayer
+var _replacement_copy: Label
+var _replacement_cancel: Button
+var _replacement_confirm: Button
+var _leave_tween: Tween
+var _return_focus: Control
+var _launch_modulate := Color.WHITE
+var _launch_music_position := 0.0
 var _quality: OptionButton
 var _fullscreen: CheckBox
 var _always_warn: CheckBox
@@ -69,7 +81,13 @@ func _ready() -> void:
 	_build_backdrop()
 	_build_menu()
 	_build_settings()
+	_build_replacement_choice()
 	_build_music()
+	_refresh_save_actions()
+	RealityState.player_notice_changed.connect(_on_save_notice_changed)
+	var notice_layer := get_node_or_null("/root/SaveStatusNotice")
+	if notice_layer != null:
+		notice_layer.set_title_presenter(self)
 	_first_menu_button.grab_focus()
 	get_viewport().size_changed.connect(_place_backdrop)
 	_place_backdrop()
@@ -143,12 +161,17 @@ func _build_menu() -> void:
 	margin.add_theme_constant_override("margin_top", 30)
 	margin.add_theme_constant_override("margin_right", 30)
 	margin.add_theme_constant_override("margin_bottom", 28)
-	panel.add_child(margin)
+	var menu_scroll := ScrollContainer.new()
+	menu_scroll.name = "TitleMenuScroll"
+	menu_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	menu_scroll.follow_focus = true
+	panel.add_child(menu_scroll)
+	menu_scroll.add_child(margin)
 	var menu := VBoxContainer.new()
-	menu.add_theme_constant_override("separation", 9)
+	menu.add_theme_constant_override("separation", 8)
 	margin.add_child(menu)
 
-	var eyebrow := _label("THE ORISON  ·  NIGHT SERVICE  ·  3:00 A.M.", 12,
+	var eyebrow := _label("THE ORISON  ·  NIGHT SERVICE", 12,
 			Color(0.59, 0.58, 0.53))
 	eyebrow.name = "Eyebrow"
 	menu.add_child(eyebrow)
@@ -192,8 +215,18 @@ func _build_menu() -> void:
 	_record_button = _add_button(menu, "", _toggle_record, true)
 	_record_button.name = "RecordSwitch"
 	menu.add_child(HSeparator.new())
-	_first_menu_button = _add_button(menu, "BEGIN THE NIGHT", _new_game)
-	_add_button(menu, "DEBUG BUILDING", _debug_game)
+	_save_notice = _label("", 12, Color(0.83, 0.71, 0.49))
+	_save_notice.name = "TitleSaveNotice"
+	_save_notice.custom_minimum_size.x = 360
+	_save_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	menu.add_child(_save_notice)
+	_primary_button = _add_button(menu, "", _primary_game)
+	_primary_button.name = "PrimaryCampaignAction"
+	_new_campaign_button = _add_button(menu, "NEW CAMPAIGN", _new_game, true)
+	_new_campaign_button.name = "NewCampaignAction"
+	_debug_button = _add_button(menu, "DEBUG BUILDING", _debug_game)
+	_debug_button.name = "DebugBuildingAction"
+	_debug_button.visible = OS.get_environment("ORISON_TITLE_DEBUG") == "1"
 	_services_button = _add_button(menu, "BUILDING SERVICES", _open_settings)
 
 	var foot := _label(
@@ -335,6 +368,8 @@ func _build_settings() -> void:
 
 
 func _open_settings() -> void:
+	if _leaving or _replacement_layer.visible:
+		return
 	_settings_panel.visible = true
 	_quality.grab_focus()
 
@@ -436,6 +471,8 @@ func _set_record_presentation(index: int) -> void:
 
 
 func _toggle_record() -> void:
+	if _leaving or _replacement_layer.visible:
+		return
 	_start_track(TRACK_ORIGINAL if _current_track == TRACK_RETURNED \
 			else TRACK_RETURNED)
 
@@ -453,16 +490,46 @@ func _music_db(index: int) -> float:
 	return float(TRACK_TRIM_DB[index])
 
 
-func _leave(go: Callable) -> void:
+func _leave(go: Callable, return_focus: Control = null) -> void:
 	if _leaving:
 		return
 	_leaving = true
+	_return_focus = return_focus if return_focus != null else get_viewport().gui_get_focus_owner()
+	_launch_modulate = modulate
+	_launch_music_position = _players[_current_track].get_playback_position()
+	_set_main_buttons_disabled(true)
 	if _music_fade and _music_fade.is_valid():
 		_music_fade.kill()
-	var out := create_tween()
+	_leave_tween = create_tween()
 	for player in _players:
-		out.parallel().tween_property(player, "volume_db", -60.0, 0.7)
-	out.tween_callback(go)
+		_leave_tween.parallel().tween_property(player, "volume_db", -60.0, 0.7)
+	_leave_tween.tween_callback(func():
+		if not bool(go.call()):
+			_restore_failed_launch())
+
+
+func _restore_failed_launch() -> void:
+	_leaving = false
+	modulate = _launch_modulate
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_set_main_buttons_disabled(false)
+	_refresh_save_actions()
+	var result := GameBoot.last_launch_result()
+	_show_save_notice(str(result.get("message",
+			"The night could not open. Your save has been kept.")))
+	var player := _players[_current_track]
+	if not player.playing and OS.get_environment("TITLE_SCREEN_SILENT") != "1":
+		# A record may have ended during the leave fade. Resume the selected
+		# record near its prior position, without resetting both title records.
+		player.play(minf(_launch_music_position, maxf(0.0,
+				_tracks[_current_track].get_length() - 0.1)))
+	_music_fade = create_tween()
+	_music_fade.tween_property(player, "volume_db", _music_db(_current_track), 0.25)
+	if is_instance_valid(_return_focus) and _return_focus.is_visible_in_tree() \
+			and not (_return_focus is BaseButton and _return_focus.disabled):
+		_return_focus.grab_focus()
+	else:
+		_first_menu_button.grab_focus()
 
 
 func _label(copy: String, size: int, color: Color) -> Label:
@@ -495,12 +562,165 @@ func _add_button(parent: Control, copy: String, callback: Callable,
 	return button
 
 
+func _refresh_save_actions() -> void:
+	var status := RealityState.load_status()
+	var resumable := RealityState.can_continue()
+	var missing := str(status.get("status", "protected")) == "missing" \
+			and not bool(status.get("has_saved_campaign", true))
+	_primary_button.visible = resumable or missing
+	_primary_button.text = "CONTINUE" if resumable else "BEGIN THE NIGHT"
+	_new_campaign_button.visible = not missing
+	_first_menu_button = _primary_button if _primary_button.visible else _services_button
+	_save_notice.hide()
+	if str(status.get("status", "")) == "recovered" and resumable:
+		_show_save_notice("A previous save was recovered. Continue from that saved point.")
+	elif not missing and not resumable:
+		var notice := RealityState.player_notice()
+		_show_save_notice(str(notice.get("message",
+				"This saved night cannot be continued. Your save is protected.")))
+
+
+func _show_save_notice(message: String) -> void:
+	_save_notice.text = message
+	_save_notice.visible = not message.is_empty()
+
+
+func _on_save_notice_changed(_notice: Dictionary) -> void:
+	_refresh_save_actions()
+
+
+func _exit_tree() -> void:
+	var notice_layer := get_node_or_null("/root/SaveStatusNotice")
+	if notice_layer != null:
+		notice_layer.clear_title_presenter(self)
+
+
+func _primary_game() -> void:
+	if _leaving or _replacement_layer.visible:
+		return
+	if RealityState.can_continue():
+		_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, false))
+		return
+	var status := RealityState.load_status()
+	if str(status.get("status", "protected")) == "missing" \
+			and not bool(status.get("has_saved_campaign", true)):
+		_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true))
+		return
+	_refresh_save_actions()
+	_show_save_notice("This saved night cannot be continued. Your save has been kept.")
+	_first_menu_button.grab_focus()
+
+
 func _new_game() -> void:
-	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true))
+	if _leaving or _replacement_layer.visible:
+		return
+	var status := RealityState.load_status()
+	if str(status.get("status", "protected")) == "missing" \
+			and not bool(status.get("has_saved_campaign", true)):
+		_primary_game()
+		return
+	_settings_panel.hide()
+	_replacement_copy.text = (
+			"Start a new night at the Orison?\n\n"
+			+ "Your current progress will be replaced. The existing save will be kept as an archive, "
+			+ "but it cannot be resumed from this menu.\n\n"
+			+ "The new night opens only after it has been saved. If saving fails, your existing files will be preserved and you will return here.")
+	if not RealityState.can_continue():
+		_replacement_copy.text = (
+				"Start a new night at the Orison?\n\n"
+				+ "This saved night cannot be continued. Starting over will replace it with a new campaign. "
+				+ "The original files will be kept as an archive, but this menu cannot restore them.\n\n"
+				+ "The new night opens only after it has been saved. If saving fails, the original files will remain preserved and protected.")
+	_set_main_buttons_disabled(true)
+	_replacement_layer.show()
+	_replacement_cancel.grab_focus()
+
+
+func _cancel_new_campaign() -> void:
+	if _leaving:
+		return
+	_replacement_layer.hide()
+	_set_main_buttons_disabled(false)
+	_refresh_save_actions()
+	if _new_campaign_button.visible:
+		_new_campaign_button.grab_focus()
+	else:
+		_first_menu_button.grab_focus()
+
+
+func _confirm_new_campaign() -> void:
+	if _leaving or not _replacement_layer.visible:
+		return
+	_replacement_layer.hide()
+	_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true, true),
+			_new_campaign_button)
 
 
 func _debug_game() -> void:
-	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false))
+	if _leaving or _replacement_layer.visible:
+		return
+	_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false))
+
+
+func _set_main_buttons_disabled(disabled: bool) -> void:
+	for button in [_primary_button, _new_campaign_button, _debug_button,
+			_services_button, _record_button]:
+		button.disabled = disabled
+
+
+func _build_replacement_choice() -> void:
+	_replacement_layer = CanvasLayer.new()
+	_replacement_layer.name = "CampaignReplacementChoice"
+	# Above the global save notice, so it cannot conceal this explicit choice.
+	_replacement_layer.layer = 250
+	add_child(_replacement_layer)
+	var shade := ColorRect.new()
+	shade.color = Color(0.005, 0.008, 0.012, 0.86)
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	_replacement_layer.add_child(shade)
+	var center := CenterContainer.new()
+	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_replacement_layer.add_child(center)
+	var panel := PanelContainer.new()
+	panel.name = "CampaignReplacementPanel"
+	panel.custom_minimum_size = Vector2(550, 0)
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.025, 0.029, 0.034, 0.99)
+	style.border_color = Color(0.64, 0.43, 0.18, 0.9)
+	style.set_border_width_all(1)
+	style.content_margin_left = 26
+	style.content_margin_right = 26
+	style.content_margin_top = 24
+	style.content_margin_bottom = 24
+	panel.add_theme_stylebox_override("panel", style)
+	center.add_child(panel)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 16)
+	panel.add_child(box)
+	var heading := _label("A NEW NIGHT", 26, Color(0.90, 0.84, 0.70))
+	heading.add_theme_font_override("font", _serif_font())
+	box.add_child(heading)
+	_replacement_copy = _label("", 16, Color(0.78, 0.75, 0.67))
+	_replacement_copy.name = "CampaignReplacementCopy"
+	_replacement_copy.custom_minimum_size.x = 498
+	_replacement_copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(_replacement_copy)
+	_replacement_cancel = _add_button(box, "KEEP THIS SAVE", _cancel_new_campaign)
+	_replacement_cancel.name = "CancelCampaignReplacement"
+	_replacement_confirm = _add_button(box, "REPLACE AND BEGIN", _confirm_new_campaign, true)
+	_replacement_confirm.name = "ConfirmCampaignReplacement"
+	_replacement_cancel.focus_next = _replacement_cancel.get_path_to(_replacement_confirm)
+	_replacement_cancel.focus_previous = _replacement_cancel.get_path_to(_replacement_confirm)
+	_replacement_confirm.focus_next = _replacement_confirm.get_path_to(_replacement_cancel)
+	_replacement_confirm.focus_previous = _replacement_confirm.get_path_to(_replacement_cancel)
+	for direction in ["top", "bottom", "left", "right"]:
+		_replacement_cancel.set("focus_neighbor_" + direction,
+				_replacement_cancel.get_path_to(_replacement_confirm))
+		_replacement_confirm.set("focus_neighbor_" + direction,
+				_replacement_confirm.get_path_to(_replacement_cancel))
+	_replacement_layer.hide()
 
 
 func _save_settings() -> void:
@@ -560,5 +780,11 @@ func _format_time(seconds: float) -> String:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and _settings_panel.visible:
+	if not event.is_action_pressed("ui_cancel") or _leaving:
+		return
+	if _replacement_layer.visible:
+		_cancel_new_campaign()
+		get_viewport().set_input_as_handled()
+	elif _settings_panel.visible:
 		_close_settings()
+		get_viewport().set_input_as_handled()

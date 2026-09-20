@@ -119,6 +119,9 @@ var beachheads: Dictionary = {}
 var intensities: Dictionary = {}
 ## case_id -> {"rect": Vector4, "floor_y": float, "floor_node": Node}
 var units: Dictionary = {}
+## The actual build provider includes storeys without a case. Node identity,
+## never a scene-name guess, keeps their descendants out of another floor.
+var _authored_floor_nodes: Dictionary = {}
 ## case_id -> Array of {"mesh": MeshInstance3D, "material": ShaderMaterial, "shared": Material}
 ## The props inside the flat that wear the layered surface, each given its
 ## own copy with the case's states on it (owner ruling 2026-08-21: "it
@@ -166,6 +169,7 @@ var _substance_keys: Dictionary = {}
 
 
 func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) -> int:
+	_authored_floor_nodes = floor_nodes.duplicate()
 	name = "ApartmentEncroachment"
 	enabled = OS.get_environment("ENCROACH") != "0"
 	_parse_forced(OS.get_environment("ENCROACH_FORCE"))
@@ -196,6 +200,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		var rows: Array = []
 		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
 			var mi := node as MeshInstance3D
+			if not _living_candidate(mi, floor_node):
+				continue
 			if mi.mesh == null or not mi.name.contains("_finish_"):
 				continue
 			var aabb := _world_aabb(mi)
@@ -208,6 +214,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 				if original == null or original.albedo_texture == null:
 					continue
 				var material := _material_for(original, plates, rect, floor_y)
+				# This unique case material is also retained by the finish refresh row.
+				material.set_meta("living_storey", floor_id)
 				material.set_shader_parameter("grammar", int(spec.get("grammar", 0)))
 				var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
 				var gilt: Color = spec.get("gilt", Color(0.86, 0.66, 0.30))
@@ -792,35 +800,99 @@ func _palette() -> Array[Vector3]:
 ## §5a: every layered material on the storey binds the storey's field —
 ## walls, finishes, floors, trims (surface overrides) and the props
 ## (material overrides; shared MatLib materials get a per-storey copy).
-func _bind_storey(floor_node: Node, floor_id: String, field) -> void:
-	var bound: Array = storey_materials.get(floor_id, [])
+func _bind_storey(floor_node: Node, floor_id: String, _field) -> void:
+	# Seed only weak source aliases from the previous active set. The registry
+	# itself is rebuilt; replaced or detached draws cannot accumulate here.
+	var copies: Dictionary = {}
+	for previous in storey_materials.get(floor_id, []):
+		var material := previous as ShaderMaterial
+		if material == null or material.has_meta("encroachment_case") \
+				or str(material.get_meta("living_storey", "")) != floor_id:
+			continue
+		if not material.has_meta("living_source"):
+			continue
+		var source_ref := material.get_meta("living_source") as WeakRef
+		if source_ref != null and source_ref.get_ref() != null:
+			copies[source_ref.get_ref()] = material
+	if not storey_materials.has(floor_id):
+		storey_materials[floor_id] = []
+	else:
+		(storey_materials[floor_id] as Array).clear()
 	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
 		var mi := node as MeshInstance3D
-		if mi.mesh == null:
+		if not _living_candidate(mi, floor_node) or mi.mesh == null:
 			continue
 		var over := mi.material_override as ShaderMaterial
-		if over != null and over.shader != null \
-				and over.shader.resource_path.get_file().begins_with("orison_surface"):
-			if not over.has_meta("living_storey"):
-				over = over.duplicate() as ShaderMaterial
-				over.set_meta("living_storey", floor_id)
-				mi.material_override = over
+		if _is_living_surface(over):
+			over = _storey_material(over, floor_id, copies)
+			mi.material_override = over
 			_bind_living(over, floor_id)
-			bound.append(over)
+			continue
+		# A full override hides the mesh's surface overrides.
+		if mi.material_override != null:
 			continue
 		for s in mi.mesh.get_surface_count():
-			var m := mi.get_surface_override_material(s) as ShaderMaterial
-			if m == null or m.shader == null \
-					or not m.shader.resource_path.get_file().begins_with("orison_surface"):
+			var material := mi.get_surface_override_material(s) as ShaderMaterial
+			if not _is_living_surface(material):
 				continue
-			if m.has_meta("living_storey") and str(m.get_meta("living_storey")) != floor_id:
-				m = m.duplicate() as ShaderMaterial
-				mi.set_surface_override_material(s, m)
-			m.set_meta("living_storey", floor_id)
-			_bind_living(m, floor_id)
-			bound.append(m)
-	storey_materials[floor_id] = bound
-	print("[ENCROACH] living field on %s binds %d materials" % [floor_id, bound.size()])
+			# Preserve SurfacePass's first-owner cache reference (including its
+			# governor budget writes); only another storey needs a copy here.
+			if not material.has_meta("living_storey"):
+				material.set_meta("living_storey", floor_id)
+			material = _storey_material(material, floor_id, copies)
+			mi.set_surface_override_material(s, material)
+			_bind_living(material, floor_id)
+	# Case props can be direct children of BuildingRoot rather than the glTF
+	# storey. Keep their exact installed material in the same refresh owner.
+	for case_id in prop_rows:
+		if _floor_of(case_id) != floor_id:
+			continue
+		for row in prop_rows[case_id]:
+			var mi := row.mesh as MeshInstance3D
+			if not is_instance_valid(mi) or not _living_candidate(mi, get_parent()):
+				continue
+			var material := row.material as ShaderMaterial
+			if mi.material_override != material or not _is_living_surface(material):
+				continue
+			material = _storey_material(material, floor_id, copies)
+			mi.material_override = material
+			row.material = material
+			_bind_living(material, floor_id)
+	print("[ENCROACH] living field on %s binds %d materials" % [floor_id, storey_materials[floor_id].size()])
+
+
+func _storey_material(material: ShaderMaterial, floor_id: String, copies: Dictionary) -> ShaderMaterial:
+	if str(material.get_meta("living_storey", "")) == floor_id:
+		return material
+	if copies.has(material):
+		return copies[material] as ShaderMaterial
+	# Full overrides keep their existing per-storey copy policy; foreign
+	# owners must also be copied even when living_storey metadata exists.
+	var own := material.duplicate() as ShaderMaterial
+	own.set_meta("living_storey", floor_id)
+	own.set_meta("living_source", weakref(material))
+	copies[material] = own
+	return own
+
+
+static func _is_living_surface(material: ShaderMaterial) -> bool:
+	return material != null and material.shader != null \
+			and material.shader.resource_path.get_file().begins_with("orison_surface")
+
+
+static func _living_candidate(mi: MeshInstance3D, scope: Node) -> bool:
+	if not is_instance_valid(mi) or not is_instance_valid(scope):
+		return false
+	var cursor: Node = mi
+	while cursor != null:
+		if cursor.is_queued_for_deletion() or cursor is SubViewport or cursor is CharacterBody3D \
+				or cursor.is_in_group("resident_placeholders") or cursor.is_in_group("animated_residents") \
+				or str(cursor.name).begins_with("NPC_"):
+			return false
+		if cursor == scope:
+			return true
+		cursor = cursor.get_parent()
+	return false
 
 
 func _bind_living(m: ShaderMaterial, floor_id: String) -> void:
@@ -873,60 +945,69 @@ func reach_props(root: Node) -> int:
 	if not enabled:
 		return 0
 	props_reached = 0
+	var floor_owners := _prop_floor_owners()
+	var rows_by_case := {}
 	for case_id in units:
-		var unit: Dictionary = units[case_id]
-		var rect: Vector4 = unit.rect
-		var floor_y: float = unit.floor_y
-		var rows: Array = []
-		for node in root.find_children("*", "MeshInstance3D", true, false):
-			var mi := node as MeshInstance3D
-			if mi.mesh == null or not (mi.material_override is ShaderMaterial):
+		rows_by_case[case_id] = []
+	# This census lives for one sweep only. Late nodes, replacement materials
+	# and governor reapplication are observed again on the next normal call.
+	# Iterate meshes once, preserving the first matching authored case's claim
+	# when bounds overlap. Existing metadata retains authority within its real floor.
+	for node in root.find_children("*", "MeshInstance3D", true, false):
+		var mi := node as MeshInstance3D
+		if not _living_candidate(mi, root) or mi.mesh == null:
+			continue
+		var material := mi.material_override as ShaderMaterial
+		if material == null or material.shader == null \
+				or not material.shader.resource_path.get_file().begins_with("orison_surface"):
+			continue
+		if material.has_meta("encroachment_case"):
+			var owner_id := str(material.get_meta("encroachment_case"))
+			if rows_by_case.has(owner_id) and _prop_matches_floor(mi,
+					(units[owner_id] as Dictionary).floor_node, floor_owners):
+				(rows_by_case[owner_id] as Array).append({"mesh": mi, "material": material,
+						"shared": material.get_meta("encroachment_shared")})
+			continue
+		var aabb := _world_aabb(mi)
+		if aabb.size == Vector3.ZERO:
+			continue
+		for case_id in units:
+			var unit: Dictionary = units[case_id]
+			if not _prop_matches_floor(mi, unit.floor_node, floor_owners):
 				continue
-			var shader_path := ""
-			if (mi.material_override as ShaderMaterial).shader != null:
-				shader_path = (mi.material_override as ShaderMaterial).shader.resource_path
-			if not shader_path.get_file().begins_with("orison_surface"):
+			var rect: Vector4 = unit.rect
+			var floor_y: float = unit.floor_y
+			if aabb.position.y > floor_y + 3.6 or aabb.end.y < floor_y - 0.2 \
+					or not _aabb_meets_rect(aabb, rect, 0.0):
 				continue
-			if (mi.material_override as ShaderMaterial).has_meta("encroachment_case"):
-				if str(mi.material_override.get_meta("encroachment_case")) == case_id:
-					rows.append({"mesh": mi, "material": mi.material_override,
-							"shared": mi.material_override.get_meta("encroachment_shared")})
-				continue
-			var aabb := _world_aabb(mi)
-			if aabb.size == Vector3.ZERO:
-				continue
-			if aabb.position.y > floor_y + 3.6 or aabb.end.y < floor_y - 0.2:
-				continue
-			if not _aabb_meets_rect(aabb, rect, 0.0):
-				continue
-			var shared: Material = mi.material_override
-			var own := (shared as ShaderMaterial).duplicate() as ShaderMaterial
+			var own := material.duplicate() as ShaderMaterial
 			own.set_meta("encroachment_case", case_id)
-			own.set_meta("encroachment_shared", shared)
+			own.set_meta("encroachment_shared", material)
+			own.set_meta("living_storey", _floor_of(case_id))
 			own.set_shader_parameter("mask_proc_scale", 2.4)
 			own.set_shader_parameter("mask2_threshold", Vector4(0.55, 0.58, 0.46, 0.55))
 			own.set_shader_parameter("mask2_softness", Vector4(0.15, 0.14, 0.30, 0.15))
 			own.set_shader_parameter("mask_threshold", Vector4(0.72, 0.50, 0.60, 0.50))
 			own.set_shader_parameter("mask_softness", Vector4(0.08, 0.30, 0.22, 0.25))
-			# A batched draw spans the storey: the states show only inside the flat.
 			own.set_shader_parameter("state_rect", rect)
 			own.set_shader_parameter("state_y", Vector2(floor_y - 0.2, floor_y + 3.6))
 			_bind_living(own, _floor_of(case_id))
 			mi.material_override = own
-			rows.append({"mesh": mi, "material": own, "shared": shared})
+			var rows: Array = rows_by_case[case_id]
+			rows.append({"mesh": mi, "material": own, "shared": material})
 			if OS.get_environment("ENCROACH_DEBUG") == "1" and rows.size() <= 12:
 				print("[ENCROACH]   %s reaches %s (%s)" % [case_id, mi.get_path(), aabb])
+			break
+	for case_id in units:
+		var rows: Array = rows_by_case[case_id]
 		prop_rows[case_id] = rows
 		props_reached += rows.size()
 		if OS.get_environment("ENCROACH_DEBUG") == "1":
 			print("[ENCROACH]   %s: %d prop draws" % [case_id, rows.size()])
 		_apply_prop_states(case_id, intensities.get(case_id, intensity_for(case_id)))
 	print("[ENCROACH] %d prop draws reached across %d case flats" % [props_reached, prop_rows.size()])
-	# The tentacles may come out now: the objects they explore exist.
 	_tentacle_candidates.clear()
 	_props_ready = true
-	# §5a: the organism goes anywhere on the storey, so every layered prop on
-	# the storey binds its field — not only those inside a flat.
 	for floor_id in fields:
 		var unit_floor: Node = null
 		for case_id in units:
@@ -936,6 +1017,33 @@ func reach_props(root: Node) -> int:
 		if unit_floor != null:
 			_bind_storey(unit_floor, floor_id, fields[floor_id])
 	return props_reached
+
+## Resolve all declared floor roots once per sweep. Manual method fixtures
+## already provide explicit floor_node identities in units; retain that seam
+## without requiring a fake BuildingRoot or inferring ownership from names.
+func _prop_floor_owners() -> Dictionary:
+	var owners := {}
+	for floor_node in _authored_floor_nodes.values():
+		if is_instance_valid(floor_node):
+			owners[floor_node] = true
+	for unit in units.values():
+		var floor_node: Node = unit.get("floor_node")
+		if is_instance_valid(floor_node):
+			owners[floor_node] = true
+	return owners
+
+
+## A descendant's real floor owns its admission even when its low geometry
+## overlaps the generous vertical envelope of the storey below. Root-level
+## props have no such provider: leave their existing world-AABB admission and
+## already-established case metadata rules intact.
+static func _prop_matches_floor(mi: MeshInstance3D, floor_node: Node, owners: Dictionary) -> bool:
+	var cursor: Node = mi
+	while cursor != null:
+		if owners.has(cursor):
+			return cursor == floor_node
+		cursor = cursor.get_parent()
+	return true
 
 
 func _apply_prop_states(case_id: String, value: float) -> void:

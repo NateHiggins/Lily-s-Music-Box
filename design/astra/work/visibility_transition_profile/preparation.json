@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_UNRUN_NOT_INSTALLED",
+  "frozen_source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\before_sources",
+  "bindings": {
+    "game/scripts/building/building_root.gd": {
+      "original_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "diagnostic_sha256": "0adce2e360bb8bd73294b7c0b1e4111c8b5a41cba5230483f9d3def7a7be0e32"
+    },
+    "game/tests/vulkan_composed_root_test.gd": {
+      "original_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "diagnostic_sha256": "169810b791ae5eed2bf4242d99ccdfcec73fb8cd988a03bcb2cb6a8b4aefe857"
+    }
+  },
+  "scope": "Diagnostic attribution only. All original calls, physics, actors, rendering settings and assertions retained. Per-mask timing bookkeeping adds overhead; compare broad phase attribution, never claim shipping frame cost from this instrumented source."
+}

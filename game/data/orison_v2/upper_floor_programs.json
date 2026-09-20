@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "programs": [
+    {
+      "unit": "5A",
+      "resident": "nadia_quell",
+      "disposition": "occupied",
+      "entry": "F05_DOOR_02",
+      "rooms": [
+        "F05_A_MAIN",
+        "F05_A_VESTIBULE",
+        "F05_A_PRIVATE_HALL",
+        "F05_A_BATH",
+        "F05_A_BED",
+        "F05_A_KITCHEN",
+        "F05_A_STUDY"
+      ]
+    },
+    {
+      "unit": "5B",
+      "resident": "cal_dwyer",
+      "disposition": "occupied",
+      "entry": "F05_DOOR_03",
+      "rooms": [
+        "F05_B_MAIN",
+        "F05_B_VESTIBULE",
+        "F05_B_BATH",
+        "F05_B_ALCOVE",
+        "F05_B_PRIVATE_HALL",
+        "F05_B_KITCHEN"
+      ]
+    },
+    {
+      "unit": "5C",
+      "resident": "iris_bell",
+      "disposition": "occupied",
+      "entry": "F05_DOOR_06",
+      "rooms": [
+        "F05_C_VESTIBULE",
+        "F05_C_MAIN",
+        "F05_C_STUDIO",
+        "F05_C_PRIVATE_HALL",
+        "F05_C_BATH",
+        "F05_C_KITCHEN",
+        "F05_C_BED1",
+        "F05_C_BED2"
+      ]
+    },
+    {
+      "unit": "5D",
+      "resident": "",
+      "disposition": "fire_damaged",
+      "entry": "F05_DOOR_05",
+      "rooms": [
+        "F05_D_RESTRICTED"
+      ]
+    },
+    {
+      "unit": "6A",
+      "resident": "sacha_reed",
+      "disposition": "occupied",
+      "entry": "F06_DOOR_02",
+      "rooms": [
+        "F06_A_MAIN",
+        "F06_A_VESTIBULE",
+        "F06_A_PRIVATE_HALL",
+        "F06_A_BATH",
+        "F06_A_BED",
+        "F06_A_KITCHEN",
+        "F06_A_STUDY"
+      ]
+    },
+    {
+      "unit": "6B",
+      "resident": "jonah_price",
+      "disposition": "occupied",
+      "entry": "F06_DOOR_03",
+      "rooms": [
+        "F06_B_MAIN",
+        "F06_B_VESTIBULE",
+        "F06_B_BATH",
+        "F06_B_ALCOVE",
+        "F06_B_PRIVATE_HALL",
+        "F06_B_KITCHEN"
+      ]
+    },
+    {
+      "unit": "6C",
+      "resident": "mae_kessler",
+      "disposition": "occupied",
+      "entry": "F06_DOOR_06",
+      "rooms": [
+        "F06_C_VESTIBULE",
+        "F06_C_MAIN",
+        "F06_C_STUDIO",
+        "F06_C_PRIVATE_HALL",
+        "F06_C_BATH",
+        "F06_C_KITCHEN",
+        "F06_C_BED1",
+        "F06_C_BED2"
+      ]
+    },
+    {
+      "unit": "6D",
+      "resident": "",
+      "disposition": "landlord_storage",
+      "entry": "F06_DOOR_05",
+      "rooms": [
+        "F06_D_RESTRICTED"
+      ]
+    }
+  ],
+  "doors": {
+    "F05_DOOR_02": {
+      "kind": "apartment_entry",
+      "swing_out": false,
+      "unit": "5A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_A_MAIN_BED_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_A_PRIVATE_HALL_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_A_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_A_KITCHEN_STUDY_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_DOOR_03": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "5B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_B_VESTIBULE_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "5B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_B_PRIVATE_HALL_ALCOVE_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5B",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_B_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "5B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_DOOR_06": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "5C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_C_PRIVATE_HALL_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_C_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "5C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_C_PRIVATE_HALL_BED1_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "5C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_C_PRIVATE_HALL_BED2_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "5C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F05_DOOR_05": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "5D",
+      "leaf_state": "locked",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_DOOR_02": {
+      "kind": "apartment_entry",
+      "swing_out": false,
+      "unit": "6A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_A_MAIN_BED_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_A_PRIVATE_HALL_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_A_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_A_KITCHEN_STUDY_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6A",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_DOOR_03": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "6B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_B_VESTIBULE_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "6B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_B_PRIVATE_HALL_ALCOVE_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6B",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_B_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "6B",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_DOOR_06": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "6C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_C_PRIVATE_HALL_BATH_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_C_PRIVATE_HALL_KITCHEN_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "6C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_C_PRIVATE_HALL_BED1_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "6C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_C_PRIVATE_HALL_BED2_DOOR": {
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "6C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    "F06_DOOR_05": {
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "6D",
+      "leaf_state": "locked",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    }
+  }
+}

@@ -36,9 +36,9 @@
     {
       "id": "TEMPLATE_STREET_SEGMENT_V1",
       "boxes": [
-        {"id":"pavement_slab","size_m":[25,0.16,6],"position_m":[9.5,-0.08,3],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lane","size_m":[25,0.12,3.1],"position_m":[9.5,-0.16,7.62],"yaw_degrees":0,"material_id":"asphalt","collision":true,"visible":true,"presentation_role":"environment"},
-        {"id":"street_curb","size_m":[25,0.28,0.34],"position_m":[9.5,-0.02,6.16],"yaw_degrees":0,"material_id":"curb","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_slab","size_m":[45.8,0.16,4.955],"position_m":[2.6,-0.08,2.4775],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lane","size_m":[41.1,0.12,9.143999999999998],"position_m":[0.25,-0.16,9.527],"yaw_degrees":0,"material_id":"asphalt","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"street_curb","size_m":[41.1,0.28,0.34],"position_m":[0.25,-0.02,4.785],"yaw_degrees":0,"material_id":"curb","collision":true,"visible":true,"presentation_role":"environment"},
         {"id":"orison_facade_left","size_m":[2.25,4.2,0.42],"position_m":[-1.875,2.1,-0.25],"yaw_degrees":0,"material_id":"brick","collision":true,"visible":true,"presentation_role":"environment"},
         {"id":"orison_facade_right","size_m":[3.75,4.2,0.42],"position_m":[2.625,2.1,-0.25],"yaw_degrees":0,"material_id":"brick","collision":true,"visible":true,"presentation_role":"environment"},
         {"id":"orison_facade_lintel","size_m":[1.5,1.75,0.42],"position_m":[0,3.325,-0.25],"yaw_degrees":0,"material_id":"brick","collision":true,"visible":true,"presentation_role":"environment"},
@@ -50,24 +50,24 @@
         {"id":"route_wear_orison","size_m":[7.2,0.018,0.42],"position_m":[4.35,0.012,3.72],"yaw_degrees":0,"material_id":"route_wear","collision":false,"visible":true,"presentation_role":"route_guide"},
         {"id":"route_wear_midblock","size_m":[8.8,0.018,0.42],"position_m":[12.35,0.013,3.72],"yaw_degrees":0,"material_id":"route_wear","collision":false,"visible":true,"presentation_role":"route_guide"},
         {"id":"route_wear_turn","size_m":[3.4,0.019,0.42],"position_m":[18.65,0.014,4.2],"yaw_degrees":90,"material_id":"route_wear","collision":false,"visible":true,"presentation_role":"route_guide"},
-        {"id":"street_lamp_post","size_m":[0.12,3.25,0.12],"position_m":[8.1,1.625,5.35],"yaw_degrees":0,"material_id":"iron","collision":true,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lamp_head","size_m":[0.42,0.2,0.3],"position_m":[8.1,3.17,5.18],"yaw_degrees":0,"material_id":"warm_practical","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_wet_west","size_m":[4.8,0.008,1.1],"position_m":[2,0.006,4.55],"yaw_degrees":0,"material_id":"pavement_wet","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lamp_post","size_m":[0.12,3.25,0.12],"position_m":[8.1,1.625,3.9749999999999996],"yaw_degrees":0,"material_id":"iron","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lamp_head","size_m":[0.42,0.2,0.3],"position_m":[8.1,3.17,3.8049999999999997],"yaw_degrees":0,"material_id":"warm_practical","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_wet_west","size_m":[4.8,0.008,1.1],"position_m":[2,0.006,4.2250000000000005],"yaw_degrees":0,"material_id":"pavement_wet","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"pavement_wet_middle","size_m":[5.5,0.008,0.82],"position_m":[9,0.007,2.05],"yaw_degrees":0,"material_id":"pavement_wet","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_wet_east","size_m":[5,0.008,1],"position_m":[15.4,0.006,4.52],"yaw_degrees":0,"material_id":"pavement_wet","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_wet_east","size_m":[5,0.008,1],"position_m":[15.4,0.006,4.275],"yaw_degrees":0,"material_id":"pavement_wet","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"pavement_long_joint","size_m":[25,0.01,0.035],"position_m":[9.5,0.011,3.02],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_01","size_m":[0.035,0.01,5.72],"position_m":[-1.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_02","size_m":[0.035,0.01,5.72],"position_m":[2.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_03","size_m":[0.035,0.01,5.72],"position_m":[6.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_04","size_m":[0.035,0.01,5.72],"position_m":[10.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_05","size_m":[0.035,0.01,5.72],"position_m":[14.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_06","size_m":[0.035,0.01,5.72],"position_m":[18.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"pavement_cross_joint_07","size_m":[0.035,0.01,5.72],"position_m":[21.5,0.011,3],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"curb_coping_west","size_m":[4.82,0.035,0.37],"position_m":[-0.53,0.135,6.16],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"curb_coping_midwest","size_m":[4.82,0.035,0.37],"position_m":[4.36,0.135,6.16],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"curb_coping_middle","size_m":[4.82,0.035,0.37],"position_m":[9.25,0.135,6.16],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"curb_coping_mideast","size_m":[4.82,0.035,0.37],"position_m":[14.14,0.135,6.16],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"curb_coping_east","size_m":[4.82,0.035,0.37],"position_m":[19.03,0.135,6.16],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_01","size_m":[0.035,0.01,4.675],"position_m":[-1.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_02","size_m":[0.035,0.01,4.675],"position_m":[2.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_03","size_m":[0.035,0.01,4.675],"position_m":[6.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_04","size_m":[0.035,0.01,4.675],"position_m":[10.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_05","size_m":[0.035,0.01,4.675],"position_m":[14.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_06","size_m":[0.035,0.01,4.675],"position_m":[18.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"pavement_cross_joint_07","size_m":[0.035,0.01,4.675],"position_m":[21.5,0.011,2.4775],"yaw_degrees":0,"material_id":"paving_joint","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"curb_coping_west","size_m":[4.82,0.035,0.37],"position_m":[-0.53,0.135,4.785],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"curb_coping_midwest","size_m":[4.82,0.035,0.37],"position_m":[4.36,0.135,4.785],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"curb_coping_middle","size_m":[4.82,0.035,0.37],"position_m":[9.25,0.135,4.785],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"curb_coping_mideast","size_m":[4.82,0.035,0.37],"position_m":[14.14,0.135,4.785],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"curb_coping_east","size_m":[4.82,0.035,0.37],"position_m":[19.03,0.135,4.785],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"orison_upper_mass","size_m":[8,2.12,0.42],"position_m":[1,5.26,-0.25],"yaw_degrees":0,"material_id":"brick","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"orison_base_course","size_m":[7.76,0.42,0.14],"position_m":[0.88,0.3,0.015],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"orison_string_course","size_m":[7.96,0.16,0.22],"position_m":[1,4.2,0],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
@@ -93,10 +93,15 @@
         {"id":"orison_window_3_sill","size_m":[1.1,0.12,0.13],"position_m":[3.15,4.56,0.025],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"orison_window_3_head","size_m":[1.1,0.12,0.13],"position_m":[3.15,5.84,0.025],"yaw_degrees":0,"material_id":"limestone","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"orison_window_3_mullion","size_m":[0.055,1.1,0.055],"position_m":[3.15,5.2,0.012],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lamp_post_east","size_m":[0.12,3.1,0.12],"position_m":[14.35,1.55,5.35],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lamp_head_east","size_m":[0.44,0.22,0.32],"position_m":[14.35,3.05,5.18],"yaw_degrees":0,"material_id":"lamp_glass","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lamp_cap_east","size_m":[0.56,0.08,0.42],"position_m":[14.35,3.19,5.18],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"street_lamp_cap_west","size_m":[0.54,0.08,0.4],"position_m":[8.1,3.3,5.18],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"}
+        {"id":"street_lamp_post_east","size_m":[0.12,3.1,0.12],"position_m":[14.35,1.55,3.9749999999999996],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lamp_head_east","size_m":[0.44,0.22,0.32],"position_m":[14.35,3.05,3.8049999999999997],"yaw_degrees":0,"material_id":"lamp_glass","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lamp_cap_east","size_m":[0.56,0.08,0.42],"position_m":[14.35,3.19,3.8049999999999997],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"street_lamp_cap_west","size_m":[0.54,0.08,0.4],"position_m":[8.1,3.3,3.8049999999999997],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
+        {"id":"passage_pavement_slab_west","size_m":[20.255,0.16,4.422000000000001],"position_m":[-10.172500000000001,-0.08,16.310000000000002],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"passage_pavement_slab_east","size_m":[17.905,0.16,4.422000000000001],"position_m":[13.0475,-0.08,16.310000000000002],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"passage_pavement_slab_street","size_m":[4.14,0.16,1.3759999999999994],"position_m":[2.025,-0.08,14.786999999999999],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"passage_pavement_slab_arcade","size_m":[4.14,0.16,1.9960000000000022],"position_m":[2.025,-0.08,17.523],"yaw_degrees":0,"material_id":"pavement","collision":true,"visible":true,"presentation_role":"environment"},
+        {"id":"passage_street_curb","size_m":[41.1,0.28,0.34],"position_m":[0.25,-0.02,14.268999999999998],"yaw_degrees":0,"material_id":"curb","collision":true,"visible":true,"presentation_role":"environment"}
       ],
       "labels": [
         {"id":"orison_name","text":"ORISON","font_size":96,"pixel_size":0.0042,"position_m":[0,3.42,-0.02],"yaw_degrees":0,"color_rgba":[0.72,0.65,0.46,1],"outline_color_rgba":[0.06,0.045,0.035,1],"outline_size":8,"billboard":false,"presentation_role":"environment"},
@@ -105,17 +110,14 @@
       "lights": [
         {"id":"orison_sconce_left","position_m":[-1.08,2.08,0.36],"color_rgb":[1,0.67,0.35],"energy":1.75,"range_m":5.8,"shadows":false},
         {"id":"orison_sconce_right","position_m":[1.08,2.08,0.36],"color_rgb":[1,0.67,0.35],"energy":1.75,"range_m":5.8,"shadows":false},
-        {"id":"street_lamp_pool","position_m":[8.1,3.04,5.05],"color_rgb":[1,0.61,0.3],"energy":2.35,"range_m":8.4,"shadows":true},
+        {"id":"street_lamp_pool","position_m":[8.1,3.04,3.675],"color_rgb":[1,0.61,0.3],"energy":2.35,"range_m":8.4,"shadows":true},
         {"id":"orison_canopy_pool","position_m":[0,2.62,0.85],"color_rgb":[1,0.66,0.33],"energy":1.65,"range_m":5.4,"shadows":true},
         {"id":"orison_facade_wash","position_m":[0.5,4.35,1.1],"color_rgb":[0.76,0.68,0.58],"energy":0.85,"range_m":6.2,"shadows":false},
-        {"id":"street_lamp_pool_east","position_m":[14.35,2.96,5.08],"color_rgb":[1,0.61,0.3],"energy":1.75,"range_m":7,"shadows":true}
+        {"id":"street_lamp_pool_east","position_m":[14.35,2.96,3.705],"color_rgb":[1,0.61,0.3],"energy":1.75,"range_m":7,"shadows":true}
       ],
-      "doors": [
-      ],
-      "functional_props": [
-      ],
-      "service_counters": [
-      ]
+      "doors": [],
+      "functional_props": [],
+      "service_counters": []
     },
     {
       "id": "TEMPLATE_BODEGA_CELL_V1",
@@ -218,7 +220,7 @@
         {"id":"back_practical_shade","size_m":[1.45,0.1,0.38],"position_m":[0,2.86,-8.7],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"}
       ],
       "labels": [
-        {"id":"counter_lettering","text":"NOTIONS  ·  HOUSEHOLD  ·  KEYS","font_size":44,"pixel_size":0.0027,"position_m":[-1.25,1.02,-1.38],"yaw_degrees":0,"color_rgba":[0.78,0.68,0.43,1],"outline_color_rgba":[0.08,0.045,0.03,1],"outline_size":4,"billboard":false,"presentation_role":"environment"},
+        {"id":"counter_lettering","text":"NOTIONS  \u00c2\u00b7  HOUSEHOLD  \u00c2\u00b7  KEYS","font_size":44,"pixel_size":0.0027,"position_m":[-1.25,1.02,-1.38],"yaw_degrees":0,"color_rgba":[0.78,0.68,0.43,1],"outline_color_rgba":[0.08,0.045,0.03,1],"outline_size":4,"billboard":false,"presentation_role":"environment"},
         {"id":"back_room_lettering","text":"DELIVERIES","font_size":48,"pixel_size":0.003,"position_m":[0.65,2.4,-10.45],"yaw_degrees":0,"color_rgba":[0.77,0.72,0.55,1],"outline_color_rgba":[0.04,0.045,0.04,1],"outline_size":5,"billboard":false,"presentation_role":"environment"},
         {"id":"street_return_lettering","text":"WEST 138TH STREET  /  ORISON","font_size":46,"pixel_size":0.0029,"position_m":[0,2.55,-0.18],"yaw_degrees":180,"color_rgba":[0.88,0.78,0.49,1],"outline_color_rgba":[0.04,0.03,0.025,1],"outline_size":5,"billboard":false,"presentation_role":"route_guide"}
       ],

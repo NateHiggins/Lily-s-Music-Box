@@ -39,8 +39,8 @@ Audit domains and finding classes:
                   when the scene unloads.
   host-clock      HOST_CLOCK_MUTATES_WORLD - durable world facts derived
                   from unix/system time or OS ticks (profiling, perf
-                  measurement and cosmetic clocks are classified, not
-                  flagged).
+                  measurement, reviewed pure IDs and seed entropy are
+                  excluded; world-facing clocks use campaign time).
   objective-ui    OBJECTIVE_UI_LEAK - objective/mission/quest/tutorial
                   presentation in player-facing production UI (debug,
                   tests, diegetic work papers and ordinary dialogue are
@@ -66,8 +66,9 @@ never compared.
 Baseline policy (tools/systemic_situation_authority_baseline.json):
 new actionable production findings FAIL; a baselined finding whose class
 or confidence changes FAILS (a baseline entry never suppresses a
-different class, a higher-confidence mutation, or a production finding
-via a test-tier entry); vanished baseline entries are cleanup
+different class, a higher-confidence mutation, an actionable finding via
+an old non-actionable disposition, or a production finding via a test-tier
+entry); vanished baseline entries are cleanup
 opportunities; malformed or duplicate baselines FAIL.  Output is
 deterministic and byte-identical across runs.
 
@@ -252,11 +253,24 @@ AUTONOMY_CLAIM_RE = re.compile(
     r"autonom|advance_simulation|situation|neglect|continued_world")
 
 HOST_CLOCK_RE = re.compile(
-    r"Time\.get_unix_time[a-z_]*\(|Time\.get_ticks_msec\(|"
-    r"Time\.get_ticks_usec\(|Time\.get_datetime[a-z_]*\(|"
-    r"Time\.get_time_dict_from_system\(|"
+    r"Time\.get_unix_time_from_system\(|Time\.get_ticks_msec\(|"
+    r"Time\.get_ticks_usec\(|Time\.get_datetime_(?:dict|string)_from_system\(|"
+    r"Time\.get_time_(?:dict|string)_from_system\(|"
     r"Time\.get_date_dict_from_system\(|"
     r"OS\.get_ticks")
+HOST_UNIX_RE = re.compile(r"Time\.get_unix_time_from_system\(")
+HOST_CALENDAR_RE = re.compile(
+    r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
+CALENDAR_FIELD_ACCESS_RE = re.compile(
+    r'\.(?:year|month|day|weekday)\b|(?:get\(\s*|\[)["\x27]'
+    r'(?:year|month|day|weekday)["\x27]')
+CALENDAR_DURABLE_RE = re.compile(
+    r"RealityState|\b_state\b|\bstate\b|\.data\b|save|commit\(|"
+    r"record_fact|persist|FileAccess\.WRITE", re.IGNORECASE)
+HOST_FILENAME_SCOPES = {
+    ("game/scripts/songbook/songbook_store.gd", "_new_id"),
+    ("game/scripts/phoneos/phone_camera.gd", "_new_photo_id"),
+}
 PROFILING_CONTEXT_RE = re.compile(
     r"perf|profil|budget_ms|_ms\b|elapsed_ms|print|debug|stopwatch|"
     r"startup|timing", re.IGNORECASE)
@@ -333,7 +347,9 @@ def make_finding(domain, cls, file, scope, line_no, expr, writer, owner,
 # ---------------------------------------------------------------------------
 
 class FileContext:
-    def __init__(self, rel: str, text: str):
+    def __init__(self, rel: str, text: str, root: Path | None = None):
+        self.root = root
+        self._test_ancestors = None
         self.rel = rel
         self.text = text
         self.lines = text.split("\n")
@@ -356,6 +372,28 @@ class FileContext:
         if current:
             self.functions.append((current[0], current[1],
                                    len(self.lines) - 1))
+        # Follow named same-file helpers so separating the host read from
+        # its durable consumer does not evade the calendar rule. Pure,
+        # reviewed filename generators are non-world metadata boundaries.
+        self.calendar_sources = set()
+        bodies = {name: "\n".join(self.code_line(i)
+                                  for i in range(start + 1, end + 1))
+                  for name, start, end in self.functions}
+        for name, body in bodies.items():
+            filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
+                not CALENDAR_DURABLE_RE.search(body)
+            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body)) and not filename_only \
+                    and not _pure_seed_entropy(rel, name, body):
+                self.calendar_sources.add(name)
+        changed = True
+        while changed:
+            changed = False
+            for name, body in bodies.items():
+                if name not in self.calendar_sources and any(
+                        re.search(r"\b" + re.escape(source) + r"\s*\(", body)
+                        for source in self.calendar_sources):
+                    self.calendar_sources.add(name)
+                    changed = True
 
     def scope_at(self, index: int) -> str:
         for name, start, end in self.functions:
@@ -375,6 +413,220 @@ class FileContext:
         if stripped.startswith("#"):
             return ""
         return raw.split("#", 1)[0] if "#" in raw else raw
+
+
+def _test_ancestors(ctx: FileContext) -> list[FileContext]:
+    """Literal test inheritance only; missing/cyclic/escaping parents fail closed."""
+    if ctx._test_ancestors is not None:
+        return ctx._test_ancestors
+    ctx._test_ancestors = []
+    if ctx.root is None or ctx.tier != "test":
+        return []
+    current = ctx
+    seen = {ctx.rel}
+    for _ in range(32):
+        match = re.search(r'^extends\s+"res://(tests/[^"\n]+\.gd)"',
+                          current.text, re.MULTILINE)
+        if not match:
+            break
+        path = (ctx.root / "game" / match.group(1)).resolve()
+        if not path.is_relative_to((ctx.root / "game/tests").resolve()):
+            break
+        rel = path.relative_to(ctx.root.resolve()).as_posix()
+        if rel in seen or not path.is_file():
+            break
+        seen.add(rel)
+        current = FileContext(rel, path.read_text(encoding="utf-8"))
+        ctx._test_ancestors.append(current)
+    return ctx._test_ancestors
+
+
+def _runtime_receiver_is_typed(ctx: FileContext, scope: str, name: str) -> bool:
+    """Only OrisonV2RuntimeRoot.adapter has the reviewed read-only resolve API."""
+    escaped = re.escape(name)
+    body = _gd_function_bodies(ctx.text, code_only=True).get(scope, "")
+    header = body.splitlines()[0] if body else ""
+    parameter = re.search(r"\b" + escaped + r"\s*(?::\s*([\w]+))?\s*[,)]", header)
+    if parameter:
+        return parameter.group(1) == "OrisonV2RuntimeRoot"
+    declarations = re.findall(r"\bvar\s+" + escaped + r"\b[^\n]*", body)
+    if declarations:
+        return all(re.search(r":\s*OrisonV2RuntimeRoot\b", declaration) or
+                   re.search(r":=.*\bas\s+OrisonV2RuntimeRoot\b", declaration)
+                   for declaration in declarations)
+    for source in [ctx] + _test_ancestors(ctx):
+        field = re.search(r"^var\s+" + escaped + r"\b[^\n]*",
+                          _gd_code_only(source.text), re.MULTILINE)
+        if field:
+            return bool(re.search(r":\s*OrisonV2RuntimeRoot\b", field.group(0)))
+    return False
+
+
+def _consequence_code(ctx: FileContext, scope: str, line: str) -> str:
+    # A function's declaration is not a call, and an anchor lookup does not
+    # resolve a situation. Preserve other calls even on the same source line.
+    line = line.split("#", 1)[0]
+    if FUNC_RE.match(line.strip()):
+        return ""
+    pattern = r"(?<![\w.])([A-Za-z_]\w*)\.adapter\.resolve\s*\("
+    return re.sub(pattern, lambda match: "read_only_anchor_lookup("
+                  if _runtime_receiver_is_typed(ctx, scope, match.group(1))
+                  else match.group(0), line)
+
+
+def _gd_code_only(text: str) -> str:
+    """Mask comments and quoted literals, preserving offsets and line breaks."""
+    masked = list(text)
+    index = 0
+    while index < len(text):
+        start = index
+        if text[index] == "#":
+            end = text.find("\n", index)
+            index = len(text) if end < 0 else end
+        elif text[index] in ('"', "'"):
+            quote = text[index]
+            delimiter = quote * 3 if text.startswith(quote * 3, index) else quote
+            index += len(delimiter)
+            while index < len(text):
+                if text[index] == "\\":
+                    index += 2
+                elif text.startswith(delimiter, index):
+                    index += len(delimiter)
+                    break
+                else:
+                    index += 1
+        else:
+            index += 1
+            continue
+        for offset in range(start, min(index, len(text))):
+            if masked[offset] != "\n":
+                masked[offset] = " "
+    return "".join(masked)
+
+
+def _gd_function_bodies(text: str, *, code_only: bool = False) -> dict[str, str]:
+    # Mask the whole source before finding scopes; a printed header is not code.
+    # A later class, field or other top-level statement also ends a function.
+    code = _gd_code_only(text)
+    source = code if code_only else text
+    bodies = {}
+    active = None
+    offset = depth = 0
+    continued = False
+    for line in code.splitlines(keepends=True):
+        top_level = bool(line.strip()) and not line[0].isspace()
+        if active and top_level and depth == 0 and not continued:
+            bodies[active[0]] = source[active[1]:offset]
+            active = None
+        if active is None and top_level:
+            header = re.match(r"(?:static[ \t]+)?func[ \t]+([A-Za-z_]\w*)", line)
+            if header:
+                active = (header.group(1), offset)
+                depth = 0
+        if active:
+            # Parenthesized or explicitly continued lines may begin at column
+            # zero in a real multiline header/body and remain in its scope.
+            depth += sum(line.count(char) for char in "([{")
+            depth -= sum(line.count(char) for char in ")]}")
+            continued = line.rstrip().endswith("\\")
+        offset += len(line)
+    if active:
+        bodies[active[0]] = source[active[1]:]
+    return bodies
+
+
+def _reaches_inherited_input(ctx: FileContext) -> bool:
+    ancestors = _test_ancestors(ctx)
+    if not ancestors:
+        return False
+    methods = {}
+    for source in [ctx] + ancestors:
+        for name, body in _gd_function_bodies(source.text).items():
+            # Derived overrides win. An unused input helper in a base file
+            # grants nothing; walk actual calls from engine test entrypoints.
+            methods.setdefault(name, body)
+    pending = [name for name in ("_ready", "_init") if name in methods]
+    visited = set()
+    while pending:
+        name = pending.pop()
+        if name in visited:
+            continue
+        visited.add(name)
+        body = "\n".join(methods[name].splitlines()[1:])
+        code = _gd_code_only(body)
+        if re.search(r"(?<![.\w])Input\.action_press\s*\(", code) and \
+                re.search(r"(?<![.\w])Input\.action_release\s*\(", code):
+            return True
+        calls = set(re.findall(r"(?<![.\w])([A-Za-z_]\w*)\s*\(", code))
+        # A real local deferred call names its target in one literal argument.
+        # Printed call syntax, another receiver and computed names grant nothing.
+        for deferred in re.finditer(r"(?<![.\w])(?:self\.)?call_deferred\s*\(", code):
+            target = re.match(r"\s*([\"'])([A-Za-z_]\w*)\1\s*(?=[,)])",
+                              body[deferred.end():])
+            if target:
+                calls.add(target.group(2))
+        pending.extend(call for call in calls if call in methods and call not in visited)
+    return False
+
+
+HOST_ARTIFACT_FIELDS = {
+    ("game/tests/interaction_inventory.gd", "_ready"): ("report", "generated_utc"),
+    ("game/tests/prop_warehouse_shot.gd", "_run"): ("manifest", "generated_at"),
+}
+
+
+def _artifact_timestamp_only(ctx: FileContext, scope: str, line: str) -> bool:
+    spec = HOST_ARTIFACT_FIELDS.get((ctx.rel, scope))
+    if spec is None:
+        return False
+    variable, field = spec
+    if not re.fullmatch(r'\s*"' + field + r'"\s*:\s*'
+            r'Time\.get_datetime_string_from_system\(true(?:,\s*true)?\),\s*', line):
+        return False
+    body = _gd_function_bodies(ctx.text).get(scope, "")
+    declaration = re.search(r"\bvar\s+" + variable + r"\s*:=\s*\{", body)
+    field_at = body.find(line)
+    if declaration is None or field_at < declaration.end():
+        return False
+    prefix = body[declaration.end():field_at]
+    if prefix.count("{") != prefix.count("}"):
+        return False  # only the top-level declared artifact field
+    sink = r"^\s*\w+\.store_string\(\s*JSON\.stringify\(\s*" + variable + r"\b"
+    if not re.search(sink, body, re.MULTILINE):
+        return False
+    # Check every occurrence separately: a valid serialization on a line must
+    # not excuse a second, dynamic extraction on that same line.
+    for raw, code in zip(body.splitlines(), _gd_code_only(body).splitlines()):
+        references = list(re.finditer(r"\b" + variable + r"\b", code))
+        if not references:
+            continue
+        declared = re.search(r"\bvar\s+(" + variable + r")\s*:=\s*\{", code)
+        serialized = re.search(sink, code)
+        for reference in references:
+            if declared and reference.span() == declared.span(1):
+                continue
+            if serialized and reference.end() == serialized.end():
+                continue
+            # Refuse whole-object aliases/returns and any world sink. A report
+            # lookup is safe only when its immediate key is a non-clock literal.
+            if re.search(r"RealityState|Campaign|record_fact|\breturn\b|commit|persist", code) or \
+                    re.search(r"[=:]\s*" + variable + r"\b", code):
+                return False
+            tail = raw[reference.end():]
+            member = re.match(r"\s*\.\s*([A-Za-z_]\w*)", tail)
+            literal = re.match(r"\s*\[\s*([\"'])([A-Za-z_]\w*)\1\s*\]", tail)
+            if member and member.group(1) == "get" and re.match(r"\s*\(", tail[member.end():]):
+                literal = re.match(r"\s*\.\s*get\s*\(\s*([\"'])([A-Za-z_]\w*)\1\s*(?=[,)])", tail)
+                member = None
+            if literal:
+                key = literal.group(2)
+            elif member and not re.match(r"\s*\(", tail[member.end():]):
+                key = member.group(1)
+            else:
+                return False
+            if key == field:
+                return False
+    return True
 
 
 def scan_file(ctx: FileContext, findings: list):
@@ -446,6 +698,17 @@ def _scan_physical(ctx, findings, line, scope, line_no):
         target = assign.group(1)
         prop = assign.group(2)
         if target in ("self",):
+            return
+        # LampOpticalState owns this presentation observation. Callers pass
+        # their reusable output Dictionary; this does not set a radiator or
+        # any foreign mechanism's heat. Keep the declaration scoped to this
+        # exact file, method, typed output parameter and field. A same-named
+        # key, another target or any other function remains actionable.
+        if (ctx.rel == "game/scripts/lamp/lamp_optical_state.gd"
+                and scope == "write_output" and target == "result"
+                and prop == "heat" and re.search(
+                    r"^func write_output\(result: Dictionary\) -> void:",
+                    ctx.text, re.M)):
             return
         # Builders positioning what they are constructing own that
         # geometry; transform writes only matter for coordinators
@@ -521,12 +784,11 @@ def _scan_timer_scope(ctx, findings, scope):
     body = ctx.function_body(scope)
     if not body or not ELAPSED_RE.search(body):
         return
-    consequences = CONSEQUENCE_RE.findall(body)
-    if not consequences:
+    code_lines = [_consequence_code(ctx, scope, line) for line in body.split("\n")]
+    consequence_lines = [line for line in code_lines if CONSEQUENCE_RE.search(line)]
+    if not consequence_lines:
         return
     # Scheduling-only scopes dispatch/emit and apply nothing final.
-    consequence_lines = [ln for ln in body.split("\n")
-                         if CONSEQUENCE_RE.search(ln)]
     if all(SCHEDULE_ONLY_RE.search(ln) for ln in consequence_lines):
         return
     start = next((s for n, s, _e in ctx.functions if n == scope), 0)
@@ -595,13 +857,59 @@ def _scan_scene_local_autonomy(ctx, findings):
         "REVIEW", ctx.tier))
 
 
+def _pure_seed_entropy(rel, scope, body):
+    # Exact existing entropy boundary. It does not return the timestamp or
+    # write a durable fact; the random hexadecimal seed is the returned value.
+    return (rel == "game/scripts/game/reality_game_state.gd" and
+            scope == "_new_dream_seed" and
+            len(HOST_UNIX_RE.findall(body)) == 1 and
+            "RandomNumberGenerator.new()" in body and
+            re.search(r"rng\.seed\s*=.*Time\.get_unix_time_from_system\(", body) and
+            body.count("rng.randi()") == 2 and
+            re.search(r"return[^\n]*\bencoded\b", body) and
+            not CALENDAR_DURABLE_RE.search(body))
+
+
 def _scan_host_clock(ctx, findings, line, scope, line_no):
-    if not HOST_CLOCK_RE.search(line):
+    helper_read = not FUNC_RE.match(line.strip()) and any(
+        re.search(r"\b" + re.escape(source) + r"\s*\(", line)
+        for source in ctx.calendar_sources)
+    if not HOST_CLOCK_RE.search(line) and not helper_read:
         return
-    if ctx.rel == "game/scripts/game/campaign_clock.gd" and \
-            scope == "_initialize_epoch_from_host":
-        return  # owner-authorized one-time campaign epoch capture
     body = ctx.function_body(scope)
+    code_body = "\n".join(raw.split("#", 1)[0] for raw in body.splitlines())
+    campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
+    civil_host_read = HOST_CALENDAR_RE.search(line) or \
+        re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
+    unix_host_read = HOST_UNIX_RE.search(line)
+    if _pure_seed_entropy(ctx.rel, scope, code_body):
+        return
+    if _artifact_timestamp_only(ctx, scope, line):
+        return
+    if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
+            not CALENDAR_DURABLE_RE.search(code_body):
+        return  # approved pure non-world filename generator only
+    if campaign_owner and scope == "_sample_local_minute_of_day" and \
+            "Time.get_time_dict_from_system(" in line and \
+            len(HOST_CLOCK_RE.findall(code_body)) == 1 and \
+            not CALENDAR_FIELD_ACCESS_RE.search(code_body) and \
+            not CALENDAR_DURABLE_RE.search(code_body):
+        return  # exactly the pure creation-time hour/minute sampler
+    calendar_persistence = (helper_read or civil_host_read) and \
+        CALENDAR_DURABLE_RE.search(code_body)
+    if campaign_owner or calendar_persistence or civil_host_read or unix_host_read:
+        findings.append(make_finding(
+            "host-clock", "HOST_CLOCK_MUTATES_WORLD", ctx.rel, scope,
+            line_no, line, ctx.writer, "authored campaign calendar",
+            "STRONG", "host Unix/civil time or unauthorized clock read can "
+            "replace authored campaign time, display host time in the world "
+            "or persist host date fields",
+            "use campaign_calendar.json and the simulation clock; only "
+            "CampaignClock._sample_local_minute_of_day may sample local "
+            "hour/minute once, without calendar fields or durable writes; "
+            "Unix host time is reserved for reviewed seed entropy or pure IDs",
+            "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
+        return
     profiling = PROFILING_CONTEXT_RE.search(line) or \
         PROFILING_CONTEXT_RE.search(scope)
     if profiling and not DURABLE_CONTEXT_RE.search(line):
@@ -698,12 +1006,13 @@ def _scan_test_proof(ctx, findings):
     shortcut_lines = []
     for i in range(len(ctx.lines)):
         line = ctx.code_line(i)
-        if TEST_SHORTCUT_CALL_RE.search(line):
+        code = _consequence_code(ctx, ctx.scope_at(i), line)
+        if TEST_SHORTCUT_CALL_RE.search(code):
             shortcut_lines.append((i, line))
     if not shortcut_lines:
         return
-    if TEST_PUBLIC_RE.search(ctx.text):
-        return  # exercises a public interaction somewhere; give benefit
+    if TEST_PUBLIC_RE.search(ctx.text) or _reaches_inherited_input(ctx):
+        return  # local public interaction, or an actually reached inherited input driver
     i, line = shortcut_lines[0]
     findings.append(make_finding(
         "test-proof", "TEST_AUTHORITY_SHORTCUT", ctx.rel,
@@ -776,7 +1085,7 @@ def scan_repository(root: Path, production_only: bool,
                                       errors="replace")
             except OSError:
                 continue
-            ctx = FileContext(rel, text)
+            ctx = FileContext(rel, text, root)
             scan_file(ctx, findings)
     if domains:
         findings = [f for f in findings if f["domain"] in domains]
@@ -855,6 +1164,12 @@ def diff_baseline(baseline: dict, findings: list[dict]) -> dict:
                 {"finding": finding, "entry": entry,
                  "why": "test-tier entry cannot baseline a "
                         "production finding"})
+        elif finding["tier"] == "production" and \
+                finding["disposition"] in ACTIONABLE and \
+                entry.get("disposition") not in ACTIONABLE:
+            policy_violations.append(
+                {"finding": finding, "entry": entry,
+                 "why": "non-actionable baseline cannot suppress actionable finding"})
         else:
             covered.append(finding)
     vanished = [e for eid, e in sorted(base_by_id.items())

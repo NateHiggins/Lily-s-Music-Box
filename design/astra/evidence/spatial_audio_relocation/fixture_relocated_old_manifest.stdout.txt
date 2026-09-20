@@ -1,0 +1,137 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 29,
+  "by_tier": {
+   "data": 8,
+   "production": 19,
+   "test": 2
+  },
+  "by_kind": {
+   "asset_path": 1,
+   "floor_reference": 3,
+   "generated_name": 2,
+   "id_candidate": 3,
+   "id_reference": 9,
+   "layout_load": 1,
+   "manual_contract": 2,
+   "node_path": 2,
+   "plan_coordinate": 2,
+   "runtime_id": 1,
+   "unit_reference": 1,
+   "vector3_coordinate": 2
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 8,
+   "DEBUG_ONLY": 2,
+   "GENERATED_IDENTITY": 3,
+   "RUNTIME_LOOKUP": 13,
+   "SAVE_CONTRACT": 3,
+   "SCENE_NODE_PATH": 2,
+   "TEST_CONTRACT": 2
+  },
+  "by_spatial": {
+   "ASSET_PATH": 1,
+   "CAMERA_STATION": 1,
+   "DERIVED_LAYOUT_LOOKUP": 1,
+   "FLOOR_MEMBERSHIP": 3,
+   "RAW_GODOT_COORDINATE": 3,
+   "RAW_PLAN_COORDINATE": 2,
+   "ROOM_MEMBERSHIP": 7,
+   "SEMANTIC_ANCHOR": 10,
+   "UNKNOWN_DYNAMIC": 3
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 2,
+   "PRESERVE_OR_ALIAS": 15,
+   "REGENERATE_CONSUMER": 3,
+   "REPLACE_WITH_NAMED_ANCHOR": 4,
+   "UNRESOLVED": 3,
+   "UPDATE_TEST_FIXTURE": 2
+  },
+  "by_confidence": {
+   "HIGH": 5,
+   "LOW": 3,
+   "MEDIUM": 21
+  }
+ },
+ "stats": {
+  "files_scanned": 9,
+  "vector3_total": 7,
+  "vector3_stats_only": 5,
+  "b2g_derived": 1,
+  "gd_strings_seen": 16
+ },
+ "drift": {
+  "new_failing": [
+   {
+    "key": "0a3fa1b3f7fc3ddc",
+    "kind": "generated_name",
+    "token": "_make_voice",
+    "file": "game/scripts/audio/audio_policy.gd",
+    "tier": "production",
+    "subsystem": "audio",
+    "symbols": [
+     "_make_voice"
+    ],
+    "lines": [
+     5
+    ],
+    "count": 1,
+    "context": [
+     "\"PolicyVoice%02d\" % slot"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "new_reported": [],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "95bf669490ffbd85",
+    "kind": "generated_name",
+    "token": "_build_voice_pool",
+    "file": "game/scripts/audio/audio_policy.gd",
+    "tier": "production",
+    "subsystem": "audio",
+    "symbols": [
+     "_build_voice_pool"
+    ],
+    "lines": [
+     6
+    ],
+    "count": 1,
+    "context": [
+     "\"PolicyVoice%02d\" % i"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "fail"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "species_id": 13,
+  "mesh_file": "bacillaria.glb",
+  "law_keys": [
+    "Basis",
+    "law_01",
+    "law_02",
+    "law_03",
+    "law_04",
+    "law_05",
+    "law_06",
+    "law_07",
+    "law_half",
+    "law_09",
+    "law_10",
+    "law_11",
+    "law_12",
+    "law_13",
+    "law_14",
+    "law_15",
+    "law_full"
+  ],
+  "phase_keys": [
+    "gait_a",
+    "gait_b"
+  ],
+  "closed_body": "Skin",
+  "foot_anchors": [],
+  "cilium_anchors": [],
+  "motion_profile": "bacillaria_raphe_slide"
+}

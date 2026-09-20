@@ -1,0 +1,1035 @@
+extends Node
+## OWNER TARGET: animated dark-live tentacles and remembered Orison contents.
+##
+## The render judges the look. This proves the facts it cannot: the gold has a
+## bounded dark state, the motion never stops with the lamp, every dangerous
+## growth maps back to the existing hazard owner, and furnishing contains only
+## extracted production meshes rather than waking gameplay systems.
+
+const EXPECTED_CHECKS := 105
+const HazardGrowthScript := preload(
+		"res://scripts/dream/dream_hazard_growth.gd")
+
+var checks := 0
+var failures := 0
+var finished := false
+var root: DreamMazeRoot
+
+
+func _ready() -> void:
+	_watchdog()
+	await _build()
+	_growth_contract()
+	_breach_contract()
+	_phase_contract()
+	_portal_contract()
+	_interior_contract()
+	_furnishing_contract()
+	await _intrusion_contract()
+	if checks != EXPECTED_CHECKS:
+		failures += 1
+		printerr("[DREAM TARGET] HARNESS FAIL: %d checks, expected %d"
+				% [checks, EXPECTED_CHECKS])
+	finished = true
+	print("DREAM SURFACE TARGET TEST: %s (%d checks)" % [
+			"PASS" if failures == 0 else "FAIL %d" % failures, checks])
+	get_tree().quit(failures)
+
+
+func _watchdog() -> void:
+	await get_tree().create_timer(50.0, true, false, true).timeout
+	if not finished:
+		printerr("[DREAM TARGET] WATCHDOG: exceeded 50 seconds")
+		get_tree().quit(1)
+
+
+func _build() -> void:
+	var scene := load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene
+	root = scene.instantiate() as DreamMazeRoot
+	root.autonomous = false
+	root.configure_dream({
+		"case_id": "mina_caption_crisis",
+		"profile_id": "mina_release_print",
+		"window": {},
+		"seed_hex": "f123456789abcdef",
+		"maze_revision": 1,
+		"outcome": "",
+		"night_index": 7,
+		"spawn_anchor": 0,
+	})
+	add_child(root)
+	await get_tree().process_frame
+	root.player.set_physics_process(false)
+	root.pursuer.set_physics_process(false)
+	root.set_physics_process(false)
+	_stage_target_pocket()
+	# DreamRoomBuilder retires forgotten rooms with queue_free(). Judge the
+	# live pocket after that queue has drained, not while both generations are
+	# present for the remainder of this frame.
+	await get_tree().process_frame
+
+
+## The campaign spawn is intentionally arbitrary and need not contain a
+## hazard at all. Select a deterministic descendant whose live neighbourhood
+## carries at least two of Mina's dark-live sockets, then ask the production
+## pocket and field owners to perform the same rebuild a threshold crossing
+## would. This stages content; it does not manufacture geometry or danger.
+func _stage_target_pocket() -> void:
+	var atlas: DreamAtlas = root.rooms.atlas
+	var queue: Array[PackedInt32Array] = [PackedInt32Array()]
+	var chosen := PackedInt32Array()
+	var found := false
+	var examined := 0
+	while not queue.is_empty() and examined < 2400:
+		var path: PackedInt32Array = queue.pop_front()
+		var room: Dictionary = atlas.room(path)
+		var dark_sources := 1 if _source_is_dark_hazard(str(room.source)) else 0
+		for door_index in int(room.doors):
+			var child := DreamAtlas.step(path, door_index)
+			var child_room: Dictionary = atlas.room(child)
+			if _source_is_dark_hazard(str(child_room.source)):
+				dark_sources += 1
+			if path.size() < 8:
+				queue.append(child)
+		if dark_sources >= 2:
+			chosen = path
+			found = true
+			break
+		examined += 1
+	if not found:
+		return
+	var key := DreamRoomBuilder.key_of(chosen)
+	root.rooms.advance(root.get("_architecture") as Node3D, chosen)
+	root.rooms.write_plan(root.plan, key)
+	root.set("_here_path", chosen)
+	root.set("_here_key", key)
+	root.hazards.rearm(root.plan, root.profile_hazards)
+	root.call("_rebuild_hazard_growth")
+
+
+func _source_is_dark_hazard(source: String) -> bool:
+	return source in ["D01_F04_LONG_HALL", "D03_LIFT_VOID"]
+
+
+func _growth_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	_check("production root builds the dark-live growth", growth != null)
+	var ids: Array = growth.get_meta("hazard_ids", []) if growth else []
+	_check("the target seed carries plural tentacled sections", ids.size() >= 2)
+	_check("all sections are fused into one populated surface",
+			growth != null and growth.mesh != null
+			and growth.mesh.get_surface_count() == 1
+			and int(growth.get_meta("surfaces", 0)) == 1)
+	_check("the surface adds no collision owner",
+			growth != null and growth.find_children("*", "CollisionObject3D",
+			true, false).is_empty())
+	var mapped := 0
+	var all_dark_live := true
+	var min_radius := INF
+	var paths_registered := 0
+	var remote_limb_contacts := false
+	var remote_contact := Vector3.ZERO
+	var contact_owner: DreamHazard = null
+	for hazard in root.hazards.hazards:
+		if ids.has(hazard.id):
+			mapped += 1
+			all_dark_live = all_dark_live \
+					and hazard.condition != "lamp_on" \
+					and hazard._condition_live(false, 4.6)
+			min_radius = minf(min_radius, hazard.clearance_radius)
+			paths_registered += hazard.contact_paths.size()
+			for path in hazard.contact_paths:
+				for point in path:
+					var at_floor := Vector3(point.x, 0.0, point.z)
+					if point.y < 1.35 \
+							and at_floor.distance_to(hazard.position) \
+							> hazard.clearance_radius * 1.45 \
+							and hazard._touches_contact_path(at_floor):
+						remote_limb_contacts = true
+						remote_contact = at_floor
+						contact_owner = hazard
+						break
+	_check("every visible section maps to one authoritative live hazard",
+			mapped == ids.size())
+	_check("switching the lamp off does not disarm these sections",
+			all_dark_live)
+	_check("every substantial tendril is registered with the hazard owner",
+			growth != null and paths_registered
+			== int(growth.get_meta("contact_paths", -1)))
+	_check("a limb beyond the old root radius remains real contact",
+			remote_limb_contacts)
+	_check("the visual sway stays inside the owner's static contact margin",
+			growth != null and float(growth.get_meta("max_sway_m", 1.0))
+			< min_radius * 0.20)
+	var material := growth.material_override as ShaderMaterial if growth else null
+	_check("the shared gold shader compiled on the growth",
+			material != null and material.shader != null
+			and not material.shader.get_shader_uniform_list().is_empty())
+	var layers: PackedStringArray = growth.get_meta("material_layers",
+			PackedStringArray()) if growth else PackedStringArray()
+	_check("the organism exposes reusable tissue wet-film and gold layers",
+			layers == PackedStringArray([
+			"subsurface_tissue", "wet_microfilm", "living_gold"]))
+	_check("the layered substrate is tuned as tissue rather than a gold coat",
+			material != null
+			and float(material.get_shader_parameter("organic_mix")) >= 0.90
+			and float(material.get_shader_parameter("tissue_transmission")) > 0.0
+			and float(material.get_shader_parameter("wet_specular_gain")) > 0.0
+			and float(material.get_shader_parameter("gold_vessel_width")) >= 0.94)
+	var glow := float(material.get_shader_parameter("dark_glow")) \
+			if material else 0.0
+	_check("darkness retains a nonzero but subordinate biological glow",
+			glow > 0.0 and glow <= 0.68)
+	_check("motion is slow continuous deformation, never a flash",
+			material != null
+			and is_equal_approx(float(material.get_shader_parameter("motion_hz")),
+			0.13) and float(material.get_shader_parameter("motion_gain")) == 1.0)
+	var eye_records: Array = growth.get_meta("eye_records", []) if growth else []
+	_check("the batched anatomy carries five composed eyes per danger",
+			growth != null and int(growth.get_meta("eyes", 0)) == ids.size() * 5
+			and eye_records.size() == int(growth.get_meta("eyes", 0)))
+	_check("the geometry publishes the deterministic eye-family contract",
+			growth != null
+			and str(growth.get_meta("eye_family", ""))
+			== "seeded_compositional_v1"
+			and growth.get_meta("eye_debug_views", PackedStringArray())
+			== PackedStringArray([
+				"beauty", "rest_and_tracking", "gaze_target"]))
+	var records_valid := true
+	var ids_unique: Dictionary = {}
+	var per_hazard: Dictionary = {}
+	var gaze_modes: Dictionary = {}
+	var closed_or_half := 0
+	var direct_trackers := 0
+	for eye_value in eye_records:
+		var eye: Dictionary = eye_value
+		var eye_id := str(eye.get("id", ""))
+		var hazard_id := str(eye.get("hazard_id", ""))
+		var rest_state := str(eye.get("rest_state", ""))
+		var gaze_mode := str(eye.get("gaze_mode", ""))
+		records_valid = records_valid and not eye_id.is_empty() \
+				and not ids_unique.has(eye_id) and hazard_id in ids \
+				and eye.get("anchor") is Vector3 \
+				and eye.get("target") is Vector3 \
+				and eye.get("forward") is Vector3 \
+				and is_equal_approx((eye.forward as Vector3).length(), 1.0) \
+				and float(eye.get("scale", 0.0)) >= 0.76 \
+				and float(eye.get("scale", 9.0)) <= 1.341 \
+				and float(eye.get("blink_phase", -1.0)) >= 0.0 \
+				and float(eye.get("blink_phase", 2.0)) <= 1.0 \
+				and float(eye.get("blink_hz", 0.0)) >= 0.045 \
+				and float(eye.get("blink_hz", 1.0)) <= 0.074 \
+				and rest_state in ["closed", "half_lidded", "open"] \
+				and gaze_mode in [
+					"hazard_root", "branch_tip", "room_center", "camera"] \
+				and absf(float(eye.get("roll_rad", 9.0))) <= deg_to_rad(14.01)
+		ids_unique[eye_id] = true
+		per_hazard[hazard_id] = int(per_hazard.get(hazard_id, 0)) + 1
+		gaze_modes[gaze_mode] = true
+		if rest_state in ["closed", "half_lidded"]:
+			closed_or_half += 1
+		if gaze_mode == "camera":
+			direct_trackers += 1
+	_check("every eye owns a valid seeded scale blink frame and gaze record",
+			records_valid and ids_unique.size() == eye_records.size())
+	var five_each := per_hazard.size() == ids.size()
+	for hazard_id_value in ids:
+		five_each = five_each and int(per_hazard.get(hazard_id_value, 0)) == 5
+	_check("eye anchors remain sparse and evenly composed across live dangers",
+			five_each)
+	_check("closed and half-lidded resting states dominate the family",
+			closed_or_half == ids.size() * 4
+			and closed_or_half == int(growth.get_meta(
+			"eyes_closed_or_half", -1)))
+	_check("direct camera attention is a single sparse event",
+			direct_trackers == 1
+			and direct_trackers == int(growth.get_meta(
+			"eyes_tracking_camera", -1))
+			and gaze_modes.has("hazard_root")
+			and gaze_modes.has("branch_tip")
+			and gaze_modes.has("room_center"))
+	_check("the production material exposes but does not force eye diagnostics",
+			material != null
+			and int(material.get_shader_parameter("eye_debug_view")) == 0)
+	_check("load-bearing limbs become wall grafts rather than ending in air",
+			growth != null and int(growth.get_meta("wall_membranes", 0))
+			>= ids.size() * 3)
+	_check("fine wall capillaries stay in the same batched surface",
+			growth != null and int(growth.get_meta("visual_capillaries", 0))
+			== int(growth.get_meta("wall_membranes", 0)) * 7)
+
+	var duplicate := HazardGrowthScript.new()
+	duplicate.configure(root.hazards.hazards, root.plan)
+	_check("the same pocket reconstructs the same dangerous body",
+			duplicate.mesh != null and growth != null
+			and duplicate.mesh.surface_get_array_len(0)
+			== growth.mesh.surface_get_array_len(0)
+			and duplicate.get_aabb().is_equal_approx(growth.get_aabb())
+			and duplicate.get_meta("eye_records", []) == eye_records)
+	duplicate.free()
+	var contacted_in_dark := false
+	if contact_owner != null:
+		contact_owner.evaluate(remote_contact, false, 4.6,
+				root.hazards.elapsed_s + 1.0)
+		contacted_in_dark = contact_owner.contacted
+	_check("the existing hazard owner commits limb contact in darkness",
+			contacted_in_dark)
+
+
+func _breach_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	_check("the live pocket authors exactly one dominant torn breach",
+			growth != null and int(growth.get_meta("breaches", 0)) == 1
+			and not breach.is_empty())
+	var owner: DreamHazard = null
+	for hazard in root.hazards.hazards:
+		if hazard.id == str(breach.get("hazard_id", "")):
+			owner = hazard
+			break
+	_check("the breach names one existing dark-live hazard and its socket",
+			owner != null and owner.condition != "lamp_on"
+			and not owner.falls_through
+			and str(breach.get("module", "")) == owner.module
+			and str(breach.get("socket", "")) == owner.socket)
+	var room_rect := _rect_for(str(breach.get("module", "")))
+	var center: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.ZERO)
+	var on_ruled_wall := false
+	if room_rect.size() == 4:
+		if absf(normal.z) > 0.9:
+			on_ruled_wall = is_equal_approx(center.z,
+					float(room_rect[3]) + normal.z * 0.045)
+		elif absf(normal.x) > 0.9:
+			on_ruled_wall = is_equal_approx(center.x,
+					float(room_rect[2]) + normal.x * 0.045)
+	_check("its centre and inward normal come from the Atlas room wall",
+			on_ruled_wall and is_equal_approx(center.y, 1.44)
+			and is_equal_approx(normal.length(), 1.0))
+	var clears_authored_doors := true
+	for door_value in root.plan.get("doors", []):
+		var door: Dictionary = door_value
+		if str(door.get("from", "")) != str(breach.get("module", "")) \
+				and str(door.get("to", "")) != str(breach.get("module", "")):
+			continue
+		var aperture: Array = door.get("aperture", [])
+		if aperture.size() < 4:
+			continue
+		var shares_wall := false
+		var along := center.x
+		var span := Vector2.ZERO
+		if absf(normal.z) > 0.9:
+			shares_wall = absf((float(aperture[1]) + float(aperture[3]))
+					* 0.5 - float(room_rect[3])) <= 0.26
+			span = Vector2(minf(float(aperture[0]), float(aperture[2])),
+					maxf(float(aperture[0]), float(aperture[2])))
+		else:
+			along = center.z
+			shares_wall = absf((float(aperture[0]) + float(aperture[2]))
+					* 0.5 - float(room_rect[2])) <= 0.26
+			span = Vector2(minf(float(aperture[1]), float(aperture[3])),
+					maxf(float(aperture[1]), float(aperture[3])))
+		if shares_wall:
+			var gap := maxf(span.x - along, along - span.y)
+			clears_authored_doors = clears_authored_doors and gap >= float(
+					breach.get("half_width_m", 9.0)) + 0.119
+	_check("the wound cannot eat any authored doorway on its chosen wall",
+			clears_authored_doors)
+	_check("the torn edge is real geometry: plaster lath living rim and rubble",
+			int(breach.get("aperture_segments", 0)) >= 16
+			and int(breach.get("rim_segments", 0)) >= 12
+			and int(breach.get("rim_segments", 99))
+			< int(breach.get("aperture_segments", -1))
+			and int(breach.get("lath_pieces", 0)) == 6
+			and int(breach.get("rubble_pieces", 0)) == 7)
+	_check("the flat recess carries nested frames and one vanishing-point eye",
+			str(breach.get("interior", ""))
+			== "nested_angular_frame_tunnel"
+			and bool(breach.get("vanishing_point_eye", false)))
+	var room_span := maxf(float(room_rect[2]) - float(room_rect[0]),
+			float(room_rect[3]) - float(room_rect[1])) if room_rect.size() == 4 \
+			else INF
+	_check("shader depth exceeds the room while physical recess stays shallow",
+			float(breach.get("actual_recess_m", 1.0)) < 0.10
+			and float(breach.get("apparent_depth_m", 0.0)) > room_span)
+	_check("the impossible interior remains inside the existing submitted draw",
+			growth != null and growth.mesh != null
+			and growth.mesh.get_surface_count() == 1
+			and str(growth.get_meta("breach_rendering", ""))
+			== "same_surface_interior_map_v1")
+	var wall_hit: Dictionary = {}
+	if not breach.is_empty():
+		var query := PhysicsRayQueryParameters3D.create(
+				center + normal * 0.48, center - normal * 0.48)
+		wall_hit = root.get_world_3d().direct_space_state.intersect_ray(query)
+	_check("the visual tear leaves the authoritative wall collision intact",
+			not wall_hit.is_empty()
+			and str(breach.get("navigation", ""))
+			== "authoritative_wall_intact"
+			and str(growth.get_meta("breach_navigation", ""))
+			== "false_depth_wall_intact")
+	_check("the wound mesh itself owns no viewport camera or rendered world",
+			growth.find_children("*", "SubViewport", true, false).is_empty()
+			and growth.find_children("*", "Camera3D", true, false).is_empty()
+			and growth.get_world_3d() == root.get_world_3d())
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("breach ownership and recession diagnostics ship available but off",
+			material != null
+			and int(material.get_shader_parameter("breach_debug_view")) == 0
+			and growth.get_meta("breach_debug_views", PackedStringArray())
+			== PackedStringArray([
+				"beauty", "surface_ownership", "recession_bands"]))
+	var duplicate := HazardGrowthScript.new()
+	duplicate.configure(root.hazards.hazards, root.plan)
+	_check("the same seed reconstructs the same breach record exactly",
+			duplicate.get_meta("breach_record", {}) == breach)
+	duplicate.free()
+
+
+func _phase_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("R5 licenses exactly ordinary rupture and living-gold states",
+			growth != null and growth.get_meta("phase_states", PackedStringArray())
+			== PackedStringArray([
+			"ordinary_orison", "rupture", "living_gold"]))
+	_check("the durable exposure field alone owns the phase transition",
+			growth != null and str(growth.get_meta("phase_owner", ""))
+			== "DreamExposureField"
+			and str(growth.get_meta("phase_transition", ""))
+			== "continuous_material_ordered_reveal_v1")
+	_check("rupture and gold thresholds are explicit ordered ranges",
+			material != null and material.get_shader_parameter(
+			"phase_stage_thresholds") == Vector4(0.10, 0.34, 0.48, 0.78)
+			and material.get_shader_parameter("phase_gold_thresholds")
+			== Vector2(0.70, 0.92))
+	_check("phase diagnostics ship available but off",
+			material != null
+			and int(material.get_shader_parameter("phase_debug_view")) == 0)
+	_check("the aperture warp and cooled-gold luminance stay bounded",
+			material != null
+			and str(growth.get_meta("phase_warp", ""))
+			== "aperture_local_rotational_v1"
+			and float(material.get_shader_parameter("phase_warp_max_uv"))
+			<= 0.0851
+			and float(material.get_shader_parameter("phase_gold_afterglow")) > 0.0
+			and float(material.get_shader_parameter("phase_gold_afterglow"))
+			<= 0.161)
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	var reflected_lights := root.get_tree().get_nodes_in_group(
+			"dream_reflected_gold")
+	var reflected := reflected_lights[0] as OmniLight3D \
+			if reflected_lights.size() == 1 else null
+	_check("one room-local reflected-gold light is governed and shadowless",
+			reflected != null and reflected.get_parent() == root
+			and str(reflected.get_meta("owner", "")) == "DreamExposureField"
+			and bool(reflected.get_meta("room_local", false))
+			and not reflected.shadow_enabled
+			and reflected.omni_range <= 3.201
+			and float(reflected.get_meta("max_energy", 1.0)) <= 0.421)
+	var before := root.exposure.sample(centre)
+	var light_before := reflected.light_energy if reflected != null else -1.0
+	var mesh_before := growth.mesh
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 3.0)
+	var mid := root.exposure.sample(centre)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 12.0)
+	var after := root.exposure.sample(centre)
+	root.call("_update_phase_reflected_light")
+	var light_after := reflected.light_energy if reflected != null else -1.0
+	_check("one real dwell crosses the same field from latent through gold",
+			before < mid and mid < after and after >= 0.90)
+	_check("reflected world light rises only at retained high exposure",
+			is_zero_approx(light_before) and light_after > 0.0
+			and light_after <= 0.421)
+	var held := root.exposure.sample(centre)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
+	_check("the phase remains after the lamp writer stops",
+			is_equal_approx(root.exposure.sample(centre), held))
+	_check("phase advancement never rebuilds or toggles breach geometry",
+			growth.visible and growth.mesh == mesh_before
+			and growth.mesh.get_surface_count() == 1)
+	root.player.set_lamp_enabled(false)
+	root.call("_update_phase_reflected_light")
+	_check("reflected gold persists independently of the inspection lamp",
+			is_equal_approx(reflected.light_energy, light_after))
+	print("[DREAM TARGET] R5 exposure %.4f -> %.4f -> %.4f, retained %.4f" % [
+			before, mid, after, held])
+
+
+func _portal_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var breach: Dictionary = growth.get_meta("breach_record", {}) \
+			if growth != null else {}
+	var fault: Dictionary = root.get("_view_portal_fault")
+	var portals := get_tree().get_nodes_in_group("dream_view_portal")
+	var portal := portals[0] as SubViewport if portals.size() == 1 else null
+	var material := growth.material_override as ShaderMaterial \
+			if growth != null else null
+	_check("R6 builds exactly one bounded view consumer",
+			portal != null and portal == root.get("_view_portal")
+			and bool(portal.get_meta("view_only", false)))
+	_check("the view is a root sibling sharing the production World3D",
+			portal != null and portal.get_parent() == root
+			and not portal.own_world_3d
+			and portal.world_3d == root.get_world_3d())
+	var portal_cameras := portal.find_children("*", "Camera3D", true, false) \
+			if portal != null else []
+	var portal_camera := portal_cameras[0] as Camera3D \
+			if portal_cameras.size() == 1 else null
+	_check("one camera and no room node exist beneath the view",
+			portal_camera != null and portal_camera.current
+			and portal.find_children("Room_*", "Node3D", true, false).is_empty())
+	_check("the feed is a bounded portrait target rather than another screen",
+			portal != null and portal.size == Vector2i(384, 672)
+			and portal.size.x * portal.size.y <= 258048)
+	var hazard_layer := 1 << 19
+	_check("the feed excludes the sampling wound while the player still sees it",
+			portal_camera != null and growth.layers == hazard_layer
+			and (portal_camera.cull_mask & hazard_layer) == 0
+			and (root.player.camera.cull_mask & hazard_layer) != 0)
+	_check("the topology owners author the view fault, not the renderer",
+			str(fault.get("owner", "")) == "DreamAtlas/DreamRoomBuilder"
+			and fault == growth.get_meta("view_portal_record", {})
+			and str(growth.get_meta("view_portal_owner", ""))
+			== "DreamAtlas/DreamRoomBuilder")
+	_check("the wound is the named source and cannot look at itself",
+			str(fault.get("source_key", "")) == str(breach.get("module", ""))
+			and str(fault.get("destination_key", ""))
+			!= str(fault.get("source_key", "")))
+	var destination: Dictionary = root.rooms.room_at_key(str(
+			fault.get("destination_key", "")))
+	_check("the destination is one already-live rendered Atlas room",
+			not destination.is_empty()
+			and destination.path == fault.get("destination_path",
+			PackedInt32Array())
+			and str(destination.source) == str(fault.get(
+			"destination_source", ""))
+			and str(fault.get("render_source", ""))
+			== "shared_world_existing_room")
+	var source := root.rooms.room_at_key(str(fault.get("source_key", "")))
+	var first_real_destination := ""
+	for door_value in source.get("doors", []):
+		var door: Dictionary = door_value
+		if not bool(door.get("sealed", false)) \
+				and not str(door.get("leads_to", "")).is_empty():
+			first_real_destination = str(door.leads_to)
+			break
+	_check("the fault looks through the source room's first real doorway",
+			not first_real_destination.is_empty()
+			and str(fault.get("destination_key", "")) == first_real_destination)
+	var plan_doors_before: int = (root.plan.get("doors", []) as Array).size()
+	var repeated_fault := root.rooms.view_fault(str(fault.get("source_key", "")))
+	_check("the same live pocket reproduces the exact view record",
+			repeated_fault == fault)
+	_check("asking for a view mutates no door or navigation graph",
+			root.plan.get("doors", []).size() == plan_doors_before
+			and str(fault.get("navigation", ""))
+			== "none_authoritative_wall_intact")
+	_check("the image alone carries one deterministic quarter-turn violation",
+			int(fault.get("orientation_quarters", 0)) in [1, 3]
+			and (fault.get("destination_forward", Vector3.ZERO) as Vector3)
+			.length() > 0.99)
+	_check("R6 is depth zero with no recursive budget hidden in the node",
+			int(fault.get("recursion_depth", -1)) == 0
+			and portal != null
+			and int(portal.get_meta("recursion_depth", -1)) == 0
+			and int(portal.get_meta("max_recursion_depth", -1)) == 0)
+	var forbidden := 0
+	if portal != null:
+		forbidden += portal.find_children("*", "CollisionObject3D", true,
+				false).size()
+		forbidden += portal.find_children("*", "Light3D", true, false).size()
+		forbidden += portal.find_children("*", "AudioStreamPlayer3D", true,
+				false).size()
+	_check("the view owns no collision danger light sound or interaction",
+			forbidden == 0)
+	_check("the existing one-surface material receives only the view texture",
+			material != null and float(material.get_shader_parameter(
+			"portal_active")) == 1.0
+			and material.get_shader_parameter("portal_view") is Texture2D
+			and growth.mesh.get_surface_count() == 1)
+	_check("portal phase and diagnostics ship explicit but off",
+			material != null and material.get_shader_parameter(
+			"portal_phase_thresholds") == Vector2(0.88, 0.98)
+			and int(material.get_shader_parameter("portal_debug_view")) == 0
+			and growth.get_meta("view_portal_debug_views", PackedStringArray())
+			== PackedStringArray(["beauty", "portal_id", "recursion_depth"]))
+	_check("camera-local readability is bounded and cannot light the world",
+			portal_camera != null
+			and portal_camera.attributes is CameraAttributesPractical
+			and (portal_camera.attributes as CameraAttributesPractical)
+			.exposure_multiplier <= 3.201)
+	var sleeping_mode := portal.render_target_update_mode \
+			if portal != null else -1
+	_check("the secondary renderer sleeps before a useful high-state view",
+			sleeping_mode == SubViewport.UPDATE_DISABLED)
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 8.0)
+	root.exposure.upload(root.get("_exposure_tex") as ImageTexture3D)
+	root.player.global_position = centre + normal * 1.25
+	root.player.camera.look_at(centre, Vector3.UP)
+	root.call("_update_view_portal")
+	_check("retained high exposure and a useful view wake the one renderer",
+			portal != null and portal.render_target_update_mode
+			== SubViewport.UPDATE_ALWAYS
+			and bool(portal.get_meta("last_visible", false))
+			and float(portal.get_meta("last_exposure", 0.0)) >= 0.98)
+	_check("the deferred ViewportTexture binding resolved before activation",
+			portal != null and bool(portal.call("texture_is_bound")))
+	var wall_hit: Dictionary = {}
+	if not breach.is_empty():
+		wall_hit = root.get_world_3d().direct_space_state.intersect_ray(
+				PhysicsRayQueryParameters3D.create(
+				centre + normal * 0.48, centre - normal * 0.48))
+	_check("opening the view leaves mesh surface and wall collision unchanged",
+			growth.mesh.get_surface_count() == 1 and not wall_hit.is_empty())
+	print("[DREAM TARGET] R6 %s -> %s, roll=%d, shared=%s, %s" % [
+			str(fault.get("source_key", "")),
+			str(fault.get("destination_key", "")),
+			int(fault.get("orientation_quarters", 0)),
+			str(portal.world_3d == root.get_world_3d()) if portal != null else "false",
+			str(portal.size) if portal != null else "missing"])
+
+
+func _rect_for(room_id: String) -> Array:
+	for entry in root.plan.get("modules", []):
+		if str(entry.get("id", "")) == room_id:
+			return entry.get("rect", [])
+	return []
+
+
+func _interior_contract() -> void:
+	var world_environment := root.get_node_or_null("DreamEnvironment") \
+			as WorldEnvironment
+	var ambient := world_environment.environment if world_environment else null
+	_check("the cool photographic lift is present but below practical light",
+			ambient != null
+			and ambient.ambient_light_source == Environment.AMBIENT_SOURCE_COLOR
+			and ambient.ambient_light_energy > 0.0
+			and ambient.ambient_light_energy <= 0.181
+			and ambient.ambient_light_sky_contribution <= 0.001)
+	var black_level := root.player.get_node_or_null("DreamBlackLevel") \
+			as OmniLight3D
+	_check("a bounded carried black level photographs only the near Orison",
+			black_level != null and black_level.omni_range <= 5.01
+			and black_level.light_energy <= 1.46
+			and not black_level.shadow_enabled)
+	var practicals: Array = root.get("_practicals")
+	var practicals_bounded := not practicals.is_empty()
+	for practical in practicals:
+		practicals_bounded = practicals_bounded \
+				and (practical as OmniLight3D).omni_range <= 8.51 \
+				and (practical as OmniLight3D).light_energy <= 1.36 \
+				and not (practical as OmniLight3D).shadow_enabled
+	_check("warm practical islands stay bounded and shadow-free",
+			practicals_bounded)
+	var rooms := root.rooms.live_rooms()
+	var interiors := root.find_children("OrisonInterior", "Node3D", true,
+			false)
+	_check("every live generation carries an Orison architecture decision",
+			interiors.size() == rooms.size())
+	var nonblank := 0
+	var described := 0
+	var blank_honest := true
+	var bounded_draws := true
+	var forbidden := 0
+	var dimensions_exact := true
+	var casings_exact := true
+	var shader_surfaces := 0
+	var relief_vocabulary_exact := true
+	var anchors_exact := true
+	var interior_materials_bound := true
+	var shell_materials_bound := true
+	var relief_meter_bounded := true
+	var phase_controller_shared := true
+	for interior in interiors:
+		var key := str(interior.get_meta("room_key", ""))
+		var room: Dictionary = root.rooms.room_at_key(key)
+		var millwork := int(interior.get_meta("millwork_instances", 0))
+		var panels := int(interior.get_meta("wainscot_instances", 0))
+		var visuals := interior.find_children("*", "MultiMeshInstance3D",
+				true, false)
+		if bool(room.get("blank", false)):
+			blank_honest = blank_honest and millwork == 0 and panels == 0 \
+					and visuals.is_empty()
+		else:
+			nonblank += 1
+			if millwork > 0 and not visuals.is_empty():
+				described += 1
+		bounded_draws = bounded_draws and visuals.size() <= 2
+		forbidden += interior.find_children("*", "CollisionObject3D", true,
+				false).size()
+		forbidden += interior.find_children("*", "Light3D", true, false).size()
+		forbidden += interior.find_children("*", "AudioStreamPlayer3D", true,
+				false).size()
+		dimensions_exact = dimensions_exact \
+				and (millwork == 0 or is_equal_approx(
+				float(interior.get_meta("dado_height_m", 0.0)), 1.32)) \
+				and float(interior.get_meta("max_relief_m", 1.0)) <= 0.055
+		var open_doors := 0
+		for door in room.get("doors", []):
+			if not bool(door.get("sealed", false)):
+				open_doors += 1
+		casings_exact = casings_exact and (millwork == 0 \
+				or int(interior.get_meta("door_casings", -1)) == open_doors)
+		if millwork > 0:
+			relief_vocabulary_exact = relief_vocabulary_exact \
+					and interior.get_meta("shader_relief_layers",
+					PackedStringArray()) == PackedStringArray([
+					"tessera_faces", "recessed_grout", "cracked_medallions"])
+			anchors_exact = anchors_exact and interior.get_meta(
+					"transition_anchors", PackedStringArray()) \
+					== PackedStringArray([
+					"floor_wall_joints", "room_corners", "skirting", "dado",
+					"picture_rail", "cornice", "door_casings", "ceiling_rose"])
+			relief_meter_bounded = relief_meter_bounded \
+					and float(interior.get_meta("shader_relief_max_m", 1.0)) \
+					<= 0.0421
+		for visual in visuals:
+			var material := (visual as GeometryInstance3D).material_override \
+					as ShaderMaterial
+			if material != null and material.shader != null \
+					and not material.shader.get_shader_uniform_list().is_empty():
+				shader_surfaces += 1
+				var surface_kind := int(material.get_shader_parameter(
+						"architecture_surface"))
+				var bounds: Vector4 = material.get_shader_parameter(
+						"architecture_bounds")
+				interior_materials_bound = interior_materials_bound \
+						and surface_kind in [4, 5] \
+						and bounds.is_equal_approx(Vector4(float(room.rect[0]),
+						float(room.rect[1]), float(room.rect[2]),
+						float(room.rect[3]))) \
+						and is_equal_approx(float(material.get_shader_parameter(
+						"architecture_clear_ceiling")), 3.015) \
+						and float(material.get_shader_parameter(
+						"architecture_pull")) > 0.0
+				relief_meter_bounded = relief_meter_bounded \
+						and float(material.get_shader_parameter(
+						"tessera_relief_m")) <= 0.0121 \
+						and float(material.get_shader_parameter(
+						"medallion_relief_m")) <= 0.0421 \
+						and int(material.get_shader_parameter(
+						"surface_debug_view")) in [0, 1, 2, 3]
+				phase_controller_shared = phase_controller_shared \
+						and material.get_shader_parameter(
+						"phase_stage_thresholds") \
+						== Vector4(0.10, 0.34, 0.48, 0.78) \
+						and material.get_shader_parameter(
+						"phase_gold_thresholds") == Vector2(0.70, 0.92)
+		# The collision shells stay authoritative; their child render meshes now
+		# share the room bounds but identify the architectural class they own.
+		var expected_shell_classes := {
+			"Floor": 2, "Ceiling": 3, "Wall": 1, "Lintel": 6,
+			"Shaft": 7,
+		}
+		for body_value in interior.get_parent().get_children():
+			var body := body_value as StaticBody3D
+			if body == null:
+				continue
+			var expected_kind := -1
+			for prefix in expected_shell_classes:
+				if body.name.begins_with(str(prefix)):
+					expected_kind = int(expected_shell_classes[prefix])
+					break
+			if expected_kind < 0:
+				continue
+			var meshes := body.find_children("*", "MeshInstance3D", true, false)
+			if meshes.is_empty():
+				shell_materials_bound = false
+				continue
+			var shell_material := (meshes[0] as MeshInstance3D).material_override \
+					as ShaderMaterial
+			if shell_material == null:
+				shell_materials_bound = false
+				continue
+			var shell_bounds: Vector4 = shell_material.get_shader_parameter(
+					"architecture_bounds")
+			shell_materials_bound = shell_materials_bound \
+					and int(shell_material.get_shader_parameter(
+					"architecture_surface")) == expected_kind \
+					and shell_bounds.is_equal_approx(Vector4(float(room.rect[0]),
+					float(room.rect[1]), float(room.rect[2]),
+					float(room.rect[3]))) \
+					and is_equal_approx(float(shell_material.get_shader_parameter(
+					"architecture_clear_ceiling")), 3.015) \
+					and float(shell_material.get_shader_parameter(
+					"architecture_pull")) > 0.0
+			phase_controller_shared = phase_controller_shared \
+					and shell_material.get_shader_parameter(
+					"phase_stage_thresholds") \
+					== Vector4(0.10, 0.34, 0.48, 0.78) \
+					and shell_material.get_shader_parameter(
+					"phase_gold_thresholds") == Vector2(0.70, 0.92)
+	_check("every remembered nonblank room has historic millwork relief",
+			nonblank > 0 and described == nonblank)
+	_check("blanking also removes the descriptive architectural relief",
+			blank_honest)
+	_check("millwork and wainscot cost no more than two draws per room",
+			bounded_draws)
+	_check("architectural relief owns no collision, light or sound",
+			forbidden == 0)
+	_check("the Orison's 1.32 m dado is shallow visual relief",
+			dimensions_exact)
+	_check("cased openings follow the authoritative live door schedule",
+			casings_exact)
+	_check("the service lamp reaches the batched historic materials",
+			shader_surfaces > 0)
+	_check("R2 exposes tessera grout and cracked-medallion relief as one vocabulary",
+			relief_vocabulary_exact)
+	_check("growth is biased only to named Orison construction anchors",
+			anchors_exact)
+	_check("batched millwork and panels carry their authoritative room bounds",
+			interior_materials_bound)
+	_check("wall floor ceiling door and shaft materials carry the same room bounds",
+			shell_materials_bound)
+	_check("parallax relief stays shallow meter-valued and diagnostically switchable",
+			relief_meter_bounded)
+	_check("architecture and anatomy share the one R5 transition controller",
+			phase_controller_shared)
+
+
+func _furnishing_contract() -> void:
+	var rooms := root.rooms.live_rooms()
+	var furnishing_nodes := root.find_children("OrisonFurnishing", "Node3D",
+			true, false)
+	_check("every live generation carries a furnishing decision",
+			furnishing_nodes.size() == rooms.size())
+	var nonblank := 0
+	var populated := 0
+	var source_meshes := 0
+	var waking_owners := 0
+	var forbidden_nodes := 0
+	for furnishing in furnishing_nodes:
+		var count := int(furnishing.get_meta("production_prop_count", 0))
+		var key := str(furnishing.get_meta("room_key", ""))
+		var room: Dictionary = root.rooms.room_at_key(key)
+		if not bool(room.get("blank", false)):
+			nonblank += 1
+			if count > 0:
+				populated += 1
+		for visual in furnishing.get_children():
+			if str(visual.get_meta("source_script", "")).begins_with(
+					"res://scripts/props/"):
+				source_meshes += visual.find_children("*", "MeshInstance3D",
+						true, false).size()
+		waking_owners += furnishing.find_children("*", "FunctionalProp",
+				true, false).size()
+		forbidden_nodes += furnishing.find_children("*", "CollisionObject3D",
+				true, false).size()
+		forbidden_nodes += furnishing.find_children("*", "Light3D",
+				true, false).size()
+		forbidden_nodes += furnishing.find_children("*", "AudioStreamPlayer3D",
+				true, false).size()
+	_check("every remembered nonblank room is visibly furnished",
+			nonblank > 0 and populated == nonblank)
+	_check("furnishings are extracted from production Orison prop scripts",
+			source_meshes > 0)
+	_check("no waking FunctionalProp owner crosses into the dream",
+			waking_owners == 0)
+	_check("no borrowed interaction, collision, light or sound crosses over",
+			forbidden_nodes == 0)
+	var armed_records := 0
+	for record in root.plan.get("hazards", []):
+		if bool(record.get("armed", false)):
+			armed_records += 1
+	_check("growth adds no second hazard population",
+			root.hazards.hazards.size() == armed_records)
+
+
+## OWNER 2026-08-20: "animated gold tentacles that intrude in the space ...
+## and embrace the player if they get too close." Thirteen facts the render
+## cannot prove: the limbs live in the same one surface, stay inside the
+## measured bones, grow from the durable field and nothing else, agree
+## between CPU and GPU by construction, and commit only the ruled capture --
+## through the landed R8 embrace, after sustained proximity, never from a
+## parked harness body and never below the reach floor.
+##
+## The block runs LAST and settles the pocket around the breach room before
+## its proximity half, because standing at the breach means crossing rooms,
+## crossing rooms rebuilds the growth, and a rebuilt growth may put the
+## dominant breach on a different wall. Every handle is re-read after the
+## world has finished reacting; a test that kept its stale pointers would be
+## measuring geometry that is no longer on screen.
+func _intrusion_contract() -> void:
+	var growth := root.get("_hazard_growth") as MeshInstance3D
+	var record: Dictionary = growth.get_meta("intrusion_record", {}) \
+			if growth != null else {}
+	var limbs: Array = record.get("limbs", [])
+	_check("the dominant breach resolves into plural intrusion limbs",
+			int(growth.get_meta("breaches", 0)) == 1 and limbs.size() >= 2)
+	_check("the limbs joined the one batched surface, not a new draw",
+			growth != null and growth.mesh != null
+			and growth.mesh.get_surface_count() == 1)
+
+	var rect := _module_rect(str(record.get("module", "")))
+	var inside := not limbs.is_empty() and rect.size() == 4
+	var anchored := inside
+	var anchor: Vector3 = record.get("anchor", Vector3.ZERO)
+	for limb_variant in limbs:
+		var limb := limb_variant as PackedVector3Array
+		if limb.size() < 8:
+			inside = false
+			continue
+		for point in limb:
+			if point.x < float(rect[0]) - 0.01 \
+					or point.x > float(rect[2]) + 0.01 \
+					or point.z < float(rect[1]) - 0.01 \
+					or point.z > float(rect[3]) + 0.01 \
+					or point.y < 0.10 or point.y > 3.02:
+				inside = false
+		if limb[0].distance_to(anchor) > 2.2:
+			anchored = false
+	_check("every limb point stays inside its room's measured bones", inside)
+	_check("every limb erupts from the breach mouth", anchored)
+	_check("the centerlines are mirrored onto the source hazard",
+			_embrace_paths_on_hazard(str(record.get("hazard_id", "")),
+					limbs.size()))
+
+	# THE REACH IS THE FIELD'S NUMBER. Not asserted from a fresh field -- the
+	# phase contract above has already spent lamp on this building, which is
+	# the realistic state -- but as exact agreement with the shared sample,
+	# and as monotonicity under further dwell.
+	root.call("_update_intrusion", 0.0)
+	var before := float(root.get("_intrusion_reach"))
+	var expected := smoothstep(DreamMazeRoot.INTRUSION_REACH_FIELD_LO,
+			DreamMazeRoot.INTRUSION_REACH_FIELD_HI,
+			root.exposure.sample(anchor))
+	_check("the reach is exactly the durable field through the one mapping",
+			absf(before - expected) < 0.001)
+	var breach: Dictionary = growth.get_meta("breach_record", {})
+	var centre: Vector3 = breach.get("center", Vector3.ZERO)
+	var normal: Vector3 = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 2.5)
+	root.call("_update_intrusion", 0.0)
+	var partial := float(root.get("_intrusion_reach"))
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 18.0)
+	root.call("_update_intrusion", 0.0)
+	var saturated := float(root.get("_intrusion_reach"))
+	_check("further dwell never lowers the reach",
+			partial >= before and saturated >= partial)
+	_check("a saturated breach extends the limbs fully", saturated > 0.8)
+	var material := growth.material_override as ShaderMaterial
+	_check("the shader is handed the same number the CPU uses",
+			material != null and absf(float(material.get_shader_parameter(
+					"intrusion_reach")) - saturated) < 0.001)
+
+	# THE EMBRACE. Move to the breach room, let the pocket finish reacting,
+	# then re-read everything: the growth was just rebuilt and the breach may
+	# be a different wall of a different room now.
+	root.player.position = Vector3(centre.x - normal.x * 1.2, 0.0,
+			centre.z - normal.z * 1.2) + Vector3(normal.x, 0.0, normal.z) * 2.4
+	for i in 3:
+		await get_tree().physics_frame
+	growth = root.get("_hazard_growth") as MeshInstance3D
+	record = growth.get_meta("intrusion_record", {}) if growth != null else {}
+	limbs = record.get("limbs", [])
+	breach = growth.get_meta("breach_record", {})
+	centre = breach.get("center", Vector3.ZERO)
+	normal = breach.get("normal", Vector3.FORWARD)
+	root.exposure.add_lamp(centre - normal * 1.25, normal, 2.5,
+			cos(deg_to_rad(34.0)), 1.0, 18.0)
+	root.call("_update_intrusion", 0.0)
+	var reach := float(root.get("_intrusion_reach"))
+	var grab := _lowest_grown_point(limbs, reach)
+	root.player.position = Vector3(grab.x, 0.0, grab.z)
+	root.player.set_lamp_enabled(true)
+	for i in 30:
+		root.call("_update_intrusion", 1.0 / 60.0)
+	_check("a non-autonomous world never begins the embrace",
+			not bool(root.get("_embrace_active")))
+	# THE HARNESS FROZE THE ROOT. _build() calls root.set_physics_process(
+	# false) so the earlier contracts can measure a still world -- which
+	# also silently freezes _update_intrusion, and the first version of this
+	# block spent one hundred eighty physics frames awaiting a callback that
+	# was never going to run. The proximity half needs the real loop.
+	root.set_physics_process(true)
+	# Autonomous, but shorter than the grace window. The pursuer is re-parked
+	# every frame: her own capture fires this same presentation, and a test of
+	# the limbs must not be able to pass because SHE arrived.
+	root.autonomous = true
+	for i in 18:
+		_park_pursuer_far()
+		await get_tree().physics_frame
+	root.autonomous = false
+	_check("brushing the limb for less than the grace is survivable",
+			not bool(root.get("_embrace_active")))
+	# And sustained: the ruled consequence, through the ruled presentation.
+	var presented: Array = []
+	root.capture_presentation_started.connect(
+			func() -> void: presented.append(true), CONNECT_ONE_SHOT)
+	root.autonomous = true
+	for i in 180:
+		_park_pursuer_far()
+		root.player.position = Vector3(grab.x, 0.0, grab.z)
+		await get_tree().physics_frame
+		if not presented.is_empty():
+			break
+	print("[DREAM TARGET] intrusion: reach=%.3f grace=%.2f limbs=%d"
+			% [float(root.get("_intrusion_reach")),
+			float(root.get("_embrace_grace")),
+			(root.get("_intrusion_paths") as Array).size()])
+	_check("staying in reach commits the capture through the R8 embrace",
+			not presented.is_empty() and bool(root.get("_embrace_active")))
+	_check("the embrace froze the world the moment it began",
+			not root.autonomous)
+
+
+func _module_rect(module_id: String) -> Array:
+	for entry in root.plan.get("modules", []):
+		if str(entry.get("id", "")) == module_id:
+			return entry.get("rect", [])
+	return []
+
+
+func _embrace_paths_on_hazard(hazard_id: String, expected: int) -> bool:
+	for hazard in root.hazards.hazards:
+		if hazard.id == hazard_id:
+			var paths: Array = hazard.get_meta("embrace_paths", [])
+			return paths.size() == expected
+	return false
+
+
+## The grown centerline point nearest the capsule's mid height, so the parked
+## body genuinely stands in a limb rather than under one.
+func _lowest_grown_point(limbs: Array, reach: float) -> Vector3:
+	var best := Vector3.ZERO
+	var best_score := INF
+	for limb_variant in limbs:
+		var limb := limb_variant as PackedVector3Array
+		if limb.size() < 2:
+			continue
+		var grown_last := int(floor(reach * float(limb.size() - 1)))
+		for i in grown_last + 1:
+			var score := absf(limb[i].y - 0.9)
+			if score < best_score:
+				best_score = score
+				best = limb[i]
+	return best
+
+
+func _park_pursuer_far() -> void:
+	if root.pursuer != null and not root.pursuer.is_captured:
+		root.pursuer.position = root.player.position \
+				+ Vector3(60.0, 0.0, 0.0)
+
+
+func _check(label: String, ok: bool) -> void:
+	checks += 1
+	if ok:
+		print("  ok   %s" % label)
+	else:
+		failures += 1
+		printerr("  FAIL %s" % label)

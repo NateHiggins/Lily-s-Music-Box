@@ -1,0 +1,154 @@
+{
+ "mina_caption_crisis": {
+  "resident_id": "mina_vale",
+  "resident": "Mina Vale",
+  "unit": "2A",
+  "work_order": "Incorrect subtitles appearing on household objects",
+  "origin_node": "F02_A_MONITOR_01",
+  "manifestation": "Captions progress from nouns to false claims about thoughts and intentions.",
+  "minigame": "subtitle_crisis",
+  "repairs_required": 2,
+  "resolution_flags": [
+   "assumptions_are_not_facts",
+   "silence_can_be_blank"
+  ],
+  "portal_rule": "Silence does not require annotation",
+  "enabled": true
+ },
+ "juno_feedback_tetris": {
+  "resident_id": "juno_kells", "resident": "Juno Kells", "unit": "2C",
+  "work_order": "Speaker feedback has become load-bearing",
+  "manifestation": "Competing versions of stolen work become solid sound.",
+  "minigame": "feedback_tetris", "repairs_required": 3,
+  "resolution_flags": ["credit_was_taken", "one_channel_can_remain_open"],
+  "portal_rule": "Connection requires an open channel", "enabled": false
+ },
+ "omar_unrepairable": {
+  "resident_id": "omar_bell", "resident": "Omar Bell", "unit": "3B",
+  "work_order": "Appliances arriving from incorrect timelines",
+  "manifestation": "Every repaired object returns with another impossible fault.",
+  "minigame": "interdimensional_repair", "repairs_required": 3,
+  "resolution_flags": ["not_every_loss_is_a_failure", "declare_unrepairable"],
+  "portal_rule": "Some things are not repairable", "enabled": false
+ },
+ "rhea_bad_karaoke": {
+  "resident_id": "rhea_sato", "resident": "Rhea Sato", "unit": "3D",
+  "work_order": "Uncontrolled sounds accumulating in vocal booth",
+  "manifestation": "Mistakes and involuntary sounds swell into a captive note.",
+  "minigame": "karaoke_exorcism", "repairs_required": 2,
+  "resolution_flags": ["humiliation_named", "imperfection_voluntary"],
+  "portal_rule": "Imperfection can be voluntary", "enabled": false
+ },
+ "nadia_code_pinball": {
+  "resident_id": "nadia_quell", "resident": "Nadia Quell", "unit": "5A",
+  "work_order": "Floor plan overwriting physical apartment",
+  "manifestation": "Suppressed violations redraw doors, stairs, and exits.",
+  "minigame": "code_pinball", "repairs_required": 3,
+  "resolution_flags": ["silence_was_coerced", "name_the_violation"],
+  "portal_rule": "Name the violation", "enabled": false
+ },
+ "sacha_camera_delay": {
+  "resident_id": "sacha_reed", "resident": "Sacha Reed", "unit": "6A",
+  "work_order": "Security cameras generating delayed rooms",
+  "manifestation": "Recorded copies displace direct experience.",
+  "minigame": "camera_simon", "repairs_required": 3,
+  "resolution_flags": ["dismissal_named", "experience_before_proof"],
+  "portal_rule": "Experience can precede proof", "enabled": false
+ },
+ "evelyn_paper_jam": {
+  "resident_id": "evelyn_marsh", "resident": "Evelyn Marsh", "unit": "1A",
+  "work_order": "Incorrect school papers reproducing overnight",
+  "manifestation": "Red corrections grade Evelyn and everything she owns.",
+  "minigame": "possessed_paper_jam", "repairs_required": 2,
+  "resolution_flags": ["care_is_not_control", "good_enough"],
+  "portal_rule": "Good enough can hold", "enabled": false
+ },
+ "teresa_call_bells": {
+  "resident_id": "teresa_vale", "resident": "Teresa Vale", "unit": "1D",
+  "work_order": "Call bell rings with breaker removed",
+  "manifestation": "Rest summons invisible patients and unanswered alarms.",
+  "minigame": "triage_whack_a_mole", "repairs_required": 3,
+  "resolution_flags": ["survivor_guilt_named", "not_every_alarm_is_yours"],
+  "portal_rule": "Not every alarm is yours", "enabled": false
+ },
+ "lena_unraveling": {
+  "resident_id": "lena_ortiz", "resident": "Lena Ortiz", "unit": "2B",
+  "work_order": "Loose structural thread in west wall",
+  "manifestation": "Furniture and rooms unravel when she cannot repair everyone.",
+  "minigame": "cosmic_sewing", "repairs_required": 3,
+  "resolution_flags": ["usefulness_is_not_belonging", "visible_patch"],
+  "portal_rule": "Visible repairs can hold", "enabled": false
+ },
+ "malcolm_memory_plants": {
+  "resident_id": "malcolm_reed", "resident": "Malcolm Reed", "unit": "3A",
+  "work_order": "Plants flowering recorded conversations",
+  "manifestation": "Preserved cuttings repeat a final goodbye.",
+  "minigame": "competitive_repotting", "repairs_required": 3,
+  "resolution_flags": ["grief_named", "compost_is_transformation"],
+  "portal_rule": "Compost is transformation", "enabled": false
+ },
+ "peter_form_corridor": {
+  "resident_id": "peter_wren", "resident": "Peter Wren", "unit": "4A",
+  "work_order": "Footnotes generating additional corridors",
+  "manifestation": "Every uncertain decision creates another required form.",
+  "minigame": "bureaucracy_dungeon", "repairs_required": 2,
+  "resolution_flags": ["courage_was_imperfect", "proceed_uncertain"],
+  "portal_rule": "Uncertainty does not prevent action", "enabled": false
+ },
+ "cam_tilted_room": {
+  "resident_id": "cam_ortiz", "resident": "Cam Ortiz", "unit": "4C",
+  "work_order": "Apartment tilts whenever tenant stops moving",
+  "manifestation": "Fear converts rest into physical collapse.",
+  "minigame": "furniture_curling", "repairs_required": 3,
+  "resolution_flags": ["accident_fear_named", "weight_can_be_shared"],
+  "portal_rule": "Weight can be shared", "enabled": false
+ },
+ "noel_domestic_museum": {
+  "resident_id": "noel_price", "resident": "Noel Price", "unit": "4C",
+  "work_order": "Household objects sealed in museum cases",
+  "manifestation": "Preservation makes ordinary family life untouchable.",
+  "minigame": "domestic_museum_heist", "repairs_required": 2,
+  "resolution_flags": ["fragility_named", "use_is_love"],
+  "portal_rule": "Use and change can be forms of love", "enabled": false
+ },
+ "transient_infinite_checkout": {
+  "resident_id": "transient_guests", "resident": "Transient Guests", "unit": "4D",
+  "work_order": "Rental hallway contains repeated Room 4D",
+  "manifestation": "Constant departure postpones an explicit decision.",
+  "minigame": "luggage_carousel", "repairs_required": 3,
+  "resolution_flags": ["relationship_named", "choose_a_departure"],
+  "portal_rule": "Departure is a decision", "enabled": false
+ },
+ "cal_memory_radio": {
+  "resident_id": "cal_dwyer", "resident": "Cal Dwyer", "unit": "5B",
+  "work_order": "Radio receiving expired moments",
+  "manifestation": "Perfect tuning preserves memories by preventing them ending.",
+  "minigame": "radio_bingo", "repairs_required": 3,
+  "resolution_flags": ["hearing_loss_named", "record_the_present"],
+  "portal_rule": "Presence is not preservation", "enabled": false
+ },
+ "iris_runaway_paint": {
+  "resident_id": "iris_bell", "resident": "Iris Bell", "unit": "5C",
+  "work_order": "Paintings repainting apartment without authorization",
+  "manifestation": "Imagined audiences control every brushstroke.",
+  "minigame": "paint_roller_derby", "repairs_required": 2,
+  "resolution_flags": ["performance_pressure_named", "private_bad_art"],
+  "portal_rule": "Creation need not perform", "enabled": false
+ },
+ "jonah_sentence_insects": {
+  "resident_id": "jonah_price", "resident": "Jonah Price", "unit": "6B",
+  "work_order": "Unfinished sentences nesting behind baseboards",
+  "manifestation": "Avoided endings become biting word swarms.",
+  "minigame": "sentence_vacuum", "repairs_required": 3,
+  "resolution_flags": ["grief_is_not_a_closed_story", "write_an_ending"],
+  "portal_rule": "Endings do not erase continuation", "enabled": false
+ },
+ "mae_contradictory_antiques": {
+  "resident_id": "mae_kessler", "resident": "Mae Kessler", "unit": "6C",
+  "work_order": "Antiques reporting incompatible provenance",
+  "manifestation": "Objects summon mutually exclusive family histories.",
+  "minigame": "antiques_roadshowdown", "repairs_required": 3,
+  "resolution_flags": ["certainty_is_not_memory", "contradiction_survivable"],
+ "portal_rule": "Contradiction is survivable", "enabled": false
+ }
+}

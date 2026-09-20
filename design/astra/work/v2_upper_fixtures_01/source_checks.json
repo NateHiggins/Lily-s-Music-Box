@@ -1,0 +1,56 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "negative_controls": [
+    {
+      "mutation": "outside_room",
+      "rejection": "('outside room', '5A_wc', [-5.57, -12.209999999999999, -5.029999999999999, -11.45], [-8.3, -12.35, -5.6, -8.85])"
+    },
+    {
+      "mutation": "overlap",
+      "rejection": "('fixture overlap', '5A_wc', 'F05_5A_SHOWER_01')"
+    },
+    {
+      "mutation": "blocked_stance",
+      "rejection": "('fixture stance unreachable', '5A_wc', [-6.18, -11.85])"
+    },
+    {
+      "mutation": "swept_stance",
+      "rejection": "('appliance swing hits stance', 'F05_5A_FRIDGE_01', [-9.7, -8.4])"
+    }
+  ],
+  "new_furniture_triangles": 2544,
+  "syntax_parses": 4,
+  "protected_files": 11,
+  "completeness_exit": 2,
+  "related_categories": [
+    "56-control persistence",
+    "heating",
+    "accessories",
+    "prep cabinets",
+    "bath details"
+  ],
+  "source_hashes": {
+    "game/tests/orison_v2_upper_fixtures_test.gd": "13c470ebdb6b915076038b6879245324369c72a136c16c0246db4f91fb28cc11",
+    "game/tests/orison_v2_upper_floors_test.gd": "533de2ddb1adb6d41c5eb797825c649ba8a7690eda176572ea80826871d765ce",
+    "game/scripts/building/orison_v2_domestic_fittings.gd": "1d1a5cf87e80e83f712c786a8a06e6ee31a5fb1effb88c68527c775e8ec9552e",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "7d1d3f98e4daa2653524675207193343d6c2b1f3015bfa007db6ca5577db31c2",
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/data/orison_v2/upper_floor_programs.json": "b6c0e345cc92a1fb8e19d36c4e4b29177256b4d4cb79cfcef9d6cbed4c918412",
+    "game/scripts/building/orison_v2_runtime_root.gd": "2075cd36f56e245ae5e2106a28ce550f99a0dab72905b5b058e95eeec668a39e",
+    "game/scripts/building/orison_v2_household_state.gd": "203de125976c582fd3607bd2da3f0b38d55bc169328f02cb7a10b34f370472e8",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/props/fridge_prop.gd": "223e05bd53f3b9f3ea459ccf1badc47077e9fdf40640ce34d89f3fac64ec4327",
+    "game/scripts/props/stove_prop.gd": "7ee4fce09cfd3a61084e46513c55409067924c9fbb2f2cd74ed6f0f375dcea89",
+    "game/scripts/props/tap_prop.gd": "d4b59e25ce2773105b53a760d2378541d3ba0d15a2a678a1086bbd0150f07e70"
+  },
+  "deterministic_regeneration": true,
+  "installed_file_hashes": {
+    "game/data/orison_v2_blockout.json": "93993a460cb19b6a1aaf4fb3fb5cbfdf3deb709d2d2008e77a2fc03128c4fb6d",
+    "game/data/orison_v2/domestic_furniture.json": "cfbd9351d7b345eca30e0b18cba8511ab618954b402e256384673a7328e4ff60",
+    "game/data/orison_v2/domestic_fittings.json": "09294039d42e7a1c90b942aeb00855757586231da29d6bdf4264ca915aa7a248",
+    "game/tests/data/v2_upper_floor_probes.json": "ff16de6d3be031213677234dcd8bae58d74afea41a83dff29cafbff8c76246b7"
+  },
+  "generator_sha256": "29e71b1cb74617f101ed7fe276d6649c53fbd84d9adc77bc6acd0358c8070214"
+}

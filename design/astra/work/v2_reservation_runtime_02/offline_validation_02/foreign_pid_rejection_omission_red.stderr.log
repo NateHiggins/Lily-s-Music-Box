@@ -1,0 +1,21 @@
+test_foreign_engine_that_disappears_still_blocks_progression (test_runner_contract.RunnerControls.test_foreign_engine_that_disappears_still_blocks_progression) ... FAIL
+
+======================================================================
+FAIL: test_foreign_engine_that_disappears_still_blocks_progression (test_runner_contract.RunnerControls.test_foreign_engine_that_disappears_still_blocks_progression)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\v2_reservation_runtime_02\runtime\test_runner_contract.py", line 66, in test_foreign_engine_that_disappears_still_blocks_progression
+    self.assertEqual(result["foreign_processes"], [foreign])
+AssertionError: Lists differ: [] != [{'pid': 7, 'parent_pid': 99, 'executable': 'Godot_v4.7.1-stable_win64.exe'}]
+
+Second list contains 1 additional elements.
+First extra element 0:
+{'pid': 7, 'parent_pid': 99, 'executable': 'Godot_v4.7.1-stable_win64.exe'}
+
+- []
++ [{'executable': 'Godot_v4.7.1-stable_win64.exe', 'parent_pid': 99, 'pid': 7}]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

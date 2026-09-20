@@ -1,0 +1,30 @@
+[
+  {
+    "run": "original_haunt_02",
+    "raw_result_sha256": "326ea5ae361ec6492a03be5a7a08379371736296dfc759d1fa842560d1bd82b1",
+    "native_exit_unchanged": 1,
+    "raw_gate_exit_unchanged": 1,
+    "warning_debt": {
+      "known host registry warning": 1,
+      "known duplicate OBS layer warning": 1,
+      "known RGB8 conversion debt": 966,
+      "known found-art placement debt": 1
+    },
+    "reviewed_diagnostic_rejections": [],
+    "scope": "warnings classified only; functional red and raw receipt unchanged; no pair acceptance"
+  },
+  {
+    "run": "candidate_haunt_01",
+    "raw_result_sha256": "5b5ae0e52806b8599ed15190ffcb4ce02cc8b4862f22174777d597c0b8ff0863",
+    "native_exit_unchanged": 1,
+    "raw_gate_exit_unchanged": 1,
+    "warning_debt": {
+      "known host registry warning": 1,
+      "known duplicate OBS layer warning": 1,
+      "known RGB8 conversion debt": 966,
+      "known found-art placement debt": 1
+    },
+    "reviewed_diagnostic_rejections": [],
+    "scope": "warnings classified only; functional red and raw receipt unchanged; no pair acceptance"
+  }
+]

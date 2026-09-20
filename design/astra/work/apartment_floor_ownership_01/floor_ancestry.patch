@@ -1,0 +1,72 @@
+--- a/game/scripts/reality/apartment_encroachment.gd
++++ b/game/scripts/reality/apartment_encroachment.gd
+@@ -118,6 +118,9 @@
+ var intensities: Dictionary = {}
+ ## case_id -> {"rect": Vector4, "floor_y": float, "floor_node": Node}
+ var units: Dictionary = {}
++## The actual build provider includes storeys without a case. Node identity,
++## never a scene-name guess, keeps their descendants out of another floor.
++var _authored_floor_nodes: Dictionary = {}
+ ## case_id -> Array of {"mesh": MeshInstance3D, "material": ShaderMaterial, "shared": Material}
+ ## The props inside the flat that wear the layered surface, each given its
+ ## own copy with the case's states on it (owner ruling 2026-08-21: "it
+@@ -161,6 +164,7 @@
+ 
+ 
+ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) -> int:
++	_authored_floor_nodes = floor_nodes.duplicate()
+ 	name = "ApartmentEncroachment"
+ 	enabled = OS.get_environment("ENCROACH") != "0"
+ 	_parse_forced(OS.get_environment("ENCROACH_FORCE"))
+@@ -879,6 +883,7 @@
+ 	if not enabled:
+ 		return 0
+ 	props_reached = 0
++	var floor_owners := _prop_floor_owners()
+ 	for case_id in units:
+ 		var unit: Dictionary = units[case_id]
+ 		var rect: Vector4 = unit.rect
+@@ -894,6 +899,8 @@
+ 			if (mi.material_override as ShaderMaterial).shader != null:
+ 				shader_path = (mi.material_override as ShaderMaterial).shader.resource_path
+ 			if not shader_path.get_file().begins_with("orison_surface"):
++				continue
++			if not _prop_matches_floor(mi, unit.floor_node, floor_owners):
+ 				continue
+ 			if (mi.material_override as ShaderMaterial).has_meta("encroachment_case"):
+ 				if str(mi.material_override.get_meta("encroachment_case")) == case_id:
+@@ -945,6 +952,34 @@
+ 		if unit_floor != null:
+ 			_bind_storey(unit_floor, floor_id, fields[floor_id])
+ 	return props_reached
++
++
++## Resolve all declared floor roots once per sweep. Manual method fixtures
++## already provide explicit floor_node identities in units; retain that seam
++## without requiring a fake BuildingRoot or inferring ownership from names.
++func _prop_floor_owners() -> Dictionary:
++	var owners := {}
++	for floor_node in _authored_floor_nodes.values():
++		if is_instance_valid(floor_node):
++			owners[floor_node] = true
++	for unit in units.values():
++		var floor_node: Node = unit.get("floor_node")
++		if is_instance_valid(floor_node):
++			owners[floor_node] = true
++	return owners
++
++
++## A descendant's real floor owns its admission even when its low geometry
++## overlaps the generous vertical envelope of the storey below. Root-level
++## props have no such provider: leave their existing world-AABB admission and
++## already-established case metadata rules intact.
++static func _prop_matches_floor(mi: MeshInstance3D, floor_node: Node, owners: Dictionary) -> bool:
++	var cursor: Node = mi
++	while cursor != null:
++		if owners.has(cursor):
++			return cursor == floor_node
++		cursor = cursor.get_parent()
++	return true
+ 
+ 
+ func _apply_prop_states(case_id: String, value: float) -> void:

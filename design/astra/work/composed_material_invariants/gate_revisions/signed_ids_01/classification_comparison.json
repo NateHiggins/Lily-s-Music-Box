@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "design\\astra\\work\\composed_material_invariants\\gate_revisions\\signed_ids_01\\proposed\\classify_result.py",
+    "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_02/result.json",
+    "--owner-sha256",
+    "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "--fixture-sha256",
+    "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "--out",
+    "design/astra/evidence/composed_material_ownership/typed_baseline_additive_signed_ids_02.json"
+  ],
+  "actual_classifier_exit": 1,
+  "prior_reason_count": 7792,
+  "new_reason_count": 101,
+  "false_id_reasons_removed": 7691,
+  "all_other_reasons_identical": true
+}

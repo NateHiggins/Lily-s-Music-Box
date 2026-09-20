@@ -1,0 +1,46 @@
+{
+  "schema": "astra.v2-reservation.offline-revision.v2",
+  "status": "PYTHON_ONLY_RED_AND_GREEN_OBSERVED",
+  "tests": 23,
+  "runs": [
+    {
+      "name": "foreign_pid_rejection_omission_red",
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_02\\offline_validation_02\\foreign_pid_omission.py",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_02\\runtime"
+      ],
+      "actual_exit": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "restored_23_controls_green",
+      "argv": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_reservation_runtime_02\\runtime",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "actual_exit": 0,
+      "expected_exit": 0
+    }
+  ],
+  "run_source_sha256": "0b73bbf0fe8dce9dfbddf7ab59fa94f0ade844c0a8c6fb020b2f1e0d4016fa22",
+  "test_assess_sha256": "899be112931bb3c58b3076479fd0b4371700fde9c1ef3f4ff4b7279e314f1730",
+  "test_runner_sha256": "cc3d343677786c91185afac352076700bffb5b99a4229a4f02196f68db69160a",
+  "artifacts_sha256": {
+    "foreign_pid_omission.py": "dbc73cd34c857dc48d3422d8f297b1472aeabc79a03cf9cd9b8d244505f3f5f0",
+    "foreign_pid_rejection_omission_red.stderr.log": "09ef6bc5de1542408cae88af620ad8e97aa9f4bdc012c0585c50a8c1b912c8c7",
+    "foreign_pid_rejection_omission_red.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "restored_23_controls_green.stderr.log": "41d6faedfbff7b5bb16b43f238099aeca40a95087f8c2e4020107c337524c0ee",
+    "restored_23_controls_green.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run.source.py": "0b73bbf0fe8dce9dfbddf7ab59fa94f0ade844c0a8c6fb020b2f1e0d4016fa22"
+  }
+}

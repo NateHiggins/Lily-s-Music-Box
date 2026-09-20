@@ -1,0 +1,19 @@
+{
+  "head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-B",
+    "tools/astra_run_audits.py",
+    "--out",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\renderer_material_commit_audits_01"
+  ],
+  "orchestrator_exit": 0,
+  "source_unchanged": true,
+  "input_count": 2328,
+  "scope": "Explicit tracked/untracked game/tools/art/design text and glTF inputs in before/after maps; design/astra reports/evidence excluded. Native assets remain bound by separate protected/runtime manifests. Wider text suffix coverage than the historical navigation audit; no retroactive rebinding.",
+  "before_sha256": "5a97db3467225f6bb6097568f332be72094854304743672ecf359e717d9716dd",
+  "after_sha256": "5a97db3467225f6bb6097568f332be72094854304743672ecf359e717d9716dd",
+  "child_receipt": "design/astra/evidence/renderer_material_commit_audits_01/receipt.json",
+  "child_receipt_sha256": "e6bf834a3ff0848f0104031dbfe3451b7ae43b0c86948f4a5af6613948ff6e8d",
+  "changed_paths": []
+}

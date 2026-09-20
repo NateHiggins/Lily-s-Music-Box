@@ -1,0 +1,26 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "right_hinge" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/building/orison_v2_domestic_doors.gd:56)
+SCRIPT ERROR: Parse Error: Could not resolve class "res://scripts/building/orison_v2_domestic_doors.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_upper_floor_doors.gd:1)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:0)
+ERROR: Failed to load script "res://scripts/building/orison_v2_runtime_root.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: OrisonV2RuntimeRoot._compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:161)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:161)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:129)
+       [2] _ready (res://tests/orison_v2_upper_floors_test.gd:21)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_beam_mask_enabled' in base 'Nil'.
+   at: setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:28)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:28)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:135)
+       [2] _ready (res://tests/orison_v2_upper_floors_test.gd:21)
+ERROR: V2 lamp optical state could not be restored
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_runtime_root.gd:137)
+       [1] _ready (res://tests/orison_v2_upper_floors_test.gd:21)
+UPPER FLOORS: full runtime with both upper floors starts

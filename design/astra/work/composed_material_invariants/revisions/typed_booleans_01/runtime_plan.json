@@ -1,0 +1,32 @@
+{
+  "status": "NEXT_BASELINE_PREPARED_ONLY_NO_ENGINE",
+  "requires": "Dream's explicit engine release to root; all game/tools files fixed during runtime",
+  "root": "C:/PleaseRemainOnTheLine-astra",
+  "prior_attempt": {
+    "run": "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_01",
+    "fixture_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+    "root_reported_actual_runner_exit": 124,
+    "root_reported_elapsed_seconds": 180.534,
+    "root_reported_non_inherited_headers": 9,
+    "root_reported_result_sha256": "ece9c004a275052d0c476da93c0d199b9c1816082f0f2d55ea808a84a600ecff",
+    "scope": "Eight parser errors plus script-load failure; no actual composition; original5ec63 restored exactly"
+  },
+  "source": {
+    "live_fixture": "game/tests/vulkan_composed_root_test.gd",
+    "start_and_restore_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "install_path": "design/astra/work/composed_material_invariants/revisions/typed_booleans_01/proposed/game/tests/vulkan_composed_root_test.gd",
+    "install_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "restore_path": "design/astra/work/composed_material_invariants/originals/game/tests/vulkan_composed_root_test.gd",
+    "immediate_source_parent_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+    "only_revision_change": "Explicit bool for eight declarations reported by the real parser; exact e132/helper source retained in revision originals",
+    "unchanged_owner_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db"
+  },
+  "launch_argv": ["python", "design/astra/work/composed_material_invariants/revisions/typed_booleans_01/runtime_invocation.py", "--execute", "--receipt-dir", "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/composed_material_ownership/typed_baseline_invocation_02"],
+  "actual_wrapper_argv": ["python", "design/astra/work/vulkan_composed/run_case.py", "v1", "candidate", "material_ownership_7c54_v1_full_02", "--scope", "full"],
+  "additive_gate_argv": ["python", "design/astra/work/composed_material_invariants/classify_result.py", "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_02/result.json", "--owner-sha256", "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db", "--fixture-sha256", "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5", "--out", "design/astra/evidence/composed_material_ownership/typed_baseline_additive_02.json"],
+  "expected_not_observed": {"engine_exit": 0, "base_gate_exit": 0, "additive_gate_exit": 0, "checks": 314, "failures": 0, "captures": 18, "measured_transitions": 36, "material_observations": 8, "same_frame_state_probes": 2, "actual_root_and_material_retirement": true},
+  "capture_contract": "Same18 named captures in ../../runtime_execution/runtime_plan.json; none removed",
+  "environment": "Same reviewed parent-refusal and explicit normal defaults. Runtime case/beachhead precondition unchanged. Launcher copies and hashes its own outside-game inputs before/after invocation.",
+  "cleanup": "Root owns byte-checked install/restore try/finally. Restore5ec63 only after the exact engine has exited; do not use the immediate e132 source parent as cleanup. Preserve raw run even when failed/partial. Do not use old source_operation restore_fixture because it intentionally expects installed e132.",
+  "after_green": "Inspect all actual rows/registries/captures before rebinding any wrong-storey control to this revised fixture. The earlier e132 control invocations are historical and must not be used unchanged. No additional control execution authorized by this preparation."
+}

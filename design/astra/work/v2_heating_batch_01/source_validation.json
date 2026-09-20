@@ -1,0 +1,44 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "7c9a536",
+  "sha256": {
+    "game/data/orison_v2_blockout.json": "c9a31ae9a712c4487f1d68bb6739f40e7eee0664811680302d076cf6bf44227c",
+    "game/data/orison_v2/heating.json": "cd2751a4150e275f0cca7a8b7b157d4db6421116391417b6d002c8e8813508bc"
+  },
+  "protected": [
+    "game/data/building_layout.json",
+    "game/data/acoustic_graph.json",
+    "game/data/resident_schedules.json",
+    "game/data/orison_v2/domestic_furniture.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/domestic_radios.json",
+    "game/data/orison_v2/domestic_surface_props.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/scripts/props/radiator_prop.gd",
+    "game/scripts/props/heat_balance.gd",
+    "game/scripts/props/boiler_tend.gd",
+    "game/scripts/props/boiler_prop.gd",
+    "game/scripts/game/maintenance_inventory.gd",
+    "game/project.godot"
+  ],
+  "full_roster": 23,
+  "installed": 6,
+  "prior_anchors_preserved": 375,
+  "control_hull_clearance": [
+    "F02_A_RADIATOR_01",
+    "F02_B_RADIATOR_01",
+    "F03_A_RADIATOR_01",
+    "F03_B_RADIATOR_01",
+    "F04_A_RADIATOR_01",
+    "F04_B_RADIATOR_01"
+  ],
+  "negative_controls": [
+    "sofa_overlap",
+    "riser_overlap",
+    "enlarged_hull_intercepts_control"
+  ],
+  "regeneration": "BYTE_IDENTICAL",
+  "categories_passed": 12,
+  "limits": "No engine execution. Heat allocation, live cold/warm response, physical target rays, acoustic restoration, repair isolation, active-tween teardown and performance are prepared tests, not observed proof."
+}

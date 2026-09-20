@@ -1,0 +1,35 @@
+{
+	"actual_frames": 3,
+	"budget_seconds": 54.0,
+	"captures": [
+		{
+			"elapsed_seconds": 0.23,
+			"file": "00_warmed_harness_control.png",
+			"height": 720,
+			"label": "00_warmed_harness_control",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 0.797,
+			"file": "01_first_module_cycle.png",
+			"height": 720,
+			"label": "01_first_module_cycle",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 1.321,
+			"file": "02_second_module_cycle.png",
+			"height": 720,
+			"label": "02_second_module_cycle",
+			"provenance": "rendered",
+			"width": 1280
+		}
+	],
+	"elapsed_seconds": 1.47,
+	"expected_frames": 3,
+	"schema_version": 1,
+	"status": "PASS",
+	"tag": "ORISON-V2-M11A-A-LIFECYCLE"
+}

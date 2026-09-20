@@ -1,0 +1,13 @@
+ERROR: Condition "!is_inside_tree()" is true. Returning: Transform3D()
+   at: get_global_transform (scene/3d/node_3d.cpp:649)
+   GDScript backtrace (most recent call first):
+       [0] _present_register_sound (res://scripts/props/night_register_prop.gd:1283)
+       [1] _refresh_slip_visibility (res://scripts/props/night_register_prop.gd:998)
+       [2] _reprint_slip (res://scripts/props/night_register_prop.gd:947)
+       [3] _refresh_board (res://scripts/props/night_register_prop.gd:1323)
+       [4] _on_job_stage_changed (res://scripts/props/night_register_prop.gd:268)
+       [5] issue_job (res://scripts/game/work_orders.gd:138)
+       [6] _detached_owner (res://tests/night_register_audio_lifecycle_test.gd:84)
+       [7] _ready (res://tests/night_register_audio_lifecycle_test.gd:14)
+       [8] _cycle (res://tests/night_register_audio_lifecycle_test.gd:66)
+       [9] _settle (res://tests/night_register_audio_lifecycle_test.gd:109)

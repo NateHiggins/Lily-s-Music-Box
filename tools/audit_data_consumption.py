@@ -17,7 +17,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-TOOL_VERSION = 3
+TOOL_VERSION = 4
 DEFAULT_EXCEPTIONS = "tools/data_consumption_exceptions.json"
 DEFAULT_BASELINE = "tools/data_consumption_baseline.json"
 BASELINE_SCHEMA = "orison.data-consumption-baseline.v1"
@@ -51,6 +51,32 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 }
 
 
+# Existing catalogs without a unique schema string need an exact game/data
+# relative path, never a basename or a globally recognized container name.
+# These declarations classify record identities only. They grant neither a
+# FILE reader nor a reader for any field in a record value.
+DYNAMIC_MAP_PATHS_BY_FILE = {
+    # FunctionalProp._ready: _catalog.get(prop_type).
+    "prop_catalog.json": frozenset({""}),
+    # RealityCaseManager/RealityRuleDirector: definitions.get(case_id).
+    "reality_cases.json": frozenset({""}),
+    "reality_rules.json": frozenset({""}),
+    # OrisonMusicDirector: tracks[track_id], residents.get(resident_id).
+    "music_catalog.json": frozenset({"tracks", "residents"}),
+    # ScheduleDirector: data.residents[raw_slug].
+    "resident_schedules.json": frozenset({"residents"}),
+    # MaintenanceActivityLibrary: authored[activity_id].
+    "maintenance_activities.json": frozenset({"activities"}),
+    # OrisonV2UpperFloorDoors: source.doors[identity].
+    "orison_v2/upper_floor_programs.json": frozenset({"doors"}),
+    # OrisonV2MinaRoutine: places.get(destination).
+    "orison_v2/mina_routine.json": frozenset({"places"}),
+    # Build-time mirror: finish IDs produced by generate_runtime_materials.py.
+    # Its FILE_UNREAD and unread value schema remain reported independently.
+    "runtime_material_sets.json": frozenset({"materials"}),
+}
+
+
 def json_fields(value, prefix="", dynamic_map_paths=frozenset()):
     out = Counter()
     if isinstance(value, dict):
@@ -69,10 +95,11 @@ def json_fields(value, prefix="", dynamic_map_paths=frozenset()):
     return out
 
 
-def data_json_fields(value):
+def data_json_fields(value, rel_data=None):
     schema = value.get("schema") if isinstance(value, dict) else None
     dynamic_map_paths = DYNAMIC_MAP_PATHS_BY_SCHEMA.get(
-        schema, frozenset())
+        schema, frozenset()) | DYNAMIC_MAP_PATHS_BY_FILE.get(
+        rel_data, frozenset())
     return json_fields(value, dynamic_map_paths=dynamic_map_paths)
 
 
@@ -298,6 +325,20 @@ def _string_binding(rhs: str):
     return match.group("value") if match else None
 
 
+def binding_access_paths(rhs: str, aliases, constants):
+    """Only a direct state expression establishes a durable alias.
+
+    State passed to a constructor is read, but its returned value is not an
+    alias to that argument. General reads still use access_chains separately.
+    """
+    expression = rhs.strip()
+    direct = re.match(r"RealityState\.data\b", expression)
+    if not direct:
+        direct = any(re.match(rf"{re.escape(name)}\b", expression)
+                     for name in aliases)
+    return access_chains(expression, aliases, constants) if direct else []
+
+
 def _numeric_source_pass(text: str, root_aliases, member_aliases):
     class_constants, _numbers = source_constants(text)
     constants = class_constants.copy()
@@ -331,7 +372,7 @@ def _numeric_source_pass(text: str, root_aliases, member_aliases):
         binding = _binding(statement)
         if binding:
             name = binding.group("name")
-            bound_paths = access_chains(binding.group("rhs"), aliases, constants)
+            bound_paths = binding_access_paths(binding.group("rhs"), aliases, constants)
             string_value = _string_binding(binding.group("rhs"))
             if name in root_aliases:
                 aliases[name] = root_aliases[name]
@@ -430,6 +471,174 @@ def numeric_state_records(texts, numeric):
     return records
 
 
+def _split_call_arguments(text: str):
+    """Split a call without mistaking nested calls or literals for arguments."""
+    arguments = []
+    start = 0
+    depth = 0
+    strings = _string_spans(text)
+    for index, char in enumerate(text):
+        if any(lo <= index < hi for lo, hi in strings):
+            continue
+        if char in "([{":
+            depth += 1
+        elif char in ")]}":
+            depth -= 1
+        elif char == "," and depth == 0:
+            arguments.append(text[start:index].strip())
+            start = index + 1
+    if text[start:].strip():
+        arguments.append(text[start:].strip())
+    return arguments
+
+
+def _script_functions(text: str):
+    definitions = list(re.finditer(
+        r"^(?:static\s+)?func\s+(\w+)\s*\(([^\n]*)\)[^\n]*:\s*$",
+        text, re.MULTILINE))
+    functions = {}
+    for index, match in enumerate(definitions):
+        end = definitions[index + 1].start() if index + 1 < len(definitions) else len(text)
+        parameters = [re.match(r"\w+", p).group(0)
+                      for p in _split_call_arguments(match.group(2))
+                      if re.match(r"\w+", p)]
+        functions[match.group(1)] = (parameters, text[match.start():end])
+    return functions
+
+
+def _direct_json_alias(expression: str, aliases, constants):
+    expression = expression.strip()
+    for name, base in sorted(aliases.items(), key=lambda item: -len(item[0])):
+        match = re.match(rf"{re.escape(name)}\b", expression)
+        if not match:
+            continue
+        path, end = _parse_access_tail(expression, match.end(), base, constants)
+        if not expression[end:].strip():
+            return path
+    return None
+
+
+def _parameter_accesses(text, aliases, constants):
+    strings = _string_spans(text)
+    for name, base in aliases.items():
+        for match in re.finditer(rf"(?<![\w.]){re.escape(name)}\b", text):
+            if any(lo <= match.start() < hi for lo, hi in strings):
+                continue
+            path, _end = _parse_access_tail(text, match.end(), base, constants)
+            yield path
+
+
+def _parameter_reads(body, parameter, origin):
+    """Read only local aliases descending from the passed helper parameter."""
+    aliases = {parameter: origin}
+    constants = {}
+    for statement in logical_statements(body):
+        if statement.startswith(("func ", "static func ")):
+            continue
+        assignment = assignment_match(statement)
+        rhs = statement[assignment.end():] if assignment else statement
+        yield from _parameter_accesses(rhs, aliases, constants)
+        binding = _binding(statement)
+        if binding:
+            name, expression = binding.group("name"), binding.group("rhs")
+            bound = _direct_json_alias(expression, aliases, constants)
+            if bound:
+                aliases[name] = bound
+            else:
+                aliases.pop(name, None)
+            literal = _string_binding(expression)
+            if literal is not None:
+                constants[name] = literal
+            else:
+                constants.pop(name, None)
+        loop = re.match(r"^for\s+(\w+)(?:\s*:\s*\w+)?\s+in\s+(.+):$", statement)
+        if loop:
+            bound = _direct_json_alias(loop.group(2), aliases, constants)
+            if bound:
+                aliases[loop.group(1)] = bound + ("*",)
+            else:
+                aliases.pop(loop.group(1), None)
+
+
+def inherited_parameter_reads(root: Path, texts):
+    """Follow one direct argument into a literal immediate base script.
+
+    Only an actual JSON parse creates file identity. A direct alias or array
+    item can reach a non-overridden inherited method, where reads must descend
+    from its matching parameter. Constructors, general return values, unrelated
+    dictionaries and entire base-file token lists grant no credit.
+    """
+    reads = {}
+    for caller, text in texts.items():
+        parent = re.search(r'^extends\s+["\']res://(scripts/[^"\']+\.gd)["\']',
+                           text, re.MULTILINE)
+        if not parent:
+            continue
+        parent_path = root / "game" / parent.group(1)
+        if parent_path not in texts:
+            continue
+        methods = _script_functions(texts[parent_path])
+        overrides = _script_functions(text)
+        class_constants, _numbers = source_constants("\n".join(
+            line for line in text.splitlines() if not line[:1].isspace()))
+        constants = class_constants.copy()
+        aliases = {}
+        for statement in logical_statements(text):
+            if statement.startswith(("func ", "static func ")):
+                aliases = {}
+                constants = class_constants.copy()
+                continue
+            binding = _binding(statement)
+            if binding:
+                name, rhs = binding.group("name"), binding.group("rhs")
+                parsed = re.fullmatch(
+                    r"JSON\.parse_string\(\s*FileAccess\.get_file_as_string\((.*?)\)\s*\)",
+                    rhs.strip())
+                source = None
+                if parsed:
+                    argument = parsed.group(1).strip()
+                    value = constants.get(argument, _string_binding(argument))
+                    source = PATH_RE.fullmatch(value) if isinstance(value, str) else None
+                bound = (source.group(1),) if source else _direct_json_alias(rhs, aliases, constants)
+                if bound:
+                    aliases[name] = bound
+                else:
+                    aliases.pop(name, None)
+                literal = _string_binding(rhs)
+                if literal is not None:
+                    constants[name] = literal
+                else:
+                    constants.pop(name, None)
+            loop = re.match(r"^for\s+(\w+)(?:\s*:\s*\w+)?\s+in\s+(.+):$", statement)
+            if loop:
+                bound = _direct_json_alias(loop.group(2), aliases, constants)
+                if bound:
+                    aliases[loop.group(1)] = bound + ("*",)
+                else:
+                    aliases.pop(loop.group(1), None)
+            strings = _string_spans(statement)
+            for call in re.finditer(r"(?<![\w.])(\w+)\s*\(", statement):
+                if any(lo <= call.start() < hi for lo, hi in strings):
+                    continue
+                name = call.group(1)
+                if name not in methods or name in overrides:
+                    continue
+                opening = statement.find("(", call.start())
+                closing = _matching_close(statement, opening, "(", ")")
+                if closing < 0:
+                    continue
+                parameters, body = methods[name]
+                arguments = _split_call_arguments(statement[opening + 1:closing])
+                for parameter, argument in zip(parameters, arguments):
+                    bound = _direct_json_alias(argument, aliases, constants)
+                    if not bound:
+                        continue
+                    for path in _parameter_reads(body, parameter, bound):
+                        if len(path) > 1:
+                            reads.setdefault(path[0], set()).add(path[1:])
+    return reads
+
+
 def scan(root: Path, exception_path: Path):
     exceptions = load_exceptions(exception_path)
     sources = production_sources(root)
@@ -445,6 +654,7 @@ def scan(root: Path, exception_path: Path):
         for match in DOT_RE.finditer(text):
             token_users.setdefault(match.group("key"), set()).add(rel)
 
+    inherited_reads = inherited_parameter_reads(root, texts)
     records = []
     data_root = root / "game/data"
     # Recursive: game/data/ has subdirectories (songbook/), and PATH_RE
@@ -465,10 +675,10 @@ def scan(root: Path, exception_path: Path):
             records.append({"kind": "FILE_UNREAD", "file": rel_repo,
                             "detail": file_exception or "no production path reader",
                             "excepted": bool(file_exception)})
-        fields = data_json_fields(parsed)
-        # Instance-map keys (resident ids, fixture ids, room ids) are data,
-        # not thousands of distinct schema fields. Consumption is therefore
-        # reported by leaf token per file, with occurrence counts retained.
+        fields = data_json_fields(parsed, rel_data)
+        # Declared identity-map keys have already been removed above. The
+        # existing token-reader rule reports remaining schema leaves per
+        # file, retaining their occurrence counts.
         leaves = Counter()
         for field, occurrences in fields.items():
             leaves[field.replace("[]", "").rsplit(".", 1)[-1]] += occurrences
@@ -477,9 +687,16 @@ def scan(root: Path, exception_path: Path):
             # A same-named token in an unrelated subsystem is not a reader.
             # Field proof must occur in a source that opens this exact file.
             users = sorted(set(token_users.get(leaf, set())) & set(readers))
+            # Inherited helper credit is path/parameter-specific, never every
+            # token present in the parent script. Preserve the existing leaf
+            # reporting format after proving an actual matching JSON path.
+            forwarded = any(
+                candidate.replace("[]", "").rsplit(".", 1)[-1] == leaf
+                and path_matches(tuple(candidate.replace("[]", ".*").strip(".").split(".")), accessed)
+                for candidate in fields for accessed in inherited_reads.get(rel_data, ()))
             key = f"{rel_repo}:{field}"
             field_exception = exceptions.get("fields", {}).get(key)
-            if not users:
+            if not users and not forwarded:
                 records.append({"kind": "FIELD_UNREAD", "file": rel_repo,
                                 "field": field, "occurrences": occurrences,
                                 "detail": field_exception or "zero production token readers",

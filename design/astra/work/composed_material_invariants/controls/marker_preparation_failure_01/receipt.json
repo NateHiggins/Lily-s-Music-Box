@@ -1,0 +1,9 @@
+{
+  "exit": 1,
+  "scope": "offline transform preparation, no engine",
+  "reason": "exact reviewed source has LF line endings; initial control assumed CRLF",
+  "matching_source_lines": [
+    "b'\\t\\t\\t\\tmaterial.set_meta(\"living_storey\", floor_id)\\n'",
+    "b'\\t\\t\\t\\tmaterial.set_meta(\"living_storey\", floor_id)\\n'"
+  ]
+}

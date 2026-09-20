@@ -1,0 +1,10 @@
+{
+  "status": "PREPARED_ONLY; initial actual-build green and row review required before execution",
+  "original_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "corruption_sha256": "bbe60da38af51a77fe55129fb2bff9d86b65e67722f5da0b97cd07fa772c6d10",
+  "transform": "Only build() finish seed: living_storey=floor_id becomes explicit fixture sentinel \"F00\"",
+  "preserved": "Later missing-marker seed, foreign-owner copying, registry rebuild, all callbacks, renderer and private-world guards",
+  "expected_scope": "Foreign-storey corruption of actual built finish rows; stale installed identity and missed immediate finish updates; registry still correct",
+  "not_proven": "The original absent-seed omission is repaired by the later binder and is not an expected red",
+  "structural_check": true
+}

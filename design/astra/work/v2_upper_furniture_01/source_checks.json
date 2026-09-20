@@ -1,0 +1,47 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "negative_controls": [
+    {
+      "mutation": "outside_room",
+      "rejection": "('outside room', '5A_bed0', [-16.75, -11.825000000000001, -15.25, -9.775], [-15.65, -12.35, -11.2, -6.35])"
+    },
+    {
+      "mutation": "bed_collision",
+      "rejection": "('fixture overlap', '5A_bed0', '5A_bed0_ns')"
+    },
+    {
+      "mutation": "unreachable_stance",
+      "rejection": "('fixture stance unreachable', '5A_bed0', [-14.3, -10.8], 'point_clear', False, 'grid_clear', False, 'nearest', (-131, -108))"
+    },
+    {
+      "mutation": "wardrobe_swing",
+      "rejection": "('wardrobe motion hits stance', '5A_w0_wardrobe')"
+    }
+  ],
+  "syntax_parses": 4,
+  "protected_files": 9,
+  "completeness_exit": 2,
+  "source_hashes": {
+    "game/tests/orison_v2_upper_furniture_test.gd": "054d1dbcdf4573d6a26c915a66bf5acaee234212b6cabe56d8b0f4e6ddb30e68",
+    "game/tests/orison_v2_upper_floors_test.gd": "533de2ddb1adb6d41c5eb797825c649ba8a7690eda176572ea80826871d765ce",
+    "game/tests/orison_v2_upper_fixtures_test.gd": "13c470ebdb6b915076038b6879245324369c72a136c16c0246db4f91fb28cc11",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "7d1d3f98e4daa2653524675207193343d6c2b1f3015bfa007db6ca5577db31c2",
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/data/orison_v2/domestic_fittings.json": "09294039d42e7a1c90b942aeb00855757586231da29d6bdf4264ca915aa7a248",
+    "game/data/orison_v2/upper_floor_programs.json": "b6c0e345cc92a1fb8e19d36c4e4b29177256b4d4cb79cfcef9d6cbed4c918412",
+    "game/scripts/building/orison_v2_runtime_root.gd": "2075cd36f56e245ae5e2106a28ce550f99a0dab72905b5b058e95eeec668a39e",
+    "game/scripts/building/orison_v2_household_state.gd": "203de125976c582fd3607bd2da3f0b38d55bc169328f02cb7a10b34f370472e8",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/props/baked_furniture_interaction.gd": "79693c5623ab062e2e7e48d5b174f94f4037d08a0b39720dbad1daeab3c122ea"
+  },
+  "deterministic_regeneration": true,
+  "installed_file_hashes": {
+    "game/data/orison_v2_blockout.json": "1fe01f764b4b90995e5dd0243dd9d3ddea641ca2acafb134407016d25fa1c145",
+    "game/data/orison_v2/domestic_furniture.json": "1aee6e238ccb7a43ef9bbc0093b84655b9fcfe3588f659b2163629389d06ebbf",
+    "game/tests/data/v2_upper_floor_probes.json": "374b485168fd181d01be8bef5b6d1ce203bc7d50b4dd5acc3af47963fd86187b",
+    "game/tests/data/v2_upper_furniture_probes.json": "60eb98f14c8d94a6682602812e262faae687902583c61a4c642df66915a0e7b9"
+  },
+  "generator_sha256": "84a2c2b202038147b75efabac06b22bc91547cfcbdb444b6714452a25847a167"
+}

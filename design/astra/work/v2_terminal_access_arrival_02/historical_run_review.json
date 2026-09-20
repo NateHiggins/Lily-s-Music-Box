@@ -1,0 +1,223 @@
+{
+  "schema": "astra.v2-terminal-access.arrival-history.v1",
+  "raw_artifacts_unchanged": true,
+  "runs": [
+    {
+      "phase": "01_original",
+      "receipt": "design/astra/evidence/v2_terminal_access/runs/01_original/result.json",
+      "actual_runner_exit": 1,
+      "historical_assessment": {
+        "diagnostic_gate_exit": 1,
+        "control_contract_exit": 0,
+        "ordinary_product_status": "FAILED",
+        "reasons": [],
+        "failed_labels": [
+          "actual scope front faces the operator",
+          "V2 owns exactly one actual DeskZone",
+          "desk reuses the sole production call owner",
+          "desk target uses the authored footprint and ordinary height",
+          "desk target is at the terminal use area on the operator floor",
+          "ordinary player ray acquires the actual desk Area",
+          "actual player prompt offers the support desk",
+          "real interact input acquires reciprocal seated ownership",
+          "real entry opens the call panel and starts the first case",
+          "real call owner updates the actual terminal stage",
+          "occupied line plays on the existing Telephone owner",
+          "entry does not teleport the authored operator",
+          "seated E releases player desk and call ownership",
+          "seated E hides the modal and stops the line",
+          "standing player can reacquire the same physical desk",
+          "ray reentry resumes the same live case and owner",
+          "actual Escape key releases reciprocal ownership",
+          "Escape restores world input and stops the line",
+          "exactly two real ray entries emitted desk interactions",
+          "opening sequence settles through its actual owner"
+        ],
+        "passed": 16,
+        "total": 36,
+        "known_diagnostic_debt": [
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+            "count": 2
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+            "count": 1
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+            "count": 1
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+            "count": 1
+          },
+          {
+            "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+            "count": 1
+          },
+          {
+            "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+            "count": 1
+          },
+          {
+            "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+            "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+            "count": 39
+          }
+        ],
+        "unknown_diagnostics": [],
+        "retention": [],
+        "negative_control_scope_only": true
+      },
+      "first_ray_origin": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "second_ray_origin": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "retirement_rows": [
+        {
+          "label": "actual V2 world retires",
+          "passed": true
+        },
+        {
+          "label": "actual CampaignShell retires",
+          "passed": true
+        },
+        {
+          "label": "retirement restores original acoustic records",
+          "passed": true
+        }
+      ],
+      "first_shift_source_in_frozen_manifest_sha256": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+      "selected_raw_sha256": {
+        "result.json": "cade796dfca635613d70a5d317afd48a020bee6ed4280fe74f94e9fc521dd7b0",
+        "shots/terminal_access.json": "0b09667d35bd4535be619075fb14b58cfc2518102ccaf2bd936726c51a0a80c3",
+        "godot.stdout.log": "335b04b558afa0c2b4d497ba52a26cb3f7198aca033e086a0c8a80e4680fc7b7",
+        "godot.stdout.log.stderr": "d9f0fb43c93a4221c4eefa23b920bfa77c2c070a9b734cd174ea2516a25dc65a",
+        "before.all_game_files.json": "a23e3137799c5d2adeb65865d9a39afd9412d5c1f8cb819306ec8863d4b622c5"
+      },
+      "retrospective_scope": "Curb-origin rays invalidate operator interaction proof; historical original failure-set match is insufficient. Composition and retirement facts retain their measured scope."
+    },
+    {
+      "phase": "02_candidate",
+      "receipt": "design/astra/evidence/v2_terminal_access/runs/02_candidate/result.json",
+      "actual_runner_exit": 1,
+      "historical_assessment": {
+        "diagnostic_gate_exit": 1,
+        "control_contract_exit": 1,
+        "ordinary_product_status": "FAILED",
+        "reasons": [
+          "failure_set_differs_from_exact_planned_variant",
+          "native_exit_differs_from_planned_variant"
+        ],
+        "failed_labels": [
+          "ordinary player ray acquires the actual desk Area",
+          "actual player prompt offers the support desk",
+          "real interact input acquires reciprocal seated ownership",
+          "real entry opens the call panel and starts the first case",
+          "real call owner updates the actual terminal stage",
+          "occupied line plays on the existing Telephone owner",
+          "entry does not teleport the authored operator",
+          "seated E releases player desk and call ownership",
+          "seated E hides the modal and stops the line",
+          "standing player can reacquire the same physical desk",
+          "ray reentry resumes the same live case and owner",
+          "actual Escape key releases reciprocal ownership",
+          "Escape restores world input and stops the line",
+          "exactly two real ray entries emitted desk interactions",
+          "opening sequence settles through its actual owner"
+        ],
+        "passed": 21,
+        "total": 36,
+        "known_diagnostic_debt": [
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+            "count": 2
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+            "count": 1
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+            "count": 1
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+            "count": 1
+          },
+          {
+            "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+            "count": 1
+          },
+          {
+            "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+            "count": 1
+          },
+          {
+            "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+            "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+            "count": 39
+          }
+        ],
+        "unknown_diagnostics": [],
+        "retention": [],
+        "negative_control_scope_only": false
+      },
+      "first_ray_origin": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "second_ray_origin": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "retirement_rows": [
+        {
+          "label": "actual V2 world retires",
+          "passed": true
+        },
+        {
+          "label": "actual CampaignShell retires",
+          "passed": true
+        },
+        {
+          "label": "retirement restores original acoustic records",
+          "passed": true
+        }
+      ],
+      "first_shift_source_in_frozen_manifest_sha256": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+      "selected_raw_sha256": {
+        "result.json": "c309babd17539cce6c129181ee25e75df16882fde002302960fe2b19c1093309",
+        "shots/terminal_access.json": "7340a4eec57ccf5ec3c6f8ce5847d2155f985d73c3e48cf2530ece0105fb2c00",
+        "godot.stdout.log": "44e896d8687a9a29f6fa0e534a482d68f134a7af09f9841dadafe3c056be4d48",
+        "godot.stdout.log.stderr": "44634bafb94cd1ecd33ad5855e6e91ea1bb7edd28fbe01fa80deffaf595c3c8f",
+        "before.all_game_files.json": "d33ce2efaf94dc015b5ea2b15f160eaee5f2912be89681e06e469381bcc5c1c7"
+      },
+      "retrospective_scope": "Curb-origin rays invalidate operator interaction proof; historical original failure-set match is insufficient. Composition and retirement facts retain their measured scope."
+    }
+  ],
+  "cause_source": "game/scripts/game/first_shift_director.gd:59,63-66,383-402",
+  "prior_sealed_preparation_sha256": "130164373d73079c3f01c97e924ec508e5a6ffd2c49ef5281ec8e4746645bd4f",
+  "prior_sealed_runtime_package_sha256": "fbd62fb10629aaf31b7f386cca877752e7ffeb6811b29cf2560ae734e9c0446e"
+}

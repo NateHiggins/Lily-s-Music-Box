@@ -1,0 +1,42 @@
+{
+  "scope": "read-only production source scan; no runtime or human proof",
+  "head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "runs": [
+    {
+      "label": "original",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\save_recovery\\unix_audit\\originals\\audit_systemic_situation_authority.py",
+        "--root",
+        "C:\\PleaseRemainOnTheLine-astra",
+        "--production-only",
+        "--domain",
+        "host-clock",
+        "--json"
+      ],
+      "exit": 0,
+      "tool_sha256": "e343f9082ebefbf97b6ccfaed666c3c9986be9bf8edd0cc97fe81f2c35e004d9",
+      "stdout_sha256": "6695b69efbc33b19ca986958a3b0939cdfd44e86cdb9e8418e0cb29c8eea9ac4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\save_recovery\\unix_audit\\proposed\\tools\\audit_systemic_situation_authority.py",
+        "--root",
+        "C:\\PleaseRemainOnTheLine-astra",
+        "--production-only",
+        "--domain",
+        "host-clock",
+        "--json"
+      ],
+      "exit": 0,
+      "tool_sha256": "9ba0429e718b1c4f2993d32b8b8330f898e794b0d637f8b7b2025499200ae5c6",
+      "stdout_sha256": "6695b69efbc33b19ca986958a3b0939cdfd44e86cdb9e8418e0cb29c8eea9ac4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_unchanged": true,
+  "input_count": 381
+}

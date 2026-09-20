@@ -133,6 +133,37 @@ class ScanTests(unittest.TestCase):
         self.assertEqual(hits, [])
         self.assertGreaterEqual(self.meta["stats"]["vector3_stats_only"], 3)
 
+    def test_translated_local_global_owner_is_presentation(self):
+        with TempRepo() as root:
+            path = root / "game/scripts/props/local_prop.gd"
+            path.write_text("extends Node3D\nfunc update_beam():\n"
+                            "    particles.global_transform = player.flashlight.global_transform.translated_local(Vector3(0,0,-3.25))\n",
+                            encoding="utf-8")
+            _, rows = scan(root)
+            self.assertEqual(rec(rows, kind="vector3_coordinate", file="game/scripts/props/local_prop.gd"), [])
+
+    def test_local_translation_does_not_hide_absolute_coordinate(self):
+        with TempRepo() as root:
+            path = root / "game/scripts/props/local_prop.gd"
+            path.write_text("extends Node3D\nfunc update_beam():\n"
+                            "    particles.global_transform = owner.global_transform.translated_local(Vector3(0,0,-3.25)); camera.global_position = Vector3(20,2,30)\n"
+                            "    camera.global_transform = Transform3D.IDENTITY.translated_local(Vector3(20,2,30))\n",
+                            encoding="utf-8")
+            _, rows = scan(root)
+            hits = rec(rows, kind="vector3_coordinate", file="game/scripts/props/local_prop.gd")
+            self.assertEqual(len(hits), 1)
+            self.assertEqual(hits[0]["count"], 2)
+            self.assertTrue(hits[0]["gameplay_binding"])
+
+    def test_reviewed_kind_label_does_not_alias_v1_furniture(self):
+        universe = {"ids": {"desk": {"domains": ["furniture"]}}}
+        label = audit.Finding("id_reference", "game/scripts/building/orison_v2_domestic_furniture.gd", "desk", "production")
+        other = audit.Finding("id_reference", "game/scripts/building/another_consumer.gd", "desk", "production")
+        self.assertEqual(audit.classify(label, universe)["disposition"], "SAFE_TO_CHANGE")
+        self.assertEqual(audit.classify(label, universe)["spatial"], [])
+        self.assertEqual(audit.classify(other, universe)["disposition"], "PRESERVE_OR_ALIAS")
+        self.assertIn("SEMANTIC_ANCHOR", audit.classify(other, universe)["spatial"])
+
     def test_fallback_offset_behind_anchor_stays_out(self):
         hits = rec(self.records, kind="vector3_coordinate",
                    file="game/scripts/cases/mina_caption_manifestation.gd")
@@ -418,6 +449,64 @@ class DriftTests(unittest.TestCase):
                 self.assertEqual(code, 3, err)
                 self.assertIn("refusing to write manifest", err)
                 self.assertFalse((root / target).exists())
+
+    def test_generated_name_relocation_requires_exact_review(self):
+        with TempRepo() as root:
+            source = root / "game/scripts/audio/audio_policy.gd"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(
+                'extends Node\n\nfunc _build_voice_pool() -> void:\n'
+                '\tfor i in 16:\n'
+                '\t\tvar voice := AudioStreamPlayer3D.new()\n'
+                '\t\tvoice.name = "PolicyVoice%02d" % i\n',
+                encoding="utf-8")
+            manifest_path = write_manifest(root)
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            original = rec(manifest["records"], kind="generated_name",
+                           file="game/scripts/audio/audio_policy.gd")
+            self.assertEqual(len(original), 1)
+
+            source.write_text(
+                'extends Node\n\nfunc _make_voice(slot: int) -> void:\n'
+                '\tvar voice := AudioStreamPlayer3D.new()\n'
+                '\tvoice.name = "PolicyVoice%02d" % slot\n',
+                encoding="utf-8")
+            argv = ("--root", str(root), "--layout", MINI_LAYOUT,
+                    "--manifest", str(manifest_path), "--json")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            drift = json.loads(out)["drift"]
+            self.assertEqual(len(drift["new_failing"]), 1)
+            moved = drift["new_failing"][0]
+            self.assertEqual(moved["token"], "_make_voice")
+            self.assertIn(original[0], drift["cleanup_opportunities"])
+
+            # Review only this relocation, retaining the existing verdict.
+            migrated = dict(original[0])
+            locations = {"key", "token", "symbols", "lines", "context"}
+            for field in locations:
+                migrated[field] = moved[field]
+            self.assertEqual(migrated, moved)
+            manifest["records"] = [
+                migrated if r["key"] == original[0]["key"] else r
+                for r in manifest["records"]]
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 0, out)
+
+            # The reviewed helper does not license another generated family.
+            with source.open("a", encoding="utf-8") as stream:
+                stream.write(
+                    '\nfunc _make_unreviewed_voice(slot: int) -> void:\n'
+                    '\tvar voice := AudioStreamPlayer3D.new()\n'
+                    '\tvoice.name = "UnreviewedVoice%02d" % slot\n')
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            new = json.loads(out)["drift"]["new_failing"]
+            self.assertEqual(len(new), 1)
+            self.assertEqual(new[0]["token"], "_make_unreviewed_voice")
+            self.assertEqual(new[0]["context"],
+                             ['"UnreviewedVoice%02d" % slot'])
 
     def test_line_number_movement_is_not_drift(self):
         with TempRepo() as root:

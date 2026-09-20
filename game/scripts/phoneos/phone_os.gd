@@ -1,6 +1,5 @@
 class_name PhoneOS
 
-const FICTIONAL_PRESENT_YEAR := "1928"
 extends RefCounted
 ## orisonOS — somebody's hacked Linux on a company handset.
 ##
@@ -231,20 +230,12 @@ func _run_command(raw: String) -> void:
 			_echo("        total   used   free")
 			_echo("Mem:    262144 251008  11136")
 		"date":
-			_echo(_fictional_datetime(Time.get_datetime_string_from_system())
+			_echo(CampaignClock.new().datetime_string()
 					+ "  (from network; rtc dead)")
 		"clear":
 			_term_lines.clear()
 		_:
 			_echo("%s: command not found" % argv[0])
-
-
-static func _fictional_datetime(system_datetime: String) -> String:
-	# The dead RTC may borrow month, day and time from the host.  It may not
-	# announce that host's century inside the Orison.
-	if system_datetime.length() < 4:
-		return FICTIONAL_PRESENT_YEAR
-	return FICTIONAL_PRESENT_YEAR + system_datetime.substr(4)
 
 
 ## ---- render --------------------------------------------------------

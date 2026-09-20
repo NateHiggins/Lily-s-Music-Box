@@ -1,0 +1,62 @@
+{
+  "mode": "writer",
+  "boundary": "deletion_gap",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\writer\\command.ps1"
+  ],
+  "runner_pid": 13936,
+  "started_utc": "2026-09-05T05:04:56.193574+00:00",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\appdata",
+  "nonce": "409fecca-440a-4980-a6ff-0d75d782ca41",
+  "marker": {
+    "boundary": "deletion_gap",
+    "gap_delete_error": 0,
+    "nonce": "409fecca-440a-4980-a6ff-0d75d782ca41",
+    "operation": "rename",
+    "pid": 29424,
+    "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_03/deletion_gap/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+    "stage": "promote"
+  },
+  "termination": {
+    "mechanism": "Windows TerminateProcess on verified fixture handle",
+    "requested_exit": 81,
+    "observed_native_exit": 81,
+    "wait_result": 0,
+    "process_identity": {
+      "ProcessId": 29424,
+      "ParentProcessId": 23804,
+      "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+      "CreationDate": "2026-09-05T01:04:56.40904-04:00"
+    },
+    "verified_ancestor_chain": [
+      {
+        "ProcessId": 29424,
+        "ParentProcessId": 23804,
+        "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+        "CreationDate": "2026-09-05T01:04:56.40904-04:00"
+      },
+      {
+        "ProcessId": 23804,
+        "ParentProcessId": 13936,
+        "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+        "CreationDate": "2026-09-05T01:04:56.400896-04:00"
+      }
+    ],
+    "terminated_utc": "2026-09-05T05:04:57.802653+00:00"
+  },
+  "runner_exit": 81,
+  "finished_utc": "2026-09-05T05:04:57.846922+00:00",
+  "diagnostic_headers": [],
+  "summary_lines": [
+    "[SAVE RESTART] WAIT pid=29424 boundary=deletion_gap"
+  ],
+  "passed": true
+}

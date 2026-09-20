@@ -42,6 +42,90 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "book_brown": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_brown",
+      "files": [
+        "T_library_furniture_book_brown_albedo.png",
+        "T_library_furniture_book_brown_rough.png",
+        "T_library_furniture_book_brown_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "book_burgundy": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_burgundy",
+      "files": [
+        "T_library_furniture_book_burgundy_albedo.png",
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "book_green": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_green",
+      "files": [
+        "T_library_furniture_book_green_albedo.png",
+        "T_library_furniture_book_green_rough.png",
+        "T_library_furniture_book_green_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "book_navy": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_navy",
+      "files": [
+        "T_library_furniture_book_navy_albedo.png",
+        "T_library_furniture_book_navy_rough.png",
+        "T_library_furniture_book_navy_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "book_ochre": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_ochre",
+      "files": [
+        "T_library_furniture_book_ochre_albedo.png",
+        "T_library_furniture_book_ochre_rough.png",
+        "T_library_furniture_book_ochre_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "book_teal": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "library/furniture/book_teal",
+      "files": [
+        "T_library_furniture_book_teal_albedo.png",
+        "T_library_furniture_book_teal_rough.png",
+        "T_library_furniture_book_teal_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "brass": {
       "alpha": false,
       "canonical_meters_per_tile": 0.25,
@@ -140,6 +224,20 @@
       "roughness_multiplier": 0.6,
       "visual_lock": false
     },
+    "ceramic": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.65,
+      "catalog_mapping": "ai_materials/ceramic",
+      "files": [
+        "T_ai_materials_ceramic_albedo.png",
+        "T_ai_materials_ceramic_rough.png",
+        "T_ai_materials_ceramic_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.65,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "chrome": {
       "alpha": false,
       "canonical_meters_per_tile": 0.8,
@@ -154,6 +252,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "concrete": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.8,
+      "catalog_mapping": "ai_materials/concrete",
+      "files": [
+        "T_ai_materials_concrete_albedo.png",
+        "T_ai_materials_concrete_rough.png",
+        "T_ai_materials_concrete_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "copper_aged": {
       "alpha": false,
       "canonical_meters_per_tile": 0.4,
@@ -166,6 +278,20 @@
       "metallic": 0.72,
       "meters_per_tile": 0.4,
       "roughness_multiplier": 0.58,
+      "visual_lock": false
+    },
+    "countertop": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/countertop",
+      "files": [
+        "T_ai_materials_countertop_albedo.png",
+        "T_ai_materials_countertop_rough.png",
+        "T_ai_materials_countertop_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
       "visual_lock": false
     },
     "enamel": {
@@ -209,6 +335,20 @@
       "meters_per_tile": 0.7,
       "roughness_multiplier": 1.0,
       "visual_lock": true
+    },
+    "floor_oak": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.7,
+      "catalog_mapping": "ai_materials/floor_oak",
+      "files": [
+        "T_ai_materials_floor_oak_albedo.png",
+        "T_ai_materials_floor_oak_rough.png",
+        "T_ai_materials_floor_oak_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.7,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "fx_grease": {
       "alpha": true,
@@ -364,6 +504,34 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "plaster_stained": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.8,
+      "catalog_mapping": "ai_materials/plaster_stained",
+      "files": [
+        "T_ai_materials_plaster_stained_albedo.png",
+        "T_ai_materials_plaster_stained_rough.png",
+        "T_ai_materials_plaster_stained_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "plywood": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/plywood",
+      "files": [
+        "T_ai_materials_plywood_albedo.png",
+        "T_ai_materials_plywood_rough.png",
+        "T_ai_materials_plywood_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "porcelain": {
       "alpha": false,
       "canonical_meters_per_tile": 0.4,
@@ -420,6 +588,20 @@
       "roughness_multiplier": 0.62,
       "visual_lock": false
     },
+    "soil": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.35,
+      "catalog_mapping": "ai_materials/soil",
+      "files": [
+        "T_ai_materials_soil_albedo.png",
+        "T_ai_materials_soil_rough.png",
+        "T_ai_materials_soil_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.35,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "soot": {
       "alpha": false,
       "canonical_meters_per_tile": 1.2,
@@ -434,6 +616,62 @@
       "roughness_multiplier": 0.9,
       "visual_lock": true
     },
+    "stair": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/stair",
+      "files": [
+        "T_ai_materials_stair_albedo.png",
+        "T_ai_materials_stair_rough.png",
+        "T_ai_materials_stair_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "subway_tile": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.67,
+      "catalog_mapping": "ai_materials/subway_tile",
+      "files": [
+        "T_ai_materials_subway_tile_albedo.png",
+        "T_ai_materials_subway_tile_rough.png",
+        "T_ai_materials_subway_tile_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.67,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "terracotta": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/terracotta",
+      "files": [
+        "T_ai_materials_terracotta_albedo.png",
+        "T_ai_materials_terracotta_rough.png",
+        "T_ai_materials_terracotta_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "terrazzo": {
+      "alpha": false,
+      "canonical_meters_per_tile": 4.0,
+      "catalog_mapping": "ai_materials/terrazzo",
+      "files": [
+        "T_ai_materials_terrazzo_albedo.png",
+        "T_ai_materials_terrazzo_rough.png",
+        "T_ai_materials_terrazzo_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 4.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "terrazzo_dark": {
       "alpha": false,
       "canonical_meters_per_tile": 1.2,
@@ -445,6 +683,20 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "timber": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "ai_materials/timber",
+      "files": [
+        "T_ai_materials_timber_albedo.png",
+        "T_ai_materials_timber_rough.png",
+        "T_ai_materials_timber_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },

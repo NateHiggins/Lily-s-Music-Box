@@ -1,0 +1,26 @@
+test_all_six_named_variants_keep_strict_negative_red (test_assess.AdmissionControls.test_all_six_named_variants_keep_strict_negative_red) ... ok
+test_arrival_must_be_observed_and_settled_without_ritual_mutation (test_assess.AdmissionControls.test_arrival_must_be_observed_and_settled_without_ritual_mutation) ... ok
+test_camera_and_actor_origin_are_independently_bound (test_assess.AdmissionControls.test_camera_and_actor_origin_are_independently_bound) ... ok
+test_duplicate_omitted_and_malformed_rows (test_assess.AdmissionControls.test_duplicate_omitted_and_malformed_rows) ... ok
+test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) ... ok
+test_exact_known_warning_pair_is_retained_but_changed_detail_rejects (test_assess.AdmissionControls.test_exact_known_warning_pair_is_retained_but_changed_detail_rejects) ... ok
+test_expected_red_does_not_accept_a_different_failed_claim (test_assess.AdmissionControls.test_expected_red_does_not_accept_a_different_failed_claim) ... ok
+test_incomplete_payload_and_false_front_claim_reject (test_assess.AdmissionControls.test_incomplete_payload_and_false_front_claim_reject) ... ok
+test_missing_arrival_payload_and_false_stance_labels_reject (test_assess.AdmissionControls.test_missing_arrival_payload_and_false_stance_labels_reject) ... ok
+test_missing_receipt (test_assess.AdmissionControls.test_missing_receipt) ... ok
+test_nonfinite_wrong_range_wrong_aim_or_missing_pose_reject (test_assess.AdmissionControls.test_nonfinite_wrong_range_wrong_aim_or_missing_pose_reject) ... ok
+test_raw_rows_and_footer_are_required (test_assess.AdmissionControls.test_raw_rows_and_footer_are_required) ... ok
+test_refusals_and_timeout_are_not_expected_functional_red (test_assess.AdmissionControls.test_refusals_and_timeout_are_not_expected_functional_red) ... ok
+test_retirement_failure_cannot_be_absorbed_as_a_control (test_assess.AdmissionControls.test_retirement_failure_cannot_be_absorbed_as_a_control) ... ok
+test_source_pid_and_engine_binding_refuse (test_assess.AdmissionControls.test_source_pid_and_engine_binding_refuse) ... ok
+test_unknown_error_warning_and_retention_reject (test_assess.AdmissionControls.test_unknown_error_warning_and_retention_reject) ... ok
+test_all_six_requests_match_actual_windowed_parameters (test_runner_contract.RunnerControls.test_all_six_requests_match_actual_windowed_parameters) ... ok
+test_artifact_map_omission_and_mutated_log_refuse (test_runner_contract.RunnerControls.test_artifact_map_omission_and_mutated_log_refuse) ... ok
+test_failed_missing_and_active_process_restoration_refuse (test_runner_contract.RunnerControls.test_failed_missing_and_active_process_restoration_refuse) ... ok
+test_fixture_replacement_requires_both_exact_previous_hashes (test_runner_contract.RunnerControls.test_fixture_replacement_requires_both_exact_previous_hashes) ... ok
+test_old_paths_headless_and_array_damage_refuse (test_runner_contract.RunnerControls.test_old_paths_headless_and_array_damage_refuse) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.043s
+
+OK

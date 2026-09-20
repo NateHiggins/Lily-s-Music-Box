@@ -1,0 +1,556 @@
+{
+  "schema": "dream_motion_policy_controls.v1",
+  "evidence_class": "INERT",
+  "before_sha256": "96b5f3731715ecbb2bec0fc3dc4839514aacd636a1c1269f7d731ba3d87f3cb8",
+  "after_sha256": "4ba7c6acb2daec8e37989e3b7851f945683809baa4f5f66e0d6ef4f18d7adad6",
+  "controls": [
+    {
+      "case": "listener_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "mes_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "noct_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eup_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eug_valid",
+      "expected_accept": true,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "listener_broken_endpoint",
+      "expected_accept": false,
+      "before": {
+        "accepted": true,
+        "checks": 390,
+        "failures": []
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "listener_inert_interior",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "law_full: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "listener_inert_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: pose deforms geometry",
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "listener_missing_full",
+      "expected_accept": false,
+      "before": {
+        "accepted": true,
+        "checks": 180,
+        "failures": []
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "listener_wrong_species",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_broken_endpoint",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_inert_interior",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_active_unused_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_missing_full",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "bac_wrong_species",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "mes_broken_endpoint",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "mes_inert_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "mes_missing_full",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "noct_moving_law",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_05: declared inactive geometric state equals neutral",
+          "sample_law_mid_04: declared inactive geometric state equals neutral",
+          "sample_law_mid_05: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_05: declared inactive geometric state equals neutral",
+          "sample_law_mid_04: declared inactive geometric state equals neutral",
+          "sample_law_mid_05: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "noct_inert_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: pose deforms geometry",
+          "sample_neutral_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "noct_missing_full",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "noct_wrong_species",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eup_broken_endpoint",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eup_inert_interior",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eup_active_unused_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eup_missing_full",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: declared motion contract requires all17 law states and gait_a/gait_b"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eug_broken_endpoint",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_full: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eug_inert_interior",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "law_half: pose deforms geometry",
+          "sample_law_half_plus_gait_a: pose deforms geometry",
+          "sample_law_half_plus_gait_b: pose deforms geometry"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eug_active_unused_phase",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "after": {
+        "accepted": false,
+        "checks": 390,
+        "failures": [
+          "gait_a: declared inactive geometric state equals neutral",
+          "sample_neutral_plus_gait_a: declared inactive geometric state equals neutral"
+        ]
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "eug_wrong_species",
+      "expected_accept": false,
+      "before": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "after": {
+        "accepted": false,
+        "error": "ContractError: motion profile/species mismatch"
+      },
+      "matches_expectation": true
+    }
+  ],
+  "all_expected": true
+}

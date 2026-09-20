@@ -1,0 +1,14 @@
+ERROR: Couldn't find the given section "preset.0" and key "exclude_filter", and no default was given.
+   at: get_value (core/io/config_file.cpp:60)
+ERROR: Cannot get keys from nonexistent section "preset.0.options".
+   at: get_section_keys (core/io/config_file.cpp:94)
+ERROR: Couldn't find the given section "preset.0" and key "exclude_filter", and no default was given.
+   at: get_value (core/io/config_file.cpp:60)
+ERROR: Cannot get keys from nonexistent section "preset.0.options".
+   at: get_section_keys (core/io/config_file.cpp:94)
+ERROR: Must select at least one file to export.
+   at: _save_pack_file (editor/export/editor_export_platform.cpp:432)
+ERROR: Save PCK: Failed to export project files.
+   at: add_message (./editor/export/editor_export_platform.h:270)
+ERROR: Project export for preset "Windows" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)

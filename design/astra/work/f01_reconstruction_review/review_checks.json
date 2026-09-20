@@ -1,0 +1,24 @@
+{
+  "schema": "astra.f01-reconstruction-review-checks.v1",
+  "head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "checks": {
+    "inventory_script_ast": true,
+    "json_documents_parse": true,
+    "protected_count_exact_17": true,
+    "protected_all_same_git_blob": true,
+    "protected_raw_bytes_still_equal_inventory": true,
+    "c1_export_dependency_count_8": true,
+    "image_dependencies_count_304": true,
+    "consumer_contract_count_12": true,
+    "consumer_sources_still_match": true,
+    "review_files_only_written": true
+  },
+  "all_checks_pass": true,
+  "runtime_tests_run": false,
+  "generator_run": false,
+  "adoption_performed": false,
+  "notes": [
+    "review_files_only_written is the agent action record, not an assertion that other agents did not modify production concurrently.",
+    "This validates preparation artifacts and unchanged protected bytes, not export equivalence or provider behavior."
+  ]
+}

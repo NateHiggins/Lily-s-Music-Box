@@ -1,0 +1,48 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "source_markers": [
+    {
+      "kind": "stove",
+      "id": "F04_B_STOVE_01",
+      "unit": "4B",
+      "pos": [
+        -9.23,
+        9.3,
+        9.7
+      ],
+      "yaw_deg": 180,
+      "network": "gas"
+    },
+    {
+      "kind": "fridge",
+      "id": "F04_B_FRIDGE_01",
+      "unit": "4B",
+      "pos": [
+        -8.03,
+        8.6,
+        9.6
+      ],
+      "yaw_deg": 90,
+      "network": "structural",
+      "monitor": false
+    }
+  ],
+  "layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+  "conservative_envelopes_xz": [
+    [
+      -13.65,
+      5.449999999999999,
+      -12.85,
+      6.25
+    ],
+    [
+      -12.25,
+      5.5,
+      -11.45,
+      6.199999999999999
+    ]
+  ],
+  "prior_records_preserved": true,
+  "syntax": "PASS",
+  "limits": "Envelopes are source estimates; runtime visual bounds, doors, targeting and movement not checked. No Godot launched."
+}

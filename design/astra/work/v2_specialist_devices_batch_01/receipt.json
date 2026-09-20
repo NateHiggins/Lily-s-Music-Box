@@ -1,0 +1,21 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "devices": [
+    {
+      "id": "2A_deck",
+      "support": "2A_cof",
+      "height": 0.3838806653817981,
+      "kind": "reeldeck"
+    },
+    {
+      "id": "3B_radio",
+      "support": "3B_tools0",
+      "height": 1.822,
+      "kind": "radio"
+    }
+  ],
+  "triangles": 420,
+  "radio_target_distance_m": 0.9843419121423204,
+  "limits": "Native radio interaction/audio plus fixed reel-deck geometry. No reel-deck playback or recording behavior invented. Support colliders overlap the native radio base and deck by their pre-existing coarse top margins. Engine targeting/audio/lifetime/appearance pending."
+}

@@ -65,6 +65,242 @@ def write_baseline(root: Path) -> Path:
     return target
 
 
+class OwnedLampOutputTests(unittest.TestCase):
+    def test_only_declared_lamp_result_field_is_owned(self):
+        source = ("extends RefCounted\n"
+                  "func write_output(result: Dictionary) -> void:\n"
+                  "\tvar hot := 0.5\n\tresult.heat = hot\n")
+        rel = "game/scripts/lamp/lamp_optical_state.gd"
+        cases = [
+            (rel, source, False),
+            ("game/scripts/game/other_state.gd", source, True),
+            (rel, source.replace("write_output", "mutate_world"), True),
+            (rel, source.replace("result.heat", "radiator.heat"), True),
+            (rel, source.replace("result: Dictionary", "result: Node"), True),
+            (rel, source.replace("result.heat", "result.power"), True),
+        ]
+        for path, text, expected in cases:
+            with self.subTest(path=path, source=text), TempRepo() as root:
+                target = root / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(text, encoding="utf-8")
+                _, findings, _ = run_findings(root)
+                actual = [f for f in findings if f["file"] == path
+                          and f["class"] == "FOREIGN_PHYSICAL_MUTATION"]
+                self.assertEqual(bool(actual), expected)
+
+
+class ReconciledReviewTests(unittest.TestCase):
+    def scan_source(self, source, rel="game/tests/player_reconstruction_test.gd", parents=None):
+        with TempRepo() as root:
+            for name, body in {rel: source, **(parents or {})}.items():
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(body, encoding="utf-8")
+            _, findings, _ = run_findings(root)
+            return [row for row in findings if row["file"] == rel]
+
+    def test_declaration_is_not_a_timer_consequence_but_a_call_is(self):
+        source = "extends Node\nfunc _complete_visit():\n    var elapsed := 1.0\n"
+        self.assertFalse(of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR"))
+        source += "    coordinator.complete_repair()\n"
+        self.assertTrue(of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR"))
+
+    def test_typed_adapter_lookup_is_read_only_but_unknown_resolve_is_not(self):
+        source = ("extends Node\nvar world: OrisonV2RuntimeRoot\n"
+                  "func _ready():\n    await get_tree().create_timer(.2).timeout\n"
+                  "    var node = world.adapter.resolve(\"F01_LOBBY\")\n")
+        for text, expected in [(source, False),
+                (source.replace("OrisonV2RuntimeRoot", "Node"), True),
+                (source.replace("world.adapter.resolve", "situation.resolve"), True),
+                (source + "    situation.resolve(\"repair\")\n", True),
+                (source.replace("func _ready():", "func _ready(world: Node):"), True)]:
+            with self.subTest(source=text):
+                rows = self.scan_source(text)
+                self.assertEqual(bool(of_class(rows, "TIMER_IMPERSONATES_ACTOR")), expected)
+                self.assertEqual(bool(of_class(rows, "TEST_AUTHORITY_SHORTCUT")), expected)
+
+    def test_local_cast_is_scoped_and_does_not_credit_another_function(self):
+        source = ("extends Node\nfunc _ready():\n"
+                  "    var world := Runtime.instantiate() as OrisonV2RuntimeRoot\n"
+                  "    await get_tree().create_timer(.2).timeout\n"
+                  "    var node = world.adapter.resolve(\"F01_LOBBY\")\n"
+                  "func unrelated(world: Node):\n"
+                  "    await get_tree().create_timer(.2).timeout\n"
+                  "    world.adapter.resolve(\"repair\")\n")
+        rows = of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR")
+        self.assertEqual([r["scope"] for r in rows], ["unrelated"])
+
+    def test_receiver_type_must_be_code_not_a_comment_or_literal(self):
+        declarations = [
+            ('var world: OrisonV2RuntimeRoot = Runtime.new()', False),
+            ('var world := Runtime.new() as OrisonV2RuntimeRoot', False),
+            ('var world = Runtime.new() as OrisonV2RuntimeRoot', True),
+            ('var world := foreign_owner # as OrisonV2RuntimeRoot', True),
+            ('var world := foreign_owner # : OrisonV2RuntimeRoot', True),
+            ('var world := "diagnostic as OrisonV2RuntimeRoot"', True),
+        ]
+        for declaration, expected in declarations:
+            with self.subTest(declaration=declaration):
+                source = ('extends Node\nfunc _ready():\n    ' + declaration + '\n'
+                          '    await get_tree().create_timer(.2).timeout\n'
+                          '    world.adapter.resolve("repair")\n')
+                findings = self.scan_source(source)
+                self.assertEqual(bool(of_class(findings, "TIMER_IMPERSONATES_ACTOR")), expected)
+                self.assertEqual(bool(of_class(findings, "TEST_AUTHORITY_SHORTCUT")), expected)
+
+    def test_only_reached_inherited_input_driver_counts(self):
+        parent = ("extends Node\nvar world: OrisonV2RuntimeRoot\n"
+                  "func _ready():\n    call_deferred(\"_run\")\n"
+                  "func _run():\n    await _route()\n"
+                  "func _route():\n    pass\n"
+                  "func _use():\n    Input.action_press(\"interact\")\n"
+                  "    Input.action_release(\"interact\")\n")
+        child = ("extends \"res://tests/player_driver.gd\"\n"
+                 "func _route():\n    situation.apply_condition()\n    await _use()\n")
+        parents = {"game/tests/player_driver.gd": parent}
+        for source, expected in [(child, False),
+                (child.replace("    await _use()\n", ""), True),
+                (child + "func _use():\n    pass\n", True)]:
+            with self.subTest(source=source):
+                self.assertEqual(bool(of_class(self.scan_source(source, parents=parents),
+                    "TEST_AUTHORITY_SHORTCUT")), expected)
+
+    def test_only_exact_artifact_timestamp_cannot_escape_to_world(self):
+        source = ("extends Node\nfunc _ready():\n    var report := {\n"
+                  "        \"generated_utc\": Time.get_datetime_string_from_system(true),\n"
+                  "    }\n    file.store_string(JSON.stringify(report))\n")
+        rel = "game/tests/interaction_inventory.gd"
+        warehouse = source.replace("_ready", "_run").replace("report", "manifest").replace("generated_utc", "generated_at").replace("system(true)", "system(true, true)")
+        warehouse += '    printerr("cannot write the manifest")\n'
+        cases = [(rel, source, False),
+                 ("game/tests/prop_warehouse_shot.gd", warehouse, False),
+                 ("game/tests/prop_warehouse_shot.gd", warehouse + "    publish(manifest)\n", True),
+                 ("game/scripts/game/calendar_export.gd", source, True),
+                 (rel, source.replace("generated_utc", "issued_at"), True),
+                 (rel, source + "    RealityState.data.report = report\n", True),
+                 (rel, source + "    var alias = report\n    publish(alias)\n", True),
+                 (rel, source + "    publish(report)\n", True),
+                 (rel, source.replace("file.store_string(JSON.stringify(report))", "return report"), True)]
+        for path, text, expected in cases:
+            with self.subTest(path=path, source=text):
+                self.assertEqual(bool(of_class(self.scan_source(text, path),
+                    "HOST_CLOCK_MUTATES_WORLD")), expected)
+
+    def test_inherited_input_requires_executable_calls_not_string_contents(self):
+        parent = ('extends Node\n'
+                  'func _ready():\n    call_deferred("_run")\n'
+                  'func _run():\n    await _route()\n'
+                  'func _route():\n    pass\n'
+                  'func _use():\n    Input.action_press("interact")\n'
+                  '    Input.action_release("interact")\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n')
+        cases = [
+            ('    await _use()\n', False),
+            ('    call_deferred("_use")\n', False),
+            ("    call_deferred('_use')\n", False),
+            ('    print("_use()")\n', True),
+            ("    print('_use()')\n", True),
+            ('    print("""diagnostic\n_use()\n""")\n', True),
+            ("    print(\"call_deferred('_use')\")\n", True),
+            ('    # _use()\n', True),
+            ('    other.call_deferred("_use")\n', True),
+            ('    call_deferred("_use" + suffix)\n', True),
+        ]
+        for suffix, expected in cases:
+            with self.subTest(suffix=suffix):
+                findings = self.scan_source(child + suffix,
+                    parents={"game/tests/player_driver.gd": parent})
+                self.assertEqual(bool(of_class(findings, "TEST_AUTHORITY_SHORTCUT")), expected)
+        quoted_input = parent.replace(
+            'Input.action_press("interact")', 'print(\"Input.action_press(\")').replace(
+            'Input.action_release("interact")', 'print(\"Input.action_release(\")')
+        findings = self.scan_source(child + '    await _use()\n',
+            parents={"game/tests/player_driver.gd": quoted_input})
+        self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_inherited_method_headers_inside_multiline_literals_do_not_count(self):
+        parent = ('extends Node\n'
+                  'func _ready():\n    call_deferred("_run")\n'
+                  'func _run():\n    await _route()\n'
+                  'func _route():\n    pass\n'
+                  'func _notes():\n    print("""example code\n'
+                  'func _use():\n    Input.action_press("interact")\n'
+                  '    Input.action_release("interact")\n""")\n'
+                  'func _use():\n    pass\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n    await _use()\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": parent})
+        self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+        real_input = parent.replace('func _use():\n    pass\n',
+            'func _use():\n    Input.action_press("interact")\n'
+            '    Input.action_release("interact")\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": real_input})
+        self.assertFalse(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_unreached_top_level_declarations_do_not_supply_inherited_input(self):
+        header = ('extends Node\nfunc _ready():\n    await _route()\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n')
+        tails = [
+            ('class UnusedInput:\n    func _use():\n'
+             '        Input.action_press("interact")\n'
+             '        Input.action_release("interact")\n'),
+            ('var unused = func():\n    Input.action_press("interact")\n'
+             '    Input.action_release("interact")\n'),
+        ]
+        for tail in tails:
+            with self.subTest(tail=tail):
+                findings = self.scan_source(child,
+                    parents={"game/tests/player_driver.gd": header + tail})
+                self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+        multiline = ('extends Node\nfunc _ready(\n    unused: Node = null\n) -> void:\n'
+                     '    await _route()\n    Input.action_press("interact")\n'
+                     '    Input.action_release("interact")\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": multiline})
+        self.assertFalse(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_printed_function_header_cannot_hide_artifact_extraction(self):
+        source = ('extends Node\nfunc _ready():\n    var report := {\n'
+                  '        "generated_utc": Time.get_datetime_string_from_system(true),\n'
+                  '    }\n    file.store_string(JSON.stringify(report))\n'
+                  '    print("""example code\nfunc unused():\n    pass\n""")\n')
+        rel = "game/tests/interaction_inventory.gd"
+        self.assertFalse(of_class(self.scan_source(source, rel), "HOST_CLOCK_MUTATES_WORLD"))
+        source += '    var field = "generated_" + "utc"\n    publish(report[field])\n'
+        self.assertTrue(of_class(self.scan_source(source, rel), "HOST_CLOCK_MUTATES_WORLD"))
+
+    def test_artifact_field_reads_require_literal_non_clock_keys(self):
+        source = ('extends Node\nfunc _ready():\n    var report := {\n'
+                  '        "generated_utc": Time.get_datetime_string_from_system(true),\n'
+                  '        "summary": {"count": 1},\n'
+                  '    }\n    file.store_string(JSON.stringify(report))\n')
+        cases = [
+            ('    print(report.summary.count)\n', False),
+            ('    print(report["summary"])\n', False),
+            ("    print(report['summary'])\n", False),
+            ('    print(report.get("summary", {}))\n', False),
+            ('    publish(report.generated_utc)\n', True),
+            ('    publish(report["generated_utc"])\n', True),
+            ('    publish(report.get("generated_utc"))\n', True),
+            ('    var field = "generated_" + "utc"\n    publish(report[field])\n', True),
+            ('    var field = "generated_" + "utc"\n    publish(report.get(field))\n', True),
+            ('    publish(report["generated_" + "utc"])\n', True),
+            ('    publish(report.get("generated_" + "utc"))\n', True),
+            ('    publish(report.values())\n', True),
+            ('    file.store_string(JSON.stringify(report)); publish(report[field])\n', True),
+        ]
+        for suffix, expected in cases:
+            with self.subTest(suffix=suffix):
+                findings = self.scan_source(source + suffix,
+                    "game/tests/interaction_inventory.gd")
+                self.assertEqual(bool(of_class(findings, "HOST_CLOCK_MUTATES_WORLD")), expected)
+
+
 class DetectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -164,6 +400,118 @@ class DetectionTests(unittest.TestCase):
         self.assertFalse((MINI_REPO / ".git").exists())
 
 
+class HostCalendarTests(unittest.TestCase):
+    CLOCK = "game/scripts/game/campaign_clock.gd"
+
+    def _find(self, source, path=CLOCK):
+        findings = []
+        audit.scan_file(audit.FileContext(path, source), findings)
+        return of_class(findings, "HOST_CLOCK_MUTATES_WORLD")
+
+    def test_only_pure_local_minute_sampler_is_authorized(self):
+        source = ('extends RefCounted\n'
+                  'func _sample_local_minute_of_day() -> int:\n'
+                  '\tvar t := Time.get_time_dict_from_system()\n'
+                  '\treturn int(t.hour) * 60 + int(t.minute)\n')
+        self.assertEqual(self._find(source), [])
+        for field in ("year", "month", "day", "weekday"):
+            with self.subTest(field=field):
+                bad = source.replace('int(t.hour)', 'int(t.%s)' % field)
+                hits = self._find(bad)
+                self.assertEqual(len(hits), 1)
+                self.assertEqual(hits[0]["disposition"], "FIX")
+
+    def test_former_initializer_exemption_cannot_persist_calendar(self):
+        for field in ("year", "month", "day", "weekday"):
+            with self.subTest(field=field):
+                source = ('extends RefCounted\n'
+                          'func _initialize_epoch_from_host() -> void:\n'
+                          '\tvar host := Time.get_date_dict_from_system()\n'
+                          '\tvar copied := host.get("%s")\n'
+                          '\t_state["start_%s"] = copied\n'
+                          '\tRealityState.commit()\n' % (field, field))
+                hits = self._find(source)
+                self.assertEqual(len(hits), 1)
+                self.assertEqual(hits[0]["disposition"], "FIX")
+                foreign = self._find(source, "game/scripts/game/other_clock.gd")
+                self.assertEqual(len(foreign), 1)
+                self.assertEqual(foreign[0]["disposition"], "FIX")
+
+    def test_repeated_or_durably_writing_sampler_is_not_exempt(self):
+        for extra in ('\tvar again := Time.get_time_dict_from_system()\n',
+                      '\tRealityState.data.clock = t\n'):
+            source = ('func _sample_local_minute_of_day() -> int:\n'
+                      '\tvar t := Time.get_time_dict_from_system()\n' + extra +
+                      '\treturn t.hour * 60 + t.minute\n')
+            self.assertTrue(self._find(source))
+
+    def test_same_file_helper_cannot_hide_persisted_host_fields(self):
+        source = ('func read_host():\n'
+                  '\treturn Time.get_date_dict_from_system()\n'
+                  'func copy_host():\n\treturn read_host()\n'
+                  'func save_epoch():\n\tvar copied := copy_host()\n'
+                  '\t_state.year = copied.year\n')
+        hits = self._find(source, "game/scripts/game/other_clock.gd")
+        self.assertEqual({hit["scope"] for hit in hits}, {"read_host", "save_epoch"})
+
+    def test_logged_at_host_time_string_is_rejected_then_campaign_time_passes(self):
+        source = ('func _voice(flat: Dictionary, n: int) -> String:\n'
+                  '\tvar line := "Logged at %s"\n'
+                  '\tif line.contains("%s"):\n'
+                  '\t\tline = line % Time.get_time_string_from_system()\n'
+                  '\treturn line\n')
+        path = "game/scripts/reality/organism_incidents.gd"
+        hits = self._find(source, path)
+        self.assertEqual(len(hits), 1)
+        self.assertEqual(hits[0]["disposition"], "FIX")
+        self.assertEqual(hits[0]["scope"], "_voice")
+        corrected = source.replace(
+            '\t\tline = line % Time.get_time_string_from_system()',
+            '\t\tvar minute := int(CampaignClock.new().minute_of_day())\n'
+            '\t\tline = line % ("%02d:%02d" % [minute / 60, minute % 60])')
+        self.assertEqual(self._find(corrected, path), [])
+
+    def test_filename_helper_does_not_taint_its_storage_operation(self):
+        source = ('func _new_photo_id() -> String:\n'
+                  '\treturn Time.get_datetime_string_from_system()\n'
+                  'func capture():\n\tvar path := _new_photo_id()\n'
+                  '\timg.save_png(path)\n')
+        self.assertEqual(self._find(source, "game/scripts/phoneos/phone_camera.gd"), [])
+        bad = source.replace('\treturn Time.get_datetime_string_from_system()',
+                             '\t_state.date = Time.get_datetime_string_from_system()\n\treturn "id"')
+        self.assertTrue(self._find(bad, "game/scripts/phoneos/phone_camera.gd"))
+
+    def test_calendar_conversion_and_filename_metadata_are_not_world_time(self):
+        source = ('func convert() -> Dictionary:\n'
+                  '\treturn Time.get_datetime_dict_from_unix_time(0)\n')
+        self.assertEqual(self._find(source), [])
+        source = ('static func _new_id() -> String:\n'
+                  '\tvar t := Time.get_datetime_dict_from_system()\n'
+                  '\treturn "%d-%d" % [t.year, t.month]\n')
+        self.assertEqual(self._find(source, "game/scripts/songbook/songbook_store.gd"), [])
+        persisted = ('static func save_version() -> void:\n'
+                     '\tvar record := {"created": Time.get_datetime_string_from_system()}\n'
+                     '\tFileAccess.open("user://take.json", FileAccess.WRITE).store_var(record)\n')
+        self.assertEqual(len(self._find(persisted, "game/scripts/songbook/songbook_store.gd")), 1)
+
+    def test_cli_host_calendar_red_then_authored_green(self):
+        with TempRepo() as root:
+            baseline = write_baseline(root)
+            path = root / self.CLOCK
+            path.write_text('func _initialize_epoch_from_host() -> void:\n'
+                            '\tvar host := Time.get_date_dict_from_system()\n'
+                            '\t_state.epoch_date = host\n', encoding="utf-8")
+            argv = ("--root", str(root), "--baseline", str(baseline),
+                    "--domain", "host-clock", "--json")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            path.write_text('func _sample_local_minute_of_day() -> int:\n'
+                            '\tvar t := Time.get_time_dict_from_system()\n'
+                            '\treturn t.hour * 60 + t.minute\n', encoding="utf-8")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 0, out)
+
+
 class ModeTests(unittest.TestCase):
     def test_domain_filter(self):
         _c, findings, _p = run_findings(MINI_REPO, "--domain",
@@ -197,6 +545,53 @@ class ModeTests(unittest.TestCase):
             payload = json.loads(out2)
             self.assertEqual(len(payload["comparison"]["added"]), 1)
             self.assertEqual(payload["comparison"]["removed"], [])
+
+
+
+class HostUnixTests(unittest.TestCase):
+    _find = HostCalendarTests._find
+    CLOCK = HostCalendarTests.CLOCK
+    def test_unix_world_stamp_requires_fix_and_campaign_value_passes(self):
+        for field in ("issued_at", "closed_at", "acquired_at", "consumed_at", "reported_at", "at"):
+            source = ('func record():\n\tvar stamp := Time.get_unix_time_from_system()\n'
+                      '\tvar facts := {"%s": stamp}\n\tRealityState.data.history = facts\n' % field)
+            hits = self._find(source, "game/scripts/props/night_register_prop.gd")
+            self.assertTrue(hits)
+            self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
+            self.assertEqual(self._find(source.replace('Time.get_unix_time_from_system()',
+                'CampaignClock.new().elapsed_minutes()'), "game/scripts/props/night_register_prop.gd"), [])
+
+    def test_unix_named_helper_taint_reaches_renamed_consumer(self):
+        source = ('func sample():\n\treturn Time.get_unix_time_from_system()\n'
+                  'func pass_stamp():\n\treturn sample()\n'
+                  'func remember():\n\t_state.at = pass_stamp()\n')
+        hits = self._find(source, "game/scripts/game/other_clock.gd")
+        self.assertEqual({hit["scope"] for hit in hits}, {"sample", "remember"})
+        self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
+
+    def test_exact_seed_entropy_and_pure_ids_remain_allowed(self):
+        source = ('func _new_dream_seed() -> String:\n'
+                  '\tvar rng := RandomNumberGenerator.new()\n'
+                  '\trng.seed = int(Time.get_unix_time_from_system() * 1000000.0)\n'
+                  '\tvar high := int(rng.randi())\n\tvar low := int(rng.randi())\n'
+                  '\tvar encoded := "%08x%08x" % [high, low]\n\treturn encoded\n')
+        path = "game/scripts/game/reality_game_state.gd"
+        self.assertEqual(self._find(source, path), [])
+        self.assertTrue(self._find(source.replace('\treturn encoded',
+            '\tRealityState.data.at = Time.get_unix_time_from_system()\n\treturn encoded'), path))
+        self.assertTrue(self._find(source.replace('_new_dream_seed', 'other_entropy'), path))
+        for path, helper in (("game/scripts/songbook/songbook_store.gd", "_new_id"),
+                             ("game/scripts/phoneos/phone_camera.gd", "_new_photo_id")):
+            source = ('func %s() -> String:\n\treturn str(Time.get_unix_time_from_system())\n'
+                      'func capture():\n\tvar path := %s()\n\timg.save_png(path)\n') % (helper, helper)
+            self.assertEqual(self._find(source, path), [])
+
+    def test_documented_old_stamp_cannot_suppress_new_fix(self):
+        source = 'func stamp():\n\tRealityState.data.at = Time.get_unix_time_from_system()\n'
+        finding = self._find(source, "game/scripts/game/work_orders.gd")[0]
+        entry = dict(finding, disposition="DOCUMENT")
+        drift = audit.diff_baseline({"entries": [entry]}, [finding])
+        self.assertEqual(len(drift["policy_violations"]), 1)
 
 
 class BaselineTests(unittest.TestCase):
@@ -292,7 +687,8 @@ class BaselineTests(unittest.TestCase):
         with TempRepo() as root:
             for rel in (COORDINATOR,
                         "game/scripts/game/verdict_director.gd",
-                        "game/scripts/ui/goal_banner.gd"):
+                        "game/scripts/ui/goal_banner.gd",
+                        "game/scripts/game/maintenance_inventory.gd"):
                 (root / rel).write_text("extends Node\n",
                                         encoding="utf-8")
             baseline = root / "tools/baseline.json"

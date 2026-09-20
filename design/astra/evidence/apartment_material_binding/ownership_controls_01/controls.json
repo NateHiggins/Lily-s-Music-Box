@@ -1,0 +1,77 @@
+{
+  "candidate_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "controls": [
+    {
+      "name": "duplicate_registration_01",
+      "control_sha256": "6c67f41d59daa7853a8daec8468ed0e7f7129d2ed769b4ee35916369b8b08212",
+      "required_fail_labels": [
+        "initial registration is nonempty and unique",
+        "same installed material on two draws registers once"
+      ],
+      "required_labels_failed": true,
+      "wrapper_exit": 0,
+      "actual_serial_exit": 8,
+      "completed_fixture_exit": 8,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "receipt": "design/astra/evidence/apartment_material_binding/duplicate_registration_01/receipt.json",
+      "receipt_sha256": "ce28508de9c3fcf3880a889325102c63f39746cd45c6e2410e8d56aef3a26ca4",
+      "restored_exact": true,
+      "accepted_control": true
+    },
+    {
+      "name": "case_owner_marker_01",
+      "control_sha256": "f51cc8768592161f046af9775c1ea5c4868f0f1f93a345058921119fe5285b09",
+      "required_fail_labels": [
+        "first reach retains exact installed floor prop row",
+        "first refresh immediately reaches installed floor prop"
+      ],
+      "required_labels_failed": true,
+      "wrapper_exit": 0,
+      "actual_serial_exit": 3,
+      "completed_fixture_exit": 3,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "receipt": "design/astra/evidence/apartment_material_binding/case_owner_marker_01/receipt.json",
+      "receipt_sha256": "b44843baa30f8034fea2b81b0072b14fb930a674493689205d30e60a6cf0763d",
+      "restored_exact": true,
+      "accepted_control": true
+    },
+    {
+      "name": "private_world_guard_01",
+      "control_sha256": "b7b7588589e5d1751c8c3d1486979c1e3a41ad18b0fd4a4274ab6251a8133227",
+      "required_fail_labels": [
+        "storey scan excludes cabinet world",
+        "global reach still excludes private and dynamic draws"
+      ],
+      "required_labels_failed": true,
+      "wrapper_exit": 0,
+      "actual_serial_exit": 4,
+      "completed_fixture_exit": 4,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "receipt": "design/astra/evidence/apartment_material_binding/private_world_guard_01/receipt.json",
+      "receipt_sha256": "680be8b60ba09171982db1665db134a3bf69807f2410c4d66b087538ed73988a",
+      "restored_exact": true,
+      "accepted_control": true
+    },
+    {
+      "name": "root_row_registration_01",
+      "control_sha256": "ee39eb4f5293275cafaad5e38e9a9bf889aa343f9f8d0203d855c8b6458eb360",
+      "required_fail_labels": [
+        "root-level case draw remains in the floor registry",
+        "lifecycle immediately reaches both installed prop owners"
+      ],
+      "required_labels_failed": true,
+      "wrapper_exit": 0,
+      "actual_serial_exit": 5,
+      "completed_fixture_exit": 5,
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "receipt": "design/astra/evidence/apartment_material_binding/root_row_registration_01/receipt.json",
+      "receipt_sha256": "1815655be9d5c313440e789c1692afa9ef3ca4ce74e41d92e219c34ee929fb30",
+      "restored_exact": true,
+      "accepted_control": true
+    }
+  ]
+}

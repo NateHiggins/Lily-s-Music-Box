@@ -1,0 +1,302 @@
+{
+	"actual_body": {
+		"collision_layer": 0,
+		"collision_mask": 0,
+		"height": 1.54999995231628,
+		"node": "/root/ResidentF01HauntTest/OrisonRoot/F04/NPC_transient_guests/Body/@CollisionShape3D@22443",
+		"radius": 0.280000001192093,
+		"relative_center": [
+			0.0,
+			0.774999618530273,
+			0.0
+		],
+		"scope": "Query actual actor shape/transform; actor remains walk-through production scenery"
+	},
+	"authored_destination": {
+		"body_margin": 0.330000001192093,
+		"haunt": [
+			2.20000004768372,
+			0.0299999993294477,
+			8.30000019073486
+		],
+		"home": [
+			9.74279975891113,
+			9.63000011444092,
+			3.20499992370605
+		],
+		"lobby_rect_blender": [
+			-5.33,
+			-9.65,
+			5.33,
+			-6.93
+		],
+		"shaft_rect_blender": [
+			0.85,
+			-6.75,
+			3.0,
+			-4.55
+		],
+		"slabs": [
+			{
+				"holes": [
+					[
+						-3.16,
+						-3.16,
+						3.16,
+						3.16
+					],
+					[
+						0.85,
+						-6.75,
+						3.0,
+						-4.55
+					],
+					[
+						9.55,
+						9.1,
+						10.45,
+						9.65
+					]
+				],
+				"rect": [
+					-14.0,
+					-10.0,
+					14.0,
+					10.0
+				],
+				"t": 0.18,
+				"z_top": 0.0
+			}
+		]
+	},
+	"checks": [
+		{
+			"label": "authored campaign clock is valid",
+			"passed": true
+		},
+		{
+			"label": "actual V1 routines nav and elevator exist",
+			"passed": true
+		},
+		{
+			"label": "actual Transient Guests owner starts at its untouched 4D home",
+			"passed": true
+		},
+		{
+			"label": "actual home and authored haunt match production resolver",
+			"passed": true
+		},
+		{
+			"label": "actual actor Body capsule is available",
+			"passed": true
+		},
+		{
+			"label": "actual Body dimensions and origin are recorded without audit-shape substitution",
+			"passed": true
+		},
+		{
+			"label": "authored F01 lobby and slab are available",
+			"passed": true
+		},
+		{
+			"label": "whole destination body footprint fits the public F01 lobby",
+			"passed": true
+		},
+		{
+			"label": "whole destination body footprint is outside the lift shaft",
+			"passed": true
+		},
+		{
+			"label": "destination has real F01 slab support at the authored floor height",
+			"passed": true
+		},
+		{
+			"label": "actual Body shape clears all current destination colliders",
+			"passed": true
+		},
+		{
+			"label": "one deterministic normal intent seed covers both elevator choices",
+			"passed": true
+		},
+		{
+			"label": "normal intent chooses outbound elevator with F04 initially closed",
+			"passed": true
+		},
+		{
+			"label": "outbound boarding occurs only at the actually ready F04 landing",
+			"passed": true
+		},
+		{
+			"label": "actual home departure reaches and boards the lift",
+			"passed": true
+		},
+		{
+			"label": "F01 landing really closed while car departed to F04",
+			"passed": true
+		},
+		{
+			"label": "public destination route and swept actual Body clear the closed lift landing",
+			"passed": false
+		},
+		{
+			"label": "actual F01 readiness alone releases the rider at its public landing",
+			"passed": true
+		},
+		{
+			"label": "real lift arrival installs the authored destination path",
+			"passed": true
+		},
+		{
+			"label": "actual destination Body still clears after real car arrival",
+			"passed": true
+		},
+		{
+			"label": "actual V1 root retired",
+			"passed": true
+		}
+	],
+	"closed_landing_public_leg": {
+		"clear": false,
+		"segments": [
+			{
+				"body_from": [
+					1.92499995231628,
+					0.0299999993294477,
+					7.40000009536743
+				],
+				"body_to": [
+					1.92499995231628,
+					0.0299999993294477,
+					6.75
+				],
+				"graph_from": [
+					1.92499995231628,
+					0.0299999993294477,
+					7.40000009536743
+				],
+				"graph_to": [
+					1.92499995231628,
+					0.0,
+					6.75
+				],
+				"initial_overlaps": [],
+				"motion_fractions": [
+					0.6484375,
+					0.65234375
+				],
+				"production_ray_clear": true,
+				"wall_clear": true
+			},
+			{
+				"body_from": [
+					1.92499995231628,
+					0.0299999993294477,
+					6.75
+				],
+				"body_to": [
+					2.20000004768372,
+					0.0299999993294477,
+					8.30000019073486
+				],
+				"graph_from": [
+					1.92499995231628,
+					0.0,
+					6.75
+				],
+				"graph_to": [
+					2.20000004768372,
+					0.0299999993294477,
+					8.30000019073486
+				],
+				"initial_overlaps": [
+					"/root/ResidentF01HauntTest/OrisonRoot/@Node3D@25001/@AnimatableBody3D@25127",
+					"/root/ResidentF01HauntTest/OrisonRoot/@Node3D@25001/@AnimatableBody3D@25122"
+				],
+				"motion_fractions": [
+					1.0,
+					1.0
+				],
+				"production_ray_clear": true,
+				"wall_clear": true
+			}
+		]
+	},
+	"destination_before_trip": {
+		"at": [
+			2.20000004768372,
+			0.0299999993294477,
+			8.30000019073486
+		],
+		"overlaps": [],
+		"support": {
+			"at": [
+				2.20000004768372,
+				0.0,
+				8.30000019073486
+			],
+			"collider": "/root/ResidentF01HauntTest/OrisonRoot/F01/F01_slabs/StaticBody3D",
+			"normal": [
+				0.0,
+				1.0,
+				0.0
+			]
+		},
+		"support_ok": true
+	},
+	"destination_on_arrival": {
+		"at": [
+			2.20000004768372,
+			0.0299999993294477,
+			8.30000019073486
+		],
+		"overlaps": [],
+		"support": {
+			"at": [
+				2.20000004768372,
+				0.0,
+				8.30000019073486
+			],
+			"collider": "/root/ResidentF01HauntTest/OrisonRoot/F01/F01_slabs/StaticBody3D",
+			"normal": [
+				0.0,
+				1.0,
+				0.0
+			]
+		},
+		"support_ok": true
+	},
+	"expected_normal_dwell_seconds": 44.2742042541504,
+	"failures": 1,
+	"initial_seed": 9,
+	"scope": "One deterministic actual resident owner, real elapsed physics-frame _step progression and actual lift readiness through arrival/dwell/return; independent actual-Body destination and F01 path queries. Other actor choices held, player held, clock frozen. No collision-bearing human traversal, all-resident or performance acceptance.",
+	"settle_scope": "Inherited 1.6s plus two physics frames after production collision validation; no complete-builder-ready claim",
+	"stopped": "Real arrival observed; unsafe destination prevents dependent dwell/return proof",
+	"transitions": [
+		{
+			"at": [
+				1.95783233642578,
+				9.63000011444092,
+				7.24835014343262
+			],
+			"elapsed_ticks_ms": 67545,
+			"from": 2,
+			"lift_current": "F04",
+			"lift_state": 1,
+			"to": 3,
+			"visible": false
+		},
+		{
+			"at": [
+				1.92499995231628,
+				0.0299999993294477,
+				7.40000009536743
+			],
+			"elapsed_ticks_ms": 77222,
+			"from": 3,
+			"lift_current": "F01",
+			"lift_state": 0,
+			"to": 4,
+			"visible": true
+		}
+	]
+}

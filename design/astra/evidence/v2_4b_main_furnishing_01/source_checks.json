@@ -1,0 +1,82 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "route_radius_m": 0.25,
+  "main_room_route": [
+    [
+      -8.0,
+      0.0
+    ],
+    [
+      -12.65,
+      -1.8
+    ],
+    [
+      -8.45,
+      -2.45
+    ],
+    [
+      -9.9,
+      1.25
+    ],
+    [
+      -10.05,
+      3.45
+    ]
+  ],
+  "furniture": [
+    {
+      "id": "4B_couch",
+      "world_bounds_xz": [
+        -13.88,
+        -3.59,
+        -11.42,
+        -2.71
+      ],
+      "triangles": 476,
+      "source_record_retained": true
+    },
+    {
+      "id": "4B_shelf",
+      "world_bounds_xz": [
+        -9.0,
+        -3.65,
+        -7.8999999999999995,
+        -3.35
+      ],
+      "triangles": 704,
+      "source_record_retained": true
+    }
+  ],
+  "texture_sha256": {
+    "T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
+    "T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
+    "T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",
+    "T_ai_materials_oak_quartered_albedo.png": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5",
+    "T_ai_materials_oak_quartered_rough.png": "a4b6124c52bd78cd119b2112c206d5fb876e9c95a5b262abe35a3a1116662093",
+    "T_ai_materials_oak_quartered_normal.png": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d",
+    "T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
+    "T_library_furniture_book_navy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_navy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
+    "T_library_furniture_book_ochre_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_ochre_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+    "T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
+    "T_library_furniture_book_brown_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_brown_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
+    "T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
+    "T_library_furniture_book_green_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "T_library_furniture_book_green_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+  }
+}
