@@ -56,6 +56,10 @@ var _stride_last := Vector3.INF
 ## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
 ## instead or it simply never runs there.
 var touch_input := false
+## Set while the player has deliberately released the pointer with the
+## release_mouse key. A click must not silently take it back: that is what
+## made every free pointer last exactly until the next click.
+var mouse_released := false
 ## Last physical input family seen by the HUD. World props still author the
 ## action in their own words; this controller owns the button legend that
 ## introduces those words. Touch remains authoritative while its HUD is live
@@ -380,7 +384,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion \
 			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		apply_look(event.relative)
-	elif event is InputEventMouseButton and event.pressed and not touch_input:
+	elif event.is_action_pressed("release_mouse"):
+		set_mouse_released(not mouse_released)
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseButton and event.pressed \
+			and not touch_input and not mouse_released:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("pause_services"):
 		if pause_services and pause_services.call("can_open"):
@@ -1144,3 +1152,13 @@ func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 			str(card.get("title", "FIELD COPY")))):
 		return
 	telegram_hud.present(card)
+
+
+## Release the pointer during play, or take it back. While released the
+## player keeps standing where they are: look follows the mouse only while
+## it is captured, and a click no longer recaptures it.
+func set_mouse_released(released: bool) -> void:
+	mouse_released = released
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if released \
+			else Input.MOUSE_MODE_CAPTURED
+	print("[PLAYER] pointer %s (backtick key)" % ["released" if released else "captured"])

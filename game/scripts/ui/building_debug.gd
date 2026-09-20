@@ -786,6 +786,7 @@ func _build_keys() -> void:
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
 			+ "L / left shoulder: lamp · R / right shoulder: radio\n" \
 			+ "F screenshot · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "` (backtick) releases or recaptures the mouse in play\n" \
 			+ "F1 controls + pointer · F1 / Esc return to play\n" \
 			+ "Esc in play: pause · wheel scrolls these controls"
 	hint.add_theme_font_size_override("font_size", 10)

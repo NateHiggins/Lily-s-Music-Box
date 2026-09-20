@@ -12,6 +12,7 @@ const ACTIONS := {
 	"pause_services": KEY_ESCAPE,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
+	"release_mouse": KEY_QUOTELEFT,
 }
 
 ## Shoulder switches remain reachable while both thumbs steer and look. They
