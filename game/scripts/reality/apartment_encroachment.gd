@@ -138,6 +138,7 @@ var moss_presentations: Dictionary = {}
 ## DREAM-VOXEL-V1: one default-off presentation adapter for the active Orison
 ## world. It owns the shared field/texture/L1C presentation, never ecology.
 var voxel_light_presenter: DreamVoxelLightPresenter = null
+var _bound_player: Node3D = null
 ## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
 var field_lights: Dictionary = {}
 ## Every surface material on a storey the field was bound to (for refresh).
@@ -384,6 +385,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 ## player, which left every downstream Dream receptor disconnected in play.
 ## The owner calls this once after PlayerController enters the tree.
 func bind_player(player_node: Node3D) -> void:
+	_bound_player = player_node
 	if dream_field != null:
 		dream_field.player = player_node
 	_enable_voxel_light_presenter(player_node)
@@ -393,15 +395,28 @@ func bind_player(player_node: Node3D) -> void:
 ## The default target is one furnished F02 case room; colonies on that active
 ## floor share its one material and texture without broad phenotype rollout.
 func _enable_voxel_light_presenter(player_node: Node3D) -> void:
-	if OS.get_environment("DREAM_VOXEL_LIGHT") != "1" \
-			or voxel_light_presenter != null or player_node == null:
+	if OS.get_environment("DREAM_VOXEL_LIGHT") != "1":
 		return
+	var reason := build_voxel_light_presenter(player_node)
+	if not reason.is_empty():
+		push_warning("DREAM-VOXEL-V1 %s" % reason)
+
+
+## Build the voxel light on demand, so the debug controls can switch
+## between ordinary lamp response and the voxel field without a restart.
+## Returns "" once the presenter runs, otherwise why it cannot.
+func build_voxel_light_presenter(player_node: Node3D = null) -> String:
+	if voxel_light_presenter != null:
+		return ""
+	if player_node == null:
+		player_node = _bound_player
+	if player_node == null:
+		return "no player is bound yet"
 	var target_case := OS.get_environment("DREAM_VOXEL_CASE")
 	if target_case.is_empty():
 		target_case = "mina_caption_crisis"
 	if not units.has(target_case):
-		push_warning("DREAM-VOXEL-V1 target case is not active: %s" % target_case)
-		return
+		return "target case is not active: %s" % target_case
 	var unit: Dictionary = units[target_case]
 	var target_floor := _floor_of(target_case)
 	var renderers: Array = []
@@ -412,14 +427,23 @@ func _enable_voxel_light_presenter(player_node: Node3D) -> void:
 		if renderer != null and is_instance_valid(renderer):
 			renderers.append(renderer)
 	if renderers.is_empty():
-		push_warning("DREAM-VOXEL-V1 found no production cellular presentation on %s"
-				% target_floor)
-		return
+		return "no cellular presentation on %s" % target_floor
 	voxel_light_presenter = DreamVoxelLightScript.new()
 	voxel_light_presenter.name = "DreamVoxelLightPresenter"
 	add_child(voxel_light_presenter)
 	voxel_light_presenter.configure(player_node, target_case, unit.rect,
 			float(unit.floor_y), renderers)
+	return ""
+
+
+## Release the voxel light; the ecology returns to ordinary lamp response.
+func release_voxel_light_presenter() -> bool:
+	if voxel_light_presenter == null:
+		return false
+	voxel_light_presenter.shutdown()
+	voxel_light_presenter.queue_free()
+	voxel_light_presenter = null
+	return true
 
 
 ## The service round owns only its waking route and offers named beats. The

@@ -3,7 +3,8 @@
 
     python tools/verify_candidate.py <candidate-ref> [--base origin/main]
         [--report reports/<task>.json] [--suite res://tests/X.tscn ...]
-        [--long-suite res://tests/Y.tscn ...] [--no-godot] [--keep]
+        [--long-suite res://tests/Y.tscn ...] [--windowed-suite res://tests/Z.tscn ...]
+        [--no-godot] [--keep]
 
 What it does, in order:
 
@@ -157,7 +158,7 @@ def lint_docs(root: Path, changed: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def run_runner(runner: str, project: Path, log: Path, scene: str, extra_import: bool,
-               lane_wait_s: int, timeout: int) -> dict:
+               lane_wait_s: int, timeout: int, windowed: bool = False) -> dict:
     script = TOOLS / ("run_godot_serial.ps1" if runner == "serial" else "run_godot_long_suite.ps1")
     parts = [f"& '{script}'", f"-ProjectPath '{project}'", f"-LogPath '{log}'"]
     if scene:
@@ -168,6 +169,14 @@ def run_runner(runner: str, project: Path, log: Path, scene: str, extra_import: 
         parts.append(f"-TimeoutSeconds {timeout}")
     if extra_import:
         parts.append("-ExtraArgs @('--import')")
+    if windowed:
+        # Mouse capture does not exist headless: Input.mouse_mode stays
+        # VISIBLE however a suite sets it, so any pointer or pause contract
+        # fails for the harness's reason rather than the code's.
+        parts.append("-Windowed")
+        shots = log.parent / (log.stem + "_shots")
+        shots.mkdir(parents=True, exist_ok=True)
+        parts.append(f"-ShotDir '{shots}'")
     command = " ".join(parts) + "; exit $LASTEXITCODE"
     deadline = time.monotonic() + lane_wait_s
     waited = 0
@@ -187,7 +196,7 @@ def run_runner(runner: str, project: Path, log: Path, scene: str, extra_import: 
 
 
 def godot_phase(cand_root: Path, out: Path, suites: list[str], long_suites: list[str],
-                lane_wait_s: int) -> list[dict]:
+                lane_wait_s: int, windowed_suites: list[str] | None = None) -> list[dict]:
     import run_receipt  # noqa: E402
     logs = out / "godot"
     logs.mkdir(parents=True, exist_ok=True)
@@ -206,6 +215,10 @@ def godot_phase(cand_root: Path, out: Path, suites: list[str], long_suites: list
         name = re.sub(r"[^A-Za-z0-9_]+", "_", scene.split("/")[-1])
         runs.append(run_runner("long", project, logs / f"{name}.log", scene, False,
                                lane_wait_s, 1500))
+    for scene in windowed_suites or []:
+        name = re.sub(r"[^A-Za-z0-9_]+", "_", scene.split("/")[-1])
+        runs.append(run_runner("serial", project, logs / f"{name}_windowed.log", scene, False,
+                               lane_wait_s, 180, windowed=True))
     for run in runs[2:]:
         if run["receipt"]:
             code, problems = run_receipt.verify(Path(run["receipt"]), cand_root)
@@ -321,6 +334,9 @@ def main(argv=None) -> int:
     parser.add_argument("--report", help="report sidecar path inside the candidate tree")
     parser.add_argument("--suite", action="append", default=[], help="res:// scene, serial runner")
     parser.add_argument("--long-suite", action="append", default=[], help="res:// scene, long runner")
+    parser.add_argument("--windowed-suite", action="append", default=[],
+                        help="res:// scene that needs a real window (mouse capture, "
+                             "pointer or screenshot contracts); runs with -Windowed and a ShotDir")
     parser.add_argument("--no-godot", action="store_true")
     parser.add_argument("--lane-wait", type=int, default=30, help="minutes to wait on a busy lane")
     parser.add_argument("--work-dir", default="C:/ov")
@@ -380,7 +396,7 @@ def main(argv=None) -> int:
         }
         if not args.no_godot:
             result["godot"] = godot_phase(cand_root, out, args.suite, args.long_suite,
-                                          args.lane_wait * 60)
+                                          args.lane_wait * 60, args.windowed_suite)
         if args.report:
             raw = git_bytes("show", f"{cand}:{args.report}")
             if raw is None:

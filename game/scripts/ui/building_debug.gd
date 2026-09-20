@@ -38,6 +38,7 @@ var _light_sliders: Dictionary = {}
 var _updating_light_controls := false
 var _selected_fixture: Node
 var _light_identity: Label
+var _light_status: Label
 
 
 func setup(building_root: Node3D) -> void:
@@ -76,6 +77,7 @@ func _ready() -> void:
 	_column.add_child(_status)
 
 	_build_dream()
+	_build_light_mode()
 	_build_subject()
 	_build_sanity()
 	_build_cast()
@@ -364,6 +366,75 @@ func _rebuild_answers(row: HBoxContainer) -> void:
 	var timeout: String = case_def.timeout
 	_button(row, timeout + "*",
 			func(): root.call_interface.press_respond(timeout))
+
+
+## The lamp is the game, so which lamp is running has to be switchable while
+## you stand in the room rather than through a restart and an environment
+## variable. OFF is the ordinary v1 lamp response; the three voxel rows are
+## the field's own modes, where BASELINE samples no exposure, DEBUG shows the
+## field and FULL is the production response.
+func _build_light_mode() -> void:
+	var box := _section("LIGHT — lamp or voxel field", Color(0.95, 0.82, 0.45))
+	_light_status = Label.new()
+	_light_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_light_status.add_theme_font_size_override("font_size", 9)
+	_light_status.modulate = Color(0.78, 0.74, 0.62)
+	var row := HBoxContainer.new()
+	_button(row, "Lamp only", func(): _set_voxel_light(false, -1))
+	_button(row, "Voxel baseline", func(): _set_voxel_light(true, 0))
+	_button(row, "Voxel debug", func(): _set_voxel_light(true, 1))
+	_button(row, "Voxel full", func(): _set_voxel_light(true, 2))
+	box.add_child(row)
+	box.add_child(_light_status)
+	_refresh_light_mode()
+
+
+func _encroachment() -> Node:
+	if not is_instance_valid(root):
+		return null
+	var owner_node = root.get("apartment_encroachment")
+	return owner_node if is_instance_valid(owner_node) else null
+
+
+## Build or release the voxel light, then set its response mode. The
+## encroachment owns the presenter; this only asks, and reports what it said.
+func _set_voxel_light(enabled: bool, mode: int) -> void:
+	var owner_node := _encroachment()
+	if owner_node == null:
+		_light_note("No apartment encroachment in this world.")
+		return
+	if not enabled:
+		owner_node.call("release_voxel_light_presenter")
+		_refresh_light_mode()
+		return
+	var reason: String = owner_node.call("build_voxel_light_presenter")
+	if not reason.is_empty():
+		_light_note("Voxel light unavailable: %s" % reason)
+		return
+	var presenter = owner_node.get("voxel_light_presenter")
+	if is_instance_valid(presenter) and mode >= 0:
+		presenter.call("set_debug_mode", mode)
+	_refresh_light_mode()
+
+
+func _refresh_light_mode() -> void:
+	var owner_node := _encroachment()
+	if owner_node == null:
+		_light_note("No apartment encroachment in this world.")
+		return
+	var presenter = owner_node.get("voxel_light_presenter")
+	if not is_instance_valid(presenter):
+		_light_note("Lamp only: the ordinary light response, no voxel field.")
+		return
+	var names := ["baseline (no exposure sampling)", "debug (the field itself)",
+			"full (production response)"]
+	var mode := int(presenter.get("debug_mode"))
+	_light_note("Voxel field on, mode %d: %s." % [mode, names[clampi(mode, 0, 2)]])
+
+
+func _light_note(copy: String) -> void:
+	if is_instance_valid(_light_status):
+		_light_status.text = copy
 
 
 func _build_go() -> void:
