@@ -108249,7 +108249,7 @@
     "_build_conductor"
    ],
    "lines": [
-    546
+    577
    ],
    "count": 1,
    "context": [
@@ -108280,7 +108280,7 @@
     "_build_conductor"
    ],
    "lines": [
-    546
+    577
    ],
    "count": 1,
    "context": [
@@ -108311,7 +108311,7 @@
     "_build_conductor"
    ],
    "lines": [
-    546
+    577
    ],
    "count": 1,
    "context": [
@@ -164749,6 +164749,34 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "3bdade892942c01b",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/zoo_teleport_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -279,7 +279,8 @@ func hall_aabb() -> AABB:
 
 ## The live ecology bay is a separate, lazy debug destination. Catalogue
 ## construction and automated prop inspection never instantiate its controllers.
-func open_ecology(player: Node3D = null) -> DreamEcologyWarehouseScript:
+func open_ecology(player: Node3D = null,
+		take_camera := true) -> DreamEcologyWarehouseScript:
 	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
 		push_warning("[WAREHOUSE] Dream ecology is available in DEBUG launches only")
 		return null
@@ -290,7 +291,11 @@ func open_ecology(player: Node3D = null) -> DreamEcologyWarehouseScript:
 		_ecology.position = Vector3(0, 0, -_hall.y * 0.5 - 11.0)
 		add_child(_ecology)
 		_ecology.setup(player)
-	_ecology.activate(true)
+	if take_camera:
+		_ecology.activate(true)
+	else:
+		# A visit on foot: the live room, none of the orbit rig.
+		_ecology.open_for_walking()
 	return _ecology
 
 

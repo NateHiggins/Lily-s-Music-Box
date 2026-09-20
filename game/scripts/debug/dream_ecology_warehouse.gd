@@ -405,6 +405,39 @@ func feed_selected() -> void:
 func viewing_stand() -> Vector3:
 	return to_global(Vector3(0,0.06,HALL_MAX_Z-1.0))
 
+## Where a visitor stands to walk the zoo rather than orbit it: just inside
+## the open end of the hall, on the floor, with the sixteen specimen benches
+## ahead and the reserved bays and the organelle wall beyond them.
+func zoo_stand() -> Vector3:
+	return to_global(Vector3(0,0.06,HALL_MAX_Z-2.2))
+
+## Yaw for a body whose forward is -Z, aimed from zoo_stand() down the hall.
+## Arriving faced at the wall behind you is arriving nowhere.
+func zoo_yaw() -> float:
+	var look := to_global(Vector3(0,0.06,HALL_CENTER_Z)) - zoo_stand()
+	return atan2(-look.x,-look.z)
+
+## Turn the room on without taking the camera, for a visit made on foot.
+##
+## activate() is an inspection rig: it makes the specimen camera current,
+## frees the pointer for orbiting and stops the player processing entirely.
+## Two things a walking visitor needs are tied to that rig rather than to
+## the room - the organelle wall's tendrils are visible only while the
+## organelle adapter is active, and every organism's processing follows
+## simulation_paused, which activate() sets on the way out. So leaving the
+## inspection camera used to leave a frozen hall with an empty wall. This
+## gives the walker the live room and none of the rig.
+func open_for_walking() -> void:
+	if not initialized: return
+	if active: activate(false)
+	if organelle != null: organelle.activate(true)
+	set_simulation_paused(false)
+	# The plaques are the zoo's signage; on foot they are the only thing
+	# naming what is on each bench. The inspection camera hides them because
+	# it puts one specimen in front of you and titles it in the panel.
+	_overview = true
+	_process(0.0)
+
 func hall_aabb() -> AABB:
 	return AABB(to_global(Vector3(-WIDTH*0.5,-0.5,HALL_MIN_Z)),Vector3(WIDTH,4.8,DEPTH))
 

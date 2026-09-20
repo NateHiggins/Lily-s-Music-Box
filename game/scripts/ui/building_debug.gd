@@ -483,8 +483,39 @@ func _build_go() -> void:
 			root.player.global_position = to
 			root.player.velocity = Vector3.ZERO
 		print("[DEBUG] warehouse: %d prop kinds" % root.warehouse._built))
+	_button(extra, "Dream zoo", _teleport_to_zoo)
 	_button(extra, "Dream ecology", _open_dream_ecology)
 	box.add_child(extra)
+
+
+## Walk into the zoo. This is the teleport the owner asks for by name: put
+## me in the hall, on my feet, with the creatures alive and the mouse doing
+## what it does in play. "Dream ecology" beside it is the other thing - an
+## orbit bench for one specimen at a time, which freezes the player.
+func _teleport_to_zoo() -> void:
+	if root == null or root.warehouse == null:
+		push_warning("[DEBUG] the Dream zoo exists in DEBUG launches only")
+		return
+	var exhibit: Node3D = root.warehouse.open_ecology(root.player, false)
+	if exhibit == null:
+		return
+	# The hall floor is real, but it is nowhere the building knows about, so
+	# without this the net reads the arrival as a fall and pulls the visitor
+	# home. Register the volume before the move, never after.
+	if root.safety_net != null:
+		var zone: AABB = exhibit.hall_aabb()
+		if zone not in root.safety_net.exempt_zones:
+			root.safety_net.exempt_zones.append(zone)
+	var to: Vector3 = exhibit.zoo_stand()
+	if root.view_override:
+		root.view_override.global_position = to
+	if root.player:
+		root.player.global_position = to
+		root.player.rotation.y = exhibit.zoo_yaw()
+		root.player.velocity = Vector3.ZERO
+	var counts: Dictionary = exhibit.stats()
+	print("[DEBUG] Dream zoo: on foot, %s live species, %s reserved bays"
+			% [counts.get("species", 0), counts.get("placeholder_bays", 0)])
 
 
 func _open_dream_ecology() -> void:
