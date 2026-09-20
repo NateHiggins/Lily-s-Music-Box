@@ -105,6 +105,10 @@ var _lamp_clock := 0.0
 var _orbit := Vector2(0.65, 0.34)
 var _distance := 1.05
 var _overview := false
+# True while _overview was turned on for a walk rather than by the
+# exhibit's own Overview button, so the inspection rig can take its own
+# framing back without discarding a choice the operator made.
+var _walk_overview := false
 var _dragging := false
 
 func setup(player: Node3D = null) -> void:
@@ -436,6 +440,7 @@ func open_for_walking() -> void:
 	# naming what is on each bench. The inspection camera hides them because
 	# it puts one specimen in front of you and titles it in the panel.
 	_overview = true
+	_walk_overview = true
 	_process(0.0)
 
 func hall_aabb() -> AABB:
@@ -447,6 +452,12 @@ func activate(value: bool = true) -> void:
 	if organelle != null: organelle.activate(value)
 	_canvas.visible = value
 	if value:
+		if _walk_overview:
+			# The plaques were lit for a visit on foot. The rig frames one
+			# specimen at a time, so give it its own framing back rather than
+			# opening on the room from the overview station.
+			_walk_overview = false
+			_overview = false
 		var previous := get_viewport().get_camera_3d()
 		_prior_camera = weakref(previous) if previous != null and previous != camera else null
 		_prior_mouse = Input.mouse_mode

@@ -123,6 +123,13 @@ func _run() -> void:
 		inspect.emit_signal("pressed")
 		await get_tree().process_frame
 		_check("inspecting still takes the camera", zoo.active)
+		# Walking lights the plaques by putting the exhibit in overview. That
+		# is the walk's setting, not the operator's, so the orbit bench has to
+		# open on its specimen instead of inheriting the whole room.
+		_check("inspecting frames a specimen, not the room",
+				not zoo._overview
+				and zoo.camera.global_position.distance_to(
+						zoo.overview_station.global_position) > 1.0)
 		button.emit_signal("pressed")
 		await get_tree().process_frame
 		_check("the zoo button hands it back and walks again",
