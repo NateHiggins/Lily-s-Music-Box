@@ -51,7 +51,17 @@ func setup(hero_kind: int, existing_state_source: Node = null) -> void:
 	state_source = existing_state_source
 	var t0 := Time.get_ticks_usec()
 	for i in (PATHS[kind] as Array).size():
-		var packed := load(PATHS[kind][i]) as PackedScene
+		# A missing LOD asset must name itself. Instantiating a null packed
+		# scene crashes with no path, which is exactly how three uncommitted
+		# meshes stayed invisible until integration.
+		var path: String = PATHS[kind][i]
+		if not ResourceLoader.exists(path):
+			push_error("DreamSurfaceHeroPresenter: missing hero LOD asset %s" % path)
+			continue
+		var packed := load(path) as PackedScene
+		if packed == null:
+			push_error("DreamSurfaceHeroPresenter: %s is not a PackedScene" % path)
+			continue
 		var root := packed.instantiate() as Node3D
 		root.name = "LOD%d" % i
 		add_child(root)

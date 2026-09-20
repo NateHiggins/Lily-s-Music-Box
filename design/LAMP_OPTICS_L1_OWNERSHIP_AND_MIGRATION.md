@@ -1,5 +1,7 @@
 # Lamp optics L1 — ownership map and gated migration
 
+Evidence class: **INERT - OWNERSHIP AND MIGRATION PLAN**
+
 ## Authority census
 
 | Concern | Current authority | L1 decision |

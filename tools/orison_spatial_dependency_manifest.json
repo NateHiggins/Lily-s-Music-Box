@@ -62799,6 +62799,36 @@
    "target_exists": null
   },
   {
+   "key": "afc31e54e6264613",
+   "kind": "generated_name",
+   "token": "setup",
+   "file": "game/scripts/dream/dream_surface_hero_presenter.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    66
+   ],
+   "count": 1,
+   "context": [
+    "\"LOD%d\" % i"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "ccc184113a5cab8b",
    "kind": "generated_name",
    "token": "build",
@@ -68241,7 +68271,7 @@
     "_answer_service_pattern"
    ],
    "lines": [
-    449
+    487
    ],
    "count": 1,
    "context": [
@@ -68271,7 +68301,7 @@
     "_place_lights"
    ],
    "lines": [
-    701
+    739
    ],
    "count": 1,
    "context": [
@@ -68302,8 +68332,8 @@
     "_answer_service_pattern"
    ],
    "lines": [
-    60,
-    438
+    61,
+    476
    ],
    "count": 2,
    "context": [
@@ -68336,9 +68366,9 @@
     "_recognize_service_reply"
    ],
    "lines": [
-    58,
-    439,
-    464
+    59,
+    477,
+    502
    ],
    "count": 3,
    "context": [
@@ -68370,7 +68400,7 @@
     "<module>"
    ],
    "lines": [
-    59
+    60
    ],
    "count": 1,
    "context": [
@@ -68400,7 +68430,7 @@
     "<module>"
    ],
    "lines": [
-    95
+    96
    ],
    "count": 1,
    "context": [
@@ -68430,7 +68460,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -68460,7 +68490,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    106
    ],
    "count": 1,
    "context": [
@@ -68490,7 +68520,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    98
    ],
    "count": 1,
    "context": [
@@ -68520,7 +68550,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    104
    ],
    "count": 1,
    "context": [
@@ -68550,7 +68580,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -74756,6 +74786,285 @@
    "target_exists": null
   },
   {
+   "key": "a90ff60851ebb974",
+   "kind": "vector3_coordinate",
+   "token": "_lighting",
+   "file": "game/tests/dream_color_c1b_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_lighting"
+   ],
+   "lines": [
+    126,
+    126
+   ],
+   "count": 2,
+   "context": [
+    "key.visible=true; fill.visible=true; rear.visible=true; key.rotation_degrees=Vector3(-48,-30,0); fill.position=Vector3(2.2,1.5,1.8); rear.position=Vector3(-1.4,"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "af05fcdd7cc8f26a",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/dream_color_c1c_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_orison_room"
+   ],
+   "lines": [
+    349
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d5b0b2a1dbd924e6",
+   "kind": "generated_name",
+   "token": "_add_information_packet",
+   "file": "game/tests/dream_color_c1c_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_add_information_packet"
+   ],
+   "lines": [
+    208
+   ],
+   "count": 1,
+   "context": [
+    "\"DisplacedCytoplasmWake%02d\"%i"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f17b3fac211191f9",
+   "kind": "id_reference",
+   "token": "F01_D_BED",
+   "file": "game/tests/dream_color_c1c_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_orison_room"
+   ],
+   "lines": [
+    359,
+    359
+   ],
+   "count": 2,
+   "context": [
+    "if not switch_system.toggle_room(\"F01_D_BED\"): switch_system.toggle_room(\"F01_D_BED\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room",
+   "target_exists": true
+  },
+  {
+   "key": "1ad3156ecf27f7d4",
+   "kind": "plan_coordinate",
+   "token": "_prepare_orison_room",
+   "file": "game/tests/dream_color_c1c_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_orison_room"
+   ],
+   "lines": [
+    360,
+    361
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=GameBoot.b2g([7.95,-6.65,1.62])",
+    "camera.look_at(GameBoot.b2g([11.55,-7.15,1.08]),Vector3.UP); camera.fov=39.0; camera.make_current()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e2cdc0eda8b7fa92",
+   "kind": "vector3_coordinate",
+   "token": "_build_real_lamp",
+   "file": "game/tests/dream_color_c1c_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_build_real_lamp"
+   ],
+   "lines": [
+    329
+   ],
+   "count": 1,
+   "context": [
+    "lamp.position=Vector3(-2.4,1.25,2.2); lamp.look_at(Vector3.ZERO,Vector3.UP)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e1bf89621c7c66e9",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/dream_color_c1d_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_furnished_orison"
+   ],
+   "lines": [
+    83
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "278096f055ffeff5",
+   "kind": "id_reference",
+   "token": "F01_D_BED",
+   "file": "game/tests/dream_color_c1d_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_furnished_orison"
+   ],
+   "lines": [
+    96,
+    97
+   ],
+   "count": 2,
+   "context": [
+    "if not switch_system.toggle_room(\"F01_D_BED\"):",
+    "switch_system.toggle_room(\"F01_D_BED\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room",
+   "target_exists": true
+  },
+  {
+   "key": "0492b942275c451e",
+   "kind": "plan_coordinate",
+   "token": "_prepare_furnished_orison",
+   "file": "game/tests/dream_color_c1d_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_furnished_orison"
+   ],
+   "lines": [
+    102,
+    103
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=GameBoot.b2g([7.95,-6.65,1.62])",
+    "camera.look_at(GameBoot.b2g([11.55,-7.15,1.08]),Vector3.UP)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "03c294ef9652ad94",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_root.tscn",
@@ -74766,7 +75075,7 @@
     "_in_world"
    ],
    "lines": [
-    151
+    166
    ],
    "count": 1,
    "context": [],
@@ -74794,7 +75103,7 @@
     "_constructed"
    ],
    "lines": [
-    299
+    359
    ],
    "count": 1,
    "context": [
@@ -75941,8 +76250,8 @@
     "_build_stage"
    ],
    "lines": [
-    46,
-    47
+    48,
+    49
    ],
    "count": 2,
    "context": [
@@ -75974,18 +76283,18 @@
     "_run"
    ],
    "lines": [
-    107,
-    107,
-    107,
-    108,
-    108,
-    108,
     109,
     109,
     109,
-    148,
-    153,
-    154
+    110,
+    110,
+    110,
+    111,
+    111,
+    111,
+    150,
+    155,
+    156
    ],
    "count": 12,
    "context": [
@@ -76348,6 +76657,248 @@
    "target_exists": true
   },
   {
+   "key": "7311461e001388a0",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/dream_surface_s1e_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "var camera := Camera3D.new(); camera.position = Vector3(0, 1.2, 2.2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "80163be65b1fb409",
+   "kind": "vector3_coordinate",
+   "token": "_cellular_matrix",
+   "file": "game/tests/dream_surface_s1f_matrix_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_cellular_matrix"
+   ],
+   "lines": [
+    144,
+    144,
+    156,
+    156,
+    162,
+    165,
+    165,
+    167,
+    167,
+    168,
+    168,
+    182,
+    182
+   ],
+   "count": 13,
+   "context": [
+    "camera.position = Vector3(0.72, 0.48, 0.82); camera.look_at(Vector3(0, 0.08, 0))",
+    "camera.position = Vector3(0.42, 0.24, 0.46); camera.look_at(Vector3(0, 0.045, 0))",
+    "camera.position = Vector3(2.6, 1.75, 3.0); camera.look_at(Vector3.ZERO)",
+    "camera.position = Vector3(0.46, 0.30, 0.52); camera.look_at(Vector3(0, 0.06, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d1b8ee078257cf0c",
+   "kind": "vector3_coordinate",
+   "token": "_crystal_matrix",
+   "file": "game/tests/dream_surface_s1f_matrix_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_crystal_matrix"
+   ],
+   "lines": [
+    268,
+    268,
+    277,
+    277
+   ],
+   "count": 4,
+   "context": [
+    "camera.position = Vector3(0.46,0.28,0.52); camera.look_at(Vector3(0,0.08,0))",
+    "camera.position = Vector3(2.8,1.4,3.0); camera.look_at(Vector3(0,0.08,0)); await _capture(\"crystal_08_gameplay_distance\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "dd0179036f7c2b5b",
+   "kind": "vector3_coordinate",
+   "token": "_s2_review",
+   "file": "game/tests/dream_surface_s1f_matrix_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_s2_review"
+   ],
+   "lines": [
+    91,
+    99
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(0,1.65,2.45); camera.look_at(Vector3(0,.20,0))",
+    "camera.position = Vector3(3.15,1.72,3.35); camera.look_at(Vector3(0,.05,0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d9b19ccfc4851b0d",
+   "kind": "vector3_coordinate",
+   "token": "_tentacle_matrix",
+   "file": "game/tests/dream_surface_s1f_matrix_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_tentacle_matrix"
+   ],
+   "lines": [
+    240,
+    240,
+    242,
+    242,
+    252,
+    252
+   ],
+   "count": 6,
+   "context": [
+    "camera.position = Vector3(1.05, 0.58, 1.05); camera.look_at(Vector3(0.34,0.12,0))",
+    "camera.position = Vector3(0.58, 0.30, 0.52); camera.look_at(Vector3(0.28,0.10,0))",
+    "camera.position = Vector3(3.2, 1.65, 3.3); camera.look_at(Vector3(0.3,0.12,0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ad3fcf4dd68efbf4",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/dream_surface_s2i_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture_orison"
+   ],
+   "lines": [
+    176
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2c319d642ce22142",
+   "kind": "vector3_coordinate",
+   "token": "_capture_orison",
+   "file": "game/tests/dream_surface_s2i_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture_orison"
+   ],
+   "lines": [
+    181
+   ],
+   "count": 1,
+   "context": [
+    "_hide_ui(orison); camera.position=Vector3(-9.75,3.78,3.55); camera.look_at(interior.position+Vector3(0,.08,0)); camera.make_current()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "2c69674b66f7f4ce",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_root.tscn",
@@ -76425,6 +76976,155 @@
    "context": [
     "who.global_position = (c.tip as Vector3) + Vector3(0.5, 0.0, 0.0)",
     "who.global_position = (c.tip as Vector3) + Vector3(4.0, 0.0, 4.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0477ae4a43459c86",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/dream_voxel_v1_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_orison"
+   ],
+   "lines": [
+    112
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cb39dd1e7d6ded82",
+   "kind": "id_reference",
+   "token": "F02_A_BATH",
+   "file": "game/tests/dream_voxel_v1_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_orison"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F02_A_BED\", \"F02_A_BATH\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1380605e999549e6",
+   "kind": "id_reference",
+   "token": "F02_A_BED",
+   "file": "game/tests/dream_voxel_v1_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_orison"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F02_A_BED\", \"F02_A_BATH\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "58e274e7cc95d1ee",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/tests/dream_voxel_v1_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_orison"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F02_A_BED\", \"F02_A_BATH\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e5c2fed5ee7a1eb8",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_review_colonies",
+   "file": "game/tests/dream_voxel_v1_runtime_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_review_colonies"
+   ],
+   "lines": [
+    161
+   ],
+   "count": 1,
+   "context": [
+    "review_renderer.global_position = Vector3(-8.75, 3.86, 2.78)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -84037,6 +84737,395 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0b1346706fadfb45",
+   "kind": "vector3_coordinate",
+   "token": "_build_world",
+   "file": "game/tests/lamp_optics_l1_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_build_world"
+   ],
+   "lines": [
+    88,
+    89,
+    97
+   ],
+   "count": 3,
+   "context": [
+    "camera.position = Vector3(0.0, 1.7, 4.6)",
+    "camera.look_at_from_position(camera.position, Vector3(0.0, 1.15, -3.0))",
+    "rig.look_at(Vector3(0.0, 1.0, -4.8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "683664c389b013b7",
+   "kind": "vector3_coordinate",
+   "token": "_configure_shot",
+   "file": "game/tests/lamp_optics_l1_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_configure_shot"
+   ],
+   "lines": [
+    206,
+    211
+   ],
+   "count": 2,
+   "context": [
+    "rig.look_at(Vector3(0.0, 1.0, -4.8))",
+    "rig.look_at(Vector3(0.0, 0.95, -4.4))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "61a4d3f07b49114c",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_room"
+   ],
+   "lines": [
+    260
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5a69e3c570807483",
+   "kind": "id_reference",
+   "token": "F01_D_BED",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_room"
+   ],
+   "lines": [
+    276,
+    277
+   ],
+   "count": 2,
+   "context": [
+    "if not production_root.switch_system.toggle_room(\"F01_D_BED\"):",
+    "production_root.switch_system.toggle_room(\"F01_D_BED\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room",
+   "target_exists": true
+  },
+  {
+   "key": "5ca9c93befcd3e37",
+   "kind": "plan_coordinate",
+   "token": "_prepare_production_room",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_production_room"
+   ],
+   "lines": [
+    278,
+    279
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position = GameBoot.b2g([7.95, -6.65, 1.62])",
+    "camera.look_at(GameBoot.b2g([11.55, -7.15, 1.08]), Vector3.UP)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bfddf735ac4f8640",
+   "kind": "vector3_coordinate",
+   "token": "_build_calibration_room",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_build_calibration_room"
+   ],
+   "lines": [
+    59,
+    60
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(6.9, 3.25, 7.8)",
+    "camera.look_at_from_position(camera.position, Vector3(0.0, 1.25, -3.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b9f34603bf31dc51",
+   "kind": "vector3_coordinate",
+   "token": "_build_lamp",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_build_lamp"
+   ],
+   "lines": [
+    114
+   ],
+   "count": 1,
+   "context": [
+    "rig.look_at(Vector3(0.25, 0.8, -6.1), Vector3.UP)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a582675a9e096abb",
+   "kind": "vector3_coordinate",
+   "token": "_capture_diagnostic",
+   "file": "game/tests/lamp_optics_l1b_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture_diagnostic"
+   ],
+   "lines": [
+    303,
+    304,
+    312
+   ],
+   "count": 3,
+   "context": [
+    "camera.position = Vector3(9.2, 4.8, 0.8)",
+    "camera.look_at(rig.global_position + Vector3(0, 0, -3.2), Vector3.UP)",
+    "camera.look_at(Vector3(0.0, 1.25, -3.0), Vector3.UP)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9079b383d4450e58",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/lamp_optics_l1c_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_measure_production"
+   ],
+   "lines": [
+    132
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d6e4b70102faa54f",
+   "kind": "plan_coordinate",
+   "token": "_measure_production",
+   "file": "game/tests/lamp_optics_l1c_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_measure_production"
+   ],
+   "lines": [
+    143,
+    144
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position = GameBoot.b2g([7.95, -6.65, 1.62])",
+    "camera.look_at(GameBoot.b2g([11.55, -7.15, 1.08]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "294908df4ee4af26",
+   "kind": "vector3_coordinate",
+   "token": "_build_stage",
+   "file": "game/tests/lamp_optics_l1c_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_build_stage"
+   ],
+   "lines": [
+    63,
+    64
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(5.5, 2.7, 6.0)",
+    "camera.look_at_from_position(camera.position, Vector3(0.0, 1.0, -3.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7723bea4d7ea8d33",
+   "kind": "vector3_coordinate",
+   "token": "_capture_cellular_sheet",
+   "file": "game/tests/lamp_optics_l1c_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capture_cellular_sheet"
+   ],
+   "lines": [
+    124,
+    125,
+    128
+   ],
+   "count": 3,
+   "context": [
+    "camera.position = Vector3(3.2, 2.05, 0.25)",
+    "camera.look_at(cellular.position + Vector3(0, 0.12, 0))",
+    "var subject := cellular.global_position + Vector3(0, 0.12, 0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   },

@@ -1,5 +1,7 @@
 # DREAM-SURFACE-S1E checkpoint — 2026-08-28
 
+Evidence class: **INERT - TECHNICAL CHECKPOINT (dream line; the completeness ledger admits only ORISON_V2_*.md)**
+
 The S1 cellular presentation is integrated on a clean branch reconstructed from
 authoritative `origin/main` revision `2d1cb1d7`.  No Orison-owned path was
 changed.  Rendering consumes deterministic ecology packets and remains outside

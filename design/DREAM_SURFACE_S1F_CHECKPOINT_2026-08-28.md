@@ -1,5 +1,7 @@
 # DREAM-SURFACE-S1F checkpoint — 2026-08-28
 
+Evidence class: **INERT - TECHNICAL CHECKPOINT (dream line; the completeness ledger admits only ORISON_V2_*.md)**
+
 S1F is reconstructed on actual current `origin/main` revision `e89fa608` (the
 brief's `82af2be` is its direct ancestor).  Seven S1 commits were replayed in
 logical order, followed by three bounded closure commits.  The scoped Orison

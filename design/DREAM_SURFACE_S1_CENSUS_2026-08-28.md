@@ -1,5 +1,7 @@
 # DREAM-SURFACE-S1 census and phenotype bible — 2026-08-28
 
+Evidence class: **INERT - CENSUS**
+
 Scope: presentation only. Ecology, target selection, gait, lifecycle, save, and
 cleanup authorization remain with their existing owners. The renderer consumes
 a compact state packet and never writes those authorities.
