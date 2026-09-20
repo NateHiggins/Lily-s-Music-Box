@@ -1,0 +1,1433 @@
+{
+  "schema": "dream_critter_studio_render.v1",
+  "evidence_class": "INERT",
+  "status": "COMPLETE",
+  "images": [
+    {
+      "file": "neutral__three_quarter__neutral.png",
+      "sha256": "f262be92a7b9d2e4a8529730702f99473208cc9bc510e18b069ce63a7e9aae93",
+      "pose": {
+        "bones": {},
+        "name": "neutral",
+        "shape_keys": {}
+      },
+      "view": "three_quarter",
+      "mode": "neutral",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "neutral__three_quarter__material.png",
+      "sha256": "c5b5dc7ed4015df89b9ca6a9a8b2714cb0c652124ab8c8e32bf473f3cbb5f91b",
+      "pose": {
+        "bones": {},
+        "name": "neutral",
+        "shape_keys": {}
+      },
+      "view": "three_quarter",
+      "mode": "material",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "neutral__three_quarter__cutaway.png",
+      "sha256": "312b0906491b5f806c6f7f961efaa9626a3586e95cc94c8de69351cb3182b56c",
+      "pose": {
+        "bones": {},
+        "name": "neutral",
+        "shape_keys": {}
+      },
+      "view": "three_quarter",
+      "mode": "cutaway",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": true
+    },
+    {
+      "file": "law_half__three_quarter__neutral.png",
+      "sha256": "d04a6df34264467110fa9a82fe1fc595e2042f9397b36aca21b594a43c5dcbbf",
+      "pose": {
+        "bones": {},
+        "name": "law_half",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "law_half": 1.0
+          },
+          "DominantVacuole": {
+            "law_half": 1.0
+          },
+          "PeripheralNucleus": {
+            "law_half": 1.0
+          },
+          "Scintillon_00": {
+            "law_half": 1.0
+          },
+          "Scintillon_01": {
+            "law_half": 1.0
+          },
+          "Scintillon_02": {
+            "law_half": 1.0
+          },
+          "Scintillon_03": {
+            "law_half": 1.0
+          },
+          "Scintillon_04": {
+            "law_half": 1.0
+          },
+          "Scintillon_05": {
+            "law_half": 1.0
+          },
+          "Scintillon_06": {
+            "law_half": 1.0
+          },
+          "Scintillon_07": {
+            "law_half": 1.0
+          },
+          "Scintillon_08": {
+            "law_half": 1.0
+          },
+          "Scintillon_09": {
+            "law_half": 1.0
+          },
+          "Scintillon_10": {
+            "law_half": 1.0
+          },
+          "Scintillon_11": {
+            "law_half": 1.0
+          },
+          "Scintillon_12": {
+            "law_half": 1.0
+          },
+          "Scintillon_13": {
+            "law_half": 1.0
+          },
+          "Scintillon_14": {
+            "law_half": 1.0
+          },
+          "Scintillon_15": {
+            "law_half": 1.0
+          },
+          "Scintillon_16": {
+            "law_half": 1.0
+          },
+          "Scintillon_17": {
+            "law_half": 1.0
+          },
+          "Scintillon_18": {
+            "law_half": 1.0
+          },
+          "Scintillon_19": {
+            "law_half": 1.0
+          },
+          "Scintillon_20": {
+            "law_half": 1.0
+          },
+          "Scintillon_21": {
+            "law_half": 1.0
+          },
+          "Scintillon_22": {
+            "law_half": 1.0
+          },
+          "Scintillon_23": {
+            "law_half": 1.0
+          },
+          "Skin": {
+            "law_half": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "neutral",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "law_half__three_quarter__material.png",
+      "sha256": "f96f5adba7b2016149689302b0123adecc90151dec52431ad4261b490599d0d7",
+      "pose": {
+        "bones": {},
+        "name": "law_half",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "law_half": 1.0
+          },
+          "DominantVacuole": {
+            "law_half": 1.0
+          },
+          "PeripheralNucleus": {
+            "law_half": 1.0
+          },
+          "Scintillon_00": {
+            "law_half": 1.0
+          },
+          "Scintillon_01": {
+            "law_half": 1.0
+          },
+          "Scintillon_02": {
+            "law_half": 1.0
+          },
+          "Scintillon_03": {
+            "law_half": 1.0
+          },
+          "Scintillon_04": {
+            "law_half": 1.0
+          },
+          "Scintillon_05": {
+            "law_half": 1.0
+          },
+          "Scintillon_06": {
+            "law_half": 1.0
+          },
+          "Scintillon_07": {
+            "law_half": 1.0
+          },
+          "Scintillon_08": {
+            "law_half": 1.0
+          },
+          "Scintillon_09": {
+            "law_half": 1.0
+          },
+          "Scintillon_10": {
+            "law_half": 1.0
+          },
+          "Scintillon_11": {
+            "law_half": 1.0
+          },
+          "Scintillon_12": {
+            "law_half": 1.0
+          },
+          "Scintillon_13": {
+            "law_half": 1.0
+          },
+          "Scintillon_14": {
+            "law_half": 1.0
+          },
+          "Scintillon_15": {
+            "law_half": 1.0
+          },
+          "Scintillon_16": {
+            "law_half": 1.0
+          },
+          "Scintillon_17": {
+            "law_half": 1.0
+          },
+          "Scintillon_18": {
+            "law_half": 1.0
+          },
+          "Scintillon_19": {
+            "law_half": 1.0
+          },
+          "Scintillon_20": {
+            "law_half": 1.0
+          },
+          "Scintillon_21": {
+            "law_half": 1.0
+          },
+          "Scintillon_22": {
+            "law_half": 1.0
+          },
+          "Scintillon_23": {
+            "law_half": 1.0
+          },
+          "Skin": {
+            "law_half": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "material",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "law_half__three_quarter__cutaway.png",
+      "sha256": "cf453f8a9abf5630a6bd06143fa2ce6066dbafa2add391b007efc3355d1856ca",
+      "pose": {
+        "bones": {},
+        "name": "law_half",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "law_half": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "law_half": 1.0
+          },
+          "DominantVacuole": {
+            "law_half": 1.0
+          },
+          "PeripheralNucleus": {
+            "law_half": 1.0
+          },
+          "Scintillon_00": {
+            "law_half": 1.0
+          },
+          "Scintillon_01": {
+            "law_half": 1.0
+          },
+          "Scintillon_02": {
+            "law_half": 1.0
+          },
+          "Scintillon_03": {
+            "law_half": 1.0
+          },
+          "Scintillon_04": {
+            "law_half": 1.0
+          },
+          "Scintillon_05": {
+            "law_half": 1.0
+          },
+          "Scintillon_06": {
+            "law_half": 1.0
+          },
+          "Scintillon_07": {
+            "law_half": 1.0
+          },
+          "Scintillon_08": {
+            "law_half": 1.0
+          },
+          "Scintillon_09": {
+            "law_half": 1.0
+          },
+          "Scintillon_10": {
+            "law_half": 1.0
+          },
+          "Scintillon_11": {
+            "law_half": 1.0
+          },
+          "Scintillon_12": {
+            "law_half": 1.0
+          },
+          "Scintillon_13": {
+            "law_half": 1.0
+          },
+          "Scintillon_14": {
+            "law_half": 1.0
+          },
+          "Scintillon_15": {
+            "law_half": 1.0
+          },
+          "Scintillon_16": {
+            "law_half": 1.0
+          },
+          "Scintillon_17": {
+            "law_half": 1.0
+          },
+          "Scintillon_18": {
+            "law_half": 1.0
+          },
+          "Scintillon_19": {
+            "law_half": 1.0
+          },
+          "Scintillon_20": {
+            "law_half": 1.0
+          },
+          "Scintillon_21": {
+            "law_half": 1.0
+          },
+          "Scintillon_22": {
+            "law_half": 1.0
+          },
+          "Scintillon_23": {
+            "law_half": 1.0
+          },
+          "Skin": {
+            "law_half": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "cutaway",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": true
+    },
+    {
+      "file": "gait_a__three_quarter__neutral.png",
+      "sha256": "d3c12d7523cd7f27dc9a028ff69e5303f18fc33a4e79a1455e43fa9b78540c7d",
+      "pose": {
+        "bones": {},
+        "name": "gait_a",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "gait_a": 1.0
+          },
+          "DominantVacuole": {
+            "gait_a": 1.0
+          },
+          "PeripheralNucleus": {
+            "gait_a": 1.0
+          },
+          "Scintillon_00": {
+            "gait_a": 1.0
+          },
+          "Scintillon_01": {
+            "gait_a": 1.0
+          },
+          "Scintillon_02": {
+            "gait_a": 1.0
+          },
+          "Scintillon_03": {
+            "gait_a": 1.0
+          },
+          "Scintillon_04": {
+            "gait_a": 1.0
+          },
+          "Scintillon_05": {
+            "gait_a": 1.0
+          },
+          "Scintillon_06": {
+            "gait_a": 1.0
+          },
+          "Scintillon_07": {
+            "gait_a": 1.0
+          },
+          "Scintillon_08": {
+            "gait_a": 1.0
+          },
+          "Scintillon_09": {
+            "gait_a": 1.0
+          },
+          "Scintillon_10": {
+            "gait_a": 1.0
+          },
+          "Scintillon_11": {
+            "gait_a": 1.0
+          },
+          "Scintillon_12": {
+            "gait_a": 1.0
+          },
+          "Scintillon_13": {
+            "gait_a": 1.0
+          },
+          "Scintillon_14": {
+            "gait_a": 1.0
+          },
+          "Scintillon_15": {
+            "gait_a": 1.0
+          },
+          "Scintillon_16": {
+            "gait_a": 1.0
+          },
+          "Scintillon_17": {
+            "gait_a": 1.0
+          },
+          "Scintillon_18": {
+            "gait_a": 1.0
+          },
+          "Scintillon_19": {
+            "gait_a": 1.0
+          },
+          "Scintillon_20": {
+            "gait_a": 1.0
+          },
+          "Scintillon_21": {
+            "gait_a": 1.0
+          },
+          "Scintillon_22": {
+            "gait_a": 1.0
+          },
+          "Scintillon_23": {
+            "gait_a": 1.0
+          },
+          "Skin": {
+            "gait_a": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "neutral",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "gait_a__three_quarter__material.png",
+      "sha256": "6002e6cda038453de0e422f1e7065363469567c37ad1230f752528e68f4fd85b",
+      "pose": {
+        "bones": {},
+        "name": "gait_a",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "gait_a": 1.0
+          },
+          "DominantVacuole": {
+            "gait_a": 1.0
+          },
+          "PeripheralNucleus": {
+            "gait_a": 1.0
+          },
+          "Scintillon_00": {
+            "gait_a": 1.0
+          },
+          "Scintillon_01": {
+            "gait_a": 1.0
+          },
+          "Scintillon_02": {
+            "gait_a": 1.0
+          },
+          "Scintillon_03": {
+            "gait_a": 1.0
+          },
+          "Scintillon_04": {
+            "gait_a": 1.0
+          },
+          "Scintillon_05": {
+            "gait_a": 1.0
+          },
+          "Scintillon_06": {
+            "gait_a": 1.0
+          },
+          "Scintillon_07": {
+            "gait_a": 1.0
+          },
+          "Scintillon_08": {
+            "gait_a": 1.0
+          },
+          "Scintillon_09": {
+            "gait_a": 1.0
+          },
+          "Scintillon_10": {
+            "gait_a": 1.0
+          },
+          "Scintillon_11": {
+            "gait_a": 1.0
+          },
+          "Scintillon_12": {
+            "gait_a": 1.0
+          },
+          "Scintillon_13": {
+            "gait_a": 1.0
+          },
+          "Scintillon_14": {
+            "gait_a": 1.0
+          },
+          "Scintillon_15": {
+            "gait_a": 1.0
+          },
+          "Scintillon_16": {
+            "gait_a": 1.0
+          },
+          "Scintillon_17": {
+            "gait_a": 1.0
+          },
+          "Scintillon_18": {
+            "gait_a": 1.0
+          },
+          "Scintillon_19": {
+            "gait_a": 1.0
+          },
+          "Scintillon_20": {
+            "gait_a": 1.0
+          },
+          "Scintillon_21": {
+            "gait_a": 1.0
+          },
+          "Scintillon_22": {
+            "gait_a": 1.0
+          },
+          "Scintillon_23": {
+            "gait_a": 1.0
+          },
+          "Skin": {
+            "gait_a": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "material",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": false
+    },
+    {
+      "file": "gait_a__three_quarter__cutaway.png",
+      "sha256": "f875eb1fa126ed7c8fad80cd3a0b727de619cfe39177f810002acf2a6ec100e0",
+      "pose": {
+        "bones": {},
+        "name": "gait_a",
+        "shape_keys": {
+          "CytoplasmicCord_00": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_01": {
+            "gait_a": 1.0
+          },
+          "CytoplasmicCord_02": {
+            "gait_a": 1.0
+          },
+          "DominantVacuole": {
+            "gait_a": 1.0
+          },
+          "PeripheralNucleus": {
+            "gait_a": 1.0
+          },
+          "Scintillon_00": {
+            "gait_a": 1.0
+          },
+          "Scintillon_01": {
+            "gait_a": 1.0
+          },
+          "Scintillon_02": {
+            "gait_a": 1.0
+          },
+          "Scintillon_03": {
+            "gait_a": 1.0
+          },
+          "Scintillon_04": {
+            "gait_a": 1.0
+          },
+          "Scintillon_05": {
+            "gait_a": 1.0
+          },
+          "Scintillon_06": {
+            "gait_a": 1.0
+          },
+          "Scintillon_07": {
+            "gait_a": 1.0
+          },
+          "Scintillon_08": {
+            "gait_a": 1.0
+          },
+          "Scintillon_09": {
+            "gait_a": 1.0
+          },
+          "Scintillon_10": {
+            "gait_a": 1.0
+          },
+          "Scintillon_11": {
+            "gait_a": 1.0
+          },
+          "Scintillon_12": {
+            "gait_a": 1.0
+          },
+          "Scintillon_13": {
+            "gait_a": 1.0
+          },
+          "Scintillon_14": {
+            "gait_a": 1.0
+          },
+          "Scintillon_15": {
+            "gait_a": 1.0
+          },
+          "Scintillon_16": {
+            "gait_a": 1.0
+          },
+          "Scintillon_17": {
+            "gait_a": 1.0
+          },
+          "Scintillon_18": {
+            "gait_a": 1.0
+          },
+          "Scintillon_19": {
+            "gait_a": 1.0
+          },
+          "Scintillon_20": {
+            "gait_a": 1.0
+          },
+          "Scintillon_21": {
+            "gait_a": 1.0
+          },
+          "Scintillon_22": {
+            "gait_a": 1.0
+          },
+          "Scintillon_23": {
+            "gait_a": 1.0
+          },
+          "Skin": {
+            "gait_a": 1.0
+          }
+        }
+      },
+      "view": "three_quarter",
+      "mode": "cutaway",
+      "camera": {
+        "position": [
+          1.2244584560394287,
+          -1.6616829633712769,
+          0.9497506022453308
+        ],
+        "rotation": [
+          1.1169817447662354,
+          -4.1111182014219594e-08,
+          0.6556957960128784
+        ],
+        "orthographic_scale": 0.7618570923805237,
+        "clip_start": 0.0005416037747636437,
+        "clip_end": 6.499245643615723,
+        "direction": [
+          0.5479966402053833,
+          -0.7123956084251404,
+          0.4383973181247711
+        ],
+        "center": [
+          0.03727018088102341,
+          -0.11833824962377548,
+          0.0
+        ]
+      },
+      "diagnostic_cutaway": true
+    }
+  ],
+  "limitations": [
+    "Studio Blender renders, not native shared-RG8/material/runtime acceptance.",
+    "Cutaway is an uncapped diagnostic half-section; not ordinary-view internal visibility.",
+    "Framing is shared across all authored poses and modes; pixel differences are not quality scores.",
+    "Display scale is an explicit presentation transform, not a measurement or biological claim."
+  ],
+  "source": {
+    "blend": "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v5\\art\\blender\\dream_critters\\noctiluca.blend",
+    "blend_sha256": "c080ee5d0f43de40a2126094944315dc109da27cc0efcf5d77e92e36ae73f68e",
+    "tool": "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v5\\check_dream_critter_anatomy.py",
+    "tool_sha256": "382cb7c7b883a516d4915352a4af6e1341485c22a4e5454ad5f5ee8d03c1e5e4",
+    "contract_sha256": "3af71b06963644d1c8af4f4b14366ae5470e9807a42e3285a77ed347c1dc91fb",
+    "blender": "5.2.0 LTS",
+    "blender_build": "fbe6228777e7",
+    "species_id": 12,
+    "species_name": "noctiluca",
+    "seed": 241212
+  },
+  "renderer_sha256": "b39cb494ea3de6a6851410cba2879836c1e873f093b2b1dd751817fb474580f0",
+  "render_settings": {
+    "engine": "CYCLES",
+    "resolution": 640,
+    "samples": 40,
+    "view_transform": "AgX",
+    "look": "None",
+    "seed": 73203,
+    "display_scale_blender_xyz": [
+      0.35,
+      0.35,
+      0.315
+    ]
+  },
+  "all_pose_bounds": {
+    "neutral": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_01": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_02": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_03": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_04": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_05": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_06": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_07": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_half": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_09": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_10": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_11": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_12": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_13": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_14": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_15": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "law_full": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "gait_a": {
+      "min": [
+        -0.1518726795911789,
+        -0.38449835777282715,
+        -0.15820495784282684
+      ],
+      "max": [
+        0.18543264269828796,
+        0.15064500272274017,
+        0.15820495784282684
+      ]
+    },
+    "gait_b": {
+      "min": [
+        -0.18352042138576508,
+        -0.38914015889167786,
+        -0.15600548684597015
+      ],
+      "max": [
+        0.2580607831478119,
+        0.1524636596441269,
+        0.15600548684597015
+      ]
+    },
+    "sample_law_mid_00": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_01": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_02": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_03": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_04": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_05": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_06": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_07": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_08": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_09": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_10": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_11": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_12": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_13": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_14": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_law_mid_15": {
+      "min": [
+        -0.15340673923492432,
+        -0.3868192732334137,
+        -0.1571052223443985
+      ],
+      "max": [
+        0.2215096354484558,
+        0.15155433118343353,
+        0.1571052223443985
+      ]
+    },
+    "sample_neutral_plus_gait_a": {
+      "min": [
+        -0.1528698205947876,
+        -0.3860069513320923,
+        -0.15749013423919678
+      ],
+      "max": [
+        0.20887650549411774,
+        0.15123605728149414,
+        0.15749013423919678
+      ]
+    },
+    "sample_neutral_plus_gait_b": {
+      "min": [
+        -0.1609107255935669,
+        -0.3876315653324127,
+        -0.1567203253507614
+      ],
+      "max": [
+        0.2343025505542755,
+        0.15187259018421173,
+        0.1567203253507614
+      ]
+    },
+    "sample_law_half_plus_gait_a": {
+      "min": [
+        -0.15313827991485596,
+        -0.3864130973815918,
+        -0.15729768574237823
+      ],
+      "max": [
+        0.21518830955028534,
+        0.15139518678188324,
+        0.15729768574237823
+      ]
+    },
+    "sample_law_half_plus_gait_b": {
+      "min": [
+        -0.1548641175031662,
+        -0.3872254490852356,
+        -0.15691277384757996
+      ],
+      "max": [
+        0.22790607810020447,
+        0.15171346068382263,
+        0.15691277384757996
+      ]
+    }
+  },
+  "framing_bounds": {
+    "min": [
+      -0.18352042138576508,
+      -0.38914015889167786,
+      -0.15820495784282684
+    ],
+    "max": [
+      0.2580607831478119,
+      0.1524636596441269,
+      0.15820495784282684
+    ]
+  },
+  "lights": [
+    {
+      "name": "KEY",
+      "position": [
+        1.3371193408966064,
+        -1.7431496381759644,
+        1.733132243156433
+      ],
+      "energy": 146.66734313964844,
+      "size": 1.083207607269287
+    },
+    {
+      "name": "FILL",
+      "position": [
+        -1.5875412225723267,
+        -0.6599420309066772,
+        0.7040849328041077
+      ],
+      "energy": 52.80024337768555,
+      "size": 1.5164906978607178
+    },
+    {
+      "name": "RIM",
+      "position": [
+        0.3622324764728546,
+        1.2898316383361816,
+        1.4623303413391113
+      ],
+      "energy": 111.46717834472656,
+      "size": 0.8124057054519653
+    }
+  ],
+  "source_unchanged": true
+}

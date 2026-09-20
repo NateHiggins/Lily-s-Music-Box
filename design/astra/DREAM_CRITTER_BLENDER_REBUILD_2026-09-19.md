@@ -97,13 +97,14 @@ This does not substitute for the pending Godot import comparison.
 
 ## Native status and remaining verification
 
-The expanded all-sixteen native fixture is installed and queued. Its checks
+The expanded all-sixteen native fixture is installed. Its checks
 cover imported pose parity, independent manifest/atlas roots, count variants,
 decoder rejection cases, live controller clocks, diagnostic captures,
 resource retirement and bounded batches. **It has not run yet.**
 
 Godot Project Manager, pid20100, started2026-09-19T23:39:26Z, occupied the
-shared lane. The first five-minute wait started no tests. Per AGENTS.md
+shared lane. Both the initial five-minute wait and the final fifteen-minute wait ended
+without starting a test. Per AGENTS.md
 RUL-009, another user's Godot session was not closed. Native shader parsing,
 live Fold deformation, full16 visual inspection and final regression remain
 pending until the lane is free. An earlier five-species diagnostic passed121
@@ -116,6 +117,11 @@ Intact window boundaries need further native inspection for polygon-stepped
 opacity, and the new bounded dark-edge emission needs the three-light review.
 Labels saying full_beam mean nine seconds of real lamp accumulation, not a
 guarantee that every sampled texel reaches the shader's saturation threshold.
+
+The implementation checkpoint is8f33c4c, followed by export audit db472a2.
+The complete [source review gallery](../../art/renders/dream_critter_blender_rebuild_20260919/gallery/index.html)
+has sixteen source-hash-matched previews in neutral/material/cutaway modes.
+It is explicitly separate from the pending native appearance review.
 
 ## Reproduce and inspect
 

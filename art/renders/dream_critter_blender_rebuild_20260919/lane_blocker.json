@@ -1,0 +1,27 @@
+{
+  "evidence_class": "INERT",
+  "schema": "dream_blender_lane_blocker.v1",
+  "captured_utc": "2026-09-20T00:08:42.908130+00:00",
+  "status": {
+    "lane_free": true,
+    "mutex_free": true,
+    "holder": null,
+    "holder_note": null,
+    "godot_processes": [],
+    "waiters": []
+  },
+  "attempts": [
+    {
+      "scope": "research import/review",
+      "wait_minutes": 5,
+      "result": "LANE BUSY; nothing started"
+    },
+    {
+      "scope": "full16 import/review",
+      "wait_minutes": 15,
+      "result": "LANE BUSY; nothing started"
+    }
+  ],
+  "native_verdict": null,
+  "next_step": "After the existing Project Manager closes, run two lane imports and DreamBlenderCritterTest with a fresh windowed capture directory. Then inspect count variants/materials and run zoo/entry/critter regression suites."
+}
