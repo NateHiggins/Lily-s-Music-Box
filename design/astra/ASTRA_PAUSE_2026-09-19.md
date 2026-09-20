@@ -88,3 +88,8 @@ Accepted critter motion remains retained. Correction from the subsequent warehou
 Full task source: **C:/Users/nate_/.codex/attachments/70824682-0354-4e8b-8170-d647016d16bf/pasted-text.txt**. Its earlier authority attachments and mandate remain active. The original full request has already been read; do not redo completed reconciliation based on superseded prompt hashes.
 
 **BLOCKED — paused at owner request; F06 opening-leaf collision, new fixture spatial review, and final fresh committed verification remain unfinished.**
+
+
+## Resumed continuation: debug pointer repair
+
+On the owner's renewed V2 request, the debug-menu question exposed two actual input defects. F1 now owns the pointer and player suspension; Escape returns through ecology/debug before ordinary pause. The empty caption container no longer intercepts GO. See **design/astra/DEBUG_MENU_INPUT_2026-09-19.md** and **art/renders/debug_menu_input_20260919/**: warehouse real-input 28/28, captions 6/6, pause 18/18 and Dreamworld handoff 13/13. The report preserves unrelated runtime/teardown findings. The earlier paused status is historical: work has resumed. The next V2 boundary remains the F06 opening-leaf collision and final reconciliation verification; the debug repair does not clear it.

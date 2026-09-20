@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 73.16,
+  "exit_code": 1,
+  "finished_utc": "2026-09-20T00:56:01Z",
+  "started_utc": "2026-09-20T00:54:47Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/regressions/dream_button.log.stderr",
+  "stderr_sha256": "2eaa29f395a85816b13df9cfddae393f4675d37d1aef3dfe234707b89be20afe",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/regressions/dream_button.log",
+  "stdout_sha256": "34765deea0e7e28d8f7213cd8f97ac8672dbfaa6ccd327e8636f1e88afa1f101"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/DebugDreamButtonTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 177,
+  "dirty_sample": [
+   "M game/scripts/ui/audio_caption_layer.gd",
+   " M game/scripts/ui/building_debug.gd",
+   " M game/tests/audio_caption_test.gd",
+   " M game/tests/debug_dream_button_test.gd",
+   " M game/tests/dream_ecology_entry_test.gd",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_household_accessories.gd.uid",
+   "?? game/scripts/building/orison_v2_household_radiator.gd.uid",
+   "?? game/scripts/building/orison_v2_household_state.gd.uid",
+   "?? game/scripts/building/orison_v2_lamp_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_laundry.gd.uid"
+  ],
+  "repository_head": "d8916966cbce41d9fd8517215f155a37bea3ebf2",
+  "repository_tree": "72e625d9be9452fe2c6b94d34bebec2b4bf21cf8",
+  "runtime_inputs_sha256": "2979d60dbb1ef4514773c1721606b4ec191b418fdc96e9e024b2342c1573b854",
+  "test_path": "game/tests/debug_dream_button_test.gd",
+  "test_sha256": "537db90e0a90c6e789e969d6bdf3a6fd071df257e6d484ac64a843de25ea02f8"
+ },
+ "windowed": true
+}

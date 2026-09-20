@@ -9,10 +9,9 @@ extends PanelContainer
 ## could not reach. Hence the scroll, and hence the sections: with nine
 ## subsystems in here, a flat list is not navigable even when it fits.
 ##
-## The wheel is handled explicitly rather than left to the ScrollContainer,
-## because this game captures the mouse. With the pointer captured the
-## container never sees a hover and the panel would only scroll after Esc,
-## which is exactly when you are least likely to want to stop playing.
+## F1 opens the controls and lends them the pointer. The player is held while
+## the world keeps running; F1 or Escape returns to play. Escape only opens
+## Building Services when these controls are closed.
 ##
 ## What earned its place, and why:
 ##   DREAM     the real onset and scene transaction, without forged case state
@@ -40,6 +39,12 @@ var _selected_fixture: Node
 var _light_identity: Label
 var _ecology_active := false
 var _ecology_body_was_visible := false
+var _owns_pointer := false
+var _prior_mouse := Input.MOUSE_MODE_CAPTURED
+var _prior_player_process := true
+var _prior_player_physics := true
+var _prior_player_input := true
+var _prior_touch_input := true
 
 
 func setup(building_root: Node3D) -> void:
@@ -52,8 +57,8 @@ func _ready() -> void:
 	var shell := VBoxContainer.new()
 	add_child(shell)
 	var header := Button.new()
-	header.text = "ORISON DEBUG ▸ (F1)"
-	header.pressed.connect(func(): _body.visible = not _body.visible)
+	header.text = "ORISON DEBUG ▸ (F1: controls + mouse)"
+	header.pressed.connect(func(): _set_menu_open(not _body.visible))
 	shell.add_child(header)
 
 	_body = ScrollContainer.new()
@@ -66,9 +71,8 @@ func _ready() -> void:
 	# slab of empty panel below the controls whenever sections were closed,
 	# which is most of the time.
 	_body.custom_minimum_size = Vector2(340, 0)
-	## Start expanded so a missing or consumed F1 binding can never make the
-	## controls undiscoverable. F1 collapses the body but leaves the header.
-	_body.visible = true
+	# The header keeps the F1 entry visible without covering ordinary play.
+	_body.visible = false
 	shell.add_child(_body)
 	_column = VBoxContainer.new()
 	_body.add_child(_column)
@@ -142,7 +146,7 @@ func _start_dream_sequence() -> void:
 		return
 	# Let the onset occupy the whole screen; this panel belongs to the waking
 	# world and will be freed by the eventual swap in any case.
-	_body.visible = false
+	_set_menu_open(false)
 	print("[DEBUG] Dreamworld sequence armed through production onset")
 
 
@@ -324,11 +328,15 @@ func _step_clip(direction: int) -> void:
 func _build_cases() -> void:
 	var box := _section("CASES — call network", Color(0.5, 0.85, 0.8), true)
 	var flow := HBoxContainer.new()
-	_button(flow, "Sit", func(): root.call_interface.enter(root.player))
+	_button(flow, "Sit", func():
+		_set_menu_open(false)
+		root.call_interface.enter(root.player))
 	_button(flow, "Isolate", func(): root.call_interface.press_isolate(true))
 	_button(flow, "Capture", func(): root.call_interface.press_capture())
 	_button(flow, "Route", func(): root.call_interface.press_route())
-	_button(flow, "Leave", func(): root.call_interface.leave())
+	_button(flow, "Leave", func():
+		_set_menu_open(false)
+		root.call_interface.leave())
 	box.add_child(flow)
 	# Responses are per-case, so they are built on demand rather than baked.
 	var answers := HBoxContainer.new()
@@ -343,6 +351,7 @@ func _build_cases() -> void:
 	_button(skip, "Fast (compress waits)", func():
 		root.call_interface.fast = not root.call_interface.fast)
 	_button(skip, "Skip case", func():
+		_set_menu_open(false)
 		root.call_interface.outcome = "skipped"
 		root.call_interface._closed = true
 		root.call_interface.leave())
@@ -703,7 +712,8 @@ func _build_keys() -> void:
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
 			+ "L / left shoulder: lamp · R / right shoulder: radio\n" \
 			+ "F screenshot · V noclip · F2 intro · F3 distort · F4 chaos\n" \
-			+ "Esc release mouse · wheel scrolls this panel"
+			+ "F1 controls + pointer · F1 / Esc return to play\n" \
+			+ "Esc in play: pause · wheel scrolls these controls"
 	hint.add_theme_font_size_override("font_size", 10)
 	hint.modulate = Color(0.7, 0.7, 0.75)
 	box.add_child(hint)
@@ -754,23 +764,83 @@ func _slider(parent: Node, label_text: String, lo: float, hi: float,
 	return slider
 
 
+## The ecology inspector nests its own player suspension inside this one.
+## It restores our held state on exit; closing this panel then restores play.
+func _set_menu_open(value: bool) -> void:
+	_body.visible = value
+	if value == _owns_pointer:
+		return
+	_owns_pointer = value
+	var player: Node = root.player if is_instance_valid(root) else null
+	if value:
+		_prior_mouse = Input.mouse_mode
+		if is_instance_valid(player):
+			_prior_player_process = player.is_processing()
+			_prior_player_physics = player.is_physics_processing()
+			_prior_player_input = player.is_processing_unhandled_input()
+			player.set_process(false)
+			player.set_physics_process(false)
+			player.set_process_unhandled_input(false)
+		if is_instance_valid(root) and is_instance_valid(root.touch):
+			_prior_touch_input = root.touch.is_processing_unhandled_input()
+			root.touch._release_all()
+			root.touch.set_process_unhandled_input(false)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		if is_instance_valid(root) and is_instance_valid(root.touch):
+			root.touch.set_process_unhandled_input(_prior_touch_input)
+		var focused := get_viewport().gui_get_focus_owner()
+		if focused != null and is_ancestor_of(focused):
+			focused.release_focus()
+		if is_instance_valid(player):
+			player.set_process(_prior_player_process)
+			player.set_physics_process(_prior_player_physics)
+			player.set_process_unhandled_input(_prior_player_input)
+			if player.call_locked or player.touch_input:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				return
+		Input.mouse_mode = _prior_mouse
+
+
+func _exit_tree() -> void:
+	if _ecology_active and is_instance_valid(root) and is_instance_valid(root.warehouse):
+		root.warehouse.close_ecology()
+	if _owns_pointer:
+		_set_menu_open(false)
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_echo():
+		return
 	if event.is_action_pressed("debug_panel"):
 		if _ecology_active:
 			root.warehouse.close_ecology()
 			get_viewport().set_input_as_handled()
 			return
-		_body.visible = not _body.visible
+		_set_menu_open(not _body.visible)
+		get_viewport().set_input_as_handled()
+	elif _ecology_active and event.is_action_pressed("ui_cancel"):
+		root.warehouse.close_ecology()
+		get_viewport().set_input_as_handled()
+	elif _body.visible and event.is_action_pressed("ui_cancel"):
+		_set_menu_open(false)
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("intro") and root and root.virus_director:
 		root.virus_director.toggle_intro()
 		get_viewport().set_input_as_handled()
 
 
-## The wheel, handled here rather than left to the ScrollContainer, because
-## the game captures the mouse: with no pointer to hover, the container never
-## receives the event and the panel would only scroll after Esc.
+## Unhandled wheel events outside the panel still scroll it. The GUI owns
+## events over its children; controller Back/Start also returns to play.
 func _unhandled_input(event: InputEvent) -> void:
+	if (_ecology_active or _body.visible) and (event.is_action_pressed("ui_cancel")
+			or event.is_action_pressed("pause_services")):
+		if _ecology_active:
+			root.warehouse.close_ecology()
+		else:
+			_set_menu_open(false)
+		get_viewport().set_input_as_handled()
+		return
 	if not _body.visible or not (event is InputEventMouseButton):
 		return
 	var button := event as InputEventMouseButton
