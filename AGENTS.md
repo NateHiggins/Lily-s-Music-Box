@@ -6,6 +6,13 @@ a rule has an id (RUL-nnn), `design/RULINGS.json` has its source, and
 `python tools/check_rulings.py --show RUL-nnn` prints it. For which document
 wins a disagreement, read `DOCS.md` first: the Bible outranks everything here.
 
+## Current checkout (2026-09-21)
+
+The owner consolidated development into `C:/PleaseRemainOnTheLine` on
+`main`. The former secondary checkouts are retired. Use this checkout for
+normal development; clean up temporary verification checkouts after use.
+See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recovery.
+
 ## Git in a shared tree (RUL-010)
 
 - Several agents share this repository and its worktrees. Stage **named
