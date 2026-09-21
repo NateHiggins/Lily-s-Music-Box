@@ -80,7 +80,7 @@ func _open() -> void:
 	if zoo != null and player != null:
 		print("[ZOO VISIT] standing inside the hall: %s"
 				% zoo.hall_aabb().has_point(player.global_position))
-	print("[ZOO VISIT] READY — F1 for controls and Return to building; ` frees the mouse")
+	print("[ZOO VISIT] READY — F1 for controls and Building return; ` frees the mouse")
 	if OS.get_environment("ZOO_VISIT_SMOKE") == "1":
 		_quit(0 if zoo != null else 1)
 

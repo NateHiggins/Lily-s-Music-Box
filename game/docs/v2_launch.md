@@ -33,8 +33,10 @@ inspection camera. The debug panel is also available above Building Services
 while paused. F1 opens the controls and releases the pointer; backtick releases
 or recaptures it during play. Clicking while deliberately released keeps it free.
 
-**Leave camera** exits inspection. **Return to building** restores the position
-and view from before the zoo visit. The existing hero tentacle, live organelles,
+**Leave camera** exits inspection. **Building return** restores the position
+and view from before the zoo visit. Press **F1** again after a teleport to close
+the controls and walk; use **Escape** if Building Services remains open.
+The existing hero tentacle, live organelles,
 sixteen Blender critters and fifteen reserved bays are shared with V1.
 
 To launch directly into the walkable zoo:
@@ -59,3 +61,4 @@ V2 remains an unfinished building. The playable first Mina maintenance/case
 sequence is the supported campaign slice. V1-only apartment corruption and
 resident debug shortcuts are not exposed as working V2 controls. The separate
 voxel-light seams recorded under TASKS H23 remain open.
+The zoo is still dark, especially around the hero and organelle wall.

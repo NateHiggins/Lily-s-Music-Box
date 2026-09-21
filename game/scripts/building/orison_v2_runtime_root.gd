@@ -400,11 +400,15 @@ func _compose_debug_controls() -> void:
 ## never valid shortcuts here, especially after visiting an off-site exhibit.
 func debug_destinations() -> Dictionary:
 	var destinations := {"Arrival": _connection.arrival.position}
-	for pair in [["4B desk", "F04_B_MONITOR_STANCE"],
-			["4B bedside", "F04_B_BEDSIDE_RETURN"]]:
-		var anchor := adapter.resolve(str(pair[1])) as Node3D
-		if anchor != null:
-			destinations[str(pair[0])] = anchor.global_position + Vector3.UP * 0.05
+	var desk := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
+	if desk != null:
+		destinations["4B desk"] = desk.global_position + Vector3.UP * 0.05
+	# The same owner that places a waking player resolves the bedside. Debug
+	# navigation must not introduce a second contract for its semantic anchor.
+	if core_loop != null:
+		var bedside := core_loop.resolve_return_anchor()
+		if not bedside.is_empty():
+			destinations["4B bedside"] = bedside.position + Vector3.UP * 0.05
 	return destinations
 
 func _compose_exterior() -> bool:

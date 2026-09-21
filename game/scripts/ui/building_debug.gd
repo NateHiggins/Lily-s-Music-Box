@@ -499,7 +499,7 @@ func _build_go() -> void:
 	_button(extra, "Dream zoo", _teleport_to_zoo)
 	_button(extra, "Dream ecology", _open_dream_ecology)
 	box.add_child(extra)
-	_button(box, "Return to building", _return_to_building)
+	_button(box, "Building return", _return_to_building)
 
 
 func _remember_building_return() -> void:

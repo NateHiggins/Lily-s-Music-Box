@@ -218,7 +218,7 @@ func _run() -> void:
 				not get_tree().paused
 				and zoo.hall_aabb().has_point(player.global_position)
 				and player.is_physics_processing())
-	var go_back := _find_button(panel, "Return to building")
+	var go_back := _find_button(panel, "Building return")
 	_check("the zoo has an explicit building return", go_back != null)
 	if go_back != null:
 		panel._set_menu_open(true)

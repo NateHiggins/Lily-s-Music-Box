@@ -164777,6 +164777,189 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "e3a92707eb32cf34",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_first_shift"
+   ],
+   "lines": [
+    82
+   ],
+   "count": 1,
+   "context": [
+    "var register := world.adapter.resolve(\"F01_NIGHT_REGISTER\") as NightRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Arrival regression resolves the production night register mounted by OrisonV2RuntimeRoot._compose_service_round_props, then exercises the real pickup interaction; generated target verified present.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "d90c668e0d949035",
+   "kind": "runtime_id",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_first_shift"
+   ],
+   "lines": [
+    73
+   ],
+   "count": 1,
+   "context": [
+    "var detector := world.adapter.resolve(\"F01_WATCHMAN_DETECTOR\") as WatchmanClockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Arrival regression resolves the production watchman detector mounted by OrisonV2RuntimeRoot._compose_service_round_props, then clocks in through the real interaction ray; generated target verified present.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "bd1433fb8fc3c236",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_test_protected_boundary"
+   ],
+   "lines": [
+    792
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Current selector contract explicitly preserves the V1 rollback scene. Verified game/scenes/building/orison_root.tscn exists; this fixture no longer assumes V1 is the default.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "872e4b4c91cb3202",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_mina_residue_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Focused Mina residue fixture retains its established core start via the new preparation hook; golden arrival fixtures intentionally omit this placement. Test-only station, not a production spawn authority.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c9e8d708e4d554a7",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    44
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Existing vertical-route core station moved from _run into the overridable preparation hook so arrival suites retain the real production spawn. Test-only coordinate and normal subsequent physics movement.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "76a0c7d7678ae94b",
+   "kind": "runtime_id",
+   "token": "F04_B_BED",
+   "file": "game/tests/orison_v2_wake_reconstruction_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_verify_bedside"
+   ],
+   "lines": [
+    144
+   ],
+   "count": 1,
+   "context": [
+    "and str(anchor.get(\"id\", \"\")) == \"F04_B_BED\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Wake reconstruction regression checks the production F04_B_BED return identity owned by OrisonV2AnchorAdapter.resolve_return_anchor; generated target verified present.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }
