@@ -405,3 +405,18 @@ as you stay. If the zoo frame is slow, that is why.
 
 Landed: **147f9b1** (the teleport, the walk, ZooTeleportTest 24/24 with both
 interactive routes), **56a7323** (the overview fix).
+
+**Starting in the zoo from a terminal.** The owner's Godot opens
+C:/PleaseRemainOnTheLine/game, which is a worktree on another line of work
+and was 286 commits behind main when this landed, so the control was simply
+not in their build. A launcher exists for that case and for any session that
+wants the zoo without clicking:
+
+    godot --path <repo>/game res://scenes/debug/ZooVisit.tscn
+
+It presses the same two handlers the panel does, so it cannot drift from the
+buttons: the LIGHT section's voxel mode, then the zoo teleport. ZOO_VISIT_LIGHT
+picks full (default), debug, baseline or lamp; ZOO_VISIT_SMOKE=1 prints the
+state and exits, which is how it is checked without a window. It loads the
+building through **BuildingRootSelector**, not a scene path of its own, so it
+follows the v2 cutover and mints no production spatial record.
