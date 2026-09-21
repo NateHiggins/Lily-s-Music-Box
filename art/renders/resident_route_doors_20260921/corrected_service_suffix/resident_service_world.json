@@ -1,0 +1,446 @@
+{
+	"actual_body": {
+		"height": 1.54999995231628,
+		"layer": 0,
+		"mask": 0,
+		"path": "/root/ResidentServiceWorldTest/OrisonRoot/F02/NPC_juno_kells/Body/@CollisionShape3D@22415",
+		"query_collider_exclusions": 0,
+		"query_mask": 4294967295,
+		"radius": 0.280000001192093,
+		"relative_center": [
+			0.0,
+			0.775000095367432,
+			0.0
+		]
+	},
+	"adjacent_start": {
+		"body": {
+			"clear": true,
+			"colliders": [],
+			"exclusions": 0,
+			"fractions": [
+				1.0,
+				1.0
+			]
+		},
+		"path": [
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				-8.28999996185303
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-7.25
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-6.25
+			],
+			[
+				0.0,
+				6.40000009536743,
+				-5.0
+			],
+			[
+				0.0,
+				6.42999982833862,
+				-5.0
+			]
+		],
+		"position": [
+			-4.38000011444092,
+			6.42999982833862,
+			-8.28999996185303
+		],
+		"source_route_index": 4
+	},
+	"authored_service_marker": {
+		"finish_variant": 2.0,
+		"h": 2.1,
+		"id": "F03_DOOR_01",
+		"kind": "door",
+		"leaf": "closed",
+		"pos": [
+			-2.42,
+			6.75,
+			6.4
+		],
+		"rooms": [
+			"F03_UTILITY",
+			"F03_CORRIDOR"
+		],
+		"subtype": "service",
+		"w": 0.96,
+		"yaw_deg": 0.0
+	},
+	"authored_utility_room": {
+		"id": "F03_UTILITY",
+		"kind": "utility",
+		"rect": [
+			-3.25,
+			3.25,
+			3.25,
+			6.75
+		]
+	},
+	"checks": [
+		{
+			"label": "authored campaign clock is valid",
+			"ok": true
+		},
+		{
+			"label": "actual legacy routines navigation and elevator exist",
+			"ok": true
+		},
+		{
+			"label": "actual Juno Kells owner is available",
+			"ok": true
+		},
+		{
+			"label": "actual resident Body capsule and authored service DoorProp exist",
+			"ok": true
+		},
+		{
+			"label": "actual owner starts at untouched 2C home and unchanged authored F03 haunt",
+			"ok": true
+		},
+		{
+			"label": "actual target is the authored closed non-home service leaf",
+			"ok": true
+		},
+		{
+			"label": "actual Body remains unchanged and queries have zero collider exclusions",
+			"ok": true
+		},
+		{
+			"label": "unchanged production navigation admits the real F03 landing-to-haunt route",
+			"ok": true
+		},
+		{
+			"label": "admitted real route passes through the actual service aperture",
+			"ok": true
+		},
+		{
+			"label": "the actual closed leaf blocks the admitted crossing with no exclusions",
+			"ok": true
+		},
+		{
+			"label": "the bounded suffix starts clear of every real collider",
+			"ok": true
+		},
+		{
+			"label": "actual resident owner opens the actual service leaf during its step",
+			"ok": true
+		},
+		{
+			"label": "resident visibly waits during the actual opening tween",
+			"ok": false
+		},
+		{
+			"label": "resident crosses only after the actual leaf is unlocked open and settled",
+			"ok": false
+		},
+		{
+			"label": "every observed real Body overlap and walking sweep clears all colliders",
+			"ok": false
+		},
+		{
+			"label": "actual owner reaches its unchanged authored haunt",
+			"ok": false
+		},
+		{
+			"label": "actual owner closes only after its whole Body clears the far side",
+			"ok": false
+		},
+		{
+			"label": "actual closing tween settles behind the resident",
+			"ok": false
+		},
+		{
+			"label": "replay records no unreachable routes",
+			"ok": true
+		},
+		{
+			"label": "actual legacy root retired",
+			"ok": true
+		}
+	],
+	"closed_leaf_negative_control": {
+		"clear": false,
+		"colliders": [
+			"/root/ResidentServiceWorldTest/OrisonRoot/F03_DOOR_01/HingedLeaf"
+		],
+		"exclusions": 0,
+		"fractions": [
+			0.197265625,
+			0.203125
+		]
+	},
+	"door_events": [
+		{
+			"at": [
+				-3.26919269561768,
+				6.42999982833862,
+				-7.81654357910156
+			],
+			"door": {
+				"leaf_position": [
+					-2.42000007629395,
+					6.40000009536743,
+					-6.77600002288818
+				],
+				"leaf_rotation": [
+					0.0,
+					0.0,
+					0.0
+				],
+				"leaf_state": "closed",
+				"moving": true,
+				"open": true,
+				"ready": false
+			},
+			"elapsed_ms": 1114,
+			"event": "open_accepted_during_step"
+		}
+	],
+	"evidence_class": "Scoped diagnostic; not a schema-2 runtime_contract receipt",
+	"failures": 6,
+	"hash_normalization": "UTF-8 text with CRLF and CR normalized to LF",
+	"mode": "adjacent",
+	"movement_block": {
+		"door": {
+			"leaf_position": [
+				-2.42000007629395,
+				6.40000009536743,
+				-6.77600002288818
+			],
+			"leaf_rotation": [
+				0.0,
+				1.74532926082611,
+				0.0
+			],
+			"leaf_state": "closed",
+			"moving": false,
+			"open": true,
+			"ready": true
+		},
+		"from": [
+			-2.86672425270081,
+			6.42999982833862,
+			-7.64500141143799
+		],
+		"leg": 1,
+		"phase": "walking_step",
+		"probe": {
+			"clear": false,
+			"colliders": [
+				"/root/ResidentServiceWorldTest/OrisonRoot/F03_DOOR_01/HingedLeaf"
+			],
+			"exclusions": 0,
+			"fractions": [
+				0.87890625,
+				0.884765625
+			]
+		},
+		"stage": 4,
+		"to": [
+			-2.85062551498413,
+			6.42999982833862,
+			-7.63813972473145
+		]
+	},
+	"owner": {
+		"haunt": [
+			0.0,
+			6.42999982833862,
+			-5.0
+		],
+		"home": [
+			9.74279975891113,
+			3.23000001907349,
+			-3.25539994239807
+		],
+		"home_door": "/root/ResidentServiceWorldTest/OrisonRoot/F02_DOOR_05",
+		"slug": "juno_kells",
+		"unit": "2C"
+	},
+	"public_route": {
+		"connected_pair": [
+			21,
+			19
+		],
+		"from": [
+			1.92499995231628,
+			6.42999982833862,
+			7.40000009536743
+		],
+		"haunt_body": {
+			"clear": true,
+			"colliders": [],
+			"exclusions": 0,
+			"fractions": [
+				1.0,
+				1.0
+			]
+		},
+		"landing_body": {
+			"clear": true,
+			"colliders": [],
+			"exclusions": 0,
+			"fractions": [
+				1.0,
+				1.0
+			]
+		},
+		"path": [
+			[
+				1.92499995231628,
+				6.42999982833862,
+				7.40000009536743
+			],
+			[
+				0.0,
+				6.40000009536743,
+				8.28999996185303
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				8.28999996185303
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				0.0
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				-8.28999996185303
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-7.25
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-6.25
+			],
+			[
+				0.0,
+				6.40000009536743,
+				-5.0
+			],
+			[
+				0.0,
+				6.42999982833862,
+				-5.0
+			]
+		],
+		"to": [
+			0.0,
+			6.42999982833862,
+			-5.0
+		],
+		"unreachable_keys": [],
+		"visible_goal_candidates": [
+			{
+				"distance": 0.000899983977433294,
+				"id": 19
+			},
+			{
+				"distance": 5.3270001411438,
+				"id": 28
+			}
+		],
+		"visible_start_candidates": [
+			{
+				"distance": 4.49862480163574,
+				"id": 21
+			},
+			{
+				"distance": 6.82002544403076,
+				"id": 22
+			},
+			{
+				"distance": 10.1890258789063,
+				"id": 70
+			},
+			{
+				"distance": 40.546028137207,
+				"id": 20
+			}
+		]
+	},
+	"replay": {
+		"arrived": false,
+		"close_clear": true,
+		"closed_by_owner": false,
+		"collider_exclusions": 0,
+		"crossed": false,
+		"door": {
+			"leaf_position": [
+				-2.42000007629395,
+				6.40000009536743,
+				-6.77600002288818
+			],
+			"leaf_rotation": [
+				0.0,
+				1.74532926082611,
+				0.0
+			],
+			"leaf_state": "closed",
+			"moving": false,
+			"open": true,
+			"ready": true
+		},
+		"elapsed_ms": 2036,
+		"frames": 125,
+		"leg": 1,
+		"movement_clear": false,
+		"moving_wait_frames": 0,
+		"opened_by_owner": true,
+		"position": [
+			-2.85062551498413,
+			6.42999982833862,
+			-7.63813972473145
+		],
+		"readiness_clear": true,
+		"stage": 4,
+		"unreachable_keys": []
+	},
+	"runtime_source_sha256": {
+		"res://data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+		"res://scripts/building/building_root.gd": "affaf68941302f5e159f763097ddb420a0ff8ec55cdab7482ee1445dd51b604d",
+		"res://scripts/characters/resident_nav.gd": "bae793e4058c2b895815c28a39b6e87f09f83fcda863a825f9ed45cda767bf13",
+		"res://scripts/characters/resident_route_doors.gd": "fd84f9ca3d5bd51dcf0837e442eb7bf07af405ca72dead4daa2f9970cbc127f1",
+		"res://scripts/characters/resident_routines.gd": "4f1093654e1d8560fe07b15e4a1c673981ceca2fe1eb8e9af63b0032b4c8add9",
+		"res://scripts/props/door_prop.gd": "423f0c17795b4b97e6b83f8d53897060a4d9045db6c2dfbc2c09023f2171b5c8",
+		"res://tests/ResidentServiceWorldTest.tscn": "6a52e106f2bb172c9e641e063a70b6c654e59cbeac7e5f4358d1d5222bbeee5e",
+		"res://tests/resident_service_world_test.gd": "e05b024ebc452ff1897530f6b6430b8c4130d6e276e7091f3cb48d9258234f60"
+	},
+	"schema": "orison.resident-service-world-test.v1",
+	"scope": "Explicit door-adjacent suffix of the real F03 public arrival route to Juno's unchanged authored haunt. Fixture starts the actual owner at one existing route waypoint in AT_HAUNT. No home departure, lift ride, full autonomy or lifecycle acceptance.",
+	"service_crossing": {
+		"door_path": "/root/ResidentServiceWorldTest/OrisonRoot/F03_DOOR_01",
+		"local_at": [
+			0.480000019073486,
+			0.0,
+			0.0
+		],
+		"segment": 5,
+		"source_sign": -1.0,
+		"world_at": [
+			-1.94000005722046,
+			6.40000009536743,
+			-6.75
+		]
+	},
+	"settle_scope": "Inherited 1.6 seconds and two physics frames after build; no complete-builder-ready claim",
+	"transitions": []
+}

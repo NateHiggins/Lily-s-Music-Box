@@ -1,0 +1,217 @@
+{
+	"checks": [
+		{
+			"label": "opening frame 0 close safe-side point is physically clear while inside the closing envelope",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 directional owner opening starts for the close safe-side requester",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 production process cannot yield the held requester into the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 readiness restores both normal walking and player yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 home-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 locked home readiness hold also suppresses yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 moving home readiness hold suppresses yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 settled home releases normal yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 unsafe-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 unsafe-side requester starts clear of the closed leaf",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 actual opening arc refuses the unsafe-side requester without yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 independent actual leaf motion contacts the refused hypothetical capsule",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 occupancy-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 unsafe neighbour blocks an otherwise safe opening",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 another floor does not falsely occupy the opening arc",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 occupancy opening settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 abandoned safe opening relinquishes after relocation",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 a selected bent approach requests opening before entering the sweep",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 early bend hold is physically clear throughout the real opening",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 relocated route reacquires its closed physical owner",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 last opening settles before teardown",
+			"ok": true
+		},
+		{
+			"label": "opening frame 0 physical fixture world retires",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 close safe-side point is physically clear while inside the closing envelope",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 directional owner opening starts for the close safe-side requester",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 production process cannot yield the held requester into the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 readiness restores both normal walking and player yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 home-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 locked home readiness hold also suppresses yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 moving home readiness hold suppresses yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 settled home releases normal yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 unsafe-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 unsafe-side requester starts clear of the closed leaf",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 actual opening arc refuses the unsafe-side requester without yielding",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 independent actual leaf motion contacts the refused hypothetical capsule",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 occupancy-control close settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 unsafe neighbour blocks an otherwise safe opening",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 another floor does not falsely occupy the opening arc",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 occupancy opening settles",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 abandoned safe opening relinquishes after relocation",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 a selected bent approach requests opening before entering the sweep",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 early bend hold is physically clear throughout the real opening",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 relocated route reacquires its closed physical owner",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 last opening settles before teardown",
+			"ok": true
+		},
+		{
+			"label": "opening frame 1 physical fixture world retires",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"measurements": [
+		{
+			"bend_hold_clear": true,
+			"body_height": 1.55,
+			"body_radius": 0.28,
+			"independent_unsafe_contact": true,
+			"movement_collider_exclusions": 0,
+			"opening_frames": 27,
+			"origin": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"safe_hold_clear": true,
+			"swing_out": false,
+			"yaw": 0.0
+		},
+		{
+			"bend_hold_clear": true,
+			"body_height": 1.55,
+			"body_radius": 0.28,
+			"independent_unsafe_contact": true,
+			"movement_collider_exclusions": 0,
+			"opening_frames": 30,
+			"origin": [
+				13.0,
+				9.0,
+				-21.0
+			],
+			"safe_hold_clear": true,
+			"swing_out": true,
+			"yaw": 0.71
+		}
+	],
+	"schema": "orison.resident-door-opening-safety-test.v1",
+	"scope": "Real DoorProp opening sweeps and process/yield holds in two translated/rotated private worlds. Safe/unsafe requester, neighbour, vertical separation and bent-approach controls. Zero collider exclusions. No whole-autonomy performance or runtime_contract claim."
+}

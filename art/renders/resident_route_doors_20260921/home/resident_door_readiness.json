@@ -1,0 +1,585 @@
+{
+	"checks": [
+		{
+			"label": "frame 0 closed actual leaf blocks the centre crossing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 neighbouring masonry remains blocking",
+			"ok": true
+		},
+		{
+			"label": "frame 0 the hold position is outside the physical leaf sweep",
+			"ok": true
+		},
+		{
+			"label": "frame 0 closed owner reports no passage readiness",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 0 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 0 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 2 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 2 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 4 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 4 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 7 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 7 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 8 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 8 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 0 open flag alone is insufficient during the real tween",
+			"ok": true
+		},
+		{
+			"label": "frame 0 actual opening reaches settled state within the frame budget",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 0 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 2 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 4 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 7 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 stage 8 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 no capsule overlaps the leaf while residents wait",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled owner reports passage readiness",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled leaf releases stage 0",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled leaf releases stage 2",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled leaf releases stage 4",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled leaf releases stage 7",
+			"ok": true
+		},
+		{
+			"label": "frame 0 settled leaf releases stage 8",
+			"ok": true
+		},
+		{
+			"label": "frame 0 full production walk crosses the real leaf without body contact",
+			"ok": true
+		},
+		{
+			"label": "frame 0 departure closes behind the resident asynchronously",
+			"ok": true
+		},
+		{
+			"label": "frame 0 close animation settles",
+			"ok": true
+		},
+		{
+			"label": "frame 0 full HOME return opens and waits for the actual leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 0 full HOME return reaches home without any body exclusion",
+			"ok": true
+		},
+		{
+			"label": "frame 0 HOME return closes the actual leaf behind the resident",
+			"ok": true
+		},
+		{
+			"label": "frame 0 return close settles",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked owner holds stage 0",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked owner holds stage 2",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked owner holds stage 4",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked owner holds stage 7",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked owner holds stage 8",
+			"ok": true
+		},
+		{
+			"label": "frame 0 unlocking retries through the actual owner while still holding",
+			"ok": true
+		},
+		{
+			"label": "frame 0 retried opening settles",
+			"ok": true
+		},
+		{
+			"label": "frame 0 a player closing the leaf cannot resume the resident prematurely",
+			"ok": true
+		},
+		{
+			"label": "frame 0 close-request fixture settles",
+			"ok": true
+		},
+		{
+			"label": "frame 0 refused close during opening stays pending",
+			"ok": true
+		},
+		{
+			"label": "frame 0 pending close retries and completes its cycle when accepted",
+			"ok": true
+		},
+		{
+			"label": "frame 0 accepted close settles",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked-close fixture opens",
+			"ok": true
+		},
+		{
+			"label": "frame 0 locked close remains pending without overriding the lock",
+			"ok": true
+		},
+		{
+			"label": "frame 0 unlocking permits the pending close through its owner",
+			"ok": true
+		},
+		{
+			"label": "frame 0 passed stage 0 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 far stage 0 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 0 door-free parallel stage 0 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 0 passed stage 2 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 far stage 2 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 0 door-free parallel stage 2 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 0 passed stage 4 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 far stage 4 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 0 door-free parallel stage 4 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 0 passed stage 7 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 far stage 7 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 0 door-free parallel stage 7 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 0 passed stage 8 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 0 far stage 8 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 0 door-free parallel stage 8 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 0 final owned tween settles before retirement",
+			"ok": true
+		},
+		{
+			"label": "frame 0 private world retires",
+			"ok": true
+		},
+		{
+			"label": "frame 1 closed actual leaf blocks the centre crossing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 neighbouring masonry remains blocking",
+			"ok": true
+		},
+		{
+			"label": "frame 1 the hold position is outside the physical leaf sweep",
+			"ok": true
+		},
+		{
+			"label": "frame 1 closed owner reports no passage readiness",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 0 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 0 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 2 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 2 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 4 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 4 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 7 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 7 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 8 holds on the opening request",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 8 uses its idle clip while waiting",
+			"ok": true
+		},
+		{
+			"label": "frame 1 open flag alone is insufficient during the real tween",
+			"ok": true
+		},
+		{
+			"label": "frame 1 actual opening reaches settled state within the frame budget",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 0 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 2 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 4 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 7 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 stage 8 waits throughout the moving leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 no capsule overlaps the leaf while residents wait",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled owner reports passage readiness",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled leaf releases stage 0",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled leaf releases stage 2",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled leaf releases stage 4",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled leaf releases stage 7",
+			"ok": true
+		},
+		{
+			"label": "frame 1 settled leaf releases stage 8",
+			"ok": true
+		},
+		{
+			"label": "frame 1 full production walk crosses the real leaf without body contact",
+			"ok": true
+		},
+		{
+			"label": "frame 1 departure closes behind the resident asynchronously",
+			"ok": true
+		},
+		{
+			"label": "frame 1 close animation settles",
+			"ok": true
+		},
+		{
+			"label": "frame 1 full HOME return opens and waits for the actual leaf",
+			"ok": true
+		},
+		{
+			"label": "frame 1 full HOME return reaches home without any body exclusion",
+			"ok": true
+		},
+		{
+			"label": "frame 1 HOME return closes the actual leaf behind the resident",
+			"ok": true
+		},
+		{
+			"label": "frame 1 return close settles",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked owner holds stage 0",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked owner holds stage 2",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked owner holds stage 4",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked owner holds stage 7",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked owner holds stage 8",
+			"ok": true
+		},
+		{
+			"label": "frame 1 unlocking retries through the actual owner while still holding",
+			"ok": true
+		},
+		{
+			"label": "frame 1 retried opening settles",
+			"ok": true
+		},
+		{
+			"label": "frame 1 a player closing the leaf cannot resume the resident prematurely",
+			"ok": true
+		},
+		{
+			"label": "frame 1 close-request fixture settles",
+			"ok": true
+		},
+		{
+			"label": "frame 1 refused close during opening stays pending",
+			"ok": true
+		},
+		{
+			"label": "frame 1 pending close retries and completes its cycle when accepted",
+			"ok": true
+		},
+		{
+			"label": "frame 1 accepted close settles",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked-close fixture opens",
+			"ok": true
+		},
+		{
+			"label": "frame 1 locked close remains pending without overriding the lock",
+			"ok": true
+		},
+		{
+			"label": "frame 1 unlocking permits the pending close through its owner",
+			"ok": true
+		},
+		{
+			"label": "frame 1 passed stage 0 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 far stage 0 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 1 door-free parallel stage 0 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 1 passed stage 2 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 far stage 2 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 1 door-free parallel stage 2 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 1 passed stage 4 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 far stage 4 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 1 door-free parallel stage 4 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 1 passed stage 7 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 far stage 7 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 1 door-free parallel stage 7 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 1 passed stage 8 continues during asynchronous closing",
+			"ok": true
+		},
+		{
+			"label": "frame 1 far stage 8 keeps approaching",
+			"ok": true
+		},
+		{
+			"label": "frame 1 door-free parallel stage 8 keeps moving",
+			"ok": true
+		},
+		{
+			"label": "frame 1 final owned tween settles before retirement",
+			"ok": true
+		},
+		{
+			"label": "frame 1 private world retires",
+			"ok": true
+		}
+	],
+	"failures": 0,
+	"measurements": [
+		{
+			"body_height": 1.55,
+			"body_radius": 0.28,
+			"close_retry_frames": 31,
+			"movement_collider_exclusions": 0,
+			"opening_frames": 27,
+			"origin": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"retry_frames": 62,
+			"return_clear": true,
+			"return_frames": 251,
+			"return_held_frames": 31,
+			"swing_out": false,
+			"walk_clear": true,
+			"walk_frames": 177,
+			"yaw": 0.0
+		},
+		{
+			"body_height": 1.55,
+			"body_radius": 0.28,
+			"close_retry_frames": 31,
+			"movement_collider_exclusions": 0,
+			"opening_frames": 29,
+			"origin": [
+				17.0,
+				8.0,
+				-23.0
+			],
+			"retry_frames": 62,
+			"return_clear": true,
+			"return_frames": 251,
+			"return_held_frames": 31,
+			"swing_out": true,
+			"walk_clear": true,
+			"walk_frames": 177,
+			"yaw": 0.73
+		}
+	],
+	"schema": "orison.resident-door-readiness-test.v1",
+	"scope": "Actual DoorProp state/tweens and five ResidentRoutines route callers in translated/rotated private worlds. Body overlap and sweeps have zero collider exclusions. No composed F06, whole-autonomy, performance or runtime_contract admission."
+}

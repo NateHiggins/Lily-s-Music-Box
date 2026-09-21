@@ -267,6 +267,9 @@ const STREET_ROUTES := {
 }
 const STREET_Z := 0.06
 
+const RouteDoors = preload("res://scripts/characters/resident_route_doors.gd")
+var _route_doors := RouteDoors.new()
+
 var actors: Array = []
 ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
 ## everything degrades to the old straight-line walk.
@@ -635,7 +638,13 @@ const YIELD_SPEED := 1.6
 var _player: Node3D
 
 
+func _exit_tree() -> void:
+	_route_doors.dispose()
+
+
 func _process(delta: float) -> void:
+	# Retire abandoned requests even after the last resident has left the tree.
+	_route_doors.tick(self)
 	if inspection_hold:
 		return
 	if _player == null or not is_instance_valid(_player):
@@ -648,6 +657,9 @@ func _process(delta: float) -> void:
 
 
 func _yield_to_player(actor: Dictionary, delta: float) -> void:
+	# The readiness hold also owns displacement from player yielding.
+	if bool(actor.get("door_waiting", false)):
+		return
 	if _player == null:
 		return
 	var node: Node3D = actor.node
@@ -672,8 +684,19 @@ func _yield_to_player(actor: Dictionary, delta: float) -> void:
 
 
 func _step(actor: Dictionary, delta: float) -> void:
+	actor.door_waiting = false
 	var node: Node3D = actor.node
 	if not is_instance_valid(node):
+		return
+	# Only real walking uses this route-door owner. Hidden lift/shop transfers
+	# retain their existing semantics and never count as crossing a leaf.
+	var walking: bool = node.visible and int(actor.leg) < actor.path.size() \
+			and int(actor.stage) in [Stage.HOME, Stage.PACING, Stage.WATCHING,
+				Stage.TO_LIFT, Stage.AT_HAUNT, Stage.RETURNING,
+				Stage.ON_STAIRS, Stage.RETURN_STAIRS, Stage.STREET]
+	if not _route_doors.update(self, actor, walking, WALK_SPEED * maxf(delta, 0.0)):
+		actor.door_waiting = true
+		_play(actor, "idle")
 		return
 	actor.timer -= delta
 	match int(actor.stage):
@@ -1004,7 +1027,8 @@ func _manage_home_door(actor: Dictionary, returning: bool) -> bool:
 		var passed := node.global_position.distance_to(actor.home) < 0.48 \
 				if returning else at_leaf > 1.60
 		if passed:
-			door.npc_set_open(false)
+			if _route_doors.can_close(self, door):
+				door.npc_set_open(false)
 			# open flips only when the owner accepts closing (or was already
 			# closing/closed). Do not wait for that animation behind the NPC.
 			if not door.open:
@@ -1015,6 +1039,7 @@ func _manage_home_door(actor: Dictionary, returning: bool) -> bool:
 		# Cycle 1 rechecks too: a player may close a previously opened leaf.
 		door.npc_set_open(true)
 		if not door.is_ready_for_passage():
+			actor.door_waiting = true
 			return false
 		actor.door_cycle = 1
 	return true
@@ -1063,7 +1088,9 @@ func _follow(actor: Dictionary, node: Node3D, delta: float) -> bool:
 		if to.length() < 0.16:
 			actor.leg = int(actor.leg) + 1
 			continue
+		var before: Vector3 = node.global_position
 		node.global_position += to.normalized() * WALK_SPEED * delta
+		_route_doors.moved(self, actor, before, node.global_position)
 		var facing := Vector2(to.x, to.z)
 		if facing.length() > 0.01:
 			# Imported walk faces +Z while Godot's conventional forward is -Z.

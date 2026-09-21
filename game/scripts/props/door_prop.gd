@@ -19,6 +19,9 @@ var finish_variant := 0
 
 const HINGE_SETBACK := 0.026
 
+## Host lifecycle invalidates route caches without retaining any world.
+static var route_registry_revision: int = 0
+
 var open := false
 var _hinge_offset := 0.0
 var _body: AnimatableBody3D
@@ -51,6 +54,18 @@ func warehouse_rotation_y() -> float:
 	return PI
 
 
+## Inherited even by LandmarkEntryDoor, whose _ready owns different geometry.
+func _enter_tree() -> void:
+	add_to_group("resident_route_doors")
+	set_notify_transform(true)
+	route_registry_revision += 1
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and is_inside_tree():
+		route_registry_revision += 1
+
+
 func _ready() -> void:
 	if door_kind == "apartment_entry" and unit != "":
 		add_to_group("apartment_doors")
@@ -63,6 +78,7 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
+	route_registry_revision += 1
 	# The host owns its semantic pool source even after a one-shot has finished.
 	# Leave other doors and other users of the shared voice pool intact.
 	if is_instance_valid(AudioPolicy):
@@ -266,11 +282,15 @@ func interact(_player: Node) -> void:
 	_moving = true
 	open = not open
 	_play_move()
-	var swept := -100.0 if swing_out else 100.0
 	var tween := create_tween()
 	tween.tween_property(_body, "rotation:y",
-			deg_to_rad(swept) if open else 0.0, 0.5).set_trans(Tween.TRANS_SINE)
+			opening_angle_radians() if open else 0.0, 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
+
+
+## Shared by the owner tween and prospective resident clearance checks.
+func opening_angle_radians() -> float:
+	return deg_to_rad(-100.0 if swing_out else 100.0)
 
 
 func npc_set_open(want_open: bool) -> void:

@@ -96,3 +96,10 @@ On the owner's renewed V2 request, the debug-menu question exposed two actual in
 
 
 The next resumed phase fixes the recorded home-door collision: **ResidentF06RouteTest** now passes 19/19 on its identical route, and **ResidentDoorReadinessTest** passes 134/134 for real departure/return and retries. See **design/astra/RESIDENT_HOME_DOOR_2026-09-19.md**. The owner then explicitly requested residents open doors before passage and close behind them; general non-home path-door coverage and shared occupancy checks are in preparation. The earlier F06 blocked wording remains historical, not the current collision verdict. Broad V2/spatial/candidate verification is still pending.
+
+
+## Latest checkpoint — 2026-09-21 commit-and-push request
+
+Current state supersedes earlier general-door continuation notes: focused opening/route/home suites pass **44/44 + 110/110 + 134/134**, but the actual service-route test remains **14/20** because the settled 100-degree leaf intersects its angled approach. Complete NPC owner-controlled 168-degree passage opening and replay that actual route. Partial drafts are preserved as untested text, not applied runtime code. See **RESIDENT_ROUTE_DOORS_2026-09-21.md** and **art/renders/resident_route_doors_20260921/sources.json** for the exact work and failures.
+
+Juno's full trip also retains a separate untouched-home spawn/furniture refusal **F02:10:2**. The service wait-observation revision is not rerun. Wider movement regressions and fresh full-candidate verification remain pending. User requested commit and push of current work; this is a WIP branch checkpoint, not acceptance or a main merge. Historical untracked generated UIDs are preserved. Previous debug-pointer and Blender checkpoints remain intact.

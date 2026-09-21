@@ -1,0 +1,756 @@
+--- a/game/scripts/props/door_prop.gd
++++ b/game/scripts/props/door_prop.gd
+@@ -18,6 +18,9 @@
+ var finish_variant := 0
+ 
+ const HINGE_SETBACK := 0.026
++
++## Host lifecycle invalidates route caches without retaining any world.
++static var route_registry_revision: int = 0
+ 
+ var open := false
+ var _hinge_offset := 0.0
+@@ -51,6 +54,18 @@
+ 	return PI
+ 
+ 
++## Inherited even by LandmarkEntryDoor, whose _ready owns different geometry.
++func _enter_tree() -> void:
++	add_to_group("resident_route_doors")
++	set_notify_transform(true)
++	route_registry_revision += 1
++
++
++func _notification(what: int) -> void:
++	if what == NOTIFICATION_TRANSFORM_CHANGED and is_inside_tree():
++		route_registry_revision += 1
++
++
+ func _ready() -> void:
+ 	if door_kind == "apartment_entry" and unit != "":
+ 		add_to_group("apartment_doors")
+@@ -63,6 +78,7 @@
+ 
+ 
+ func _exit_tree() -> void:
++	route_registry_revision += 1
+ 	# The host owns its semantic pool source even after a one-shot has finished.
+ 	# Leave other doors and other users of the shared voice pool intact.
+ 	if is_instance_valid(AudioPolicy):
+--- a/game/scripts/characters/resident_routines.gd
++++ b/game/scripts/characters/resident_routines.gd
+@@ -267,6 +267,9 @@
+ }
+ const STREET_Z := 0.06
+ 
++const RouteDoors = preload("res://scripts/characters/resident_route_doors.gd")
++var _route_doors := RouteDoors.new()
++
+ var actors: Array = []
+ ## Portal-graph pathfinding; see resident_nav.gd. Null-safe: without it
+ ## everything degrades to the old straight-line walk.
+@@ -635,7 +638,13 @@
+ var _player: Node3D
+ 
+ 
++func _exit_tree() -> void:
++	_route_doors.dispose()
++
++
+ func _process(delta: float) -> void:
++	# Retire abandoned requests even after the last resident has left the tree.
++	_route_doors.tick(self)
+ 	if inspection_hold:
+ 		return
+ 	if _player == null or not is_instance_valid(_player):
+@@ -674,6 +683,15 @@
+ func _step(actor: Dictionary, delta: float) -> void:
+ 	var node: Node3D = actor.node
+ 	if not is_instance_valid(node):
++		return
++	# Only real walking uses this route-door owner. Hidden lift/shop transfers
++	# retain their existing semantics and never count as crossing a leaf.
++	var walking: bool = node.visible and int(actor.leg) < actor.path.size() \
++			and int(actor.stage) in [Stage.HOME, Stage.PACING, Stage.WATCHING,
++				Stage.TO_LIFT, Stage.AT_HAUNT, Stage.RETURNING,
++				Stage.ON_STAIRS, Stage.RETURN_STAIRS, Stage.STREET]
++	if not _route_doors.update(self, actor, walking, WALK_SPEED * maxf(delta, 0.0)):
++		_play(actor, "idle")
+ 		return
+ 	actor.timer -= delta
+ 	match int(actor.stage):
+@@ -1004,7 +1022,8 @@
+ 		var passed := node.global_position.distance_to(actor.home) < 0.48 \
+ 				if returning else at_leaf > 1.60
+ 		if passed:
+-			door.npc_set_open(false)
++			if _route_doors.can_close(self, door):
++				door.npc_set_open(false)
+ 			# open flips only when the owner accepts closing (or was already
+ 			# closing/closed). Do not wait for that animation behind the NPC.
+ 			if not door.open:
+@@ -1063,7 +1082,9 @@
+ 		if to.length() < 0.16:
+ 			actor.leg = int(actor.leg) + 1
+ 			continue
++		var before: Vector3 = node.global_position
+ 		node.global_position += to.normalized() * WALK_SPEED * delta
++		_route_doors.moved(self, actor, before, node.global_position)
+ 		var facing := Vector2(to.x, to.z)
+ 		if facing.length() > 0.01:
+ 			# Imported walk faces +Z while Godot's conventional forward is -Z.
+--- a/game/tests/resident_door_readiness_test.gd
++++ b/game/tests/resident_door_readiness_test.gd
+@@ -220,11 +220,12 @@
+ 		routines._step(actor, STEP)
+ 		_check(label + " far stage %d keeps approaching" % int(actor.stage),
+ 			actor.node.global_position.distance_to(before) > 0.001)
+-		_reset(actor, start, goal)
++		# Unlinked is not door-free: use a parallel path on the same side.
++		_reset(actor, start, start + frame.global_basis.x * 0.5)
+ 		actor.home_door = null
+ 		before = actor.node.global_position
+ 		routines._step(actor, STEP)
+-		_check(label + " no-door stage %d keeps moving" % int(actor.stage),
++		_check(label + " door-free parallel stage %d keeps moving" % int(actor.stage),
+ 			actor.node.global_position.distance_to(before) > 0.001)
+ 		actor.home_door = door
+ 	_check(label + " final owned tween settles before retirement", await _settled(door))
+--- /dev/null
++++ b/game/scripts/characters/resident_route_doors.gd
+@@ -0,0 +1,292 @@
++class_name ResidentRouteDoors
++extends RefCounted
++## Route selection and pending-close bookkeeping. DoorProp alone moves leaves.
++## Weak references never retain a scene, a resident, or a World3D.
++
++const BODY_RADIUS := 0.28
++const BODY_HEIGHT := 1.55
++const CLEARANCE := 0.08
++const PLANE_EPSILON := 0.001
++
++var _routes: Dictionary = {}
++var _engaged: Dictionary = {}
++var _pending_close: Dictionary = {}
++
++
++func tick(routines: Node3D) -> void:
++	_prune()
++	_close_pending(routines)
++
++
++func update(routines: Node3D, actor: Dictionary, walking: bool, max_step: float) -> bool:
++	tick(routines)
++	var node: Node3D = actor.node
++	var key: int = node.get_instance_id()
++	if not walking:
++		_relinquish(_engaged.get(key, []))
++		_engaged.erase(key)
++		_routes.erase(key)
++		_close_pending(routines)
++		return true
++	var path: PackedVector3Array = actor.path
++	var state: Dictionary = _routes.get(key, {})
++	if not state.is_empty() and state.path != path:
++		_relinquish(_engaged.get(key, []))
++		_engaged.erase(key)
++	if state.is_empty() or bool(state.get("reselect", false)) or state.path != path \
++			or int(state.revision) != DoorProp.route_registry_revision \
++			or _doors_moved(state):
++		state = _select(routines, actor)
++		_routes[key] = state
++	var ready := true
++	for passage: Dictionary in state.doors:
++		var door: DoorProp = passage.door.get_ref() as DoorProp
++		if not _same_world(door, node) or door == actor.get("home_door"):
++			continue
++		if bool(passage.get("completed", false)):
++			continue
++		var trigger: float = _sweep_radius(door) + BODY_RADIUS + CLEARANCE \
++				+ maxf(max_step, 0.0)
++		if _distance_to_crossing(actor, passage) > trigger:
++			continue
++		if not bool(passage.get("engaged", false)):
++			passage.engaged = true
++			_pending_close.erase(door.get_instance_id())
++			var active: Array = _engaged.get(key, [])
++			active.append(passage)
++			_engaged[key] = active
++		if not door.is_ready_for_passage():
++			# The requester is held outside the full sweep. Another resident
++			# already inside it also prevents starting a swing through them.
++			if can_close(routines, door):
++				door.npc_set_open(true)
++			ready = false
++	return ready
++
++
++## Called only after real _follow movement, never for lift/shop teleports.
++func moved(routines: Node3D, actor: Dictionary, from: Vector3, to: Vector3) -> void:
++	var node: Node3D = actor.node
++	var key: int = node.get_instance_id()
++	var keep: Array = []
++	for passage: Dictionary in _engaged.get(key, []):
++		var door: DoorProp = passage.door.get_ref() as DoorProp
++		if not _same_world(door, node):
++			continue
++		var a: Vector3 = door.to_local(from)
++		var b: Vector3 = door.to_local(to)
++		var source_side: float = passage.source_side
++		if a.z * source_side > PLANE_EPSILON:
++			passage.saw_source = true
++		if bool(passage.get("saw_source", false)) and a.z * source_side >= -PLANE_EPSILON \
++				and b.z * source_side < -PLANE_EPSILON:
++			var ratio: float = clampf(-a.z / (b.z - a.z), 0.0, 1.0)
++			if _inside_aperture(door, a.lerp(b, ratio)):
++				passage.crossed = true
++		if bool(passage.get("crossed", false)) \
++				and b.z * source_side < -PLANE_EPSILON and not _occupies_sweep(door, to):
++			passage.completed = true
++			_pending_close[door.get_instance_id()] = weakref(door)
++			if _routes.has(key): _routes[key].reselect = true
++		else:
++			keep.append(passage)
++	_engaged[key] = keep
++	_close_pending(routines)
++
++
++## Shared by the home-entry owner and general route passages. A passed
++## resident never closes into a visible neighbour on the same physical floor.
++func can_close(routines: Node3D, door: DoorProp) -> bool:
++	if not is_instance_valid(door) or not door.is_inside_tree():
++		return false
++	var residents: Array = routines.get("actors")
++	for other: Dictionary in residents:
++		var node: Node3D = other.get("node")
++		# Floor streaming hides parents but does not remove resident bodies.
++		# Only the actor's own hidden lift/shop state is absent physically.
++		if _same_world(door, node) and node.visible \
++				and _occupies_sweep(door, node.global_position):
++			return false
++	return true
++
++
++func _close_pending(routines: Node3D) -> void:
++	for key in _pending_close.keys():
++		var door: DoorProp = _pending_close[key].get_ref() as DoorProp
++		if not is_instance_valid(door) or not door.is_inside_tree():
++			_pending_close.erase(key)
++			continue
++		if can_close(routines, door):
++			door.npc_set_open(false)
++			if not door.open:
++				_pending_close.erase(key)
++
++
++func _select(routines: Node3D, actor: Dictionary) -> Dictionary:
++	var node: Node3D = actor.node
++	var key: int = node.get_instance_id()
++	var retained: Array = []
++	var result := {"node": weakref(node), "path": actor.path.duplicate(),
++		"revision": DoorProp.route_registry_revision, "doors": []}
++	for candidate in routines.get_tree().get_nodes_in_group("resident_route_doors"):
++		var door := candidate as DoorProp
++		if door == actor.get("home_door") or not _same_world(door, node) \
++				or door.door_kind == "cabinet" or door.height < BODY_HEIGHT:
++			continue
++		var crossing := _crossing(door, actor)
++		if crossing.is_empty():
++			continue
++		crossing.door = weakref(door)
++		crossing.transform = door.global_transform
++		# Preserve a currently engaged physical passage through a route refresh.
++		for existing: Dictionary in _engaged.get(key, []):
++			if existing.door.get_ref() == door and not bool(existing.get("crossed", false)):
++				existing.point = crossing.point
++				existing.segment = crossing.segment
++				existing.transform = crossing.transform
++				crossing = existing
++				retained.append(existing)
++				break
++		result.doors.append(crossing)
++	for previous: Dictionary in _engaged.get(key, []):
++		if previous not in retained:
++			# A replaced/abandoned path relinquishes its open request. This is
++			# cancellation, not fabricated evidence of crossing the leaf.
++			_relinquish([previous])
++	_engaged[key] = retained
++	return result
++
++
++## A crossing requires opposite sides of the closed-leaf plane, through the
++## actual aperture. Merely travelling near or parallel to a door is irrelevant.
++func _crossing(door: DoorProp, actor: Dictionary) -> Dictionary:
++	var node: Node3D = actor.node
++	var previous: Vector3 = door.to_local(node.global_position)
++	var source_side: float = signf(previous.z)
++	var plane_point := Vector3.INF
++	var plane_segment := -1
++	var path: PackedVector3Array = actor.path
++	for i in range(int(actor.leg), path.size()):
++		var next: Vector3 = door.to_local(path[i])
++		if absf(next.z) <= PLANE_EPSILON:
++			# Preserve the actual on-plane waypoint even outside the aperture:
++			# skipping it would invent a chord through a nearby unrelated door.
++			if source_side != 0.0 and (plane_segment < 0 \
++					or (not _inside_aperture(door, plane_point) and _inside_aperture(door, next))):
++				plane_point = next
++				plane_segment = i
++			previous = next
++			continue
++		var next_side: float = signf(next.z)
++		if source_side != 0.0 and next_side != source_side:
++			var at: Vector3 = plane_point
++			var segment: int = plane_segment
++			if segment < 0:
++				var ratio: float = -previous.z / (next.z - previous.z)
++				at = previous.lerp(next, ratio)
++				segment = i
++			if _inside_aperture(door, at):
++				return {"point": door.to_global(at), "segment": segment,
++					"source_side": source_side, "saw_source": false,
++					"engaged": false, "crossed": false, "completed": false}
++		previous = next
++		source_side = next_side
++		plane_point = Vector3.INF
++		plane_segment = -1
++	return {}
++
++
++func _inside_aperture(door: DoorProp, at: Vector3) -> bool:
++	if not at.is_finite(): return false
++	# Runtime doors are upright yaw-mounted; reject unsupported shear/tilt
++	# rather than interpret an unrelated floor as an operable passage.
++	var up: Vector3 = door.global_basis.y.normalized()
++	if up.dot(Vector3.UP) < 0.999:
++		return false
++	var scale_y: float = maxf(door.global_basis.y.length(), 0.0001)
++	return at.x >= 0.0 and at.x <= door.width and at.y >= -CLEARANCE / scale_y \
++			and at.y + BODY_HEIGHT / scale_y <= door.height + CLEARANCE / scale_y
++
++
++func _distance_to_crossing(actor: Dictionary, passage: Dictionary) -> float:
++	var leg: int = actor.leg
++	var segment: int = passage.segment
++	if leg > segment: return 0.0
++	var at: Vector3 = actor.node.global_position
++	var distance := 0.0
++	var path: PackedVector3Array = actor.path
++	for i in range(leg, mini(segment, path.size())):
++		distance += at.distance_to(path[i])
++		at = path[i]
++	return distance + at.distance_to(passage.point)
++
++
++func _sweep_radius(door: DoorProp) -> float:
++	if not is_instance_valid(door._body):
++		return door.width * maxf(door.global_basis.x.length(), door.global_basis.z.length())
++	var pivot: Vector3 = door._body.global_position
++	var radius := 0.0
++	for child in door._body.get_children():
++		var collision := child as CollisionShape3D
++		if collision == null or not collision.shape is BoxShape3D:
++			continue
++		var box := collision.shape as BoxShape3D
++		var half: Vector3 = box.size * 0.5
++		for x in [-1.0, 1.0]:
++			for z in [-1.0, 1.0]:
++				var corner: Vector3 = collision.to_global(Vector3(half.x * x, 0, half.z * z))
++				radius = maxf(radius, Vector2(corner.x - pivot.x, corner.z - pivot.z).length())
++	return maxf(radius, door.width * door.global_basis.x.length())
++
++
++func _occupies_sweep(door: DoorProp, foot: Vector3) -> bool:
++	var base: Vector3 = door.global_position
++	var top: Vector3 = door.to_global(Vector3(0, door.height, 0))
++	if foot.y >= maxf(base.y, top.y) + CLEARANCE \
++			or foot.y + BODY_HEIGHT <= minf(base.y, top.y) - CLEARANCE:
++		return false
++	var pivot: Vector3 = door._body.global_position if is_instance_valid(door._body) else base
++	return Vector2(foot.x - pivot.x, foot.z - pivot.z).length() \
++			<= _sweep_radius(door) + BODY_RADIUS + CLEARANCE
++
++
++func _same_world(door: DoorProp, node: Node3D) -> bool:
++	return is_instance_valid(door) and is_instance_valid(node) \
++			and door.is_inside_tree() and node.is_inside_tree() \
++			and door.get_world_3d() == node.get_world_3d()
++
++
++func _doors_moved(state: Dictionary) -> bool:
++	for passage: Dictionary in state.doors:
++		var door: DoorProp = passage.door.get_ref() as DoorProp
++		if not is_instance_valid(door) or not door.is_inside_tree() \
++				or door.global_transform != passage.transform:
++			return true
++	return false
++
++
++func _prune() -> void:
++	for key in _routes.keys():
++		var node: Node3D = _routes[key].node.get_ref() as Node3D
++		if not is_instance_valid(node) or not node.is_inside_tree():
++			_relinquish(_engaged.get(key, []))
++			_routes.erase(key)
++			_engaged.erase(key)
++
++
++func _relinquish(passages: Array) -> void:
++	for passage: Dictionary in passages:
++		var door: DoorProp = passage.door.get_ref() as DoorProp
++		if is_instance_valid(door) and door.is_inside_tree():
++			_pending_close[door.get_instance_id()] = weakref(door)
++
++
++func dispose() -> void:
++	_routes.clear()
++	_engaged.clear()
++	_pending_close.clear()
++
++
++func stats() -> Dictionary:
++	return {"actor_routes": _routes.size(), "pending_closes": _pending_close.size(),
++		"engaged_actors": _engaged.size()}
+--- /dev/null
++++ b/game/tests/resident_route_doors_test.gd
+@@ -0,0 +1,331 @@
++extends "res://tests/resident_door_readiness_test.gd"
++## Uses the existing independent actual-capsule probe and real DoorProp owner.
++## No navigation mutation, mocked readiness, collider exclusion or fake tween.
++
++const WALKING_STAGES := [ResidentRoutines.Stage.HOME, ResidentRoutines.Stage.PACING,
++	ResidentRoutines.Stage.WATCHING, ResidentRoutines.Stage.TO_LIFT,
++	ResidentRoutines.Stage.AT_HAUNT, ResidentRoutines.Stage.RETURNING,
++	ResidentRoutines.Stage.ON_STAIRS, ResidentRoutines.Stage.RETURN_STAIRS,
++	ResidentRoutines.Stage.STREET]
++
++
++func _run() -> void:
++	await _service_context(Vector3.ZERO, 0.0, false, 0)
++	await _service_context(Vector3(-19, 11, 27), -0.81, true, 1)
++	_finish()
++
++
++func _service_context(origin: Vector3, yaw: float, outward: bool, index: int) -> void:
++	var viewport := SubViewport.new()
++	viewport.own_world_3d = true
++	viewport.size = Vector2i(64, 64)
++	add_child(viewport)
++	var frame := Node3D.new()
++	frame.position = origin
++	frame.rotation.y = yaw
++	viewport.add_child(frame)
++	_box(frame, "Support", Vector3(0, -0.1, 0), Vector3(16, 0.2, 12))
++	_box(frame, "LeftMasonry", Vector3(-2.25, 1.2, 0), Vector3(3.48, 2.4, 0.18))
++	_box(frame, "RightMasonry", Vector3(2.25, 1.2, 0), Vector3(3.48, 2.4, 0.18))
++	var door: DoorProp = _service(frame, "RouteDoor_%d" % index, Vector3(-0.48, 0, 0), outward)
++	var off_route: DoorProp = _service(frame, "OffRouteDoor_%d" % index, Vector3(2.4, 0, 0), outward)
++	var routines := ResidentRoutines.new()
++	viewport.add_child(routines)
++	routines.set_process(false)
++	var side := 1.0 if outward else -1.0
++	var hold: Vector3 = frame.to_global(Vector3(0, 0.03, side * 1.30))
++	var start: Vector3 = frame.to_global(Vector3(0, 0.03, side * 2.4))
++	var goal: Vector3 = frame.to_global(Vector3(0, 0.03, -side * 2.4))
++	var actors: Array[Dictionary] = []
++	for stage in WALKING_STAGES:
++		actors.append(_actor(frame, null, int(stage), hold, goal))
++	routines.actors.assign(actors)
++	await get_tree().physics_frame
++	await get_tree().physics_frame
++	var label := "service frame %d" % index
++	_check(label + " service is registered without an apartment home link",
++		door.is_in_group("resident_route_doors") and not door.is_in_group("apartment_doors"))
++	_check(label + " closed service leaf physically blocks the aperture", not _body_clear(viewport, start, goal))
++	_check(label + " masonry remains an independent physical refusal",
++		not _body_clear(viewport, frame.to_global(Vector3(1.2, 0.03, -1)),
++			frame.to_global(Vector3(1.2, 0.03, 1))))
++	for actor in actors:
++		var timer_before: float = actor.timer
++		routines._step(actor, STEP)
++		_check(label + " actual walking stage %d holds and idles without consuming its route timer" % int(actor.stage),
++			actor.node.global_position.is_equal_approx(hold)
++			and actor.anim.current_animation == "Fixture_Idle" and actor.timer == timer_before)
++	_check(label + " open target alone is not settled readiness", door.open and door._moving)
++	var opening_clear := true
++	var opening_held := true
++	var opening_frames := 0
++	while door._moving and opening_frames < 180:
++		await get_tree().physics_frame
++		opening_frames += 1
++		if not door._moving: break
++		for actor in actors:
++			var before: Vector3 = actor.node.global_position
++			routines._step(actor, STEP)
++			opening_held = opening_held and actor.node.global_position.is_equal_approx(before)
++			opening_clear = opening_clear and _body_clear(viewport, before, actor.node.global_position)
++	_check(label + " all nine callers stay outside the real opening leaf", opening_held and opening_clear and not door._moving)
++	for actor in actors:
++		var before: Vector3 = actor.node.global_position
++		routines._step(actor, STEP)
++		_check(label + " settled service releases stage %d" % int(actor.stage),
++			actor.node.global_position.distance_to(before) > 0.001)
++	# Park the other witnesses. They remain real occupancy records, but are
++	# outside the door's sweep while this resident walks both directions.
++	var walker: Dictionary = actors[4]
++	for actor in actors:
++		if actor == walker: continue
++		actor.node.global_position = frame.to_global(Vector3(-3.2, 0.03, side * 3.5))
++		actor.path = PackedVector3Array()
++		actor.leg = 0
++	routines._route_doors.tick(routines)
++	_reset(walker, start, goal)
++	walker.stage = ResidentRoutines.Stage.AT_HAUNT
++	var departure: Dictionary = await _walk(routines, walker, viewport, door)
++	_check(label + " actual non-home departure reaches its goal with zero body exclusions",
++		departure.arrived and departure.clear and walker.node.global_position.distance_to(goal) < 0.17)
++	_check(label + " departure closes behind only after clearing the full leaf sweep", not door.open)
++	_check(label + " departure close settles", await _settled(door))
++	walker.stage = ResidentRoutines.Stage.HOME
++	_reset(walker, goal, start)
++	var returning: Dictionary = await _walk(routines, walker, viewport, door)
++	_check(label + " actual HOME return opens and waits for the non-home service leaf",
++		returning.opened and int(returning.held_frames) > 0)
++	_check(label + " actual return reaches its goal with zero body exclusions",
++		returning.arrived and returning.clear and walker.node.global_position.distance_to(start) < 0.17)
++	_check(label + " return closes the service leaf behind the resident", not door.open)
++	_check(label + " return close settles", await _settled(door))
++	_check(label + " nearby off-route leaf stayed closed through both walks", not off_route.open and not off_route._moving)
++	# One path crosses the same door twice. The second crossing must be
++	# rediscovered after the first passage closes, without replacing the path.
++	walker.stage = ResidentRoutines.Stage.AT_HAUNT
++	_reset(walker, start, start)
++	walker.path = PackedVector3Array([goal, start])
++	var looped: Dictionary = await _walk(routines, walker, viewport, door, 900)
++	_check(label + " repeated door in one route reopens and clears both crossings",
++		looped.arrived and looped.clear and int(looped.open_requests) >= 2
++		and walker.node.global_position.distance_to(start) < 0.17)
++	var loop_settled: bool = await _settled(door)
++	_check(label + " looped passage closes behind", not door.open and loop_settled)
++	# A locked service host is an actual refusal, not permission to walk
++	# through it. Unlocking retries its existing owner while staying still.
++	door.leaf_state = "locked"
++	_reset(walker, hold, goal)
++	var timer_before: float = walker.timer
++	routines._step(walker, STEP)
++	_check(label + " locked non-home door holds route and timer",
++		walker.node.global_position.is_equal_approx(hold) and walker.timer == timer_before
++		and not door.open and not door._moving)
++	door.leaf_state = "closed"
++	routines._step(walker, STEP)
++	_check(label + " unlocking retries through the real owner", door.open and door._moving
++		and walker.node.global_position.is_equal_approx(hold))
++	_check(label + " unlocked opening settles", await _settled(door))
++	door.npc_set_open(false)
++	var retry_held := true
++	var reopened := false
++	for _i in 180:
++		await get_tree().physics_frame
++		var was_ready: bool = door.is_ready_for_passage()
++		var before: Vector3 = walker.node.global_position
++		routines._step(walker, STEP)
++		if not was_ready: retry_held = retry_held and walker.node.global_position.is_equal_approx(before)
++		reopened = reopened or (door.open and door._moving)
++		if door.is_ready_for_passage(): break
++	_check(label + " player closing motion is waited out and opening retried", retry_held and reopened and door.is_ready_for_passage())
++	# A visitor standing in the doorway prevents both the general passage
++	# and the linked home owner from closing into the same occupied sweep.
++	var neighbour: Dictionary = actors[0]
++	neighbour.node.global_position = frame.to_global(Vector3(0, 0.03, 0))
++	neighbour.node.visible = true
++	neighbour.path = PackedVector3Array()
++	var occupied_walk: Dictionary = await _walk(routines, walker, viewport, door)
++	_check(label + " passed resident leaves door open for a neighbour in its sweep",
++		occupied_walk.arrived and occupied_walk.clear and door.is_ready_for_passage()
++		and int(routines._route_doors.stats().pending_closes) > 0)
++	walker.home_door = door
++	walker.door_cycle = 1
++	routines._manage_home_door(walker, false)
++	_check(label + " home owner shares visitor occupancy refusal", door.open and int(walker.door_cycle) == 1)
++	walker.home_door = null
++	door.leaf_state = "locked"
++	neighbour.node.global_position = frame.to_global(Vector3(-3.2, 0.03, side * 3.5))
++	routines._route_doors.tick(routines)
++	_check(label + " vacated but locked close remains pending", door.open and int(routines._route_doors.stats().pending_closes) > 0)
++	door.leaf_state = "closed"
++	routines._route_doors.tick(routines)
++	_check(label + " clear unlocked sweep accepts its pending close", not door.open and door._moving)
++	_check(label + " occupancy close settles", await _settled(door))
++	# Cancellation before crossing is also a relinquished request. It must
++	# close after its current opening settles, even if the actor stops walking.
++	_reset(walker, hold, goal)
++	routines._step(walker, STEP)
++	_check(label + " cancellation begins with an actual opening", door.open and door._moving)
++	walker.path = PackedVector3Array([hold + frame.global_basis.x * 0.4])
++	routines._step(walker, STEP)
++	walker.path = PackedVector3Array()
++	for _i in 180:
++		await get_tree().physics_frame
++		routines._route_doors.tick(routines)
++		routines._step(walker, STEP)
++		if not door.open and not door._moving: break
++	_check(label + " replaced un-crossed route relinquishes and closes without a fabricated passage",
++		not door.open and not door._moving and door.to_local(walker.node.global_position).z * side > 0.0
++		and int(routines._route_doors.stats().pending_closes) == 0)
++	# On-plane off-aperture waypoint: the actual polyline never crosses
++	# this opening; a chord formed by dropping that waypoint would do so.
++	var outside_start: Vector3 = door.to_global(Vector3(-2, 0.03, 1))
++	_reset(walker, outside_start, door.to_global(Vector3(2, 0.03, -1)))
++	walker.path = PackedVector3Array([door.to_global(Vector3(-2, 0.03, 0)),
++		door.to_global(Vector3(2, 0.03, -1))])
++	routines._step(walker, STEP)
++	_check(label + " off-aperture on-plane bend does not invent a door crossing",
++		not door.open and walker.node.global_position.distance_to(outside_start) > 0.001)
++	# Populate an empty cache, then add/move/remove a real door over that
++	# path. Host revisions, not a permanent scene snapshot, own discovery.
++	var late_start: Vector3 = frame.to_global(Vector3(5, 0.03, side * 1.30))
++	var late_goal: Vector3 = frame.to_global(Vector3(5, 0.03, -side * 2.4))
++	_reset(walker, late_start, late_goal)
++	routines._step(walker, STEP)
++	_check(label + " door-free path initially moves", walker.node.global_position.distance_to(late_start) > 0.001)
++	var late: DoorProp = _service(frame, "LateDoor_%d" % index, Vector3(4.52, 0, 0), outward)
++	_reset(walker, late_start, late_goal)
++	routines._step(walker, STEP)
++	_check(label + " late-added host invalidates empty selection and holds", late.open and late._moving
++		and walker.node.global_position.is_equal_approx(late_start))
++	_check(label + " late-added owner settles before removal", await _settled(late))
++	var late_ref: WeakRef = weakref(late)
++	late.queue_free()
++	late = null
++	for _i in 2: await get_tree().process_frame
++	routines._step(walker, STEP)
++	_check(label + " freed host is not retained and no longer gates", late_ref.get_ref() == null
++		and walker.node.global_position.distance_to(late_start) > 0.001)
++	off_route.position = Vector3(4.52, 0, 0)
++	off_route.force_update_transform()
++	_reset(walker, late_start, late_goal)
++	routines._step(walker, STEP)
++	_check(label + " moved host invalidates formerly off-route selection", off_route.open and off_route._moving
++		and walker.node.global_position.is_equal_approx(late_start))
++	_check(label + " moved host settles before restoring position", await _settled(off_route))
++	off_route.position = Vector3(2.4, 0, 0)
++	off_route.force_update_transform()
++	# Removing the last actor must still retire its pending door request.
++	var walker_ref: WeakRef = weakref(walker.node)
++	walker.node.queue_free()
++	for other in actors:
++		if other != walker: other.node.queue_free()
++	actors.clear()
++	routines.actors.clear()
++	walker.clear()
++	for _i in 180:
++		await get_tree().physics_frame
++		routines._route_doors.tick(routines)
++		if not off_route.open and not off_route._moving: break
++	_check(label + " actor teardown relinquishes its opened request", walker_ref.get_ref() == null
++		and not off_route.open and not off_route._moving and int(routines._route_doors.stats().pending_closes) == 0)
++	# Foreign-world host at the same global aperture must remain untouched.
++	var foreign := SubViewport.new()
++	foreign.own_world_3d = true
++	foreign.size = Vector2i(64, 64)
++	add_child(foreign)
++	var foreign_frame := Node3D.new()
++	foreign_frame.transform = frame.global_transform
++	foreign.add_child(foreign_frame)
++	var foreign_door: DoorProp = _service(foreign_frame, "ForeignDoor_%d" % index, Vector3(4.52, 0, 0), outward)
++	var independent: Dictionary = _actor(frame, null, ResidentRoutines.Stage.AT_HAUNT, late_start, late_goal)
++	routines.actors.append(independent)
++	routines._step(independent, STEP)
++	_check(label + " same-coordinate foreign World3D host is not opened",
++		independent.node.global_position.distance_to(late_start) > 0.001 and not foreign_door.open)
++	# The actual subclass overrides _ready. Inherited entry registration is
++	# required, rather than relying on ordinary DoorProp's build function.
++	var hero := LandmarkEntryDoor.new()
++	hero.name = "RegisteredHero_%d" % index
++	hero.position = Vector3(-6, 0, 0)
++	frame.add_child(hero)
++	_check(label + " actual Landmark override inherits route registration", hero.is_in_group("resident_route_doors")
++		and is_instance_valid(hero._body))
++	measurements.append({"origin": _v(origin), "yaw": yaw, "swing_out": outward,
++		"departure": departure, "return": returning, "repeated_route": looped,
++		"occupied_walk": occupied_walk, "body_radius": BODY_RADIUS,
++		"body_height": BODY_HEIGHT, "movement_collider_exclusions": 0})
++	var retired: WeakRef = weakref(viewport.find_world_3d())
++	var foreign_retired: WeakRef = weakref(foreign.find_world_3d())
++	viewport.queue_free()
++	foreign.queue_free()
++	viewport = null
++	foreign = null
++	routines = null
++	door = null
++	off_route = null
++	foreign_door = null
++	hero = null
++	frame = null
++	foreign_frame = null
++	actors.clear()
++	neighbour.clear()
++	independent.clear()
++	for _i in 4: await get_tree().process_frame
++	_check(label + " private worlds retire with all weak coordinator references", retired.get_ref() == null and foreign_retired.get_ref() == null)
++
++
++func _service(parent: Node3D, label: String, at: Vector3, outward: bool) -> DoorProp:
++	var door := DoorProp.new()
++	door.name = label
++	door.door_kind = "service"
++	door.width = 0.96
++	door.height = 2.10
++	door.position = at
++	door.swing_out = outward
++	parent.add_child(door)
++	return door
++
++
++func _walk(routines: ResidentRoutines, actor: Dictionary, viewport: SubViewport,
++		door: DoorProp, limit: int = 480) -> Dictionary:
++	var result := {"frames": 0, "clear": true, "arrived": false,
++		"held_frames": 0, "opened": false, "open_requests": 0}
++	var was_open: bool = door.open
++	while int(actor.leg) < actor.path.size() and int(result.frames) < limit:
++		await get_tree().physics_frame
++		var before: Vector3 = actor.node.global_position
++		routines._step(actor, STEP)
++		result.clear = bool(result.clear) and _body_clear(viewport, before, actor.node.global_position)
++		if actor.node.global_position.is_equal_approx(before) and door._moving:
++			result.held_frames = int(result.held_frames) + 1
++		if door.open and not was_open: result.open_requests = int(result.open_requests) + 1
++		result.opened = bool(result.opened) or door.open
++		was_open = door.open
++		result.frames = int(result.frames) + 1
++	result.arrived = int(actor.leg) >= actor.path.size()
++	return result
++
++
++func _check(label: String, ok: bool) -> void:
++	checks.append({"label": label, "ok": ok})
++	if not ok: failures += 1
++	print("[ROUTE DOORS] %s %s" % ["PASS" if ok else "FAIL", label])
++
++
++func _finish() -> void:
++	var output := OS.get_environment("SHOT_DIR")
++	if not output.is_empty():
++		var error := DirAccess.make_dir_recursive_absolute(output)
++		var file: FileAccess = FileAccess.open(output.path_join("resident_route_doors.json"), FileAccess.WRITE) if error == OK else null
++		if file == null:
++			_check("requested scoped evidence can be written", false)
++		else:
++			file.store_string(JSON.stringify({"schema": "orison.resident-route-doors-test.v1",
++				"scope": "Actual non-home DoorProp owner and all nine walking-stage gates; translated/rotated service departure, return and repeated passage with zero body exclusions. Occupancy, cancellation, lifecycle and foreign-world controls. No abstract shop transfer, elevator panel, full-autonomy performance or runtime_contract admission.",
++				"checks": checks, "failures": failures, "measurements": measurements}, "\t"))
++			file.flush()
++			var written: bool = file.get_error() == OK
++			file.close()
++			if not written: _check("requested scoped evidence was flushed", false)
++	print("[ROUTE DOORS] RESULT %d/%d" % [checks.size() - failures, checks.size()])
++	get_tree().quit(0 if failures == 0 else 1)
+--- /dev/null
++++ b/game/tests/ResidentRouteDoorsTest.tscn
+@@ -0,0 +1,6 @@
++[gd_scene load_steps=2 format=3]
++
++[ext_resource path="res://tests/resident_route_doors_test.gd" type="Script" id="1"]
++
++[node name="ResidentRouteDoorsTest" type="Node3D"]
++script = ExtResource("1")

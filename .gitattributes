@@ -60,3 +60,7 @@ art/renders/debug_menu_input_20260919/** -text whitespace=-blank-at-eol
 
 # Exact resident home-door before/after diagnostics.
 art/renders/resident_home_door_20260919/** -text whitespace=-blank-at-eol
+
+# Exact resident route-door WIP diagnostics.
+art/renders/resident_route_doors_20260921/** -text whitespace=-blank-at-eol
+art/renders/resident_route_doors_20260921/*.patch -text whitespace=-blank-at-eol,-space-before-tab

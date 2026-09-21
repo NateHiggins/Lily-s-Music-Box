@@ -220,11 +220,12 @@ func _context(origin: Vector3, yaw: float, outward: bool, index: int) -> void:
 		routines._step(actor, STEP)
 		_check(label + " far stage %d keeps approaching" % int(actor.stage),
 			actor.node.global_position.distance_to(before) > 0.001)
-		_reset(actor, start, goal)
+		# Unlinked is not door-free: use a parallel path on the same side.
+		_reset(actor, start, start + frame.global_basis.x * 0.5)
 		actor.home_door = null
 		before = actor.node.global_position
 		routines._step(actor, STEP)
-		_check(label + " no-door stage %d keeps moving" % int(actor.stage),
+		_check(label + " door-free parallel stage %d keeps moving" % int(actor.stage),
 			actor.node.global_position.distance_to(before) > 0.001)
 		actor.home_door = door
 	_check(label + " final owned tween settles before retirement", await _settled(door))

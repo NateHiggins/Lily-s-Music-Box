@@ -1,0 +1,228 @@
+extends "res://tests/resident_route_doors_test.gd"
+## Directional opening safety and production _process/yield integration.
+
+
+func _run() -> void:
+	await _opening_context(Vector3.ZERO, 0.0, false, 0)
+	await _opening_context(Vector3(13, 9, -21), 0.71, true, 1)
+	_finish()
+
+
+func _opening_context(origin: Vector3, yaw: float, outward: bool, index: int) -> void:
+	var viewport := SubViewport.new()
+	viewport.own_world_3d = true
+	viewport.size = Vector2i(64, 64)
+	add_child(viewport)
+	var frame := Node3D.new()
+	frame.position = origin
+	frame.rotation.y = yaw
+	viewport.add_child(frame)
+	_box(frame, "Support", Vector3(0, -0.1, 0), Vector3(10, 0.2, 10))
+	var door: DoorProp = _service(frame, "OpeningSafety_%d" % index, Vector3(-0.48, 0, 0), outward)
+	var routines := ResidentRoutines.new()
+	viewport.add_child(routines)
+	routines.set_process(false)
+	var safe_side := -1.0 if outward else 1.0
+	var safe: Vector3 = door.to_global(Vector3(0.48, 0.03, safe_side * 0.60))
+	var unsafe: Vector3 = door.to_global(Vector3(0.48, 0.03, -safe_side * 0.60))
+	var goal: Vector3 = door.to_global(Vector3(0.48, 0.03, -safe_side * 2.4))
+	var actor: Dictionary = _actor(frame, null, ResidentRoutines.Stage.AT_HAUNT, safe, goal)
+	routines.actors.append(actor)
+	var player := Node3D.new()
+	frame.add_child(player)
+	routines._player = player
+	player.global_position = safe + frame.global_basis.z * safe_side * 0.40
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var label := "opening frame %d" % index
+	_check(label + " close safe-side point is physically clear while inside the closing envelope",
+		_body_clear(viewport, safe, safe) and not routines._route_doors.can_close(routines, door))
+	# Player interaction keeps its original 100-degree target. That partial
+	# opening is not NPC passage readiness; the owner must widen it safely.
+	door.interact(null)
+	_check(label + " player opening settles at its unchanged 100-degree pose",
+		await _settled(door) and absf(absf(door._body.rotation.y) - deg_to_rad(100.0)) < 0.001)
+	_check(label + " settled player opening still requires NPC passage clearance", not door.is_ready_for_passage())
+	routines._process(STEP)
+	_check(label + " directional owner opening starts for the close safe-side requester",
+		door.open and door._moving and actor.node.global_position.is_equal_approx(safe))
+	var safe_clear := true
+	var held := true
+	var opening_frames := 0
+	while door._moving and opening_frames < 180:
+		await get_tree().physics_frame
+		if not door._moving: break
+		routines._process(STEP)
+		held = held and actor.node.global_position.is_equal_approx(safe)
+		safe_clear = safe_clear and _body_clear(viewport, safe, actor.node.global_position)
+		opening_frames += 1
+	_check(label + " production process cannot yield the held requester into the moving leaf",
+		held and safe_clear and not door._moving)
+	_check(label + " NPC widening reaches the existing 168-degree parked pose",
+		door.is_ready_for_passage() and absf(absf(door._body.rotation.y) - deg_to_rad(168.0)) < 0.001)
+	var before: Vector3 = actor.node.global_position
+	routines._process(STEP)
+	_check(label + " readiness restores both normal walking and player yielding",
+		not bool(actor.get("door_waiting", true))
+		and actor.node.global_position.distance_to(before) > ResidentRoutines.WALK_SPEED * STEP * 1.5
+		and _body_clear(viewport, before, actor.node.global_position))
+	# The same production _process must respect the existing linked-home
+	# gate, including its locked refusal, rather than only the new coordinator.
+	actor.node.global_position = safe
+	door.npc_set_open(false)
+	_check(label + " home-control close settles", await _settled(door))
+	_reset(actor, safe, goal)
+	actor.home_door = door
+	door.leaf_state = "locked"
+	routines._process(STEP)
+	_check(label + " locked home readiness hold also suppresses yielding",
+		actor.node.global_position.is_equal_approx(safe) and bool(actor.get("door_waiting", false))
+		and not door.open and not door._moving)
+	door.leaf_state = "closed"
+	routines._process(STEP)
+	var home_held := true
+	for _i in 180:
+		await get_tree().physics_frame
+		if not door._moving: break
+		routines._process(STEP)
+		home_held = home_held and actor.node.global_position.is_equal_approx(safe)
+	_check(label + " moving home readiness hold suppresses yielding", home_held and door.is_ready_for_passage())
+	before = actor.node.global_position
+	routines._process(STEP)
+	_check(label + " settled home releases normal yielding", not bool(actor.get("door_waiting", true))
+		and actor.node.global_position.distance_to(before) > ResidentRoutines.WALK_SPEED * STEP * 1.5)
+	actor.home_door = null
+	actor.node.global_position = safe
+	door.npc_set_open(false)
+	_check(label + " unsafe-control close settles", await _settled(door))
+	# The near opposite-side requester is clear of the closed leaf but lies
+	# in its actual future arc. Refuse both walking and the opening itself.
+	_reset(actor, unsafe, safe + frame.global_basis.z * safe_side * 2.0)
+	player.global_position = unsafe - frame.global_basis.z * safe_side * 0.40
+	_check(label + " unsafe-side requester starts clear of the closed leaf", _body_clear(viewport, unsafe, unsafe))
+	routines._process(STEP)
+	_check(label + " actual opening arc refuses the unsafe-side requester without yielding",
+		not door.open and not door._moving and actor.node.global_position.is_equal_approx(unsafe)
+		and bool(actor.get("door_waiting", false)))
+	# Independently prove the refused arc by a real owner tween while the
+	# actor is safely parked; query the hypothetical capsule at the old point.
+	actor.node.global_position = frame.to_global(Vector3(3, 0.03, 3))
+	actor.path = PackedVector3Array()
+	door.npc_set_open(true)
+	var would_contact := false
+	for _i in 180:
+		await get_tree().physics_frame
+		would_contact = would_contact or not _body_clear(viewport, unsafe, unsafe)
+		if not door._moving: break
+	_check(label + " independent actual leaf motion contacts the refused hypothetical capsule", would_contact)
+	door.npc_set_open(false)
+	_check(label + " occupancy-control close settles", await _settled(door))
+	var neighbour: Dictionary = _actor(frame, null, ResidentRoutines.Stage.HOME, unsafe, unsafe)
+	neighbour.path = PackedVector3Array()
+	routines.actors.append(neighbour)
+	_reset(actor, safe, goal)
+	player.global_position = frame.to_global(Vector3(4, 0.03, 4))
+	routines._step(actor, STEP)
+	_check(label + " unsafe neighbour blocks an otherwise safe opening", not door.open and not door._moving
+		and actor.node.global_position.is_equal_approx(safe))
+	neighbour.node.global_position += Vector3.UP * 3.0
+	routines._step(actor, STEP)
+	_check(label + " another floor does not falsely occupy the opening arc", door.open and door._moving)
+	_check(label + " occupancy opening settles", await _settled(door))
+	# A person clear of the 100-degree pose can still occupy the additional
+	# parking arc. Existing open state must not bypass that specific check.
+	actor.node.global_position = safe
+	door.npc_set_open(false)
+	_check(label + " widening-control close settles", await _settled(door))
+	door.interact(null)
+	_check(label + " widening-control player pose settles", await _settled(door))
+	var widening_unsafe: Vector3 = door.to_global(Vector3(-0.70, 0.03, -safe_side * 0.45))
+	neighbour.node.global_position = widening_unsafe
+	_reset(actor, safe, goal)
+	_check(label + " extra-arc neighbour is clear of the existing player pose", _body_clear(viewport, widening_unsafe, widening_unsafe))
+	routines._step(actor, STEP)
+	_check(label + " occupied extra arc refuses widening without walking",
+		door.open and not door._moving and not door.is_ready_for_passage()
+		and absf(absf(door._body.rotation.y) - deg_to_rad(100.0)) < 0.001
+		and actor.node.global_position.is_equal_approx(safe))
+	neighbour.node.global_position += Vector3.UP * 3.0
+	routines._step(actor, STEP)
+	var widening_contact := false
+	for _i in 180:
+		await get_tree().physics_frame
+		widening_contact = widening_contact or not _body_clear(viewport, widening_unsafe, widening_unsafe)
+		if not door._moving: break
+	_check(label + " real additional owner arc contacts the refused hypothetical neighbour",
+		widening_contact and door.is_ready_for_passage())
+	actor.node.global_position = frame.to_global(Vector3(3, 0.03, 3))
+	actor.path = PackedVector3Array()
+	routines._step(actor, STEP)
+	for _i in 180:
+		await get_tree().physics_frame
+		routines._route_doors.tick(routines)
+		if not door.open and not door._moving: break
+	_check(label + " abandoned safe opening relinquishes after relocation", not door.open and not door._moving)
+	# A bend can be spatially near the opening while path-distance to the
+	# aperture is still large. Acquire before following that bend into the arc.
+	var bend_start: Vector3 = door.to_global(Vector3(-0.85, 0.03, -safe_side * 1.07))
+	_reset(actor, bend_start, safe + frame.global_basis.z * safe_side * 2.0)
+	actor.path = PackedVector3Array([door.to_global(Vector3(0.48, 0.03, -safe_side * 0.50)),
+		safe + frame.global_basis.z * safe_side * 2.0])
+	routines._step(actor, STEP)
+	_check(label + " a selected bent approach requests opening before entering the sweep",
+		door.open and door._moving and actor.node.global_position.is_equal_approx(bend_start))
+	var bend_clear := true
+	for _i in 180:
+		await get_tree().physics_frame
+		bend_clear = bend_clear and _body_clear(viewport, bend_start, bend_start)
+		if not door._moving: break
+	_check(label + " early bend hold is physically clear throughout the real opening", bend_clear and not door._moving)
+	# Relocating back to an earlier point with the same packed path value
+	# is a new selection, not remembered completion or a physical crossing.
+	actor.node.global_position = frame.to_global(Vector3(3, 0.03, 3))
+	actor.path = PackedVector3Array()
+	routines._step(actor, STEP)
+	for _i in 180:
+		await get_tree().physics_frame
+		routines._route_doors.tick(routines)
+		if not door.open and not door._moving: break
+	_reset(actor, safe, goal)
+	routines._step(actor, STEP)
+	_check(label + " relocated route reacquires its closed physical owner", door.open and door._moving
+		and actor.node.global_position.is_equal_approx(safe))
+	_check(label + " last opening settles before teardown", await _settled(door))
+	measurements.append({"origin": _v(origin), "yaw": yaw, "swing_out": outward,
+		"opening_frames": opening_frames, "safe_hold_clear": safe_clear,
+		"independent_unsafe_contact": would_contact, "bend_hold_clear": bend_clear,
+		"independent_widening_contact": widening_contact,
+		"body_radius": BODY_RADIUS, "body_height": BODY_HEIGHT, "movement_collider_exclusions": 0})
+	var retired: WeakRef = weakref(viewport.find_world_3d())
+	viewport.queue_free()
+	viewport = null
+	frame = null
+	door = null
+	routines = null
+	player = null
+	actor.clear()
+	neighbour.clear()
+	for _i in 4: await get_tree().process_frame
+	_check(label + " physical fixture world retires", retired.get_ref() == null)
+
+
+func _finish() -> void:
+	var output := OS.get_environment("SHOT_DIR")
+	if not output.is_empty():
+		var error := DirAccess.make_dir_recursive_absolute(output)
+		var file: FileAccess = FileAccess.open(output.path_join("resident_door_opening_safety.json"), FileAccess.WRITE) if error == OK else null
+		if file == null:
+			_check("requested scoped evidence can be written", false)
+		else:
+			file.store_string(JSON.stringify({"schema": "orison.resident-door-opening-safety-test.v1",
+				"scope": "Real DoorProp opening sweeps and process/yield holds in two translated/rotated private worlds. Safe/unsafe requester, neighbour, vertical separation and bent-approach controls. Zero collider exclusions. No whole-autonomy performance or runtime_contract claim.",
+				"checks": checks, "failures": failures, "measurements": measurements}, "\t"))
+			file.flush()
+			var written: bool = file.get_error() == OK
+			file.close()
+			if not written: _check("requested scoped evidence was flushed", false)
+	print("[DOOR OPENING] RESULT %d/%d" % [checks.size() - failures, checks.size()])
+	get_tree().quit(0 if failures == 0 else 1)

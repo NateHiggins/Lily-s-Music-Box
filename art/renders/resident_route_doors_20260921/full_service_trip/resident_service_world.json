@@ -1,0 +1,284 @@
+{
+	"actual_body": {
+		"height": 1.54999995231628,
+		"layer": 0,
+		"mask": 0,
+		"path": "/root/ResidentServiceWorldTest/OrisonRoot/F02/NPC_juno_kells/Body/@CollisionShape3D@22415",
+		"query_collider_exclusions": 0,
+		"query_mask": 4294967295,
+		"radius": 0.280000001192093,
+		"relative_center": [
+			0.0,
+			0.775000095367432,
+			0.0
+		]
+	},
+	"authored_service_marker": {
+		"finish_variant": 2.0,
+		"h": 2.1,
+		"id": "F03_DOOR_01",
+		"kind": "door",
+		"leaf": "closed",
+		"pos": [
+			-2.42,
+			6.75,
+			6.4
+		],
+		"rooms": [
+			"F03_UTILITY",
+			"F03_CORRIDOR"
+		],
+		"subtype": "service",
+		"w": 0.96,
+		"yaw_deg": 0.0
+	},
+	"authored_utility_room": {
+		"id": "F03_UTILITY",
+		"kind": "utility",
+		"rect": [
+			-3.25,
+			3.25,
+			3.25,
+			6.75
+		]
+	},
+	"checks": [
+		{
+			"label": "authored campaign clock is valid",
+			"ok": true
+		},
+		{
+			"label": "actual legacy routines navigation and elevator exist",
+			"ok": true
+		},
+		{
+			"label": "actual Juno Kells owner is available",
+			"ok": true
+		},
+		{
+			"label": "actual resident Body capsule and authored service DoorProp exist",
+			"ok": true
+		},
+		{
+			"label": "actual owner starts at untouched 2C home and unchanged authored F03 haunt",
+			"ok": true
+		},
+		{
+			"label": "actual target is the authored closed non-home service leaf",
+			"ok": true
+		},
+		{
+			"label": "actual Body remains unchanged and queries have zero collider exclusions",
+			"ok": true
+		},
+		{
+			"label": "unchanged production navigation admits the real F03 landing-to-haunt route",
+			"ok": true
+		},
+		{
+			"label": "admitted real route passes through the actual service aperture",
+			"ok": true
+		},
+		{
+			"label": "the actual closed leaf blocks the admitted crossing with no exclusions",
+			"ok": true
+		},
+		{
+			"label": "deterministic normal elevator intent seed exists",
+			"ok": true
+		},
+		{
+			"label": "normal outbound intent admits the untouched home-to-lift route",
+			"ok": false
+		},
+		{
+			"label": "actual legacy root retired",
+			"ok": true
+		}
+	],
+	"closed_leaf_negative_control": {
+		"clear": false,
+		"colliders": [
+			"/root/ResidentServiceWorldTest/OrisonRoot/F03_DOOR_01/HingedLeaf"
+		],
+		"exclusions": 0,
+		"fractions": [
+			0.197265625,
+			0.203125
+		]
+	},
+	"departure": {
+		"path": [
+			[
+				9.74279975891113,
+				3.23000001907349,
+				-3.25539994239807
+			]
+		],
+		"seed": 14,
+		"stage": 2,
+		"unreachable_keys": [
+			"F02:10:2"
+		],
+		"vertical_mode": "elevator"
+	},
+	"door_events": [],
+	"evidence_class": "Scoped diagnostic; not a schema-2 runtime_contract receipt",
+	"failures": 1,
+	"hash_normalization": "UTF-8 text with CRLF and CR normalized to LF",
+	"mode": "outbound",
+	"owner": {
+		"haunt": [
+			0.0,
+			6.42999982833862,
+			-5.0
+		],
+		"home": [
+			9.74279975891113,
+			3.23000001907349,
+			-3.25539994239807
+		],
+		"home_door": "/root/ResidentServiceWorldTest/OrisonRoot/F02_DOOR_05",
+		"slug": "juno_kells",
+		"unit": "2C"
+	},
+	"public_route": {
+		"connected_pair": [
+			21,
+			19
+		],
+		"from": [
+			1.92499995231628,
+			6.42999982833862,
+			7.40000009536743
+		],
+		"haunt_body": {
+			"clear": true,
+			"colliders": [],
+			"exclusions": 0,
+			"fractions": [
+				1.0,
+				1.0
+			]
+		},
+		"landing_body": {
+			"clear": true,
+			"colliders": [],
+			"exclusions": 0,
+			"fractions": [
+				1.0,
+				1.0
+			]
+		},
+		"path": [
+			[
+				1.92499995231628,
+				6.42999982833862,
+				7.40000009536743
+			],
+			[
+				0.0,
+				6.40000009536743,
+				8.28999996185303
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				8.28999996185303
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				0.0
+			],
+			[
+				-4.38000011444092,
+				6.40000009536743,
+				-8.28999996185303
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-7.25
+			],
+			[
+				-1.94000005722046,
+				6.40000009536743,
+				-6.25
+			],
+			[
+				0.0,
+				6.40000009536743,
+				-5.0
+			],
+			[
+				0.0,
+				6.42999982833862,
+				-5.0
+			]
+		],
+		"to": [
+			0.0,
+			6.42999982833862,
+			-5.0
+		],
+		"unreachable_keys": [],
+		"visible_goal_candidates": [
+			{
+				"distance": 0.000899983977433294,
+				"id": 19
+			},
+			{
+				"distance": 5.3270001411438,
+				"id": 28
+			}
+		],
+		"visible_start_candidates": [
+			{
+				"distance": 4.49862480163574,
+				"id": 21
+			},
+			{
+				"distance": 6.82002544403076,
+				"id": 22
+			},
+			{
+				"distance": 10.1890258789063,
+				"id": 70
+			},
+			{
+				"distance": 40.546028137207,
+				"id": 20
+			}
+		]
+	},
+	"runtime_source_sha256": {
+		"res://data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+		"res://scripts/building/building_root.gd": "affaf68941302f5e159f763097ddb420a0ff8ec55cdab7482ee1445dd51b604d",
+		"res://scripts/characters/resident_nav.gd": "bae793e4058c2b895815c28a39b6e87f09f83fcda863a825f9ed45cda767bf13",
+		"res://scripts/characters/resident_route_doors.gd": "902a6953f08004c9878ae8cb8bc201c731e79a05147d434dfb2c5c30a475dc7e",
+		"res://scripts/characters/resident_routines.gd": "62b449131f1d15c66738c3972049163adac4606c2de24dfb663f8208eb7f87f9",
+		"res://scripts/props/door_prop.gd": "c1c0cf1b5c7abcfe8b190355c91d257211e82feebbe38baa0087ed0bfc2a253e",
+		"res://tests/ResidentServiceWorldTest.tscn": "6a52e106f2bb172c9e641e063a70b6c654e59cbeac7e5f4358d1d5222bbeee5e",
+		"res://tests/resident_service_world_test.gd": "e05b024ebc452ff1897530f6b6430b8c4130d6e276e7091f3cb48d9258234f60"
+	},
+	"schema": "orison.resident-service-world-test.v1",
+	"service_crossing": {
+		"door_path": "/root/ResidentServiceWorldTest/OrisonRoot/F03_DOOR_01",
+		"local_at": [
+			0.480000019073486,
+			0.0,
+			0.0
+		],
+		"segment": 5,
+		"source_sign": -1.0,
+		"world_at": [
+			-1.94000005722046,
+			6.40000009536743,
+			-6.75
+		]
+	},
+	"settle_scope": "Inherited 1.6 seconds and two physics frames after build; no complete-builder-ready claim",
+	"stopped": "Normal home departure was refused; no automatic adjacent fallback or lifecycle claim",
+	"transitions": []
+}

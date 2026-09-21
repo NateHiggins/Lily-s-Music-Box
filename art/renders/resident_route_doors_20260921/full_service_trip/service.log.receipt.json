@@ -1,0 +1,77 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 24.21,
+  "exit_code": 1,
+  "finished_utc": "2026-09-20T01:34:35Z",
+  "started_utc": "2026-09-20T01:34:10Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "[RESIDENT SERVICE WORLD] FAIL normal outbound intent admits the untouched home-to-lift route"
+  ],
+  "pass_count": 12,
+  "pass_lines": [
+   "[RESIDENT SERVICE WORLD] PASS authored campaign clock is valid",
+   "[RESIDENT SERVICE WORLD] PASS actual legacy routines navigation and elevator exist",
+   "[RESIDENT SERVICE WORLD] PASS actual Juno Kells owner is available",
+   "[RESIDENT SERVICE WORLD] PASS actual resident Body capsule and authored service DoorProp exist",
+   "[RESIDENT SERVICE WORLD] PASS actual owner starts at untouched 2C home and unchanged authored F03 haunt",
+   "[RESIDENT SERVICE WORLD] PASS actual target is the authored closed non-home service leaf",
+   "[RESIDENT SERVICE WORLD] PASS actual Body remains unchanged and queries have zero collider exclusions",
+   "[RESIDENT SERVICE WORLD] PASS unchanged production navigation admits the real F03 landing-to-haunt route",
+   "[RESIDENT SERVICE WORLD] PASS admitted real route passes through the actual service aperture",
+   "[RESIDENT SERVICE WORLD] PASS the actual closed leaf blocks the admitted crossing with no exclusions",
+   "[RESIDENT SERVICE WORLD] PASS deterministic normal elevator intent seed exists",
+   "[RESIDENT SERVICE WORLD] PASS actual legacy root retired"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/service_world_prepared/attempt01/service.log.stderr",
+  "stderr_sha256": "207157e509a4d2eac9360574e2d056dfd7e9f5ab5faf20688b155e218bd5a9d7",
+  "stdout": "C:/Users/nate_/OneDrive/Documents/New Game Plus/debug_menu_work/service_world_prepared/attempt01/service.log",
+  "stdout_sha256": "f41198f7bf3070b3cc9de3bcc21e127d5821b7246e04f6df66491beaa2861ea5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ResidentServiceWorldTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\debug_menu_work\\service_world_prepared\\attempt01\\shots",
+ "source": {
+  "dirty_paths": 180,
+  "dirty_sample": [
+   "M game/scripts/characters/resident_routines.gd",
+   " M game/scripts/props/door_prop.gd",
+   " M game/tests/resident_door_readiness_test.gd",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_household_accessories.gd.uid",
+   "?? game/scripts/building/orison_v2_household_radiator.gd.uid",
+   "?? game/scripts/building/orison_v2_household_state.gd.uid",
+   "?? game/scripts/building/orison_v2_lamp_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_laundry.gd.uid",
+   "?? game/scripts/building/orison_v2_medicine_cabinet.gd.uid",
+   "?? game/scripts/building/orison_v2_prep_cabinet.gd.uid"
+  ],
+  "repository_head": "1235ddfe4cf524b7535dfc0b7d265b7717ab14a6",
+  "repository_tree": "d77f1590b2fb687d1303928620b0d0134641ba58",
+  "runtime_inputs_sha256": "327c7858eecb6088db0d1c426c172d669f5455489062cdcfa779a9a7c2d66204",
+  "test_path": "game/tests/resident_service_world_test.gd",
+  "test_sha256": "e05b024ebc452ff1897530f6b6430b8c4130d6e276e7091f3cb48d9258234f60"
+ },
+ "windowed": false
+}
