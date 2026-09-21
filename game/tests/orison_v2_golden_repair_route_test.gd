@@ -1,12 +1,18 @@
 extends "res://tests/orison_v2_passage_route_test.gd"
-## Continuous first repair route, beginning with the physical resident.
+## Continuous arrival, first-shift opening and first repair through real input.
 ## Recurrence and dream/wake remain separate gates.
 var _reported_job: Dictionary = {}
 
 func _init() -> void:
 	route_label = "V2 GOLDEN PHYSICAL REPAIR"
 
+func _prepare_player_start() -> void:
+	# Keep the production arrival. This fixture must detect a blocked entrance,
+	# not bypass it by placing the player beside the first stair.
+	pass
+
 func _route() -> void:
+	if not await _open_first_shift(): return
 	if not await _enter_2a(): return
 	for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:
 		if not await _walk(point): return
@@ -50,6 +56,40 @@ func _route() -> void:
 			"physical repair grants exactly the first temporary stabilization")
 	_require(world.core_loop.boundary() == "conversation_pending",
 			"repair earns conversation without prematurely closing the job")
+
+func _open_first_shift() -> bool:
+	var arrival := world.arrival_placement()
+	var offset: Vector3 = player.global_position - arrival.position
+	if not _require(Vector2(offset.x, offset.z).length() < .05 and absf(offset.y) < .12,
+			"route begins at the untouched production arrival"): return false
+	if not _require(world.first_shift_director.begin_first_shift(),
+			"production first-shift owner commits the arrival"): return false
+	# The caretaker desk occupies the watch room's south frontage. Enter the
+	# working side through its authored core doorway, preserving the desk body.
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),
+			Vector3(2.3,0,-3.5),Vector3(0,0,-3),Vector3(0,0,-1.5),
+			Vector3(-2,0,-1.5),Vector3(-2,0,-2.2)]:
+		if not await _walk(point): return false
+	var detector := world.adapter.resolve("F01_WATCHMAN_DETECTOR") as WatchmanClockProp
+	if not _require(detector != null, "arrival watchman detector is mounted"): return false
+	var detector_reach := detector.get_node("DetectorReach") as Area3D
+	if not await _use(detector_reach, detector.to_global(Vector3(0,.20,.12)), "first_shift_clock_in"): return false
+	if not _require(world.first_shift_director.ritual_phase() == FirstShiftDirector.PHASE_CLOCKED_IN
+			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "issued",
+			"physical detector offers the opening work order"): return false
+	for point in [Vector3(-2,0,-1.5),Vector3(-3.25,0,-1.5),Vector3(-3.25,0,-.95)]:
+		if not await _walk(point): return false
+	var register := world.adapter.resolve("F01_NIGHT_REGISTER") as NightRegisterProp
+	if not _require(register != null and register.slip_available(), "physical report is on the spindle"): return false
+	var slip := register.get_node("Reach_slip") as Area3D
+	if not await _use(slip, register.to_global(Vector3(-.185,.255,.055)), "first_shift_take_report"): return false
+	if not _require(world.first_shift_director.ritual_phase() == FirstShiftDirector.PHASE_REPORT_ACCEPTED
+			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "acknowledged",
+			"taking the physical paper activates the existing first case"): return false
+	for point in [Vector3(-3.25,0,-1.5),Vector3(0,0,-1.5),Vector3(0,0,-3),
+			Vector3(2.3,0,-3.5)]:
+		if not await _walk(point): return false
+	return true
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)

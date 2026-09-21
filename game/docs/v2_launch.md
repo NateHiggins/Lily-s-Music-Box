@@ -1,0 +1,61 @@
+# Play V2 and visit the Dream zoo
+
+The normal title screen uses V2. **Begin the Night**, **New Campaign**, and
+**Continue** share the same session selector. Dream returns rebuild V2 at the
+4B bedside. Continue after a completed wake also resumes at that bedside.
+Existing campaign files retain their calendar, cases, orders and inventory;
+the selected building is never written into the save.
+
+From PowerShell in **C:/PleaseRemainOnTheLine**, with the Godot lane free:
+
+```powershell
+pwsh -File tools/lane.ps1 run -Windowed -Runner long -TimeoutSeconds 1500 -LogPath tmp/v2-play.log
+```
+
+This opens the normal title. The approved long runner allows a 25-minute
+session. WASD moves, the mouse looks, E interacts, Shift runs, L switches the
+lamp, and Escape opens Building Services. At the entrance, use the lobby's
+right-side opening into the stair core, then the caretaker-room doorway to
+reach the watchman's detector and night register. Clock in and take the report.
+
+## Debug controls and zoo
+
+To expose **Debug Building** on the title, set the following before the same
+launch command:
+
+```powershell
+$env:ORISON_TITLE_DEBUG = "1"
+```
+
+Choose **Debug Building**, press **F1**, expand **GO — teleports**, and choose
+**Dream zoo** to walk among the specimens or **Dream ecology** for the
+inspection camera. The debug panel is also available above Building Services
+while paused. F1 opens the controls and releases the pointer; backtick releases
+or recaptures it during play. Clicking while deliberately released keeps it free.
+
+**Leave camera** exits inspection. **Return to building** restores the position
+and view from before the zoo visit. The existing hero tentacle, live organelles,
+sixteen Blender critters and fifteen reserved bays are shared with V1.
+
+To launch directly into the walkable zoo:
+
+```powershell
+pwsh -File tools/lane.ps1 run -Scene res://scenes/debug/ZooVisit.tscn -Windowed -Runner long -TimeoutSeconds 1500 -LogPath tmp/zoo-play.log
+```
+
+## Explicit V1 rollback
+
+Set **ORISON_BUILDING_ROOT** to **v1** before launching. Remove the override
+to return to the committed V2 default. The choice lasts for that process and
+does not convert the campaign.
+
+```powershell
+$env:ORISON_BUILDING_ROOT = "v1"
+# Run either launch command above.
+Remove-Item Env:ORISON_BUILDING_ROOT
+```
+
+V2 remains an unfinished building. The playable first Mina maintenance/case
+sequence is the supported campaign slice. V1-only apartment corruption and
+resident debug shortcuts are not exposed as working V2 controls. The separate
+voxel-light seams recorded under TASKS H23 remain open.

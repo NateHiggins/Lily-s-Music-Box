@@ -31,9 +31,11 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	var building: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	var building: Node3D = load(BuildingRootSelector.scene_path()).instantiate()
 	add_child(building)
 	await get_tree().create_timer(1.5).timeout
+	_check("the selected building completes startup", not bool(building.get("startup_failed")))
+	var return_pose: Transform3D = building.player.global_transform
 
 	var panel := _find_debug(building)
 	_check("the debug controls exist", panel != null)
@@ -61,6 +63,12 @@ func _run() -> void:
 		return
 
 	var player: PlayerController = building.player
+	var carried_overlay := _carrier_overlay(player)
+	_check("the carried service set has its ordinary overlay", carried_overlay != null and carried_overlay.visible)
+	var lamp_before_inspection := player.lamp_is_enabled()
+	var beam_overlay := player._light_mask.get_parent() as CanvasLayer
+	var beam_visible_before := beam_overlay.visible
+	var beam_allowed_before: bool = player._beam_mask_allowed
 	var stand: Vector3 = zoo.zoo_stand()
 	_check("the visitor is standing in the hall",
 			zoo.hall_aabb().has_point(player.global_position))
@@ -93,9 +101,14 @@ func _run() -> void:
 			and zoo._specimen_labels[0].visible)
 
 	var stats: Dictionary = zoo.stats()
-	_check("there is something to look at",
-			int(stats.get("species", 0)) > 0
-			and int(stats.get("placeholder_bays", 0)) > 0)
+	_check("all sixteen accepted critters and reserved bays remain available",
+			int(stats.get("species", 0)) == 16
+			and int(stats.get("placeholder_bays", 0)) == 15)
+	_check("the accepted hero and live organelles share the exhibit",
+			zoo.hero != null and zoo.organelle != null and zoo.blender_failures.is_empty())
+	for controller in zoo.controllers:
+		_check("the native Blender specimen batch is available", controller.blender_visuals != null)
+	await _capture("zoo_on_foot")
 
 	var net: SafetyNet = building.safety_net
 	_check("the hall is a legitimate place to stand",
@@ -114,6 +127,14 @@ func _run() -> void:
 	_check("still standing there a moment later",
 			zoo.hall_aabb().has_point(player.global_position)
 			and absf(player.global_position.y - arrival.y) < 0.25)
+	Input.action_press("move_forward")
+	for _i in 24:
+		await get_tree().physics_frame
+	Input.action_release("move_forward")
+	_check("ordinary collision movement walks down the zoo aisle",
+			zoo.hall_aabb().has_point(player.global_position)
+			and player.global_position.distance_to(arrival) > 0.3
+			and player.is_on_floor())
 
 	# The two routes are different things and both have to keep working: the
 	# orbit bench for one specimen, the walk for the room.
@@ -123,6 +144,12 @@ func _run() -> void:
 		inspect.emit_signal("pressed")
 		await get_tree().process_frame
 		_check("inspecting still takes the camera", zoo.active)
+		_check("inspection hides the held service set without switching off the lamp",
+				carried_overlay != null and not carried_overlay.visible
+				and player.lamp_is_enabled() == lamp_before_inspection
+				and player.carried_device.is_processing())
+		_check("inspection hides the player's screen beam mask without changing its policy",
+				not beam_overlay.visible and player._beam_mask_allowed == beam_allowed_before)
 		# Walking lights the plaques by putting the exhibit in overview. That
 		# is the walk's setting, not the operator's, so the orbit bench has to
 		# open on its specimen instead of inheriting the whole room.
@@ -130,8 +157,33 @@ func _run() -> void:
 				not zoo._overview
 				and zoo.camera.global_position.distance_to(
 						zoo.overview_station.global_position) > 1.0)
+		zoo.focus_organelle()
+		await _capture("zoo_organelle_inspector")
+		zoo.focus_hero()
+		await _capture("zoo_hero_inspector")
+		zoo.focus_species(3)
+		await _capture("zoo_blender_tardigrade")
+		var leave_camera := _find_button(zoo, "Leave camera")
+		_check("the inspector has a Leave camera control", leave_camera != null)
+		if leave_camera != null:
+			leave_camera.emit_signal("pressed")
+			await get_tree().process_frame
+			_check("Leave camera restores the held service set and lamp state",
+					not zoo.active and carried_overlay != null and carried_overlay.visible
+					and player.lamp_is_enabled() == lamp_before_inspection
+					and beam_overlay.visible == beam_visible_before
+					and player._beam_mask_allowed == beam_allowed_before)
+		# Reopen with a deliberately hidden overlay. The inspector restores the
+		# prior state, rather than turning on a pass another owner had hidden.
+		if carried_overlay != null: carried_overlay.hide()
+		inspect.emit_signal("pressed")
+		await get_tree().process_frame
 		button.emit_signal("pressed")
 		await get_tree().process_frame
+		_check("walking restores an already hidden service overlay exactly",
+				carried_overlay != null and not carried_overlay.visible
+				and player.lamp_is_enabled() == lamp_before_inspection)
+		if carried_overlay != null: carried_overlay.show()
 		_check("the zoo button hands it back and walks again",
 				not zoo.active and not zoo.simulation_paused
 				and player.is_physics_processing())
@@ -166,7 +218,43 @@ func _run() -> void:
 				not get_tree().paused
 				and zoo.hall_aabb().has_point(player.global_position)
 				and player.is_physics_processing())
+	var go_back := _find_button(panel, "Return to building")
+	_check("the zoo has an explicit building return", go_back != null)
+	if go_back != null:
+		panel._set_menu_open(true)
+		go_back.emit_signal("pressed")
+		panel._set_menu_open(false)
+		for _i in 30:
+			await get_tree().physics_frame
+		_check("return restores the original building pose on collision floor",
+				player.global_position.distance_to(return_pose.origin) < 0.2
+				and player.is_on_floor() and player.is_physics_processing()
+				and not zoo.active and zoo.simulation_paused
+				and get_viewport().get_camera_3d() == player.camera)
+		_check("return retains the restored held service set",
+				carried_overlay != null and carried_overlay.visible
+				and player.lamp_is_enabled() == lamp_before_inspection)
+		await _capture("zoo_return_to_building")
 	_finish()
+
+func _carrier_overlay(player: PlayerController) -> CanvasLayer:
+	if player.carried_device == null: return null
+	var layers := player.carried_device.find_children("*", "CanvasLayer", true, false)
+	return layers[0] as CanvasLayer if not layers.is_empty() else null
+
+
+func _capture(stem: String) -> void:
+	var output := OS.get_environment("SHOT_DIR")
+	if output.is_empty():
+		return
+	_check("requested capture uses a windowed renderer", DisplayServer.get_name() != "headless")
+	if DisplayServer.get_name() == "headless":
+		return
+	DirAccess.make_dir_recursive_absolute(output)
+	for _i in 3:
+		await RenderingServer.frame_post_draw
+	var result := get_viewport().get_texture().get_image().save_png(output.path_join(stem + ".png"))
+	_check("captured " + stem, result == OK)
 
 
 func _find_debug(node: Node) -> BuildingDebug:

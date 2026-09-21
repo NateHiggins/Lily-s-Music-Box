@@ -32,6 +32,7 @@ var building: Node3D
 var tracker: ObjectiveTracker
 var intro: VirusSoundDirector
 var work_orders: WorkOrders
+var _rebuilding_dream_return := false
 var _opening_report_offer: Callable
 var _station_marks: Array[Dictionary] = []
 var _tour_key_carried := false
@@ -54,17 +55,29 @@ func setup(root: Node3D, objective_tracker: ObjectiveTracker,
 
 
 func _ready() -> void:
+	var shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	_rebuilding_dream_return = shell != null and shell.is_ancestor_of(building) \
+			and shell.dream_director.phase() == "return_pending"
 	if intro:
 		intro.intro_finished.connect(_on_intro_finished)
 	call_deferred("_begin_if_needed")
 
 
 func _begin_if_needed() -> void:
+	var shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	var campaign_world := shell != null and shell.active_world == building
 	if bool(RealityState.data.get("intro_complete", false)):
-		_place_at_arrival()
+		# complete_return has already placed the rebuilt player at the bedside.
+		# This deferred startup must not move them back outside on the next frame.
+		if campaign_world and (_rebuilding_dream_return or shell.core_loop.boundary() == "wake_complete"):
+			shell.core_loop.return_player_to_safe_anchor()
+		else:
+			_place_at_arrival()
 		present_resume()
 		return
-	if get_tree().current_scene != building:
+	# CampaignShell is the main scene during normal title launches. The
+	# building is its world, so testing only current_scene skipped onboarding.
+	if get_tree().current_scene != building and not campaign_world:
 		return
 	# Ruled 2026-08-04: no seized-camera arrival. A new game starts on the
 	# south kerb facing the building, player in control from the first

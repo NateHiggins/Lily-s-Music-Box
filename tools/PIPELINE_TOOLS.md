@@ -1,8 +1,10 @@
 # Pipeline tools
 
 Seven instruments that turn the dispatch-and-verify loop from typed claims
-into files. Each one only reads, runs through the existing lane, or writes
-into a directory you name. None merges, pushes, prunes or deletes.
+into files. Each one reads, runs through the existing lane, or writes
+into a directory you name. None merges or pushes. The candidate verifier's
+default mode creates and removes temporary worktrees; use its in-place mode
+for work restricted to the canonical checkout.
 
 | tool | answers | typical time |
 |---|---|---:|
@@ -62,6 +64,7 @@ python tools/verify_candidate.py <sha|branch> [--base origin/main]
     [--suite res://tests/X.tscn ...] [--long-suite res://tests/Y.tscn ...]
     [--windowed-suite res://tests/Z.tscn ...]
     [--report reports/<task>.json] [--no-godot] [--keep]
+    [--in-place --baseline-board <clean-merge-base-board.json>]
     [--accept-regression "blockers.FIRST_SLICE_TECHNICAL"]
 ```
 
@@ -73,12 +76,28 @@ it and those checks fail for the harness's reason, not the code's.
 Checks, in order: fresh checkout clean under the machine's autocrlf; this
 tree's gate board in candidate and merge-base, compared; changed gate files
 flagged for review; changed design documents linted; 17 protected paths and
-selector v1; optional Godot imports and suites through this tree's runners
+selector V2; optional Godot imports and suites through this tree's runners
 with receipt verification; optional report sidecar compared claim by claim.
 Output goes to `C:/ov/reports/<sha12>/verification.{md,json}`. The last line
 is `MERGE-CANDIDATE <sha>` or `BLOCKED <reasons>`. `--accept-regression`
 records an owner-ruled recount, such as a gate hardening, instead of
 blocking on it.
+
+For development restricted to the canonical checkout, capture a full board
+before editing, then commit and run with `--in-place --baseline-board <path>`.
+The candidate must be the clean current HEAD; the baseline must name the
+merge-base commit and tree, have no dirty paths, use the current board version,
+and include every static gate and tools test present at that commit. This mode
+never creates, switches or removes a checkout, and reports that fresh-checkout
+autocrlf behavior was not verified. Give `--out` an ignored directory under the
+canonical checkout, for example `tmp/v2-cutover/verification`.
+
+The owner authorized the V1-to-V2 default on 2026-09-21. The verifier permits
+only that exact selector literal change while retaining the historical
+17-path receipt. It reports 16 unchanged paths plus one authorized change at
+cutover, and rejects any other selector or protected-path edit. The V1 scene
+remains available through `ORISON_BUILDING_ROOT=v1`; neither selector choice
+is persisted into saves.
 
 ### Report sidecar (`orison.dispatch-report.v1`)
 
@@ -91,7 +110,7 @@ A developer may commit this beside the prose report, for example at
   "task": "ORISON-V2-M12A",
   "head": "<40-char candidate sha>",
   "merge_base": "<40-char sha>",
-  "selector": "v1",
+  "selector": "v2",
   "protected": "17/17",
   "ledger_before": {"FIRST_SLICE_TECHNICAL": 7, "GOLDEN_SHIFT_V2": 8,
                     "FULL_BUILDING_STRUCTURAL": 84, "FULL_BUILDING_RUNTIME": 52,

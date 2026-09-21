@@ -20,6 +20,10 @@ var _building: Node3D
 
 func _ready() -> void:
 	print("[ZOO VISIT] START")
+	if OS.get_environment("ZOO_VISIT_SMOKE") == "1":
+		# The automated launcher check never writes the player's campaign.
+		RealityState.persistence_enabled = false
+		RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode = GameBoot.LaunchMode.DEBUG
 	call_deferred("_open")
 
@@ -33,6 +37,10 @@ func _open() -> void:
 	# The building assembles over several frames; the panel and the warehouse
 	# are both built by its own setup, so wait for it rather than for a node.
 	await get_tree().create_timer(1.8).timeout
+	if bool(_building.get("startup_failed")):
+		printerr("[ZOO VISIT] FAIL selected building did not finish startup")
+		_quit(1)
+		return
 
 	var panel := _find_debug(_building)
 	if panel == null:
@@ -43,7 +51,11 @@ func _open() -> void:
 	var wanted := OS.get_environment("ZOO_VISIT_LIGHT").strip_edges().to_lower()
 	if wanted.is_empty():
 		wanted = "full"
-	if wanted == "lamp":
+	if panel._encroachment() == null:
+		# V2 has its own production lamp. The zoo's shared exposure volume is
+		# already live; the V1 apartment presenter is not an owner in this world.
+		wanted = "zoo exposure field + carried lamp"
+	elif wanted == "lamp":
 		panel._set_voxel_light(false, -1)
 	elif MODES.has(wanted):
 		panel._set_voxel_light(true, int(MODES[wanted]))
@@ -68,7 +80,7 @@ func _open() -> void:
 	if zoo != null and player != null:
 		print("[ZOO VISIT] standing inside the hall: %s"
 				% zoo.hall_aabb().has_point(player.global_position))
-	print("[ZOO VISIT] READY — F1 for the controls, ` frees the mouse")
+	print("[ZOO VISIT] READY — F1 for controls and Return to building; ` frees the mouse")
 	if OS.get_environment("ZOO_VISIT_SMOKE") == "1":
 		_quit(0 if zoo != null else 1)
 

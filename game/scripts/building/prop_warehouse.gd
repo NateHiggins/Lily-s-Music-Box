@@ -302,6 +302,12 @@ func open_ecology(player: Node3D = null,
 func close_ecology() -> void:
 	if is_instance_valid(_ecology):
 		_ecology.activate(false)
+		# A walking visit never activated the inspection camera, so activate(false)
+		# alone has no state transition to retire. Returning to the building must
+		# stop the off-site simulation just as leaving inspection already does.
+		_ecology.set_simulation_paused(true)
+		if _ecology.organelle != null:
+			_ecology.organelle.activate(false)
 
 
 func viewing_stand() -> Vector3:

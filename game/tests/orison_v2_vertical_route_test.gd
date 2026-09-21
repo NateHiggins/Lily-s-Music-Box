@@ -20,8 +20,7 @@ func _run() -> void:
 		failures.append("runtime startup")
 	else:
 		player = world.player
-		player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
-		player.velocity = Vector3.ZERO
+		_prepare_player_start()
 		player.camera.make_current()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		await get_tree().physics_frame
@@ -41,8 +40,13 @@ func _run() -> void:
 	print("%s: %d waypoints; %d failures" % [route_label, trace.size(), failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
+func _prepare_player_start() -> void:
+	player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
+	player.velocity = Vector3.ZERO
+
 func _route() -> void:
-	for floor_index in 3:
+	# Both occupied upper storeys are part of the default building now.
+	for floor_index in 5:
 		var base := floor_index * 3.2
 		for point in [Vector3(2.3, base + 1.6, 1.3), Vector3(3.8, base + 1.6, 1.3),
 				Vector3(3.8, base + 3.2, -2.4), Vector3(3.8, base + 3.2, -3.4)]:
@@ -68,7 +72,7 @@ func _route() -> void:
 				if not await _walk(point): return
 		if not await _walk(Vector3(2.3, base + 3.2, -3.4)): return
 	# Return down the same physical stair, keeping the controller live throughout.
-	for floor_index in [2, 1, 0]:
+	for floor_index in [4, 3, 2, 1, 0]:
 		var base: float = floor_index * 3.2
 		for point in [Vector3(3.8, base + 3.2, -3.4), Vector3(3.8, base + 1.6, 1.3),
 				Vector3(2.3, base + 1.6, 1.3), Vector3(2.3, base, -3.5)]:
@@ -84,6 +88,7 @@ func _walk(local_target: Vector3) -> bool:
 	var target: Vector3 = world.adapter.root.to_global(local_target)
 	var started := Time.get_ticks_msec()
 	var travel_budget_ms := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
+	var contacts := {}
 	while Time.get_ticks_msec() - started < travel_budget_ms:
 		var delta := target - player.global_position
 		delta.y = 0
@@ -92,6 +97,11 @@ func _walk(local_target: Vector3) -> bool:
 		player.camera.rotation = Vector3.ZERO
 		Input.action_press("move_forward", minf(1.0, delta.length() / 0.35))
 		await get_tree().physics_frame
+		for index in player.get_slide_collision_count():
+			var contact := player.get_slide_collision(index)
+			var collider := contact.get_collider() as Node
+			if collider != null and absf(contact.get_normal().y) < .7:
+				contacts[str(collider.get_path())] = str(contact.get_position())
 	Input.action_release("move_forward")
 	await get_tree().physics_frame
 	var actual: Vector3 = world.adapter.root.to_local(player.global_position)
@@ -99,9 +109,10 @@ func _walk(local_target: Vector3) -> bool:
 			and absf(actual.y - local_target.y) < 0.15 and not player.noclip \
 			and player.collision_mask == 1 and player.is_physics_processing()
 	trace.append({"target": [local_target.x, local_target.y, local_target.z],
-			"actual": [actual.x, actual.y, actual.z], "ok": ok})
+			"actual": [actual.x, actual.y, actual.z], "ok": ok, "wall_contacts": contacts})
 	if not ok:
 		var label := "target %s actual %s" % [local_target, actual]
 		failures.append(label)
 		push_error(route_label + ": " + label)
+		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify(contacts))
 	return ok

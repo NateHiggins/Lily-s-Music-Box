@@ -36,7 +36,7 @@ func _ready() -> void:
 	# it ran under an explicit v2 environment — the very selection the
 	# matrix above exercises. DEFAULT_ID is what the label claims, and is
 	# what orison_v2_m08f_runtime_test.gd asserts for the same contract.
-	_check(Selector.DEFAULT_ID == "v1", "committed selector default remains v1")
+	_check(Selector.DEFAULT_ID == "v2", "committed selector default is v2")
 	print("OPEN SHIFT SAVE MATRIX: %d/%d PASS" % [passes,
 			DISPOSITIONS.size() * DIRECTIONS.size() + 1])
 	get_tree().quit(failures)

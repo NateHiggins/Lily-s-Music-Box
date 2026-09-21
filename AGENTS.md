@@ -74,14 +74,19 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   `python tools/audit_data_consumption.py --baseline`.
 - Management verifies a candidate with
   `python tools/verify_candidate.py <sha> [--suite res://tests/X.tscn]`.
-  It uses a fresh checkout, compares boards, checks the 17 protected paths
-  and selector v1, and lints changed design documents.
+  For canonical-checkout work, add `--in-place --baseline-board <board.json>`
+  with a complete clean board captured at the merge-base. This creates no
+  secondary checkout. The verifier compares boards, checks the 17 protected
+  paths and selector V2, and lints changed design documents.
 - Reports use the section 7 format in
   `design/ORISON_V2_INTERIM_MANAGEMENT_DISPATCH_2026-09-13.md` and may add a
   committed JSON sidecar (`orison.dispatch-report.v1`, see
   `tools/PIPELINE_TOOLS.md`) that the verifier checks claim by claim.
-- The selector stays v1 and the 17 protected paths stay byte-identical
-  unless a milestone is authorized to change them (RUL-004).
+- The owner authorized the selector's default V1-to-V2 change on 2026-09-21.
+  Keep explicit `ORISON_BUILDING_ROOT=v1` rollback. The historical 17-path
+  protected receipt stays unchanged; only the selector's default literal
+  may differ at cutover. The other 16 paths and all other selector logic
+  remain protected (RUL-004).
 
 ## Art
 

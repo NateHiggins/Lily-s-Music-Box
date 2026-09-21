@@ -94,6 +94,7 @@ var _prior_process := false
 var _prior_camera_process := false
 var _prior_camera_input := false
 var _prior_camera_physics := false
+var _player_overlay_states: Array[Dictionary] = []
 var _roster := FaunaRoster.new()
 var _canvas: CanvasLayer
 var _status: Label
@@ -475,10 +476,12 @@ func activate(value: bool = true) -> void:
 			_player.set_physics_process(false)
 			_player.set_process_unhandled_input(false)
 			_player.set_process(false)
+			_hide_player_overlays()
 		camera.make_current()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		set_simulation_paused(false)
 	else:
+		_restore_player_overlays()
 		camera.clear_current()
 		var previous: Camera3D = _prior_camera.get_ref() if _prior_camera != null else null
 		if is_instance_valid(previous):
@@ -494,6 +497,29 @@ func activate(value: bool = true) -> void:
 		set_simulation_paused(true)
 	_dragging = false
 	inspection_changed.emit(active)
+
+func _hide_player_overlays() -> void:
+	# The held set, screen beam mask and crosshair use CanvasLayers, so a
+	# camera change alone leaves them over the specimen. Suspend presentation
+	# only; the carried instrument, radio and held lamp retain their owners.
+	_player_overlay_states.clear()
+	var controller := _player as PlayerController
+	if controller == null: return
+	for child: Node in controller.get_children():
+		if child is CanvasLayer: _hide_player_layer(child as CanvasLayer)
+	if is_instance_valid(controller.carried_device):
+		for layer: CanvasLayer in controller.carried_device.find_children("*", "CanvasLayer", true, false):
+			_hide_player_layer(layer)
+
+func _hide_player_layer(layer: CanvasLayer) -> void:
+	_player_overlay_states.append({"layer": weakref(layer), "visible": layer.visible})
+	layer.hide()
+
+func _restore_player_overlays() -> void:
+	for state: Dictionary in _player_overlay_states:
+		var layer := (state.layer as WeakRef).get_ref() as CanvasLayer
+		if is_instance_valid(layer): layer.visible = bool(state.visible)
+	_player_overlay_states.clear()
 
 func _physics_process(delta: float) -> void:
 	if not initialized: return

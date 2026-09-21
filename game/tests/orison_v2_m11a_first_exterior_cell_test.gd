@@ -37,6 +37,8 @@ const SECOND_THRESHOLD := "THRESHOLD_SHOP_BODEGA_ROTATED_02_FRONT"
 const SECOND_OUTBOUND := "ROUTE_ORISON_02_TO_SHOP_BODEGA_ROTATED_02"
 const SECOND_RETURN := "ROUTE_SHOP_BODEGA_ROTATED_02_TO_ORISON_02"
 const SECOND_YAW_DEGREES := 35.0
+const SELECTOR_V1_CONTRACT_LF_SHA256 := \
+		"d7aff8b7c598af55cef9243b184f7df9cc6b8ff234daa61fc19c01e9709f37c8"
 
 const PROTECTED := {
 	"res://data/building_layout.json":
@@ -768,13 +770,27 @@ func _test_protected_boundary() -> void:
 	for path: String in PROTECTED:
 		var actual := FileAccess.get_sha256(path)
 		var expected := str(PROTECTED[path])
+		var compared := actual
+		var expected_contract := expected
+		if path == "res://scripts/building/building_root_selector.gd":
+			# Owner-authorized default cutover on 2026-09-21. Preserve the
+			# historical baseline and allow only the v1 -> v2 literal edit.
+			var selector_source := FileAccess.get_file_as_string(path).replace("\r\n", "\n")
+			compared = selector_source.replace('const DEFAULT_ID := "v2"',
+					'const DEFAULT_ID := "v1"').sha256_text()
+			# The original receipt hashed CRLF bytes; the current source
+			# contract uses LF so ordinary Windows checkout cannot alter it.
+			expected_contract = SELECTOR_V1_CONTRACT_LF_SHA256
 		comparison[path] = {"before": expected, "after": actual,
-				"match": actual == expected}
-		all_match = all_match and actual == expected
+				"contract_sha256": compared, "expected_contract_sha256": expected_contract,
+				"match": compared == expected_contract}
+		all_match = all_match and compared == expected_contract
 	_receipt["protected"] = comparison
-	_check(all_match, "both layouts, selector, and every floor GLTF/BIN hash are unchanged")
-	_check(Selector.DEFAULT_ID == "v1" and Selector.selected_id() == "v1",
-			"committed and absent-session production selector remain v1")
+	_check(all_match, "both layouts and every floor GLTF/BIN are unchanged; selector permits only the authorized default cutover")
+	_check(Selector.DEFAULT_ID == "v2" and Selector.selected_id() == "v2",
+			"committed and absent-session production selector are v2")
+	_check(Selector.path_for("v1") == "res://scenes/building/orison_root.tscn",
+			"explicit v1 rollback remains available")
 
 
 func _walk_named(player: PlayerController, raw_nodes: Array,

@@ -36,6 +36,9 @@ New-Item -ItemType Directory -Force -Path $profileRoot | Out-Null
 $gitCommit = (& git -C $repoRoot rev-parse HEAD).Trim()
 $gitTree = (& git -C $repoRoot rev-parse 'HEAD^{tree}').Trim()
 $projectHash = (Get-FileHash (Join-Path $projectPath "project.godot") -Algorithm SHA256).Hash.ToLowerInvariant()
+$selectorSource = Get-Content -LiteralPath (Join-Path $projectPath "scripts/building/building_root_selector.gd") -Raw
+$selectorDefault = [regex]::Match($selectorSource, 'const DEFAULT_ID\s*:?=\s*"(\w+)"').Groups[1].Value
+if ([string]::IsNullOrEmpty($selectorDefault)) { throw "Cannot read the committed selector default." }
 $receipt = [ordered]@{
     gate = $Gate
     boundary = if ($Gate -eq "K3") { $Boundary } else { $null }
@@ -44,7 +47,7 @@ $receipt = [ordered]@{
     project_sha256 = $projectHash
     selector_environment = "ORISON_BUILDING_ROOT=v2"
     selected_scene = "res://scenes/building/orison_v2_runtime.tscn"
-    committed_default = "v1"
+    committed_default = $selectorDefault
     save_version = 4
     isolated_profile = "_private/profiles/$profileName"
     launched_at_utc = [DateTime]::UtcNow.ToString("o")

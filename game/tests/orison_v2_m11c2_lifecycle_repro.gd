@@ -23,7 +23,7 @@ func _run() -> void:
 		_finish_lifecycle(globals, cycles)
 		return
 	Selector.reset_for_tests("v1")
-	_check(Selector.DEFAULT_ID == "v1", "production selector default remains v1")
+	_check(Selector.DEFAULT_ID == "v2", "production selector default is v2")
 	_check(Selector.scene_path() == "res://scenes/building/orison_root.tscn",
 			"lifecycle control mounts the complete production V1 root")
 	for mode: StringName in MODES:

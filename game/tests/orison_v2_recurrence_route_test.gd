@@ -32,7 +32,10 @@ func _route() -> void:
 	if not _require(state.stage=="reopened" and state.recurrence_count==1 and not player.call_locked,
 			"clock advances the earned unresolved case and releases movement"): return
 	_require(world.mina_gameplay.letter.enabled,"second visit leaves Mina's physical letter")
-	if not await _walk(Vector3(2.3,0,-3.5)): return
+	# Return through the same lobby/core portal. A diagonal from the watch
+	# clock to the stair crosses the solid wall between the two openings.
+	for point in [Vector3(stance.x,0,-6.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5)]:
+		if not await _walk(point): return
 	if not await _enter_2a(): return
 	if not await _walk(Vector3(-10.5,3.2,2.5)): return
 	for i in 3:
@@ -120,16 +123,58 @@ func _follow_graph_to(target_id: int) -> bool:
 
 func _meet_mina() -> bool:
 	var routine: Node3D = world.mina_routine
-	var actor: AnimatedResident = routine.actor
 	for attempt in 35:
-		if player.global_position.distance_to(actor.global_position)<1.5: return true
+		if _mina_reachable(): return true
 		var graph: AStar3D = routine.graph
 		var route := graph.get_id_path(_nearest_route_node(),int(routine.current_id))
 		if route.size()>1:
-			if not await _walk_world(graph.get_point_position(route[1])): return false
+			if not await _walk_until_mina(graph.get_point_position(route[1])): return false
 		else:
 			if not routine.path.is_empty():
-				if not await _walk_world(graph.get_point_position(routine.path[0])): return false
+				if not await _walk_until_mina(graph.get_point_position(routine.path[0])): return false
 			else:
-				if not await _walk_world(graph.get_point_position(routine.current_id)): return false
+				if not await _walk_until_mina(graph.get_point_position(routine.current_id)): return false
 	return _require(false,"player reaches the scheduled resident without teleporting her")
+
+func _mina_reachable() -> bool:
+	var actor: AnimatedResident = world.mina_routine.actor
+	var separation := player.global_position.distance_to(actor.global_position)
+	# A ray originating inside the resident's interaction capsule cannot hit
+	# its front face. Stop at conversational distance while she is still moving.
+	if separation < .75 or separation > 1.45: return false
+	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
+			actor.global_position + Vector3.UP * 1.15)
+	ray.collide_with_areas = true
+	ray.exclude = [player.get_rid()]
+	var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(ray)
+	var owner := hit.get("collider") as Node
+	while owner != null:
+		if owner == actor: return true
+		owner = owner.get_parent()
+	return false
+
+func _walk_until_mina(target: Vector3) -> bool:
+	# Follow the existing authored graph with the ordinary controller, but
+	# observe the walking resident each physics tick rather than overshooting
+	# her while blindly completing a several-metre route edge.
+	var started := Time.get_ticks_msec()
+	var budget := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
+	var reached := false
+	while Time.get_ticks_msec() - started < budget:
+		var delta := target - player.global_position
+		delta.y = 0
+		if _mina_reachable() or (delta.length() < .1 and absf(player.global_position.y-target.y) < .15):
+			reached = true
+			break
+		player.rotation.y = atan2(-delta.x, -delta.z)
+		player.camera.rotation = Vector3.ZERO
+		Input.action_press("move_forward", minf(1.0, delta.length() / .35))
+		await get_tree().physics_frame
+	Input.action_release("move_forward")
+	await get_tree().physics_frame
+	trace.append({"meeting_target": str(world.adapter.root.to_local(target)),
+			"actual": str(world.adapter.root.to_local(player.global_position)),
+			"resident_distance": player.global_position.distance_to(world.mina_routine.actor.global_position),
+			"ok": reached})
+	return _require(reached and not player.noclip and player.collision_mask == 1
+			and player.is_physics_processing(), "live collision approach reaches Mina or the next authored waypoint")

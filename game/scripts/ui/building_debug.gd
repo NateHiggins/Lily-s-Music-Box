@@ -48,6 +48,7 @@ var _prior_player_process := true
 var _prior_player_physics := true
 var _prior_player_input := true
 var _prior_touch_input := true
+var _building_return: Dictionary = {}
 
 
 func setup(building_root: Node3D) -> void:
@@ -86,10 +87,13 @@ func _ready() -> void:
 	_column.add_child(_status)
 
 	_build_dream()
-	_build_light_mode()
+	if _encroachment() != null:
+		_build_light_mode()
 	_build_subject()
-	_build_sanity()
-	_build_cast()
+	if is_instance_valid(root.get("sanity")):
+		_build_sanity()
+	if is_instance_valid(root.get("resident_routines")):
+		_build_cast()
 	_build_cases()
 	_build_go()
 	_build_conductor()
@@ -456,16 +460,24 @@ func _build_go() -> void:
 	var grid := GridContainer.new()
 	grid.columns = 4
 	box.add_child(grid)
-	for fid in ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]:
-		var floor_id: String = fid
-		_button(grid, floor_id, func(): root.teleport_player(floor_id))
+	if root.has_method("debug_destinations"):
+		var destinations: Dictionary = root.debug_destinations()
+		for label: String in destinations:
+			var target: Vector3 = destinations[label]
+			_button(grid, label, func(): _go_to_building_position(target))
+	else:
+		for fid in ["B1", "F01", "F02", "F03", "F04", "F05", "F06", "ROOF"]:
+			var floor_id: String = fid
+			_button(grid, floor_id, func():
+				root.warehouse.close_ecology()
+				_building_return.clear()
+				root.teleport_player(floor_id))
 	var extra := HBoxContainer.new()
-	_button(extra, "4B desk", func():
-		root.player.global_position = GameBoot.b2g([-8.8, 5.6, 9.7])
-		root.player.velocity = Vector3.ZERO)
-	_button(extra, "F03 utility door", func():
-		root.player.global_position = GameBoot.b2g([-4.4, 2.0, 6.5])
-		root.player.velocity = Vector3.ZERO)
+	if not root.has_method("debug_destinations"):
+		_button(extra, "4B desk", func():
+			_go_to_building_position(GameBoot.b2g([-8.8, 5.6, 9.7])))
+		_button(extra, "F03 utility door", func():
+			_go_to_building_position(GameBoot.b2g([-4.4, 2.0, 6.5])))
 	# The warehouse is a teleport, so it belongs with the teleports. It
 	# used to live under CAPTURE - a section about screenshots, collapsed
 	# by default - which is nobody's first guess for "take me to the
@@ -475,6 +487,7 @@ func _build_go() -> void:
 		if root == null or root.warehouse == null:
 			push_warning("[DEBUG] warehouse exists in DEBUG launches only")
 			return
+		_remember_building_return()
 		root.warehouse.close_ecology()
 		var to: Vector3 = root.warehouse.viewing_stand()
 		if root.view_override:
@@ -486,6 +499,37 @@ func _build_go() -> void:
 	_button(extra, "Dream zoo", _teleport_to_zoo)
 	_button(extra, "Dream ecology", _open_dream_ecology)
 	box.add_child(extra)
+	_button(box, "Return to building", _return_to_building)
+
+
+func _remember_building_return() -> void:
+	if not _building_return.is_empty() or root.player == null:
+		return
+	_building_return = {"transform": root.player.global_transform,
+		"camera_rotation": root.player.camera.rotation}
+	if root.view_override != null:
+		_building_return["view_transform"] = root.view_override.global_transform
+
+
+func _go_to_building_position(target: Vector3) -> void:
+	root.warehouse.close_ecology()
+	_building_return.clear()
+	root.player.global_position = target
+	root.player.velocity = Vector3.ZERO
+	if root.view_override != null:
+		root.view_override.global_position = target
+
+
+func _return_to_building() -> void:
+	if _building_return.is_empty():
+		return
+	root.warehouse.close_ecology()
+	root.player.global_transform = _building_return.transform
+	root.player.camera.rotation = _building_return.camera_rotation
+	root.player.velocity = Vector3.ZERO
+	if root.view_override != null and _building_return.has("view_transform"):
+		root.view_override.global_transform = _building_return.view_transform
+	_building_return.clear()
 
 
 ## Walk into the zoo. This is the teleport the owner asks for by name: put
@@ -496,6 +540,7 @@ func _teleport_to_zoo() -> void:
 	if root == null or root.warehouse == null:
 		push_warning("[DEBUG] the Dream zoo exists in DEBUG launches only")
 		return
+	_remember_building_return()
 	var exhibit: Node3D = root.warehouse.open_ecology(root.player, false)
 	if exhibit == null:
 		return
@@ -522,6 +567,14 @@ func _open_dream_ecology() -> void:
 	if root == null or root.warehouse == null:
 		push_warning("[DEBUG] Dream ecology exists in DEBUG launches only")
 		return
+	var pause := root.player.pause_services as PauseServices if root.player != null else null
+	if pause != null and pause.is_open:
+		# The live inspector must run after the pause host gives control back.
+		# Then acquire our ordinary menu hold, so leaving its nested camera
+		# restores this menu and ultimately the user's prior pointer choice.
+		pause.close()
+		_set_menu_open(true)
+	_remember_building_return()
 	var exhibit: Node3D = root.warehouse.open_ecology(root.player)
 	if exhibit == null:
 		return
@@ -632,11 +685,12 @@ func _rebuild_insights(row: HBoxContainer) -> void:
 func _build_world() -> void:
 	var box := _section("WORLD — visibility, distortion, chaos",
 			Color(0.62, 0.82, 0.92))
-	var all_floors := CheckBox.new()
-	all_floors.text = "Show all floors"
-	all_floors.add_theme_font_size_override("font_size", 10)
-	all_floors.toggled.connect(func(on): root.show_all_floors = on)
-	box.add_child(all_floors)
+	if "show_all_floors" in root:
+		var all_floors := CheckBox.new()
+		all_floors.text = "Show all floors"
+		all_floors.add_theme_font_size_override("font_size", 10)
+		all_floors.toggled.connect(func(on): root.show_all_floors = on)
+		box.add_child(all_floors)
 	var overlay := CheckBox.new()
 	overlay.text = "Acoustic graph overlay"
 	overlay.add_theme_font_size_override("font_size", 10)
@@ -990,7 +1044,7 @@ func _process(_delta: float) -> void:
 		lines.append("case %s  stage %d  outcome %s" % [
 				case_def.get("id", "—"), int(ci.stage),
 				ci.outcome if ci.outcome != "" else "—"])
-	var director = root.sanity
+	var director = root.get("sanity")
 	if director:
 		var s: Dictionary = director.stats()
 		lines.append("pressure %.2f  intrusions %d  last %s r%d" % [

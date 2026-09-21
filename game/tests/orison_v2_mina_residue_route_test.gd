@@ -2,6 +2,13 @@ extends "res://tests/orison_v2_golden_repair_route_test.gd"
 ## Focused kitchen route from an actually earned and completed-wake save.
 func _init() -> void:
 	route_label = "V2 MINA PHYSICAL RESIDUE"
+
+func _prepare_player_start() -> void:
+	# This separate saved-wake fixture starts at the core; unlike the golden
+	# route it does not replay the arrival and first-shift opening.
+	player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
+	player.velocity = Vector3.ZERO
+
 func _route() -> void:
 	var fridge := world.adapter.resolve(MinaCaptionManifestation.RESIDUE_ANCHOR_ID) as FridgeProp
 	if not _require(fridge!=null and fridge.monitor_top and fridge.unit=="2A","actual 2A refrigerator is mounted"): return

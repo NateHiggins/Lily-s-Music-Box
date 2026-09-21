@@ -160,7 +160,7 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
 	CampaignTime.set_frozen_for_tests(old_clock_frozen)
-	_check(Selector.DEFAULT_ID == "v1", "committed selector remains v1")
+	_check(Selector.DEFAULT_ID == "v2", "committed selector is v2")
 	print("ORISON V2 PRESENCE LEDGER: %s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
 			passes + failures])

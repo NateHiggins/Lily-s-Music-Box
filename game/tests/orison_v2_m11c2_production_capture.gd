@@ -727,8 +727,8 @@ func _capture_route_frame(player: PlayerController, output_dir: String,
 
 
 func _instantiate_production_root() -> Node:
-	if Selector.DEFAULT_ID != "v1" or Selector.selected_id() != "v1":
-		_fail("capture selector is not the committed v1 production root")
+	if Selector.DEFAULT_ID != "v2" or Selector.selected_id() != "v1":
+		_fail("capture requires the explicit v1 rollback under the v2 default")
 		return null
 	var packed := load(Selector.scene_path()) as PackedScene
 	if packed == null:

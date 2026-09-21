@@ -4,16 +4,18 @@
     python tools/verify_candidate.py <candidate-ref> [--base origin/main]
         [--report reports/<task>.json] [--suite res://tests/X.tscn ...]
         [--long-suite res://tests/Y.tscn ...] [--windowed-suite res://tests/Z.tscn ...]
-        [--no-godot] [--keep]
+        [--no-godot] [--keep] [--in-place --baseline-board <board.json>]
 
 What it does, in order:
 
  1. Resolves candidate, base and their merge-base.
- 2. Checks both out as FRESH detached worktrees at short paths
+ 2. By default, checks both out as FRESH detached worktrees at short paths
     (C:/ov/c-<sha8>, C:/ov/b-<sha8>) with the repository's ordinary
     configuration - autocrlf included - because the defects that reach main
     are the ones a fresh Windows checkout exposes (the M11C2 hash gap).
-    A candidate whose fresh checkout is already dirty is BLOCKED.
+    A candidate whose fresh checkout is already dirty is BLOCKED. --in-place
+    instead requires the clean current checkout at the candidate commit and
+    a complete clean merge-base board; it never checks out another tree.
  3. Runs THIS tree's gate board in both and compares them: every
     regression the board reports blocks.  Base boards are cached by commit.
  4. Lists what changed between merge-base and candidate, and flags any
@@ -59,7 +61,7 @@ REPORT_SCHEMA = "orison.dispatch-report.v1"
 VERIFY_SCHEMA = "orison.candidate-verification.v1"
 PROTECTED_RECEIPT = "design/ORISON_V2_M11C1_PROTECTED_FINAL_RECEIPT_2026-08-31.json"
 SELECTOR_PATH = "game/scripts/building/building_root_selector.gd"
-EXPECTED_SELECTOR = "v1"
+EXPECTED_SELECTOR = "v2"
 GATE_PATH_RE = re.compile(
     r"^tools/(audit_[^/]+\.py|[^/]*baseline[^/]*\.json|[^/]*manifest[^/]*\.json|"
     r"[^/]*exceptions[^/]*\.json|tests/.+|run_godot_[^/]+\.ps1|lane_common\.ps1|"
@@ -123,13 +125,29 @@ def protected_check(merge_base: str, cand: str) -> dict:
         cand_oid = git("rev-parse", f"{cand}:{path}", check=False)
         blob = git_bytes("show", f"{cand}:{path}")
         digest = hashlib.sha256(blob).hexdigest() if blob is not None else None
+        unchanged = bool(cand_oid) and cand_oid == base_oid
+        # Owner-authorized 2026-09-21 cutover: only this one literal may
+        # differ. Keep the historical 17-path receipt immutable, and do not
+        # exempt any other selector logic or any spatial authority.
+        authorized = (not unchanged and path == SELECTOR_PATH
+                      and selector_default_cutover(
+                          git_bytes("show", f"{merge_base}:{path}"), blob))
         files.append({"path": path, "unchanged_vs_merge_base": bool(cand_oid) and cand_oid == base_oid,
+                      "authorized_selector_cutover": authorized,
                       "matches_recorded_baseline": digest == entry.get("baseline_sha256")})
     matched = sum(1 for f in files if f["unchanged_vs_merge_base"])
-    return {"status": "PASS" if matched == len(files) else "FAIL", "matched": matched,
+    authorized = sum(1 for f in files if f["authorized_selector_cutover"])
+    return {"status": "PASS" if matched + authorized == len(files) else "FAIL", "matched": matched,
+            "authorized_selector_changes": authorized,
             "expected": len(files),
             "recorded_baseline_matches": sum(1 for f in files if f["matches_recorded_baseline"]),
             "files": files}
+
+
+def selector_default_cutover(before: bytes | None, after: bytes | None) -> bool:
+    old, new = b'const DEFAULT_ID := "v1"', b'const DEFAULT_ID := "v2"'
+    return (before is not None and after is not None and before.count(old) == 1
+            and after == before.replace(old, new, 1))
 
 
 def selector_check(cand: str) -> dict:
@@ -137,6 +155,31 @@ def selector_check(cand: str) -> dict:
     match = re.search(r'const DEFAULT_ID\s*:?=\s*"(\w+)"', text)
     value = match.group(1) if match else None
     return {"value": value, "status": "PASS" if value == EXPECTED_SELECTOR else "FAIL"}
+
+
+def validate_baseline_board(board: dict, merge_base: str) -> list[str]:
+    """An in-place run may only reuse a full board of the clean merge-base."""
+    problems = []
+    for field, expected in (("schema", gate_board.BOARD_SCHEMA),
+                            ("tool_version", gate_board.TOOL_VERSION),
+                            ("commit", merge_base),
+                            ("tree", git("rev-parse", f"{merge_base}^{{tree}}"))):
+        if board.get(field) != expected:
+            problems.append(f"baseline {field} does not match {expected!r}")
+    if board.get("dirty_paths") != []:
+        problems.append("baseline board must come from a clean checkout")
+    paths = set(git("ls-tree", "-r", "--name-only", merge_base).splitlines())
+    required = {g["id"] for g in gate_board.GATES
+                if not g.get("optional") or g["argv"][0] in paths}
+    required.update(f"test:{Path(path).stem}" for path in paths
+                    if re.fullmatch(r"tools/tests/test_[^/]+\.py", path))
+    observed = [g.get("id") for g in board.get("gates", [])]
+    if len(observed) != len(set(observed)):
+        problems.append("baseline board has duplicate gate rows")
+    missing = sorted(required - set(observed))
+    if missing:
+        problems.append(f"baseline board is missing gates: {missing}")
+    return problems
 
 
 def lint_docs(root: Path, changed: list[dict]) -> list[dict]:
@@ -298,12 +341,13 @@ def render(result: dict) -> str:
              f"- merge-base `{result['merge_base']}`",
              f"- verified {result['created_utc']} from verifier `{result['verifier_commit'][:12]}`", "",
              "| check | result |", "|---|---|",
-             f"| fresh checkout clean | {'yes' if not result['fresh_checkout_dirty'] else 'NO: ' + str(len(result['fresh_checkout_dirty'])) + ' paths'} |",
+             f"| checkout mode | {result.get('checkout_mode', 'fresh')} |",
+             f"| checkout clean | {'yes' if not result['fresh_checkout_dirty'] else 'NO: ' + str(len(result['fresh_checkout_dirty'])) + ' paths'} |",
              f"| gate board vs merge-base | {len(comp['regressions'])} regressions, {len(comp['improvements'])} improvements |",
              f"| ledger before | {result['ledger_before']} |",
              f"| ledger after | {result['ledger_after']} |",
              f"| requirements_changed | {comp['requirements_changed']} |",
-             f"| protected | {result['protected']['matched']}/{result['protected']['expected']} unchanged vs merge-base |",
+             f"| protected | {result['protected']['matched']}/{result['protected']['expected']} unchanged vs merge-base; {result['protected'].get('authorized_selector_changes', 0)} authorized selector change(s) |",
              f"| selector | {result['selector']['value']} |",
              f"| design doc lint errors | {sum(1 for f in result['doc_lint'] if f['level'] == 'ERROR')} |",
              f"| gates changed by candidate | {len(result['gate_changes'])} |"]
@@ -345,6 +389,10 @@ def main(argv=None) -> int:
     parser.add_argument("--work-dir", default="C:/ov")
     parser.add_argument("--out")
     parser.add_argument("--keep", action="store_true", help="keep the worktrees")
+    parser.add_argument("--in-place", action="store_true",
+                        help="verify the clean current checkout at candidate; creates no worktree")
+    parser.add_argument("--baseline-board", type=Path,
+                        help="complete clean merge-base board, required with --in-place")
     parser.add_argument("--accept-suite", action="append", default=[], metavar="TEXT",
                         help="a Godot suite whose scene contains TEXT may fail without "
                              "blocking (an owner-ruled seam between two lines of work); "
@@ -356,24 +404,38 @@ def main(argv=None) -> int:
     parser.add_argument("--no-fetch", action="store_true")
     args = parser.parse_args(argv)
 
+    if args.in_place != bool(args.baseline_board):
+        parser.error("--in-place and --baseline-board must be supplied together")
+
     try:
         if not args.no_fetch:
             git("fetch", "--quiet", "origin", check=False)
         cand = git("rev-parse", "--verify", f"{args.candidate}^{{commit}}")
         base = git("rev-parse", "--verify", f"{args.base}^{{commit}}")
         merge_base = git("merge-base", base, cand)
-    except RuntimeError as exc:
+        if args.in_place:
+            if git("rev-parse", "HEAD") != cand:
+                raise RuntimeError("--in-place requires HEAD to equal the candidate commit")
+            if git("status", "--porcelain"):
+                raise RuntimeError("--in-place requires a clean current checkout")
+            base_board = json.loads(args.baseline_board.read_text(encoding="utf-8"))
+            problems = validate_baseline_board(base_board, merge_base)
+            if problems:
+                raise RuntimeError("; ".join(problems))
+    except (RuntimeError, OSError, ValueError) as exc:
         print(f"usage: {exc}", file=sys.stderr)
         return 3
     work = Path(args.work_dir)
     out = Path(args.out) if args.out else work / "reports" / cand[:12]
     out.mkdir(parents=True, exist_ok=True)
-    cand_root = fresh_worktree(cand, work / f"c-{cand[:8]}")
+    cand_root = REPO if args.in_place else fresh_worktree(cand, work / f"c-{cand[:8]}")
     base_root = None
     try:
         dirty = [l for l in git("status", "--porcelain", cwd=cand_root).splitlines() if l.strip()]
         cache = work / "boards" / f"{merge_base}.v{gate_board.TOOL_VERSION}.json"
-        if cache.is_file():
+        if args.in_place:
+            pass  # Validated clean merge-base board above; never check out a base.
+        elif cache.is_file():
             base_board = json.loads(cache.read_text(encoding="utf-8"))
         else:
             base_root = fresh_worktree(merge_base, work / f"b-{merge_base[:8]}")
@@ -390,6 +452,7 @@ def main(argv=None) -> int:
             "created_utc": _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "verifier_commit": git("rev-parse", "HEAD"),
             "candidate": cand, "base": base, "merge_base": merge_base,
+            "checkout_mode": "in-place" if args.in_place else "fresh",
             "fresh_checkout_dirty": dirty,
             "changed_files": changed,
             "gate_changes": gate_changes,
@@ -419,7 +482,7 @@ def main(argv=None) -> int:
                     result["report_mismatches"] = [f"report sidecar is not JSON: {exc}"]
 
         if dirty:
-            blocking.append(f"fresh checkout is dirty ({len(dirty)} paths), e.g. {dirty[0]}")
+            blocking.append(f"checkout is dirty ({len(dirty)} paths), e.g. {dirty[0]}")
         accepted = [r for r in comparison["regressions"]
                     if any(text in r for text in args.accept_regression)]
         blocking += [f"regression: {r}" for r in comparison["regressions"] if r not in accepted]
@@ -429,7 +492,8 @@ def main(argv=None) -> int:
                           f"{args.accept_regression}")
         if result["protected"]["status"] != "PASS":
             changed_protected = [f["path"] for f in result["protected"]["files"]
-                                 if not f["unchanged_vs_merge_base"]]
+                                 if not f["unchanged_vs_merge_base"]
+                                 and not f.get("authorized_selector_cutover")]
             blocking.append(f"protected paths changed: {changed_protected or result['protected'].get('detail')}")
         if result["selector"]["status"] != "PASS":
             blocking.append(f"selector is {result['selector']['value']!r}, expected {EXPECTED_SELECTOR!r}")
@@ -457,6 +521,9 @@ def main(argv=None) -> int:
             review.append(f"ledger requirements changed: {comparison['requirements_changed']}")
         if args.no_godot:
             review.append("Godot suites were not run (--no-godot)")
+        if args.in_place:
+            review.append("Verified the clean canonical checkout; fresh-checkout import "
+                          "and autocrlf behavior are outside this in-place verification")
         result["blocking"], result["review"] = blocking, review
         result["last_line"] = (f"MERGE-CANDIDATE {cand}" if not blocking else
                                "BLOCKED " + "; ".join(blocking[:3]) +
@@ -468,7 +535,7 @@ def main(argv=None) -> int:
         print(f"written to {out}")
         return 0 if not blocking else 1
     finally:
-        if not args.keep:
+        if not args.keep and not args.in_place:
             remove_worktree(cand_root)
             if base_root is not None:
                 remove_worktree(base_root)

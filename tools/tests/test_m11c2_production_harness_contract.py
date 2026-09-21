@@ -50,7 +50,7 @@ class ProductionMatrixContractTests(unittest.TestCase):
     def test_complete_root_is_loaded_only_through_selector(self) -> None:
         self.assertIn('Selector.reset_for_tests("v1")', self.source)
         self.assertIn("load(Selector.scene_path()) as PackedScene", self.source)
-        self.assertIn('Selector.DEFAULT_ID == "v1"', self.source)
+        self.assertIn('Selector.DEFAULT_ID == "v2"', self.source)
         self.assertNotIn(
             'preload("res://scenes/building/orison_root.tscn")', self.source
         )
@@ -745,7 +745,7 @@ class SceneAndDefaultContractTests(unittest.TestCase):
         configuration = read(
             GAME / "scripts/building/floor01_geometry_configuration.gd"
         )
-        self.assertIn('const DEFAULT_ID := "v1"', selector)
+        self.assertIn('const DEFAULT_ID := "v2"', selector)
         self.assertIn("const DEFAULT_MODE := OWNER_FIRST_CELLS", configuration)
         self.assertIn('"persistent": false', configuration)
         self.assertIn('"save_authority": false', configuration)

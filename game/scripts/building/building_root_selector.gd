@@ -2,7 +2,7 @@ class_name BuildingRootSelector
 extends RefCounted
 ## One non-persistent authority for waking-building scene selection.
 
-const DEFAULT_ID := "v1" # Future cutover and rollback change this value only.
+const DEFAULT_ID := "v2" # Future cutover and rollback change this value only.
 const ENVIRONMENT_KEY := "ORISON_BUILDING_ROOT"
 const PATHS := {
 	"v1": "res://scenes/building/orison_root.tscn",

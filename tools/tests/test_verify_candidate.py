@@ -7,8 +7,13 @@ running the tool; these tests pin the pure decisions it makes.
 from __future__ import annotations
 
 import sys
+import contextlib
+import io
+import json
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
@@ -21,7 +26,7 @@ BASE = "b" * 40
 def observed(**over):
     data = {
         "candidate": CAND, "merge_base": BASE,
-        "selector": {"value": "v1", "status": "PASS"},
+        "selector": {"value": "v2", "status": "PASS"},
         "protected": {"matched": 17, "expected": 17, "status": "PASS"},
         "ledger_before": {"FIRST_SLICE_TECHNICAL": 0}, "ledger_after": {"FIRST_SLICE_TECHNICAL": 0},
         "comparison": {"requirements_changed": [], "regressions": [], "improvements": []},
@@ -33,7 +38,7 @@ def observed(**over):
 
 
 def report(**over):
-    data = {"schema": vc.REPORT_SCHEMA, "head": CAND, "merge_base": BASE, "selector": "v1",
+    data = {"schema": vc.REPORT_SCHEMA, "head": CAND, "merge_base": BASE, "selector": "v2",
             "protected": "17/17", "ledger_before": {"FIRST_SLICE_TECHNICAL": 0},
             "ledger_after": {"FIRST_SLICE_TECHNICAL": 0}, "requirements_changed": [],
             "gates": {"ledger": 2, "spatial": 0}, "suites": {"res://tests/A.tscn": 0},
@@ -100,9 +105,125 @@ class RepoChecks(unittest.TestCase):
 
     def test_selector_and_protected_at_head(self):
         head = vc.git("rev-parse", "HEAD")
-        self.assertEqual(vc.selector_check(head)["value"], "v1")
+        self.assertEqual(vc.EXPECTED_SELECTOR, "v2")
+        with patch.object(vc, "git_bytes", return_value=(vc.REPO / vc.SELECTOR_PATH).read_bytes()):
+            self.assertEqual(vc.selector_check(head), {"value": "v2", "status": "PASS"})
         protected = vc.protected_check(head, head)
         self.assertEqual((protected["matched"], protected["expected"]), (17, 17))
+
+
+class AuthorizedCutoverTests(unittest.TestCase):
+    def test_only_default_literal_may_change(self):
+        before = b'const DEFAULT_ID := "v1" # rollback\nconst PATHS := {"v1": "old"}\n'
+        after = before.replace(b'"v1" #', b'"v2" #')
+        self.assertTrue(vc.selector_default_cutover(before, after))
+        self.assertFalse(vc.selector_default_cutover(before, after + b"# other change\n"))
+        self.assertFalse(vc.selector_default_cutover(before, after.replace(b'"old"', b'"lost"')))
+        self.assertFalse(vc.selector_default_cutover(None, after))
+        self.assertFalse(vc.selector_default_cutover(before, None))
+        self.assertFalse(vc.selector_default_cutover(after, before))
+
+    def test_v1_is_no_longer_a_valid_default(self):
+        with patch.object(vc, "git_bytes", return_value=b'const DEFAULT_ID := "v1"\n'):
+            self.assertEqual(vc.selector_check(CAND), {"value": "v1", "status": "FAIL"})
+
+    def test_protected_check_records_only_the_authorized_selector_exception(self):
+        selector = b'const DEFAULT_ID := "v1"\n'
+        asset = "game/data/building_layout.json"
+        receipt = json.dumps({"files": [
+            {"path": vc.SELECTOR_PATH}, {"path": asset}]}).encode()
+
+        def blobs(*args):
+            spec = args[-1]
+            if spec.endswith(vc.PROTECTED_RECEIPT):
+                return receipt
+            if spec == f"{BASE}:{vc.SELECTOR_PATH}":
+                return selector
+            if spec == f"{CAND}:{vc.SELECTOR_PATH}":
+                return selector.replace(b'"v1"', b'"v2"')
+            return b"protected asset"
+
+        def oids(*args, **kwargs):
+            return "same" if args[-1].endswith(asset) else args[-1]
+
+        with patch.object(vc, "git_bytes", side_effect=blobs), patch.object(vc, "git", side_effect=oids):
+            result = vc.protected_check(BASE, CAND)
+            self.assertEqual((result["status"], result["matched"],
+                              result["authorized_selector_changes"]), ("PASS", 1, 1))
+        with patch.object(vc, "git_bytes", side_effect=blobs), \
+                patch.object(vc, "git", side_effect=lambda *a, **k: a[-1]):
+            self.assertEqual(vc.protected_check(BASE, CAND)["status"], "FAIL")
+
+
+class InPlaceVerificationTests(unittest.TestCase):
+    def board(self, **over):
+        data = {"schema": vc.gate_board.BOARD_SCHEMA,
+                "tool_version": vc.gate_board.TOOL_VERSION, "commit": BASE,
+                "tree": "tree", "dirty_paths": [],
+                "gates": [{"id": g["id"]} for g in vc.gate_board.GATES]
+                + [{"id": "test:test_a"}]}
+        data.update(over)
+        return data
+
+    def fake_git(self, *args, **kwargs):
+        if args[:2] == ("ls-tree", "-r"):
+            return "tools/check_rulings.py\ntools/tests/test_a.py"
+        if args == ("rev-parse", f"{BASE}^{{tree}}"):
+            return "tree"
+        if args == ("rev-parse", "HEAD") or args[:2] == ("rev-parse", "--verify"):
+            return BASE if args[-1] == f"{BASE}^{{commit}}" else CAND
+        if args[0] == "merge-base":
+            return BASE
+        return ""
+
+    def test_baseline_rejects_dirty_wrong_commit_and_missing_gates(self):
+        with patch.object(vc, "git", side_effect=self.fake_git):
+            self.assertEqual(vc.validate_baseline_board(self.board(), BASE), [])
+            for board in (self.board(dirty_paths=[" M game/foo.gd"]),
+                          self.board(commit=CAND), self.board(tree="other"),
+                          self.board(gates=[{"id": "ledger"}]),
+                          self.board(tool_version=-1)):
+                self.assertTrue(vc.validate_baseline_board(board, BASE), board)
+
+    def test_in_place_never_creates_or_removes_a_worktree(self):
+        with tempfile.TemporaryDirectory() as directory:
+            baseline = Path(directory) / "baseline.json"
+            baseline.write_text(json.dumps(self.board()), encoding="utf-8")
+            with patch.object(vc, "git", side_effect=self.fake_git), \
+                    patch.object(vc, "fresh_worktree") as create, \
+                    patch.object(vc, "remove_worktree") as remove, \
+                    patch.object(vc.gate_board, "build_board", return_value=self.board(commit=CAND)) as build, \
+                    patch.object(vc.gate_board, "compare", return_value={
+                        "regressions": [], "improvements": [], "requirements_changed": []}), \
+                    patch.object(vc, "changed_files", return_value=[]), \
+                    patch.object(vc, "protected_check", return_value={
+                        "matched": 16, "expected": 17, "status": "PASS",
+                        "authorized_selector_changes": 1}), \
+                    patch.object(vc, "selector_check", return_value={"value": "v2", "status": "PASS"}), \
+                    contextlib.redirect_stdout(io.StringIO()):
+                result = vc.main([CAND, "--base", BASE, "--in-place", "--baseline-board",
+                                  str(baseline), "--out", str(Path(directory) / "out"),
+                                  "--no-fetch", "--no-godot"])
+                self.assertEqual(result, 0)
+                create.assert_not_called()
+                remove.assert_not_called()
+                self.assertEqual(build.call_count, 1)
+                self.assertEqual(build.call_args.args[0], vc.REPO)
+
+    def test_in_place_rejects_dirty_checkout_before_any_worktree_or_board(self):
+        def dirty_git(*args, **kwargs):
+            return " M game/player.gd" if args[0] == "status" else self.fake_git(*args, **kwargs)
+
+        with patch.object(vc, "git", side_effect=dirty_git), \
+                patch.object(vc, "fresh_worktree") as create, \
+                patch.object(vc, "remove_worktree") as remove, \
+                patch.object(vc.gate_board, "build_board") as build, \
+                contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(vc.main([CAND, "--in-place", "--baseline-board", "unused.json",
+                                      "--no-fetch", "--no-godot"]), 3)
+            create.assert_not_called()
+            remove.assert_not_called()
+            build.assert_not_called()
 
 
 if __name__ == "__main__":

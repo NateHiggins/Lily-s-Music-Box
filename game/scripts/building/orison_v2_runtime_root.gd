@@ -61,6 +61,11 @@ var passage_region: OrisonV2PassageRegion
 var shop_service: MaintenanceShopService
 var shop_simulation: Node
 var day_night_director: DayNightDirector
+var light_rig: LightRig
+var touch: TouchControls
+var shots: ShotCapture
+var warehouse: PropWarehouse
+var view_override: Camera3D
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
@@ -146,6 +151,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("V2 lamp optical state could not be restored")
 		return
+	_compose_debug_controls()
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
@@ -204,7 +210,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: room lighting refused: %s" % [lighting.errors])
 		return
-	var light_rig := LightRig.new()
+	light_rig = LightRig.new()
 	light_rig.name = "LightRig"
 	get_node("WakingAtmosphere").add_child(light_rig)
 	var telephone := HouseSwitchboardProp.new()
@@ -359,6 +365,47 @@ func _compose_authorities() -> void:
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
+
+
+## Share the existing controls and the accepted prop/ecology catalogue. The
+## debug shell owns no replacement gameplay or specimen implementations.
+func _compose_debug_controls() -> void:
+	touch = TouchControls.new()
+	touch.name = "TouchControls"
+	add_child(touch)
+	touch.look_delta.connect(player.apply_look)
+	player.touch_input = touch.enabled
+	shots = ShotCapture.new()
+	shots.name = "ShotCapture"
+	add_child(shots)
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG \
+			or not OS.get_environment("SHOT_ROOMS").is_empty():
+		return
+	warehouse = PropWarehouse.new()
+	add_child(warehouse)
+	warehouse.build(preload("res://scripts/building/building_root.gd").PROP_SCRIPTS)
+	safety_net.exempt_zones.append(warehouse.hall_aabb())
+	var panel := BuildingDebug.new()
+	panel.setup(self)
+	var layer := CanvasLayer.new()
+	layer.name = "BuildingDebugLayer"
+	layer.layer = 95
+	layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(layer)
+	layer.add_child(panel)
+	shots.chrome = layer
+
+
+## V2 destinations are in its composed world frame. V1 plan coordinates are
+## never valid shortcuts here, especially after visiting an off-site exhibit.
+func debug_destinations() -> Dictionary:
+	var destinations := {"Arrival": _connection.arrival.position}
+	for pair in [["4B desk", "F04_B_MONITOR_STANCE"],
+			["4B bedside", "F04_B_BEDSIDE_RETURN"]]:
+		var anchor := adapter.resolve(str(pair[1])) as Node3D
+		if anchor != null:
+			destinations[str(pair[0])] = anchor.global_position + Vector3.UP * 0.05
+	return destinations
 
 func _compose_exterior() -> bool:
 	shop_service = MaintenanceShopService.new()

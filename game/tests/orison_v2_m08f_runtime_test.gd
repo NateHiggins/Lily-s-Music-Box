@@ -156,7 +156,7 @@ func _ready() -> void:
 	_check(FileAccess.get_sha256("res://data/building_layout.json")
 			== "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
 			"production layout remains byte-stable")
-	_check(Selector.DEFAULT_ID == "v1", "committed selector remains v1")
+	_check(Selector.DEFAULT_ID == "v2", "committed selector is v2")
 	print("ORISON V2 M08F RUNTIME: %s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures, passes + failures])
 	get_tree().quit(failures)

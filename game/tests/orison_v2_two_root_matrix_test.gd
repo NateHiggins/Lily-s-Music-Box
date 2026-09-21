@@ -33,8 +33,8 @@ func _ready() -> void:
 	Selector.reset_for_tests("v1")
 	_check(Selector.scene_path().ends_with("orison_root.tscn"), "explicit v1 selection")
 	Selector.reset_for_tests()
-	_check(Selector.DEFAULT_ID == "v1", "absent selector committed default is v1")
-	_check(Selector.path_for("invalid") == Selector.PATHS.v1, "invalid selector safely resolves v1")
+	_check(Selector.DEFAULT_ID == "v2", "absent selector committed default is v2")
+	_check(Selector.path_for("invalid") == Selector.PATHS.v2, "invalid selector safely resolves v2")
 	await _exercise_v1_root()
 	Selector.reset_for_tests("v2")
 	var selected_scene := load(Selector.scene_path()) as PackedScene

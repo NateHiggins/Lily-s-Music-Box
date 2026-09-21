@@ -8,10 +8,14 @@ func _ready() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
+	if DisplayServer.get_name() == "headless":
+		push_error("[ECOLOGY ENTRY] pointer ownership requires a windowed renderer")
+		get_tree().quit(1)
+		return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode = GameBoot.LaunchMode.DEBUG
-	var building: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	var building: Node3D = load(BuildingRootSelector.scene_path()).instantiate()
 	add_child(building)
 	await get_tree().create_timer(1.5).timeout
 	var menu: BuildingDebug = _find_menu(building)
@@ -25,6 +29,12 @@ func _run() -> void:
 	var prior_physics: bool = building.player.is_physics_processing()
 	var prior_input: bool = building.player.is_processing_unhandled_input()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await _key(KEY_QUOTELEFT)
+	_check(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE,
+		"backtick releases the pointer in ordinary selected-building play")
+	await _key(KEY_QUOTELEFT)
+	_check(Input.mouse_mode == Input.MOUSE_MODE_CAPTURED,
+		"backtick restores pointer capture in ordinary play")
 	_check(not menu._body.visible, "debug starts with a discoverable collapsed header")
 	await _key(KEY_F1)
 	_check(menu._body.visible and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
@@ -157,6 +167,30 @@ func _run() -> void:
 		"closing debug restores touch controls with a visible pointer")
 	building.touch.set_enabled(false)
 	building.player.touch_input = false
+	building.player.set_mouse_released(true)
+	await _key(KEY_ESCAPE)
+	_check(get_tree().paused and building.player.pause_services.is_open
+			and menu.hosted_in_pause(), "pause hosts ecology entry with a deliberately released pointer")
+	await _click_control(menu, button)
+	_check(exhibit.active and not get_tree().paused
+			and not building.player.pause_services.is_open and not menu.hosted_in_pause()
+			and exhibit.can_process(), "pause-to-inspector handoff resumes the live exhibit")
+	var inspection_clock: float = exhibit._clock
+	await get_tree().create_timer(0.2).timeout
+	_check(exhibit._clock > inspection_clock, "ecology simulation advances after entry through pause")
+	var leave_camera := _find_button(exhibit, "Leave camera")
+	_check(leave_camera != null and leave_camera.is_visible_in_tree(),
+			"pause-launched inspector exposes its own exit control")
+	if leave_camera != null:
+		await _click_at(leave_camera.get_global_rect().get_center())
+	_check(not exhibit.active and menu.visible and menu._body.visible
+			and not building.player.is_physics_processing()
+			and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE,
+			"actual Leave camera click restores the held debug menu")
+	await _key(KEY_F1)
+	_check(not menu._body.visible and building.player.is_physics_processing() == prior_physics
+			and building.player.mouse_released and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE,
+			"closing pause-launched inspector preserves the deliberately released pointer")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	await _key(KEY_F1)
 	building.queue_free()

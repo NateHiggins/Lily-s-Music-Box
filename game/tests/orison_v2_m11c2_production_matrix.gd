@@ -105,7 +105,7 @@ func _run() -> void:
 		await _finish(globals)
 		return
 	Selector.reset_for_tests("v1")
-	_check(Selector.DEFAULT_ID == "v1", "BuildingRootSelector default remains v1")
+	_check(Selector.DEFAULT_ID == "v2", "BuildingRootSelector default is v2")
 	_check(Selector.scene_path() == "res://scenes/building/orison_root.tscn",
 			"explicit v1 selector resolves the production BuildingRoot")
 	_receipt.selector = {

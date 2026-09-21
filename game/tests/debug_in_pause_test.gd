@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	var building: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	var building: Node3D = load(BuildingRootSelector.scene_path()).instantiate()
 	add_child(building)
 	await get_tree().create_timer(1.5).timeout
 
