@@ -18,10 +18,23 @@ var original_bytes: PackedByteArray
 var original_present := false
 var original_mode: int
 var finished := false
+var filtered_mouse_motion_events := 0
+var filtered_mouse_motion := Vector2.ZERO
 
 
 func _ready() -> void:
 	call_deferred("_run")
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		# Window recapture and the desktop mouse can enqueue motion while the
+		# actual worlds load. This scripted wake proof supplies no look input:
+		# keep production input enabled, but consume that unrelated motion before
+		# PlayerController's _unhandled_input. Keys still reach the real player.
+		filtered_mouse_motion_events += 1
+		filtered_mouse_motion += event.relative
+		get_viewport().set_input_as_handled()
 
 
 func _run() -> void:
@@ -148,16 +161,22 @@ func _verify_bedside(label: String) -> void:
 	for _i in 90:
 		await get_tree().physics_frame
 	var player := world.player
+	var toward_bed: Vector3 = anchor.facing_position - player.camera.global_position
+	var facing_dot: float = (-player.camera.global_basis.z).dot(toward_bed.normalized())
 	poses[label] = {"player": var_to_str(player.global_position), "bedside": var_to_str(anchor.position),
-		"arrival": var_to_str(world.arrival_placement().position), "on_floor": player.is_on_floor()}
+		"arrival": var_to_str(world.arrival_placement().position), "on_floor": player.is_on_floor(),
+		"facing_dot": facing_dot, "facing_position": var_to_str(anchor.facing_position),
+		"player_rotation": var_to_str(player.global_rotation),
+		"camera_rotation": var_to_str(player.camera.global_rotation),
+		"filtered_mouse_motion_events": filtered_mouse_motion_events}
+	print("[V2 WAKE] pose %s %s" % [label, JSON.stringify(poses[label])])
 	_check(label + ": deferred first-shift startup keeps the player at the V2 bedside", player.global_position.distance_to(anchor.position) < 0.35
 		and player.global_position.distance_to(world.arrival_placement().position) > 5.0
 		and player.is_on_floor())
 	_check(label + ": wake restores actual gameplay camera and processing", get_viewport().get_camera_3d() == player.camera
 		and player.is_processing() and player.is_physics_processing()
 		and player.is_processing_unhandled_input() and not player.call_locked)
-	_check(label + ": authored bed remains the actual view target", (-player.camera.global_basis.z).dot(
-		(anchor.facing_position - player.camera.global_position).normalized()) > 0.97)
+	_check(label + ": authored bed remains the actual view target", facing_dot > 0.97)
 	_check(label + ": wake retains gameplay pointer capture", Input.mouse_mode == Input.MOUSE_MODE_CAPTURED)
 	await _key(KEY_QUOTELEFT)
 	_check(label + ": backtick still releases the pointer after reconstruction", Input.mouse_mode == Input.MOUSE_MODE_VISIBLE)
@@ -232,7 +251,9 @@ func _finish() -> void:
 		and (not original_present or FileAccess.get_file_as_bytes(original_save) == original_bytes))
 	var receipt := {"schema": "orison.v2-wake-reconstruction.diagnostic.v1", "checks": checks, "failures": failures,
 		"selector": BuildingRootSelector.selected_id(), "poses": poses, "test_save": test_save,
-		"scope": "Actual selected V2, public debug arm, production onset/DreamMazeRoot/end transaction, normal and real-file return_pending reconstruction. Frozen campaign clock; no earned-case or played-maze claim."}
+		"filtered_mouse_motion_events": filtered_mouse_motion_events,
+		"filtered_mouse_motion": var_to_str(filtered_mouse_motion),
+		"scope": "Actual selected V2, public debug arm, production onset/DreamMazeRoot/end transaction, normal and real-file return_pending reconstruction. Frozen campaign clock and unrelated desktop mouse motion filtered; production camera and player input remain enabled. No earned-case or played-maze claim."}
 	var output := OS.get_environment("V2_WAKE_RECEIPT")
 	if not output.is_empty():
 		var file := FileAccess.open(output, FileAccess.WRITE)
@@ -246,5 +267,7 @@ func _finish() -> void:
 	RealityState.new_campaign_time_provider = Callable()
 	GameBoot.launch_mode = original_mode
 	finished = true
+	print("[V2 WAKE] filtered desktop mouse motion: %d events, relative total %s" % [
+		filtered_mouse_motion_events, filtered_mouse_motion])
 	print("V2 WAKE RECONSTRUCTION: %d checks; %d failures" % [checks.size(), failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
