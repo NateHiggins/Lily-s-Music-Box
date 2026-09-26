@@ -67,6 +67,8 @@ var shots: ShotCapture
 var warehouse: PropWarehouse
 var view_override: Camera3D
 var building_debug: BuildingDebug
+var mina_infestation: Node3D
+var _infestation_revision := 0
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
@@ -449,6 +451,26 @@ func _compose_debug_controls() -> void:
 	add_child(layer)
 	layer.add_child(panel)
 	shots.chrome = layer
+	call_deferred("reset_mina_infestation")
+
+func clear_mina_infestation() -> void:
+	_infestation_revision += 1
+	if is_instance_valid(mina_infestation):
+		mina_infestation.free()
+	mina_infestation = null
+
+func reset_mina_infestation() -> void:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG: return
+	clear_mina_infestation()
+	var revision := _infestation_revision
+	# Wait for V2 collision bodies to be registered before choosing contacts.
+	await get_tree().physics_frame
+	if not is_inside_tree() or revision != _infestation_revision: return
+	mina_infestation = preload("res://scripts/debug/mina_apartment_infestation.gd").new()
+	mina_infestation.name = "MinaDebugInfestation"
+	add_child(mina_infestation)
+	if not mina_infestation.setup(self):
+		push_error("Mina debug infestation: %s" % [mina_infestation.errors])
 
 
 ## V2 destinations are in its composed world frame. V1 plan coordinates are

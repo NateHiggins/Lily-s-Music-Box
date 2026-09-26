@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| How to test all sixteen critters and live encroachment in Mina's actual V2 apartment | `game/docs/mina_debug_infestation.md` |
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
 | Household inspection, preventative care, tips and low-pressure rent | `game/docs/caretaking_and_economy.md` and `design/ORISON_V2_CARE_ECONOMY_PROGRESS_2026-09-26.md` |
 | Floor plates in both V2 stair cores and lamp-readable lettering | `design/ORISON_V2_WAYFINDING_PROGRESS_2026-09-26.md` |

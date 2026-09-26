@@ -183214,6 +183214,95 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "be8a9657742b9120",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/scripts/debug/mina_apartment_infestation.gd",
+   "tier": "production",
+   "subsystem": "debug",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    47,
+    47
+   ],
+   "count": 2,
+   "context": [
+    "rooms.sort_custom(func(a: Node,b: Node): return str(a.name)==\"F02_A_MAIN\" and str(b.name)!=\"F02_A_MAIN\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c9f29fcca6a35026",
+   "kind": "id_candidate",
+   "token": "F02_A_",
+   "file": "game/scripts/debug/mina_apartment_infestation.gd",
+   "tier": "production",
+   "subsystem": "debug",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "if not str(space.id).begins_with(\"F02_A_\"): continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ece1656862891260",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/mina_infestation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

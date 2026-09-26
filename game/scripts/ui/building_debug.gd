@@ -457,6 +457,15 @@ func _light_note(copy: String) -> void:
 
 func _build_go() -> void:
 	var box := _section("GO — teleports", Color(0.75, 0.8, 0.85))
+	if root.has_method("reset_mina_infestation"):
+		_button(box, "Mina infestation — visit", func():
+			if is_instance_valid(root.mina_infestation):
+				_go_to_building_position(root.mina_infestation.stand)
+				root.player.face_world_point(root.mina_infestation.target))
+		var infestation_row := HBoxContainer.new()
+		box.add_child(infestation_row)
+		_button(infestation_row, "Reset infestation", func(): root.reset_mina_infestation())
+		_button(infestation_row, "Clear infestation", func(): root.clear_mina_infestation())
 	var grid := GridContainer.new()
 	grid.columns = 4
 	box.add_child(grid)
