@@ -35,6 +35,7 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	# softens the shadow with distance, rather than a pinhole silhouette.
 	player.flashlight.light_size = .018
 	driver = preload("res://scripts/lamp/carried_lamp_optical_driver.gd").new()
+	driver.cone_scale = preload("res://scripts/lamp/lamp_gameplay_profile.gd").WAKING_CONE_SCALE
 	add_child(driver)
 	if not driver.setup(player): return false
 	# Headless validation can report Forward+ without an actual render device.

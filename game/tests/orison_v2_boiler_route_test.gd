@@ -7,6 +7,17 @@ func _prepare_player_start() -> void:
 	player.global_position = world.adapter.root.to_global(Vector3(2.3,.02,-3.5))
 	player.velocity = Vector3.ZERO
 
+func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	# The interaction ray turns instantly in this scripted route; let the real
+	# carried lamp catch up before judging the rendered control surface.
+	player.camera.look_at(target)
+	await get_tree().create_timer(.6).timeout
+	var lamp := player.flashlight
+	var incidence := rad_to_deg((-lamp.global_basis.z).angle_to(target-lamp.global_position))
+	if not _require(incidence < lamp.spot_angle*.5,
+			"settled physical lamp centers interaction target: " + label): return false
+	return await super._use(owner_node,target,label)
+
 func _route() -> void:
 	for point in [Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),
 			Vector3(2.3,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:

@@ -18,6 +18,10 @@ lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 
+The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
+the control and let the carried set settle after a fast turn. Its light still
+comes from the modeled lens; walls and machinery cast shadows.
+
 For Mina's opening shift, follow the report to 2A, inspect the faulty listening
 head, obtain its capsule at HARDWARE PAINT, and return to repair the same head.
 Speak with Mina after the repair. Her conversation enables the nearby lobby

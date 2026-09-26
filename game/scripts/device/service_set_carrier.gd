@@ -5,7 +5,7 @@ extends Node3D
 ## space transform to the real-world light owned by PlayerController.
 
 const CARRY_POS := Vector3(0.190, -0.205, -0.410)
-const CARRY_ROT := Vector3(-18.0, -12.0, 5.0)
+const CARRY_ROT := Vector3(4.0, 6.0, 5.0)
 const REF_ASPECT := 16.0 / 9.0
 
 var device: ServiceSetProp

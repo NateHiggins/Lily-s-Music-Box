@@ -37,7 +37,7 @@ func _run() -> void:
 	_check(fixtures_off >= 128,"room fixtures switched off for lamp-only comparison")
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false): layer.hide()
 	var profile: float = player._lamp_base_energy
-	_check(is_equal_approx(profile,24.0) and is_equal_approx(player.flashlight.spot_range,12.0),
+	_check(is_equal_approx(profile,24.0) and is_equal_approx(player.flashlight.spot_range,16.0),
 			"primary light output and usable throw mounted")
 	for station: Dictionary in [
 		{"id":"home","at":Vector3(-11.4,0,-5.8),"look":Vector3(-14.7,1.0,-6.0)},
