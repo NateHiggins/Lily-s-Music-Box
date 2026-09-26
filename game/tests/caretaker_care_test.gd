@@ -46,6 +46,28 @@ func _run() -> void:
 		await get_tree().process_frame
 		_check("[I] Inspect / care" in carrier.device.teletype.footer.text,"care control reaches physical paper")
 	await _shot("care_discovery")
+	await _pad(JOY_BUTTON_RIGHT_STICK)
+	_check(notebook.opened and notebook.subject==tap and notebook.get_viewport().gui_get_focus_owner() is Button,
+		"controller R3 opens aimed inspection with button focus")
+	await _pad(JOY_BUTTON_A)
+	_check(tap._hot,"controller accept operates the focused physical valve")
+	await _pad(JOY_BUTTON_DPAD_RIGHT)
+	await _pad(JOY_BUTTON_A)
+	_check(tap._hot and tap._cold,"controller D-pad selects and operates a second control")
+	await _pad(JOY_BUTTON_B)
+	_check(not notebook.opened and not tap._hot and not tap._cold and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
+		"controller cancel restores valves and pointer ownership")
+	_check(notebook.action_hint()=="[R3] Inspect / care","paper cue follows controller input family")
+	await get_tree().process_frame
+	_check("[R3]" in world.service_set_carrier.device.teletype.footer.text,"physical paper renders controller inspection cue")
+	await _shot("controller_care_cue")
+	await _pad(JOY_BUTTON_BACK)
+	_check(notebook.opened and notebook.subject==null,"controller View opens pocket ledger")
+	await _pad(JOY_BUTTON_B)
+	var keyboard := InputEventKey.new()
+	keyboard.physical_keycode = KEY_I
+	keyboard.pressed = true
+	player._input(keyboard)
 	var inspect := InputEventAction.new()
 	inspect.action = "inspect_care"
 	inspect.pressed = true
@@ -61,6 +83,9 @@ func _run() -> void:
 	tap._water_level = .8
 	notebook._test_water()
 	_check(_test_controls_locked(notebook),"timed test owns its valves and service controls")
+	var test_focus = notebook.get_viewport().gui_get_focus_owner()
+	_check(test_focus is Button and test_focus.text=="Close / Escape" and not test_focus.disabled,
+		"timed test leaves controller focus on enabled cancellation")
 	await get_tree().create_timer(1.5).timeout
 	await _shot("shower_running")
 	await get_tree().create_timer(2.8).timeout
@@ -348,3 +373,16 @@ func _test_controls_locked(notebook: Node) -> bool:
 			if not child.disabled: return false
 			count += 1
 	return count>0
+
+func _pad(button: JoyButton) -> void:
+	var event := InputEventJoypadButton.new()
+	event.button_index = button
+	event.pressed = true
+	Input.parse_input_event(event)
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	event = InputEventJoypadButton.new()
+	event.button_index = button
+	event.pressed = false
+	Input.parse_input_event(event)
+	await get_tree().process_frame

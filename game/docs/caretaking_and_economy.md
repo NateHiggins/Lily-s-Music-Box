@@ -9,7 +9,11 @@ Rent is a gentle savings goal. This direction is broader than the first rollout.
 
 ## Available in V2 now
 
-E remains the ordinary operation control. Aim at a fitted sink, shower,
+E remains the ordinary operation control. On a controller, R3 opens inspection
+and Back/View opens the pocket ledger. Use D-pad left/right to select
+a button, A to operate it and B to close. Timed tests focus the enabled Close
+button, so cancellation stays accessible. The carried paper shows R3 after
+controller input and I after keyboard input. Aim at a fitted sink, shower,
 medicine cabinet or kitchen cabinet within 2.1 metres and press I to inspect.
 The ray must actually hit the fixture or one of its controls. The carried paper
 shows `[I] Inspect / care` while a supported fixture is within reach. I with
@@ -82,7 +86,7 @@ actions that respect their existing maintenance owners. Leisure purchases,
 consumable effects, owned camera/film, actual pool stakes and paid arcade/karaoke
 sessions are not implemented here. The pocket is not a remote shopping menu.
 Those transactions must happen at their physical venues and persist through the
-same money owner. Discoverability and controller/touch inspection also need work.
+same money owner. Touch inspection and broader discoverability still need work.
 
 ## Ownership and verification
 

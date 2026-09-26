@@ -50,12 +50,27 @@ func inspection_available() -> bool:
 		and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED
 
 func action_hint() -> String:
-	return "[I] Inspect / care" if inspection_available() and aimed_subject()!=null else ""
+	if not inspection_available() or aimed_subject()==null: return ""
+	return "[R3] Inspect / care" if player._current_prompt_family()==&"controller" else "[I] Inspect / care"
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and opened:
 		close()
 		get_viewport().set_input_as_handled()
+	elif opened and (event.is_action_pressed("activity_adjust_left") or event.is_action_pressed("activity_adjust_right")):
+		var buttons: Array[Button] = []
+		for child in box.get_children():
+			if child is Button and not child.disabled: buttons.append(child)
+		if not buttons.is_empty():
+			var index := buttons.find(get_viewport().gui_get_focus_owner())
+			var step := -1 if event.is_action_pressed("activity_adjust_left") else 1
+			buttons[posmod(index+step,buttons.size())].grab_focus()
+		get_viewport().set_input_as_handled()
+	elif opened and event.is_action_pressed("activity_commit") and not event.is_echo():
+		var focused := get_viewport().gui_get_focus_owner()
+		if focused is Button and box.is_ancestor_of(focused) and not focused.disabled:
+			get_viewport().set_input_as_handled()
+			focused.pressed.emit()
 	elif not opened and (event.is_action_pressed("inspect_care") or event.is_action_pressed("pocket_ledger")):
 		if not inspection_available(): return
 		var target: Node = aimed_subject() if event.is_action_pressed("inspect_care") else null
@@ -101,6 +116,7 @@ func open(target: Node) -> void:
 	opened = true
 	add_to_group("attention_maintenance")
 	panel.show()
+	_focus_button(false)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_process(0.0)
 
@@ -202,6 +218,9 @@ func _process(delta: float) -> void:
 	else:
 		var days := maxf(0.0,(float(economy.book().started)+(int(economy.book().rent_paid)+1)*economy.MONTH-economy.clock.elapsed_minutes())/1440.0)
 		readout.text = "POCKET / %s\nRent: $5.00 / next instalment in %.1f days\nOverdue instalments: %d\nNo late fees. Pay when you can.\n\nI: inspect a fixture in reach\nP: pocket ledger" % [economy.money(int(economy.book().cash)),days,economy.rent_cycles_due()]
+		if player._current_prompt_family()==&"controller":
+			readout.text = readout.text.replace("I: inspect a fixture in reach\nP: pocket ledger",
+				"R3: inspect a fixture in reach\nView: pocket ledger")
 		var requests: Array[String] = care.request_lines()
 		var pages := maxi(1,ceili(requests.size()/6.0))
 		_request_page = posmod(_request_page,pages)
@@ -209,9 +228,17 @@ func _process(delta: float) -> void:
 		for index in range(_request_page*6,mini(requests.size(),(_request_page+1)*6)):
 			readout.text += "\n"+requests[index]
 
+func _focus_button(last: bool) -> void:
+	var buttons: Array[Button] = []
+	for child in box.get_children():
+		if child is Button and not child.disabled: buttons.append(child)
+	if not buttons.is_empty(): buttons[-1 if last else 0].grab_focus()
+
 func _set_test_controls(running: bool) -> void:
 	for child in box.get_children():
 		if child is Button and child.text!="Close / Escape": child.disabled = running
+	# A timed test must leave a reachable cancel control for non-pointer users.
+	_focus_button(running)
 
 func _print_card(card: Dictionary) -> bool:
 	return is_instance_valid(player.carried_device) and player.carried_device.print_telegram_card(card)

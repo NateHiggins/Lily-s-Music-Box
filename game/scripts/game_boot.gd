@@ -31,6 +31,8 @@ const JOYPAD_ACTIONS := {
 	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
 	"activity_commit": JOY_BUTTON_A,
 	"pause_services": JOY_BUTTON_START,
+	"inspect_care": JOY_BUTTON_RIGHT_STICK,
+	"pocket_ledger": JOY_BUTTON_BACK,
 }
 
 const JOYPAD_AXES := {

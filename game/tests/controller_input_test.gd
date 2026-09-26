@@ -6,6 +6,8 @@ var failures := 0
 
 func _ready() -> void:
 	_button(&"interact", JOY_BUTTON_A, "A reaches the world interaction")
+	_button(&"inspect_care", JOY_BUTTON_RIGHT_STICK, "R3 reaches household inspection")
+	_button(&"pocket_ledger", JOY_BUTTON_BACK, "View reaches the pocket ledger")
 	_button(&"jump", JOY_BUTTON_Y, "Y reaches jump")
 	_button(&"crouch", JOY_BUTTON_LEFT_STICK, "L3 reaches crouch")
 	_button(&"lamp_toggle", JOY_BUTTON_LEFT_SHOULDER, "LB reaches the lamp")
