@@ -41,6 +41,14 @@ OrisonV2WallMountTest probes all four back corners against solid wall collision,
 walks into each operating stance, and uses the real player ray to operate
 the mailbox, telephone line, lift panel and dumbwaiter brake panel.
 
+The phone board's service-wire copy identifies the house telephone and the
+actual calling extension. It reports answered, carrying or idle from the
+existing line owner. The annunciator and dumbwaiter expose their own flag,
+contact, brake and rope readings instead of a generic radiator description.
+These are observations of mechanism state, not work-order completion claims.
+Opening a dispatch or maintenance panel still suppresses an unsolicited slip;
+reading a report neither repairs a mechanism nor writes a save.
+
 The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
 the control and let the carried set settle after a fast turn. Its light still
 comes from the modeled lens; walls and machinery cast shadows.

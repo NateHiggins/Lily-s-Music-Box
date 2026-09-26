@@ -77,6 +77,14 @@ func interact_prompt() -> String:
 	return "[E]  Work the lift"
 
 
+func service_wire_card() -> Dictionary:
+	return {"title":"LIFT ANNUNCIATOR",
+		"body":"Call flag: %s.\nContact alignment: %d%%.\nReset travel: %d%%." % [
+			"sticking" if stuck_flag else "free", roundi(contact_alignment*100), roundi(bank_reset*100)],
+		"condition":"SERVICE REQUIRED" if stuck_flag else "FLAG FREE",
+		"stamp":"MECHANISM STATUS"}
+
+
 func interact(player: Node) -> void:
 	_open_lift_panel(player)
 

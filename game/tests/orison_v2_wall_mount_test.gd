@@ -31,19 +31,41 @@ func _route() -> void:
 			var line: Node=prop.network
 			if not _require(line.request(str(line.endpoints.keys()[0])),"real subscriber asks for the line"): return
 			for expected in ["ANSWERED","CARRYING","IDLE"]:
+				var before_serial: int=player.telegram_hud.serial
 				if not await _use(prop,prop.to_global(spec[6]),"telephone_"+expected): return
 				if not _require(line.snapshot().state==expected,"front-side phone operation "+expected): return
+				var card: Dictionary=player.telegram_hud.last_card
+				if not _require(player.telegram_hud.serial==before_serial+1 and card.title=="HOUSE TELEPHONE" and card.condition=="LINE / "+expected,"one correctly identified phone status reaches the shared presenter"): return
+				var paper: String=" ".join(world.service_set_carrier.device.teletype.pages)
+				if not _require("HOUSE TELEPHONE" in paper and expected in paper and "RADIATOR" not in paper,"physical paper carries the current line state"): return
+				if expected!="IDLE" and not _require("2A" in paper,"paper names the actual calling extension"): return
+			await _printed_phone_capture()
 		else:
+			var before_serial: int=player.telegram_hud.serial
 			if not await _use(prop,prop.to_global(spec[6]),spec[0]): return
 			if prop is MailBankProp:
 				if not _require(prop.door_open,"4B mailbox opens through actual player ray"): return
 				prop._panel.close()
 			elif prop is OtisProp:
 				if not _require(is_instance_valid(prop._panel),"lift dispatch panel is usable"): return
+				if not _require(player.telegram_hud.serial==before_serial,"dispatch modal suppresses unsolicited paper"): return
 				prop._panel.close()
+				var before: Dictionary=prop.maintenance_snapshot()
+				var saved: PackedByteArray=var_to_bytes(RealityState.data)
+				var card: Dictionary=prop.service_wire_card()
+				if not _require(card.title=="LIFT ANNUNCIATOR" and "sticking" in card.body and card.condition=="SERVICE REQUIRED","annunciator report identifies its real sticking flag"): return
+				if not _require(prop.maintenance_snapshot()==before and saved==var_to_bytes(RealityState.data),"reading the annunciator report changes no mechanism or save fact"): return
 			else:
 				if not _require(is_instance_valid(prop._service_panel),"dumbwaiter brake is reachable"): return
+				if not _require(player.telegram_hud.serial==before_serial,"brake modal suppresses unsolicited paper"): return
+				prop.preview_maintenance_step({"id":"take_strain"},.6)
+				var before: Dictionary=prop.maintenance_snapshot()
+				var saved: PackedByteArray=var_to_bytes(RealityState.data)
+				var card: Dictionary=prop.service_wire_card()
+				if not _require(card.title=="SERVICE DUMBWAITER" and "60%" in card.body and card.condition=="BRAKE SERVICE REQUIRED","live rope strain does not masquerade as a completed repair"): return
+				if not _require(prop.maintenance_snapshot()==before and saved==var_to_bytes(RealityState.data),"reading the brake report changes no mechanism or save fact"): return
 				prop._service_panel._close(true)
+				if not _require("Rope strain: 0%" in prop.service_wire_card().body and not prop.band_seated,"cancelled service reports restored mechanism without completing it"): return
 		await get_tree().process_frame
 		# Oblique view makes a floating back or an embedded face visible.
 		player.global_position=stance+prop.global_basis.x*.25
@@ -52,3 +74,14 @@ func _route() -> void:
 		if not directory.is_empty():
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(directory.path_join(spec[0]+"_oblique.png"))
+
+func _printed_phone_capture() -> void:
+	var printer=world.service_set_carrier.device.teletype
+	var started := Time.get_ticks_msec()
+	while printer.printing and Time.get_ticks_msec()-started<15000:
+		await get_tree().process_frame
+	if not _require(not printer.printing,"physical line-status copy finishes printing"): return
+	var directory := OS.get_environment("SHOT_DIR")
+	if directory.is_empty() or DisplayServer.get_name()=="headless": return
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("telephone_printed.png"))

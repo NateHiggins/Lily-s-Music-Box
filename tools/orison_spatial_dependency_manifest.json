@@ -183800,6 +183800,36 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "a8ee044cf86a0ef0",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_wall_mount_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    41
+   ],
+   "count": 1,
+   "context": [
+    "if expected!=\"IDLE\" and not _require(\"2A\" in paper,\"paper names the actual calling extension\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }

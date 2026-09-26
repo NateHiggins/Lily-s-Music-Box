@@ -90,6 +90,23 @@ func interact(_actor: Node = null) -> Dictionary:
 			"line":network.call("snapshot")}
 
 
+func service_wire_card() -> Dictionary:
+	if network == null:
+		return {"title":"HOUSE TELEPHONE", "body":"No house line is connected.",
+			"condition":"DISCONNECTED", "stamp":"LINE STATUS"}
+	var line: Dictionary = network.call("snapshot")
+	var phase := str(line.state)
+	var endpoint: Dictionary = network.endpoints.get(str(line.asking), {})
+	var extension := str(endpoint.get("extension", ""))
+	var detail := "The board is quiet. No line is being held."
+	match phase:
+		"ASKING": detail = "Extension %s is asking. Answer at the board." % extension
+		"ANSWERED": detail = "Extension %s is answered. Carry the line to the house trunk." % extension
+		"CARRYING": detail = "Extension %s is connected to the house trunk. Release the line when finished." % extension
+	return {"title":"HOUSE TELEPHONE", "body":detail,
+		"condition":"LINE / "+phase, "stamp":"LINE STATUS"}
+
+
 func _on_line_changed(line: Dictionary) -> void:
 	var phase := str(line.get("state", "IDLE"))
 	if phase != _heard_phase:

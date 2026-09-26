@@ -357,8 +357,9 @@ func _refresh_mechanism() -> void:
 
 
 func service_wire_card() -> Dictionary:
-	return {
-		"title": "SERVICE DUMBWAITER",
-		"body": "Counterweight, lift sheave and automatic holding brake. "
-				+ "The weight carries the car; the band holds the difference.",
-	}
+	return {"title":"SERVICE DUMBWAITER",
+		"body":"The counterweight carries the car; the band holds the difference.\nBrake band: %s.\nBrake bite: %d%%.\nRope strain: %d%%.\nPawl lift: %d%%." % [
+			"seated" if band_seated else "off its drum", roundi(brake_bite*100),
+			roundi(rope_strain*100), roundi(pawl_lift*100)],
+		"condition":"BAND SEATED" if band_seated else "BRAKE SERVICE REQUIRED",
+		"stamp":"MECHANISM STATUS"}
