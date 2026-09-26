@@ -154,7 +154,7 @@
         "rect": [
           -2.2,
           -3.85,
-          1.7,
+          -0.86,
           3.85
         ],
         "class": "core"
@@ -200,6 +200,50 @@
           5.0,
           13.2,
           6.05
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_LIFT_DECK_E",
+        "level": "ROOF",
+        "rect": [
+          -0.64,
+          -3.85,
+          1.7,
+          3.85
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_LIFT_DECK_S",
+        "level": "ROOF",
+        "rect": [
+          -0.86,
+          -3.85,
+          -0.64,
+          -2.18
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_LIFT_DECK_BRIDGE",
+        "level": "ROOF",
+        "rect": [
+          -0.86,
+          -2.09,
+          -0.64,
+          -0.54
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_LIFT_DECK_N",
+        "level": "ROOF",
+        "rect": [
+          -0.86,
+          -0.42,
+          -0.64,
+          3.85
         ],
         "class": "core"
       }

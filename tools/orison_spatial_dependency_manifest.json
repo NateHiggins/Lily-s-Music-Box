@@ -182475,6 +182475,68 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "aedccd67fc0ec151",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    61,
+    88
+   ],
+   "count": 2,
+   "context": [
+    "for destination: String in [\"F06\",\"B1\",\"F01\"]:",
+    "if destination == \"B1\": await _shaft_inspection()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4c30261415e7ded0",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    61
+   ],
+   "count": 1,
+   "context": [
+    "for destination: String in [\"F06\",\"B1\",\"F01\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   }
  ]
 }

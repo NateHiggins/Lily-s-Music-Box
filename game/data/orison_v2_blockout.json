@@ -1841,7 +1841,7 @@
     {"id":"F06_PUBLIC_LANDING_N","level":"F06","rect":[1.7,1.65,5.4,3.85],"class":"core"},
     {"id":"F06_SERVICE_LANDING","level":"F06","rect":[9.5,0.3,13.2,5.0],"class":"core"},
     {"id":"F06_SERVICE_RETURN","level":"F06","rect":[11.9,5.0,13.2,6.05],"class":"core"},
-    {"id":"ROOF_PUBLIC_LANDING_W","level":"ROOF","rect":[-2.2,-3.85,1.7,3.85],"class":"core"},
+    {"id":"ROOF_PUBLIC_LANDING_W","level":"ROOF","rect":[-2.2,-3.85,-0.86,3.85],"class":"core"},
     {"id":"ROOF_PUBLIC_LANDING_S","level":"ROOF","rect":[1.7,-3.85,5.4,-1.9],"class":"core"},
     {"id":"ROOF_PUBLIC_LANDING_N","level":"ROOF","rect":[1.7,1.65,5.4,3.85],"class":"core"},
     {"id":"ROOF_SERVICE_LANDING","level":"ROOF","rect":[9.5,0.3,13.2,5.0],"class":"core"},
@@ -1872,7 +1872,11 @@
     {"id":"F06_PUBLIC_LANDING_W","level":"F06","rect":[-2.2,-3.85,1.7,-2.8],"class":"core"},
     {"id":"F06_PUBLIC_LANDING_W_SHAFT_1","level":"F06","rect":[-2.2,-0.3,1.7,3.85],"class":"core"},
     {"id":"F06_PUBLIC_LANDING_W_SHAFT_2","level":"F06","rect":[-2.2,-2.8,-1.2,-0.3],"class":"core"},
-    {"id":"F06_PUBLIC_LANDING_W_SHAFT_3","level":"F06","rect":[1.2,-2.8,1.7,-0.3],"class":"core"}
+    {"id":"F06_PUBLIC_LANDING_W_SHAFT_3","level":"F06","rect":[1.2,-2.8,1.7,-0.3],"class":"core"},
+    {"id":"ROOF_LIFT_DECK_E","level":"ROOF","rect":[-0.64,-3.85,1.7,3.85],"class":"core"},
+    {"id":"ROOF_LIFT_DECK_S","level":"ROOF","rect":[-0.86,-3.85,-0.64,-2.18],"class":"core"},
+    {"id":"ROOF_LIFT_DECK_BRIDGE","level":"ROOF","rect":[-0.86,-2.09,-0.64,-0.54],"class":"core"},
+    {"id":"ROOF_LIFT_DECK_N","level":"ROOF","rect":[-0.86,-0.42,-0.64,3.85],"class":"core"}
   ],
   "lift_landings": [
     {"id":"F01_PASSENGER_LIFT_LANDING","level":"F01","shaft":"PASSENGER_LIFT_SHAFT","center":[0.0,-2.8],"width":0.91,"height":2.13,"yaw":0.0,"clear_depth":1.8},

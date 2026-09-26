@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
 | Completed V2 fuse and roof-tank repairs across saves and building reconstruction | `design/ORISON_V2_SERVICE_SAVE_PROGRESS_2026-09-26.md` |
+| V2 lift ropes, deflectors, counterweight, guide channels and guarded roof penetrations | `design/ORISON_V2_LIFT_SUSPENSION_PROGRESS_2026-09-26.md` |
 | V2 four physical ventilation stacks, bathroom branches and geographic motor ownership | `design/ORISON_V2_SHARED_DUCTWORK_PROGRESS_2026-09-26.md` |
 | V2 street coal cover, gravity delivery chute and raised basement aperture | `design/ORISON_V2_COAL_DELIVERY_PROGRESS_2026-09-26.md` |
 | Guarded roof lift machinery driven by the existing passenger car | `design/ORISON_V2_LIFT_DRIVE_PROGRESS_2026-09-26.md` |

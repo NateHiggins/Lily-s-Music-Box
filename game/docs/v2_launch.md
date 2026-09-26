@@ -56,9 +56,12 @@ clear the ceiling lights. Stack A serves the northwest bathrooms, B the
 southwest, C the north-central homes, and D the eastern bathrooms and staff
 restroom. Their guarded inspection points explain the service refusal; they
 are not another repair job. A guarded lift drive stands above the passenger
-shaft inside the public roof bulkhead. Its sheave follows the existing car;
-the guard keeps the moving apparatus separate from the roof access path.
-It does not add another repair job or a second lift controller.
+shaft inside the public roof bulkhead. Four suspension ropes, two deflectors,
+car and counterweight guides, and a framed counterweight now complete its
+visible travel assembly. The sheaves and counterweight follow the existing
+car. Guarded openings carry the ropes through the roof and machinery plinth;
+the roof access path stays outside the moving apparatus. This does not add
+another repair job or a second lift controller.
 
 The service lamp is now bright enough to serve as the primary local light in
 unlit rooms, the basement and on the roof. Press L to switch it. It retains its
