@@ -20,6 +20,8 @@ var _test_seconds := 0.0
 var _testing := false
 var _draining := false
 var _request_page := 0
+var _cabinet_phase := 0
+var _cabinet_was_open := false
 
 func _ready() -> void:
 	add_to_group("caretaker_notebook")
@@ -84,7 +86,7 @@ func open(target: Node) -> void:
 				_button("Shower curtain",func(): subject.set_curtain_open(not subject.is_curtain_open()))
 			_button("Test flow, warmth and drainage",_test_water)
 		else:
-			_button("Exercise the cabinet",func(): subject.interact(player); tested = true)
+			_button("Exercise the cabinet",_test_cabinet)
 		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Brush and wax track",_service)
 	else:
 		_button("Pay $5.00 rent instalment",func(): feedback.text = "Rent paid." if economy.pay_rent() else "Keep saving for the next instalment.")
@@ -107,6 +109,48 @@ func _button(words: String, callback: Callable) -> void:
 	button.pressed.connect(callback)
 	box.add_child(button)
 
+func _cabinet_open() -> bool:
+	return subject.is_door_open() if subject is MedicineCabinetProp else subject.opened
+
+func _set_cabinet_open(value: bool) -> void:
+	if subject is MedicineCabinetProp: subject.set_door_open(value)
+	elif subject.opened!=value: subject.interact(player)
+
+func _cabinet_at_end(open: bool) -> bool:
+	if subject is MedicineCabinetProp:
+		return absf(subject._swing-(1.0 if open else 0.0))<.001
+	return absf(subject._slide.position.x-(subject.TRAVEL if open else 0.0))<.001
+
+func _test_cabinet() -> void:
+	if _testing: return
+	tested = false
+	_testing = true
+	_test_seconds = 0
+	_cabinet_phase = 1
+	_cabinet_was_open = _cabinet_open()
+	_set_test_controls(true)
+	_set_cabinet_open(false)
+	feedback.text = "Closing the cabinet; checking its full travel..."
+
+func _observe_cabinet(delta: float) -> void:
+	_test_seconds += delta
+	if _cabinet_at_end(_cabinet_phase==2):
+		if _cabinet_phase==1:
+			_cabinet_phase = 2
+			_test_seconds = 0
+			_set_cabinet_open(true)
+			feedback.text = "Opening the cabinet; checking access to its mechanism..."
+		else:
+			_testing = false
+			tested = true
+			_set_test_controls(false)
+			feedback.text = "Full travel checked. The mechanism is open for care."
+	elif _test_seconds>=3:
+		_testing = false
+		_set_cabinet_open(_cabinet_was_open)
+		_set_test_controls(false)
+		feedback.text = "Travel did not finish; test incomplete. Check the cabinet and retry."
+
 func _test_water() -> void:
 	# Run the actual valves briefly, then observe the physical water-level fall.
 	if _testing: return
@@ -128,7 +172,9 @@ func _process(delta: float) -> void:
 	if not opened: return
 	if subject!=null:
 		readout.text = care.inspection(subject)
-		if _testing:
+		if _testing and not subject is TapProp:
+			_observe_cabinet(delta)
+		elif _testing:
 			_test_seconds += delta
 			if not _draining and _test_seconds>=2:
 				subject.set_hot(false)
@@ -173,6 +219,7 @@ func _service() -> void:
 	var result: Dictionary = care.service(subject,tested)
 	feedback.text = str(result.get("note","Service unavailable."))
 	if int(result.get("tip",0))>0: feedback.text += "  Tip: "+economy.money(int(result.tip))
+	_process(0)
 
 func close() -> void:
 	if not opened: return
@@ -180,6 +227,8 @@ func close() -> void:
 		subject.set_hot(_was_hot)
 		subject.set_cold(_was_cold)
 		subject.set_stopper(_was_stopper)
+	if _testing and is_instance_valid(subject) and not subject is TapProp:
+		_set_cabinet_open(_cabinet_was_open)
 	_testing = false
 	panel.hide()
 	opened = false

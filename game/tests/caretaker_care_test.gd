@@ -1,5 +1,6 @@
 extends Node
 var failures: Array[String] = []
+const Prep := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 
 func _ready() -> void: call_deferred("_run")
@@ -146,8 +147,47 @@ func _run() -> void:
 	var cash: int = economy.book().cash
 	care.service(tap,true)
 	_check(economy.book().cash==cash,"closed request cannot pay twice")
-	cabinet.set_door_open(true)
-	care.service(cabinet,true)
+	player.camera.global_position = cabinet.to_global(Vector3(0,cabinet.CENTER_Y,-1.2))
+	player.camera.look_at(cabinet.to_global(Vector3(.4,cabinet.CENTER_Y,0)))
+	notebook.open(cabinet)
+	notebook._test_cabinet()
+	_check(not notebook.tested,"cabinet click alone does not certify travel")
+	await get_tree().create_timer(1.5).timeout
+	_check(notebook.tested and cabinet._swing>.999,"hinged cabinet completes physical open travel before care")
+	notebook._service()
+	_check("Quiet and free" in notebook.readout.text,"care updates the condition readout immediately")
+	await get_tree().process_frame
+	await _shot("cabinet_care")
+	notebook.close()
+	var sliding: Node
+	for prop: Node in care.subjects.values():
+		if prop is Prep and prop.unit==tap.unit: sliding = prop; break
+	_check(sliding!=null,"household sliding cabinet available")
+	if sliding!=null:
+		sliding.restore_open_state(false)
+		notebook.open(sliding)
+		notebook._test_cabinet()
+		await get_tree().create_timer(1.5).timeout
+		_check(notebook.tested and absf(sliding._slide.position.x-sliding.TRAVEL)<.001,
+			"sliding cabinet completes actual panel travel before care")
+		notebook.close()
+	# A stalled moving leaf cannot award a completed test.
+	cabinet.set_door_open(false,0)
+	cabinet.set_physics_process(false)
+	notebook.open(cabinet)
+	notebook._test_cabinet()
+	await get_tree().create_timer(3.4).timeout
+	_check(not notebook.tested and not notebook._testing and "incomplete" in notebook.feedback.text,
+		"stalled hinge times out without certifying care")
+	notebook.close()
+	cabinet.set_physics_process(true)
+	notebook.open(cabinet)
+	notebook._test_cabinet()
+	await get_tree().create_timer(.1).timeout
+	notebook.close()
+	await get_tree().create_timer(.6).timeout
+	_check(not cabinet.is_door_open() and cabinet._swing<.001 and not notebook.tested,
+		"cancelled cabinet test restores the entry door position")
 	_check(cabinet.hinges_oiled,"cabinet care quiets real hinge mechanism")
 	_check(economy.affection("mina_vale")==affection+2,"client goodwill capped across objects per day")
 	var slow: int = economy.tip("test:slow","other_client",.35,0)

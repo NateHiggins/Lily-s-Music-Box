@@ -29,7 +29,10 @@ both valves closed and the drain open. Leaving inspection restores the valve
 and stopper settings from entry. Temperature is the existing simulation's
 relative cold/warm/hot reading, not a newly calibrated thermometer.
 
-Exercise a cabinet, then open it to reach the hinge or track. Oil quiets the
+Exercise a cabinet to close and reopen its actual moving leaf. The test waits
+for both ends of travel before allowing care and leaves the mechanism open.
+An unfinished movement times out without passing; cancelling restores the entry
+open/closed state. Oil quiets the
 medicine cabinet's existing squeak. Brushing and waxing restores the sliding
 cabinet's normal travel time. These actions do not replace the cabinet's
 ordinary open/close control or moving collision.
