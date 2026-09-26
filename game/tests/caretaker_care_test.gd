@@ -56,6 +56,13 @@ func _run() -> void:
 	_check(not tap._hot and not tap._cold,"inspection restores original valves")
 	notebook.open(tap)
 	var debug := notebook.debug as BuildingDebug
+	_check(debug!=null,"inspection binds the composed debug pointer owner")
+	if debug==null:
+		notebook.close()
+		world.shutdown_for_tests()
+		world.free()
+		get_tree().quit(1)
+		return
 	debug._set_menu_open(true)
 	notebook.close()
 	_check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"closing inspection preserves F1 pointer ownership")

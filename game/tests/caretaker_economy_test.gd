@@ -21,7 +21,7 @@ func _run() -> void:
 	_check(orders.mark_job_repairable(identity),"repairable")
 	_check(orders.record_job_repair(identity,{"quality":"good","note":"tested"}),"repair recorded")
 	_check(wallet.book().cash==100,"unfinished request pays no tip")
-	RealityState.save_path = "user://tests/economy_"+str(Time.get_ticks_usec())+".json"
+	RealityState.save_path = "user://tests/economy_"+str(OS.get_process_id())+".json"
 	RealityState.persistence_enabled = true
 	_check(orders.close_job(identity),"closed through normal lifecycle")
 	var cash: int = wallet.book().cash

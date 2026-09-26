@@ -176,6 +176,7 @@ func _ready() -> void:
 		push_error("V2 lamp optical state could not be restored")
 		return
 	_compose_debug_controls()
+	get_node("CaretakerNotebook").debug = building_debug
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
@@ -414,7 +415,6 @@ func _compose_authorities() -> void:
 	notebook.player = player
 	notebook.care = care
 	notebook.economy = economy
-	notebook.debug = building_debug
 	add_child(notebook)
 
 func arrival_placement() -> Dictionary:

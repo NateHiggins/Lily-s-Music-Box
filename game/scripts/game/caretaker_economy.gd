@@ -83,10 +83,15 @@ func tip(identity: String, client: String, completeness: float, issued: float, p
 
 func _job_changed(identity: String, _from: String, to: String, state: Dictionary) -> void:
 	if to!="closed" or orders.job_library==null: return
+	_pay_job(identity,state,true)
+
+func _pay_job(identity: String, state: Dictionary, persist: bool) -> void:
+	# Interpret the existing work owner's technical repair result once, at
+	# payout. Only cents and a payment identity persist here, never a verdict.
 	var job := orders.job_library.job(identity)
 	var quality: String = state.get("repair_result",{}).get("quality","poor")
 	tip("job:"+identity,str(job.get("resident_id","")),
-		{"poor":.35,"fair":.65,"good":1.0}.get(quality,.35),float(state.get("issued_at",clock.elapsed_minutes())))
+		{"poor":.35,"fair":.65,"good":1.0}.get(quality,.35),float(state.get("issued_at",clock.elapsed_minutes())),persist)
 
 func _settle_jobs() -> void:
 	# WorkOrders commits before its closed signal. Include the tip in that same
@@ -95,10 +100,7 @@ func _settle_jobs() -> void:
 	for identity: String in RealityState.data.get("maintenance_jobs",{}):
 		var state: Dictionary = RealityState.data.maintenance_jobs[identity]
 		if state.get("stage","")!="closed" or not orders.job_library.has_job(identity): continue
-		var job := orders.job_library.job(identity)
-		var quality: String = state.get("repair_result",{}).get("quality","poor")
-		tip("job:"+identity,str(job.get("resident_id","")),
-			{"poor":.35,"fair":.65,"good":1.0}.get(quality,.35),float(state.get("issued_at",0)),false)
+		_pay_job(identity,state,false)
 
 func rent_cycles_due() -> int:
 	return maxi(0,int((clock.elapsed_minutes()-float(book().started))/MONTH)-int(book().rent_paid))
