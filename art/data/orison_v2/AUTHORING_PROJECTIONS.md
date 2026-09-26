@@ -45,7 +45,21 @@ ceilings are opened below them. This additive generator preserves all other
 floor records. The same source now owns the raised timber tank, supports,
 bindings, overflow butt and service anchor. V2 mounts the existing
 RoofTankBallcockProp at that anchor; its mechanism and maintenance activity
-remain production-owned. Ventilation and lift machinery are still unbuilt.
+remain production-owned. Lift machinery remains unbuilt.
+
+`vertical_services_source.json` and `tools/build_v2_vertical_services.py` own
+the passenger-shaft slab cuts, shaft construction, relocated watch doorway and
+roof-fan/register anchors. `completion_interiors_source.json` and
+`tools/build_v2_completion_interiors.py` own the remaining homes, southwest
+halls and staff restroom. Both support `--check` and update only their named
+layout records, preserving other owners and record order. The latter also
+emits `game/data/orison_v2/completion_interiors.json`; existing furniture
+templates and production fitting, door and lighting owners consume it.
+
+The two generators do not retire omitted identities automatically. When
+changing ownership or retiring a shipped identity, provide an explicit
+migration rather than silently deleting other owners' records. Projection
+freshness and construction are not runtime evidence.
 
 The older `design/astra/work/*/build.py` packets record earlier build steps.
 Some still write the former runtime locations and are not current authoring

@@ -3,7 +3,7 @@ func _init() -> void:
 	route_label = "V2 MAIL ACCESS"
 
 func _route() -> void:
-	for point in [Vector3(0,0,-3),Vector3(0,0,-1.5),Vector3(-1.8,0,-1.5),Vector3(-4,0,-1.35)]:
+	for point in [Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),Vector3(-4,0,-1.35)]:
 		if not await _walk(point): return
 	var guard: Node3D = world.adapter.resolve("F01_TOUR_KEY_GUARD")
 	if not await _use(guard,guard.to_global(Vector3(0,.15,.06)),"tour_key_guard"): return
@@ -24,5 +24,5 @@ func _route() -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join("mail_bank.png"))
 	for point in [Vector3(-7.1,0,-2.4),Vector3(-6.2,0,-2.4),Vector3(-4.9,0,-2.4),
-			Vector3(-4.6,0,-1.5),Vector3(-1.8,0,-1.5),Vector3(0,0,-1.5),Vector3(0,0,-3)]:
+			Vector3(-4.6,0,-1.5),Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.3),Vector3(0,0,-3.35)]:
 		if not await _walk(point): return

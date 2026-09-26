@@ -20,6 +20,9 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	var lighting: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/room_lighting.json"))
 	for record: Dictionary in lighting.fixtures:
 		if record.kind != "lamp": _kinds[str(record.id)] = "light"
+	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	for record: Dictionary in completion.lighting.fixtures:
+		if record.kind != "lamp": _kinds[str(record.id)] = "light"
 	var furniture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
 	for record: Dictionary in furniture.furniture:
 		if record.kind == "prep_cabinet": _kinds[str(record.id)] = "prep"

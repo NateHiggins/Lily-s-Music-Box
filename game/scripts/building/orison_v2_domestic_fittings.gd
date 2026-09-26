@@ -19,6 +19,9 @@ var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	return mount_source(adapter, parsed)
+
+func mount_source(adapter: Variant, parsed: Variant) -> bool:
 	if not validate(parsed, adapter):
 		return false
 	var acoustic_ids: Array[String] = []
@@ -68,6 +71,11 @@ func mount(adapter: Variant) -> bool:
 			display.position = Vector3(FridgeProp.MON_W*.5,.85,-.075)
 			(consumer.get("_door") as Node3D).add_child(display)
 	return true
+
+func mount_completion(adapter: Variant) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	if source is not Dictionary or source.get("fittings") is not Array: return false
+	return mount_source(adapter, {"schema_version":1,"fittings":source.fittings})
 
 func validate(source: Variant, adapter: Variant) -> bool:
 	errors.clear()

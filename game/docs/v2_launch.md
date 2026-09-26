@@ -18,6 +18,17 @@ lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 
+The passenger lift serves B1 and F01–F06. Press E at a landing call button,
+wait for the doors, enter, and press E on the desired floor button. Landing
+doors stay shut while the car is away. The stairs remain available. Follow the
+west side of the shaft to the apartment halls and basement laundry; the watch
+door is beside the lift's front approach.
+
+The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
+shells, doors, furniture, working hot/cold taps and switched lights. The staff
+restroom opens from the ground-floor service hall. The sealed 2D and 3C entries
+remain locked. These installations do not add new resident cases.
+
 The primary stair now continues above F06 to the roof. At its top landing,
 turn toward the west bulkhead door and press E to step onto the deck. The
 second bulkhead, to the east, connects to the service stair. Both doors open
@@ -26,8 +37,10 @@ tank stands southwest of the public bulkhead. Walk to its exposed valve and
 press E to service the overflowing ballcock; Escape cancels and restores an
 unfinished attempt. This reuses the existing tank activity. Its repair is local
 to the current building instance, not a saved campaign job or a source of water
-for apartment taps. Lift machinery, roof ventilation and adequate night
-lighting remain unfinished.
+for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
+registers. Their guarded inspection points explain the service refusal; they
+are not another repair job. Lift machinery and adequate night lighting remain
+unfinished.
 
 Mina walks her existing home, shop, laundry and mail routes. She waits for
 doors to finish opening and closes doors she opened after people clear their

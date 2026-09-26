@@ -115,6 +115,9 @@ func _ready() -> void:
 		add_child(root)
 		await get_tree().process_frame
 		_check(root.failures.is_empty(), "schema validation passes")
+		if not root.failures.is_empty():
+			_finish()
+			return
 		for group: String in ["spaces", "doors", "windows", "envelopes", "fixtures",
 				"platforms", "lift_landings", "stairs", "risers", "anchors"]:
 			for record: Dictionary in layout[group]:

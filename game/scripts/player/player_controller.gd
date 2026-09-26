@@ -302,6 +302,15 @@ func _update_prompt() -> void:
 					"Select next floor", _current_prompt_family())
 			_prompt_panel.visible = true
 			return
+		if hit.collider.has_meta("cabin_floor"):
+			_prompt.text = format_interaction_prompt(
+					"Ride to " + str(hit.collider.get_meta("cabin_floor")), _current_prompt_family())
+			_prompt_panel.visible = true
+			return
+		if hit.collider.has_meta("cabin_alarm"):
+			_prompt.text = format_interaction_prompt("Ring elevator alarm", _current_prompt_family())
+			_prompt_panel.visible = true
+			return
 	var node: Node = hit.collider
 	while node:
 		if node.has_method("interact_prompt"):

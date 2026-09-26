@@ -144,6 +144,15 @@ func _ready() -> void:
 	_compose_authorities()
 	if startup_failed:
 		return
+	elevator = preload("res://scripts/building/orison_v2_elevator.gd").new().mount(adapter, layout)
+	if elevator == null:
+		startup_failed = true
+		push_error("V2 passenger lift could not be composed")
+		return
+	if not preload("res://scripts/building/orison_v2_ventilation.gd").new().mount(adapter,layout):
+		startup_failed = true
+		push_error("V2 shared ventilation could not be composed")
+		return
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)
@@ -189,6 +198,11 @@ func _compose_authorities() -> void:
 	if not fittings.mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
+		return
+	var completion := preload("res://scripts/building/orison_v2_completion_interiors.gd").new()
+	if not completion.mount(adapter,layout,self):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: remaining interiors refused: %s" % [completion.errors])
 		return
 	if not _compose_hot_water():
 		return

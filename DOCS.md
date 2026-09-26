@@ -37,6 +37,8 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
+| V2 remaining homes, passenger lift, shared roof ventilation and scoped route checks | `design/ORISON_V2_HOMES_AND_LIFT_PROGRESS_2026-09-25.md` |
+| Spatial-only evidence for the six added homes and staff restroom | `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` |
 | The landed V2 roof-access shell, Mina's door passages, and remaining architecture/lighting work | `design/ORISON_V2_ROOF_AND_RESIDENT_PROGRESS_2026-09-25.md` |
 | The V2 roof water tank, production maintenance approach and scoped validation | `design/ORISON_V2_ROOF_PLANT_PROGRESS_2026-09-25.md` |
 | What is true about this world | `design/ORISON_BIBLE.md` |

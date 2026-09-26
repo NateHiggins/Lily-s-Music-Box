@@ -35,7 +35,10 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	driver = preload("res://scripts/lamp/carried_lamp_optical_driver.gd").new()
 	add_child(driver)
 	if not driver.setup(player): return false
-	if RenderingServer.get_current_rendering_method() != "forward_plus": return true
+	# Headless validation can report Forward+ without an actual render device.
+	# Keep the ordinary lamp/thermal owner, but do not allocate a GPU field there.
+	if RenderingServer.get_current_rendering_method() != "forward_plus" \
+			or RenderingServer.get_rendering_device() == null: return true
 	field = Field.new()
 	field.initialize(1)
 	observation = preload("res://scripts/lamp/carried_lamp_observation.gd").new()

@@ -36,10 +36,19 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 124, "81 circuits, eleven ordinary valves twenty-four cabinet doors and eight book orders")
+	check(defaults.records.size() == 171, "128 circuits, eleven ordinary valves, twenty-four cabinet doors and eight book orders")
+	var switch_owners := 0
+	for child: Node in world.get_children():
+		if child is SwitchSystem: switch_owners += 1
+	check(switch_owners == 1, "original and added rooms share one circuit and save-event owner")
 	check(not defaults.records.has("F02_B_RADIATOR_01"), "Lena's case keeps sole restoration authority")
 	check(not RealityState.data.has(Owner.KEY), "binding fresh defaults does not write a save")
 	await get_tree().physics_frame
+	var switches := world.get_node("V2RoomSwitches") as SwitchSystem
+	for room: String in ["F04_B_BATH", "F01_A_BATH"]:
+		check(not switches.toggle_room(room) and owner.snapshot() != defaults, "circuit switches off: " + room)
+		check(RealityState.data.get(Owner.KEY) == owner.snapshot(), "original and added switch events save immediately: " + room)
+		switches.toggle_room(room)
 	for identity: String in defaults.records:
 		var record: Dictionary = defaults.records[identity]
 		var prop: Node = world.adapter.resolve(identity)
@@ -76,13 +85,16 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 124 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 171 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
 	var expanded := wanted.duplicate(true)
+	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	var added_circuits := {}
+	for fixture: Dictionary in completion.lighting.fixtures: added_circuits[fixture.id] = true
 	for identity: String in wanted.records:
-		if wanted.records[identity].kind == "books" or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
+		if added_circuits.has(identity) or wanted.records[identity].kind == "books" or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
 	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")

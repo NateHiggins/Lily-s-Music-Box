@@ -1,0 +1,6781 @@
+{
+  "schema_version": 1,
+  "records": {
+    "spaces": [
+      {
+        "id": "F02_C_VESTIBULE",
+        "level": "F02",
+        "rect": [
+          -2.2,
+          3.85,
+          0.5,
+          6.35
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "Juno Kells privacy, coats and distribution",
+        "wall_sides": []
+      },
+      {
+        "id": "F02_C_MAIN",
+        "level": "F02",
+        "rect": [
+          -5.6,
+          6.35,
+          0.5,
+          11.65
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "Juno Kells living, meals and conversation",
+        "wall_sides": [
+          "south",
+          "north",
+          "west"
+        ],
+        "wall_extensions": [
+          {
+            "side": "east",
+            "start": 6.35,
+            "end": 7.85
+          }
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F02_C_STUDIO",
+        "level": "F02",
+        "rect": [
+          -5.6,
+          3.85,
+          -2.2,
+          6.35
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "household work and storage",
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL",
+        "level": "F02",
+        "rect": [
+          0.5,
+          6.35,
+          7.1,
+          7.85
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "private bed and service distribution",
+        "wall_sides": [
+          "east"
+        ]
+      },
+      {
+        "id": "F02_C_BATH",
+        "level": "F02",
+        "rect": [
+          0.5,
+          3.85,
+          3.8,
+          6.35
+        ],
+        "unit": "2C",
+        "class": "wet",
+        "purpose": "private sanitary room",
+        "wall_sides": [
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F02_C_KITCHEN",
+        "level": "F02",
+        "rect": [
+          3.8,
+          3.85,
+          7.1,
+          6.35
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "cooking and washing",
+        "wall_sides": [
+          "north",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "south",
+            "start": 5.4,
+            "end": 7.1
+          }
+        ]
+      },
+      {
+        "id": "F02_C_BED1",
+        "level": "F02",
+        "rect": [
+          0.5,
+          7.85,
+          3.8,
+          11.65
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "Juno Kells sleep and clothes storage",
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F02_C_BED2",
+        "level": "F02",
+        "rect": [
+          3.8,
+          7.85,
+          7.1,
+          11.65
+        ],
+        "unit": "2C",
+        "class": "private",
+        "purpose": "Juno Kells sleep and clothes storage",
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F04_C_VESTIBULE",
+        "level": "F04",
+        "rect": [
+          -2.2,
+          3.85,
+          0.5,
+          6.35
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "Cam Ortiz and Noel Price privacy, coats and distribution",
+        "wall_sides": []
+      },
+      {
+        "id": "F04_C_MAIN",
+        "level": "F04",
+        "rect": [
+          -5.6,
+          6.35,
+          0.5,
+          11.65
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "Cam Ortiz and Noel Price living, meals and conversation",
+        "wall_sides": [
+          "south",
+          "north",
+          "west"
+        ],
+        "wall_extensions": [
+          {
+            "side": "east",
+            "start": 6.35,
+            "end": 7.85
+          }
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F04_C_STUDIO",
+        "level": "F04",
+        "rect": [
+          -5.6,
+          3.85,
+          -2.2,
+          6.35
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "household work and storage",
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL",
+        "level": "F04",
+        "rect": [
+          0.5,
+          6.35,
+          7.1,
+          7.85
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "private bed and service distribution",
+        "wall_sides": [
+          "east"
+        ]
+      },
+      {
+        "id": "F04_C_BATH",
+        "level": "F04",
+        "rect": [
+          0.5,
+          3.85,
+          3.8,
+          6.35
+        ],
+        "unit": "4C",
+        "class": "wet",
+        "purpose": "private sanitary room",
+        "wall_sides": [
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_C_KITCHEN",
+        "level": "F04",
+        "rect": [
+          3.8,
+          3.85,
+          7.1,
+          6.35
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "cooking and washing",
+        "wall_sides": [
+          "north",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "south",
+            "start": 5.4,
+            "end": 7.1
+          }
+        ]
+      },
+      {
+        "id": "F04_C_BED1",
+        "level": "F04",
+        "rect": [
+          0.5,
+          7.85,
+          3.8,
+          11.65
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "Cam Ortiz and Noel Price sleep and clothes storage",
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F04_C_BED2",
+        "level": "F04",
+        "rect": [
+          3.8,
+          7.85,
+          7.1,
+          11.65
+        ],
+        "unit": "4C",
+        "class": "private",
+        "purpose": "Cam Ortiz and Noel Price sleep and clothes storage",
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ],
+        "exterior_sides": [
+          "north"
+        ]
+      },
+      {
+        "id": "F01_D_VESTIBULE",
+        "level": "F01",
+        "class": "private",
+        "rect": [
+          9.5,
+          -3.85,
+          11.5,
+          -1.15
+        ],
+        "purpose": "Teresa Vale privacy, coats and distribution",
+        "wall_sides": [
+          "south",
+          "north",
+          "west"
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_MAIN",
+        "level": "F01",
+        "class": "private",
+        "rect": [
+          11.5,
+          -4.2,
+          15.65,
+          0.3
+        ],
+        "purpose": "Teresa Vale living, meals and conversation",
+        "wall_sides": [
+          "south",
+          "north",
+          "west"
+        ],
+        "exterior_sides": [
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "east",
+            "start": -4.2,
+            "end": 0.3
+          }
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_KITCHEN",
+        "level": "F01",
+        "class": "private",
+        "rect": [
+          9.5,
+          -8.35,
+          12.8,
+          -4.2
+        ],
+        "purpose": "complete cooking and washing provision with wet-stack exhaust",
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "north",
+            "start": 9.5,
+            "end": 11.5
+          }
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_BED",
+        "level": "F01",
+        "class": "private",
+        "rect": [
+          9.5,
+          -12.35,
+          12.8,
+          -8.35
+        ],
+        "purpose": "Teresa Vale sleep and clothes storage",
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ],
+        "exterior_sides": [
+          "south"
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL",
+        "level": "F01",
+        "class": "private",
+        "rect": [
+          12.8,
+          -9.35,
+          15.65,
+          -4.2
+        ],
+        "purpose": "bed, bath and vertical fabric-storage distribution",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_BATH",
+        "level": "F01",
+        "class": "wet",
+        "rect": [
+          12.8,
+          -12.35,
+          15.65,
+          -9.35
+        ],
+        "purpose": "complete private sanitary room",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "exterior_sides": [
+          "south",
+          "east"
+        ],
+        "unit": "1D"
+      },
+      {
+        "id": "F01_A_VESTIBULE",
+        "level": "F01",
+        "rect": [
+          -8.2,
+          -6.55,
+          -5.4,
+          -3.85
+        ],
+        "purpose": "Evelyn Marsh privacy, coats and distribution",
+        "class": "private",
+        "unit": "1A",
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      {
+        "id": "F01_A_MAIN",
+        "level": "F01",
+        "rect": [
+          -15.65,
+          -7.2,
+          -8.2,
+          -3.85
+        ],
+        "purpose": "Evelyn Marsh living, meals and conversation",
+        "class": "private",
+        "unit": "1A",
+        "exterior_sides": [
+          "west"
+        ],
+        "wall_sides": [
+          "south",
+          "north",
+          "east",
+          "west"
+        ]
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL",
+        "level": "F01",
+        "rect": [
+          -8.2,
+          -9.65,
+          -5.4,
+          -6.55
+        ],
+        "purpose": "Evelyn Marsh bed and bath distribution",
+        "class": "private",
+        "unit": "1A",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -9.65,
+            "end": -7.2
+          }
+        ]
+      },
+      {
+        "id": "F01_A_BATH",
+        "level": "F01",
+        "rect": [
+          -8.2,
+          -12.35,
+          -5.4,
+          -9.65
+        ],
+        "purpose": "Evelyn Marsh private sanitary room",
+        "class": "wet",
+        "unit": "1A",
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F01_A_KITCHEN",
+        "level": "F01",
+        "rect": [
+          -11.3,
+          -9.65,
+          -8.2,
+          -7.2
+        ],
+        "purpose": "Evelyn Marsh cooking and washing",
+        "class": "private",
+        "unit": "1A",
+        "wall_sides": [
+          "south"
+        ]
+      },
+      {
+        "id": "F01_A_BED",
+        "level": "F01",
+        "rect": [
+          -15.65,
+          -12.35,
+          -11.3,
+          -7.2
+        ],
+        "purpose": "Evelyn Marsh sleep and clothes storage",
+        "class": "private",
+        "unit": "1A",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F01_A_STUDY",
+        "level": "F01",
+        "rect": [
+          -11.3,
+          -12.35,
+          -8.2,
+          -9.65
+        ],
+        "purpose": "Evelyn Marsh quiet work and household storage",
+        "class": "private",
+        "unit": "1A",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F03_D_VESTIBULE",
+        "level": "F03",
+        "rect": [
+          -8.2,
+          -6.55,
+          -5.6,
+          -3.85
+        ],
+        "purpose": "Rhea Sato privacy, coats and distribution",
+        "class": "private",
+        "unit": "3D",
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      {
+        "id": "F03_D_MAIN",
+        "level": "F03",
+        "rect": [
+          -15.65,
+          -7.2,
+          -8.2,
+          -3.85
+        ],
+        "purpose": "Rhea Sato living, meals and conversation",
+        "class": "private",
+        "unit": "3D",
+        "exterior_sides": [
+          "west"
+        ],
+        "wall_sides": [
+          "south",
+          "north",
+          "east",
+          "west"
+        ]
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL",
+        "level": "F03",
+        "rect": [
+          -8.2,
+          -9.65,
+          -5.6,
+          -6.55
+        ],
+        "purpose": "Rhea Sato bed and bath distribution",
+        "class": "private",
+        "unit": "3D",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -9.65,
+            "end": -7.2
+          }
+        ]
+      },
+      {
+        "id": "F03_D_BATH",
+        "level": "F03",
+        "rect": [
+          -8.2,
+          -12.35,
+          -5.6,
+          -9.65
+        ],
+        "purpose": "Rhea Sato private sanitary room",
+        "class": "wet",
+        "unit": "3D",
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F03_D_KITCHEN",
+        "level": "F03",
+        "rect": [
+          -11.3,
+          -9.65,
+          -8.2,
+          -7.2
+        ],
+        "purpose": "Rhea Sato cooking and washing",
+        "class": "private",
+        "unit": "3D",
+        "wall_sides": [
+          "south"
+        ]
+      },
+      {
+        "id": "F03_D_BED",
+        "level": "F03",
+        "rect": [
+          -15.65,
+          -12.35,
+          -11.3,
+          -7.2
+        ],
+        "purpose": "Rhea Sato sleep and clothes storage",
+        "class": "private",
+        "unit": "3D",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F03_D_STUDY",
+        "level": "F03",
+        "rect": [
+          -11.3,
+          -12.35,
+          -8.2,
+          -9.65
+        ],
+        "purpose": "Rhea Sato quiet work and household storage",
+        "class": "private",
+        "unit": "3D",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_D_VESTIBULE",
+        "level": "F04",
+        "rect": [
+          -8.2,
+          -6.55,
+          -5.6,
+          -3.85
+        ],
+        "purpose": "Transient guests privacy, coats and distribution",
+        "class": "private",
+        "unit": "4D",
+        "wall_sides": [
+          "south",
+          "north",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_D_MAIN",
+        "level": "F04",
+        "rect": [
+          -15.65,
+          -7.2,
+          -8.2,
+          -3.85
+        ],
+        "purpose": "Transient guests living, meals and conversation",
+        "class": "private",
+        "unit": "4D",
+        "exterior_sides": [
+          "west"
+        ],
+        "wall_sides": [
+          "south",
+          "north",
+          "east",
+          "west"
+        ]
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL",
+        "level": "F04",
+        "rect": [
+          -8.2,
+          -9.65,
+          -5.6,
+          -6.55
+        ],
+        "purpose": "Transient guests bed and bath distribution",
+        "class": "private",
+        "unit": "4D",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -9.65,
+            "end": -7.2
+          }
+        ]
+      },
+      {
+        "id": "F04_D_BATH",
+        "level": "F04",
+        "rect": [
+          -8.2,
+          -12.35,
+          -5.6,
+          -9.65
+        ],
+        "purpose": "Transient guests private sanitary room",
+        "class": "wet",
+        "unit": "4D",
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_D_KITCHEN",
+        "level": "F04",
+        "rect": [
+          -11.3,
+          -9.65,
+          -8.2,
+          -7.2
+        ],
+        "purpose": "Transient guests cooking and washing",
+        "class": "private",
+        "unit": "4D",
+        "wall_sides": [
+          "south"
+        ]
+      },
+      {
+        "id": "F04_D_BED",
+        "level": "F04",
+        "rect": [
+          -15.65,
+          -12.35,
+          -11.3,
+          -7.2
+        ],
+        "purpose": "Transient guests sleep and clothes storage",
+        "class": "private",
+        "unit": "4D",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "F04_D_STUDY",
+        "level": "F04",
+        "rect": [
+          -11.3,
+          -12.35,
+          -8.2,
+          -9.65
+        ],
+        "purpose": "Transient guests luggage and flexible household storage",
+        "class": "private",
+        "unit": "4D",
+        "exterior_sides": [
+          "south"
+        ],
+        "wall_sides": [
+          "south",
+          "east"
+        ]
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL",
+        "level": "F02",
+        "rect": [
+          -5.6,
+          -7.3,
+          -2.2,
+          -0.6
+        ],
+        "purpose": "public approach to southwest apartment",
+        "class": "public",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -3.85,
+            "end": -1.35
+          }
+        ]
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL",
+        "level": "F03",
+        "rect": [
+          -5.6,
+          -7.3,
+          -2.2,
+          -0.6
+        ],
+        "purpose": "public approach to southwest apartment",
+        "class": "public",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -3.85,
+            "end": -1.35
+          }
+        ]
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL",
+        "level": "F04",
+        "rect": [
+          -5.6,
+          -7.3,
+          -2.2,
+          -0.6
+        ],
+        "purpose": "public approach to southwest apartment",
+        "class": "public",
+        "wall_sides": [
+          "south",
+          "east"
+        ],
+        "wall_extensions": [
+          {
+            "side": "west",
+            "start": -3.85,
+            "end": -1.35
+          }
+        ]
+      },
+      {
+        "id": "F02_D_RESTRICTED",
+        "level": "F02",
+        "rect": [
+          -15.65,
+          -12.35,
+          -5.6,
+          -3.85
+        ],
+        "purpose": "sealed apartment retained behind locked entry",
+        "class": "private",
+        "unit": "2D"
+      },
+      {
+        "id": "F03_C_RESTRICTED",
+        "level": "F03",
+        "rect": [
+          -5.6,
+          3.85,
+          7.1,
+          11.65
+        ],
+        "purpose": "sealed apartment retained behind locked entry",
+        "class": "private",
+        "unit": "3C"
+      },
+      {
+        "id": "F01_STAFF_RESTROOM",
+        "level": "F01",
+        "rect": [
+          5.4,
+          -8.3,
+          8.3,
+          -4.6
+        ],
+        "purpose": "staff sanitary room with basin and WC",
+        "class": "wet",
+        "wall_sides": [
+          "south",
+          "north",
+          "west"
+        ]
+      }
+    ],
+    "doors": [
+      {
+        "id": "F02_C_ENTRY_DOOR",
+        "level": "F02",
+        "center": [
+          -0.85,
+          3.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_PUBLIC_CORE",
+          "F02_C_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_BATH_DOOR",
+        "level": "F02",
+        "center": [
+          2.1,
+          6.35
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_C_PRIVATE_HALL",
+          "F02_C_BATH"
+        ]
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+        "level": "F02",
+        "center": [
+          5.4,
+          6.35
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_C_PRIVATE_HALL",
+          "F02_C_KITCHEN"
+        ]
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_BED1_DOOR",
+        "level": "F02",
+        "center": [
+          2.1,
+          7.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_C_PRIVATE_HALL",
+          "F02_C_BED1"
+        ]
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_BED2_DOOR",
+        "level": "F02",
+        "center": [
+          5.4,
+          7.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_C_PRIVATE_HALL",
+          "F02_C_BED2"
+        ]
+      },
+      {
+        "id": "F04_C_ENTRY_DOOR",
+        "level": "F04",
+        "center": [
+          -0.85,
+          3.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_PUBLIC_CORE",
+          "F04_C_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BATH_DOOR",
+        "level": "F04",
+        "center": [
+          2.1,
+          6.35
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_C_PRIVATE_HALL",
+          "F04_C_BATH"
+        ]
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+        "level": "F04",
+        "center": [
+          5.4,
+          6.35
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_C_PRIVATE_HALL",
+          "F04_C_KITCHEN"
+        ]
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BED1_DOOR",
+        "level": "F04",
+        "center": [
+          2.1,
+          7.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_C_PRIVATE_HALL",
+          "F04_C_BED1"
+        ]
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BED2_DOOR",
+        "level": "F04",
+        "center": [
+          5.4,
+          7.85
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_C_PRIVATE_HALL",
+          "F04_C_BED2"
+        ]
+      },
+      {
+        "id": "F01_D_ENTRY_DOOR",
+        "level": "F01",
+        "center": [
+          9.5,
+          -3.25
+        ],
+        "width": 0.91,
+        "height": 2.13,
+        "yaw": 1.5707963,
+        "hinge": "left",
+        "latch": "north",
+        "handedness": "left",
+        "swing": "vestibule",
+        "connects": [
+          "F01_SERVICE_HALL",
+          "F01_D_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F01_D_BED_DOOR",
+        "level": "F01",
+        "center": [
+          12.8,
+          -8.85
+        ],
+        "width": 0.81,
+        "height": 2.13,
+        "yaw": 1.5707963,
+        "hinge": "right",
+        "latch": "south",
+        "handedness": "right",
+        "swing": "bed",
+        "connects": [
+          "F01_D_BED",
+          "F01_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F01_D_BATH_DOOR",
+        "level": "F01",
+        "center": [
+          14.2,
+          -9.35
+        ],
+        "width": 0.81,
+        "height": 2.13,
+        "yaw": 0.0,
+        "hinge": "left",
+        "latch": "east",
+        "handedness": "left",
+        "swing": "bath",
+        "connects": [
+          "F01_D_PRIVATE_HALL",
+          "F01_D_BATH"
+        ]
+      },
+      {
+        "id": "F01_D_KITCHEN_DOOR",
+        "level": "F01",
+        "center": [
+          12.8,
+          -6.2
+        ],
+        "width": 0.81,
+        "height": 2.13,
+        "yaw": 1.5707963,
+        "hinge": "left",
+        "latch": "north",
+        "handedness": "left",
+        "swing": "kitchen",
+        "connects": [
+          "F01_D_KITCHEN",
+          "F01_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F01_A_ENTRY_DOOR",
+        "level": "F01",
+        "center": [
+          -5.4,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_LOBBY",
+          "F01_A_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F01_A_VESTIBULE_MAIN_DOOR",
+        "level": "F01",
+        "center": [
+          -8.2,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_VESTIBULE",
+          "F01_A_MAIN"
+        ]
+      },
+      {
+        "id": "F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+        "level": "F01",
+        "center": [
+          -6.8,
+          -6.55
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_VESTIBULE",
+          "F01_A_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F01_A_MAIN_KITCHEN_DOOR",
+        "level": "F01",
+        "center": [
+          -9.6,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_MAIN",
+          "F01_A_KITCHEN"
+        ]
+      },
+      {
+        "id": "F01_A_MAIN_BED_DOOR",
+        "level": "F01",
+        "center": [
+          -13.5,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_MAIN",
+          "F01_A_BED"
+        ]
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_BATH_DOOR",
+        "level": "F01",
+        "center": [
+          -6.8,
+          -9.65
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_PRIVATE_HALL",
+          "F01_A_BATH"
+        ]
+      },
+      {
+        "id": "F01_A_BED_STORAGE_DOOR",
+        "level": "F01",
+        "center": [
+          -11.3,
+          -10.8
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_A_BED",
+          "F01_A_STUDY"
+        ]
+      },
+      {
+        "id": "F03_D_ENTRY_DOOR",
+        "level": "F03",
+        "center": [
+          -5.6,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_SOUTHWEST_HALL",
+          "F03_D_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F03_D_VESTIBULE_MAIN_DOOR",
+        "level": "F03",
+        "center": [
+          -8.2,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_VESTIBULE",
+          "F03_D_MAIN"
+        ]
+      },
+      {
+        "id": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+        "level": "F03",
+        "center": [
+          -6.8,
+          -6.55
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_VESTIBULE",
+          "F03_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F03_D_MAIN_KITCHEN_DOOR",
+        "level": "F03",
+        "center": [
+          -9.6,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_MAIN",
+          "F03_D_KITCHEN"
+        ]
+      },
+      {
+        "id": "F03_D_MAIN_BED_DOOR",
+        "level": "F03",
+        "center": [
+          -13.5,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_MAIN",
+          "F03_D_BED"
+        ]
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_BATH_DOOR",
+        "level": "F03",
+        "center": [
+          -6.8,
+          -9.65
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_PRIVATE_HALL",
+          "F03_D_BATH"
+        ]
+      },
+      {
+        "id": "F03_D_BED_STORAGE_DOOR",
+        "level": "F03",
+        "center": [
+          -11.3,
+          -10.8
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_D_BED",
+          "F03_D_STUDY"
+        ]
+      },
+      {
+        "id": "F04_D_ENTRY_DOOR",
+        "level": "F04",
+        "center": [
+          -5.6,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_SOUTHWEST_HALL",
+          "F04_D_VESTIBULE"
+        ]
+      },
+      {
+        "id": "F04_D_VESTIBULE_MAIN_DOOR",
+        "level": "F04",
+        "center": [
+          -8.2,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_VESTIBULE",
+          "F04_D_MAIN"
+        ]
+      },
+      {
+        "id": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+        "level": "F04",
+        "center": [
+          -6.8,
+          -6.55
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_VESTIBULE",
+          "F04_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F04_D_MAIN_KITCHEN_DOOR",
+        "level": "F04",
+        "center": [
+          -9.6,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_MAIN",
+          "F04_D_KITCHEN"
+        ]
+      },
+      {
+        "id": "F04_D_MAIN_BED_DOOR",
+        "level": "F04",
+        "center": [
+          -13.5,
+          -7.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_MAIN",
+          "F04_D_BED"
+        ]
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_BATH_DOOR",
+        "level": "F04",
+        "center": [
+          -6.8,
+          -9.65
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_PRIVATE_HALL",
+          "F04_D_BATH"
+        ]
+      },
+      {
+        "id": "F04_D_BED_STORAGE_DOOR",
+        "level": "F04",
+        "center": [
+          -11.3,
+          -10.8
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F04_D_BED",
+          "F04_D_STUDY"
+        ]
+      },
+      {
+        "id": "F02_D_ENTRY_DOOR",
+        "level": "F02",
+        "center": [
+          -5.6,
+          -5.1
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F02_SOUTHWEST_HALL",
+          "F02_D_RESTRICTED"
+        ]
+      },
+      {
+        "id": "F03_C_ENTRY_DOOR",
+        "level": "F03",
+        "center": [
+          -0.85,
+          3.85
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F03_PUBLIC_CORE",
+          "F03_C_RESTRICTED"
+        ]
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_DOOR",
+        "level": "F01",
+        "center": [
+          8.3,
+          -5.45
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "authored room",
+        "connects": [
+          "F01_SERVICE_HALL",
+          "F01_STAFF_RESTROOM"
+        ]
+      }
+    ],
+    "openings": [
+      {
+        "id": "F02_C_VESTIBULE_MAIN_OPENING",
+        "level": "F02",
+        "center": [
+          -0.85,
+          6.35
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F02_C_VESTIBULE",
+          "F02_C_MAIN"
+        ]
+      },
+      {
+        "id": "F02_C_MAIN_STUDIO_OPENING",
+        "level": "F02",
+        "center": [
+          -4.0,
+          6.35
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F02_C_MAIN",
+          "F02_C_STUDIO"
+        ]
+      },
+      {
+        "id": "F02_C_MAIN_PRIVATE_HALL_OPENING",
+        "level": "F02",
+        "center": [
+          0.5,
+          7.1
+        ],
+        "axis": "z",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F02_C_MAIN",
+          "F02_C_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F04_C_VESTIBULE_MAIN_OPENING",
+        "level": "F04",
+        "center": [
+          -0.85,
+          6.35
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F04_C_VESTIBULE",
+          "F04_C_MAIN"
+        ]
+      },
+      {
+        "id": "F04_C_MAIN_STUDIO_OPENING",
+        "level": "F04",
+        "center": [
+          -4.0,
+          6.35
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F04_C_MAIN",
+          "F04_C_STUDIO"
+        ]
+      },
+      {
+        "id": "F04_C_MAIN_PRIVATE_HALL_OPENING",
+        "level": "F04",
+        "center": [
+          0.5,
+          7.1
+        ],
+        "axis": "z",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F04_C_MAIN",
+          "F04_C_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F01_D_MAIN_OPENING",
+        "level": "F01",
+        "center": [
+          11.5,
+          -2.5
+        ],
+        "width": 1.2,
+        "height": 2.4,
+        "axis": "z",
+        "connects": [
+          "F01_D_VESTIBULE",
+          "F01_D_MAIN"
+        ]
+      },
+      {
+        "id": "F01_D_MAIN_HALL_OPENING",
+        "level": "F01",
+        "center": [
+          14.2,
+          -4.2
+        ],
+        "width": 1.2,
+        "height": 2.4,
+        "axis": "x",
+        "connects": [
+          "F01_D_MAIN",
+          "F01_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F01_A_KITCHEN_HALL_OPENING",
+        "level": "F01",
+        "center": [
+          -8.2,
+          -8.4
+        ],
+        "axis": "z",
+        "width": 1.05,
+        "height": 2.4,
+        "connects": [
+          "F01_A_KITCHEN",
+          "F01_A_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F03_D_KITCHEN_HALL_OPENING",
+        "level": "F03",
+        "center": [
+          -8.2,
+          -8.4
+        ],
+        "axis": "z",
+        "width": 1.05,
+        "height": 2.4,
+        "connects": [
+          "F03_D_KITCHEN",
+          "F03_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F04_D_KITCHEN_HALL_OPENING",
+        "level": "F04",
+        "center": [
+          -8.2,
+          -8.4
+        ],
+        "axis": "z",
+        "width": 1.05,
+        "height": 2.4,
+        "connects": [
+          "F04_D_KITCHEN",
+          "F04_D_PRIVATE_HALL"
+        ]
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL_OPENING",
+        "level": "F02",
+        "center": [
+          -4.6,
+          -0.6
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F02_WEST_HALL",
+          "F02_SOUTHWEST_HALL"
+        ]
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL_OPENING",
+        "level": "F03",
+        "center": [
+          -4.6,
+          -0.6
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F03_WEST_HALL",
+          "F03_SOUTHWEST_HALL"
+        ]
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL_OPENING",
+        "level": "F04",
+        "center": [
+          -4.6,
+          -0.6
+        ],
+        "axis": "x",
+        "width": 1.2,
+        "height": 2.4,
+        "connects": [
+          "F04_WEST_HALL",
+          "F04_SOUTHWEST_HALL"
+        ]
+      }
+    ],
+    "windows": [
+      {
+        "id": "F02_C_WINDOW_1",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "center": [
+          -3.0,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F02_C_WINDOW_2",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "center": [
+          2.1,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F02_C_WINDOW_3",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "center": [
+          5.4,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_C_WINDOW_1",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "center": [
+          -3.0,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_C_WINDOW_2",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "center": [
+          2.1,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_C_WINDOW_3",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "center": [
+          5.4,
+          11.65
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F01_D_MAIN_WINDOW_E",
+        "level": "F01",
+        "center": [
+          15.65,
+          -1.8
+        ],
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.75,
+        "axis": "z",
+        "space": "F01_D_MAIN"
+      },
+      {
+        "id": "F01_D_BED_WINDOW_S",
+        "level": "F01",
+        "center": [
+          11.1,
+          -12.35
+        ],
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.75,
+        "axis": "x",
+        "space": "F01_D_BED"
+      },
+      {
+        "id": "F01_D_BATH_WINDOW_E",
+        "level": "F01",
+        "center": [
+          15.65,
+          -10.8
+        ],
+        "width": 0.9,
+        "height": 1.0,
+        "sill": 1.25,
+        "axis": "z",
+        "space": "F01_D_BATH"
+      },
+      {
+        "id": "F01_A_MAIN_WINDOW",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "center": [
+          -15.65,
+          -5.5
+        ],
+        "axis": "z",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F01_A_BED_WINDOW",
+        "level": "F01",
+        "space": "F01_A_BED",
+        "center": [
+          -13.5,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F01_A_STUDY_WINDOW",
+        "level": "F01",
+        "space": "F01_A_STUDY",
+        "center": [
+          -9.7,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F03_D_MAIN_WINDOW",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "center": [
+          -15.65,
+          -5.5
+        ],
+        "axis": "z",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F03_D_BED_WINDOW",
+        "level": "F03",
+        "space": "F03_D_BED",
+        "center": [
+          -13.5,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F03_D_STUDY_WINDOW",
+        "level": "F03",
+        "space": "F03_D_STUDY",
+        "center": [
+          -9.7,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_D_MAIN_WINDOW",
+        "level": "F04",
+        "space": "F04_D_MAIN",
+        "center": [
+          -15.65,
+          -5.5
+        ],
+        "axis": "z",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_D_BED_WINDOW",
+        "level": "F04",
+        "space": "F04_D_BED",
+        "center": [
+          -13.5,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      },
+      {
+        "id": "F04_D_STUDY_WINDOW",
+        "level": "F04",
+        "space": "F04_D_STUDY",
+        "center": [
+          -9.7,
+          -12.35
+        ],
+        "axis": "x",
+        "width": 1.5,
+        "height": 1.7,
+        "sill": 0.8
+      }
+    ],
+    "anchors": [
+      {
+        "id": "2C_wc",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          3.3,
+          0,
+          5.4
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_wc_STANCE",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          2.25,
+          0,
+          5.4
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_2C_SHOWER_01",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          3.23,
+          0,
+          4.35
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_2C_SHOWER_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          2.25,
+          0,
+          4.7
+        ],
+        "yaw": -1.2277723863741927,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_2C_SINK_01",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          1.05,
+          0,
+          4.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_2C_SINK_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          1.05,
+          0,
+          5.1
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_2C_KITCHEN_SINK_01",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          4.75,
+          0,
+          4.22
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_2C_KITCHEN_SINK_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          4.85,
+          0,
+          4.9
+        ],
+        "yaw": -0.45066132608063353,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_sink_support",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          4.75,
+          0,
+          4.22
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "F02_2C_STOVE_01",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_2C_STOVE_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.5,
+          0,
+          4.42
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_2C_FRIDGE_01",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          6.64,
+          0,
+          5.55
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_2C_FRIDGE_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.5,
+          0,
+          4.8
+        ],
+        "yaw": -2.1527014449347823,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_bed0",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          1.4,
+          0,
+          10.5
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_bed0_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          2.5,
+          0,
+          9.0
+        ],
+        "yaw": 2.50884381858761,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_bed0_ns",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          3.3,
+          0,
+          11.15
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_bed0_ns_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          2.6,
+          0,
+          11.05
+        ],
+        "yaw": -1.7126933813990601,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_w0_wardrobe",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          4.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_w0_wardrobe_STANCE",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          5.65
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_bed1",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          4.699999999999999,
+          0,
+          10.5
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_bed1_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.8,
+          0,
+          9.0
+        ],
+        "yaw": 2.50884381858761,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_bed1_ns",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          6.6,
+          0,
+          11.15
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_bed1_ns_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.9,
+          0,
+          11.05
+        ],
+        "yaw": -1.7126933813990601,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_w1_wardrobe",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -3.0500000000000003,
+          0,
+          4.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_w1_wardrobe_STANCE",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -3.0500000000000003,
+          0,
+          5.65
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_din_t",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          9.6
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_din_t_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -0.44999999999999996,
+          0,
+          9.6
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_din_dc1",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          8.549999999999999
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_din_dc1_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -0.65,
+          0,
+          8.549999999999999
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_din_dc2",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          10.65
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_din_dc2_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -0.65,
+          0,
+          10.65
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_VESTIBULE",
+        "position": [
+          -0.8500000000000001,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_VESTIBULE_SWITCH",
+        "level": "F02",
+        "space": "F02_C_VESTIBULE",
+        "position": [
+          -0.2,
+          1.12,
+          3.94
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_VESTIBULE_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_VESTIBULE",
+        "position": [
+          -0.2,
+          0,
+          4.9
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -2.55,
+          3.0,
+          9.0
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_MAIN_SWITCH",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -4.7,
+          1.12,
+          6.4399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_MAIN_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -4.7,
+          0,
+          7.3999999999999995
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -3.9,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_STUDIO_SWITCH",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -4.7,
+          1.12,
+          6.26
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_STUDIO_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          5.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_PRIVATE_HALL",
+        "position": [
+          3.8,
+          3.0,
+          7.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_SWITCH",
+        "level": "F02",
+        "space": "F02_C_PRIVATE_HALL",
+        "position": [
+          7.01,
+          1.12,
+          7.3
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_PRIVATE_HALL",
+        "position": [
+          6.05,
+          0,
+          7.3
+        ],
+        "yaw": 4.71238898038469,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_BATH_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          2.15,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_BATH_SWITCH",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          1.1,
+          1.12,
+          6.26
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_BATH_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_BATH",
+        "position": [
+          1.1,
+          0,
+          5.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.449999999999999,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_KITCHEN_SWITCH",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.6,
+          1.12,
+          3.94
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_KITCHEN_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.6,
+          0,
+          4.9
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_BED1_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          2.15,
+          3.0,
+          9.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_BED1_SWITCH",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          3.0,
+          1.12,
+          7.9399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_BED1_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED1",
+        "position": [
+          3.0,
+          0,
+          8.899999999999999
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_BED2_LT_FLUSH_DOME",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.449999999999999,
+          3.0,
+          9.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_C_BED2_SWITCH",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          6.3,
+          1.12,
+          7.9399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_BED2_SWITCH_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          6.3,
+          0,
+          8.899999999999999
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_prep_cabinet",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          4.115,
+          0,
+          4.94
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_k_wall_cupboard",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          4.17,
+          1.65,
+          4.94
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_prep_cabinet_STANCE",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          5.25,
+          0,
+          4.9
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_C_RADIATOR_01",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          0.28,
+          0.75,
+          8.4
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_C_RADIATOR_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -0.6699999999999999,
+          0,
+          8.4
+        ],
+        "yaw": 4.71238898038469,
+        "kind": "clearance"
+      },
+      {
+        "id": "F02_2C_BOOKSHELF_01",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -1.9,
+          0,
+          6.5809999999999995
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F02_2C_BOOKSHELF_01_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -1.9,
+          0,
+          7.5809999999999995
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_wireless_table",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -5.26,
+          0,
+          9.0
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "DomesticRadio_2C_STANCE",
+        "level": "F02",
+        "space": "F02_C_MAIN",
+        "position": [
+          -4.16,
+          0,
+          9.0
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_story_colorboard",
+        "space": "F02_C_MAIN",
+        "level": "F02",
+        "position": [
+          -5.51,
+          1.16,
+          7.5
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_story_colorboard_STANCE",
+        "space": "F02_C_MAIN",
+        "level": "F02",
+        "position": [
+          -4.3,
+          0,
+          7.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_wc",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          3.3,
+          0,
+          5.4
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_wc_STANCE",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          2.25,
+          0,
+          5.4
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_4C_SHOWER_01",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          3.23,
+          0,
+          4.35
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4C_SHOWER_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          2.25,
+          0,
+          4.7
+        ],
+        "yaw": -1.2277723863741927,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_4C_SINK_01",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          1.05,
+          0,
+          4.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4C_SINK_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          1.05,
+          0,
+          5.1
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_4C_KITCHEN_SINK_01",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          4.75,
+          0,
+          4.22
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4C_KITCHEN_SINK_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          4.85,
+          0,
+          4.9
+        ],
+        "yaw": -0.45066132608063353,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_sink_support",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          4.75,
+          0,
+          4.22
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "F04_4C_STOVE_01",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4C_STOVE_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.5,
+          0,
+          4.42
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_4C_FRIDGE_01",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          6.64,
+          0,
+          5.55
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4C_FRIDGE_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.5,
+          0,
+          4.8
+        ],
+        "yaw": -2.1527014449347823,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_bed0",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          1.4,
+          0,
+          10.5
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_bed0_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          2.5,
+          0,
+          9.0
+        ],
+        "yaw": 2.50884381858761,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_bed0_ns",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          3.3,
+          0,
+          11.15
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_bed0_ns_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          2.6,
+          0,
+          11.05
+        ],
+        "yaw": -1.7126933813990601,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_w0_wardrobe",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          4.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_w0_wardrobe_STANCE",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          5.65
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_bed1",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          4.699999999999999,
+          0,
+          10.5
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_bed1_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          5.8,
+          0,
+          9.0
+        ],
+        "yaw": 2.50884381858761,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_bed1_ns",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          6.6,
+          0,
+          11.15
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_bed1_ns_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          5.9,
+          0,
+          11.05
+        ],
+        "yaw": -1.7126933813990601,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_w1_wardrobe",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -3.0500000000000003,
+          0,
+          4.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_w1_wardrobe_STANCE",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -3.0500000000000003,
+          0,
+          5.65
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_din_t",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          9.6
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_din_t_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -0.44999999999999996,
+          0,
+          9.6
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_din_dc1",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          8.549999999999999
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_din_dc1_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -0.65,
+          0,
+          8.549999999999999
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_din_dc2",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -1.5,
+          0,
+          10.65
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_din_dc2_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -0.65,
+          0,
+          10.65
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_VESTIBULE",
+        "position": [
+          -0.8500000000000001,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_VESTIBULE_SWITCH",
+        "level": "F04",
+        "space": "F04_C_VESTIBULE",
+        "position": [
+          -0.2,
+          1.12,
+          3.94
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_VESTIBULE_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_VESTIBULE",
+        "position": [
+          -0.2,
+          0,
+          4.9
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -2.55,
+          3.0,
+          9.0
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_MAIN_SWITCH",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -4.7,
+          1.12,
+          6.4399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_MAIN_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -4.7,
+          0,
+          7.3999999999999995
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -3.9,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_STUDIO_SWITCH",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -4.7,
+          1.12,
+          6.26
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_STUDIO_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_STUDIO",
+        "position": [
+          -4.7,
+          0,
+          5.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_PRIVATE_HALL",
+        "position": [
+          3.8,
+          3.0,
+          7.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_SWITCH",
+        "level": "F04",
+        "space": "F04_C_PRIVATE_HALL",
+        "position": [
+          7.01,
+          1.12,
+          7.3
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_PRIVATE_HALL",
+        "position": [
+          6.05,
+          0,
+          7.3
+        ],
+        "yaw": 4.71238898038469,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_BATH_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          2.15,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_BATH_SWITCH",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          1.1,
+          1.12,
+          6.26
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_BATH_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_BATH",
+        "position": [
+          1.1,
+          0,
+          5.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.449999999999999,
+          3.0,
+          5.1
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_KITCHEN_SWITCH",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.6,
+          1.12,
+          3.94
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_KITCHEN_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.6,
+          0,
+          4.9
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_BED1_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          2.15,
+          3.0,
+          9.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_BED1_SWITCH",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          3.0,
+          1.12,
+          7.9399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_BED1_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          3.0,
+          0,
+          8.899999999999999
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_BED2_LT_FLUSH_DOME",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          5.449999999999999,
+          3.0,
+          9.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_C_BED2_SWITCH",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          6.3,
+          1.12,
+          7.9399999999999995
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_BED2_SWITCH_STANCE",
+        "level": "F04",
+        "space": "F04_C_BED2",
+        "position": [
+          6.3,
+          0,
+          8.899999999999999
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_prep_cabinet",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          4.115,
+          0,
+          4.94
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_k_wall_cupboard",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          4.17,
+          1.65,
+          4.94
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_prep_cabinet_STANCE",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          5.25,
+          0,
+          4.9
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_C_RADIATOR_01",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          0.28,
+          0.75,
+          8.4
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_C_RADIATOR_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -0.6699999999999999,
+          0,
+          8.4
+        ],
+        "yaw": 4.71238898038469,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_4C_BOOKSHELF_01",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -1.9,
+          0,
+          6.5809999999999995
+        ],
+        "yaw": 0.0,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_4C_BOOKSHELF_01_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -1.9,
+          0,
+          7.5809999999999995
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_wireless_table",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -5.26,
+          0,
+          9.0
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "DomesticRadio_4C_STANCE",
+        "level": "F04",
+        "space": "F04_C_MAIN",
+        "position": [
+          -4.16,
+          0,
+          9.0
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "4C_story_colorboard",
+        "space": "F04_C_MAIN",
+        "level": "F04",
+        "position": [
+          -5.51,
+          1.16,
+          7.5
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_story_colorboard_STANCE",
+        "space": "F04_C_MAIN",
+        "level": "F04",
+        "position": [
+          -4.3,
+          0,
+          7.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_THRESHOLD",
+        "level": "F01",
+        "space": "F01_D_VESTIBULE",
+        "position": [
+          10.15,
+          0.0,
+          -3.25
+        ],
+        "yaw": 1.5707963,
+        "kind": "review"
+      },
+      {
+        "id": "F01_D_CONVERSATION_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          13.6,
+          0.0,
+          -1.8
+        ],
+        "yaw": 1.5707963,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_RADIATOR_01",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          15.4,
+          0.75,
+          -3.0
+        ],
+        "yaw": 1.5707963,
+        "kind": "interaction"
+      },
+      {
+        "id": "F01_D_RADIATOR_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          14.5,
+          0.0,
+          -3.0
+        ],
+        "yaw": -1.5707963,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_wc",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          15,
+          0,
+          -11.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_wc_STANCE",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          15,
+          0,
+          -10.8
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_abed",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          10.65,
+          0,
+          -10.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_abed_STANCE",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          11.9,
+          0,
+          -10.95
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_aw_wardrobe",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          9.98,
+          0,
+          -9.15
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_aw_wardrobe_STANCE",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          11.5,
+          0,
+          -9.15
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_sink_support",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -7.3
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_sink_support_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.1,
+          0,
+          -7.3
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_1D_SINK_01",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          15.32,
+          0,
+          -10.05
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1D_SINK_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          14.4,
+          0,
+          -10.05
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_1D_KITCHEN_SINK_01",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -7.3
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1D_KITCHEN_SINK_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.1,
+          0,
+          -7.3
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_1D_SHOWER_01",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          13.35,
+          0,
+          -11.88
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1D_SHOWER_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          13.35,
+          0,
+          -10.8
+        ],
+        "yaw": -0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_1D_STOVE_01",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -5.9
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1D_STOVE_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.1,
+          0,
+          -5.9
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_1D_FRIDGE_01",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          10.9,
+          0,
+          -4.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1D_FRIDGE_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          10.9,
+          0,
+          -5.85
+        ],
+        "yaw": -3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+        "level": "F01",
+        "space": "F01_D_VESTIBULE",
+        "position": [
+          10.5,
+          3,
+          -2.5
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_VESTIBULE_SWITCH",
+        "level": "F01",
+        "space": "F01_D_VESTIBULE",
+        "position": [
+          10.45,
+          1.12,
+          -1.24
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_VESTIBULE_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_VESTIBULE",
+        "position": [
+          10.45,
+          0,
+          -2.15
+        ],
+        "yaw": -3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          13.6,
+          3,
+          -1.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_MAIN_SWITCH",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          11.59,
+          1.12,
+          -0.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_MAIN_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.5,
+          0,
+          -0.8
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.15,
+          3,
+          -6.3
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_KITCHEN_SWITCH",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          12.71,
+          1.12,
+          -7
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_KITCHEN_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.85,
+          0,
+          -7
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_BED_LT_FLUSH_DOME",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          11.15,
+          3,
+          -10.35
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_BED_SWITCH",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          12.71,
+          1.12,
+          -9.75
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_BED_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          11.85,
+          0,
+          -9.75
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          14.15,
+          3,
+          -6.75
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL_SWITCH",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          15.56,
+          1.12,
+          -6.7
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          14.65,
+          0,
+          -6.7
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_D_BATH_LT_FLUSH_DOME",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          14.2,
+          3,
+          -10.8
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_BATH_SWITCH",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          12.89,
+          1.12,
+          -10.65
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_D_BATH_SWITCH_STANCE",
+        "level": "F01",
+        "space": "F01_D_BATH",
+        "position": [
+          13.7,
+          0,
+          -10.65
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_din_t",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          14.75,
+          0,
+          -0.65
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_din_dc1",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          13.75,
+          0,
+          -0.65
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_din_dc2",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          14.75,
+          0,
+          -1.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_din_t_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          13.65,
+          0,
+          -1.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_fabric_worktable",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.65,
+          0,
+          -0.15
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_fabric_shelf_01",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          15.25,
+          0,
+          -5.25
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_fabric_shelf_02",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          15.25,
+          0,
+          -8.25
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_fabric_worktable_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.65,
+          0,
+          -1.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_fabric_shelf_01_STANCE",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          14.35,
+          0,
+          -5.25
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_fabric_shelf_02_STANCE",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          14.35,
+          0,
+          -8.25
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_k_wall_cupboard",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          9.88,
+          1.65,
+          -7.3
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_story_pattern_board",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.65,
+          1.15,
+          0.21
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_wireless_table",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.55,
+          0,
+          -3.77
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "DomesticRadio_1D_STANCE",
+        "level": "F01",
+        "space": "F01_D_MAIN",
+        "position": [
+          12.55,
+          0,
+          -2.65
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "1D_prep_cabinet",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.85,
+          0,
+          -8.0
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_prep_cabinet_STANCE",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          11.85,
+          0,
+          -6.85
+        ],
+        "yaw": 6.283185307179586,
+        "kind": "clearance"
+      },
+      {
+        "id": "F01_A_VESTIBULE_LT",
+        "level": "F01",
+        "position": [
+          -6.8,
+          2.9,
+          -5.2
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_VESTIBULE"
+      },
+      {
+        "id": "F01_A_VESTIBULE_SWITCH",
+        "level": "F01",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -6.45
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_VESTIBULE"
+      },
+      {
+        "id": "F01_A_MAIN_LT",
+        "level": "F01",
+        "position": [
+          -11.925,
+          2.9,
+          -5.525
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_MAIN"
+      },
+      {
+        "id": "F01_A_MAIN_SWITCH",
+        "level": "F01",
+        "position": [
+          -14.9,
+          1.12,
+          -7.1000000000000005
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_MAIN"
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_LT",
+        "level": "F01",
+        "position": [
+          -6.8,
+          2.9,
+          -8.1
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_PRIVATE_HALL"
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_SWITCH",
+        "level": "F01",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_PRIVATE_HALL"
+      },
+      {
+        "id": "F01_A_BATH_LT",
+        "level": "F01",
+        "position": [
+          -6.8,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_BATH"
+      },
+      {
+        "id": "F01_A_BATH_SWITCH",
+        "level": "F01",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_BATH"
+      },
+      {
+        "id": "F01_A_KITCHEN_LT",
+        "level": "F01",
+        "position": [
+          -9.75,
+          2.9,
+          -8.425
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_KITCHEN"
+      },
+      {
+        "id": "F01_A_KITCHEN_SWITCH",
+        "level": "F01",
+        "position": [
+          -10.55,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_KITCHEN"
+      },
+      {
+        "id": "F01_A_BED_LT",
+        "level": "F01",
+        "position": [
+          -13.475000000000001,
+          2.9,
+          -9.775
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_BED"
+      },
+      {
+        "id": "F01_A_BED_SWITCH",
+        "level": "F01",
+        "position": [
+          -14.9,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_BED"
+      },
+      {
+        "id": "F01_A_STUDY_LT",
+        "level": "F01",
+        "position": [
+          -9.75,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_A_STUDY"
+      },
+      {
+        "id": "F01_A_STUDY_SWITCH",
+        "level": "F01",
+        "position": [
+          -10.55,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_A_STUDY"
+      },
+      {
+        "id": "F01_1A_SINK_01",
+        "level": "F01",
+        "position": [
+          -7.55,
+          0,
+          -12.0
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1A_SHOWER_01",
+        "level": "F01",
+        "position": [
+          -6.050000000000001,
+          0,
+          -11.9
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_wc",
+        "level": "F01",
+        "position": [
+          -5.9,
+          0,
+          -10.95
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1A_KITCHEN_SINK_01",
+        "level": "F01",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_sink_support",
+        "level": "F01",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1A_STOVE_01",
+        "level": "F01",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_1A_FRIDGE_01",
+        "level": "F01",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_bed",
+        "level": "F01",
+        "position": [
+          -14.45,
+          0,
+          -10.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_wardrobe",
+        "level": "F01",
+        "position": [
+          -12.05,
+          0,
+          -11.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_table",
+        "level": "F01",
+        "position": [
+          -14.3,
+          0,
+          -4.8
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "1A_chair",
+        "level": "F01",
+        "position": [
+          -14.3,
+          0,
+          -5.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F03_D_VESTIBULE_LT",
+        "level": "F03",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -5.2
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_VESTIBULE"
+      },
+      {
+        "id": "F03_D_VESTIBULE_SWITCH",
+        "level": "F03",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -6.45
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_VESTIBULE"
+      },
+      {
+        "id": "F03_D_MAIN_LT",
+        "level": "F03",
+        "position": [
+          -11.925,
+          2.9,
+          -5.525
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_MAIN"
+      },
+      {
+        "id": "F03_D_MAIN_SWITCH",
+        "level": "F03",
+        "position": [
+          -14.9,
+          1.12,
+          -7.1000000000000005
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_MAIN"
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_LT",
+        "level": "F03",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -8.1
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_SWITCH",
+        "level": "F03",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F03_D_BATH_LT",
+        "level": "F03",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_BATH"
+      },
+      {
+        "id": "F03_D_BATH_SWITCH",
+        "level": "F03",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_BATH"
+      },
+      {
+        "id": "F03_D_KITCHEN_LT",
+        "level": "F03",
+        "position": [
+          -9.75,
+          2.9,
+          -8.425
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_KITCHEN"
+      },
+      {
+        "id": "F03_D_KITCHEN_SWITCH",
+        "level": "F03",
+        "position": [
+          -10.55,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_KITCHEN"
+      },
+      {
+        "id": "F03_D_BED_LT",
+        "level": "F03",
+        "position": [
+          -13.475000000000001,
+          2.9,
+          -9.775
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_BED"
+      },
+      {
+        "id": "F03_D_BED_SWITCH",
+        "level": "F03",
+        "position": [
+          -14.9,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_BED"
+      },
+      {
+        "id": "F03_D_STUDY_LT",
+        "level": "F03",
+        "position": [
+          -9.75,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_D_STUDY"
+      },
+      {
+        "id": "F03_D_STUDY_SWITCH",
+        "level": "F03",
+        "position": [
+          -10.55,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_D_STUDY"
+      },
+      {
+        "id": "F03_3D_SINK_01",
+        "level": "F03",
+        "position": [
+          -7.55,
+          0,
+          -12.0
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F03_3D_SHOWER_01",
+        "level": "F03",
+        "position": [
+          -6.25,
+          0,
+          -11.9
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_wc",
+        "level": "F03",
+        "position": [
+          -6.1,
+          0,
+          -10.95
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F03_3D_KITCHEN_SINK_01",
+        "level": "F03",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_sink_support",
+        "level": "F03",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F03_3D_STOVE_01",
+        "level": "F03",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F03_3D_FRIDGE_01",
+        "level": "F03",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_bed",
+        "level": "F03",
+        "position": [
+          -14.45,
+          0,
+          -10.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_wardrobe",
+        "level": "F03",
+        "position": [
+          -12.05,
+          0,
+          -11.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_table",
+        "level": "F03",
+        "position": [
+          -14.3,
+          0,
+          -4.8
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "3D_chair",
+        "level": "F03",
+        "position": [
+          -14.3,
+          0,
+          -5.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_D_VESTIBULE_LT",
+        "level": "F04",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -5.2
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_VESTIBULE"
+      },
+      {
+        "id": "F04_D_VESTIBULE_SWITCH",
+        "level": "F04",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -6.45
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_VESTIBULE"
+      },
+      {
+        "id": "F04_D_MAIN_LT",
+        "level": "F04",
+        "position": [
+          -11.925,
+          2.9,
+          -5.525
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_MAIN"
+      },
+      {
+        "id": "F04_D_MAIN_SWITCH",
+        "level": "F04",
+        "position": [
+          -14.9,
+          1.12,
+          -7.1000000000000005
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_MAIN"
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_LT",
+        "level": "F04",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -8.1
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_SWITCH",
+        "level": "F04",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F04_D_BATH_LT",
+        "level": "F04",
+        "position": [
+          -6.8999999999999995,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_BATH"
+      },
+      {
+        "id": "F04_D_BATH_SWITCH",
+        "level": "F04",
+        "position": [
+          -7.449999999999999,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_BATH"
+      },
+      {
+        "id": "F04_D_KITCHEN_LT",
+        "level": "F04",
+        "position": [
+          -9.75,
+          2.9,
+          -8.425
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_KITCHEN"
+      },
+      {
+        "id": "F04_D_KITCHEN_SWITCH",
+        "level": "F04",
+        "position": [
+          -10.55,
+          1.12,
+          -9.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_KITCHEN"
+      },
+      {
+        "id": "F04_D_BED_LT",
+        "level": "F04",
+        "position": [
+          -13.475000000000001,
+          2.9,
+          -9.775
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_BED"
+      },
+      {
+        "id": "F04_D_BED_SWITCH",
+        "level": "F04",
+        "position": [
+          -14.9,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_BED"
+      },
+      {
+        "id": "F04_D_STUDY_LT",
+        "level": "F04",
+        "position": [
+          -9.75,
+          2.9,
+          -11.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_D_STUDY"
+      },
+      {
+        "id": "F04_D_STUDY_SWITCH",
+        "level": "F04",
+        "position": [
+          -10.55,
+          1.12,
+          -12.25
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_D_STUDY"
+      },
+      {
+        "id": "F04_4D_SINK_01",
+        "level": "F04",
+        "position": [
+          -7.55,
+          0,
+          -12.0
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4D_SHOWER_01",
+        "level": "F04",
+        "position": [
+          -6.25,
+          0,
+          -11.9
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_wc",
+        "level": "F04",
+        "position": [
+          -6.1,
+          0,
+          -10.95
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4D_KITCHEN_SINK_01",
+        "level": "F04",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_sink_support",
+        "level": "F04",
+        "position": [
+          -9.75,
+          0,
+          -9.3
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4D_STOVE_01",
+        "level": "F04",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "F04_4D_FRIDGE_01",
+        "level": "F04",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_bed",
+        "level": "F04",
+        "position": [
+          -14.45,
+          0,
+          -10.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_wardrobe",
+        "level": "F04",
+        "position": [
+          -12.05,
+          0,
+          -11.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_table",
+        "level": "F04",
+        "position": [
+          -14.3,
+          0,
+          -4.8
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "4D_chair",
+        "level": "F04",
+        "position": [
+          -14.3,
+          0,
+          -5.8
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL_LT",
+        "level": "F02",
+        "position": [
+          -3.9,
+          2.9,
+          -3.9499999999999997
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F02_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL_SWITCH",
+        "level": "F02",
+        "position": [
+          -4.85,
+          1.12,
+          -7.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F02_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL_LT",
+        "level": "F03",
+        "position": [
+          -3.9,
+          2.9,
+          -3.9499999999999997
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F03_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL_SWITCH",
+        "level": "F03",
+        "position": [
+          -4.85,
+          1.12,
+          -7.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F03_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL_LT",
+        "level": "F04",
+        "position": [
+          -3.9,
+          2.9,
+          -3.9499999999999997
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F04_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL_SWITCH",
+        "level": "F04",
+        "position": [
+          -4.85,
+          1.12,
+          -7.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F04_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_LT",
+        "level": "F01",
+        "position": [
+          6.8500000000000005,
+          2.9,
+          -6.45
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "F01_STAFF_RESTROOM"
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_SWITCH",
+        "level": "F01",
+        "position": [
+          6.15,
+          1.12,
+          -8.200000000000001
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "F01_STAFF_RESTROOM"
+      },
+      {
+        "id": "F01_STAFF_SINK",
+        "level": "F01",
+        "position": [
+          6.1,
+          0,
+          -7.94
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      },
+      {
+        "id": "F01_STAFF_WC",
+        "level": "F01",
+        "position": [
+          7.75,
+          0,
+          -7.7
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "fixture"
+      }
+    ]
+  },
+  "consumers": {
+    "schema_version": 1,
+    "doors": [
+      {
+        "id": "F02_C_PRIVATE_HALL_BATH_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "2C",
+        "leaf_state": "closed",
+        "mount_offset": -0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "2C",
+        "leaf_state": "closed",
+        "mount_offset": -0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_BED1_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": true,
+        "unit": "2C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_BED2_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": true,
+        "unit": "2C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BATH_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "4C",
+        "leaf_state": "closed",
+        "mount_offset": -0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "4C",
+        "leaf_state": "closed",
+        "mount_offset": -0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BED1_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": true,
+        "unit": "4C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_BED2_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": true,
+        "unit": "4C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F01_D_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "swing_out": true,
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_BED_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_BATH_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "1D"
+      },
+      {
+        "id": "F01_D_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "swing_out": false,
+        "unit": "1D"
+      },
+      {
+        "id": "F02_C_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "swing_out": true,
+        "unit": "2C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F04_C_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "swing_out": true,
+        "unit": "4C",
+        "leaf_state": "closed",
+        "mount_offset": 0.08,
+        "jamb_depth": 0.22
+      },
+      {
+        "id": "F01_A_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "unit": "1A",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_VESTIBULE_MAIN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_MAIN_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_MAIN_BED_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_BATH_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F01_A_BED_STORAGE_DOOR",
+        "kind": "apartment_interior",
+        "unit": "1A",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "unit": "3D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_VESTIBULE_MAIN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_MAIN_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_MAIN_BED_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_BATH_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F03_D_BED_STORAGE_DOOR",
+        "kind": "apartment_interior",
+        "unit": "3D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "unit": "4D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_VESTIBULE_MAIN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_MAIN_KITCHEN_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_MAIN_BED_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_BATH_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F04_D_BED_STORAGE_DOOR",
+        "kind": "apartment_interior",
+        "unit": "4D",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "F02_D_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "unit": "2D",
+        "swing_out": false,
+        "leaf_state": "locked"
+      },
+      {
+        "id": "F03_C_ENTRY_DOOR",
+        "kind": "apartment_entry",
+        "unit": "3C",
+        "swing_out": false,
+        "leaf_state": "locked"
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": false,
+        "leaf_state": "closed"
+      }
+    ],
+    "fittings": [
+      {
+        "id": "F02_2C_SHOWER_01",
+        "kind": "shower",
+        "unit": "2C",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F02_2C_SINK_01",
+        "kind": "sink",
+        "unit": "2C",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F02_2C_KITCHEN_SINK_01",
+        "kind": "sink",
+        "unit": "2C",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": false,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F02_2C_STOVE_01",
+        "kind": "stove",
+        "unit": "2C",
+        "properties": {
+          "ambient_lit": false
+        }
+      },
+      {
+        "id": "F02_2C_FRIDGE_01",
+        "kind": "fridge",
+        "unit": "2C",
+        "properties": {
+          "monitor_top": false
+        }
+      },
+      {
+        "id": "F04_4C_SHOWER_01",
+        "kind": "shower",
+        "unit": "4C",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F04_4C_SINK_01",
+        "kind": "sink",
+        "unit": "4C",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F04_4C_KITCHEN_SINK_01",
+        "kind": "sink",
+        "unit": "4C",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": false,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F04_4C_STOVE_01",
+        "kind": "stove",
+        "unit": "4C",
+        "properties": {
+          "ambient_lit": false
+        }
+      },
+      {
+        "id": "F04_4C_FRIDGE_01",
+        "kind": "fridge",
+        "unit": "4C",
+        "properties": {
+          "monitor_top": false
+        }
+      },
+      {
+        "id": "F01_1D_SINK_01",
+        "kind": "sink",
+        "unit": "1D",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F01_1D_KITCHEN_SINK_01",
+        "kind": "sink",
+        "unit": "1D",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": false,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F01_1D_SHOWER_01",
+        "kind": "shower",
+        "unit": "1D",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F01_1D_STOVE_01",
+        "kind": "stove",
+        "unit": "1D",
+        "properties": {
+          "ambient_lit": true
+        }
+      },
+      {
+        "id": "F01_1D_FRIDGE_01",
+        "kind": "fridge",
+        "unit": "1D",
+        "properties": {
+          "monitor_top": false
+        }
+      },
+      {
+        "id": "F01_1A_SINK_01",
+        "unit": "1A",
+        "kind": "sink",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F01_1A_SHOWER_01",
+        "unit": "1A",
+        "kind": "shower",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F01_1A_KITCHEN_SINK_01",
+        "unit": "1A",
+        "kind": "sink",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": true,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F01_1A_STOVE_01",
+        "unit": "1A",
+        "kind": "stove",
+        "properties": {
+          "ambient_lit": false
+        }
+      },
+      {
+        "id": "F01_1A_FRIDGE_01",
+        "unit": "1A",
+        "kind": "fridge",
+        "properties": {
+          "monitor_top": true
+        }
+      },
+      {
+        "id": "F03_3D_SINK_01",
+        "unit": "3D",
+        "kind": "sink",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F03_3D_SHOWER_01",
+        "unit": "3D",
+        "kind": "shower",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F03_3D_KITCHEN_SINK_01",
+        "unit": "3D",
+        "kind": "sink",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": true,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F03_3D_STOVE_01",
+        "unit": "3D",
+        "kind": "stove",
+        "properties": {
+          "ambient_lit": false
+        }
+      },
+      {
+        "id": "F03_3D_FRIDGE_01",
+        "unit": "3D",
+        "kind": "fridge",
+        "properties": {
+          "monitor_top": true
+        }
+      },
+      {
+        "id": "F04_4D_SINK_01",
+        "unit": "4D",
+        "kind": "sink",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      },
+      {
+        "id": "F04_4D_SHOWER_01",
+        "unit": "4D",
+        "kind": "shower",
+        "properties": {
+          "fixture": "shower"
+        }
+      },
+      {
+        "id": "F04_4D_KITCHEN_SINK_01",
+        "unit": "4D",
+        "kind": "sink",
+        "properties": {
+          "fixture": "kitchen_sink",
+          "drain_side": 1,
+          "compact_kitchen": true,
+          "has_drainboard": true
+        }
+      },
+      {
+        "id": "F04_4D_STOVE_01",
+        "unit": "4D",
+        "kind": "stove",
+        "properties": {
+          "ambient_lit": false
+        }
+      },
+      {
+        "id": "F04_4D_FRIDGE_01",
+        "unit": "4D",
+        "kind": "fridge",
+        "properties": {
+          "monitor_top": true
+        }
+      },
+      {
+        "id": "F01_STAFF_SINK",
+        "unit": "staff",
+        "kind": "sink",
+        "properties": {
+          "fixture": "bath_sink"
+        }
+      }
+    ],
+    "furniture": [
+      {
+        "id": "2C_wc",
+        "template": "5C_wc",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_sink_support",
+        "template": "5C_sink_support",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_bed0",
+        "template": "5C_bed0",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_bed0_ns",
+        "template": "5C_bed0_ns",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_w0_wardrobe",
+        "template": "5C_w0_wardrobe",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_bed1",
+        "template": "5C_bed1",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_bed1_ns",
+        "template": "5C_bed1_ns",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_w1_wardrobe",
+        "template": "5C_w1_wardrobe",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_din_t",
+        "template": "5C_din_t",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_din_dc1",
+        "template": "5C_din_dc1",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_din_dc2",
+        "template": "5C_din_dc2",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_k_wall_cupboard",
+        "template": "5C_k_wall_cupboard",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_wireless_table",
+        "template": "5C_wireless_table",
+        "unit": "2C"
+      },
+      {
+        "id": "4C_wc",
+        "template": "5C_wc",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_sink_support",
+        "template": "5C_sink_support",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_bed0",
+        "template": "5C_bed0",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_bed0_ns",
+        "template": "5C_bed0_ns",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_w0_wardrobe",
+        "template": "5C_w0_wardrobe",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_bed1",
+        "template": "5C_bed1",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_bed1_ns",
+        "template": "5C_bed1_ns",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_w1_wardrobe",
+        "template": "5C_w1_wardrobe",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_din_t",
+        "template": "5C_din_t",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_din_dc1",
+        "template": "5C_din_dc1",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_din_dc2",
+        "template": "5C_din_dc2",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_k_wall_cupboard",
+        "template": "5C_k_wall_cupboard",
+        "unit": "4C"
+      },
+      {
+        "id": "4C_wireless_table",
+        "template": "5C_wireless_table",
+        "unit": "4C"
+      },
+      {
+        "id": "1D_wc",
+        "template": "2B_wc",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_abed",
+        "template": "2B_abed",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_aw_wardrobe",
+        "template": "2B_aw_wardrobe",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_sink_support",
+        "template": "2B_sink_support",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_din_t",
+        "template": "2B_din_t",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_din_dc1",
+        "template": "2B_din_dc1",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_din_dc2",
+        "template": "2B_din_dc2",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_fabric_worktable",
+        "template": "2B_fabric_worktable",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_k_wall_cupboard",
+        "template": "2B_k_wall_cupboard",
+        "unit": "1D"
+      },
+      {
+        "id": "1D_wireless_table",
+        "template": "2B_wireless_table",
+        "unit": "1D"
+      },
+      {
+        "id": "1A_wc",
+        "template": "5C_wc",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_sink_support",
+        "template": "5C_sink_support",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_bed",
+        "template": "5C_bed0",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_wardrobe",
+        "template": "5C_w0_wardrobe",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_table",
+        "template": "5C_din_t",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_chair",
+        "template": "5C_din_dc1",
+        "unit": "1A"
+      },
+      {
+        "id": "3D_wc",
+        "template": "5C_wc",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_sink_support",
+        "template": "5C_sink_support",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_bed",
+        "template": "5C_bed0",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_wardrobe",
+        "template": "5C_w0_wardrobe",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_table",
+        "template": "5C_din_t",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_chair",
+        "template": "5C_din_dc1",
+        "unit": "3D"
+      },
+      {
+        "id": "4D_wc",
+        "template": "5C_wc",
+        "unit": "4D"
+      },
+      {
+        "id": "4D_sink_support",
+        "template": "5C_sink_support",
+        "unit": "4D"
+      },
+      {
+        "id": "4D_bed",
+        "template": "5C_bed0",
+        "unit": "4D"
+      },
+      {
+        "id": "4D_wardrobe",
+        "template": "5C_w0_wardrobe",
+        "unit": "4D"
+      },
+      {
+        "id": "4D_table",
+        "template": "5C_din_t",
+        "unit": "4D"
+      },
+      {
+        "id": "4D_chair",
+        "template": "5C_din_dc1",
+        "unit": "4D"
+      },
+      {
+        "id": "F01_STAFF_WC",
+        "template": "5C_wc",
+        "unit": "staff"
+      }
+    ],
+    "lighting": {
+      "fixtures": [
+        {
+          "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+          "room": "F02_C_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.64,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+          "room": "F02_C_MAIN",
+          "kind": "pendant_shade",
+          "properties": {
+            "range_clamp": 4.84,
+            "energy_scale": 1.76
+          }
+        },
+        {
+          "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+          "room": "F02_C_STUDIO",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.91,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+          "room": "F02_C_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 4.18,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_BATH_LT_FLUSH_DOME",
+          "room": "F02_C_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.87,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+          "room": "F02_C_KITCHEN",
+          "kind": "kitchen_linear",
+          "properties": {
+            "range_clamp": 2.87,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_BED1_LT_FLUSH_DOME",
+          "room": "F02_C_BED1",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 3.32,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F02_C_BED2_LT_FLUSH_DOME",
+          "room": "F02_C_BED2",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 3.32,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+          "room": "F04_C_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.64,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+          "room": "F04_C_MAIN",
+          "kind": "pendant_shade",
+          "properties": {
+            "range_clamp": 4.84,
+            "energy_scale": 1.76
+          }
+        },
+        {
+          "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+          "room": "F04_C_STUDIO",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.91,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+          "room": "F04_C_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 4.18,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_BATH_LT_FLUSH_DOME",
+          "room": "F04_C_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 2.87,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+          "room": "F04_C_KITCHEN",
+          "kind": "kitchen_linear",
+          "properties": {
+            "range_clamp": 2.87,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_BED1_LT_FLUSH_DOME",
+          "room": "F04_C_BED1",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 3.32,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F04_C_BED2_LT_FLUSH_DOME",
+          "room": "F04_C_BED2",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 3.32,
+            "energy_scale": 1.43
+          }
+        },
+        {
+          "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+          "room": "F01_D_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 3,
+            "energy_scale": 1.05
+          }
+        },
+        {
+          "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+          "room": "F01_D_MAIN",
+          "kind": "pendant_shade",
+          "properties": {
+            "range_clamp": 6.5,
+            "energy_scale": 1.5
+          }
+        },
+        {
+          "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+          "room": "F01_D_KITCHEN",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 5,
+            "energy_scale": 1.25
+          }
+        },
+        {
+          "id": "F01_D_BED_LT_FLUSH_DOME",
+          "room": "F01_D_BED",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 5,
+            "energy_scale": 1.25
+          }
+        },
+        {
+          "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+          "room": "F01_D_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 4.5,
+            "energy_scale": 1.25
+          }
+        },
+        {
+          "id": "F01_D_BATH_LT_FLUSH_DOME",
+          "room": "F01_D_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "range_clamp": 4,
+            "energy_scale": 1.05
+          }
+        },
+        {
+          "id": "F01_A_VESTIBULE_LT",
+          "room": "F01_A_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_MAIN_LT",
+          "room": "F01_A_MAIN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_PRIVATE_HALL_LT",
+          "room": "F01_A_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_BATH_LT",
+          "room": "F01_A_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_KITCHEN_LT",
+          "room": "F01_A_KITCHEN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_BED_LT",
+          "room": "F01_A_BED",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_A_STUDY_LT",
+          "room": "F01_A_STUDY",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_VESTIBULE_LT",
+          "room": "F03_D_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_MAIN_LT",
+          "room": "F03_D_MAIN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_PRIVATE_HALL_LT",
+          "room": "F03_D_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_BATH_LT",
+          "room": "F03_D_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_KITCHEN_LT",
+          "room": "F03_D_KITCHEN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_BED_LT",
+          "room": "F03_D_BED",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_D_STUDY_LT",
+          "room": "F03_D_STUDY",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_VESTIBULE_LT",
+          "room": "F04_D_VESTIBULE",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_MAIN_LT",
+          "room": "F04_D_MAIN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_PRIVATE_HALL_LT",
+          "room": "F04_D_PRIVATE_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_BATH_LT",
+          "room": "F04_D_BATH",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_KITCHEN_LT",
+          "room": "F04_D_KITCHEN",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_BED_LT",
+          "room": "F04_D_BED",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_D_STUDY_LT",
+          "room": "F04_D_STUDY",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F02_SOUTHWEST_HALL_LT",
+          "room": "F02_SOUTHWEST_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F03_SOUTHWEST_HALL_LT",
+          "room": "F03_SOUTHWEST_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F04_SOUTHWEST_HALL_LT",
+          "room": "F04_SOUTHWEST_HALL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "F01_STAFF_RESTROOM_LT",
+          "room": "F01_STAFF_RESTROOM",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        }
+      ],
+      "switches": [
+        {
+          "id": "F02_C_VESTIBULE_SWITCH",
+          "room": "F02_C_VESTIBULE"
+        },
+        {
+          "id": "F02_C_MAIN_SWITCH",
+          "room": "F02_C_MAIN"
+        },
+        {
+          "id": "F02_C_STUDIO_SWITCH",
+          "room": "F02_C_STUDIO"
+        },
+        {
+          "id": "F02_C_PRIVATE_HALL_SWITCH",
+          "room": "F02_C_PRIVATE_HALL"
+        },
+        {
+          "id": "F02_C_BATH_SWITCH",
+          "room": "F02_C_BATH"
+        },
+        {
+          "id": "F02_C_KITCHEN_SWITCH",
+          "room": "F02_C_KITCHEN"
+        },
+        {
+          "id": "F02_C_BED1_SWITCH",
+          "room": "F02_C_BED1"
+        },
+        {
+          "id": "F02_C_BED2_SWITCH",
+          "room": "F02_C_BED2"
+        },
+        {
+          "id": "F04_C_VESTIBULE_SWITCH",
+          "room": "F04_C_VESTIBULE"
+        },
+        {
+          "id": "F04_C_MAIN_SWITCH",
+          "room": "F04_C_MAIN"
+        },
+        {
+          "id": "F04_C_STUDIO_SWITCH",
+          "room": "F04_C_STUDIO"
+        },
+        {
+          "id": "F04_C_PRIVATE_HALL_SWITCH",
+          "room": "F04_C_PRIVATE_HALL"
+        },
+        {
+          "id": "F04_C_BATH_SWITCH",
+          "room": "F04_C_BATH"
+        },
+        {
+          "id": "F04_C_KITCHEN_SWITCH",
+          "room": "F04_C_KITCHEN"
+        },
+        {
+          "id": "F04_C_BED1_SWITCH",
+          "room": "F04_C_BED1"
+        },
+        {
+          "id": "F04_C_BED2_SWITCH",
+          "room": "F04_C_BED2"
+        },
+        {
+          "id": "F01_D_VESTIBULE_SWITCH",
+          "room": "F01_D_VESTIBULE"
+        },
+        {
+          "id": "F01_D_MAIN_SWITCH",
+          "room": "F01_D_MAIN"
+        },
+        {
+          "id": "F01_D_KITCHEN_SWITCH",
+          "room": "F01_D_KITCHEN"
+        },
+        {
+          "id": "F01_D_BED_SWITCH",
+          "room": "F01_D_BED"
+        },
+        {
+          "id": "F01_D_PRIVATE_HALL_SWITCH",
+          "room": "F01_D_PRIVATE_HALL"
+        },
+        {
+          "id": "F01_D_BATH_SWITCH",
+          "room": "F01_D_BATH"
+        },
+        {
+          "id": "F01_A_VESTIBULE_SWITCH",
+          "room": "F01_A_VESTIBULE"
+        },
+        {
+          "id": "F01_A_MAIN_SWITCH",
+          "room": "F01_A_MAIN"
+        },
+        {
+          "id": "F01_A_PRIVATE_HALL_SWITCH",
+          "room": "F01_A_PRIVATE_HALL"
+        },
+        {
+          "id": "F01_A_BATH_SWITCH",
+          "room": "F01_A_BATH"
+        },
+        {
+          "id": "F01_A_KITCHEN_SWITCH",
+          "room": "F01_A_KITCHEN"
+        },
+        {
+          "id": "F01_A_BED_SWITCH",
+          "room": "F01_A_BED"
+        },
+        {
+          "id": "F01_A_STUDY_SWITCH",
+          "room": "F01_A_STUDY"
+        },
+        {
+          "id": "F03_D_VESTIBULE_SWITCH",
+          "room": "F03_D_VESTIBULE"
+        },
+        {
+          "id": "F03_D_MAIN_SWITCH",
+          "room": "F03_D_MAIN"
+        },
+        {
+          "id": "F03_D_PRIVATE_HALL_SWITCH",
+          "room": "F03_D_PRIVATE_HALL"
+        },
+        {
+          "id": "F03_D_BATH_SWITCH",
+          "room": "F03_D_BATH"
+        },
+        {
+          "id": "F03_D_KITCHEN_SWITCH",
+          "room": "F03_D_KITCHEN"
+        },
+        {
+          "id": "F03_D_BED_SWITCH",
+          "room": "F03_D_BED"
+        },
+        {
+          "id": "F03_D_STUDY_SWITCH",
+          "room": "F03_D_STUDY"
+        },
+        {
+          "id": "F04_D_VESTIBULE_SWITCH",
+          "room": "F04_D_VESTIBULE"
+        },
+        {
+          "id": "F04_D_MAIN_SWITCH",
+          "room": "F04_D_MAIN"
+        },
+        {
+          "id": "F04_D_PRIVATE_HALL_SWITCH",
+          "room": "F04_D_PRIVATE_HALL"
+        },
+        {
+          "id": "F04_D_BATH_SWITCH",
+          "room": "F04_D_BATH"
+        },
+        {
+          "id": "F04_D_KITCHEN_SWITCH",
+          "room": "F04_D_KITCHEN"
+        },
+        {
+          "id": "F04_D_BED_SWITCH",
+          "room": "F04_D_BED"
+        },
+        {
+          "id": "F04_D_STUDY_SWITCH",
+          "room": "F04_D_STUDY"
+        },
+        {
+          "id": "F02_SOUTHWEST_HALL_SWITCH",
+          "room": "F02_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F03_SOUTHWEST_HALL_SWITCH",
+          "room": "F03_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F04_SOUTHWEST_HALL_SWITCH",
+          "room": "F04_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F01_STAFF_RESTROOM_SWITCH",
+          "room": "F01_STAFF_RESTROOM"
+        }
+      ]
+    }
+  }
+}

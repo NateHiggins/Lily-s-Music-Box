@@ -11,6 +11,9 @@ var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	return mount_source(adapter, source)
+
+func mount_source(adapter: Variant, source: Variant) -> bool:
 	if not validate(source, adapter):
 		return false
 	for record: Dictionary in source.furniture:

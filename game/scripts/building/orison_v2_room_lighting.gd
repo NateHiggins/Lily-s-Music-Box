@@ -5,6 +5,14 @@ var errors: Array[String] = []
 
 func mount(adapter: Variant, parent: Node3D) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	return mount_source(adapter, parent, source)
+
+func mount_completion(adapter: Variant, parent: Node3D) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	if source is not Dictionary or source.get("lighting") is not Dictionary: return false
+	return mount_source(adapter, parent, source.lighting)
+
+func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 	if not validate(source, adapter):
 		return false
 	var circuits: Dictionary = {}
@@ -20,9 +28,11 @@ func mount(adapter: Variant, parent: Node3D) -> bool:
 			if not circuits.has(record.room):
 				circuits[record.room] = []
 			circuits[record.room].append(str(record.id))
-	var switches := SwitchSystem.new()
-	switches.name = "V2RoomSwitches"
-	parent.add_child(switches)
+	var switches := parent.get_node_or_null("V2RoomSwitches") as SwitchSystem
+	if switches == null:
+		switches = SwitchSystem.new()
+		switches.name = "V2RoomSwitches"
+		parent.add_child(switches)
 	for room: String in circuits:
 		var identities: Array[String] = []
 		identities.assign(circuits[room])

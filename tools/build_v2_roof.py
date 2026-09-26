@@ -14,19 +14,29 @@ SOURCE = ROOT / 'art/data/orison_v2/roof_source.json'
 TARGET = ROOT / 'game/data/orison_v2_blockout.json'
 
 
+def upsert_records(records, additions):
+    """Keep existing positions so independent construction owners commute."""
+    owned = {r['id']: r for r in additions}
+    if len(owned) != len(additions):
+        raise ValueError('Duplicate authored record identity')
+    present = {r['id'] for r in records}
+    result = [copy.deepcopy(owned.get(r['id'], r)) for r in records]
+    result.extend(copy.deepcopy(r) for r in additions if r['id'] not in present)
+    return result
+
+
 def project(layout, source):
     result = copy.deepcopy(layout)
     assert source['schema_version'] == 1
     for table, additions in source['records'].items():
-        owned = {r['id'] for r in additions}
-        result[table] = [r for r in result[table] if r['id'] not in owned] + copy.deepcopy(additions)
+        result[table] = upsert_records(result[table], additions)
     for core in ['PUBLIC', 'SERVICE']:
         room = next(r for r in result['spaces'] if r['id'] == f'F06_{core}_CORE')
         room['no_ceiling'] = True
     for kind in ['PRIMARY', 'SERVICE']:
         flight = copy.deepcopy(next(r for r in result['stairs'] if r['id'] == f'{kind}_F05_F06'))
         flight.update(id=f'{kind}_F06_ROOF', **{'from': 'F06', 'to': 'ROOF'})
-        result['stairs'] = [r for r in result['stairs'] if r['id'] != flight['id']] + [flight]
+        result['stairs'] = upsert_records(result['stairs'], [flight])
     return result
 
 

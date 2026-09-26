@@ -1,0 +1,1449 @@
+{
+  "schema_version": 1,
+  "doors": [
+    {
+      "id": "F02_C_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "2C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "2C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_BED1_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "2C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_BED2_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "2C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "4C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "4C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BED1_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "4C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BED2_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "4C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F01_D_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "1D"
+    },
+    {
+      "id": "F01_D_BED_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "1D"
+    },
+    {
+      "id": "F01_D_BATH_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "1D"
+    },
+    {
+      "id": "F01_D_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "1D"
+    },
+    {
+      "id": "F02_C_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "2C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F04_C_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "swing_out": true,
+      "unit": "4C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F01_A_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "unit": "1A",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_VESTIBULE_MAIN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_MAIN_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_MAIN_BED_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F01_A_BED_STORAGE_DOOR",
+      "kind": "apartment_interior",
+      "unit": "1A",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "unit": "3D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_VESTIBULE_MAIN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_MAIN_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_MAIN_BED_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F03_D_BED_STORAGE_DOOR",
+      "kind": "apartment_interior",
+      "unit": "3D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "unit": "4D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_VESTIBULE_MAIN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_MAIN_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_MAIN_BED_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F04_D_BED_STORAGE_DOOR",
+      "kind": "apartment_interior",
+      "unit": "4D",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "F02_D_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "unit": "2D",
+      "swing_out": false,
+      "leaf_state": "locked"
+    },
+    {
+      "id": "F03_C_ENTRY_DOOR",
+      "kind": "apartment_entry",
+      "unit": "3C",
+      "swing_out": false,
+      "leaf_state": "locked"
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": false,
+      "leaf_state": "closed"
+    }
+  ],
+  "fittings": [
+    {
+      "id": "F02_2C_SHOWER_01",
+      "kind": "shower",
+      "unit": "2C",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F02_2C_SINK_01",
+      "kind": "sink",
+      "unit": "2C",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F02_2C_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "2C",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F02_2C_STOVE_01",
+      "kind": "stove",
+      "unit": "2C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F04_4C_SHOWER_01",
+      "kind": "shower",
+      "unit": "4C",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F04_4C_SINK_01",
+      "kind": "sink",
+      "unit": "4C",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F04_4C_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "4C",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F04_4C_STOVE_01",
+      "kind": "stove",
+      "unit": "4C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1D_SINK_01",
+      "kind": "sink",
+      "unit": "1D",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F01_1D_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "1D",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F01_1D_SHOWER_01",
+      "kind": "shower",
+      "unit": "1D",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F01_1D_STOVE_01",
+      "kind": "stove",
+      "unit": "1D",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F01_1D_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "1D",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1A_SINK_01",
+      "unit": "1A",
+      "kind": "sink",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F01_1A_SHOWER_01",
+      "unit": "1A",
+      "kind": "shower",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F01_1A_KITCHEN_SINK_01",
+      "unit": "1A",
+      "kind": "sink",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": true,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F01_1A_STOVE_01",
+      "unit": "1A",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F01_1A_FRIDGE_01",
+      "unit": "1A",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3D_SINK_01",
+      "unit": "3D",
+      "kind": "sink",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F03_3D_SHOWER_01",
+      "unit": "3D",
+      "kind": "shower",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F03_3D_KITCHEN_SINK_01",
+      "unit": "3D",
+      "kind": "sink",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": true,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F03_3D_STOVE_01",
+      "unit": "3D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F03_3D_FRIDGE_01",
+      "unit": "3D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F04_4D_SINK_01",
+      "unit": "4D",
+      "kind": "sink",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F04_4D_SHOWER_01",
+      "unit": "4D",
+      "kind": "shower",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F04_4D_KITCHEN_SINK_01",
+      "unit": "4D",
+      "kind": "sink",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": true,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F04_4D_STOVE_01",
+      "unit": "4D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4D_FRIDGE_01",
+      "unit": "4D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F01_STAFF_SINK",
+      "unit": "staff",
+      "kind": "sink",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    }
+  ],
+  "furniture": [
+    {
+      "id": "2C_wc",
+      "template": "5C_wc",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_sink_support",
+      "template": "5C_sink_support",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_bed0",
+      "template": "5C_bed0",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_bed0_ns",
+      "template": "5C_bed0_ns",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_w0_wardrobe",
+      "template": "5C_w0_wardrobe",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_bed1",
+      "template": "5C_bed1",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_bed1_ns",
+      "template": "5C_bed1_ns",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_w1_wardrobe",
+      "template": "5C_w1_wardrobe",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_din_t",
+      "template": "5C_din_t",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_din_dc1",
+      "template": "5C_din_dc1",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_din_dc2",
+      "template": "5C_din_dc2",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_k_wall_cupboard",
+      "template": "5C_k_wall_cupboard",
+      "unit": "2C"
+    },
+    {
+      "id": "2C_wireless_table",
+      "template": "5C_wireless_table",
+      "unit": "2C"
+    },
+    {
+      "id": "4C_wc",
+      "template": "5C_wc",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_sink_support",
+      "template": "5C_sink_support",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_bed0",
+      "template": "5C_bed0",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_bed0_ns",
+      "template": "5C_bed0_ns",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_w0_wardrobe",
+      "template": "5C_w0_wardrobe",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_bed1",
+      "template": "5C_bed1",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_bed1_ns",
+      "template": "5C_bed1_ns",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_w1_wardrobe",
+      "template": "5C_w1_wardrobe",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_din_t",
+      "template": "5C_din_t",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_din_dc1",
+      "template": "5C_din_dc1",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_din_dc2",
+      "template": "5C_din_dc2",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_k_wall_cupboard",
+      "template": "5C_k_wall_cupboard",
+      "unit": "4C"
+    },
+    {
+      "id": "4C_wireless_table",
+      "template": "5C_wireless_table",
+      "unit": "4C"
+    },
+    {
+      "id": "1D_wc",
+      "template": "2B_wc",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_abed",
+      "template": "2B_abed",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_aw_wardrobe",
+      "template": "2B_aw_wardrobe",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_sink_support",
+      "template": "2B_sink_support",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_din_t",
+      "template": "2B_din_t",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_din_dc1",
+      "template": "2B_din_dc1",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_din_dc2",
+      "template": "2B_din_dc2",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_fabric_worktable",
+      "template": "2B_fabric_worktable",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_k_wall_cupboard",
+      "template": "2B_k_wall_cupboard",
+      "unit": "1D"
+    },
+    {
+      "id": "1D_wireless_table",
+      "template": "2B_wireless_table",
+      "unit": "1D"
+    },
+    {
+      "id": "1A_wc",
+      "template": "5C_wc",
+      "unit": "1A"
+    },
+    {
+      "id": "1A_sink_support",
+      "template": "5C_sink_support",
+      "unit": "1A"
+    },
+    {
+      "id": "1A_bed",
+      "template": "5C_bed0",
+      "unit": "1A"
+    },
+    {
+      "id": "1A_wardrobe",
+      "template": "5C_w0_wardrobe",
+      "unit": "1A"
+    },
+    {
+      "id": "1A_table",
+      "template": "5C_din_t",
+      "unit": "1A"
+    },
+    {
+      "id": "1A_chair",
+      "template": "5C_din_dc1",
+      "unit": "1A"
+    },
+    {
+      "id": "3D_wc",
+      "template": "5C_wc",
+      "unit": "3D"
+    },
+    {
+      "id": "3D_sink_support",
+      "template": "5C_sink_support",
+      "unit": "3D"
+    },
+    {
+      "id": "3D_bed",
+      "template": "5C_bed0",
+      "unit": "3D"
+    },
+    {
+      "id": "3D_wardrobe",
+      "template": "5C_w0_wardrobe",
+      "unit": "3D"
+    },
+    {
+      "id": "3D_table",
+      "template": "5C_din_t",
+      "unit": "3D"
+    },
+    {
+      "id": "3D_chair",
+      "template": "5C_din_dc1",
+      "unit": "3D"
+    },
+    {
+      "id": "4D_wc",
+      "template": "5C_wc",
+      "unit": "4D"
+    },
+    {
+      "id": "4D_sink_support",
+      "template": "5C_sink_support",
+      "unit": "4D"
+    },
+    {
+      "id": "4D_bed",
+      "template": "5C_bed0",
+      "unit": "4D"
+    },
+    {
+      "id": "4D_wardrobe",
+      "template": "5C_w0_wardrobe",
+      "unit": "4D"
+    },
+    {
+      "id": "4D_table",
+      "template": "5C_din_t",
+      "unit": "4D"
+    },
+    {
+      "id": "4D_chair",
+      "template": "5C_din_dc1",
+      "unit": "4D"
+    },
+    {
+      "id": "F01_STAFF_WC",
+      "template": "5C_wc",
+      "unit": "staff"
+    }
+  ],
+  "lighting": {
+    "fixtures": [
+      {
+        "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+        "room": "F02_C_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.64,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+        "room": "F02_C_MAIN",
+        "kind": "pendant_shade",
+        "properties": {
+          "range_clamp": 4.84,
+          "energy_scale": 1.76
+        }
+      },
+      {
+        "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+        "room": "F02_C_STUDIO",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.91,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+        "room": "F02_C_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 4.18,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_BATH_LT_FLUSH_DOME",
+        "room": "F02_C_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+        "room": "F02_C_KITCHEN",
+        "kind": "kitchen_linear",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_BED1_LT_FLUSH_DOME",
+        "room": "F02_C_BED1",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F02_C_BED2_LT_FLUSH_DOME",
+        "room": "F02_C_BED2",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+        "room": "F04_C_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.64,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+        "room": "F04_C_MAIN",
+        "kind": "pendant_shade",
+        "properties": {
+          "range_clamp": 4.84,
+          "energy_scale": 1.76
+        }
+      },
+      {
+        "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+        "room": "F04_C_STUDIO",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.91,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+        "room": "F04_C_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 4.18,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_BATH_LT_FLUSH_DOME",
+        "room": "F04_C_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+        "room": "F04_C_KITCHEN",
+        "kind": "kitchen_linear",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_BED1_LT_FLUSH_DOME",
+        "room": "F04_C_BED1",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F04_C_BED2_LT_FLUSH_DOME",
+        "room": "F04_C_BED2",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+        "room": "F01_D_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3,
+          "energy_scale": 1.05
+        }
+      },
+      {
+        "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+        "room": "F01_D_MAIN",
+        "kind": "pendant_shade",
+        "properties": {
+          "range_clamp": 6.5,
+          "energy_scale": 1.5
+        }
+      },
+      {
+        "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+        "room": "F01_D_KITCHEN",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 5,
+          "energy_scale": 1.25
+        }
+      },
+      {
+        "id": "F01_D_BED_LT_FLUSH_DOME",
+        "room": "F01_D_BED",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 5,
+          "energy_scale": 1.25
+        }
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+        "room": "F01_D_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 4.5,
+          "energy_scale": 1.25
+        }
+      },
+      {
+        "id": "F01_D_BATH_LT_FLUSH_DOME",
+        "room": "F01_D_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 4,
+          "energy_scale": 1.05
+        }
+      },
+      {
+        "id": "F01_A_VESTIBULE_LT",
+        "room": "F01_A_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_MAIN_LT",
+        "room": "F01_A_MAIN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_LT",
+        "room": "F01_A_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_BATH_LT",
+        "room": "F01_A_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_KITCHEN_LT",
+        "room": "F01_A_KITCHEN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_BED_LT",
+        "room": "F01_A_BED",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_A_STUDY_LT",
+        "room": "F01_A_STUDY",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_VESTIBULE_LT",
+        "room": "F03_D_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_MAIN_LT",
+        "room": "F03_D_MAIN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_LT",
+        "room": "F03_D_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_BATH_LT",
+        "room": "F03_D_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_KITCHEN_LT",
+        "room": "F03_D_KITCHEN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_BED_LT",
+        "room": "F03_D_BED",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_D_STUDY_LT",
+        "room": "F03_D_STUDY",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_VESTIBULE_LT",
+        "room": "F04_D_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_MAIN_LT",
+        "room": "F04_D_MAIN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_LT",
+        "room": "F04_D_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_BATH_LT",
+        "room": "F04_D_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_KITCHEN_LT",
+        "room": "F04_D_KITCHEN",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_BED_LT",
+        "room": "F04_D_BED",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_D_STUDY_LT",
+        "room": "F04_D_STUDY",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL_LT",
+        "room": "F02_SOUTHWEST_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL_LT",
+        "room": "F03_SOUTHWEST_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL_LT",
+        "room": "F04_SOUTHWEST_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_LT",
+        "room": "F01_STAFF_RESTROOM",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      }
+    ],
+    "switches": [
+      {
+        "id": "F02_C_VESTIBULE_SWITCH",
+        "room": "F02_C_VESTIBULE"
+      },
+      {
+        "id": "F02_C_MAIN_SWITCH",
+        "room": "F02_C_MAIN"
+      },
+      {
+        "id": "F02_C_STUDIO_SWITCH",
+        "room": "F02_C_STUDIO"
+      },
+      {
+        "id": "F02_C_PRIVATE_HALL_SWITCH",
+        "room": "F02_C_PRIVATE_HALL"
+      },
+      {
+        "id": "F02_C_BATH_SWITCH",
+        "room": "F02_C_BATH"
+      },
+      {
+        "id": "F02_C_KITCHEN_SWITCH",
+        "room": "F02_C_KITCHEN"
+      },
+      {
+        "id": "F02_C_BED1_SWITCH",
+        "room": "F02_C_BED1"
+      },
+      {
+        "id": "F02_C_BED2_SWITCH",
+        "room": "F02_C_BED2"
+      },
+      {
+        "id": "F04_C_VESTIBULE_SWITCH",
+        "room": "F04_C_VESTIBULE"
+      },
+      {
+        "id": "F04_C_MAIN_SWITCH",
+        "room": "F04_C_MAIN"
+      },
+      {
+        "id": "F04_C_STUDIO_SWITCH",
+        "room": "F04_C_STUDIO"
+      },
+      {
+        "id": "F04_C_PRIVATE_HALL_SWITCH",
+        "room": "F04_C_PRIVATE_HALL"
+      },
+      {
+        "id": "F04_C_BATH_SWITCH",
+        "room": "F04_C_BATH"
+      },
+      {
+        "id": "F04_C_KITCHEN_SWITCH",
+        "room": "F04_C_KITCHEN"
+      },
+      {
+        "id": "F04_C_BED1_SWITCH",
+        "room": "F04_C_BED1"
+      },
+      {
+        "id": "F04_C_BED2_SWITCH",
+        "room": "F04_C_BED2"
+      },
+      {
+        "id": "F01_D_VESTIBULE_SWITCH",
+        "room": "F01_D_VESTIBULE"
+      },
+      {
+        "id": "F01_D_MAIN_SWITCH",
+        "room": "F01_D_MAIN"
+      },
+      {
+        "id": "F01_D_KITCHEN_SWITCH",
+        "room": "F01_D_KITCHEN"
+      },
+      {
+        "id": "F01_D_BED_SWITCH",
+        "room": "F01_D_BED"
+      },
+      {
+        "id": "F01_D_PRIVATE_HALL_SWITCH",
+        "room": "F01_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F01_D_BATH_SWITCH",
+        "room": "F01_D_BATH"
+      },
+      {
+        "id": "F01_A_VESTIBULE_SWITCH",
+        "room": "F01_A_VESTIBULE"
+      },
+      {
+        "id": "F01_A_MAIN_SWITCH",
+        "room": "F01_A_MAIN"
+      },
+      {
+        "id": "F01_A_PRIVATE_HALL_SWITCH",
+        "room": "F01_A_PRIVATE_HALL"
+      },
+      {
+        "id": "F01_A_BATH_SWITCH",
+        "room": "F01_A_BATH"
+      },
+      {
+        "id": "F01_A_KITCHEN_SWITCH",
+        "room": "F01_A_KITCHEN"
+      },
+      {
+        "id": "F01_A_BED_SWITCH",
+        "room": "F01_A_BED"
+      },
+      {
+        "id": "F01_A_STUDY_SWITCH",
+        "room": "F01_A_STUDY"
+      },
+      {
+        "id": "F03_D_VESTIBULE_SWITCH",
+        "room": "F03_D_VESTIBULE"
+      },
+      {
+        "id": "F03_D_MAIN_SWITCH",
+        "room": "F03_D_MAIN"
+      },
+      {
+        "id": "F03_D_PRIVATE_HALL_SWITCH",
+        "room": "F03_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F03_D_BATH_SWITCH",
+        "room": "F03_D_BATH"
+      },
+      {
+        "id": "F03_D_KITCHEN_SWITCH",
+        "room": "F03_D_KITCHEN"
+      },
+      {
+        "id": "F03_D_BED_SWITCH",
+        "room": "F03_D_BED"
+      },
+      {
+        "id": "F03_D_STUDY_SWITCH",
+        "room": "F03_D_STUDY"
+      },
+      {
+        "id": "F04_D_VESTIBULE_SWITCH",
+        "room": "F04_D_VESTIBULE"
+      },
+      {
+        "id": "F04_D_MAIN_SWITCH",
+        "room": "F04_D_MAIN"
+      },
+      {
+        "id": "F04_D_PRIVATE_HALL_SWITCH",
+        "room": "F04_D_PRIVATE_HALL"
+      },
+      {
+        "id": "F04_D_BATH_SWITCH",
+        "room": "F04_D_BATH"
+      },
+      {
+        "id": "F04_D_KITCHEN_SWITCH",
+        "room": "F04_D_KITCHEN"
+      },
+      {
+        "id": "F04_D_BED_SWITCH",
+        "room": "F04_D_BED"
+      },
+      {
+        "id": "F04_D_STUDY_SWITCH",
+        "room": "F04_D_STUDY"
+      },
+      {
+        "id": "F02_SOUTHWEST_HALL_SWITCH",
+        "room": "F02_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F03_SOUTHWEST_HALL_SWITCH",
+        "room": "F03_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F04_SOUTHWEST_HALL_SWITCH",
+        "room": "F04_SOUTHWEST_HALL"
+      },
+      {
+        "id": "F01_STAFF_RESTROOM_SWITCH",
+        "room": "F01_STAFF_RESTROOM"
+      }
+    ]
+  }
+}
