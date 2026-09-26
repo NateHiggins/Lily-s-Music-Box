@@ -90824,7 +90824,7 @@
    "disposition": "MUST_PRESERVE_ID",
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
-   "resolved_target": "runtime_created",
+   "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
   },
   {
@@ -127157,7 +127157,7 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
-   "resolved_target": "runtime_created",
+   "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
   },
   {
@@ -127282,7 +127282,7 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
-   "resolved_target": "runtime_created",
+   "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
   },
   {
@@ -165395,6 +165395,336 @@
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "393b4dcd53ddb115",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY",
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "89261892484593a2",
+   "kind": "id_reference",
+   "token": "ROOF_TANK_BODY",
+   "file": "game/scripts/building/orison_v2_architectural_materials.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "key_for"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "if part == \"ROOF_TANK_BODY\" or part.begins_with(\"ROOF_TANK_BUTT_\"): return \"wood_dark\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "acf220704c016c1f",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_authorities"
+   ],
+   "lines": [
+    177
+   ],
+   "count": 1,
+   "context": [
+    "_mount(\"ROOF_TANK_BALLCOCK\", tank_ballcock)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "5e1a72a583453e5a",
+   "kind": "id_candidate",
+   "token": "ROOF_TANK_",
+   "file": "game/scripts/building/orison_v2_architectural_materials.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "key_for"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "if part.begins_with(\"ROOF_TANK_\"): return \"metal\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "03abc656f39451e4",
+   "kind": "id_candidate",
+   "token": "ROOF_TANK_BUTT_",
+   "file": "game/scripts/building/orison_v2_architectural_materials.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "key_for"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "if part == \"ROOF_TANK_BODY\" or part.begins_with(\"ROOF_TANK_BUTT_\"): return \"wood_dark\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "7386ea38afa36660",
+   "kind": "id_candidate",
+   "token": "ROOF_TANK_LEG_",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    120
+   ],
+   "count": 1,
+   "context": [
+    "var leg := world.adapter.root.get_node(\"ROOF_TANK_LEG_\" + str(index)) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1d11a8337b5e61f7",
+   "kind": "node_path",
+   "token": "ROOF_TANK_LEG_",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    120
+   ],
+   "count": 1,
+   "context": [
+    "var leg := world.adapter.root.get_node(\"ROOF_TANK_LEG_\" + str(index)) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "339a40761b77515c",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    79
+   ],
+   "count": 1,
+   "context": [
+    "var cock := world.adapter.resolve(\"ROOF_TANK_BALLCOCK\") as RoofTankBallcockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "904727256a5433f3",
+   "kind": "vector3_coordinate",
+   "token": "_service_tank",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "return await _walk(Vector3(-12,19.2,-5.7))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0004bc3f0a04fd18",
+   "kind": "id_reference",
+   "token": "ROOF_TANK_BODY",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "var tank := world.adapter.root.get_node(\"ROOF_TANK_BODY\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a7514cfae1d67dce",
+   "kind": "node_path",
+   "token": "ROOF_TANK_BODY",
+   "file": "game/tests/orison_v2_roof_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_service_tank"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "var tank := world.adapter.root.get_node(\"ROOF_TANK_BODY\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout",
    "target_exists": null
   }
  ]

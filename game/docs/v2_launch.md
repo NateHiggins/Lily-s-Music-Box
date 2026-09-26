@@ -21,9 +21,13 @@ reach the watchman's detector and night register. Clock in and take the report.
 The primary stair now continues above F06 to the roof. At its top landing,
 turn toward the west bulkhead door and press E to step onto the deck. The
 second bulkhead, to the east, connects to the service stair. Both doors open
-and close normally; the perimeter has solid parapets. The roof is still a
-plain architectural shell: tank/machinery, rooftop service activities and
-adequate night lighting remain unfinished.
+and close normally; the perimeter has solid parapets. The raised timber water
+tank stands southwest of the public bulkhead. Walk to its exposed valve and
+press E to service the overflowing ballcock; Escape cancels and restores an
+unfinished attempt. This reuses the existing tank activity. Its repair is local
+to the current building instance, not a saved campaign job or a source of water
+for apartment taps. Lift machinery, roof ventilation and adequate night
+lighting remain unfinished.
 
 Mina walks her existing home, shop, laundry and mail routes. She waits for
 doors to finish opening and closes doors she opened after people clear their

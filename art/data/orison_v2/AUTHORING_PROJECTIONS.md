@@ -42,8 +42,10 @@ The roof uses `roof_source.json` and `tools/build_v2_roof.py` (with a matching
 anchors project into `game/data/orison_v2_blockout.json`. The two new flights
 inherit the installed primary/service stair dimensions; only the F06 core
 ceilings are opened below them. This additive generator preserves all other
-floor records. Roof access is architectural scope; it does not author tank,
-ventilation or lift-machine gameplay.
+floor records. The same source now owns the raised timber tank, supports,
+bindings, overflow butt and service anchor. V2 mounts the existing
+RoofTankBallcockProp at that anchor; its mechanism and maintenance activity
+remain production-owned. Ventilation and lift machinery are still unbuilt.
 
 The older `design/astra/work/*/build.py` packets record earlier build steps.
 Some still write the former runtime locations and are not current authoring

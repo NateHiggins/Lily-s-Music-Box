@@ -172,6 +172,9 @@ func _compose_authorities() -> void:
 	_compose_vantry()
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
+	var tank_ballcock := RoofTankBallcockProp.new()
+	tank_ballcock.prop_type = "tank_ballcock"
+	_mount("ROOF_TANK_BALLCOCK", tank_ballcock)
 	_compose_service_round_props()
 	if startup_failed: return
 	if not DomesticDoors.new().mount(adapter, layout):

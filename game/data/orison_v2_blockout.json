@@ -472,7 +472,30 @@
     {"id":"ROOF_PARAPET_WEST","level":"ROOF","position":[-15.65,0.55,-0.35],"size":[0.25,1.1,24],"class":"service","collision":true,"purpose":"continuous guarded roof edge"},
     {"id":"ROOF_COPING_WEST","level":"ROOF","position":[-15.65,1.13,-0.35],"size":[0.35,0.06,24.1],"class":"service","collision":true,"purpose":"weathering cap over parapet"},
     {"id":"ROOF_PARAPET_EAST","level":"ROOF","position":[15.65,0.55,-0.35],"size":[0.25,1.1,24],"class":"service","collision":true,"purpose":"continuous guarded roof edge"},
-    {"id":"ROOF_COPING_EAST","level":"ROOF","position":[15.65,1.13,-0.35],"size":[0.35,0.06,24.1],"class":"service","collision":true,"purpose":"weathering cap over parapet"}
+    {"id":"ROOF_COPING_EAST","level":"ROOF","position":[15.65,1.13,-0.35],"size":[0.35,0.06,24.1],"class":"service","collision":true,"purpose":"weathering cap over parapet"},
+    {"id":"ROOF_TANK_BODY","level":"ROOF","position":[-8.6,2.75,-5.7],"size":[2.8,2.3,2.2],"class":"service","collision":true,"purpose":"timber house water tank"},
+    {"id":"ROOF_TANK_LEG_0","level":"ROOF","position":[-9.65,0.8,-6.45],"size":[0.22,1.6,0.22],"class":"service","collision":true,"purpose":"iron water tank support"},
+    {"id":"ROOF_TANK_LEG_1","level":"ROOF","position":[-7.55,0.8,-6.45],"size":[0.22,1.6,0.22],"class":"service","collision":true,"purpose":"iron water tank support"},
+    {"id":"ROOF_TANK_LEG_2","level":"ROOF","position":[-9.65,0.8,-4.95],"size":[0.22,1.6,0.22],"class":"service","collision":true,"purpose":"iron water tank support"},
+    {"id":"ROOF_TANK_LEG_3","level":"ROOF","position":[-7.55,0.8,-4.95],"size":[0.22,1.6,0.22],"class":"service","collision":true,"purpose":"iron water tank support"},
+    {"id":"ROOF_TANK_LID","level":"ROOF","position":[-8.6,3.94,-5.7],"size":[2.94,0.08,2.34],"class":"service","collision":true,"purpose":"weather cap on house tank"},
+    {"id":"ROOF_TANK_BAND_0_SOUTH","level":"ROOF","position":[-8.6,1.85,-6.82],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_0_NORTH","level":"ROOF","position":[-8.6,1.85,-4.58],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_0_WEST","level":"ROOF","position":[-10.02,1.85,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_0_EAST","level":"ROOF","position":[-7.18,1.85,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_1_SOUTH","level":"ROOF","position":[-8.6,2.75,-6.82],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_1_NORTH","level":"ROOF","position":[-8.6,2.75,-4.58],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_1_WEST","level":"ROOF","position":[-10.02,2.75,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_1_EAST","level":"ROOF","position":[-7.18,2.75,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_2_SOUTH","level":"ROOF","position":[-8.6,3.65,-6.82],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_2_NORTH","level":"ROOF","position":[-8.6,3.65,-4.58],"size":[2.86,0.07,0.04],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_2_WEST","level":"ROOF","position":[-10.02,3.65,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BAND_2_EAST","level":"ROOF","position":[-7.18,3.65,-5.7],"size":[0.04,0.07,2.2],"class":"service","collision":true,"purpose":"iron tank binding"},
+    {"id":"ROOF_TANK_BUTT_BASE","level":"ROOF","position":[-10.1,0.06,-4.25],"size":[0.8,0.12,0.8],"class":"service","collision":true,"purpose":"overflow collection butt base"},
+    {"id":"ROOF_TANK_BUTT_WEST","level":"ROOF","position":[-10.48,0.585,-4.25],"size":[0.04,0.93,0.8],"class":"service","collision":true,"purpose":"open overflow collection butt wall"},
+    {"id":"ROOF_TANK_BUTT_EAST","level":"ROOF","position":[-9.72,0.585,-4.25],"size":[0.04,0.93,0.8],"class":"service","collision":true,"purpose":"open overflow collection butt wall"},
+    {"id":"ROOF_TANK_BUTT_SOUTH","level":"ROOF","position":[-10.1,0.585,-4.63],"size":[0.8,0.93,0.04],"class":"service","collision":true,"purpose":"open overflow collection butt wall"},
+    {"id":"ROOF_TANK_BUTT_NORTH","level":"ROOF","position":[-10.1,0.585,-3.87],"size":[0.8,0.93,0.04],"class":"service","collision":true,"purpose":"open overflow collection butt wall"}
   ],
   "anchors": [
     {"id":"F04_B_ALCOVE_LT_FLUSH_DOME","level":"F04","space":"F04_B_ALCOVE","position":[-13.1,2.9,9.0],"yaw":0,"kind":"fixture"},
@@ -1253,7 +1276,9 @@
     {"id":"ROOF_DECK_WEST_STANCE","position":[-7,0,0],"kind":"clearance","level":"ROOF"},
     {"id":"ROOF_DECK_NORTH_STANCE","position":[0,0,7],"kind":"clearance","level":"ROOF"},
     {"id":"ROOF_DECK_SOUTH_STANCE","position":[0,0,-7],"kind":"clearance","level":"ROOF"},
-    {"id":"ROOF_DECK_EAST_STANCE","position":[14.3,0,5],"kind":"clearance","level":"ROOF"}
+    {"id":"ROOF_DECK_EAST_STANCE","position":[14.3,0,5],"kind":"clearance","level":"ROOF"},
+    {"id":"ROOF_TANK_BALLCOCK","level":"ROOF","position":[-9.6,1.3,-4.55],"kind":"maintenance","yaw":0},
+    {"id":"ROOF_TANK_SERVICE_STANCE","level":"ROOF","position":[-9.4,0,-3.05],"kind":"clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
