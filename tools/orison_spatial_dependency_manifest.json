@@ -183480,6 +183480,174 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "8c745fbcc9a828e0",
+   "kind": "id_reference",
+   "token": "F01_MAIL_PACKAGE_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_MAIL_PACKAGE_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "30f80e5656530bd3",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE_COMMON_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_PACKAGE_COMMON_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e8312d22c7aef0bc",
+   "kind": "id_reference",
+   "token": "F01_WATCH_MAIL_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_MAIL_DOOR\": {\"kind\": \"service\", \"swing_out\": false, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "00953e92ee100a4e",
+   "kind": "id_reference",
+   "token": "F01_MAIL_PACKAGE_DOOR",
+   "file": "game/tests/orison_v2_public_doors_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [
+    "const DOORS := [\"F01_WATCH_MAIL_DOOR\", \"F01_MAIL_PACKAGE_DOOR\", \"F01_PACKAGE_COMMON_DOOR\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a49eb7a2401cfeb",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE_COMMON_DOOR",
+   "file": "game/tests/orison_v2_public_doors_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [
+    "const DOORS := [\"F01_WATCH_MAIL_DOOR\", \"F01_MAIL_PACKAGE_DOOR\", \"F01_PACKAGE_COMMON_DOOR\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a1c2253b8735b720",
+   "kind": "id_reference",
+   "token": "F01_WATCH_MAIL_DOOR",
+   "file": "game/tests/orison_v2_public_doors_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [
+    "const DOORS := [\"F01_WATCH_MAIL_DOOR\", \"F01_MAIL_PACKAGE_DOOR\", \"F01_PACKAGE_COMMON_DOOR\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

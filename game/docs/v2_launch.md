@@ -19,6 +19,18 @@ lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 
+The west door of the watch room leads through the mail room and package room
+to the common reading room. These three doors now start closed and use E to
+open or close their production leaves. Just inside the watch-room threshold,
+turn alongside the existing desk; the desk occupies the straight-ahead space.
+Door positions follow the ordinary transient door lifecycle and reset on
+building reconstruction. The reading-room shell and wall finishes are present;
+its furnishings and shared reading activities remain unfinished.
+
+OrisonV2PublicDoorsTest checks closed-leaf collision, real player interaction,
+crossings and closing from both sides, plus a continuous trip through all
+three rooms. It uses the production walking controller and windowed captures.
+
 The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
 the control and let the carried set settle after a fast turn. Its light still
 comes from the modeled lens; walls and machinery cast shadows.
