@@ -9,7 +9,8 @@ func _run() -> void:
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world := preload("res://scenes/building/orison_v2_runtime.tscn").instantiate()
 	add_child(world)
-	await get_tree().create_timer(.6).timeout
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	world.player.set_physics_process(false)
 	var floors := 0
 	var ceilings := 0
@@ -63,7 +64,6 @@ func _run() -> void:
 		world.player.global_position=world.adapter.root.to_global(Vector3(center.x,y+.05,r[1]+.65))
 		world.player.camera.make_current()
 		world.player.face_world_point(world.adapter.root.to_global(center))
-		await get_tree().create_timer(.25).timeout
 		await shot(str(record.id))
 		captures+=1
 		captured_levels.append(str(record.level))
@@ -76,6 +76,7 @@ func shot(label: String) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty(): return
 	DirAccess.make_dir_recursive_absolute(directory)
+	await get_tree().create_timer(.25).timeout
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
 
