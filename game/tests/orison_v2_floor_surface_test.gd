@@ -15,9 +15,29 @@ func _run() -> void:
 	var floors := 0
 	var ceilings := 0
 	var probes := 0
+	var trim_rooms := 0
+	var trim_pieces := 0
 	for record: Dictionary in world.layout.spaces:
 		var room: Node=world.adapter.resolve(str(record.id))
 		if room==null: continue
+		var trim := room.get_node_or_null("HistoricMillwork") as MultiMeshInstance3D
+		if trim != null:
+			trim_rooms += 1
+			check(trim.get_child_count()==0,"millwork adds no collision or per-strip nodes")
+			var sources: PackedStringArray=trim.get_meta("wall_sources")
+			check(sources.size()==trim.multimesh.instance_count,"each trim strip retains its solid wall owner")
+			for index in trim.multimesh.instance_count:
+				var wall := room.get_node(sources[index]) as MeshInstance3D
+				var transform := trim.multimesh.get_instance_transform(index)
+				var extent := transform.basis.get_scale()*.5
+				var solid: Vector3=wall.mesh.size*.5
+				var offset := transform.origin-wall.position
+				var along_x := str(wall.name).begins_with("WallNorth") or str(wall.name).begins_with("WallSouth")
+				check(absf(offset.y)+extent.y<=solid.y+.0001,"trim stays within solid wall height")
+				check(absf(offset.x if along_x else offset.z)+(extent.x if along_x else extent.z)<=(solid.x if along_x else solid.z)+.0001,"trim never bridges a cut aperture")
+				var projection: float=extent.z*2 if along_x else extent.x*2
+				check(projection<=.0541,"shallow millwork respects maximum projection")
+				trim_pieces+=1
 		for part in ["Floor","Ceiling"]:
 			var surface := room.get_node_or_null(part) as MeshInstance3D
 			if surface==null: continue
@@ -53,6 +73,7 @@ func _run() -> void:
 				ceilings+=1
 				check(up==0 and down==2 and indices.size()==6,str(record.id)+" ceiling owns underside only")
 	check(floors>100 and ceilings>100,"audit covers the composed building")
+	check(trim_rooms>20 and trim_pieces>200,"millwork covers occupied architecture")
 	var captures := 0
 	var captured_levels: Array[String]=[]
 	for record: Dictionary in world.layout.spaces:
@@ -65,10 +86,13 @@ func _run() -> void:
 		world.player.camera.make_current()
 		world.player.face_world_point(world.adapter.root.to_global(center))
 		await shot(str(record.id))
+		world.player.face_world_point(world.adapter.root.to_global(center+Vector3.UP*2.3))
+		await shot(str(record.id)+"_millwork")
 		captures+=1
 		captured_levels.append(str(record.level))
 		if captures==3: break
 	print("FLOOR OWNERSHIP: floors=%d ceilings=%d collision_probes=%d failures=%d" % [floors,ceilings,probes,failures.size()])
+	print("MILLWORK: rooms=%d strips=%d failures=%d" % [trim_rooms,trim_pieces,failures.size()])
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
 func shot(label: String) -> void:

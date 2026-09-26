@@ -16,3 +16,25 @@ raycasts each retained floor body at its authored walking height. Individually
 identified furnishings above the probe point are excluded from that floor-only
 query. Windowed captures cover occupied rooms on three successive storeys.
 The existing vertical route exercises production movement and stairs separately.
+
+## Occupied-room millwork
+
+Production private and public rooms now receive 140 mm skirting with a raised
+cap, a picture rail at 2.18 m, and three shallow cornice steps. These reuse the
+existing catalogue trim material and the established Orison millwork dimensions.
+Service rooms, wet rooms, open shells and the graybox remain unchanged; rooms
+without ceilings omit the cornice.
+
+The strips derive from the shell's already-cut solid wall pieces, including
+window sills and door heads. Each stays within its source piece's horizontal
+and vertical bounds, so it cannot bridge an aperture. They project at most
+54 mm into the room, use butt corners and add no collision. Each room submits
+one MultiMesh instead of a node/draw per strip. Shared-wall omissions remain
+owned by the existing shell; this pass does not invent another wall or add
+trim to a neighbor's unowned face.
+
+The floor suite also checks every strip against its actual wall source,
+limits projection, verifies collision-free batching, and captures both floor
+and upper-wall views on three occupied storeys. This is an architectural
+finish pass, not a claim that all V2 interiors or maintenance activities are
+complete.
