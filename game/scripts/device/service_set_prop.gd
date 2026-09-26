@@ -43,10 +43,17 @@ var _receipt_tween: Tween
 var _printer_tick: AudioStreamPlayer
 var _printer_feed: AudioStreamPlayer
 var printed_count := 0
+var teletype: Node3D
 
 
 func _ready() -> void:
 	_build_model()
+	_receipt_root.hide()
+	teletype = preload("res://scripts/device/mechanical_teletype.gd").new()
+	teletype.name = "MechanicalTeletype"
+	add_child(teletype)
+	_receipt_root = teletype
+	_receipt_label = teletype.ink
 	_isolate_meshes(self)
 	_apply_state(false)
 
@@ -73,6 +80,7 @@ func set_radio_powered(on: bool, animate := true) -> void:
 		_apply_state(animate)
 		return
 	radio_powered = on
+	if teletype != null: teletype.powered=on
 	_apply_state(animate)
 
 
@@ -82,43 +90,19 @@ func toggle_radio_power() -> void:
 
 func set_incoming_call(waiting: bool) -> void:
 	incoming_call = waiting
-	if _receipt_root and _receipt_label:
-		if waiting:
-			if _receipt_tween:
-				_receipt_tween.kill()
-			_receipt_label.text = "LINE REQUEST\nL. ORTIZ · 2B\nPRESS R"
-			_receipt_root.scale.y = 1.0
-			_receipt_root.visible = true
-		else:
-			_receipt_root.visible = false
+	if waiting and teletype != null:
+		teletype.present({"title":"LINE REQUEST","body":"L. ORTIZ / 2B\nPRESS R TO ANSWER"},printed_count)
 	_apply_state(false)
 
 
-## A powered set advances one physical field slip. The HUD enlarges the same
-## copy for legibility; this modeled paper is the fiction, not a hidden screen.
-func print_telegram_card(title: String) -> bool:
-	if not radio_powered or _receipt_root == null:
+## A powered set prints the full field copy onto persistent physical paper.
+## The HUD remains an accessible second presentation of the same supplied facts.
+func print_telegram_card(message: Variant) -> bool:
+	if not radio_powered or teletype == null:
 		return false
 	printed_count += 1
-	# TelegramStyle.fit_slip stops at a word boundary instead of wherever
-	# sixteen characters happen to land; a slip that ends on a dangling
-	# em-dash reads as a bug rather than as a short strip of paper.
-	_receipt_label.text = "WIRE %04d\n%s" % [printed_count,
-			TelegramStyle.fit_slip(title.to_upper())]
-	if _receipt_tween:
-		_receipt_tween.kill()
-	_receipt_root.visible = true
-	_receipt_root.scale.y = 0.025
-	if _printer_tick and _printer_tick.stream:
-		_printer_tick.play()
-	_receipt_tween = create_tween()
-	_receipt_tween.tween_property(_receipt_root, "scale:y", 1.0,
-			0.30).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	_receipt_tween.tween_callback(_play_feed)
-	_receipt_tween.tween_interval(2.35)
-	_receipt_tween.tween_property(_receipt_root, "scale:y", 0.025,
-			0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	_receipt_tween.tween_callback(func(): _receipt_root.visible = false)
+	var card: Dictionary = message if message is Dictionary else {"title":str(message)}
+	teletype.present(card,printed_count)
 	return true
 
 

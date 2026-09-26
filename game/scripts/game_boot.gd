@@ -13,6 +13,7 @@ const ACTIONS := {
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
+	"teletype_read": KEY_T, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
 	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }
 

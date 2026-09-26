@@ -45,16 +45,35 @@ recompute the aggregate. It owns no order copy and calls no lifecycle method.
 
 ## The field-slip printer
 
-The owner-approved later modification is a brass platen in the crown, beside
-the aerial. It advances a small textured paper ticket after an authoritative E
-interaction. `ServiceSetCarrier.print_telegram_card()` delegates only the feed
-motion and returns false when the radio is off; `PlayerController` then withholds
-the enlarged HUD copy. The interacted object has already run in either case.
+The carried TYPE 28-R now has a Blender-built mechanical teletype attachment.
+The complete supplied field report (title, body and condition) prints in ink on
+persistent paper. Long reports wrap into pages without dropping their tail.
+The type carriage traverses, hammer strikes, platen turns and ribbon spools
+advance with the printing; tick and feed sounds accompany the mechanism.
 
-The physical slip contains only a serial and truncated object heading at carried
-resolution. `TelegramHud` presents the full observation. Neither surface is a
-screen, and neither may call back into the object or WorkOrders. Typography,
-layout, texture and copy boundaries are in `game/docs/telegram_style.md`.
+**T** raises/lowers the set for reading; **[ / ]** feed previous/next pages.
+The normal carry pose keeps the paper and feed assembly visible at the right.
+Reading does not seize the mouse or pause the world. Modal interactions retain
+input priority. These are remappable actions; dedicated touch controls remain
+future work. The latest paper remains visible when the radio is switched off;
+printing pauses and new reception is refused. Page turning resumes with power.
+
+`TelegramHud.card_presented` feeds the physical printer, so full service-wire
+cards share the same copy. The existing HUD remains an accessible enlarged
+copy. Direct `print_telegram_card` callers can supply either a full dictionary
+or a legacy title string. This is a physical output device, not a new AI service,
+case owner or source of invented observations. Only the current report is held
+in the printer; no new campaign save field is added.
+
+The authored Blender source and reproducible builder are
+`art/models/service_teletype/service_teletype.blend` and
+`art/tools/build_service_teletype.py`. Lettering remains runtime Label3D ink.
+
+The real torch emitter is now 18 mm right, 18 mm down and 35 mm forward of the
+camera, facing along the view axis, for useful light against nearby surfaces.
+The optical field and shadows still observe the same PlayerController light.
+The held object has its own close carry pose; the optical origin intentionally
+no longer follows the forward-most decorative lens (owner request, 2026-09-26).
 
 ## Production ownership
 
@@ -86,7 +105,7 @@ swap is:
 
 | Old responsibility / consumer | Decision | Production state |
 |---|---|---|
-| beam pose, lag and separate held-object pass in `phone_carrier.gd` | migrate | rewritten in `service_set_carrier.gd`; beam origin is the modeled lamp lens |
+| beam pose, lag and separate held-object pass in `phone_carrier.gd` | migrate | rewritten in `service_set_carrier.gd`; beam origin is eye-adjacent for close work |
 | spotlight and beam plates in `player_controller.gd` | retain behind neutral seam | `set_lamp_enabled`, `toggle_lamp`, `lamp_is_enabled`; variable is `carried_device`, not PhoneCarrier |
 | cold LED color | replace | warm tungsten `(1.0, 0.80, 0.56)` |
 | Phone3D screen, QWERTY, trackpad, camera/viewfinder/gallery | rehome or archive | source remains; no production instance |

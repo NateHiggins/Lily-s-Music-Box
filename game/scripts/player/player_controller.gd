@@ -429,13 +429,9 @@ func _carry_service_light(delta: float) -> void:
 	if _hand == null:
 		return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
-	# THE BEAM LEAVES THE SERVICE SET'S LAMP. The carrier publishes its
-	# pose in camera space every frame — its modeled lens position and
-	# direction down the carried object's own -Z — so the light
-	# goes wherever the hand has turned it, breathing and stride
-	# included. It used to be a spotlight at a fixed offset pointing
-	# level, with its own invented sway, beside a phone that was pitched
-	# somewhere else entirely and had no lamp modelled on it at all.
+	# Owner-requested close-work origin: the carrier publishes an eye-adjacent
+	# optical pose so a wall near the camera cannot swallow the torch emitter.
+	# The same real light remains authoritative for shadows and voxel injection.
 	var hold: Transform3D
 	if carried_device and carried_device.get("beam_valid"):
 		hold = camera.transform * carried_device.beam_xform
@@ -1157,8 +1153,7 @@ func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 	if carried_device == null \
 			or not carried_device.has_method("print_telegram_card"):
 		return
-	if not bool(carried_device.call("print_telegram_card",
-			str(card.get("title", "FIELD COPY")))):
+	if not bool(carried_device.call("radio_is_powered")):
 		return
 	telegram_hud.present(card)
 

@@ -3,9 +3,13 @@ extends Node3D
 ## First-person carrier for the no-screen Vantry service set.  The instrument
 ## renders in an isolated held-object pass, while its lamp publishes a camera-
 ## space transform to the real-world light owned by PlayerController.
+## The owner now requests an eye-adjacent emitter for close inspection.
 
-const CARRY_POS := Vector3(0.190, -0.205, -0.410)
-const CARRY_ROT := Vector3(4.0, 6.0, 5.0)
+const CARRY_POS := Vector3(0.145, -0.055, -0.330)
+const CARRY_ROT := Vector3(-3.0, -4.0, 2.0)
+const EYE_LIGHT_ORIGIN := Vector3(0.018, -0.018, -0.035)
+var reading := false
+var _read_blend := 0.0
 const REF_ASPECT := 16.0 / 9.0
 
 var device: ServiceSetProp
@@ -33,6 +37,9 @@ func setup(player: PlayerController, camera: Camera3D,
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
 	_build_overlay_pass(camera)
+	if player.telegram_hud != null:
+		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
+			print_telegram_card(card))
 	set_process(true)
 
 
@@ -84,8 +91,8 @@ func radio_is_powered() -> bool:
 	return device != null and device.radio_powered
 
 
-func print_telegram_card(title: String) -> bool:
-	return device != null and device.print_telegram_card(title)
+func print_telegram_card(message: Variant) -> bool:
+	return device != null and device.print_telegram_card(message)
 
 
 ## Proof-only turntable poses. Production always leaves this at zero.
@@ -121,7 +128,7 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	environment.ambient_light_color = Color("4a3528")
 	# The 28-R's black lacquer and phenolic need enough broad reflection to
 	# separate plates before the two photographic keys describe their edges.
-	environment.ambient_light_energy = 3.20
+	environment.ambient_light_energy = 0.80
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	var world_environment := WorldEnvironment.new()
 	world_environment.environment = environment
@@ -138,20 +145,31 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 
 	var key := OmniLight3D.new()
 	key.light_color = Color("ffd3a1")
-	key.light_energy = 16.0
+	key.light_energy = 0.35
 	key.omni_range = 1.1
 	key.shadow_enabled = false
 	key.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	key.layers = key.light_cull_mask
 	key.position = Vector3(-0.18, 0.22, -0.06)
 	_pass_view.add_child(key)
 	var rim := OmniLight3D.new()
 	rim.light_color = Color("8191a0")
-	rim.light_energy = 8.0
+	rim.light_energy = 0.12
 	rim.omni_range = 0.9
 	rim.shadow_enabled = false
 	rim.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	rim.layers = rim.light_cull_mask
 	rim.position = Vector3(0.24, -0.12, -0.02)
 	_pass_view.add_child(rim)
+	var softbox := DirectionalLight3D.new()
+	softbox.name = "InstrumentBroadReflection"
+	softbox.light_color = Color("fff2db")
+	softbox.light_energy = 0.55
+	softbox.rotation_degrees = Vector3(-18,-22,0)
+	softbox.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	softbox.layers = softbox.light_cull_mask
+	softbox.shadow_enabled = false
+	_pass_view.add_child(softbox)
 
 	var layer := CanvasLayer.new()
 	layer.layer = 8
@@ -195,13 +213,15 @@ func _process(delta: float) -> void:
 
 	var pose := CARRY_POS
 	pose.x *= _aspect_shift()
-	var rotation := CARRY_ROT
+	_read_blend=move_toward(_read_blend,1.0 if reading else 0.0,delta*3.0)
+	pose=pose.lerp(Vector3(.035,-.015,-.305),smoothstep(0.0,1.0,_read_blend))
+	var rotation := CARRY_ROT.lerp(Vector3.ZERO,_read_blend)
 	var scale := Vector3.ONE
 	if _proof_pose > 0:
 		pose = Vector3(0, -0.01, -0.43)
 		rotation = Vector3(0, 180.0 if _proof_pose == 1 else 0.0, 0)
 		scale = Vector3.ONE * 1.05
-	else:
+	elif not reading:
 		var stride := 0.0018 + speed * 0.0023
 		pose += Vector3(sin(_bob * 1.6) * stride,
 				sin(_bob * 3.2) * stride * 0.75,
@@ -213,7 +233,21 @@ func _process(delta: float) -> void:
 	device.rotation_degrees = rotation
 	device.scale = scale
 
-	var aim := Basis.from_euler(device.rotation)
-	beam_xform = Transform3D(aim, device.position + aim * ServiceSetProp.LAMP_AT)
+	beam_xform = Transform3D(Basis.IDENTITY, EYE_LIGHT_ORIGIN)
 	beam_valid = true
-	beam_aim = Vector2(rotation.y - CARRY_ROT.y, rotation.x - CARRY_ROT.x)
+	beam_aim = Vector2.ZERO
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _player == null or _player.call_locked or _player.mouse_released or get_tree().paused:
+		return
+	if not _player.camera.is_current(): return
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if event.is_action_pressed("teletype_read"):
+		reading=not reading
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("teletype_next"):
+		device.teletype.turn_page(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("teletype_previous"):
+		device.teletype.turn_page(-1)
+		get_viewport().set_input_as_handled()
