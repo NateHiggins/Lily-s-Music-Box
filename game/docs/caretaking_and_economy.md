@@ -21,7 +21,10 @@ the ecology camera do not accept this shortcut.
 Water inspection exposes independent hot and cold valves, the stopper, actual
 mixed warmth, basin level and drain condition. Open the shower curtain first.
 The four-second test fills briefly, closes both valves, opens the drain and
-observes the falling water level. Clearing the strainer requires testing first,
+observes the falling water level. Manual valve and service controls pause during
+the test; Close / Escape remains available and restores the entry settings.
+An empty sample reports an incomplete test. A stationary collected pool reports
+blocked drainage and allows clearing; it never claims that drainage passed. Clearing the strainer requires testing first,
 both valves closed and the drain open. Leaving inspection restores the valve
 and stopper settings from entry. Temperature is the existing simulation's
 relative cold/warm/hot reading, not a newly calibrated thermometer.

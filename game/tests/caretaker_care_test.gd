@@ -53,11 +53,48 @@ func _run() -> void:
 	_check(notebook.action_hint().is_empty(),"modal inspection hides care cue")
 	_check(player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"inspection owns pointer and movement")
 	_check(care.service(tap,false).is_empty(),"untested service refused")
+	tap._water_level = .8
 	notebook._test_water()
+	_check(_test_controls_locked(notebook),"timed test owns its valves and service controls")
 	await get_tree().create_timer(1.5).timeout
 	await _shot("shower_running")
 	await get_tree().create_timer(2.8).timeout
 	_check(notebook.tested and not tap._hot and not tap._cold,"physical flow and drain test finishes safely")
+	_check("drainage checked" in notebook.feedback.text,"healthy full basin judged by drainage rate rather than emptiness")
+	_check(not _test_controls_locked(notebook),"completed test returns manual controls")
+	# An interrupted test restores the entry controls and never permits care.
+	notebook.close()
+	tap.set_hot(true)
+	tap.set_stopper(true)
+	notebook.open(tap)
+	notebook._test_water()
+	await get_tree().create_timer(.3).timeout
+	notebook.close()
+	_check(tap._hot and not tap._cold and tap._stopper and not notebook.tested,
+		"cancelled water test restores original settings without completion")
+	tap.set_hot(false)
+	tap.set_stopper(false)
+	tap._water_level = 0
+	notebook.open(tap)
+	# Freeze only the production water simulation to model a missing sample.
+	tap.set_process(false)
+	notebook._test_water()
+	await get_tree().create_timer(4.4).timeout
+	_check(not notebook.tested and "test incomplete" in notebook.feedback.text,
+		"missing water sample cannot claim a successful test")
+	tap.set_process(true)
+	notebook.close()
+	notebook.open(tap)
+	notebook._test_water()
+	await get_tree().create_timer(1.5).timeout
+	# Hold the measured pool still during observation: a blockage is diagnosed,
+	# not mistaken for either good drainage or an untested fixture.
+	tap.set_process(false)
+	await get_tree().create_timer(2.9).timeout
+	_check(notebook.tested and "No drainage observed" in notebook.feedback.text,
+		"stationary water diagnoses blockage and allows clearing")
+	await _shot("blocked_drain_diagnosis")
+	tap.set_process(true)
 	var old_due: float = economy.book().care[str(tap.name)].due
 	var result: Dictionary = care.service(tap,notebook.tested)
 	_check(not result.is_empty() and economy.book().care[str(tap.name)].due>old_due,"prevention postpones actual request")
@@ -161,3 +198,11 @@ func _shot(label: String) -> void:
 func _check(ok: bool, label: String) -> void:
 	print("CARETAKER ","PASS " if ok else "FAIL ",label)
 	if not ok: failures.append(label)
+
+func _test_controls_locked(notebook: Node) -> bool:
+	var count := 0
+	for child in notebook.box.get_children():
+		if child is Button and child.text!="Close / Escape":
+			if not child.disabled: return false
+			count += 1
+	return count>0

@@ -18,6 +18,7 @@ var _was_stopper := false
 var _sample_level := 0.0
 var _test_seconds := 0.0
 var _testing := false
+var _draining := false
 var _request_page := 0
 
 func _ready() -> void:
@@ -114,6 +115,9 @@ func _test_water() -> void:
 		return
 	tested = false
 	_testing = true
+	_draining = false
+	_sample_level = 0
+	_set_test_controls(true)
 	_test_seconds = 0
 	subject.set_hot(true)
 	subject.set_cold(true)
@@ -126,16 +130,28 @@ func _process(delta: float) -> void:
 		readout.text = care.inspection(subject)
 		if _testing:
 			_test_seconds += delta
-			if _test_seconds>=2 and subject._stopper:
+			if not _draining and _test_seconds>=2:
 				subject.set_hot(false)
 				subject.set_cold(false)
 				subject.set_stopper(false)
 				_sample_level = subject._water_level
+				_draining = true
+				_test_seconds = 0
 				feedback.text = "Valves shut. Watching the drain..."
-			if _test_seconds>=4:
-				tested = subject._water_level<_sample_level
+			elif _draining and _test_seconds>=2:
+				# A stationary pool is a valid blocked-drain diagnosis; an empty
+				# sample is not evidence that the fixture passed its water test.
+				tested = _sample_level>.01
 				_testing = false
-				feedback.text = "Water drains slowly; strainer needs clearing." if subject.drain_capacity<.5 else "Flow, mixed warmth and drainage checked."
+				_set_test_controls(false)
+				if not tested:
+					feedback.text = "No water collected; test incomplete. Check flow and try again."
+				elif subject._water_level>=_sample_level-.001:
+					feedback.text = "No drainage observed; strainer needs clearing."
+				elif _sample_level-subject._water_level<minf(_sample_level,.24)*.75:
+					feedback.text = "Water drains slowly; strainer needs clearing."
+				else:
+					feedback.text = "Flow, mixed warmth and drainage checked."
 	else:
 		var days := maxf(0.0,(float(economy.book().started)+(int(economy.book().rent_paid)+1)*economy.MONTH-economy.clock.elapsed_minutes())/1440.0)
 		readout.text = "POCKET / %s\nRent: $5.00 / next instalment in %.1f days\nOverdue instalments: %d\nNo late fees. Pay when you can.\n\nI: inspect a fixture in reach\nP: pocket ledger" % [economy.money(int(economy.book().cash)),days,economy.rent_cycles_due()]
@@ -145,6 +161,10 @@ func _process(delta: float) -> void:
 		readout.text += "\n\nSERVICE REQUESTS: %d / page %d of %d" % [requests.size(),_request_page+1,pages]
 		for index in range(_request_page*6,mini(requests.size(),(_request_page+1)*6)):
 			readout.text += "\n"+requests[index]
+
+func _set_test_controls(running: bool) -> void:
+	for child in box.get_children():
+		if child is Button and child.text!="Close / Escape": child.disabled = running
 
 func _service() -> void:
 	if not tested:
