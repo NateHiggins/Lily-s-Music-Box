@@ -592,6 +592,14 @@ func _compose_service_round_props() -> void:
 	boiler.look_at(boiler_facing)
 	_retire_blockout_fixture("B1_BOILER_BODY_MASS")
 	_retire_blockout_fixture("B1_WATER_COLUMN_MASS")
+	var flue := preload("res://scripts/building/orison_v2_boiler_flue.gd").new()
+	flue.name = "BoilerFlue"
+	adapter.root.add_child(flue)
+	if not flue.mount(boiler,_blockout.layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: boiler flue connection refused")
+		return
+	_retire_blockout_fixture("B1_BREECHING_MASS")
 	watch_station_network = WatchStationNetwork.new()
 	watch_station_network.name = "WatchStationNetwork"
 	add_child(watch_station_network)

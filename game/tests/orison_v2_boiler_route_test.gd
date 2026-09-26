@@ -27,6 +27,18 @@ func _route() -> void:
 		if not await _walk(point): return
 	var boiler := world.adapter.resolve("B1_BOILER_01") as BoilerProp
 	if not _require(boiler != null and world.boiler_tend.boiler == boiler, "one physical plant supplies the building"): return
+	var flue = world.adapter.root.get_node("BoilerFlue")
+	if not _require(flue.to_global(flue.sections[0].from).distance_to(boiler.smoke_outlet()) < .001,
+			"breeching begins at the installed smoke collar"): return
+	for section: Dictionary in flue.sections:
+		var body: StaticBody3D = section.body
+		var ray := PhysicsRayQueryParameters3D.create(body.to_global(Vector3(-.4,0,0)),body.to_global(Vector3(.4,0,0)),1)
+		ray.exclude = [player.get_rid()]
+		if not _require(world.get_world_3d().direct_space_state.intersect_ray(ray).get("collider") == body,
+				"physical breeching collision: " + str(body.name)): return
+		if absf(section.from.y-section.to.y) < .01:
+			if not _require(section.from.y-flue.RADIUS-boiler.position.y > 2.4,
+					"horizontal breeching clears the service aisle"): return
 	if not _require(is_equal_approx(world.adapter.root.to_local(boiler.global_position).y, -3.2),"boiler feet meet the authored basement floor"): return
 	var floor_probe := PhysicsRayQueryParameters3D.create(boiler.to_global(Vector3(0,.01,0)),boiler.to_global(Vector3(0,-.08,0)),1)
 	floor_probe.exclude = [boiler.get_node("BoilerCollision").get_rid()]
@@ -46,6 +58,7 @@ func _route() -> void:
 	for point in [Vector3(11.1,-3.2,-2.5),Vector3(14.1,-3.2,-2.5),Vector3(14.1,-3.2,-.3)]:
 		if not await _walk(point): return
 	var draft: Area3D = boiler.get_node("DraftReach")
+	await _roof_capture("connected_breeching",flue.sections[1].to)
 	var previous := boiler.draft
 	var temperature: float = world.boiler_tend.taps[0]._boiler_temperature
 	var serial := player.telegram_hud.serial

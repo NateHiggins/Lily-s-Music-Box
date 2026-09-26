@@ -300,6 +300,9 @@ func _build_header_and_return() -> void:
 	relief.rotation_degrees.z = -18.0
 
 
+func smoke_outlet() -> Vector3:
+	return to_global(Vector3(0,1.84,D*.5+.47))
+
 func _build_smoke_hood() -> void:
 	_box(_carcass, Vector3(0.68, 0.30, 0.32),
 			Vector3(0, 1.65, D * 0.5 + 0.09), IRON)

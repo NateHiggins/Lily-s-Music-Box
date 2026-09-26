@@ -11,7 +11,9 @@ var _connections: Array = []
 var _bound := false
 var _restoring := false
 var _blocked := false
-const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service"}
+const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service", "B1_BOILER_01":"boiler_service"}
+const SERVICE_ACTIVITIES := {"fuse_service":"fuse_panel_rating_service",
+	"tank_service":"roof_tank_ballcock_service", "boiler_service":"boiler_water_column_test"}
 var _service_defaults: Dictionary = {}
 var _service_completed: Dictionary = {}
 var _service_library: MaintenanceActivityLibrary
@@ -50,6 +52,7 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		if (kind == "light" and not prop is LightFixtureProp) \
 				or (kind == "fuse_service" and not prop is FusePanelProp) \
 				or (kind == "tank_service" and not prop is RoofTankBallcockProp) \
+				or (kind == "boiler_service" and not prop is BoilerProp) \
 				or (kind == "radiator" and not prop is RadiatorProp) \
 				or (kind == "books" and (not prop is BookshelfProp or not prop.has_method("restore_order"))) \
 				or (kind in ["prep", "mirror"] and (prop == null or not prop.has_method("restore_open_state"))):
@@ -135,7 +138,7 @@ func snapshot() -> Dictionary:
 		var kind: String = _kinds[identity]
 		var setting: Variant
 		match kind:
-			"fuse_service", "tank_service": setting = _service_completed[identity]
+			"fuse_service", "tank_service", "boiler_service": setting = _service_completed[identity]
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.get("supply_position")
 			"prep": setting = prop.get("opened")
@@ -150,7 +153,7 @@ func _restore(saved: Dictionary) -> void:
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]
 		match record.kind:
-			"fuse_service", "tank_service": _restore_service(identity, record.value)
+			"fuse_service", "tank_service", "boiler_service": _restore_service(identity, record.value)
 			"light": prop.call("set_powered", record.value)
 			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
 			"books": prop.call("restore_order", record.value)
@@ -167,7 +170,7 @@ func _restore_service(identity: String, completed: bool) -> void:
 	if is_instance_valid(panel): panel.call("_close", true)
 	var state: Dictionary = _service_defaults[identity].duplicate(true)
 	if completed:
-		var activity := "fuse_panel_rating_service" if SERVICE_KINDS[identity] == "fuse_service" else "roof_tank_ballcock_service"
+		var activity: String = SERVICE_ACTIVITIES[SERVICE_KINDS[identity]]
 		var profile: Dictionary = _service_library.activity(activity)
 		var patch: Dictionary = profile.completion.mechanism_patch
 		for key: String in patch:
@@ -179,8 +182,11 @@ func _restore_service(identity: String, completed: bool) -> void:
 func _on_service_completed(_result: Dictionary, identity: String) -> void:
 	if _restoring or _blocked: return
 	var prop: Node = _subjects[identity]
-	var completed: bool = (prop.get("panel_safe") and prop.call("protects_conductor")) \
-		if SERVICE_KINDS[identity] == "fuse_service" else (prop.get("ballcock_serviced") and prop.call("valve_holds"))
+	var completed := false
+	match SERVICE_KINDS[identity]:
+		"fuse_service": completed = prop.get("panel_safe") and prop.call("protects_conductor")
+		"tank_service": completed = prop.get("ballcock_serviced") and prop.call("valve_holds")
+		"boiler_service": completed = prop.get("column_proved") and not prop.get("column_isolated")
 	if not completed: return
 	_service_completed[identity] = true
 	_commit_change()

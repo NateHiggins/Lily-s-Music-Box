@@ -64,7 +64,22 @@ func _route() -> void:
 		ray.exclude = [player.get_rid()]
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
 		if not _require(hit.get("collider") == wall.get_node("Collision"), "solid roof edge " + identity): return
-	for point in [Vector3(7,19.2,-6), Vector3(-4,19.2,-6), Vector3(-3.4,19.2,0)]:
+	for point in [Vector3(7,19.2,-6),Vector3(14.1,19.2,-6),Vector3(14.1,19.2,2.15)]:
+		if not await _walk(point): return
+	var flue = world.adapter.root.get_node("BoilerFlue")
+	await _roof_capture("chimney_termination",flue.chimney_top)
+	var mouth := PhysicsRayQueryParameters3D.create(flue.to_global(flue.chimney_top+Vector3.UP*.3),
+			flue.to_global(flue.chimney_top-Vector3.UP*.5),1)
+	mouth.exclude = [player.get_rid()]
+	if not _require(world.get_world_3d().direct_space_state.intersect_ray(mouth).is_empty(),
+			"chimney mouth remains open above the structural shaft"): return
+	var wall_ray := PhysicsRayQueryParameters3D.create(flue.to_global(flue.chimney_base+Vector3(-1,1,0)),
+			flue.to_global(flue.chimney_base+Vector3(1,1,0)),1)
+	wall_ray.exclude = [player.get_rid()]
+	var chimney_hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(wall_ray)
+	if not _require(not chimney_hit.is_empty() and chimney_hit.collider.get_parent()==flue,
+			"chimney masonry has actual collision"): return
+	for point in [Vector3(14.1,19.2,-6),Vector3(7,19.2,-6),Vector3(-4,19.2,-6), Vector3(-3.4,19.2,0)]:
 		if not await _walk(point): return
 	if not await _open_door("ROOF_PUBLIC_DOOR"): return
 	for point in [Vector3(-1.35,19.2,0), Vector3(1.5,19.2,0),

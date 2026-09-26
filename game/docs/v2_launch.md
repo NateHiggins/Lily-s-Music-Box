@@ -54,6 +54,13 @@ glass opens its existing proving activity; Escape cancels it. Walk around the
 south end of the plant to reach the weighted draft damper at the rear. Its
 setting feeds the existing radiator and hot-water simulation. These controls
 do not issue another campaign job or add automatic coal delivery.
+Completed water-column proving survives Continue and building returns;
+unfinished service work is not saved as completed.
+
+The smoke collar connects overhead to the flue shaft, leaving the rear service
+aisle clear. On the roof, walk around the south side of the east stair bulkhead
+to see the masonry chimney beside the east parapet. It is solid architecture;
+there is no chimney-entry or smoke-transport activity.
 
 The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
 shells, doors, furniture, working hot/cold taps and switched lights. The staff

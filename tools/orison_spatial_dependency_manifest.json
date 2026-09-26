@@ -182848,6 +182848,124 @@
    "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "e3c9ec9e5e7cb4f5",
+   "kind": "generated_name",
+   "token": "_pipe",
+   "file": "game/scripts/building/orison_v2_boiler_flue.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_pipe"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [
+    "\"Breeching_\"+str(index)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "531c98347a7c3b19",
+   "kind": "id_reference",
+   "token": "B1_BOILER_FLUE",
+   "file": "game/scripts/building/orison_v2_boiler_flue.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "if record.id == \"B1_BOILER_FLUE\": shaft = record"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7eccc2c2d0a34f20",
+   "kind": "id_reference",
+   "token": "B1_BREECHING_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    602
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"B1_BREECHING_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "304ff40f29d80c2c",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/scripts/building/orison_v2_household_state.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "const SERVICE_KINDS := {\"B1_FUSE_PANEL\":\"fuse_service\", \"ROOF_TANK_BALLCOCK\":\"tank_service\", \"B1_BOILER_01\":\"boiler_service\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
   }
  ]
 }

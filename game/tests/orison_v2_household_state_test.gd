@@ -37,7 +37,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 184, "182 household controls and two completed service results")
+	check(defaults.records.size() == 185, "182 household controls and three completed service results")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -54,8 +54,9 @@ func exercise() -> void:
 		var record: Dictionary = defaults.records[identity]
 		var prop: Node = world.adapter.resolve(identity)
 		match record.kind:
-			"fuse_service", "tank_service":
-				prop.call("interact", world.player)
+			"fuse_service", "tank_service", "boiler_service":
+				var before_service: Dictionary = prop.call("maintenance_snapshot")
+				_open_service(prop, world.player)
 				var panel: MaintenanceActivityPanel = prop.get("_service_panel")
 				check(panel != null, "production maintenance opens: " + identity)
 				if panel == null: return
@@ -64,9 +65,9 @@ func exercise() -> void:
 				check(RealityState.save_game(), "saving a live repair preview succeeds")
 				check(not RealityState.data[Owner.KEY].records[identity].value, "unfinished work is not published")
 				panel._director.abort()
+				check(prop.call("maintenance_snapshot") == before_service, "cancel restores the mechanism captured at service entry")
 				await get_tree().process_frame
-				check(prop.call("maintenance_snapshot") == owner.get("_service_defaults")[identity], "cancel restores the unrepaired mechanism")
-				prop.call("interact", world.player)
+				_open_service(prop, world.player)
 				panel = prop.get("_service_panel")
 				for service_step: Dictionary in panel._director.active_run.profile.steps:
 					prop.call("preview_maintenance_step", service_step, float(service_step.target))
@@ -105,11 +106,21 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 184 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 185 settings restore onto new physical owners")
 	var fuse := world.adapter.resolve("B1_FUSE_PANEL") as FusePanelProp
 	var tank := world.adapter.resolve("ROOF_TANK_BALLCOCK") as RoofTankBallcockProp
 	check(fuse.panel_safe and fuse.protects_conductor() and fuse.load_proved, "reload reconstructs the correct fuse and proved load")
 	check(tank.ballcock_serviced and tank.valve_holds() and not tank.overflow_running(), "reload reconstructs the holding tank valve")
+	var boiler := world.adapter.resolve("B1_BOILER_01") as BoilerProp
+	check(boiler.column_proved and not boiler.column_isolated, "reload reconstructs the proved water column in service")
+	var previous_roster := wanted.duplicate(true)
+	previous_roster.records.erase("B1_BOILER_01")
+	RealityState.data[Owner.KEY] = previous_roster
+	RealityState.state_changed.emit()
+	var expected_previous := wanted.duplicate(true)
+	expected_previous.records["B1_BOILER_01"] = defaults.records["B1_BOILER_01"].duplicate(true)
+	check(owner.snapshot() == expected_previous and not boiler.column_proved,
+			"184-record saves retain all existing repairs and default only the new boiler record")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
@@ -120,7 +131,7 @@ func exercise() -> void:
 	for unit: String in ["1A","1D","2C","3D","4C","4D"]:
 		added_circuits["F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"] = true
 	for identity: String in wanted.records:
-		if added_circuits.has(identity) or wanted.records[identity].kind in ["books", "fuse_service", "tank_service"] or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
+		if added_circuits.has(identity) or wanted.records[identity].kind in ["books", "fuse_service", "tank_service", "boiler_service"] or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
 	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")
@@ -190,6 +201,14 @@ func exercise() -> void:
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == defaults, "valid mid-session load recovers from blocked payload")
 	check(tank._service_panel == null and not world.player.call_locked and tank.overflow_running(), "loading closes old preview before restoring the new mechanism")
+	RealityState.data[Owner.KEY] = wanted.duplicate(true)
+	RealityState.state_changed.emit()
+	_open_service(boiler,world.player)
+	boiler.preview_maintenance_step({"id":"isolate_column"},1.0)
+	RealityState.data[Owner.KEY] = defaults.duplicate(true)
+	RealityState.state_changed.emit()
+	check(boiler._service_panel == null and not boiler.column_proved and not boiler.column_isolated
+			and not world.player.call_locked,"loading cancels boiler preview before restoring the new water-column state")
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	for identity: String in defaults.records:
@@ -215,3 +234,7 @@ func exercise() -> void:
 	check(RealityState.data[Owner.KEY] == preserved, "retired owner cannot write after shutdown")
 	world.free()
 	failures.erase("exercise interrupted before completion")
+
+func _open_service(prop: Node, player: PlayerController) -> void:
+	if prop is BoilerProp: prop.interact_control("water_column",player)
+	else: prop.call("interact",player)
