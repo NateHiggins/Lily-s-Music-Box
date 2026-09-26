@@ -3,11 +3,9 @@ extends FunctionalProp
 ## The building's complete water fixtures: an enameled apartment-house
 ## lavatory, a roll-rim iron kitchen sink, or a corner shower receptor.
 ##
-## The old division was a trap: Blender owned a generic modern fixture
-## while this prop owned only the moving handles. It looked plausible in
-## a bathroom and became two floating taps in the warehouse. The marker
-## now owns the whole object, including every cavity the maintenance
-## activities ask the player to touch.
+## The marker owns a complete fixture in both apartments and the warehouse.
+## The bathroom uses an editable Blender casting with separate mechanical
+## pivots; kitchen and shower retain their procedural visual assemblies.
 ##
 ## Water carries no signal. These are ordinary 1920s fixtures on pipe:
 ## second-hand porcelain enamel, exposed nickel-plated brass work, and
@@ -35,6 +33,10 @@ var drain_side := 1
 var compact_kitchen := false
 var has_drainboard := true
 var warehouse_curtain_open := false
+
+var _bath_plug: Node3D
+var _bath_chain: Node3D
+var _bath_chain_instances: MultiMesh
 
 var _hot := false
 var _cold := false
@@ -145,51 +147,74 @@ var _valve_mount_z := 0.0
 
 
 func _build_bath_sink(parent: Node3D) -> void:
-	# 24-inch enameled lavatory with integral back and apron: the compact,
-	# inexpensive apartment-house type in Mott's 1908 plate 1053.
-	# The bowl floor is 0.66 m. The old pedestal ended at 0.82 m — above the
-	# 0.79 m rim — so its capped flare punched through the basin and z-fought
-	# as a brown-and-white starburst. A pedestal supports the underside.
-	_tapered_pedestal(parent, 0.66)
-	_open_oval_basin(parent, Vector3(0, 0.79, -0.02), 0.61, 0.46, 0.13,
-			PORCELAIN)
-	var panel_d := 0.045
-	var panel_c := 0.205
-	_box_on(parent, Vector3(0.61, 0.18, panel_d),
-			Vector3(0, 0.87, panel_c), PORCELAIN)
-	# These are wall valves through the integral porcelain back, not taps set
-	# into a horizontal deck. The old false flag turned both crosses edge-on;
-	# from the doorway they read as unexplained rectangular pegs.
-	#
-	# THE FLAG WAS FIXED AND THE COORDINATE WAS NOT. z stayed at 0.105, a deck
-	# position, while the back's front face is at 0.1825 -- so both valves and
-	# the whole bridge hung 64 mm out in the air in front of the porcelain
-	# they are supposed to pierce, in all 24 lavatories. Derive it from the
-	# panel instead, by the same rule the kitchen sink has always used, so the
-	# two cannot drift apart again.
-	_panel_front_z = panel_c - panel_d * 0.5
+	# Blender owns the complete casting and plumbing; this owner still drives
+	# the existing water graph, service checks, sounds and independent valves.
+	var model := preload("res://assets/props/bath_lavatory.glb").instantiate() as Node3D
+	parent.add_child(model)
+	_skin_lavatory(model)
+	for handle_name in ["HotValve", "ColdValve"]:
+		var handle := model.find_child(handle_name, true, false) as Node3D
+		handle.reparent(self)
+		_handles.append(handle)
+		_handle_turns.append(0.0)
+		_handle_wall_mounted.append(true)
+	_bath_plug = model.find_child("Stopper", true, false) as Node3D
+	_bath_plug.reparent(self)
+	_bath_chain = model.find_child("StopperChain", true, false) as Node3D
+	_bath_chain.reparent(self)
+	# All links share one draw; only their transforms change with the plug.
+	var links := _bath_chain.get_children()
+	_bath_chain_instances = MultiMesh.new()
+	_bath_chain_instances.transform_format = MultiMesh.TRANSFORM_3D
+	_bath_chain_instances.mesh = (links[0] as MeshInstance3D).mesh
+	_bath_chain_instances.instance_count = links.size()
+	var chain_draw := MultiMeshInstance3D.new()
+	chain_draw.multimesh = _bath_chain_instances
+	chain_draw.material_override = MatLib.get_mat("nickel_plated")
+	for link in links:
+		_bath_chain.remove_child(link)
+		link.queue_free()
+	_bath_chain.add_child(chain_draw)
+	_panel_front_z = .1825
 	_valve_mount_z = _panel_front_z + VALVE_SEAT_DZ
-	var mount := Vector3(0, 0.91, _valve_mount_z)
-	_build_pair_taps(mount, 0.18, true)
-	# A cheap 1920s bridge lavatory fitting still explains how water reaches
-	# its centre spout. The exposed manifold and union keep the faucet from
-	# reading as a loose chrome rod planted in the bowl.
-	_tube_between(parent, mount + Vector3(-0.09, 0, -0.020),
-			mount + Vector3(0.09, 0, -0.020), 0.010, NICKEL)
-	var bridge_union := _cyl_on(parent, 0.022, 0.019, 0.038,
-			mount + Vector3(0, 0, -0.038), NICKEL)
-	bridge_union.rotation_degrees.x = 90.0
-	var outlet := Vector3(0, 0.885, -0.075)
-	_build_spout(parent, mount + Vector3(0, 0, -0.020), outlet)
-	_build_drain(parent, Vector3(0, 0.686, -0.02))
-	_build_exposed_waste(parent, Vector3(0, 0.678, -0.02))
-	_build_stopper(Vector3(0, 0.694, -0.055))
-	_add_use_wear(parent, Vector3(0.22, 0.805, -0.19), false)
-	_stream = _make_stream(outlet + Vector3(0, -0.018, 0), 0.185, 0.007)
-	_water_empty_y = 0.689
-	_water_full_y = 0.765
+	var outlet := Vector3(0, .885, -.075)
+	var marker := Marker3D.new()
+	marker.name = "SpoutOutlet"
+	marker.position = outlet
+	add_child(marker)
+	_stream = _make_stream(outlet + Vector3(0, -.018, 0), .185, .007)
+	_water_empty_y = .694
+	_water_full_y = .765
 	_basin_water = _make_water_surface(
-			Vector3(0, _water_empty_y, -0.02), Vector2(0.39, 0.25), true)
+			Vector3(0, _water_empty_y, -.02), Vector2(.39, .25), true)
+	_update_bath_plug(1.0)
+
+
+func _skin_lavatory(node: Node) -> void:
+	if node is MeshInstance3D:
+		for surface in node.mesh.get_surface_count():
+			var source: Material = node.mesh.surface_get_material(surface)
+			if source == null: continue
+			var key := source.resource_name
+			if key == "porcelain_fixture": key = porcelain_material_key
+			node.set_surface_override_material(surface, MatLib.get_mat(key))
+	for child in node.get_children(): _skin_lavatory(child)
+
+
+func _update_bath_plug(delta: float) -> void:
+	if _bath_plug == null: return
+	# A lifted plug clears the throat. The ball chain follows its eye while
+	# the far end remains on the back's attachment, with slack between them.
+	var seat := Vector3(0, .696, -.02)
+	var parked := Vector3(.115, .705, .005)
+	_bath_plug.position = _bath_plug.position.move_toward(
+			seat if _stopper else parked, delta * .45)
+	var start := _bath_plug.position + Vector3(0, .018, 0)
+	var finish := Vector3(.10, .827, .18)
+	for index in _bath_chain_instances.instance_count:
+		var t := float(index) / float(_bath_chain_instances.instance_count-1)
+		var at := start.lerp(finish, t) - Vector3.UP * sin(t * PI) * .035
+		_bath_chain_instances.set_instance_transform(index, Transform3D(Basis.IDENTITY, at))
 
 
 func _build_kitchen_sink(parent: Node3D) -> void:
@@ -846,6 +871,7 @@ func _start_normal_function() -> void:
 
 
 func _process(delta: float) -> void:
+	_update_bath_plug(delta)
 	var targets := [1.0 if _hot else 0.0, 1.0 if _cold else 0.0]
 	for i in mini(_handles.size(), 2):
 		_handle_turns[i] = move_toward(_handle_turns[i], targets[i], delta * 3.0)
