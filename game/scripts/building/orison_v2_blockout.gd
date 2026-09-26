@@ -752,7 +752,7 @@ func _build_platforms() -> void:
 		var y := float(level_y[platform.level])
 		_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
 				Vector3(_rect_w(rect), slab_t, _rect_d(rect)),
-				str(platform.get("class", "core")), true)
+				str(platform.get("class", "core")), true, "Floor")
 
 func _build_lift_landings() -> void:
 	for landing: Dictionary in layout.get("lift_landings", []):
@@ -875,13 +875,18 @@ func _build_anchors() -> void:
 					"interaction" if str(anchor.kind) == "interaction" else "clearance", false)
 
 func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
-		material_key: String, collision: bool) -> MeshInstance3D:
+		material_key: String, collision: bool, slab_part: String = "") -> MeshInstance3D:
 	var mesh_node := MeshInstance3D.new()
 	mesh_node.name = node_name
 	var mesh := BoxMesh.new()
 	mesh.size = size
 	mesh.material = materials.get(material_key, materials.get("unresolved"))
 	mesh_node.mesh = mesh
+	# Adjacent storeys share slab volume, but never a render face. A full
+	# lower ceiling box put its top exactly on the next floor's walking plane.
+	var part := slab_part if not slab_part.is_empty() else node_name
+	if production_materials and part in ["Floor","Ceiling"]:
+		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
 	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
 		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
 		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))
@@ -897,6 +902,23 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 		body.add_child(shape_node)
 		mesh_node.add_child(body)
 	return mesh_node
+
+## Keep BoxMesh UVs, normals and tangents; change only face ownership. Physics
+## remains the original full BoxShape3D. Review-only blockouts retain their boxes.
+func _slab_faces(box: BoxMesh, floor_surface: bool) -> ArrayMesh:
+	var arrays := box.surface_get_arrays(0)
+	var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+	var original: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+	var indices := PackedInt32Array()
+	for start in range(0,original.size(),3):
+		var underside := normals[original[start]].y < -.9
+		if underside==floor_surface: continue
+		for offset in range(3): indices.append(original[start+offset])
+	arrays[Mesh.ARRAY_INDEX]=indices
+	var result := ArrayMesh.new()
+	result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	result.surface_set_material(0,box.material)
+	return result
 
 func _rect_center(rect: Array, y: float) -> Vector3:
 	return Vector3((float(rect[0]) + float(rect[2])) * 0.5, y,
