@@ -300,6 +300,30 @@ func _run() -> void:
 		"unpowered rent payment records money honestly without a phantom receipt")
 	notebook.close()
 	device.set_radio_powered(true)
+	# The work-order owner can close a request before the fixture is serviced.
+	# Physical preventative care remains available, but closure is not a tip.
+	var stale_request: String = economy.book().care[str(tap.name)].request
+	_check(not stale_request.is_empty() and world.work_orders.close(stale_request,"Closed outside fixture care"),
+		"fixture retains a request closed through its authoritative owner")
+	var pocket_before: int = economy.book().cash
+	notebook.open(tap)
+	notebook._test_water()
+	await get_tree().create_timer(4.4).timeout
+	notebook._service()
+	_check(economy.book().cash==pocket_before and not economy.book().tips.has(stale_request),
+		"care cannot pay a request already closed by its owner")
+	_check(economy.book().care[str(tap.name)].request=="" and tap.drain_capacity==1.0
+		and float(economy.book().care[str(tap.name)].due)>economy.clock.elapsed_minutes(),
+		"stale request is cleared while physical prevention still completes")
+	paper = "\n".join(device.teletype.pages)
+	_check("No tip paid." in paper,"physical service slip honestly records unpaid prevention")
+	var service_print_wait := 0.0
+	while device.teletype.printing and service_print_wait<10:
+		await get_tree().create_timer(.1).timeout
+		service_print_wait += .1
+	_check("No tip paid." in device.teletype.ink.text,"finished paper renders the unpaid service result")
+	await _shot("closed_request_care")
+	notebook.close()
 	RealityState.save_path = RealityState.SAVE_PATH
 	world.shutdown_for_tests()
 	world.free()

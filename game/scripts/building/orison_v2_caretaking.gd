@@ -133,8 +133,11 @@ func service(prop: Node, tested: bool) -> Dictionary:
 	elif prop is MedicineCabinetProp and not prop.is_door_open(): return {"note":"Open the cabinet to reach its hinges."}
 	elif prop is Prep and not prop.opened: return {"note":"Open the cabinet to reach the track."}
 	var request := str(record.request)
+	# A fixture reference is not payment authority. The work-order owner may
+	# already have closed the request, or a recovered save may lack it.
+	var payable: bool = not request.is_empty() and economy.orders.status(request) in ["issued","active"]
 	var issued := now
-	if not request.is_empty(): issued = float(RealityState.data.work_orders.get(request,{}).get("issued_at",now))
+	if payable: issued = float(RealityState.data.work_orders.get(request,{}).get("issued_at",now))
 	record.last = now
 	record.due = now+20160.0
 	record.cycle = int(record.cycle)+1
@@ -142,7 +145,7 @@ func service(prop: Node, tested: bool) -> Dictionary:
 	var client := str(clients.get(record.unit,""))
 	economy.appreciate(client)
 	var cents := 0
-	if not request.is_empty():
+	if payable:
 		cents = economy.tip(request,client,1.0,issued,false)
 		economy.orders.close(request,"Tested and serviced.")
 	tick()

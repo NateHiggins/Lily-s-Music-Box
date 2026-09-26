@@ -48,7 +48,10 @@ include the same ordering and waiting times, frozen at the time of printing. Car
 The client's hidden goodwill can improve once per campaign day across all their
 objects. Repeating care on the same fixture that day earns nothing more.
 
-An outstanding request pays once when it is tested and completed. Authored
+An outstanding request pays once when it is tested and completed. Payment
+requires the work-order owner to still mark it issued or active. A stale fixture
+reference to a closed or missing request cannot award cash; physical care can
+still complete and postpone the next request, with an unpaid service slip. Authored
 maintenance jobs pay when their existing lifecycle closes. Tips combine the
 client's hidden goodwill, existing case trust, completion quality and campaign
 time since the request. Care does not resolve a resident's emotional case.
