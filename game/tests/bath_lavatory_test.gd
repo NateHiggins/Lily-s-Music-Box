@@ -27,6 +27,14 @@ func run() -> void:
 	add_child(world)
 	await get_tree().create_timer(.5).timeout
 	check(not world.startup_failed, "production V2 starts")
+	# Exercise the existing apartment suite's complete bath contract directly;
+	# its unrelated historic wall/heating cardinality checks remain untouched.
+	var category := preload("res://tests/orison_v2_apartment_batch_test.gd").new()
+	var refs: Array[WeakRef] = []
+	category._check_bath_details(world, refs)
+	checks += category.checks
+	for failure in category.failures: failures.append("bath contract: " + failure)
+	category.free()
 	var sinks: Array[TapProp] = []
 	for tap in world.boiler_tend.taps:
 		if tap.fixture == "bath_sink": sinks.append(tap)
@@ -116,6 +124,9 @@ func run() -> void:
 		await capture("shower_drawn")
 		shower.set_curtain_open(true)
 		check(shower._curtain_gathered.visible and not shower._curtain_closed.visible, "Blender curtain opens through existing owner")
+		var curtain_shape := shower._curtain_area.get_node("CollisionShape3D") as CollisionShape3D
+		check(curtain_shape.position.distance_to(Vector3(.34,1.18,.23)) < .001,
+				"curtain interaction follows its gathered mesh")
 		await capture("shower_open")
 		camera.fov = 60
 		camera.global_position = shower.to_global(Vector3(-.18,1.72,-.42))
@@ -131,6 +142,42 @@ func run() -> void:
 			check(world.mirror_renderer.active_mirror() == cabinet, "installed mirror borrows one live view")
 			await capture("installed_mirror")
 		world.mirror_renderer._main_camera = world.player.camera
+		camera.queue_free()
+	var wc: BakedFurnitureInteraction
+	for node in get_tree().get_nodes_in_group("baked_furniture_interactions"):
+		if node.furniture_kind == "toilet" and node.owner_unit == "4B": wc = node
+	check(wc != null, "player water closet retains flush owner")
+	if wc != null:
+		check(wc.find_child("WaterClosetCasting", true, false) != null, "Blender toilet installed")
+		var camera := Camera3D.new()
+		world.add_child(camera)
+		camera.fov = 65
+		camera.global_position = wc.to_global(Vector3(-.65,1.15,-.9))
+		camera.look_at(wc.to_global(Vector3(0,.47,0)))
+		camera.make_current()
+		await capture("toilet_approach")
+		var query := PhysicsRayQueryParameters3D.create(camera.global_position,wc._lever.global_position)
+		query.exclude = [world.player.get_rid()]
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
+		check(hit.get("collider") == wc, "physical approach reaches toilet flush owner")
+		wc.interact(world.player)
+		wc._flush_tween.pause()
+		wc._flush_tween.custom_step(.08)
+		check(wc._refilling and absf(wc._lever.rotation.z) > .3, "Blender lever actuates production flush")
+		wc._flush_tween.play()
+		await get_tree().create_timer(2.6).timeout
+		check(not wc._refilling and absf(wc._lever.rotation.z) < .01, "existing refill completes and returns handle")
+		var paper := wc.find_child("4B_toilet_roll", true, false)
+		check(paper != null, "paper holder remains attached to its toilet support")
+		var detail_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+				"res://data/orison_v2/bath_details.json"))
+		for record: Dictionary in detail_data.props:
+			if record.kind == "toilet_roll":
+				check(float(record.bounds[1][0]) < -.21 and float(record.bounds[0][2]) > .14,
+						"paper stays outside seat opening and knee space: " + str(record.id))
+		camera.global_position = wc.to_global(Vector3(0,1.02,-.12))
+		camera.look_at(wc.to_global(Vector3(-.305,.625,.235)))
+		await capture("paper_from_seat")
 		camera.queue_free()
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():

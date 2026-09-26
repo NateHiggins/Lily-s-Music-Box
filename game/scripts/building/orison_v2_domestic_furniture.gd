@@ -21,6 +21,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		if record.kind == "toilet":
 			body = WaterCloset.new()
 			body.call("setup", {"id": record.id, "asm": "toilet"})
+			body.set("model_path", str(record.model))
 		elif record.kind == "wardrobe":
 			body = Wardrobe.new()
 			body.call("setup", record.mechanism)
@@ -40,7 +41,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 				collision.position = (high + low) * 0.5
 				body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
-		_add_surfaces(body, record.surfaces)
+		if record.kind != "toilet": _add_surfaces(body, record.surfaces)
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
@@ -107,7 +108,11 @@ func validate(source: Variant, adapter: Variant) -> bool:
 							or box[0][axis] < bounds[0][axis] \
 							or box[1][axis] > bounds[1][axis]:
 						errors.append("furniture collision box exceeds its bounds")
-		_validate_surfaces(record.get("surfaces"))
+		if record.kind == "toilet":
+			if record.get("model") != WaterCloset.MODEL or record.has("surfaces"):
+				errors.append("water closet must use its Blender assembly")
+		else:
+			_validate_surfaces(record.get("surfaces"))
 	if seen.is_empty():
 		errors.append("empty furniture source")
 	return errors.is_empty()

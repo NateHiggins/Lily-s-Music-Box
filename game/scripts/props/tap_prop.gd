@@ -279,6 +279,7 @@ func _build_shower(parent: Node3D) -> void:
 	_curtain_area.name = "CurtainInteraction"
 	_curtain_area.set_meta("shower_curtain", true)
 	var shape_node := CollisionShape3D.new()
+	shape_node.name = "CollisionShape3D"
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(.68, 1.55, .10)
 	shape_node.shape = shape
@@ -339,6 +340,7 @@ func _build_shower_curtain(parent: Node3D) -> void:
 	_curtain_area.name = "CurtainInteraction"
 	_curtain_area.set_meta("shower_curtain", true)
 	var shape_node := CollisionShape3D.new()
+	shape_node.name = "CollisionShape3D"
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(0.68, 1.55, 0.10)
 	shape_node.shape = shape

@@ -1,6 +1,7 @@
 extends "res://scripts/building/orison_v2_domestic_furniture.gd"
 ## Fixed dressing follows its physical support; it owns no input, save or light.
 const TOWEL_MODEL := "res://assets/props/bath_towel.glb"
+const PAPER_MODEL := "res://assets/props/bath_paper_holder.glb"
 const DETAIL_PATH := "res://data/orison_v2/bath_details.json"
 const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
 const KINDS := ["soap_dish", "hand_towel", "toilet_roll"]
@@ -16,7 +17,7 @@ func mount(adapter: Variant) -> bool:
 		detail.set_meta("support_id", str(record.support))
 		# Geometry is identical across homes. Each physical owner gets its own
 		# instances while immutable meshes and existing MatLib materials share.
-		if record.kind == "hand_towel":
+		if record.kind in ["hand_towel", "toilet_roll"]:
 			var model := (load(str(record.model)) as PackedScene).instantiate() as Node3D
 			_skin_model(model)
 			detail.add_child(model)
@@ -40,10 +41,13 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen := {}
 	var shared := {}
-	var towel_points: Array[Vector3] = []
-	var towel := (load(TOWEL_MODEL) as PackedScene).instantiate() as Node3D
-	_model_points(towel, Transform3D.IDENTITY, towel_points)
-	towel.free()
+	var model_points := {}
+	for model_path in [TOWEL_MODEL, PAPER_MODEL]:
+		var points: Array[Vector3] = []
+		var model := (load(model_path) as PackedScene).instantiate() as Node3D
+		_model_points(model, Transform3D.IDENTITY, points)
+		model_points[model_path] = points
+		model.free()
 	for record: Variant in source.props:
 		if record is not Dictionary or record.get("unit") not in UNITS or record.get("kind") not in KINDS:
 			errors.append("invalid bath detail household or kind")
@@ -67,9 +71,9 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				or not _numbers([record.get("yaw")], 1) or float(record.yaw) != 0.0:
 			errors.append("bath detail must use its support-local contact")
 		var before := errors.size()
-		if record.kind == "hand_towel":
-			if record.get("model") != TOWEL_MODEL or record.has("surfaces"):
-				errors.append("hand towel must use the approved Blender model")
+		if record.kind in ["hand_towel", "toilet_roll"]:
+			if record.get("model") != (TOWEL_MODEL if record.kind == "hand_towel" else PAPER_MODEL) or record.has("surfaces"):
+				errors.append("bath dressing must use the approved Blender model")
 		else:
 			_validate_surfaces(record.get("surfaces"))
 		if errors.size() != before: continue
@@ -77,7 +81,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0],3) or not _numbers(bounds[1],3):
 			errors.append("invalid bath detail bounds")
 			continue
-		var low := Vector3(-.27,0,-.4) if record.kind == "toilet_roll" else Vector3(-.33,0,-.285)
+		var low := Vector3(-.38,0,-.4) if record.kind == "toilet_roll" else Vector3(-.33,0,-.285)
 		var high := Vector3(.27,.84,.36) if record.kind == "toilet_roll" else Vector3(.33,1.2,.24)
 		for axis in 3:
 			if bounds[0][axis] < low[axis] or bounds[1][axis] > high[axis] or bounds[0][axis] >= bounds[1][axis]:
@@ -88,12 +92,12 @@ func validate(source: Variant, adapter: Variant) -> bool:
 					var coordinate: float = surface.vertices[i+axis]
 					if coordinate < float(bounds[0][axis])-.000001 or coordinate > float(bounds[1][axis])+.000001:
 						errors.append("bath surface exceeds declared bounds")
-		if record.kind == "hand_towel":
-			for point in towel_points:
+		if record.kind in ["hand_towel", "toilet_roll"]:
+			for point in model_points[record.model]:
 				for axis in 3:
 					if point[axis] < float(bounds[0][axis])-.00001 or point[axis] > float(bounds[1][axis])+.00001:
-						errors.append("Blender towel exceeds declared bounds")
-		if record.kind != "hand_towel" and shared.has(record.kind) and shared[record.kind] != record.get("surfaces"):
+						errors.append("Blender bath dressing exceeds declared bounds")
+		if record.kind not in ["hand_towel", "toilet_roll"] and shared.has(record.kind) and shared[record.kind] != record.get("surfaces"):
 			errors.append("shared bath geometry disagrees between homes")
 		shared[record.kind] = record.get("surfaces")
 	if seen.size() != UNITS.size() * KINDS.size() or source.props.size() != UNITS.size() * KINDS.size():

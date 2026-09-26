@@ -186,4 +186,90 @@ for record in data['props']:
         record.pop('surfaces',None)
         record['model']='res://assets/props/bath_towel.glb'
         record['bounds']=bounds
-path.write_text(json.dumps(data,separators=(',',':'))+'\n')
+path.write_text(json.dumps(data,separators=(',',':'))+'\n',newline='\n')
+
+# A hollow wash-down closet and low cistern, retaining the existing flush pivot.
+clear()
+glaze=material('porcelain_fixture',(.88,.87,.82),0,.22)
+wood=material('wood_dark',(.075,.048,.026),0,.32)
+fixed=group('WaterClosetCasting')
+def oval_shell(name,rings,mat,parent=fixed):
+    verts=[];faces=[];n=96
+    for rx,rz,y,z in rings:
+        for i in range(n):
+            a=math.tau*i/n;verts.append((rx*math.cos(a),y,z+rz*math.sin(a)))
+    for j in range(len(rings)):
+        for i in range(n):faces.append((j*n+i,j*n+(i+1)%n,((j+1)%len(rings))*n+(i+1)%n,((j+1)%len(rings))*n+i))
+    return mesh(name,verts,faces,mat,parent)
+def rounded_box(name,at,size,mat,parent=fixed,bevel=.018):
+    bpy.ops.mesh.primitive_cube_add(size=1,location=p(at));o=bpy.context.object;o.scale=(size[0],size[2],size[1])
+    bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
+    m=o.modifiers.new('Cast radiused corners','BEVEL');m.width=bevel;m.segments=5
+    o.modifiers.new('Weighted casting normals','WEIGHTED_NORMAL')
+    return finish(o,name,mat,parent)
+oval_shell('HollowWashDownBowl',[(.04,.045,.21,-.06),(.08,.09,.215,-.085),
+    (.12,.17,.29,-.11),(.154,.215,.38,-.13),(.17,.238,.405,-.13),
+    (.195,.265,.407,-.13),(.202,.267,.389,-.13),(.185,.24,.30,-.12),
+    (.135,.19,.20,-.08),(.05,.06,.18,-.06)],glaze)
+oval_shell('ClosetPedestal',[(.001,.001,.009,-.075),(.135,.205,.009,-.075),
+    (.14,.21,.025,-.075),(.12,.18,.055,-.075),(.095,.135,.24,-.075),
+    (.001,.001,.24,-.075)],glaze)
+oval_shell('PolishedWoodSeat',[(.155,.214,.412,-.13),(.198,.262,.412,-.13),
+    (.205,.269,.420,-.13),(.202,.266,.432,-.13),(.193,.256,.437,-.13),
+    (.15,.207,.432,-.13)],wood)
+rounded_box('LowCistern',(0,.65,.235),(.455,.31,.22),glaze)
+rounded_box('RemovableCisternLid',(0,.817,.235),(.475,.025,.235),glaze,bevel=.009)
+pipe('FlushConnection',[(0,.51,.235),(0,.38,.235),(0,.29,.11)],.029,glaze,fixed)
+pipe('SupplyPipe',[(-.14,.52,.24),(-.14,.23,.31),(-.14,.23,.35)],.008,nickel,fixed)
+cyl('SupplyShutoff',(-.14,.23,.32),.017,.028,nickel,(0,0,1),fixed)
+for x in [-.092,.092]:
+    cyl('FloorBolt',(x,.048,-.15),.012,.012,nickel,parent=fixed)
+    cyl('SeatHinge',(x,.437,.105),.010,.048,nickel,(1,0,0),fixed)
+# Raised lid is a separate editable rigid component, leaving the seat aperture open.
+lid=group('RaisedLid',(0,.44,.108))
+lid_mesh=oval_shell('Lid',[(.001,.001,.448,-.13),(.191,.255,.448,-.13),
+    (.200,.263,.456,-.13),(.191,.255,.464,-.13),(.001,.001,.464,-.13)],wood,lid)
+for face in lid_mesh.data.polygons:
+    if abs(face.normal.z)>.99:face.use_smooth=False
+lid.rotation_euler.x=math.radians(82)
+lever=group('CisternHandle',(.18,.64,.12))
+cyl('HandleRose',(.18,.64,.118),.017,.010,nickel,(0,0,1),fixed)
+pipe('FlushLever',[(.18,.64,.105),(.14,.64,.097),(.085,.64,.098)],.007,nickel,lever)
+# The water seal has its own ordinary transparent surface; no animation authority.
+water=material('WaterSeal',(.40,.48,.43),0,.2)
+oval_shell('WaterSeal',[(.001,.001,.221,-.08),(.07,.081,.221,-.08),
+    (.07,.081,.219,-.08),(.001,.001,.219,-.08)],water)
+apply();save('bath_water_closet')
+
+clear()
+paper=material('paper',(.86,.83,.74),0,.92)
+# Opposite the flush handle, behind the seat opening: nothing crosses lap/knees.
+cyl('PaperBracketWall',(-.232,.625,.235),.024,.009,nickel,(1,0,0))
+pipe('PaperBracket',[(-.232,.625,.235),(-.292,.625,.235),(-.305,.625,.174)],.005,nickel)
+cyl('PaperSpindle',(-.305,.625,.235),.007,.137,nickel,(0,0,1))
+cyl('PaperRoll',(-.305,.625,.235),.044,.112,paper,(0,0,1))
+for z in [.177,.293]:cyl('SpindleButton',(-.305,.625,z),.013,.008,nickel,(0,0,1))
+verts=[];faces=[]
+for j in range(17):
+    t=j/16
+    for i in range(9):
+        u=i/8;verts.append((-.35-.005*math.sin(t*math.pi),.625-.14*t+.0015*math.sin(u*13)*t,.183+.104*u))
+for j in range(16):
+    for i in range(8):
+        a=j*9+i;faces.append((a,a+1,a+10,a+9))
+mesh('LoosePaperEnd',verts,faces,paper,solid=.0004)
+apply();save('bath_paper_holder')
+data=json.loads(path.read_text())
+for record in data['props']:
+    if record['kind']=='toilet_roll':
+        record.pop('surfaces',None);record['model']='res://assets/props/bath_paper_holder.glb'
+        record['bounds']=[[-.36,.48,.16],[-.225,.675,.31]]
+path.write_text(json.dumps(data,separators=(',',':'))+'\n',newline='\n')
+
+source=ROOT/'art/data/orison_v2/domestic_furniture_source.json'
+data=json.loads(source.read_text())
+for record in data['furniture']:
+    if record['kind']=='toilet':
+        record.pop('surfaces',None);record['model']='res://assets/props/bath_water_closet.glb'
+        record['bounds']=[[-.27,0,-.4],[.27,.96,.36]]
+source.write_text(json.dumps(data,separators=(',',':'))+'\n',newline='\n')

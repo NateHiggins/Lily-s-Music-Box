@@ -918,17 +918,31 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 		if detail == null: continue
 		refs.append(weakref(detail))
 		check(detail.transform.is_equal_approx(Transform3D.IDENTITY), "bath contact remains support-local")
-		var visuals := detail.get_children()
-		check(visuals.size() == record.surfaces.size(), "bath has only its material batches")
+		var visuals := detail.find_children("*", "MeshInstance3D", true, false)
+		if record.has("model"):
+			check(detail.get_child_count() == 1 and not visuals.is_empty(), "bath has one shared Blender assembly")
+			check(detail.find_children("*", "CollisionObject3D", true, false).is_empty()
+					and detail.find_children("*", "Light3D", true, false).is_empty(), "Blender dressing adds no collision or light owner")
+		else:
+			check(visuals.size() == record.surfaces.size(), "bath has only its material batches")
 		for i in visuals.size():
 			var visual := visuals[i] as MeshInstance3D
 			check(visual != null, "bath detail adds no interaction, light or collision owner")
 			if visual == null: continue
-			check(visual.mesh != null and visual.material_override != null, "bath material is bound")
+			check(visual.mesh != null and visual.get_active_material(0) != null, "bath material is bound")
 			if shared.has(record.kind):
 				check(visual.mesh == shared[record.kind][i].mesh, "same bath geometry shares mesh resources across homes")
 		if not shared.has(record.kind): shared[record.kind] = visuals
 	check(loader.validate(source, dry), "complete bath roster accepts real supports")
+	for record: Dictionary in source.props:
+		if not record.has("model"): continue
+		var bad_model := source.duplicate(true)
+		var index: int = source.props.find(record)
+		bad_model.props[index].model = "res://missing_bath_fixture.glb"
+		check(not loader.validate(bad_model,dry), "unknown Blender dressing model rejected")
+		var bad_bounds := source.duplicate(true)
+		bad_bounds.props[index].bounds[1][1] = bad_bounds.props[index].bounds[0][1] + .01
+		check(not loader.validate(bad_bounds,dry), "Blender vertices must remain inside declared bounds")
 	var integer_origin := source.duplicate(true)
 	for record: Dictionary in integer_origin.props:
 		record.position = [0, 0, 0]
