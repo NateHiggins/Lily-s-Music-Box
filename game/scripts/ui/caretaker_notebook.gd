@@ -205,7 +205,7 @@ func _process(delta: float) -> void:
 		var requests: Array[String] = care.request_lines()
 		var pages := maxi(1,ceili(requests.size()/6.0))
 		_request_page = posmod(_request_page,pages)
-		readout.text += "\n\nSERVICE REQUESTS: %d / page %d of %d" % [requests.size(),_request_page+1,pages]
+		readout.text += "\n\nSERVICE REQUESTS: %d / page %d of %d / oldest first" % [requests.size(),_request_page+1,pages]
 		for index in range(_request_page*6,mini(requests.size(),(_request_page+1)*6)):
 			readout.text += "\n"+requests[index]
 

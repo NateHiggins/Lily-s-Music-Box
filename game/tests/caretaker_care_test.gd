@@ -246,6 +246,27 @@ func _run() -> void:
 	notebook.close()
 	economy.clock.advance_to(float(economy.book().started)+Economy.MONTH*3)
 	_check(economy.rent_cycles_due()==2 and economy.book().cash==200,"rent arrears accrue without fees or cash seizure")
+	var entries: Array = care.request_entries()
+	_check(entries.size()>1,"pending requests available for ordering")
+	var chronological := true
+	for index in range(1,entries.size()):
+		if float(entries[index-1].issued)>float(entries[index].issued): chronological=false
+	_check(chronological,"requests sorted by authoritative reporting time oldest first")
+	var before_listing := JSON.stringify(RealityState.data)
+	var first_lines: Array[String] = care.request_lines()
+	_check(JSON.stringify(RealityState.data)==before_listing,"listing requests changes no save facts")
+	_check(not first_lines.is_empty() and "waiting" in first_lines[0],"request lines expose client waiting time")
+	economy.clock.advance_to(economy.clock.elapsed_minutes()+61)
+	var aged: Array = care.request_entries()
+	_check(not aged.is_empty() and aged[0].id==entries[0].id and aged[0].waiting>=entries[0].waiting+61,
+		"waiting time advances without replacing the request identity")
+	world.work_orders.activate(str(entries[0].id))
+	_check(care.request_entries()[0].id==entries[0].id,"active request remains visible in its original priority")
+	world.work_orders.close(str(entries[0].id),"test closure through work-order owner")
+	var still_present := false
+	for entry: Dictionary in care.request_entries():
+		if entry.id==entries[0].id: still_present=true
+	_check(not still_present,"closed owner request is absent even if fixture retains its reference")
 	notebook.open(null)
 	_check(notebook.readout.text.contains("POCKET") and notebook.readout.text.contains("$2.00"),"pocket presents balance and rent immediately")
 	await _shot("pocket_ledger")
@@ -253,7 +274,7 @@ func _run() -> void:
 	print_count = device.printed_count
 	notebook._print_pocket()
 	paper = "\n".join(device.teletype.pages)
-	_check(device.printed_count==print_count+1 and "POCKET COPY" in paper and "$2.00" in paper and "SERVICE REQUESTS" in paper,
+	_check(device.printed_count==print_count+1 and "POCKET COPY" in paper and "$2.00" in paper and "SERVICE REQUESTS" in paper and "oldest first" in paper and "waiting" in paper,
 		"pocket print contains current cash rent and request page")
 	_check(JSON.stringify(economy.book())==money_before,"printing pocket copy changes no money or requests")
 	device.set_radio_powered(false)

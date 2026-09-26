@@ -41,7 +41,10 @@ Initial service dates are staggered over days one through eight. Service
 postpones a fixture's next request by fourteen campaign days. A neglected drain
 slows physically; an overdue cabinet track takes longer to move. Client-owned
 fixtures create ordinary simple WorkOrders when due. P opens the pocket ledger
-with the outstanding service requests. Care before a request earns no cash.
+with the outstanding service requests, oldest reports first. Each entry shows
+how long the client has waited in campaign days and hours. Active orders stay
+listed; orders closed by the work-order owner disappear. Printed pocket copies
+include the same ordering and waiting times, frozen at the time of printing. Care before a request earns no cash.
 The client's hidden goodwill can improve once per campaign day across all their
 objects. Repeating care on the same fixture that day earns nothing more.
 

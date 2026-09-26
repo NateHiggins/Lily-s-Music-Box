@@ -84,13 +84,28 @@ func subject_title(prop: Node) -> String:
 	return str(prop.fixture).replace("_"," ").to_upper()+" DRAIN" if prop is TapProp \
 		else "MEDICINE CABINET HINGES" if prop is MedicineCabinetProp else "KITCHEN CABINET TRACK"
 
-func request_lines() -> Array[String]:
-	var lines: Array[String] = []
+func request_entries() -> Array[Dictionary]:
+	var entries: Array[Dictionary] = []
+	var now: float = economy.clock.elapsed_minutes()
 	for identity: String in subjects:
 		var record: Dictionary = economy.book().care.get(identity,{})
-		if not str(record.get("request","")).is_empty():
-			lines.append(str(record.unit)+" / "+subject_title(subjects[identity]))
-	lines.sort()
+		var request: String = str(record.get("request",""))
+		if request.is_empty() or economy.orders.status(request) not in ["issued","active"]: continue
+		var order: Dictionary = RealityState.data.work_orders.get(request,{})
+		var issued: float = float(order.get("issued_at",now))
+		entries.append({"id":request,"fixture":identity,"issued":issued,
+			"waiting":maxf(0,now-issued),"label":str(record.unit)+" / "+subject_title(subjects[identity])})
+	entries.sort_custom(func(a: Dictionary,b: Dictionary) -> bool:
+		if a.issued!=b.issued: return a.issued<b.issued
+		if a.label!=b.label: return a.label<b.label
+		return a.fixture<b.fixture)
+	return entries
+
+func request_lines() -> Array[String]:
+	var lines: Array[String] = []
+	for entry: Dictionary in request_entries():
+		var hours := int(float(entry.waiting)/60.0)
+		lines.append(str(entry.label)+" / waiting %dd %dh" % [hours/24,hours%24])
 	return lines
 
 func inspection(prop: Node) -> String:
