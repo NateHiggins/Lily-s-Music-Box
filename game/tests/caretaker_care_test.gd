@@ -54,6 +54,10 @@ func _run() -> void:
 	_check(notebook.action_hint().is_empty(),"modal inspection hides care cue")
 	_check(player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"inspection owns pointer and movement")
 	_check(care.service(tap,false).is_empty(),"untested service refused")
+	var device = world.service_set_carrier.device
+	var print_count: int = device.printed_count
+	notebook._service()
+	_check(device.printed_count==print_count,"untested care prints no completion slip")
 	tap._water_level = .8
 	notebook._test_water()
 	_check(_test_controls_locked(notebook),"timed test owns its valves and service controls")
@@ -154,7 +158,14 @@ func _run() -> void:
 	_check(not notebook.tested,"cabinet click alone does not certify travel")
 	await get_tree().create_timer(1.5).timeout
 	_check(notebook.tested and cabinet._swing>.999,"hinged cabinet completes physical open travel before care")
+	print_count = device.printed_count
 	notebook._service()
+	var paper := "\n".join(device.teletype.pages)
+	_check(device.printed_count==print_count+1 and "SERVICE COMPLETED" in paper and "Hinges oiled" in paper and "Tip:" in paper,
+		"completed cabinet care prints one physical service and tip record")
+	print_count = device.printed_count
+	notebook._service()
+	_check(device.printed_count==print_count,"repeat care prints no duplicate completion slip")
 	_check("Quiet and free" in notebook.readout.text,"care updates the condition readout immediately")
 	await get_tree().process_frame
 	await _shot("cabinet_care")
@@ -221,7 +232,25 @@ func _run() -> void:
 	notebook.open(null)
 	_check(notebook.readout.text.contains("POCKET") and notebook.readout.text.contains("$2.00"),"pocket presents balance and rent immediately")
 	await _shot("pocket_ledger")
+	var money_before := JSON.stringify(economy.book())
+	print_count = device.printed_count
+	notebook._print_pocket()
+	paper = "\n".join(device.teletype.pages)
+	_check(device.printed_count==print_count+1 and "POCKET COPY" in paper and "$2.00" in paper and "SERVICE REQUESTS" in paper,
+		"pocket print contains current cash rent and request page")
+	_check(JSON.stringify(economy.book())==money_before,"printing pocket copy changes no money or requests")
+	device.set_radio_powered(false)
+	print_count = device.printed_count
+	notebook._print_pocket()
+	_check(device.printed_count==print_count and "Switch on" in notebook.feedback.text,
+		"unpowered set refuses print without pretending delivery")
+	device.set_radio_powered(true)
 	notebook.close()
+	var print_wait := 0.0
+	while device.teletype.printing and print_wait<15:
+		await get_tree().create_timer(.1).timeout
+		print_wait += .1
+	await _shot("physical_pocket_copy")
 	RealityState.save_path = RealityState.SAVE_PATH
 	world.shutdown_for_tests()
 	world.free()

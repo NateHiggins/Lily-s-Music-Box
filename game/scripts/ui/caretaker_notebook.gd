@@ -91,6 +91,7 @@ func open(target: Node) -> void:
 	else:
 		_button("Pay $5.00 rent instalment",func(): feedback.text = "Rent paid." if economy.pay_rent() else "Keep saving for the next instalment.")
 		_button("Next service requests",func(): _request_page += 1; _process(0))
+		_button("Print pocket and request page",_print_pocket)
 	feedback = Label.new()
 	TelegramStyle.apply(feedback,14,false,TelegramStyle.CARBON)
 	box.add_child(feedback)
@@ -212,6 +213,16 @@ func _set_test_controls(running: bool) -> void:
 	for child in box.get_children():
 		if child is Button and child.text!="Close / Escape": child.disabled = running
 
+func _print_card(card: Dictionary) -> bool:
+	return is_instance_valid(player.carried_device) and player.carried_device.print_telegram_card(card)
+
+func _print_pocket() -> void:
+	if not opened or subject!=null: return
+	_process(0)
+	feedback.text = "Pocket copy sent to the carried set." if _print_card({
+		"title":"POCKET COPY", "body":readout.text, "stamp":"LEDGER SNAPSHOT"}) \
+		else "Switch on the carried set to print a pocket copy."
+
 func _service() -> void:
 	if not tested:
 		feedback.text = "Test the mechanism first."
@@ -219,6 +230,14 @@ func _service() -> void:
 	var result: Dictionary = care.service(subject,tested)
 	feedback.text = str(result.get("note","Service unavailable."))
 	if int(result.get("tip",0))>0: feedback.text += "  Tip: "+economy.money(int(result.tip))
+	# Only a completed service result carries a tip field (including zero).
+	# Repeated care and denied actions must not mint a second completion slip.
+	if result.has("tip"):
+		var paid := int(result.tip)
+		var body: String = str(subject.get("unit"))+" / "+care.subject_title(subject)+"\n"+str(result.note)
+		body += "\nTip: "+economy.money(paid) if paid>0 else "\nNo tip paid."
+		if not _print_card({"title":"SERVICE COMPLETED", "body":body, "stamp":"CARE RECORD"}):
+			feedback.text += "  Set off; no slip printed."
 	_process(0)
 
 func close() -> void:

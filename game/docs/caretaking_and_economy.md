@@ -50,6 +50,13 @@ maintenance jobs pay when their existing lifecycle closes. Tips combine the
 client's hidden goodwill, existing case trust, completion quality and campaign
 time since the request. Care does not resolve a resident's emotional case.
 
+Completed care sends a physical service slip to the powered carried set, naming
+the fixture, action and any tip. Denied or repeated care does not print another
+completion. P's **Print pocket and request page** button prints the current
+balance, rent and displayed request page without changing them. These use the set's existing recent-report archive, not a second save ledger;
+reprint for an updated snapshot. With the set off, printing is refused
+and the inspection says so. Service and its payment still complete normally.
+
 P shows the pocket balance and rent. Starting cash is $1.00. Rent is a $5.00
 instalment every thirty campaign days; one advance instalment can be paid.
 Unpaid instalments accumulate without interest, fees, eviction, forced cash
