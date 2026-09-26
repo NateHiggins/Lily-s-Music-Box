@@ -198,6 +198,8 @@ func _aspect_shift() -> float:
 
 
 func _process(delta: float) -> void:
+	if is_instance_valid(_player) and is_instance_valid(_player.telegram_hud):
+		_player.telegram_hud.set_physical_copy_active(reading and _player.camera.is_current())
 	if device == null:
 		return
 	_life += delta
@@ -238,6 +240,7 @@ func _process(delta: float) -> void:
 	beam_aim = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_echo(): return
 	if _player == null or _player.call_locked or _player.mouse_released or get_tree().paused:
 		return
 	if not _player.camera.is_current(): return
@@ -246,8 +249,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		reading=not reading
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("teletype_next"):
-		device.teletype.turn_page(1)
+		if event is InputEventKey and event.shift_pressed: device.teletype.browse_report(1)
+		else: device.teletype.turn_page(1)
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("teletype_previous"):
-		device.teletype.turn_page(-1)
+		if event is InputEventKey and event.shift_pressed: device.teletype.browse_report(-1)
+		else: device.teletype.turn_page(-1)
 		get_viewport().set_input_as_handled()

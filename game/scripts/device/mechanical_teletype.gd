@@ -3,6 +3,11 @@ extends Node3D
 const MODEL := preload("res://assets/device/service_teletype/service_teletype.glb")
 const COLUMNS := 30
 const ROWS := 13
+const HISTORY_LIMIT := 24
+const CHARACTER_SECONDS := 1.0/48.0
+const RETURN_SECONDS := .09
+var reports: Array[Dictionary]=[]
+var report_index := -1
 var pages: Array[String]=[]
 var page := 0
 var ink: Label3D
@@ -25,6 +30,11 @@ var _return_motion: Tween
 var _paper_motion: Tween
 var _paper: Node3D
 var _paper_home := Vector3.ZERO
+var _return_left := 0.0
+var _column := 0
+var _serial := 0
+var _reviewing := false
+var _return_from := 0.0
 
 func _ready() -> void:
 	var model := MODEL.instantiate(); add_child(model)
@@ -78,12 +88,42 @@ func present(card: Dictionary, serial: int) -> void:
 	pages.clear()
 	for start in range(0,lines.size(),ROWS):
 		pages.append("\n".join(lines.slice(start,mini(start+ROWS,lines.size()))))
-	heading.text="SERVICE WIRE / %04d" % serial
+	_serial=serial; _reviewing=false
+	if serial>0:
+		reports.append({"serial":serial,"pages":pages.duplicate()})
+		if reports.size()>HISTORY_LIMIT: reports.pop_front()
+		report_index=reports.size()-1
+	heading.text="SERVICE WIRE / %04d" % _serial
 	page=0; _begin_page()
 
+## Revisit a retained physical copy; this neither receives nor prints a new report.
+func browse_report(direction: int) -> void:
+	if reports.is_empty(): return
+	report_index=posmod(report_index+direction,reports.size())
+	var record: Dictionary=reports[report_index]
+	pages.assign(record.pages)
+	_serial=int(record.serial)
+	heading.text="SERVICE WIRE / %04d" % _serial
+	page=0; _reviewing=true
+	_show_copy()
+
+func _show_copy() -> void:
+	if _return_motion: _return_motion.kill()
+	if _paper_motion: _paper_motion.kill()
+	_paper.position=_paper_home
+	printing=false; printed_characters=pages[page].length()
+	ink.text=pages[page]; _column=0; _return_left=0
+	carriage.position=_carriage_home; hammer.position=_hammer_home
+	_update_footer()
+
+func _update_footer() -> void:
+	footer.text="PAGE %d/%d  FILE %d/%d  SHIFT [ ]" % [page+1,pages.size(),maxi(1,report_index+1),maxi(1,reports.size())]
+
 func turn_page(direction: int) -> void:
-	if not powered or pages.is_empty(): return
-	page=posmod(page+direction,pages.size()); _begin_page()
+	if pages.is_empty() or (not powered and not _reviewing): return
+	page=posmod(page+direction,pages.size())
+	if _reviewing: _show_copy()
+	else: _begin_page()
 
 func _begin_page() -> void:
 	if _return_motion: _return_motion.kill()
@@ -92,22 +132,41 @@ func _begin_page() -> void:
 	_paper_motion=create_tween()
 	_paper_motion.tween_property(_paper,"position",_paper_home,.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	printed_characters=0; _advance=0; ink.text=""; printing=true
-	footer.text="%d / %d   T: READ   [ ]: FEED" % [page+1,pages.size()]
+	_column=0; _return_left=0
+	carriage.position.x=-.076
+	_update_footer()
 	if _feed.stream: _feed.play()
 
 func _process(delta: float) -> void:
 	if not powered or not printing: return
-	_clock+=delta; _advance+=delta*48.0
-	var count := mini(int(_advance),pages[page].length())
-	if count!=printed_characters:
-		printed_characters=count; ink.text=pages[page].left(count)
-		if _tick.stream and not _tick.playing: _tick.play()
-		var last_line := ink.text.get_slice("\n",ink.text.count("\n"))
-		carriage.position.x=lerpf(-.076,.076,float(last_line.length())/COLUMNS)
-		platen.rotate_x(.08)
-		for spool in spools: spool.rotate_z(.035)
-	hammer.position=_hammer_home+Vector3(0,0,sin(_clock*TAU*24)*.002)
-	if count==pages[page].length():
+	_clock+=delta; _advance+=delta
+	# Account for every character, including low-frame-rate catch-up. Feed belongs
+	# to line endings, not to render frames; return travel has its own dwell.
+	while _advance>=CHARACTER_SECONDS and printed_characters<pages[page].length():
+		if _return_left>0:
+			var consumed := minf(_advance,_return_left)
+			_advance-=consumed; _return_left-=consumed
+			carriage.position.x=lerpf(_return_from,-.076,1.0-_return_left/RETURN_SECONDS)
+			if _return_left>0: break
+			carriage.position.x=-.076
+			continue
+		_advance-=CHARACTER_SECONDS
+		var character: String=pages[page][printed_characters]
+		printed_characters+=1
+		if character=="\n":
+			_return_from=carriage.position.x
+			_column=0; _return_left=RETURN_SECONDS
+			platen.rotate_x(.42)
+			if _feed.stream: _feed.play()
+		else:
+			_column+=1
+			carriage.position.x=lerpf(-.076,.076,float(_column)/COLUMNS)
+			for spool in spools: spool.rotate_z(.035)
+			if _tick.stream and not _tick.playing: _tick.play()
+	ink.text=pages[page].left(printed_characters)
+	hammer.position=_hammer_home
+	if _return_left<=0: hammer.position.z+=sin(_clock*TAU*24)*.002
+	if printed_characters==pages[page].length():
 		printing=false; hammer.position=_hammer_home
 		_return_motion = create_tween()
 		_return_motion.tween_property(carriage,"position",_carriage_home,.18)

@@ -71,6 +71,53 @@ func _run() -> void:
 	var serial: int=device.printed_count
 	player.telegram_hud.present({"title":"WIRE DELIVERY","body":"Full message through the shared presenter."})
 	check(device.printed_count==serial+1 and "Full message" in " ".join(printer.pages),"shared service-wire presenter prints complete physical copy")
+	serial=device.printed_count
+	var history_key := InputEventKey.new()
+	history_key.physical_keycode=KEY_BRACKETLEFT
+	history_key.pressed=true; history_key.shift_pressed=true
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	var current_report: int=printer.report_index
+	carrier._unhandled_input(history_key)
+	check(printer.report_index==current_report,"released pointer blocks report browsing")
+	player.set_mouse_released(false)
+	carrier._unhandled_input(history_key)
+	check("HOT WATER" in printer.ink.text and not printer.printing,"shift bracket recalls complete previous report")
+	history_key.echo=true
+	carrier._unhandled_input(history_key)
+	check("HOT WATER" in printer.ink.text,"held key does not skip reports")
+	device.set_radio_powered(false,false)
+	printer.turn_page(1)
+	check("PREVENTATIVE" in printer.ink.text and not printer.printing,"unpowered archive pages remain readable")
+	check(device.printed_count==serial,"browsing does not receive or replay output")
+	carrier.reading=true
+	await get_tree().create_timer(.4).timeout
+	check(not player.telegram_hud.visible,"raised paper suppresses overlapping HUD copy")
+	await shot("05_retained_report")
+	carrier.reading=false
+	await get_tree().process_frame
+	await get_tree().process_frame
+	check(player.telegram_hud.visible,"lowering paper restores accessible HUD copy")
+	device.set_radio_powered(true,false)
+	for index in range(26): carrier.print_telegram_card({"title":"COPY %02d" % index,"body":"Retained field copy."})
+	check(printer.reports.size()==24 and "COPY 02" in printer.reports[0].pages[0],"history bounded to newest 24 reports")
+	printer.browse_report(1)
+	check("COPY 02" in printer.ink.text,"history wraps to oldest retained copy")
+	# Equal elapsed time must advance the same glyphs and feed at different FPS.
+	printer.set_process(false)
+	var cadence_card := {"title":"CADENCE","body":"First line.\nSecond line.\nThird line continues across the paper."}
+	printer.present(cadence_card,0)
+	var platen_start: Basis=printer.platen.basis
+	printer._process(2.017)
+	var slow_count: int=printer.printed_characters
+	var slow_feed: Basis=platen_start.inverse()*printer.platen.basis
+	printer.present(cadence_card,0)
+	platen_start=printer.platen.basis
+	for frame in range(200): printer._process(.01)
+	printer._process(.017)
+	check(printer.printed_characters==slow_count and (platen_start.inverse()*printer.platen.basis).is_equal_approx(slow_feed),"glyph and platen advance independent of frame rate")
+	device.set_radio_powered(false,false)
+	printer._process(3.0)
+	check(printer.printed_characters==slow_count,"power loss freezes printing progress")
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
 func shot(label: String) -> void:

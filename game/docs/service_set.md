@@ -52,8 +52,13 @@ The type carriage traverses, hammer strikes, platen turns and ribbon spools
 advance with the printing; tick and feed sounds accompany the mechanism.
 
 **T** raises/lowers the set for reading; **[ / ]** feed previous/next pages.
+**Shift + [ / ]** recalls previous/next reports from the last 24 received this
+session. Recalled pages appear immediately, including with radio power off;
+reading an old copy does not receive another message or repeat its gameplay.
 The normal carry pose keeps the paper and feed assembly visible at the right.
-Reading does not seize the mouse or pause the world. Modal interactions retain
+Reading does not seize the mouse or pause the world.
+Raising the paper temporarily hides the enlarged HUD copy and
+pauses its reading timer; lowering the set restores it. Modal interactions retain
 input priority. These are remappable actions; dedicated touch controls remain
 future work. The latest paper remains visible when the radio is switched off;
 printing pauses and new reception is refused. Page turning resumes with power.
@@ -62,8 +67,8 @@ printing pauses and new reception is refused. Page turning resumes with power.
 cards share the same copy. The existing HUD remains an accessible enlarged
 copy. Direct `print_telegram_card` callers can supply either a full dictionary
 or a legacy title string. This is a physical output device, not a new AI service,
-case owner or source of invented observations. Only the current report is held
-in the printer; no new campaign save field is added.
+case owner or source of invented observations. The report file is session-only;
+no new campaign save field is added. New reception selects the newest report.
 
 The authored Blender source and reproducible builder are
 `art/models/service_teletype/service_teletype.blend` and

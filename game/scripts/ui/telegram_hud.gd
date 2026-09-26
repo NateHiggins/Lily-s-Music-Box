@@ -22,6 +22,12 @@ var _life: Tween
 var _home := Vector2.ZERO
 var _conversation_active := false
 var _visible_before_conversation := true
+var _physical_copy_active := false
+
+func set_physical_copy_active(active: bool) -> void:
+	if _physical_copy_active==active: return
+	_physical_copy_active=active
+	_sync_conversation()
 
 
 func _ready() -> void:
@@ -38,7 +44,7 @@ func _process(_delta: float) -> void:
 
 
 func _sync_conversation() -> void:
-	var active := false
+	var active := _physical_copy_active
 	for owner in get_tree().get_nodes_in_group("attention_people"):
 		if owner.has_method("attention_active") and owner.call("attention_active"):
 			active = true
