@@ -42,6 +42,7 @@ var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var telegram_hud: TelegramHud
+var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
 var noclip := false
 var crouched := false
@@ -230,6 +231,7 @@ func _build_hud() -> void:
 	flashlight.light_projector = null
 	var layer := CanvasLayer.new()
 	layer.layer = 7
+	_interaction_hud=layer
 	add_child(layer)
 	var dot := ColorRect.new()
 	dot.size = Vector2(4, 4)
@@ -260,6 +262,10 @@ func _build_hud() -> void:
 	pause_services.name = "PauseServices"
 	add_child(pause_services)
 	pause_services.call("bind_player", self)
+
+func set_physical_display_enabled(enabled: bool) -> void:
+	if _interaction_hud: _interaction_hud.visible=not enabled
+	if telegram_hud: telegram_hud.set_physical_output(enabled)
 
 
 ## Orient a reconstructed player toward an authored world-space return subject.

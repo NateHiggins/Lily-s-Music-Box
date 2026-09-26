@@ -41,6 +41,30 @@ func _run() -> void:
 	check(carrier.reading,"T raises the actual reading pose")
 	await get_tree().create_timer(.3).timeout
 	await shot("02_reading")
+	var wheel := InputEventMouseButton.new()
+	wheel.button_index=MOUSE_BUTTON_WHEEL_UP; wheel.pressed=true
+	for step in range(12): carrier._unhandled_input(wheel)
+	await get_tree().create_timer(.3).timeout
+	check(is_equal_approx(carrier.reading_distance,carrier.READING_NEAR),"wheel brings paper close with a safe near limit")
+	await shot("02b_close_reading")
+	var focus_before: float=carrier.reading_distance
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN
+	carrier._unhandled_input(wheel)
+	check(is_equal_approx(carrier.reading_distance,focus_before),"released pointer owns scrolling")
+	player.set_mouse_released(false)
+	for step in range(20): carrier._unhandled_input(wheel)
+	check(is_equal_approx(carrier.reading_distance,carrier.READING_FAR),"reading distance has a far limit")
+	printer.toggle_service_cover()
+	await get_tree().create_timer(.4).timeout
+	check(printer.service_open and absf(printer.service_cover.rotation.x)>1.7,"service cover opens on its physical hinge")
+	await shot("02c_service_access")
+	printer.toggle_service_cover()
+	carrier.adjust_reading_distance(-.085)
+	check(printer._gears.size()==4 and printer.focus_wheel!=null,"Blender transmission and reading wheel exported")
+	player._prompt.text="[E] TEST VALVE"
+	carrier._process(.01)
+	check("TEST VALVE" in printer.footer.text and not player._interaction_hud.visible,"interaction cue lives on physical paper without an aiming dot")
 	printer.turn_page(1)
 	await get_tree().create_timer(9).timeout
 	await shot("03_next_page")
@@ -48,6 +72,8 @@ func _run() -> void:
 	device.set_radio_powered(false,false)
 	check(not carrier.print_telegram_card("POWER OFF"),"radio-off refuses new output")
 	check(printer.ink.text==printer.pages[1],"power off retains physical paper")
+	await get_tree().create_timer(.3).timeout
+	check(printer.radio_switch.rotation.z>0 and printer.lamp_switch.rotation.z<0,"physical switches show independent live circuits")
 	device.set_radio_powered(true,false)
 	carrier.reading=false
 	# Actual close wall: ray from delivered lamp must still hit the surface ahead.
@@ -96,7 +122,7 @@ func _run() -> void:
 	carrier.reading=false
 	await get_tree().process_frame
 	await get_tree().process_frame
-	check(player.telegram_hud.visible,"lowering paper restores accessible HUD copy")
+	check(not player.telegram_hud.visible and not player._interaction_hud.visible,"lowering paper keeps all ordinary HUD overlays removed")
 	device.set_radio_powered(true,false)
 	for index in range(26): carrier.print_telegram_card({"title":"COPY %02d" % index,"body":"Retained field copy."})
 	check(printer.reports.size()==24 and "COPY 02" in printer.reports[0].pages[0],"history bounded to newest 24 reports")

@@ -57,15 +57,19 @@ session. Recalled pages appear immediately, including with radio power off;
 reading an old copy does not receive another message or repeat its gameplay.
 The normal carry pose keeps the paper and feed assembly visible at the right.
 Reading does not seize the mouse or pause the world.
-Raising the paper temporarily hides the enlarged HUD copy and
-pauses its reading timer; lowering the set restores it. Modal interactions retain
+While raised, the mouse wheel or **+ / -** adjusts the physical reading distance.
+**Y** opens/closes the hinged service cover to inspect the moving transmission.
+The carried set replaces the ordinary HUD: no aiming dot, floating interaction
+slip or enlarged telegram overlay. Interaction cues appear on the paper footer.
+Pause, debug, protected conversations and authored activity controls remain available.
+Modal interactions retain
 input priority. These are remappable actions; dedicated touch controls remain
 future work. The latest paper remains visible when the radio is switched off;
 printing pauses and new reception is refused. Page turning resumes with power.
 
 `TelegramHud.card_presented` feeds the physical printer, so full service-wire
-cards share the same copy. The existing HUD remains an accessible enlarged
-copy. Direct `print_telegram_card` callers can supply either a full dictionary
+cards share the same copy. TelegramHud retains message delivery and conversation
+coordination, but its screen presentation is disabled when the physical carrier is attached. Direct `print_telegram_card` callers can supply either a full dictionary
 or a legacy title string. This is a physical output device, not a new AI service,
 case owner or source of invented observations. The report file is session-only;
 no new campaign save field is added. New reception selects the newest report.
@@ -156,3 +160,22 @@ the support interface through the same release path.
 Proof renders and exact commands are in
 `art/renders/service_set_q4/README.md` and
 `art/renders/telegram_style_i3/README.md`.
+
+## Fabrication and expansion seams (2026-09-26)
+
+The Blender attachment wraps the retained 28-R core in folded japanned steel,
+rolled brass flanges, captive slotted screws and a ribbed dry-cell grip. Original
+deterministic UV albedo, roughness and normal maps are packed into the blend
+and GLB; no reference-image bytes or baked lettering are included.
+
+Independent pivots own the carriage, hammer, platen, ribbon spools, four feed
+gears, radio/lamp levers, reading wheel and hinged service cover. The three
+physical jewels mirror existing ORDER, NET and LAMP authorities. They create
+no battery, quest or task state. Lettering is runtime Label3D.
+
+CameraAccessoryMount, FilmCassetteMount and ServiceProbeMount are named physical
+attachment seams. ProbeSocket and AudioSocket are capped fittings. These prepare
+for future accessories; photography, probe readings, recording, paper depletion,
+ink replacement and instrument breakdowns are not implemented by this model.
+Current reports, maintenance observations and pocket-ledger cards use the same
+printer. This is not a promise to implement every possible future function.

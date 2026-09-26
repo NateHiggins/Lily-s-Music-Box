@@ -14,6 +14,7 @@ const ACTIONS := {
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
 	"teletype_read": KEY_T, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
+	"teletype_closer": KEY_EQUAL, "teletype_farther": KEY_MINUS, "teletype_service": KEY_Y,
 	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }
 

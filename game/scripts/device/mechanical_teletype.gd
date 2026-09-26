@@ -35,9 +35,33 @@ var _column := 0
 var _serial := 0
 var _reviewing := false
 var _return_from := 0.0
+var _action_hint := ""
+var service_open := false
+var service_cover: Node3D
+var focus_wheel: Node3D
+var torch_lens: MeshInstance3D
+var lamp_switch: Node3D
+var radio_switch: Node3D
+var _gears: Array[Node]=[]
+var _jewels: Array[MeshInstance3D]=[]
+var _control_state: Array=[]
+var _controls_motion: Tween
+var _cover_motion: Tween
+var _focus_motion: Tween
 
 func _ready() -> void:
 	var model := MODEL.instantiate(); add_child(model)
+	service_cover=model.find_child("ServiceCover",true,false)
+	focus_wheel=model.find_child("FocusWheel",true,false)
+	torch_lens=model.find_child("TorchLens",true,false)
+	torch_lens.material_override=torch_lens.get_active_material(0).duplicate()
+	lamp_switch=model.find_child("LampSwitch",true,false)
+	radio_switch=model.find_child("RadioSwitch",true,false)
+	_gears=model.find_children("FeedGear*","Node3D",true,false)
+	for key in ["OrderJewel","NetJewel","LampJewel"]:
+		var jewel := model.find_child(key,true,false) as MeshInstance3D
+		jewel.material_override=jewel.get_active_material(0).duplicate()
+		_jewels.append(jewel)
 	_paper=model.find_child("Paper",true,false)
 	_paper_home=_paper.position
 	var stock := (_paper as MeshInstance3D).get_active_material(0).duplicate() as StandardMaterial3D
@@ -55,14 +79,21 @@ func _ready() -> void:
 	ink=_label(Vector3(-.076,.079,.0814),.000175)
 	ink.horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT
 	ink.vertical_alignment=VERTICAL_ALIGNMENT_TOP
-	footer=_label(Vector3(0,-.034,.0814),.000105)
+	footer=_label(Vector3(0,-.028,.0814),.000105)
 	for label in [heading,ink,footer]: label.reparent(_paper,true)
+	var plate := _label(Vector3(0,-.140,.103),.000105)
+	plate.text="ORISON / TYPE 28-R\nSERVICE ACCESS [Y]"
+	plate.modulate=Color("d9c69b")
+	plate.reparent(service_cover,true)
+	for spec in [[-.087,"L"],[.087,"R"]]:
+		var legend := _label(Vector3(spec[0],-.121,.107),.00012)
+		legend.text=spec[1]; legend.modulate=Color("d9c69b")
 	for spec in [["tick",-23.0],["pop",-24.0]]:
 		var sound := AudioStreamPlayer.new(); add_child(sound)
 		sound.bus="UI"; sound.stream=PropAudio.get_stream(spec[0]); sound.volume_db=spec[1]
 		if spec[0]=="tick": _tick=sound
 		else: _feed=sound
-	present({"title":"ORISON SERVICE WIRE","body":"Receiver ready.\n\nOperate a fixture to receive its field report.\n\nT: raise paper\n[ / ]: previous / next page"},0)
+	present({"title":"ORISON SERVICE WIRE","body":"Receiver ready.\n\nE: operate / I: inspect\nP: pocket ledger\nT: raise / lower paper\nWheel or +/-: read closer\n[ ]: page / Shift: report\nY: service cover\nL: lamp / R: radio"},0)
 
 func _label(at: Vector3, pixel: float) -> Label3D:
 	var label := Label3D.new(); add_child(label)
@@ -117,7 +148,42 @@ func _show_copy() -> void:
 	_update_footer()
 
 func _update_footer() -> void:
-	footer.text="PAGE %d/%d  FILE %d/%d  SHIFT [ ]" % [page+1,pages.size(),maxi(1,report_index+1),maxi(1,reports.size())]
+	footer.text=_action_hint+"\nPAGE %d/%d  FILE %d/%d  SHIFT [ ]" % [page+1,pages.size(),maxi(1,report_index+1),maxi(1,reports.size())]
+
+func set_action_hint(value: String) -> void:
+	if value==_action_hint: return
+	_action_hint=value
+	_update_footer()
+
+func set_controls(radio: bool, lamp: bool, order: bool) -> void:
+	var state := [radio,lamp,order]
+	if state==_control_state: return
+	_control_state=state
+	if _controls_motion: _controls_motion.kill()
+	_controls_motion=create_tween().set_parallel(true)
+	_controls_motion.tween_property(lamp_switch,"rotation:z",-.4 if lamp else .4,.18)
+	_controls_motion.tween_property(radio_switch,"rotation:z",-.4 if radio else .4,.18)
+	var lens := torch_lens.material_override as StandardMaterial3D
+	lens.emission=Color("ffd08a"); lens.emission_enabled=lamp
+	lens.emission_energy_multiplier=.65
+	var colors := [Color("ff9d24"),Color("65d07d"),Color("e35a42")]
+	var enabled := [order and radio,radio,lamp]
+	for index in range(3):
+		var material := _jewels[index].material_override as StandardMaterial3D
+		material.albedo_color=colors[index] if enabled[index] else colors[index]*.15
+		material.emission=colors[index]; material.emission_enabled=enabled[index]
+		material.emission_energy_multiplier=.65
+
+func set_focus_position(value: float) -> void:
+	if _focus_motion: _focus_motion.kill()
+	_focus_motion=create_tween()
+	_focus_motion.tween_property(focus_wheel,"rotation:x",value*TAU,.18)
+
+func toggle_service_cover() -> void:
+	service_open=not service_open
+	if _cover_motion: _cover_motion.kill()
+	_cover_motion=create_tween()
+	_cover_motion.tween_property(service_cover,"rotation:x",-1.85 if service_open else 0.0,.3).set_trans(Tween.TRANS_CUBIC)
 
 func turn_page(direction: int) -> void:
 	if pages.is_empty() or (not powered and not _reviewing): return
@@ -162,6 +228,7 @@ func _process(delta: float) -> void:
 			_column+=1
 			carriage.position.x=lerpf(-.076,.076,float(_column)/COLUMNS)
 			for spool in spools: spool.rotate_z(.035)
+			for index in range(_gears.size()): (_gears[index] as Node3D).rotate_z(.045 if index%2==0 else -.045)
 			if _tick.stream and not _tick.playing: _tick.play()
 	ink.text=pages[page].left(printed_characters)
 	hammer.position=_hammer_home

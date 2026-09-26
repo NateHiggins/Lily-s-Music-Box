@@ -36,8 +36,8 @@ func _route() -> void:
 			"earned conversation releases the player")
 	await get_tree().process_frame
 	await get_tree().process_frame
-	_require(player.telegram_hud.visible and player.telegram_hud.last_card == field_copy,
-			"ending conversation restores the same field copy without reissuing it")
+	_require(not player.telegram_hud.visible and player.telegram_hud.last_card == field_copy,
+			"ending conversation retains the physical field copy without restoring an overlay or reissuing it")
 	_require("first_silence_named" in flags or "first_silence_misread" in flags,
 			"authored first-stable conversation persists its interpretation")
 	_require(state.repair_count == 1 and state.recurrence_pending and not state.get("resolved",false),

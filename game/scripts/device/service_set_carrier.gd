@@ -9,6 +9,9 @@ const CARRY_POS := Vector3(0.145, -0.055, -0.330)
 const CARRY_ROT := Vector3(-3.0, -4.0, 2.0)
 const EYE_LIGHT_ORIGIN := Vector3(0.018, -0.018, -0.035)
 var reading := false
+var reading_distance := .305
+const READING_NEAR := .260
+const READING_FAR := .390
 var _read_blend := 0.0
 const REF_ASPECT := 16.0 / 9.0
 
@@ -37,6 +40,7 @@ func setup(player: PlayerController, camera: Camera3D,
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
 	_build_overlay_pass(camera)
+	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
 			print_telegram_card(card))
@@ -197,11 +201,15 @@ func _aspect_shift() -> float:
 	return (size.x / size.y) / REF_ASPECT
 
 
+func adjust_reading_distance(amount: float) -> void:
+	reading_distance=clampf(reading_distance+amount,READING_NEAR,READING_FAR)
+	device.teletype.set_focus_position(inverse_lerp(READING_FAR,READING_NEAR,reading_distance))
+
 func _process(delta: float) -> void:
-	if is_instance_valid(_player) and is_instance_valid(_player.telegram_hud):
-		_player.telegram_hud.set_physical_copy_active(reading and _player.camera.is_current())
 	if device == null:
 		return
+	device.teletype.set_action_hint(_player._prompt.text if is_instance_valid(_player) else "")
+	device.teletype.set_controls(device.radio_powered,device.lamp_enabled,device.order_open or device.incoming_call)
 	_life += delta
 	var speed := Vector3(_player.velocity.x, 0.0,
 			_player.velocity.z).length() if _player else 0.0
@@ -216,7 +224,7 @@ func _process(delta: float) -> void:
 	var pose := CARRY_POS
 	pose.x *= _aspect_shift()
 	_read_blend=move_toward(_read_blend,1.0 if reading else 0.0,delta*3.0)
-	pose=pose.lerp(Vector3(.035,-.015,-.305),smoothstep(0.0,1.0,_read_blend))
+	pose=pose.lerp(Vector3(0,-.015,-reading_distance),smoothstep(0.0,1.0,_read_blend))
 	var rotation := CARRY_ROT.lerp(Vector3.ZERO,_read_blend)
 	var scale := Vector3.ONE
 	if _proof_pose > 0:
@@ -245,6 +253,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if not _player.camera.is_current(): return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if reading and event is InputEventMouseButton and event.pressed:
+		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+			adjust_reading_distance(-.012 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .012)
+			get_viewport().set_input_as_handled()
+			return
+	if reading and event.is_action_pressed("teletype_closer"):
+		adjust_reading_distance(-.012)
+		get_viewport().set_input_as_handled()
+		return
+	if reading and event.is_action_pressed("teletype_farther"):
+		adjust_reading_distance(.012)
+		get_viewport().set_input_as_handled()
+		return
+	if reading and event.is_action_pressed("teletype_service"):
+		device.teletype.toggle_service_cover()
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("teletype_read"):
 		reading=not reading
 		get_viewport().set_input_as_handled()
