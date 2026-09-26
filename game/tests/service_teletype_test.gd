@@ -33,6 +33,10 @@ func _run() -> void:
 	check(printer.pages.size()>1 and "PREVENTATIVE" in " ".join(printer.pages),"long report retained across paper pages")
 	var read_event := InputEventAction.new()
 	read_event.action="teletype_read"; read_event.pressed=true
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	carrier._unhandled_input(read_event)
+	check(not carrier.reading,"released pointer retains input ownership")
+	player.set_mouse_released(false)
 	carrier._unhandled_input(read_event)
 	check(carrier.reading,"T raises the actual reading pose")
 	await get_tree().create_timer(.3).timeout
@@ -76,4 +80,3 @@ func shot(label: String) -> void:
 	DirAccess.make_dir_recursive_absolute(dir)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(dir.path_join(label+".png"))
-
