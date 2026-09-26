@@ -6,6 +6,10 @@ const BAY_STARTS := [0.0,1.6,4.25,5.55,6.85,8.15,9.45,10.75,12.05]
 var _members: Array[Transform3D] = []
 
 func mount(adapter: OrisonV2AnchorAdapter) -> bool:
+	var delivery := preload("res://scripts/building/orison_v2_coal_delivery.gd").new()
+	if not adapter.mount_consumer("B1_COAL_BUNKER", delivery):
+		delivery.free()
+		return false
 	var panel := FusePanelProp.new()
 	panel.prop_type = "fuse_panel"
 	_box(panel,Vector3(0,.5,-.06),Vector3(.66,.90,.12),MatLib.get_mat("cast_iron"),true)

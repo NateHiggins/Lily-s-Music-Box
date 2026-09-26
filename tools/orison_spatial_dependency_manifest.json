@@ -181366,6 +181366,199 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "07afebbe3f981cc6",
+   "kind": "id_reference",
+   "token": "B1_COAL_BUNKER",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "if not adapter.mount_consumer(\"B1_COAL_BUNKER\", delivery):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "da19db6ee45309e4",
+   "kind": "asset_path",
+   "token": "res://assets/building/v2_coal_delivery.glb",
+   "file": "game/scripts/building/orison_v2_coal_delivery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "303a1f0cfd73f815",
+   "kind": "id_reference",
+   "token": "B1_BOILER_FIRE_DOOR",
+   "file": "game/tests/orison_v2_coal_delivery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_BOILER_FIRE_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "af0650dad9c5e960",
+   "kind": "id_reference",
+   "token": "B1_COAL_BUNKER",
+   "file": "game/tests/orison_v2_coal_delivery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "var bunker := world.adapter.resolve(\"B1_COAL_BUNKER\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "11792a3ca0d88af1",
+   "kind": "id_reference",
+   "token": "B1_COAL_DOOR",
+   "file": "game/tests/orison_v2_coal_delivery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    19
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_COAL_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e4ca71041b652bc9",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_coal_delivery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8,
+    8,
+    8,
+    8,
+    12,
+    12,
+    12,
+    12,
+    13,
+    13,
+    13,
+    13,
+    14,
+    17,
+    17,
+    17,
+    20,
+    20,
+    20,
+    22
+   ],
+   "count": 27,
+   "context": [
+    "for point in [Vector3(2.3,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-12.8),Vector3(14.2,0,-13.3)]:",
+    "for point in [Vector3(0,0,-12.8),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5),",
+    "Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.5),",
+    "Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

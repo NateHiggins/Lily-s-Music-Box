@@ -138,6 +138,9 @@ func _validate_references(ids: Dictionary) -> void:
 	for opening: Dictionary in layout.get("openings", []):
 		if opening.get("axis", "") not in ["x", "z"]:
 			failures.append("invalid opening axis: " + str(opening.get("id", "?")))
+		var sill := float(opening.get("sill", 0.0))
+		if not is_finite(sill) or sill < 0.0 or sill + float(opening.get("height", 0.0)) > float(layout.dimensions.clear_height):
+			failures.append("invalid opening sill: " + str(opening.get("id", "?")))
 		for target: Variant in opening.get("connects", []):
 			_require_record(ids, str(opening.get("id", "?")), str(target),
 					"spaces", "opening connects")
@@ -509,7 +512,7 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 		var fixed_value := float(opening.center[1] if axis == "x" else opening.center[0])
 		if is_equal_approx(fixed_value, fixed):
 			openings.append({"center": float(opening.center[0] if axis == "x" else opening.center[1]),
-					"width": float(opening.width), "height": float(opening.height), "sill": 0.0})
+					"width": float(opening.width), "height": float(opening.height), "sill": float(opening.get("sill", 0.0))})
 	for window: Dictionary in layout.get("windows", []):
 		if str(window.space) != space_id or str(window.axis) != axis:
 			continue

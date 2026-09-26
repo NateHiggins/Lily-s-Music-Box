@@ -28,7 +28,9 @@ In B1, use the east side of the primary stair to reach the boiler corridor.
 The electrical room opens south from that corridor; press E at the fuse panel
 to enter its existing maintenance activity. The workshop is opposite. Its east
 door connects to the service stair, which now continues down from F01. The coal
-annex opens from the boiler room. Resident storage is through the north door
+annex opens from the boiler room. Its rear bunker now has a gravity chute to
+the closed street coal-hole cover; delivery is static architecture. Clear the
+open boiler-door tip before turning into the apparatus aisle. Resident storage is through the north door
 beside the primary stair, with eighteen labeled bays. Fuse repairs currently
 last for that building instance; the five new room-light settings are saved.
 

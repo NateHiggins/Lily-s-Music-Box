@@ -34,6 +34,14 @@ func _ready() -> void:
 				"missing/invalid opening axis fails before construction: " + bad_axis)
 		malformed.free()
 	# Independent mutations prove deleted obligations and broken links are refused.
+	for bad_sill in [-.1, 3.1]:
+		var malformed := preload("res://scripts/building/orison_v2_blockout.gd").new()
+		malformed.layout = layout.duplicate(true)
+		malformed.layout.openings[0].sill = bad_sill
+		malformed._validate_layout()
+		_check(malformed.failures.has("invalid opening sill: " + str(layout.openings[0].id)),
+				"out-of-storey opening sill fails before construction: " + str(bad_sill))
+		malformed.free()
 	var missing_room: Dictionary = layout.duplicate(true)
 	missing_room.spaces = missing_room.spaces.filter(func(r: Dictionary) -> bool:
 		return str(r.id) != "F06_C_BED1")
