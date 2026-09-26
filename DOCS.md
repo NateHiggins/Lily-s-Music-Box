@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
+| The landed V2 roof-access shell, Mina's door passages, and remaining architecture/lighting work | `design/ORISON_V2_ROOF_AND_RESIDENT_PROGRESS_2026-09-25.md` |
 | What is true about this world | `design/ORISON_BIBLE.md` |
 | How to work in this repository: git in a shared tree, the Godot lane, what counts as proof | `AGENTS.md` (Claude reads it through `CLAUDE.md`) |
 | Whether a change made anything worse, and whether a branch is mergeable | `tools/PIPELINE_TOOLS.md`: gate board, run receipts, candidate verifier |
