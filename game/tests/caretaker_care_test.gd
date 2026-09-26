@@ -36,7 +36,21 @@ func _run() -> void:
 	await get_tree().physics_frame
 	_check(notebook.aimed_subject()==tap,"real interaction ray reaches shower service owner")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	notebook.open(tap)
+	await get_tree().process_frame
+	_check(notebook.action_hint()=="[I] Inspect / care","reachable fixture advertises physical inspection")
+	var set_carriers := world.find_children("*","ServiceSetCarrier",true,false)
+	_check(not set_carriers.is_empty(),"physical paper carrier present")
+	if not set_carriers.is_empty():
+		var carrier = set_carriers[0]
+		await get_tree().process_frame
+		_check("[I] Inspect / care" in carrier.device.teletype.footer.text,"care control reaches physical paper")
+	await _shot("care_discovery")
+	var inspect := InputEventAction.new()
+	inspect.action = "inspect_care"
+	inspect.pressed = true
+	notebook._unhandled_input(inspect)
+	_check(notebook.subject==tap,"inspection shortcut opens aimed fixture")
+	_check(notebook.action_hint().is_empty(),"modal inspection hides care cue")
 	_check(player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"inspection owns pointer and movement")
 	_check(care.service(tap,false).is_empty(),"untested service refused")
 	notebook._test_water()
@@ -54,6 +68,16 @@ func _run() -> void:
 	notebook.close()
 	_check(not player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"closing returns pointer ownership")
 	_check(not tap._hot and not tap._cold,"inspection restores original valves")
+	var look_before := player.camera.global_transform
+	player.camera.look_at(player.camera.global_position+Vector3.UP,Vector3.FORWARD)
+	await get_tree().physics_frame
+	_check(notebook.action_hint().is_empty(),"empty aim has no care cue")
+	notebook._unhandled_input(inspect)
+	_check(not notebook.opened,"empty inspection does not open pocket ledger")
+	player.camera.global_transform = look_before
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_check(notebook.action_hint().is_empty(),"released pointer hides inspection cue")
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	notebook.open(tap)
 	var debug := notebook.debug as BuildingDebug
 	_check(debug!=null,"inspection binds the composed debug pointer owner")

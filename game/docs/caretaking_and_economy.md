@@ -11,7 +11,9 @@ Rent is a gentle savings goal. This direction is broader than the first rollout.
 
 E remains the ordinary operation control. Aim at a fitted sink, shower,
 medicine cabinet or kitchen cabinet within 2.1 metres and press I to inspect.
-The ray must actually hit the fixture or one of its controls. Inspection locks
+The ray must actually hit the fixture or one of its controls. The carried paper
+shows `[I] Inspect / care` while a supported fixture is within reach. I with
+no fixture in reach does nothing; P remains the pocket-ledger shortcut. Inspection locks
 movement while the world and the mechanism keep running. Escape returns the
 pointer to its previous ownership. Calls, seated activities, paused play and
 the ecology camera do not accept this shortcut.

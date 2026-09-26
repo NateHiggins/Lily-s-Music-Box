@@ -21,6 +21,7 @@ var _testing := false
 var _request_page := 0
 
 func _ready() -> void:
+	add_to_group("caretaker_notebook")
 	layer = 20
 	panel = PanelContainer.new()
 	panel.position = Vector2(28,70)
@@ -40,14 +41,23 @@ func aimed_subject() -> Node:
 	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
 	return care.find_subject(hit.collider) if not hit.is_empty() else null
 
+func inspection_available() -> bool:
+	return not opened and not player.call_locked and not is_instance_valid(player.seated_interaction) \
+		and not get_tree().paused and player.camera.is_current() \
+		and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED
+
+func action_hint() -> String:
+	return "[I] Inspect / care" if inspection_available() and aimed_subject()!=null else ""
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and opened:
 		close()
 		get_viewport().set_input_as_handled()
 	elif not opened and (event.is_action_pressed("inspect_care") or event.is_action_pressed("pocket_ledger")):
-		if player.call_locked or is_instance_valid(player.seated_interaction) or get_tree().paused \
-			or not player.camera.is_current() or Input.mouse_mode!=Input.MOUSE_MODE_CAPTURED: return
-		open(aimed_subject() if event.is_action_pressed("inspect_care") else null)
+		if not inspection_available(): return
+		var target: Node = aimed_subject() if event.is_action_pressed("inspect_care") else null
+		if event.is_action_pressed("inspect_care") and target==null: return
+		open(target)
 		get_viewport().set_input_as_handled()
 
 func open(target: Node) -> void:

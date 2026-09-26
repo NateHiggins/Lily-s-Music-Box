@@ -208,7 +208,12 @@ func adjust_reading_distance(amount: float) -> void:
 func _process(delta: float) -> void:
 	if device == null:
 		return
-	device.teletype.set_action_hint(_player._prompt.text if is_instance_valid(_player) else "")
+	var hint := _player._prompt.text if is_instance_valid(_player) else ""
+	var notebook := get_tree().get_first_node_in_group("caretaker_notebook")
+	if notebook!=null:
+		var care_hint: String = notebook.action_hint()
+		if not care_hint.is_empty(): hint += "\n"+care_hint
+	device.teletype.set_action_hint(hint)
 	device.teletype.set_controls(device.radio_powered,device.lamp_enabled,device.order_open or device.incoming_call)
 	_life += delta
 	var speed := Vector3(_player.velocity.x, 0.0,
