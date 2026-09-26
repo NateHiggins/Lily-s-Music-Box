@@ -204,6 +204,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: remaining interiors refused: %s" % [completion.errors])
 		return
+	if not preload("res://scripts/building/orison_v2_basement.gd").new().mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: basement services refused")
+		return
 	if not _compose_hot_water():
 		return
 	var furniture := DomesticFurniture.new()

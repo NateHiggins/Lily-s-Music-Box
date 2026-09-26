@@ -136,6 +136,8 @@ func _validate_references(ids: Dictionary) -> void:
 			_require_record(ids, str(door.get("id", "?")), str(target),
 					"spaces", "door connects")
 	for opening: Dictionary in layout.get("openings", []):
+		if opening.get("axis", "") not in ["x", "z"]:
+			failures.append("invalid opening axis: " + str(opening.get("id", "?")))
 		for target: Variant in opening.get("connects", []):
 			_require_record(ids, str(opening.get("id", "?")), str(target),
 					"spaces", "opening connects")

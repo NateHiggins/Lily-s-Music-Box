@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 177, "128 circuits, seventeen ordinary valves, twenty-four cabinet doors and eight book orders")
+	check(defaults.records.size() == 182, "133 circuits, seventeen ordinary valves, twenty-four cabinet doors and eight book orders")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -85,7 +85,7 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 177 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 182 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)

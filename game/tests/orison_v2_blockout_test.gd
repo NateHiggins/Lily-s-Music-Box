@@ -22,6 +22,17 @@ func _ready() -> void:
 			"accepted H-plan identity is stable")
 	var program_errors: Array[String] = ProgramContract.validate(layout)
 	_check(program_errors.is_empty(), "current source programme closes: " + str(program_errors))
+	# A missing axis previously threw during wall construction, leaving the
+	# runtime reporting ready with entire room partitions absent.
+	for bad_axis in ["", "y"]:
+		var malformed := preload("res://scripts/building/orison_v2_blockout.gd").new()
+		malformed.layout = layout.duplicate(true)
+		malformed.layout.openings[0].erase("axis")
+		if not bad_axis.is_empty(): malformed.layout.openings[0].axis = bad_axis
+		malformed._validate_layout()
+		_check(malformed.failures.has("invalid opening axis: " + str(layout.openings[0].id)),
+				"missing/invalid opening axis fails before construction: " + bad_axis)
+		malformed.free()
 	# Independent mutations prove deleted obligations and broken links are refused.
 	var missing_room: Dictionary = layout.duplicate(true)
 	missing_room.spaces = missing_room.spaces.filter(func(r: Dictionary) -> bool:

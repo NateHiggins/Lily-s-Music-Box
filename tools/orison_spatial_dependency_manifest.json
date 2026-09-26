@@ -1545,7 +1545,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "B1/room",
+   "resolved_target": "B1/room+v2_blockout",
    "target_exists": true
   },
   {
@@ -25865,7 +25865,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "B1/room",
+   "resolved_target": "B1/room+v2_blockout",
    "target_exists": true
   },
   {
@@ -38377,7 +38377,7 @@
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "B1/room",
+   "resolved_target": "B1/room+v2_blockout",
    "target_exists": true
   },
   {
@@ -109169,7 +109169,7 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "B1/room",
+   "resolved_target": "B1/room+v2_blockout",
    "target_exists": true
   },
   {
@@ -179199,6 +179199,1950 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "e8249fd8236d02a9",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/unit"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f7220d21f9caab97",
+   "kind": "id_reference",
+   "token": "3B_toolboard",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d9d2a5bd752213b",
+   "kind": "id_reference",
+   "token": "3B_tools0",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cfd6ab55bbe48ee9",
+   "kind": "id_reference",
+   "token": "3B_workbench",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "350960d6b6a85519",
+   "kind": "id_reference",
+   "token": "B1_BOILER_FIRE_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "02b9fe503d02d850",
+   "kind": "id_reference",
+   "token": "B1_BOILER_STAIR_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4ed3deaa43c4fb9e",
+   "kind": "id_reference",
+   "token": "B1_COAL_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "19b3b3c750a77e96",
+   "kind": "id_reference",
+   "token": "B1_COAL_ROOM",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2afa0b010910e6ce",
+   "kind": "id_reference",
+   "token": "B1_COAL_ROOM_LT",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4dc9fa1e2e36d1d4",
+   "kind": "id_reference",
+   "token": "B1_COAL_ROOM_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "32c3386f5642d143",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "10dbeed668d65f73",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c052f16067b2f803",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL_LT",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8bfaf0cba3c0769",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "44315e92013d1438",
+   "kind": "id_reference",
+   "token": "B1_MAINTENANCE_SHOP",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "71c1578d90290ed4",
+   "kind": "id_reference",
+   "token": "B1_MAINTENANCE_SHOP_LT",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cc52629c6ba5f69e",
+   "kind": "id_reference",
+   "token": "B1_MAINTENANCE_SHOP_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5560e6c310bc5cb5",
+   "kind": "id_reference",
+   "token": "B1_RESIDENT_STORAGE",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5c415190b673533c",
+   "kind": "id_reference",
+   "token": "B1_RESIDENT_STORAGE_LT",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d3427aac051ce719",
+   "kind": "id_reference",
+   "token": "B1_RESIDENT_STORAGE_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f161c305afa4ee67",
+   "kind": "id_reference",
+   "token": "B1_SERVICE_CORE",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ac34174ed7a91443",
+   "kind": "id_reference",
+   "token": "B1_SERVICE_CORE_LT",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3a7ef1a873769b7f",
+   "kind": "id_reference",
+   "token": "B1_SERVICE_CORE_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0ca1d0c60b6543e9",
+   "kind": "id_reference",
+   "token": "B1_SHOP_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "01f4d0b401a09695",
+   "kind": "id_reference",
+   "token": "B1_SHOP_STAIR_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "98ec6142a75cbb92",
+   "kind": "id_reference",
+   "token": "B1_STORAGE_DOOR",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c953681e1283a0cd",
+   "kind": "id_reference",
+   "token": "b1_parts_shelf",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a0af3b01c89885d9",
+   "kind": "id_reference",
+   "token": "b1_repair_bench",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6c83247b9e0d7316",
+   "kind": "id_reference",
+   "token": "b1_toolboard",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "78119fdeb91f8a2e",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL",
+   "file": "game/data/orison_v2_blockout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/spaces[*]/id",
+    "/doors[*]/connects[1]",
+    "/anchors[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "32262b49280cc8a2",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "\"Cage_\"+UNITS[row*9+column]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ff059519b61e599f",
+   "kind": "id_reference",
+   "token": "B1_FUSE_PANEL",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "if not adapter.mount_consumer(\"B1_FUSE_PANEL\",panel):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "affacc070c4059b4",
+   "kind": "id_reference",
+   "token": "B1_STORAGE_BAYS",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "var bays := adapter.resolve(\"B1_STORAGE_BAYS\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "981aed578979f0fa",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4368bb8dacec7e8c",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "c8e9419c87eb9669",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "9330f1e1413237ce",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0171b40f2c145361",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "74ea2b570d48e264",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "da65c8b7ea44be42",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "88d35be9aed7dd67",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "5a7c5467eb0f46e4",
+   "kind": "unit_reference",
+   "token": "4A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "64c08b3fdcd74018",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "88265c0f54353d55",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "787e04df8bf9570a",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "ec03fc9d9f2512fb",
+   "kind": "unit_reference",
+   "token": "5A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "717eb362fa38e5bd",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0c483f16a0006f99",
+   "kind": "unit_reference",
+   "token": "5C",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "708e82ca5424c33c",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "2175a8661e66af7e",
+   "kind": "unit_reference",
+   "token": "6B",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b04dabce85ba79fc",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/scripts/building/orison_v2_basement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1A\",\"1D\",\"2A\",\"2B\",\"2C\",\"3A\",\"3B\",\"3D\",\"4A\",\"4B\",\"4C\",\"4D\",\"5A\",\"5B\",\"5C\",\"6A\",\"6B\",\"6C\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "f23a01aaba647245",
+   "kind": "id_candidate",
+   "token": "B1_COAL_HEAP_",
+   "file": "game/scripts/building/orison_v2_architectural_materials.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "key_for"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "if part.begins_with(\"B1_COAL_HEAP_\"): return \"soot\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a092933000ea7006",
+   "kind": "id_reference",
+   "token": "B1_BOILER_FIRE_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_BOILER_FIRE_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9ad32f8d410f639f",
+   "kind": "id_reference",
+   "token": "B1_BOILER_STAIR_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_BOILER_STAIR_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6684cfb5c3b43d00",
+   "kind": "id_reference",
+   "token": "B1_COAL_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    45
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_COAL_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "65b8545698d10586",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_ELECTRICAL_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d5fcca9405be03c",
+   "kind": "id_reference",
+   "token": "B1_FUSE_PANEL",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "var panel := world.adapter.resolve(\"B1_FUSE_PANEL\") as FusePanelProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3b508cbec5f7f542",
+   "kind": "id_reference",
+   "token": "B1_SHOP_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_SHOP_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "51d1acd9701ac1ea",
+   "kind": "id_reference",
+   "token": "B1_SHOP_STAIR_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_SHOP_STAIR_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9eb92843ba036f94",
+   "kind": "id_reference",
+   "token": "B1_STORAGE_DOOR",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_STORAGE_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6bc5eea6111d4f8f",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(4.4,-3.18,2.8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2b7f56fe6e80f17b",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_basement_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    12,
+    12,
+    18,
+    19,
+    19,
+    22,
+    22,
+    32,
+    35,
+    35,
+    37,
+    38,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "count": 32,
+   "context": [
+    "for point in [Vector3(4.4,-3.2,5),Vector3(4.4,-3.2,6.675)]:",
+    "await _roof_capture(\"resident_storage\",Vector3(-7,-1.8,6.675))",
+    "for point in [Vector3(4.4,-3.2,6.675),Vector3(4.4,-3.2,2.8),Vector3(4.4,-3.2,-.4),Vector3(7.4,-3.2,-.4)]:",
+    "for point in [Vector3(7.4,-3.2,-2.3),Vector3(7.6,-3.2,-4.1)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0b64b3caa98e323f",
+   "kind": "id_reference",
+   "token": "B1_COAL_ROOM",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for room: String in [\"B1_ELECTRICAL\",\"B1_MAINTENANCE_SHOP\",\"B1_COAL_ROOM\",\"B1_RESIDENT_STORAGE\",\"B1_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "aa5f2b1915ea781e",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for room: String in [\"B1_ELECTRICAL\",\"B1_MAINTENANCE_SHOP\",\"B1_COAL_ROOM\",\"B1_RESIDENT_STORAGE\",\"B1_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ce0ed840d8fd167d",
+   "kind": "id_reference",
+   "token": "B1_MAINTENANCE_SHOP",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for room: String in [\"B1_ELECTRICAL\",\"B1_MAINTENANCE_SHOP\",\"B1_COAL_ROOM\",\"B1_RESIDENT_STORAGE\",\"B1_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fe4c4fcbe48f7251",
+   "kind": "id_reference",
+   "token": "B1_RESIDENT_STORAGE",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for room: String in [\"B1_ELECTRICAL\",\"B1_MAINTENANCE_SHOP\",\"B1_COAL_ROOM\",\"B1_RESIDENT_STORAGE\",\"B1_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d5ef339d658638ba",
+   "kind": "id_reference",
+   "token": "B1_SERVICE_CORE",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for room: String in [\"B1_ELECTRICAL\",\"B1_MAINTENANCE_SHOP\",\"B1_COAL_ROOM\",\"B1_RESIDENT_STORAGE\",\"B1_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a1cbbdeff44ba08",
+   "kind": "id_reference",
+   "token": "SERVICE_B1_F01",
+   "file": "game/tests/orison_v2_program_contract.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "_require(indices.stairs, \"SERVICE_B1_F01\", errors)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

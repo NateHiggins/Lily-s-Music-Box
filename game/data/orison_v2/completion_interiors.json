@@ -282,6 +282,55 @@
       "unit": "",
       "swing_out": false,
       "leaf_state": "closed"
+    },
+    {
+      "id": "B1_ELECTRICAL_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_SHOP_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_COAL_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_STORAGE_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_BOILER_STAIR_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": false,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_SHOP_STAIR_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": true,
+      "leaf_state": "closed"
+    },
+    {
+      "id": "B1_BOILER_FIRE_DOOR",
+      "kind": "service",
+      "unit": "",
+      "swing_out": true,
+      "leaf_state": "closed"
     }
   ],
   "fittings": [
@@ -827,6 +876,21 @@
       "id": "F01_STAFF_WC",
       "template": "5C_wc",
       "unit": "staff"
+    },
+    {
+      "id": "b1_repair_bench",
+      "template": "3B_workbench",
+      "unit": "B1"
+    },
+    {
+      "id": "b1_toolboard",
+      "template": "3B_toolboard",
+      "unit": "B1"
+    },
+    {
+      "id": "b1_parts_shelf",
+      "template": "3B_tools0",
+      "unit": "B1"
     }
   ],
   "lighting": {
@@ -1253,6 +1317,51 @@
           "energy_scale": 1.5,
           "range_clamp": 6.5
         }
+      },
+      {
+        "id": "B1_ELECTRICAL_LT",
+        "room": "B1_ELECTRICAL",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "B1_MAINTENANCE_SHOP_LT",
+        "room": "B1_MAINTENANCE_SHOP",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "B1_COAL_ROOM_LT",
+        "room": "B1_COAL_ROOM",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "B1_RESIDENT_STORAGE_LT",
+        "room": "B1_RESIDENT_STORAGE",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "B1_SERVICE_CORE_LT",
+        "room": "B1_SERVICE_CORE",
+        "kind": "flush_dome",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
       }
     ],
     "switches": [
@@ -1443,6 +1552,26 @@
       {
         "id": "F01_STAFF_RESTROOM_SWITCH",
         "room": "F01_STAFF_RESTROOM"
+      },
+      {
+        "id": "B1_ELECTRICAL_SWITCH",
+        "room": "B1_ELECTRICAL"
+      },
+      {
+        "id": "B1_MAINTENANCE_SHOP_SWITCH",
+        "room": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "B1_COAL_ROOM_SWITCH",
+        "room": "B1_COAL_ROOM"
+      },
+      {
+        "id": "B1_RESIDENT_STORAGE_SWITCH",
+        "room": "B1_RESIDENT_STORAGE"
+      },
+      {
+        "id": "B1_SERVICE_CORE_SWITCH",
+        "room": "B1_SERVICE_CORE"
       }
     ]
   }

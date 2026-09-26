@@ -29,6 +29,9 @@ static func validate(layout: Dictionary) -> Array[String]:
 			for kind: String in ["PRIMARY", "SERVICE"]:
 				_require(indices.stairs, "%s_%s_F%02d" % [kind, level, floor_number + 1], errors)
 	_require(indices.stairs, "PRIMARY_B1_F01", errors)
+	_require(indices.stairs, "SERVICE_B1_F01", errors)
+	for room: String in ["B1_ELECTRICAL","B1_MAINTENANCE_SHOP","B1_COAL_ROOM","B1_RESIDENT_STORAGE","B1_SERVICE_CORE"]:
+		_require(indices.spaces,room,errors)
 	var sleeping := {"F02_A": "BED", "F02_B": "BED", "F03_A": "BED", "F03_B": "ALCOVE",
 		"F04_A": "BED", "F04_B": "ALCOVE", "F05_A": "BED", "F05_B": "ALCOVE",
 		"F05_C": "BED1", "F06_A": "BED", "F06_B": "ALCOVE", "F06_C": "BED1"}

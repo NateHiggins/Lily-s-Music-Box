@@ -24,6 +24,14 @@ doors stay shut while the car is away. The stairs remain available. Follow the
 west side of the shaft to the apartment halls and basement laundry; the watch
 door is beside the lift's front approach.
 
+In B1, use the east side of the primary stair to reach the boiler corridor.
+The electrical room opens south from that corridor; press E at the fuse panel
+to enter its existing maintenance activity. The workshop is opposite. Its east
+door connects to the service stair, which now continues down from F01. The coal
+annex opens from the boiler room. Resident storage is through the north door
+beside the primary stair, with eighteen labeled bays. Fuse repairs currently
+last for that building instance; the five new room-light settings are saved.
+
 The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
 shells, doors, furniture, working hot/cold taps and switched lights. The staff
 restroom opens from the ground-floor service hall. The sealed 2D and 3C entries

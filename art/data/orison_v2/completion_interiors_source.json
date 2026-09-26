@@ -979,6 +979,122 @@
           "north",
           "west"
         ]
+      },
+      {
+        "id": "B1_ELECTRICAL",
+        "level": "B1",
+        "rect": [
+          5.4,
+          -6.3,
+          9.5,
+          -2.0
+        ],
+        "purpose": "dry main panel room with clear working front",
+        "wall_sides": [
+          "south",
+          "west",
+          "north"
+        ],
+        "class": "service"
+      },
+      {
+        "id": "B1_MAINTENANCE_SHOP",
+        "level": "B1",
+        "rect": [
+          5.4,
+          0.2,
+          9.5,
+          5.8
+        ],
+        "purpose": "repair bench, parts and tool custody outside resident circulation",
+        "wall_sides": [
+          "west",
+          "north"
+        ],
+        "class": "service"
+      },
+      {
+        "id": "B1_COAL_ROOM",
+        "level": "B1",
+        "rect": [
+          9.5,
+          -10.2,
+          15.65,
+          -5.5
+        ],
+        "purpose": "fuel bunker and short firing supply route, separate from dry electrical room",
+        "wall_sides": [
+          "south",
+          "west",
+          "east"
+        ],
+        "class": "service"
+      },
+      {
+        "id": "B1_RESIDENT_STORAGE",
+        "level": "B1",
+        "rect": [
+          -10,
+          3.85,
+          5.4,
+          9.5
+        ],
+        "purpose": "eighteen dry household storage bays with central and east aisles",
+        "wall_sides": [
+          "west",
+          "north",
+          "east"
+        ],
+        "class": "service"
+      },
+      {
+        "id": "B1_SERVICE_CORE",
+        "level": "B1",
+        "rect": [
+          9.5,
+          4.0,
+          13.2,
+          10.2
+        ],
+        "purpose": "service stair continuation from basement plant to ground floor",
+        "wall_sides": [
+          "west",
+          "east",
+          "north"
+        ],
+        "class": "core",
+        "no_ceiling": true
+      },
+      {
+        "id": "B1_BOILER_ROOM",
+        "level": "B1",
+        "class": "service",
+        "rect": [
+          9.5,
+          -5.5,
+          15.65,
+          4.0
+        ],
+        "purpose": "heat plant, water-column comparison and firing access",
+        "exterior_sides": [
+          "east"
+        ]
+      },
+      {
+        "id": "B1_ELECTRICAL_RECESS",
+        "level": "B1",
+        "rect": [
+          6.5,
+          -2,
+          8.3,
+          -1
+        ],
+        "class": "service",
+        "purpose": "outward panel-room leaf swings outside the through corridor",
+        "wall_sides": [
+          "west",
+          "east"
+        ]
       }
     ],
     "doors": [
@@ -1635,6 +1751,127 @@
           "F01_SERVICE_HALL",
           "F01_STAFF_RESTROOM"
         ]
+      },
+      {
+        "id": "B1_ELECTRICAL_DOOR",
+        "level": "B1",
+        "center": [
+          7.4,
+          -2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_ELECTRICAL_RECESS",
+          "B1_ELECTRICAL"
+        ]
+      },
+      {
+        "id": "B1_SHOP_DOOR",
+        "level": "B1",
+        "center": [
+          7.4,
+          0.2
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_BOILER_APPROACH",
+          "B1_MAINTENANCE_SHOP"
+        ]
+      },
+      {
+        "id": "B1_COAL_DOOR",
+        "level": "B1",
+        "center": [
+          14.2,
+          -5.5
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_BOILER_ROOM",
+          "B1_COAL_ROOM"
+        ]
+      },
+      {
+        "id": "B1_STORAGE_DOOR",
+        "level": "B1",
+        "center": [
+          4.4,
+          3.85
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_PUBLIC_CORE",
+          "B1_RESIDENT_STORAGE"
+        ]
+      },
+      {
+        "id": "B1_BOILER_STAIR_DOOR",
+        "level": "B1",
+        "center": [
+          11.075,
+          4.0
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 0,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_BOILER_ROOM",
+          "B1_SERVICE_CORE"
+        ]
+      },
+      {
+        "id": "B1_SHOP_STAIR_DOOR",
+        "level": "B1",
+        "center": [
+          9.5,
+          4.55
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "service room",
+        "connects": [
+          "B1_MAINTENANCE_SHOP",
+          "B1_SERVICE_CORE"
+        ]
+      },
+      {
+        "id": "B1_BOILER_FIRE_DOOR",
+        "level": "B1",
+        "center": [
+          9.5,
+          -0.4
+        ],
+        "width": 1.05,
+        "height": 2.13,
+        "yaw": 1.5707963,
+        "hinge": "right",
+        "latch": "north",
+        "handedness": "right",
+        "swing": "boiler",
+        "connects": [
+          "B1_BOILER_APPROACH",
+          "B1_BOILER_ROOM"
+        ]
       }
     ],
     "openings": [
@@ -1847,6 +2084,21 @@
           "F04_WEST_HALL",
           "F04_SOUTHWEST_HALL"
         ]
+      },
+      {
+        "id": "B1_ELECTRICAL_RECESS_OPENING",
+        "level": "B1",
+        "center": [
+          7.4,
+          -1
+        ],
+        "width": 1.8,
+        "height": 2.4,
+        "connects": [
+          "B1_BOILER_APPROACH",
+          "B1_ELECTRICAL_RECESS"
+        ],
+        "axis": "x"
       }
     ],
     "windows": [
@@ -5398,6 +5650,470 @@
         ],
         "yaw": 1.5707963267948966,
         "kind": "clearance"
+      },
+      {
+        "id": "B1_ELECTRICAL_LT",
+        "level": "B1",
+        "position": [
+          7.45,
+          2.85,
+          -4.15
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_ELECTRICAL"
+      },
+      {
+        "id": "B1_ELECTRICAL_SWITCH",
+        "level": "B1",
+        "position": [
+          6.050000000000001,
+          1.12,
+          -6.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_ELECTRICAL"
+      },
+      {
+        "id": "B1_MAINTENANCE_SHOP_LT",
+        "level": "B1",
+        "position": [
+          7.45,
+          2.85,
+          3.0
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "B1_MAINTENANCE_SHOP_SWITCH",
+        "level": "B1",
+        "position": [
+          6.050000000000001,
+          1.12,
+          0.30000000000000004
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "B1_COAL_ROOM_LT",
+        "level": "B1",
+        "position": [
+          12.575,
+          2.85,
+          -7.85
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_COAL_ROOM"
+      },
+      {
+        "id": "B1_COAL_ROOM_SWITCH",
+        "level": "B1",
+        "position": [
+          10.15,
+          1.12,
+          -10.1
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_COAL_ROOM"
+      },
+      {
+        "id": "B1_RESIDENT_STORAGE_LT",
+        "level": "B1",
+        "position": [
+          -2.3,
+          2.85,
+          6.675
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_RESIDENT_STORAGE"
+      },
+      {
+        "id": "B1_RESIDENT_STORAGE_SWITCH",
+        "level": "B1",
+        "position": [
+          -9.35,
+          1.12,
+          3.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_RESIDENT_STORAGE"
+      },
+      {
+        "id": "B1_SERVICE_CORE_LT",
+        "level": "B1",
+        "position": [
+          11.35,
+          2.85,
+          7.25
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_SERVICE_CORE"
+      },
+      {
+        "id": "B1_SERVICE_CORE_SWITCH",
+        "level": "B1",
+        "position": [
+          10.15,
+          1.12,
+          4.1
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_SERVICE_CORE"
+      },
+      {
+        "id": "B1_FUSE_PANEL",
+        "level": "B1",
+        "position": [
+          7.6,
+          0.6,
+          -6.12
+        ],
+        "yaw": 0,
+        "kind": "interaction",
+        "space": "B1_ELECTRICAL"
+      },
+      {
+        "id": "B1_STORAGE_BAYS",
+        "level": "B1",
+        "position": [
+          -9.85,
+          0,
+          3.85
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_RESIDENT_STORAGE"
+      },
+      {
+        "id": "B1_COAL_BUNKER",
+        "level": "B1",
+        "position": [
+          14.2,
+          0,
+          -8.8
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_COAL_ROOM"
+      },
+      {
+        "id": "b1_repair_bench",
+        "level": "B1",
+        "position": [
+          6.8,
+          0,
+          5.35
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "b1_toolboard",
+        "level": "B1",
+        "position": [
+          6.8,
+          1.55,
+          5.6
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "b1_parts_shelf",
+        "level": "B1",
+        "position": [
+          5.72,
+          0,
+          3.2
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture",
+        "space": "B1_MAINTENANCE_SHOP"
+      }
+    ],
+    "stairs": [
+      {
+        "id": "SERVICE_B1_F01",
+        "kind": "u",
+        "from": "B1",
+        "to": "F01",
+        "origin": [
+          10.55,
+          5.0
+        ],
+        "width": 1.05,
+        "gap": 0.3,
+        "landing_depth": 1.05,
+        "rise": 0.16,
+        "tread": 0.275,
+        "risers_per_flight": 10,
+        "guard_height": 0.91
+      }
+    ],
+    "fixtures": [
+      {
+        "id": "B1_COAL_HEAP_0",
+        "level": "B1",
+        "position": [
+          14.2,
+          0.057999999999999996,
+          -8.8
+        ],
+        "size": [
+          0.95,
+          0.11599999999999999,
+          1.7
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_1",
+        "level": "B1",
+        "position": [
+          14.2,
+          0.174,
+          -8.8
+        ],
+        "size": [
+          0.8131999999999999,
+          0.11599999999999999,
+          1.513
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_2",
+        "level": "B1",
+        "position": [
+          14.2,
+          0.29000000000000004,
+          -8.8
+        ],
+        "size": [
+          0.6763999999999999,
+          0.11600000000000005,
+          1.326
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_3",
+        "level": "B1",
+        "position": [
+          14.2,
+          0.40599999999999997,
+          -8.8
+        ],
+        "size": [
+          0.5396000000000001,
+          0.11599999999999999,
+          1.1389999999999998
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_4",
+        "level": "B1",
+        "position": [
+          14.2,
+          0.522,
+          -8.8
+        ],
+        "size": [
+          0.40280000000000005,
+          0.11599999999999999,
+          0.9519999999999998
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_5",
+        "level": "B1",
+        "position": [
+          14.693999999999999,
+          0.028000000000000004,
+          -8.8
+        ],
+        "size": [
+          0.07000000000000006,
+          0.05600000000000001,
+          0.07
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_6",
+        "level": "B1",
+        "position": [
+          14.128828303451392,
+          0.0376,
+          -9.756814490182235
+        ],
+        "size": [
+          0.094,
+          0.0752,
+          0.09399999999999997
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_7",
+        "level": "B1",
+        "position": [
+          13.546020680489978,
+          0.047200000000000006,
+          -8.586141044289894
+        ],
+        "size": [
+          0.1180000000000001,
+          0.09440000000000001,
+          0.11800000000000002
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_8",
+        "level": "B1",
+        "position": [
+          14.377033767075377,
+          0.05680000000000001,
+          -7.900028468856698
+        ],
+        "size": [
+          0.14200000000000002,
+          0.11360000000000002,
+          0.1419999999999999
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_9",
+        "level": "B1",
+        "position": [
+          14.715641394229612,
+          0.0664,
+          -9.215012861502728
+        ],
+        "size": [
+          0.16599999999999998,
+          0.1328,
+          0.16600000000000004
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_10",
+        "level": "B1",
+        "position": [
+          13.813409481899395,
+          0.028000000000000004,
+          -9.589662570694589
+        ],
+        "size": [
+          0.07000000000000006,
+          0.05600000000000001,
+          0.07000000000000006
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_11",
+        "level": "B1",
+        "position": [
+          13.832886456214167,
+          0.0376,
+          -8.20848854397877
+        ],
+        "size": [
+          0.09399999999999997,
+          0.0752,
+          0.09400000000000008
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_12",
+        "level": "B1",
+        "position": [
+          14.640750394850098,
+          0.047200000000000006,
+          -8.167559096053152
+        ],
+        "size": [
+          0.118,
+          0.09440000000000001,
+          0.1180000000000001
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      },
+      {
+        "id": "B1_COAL_HEAP_13",
+        "level": "B1",
+        "position": [
+          14.576896016939283,
+          0.05680000000000001,
+          -9.532869214138657
+        ],
+        "size": [
+          0.14200000000000002,
+          0.11360000000000002,
+          0.14200000000000013
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "existing Blender coal heap assembly"
+      }
+    ],
+    "platforms": [
+      {
+        "id": "B1_PUBLIC_LANDING_E",
+        "level": "B1",
+        "rect": [
+          4.4,
+          -2.0,
+          5.4,
+          1.75
+        ],
+        "class": "core"
       }
     ]
   },
@@ -5684,6 +6400,55 @@
         "kind": "service",
         "unit": "",
         "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_ELECTRICAL_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_SHOP_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_COAL_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_STORAGE_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_BOILER_STAIR_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": false,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_SHOP_STAIR_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": true,
+        "leaf_state": "closed"
+      },
+      {
+        "id": "B1_BOILER_FIRE_DOOR",
+        "kind": "service",
+        "unit": "",
+        "swing_out": true,
         "leaf_state": "closed"
       }
     ],
@@ -6230,6 +6995,21 @@
         "id": "F01_STAFF_WC",
         "template": "5C_wc",
         "unit": "staff"
+      },
+      {
+        "id": "b1_repair_bench",
+        "template": "3B_workbench",
+        "unit": "B1"
+      },
+      {
+        "id": "b1_toolboard",
+        "template": "3B_toolboard",
+        "unit": "B1"
+      },
+      {
+        "id": "b1_parts_shelf",
+        "template": "3B_tools0",
+        "unit": "B1"
       }
     ],
     "lighting": {
@@ -6656,6 +7436,51 @@
             "energy_scale": 1.5,
             "range_clamp": 6.5
           }
+        },
+        {
+          "id": "B1_ELECTRICAL_LT",
+          "room": "B1_ELECTRICAL",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "B1_MAINTENANCE_SHOP_LT",
+          "room": "B1_MAINTENANCE_SHOP",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "B1_COAL_ROOM_LT",
+          "room": "B1_COAL_ROOM",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "B1_RESIDENT_STORAGE_LT",
+          "room": "B1_RESIDENT_STORAGE",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "B1_SERVICE_CORE_LT",
+          "room": "B1_SERVICE_CORE",
+          "kind": "flush_dome",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
         }
       ],
       "switches": [
@@ -6846,6 +7671,26 @@
         {
           "id": "F01_STAFF_RESTROOM_SWITCH",
           "room": "F01_STAFF_RESTROOM"
+        },
+        {
+          "id": "B1_ELECTRICAL_SWITCH",
+          "room": "B1_ELECTRICAL"
+        },
+        {
+          "id": "B1_MAINTENANCE_SHOP_SWITCH",
+          "room": "B1_MAINTENANCE_SHOP"
+        },
+        {
+          "id": "B1_COAL_ROOM_SWITCH",
+          "room": "B1_COAL_ROOM"
+        },
+        {
+          "id": "B1_RESIDENT_STORAGE_SWITCH",
+          "room": "B1_RESIDENT_STORAGE"
+        },
+        {
+          "id": "B1_SERVICE_CORE_SWITCH",
+          "room": "B1_SERVICE_CORE"
         }
       ]
     }
