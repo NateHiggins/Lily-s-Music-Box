@@ -18,6 +18,7 @@ func _ready() -> void:
 	var original_path: String = RealityState.save_path
 	var test_path := "user://v2_household_state_%d.json" % Time.get_ticks_usec()
 	RealityState.save_path = test_path
+	failures.append("exercise interrupted before completion")
 	await exercise()
 	RealityState.save_path = original_path
 	for suffix: String in ["", ".bak", ".tmp", ".txn"]:
@@ -36,7 +37,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 182, "133 circuits, seventeen ordinary valves, twenty-four cabinet doors and eight book orders")
+	check(defaults.records.size() == 184, "182 household controls and two completed service results")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -53,6 +54,25 @@ func exercise() -> void:
 		var record: Dictionary = defaults.records[identity]
 		var prop: Node = world.adapter.resolve(identity)
 		match record.kind:
+			"fuse_service", "tank_service":
+				prop.call("interact", world.player)
+				var panel: MaintenanceActivityPanel = prop.get("_service_panel")
+				check(panel != null, "production maintenance opens: " + identity)
+				if panel == null: return
+				var step: Dictionary = panel._director.active_run.current_step()
+				prop.call("preview_maintenance_step", step, float(step.target))
+				check(RealityState.save_game(), "saving a live repair preview succeeds")
+				check(not RealityState.data[Owner.KEY].records[identity].value, "unfinished work is not published")
+				panel._director.abort()
+				await get_tree().process_frame
+				check(prop.call("maintenance_snapshot") == owner.get("_service_defaults")[identity], "cancel restores the unrepaired mechanism")
+				prop.call("interact", world.player)
+				panel = prop.get("_service_panel")
+				for service_step: Dictionary in panel._director.active_run.profile.steps:
+					prop.call("preview_maintenance_step", service_step, float(service_step.target))
+					check(panel._director.submit(str(service_step.verb),float(service_step.target),float(service_step.get("hold_min_seconds",0))+.4), "director accepts " + str(service_step.id))
+				await get_tree().create_timer(1.0).timeout
+				check(RealityState.data[Owner.KEY].records[identity].value and not world.player.call_locked, "completed repair is saved and releases movement")
 			"light": prop.call("set_powered", not record.value)
 			"radiator": prop.call("set_supply_position", .35, 0.0)
 			"prep": prop.call("interact", world.player)
@@ -85,7 +105,11 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 182 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 184 settings restore onto new physical owners")
+	var fuse := world.adapter.resolve("B1_FUSE_PANEL") as FusePanelProp
+	var tank := world.adapter.resolve("ROOF_TANK_BALLCOCK") as RoofTankBallcockProp
+	check(fuse.panel_safe and fuse.protects_conductor() and fuse.load_proved, "reload reconstructs the correct fuse and proved load")
+	check(tank.ballcock_serviced and tank.valve_holds() and not tank.overflow_running(), "reload reconstructs the holding tank valve")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
@@ -96,13 +120,14 @@ func exercise() -> void:
 	for unit: String in ["1A","1D","2C","3D","4C","4D"]:
 		added_circuits["F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"] = true
 	for identity: String in wanted.records:
-		if added_circuits.has(identity) or wanted.records[identity].kind == "books" or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
+		if added_circuits.has(identity) or wanted.records[identity].kind in ["books", "fuse_service", "tank_service"] or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
 	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")
 	RealityState.data[Owner.KEY] = legacy
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == expanded, "pre-upper save restores lower facts and defaults new circuits")
+	check(not fuse.panel_safe and tank.overflow_running(), "old saves inherit the original apparatus faults")
 	check(RealityState.data[Owner.KEY] == legacy, "loading old circuit roster does not eagerly rewrite saved facts")
 	RealityState.data[Owner.KEY] = wanted.duplicate(true)
 	RealityState.state_changed.emit()
@@ -131,6 +156,10 @@ func exercise() -> void:
 	var wrong_type := wanted.duplicate(true)
 	wrong_type.records["2A_prep_cabinet"].value = 1
 	invalids.append(wrong_type)
+	for identity: String in Owner.SERVICE_KINDS:
+		var malformed := wanted.duplicate(true)
+		malformed.records[identity].value = 1
+		invalids.append(malformed)
 	var nonfinite := wanted.duplicate(true)
 	nonfinite.records["F03_A_RADIATOR_01"].value = NAN
 	invalids.append(nonfinite)
@@ -155,9 +184,12 @@ func exercise() -> void:
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == wanted and not owner.capture_now(), "invalid load neither mutates props nor gets overwritten")
 	check(RealityState.data[Owner.KEY] == unknown, "invalid saved bytes remain represented for recovery")
+	tank.interact(world.player)
+	tank.preview_maintenance_step({"id":"shut_the_riser"},0.0)
 	RealityState.data[Owner.KEY] = defaults.duplicate(true)
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == defaults, "valid mid-session load recovers from blocked payload")
+	check(tank._service_panel == null and not world.player.call_locked and tank.overflow_running(), "loading closes old preview before restoring the new mechanism")
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	for identity: String in defaults.records:
@@ -182,3 +214,4 @@ func exercise() -> void:
 	RealityState.snapshot_preparing.emit()
 	check(RealityState.data[Owner.KEY] == preserved, "retired owner cannot write after shutdown")
 	world.free()
+	failures.erase("exercise interrupted before completion")

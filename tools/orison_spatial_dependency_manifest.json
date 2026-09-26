@@ -182358,6 +182358,123 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d0f2814a629d28f8",
+   "kind": "id_reference",
+   "token": "B1_FUSE_PANEL",
+   "file": "game/scripts/building/orison_v2_household_state.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "const SERVICE_KINDS := {\"B1_FUSE_PANEL\":\"fuse_service\", \"ROOF_TANK_BALLCOCK\":\"tank_service\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b5acb0fe3e2e0bfc",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/scripts/building/orison_v2_household_state.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "const SERVICE_KINDS := {\"B1_FUSE_PANEL\":\"fuse_service\", \"ROOF_TANK_BALLCOCK\":\"tank_service\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "e0d44049634d47a4",
+   "kind": "id_reference",
+   "token": "B1_FUSE_PANEL",
+   "file": "game/tests/orison_v2_household_state_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    109
+   ],
+   "count": 1,
+   "context": [
+    "var fuse := world.adapter.resolve(\"B1_FUSE_PANEL\") as FusePanelProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "df1ea9f2a301d004",
+   "kind": "runtime_id",
+   "token": "ROOF_TANK_BALLCOCK",
+   "file": "game/tests/orison_v2_household_state_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    110
+   ],
+   "count": 1,
+   "context": [
+    "var tank := world.adapter.resolve(\"ROOF_TANK_BALLCOCK\") as RoofTankBallcockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }

@@ -31,8 +31,8 @@ door connects to the service stair, which now continues down from F01. The coal
 annex opens from the boiler room. Its rear bunker now has a gravity chute to
 the closed street coal-hole cover; delivery is static architecture. Clear the
 open boiler-door tip before turning into the apparatus aisle. Resident storage is through the north door
-beside the primary stair, with eighteen labeled bays. Fuse repairs currently
-last for that building instance; the five new room-light settings are saved.
+beside the primary stair, with eighteen labeled bays. Completed fuse repairs
+and the five new room-light settings survive Continue and building returns.
 
 The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
 shells, doors, furniture, working hot/cold taps and switched lights. The staff
@@ -48,9 +48,9 @@ second bulkhead, to the east, connects to the service stair. Both doors open
 and close normally; the perimeter has solid parapets. The raised timber water
 tank stands southwest of the public bulkhead. Walk to its exposed valve and
 press E to service the overflowing ballcock; Escape cancels and restores an
-unfinished attempt. This reuses the existing tank activity. Its repair is local
-to the current building instance, not a saved campaign job or a source of water
-for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
+unfinished attempt. This reuses the existing tank activity. Its completed repair
+survives Continue and building returns. It is not a campaign job or a source of
+water for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
 registers through four modeled risers and overhead branches. The registers
 clear the ceiling lights. Stack A serves the northwest bathrooms, B the
 southwest, C the north-central homes, and D the eastern bathrooms and staff

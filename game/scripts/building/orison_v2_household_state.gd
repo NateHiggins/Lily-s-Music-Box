@@ -11,6 +11,10 @@ var _connections: Array = []
 var _bound := false
 var _restoring := false
 var _blocked := false
+const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service"}
+var _service_defaults: Dictionary = {}
+var _service_completed: Dictionary = {}
+var _service_library: MaintenanceActivityLibrary
 
 func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	if _bound or adapter == null or switches == null or not is_inside_tree(): return false
@@ -35,16 +39,26 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		if record.unit != "2B": _kinds[str(record.id)] = "radiator"
 	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
 	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
+	_kinds.merge(SERVICE_KINDS)
+	_service_library = MaintenanceActivityLibrary.load_default()
+	if not _service_library.is_valid():
+		errors.append("invalid maintenance restoration profiles")
+		return false
 	for identity: String in _kinds:
 		var prop: Node = adapter.resolve(identity)
 		var kind: String = _kinds[identity]
 		if (kind == "light" and not prop is LightFixtureProp) \
+				or (kind == "fuse_service" and not prop is FusePanelProp) \
+				or (kind == "tank_service" and not prop is RoofTankBallcockProp) \
 				or (kind == "radiator" and not prop is RadiatorProp) \
 				or (kind == "books" and (not prop is BookshelfProp or not prop.has_method("restore_order"))) \
 				or (kind in ["prep", "mirror"] and (prop == null or not prop.has_method("restore_open_state"))):
 			errors.append("missing household control: " + identity)
 			return false
 		_subjects[identity] = prop
+		if SERVICE_KINDS.has(identity):
+			_service_defaults[identity] = prop.call("maintenance_snapshot")
+			_service_completed[identity] = false
 	_defaults = snapshot()
 	if _defaults.is_empty():
 		errors.append("household controls detached before binding")
@@ -58,7 +72,9 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	_connect(RealityState, "state_changed", _on_state_changed)
 	_connect(switches, "room_toggled", _on_room_changed)
 	for identity: String in _subjects:
-		if _kinds[identity] == "radiator":
+		if SERVICE_KINDS.has(identity):
+			_connect(_subjects[identity], "maintenance_completed", _on_service_completed.bind(identity))
+		elif _kinds[identity] == "radiator":
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
 		elif _kinds[identity] in ["prep", "mirror"]:
 			_connect(_subjects[identity], "open_state_changed", _on_cabinet_changed)
@@ -119,6 +135,7 @@ func snapshot() -> Dictionary:
 		var kind: String = _kinds[identity]
 		var setting: Variant
 		match kind:
+			"fuse_service", "tank_service": setting = _service_completed[identity]
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.get("supply_position")
 			"prep": setting = prop.get("opened")
@@ -133,6 +150,7 @@ func _restore(saved: Dictionary) -> void:
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]
 		match record.kind:
+			"fuse_service", "tank_service": _restore_service(identity, record.value)
 			"light": prop.call("set_powered", record.value)
 			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
 			"books": prop.call("restore_order", record.value)
@@ -140,6 +158,32 @@ func _restore(saved: Dictionary) -> void:
 	_last_saved = saved.duplicate(true)
 	_restoring = false
 	_blocked = false
+
+func _restore_service(identity: String, completed: bool) -> void:
+	var prop: Node = _subjects[identity]
+	# A loaded/reset world cannot keep an old preview that would later roll
+	# back over the newly loaded result when the player cancels the panel.
+	var panel: Variant = prop.get("_service_panel")
+	if is_instance_valid(panel): panel.call("_close", true)
+	var state: Dictionary = _service_defaults[identity].duplicate(true)
+	if completed:
+		var activity := "fuse_panel_rating_service" if SERVICE_KINDS[identity] == "fuse_service" else "roof_tank_ballcock_service"
+		var profile: Dictionary = _service_library.activity(activity)
+		var patch: Dictionary = profile.completion.mechanism_patch
+		for key: String in patch:
+			if state.has(key): state[key] = patch[key]
+		if state.has("load_proved"): state.load_proved = true
+	prop.call("restore_maintenance_snapshot", state)
+	_service_completed[identity] = completed
+
+func _on_service_completed(_result: Dictionary, identity: String) -> void:
+	if _restoring or _blocked: return
+	var prop: Node = _subjects[identity]
+	var completed: bool = (prop.get("panel_safe") and prop.call("protects_conductor")) \
+		if SERVICE_KINDS[identity] == "fuse_service" else (prop.get("ballcock_serviced") and prop.call("valve_holds"))
+	if not completed: return
+	_service_completed[identity] = true
+	_commit_change()
 
 func _on_state_changed() -> void:
 	if not _bound or _restoring: return
