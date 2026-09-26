@@ -47,7 +47,7 @@ logs and adjacent suite-run receipts under tmp/v2-flue; clean candidate
 verification repeats double import, routes and relevant launch checks.
 This is scoped engineering evidence, not runtime-contract or human acceptance.
 
-Four reviewed spatial inventory records are appended; existing records and
+Five reviewed spatial inventory records are appended; existing records and
 classifications are unchanged. Reader audit reports zero new unread fields.
 All seventeen protected paths, V2 default and V1 rollback remain unchanged.
 Ledger before/after remains 7/8/127/42/151/153; this inert report promotes none.

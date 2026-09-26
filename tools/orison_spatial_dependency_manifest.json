@@ -182966,6 +182966,41 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "b4f3f2369985df40",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_household_state_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    114,
+    117,
+    121,
+    121
+   ],
+   "count": 4,
+   "context": [
+    "var boiler := world.adapter.resolve(\"B1_BOILER_01\") as BoilerProp",
+    "previous_roster.records.erase(\"B1_BOILER_01\")",
+    "expected_previous.records[\"B1_BOILER_01\"] = defaults.records[\"B1_BOILER_01\"].duplicate(true)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
   }
  ]
 }
