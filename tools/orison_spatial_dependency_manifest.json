@@ -183001,6 +183001,159 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "6333b3c892baf434",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/scripts/building/orison_v2_wayfinding.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    38,
+    40
+   ],
+   "count": 2,
+   "context": [
+    "var title := \"BASEMENT\" if level.id==\"B1\" else \"ROOF\" if level.id==\"ROOF\" else \"FLOOR \"+str(int(str(level.id).substr(1)))",
+    "if level.id==\"B1\": note = \"LAUNDRY  <    BOILER  >\" if public else \"WORKSHOP / BOILER\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6d7575e8b4f92276",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_wayfinding.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    41
+   ],
+   "count": 1,
+   "context": [
+    "elif level.id==\"F01\": note = \"STREET / WATCH STATION\" if public else \"GROUND FLOOR SERVICE\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "70b89f07a1bcd5f1",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/scripts/building/orison_v2_wayfinding.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    38,
+    38,
+    42
+   ],
+   "count": 3,
+   "context": [
+    "var title := \"BASEMENT\" if level.id==\"B1\" else \"ROOF\" if level.id==\"ROOF\" else \"FLOOR \"+str(int(str(level.id).substr(1)))",
+    "elif level.id==\"ROOF\": note = \"ROOF ACCESS / STAIRS DOWN\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "24774fe115443504",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_wayfinding.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "identity+\"_Plaque\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1ae53d4951a06213",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/orison_v2_wayfinding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

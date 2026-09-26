@@ -134,7 +134,15 @@ func _ready() -> void:
 	var cues := CUES.new()
 	cues.show_bed_context = false
 	cues.show_terminal_context = false
+	cues.show_floor_context = false
 	_blockout.add_child(cues)
+	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
+	wayfinding.name = "Wayfinding"
+	_blockout.add_child(wayfinding)
+	if not wayfinding.mount(_blockout.layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: incomplete stair wayfinding")
+		return
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
 			"F04_B_MONITOR_01", "F03_B_RADIATOR_01"]):
@@ -239,6 +247,7 @@ func _compose_authorities() -> void:
 		return
 	light_rig = LightRig.new()
 	light_rig.name = "LightRig"
+	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
 	get_node("WakingAtmosphere").add_child(light_rig)
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()

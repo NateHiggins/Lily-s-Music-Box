@@ -22,6 +22,10 @@ The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
 the control and let the carried set settle after a fast turn. Its light still
 comes from the modeled lens; walls and machinery cast shadows.
 
+Both stair cores have floor plates from the basement through the roof. The
+ground-floor plates identify the street/watch station and service access;
+basement plates identify laundry, workshop and boiler directions.
+
 For Mina's opening shift, follow the report to 2A, inspect the faulty listening
 head, obtain its capsule at HARDWARE PAINT, and return to repair the same head.
 Speak with Mina after the repair. Her conversation enables the nearby lobby
@@ -93,7 +97,7 @@ another repair job or a second lift controller.
 
 The service lamp is now bright enough to serve as the primary local light in
 unlit rooms, the basement and on the roof. Press L to switch it. It retains its
-physical aim and thermal warm-up. Its native throw is 12 metres; the shared
+physical aim and thermal warm-up. Its native throw is 16 metres; the shared
 voxel field supplies instantaneous optical response rather than building-wide
 indirect illumination. Dream and close-up inspection use lower, scene-specific
 output. The ecology camera's lamp takes over the field while inspecting and
