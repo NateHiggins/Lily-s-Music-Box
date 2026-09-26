@@ -30,6 +30,8 @@ func _run() -> void:
 	await shot("01_printing")
 	await get_tree().create_timer(9).timeout
 	check(not printer.printing and printer.ink.text==printer.pages[0],"first page remains readable")
+	check(printer.spools[0].get_child_count()>=10 and printer.spools[1].get_child_count()>=10,"visible reel hubs and rivets belong to the rotating assemblies")
+	check(printer.feed_wheels.size()==2 and absf(printer.feed_wheels[0].rotation.x)>.01,"feed thumbwheels advance with the platen")
 	check(printer.pages.size()>1 and "PREVENTATIVE" in " ".join(printer.pages),"long report retained across paper pages")
 	var read_event := InputEventAction.new()
 	read_event.action="teletype_read"; read_event.pressed=true

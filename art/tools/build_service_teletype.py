@@ -141,6 +141,17 @@ def attach(obj,parent):
     transform=obj.matrix_world.copy(); obj.parent=parent; obj.matrix_world=transform
     return obj
 
+# A reel's visible winding, hub and rivets must turn with its disc. The feed
+# thumbwheels share the platen's line advance instead of remaining fixed trim.
+for obj in list(static):
+    if obj.name.startswith(('Ribbon winding','Spool hub','Spool spoke rivet')):
+        attach(obj,bpy.data.objects['SupplySpool' if obj.location.x<0 else 'TakeupSpool'])
+for x,name in [(-.105,'FeedWheelLeft'),(.105,'FeedWheelRight')]:
+    wheel=pivot(name,(x,-.055,.086))
+    for obj in list(static):
+        if obj.name.startswith(('Feed thumbwheel','Knurl')) and abs(obj.location.x-x)<.001:
+            attach(obj,wheel)
+
 cover=pivot('ServiceCover',(0,-.116,.096))
 attach(box('Hinged inspection cover',(0,-.142,.101),(.132,.048,.003),case),cover)
 for x in [-.067,.067]:

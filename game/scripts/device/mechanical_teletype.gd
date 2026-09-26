@@ -17,6 +17,7 @@ var carriage: Node3D
 var hammer: Node3D
 var platen: Node3D
 var spools: Array[Node3D]=[]
+var feed_wheels: Array[Node]=[]
 var powered := true
 var printing := false
 var printed_characters := 0
@@ -58,6 +59,7 @@ func _ready() -> void:
 	lamp_switch=model.find_child("LampSwitch",true,false)
 	radio_switch=model.find_child("RadioSwitch",true,false)
 	_gears=model.find_children("FeedGear*","Node3D",true,false)
+	feed_wheels=model.find_children("FeedWheel*","Node3D",true,false)
 	for key in ["OrderJewel","NetJewel","LampJewel"]:
 		var jewel := model.find_child(key,true,false) as MeshInstance3D
 		jewel.material_override=jewel.get_active_material(0).duplicate()
@@ -223,6 +225,7 @@ func _process(delta: float) -> void:
 			_return_from=carriage.position.x
 			_column=0; _return_left=RETURN_SECONDS
 			platen.rotate_x(.42)
+			for wheel in feed_wheels: (wheel as Node3D).rotate_x(.42)
 			if _feed.stream: _feed.play()
 		else:
 			_column+=1

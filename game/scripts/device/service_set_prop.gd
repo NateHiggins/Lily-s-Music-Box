@@ -96,7 +96,7 @@ func set_incoming_call(waiting: bool) -> void:
 
 
 ## A powered set prints the full field copy onto persistent physical paper.
-## The HUD remains an accessible second presentation of the same supplied facts.
+## The physical printer is the carried presentation of the supplied facts.
 func print_telegram_card(message: Variant) -> bool:
 	if not radio_powered or teletype == null:
 		return false
