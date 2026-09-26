@@ -224,9 +224,26 @@ func _run() -> void:
 		"legacy live-load notification restores a fresh physical care roster")
 	RealityState.data.caretaker_economy = restored
 	RealityState.state_changed.emit()
-	_check(not economy.pay_rent(),"insufficient rent leaves wallet alone")
+	notebook.open(null)
+	print_count = device.printed_count
+	notebook._pay_rent()
+	_check("needs $5.00" in notebook.feedback.text and device.printed_count==print_count,
+		"insufficient rent explains the shortfall and prints no receipt")
 	economy.book().cash = 700
-	_check(economy.pay_rent() and economy.book().cash==200,"rent debits integer cents")
+	notebook._pay_rent()
+	paper = "\n".join(device.teletype.pages)
+	_check(economy.book().cash==200 and device.printed_count==print_count+1 and "RENT RECEIPT" in paper and "$5.00" in paper,
+		"rent payment debits cents and prints exactly one physical receipt")
+	_check("$2.00" in notebook.readout.text,"rent immediately refreshes pocket balance")
+	var rent_wait := 0.0
+	while device.teletype.printing and rent_wait<15:
+		await get_tree().create_timer(.1).timeout
+		rent_wait += .1
+	await _shot("rent_receipt")
+	notebook._pay_rent()
+	_check("already paid" in notebook.feedback.text and economy.book().cash==200 and device.printed_count==print_count+1,
+		"advance limit explains paid rent without another debit or receipt")
+	notebook.close()
 	economy.clock.advance_to(float(economy.book().started)+Economy.MONTH*3)
 	_check(economy.rent_cycles_due()==2 and economy.book().cash==200,"rent arrears accrue without fees or cash seizure")
 	notebook.open(null)
@@ -251,6 +268,17 @@ func _run() -> void:
 		await get_tree().create_timer(.1).timeout
 		print_wait += .1
 	await _shot("physical_pocket_copy")
+	notebook.open(null)
+	economy.book().cash = 700
+	var paid_before: int = economy.book().rent_paid
+	device.set_radio_powered(false)
+	print_count = device.printed_count
+	notebook._pay_rent()
+	_check(economy.book().rent_paid==paid_before+1 and economy.book().cash==200 and device.printed_count==print_count
+		and "payment recorded, no slip printed" in notebook.feedback.text,
+		"unpowered rent payment records money honestly without a phantom receipt")
+	notebook.close()
+	device.set_radio_powered(true)
 	RealityState.save_path = RealityState.SAVE_PATH
 	world.shutdown_for_tests()
 	world.free()

@@ -105,10 +105,16 @@ func _settle_jobs() -> void:
 func rent_cycles_due() -> int:
 	return maxi(0,int((clock.elapsed_minutes()-float(book().started))/MONTH)-int(book().rent_paid))
 
+func rent_payment_status() -> String:
+	if RealityState.save_write_blocked: return "save_unavailable"
+	var elapsed_cycles := int((clock.elapsed_minutes()-float(book().started))/MONTH)
+	if int(book().rent_paid)>elapsed_cycles: return "paid_ahead"
+	if int(book().cash)<RENT: return "insufficient_cash"
+	return "available"
+
 func pay_rent() -> bool:
 	# One advance instalment is allowed; debt is never interest-bearing.
-	var elapsed_cycles := int((clock.elapsed_minutes()-float(book().started))/MONTH)
-	if RealityState.save_write_blocked or int(book().cash)<RENT or int(book().rent_paid)>elapsed_cycles: return false
+	if rent_payment_status()!="available": return false
 	book().cash = int(book().cash)-RENT
 	book().rent_paid = int(book().rent_paid)+1
 	RealityState.commit()

@@ -59,6 +59,10 @@ and the inspection says so. Service and its payment still complete normally.
 
 P shows the pocket balance and rent. Starting cash is $1.00. Rent is a $5.00
 instalment every thirty campaign days; one advance instalment can be paid.
+Paying rent immediately updates the pocket and prints a receipt on the powered
+set. A set that is off does not prevent payment; the ledger explicitly says no
+slip was printed. Insufficient cash, an already-paid advance instalment and
+unavailable saving have distinct responses, and refused payments print nothing.
 Unpaid instalments accumulate without interest, fees, eviction, forced cash
 deductions or blocked play. These are provisional game-balance values, not
 claims about historical rents. An older save starts this schedule when the

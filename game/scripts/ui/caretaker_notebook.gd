@@ -89,7 +89,7 @@ func open(target: Node) -> void:
 			_button("Exercise the cabinet",_test_cabinet)
 		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Brush and wax track",_service)
 	else:
-		_button("Pay $5.00 rent instalment",func(): feedback.text = "Rent paid." if economy.pay_rent() else "Keep saving for the next instalment.")
+		_button("Pay $5.00 rent instalment",_pay_rent)
 		_button("Next service requests",func(): _request_page += 1; _process(0))
 		_button("Print pocket and request page",_print_pocket)
 	feedback = Label.new()
@@ -215,6 +215,22 @@ func _set_test_controls(running: bool) -> void:
 
 func _print_card(card: Dictionary) -> bool:
 	return is_instance_valid(player.carried_device) and player.carried_device.print_telegram_card(card)
+
+func _pay_rent() -> void:
+	if not opened or subject!=null: return
+	if not economy.pay_rent():
+		match economy.rent_payment_status():
+			"paid_ahead": feedback.text = "The next instalment is already paid. Keep your pocket money."
+			"save_unavailable": feedback.text = "Saving is unavailable; no rent was taken."
+			_: feedback.text = "Keep saving: an instalment needs $5.00. No money was taken."
+		return
+	var instalment: int = economy.book().rent_paid
+	var body: String = "Instalment %d paid: %s.\nPocket: %s.\nOverdue instalments: %d.\nNo late fees." % [
+		instalment,economy.money(economy.RENT),economy.money(int(economy.book().cash)),economy.rent_cycles_due()]
+	feedback.text = "Rent instalment %d paid." % instalment
+	if not _print_card({"title":"RENT RECEIPT", "body":body, "stamp":"RENT RECORD"}):
+		feedback.text += " Set off; payment recorded, no slip printed."
+	_process(0)
 
 func _print_pocket() -> void:
 	if not opened or subject!=null: return
