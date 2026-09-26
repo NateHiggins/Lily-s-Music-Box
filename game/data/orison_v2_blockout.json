@@ -1722,7 +1722,13 @@
     {"id":"F01_STAFF_RESTROOM_LT","level":"F01","position":[6.8500000000000005,2.9,-6.45],"yaw":0,"kind":"fixture","space":"F01_STAFF_RESTROOM"},
     {"id":"F01_STAFF_RESTROOM_SWITCH","level":"F01","position":[6.15,1.12,-8.200000000000001],"yaw":3.141592653589793,"kind":"interaction","space":"F01_STAFF_RESTROOM"},
     {"id":"F01_STAFF_SINK","level":"F01","position":[6.1,0,-7.94],"yaw":3.141592653589793,"kind":"fixture"},
-    {"id":"F01_STAFF_WC","level":"F01","position":[7.75,0,-7.7],"yaw":3.141592653589793,"kind":"fixture"}
+    {"id":"F01_STAFF_WC","level":"F01","position":[7.75,0,-7.7],"yaw":3.141592653589793,"kind":"fixture"},
+    {"id":"F01_A_RADIATOR_01","level":"F01","space":"F01_A_MAIN","position":[-15.4,0.75,-6.35],"yaw":-1.5707963267948966,"kind":"interaction"},
+    {"id":"F01_A_RADIATOR_STANCE","level":"F01","space":"F01_A_MAIN","position":[-14.4,0,-6.35],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"F03_D_RADIATOR_01","level":"F03","space":"F03_D_MAIN","position":[-15.4,0.75,-6.35],"yaw":-1.5707963267948966,"kind":"interaction"},
+    {"id":"F03_D_RADIATOR_STANCE","level":"F03","space":"F03_D_MAIN","position":[-14.4,0,-6.35],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"F04_D_RADIATOR_01","level":"F04","space":"F04_D_MAIN","position":[-15.4,0.75,-6.35],"yaw":-1.5707963267948966,"kind":"interaction"},
+    {"id":"F04_D_RADIATOR_STANCE","level":"F04","space":"F04_D_MAIN","position":[-14.4,0,-6.35],"yaw":1.5707963267948966,"kind":"clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

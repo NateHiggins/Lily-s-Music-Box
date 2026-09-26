@@ -28,6 +28,9 @@ The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
 shells, doors, furniture, working hot/cold taps and switched lights. The staff
 restroom opens from the ground-floor service hall. The sealed 2D and 3C entries
 remain locked. These installations do not add new resident cases.
+All eighteen occupied homes have working radiator supply valves. Ordinary
+valve settings, room lights and the existing saved household controls survive
+Continue; the 2B repair keeps its own existing state owner.
 
 The primary stair now continues above F06 to the roof. At its top landing,
 turn toward the west bulkhead door and press E to step onto the deck. The
@@ -39,8 +42,15 @@ unfinished attempt. This reuses the existing tank activity. Its repair is local
 to the current building instance, not a saved campaign job or a source of water
 for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
 registers. Their guarded inspection points explain the service refusal; they
-are not another repair job. Lift machinery and adequate night lighting remain
-unfinished.
+are not another repair job. Lift machinery remains unfinished.
+
+The service lamp is now bright enough to serve as the primary local light in
+unlit rooms, the basement and on the roof. Press L to switch it. It retains its
+physical aim and thermal warm-up. Its native throw is 12 metres; the shared
+voxel field supplies instantaneous optical response rather than building-wide
+indirect illumination. Dream and close-up inspection use lower, scene-specific
+output. The ecology camera's lamp takes over the field while inspecting and
+returns ownership to the carried lamp when you leave.
 
 Mina walks her existing home, shop, laundry and mail routes. She waits for
 doors to finish opening and closes doors she opened after people clear their

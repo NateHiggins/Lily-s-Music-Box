@@ -212,9 +212,8 @@ const DREAM_LAMP_RANGE := 8.5
 const DREAM_LAMP_ATTENUATION := 1.9
 const DREAM_LAMP_ANGLE := 40.0
 const DREAM_LAMP_ANGLE_ATTENUATION := 2.4
-## The 3D light is now a shadow-caster and little else; the surface response
-## is the shader's. Kept high enough that the borrowed silhouette still reads.
-const DREAM_LAMP_SHADOW_ENERGY := 1.1
+## The real lamp supplies both native surfaces and the shared optical field.
+const DREAM_LAMP_SHADOW_ENERGY := preload("res://scripts/lamp/lamp_gameplay_profile.gd").DREAM_ENERGY
 
 ## Deliberately small: Compatibility turns every particle into a submission and
 ## this frame is submission-bound. See _build_motes().
@@ -1341,9 +1340,8 @@ func _make_lamp_local() -> void:
 	player.flashlight.spot_attenuation = DREAM_LAMP_ATTENUATION
 	player.flashlight.spot_angle = DREAM_LAMP_ANGLE
 	player.flashlight.spot_angle_attenuation = DREAM_LAMP_ANGLE_ATTENUATION
-	# Dim, because it no longer lights the world -- the shader does. What it
-	# still does, and what nothing else can, is cast the Tenant's borrowed
-	# shadow, which is a ruled requirement rather than a decoration.
+	# The instantaneous field observes this same energy. Native shadowing
+	# retains the Tenant's borrowed silhouette while the shaders reveal tissue.
 	player.flashlight.light_energy = DREAM_LAMP_SHADOW_ENERGY
 	# The warm-up settles back to THIS, not to the waking lamp's output.
 	player.set_lamp_base_energy(DREAM_LAMP_SHADOW_ENERGY)

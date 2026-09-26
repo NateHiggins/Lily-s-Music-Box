@@ -1,7 +1,8 @@
 extends RefCounted
-## V2-local optical receiver binding. Reserved render layer 20 is illuminated
+## V2-local optical receiver binding. Reserved render layer 18 is illuminated
 ## only by the carried lamp. Native surfaces retain their own PBR materials.
-const LAYER := 1 << 19
+## Layer 20 belongs to mirrors, Dream portals and the zoo's inspection lights.
+const LAYER := 1 << 17
 const RECEIVER_META := &"lamp_optical_receiver"
 var root: Node
 var lamp: Light3D
@@ -20,6 +21,12 @@ func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted) -> vo
 	field = owner_field
 	root.get_tree().node_added.connect(_node_added)
 	_scan(root)
+
+func select_lamp(active_lamp: Light3D) -> void:
+	if lamp == active_lamp: return
+	if is_instance_valid(lamp): lamp.light_cull_mask &= ~LAYER
+	lamp = active_lamp
+	if is_instance_valid(lamp): lamp.light_cull_mask |= LAYER
 
 func _scan(node: Node) -> void:
 	_consider(node)

@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
+| Occupied-home radiators, brighter service light and zoo optical-source ownership | `design/ORISON_V2_HEATING_AND_PRIMARY_LIGHT_PROGRESS_2026-09-25.md` |
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
 | V2 remaining homes, passenger lift, shared roof ventilation and scoped route checks | `design/ORISON_V2_HOMES_AND_LIFT_PROGRESS_2026-09-25.md` |
 | Spatial-only evidence for the six added homes and staff restroom | `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` |

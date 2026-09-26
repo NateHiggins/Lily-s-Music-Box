@@ -26,9 +26,11 @@ var _due := 0.0
 func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	player = owner_player
 	player.set_beam_mask_enabled(false)
-	# V2 has a real thermal output multiplier and no photographic exposure
-	# mask. Keep a modest usable throw while room fixtures remain dominant.
-	player.set_lamp_base_energy(1.5)
+	# A usable primary source in unlit rooms and on the roof. The same delivered
+	# output lights native surfaces and supplies the instantaneous voxel field.
+	player.set_lamp_base_energy(preload("res://scripts/lamp/lamp_gameplay_profile.gd").BASE_ENERGY)
+	player.flashlight.spot_range = preload("res://scripts/lamp/lamp_gameplay_profile.gd").WAKING_RANGE
+	player.flashlight.spot_attenuation = preload("res://scripts/lamp/lamp_gameplay_profile.gd").WAKING_ATTENUATION
 	# Finite filament aperture gives nearby blockers a contact shadow and
 	# softens the shadow with distance, rather than a pinhole silhouette.
 	player.flashlight.light_size = .018
@@ -90,7 +92,16 @@ func _update_volume(delta: float) -> void:
 		return
 	_elapsed += delta
 	_due -= delta
-	observation.observe_player(player,delta)
+	var source := player.flashlight
+	var inspection := get_tree().get_first_node_in_group("lamp_inspection_source") as DreamEcologyWarehouse
+	var inspecting := inspection != null and inspection.active
+	if inspecting:
+		source = inspection.lamp
+		observation.observe_light(source,inspection.lamp_enabled,delta)
+	else:
+		observation.observe_player(player,delta)
+	receivers.select_lamp(source)
+	scene_shadow.lamp = source
 	if field.ready:
 		receivers.bind_pending()
 		if not _bound:
@@ -98,19 +109,22 @@ func _update_volume(delta: float) -> void:
 			field.bind_material(particle_material)
 			_bound = true
 		field.observe(observation,observation.state.switched_on)
-	volume.global_transform = player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))
-	var useful: bool = player.lamp_is_enabled() and float(driver.output.intensity) >= .035
+	volume.global_transform = source.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))
+	var useful: bool = observation.state.switched_on and observation.state.intensity >= .035
 	volume.visible = useful and _bound
 	_update_environment(volume.visible)
-	particles.global_transform = player.flashlight.global_transform.translated_local(Vector3(0,0,-3.25))
+	particles.global_transform = source.global_transform.translated_local(Vector3(0,0,-3.25))
 	particles.visible = useful and _bound
 	particles.emitting = useful and _bound
-	player.flashlight.light_volumetric_fog_energy = 3.0 * float(driver.output.volumetric_multiplier) \
-			if useful and driver.state.instability <= .42 else 0.0
+	player.flashlight.light_volumetric_fog_energy = 0.0
+	if inspection != null: inspection.lamp.light_volumetric_fog_energy = 0.0
+	var scattering: float = 1.0 if inspecting else float(driver.output.volumetric_multiplier)
+	source.light_volumetric_fog_energy = 3.0 * scattering \
+			if useful and (inspecting or driver.state.instability <= .42) else 0.0
 	if _due <= 0 or not useful:
 		_due = 1.0/15.0
 		material.set_shader_parameter("optical_time",_elapsed)
-		material.set_shader_parameter("lamp_output",minf(1.0,float(driver.output.volumetric_multiplier)) if useful else 0.0)
+		material.set_shader_parameter("lamp_output",minf(1.0,scattering) if useful else 0.0)
 
 func _update_environment(useful: bool) -> void:
 	# Waking V2 has no ambient volumetric fog before this owner mounts.

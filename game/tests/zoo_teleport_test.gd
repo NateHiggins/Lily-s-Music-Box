@@ -109,6 +109,12 @@ func _run() -> void:
 	for controller in zoo.controllers:
 		_check("the native Blender specimen batch is available", controller.blender_visuals != null)
 	await _capture("zoo_on_foot")
+	var optical := building.get_node_or_null("LampAtmosphere")
+	if optical != null and optical.field != null:
+		_check("zoo key and inspection lamp retain the exhibit layer",
+				zoo.inspection_key.light_cull_mask & DreamEcologyWarehouse.EXHIBIT_LAYER != 0
+				and zoo.lamp.light_cull_mask & DreamEcologyWarehouse.EXHIBIT_LAYER != 0)
+		_check("walking uses the player's shared optical source", optical.scene_shadow.lamp == player.flashlight)
 
 	var net: SafetyNet = building.safety_net
 	_check("the hall is a legitimate place to stand",
@@ -159,6 +165,18 @@ func _run() -> void:
 						zoo.overview_station.global_position) > 1.0)
 		zoo.focus_organelle()
 		await _capture("zoo_organelle_inspector")
+		if optical != null and optical.field != null:
+			_check("inspection uses the visible lamp for voxel radiance and scene shadows",
+					optical.field.ready and optical.field.failed.is_empty()
+					and optical.field.pose.is_equal_approx(zoo.lamp.global_transform)
+					and is_equal_approx(optical.field.energy,zoo.lamp.light_energy)
+					and optical.scene_shadow.lamp == zoo.lamp)
+			zoo.set_lamp_enabled(false)
+			await _capture("zoo_inspection_lamp_off")
+			_check("inspection lamp off clears the optical field without changing carried switch",
+					not optical.field.enabled and optical.field.energy == 0
+					and not optical.volume.visible and player.lamp_is_enabled() == lamp_before_inspection)
+			zoo.set_lamp_enabled(true)
 		zoo.focus_hero()
 		await _capture("zoo_hero_inspector")
 		zoo.focus_species(3)
@@ -235,6 +253,10 @@ func _run() -> void:
 				carried_overlay != null and carried_overlay.visible
 				and player.lamp_is_enabled() == lamp_before_inspection)
 		await _capture("zoo_return_to_building")
+		if optical != null and optical.field != null:
+			_check("return restores the carried voxel lamp and shadow source",
+					optical.scene_shadow.lamp == player.flashlight
+					and optical.field.pose.is_equal_approx(player.flashlight.global_transform))
 	_finish()
 
 func _carrier_overlay(player: PlayerController) -> CanvasLayer:

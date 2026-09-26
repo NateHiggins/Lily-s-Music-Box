@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 171, "128 circuits, eleven ordinary valves, twenty-four cabinet doors and eight book orders")
+	check(defaults.records.size() == 177, "128 circuits, seventeen ordinary valves, twenty-four cabinet doors and eight book orders")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -85,7 +85,7 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 171 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 177 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
@@ -93,6 +93,8 @@ func exercise() -> void:
 	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
 	var added_circuits := {}
 	for fixture: Dictionary in completion.lighting.fixtures: added_circuits[fixture.id] = true
+	for unit: String in ["1A","1D","2C","3D","4C","4D"]:
+		added_circuits["F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"] = true
 	for identity: String in wanted.records:
 		if added_circuits.has(identity) or wanted.records[identity].kind == "books" or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)

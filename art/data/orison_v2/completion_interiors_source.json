@@ -5326,6 +5326,78 @@
         ],
         "yaw": 3.141592653589793,
         "kind": "fixture"
+      },
+      {
+        "id": "F01_A_RADIATOR_01",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -15.4,
+          0.75,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F01_A_RADIATOR_STANCE",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -14.4,
+          0,
+          -6.35
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F03_D_RADIATOR_01",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -15.4,
+          0.75,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F03_D_RADIATOR_STANCE",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -14.4,
+          0,
+          -6.35
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
+      },
+      {
+        "id": "F04_D_RADIATOR_01",
+        "level": "F04",
+        "space": "F04_D_MAIN",
+        "position": [
+          -15.4,
+          0.75,
+          -6.35
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "F04_D_RADIATOR_STANCE",
+        "level": "F04",
+        "space": "F04_D_MAIN",
+        "position": [
+          -14.4,
+          0,
+          -6.35
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "clearance"
       }
     ]
   },

@@ -606,7 +606,7 @@ func _compose_hot_water() -> bool:
 	boiler_tend.name = "BoilerTend"
 	add_child(boiler_tend)
 	# One plant supplies both hot water and all 23 authored heating demands.
-	# Unbuilt rooms retain logical demand; six migrated radiators expose controls.
+	# All eighteen occupied homes expose controls; sealed rooms retain demand.
 	boiler_tend.configure(plant, heat_balance, taps)
 	return true
 
