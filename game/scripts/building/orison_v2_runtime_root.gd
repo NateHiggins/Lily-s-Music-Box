@@ -149,6 +149,12 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("V2 passenger lift could not be composed")
 		return
+	var lift_drive := preload("res://scripts/building/orison_v2_lift_drive.gd").new()
+	if not lift_drive.configure(elevator as OrisonElevator) or not adapter.mount_consumer("ROOF_LIFT_DRIVE",lift_drive):
+		lift_drive.free()
+		startup_failed = true
+		push_error("V2 guarded lift drive could not be composed")
+		return
 	if not preload("res://scripts/building/orison_v2_ventilation.gd").new().mount(adapter,layout):
 		startup_failed = true
 		push_error("V2 shared ventilation could not be composed")

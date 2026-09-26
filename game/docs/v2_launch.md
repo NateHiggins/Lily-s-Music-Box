@@ -50,7 +50,10 @@ unfinished attempt. This reuses the existing tank activity. Its repair is local
 to the current building instance, not a saved campaign job or a source of water
 for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
 registers. Their guarded inspection points explain the service refusal; they
-are not another repair job. Lift machinery remains unfinished.
+are not another repair job. A guarded lift drive stands above the passenger
+shaft inside the public roof bulkhead. Its sheave follows the existing car;
+the guard keeps the moving apparatus separate from the roof access path.
+It does not add another repair job or a second lift controller.
 
 The service lamp is now bright enough to serve as the primary local light in
 unlit rooms, the basement and on the roof. Press L to switch it. It retains its

@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/orison_v2_lift_drive_test.gd" id="1"]
+[node name="OrisonV2LiftDriveTest" type="Node"]
+script = ExtResource("1")

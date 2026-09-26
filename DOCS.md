@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
+| Guarded roof lift machinery driven by the existing passenger car | `design/ORISON_V2_LIFT_DRIVE_PROGRESS_2026-09-26.md` |
 | Basement electrical, workshop, coal, storage and lower service-stair construction | `design/ORISON_V2_BASEMENT_PROGRESS_2026-09-26.md` |
 | Occupied-home radiators, brighter service light and zoo optical-source ownership | `design/ORISON_V2_HEATING_AND_PRIMARY_LIGHT_PROGRESS_2026-09-25.md` |
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |

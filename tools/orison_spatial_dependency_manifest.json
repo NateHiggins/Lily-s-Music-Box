@@ -181143,6 +181143,229 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "298d30ad8d07f0be",
+   "kind": "asset_path",
+   "token": "res://assets/building/v2_lift_drive.glb",
+   "file": "game/scripts/building/orison_v2_lift_drive.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "11d6a36c3368787b",
+   "kind": "id_reference",
+   "token": "ROOF_LIFT_DRIVE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    153
+   ],
+   "count": 1,
+   "context": [
+    "if not lift_drive.configure(elevator as OrisonElevator) or not adapter.mount_consumer(\"ROOF_LIFT_DRIVE\",lift_drive):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9d64e549e03868ff",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "if not _require(lift.current == \"F01\" and not lift.moving,\"guarded machine has not changed idle lift state\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b050a9f1de2b72b0",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    25,
+    32
+   ],
+   "count": 2,
+   "context": [
+    "lift.travel_to(\"F02\")",
+    "if not _require(not lift.moving and lift.current == \"F02\" and is_equal_approx(height,lift._cabin.position.y)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "218e1bb552f65fe2",
+   "kind": "id_reference",
+   "token": "ROOF_LIFT_DRIVE",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var drive := world.adapter.resolve(\"ROOF_LIFT_DRIVE\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5b7459f603e64bf3",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"ROOF_PUBLIC_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "036bc794140dc1e9",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_lift_drive_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    37,
+    39,
+    41,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42
+   ],
+   "count": 14,
+   "context": [
+    "for point in [Vector3(2.3,17.6,1.3),Vector3(3.8,17.6,1.3),Vector3(3.8,19.2,-3.4),Vector3(1.5,19.2,-3.4),Vector3(1.5,19.2,0),Vector3(0,19.2,.15)]:",
+    "if not await _walk(Vector3(-1.35,19.2,0)): return",
+    "if not await _walk(Vector3(-3.6,19.2,0)): return",
+    "for point in [Vector3(1.5,19.2,0),Vector3(1.5,19.2,-3.4),Vector3(3.8,19.2,-3.4),Vector3(3.8,17.6,1.3),Vector3(2.3,17.6,1.3),Vector3(2.3,16,-3.5)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

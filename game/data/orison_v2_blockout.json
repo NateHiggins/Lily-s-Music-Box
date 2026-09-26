@@ -1771,7 +1771,8 @@
     {"id":"B1_COAL_BUNKER","level":"B1","position":[14.2,0,-8.8],"yaw":0,"kind":"fixture","space":"B1_COAL_ROOM"},
     {"id":"b1_repair_bench","level":"B1","position":[6.8,0,5.35],"yaw":0,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"},
     {"id":"b1_toolboard","level":"B1","position":[6.8,1.55,5.6],"yaw":0,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"},
-    {"id":"b1_parts_shelf","level":"B1","position":[5.72,0,3.2],"yaw":-1.5707963267948966,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"}
+    {"id":"b1_parts_shelf","level":"B1","position":[5.72,0,3.2],"yaw":-1.5707963267948966,"kind":"fixture","space":"B1_MAINTENANCE_SHOP"},
+    {"id":"ROOF_LIFT_DRIVE","level":"ROOF","space":"ROOF_PUBLIC_CORE","position":[-0.1,0,-1.7],"yaw":0,"kind":"fixture"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
