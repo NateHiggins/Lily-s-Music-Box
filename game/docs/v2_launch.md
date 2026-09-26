@@ -31,6 +31,16 @@ OrisonV2PublicDoorsTest checks closed-leaf collision, real player interaction,
 crossings and closing from both sides, plus a continuous trip through all
 three rooms. It uses the production walking controller and windowed captures.
 
+The mail bank is surface-mounted against the mail room's east wall, clear of
+the watch-room door. The house telephone board is on the opposite wall with
+its controls at standing height. The lift annunciator is on the watch room's
+north wall. The dumbwaiter faces into the service hall from its east wall,
+north of the riser cluster; its brake control is about 1.55 m above the floor.
+These placements account for each prop's actual back depth and facing direction.
+OrisonV2WallMountTest probes all four back corners against solid wall collision,
+walks into each operating stance, and uses the real player ray to operate
+the mailbox, telephone line, lift panel and dumbwaiter brake panel.
+
 The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
 the control and let the carried set settle after a fast turn. Its light still
 comes from the modeled lens; walls and machinery cast shadows.

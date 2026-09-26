@@ -100,8 +100,8 @@ func _open_lift_panel(player: Node) -> void:
 		_clack.play()
 	var scr: GDScript = load("res://scripts/ui/otis_panel.gd")
 	_panel = scr.new()
-	_panel.open(player, self)
 	get_tree().current_scene.add_child(_panel)
+	_panel.open(player, self)
 
 
 func panel_closed() -> void:

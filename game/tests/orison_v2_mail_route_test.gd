@@ -10,7 +10,10 @@ func _route() -> void:
 	_require(guard.key_carried(),"physical tour-key guard yields its actual key")
 	if not await _use(guard,guard.to_global(Vector3(0,.15,.06)),"tour_key_return"): return
 	_require(not guard.key_carried(),"physical tour-key guard accepts its key back")
-	for point in [Vector3(-4.6,0,-1.5),Vector3(-4.9,0,-2.4),Vector3(-6.2,0,-2.4),Vector3(-7.1,0,-2.4)]:
+	for point in [Vector3(-4.6,0,-1.5),Vector3(-4.9,0,-2.4)]:
+		if not await _walk(point): return
+	if not await _open_apartment_door("F01_WATCH_MAIL_DOOR"): return
+	for point in [Vector3(-6.2,0,-2.4),Vector3(-7.1,0,-2.4)]:
 		if not await _walk(point): return
 	var mail: Node3D = world.adapter.resolve("LobbyMailBank")
 	var stance := mail.global_position-mail.global_basis.z*.9

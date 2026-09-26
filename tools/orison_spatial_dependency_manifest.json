@@ -183648,6 +183648,158 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "cb1d2002a5e6f940",
+   "kind": "id_reference",
+   "token": "F01_WATCH_MAIL_DOOR",
+   "file": "game/tests/orison_v2_mail_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_apartment_door(\"F01_WATCH_MAIL_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ba5b66fd93d7d7a6",
+   "kind": "runtime_id",
+   "token": "F01_HOUSE_TELEPHONE_BOARD",
+   "file": "game/tests/orison_v2_wall_mount_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "[\"F01_HOUSE_TELEPHONE_BOARD\",-1.0,.08,.30,.04,.64,Vector3(0,.35,-.12)],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "3eae96e555a84e56",
+   "kind": "runtime_id",
+   "token": "LobbyMailBank",
+   "file": "game/tests/orison_v2_wall_mount_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "[\"LobbyMailBank\",-1.0,0.0,.65,.56,1.91,Vector3(-.155,1.41,-.078)],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "05a63ad91b38699d",
+   "kind": "runtime_id",
+   "token": "LobbyPorterBoard",
+   "file": "game/tests/orison_v2_wall_mount_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "[\"LobbyPorterBoard\",1.0,-.03,.12,-.29,.29,Vector3(-.06,0,.075)],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "a813994ab3a60376",
+   "kind": "runtime_id",
+   "token": "LobbyServiceDumbwaiter",
+   "file": "game/tests/orison_v2_wall_mount_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "[\"LobbyServiceDumbwaiter\",1.0,0.0,.40,-.08,.68,Vector3(.04,.90,.36)]]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }
