@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
+| Grounded V2 boiler, clear firing aisle, physical door/damper controls and water-column route | `design/ORISON_V2_BOILER_ACCESS_PROGRESS_2026-09-26.md` |
 | Continuous V2 opening-shift regression, natural dream onset and conversation field-copy readability | `design/ORISON_V2_CONTINUOUS_SHIFT_PROGRESS_2026-09-26.md` |
 | Completed V2 fuse and roof-tank repairs across saves and building reconstruction | `design/ORISON_V2_SERVICE_SAVE_PROGRESS_2026-09-26.md` |
 | V2 lift ropes, deflectors, counterweight, guide channels and guarded roof penetrations | `design/ORISON_V2_LIFT_SUSPENSION_PROGRESS_2026-09-26.md` |

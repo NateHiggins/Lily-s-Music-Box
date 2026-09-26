@@ -579,6 +579,19 @@ func _compose_service_round_props() -> void:
 	var boiler := BoilerProp.new()
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)
+	# The semantic anchor names the inspection height. BoilerProp's origin
+	# is its feet; ground the physical plant on the authored basement floor.
+	boiler.position.y = float(_blockout.level_y["B1"])
+	var boiler_stance := adapter.resolve("B1_BOILER_CONTROL_STANCE") as Node3D
+	if boiler_stance == null:
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: missing boiler control stance")
+		return
+	var boiler_facing := boiler_stance.global_position
+	boiler_facing.y = boiler.global_position.y
+	boiler.look_at(boiler_facing)
+	_retire_blockout_fixture("B1_BOILER_BODY_MASS")
+	_retire_blockout_fixture("B1_WATER_COLUMN_MASS")
 	watch_station_network = WatchStationNetwork.new()
 	watch_station_network.name = "WatchStationNetwork"
 	add_child(watch_station_network)

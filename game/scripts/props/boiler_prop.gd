@@ -110,15 +110,15 @@ func _build_visual() -> void:
 	_fire_material = (_firebed_mesh.material_override as StandardMaterial3D).duplicate()
 	_firebed_mesh.material_override = _fire_material
 
-	_service_area("FireDoorReach", Vector3(0, 1.03, -0.72),
-			Vector3(0.80, 0.62, 0.46))
-	_service_area("AshDoorReach", Vector3(0, 0.43, -0.70),
-			Vector3(0.72, 0.40, 0.42))
+	_control_area("FireDoorReach", "fire_door", Vector3(0, 1.04, -0.68),
+			Vector3(0.66, 0.43, 0.16))
+	_control_area("AshDoorReach", "ash_door", Vector3(0, 0.43, -0.68),
+			Vector3(0.58, 0.26, 0.16))
 	_control_area("WaterGlassReach", "water_column",
 			Vector3(0.54, 1.05, -0.55),
 			Vector3(0.30, 0.62, 0.30))
-	_service_area("DraftReach", Vector3(-0.49, 1.28, -0.57),
-			Vector3(0.30, 0.42, 0.30))
+	_control_area("DraftReach", "draft", _draft_damper.position,
+			Vector3(0.30, 0.30, 0.20))
 
 	_thud = make_emitter("thud", -15.0)
 	_thud.max_distance = 45.0
@@ -368,14 +368,22 @@ func interact_area(area: Area3D) -> void:
 
 
 func control_prompt(control_id: String) -> String:
-	return ("[E]  Prove the boiler water column" if control_id == "water_column"
-			else interact_prompt())
+	match control_id:
+		"water_column": return "[E]  Prove the boiler water column"
+		"fire_door": return interact_prompt()
+		"ash_door": return "%s ash door" % ("Close" if _ash_open else "Open")
+		"draft": return "Adjust boiler draft — %d%% open" % roundi(draft * 100.0)
+	return ""
 
 
-func interact_control(control_id: String, player: Node) -> bool:
-	if control_id == "water_column":
-		return _begin_water_column_service(player)
-	return false
+func interact_control(control_id: String, player: Node) -> Variant:
+	match control_id:
+		"water_column": return _begin_water_column_service(player)
+		"fire_door": set_fire_door_open(not _fire_open)
+		"ash_door": set_ash_door_open(not _ash_open)
+		"draft": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
+		_: return false
+	return service_wire_card()
 
 
 func _begin_water_column_service(player: Node) -> bool:

@@ -44,6 +44,13 @@ open boiler-door tip before turning into the apparatus aisle. Resident storage i
 beside the primary stair, with eighteen labeled bays. Completed fuse repairs
 and the five new room-light settings survive Continue and building returns.
 
+The boiler stands on the basement floor facing the west control aisle. Aim at
+the upper firing door or lower ash door to open or close that door. The water
+glass opens its existing proving activity; Escape cancels it. Walk around the
+south end of the plant to reach the weighted draft damper at the rear. Its
+setting feeds the existing radiator and hot-water simulation. These controls
+do not issue another campaign job or add automatic coal delivery.
+
 The remaining occupied apartments (1A, 1D, 2C, 3D, 4C and 4D) now have room
 shells, doors, furniture, working hot/cold taps and switched lights. The staff
 restroom opens from the ground-floor service hall. The sealed 2D and 3C entries

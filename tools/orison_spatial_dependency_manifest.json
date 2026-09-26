@@ -182565,6 +182565,289 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d7d6a3359dd8773f",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    584
+   ],
+   "count": 1,
+   "context": [
+    "boiler.position.y = float(_blockout.level_y[\"B1\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2bd54f055850f1aa",
+   "kind": "id_reference",
+   "token": "B1_BOILER_BODY_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    585
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"B1_BOILER_BODY_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0d5bb575a7dfb228",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_boiler_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [
+    "var boiler := world.adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b0607245cf12efd0",
+   "kind": "id_reference",
+   "token": "B1_BOILER_BODY_MASS",
+   "file": "game/tests/orison_v2_boiler_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "var reservation: Node3D = world._blockout.find_child(\"B1_BOILER_BODY_MASS\",true,false)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3ea73ebd29319b04",
+   "kind": "id_reference",
+   "token": "B1_BOILER_FIRE_DOOR",
+   "file": "game/tests/orison_v2_boiler_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_BOILER_FIRE_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f458270d2a1a0cbb",
+   "kind": "node_path",
+   "token": "B1_BOILER_BODY_MASS",
+   "file": "game/tests/orison_v2_boiler_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "var reservation: Node3D = world._blockout.find_child(\"B1_BOILER_BODY_MASS\",true,false)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": null
+  },
+  {
+   "key": "f6a2f232227e178d",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_boiler_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    11,
+    11,
+    11,
+    12,
+    12,
+    15,
+    15,
+    35,
+    35,
+    47,
+    47,
+    62,
+    62
+   ],
+   "count": 13,
+   "context": [
+    "for point in [Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),",
+    "Vector3(2.3,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:",
+    "for point in [Vector3(11.1,-3.2,-.4),Vector3(11.1,-3.2,-2.5),Vector3(14.1,-3.2,-2.5),Vector3(14.1,-3.2,-.5)]:",
+    "for point in [Vector3(14.1,-3.2,-2.5),Vector3(11.1,-3.2,-2.5),Vector3(11.1,-3.2,-.3)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "aa802c821b60474a",
+   "kind": "id_reference",
+   "token": "B1_BOILER_CONTROL_STANCE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    585
+   ],
+   "count": 1,
+   "context": [
+    "var boiler_stance := adapter.resolve(\"B1_BOILER_CONTROL_STANCE\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "faf200baf84ba59e",
+   "kind": "id_reference",
+   "token": "B1_WATER_COLUMN_MASS",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    590
+   ],
+   "count": 1,
+   "context": [
+    "_retire_blockout_fixture(\"B1_WATER_COLUMN_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
