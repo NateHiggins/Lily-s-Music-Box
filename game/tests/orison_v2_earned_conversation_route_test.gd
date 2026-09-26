@@ -15,6 +15,13 @@ func _route() -> void:
 	if not _require(world.mina_gameplay.dialogue._panel.visible and player.call_locked,
 			"repaired head earns the physical resident conversation"): return
 	await get_tree().create_timer(.4).timeout
+	if not _require(not player.telegram_hud.visible,
+			"previous repair field copy does not show through the conversation"): return
+	var field_copy: Dictionary = player.telegram_hud.last_card.duplicate(true)
+	var reading_time := player.telegram_hud._life.get_total_elapsed_time()
+	await get_tree().create_timer(.25).timeout
+	if not _require(is_equal_approx(player.telegram_hud._life.get_total_elapsed_time(), reading_time),
+			"conversation preserves the field copy's unread display time"): return
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		await RenderingServer.frame_post_draw
@@ -27,6 +34,10 @@ func _route() -> void:
 	var flags: Array = state.get("conversation_flags",[])
 	_require(not world.mina_gameplay.dialogue._panel.visible and not player.call_locked,
 			"earned conversation releases the player")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_require(player.telegram_hud.visible and player.telegram_hud.last_card == field_copy,
+			"ending conversation restores the same field copy without reissuing it")
 	_require("first_silence_named" in flags or "first_silence_misread" in flags,
 			"authored first-stable conversation persists its interpretation")
 	_require(state.repair_count == 1 and state.recurrence_pending and not state.get("resolved",false),

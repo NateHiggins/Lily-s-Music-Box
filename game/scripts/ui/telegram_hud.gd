@@ -20,6 +20,8 @@ var _stamp: Label
 var _footer: Label
 var _life: Tween
 var _home := Vector2.ZERO
+var _conversation_active := false
+var _visible_before_conversation := true
 
 
 func _ready() -> void:
@@ -29,6 +31,32 @@ func _ready() -> void:
 	_build()
 	get_viewport().size_changed.connect(_layout)
 	_layout()
+
+
+func _process(_delta: float) -> void:
+	_sync_conversation()
+
+
+func _sync_conversation() -> void:
+	var active := false
+	for owner in get_tree().get_nodes_in_group("attention_people"):
+		if owner.has_method("attention_active") and owner.call("attention_active"):
+			active = true
+			break
+	# Retain the field copy and its remaining reading time while a resident
+	# owns the screen. The dialogue still owns input and campaign state.
+	if active != _conversation_active:
+		if active:
+			_visible_before_conversation = visible
+			visible = false
+		else:
+			visible = _visible_before_conversation
+	if _life and _life.is_valid():
+		if active:
+			_life.pause()
+		elif _conversation_active:
+			_life.play()
+	_conversation_active = active
 
 
 func present(card: Dictionary) -> bool:
@@ -62,6 +90,7 @@ func present(card: Dictionary) -> bool:
 			4.0, 8.0))
 	_life.chain().tween_property(_paper, "modulate:a", 0.0, 0.42)
 	_life.chain().tween_callback(func(): _paper.visible = false)
+	_sync_conversation()
 	card_presented.emit(serial, last_card)
 	return true
 

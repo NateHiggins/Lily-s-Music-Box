@@ -18,6 +18,16 @@ lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 
+For Mina's opening shift, follow the report to 2A, inspect the faulty listening
+head, obtain its capsule at HARDWARE PAINT, and return to repair the same head.
+Speak with Mina after the repair. Her conversation enables the nearby lobby
+time clock for the second visit. Follow the updated objective through the
+caption desk, calibration and further conversation; repair alone does not
+resolve her case. The final calibration can earn the dream request. Normal
+campaign onset waits for a safe moment, and the dream returns you to 4B with
+the completed work intact. A field note pauses while Mina is speaking so it
+cannot obscure her dialogue choices.
+
 The passenger lift serves B1 and F01–F06. Press E at a landing call button,
 wait for the doors, enter, and press E on the desired floor button. Landing
 doors stay shut while the car is away. The stairs remain available. Follow the

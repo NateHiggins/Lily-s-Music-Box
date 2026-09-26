@@ -62,7 +62,7 @@ func _open_first_shift() -> bool:
 	var offset: Vector3 = player.global_position - arrival.position
 	if not _require(Vector2(offset.x, offset.z).length() < .05 and absf(offset.y) < .12,
 			"route begins at the untouched production arrival"): return false
-	if not _require(world.first_shift_director.begin_first_shift(),
+	if not _require(_begin_first_shift(),
 			"production first-shift owner commits the arrival"): return false
 	# The caretaker desk occupies the watch room's south frontage. Enter the
 	# working side through its authored core doorway, preserving the desk body.
@@ -90,6 +90,9 @@ func _open_first_shift() -> bool:
 			Vector3(2.3,0,-3.5)]:
 		if not await _walk(point): return false
 	return true
+
+func _begin_first_shift() -> bool:
+	return world.first_shift_director.begin_first_shift()
 
 func _prepare_procurement() -> bool:
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)

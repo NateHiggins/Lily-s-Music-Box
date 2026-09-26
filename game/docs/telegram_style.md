@@ -21,6 +21,10 @@ E -> authoritative object reaction -> object returns observation facts
 The presenter owns no interaction, prop state, job state, case truth, inventory,
 pause or input focus. Radio OFF suppresses the print/readout; the real object
 still answers E. Modal and protected conversation surfaces suppress the card.
+An already visible field copy also yields to a resident conversation. Its
+typewriter and remaining reading time pause, then resume when the conversation
+ends. A replacement copy waits behind the conversation; a dismissed copy stays
+dismissed. This presentation rule does not capture input or change case facts.
 
 ## The visual grammar
 
