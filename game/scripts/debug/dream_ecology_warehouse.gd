@@ -544,7 +544,12 @@ func _process(_delta: float) -> void:
 	if _title != null:
 		if selected_exhibit in ["organelle","hero"]:
 			_title.text = "HERO & ORGANELLE WALL"
-			_status.text = "Live hero, six palp forms, branches/cilia and living wall. Crystal listener joins this bay.\nRecovered Blender source restored.\nPulse: staged debug stimulus · no new species"
+			var hero_state := "Arriving" if hero == null else hero.state_name().capitalize()
+			if hero != null and hero.state == DreamHeroTentacle.State.MEMBRANE_BULGE:
+				hero_state = "Arriving — membrane swelling"
+			elif hero != null and hero.state == DreamHeroTentacle.State.ABSENT:
+				hero_state = "Between appearances"
+			_status.text = "Hero: %s\nLive hero, six palp forms, branches/cilia and living wall. Crystal listener joins this bay.\nPulse: staged debug stimulus · no new species" % hero_state
 		elif not selected_exhibit.is_empty():
 			var entry := placeholder_for(selected_exhibit)
 			_title.text = str(entry.get("label","Reserved bay")).to_upper()

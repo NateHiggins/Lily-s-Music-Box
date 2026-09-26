@@ -178,6 +178,19 @@ func _run() -> void:
 					and not optical.volume.visible and player.lamp_is_enabled() == lamp_before_inspection)
 			zoo.set_lamp_enabled(true)
 		zoo.focus_hero()
+		# Arrival takes several seconds. A three-frame capture of an existing
+		# node was previously accepted even while its skin was still discarded.
+		var emergence_deadline := Time.get_ticks_msec()+12000
+		while zoo.hero.grow < 1.0 and Time.get_ticks_msec()<emergence_deadline:
+			await get_tree().process_frame
+		_check("accepted hero completes its live emergence", zoo.hero.grow >= 1.0)
+		var hero_facts: Dictionary = zoo.hero.census()
+		_check("emerged hero retains all accepted skinned meshes", hero_facts.meshes == 109 and hero_facts.skinned == 109 and hero_facts.skeleton)
+		_check("inspector explains the live hero state", zoo._status.text.begins_with("Hero: "))
+		var tip := zoo.camera.unproject_position(zoo.hero.tip_world())
+		var view := get_viewport().get_visible_rect().size
+		_check("hero tip is framed beside the controls", not zoo.camera.is_position_behind(zoo.hero.tip_world()) and tip.x > 376 and tip.x < view.x and tip.y > 0 and tip.y < view.y)
+		print("[ZOO HERO] ",JSON.stringify(zoo.hero.census()))
 		await _capture("zoo_hero_inspector")
 		zoo.focus_species(3)
 		await _capture("zoo_blender_tardigrade")

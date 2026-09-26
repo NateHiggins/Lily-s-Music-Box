@@ -116,4 +116,5 @@ V2 remains an unfinished building. The playable first Mina maintenance/case
 sequence is the supported campaign slice. V1-only apartment corruption and
 resident debug shortcuts are not exposed as working V2 controls. The separate
 voxel-light seams recorded under TASKS H23 remain open.
-The zoo is still dark, especially around the hero and organelle wall.
+The hero enters through its membrane over several seconds. The inspector shows
+its live state, including arrival and the intervals between appearances.
