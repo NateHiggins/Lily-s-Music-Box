@@ -9,10 +9,11 @@ the selected building is never written into the save.
 From PowerShell in **C:/PleaseRemainOnTheLine**, with the Godot lane free:
 
 ```powershell
-pwsh -File tools/lane.ps1 run -Windowed -Runner long -TimeoutSeconds 1500 -LogPath tmp/v2-play.log
+pwsh -File tools/lane.ps1 run -Scene res://scenes/ui/title_screen.tscn -Windowed -Runner long -TimeoutSeconds 1500 -LogPath tmp/v2-play.log
 ```
 
-This opens the normal title. The approved long runner allows a 25-minute
+The long runner requires an explicit scene; this opens the normal title.
+The approved long runner allows a 25-minute
 session. WASD moves, the mouse looks, E interacts, Shift runs, L switches the
 lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
