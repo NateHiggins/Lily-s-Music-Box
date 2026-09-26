@@ -91,10 +91,46 @@ func run() -> void:
 		check(sample._bath_plug.position.x > .10, "open plug visibly clears throat")
 		check(sample._bath_chain_instances.get_instance_transform(0).origin.distance_to(
 				sample._bath_plug.position+Vector3(0,.018,0)) < .001, "chain follows plug eye")
+		check(sample._bath_chain_instances.get_instance_transform(
+				sample._bath_chain_instances.instance_count-1).origin.distance_to(
+				Vector3(.04,.898,.082)) < .001, "chain ends at faucet attachment eye")
 		camera.global_position = sample.to_global(Vector3(.55,.58,-.50))
 		camera.look_at(sample.to_global(Vector3(0,.55,.07)))
 		await capture("exposed_plumbing")
 		light.queue_free()
+		camera.queue_free()
+	var shower: TapProp
+	for tap in world.boiler_tend.taps:
+		if tap.fixture == "shower" and tap.unit == "4B": shower = tap
+	check(shower != null, "player shower exists")
+	if shower != null:
+		check(shower.find_child("ShowerCasting", true, false) != null, "Blender shower casting installed")
+		var camera := Camera3D.new()
+		world.add_child(camera)
+		camera.fov = 90
+		camera.global_position = shower.to_global(Vector3(-.35,1.10,-1.2))
+		camera.look_at(shower.to_global(Vector3(0,1.05,0)))
+		camera.make_current()
+		shower.set_curtain_open(false)
+		await get_tree().create_timer(.2).timeout
+		await capture("shower_drawn")
+		shower.set_curtain_open(true)
+		check(shower._curtain_gathered.visible and not shower._curtain_closed.visible, "Blender curtain opens through existing owner")
+		await capture("shower_open")
+		camera.fov = 60
+		camera.global_position = shower.to_global(Vector3(-.18,1.72,-.42))
+		camera.look_at(shower.to_global(Vector3(0,1.84,.23)))
+		await capture("shower_head")
+		for node in get_tree().get_nodes_in_group("planar_mirror_surface"):
+			var cabinet := node.get_parent().get_parent() as MedicineCabinetProp
+			if cabinet == null or cabinet.unit != "4B": continue
+			world.mirror_renderer._main_camera = camera
+			camera.global_position = cabinet.to_global(Vector3(.12,1.5,-.9))
+			camera.look_at(cabinet.mirror_center())
+			await get_tree().create_timer(.3).timeout
+			check(world.mirror_renderer.active_mirror() == cabinet, "installed mirror borrows one live view")
+			await capture("installed_mirror")
+		world.mirror_renderer._main_camera = world.player.camera
 		camera.queue_free()
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():

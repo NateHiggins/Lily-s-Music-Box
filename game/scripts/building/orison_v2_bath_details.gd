@@ -1,5 +1,6 @@
 extends "res://scripts/building/orison_v2_domestic_furniture.gd"
 ## Fixed dressing follows its physical support; it owns no input, save or light.
+const TOWEL_MODEL := "res://assets/props/bath_towel.glb"
 const DETAIL_PATH := "res://data/orison_v2/bath_details.json"
 const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
 const KINDS := ["soap_dish", "hand_towel", "toilet_roll"]
@@ -15,7 +16,11 @@ func mount(adapter: Variant) -> bool:
 		detail.set_meta("support_id", str(record.support))
 		# Geometry is identical across homes. Each physical owner gets its own
 		# instances while immutable meshes and existing MatLib materials share.
-		if not shared.has(record.kind):
+		if record.kind == "hand_towel":
+			var model := (load(str(record.model)) as PackedScene).instantiate() as Node3D
+			_skin_model(model)
+			detail.add_child(model)
+		elif not shared.has(record.kind):
 			_add_surfaces(detail, record.surfaces)
 			shared[record.kind] = detail.get_children()
 		else:
@@ -35,6 +40,10 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen := {}
 	var shared := {}
+	var towel_points: Array[Vector3] = []
+	var towel := (load(TOWEL_MODEL) as PackedScene).instantiate() as Node3D
+	_model_points(towel, Transform3D.IDENTITY, towel_points)
+	towel.free()
 	for record: Variant in source.props:
 		if record is not Dictionary or record.get("unit") not in UNITS or record.get("kind") not in KINDS:
 			errors.append("invalid bath detail household or kind")
@@ -58,7 +67,11 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				or not _numbers([record.get("yaw")], 1) or float(record.yaw) != 0.0:
 			errors.append("bath detail must use its support-local contact")
 		var before := errors.size()
-		_validate_surfaces(record.get("surfaces"))
+		if record.kind == "hand_towel":
+			if record.get("model") != TOWEL_MODEL or record.has("surfaces"):
+				errors.append("hand towel must use the approved Blender model")
+		else:
+			_validate_surfaces(record.get("surfaces"))
 		if errors.size() != before: continue
 		var bounds: Variant = record.get("bounds")
 		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0],3) or not _numbers(bounds[1],3):
@@ -69,15 +82,37 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		for axis in 3:
 			if bounds[0][axis] < low[axis] or bounds[1][axis] > high[axis] or bounds[0][axis] >= bounds[1][axis]:
 				errors.append("bath detail exceeds supported clearance")
-		for surface: Dictionary in record.surfaces:
+		for surface: Dictionary in record.get("surfaces", []):
 			for i in range(0, surface.vertices.size(), 3):
 				for axis in 3:
 					var coordinate: float = surface.vertices[i+axis]
 					if coordinate < float(bounds[0][axis])-.000001 or coordinate > float(bounds[1][axis])+.000001:
 						errors.append("bath surface exceeds declared bounds")
-		if shared.has(record.kind) and shared[record.kind] != record.get("surfaces"):
+		if record.kind == "hand_towel":
+			for point in towel_points:
+				for axis in 3:
+					if point[axis] < float(bounds[0][axis])-.00001 or point[axis] > float(bounds[1][axis])+.00001:
+						errors.append("Blender towel exceeds declared bounds")
+		if record.kind != "hand_towel" and shared.has(record.kind) and shared[record.kind] != record.get("surfaces"):
 			errors.append("shared bath geometry disagrees between homes")
 		shared[record.kind] = record.get("surfaces")
 	if seen.size() != UNITS.size() * KINDS.size() or source.props.size() != UNITS.size() * KINDS.size():
 		errors.append("incomplete developed-home bath detail roster")
 	return errors.is_empty()
+
+
+func _skin_model(node: Node) -> void:
+	if node is MeshInstance3D:
+		for surface in node.mesh.get_surface_count():
+			var material: Material = node.mesh.surface_get_material(surface)
+			if material != null:
+				node.set_surface_override_material(surface, MatLib.get_mat(material.resource_name))
+	for child in node.get_children(): _skin_model(child)
+
+
+func _model_points(node: Node3D, parent_pose: Transform3D, points: Array[Vector3]) -> void:
+	var pose := parent_pose * node.transform
+	if node is MeshInstance3D:
+		for vertex in node.mesh.get_faces(): points.append(pose * vertex)
+	for child in node.get_children():
+		if child is Node3D: _model_points(child, pose, points)

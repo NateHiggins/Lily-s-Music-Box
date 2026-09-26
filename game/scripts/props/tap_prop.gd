@@ -4,8 +4,8 @@ extends FunctionalProp
 ## lavatory, a roll-rim iron kitchen sink, or a corner shower receptor.
 ##
 ## The marker owns a complete fixture in both apartments and the warehouse.
-## The bathroom uses an editable Blender casting with separate mechanical
-## pivots; kitchen and shower retain their procedural visual assemblies.
+## The bathroom sink and shower use editable Blender castings with separate
+## mechanical pivots; the kitchen retains its procedural visual assembly.
 ##
 ## Water carries no signal. These are ordinary 1920s fixtures on pipe:
 ## second-hand porcelain enamel, exposed nickel-plated brass work, and
@@ -151,7 +151,7 @@ func _build_bath_sink(parent: Node3D) -> void:
 	# the existing water graph, service checks, sounds and independent valves.
 	var model := preload("res://assets/props/bath_lavatory.glb").instantiate() as Node3D
 	parent.add_child(model)
-	_skin_lavatory(model)
+	_skin_fixture_model(model)
 	for handle_name in ["HotValve", "ColdValve"]:
 		var handle := model.find_child(handle_name, true, false) as Node3D
 		handle.reparent(self)
@@ -175,7 +175,7 @@ func _build_bath_sink(parent: Node3D) -> void:
 		_bath_chain.remove_child(link)
 		link.queue_free()
 	_bath_chain.add_child(chain_draw)
-	_panel_front_z = .1825
+	_panel_front_z = .135
 	_valve_mount_z = _panel_front_z + VALVE_SEAT_DZ
 	var outlet := Vector3(0, .885, -.075)
 	var marker := Marker3D.new()
@@ -190,15 +190,19 @@ func _build_bath_sink(parent: Node3D) -> void:
 	_update_bath_plug(1.0)
 
 
-func _skin_lavatory(node: Node) -> void:
+func _skin_fixture_model(node: Node) -> void:
 	if node is MeshInstance3D:
 		for surface in node.mesh.get_surface_count():
 			var source: Material = node.mesh.surface_get_material(surface)
 			if source == null: continue
 			var key := source.resource_name
 			if key == "porcelain_fixture": key = porcelain_material_key
-			node.set_surface_override_material(surface, MatLib.get_mat(key))
-	for child in node.get_children(): _skin_lavatory(child)
+			var material := MatLib.get_mat(key)
+			if key == "shower_duck":
+				material = material.duplicate() as StandardMaterial3D
+				material.normal_scale = .14
+			node.set_surface_override_material(surface, material)
+	for child in node.get_children(): _skin_fixture_model(child)
 
 
 func _update_bath_plug(delta: float) -> void:
@@ -210,10 +214,10 @@ func _update_bath_plug(delta: float) -> void:
 	_bath_plug.position = _bath_plug.position.move_toward(
 			seat if _stopper else parked, delta * .45)
 	var start := _bath_plug.position + Vector3(0, .018, 0)
-	var finish := Vector3(.10, .827, .18)
+	var finish := Vector3(.04, .898, .082)
 	for index in _bath_chain_instances.instance_count:
 		var t := float(index) / float(_bath_chain_instances.instance_count-1)
-		var at := start.lerp(finish, t) - Vector3.UP * sin(t * PI) * .035
+		var at := start.lerp(finish, t) - Vector3.UP * sin(t * PI) * .045
 		_bath_chain_instances.set_instance_transform(index, Transform3D(Basis.IDENTITY, at))
 
 
@@ -258,28 +262,34 @@ func _build_kitchen_sink(parent: Node3D) -> void:
 
 
 func _build_shower(parent: Node3D) -> void:
-	# A 28-inch corner receptor and exposed tubular shower, not the glass
-	# cubicle the deleted assembly borrowed from the late twentieth century.
-	_open_rect_basin(parent, Vector3(0, 0.12, 0), 0.72, 0.72, 0.12, ENAMEL)
-	_box_on(parent, Vector3(0.74, 0.18, 0.035),
-			Vector3(0, 0.20, 0.355), ENAMEL)
-	_build_pair_taps(Vector3(0, 0.98, 0.335), 0.19, true)
-	# Exposed nickel riser, crooked arm, broad period rose.
-	_tube_between(parent, Vector3(0, 0.98, 0.35),
-			Vector3(0, 1.89, 0.35), 0.010, NICKEL)
-	_tube_between(parent, Vector3(0, 1.89, 0.35),
-			Vector3(0, 1.89, 0.18), 0.010, NICKEL)
-	var rose := _cyl_on(parent, 0.055, 0.075, 0.035,
-			Vector3(0, 1.855, 0.18), NICKEL)
-	rose.rotation_degrees.x = 180.0
-	_build_shower_curtain(parent)
-	_build_stopper(Vector3(0, 0.015, 0.01))
-	_add_use_wear(parent, Vector3(0.25, 0.125, -0.24), true)
-	_stream = _make_stream(Vector3(0, 1.82, 0.18), 1.71, 0.017)
-	_water_empty_y = 0.016
-	_water_full_y = 0.105
-	_basin_water = _make_water_surface(Vector3(0, _water_empty_y, 0),
-			Vector2(0.62, 0.62))
+	var model := preload("res://assets/props/bath_shower.glb").instantiate() as Node3D
+	parent.add_child(model)
+	_skin_fixture_model(model)
+	for handle_name in ["HotValve", "ColdValve"]:
+		var handle := model.find_child(handle_name, true, false) as Node3D
+		handle.reparent(self)
+		_handles.append(handle)
+		_handle_turns.append(0.0)
+		_handle_wall_mounted.append(true)
+	_curtain_closed = model.find_child("CurtainDrawn", true, false) as Node3D
+	_curtain_gathered = model.find_child("CurtainGathered", true, false) as Node3D
+	_curtain_closed.reparent(self)
+	_curtain_gathered.reparent(self)
+	_curtain_area = Area3D.new()
+	_curtain_area.name = "CurtainInteraction"
+	_curtain_area.set_meta("shower_curtain", true)
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(.68, 1.55, .10)
+	shape_node.shape = shape
+	shape_node.position = Vector3(0, 1.18, -.31)
+	_curtain_area.add_child(shape_node)
+	add_child(_curtain_area)
+	_build_stopper(Vector3(0, .015, .01))
+	_stream = _make_stream(Vector3(0, 1.82, .18), 1.71, .017)
+	_water_empty_y = .024
+	_water_full_y = .105
+	_basin_water = _make_water_surface(Vector3(0, _water_empty_y, 0), Vector2(.62, .62))
 
 
 func _build_shower_curtain(parent: Node3D) -> void:
@@ -801,9 +811,9 @@ func set_curtain_open(open: bool) -> void:
 				as CollisionShape3D
 		if shape_node and shape_node.shape is BoxShape3D:
 			var box := shape_node.shape as BoxShape3D
-			box.size = Vector3(0.18, 1.55, 0.16) if open \
+			box.size = Vector3(0.16, 1.55, 0.24) if open \
 					else Vector3(0.68, 1.55, 0.10)
-			shape_node.position = Vector3(0.29, 1.18, 0.25) if open \
+			shape_node.position = Vector3(0.34, 1.18, 0.23) if open \
 					else Vector3(0, 1.18, -0.31)
 
 

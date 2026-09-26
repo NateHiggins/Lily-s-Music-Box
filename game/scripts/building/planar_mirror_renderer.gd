@@ -115,16 +115,24 @@ func _pose_reflection(cabinet: MedicineCabinetProp) -> void:
 	var normal := cabinet.mirror_normal()
 	var source := _main_camera.global_transform
 	var reflected_position := _reflect_point(source.origin, center, normal)
-	var reflected_forward := _reflect_vector(-source.basis.z, normal).normalized()
-	var reflected_up := _reflect_vector(source.basis.y, normal).normalized()
+	# The glass is a window, not a television showing the player's whole FOV.
+	# Align the borrowed camera to its plane and use an asymmetric frustum so
+	# each glass point sees precisely the ray from the reflected eye through it.
+	var up := cabinet.mirror_surface().global_basis.y.normalized()
 	_camera.global_transform = Transform3D(
-			Basis.looking_at(reflected_forward, reflected_up), reflected_position)
-	_camera.fov = _main_camera.fov
+			Basis.looking_at(normal, up), reflected_position)
 	_camera.far = _main_camera.far
-	# Everything between the borrowed eye and the glass is behind the mirror.
-	# Clipping it prevents the fitted wall from becoming an opaque photograph.
 	var plane_distance := absf((reflected_position - center).dot(normal))
-	_camera.near = maxf(0.05, plane_distance + 0.035)
+	var near_plane := maxf(.01, plane_distance + .005)
+	var size: Vector2 = cabinet.mirror_surface().get_meta("mirror_size")
+	_material.set_shader_parameter("glass_size", size)
+	_view.size = Vector2i(roundi(HEIGHT * size.x / size.y), HEIGHT)
+	var local_center := _camera.to_local(center)
+	var scale_at_near := near_plane / maxf(.01, plane_distance)
+	_camera.keep_aspect = Camera3D.KEEP_HEIGHT
+	_camera.set_frustum(size.y * scale_at_near,
+			Vector2(local_center.x, local_center.y) * scale_at_near,
+			near_plane, _main_camera.far)
 
 
 func _reflect_point(point: Vector3, origin: Vector3, normal: Vector3) -> Vector3:

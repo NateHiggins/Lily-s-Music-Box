@@ -126,19 +126,20 @@ ring_mesh('Pedestal',[(.001,.001,.012,-.095,0),(.132,.105,.012,-.095,0),
 
 # Wall escutcheons and a bridge casting; valves remain independent pivots.
 for x, name in [(-.09,'HotValve'),(.09,'ColdValve')]:
-    cylinder('Seat', (x,.91,.180), .025,.015,nickel,(0,0,1))
-    pipe('ValveBody',[(x,.91,.184),(x,.91,.115)],.015)
-    pivot = group(name,(x,.91,.169))
-    cylinder('Spindle',(x,.91,.108),.010,.036,nickel,(0,0,1),pivot)
+    cylinder('CastValveBoss',(x,.91,.166),.030,.058,glaze,(0,0,1))
+    cylinder('Seat', (x,.91,.133), .025,.010,nickel,(0,0,1))
+    pipe('ValveBody',[(x,.91,.184),(x,.91,.080)],.015)
+    pivot = group(name,(x,.91,.1215))
+    cylinder('Spindle',(x,.91,.073),.010,.036,nickel,(0,0,1),pivot)
     for axis in [(1,0,0),(0,1,0)]:
-        cylinder('CrossGrip',(x,.91,.091),.005,.064,nickel,axis,pivot)
+        cylinder('CrossGrip',(x,.91,.056),.005,.064,nickel,axis,pivot)
         for sign in [-1,1]:
-            pos=(x+axis[0]*sign*.029,.91+axis[1]*sign*.029,.091)
+            pos=(x+axis[0]*sign*.029,.91+axis[1]*sign*.029,.056)
             bpy.ops.mesh.primitive_uv_sphere_add(segments=16,ring_count=8,radius=.007,location=p(pos))
             finish(bpy.context.object,'GripEnd',nickel,pivot)
-    cylinder('IndexButton',(x,.91,.081),.010,.006,glaze,(0,0,1),pivot)
-pipe('Bridge',[(-.09,.91,.14),(0,.91,.14),(.09,.91,.14)],.011)
-pipe('CurvedSpout',[(0,.91,.14),(0,.96,.10),(0,.967,.00),(0,.934,-.075),(0,.885,-.075)],.013)
+    cylinder('IndexButton',(x,.91,.046),.010,.006,glaze,(0,0,1),pivot)
+pipe('Bridge',[(-.09,.91,.105),(0,.91,.105),(.09,.91,.105)],.011)
+pipe('CurvedSpout',[(0,.91,.105),(0,.96,.10),(0,.967,.00),(0,.934,-.075),(0,.885,-.075)],.013)
 cylinder('SpoutLip',(0,.888,-.075),.015,.012,nickel)
 cylinder('SpoutBore',(0,.8815,-.075),.0105,.001,rubber)
 ring_mesh('DrainFlange',[(.024,.024,.680,-.02,0),(.034,.034,.687,-.02,0),
@@ -164,10 +165,10 @@ pipe('PlugEye',[(-.005,.707,-.02),(0,.716,-.02),(.005,.707,-.02)],.0018,parent=p
 chain=group('StopperChain')
 for i in range(24):
     t=i/23
-    at=(.10*t,.714+.112*t-.035*math.sin(math.pi*t),-.02+.20*t)
+    at=(.04*t,.714+.184*t-.045*math.sin(math.pi*t),-.02+.102*t)
     bpy.ops.mesh.primitive_uv_sphere_add(segments=8,ring_count=4,radius=.0024,location=p(at))
     finish(bpy.context.object,'ChainLink%02d'%i,nickel,chain)
-cylinder('ChainAnchor',(.10,.827,.180),.008,.008,nickel,(0,0,1))
+pipe('FaucetChainEye',[(.035,.909,.092),(.04,.898,.082),(.045,.909,.092)],.0022)
 
 # Apply curves/modifiers, then batch only static geometry by finish.
 bpy.ops.object.select_all(action='DESELECT')
