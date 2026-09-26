@@ -11,33 +11,54 @@ func _run() -> void:
 	add_child(world)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	if world.player==null:
+		check(false,"production world must initialize before surface inspection")
+		world.free()
+		get_tree().quit(1)
+		return
 	world.player.set_physics_process(false)
 	var floors := 0
 	var ceilings := 0
 	var probes := 0
+	var panel_rooms := 0
 	var trim_rooms := 0
 	var trim_pieces := 0
 	for record: Dictionary in world.layout.spaces:
 		var room: Node=world.adapter.resolve(str(record.id))
 		if room==null: continue
-		var trim := room.get_node_or_null("HistoricMillwork") as MultiMeshInstance3D
-		if trim != null:
-			trim_rooms += 1
-			check(trim.get_child_count()==0,"millwork adds no collision or per-strip nodes")
-			var sources: PackedStringArray=trim.get_meta("wall_sources")
-			check(sources.size()==trim.multimesh.instance_count,"each trim strip retains its solid wall owner")
-			for index in trim.multimesh.instance_count:
-				var wall := room.get_node(sources[index]) as MeshInstance3D
-				var transform := trim.multimesh.get_instance_transform(index)
-				var extent := transform.basis.get_scale()*.5
-				var solid: Vector3=wall.mesh.size*.5
-				var offset := transform.origin-wall.position
-				var along_x := str(wall.name).begins_with("WallNorth") or str(wall.name).begins_with("WallSouth")
-				check(absf(offset.y)+extent.y<=solid.y+.0001,"trim stays within solid wall height")
-				check(absf(offset.x if along_x else offset.z)+(extent.x if along_x else extent.z)<=(solid.x if along_x else solid.z)+.0001,"trim never bridges a cut aperture")
-				var projection: float=extent.z*2 if along_x else extent.x*2
-				check(projection<=.0541,"shallow millwork respects maximum projection")
-				trim_pieces+=1
+		for batch_name in ["HistoricMillwork", "PublicWainscot"]:
+			var trim := room.get_node_or_null(batch_name) as MultiMeshInstance3D
+			if trim != null:
+				trim_rooms += 1
+				if batch_name=="PublicWainscot":
+					check(record.get("class", "")=="public", "wainscot belongs only to public rooms")
+					panel_rooms+=1
+				check(trim.get_child_count()==0,"millwork adds no collision or per-strip nodes")
+				var sources: PackedStringArray=trim.get_meta("wall_sources")
+				check(sources.size()==trim.multimesh.instance_count,"each trim strip retains its solid wall owner")
+				for index in trim.multimesh.instance_count:
+					var wall := room.get_node(sources[index]) as MeshInstance3D
+					var transform := trim.multimesh.get_instance_transform(index)
+					var extent := transform.basis.get_scale()*.5
+					var solid: Vector3=wall.mesh.size*.5
+					var offset := transform.origin-wall.position
+					var along_x := str(wall.name).begins_with("WallNorth") or str(wall.name).begins_with("WallSouth")
+					check(absf(offset.y)+extent.y<=solid.y+.0001,"trim stays within solid wall height")
+					check(absf(offset.x if along_x else offset.z)+(extent.x if along_x else extent.z)<=(solid.x if along_x else solid.z)+.0001,"trim never bridges a cut aperture")
+					var projection: float=extent.z*2 if along_x else extent.x*2
+					check(projection<=.0541,"shallow millwork respects maximum projection")
+					trim_pieces+=1
+					if batch_name!="PublicWainscot": continue
+					# Recessed backing may overlap a frame in volume, but exposed
+					# fronts must not overlap on the same plane and strobe.
+					for previous in index:
+						if sources[previous]!=sources[index]: continue
+						var other := trim.multimesh.get_instance_transform(previous)
+						var half := other.basis.get_scale()*.5
+						if absf((half.z if along_x else half.x)-projection*.5)>.0001: continue
+						var delta := (other.origin-transform.origin).abs()
+						var along_overlap: float=(half.x+extent.x-delta.x) if along_x else (half.z+extent.z-delta.z)
+						check(along_overlap<.0001 or half.y+extent.y-delta.y<.0001,"public frame fronts do not overlap coplanarly")
 		for part in ["Floor","Ceiling"]:
 			var surface := room.get_node_or_null(part) as MeshInstance3D
 			if surface==null: continue
@@ -74,6 +95,16 @@ func _run() -> void:
 				check(up==0 and down==2 and indices.size()==6,str(record.id)+" ceiling owns underside only")
 	check(floors>100 and ceilings>100,"audit covers the composed building")
 	check(trim_rooms>20 and trim_pieces>200,"millwork covers occupied architecture")
+	check(panel_rooms>=10,"public halls and arrival rooms receive wainscot")
+	for record: Dictionary in world.layout.spaces:
+		if record.get("class", "")!="public" or record.get("open_shell", false): continue
+		var r: Array=record.rect
+		var y: float=world.adapter.root.level_y[record.level]
+		var centre := Vector3((r[0]+r[2])*.5,y,(r[1]+r[3])*.5)
+		world.player.global_position=world.adapter.root.to_global(centre+Vector3.UP*.05)
+		world.player.camera.make_current()
+		world.player.face_world_point(world.adapter.root.to_global(Vector3(r[0]+.2,y+1.05,r[3]-.2)))
+		await shot(str(record.id)+"_wainscot")
 	var captures := 0
 	var captured_levels: Array[String]=[]
 	for record: Dictionary in world.layout.spaces:
@@ -92,7 +123,7 @@ func _run() -> void:
 		captured_levels.append(str(record.level))
 		if captures==3: break
 	print("FLOOR OWNERSHIP: floors=%d ceilings=%d collision_probes=%d failures=%d" % [floors,ceilings,probes,failures.size()])
-	print("MILLWORK: rooms=%d strips=%d failures=%d" % [trim_rooms,trim_pieces,failures.size()])
+	print("MILLWORK: batches=%d strips=%d public_wainscot_rooms=%d failures=%d" % [trim_rooms,trim_pieces,panel_rooms,failures.size()])
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
 func shot(label: String) -> void:

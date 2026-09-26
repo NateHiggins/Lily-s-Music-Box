@@ -38,3 +38,17 @@ limits projection, verifies collision-free batching, and captures both floor
 and upper-wall views on three occupied storeys. This is an architectural
 finish pass, not a claim that all V2 interiors or maintenance activities are
 complete.
+
+Public enclosed rooms additionally receive dark-timber wainscot: recessed
+backing from the skirting cap to 1.32 m, a 40 mm dado cap, and raised frames
+divided into bays no wider than roughly 720 mm. The existing `wood_dark`
+catalogue material supplies the finish. Window sills clip the backing and
+frames; doorway apertures remain open. Rails and stiles meet without overlapping
+front faces. Narrow remnants omit stiles rather than piling frames together.
+This adds one further MultiMesh draw in each of the sixteen eligible public
+rooms, including the lobby, vestibule, reading room and apartment approaches.
+Stair voids and open landings retain their existing finishes.
+
+The production surface suite checks panel bounds and coplanar frame overlap,
+and captures every affected public room. The vertical route covers actual
+player travel through the narrow east hall and stair connections.

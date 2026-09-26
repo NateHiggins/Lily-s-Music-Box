@@ -469,7 +469,8 @@ func _build_spaces() -> void:
 		if production_materials:
 			preload("res://scripts/building/orison_v2_millwork.gd").build(parent, space,
 					y, clear_h, float(dims.partition_wall),
-					architectural_materials.material_for("FrameTrim", cls))
+					architectural_materials.material_for("FrameTrim", cls),
+					architectural_materials.material_for("Leaf", cls))
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String, sides: Array) -> void:
