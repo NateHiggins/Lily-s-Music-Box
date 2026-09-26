@@ -732,9 +732,9 @@
         "id": "ROOF_VENT_FAN_A",
         "level": "ROOF",
         "position": [
-          -11.5,
+          -6.175,
           0,
-          4
+          4.375
         ],
         "yaw": 0,
         "kind": "fixture"
@@ -743,41 +743,41 @@
         "id": "ROOF_VENT_FAN_B",
         "level": "ROOF",
         "position": [
-          -4,
+          -6.8,
           0,
-          9.5
+          -11.2
         ],
-        "yaw": 0,
+        "yaw": 3.141592653589793,
         "kind": "fixture"
       },
       {
         "id": "ROOF_VENT_FAN_C",
         "level": "ROOF",
         "position": [
-          6.5,
+          -6.175,
           0,
-          -8
+          5.8
         ],
-        "yaw": 0,
+        "yaw": 3.141592653589793,
         "kind": "fixture"
       },
       {
         "id": "ROOF_VENT_FAN_D",
         "level": "ROOF",
         "position": [
-          8,
+          14.7,
           0,
-          10
+          -10.85
         ],
-        "yaw": 0,
+        "yaw": 3.141592653589793,
         "kind": "fixture"
       },
       {
         "id": "F02_A_BATH_VENT_REGISTER",
         "level": "F02",
         "position": [
-          -7.449999999999999,
-          2.86,
+          -6.799999999999999,
+          2.6,
           4.375
         ],
         "kind": "fixture",
@@ -787,8 +787,8 @@
         "id": "F02_B_BATH_VENT_REGISTER",
         "level": "F02",
         "position": [
-          14.225000000000001,
-          2.86,
+          14.875000000000002,
+          2.6,
           -10.85
         ],
         "kind": "fixture",
@@ -798,8 +798,8 @@
         "id": "F04_B_BATH_VENT_REGISTER",
         "level": "F04",
         "position": [
-          -7.5,
-          2.86,
+          -6.85,
+          2.6,
           4.75
         ],
         "kind": "fixture",
@@ -809,8 +809,8 @@
         "id": "F03_B_BATH_VENT_REGISTER",
         "level": "F03",
         "position": [
-          14.325,
-          2.86,
+          14.975,
+          2.6,
           -11.075
         ],
         "kind": "fixture",
@@ -820,8 +820,8 @@
         "id": "F03_A_BATH_VENT_REGISTER",
         "level": "F03",
         "position": [
-          -7.449999999999999,
-          2.86,
+          -6.799999999999999,
+          2.6,
           4.375
         ],
         "kind": "fixture",
@@ -831,8 +831,8 @@
         "id": "F04_A_BATH_VENT_REGISTER",
         "level": "F04",
         "position": [
-          14.225000000000001,
-          2.86,
+          14.875000000000002,
+          2.6,
           -10.85
         ],
         "kind": "fixture",
@@ -843,8 +843,8 @@
         "level": "F05",
         "position": [
           -6.95,
-          2.86,
-          -10.6
+          2.6,
+          -11.25
         ],
         "kind": "fixture",
         "space": "F05_A_BATH"
@@ -853,8 +853,8 @@
         "id": "F05_B_BATH_VENT_REGISTER",
         "level": "F05",
         "position": [
-          -7.9,
-          2.86,
+          -7.25,
+          2.6,
           4.725
         ],
         "kind": "fixture",
@@ -865,8 +865,8 @@
         "level": "F05",
         "position": [
           2.15,
-          2.86,
-          5.1
+          2.6,
+          5.75
         ],
         "kind": "fixture",
         "space": "F05_C_BATH"
@@ -875,8 +875,8 @@
         "id": "F05_D_BATH_VENT_REGISTER",
         "level": "F05",
         "position": [
-          12.575,
-          2.86,
+          13.225,
+          2.6,
           -6.0249999999999995
         ],
         "kind": "fixture",
@@ -887,8 +887,8 @@
         "level": "F06",
         "position": [
           -6.95,
-          2.86,
-          -10.6
+          2.6,
+          -11.25
         ],
         "kind": "fixture",
         "space": "F06_A_BATH"
@@ -897,8 +897,8 @@
         "id": "F06_B_BATH_VENT_REGISTER",
         "level": "F06",
         "position": [
-          -7.9,
-          2.86,
+          -7.25,
+          2.6,
           4.725
         ],
         "kind": "fixture",
@@ -909,8 +909,8 @@
         "level": "F06",
         "position": [
           2.15,
-          2.86,
-          5.1
+          2.6,
+          5.75
         ],
         "kind": "fixture",
         "space": "F06_C_BATH"
@@ -919,8 +919,8 @@
         "id": "F06_D_BATH_VENT_REGISTER",
         "level": "F06",
         "position": [
-          12.575,
-          2.86,
+          13.225,
+          2.6,
           -6.0249999999999995
         ],
         "kind": "fixture",
@@ -931,8 +931,8 @@
         "level": "F02",
         "position": [
           2.15,
-          2.86,
-          5.1
+          2.6,
+          5.75
         ],
         "kind": "fixture",
         "space": "F02_C_BATH"
@@ -942,8 +942,8 @@
         "level": "F04",
         "position": [
           2.15,
-          2.86,
-          5.1
+          2.6,
+          5.75
         ],
         "kind": "fixture",
         "space": "F04_C_BATH"
@@ -952,8 +952,8 @@
         "id": "F01_D_BATH_VENT_REGISTER",
         "level": "F01",
         "position": [
-          14.225000000000001,
-          2.86,
+          14.875000000000002,
+          2.6,
           -10.85
         ],
         "kind": "fixture",
@@ -964,8 +964,8 @@
         "level": "F01",
         "position": [
           -6.8,
-          2.86,
-          -11.0
+          2.6,
+          -11.65
         ],
         "kind": "fixture",
         "space": "F01_A_BATH"
@@ -975,8 +975,8 @@
         "level": "F03",
         "position": [
           -6.8999999999999995,
-          2.86,
-          -11.0
+          2.6,
+          -11.65
         ],
         "kind": "fixture",
         "space": "F03_D_BATH"
@@ -986,8 +986,8 @@
         "level": "F04",
         "position": [
           -6.8999999999999995,
-          2.86,
-          -11.0
+          2.6,
+          -11.65
         ],
         "kind": "fixture",
         "space": "F04_D_BATH"
@@ -997,8 +997,8 @@
         "level": "F02",
         "position": [
           -10.625,
-          2.86,
-          -8.1
+          2.6,
+          -8.75
         ],
         "kind": "fixture",
         "space": "F02_D_RESTRICTED"
@@ -1008,8 +1008,8 @@
         "level": "F03",
         "position": [
           0.75,
-          2.86,
-          7.75
+          2.6,
+          7.1
         ],
         "kind": "fixture",
         "space": "F03_C_RESTRICTED"
@@ -1018,8 +1018,8 @@
         "id": "F01_RESTROOM_VENT_REGISTER",
         "level": "F01",
         "position": [
-          6.8500000000000005,
-          2.86,
+          7.500000000000001,
+          2.6,
           -6.45
         ],
         "kind": "fixture",

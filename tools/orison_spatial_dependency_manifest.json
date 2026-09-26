@@ -177652,36 +177652,6 @@
    "target_exists": false
   },
   {
-   "key": "f303c48bd0010a61",
-   "kind": "id_reference",
-   "token": "F01_RESTROOM_VENT_REGISTER",
-   "file": "game/scripts/building/orison_v2_ventilation.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "mount"
-   ],
-   "lines": [
-    12
-   ],
-   "count": 1,
-   "context": [
-    "var stack:= \"A\" if identity==\"F01_RESTROOM_VENT_REGISTER\" else identity.split(\"_\")[1]"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F01/vent+acoustic_node+v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "8f248ff39f833a7c",
    "kind": "id_candidate",
    "token": "F01_D_",
@@ -181545,6 +181515,835 @@
     "for point in [Vector3(0,0,-12.8),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5),",
     "Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.5),",
     "Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e328ffa420053dd5",
+   "kind": "id_reference",
+   "token": "F01_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "99754f1cecb1cee3",
+   "kind": "id_reference",
+   "token": "F01_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "58e0274fbe3f5ec0",
+   "kind": "id_reference",
+   "token": "F01_RESTROOM_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5c30d3761642cdfa",
+   "kind": "id_reference",
+   "token": "F02_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[0]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "58acb13011a0c729",
+   "kind": "id_reference",
+   "token": "F02_B_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[1]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "55b034cd67d18049",
+   "kind": "id_reference",
+   "token": "F02_C_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e5ee8b618bbcdd64",
+   "kind": "id_reference",
+   "token": "F02_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e4f66931bcb89d30",
+   "kind": "id_reference",
+   "token": "F03_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ec5026837015aa7b",
+   "kind": "id_reference",
+   "token": "F03_B_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "52496c75da5260b3",
+   "kind": "id_reference",
+   "token": "F03_C_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b62bb5764eff01ae",
+   "kind": "id_reference",
+   "token": "F03_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "781cb59375fd2958",
+   "kind": "id_reference",
+   "token": "F04_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "93aeb8ef9405f24e",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[2]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b703085c67fd8922",
+   "kind": "id_reference",
+   "token": "F04_C_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1efd63ad984843a7",
+   "kind": "id_reference",
+   "token": "F04_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1559788b500f2977",
+   "kind": "id_reference",
+   "token": "F05_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1b4af7b1d25f6b93",
+   "kind": "id_reference",
+   "token": "F05_B_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c6faa6614f8458aa",
+   "kind": "id_reference",
+   "token": "F05_C_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ba98faf37596df52",
+   "kind": "id_reference",
+   "token": "F05_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "54de690dfe36009c",
+   "kind": "id_reference",
+   "token": "F06_A_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "762a0382da0fae0d",
+   "kind": "id_reference",
+   "token": "F06_B_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bac5bfd09ab9672b",
+   "kind": "id_reference",
+   "token": "F06_C_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "65c6e80e5f33ff54",
+   "kind": "id_reference",
+   "token": "F06_D_BATH_VENT_REGISTER",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/ventilation/registers[*]/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "233af4e3d0760c33",
+   "kind": "generated_name",
+   "token": "_build_stack",
+   "file": "game/scripts/building/orison_v2_ventilation.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_stack"
+   ],
+   "lines": [
+    55
+   ],
+   "count": 1,
+   "context": [
+    "\"Stack_\"+id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3b80960869a101ce",
+   "kind": "id_reference",
+   "token": "F01_A_BATH_VENT_REGISTER",
+   "file": "game/tests/orison_v2_ventilation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_A_BATH_VENT_REGISTER\",\"F02_C_BATH_VENT_REGISTER\",\"F03_B_BATH_VENT_REGISTER\",\"F04_B_BATH_VENT_REGISTER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "669a52c693ad0c6c",
+   "kind": "id_reference",
+   "token": "F02_C_BATH_VENT_REGISTER",
+   "file": "game/tests/orison_v2_ventilation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_A_BATH_VENT_REGISTER\",\"F02_C_BATH_VENT_REGISTER\",\"F03_B_BATH_VENT_REGISTER\",\"F04_B_BATH_VENT_REGISTER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c86f908f2b3cbdf7",
+   "kind": "id_reference",
+   "token": "F03_B_BATH_VENT_REGISTER",
+   "file": "game/tests/orison_v2_ventilation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_A_BATH_VENT_REGISTER\",\"F02_C_BATH_VENT_REGISTER\",\"F03_B_BATH_VENT_REGISTER\",\"F04_B_BATH_VENT_REGISTER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a4cffe11e3c5b0bc",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_VENT_REGISTER",
+   "file": "game/tests/orison_v2_ventilation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_A_BATH_VENT_REGISTER\",\"F02_C_BATH_VENT_REGISTER\",\"F03_B_BATH_VENT_REGISTER\",\"F04_B_BATH_VENT_REGISTER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/vent+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3a2ed366967cd3a7",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_ventilation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    62,
+    63,
+    64
+   ],
+   "count": 3,
+   "context": [
+    "\"F02_C_BATH_VENT_REGISTER\":Vector3(1.05,3.22,5.1),",
+    "\"F03_B_BATH_VENT_REGISTER\":Vector3(13.8,6.42,-10.5),",
+    "\"F04_B_BATH_VENT_REGISTER\":Vector3(-7.9,9.62,4.75)}"
    ],
    "gameplay_binding": true,
    "authority": [

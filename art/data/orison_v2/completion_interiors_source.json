@@ -7708,6 +7708,136 @@
           "room": "B1_SERVICE_CORE"
         }
       ]
+    },
+    "ventilation": {
+      "stacks": [
+        {
+          "id": "A",
+          "riser": [
+            -6.175,
+            3.65
+          ],
+          "branch_axis": "xz"
+        },
+        {
+          "id": "B",
+          "riser": [
+            -5.95,
+            -12.35
+          ],
+          "branch_axis": "zx"
+        },
+        {
+          "id": "C",
+          "riser": [
+            -6.175,
+            5.8
+          ],
+          "branch_axis": "zx"
+        },
+        {
+          "id": "D",
+          "riser": [
+            15.6,
+            -12.1
+          ],
+          "branch_axis": "xz"
+        }
+      ],
+      "registers": [
+        {
+          "anchor": "F02_A_BATH_VENT_REGISTER",
+          "stack": "A"
+        },
+        {
+          "anchor": "F02_B_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F04_B_BATH_VENT_REGISTER",
+          "stack": "A"
+        },
+        {
+          "anchor": "F03_B_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F03_A_BATH_VENT_REGISTER",
+          "stack": "A"
+        },
+        {
+          "anchor": "F04_A_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F05_A_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F05_B_BATH_VENT_REGISTER",
+          "stack": "A"
+        },
+        {
+          "anchor": "F05_C_BATH_VENT_REGISTER",
+          "stack": "C"
+        },
+        {
+          "anchor": "F05_D_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F06_A_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F06_B_BATH_VENT_REGISTER",
+          "stack": "A"
+        },
+        {
+          "anchor": "F06_C_BATH_VENT_REGISTER",
+          "stack": "C"
+        },
+        {
+          "anchor": "F06_D_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F02_C_BATH_VENT_REGISTER",
+          "stack": "C"
+        },
+        {
+          "anchor": "F04_C_BATH_VENT_REGISTER",
+          "stack": "C"
+        },
+        {
+          "anchor": "F01_D_BATH_VENT_REGISTER",
+          "stack": "D"
+        },
+        {
+          "anchor": "F01_A_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F03_D_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F04_D_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F02_D_BATH_VENT_REGISTER",
+          "stack": "B"
+        },
+        {
+          "anchor": "F03_C_BATH_VENT_REGISTER",
+          "stack": "C"
+        },
+        {
+          "anchor": "F01_RESTROOM_VENT_REGISTER",
+          "stack": "D"
+        }
+      ]
     }
   }
 }

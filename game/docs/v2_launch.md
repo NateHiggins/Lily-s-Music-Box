@@ -51,7 +51,10 @@ press E to service the overflowing ballcock; Escape cancels and restores an
 unfinished attempt. This reuses the existing tank activity. Its repair is local
 to the current building instance, not a saved campaign job or a source of water
 for apartment taps. Four automatic roof ventilators serve 23 passive bathroom
-registers. Their guarded inspection points explain the service refusal; they
+registers through four modeled risers and overhead branches. The registers
+clear the ceiling lights. Stack A serves the northwest bathrooms, B the
+southwest, C the north-central homes, and D the eastern bathrooms and staff
+restroom. Their guarded inspection points explain the service refusal; they
 are not another repair job. A guarded lift drive stands above the passenger
 shaft inside the public roof bulkhead. Its sheave follows the existing car;
 the guard keeps the moving apparatus separate from the roof access path.
