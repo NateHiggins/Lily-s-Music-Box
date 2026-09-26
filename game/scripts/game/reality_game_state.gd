@@ -202,6 +202,8 @@ func _validate_document(candidate: Dictionary) -> Dictionary:
 		return {"ok": false, "code": "future_save_read_only", "version": int(version)}
 	if candidate.has("lamp_optics") and not preload("res://scripts/lamp/lamp_optical_snapshot.gd").valid(candidate.lamp_optics):
 		return _invalid_shape("lamp_optics")
+	if candidate.has("caretaker_economy") and not preload("res://scripts/game/caretaker_economy.gd").valid(candidate.caretaker_economy):
+		return _invalid_shape("caretaker_economy")
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
 			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",

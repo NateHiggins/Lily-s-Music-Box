@@ -66,6 +66,7 @@ var touch: TouchControls
 var shots: ShotCapture
 var warehouse: PropWarehouse
 var view_override: Camera3D
+var building_debug: BuildingDebug
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
@@ -398,6 +399,23 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return
+	var economy := preload("res://scripts/game/caretaker_economy.gd").new()
+	economy.name = "CaretakerEconomy"
+	add_child(economy)
+	var care := preload("res://scripts/building/orison_v2_caretaking.gd").new()
+	care.name = "Caretaking"
+	add_child(care)
+	if not economy.setup(work_orders) or not care.setup(_blockout,economy):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
+		return
+	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
+	notebook.name = "CaretakerNotebook"
+	notebook.player = player
+	notebook.care = care
+	notebook.economy = economy
+	notebook.debug = building_debug
+	add_child(notebook)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
@@ -422,6 +440,7 @@ func _compose_debug_controls() -> void:
 	warehouse.build(preload("res://scripts/building/building_root.gd").PROP_SCRIPTS)
 	safety_net.exempt_zones.append(warehouse.hall_aabb())
 	var panel := BuildingDebug.new()
+	building_debug = panel
 	panel.setup(self)
 	var layer := CanvasLayer.new()
 	layer.name = "BuildingDebugLayer"

@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
+| Household inspection, preventative care, tips and low-pressure rent | `game/docs/caretaking_and_economy.md` and `design/ORISON_V2_CARE_ECONOMY_PROGRESS_2026-09-26.md` |
 | Floor plates in both V2 stair cores and lamp-readable lettering | `design/ORISON_V2_WAYFINDING_PROGRESS_2026-09-26.md` |
 | Connected boiler flue, roof chimney and saved water-column service | `design/ORISON_V2_BOILER_FLUE_PROGRESS_2026-09-26.md` |
 | Wider sixteen-metre service light and physical lamp aim toward nearby controls | `design/ORISON_V2_LAMP_COVERAGE_PROGRESS_2026-09-26.md` |

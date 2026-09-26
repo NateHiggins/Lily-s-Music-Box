@@ -40,6 +40,7 @@ var _hot := false
 var _cold := false
 var _stopper := false
 var _water_level := 0.0
+var drain_capacity := 1.0
 var _boiler_temperature := 0.70
 var _handles: Array[Node3D] = []
 var _handle_turns: Array[float] = []
@@ -855,10 +856,9 @@ func _process(delta: float) -> void:
 		else:
 			_handles[i].rotation.y = turn
 	var flowing := _hot or _cold
-	if _stopper and flowing:
-		_water_level = minf(1.0, _water_level + delta * 0.075)
-	else:
-		_water_level = maxf(0.0, _water_level - delta * 0.12)
+	var inflow := .075 if flowing else 0.0
+	var outflow := 0.0 if _stopper else .12*clampf(drain_capacity,0,1)
+	_water_level = clampf(_water_level+delta*(inflow-outflow),0,1)
 	if _basin_water:
 		_basin_water.visible = _water_level > 0.01
 		# Water has one surface; it rises from the drain rather than growing

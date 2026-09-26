@@ -962,6 +962,13 @@ func _set_menu_open(value: bool) -> void:
 		Input.mouse_mode = _prior_mouse
 
 
+func defer_mouse_restore(mode: int) -> bool:
+	# A physical inspection can close while F1 still owns the pointer. Its
+	# original mode becomes our eventual return mode; keep controls clickable.
+	if not _owns_pointer: return false
+	_prior_mouse = mode
+	return true
+
 func _exit_tree() -> void:
 	if _ecology_active and is_instance_valid(root) and is_instance_valid(root.warehouse):
 		root.warehouse.close_ecology()

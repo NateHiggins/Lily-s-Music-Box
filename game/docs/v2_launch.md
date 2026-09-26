@@ -23,6 +23,10 @@ The waking lamp has a broad work-light beam and a sixteen-metre range. Aim at
 the control and let the carried set settle after a fast turn. Its light still
 comes from the modeled lens; walls and machinery cast shadows.
 
+Press I while aiming at a fitted sink, shower or cabinet to inspect and service
+it. Press P for the pocket ledger, service requests and rent. See
+[care and economy](caretaking_and_economy.md) for the current rollout and limits.
+
 Both stair cores have floor plates from the basement through the roof. The
 ground-floor plates identify the street/watch station and service access;
 basement plates identify laundry, workshop and boiler directions.

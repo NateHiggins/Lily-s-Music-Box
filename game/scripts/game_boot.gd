@@ -13,6 +13,7 @@ const ACTIONS := {
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
+	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }
 
 ## Shoulder switches remain reachable while both thumbs steer and look. They
