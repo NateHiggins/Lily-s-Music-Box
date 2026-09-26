@@ -266,11 +266,15 @@ func interact(_player: Node) -> void:
 	_moving = true
 	open = not open
 	_play_move()
-	var swept := -100.0 if swing_out else 100.0
 	var tween := create_tween()
 	tween.tween_property(_body, "rotation:y",
-			deg_to_rad(swept) if open else 0.0, 0.5).set_trans(Tween.TRANS_SINE)
+			motion_target_angle(open), 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
+
+
+## The leaf owner supplies the angle to callers checking its proposed sweep.
+func motion_target_angle(want_open: bool) -> float:
+	return deg_to_rad(-100.0 if swing_out else 100.0) if want_open else 0.0
 
 
 func npc_set_open(want_open: bool) -> void:

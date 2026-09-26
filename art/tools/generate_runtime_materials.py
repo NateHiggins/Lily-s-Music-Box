@@ -26,7 +26,7 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
     "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
-    "concrete": {}, "terrazzo": {}, "stair": {},
+    "concrete": {}, "terrazzo": {}, "stair": {}, "brick": {},
     "countertop": {},
     "book_burgundy": {}, "book_green": {}, "book_navy": {},
     "book_ochre": {}, "book_teal": {}, "book_brown": {},

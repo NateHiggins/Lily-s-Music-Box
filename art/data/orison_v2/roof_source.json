@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "records": {
+    "levels": [
+      {
+        "id": "ROOF",
+        "y": 19.2
+      }
+    ],
+    "spaces": [
+      {
+        "id": "ROOF_PUBLIC_CORE",
+        "level": "ROOF",
+        "class": "core",
+        "rect": [
+          -2.2,
+          -3.85,
+          5.4,
+          3.85
+        ],
+        "purpose": "public stair roof access bulkhead",
+        "no_floor": true,
+        "no_ceiling": false,
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "ROOF_SERVICE_CORE",
+        "level": "ROOF",
+        "class": "core",
+        "rect": [
+          9.5,
+          0.3,
+          13.2,
+          10.2
+        ],
+        "purpose": "service stair roof access bulkhead",
+        "no_floor": true,
+        "no_ceiling": false,
+        "wall_sides": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_WEST",
+        "level": "ROOF",
+        "rect": [
+          -15.65,
+          -12.35,
+          -2.2,
+          11.65
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_SOUTH",
+        "level": "ROOF",
+        "rect": [
+          -2.2,
+          -12.35,
+          15.65,
+          -3.85
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_NORTH",
+        "level": "ROOF",
+        "rect": [
+          -2.2,
+          3.85,
+          9.5,
+          11.65
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_MIDDLE",
+        "level": "ROOF",
+        "rect": [
+          5.4,
+          -3.85,
+          9.5,
+          3.85
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_EAST",
+        "level": "ROOF",
+        "rect": [
+          13.2,
+          0.3,
+          15.65,
+          11.65
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_SOUTHEAST",
+        "level": "ROOF",
+        "rect": [
+          9.5,
+          -3.85,
+          15.65,
+          0.3
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      },
+      {
+        "id": "ROOF_DECK_NORTHEAST",
+        "level": "ROOF",
+        "rect": [
+          9.5,
+          10.2,
+          13.2,
+          11.65
+        ],
+        "class": "service",
+        "purpose": "open air maintenance roof deck",
+        "wall_sides": [],
+        "no_ceiling": true
+      }
+    ],
+    "platforms": [
+      {
+        "id": "ROOF_PUBLIC_LANDING_W",
+        "level": "ROOF",
+        "rect": [
+          -2.2,
+          -3.85,
+          1.7,
+          3.85
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_PUBLIC_LANDING_S",
+        "level": "ROOF",
+        "rect": [
+          1.7,
+          -3.85,
+          5.4,
+          -1.9
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_PUBLIC_LANDING_N",
+        "level": "ROOF",
+        "rect": [
+          1.7,
+          1.65,
+          5.4,
+          3.85
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_SERVICE_LANDING",
+        "level": "ROOF",
+        "rect": [
+          9.5,
+          0.3,
+          13.2,
+          5.0
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_SERVICE_RETURN",
+        "level": "ROOF",
+        "rect": [
+          11.9,
+          5.0,
+          13.2,
+          6.05
+        ],
+        "class": "core"
+      }
+    ],
+    "doors": [
+      {
+        "id": "ROOF_PUBLIC_DOOR",
+        "level": "ROOF",
+        "center": [
+          -2.2,
+          0
+        ],
+        "width": 1.1,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "out onto roof deck",
+        "connects": [
+          "ROOF_PUBLIC_CORE",
+          "ROOF_DECK_WEST"
+        ]
+      },
+      {
+        "id": "ROOF_SERVICE_DOOR",
+        "level": "ROOF",
+        "center": [
+          9.5,
+          3
+        ],
+        "width": 1.1,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "out onto roof deck",
+        "connects": [
+          "ROOF_SERVICE_CORE",
+          "ROOF_DECK_MIDDLE"
+        ]
+      }
+    ],
+    "fixtures": [
+      {
+        "id": "ROOF_PARAPET_SOUTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          0.55,
+          -12.35
+        ],
+        "size": [
+          31.3,
+          1.1,
+          0.25
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      },
+      {
+        "id": "ROOF_COPING_SOUTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          1.13,
+          -12.35
+        ],
+        "size": [
+          31.400000000000002,
+          0.06,
+          0.35
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "weathering cap over parapet"
+      },
+      {
+        "id": "ROOF_PARAPET_NORTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          0.55,
+          11.65
+        ],
+        "size": [
+          31.3,
+          1.1,
+          0.25
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      },
+      {
+        "id": "ROOF_COPING_NORTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          1.13,
+          11.65
+        ],
+        "size": [
+          31.400000000000002,
+          0.06,
+          0.35
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "weathering cap over parapet"
+      },
+      {
+        "id": "ROOF_PARAPET_WEST",
+        "level": "ROOF",
+        "position": [
+          -15.65,
+          0.55,
+          -0.35
+        ],
+        "size": [
+          0.25,
+          1.1,
+          24
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      },
+      {
+        "id": "ROOF_COPING_WEST",
+        "level": "ROOF",
+        "position": [
+          -15.65,
+          1.13,
+          -0.35
+        ],
+        "size": [
+          0.35,
+          0.06,
+          24.1
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "weathering cap over parapet"
+      },
+      {
+        "id": "ROOF_PARAPET_EAST",
+        "level": "ROOF",
+        "position": [
+          15.65,
+          0.55,
+          -0.35
+        ],
+        "size": [
+          0.25,
+          1.1,
+          24
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      },
+      {
+        "id": "ROOF_COPING_EAST",
+        "level": "ROOF",
+        "position": [
+          15.65,
+          1.13,
+          -0.35
+        ],
+        "size": [
+          0.35,
+          0.06,
+          24.1
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "weathering cap over parapet"
+      }
+    ],
+    "anchors": [
+      {
+        "id": "ROOF_DECK_WEST_STANCE",
+        "position": [
+          -7,
+          0,
+          0
+        ],
+        "kind": "clearance",
+        "level": "ROOF"
+      },
+      {
+        "id": "ROOF_DECK_NORTH_STANCE",
+        "position": [
+          0,
+          0,
+          7
+        ],
+        "kind": "clearance",
+        "level": "ROOF"
+      },
+      {
+        "id": "ROOF_DECK_SOUTH_STANCE",
+        "position": [
+          0,
+          0,
+          -7
+        ],
+        "kind": "clearance",
+        "level": "ROOF"
+      },
+      {
+        "id": "ROOF_DECK_EAST_STANCE",
+        "position": [
+          14.3,
+          0,
+          5
+        ],
+        "kind": "clearance",
+        "level": "ROOF"
+      }
+    ],
+    "route_edges": [
+      {
+        "id": "ROOF_PUBLIC_ACCESS",
+        "from": "F06_PUBLIC_CORE",
+        "to": "ROOF_PUBLIC_CORE",
+        "via": "PRIMARY_F06_ROOF"
+      },
+      {
+        "id": "ROOF_SERVICE_ACCESS",
+        "from": "F06_SERVICE_CORE",
+        "to": "ROOF_SERVICE_CORE",
+        "via": "SERVICE_F06_ROOF"
+      }
+    ],
+    "openings": [
+      {
+        "id": "ROOF_DECK_WEST_SOUTH_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          -2.2,
+          -8
+        ],
+        "axis": "z",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_WEST",
+          "ROOF_DECK_SOUTH"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_WEST_NORTH_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          -2.2,
+          7
+        ],
+        "axis": "z",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_WEST",
+          "ROOF_DECK_NORTH"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_SOUTH_MIDDLE_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          7,
+          -3.85
+        ],
+        "axis": "x",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_SOUTH",
+          "ROOF_DECK_MIDDLE"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_MIDDLE_NORTH_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          7,
+          3.85
+        ],
+        "axis": "x",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_MIDDLE",
+          "ROOF_DECK_NORTH"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_SOUTH_SOUTHEAST_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          14,
+          -3.85
+        ],
+        "axis": "x",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_SOUTH",
+          "ROOF_DECK_SOUTHEAST"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_SOUTHEAST_EAST_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          14,
+          0.3
+        ],
+        "axis": "x",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_SOUTHEAST",
+          "ROOF_DECK_EAST"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_EAST_NORTHEAST_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          13.2,
+          10.9
+        ],
+        "axis": "z",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_EAST",
+          "ROOF_DECK_NORTHEAST"
+        ]
+      },
+      {
+        "id": "ROOF_DECK_NORTHEAST_NORTH_PASSAGE",
+        "level": "ROOF",
+        "center": [
+          9.5,
+          10.9
+        ],
+        "axis": "z",
+        "width": 1.1,
+        "height": 2.4,
+        "connects": [
+          "ROOF_DECK_NORTHEAST",
+          "ROOF_DECK_NORTH"
+        ]
+      }
+    ]
+  }
+}

@@ -9,6 +9,7 @@ const SETS := {
 	'concrete': ["T_ai_materials_concrete_albedo.png", "T_ai_materials_concrete_rough.png", "T_ai_materials_concrete_normal.png", 2.8, 0],
 	'terrazzo': ["T_ai_materials_terrazzo_albedo.png", "T_ai_materials_terrazzo_rough.png", "T_ai_materials_terrazzo_normal.png", 4, 0],
 	'stair': ["T_ai_materials_stair_albedo.png", "T_ai_materials_stair_rough.png", "T_ai_materials_stair_normal.png", 1.2, 0],
+	'brick': ["T_ai_materials_brick_albedo.png", "T_ai_materials_brick_rough.png", "T_ai_materials_brick_normal.png", 1.5, 0],
 	'countertop': ["T_ai_materials_countertop_albedo.png", "T_ai_materials_countertop_rough.png", "T_ai_materials_countertop_normal.png", 1.2, 0],
 	'book_burgundy': ["T_library_furniture_book_burgundy_albedo.png", "T_library_furniture_book_burgundy_rough.png", "T_library_furniture_book_burgundy_normal.png", 0.32, 0],
 	'book_green': ["T_library_furniture_book_green_albedo.png", "T_library_furniture_book_green_rough.png", "T_library_furniture_book_green_normal.png", 0.32, 0],

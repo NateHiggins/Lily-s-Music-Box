@@ -4,6 +4,7 @@ extends RefCounted
 var cache: Dictionary = {}
 
 func key_for(part: String, room_class: String) -> String:
+	if part.begins_with("ROOF_PARAPET_"): return "brick"
 	if part == "Glazing": return "glass"
 	if part == "Leaf": return "wood_dark"
 	if part.begins_with("Jamb") or part.begins_with("Frame") or part == "Head": return "trim"

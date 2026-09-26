@@ -1277,11 +1277,12 @@ class LiveRepoSmokeTests(unittest.TestCase):
                                 audit.RANK["PROGRAMMED"])
         # Authored upper-floor geometry is now present, but neither
         # an ID nor its source geometry supplies runtime/cutover proof.
-        for rid in ("floor.F05", "floor.F06"):
+        for rid in ("floor.F05", "floor.F06", "floor.ROOF"):
             floors = req(self.payload, rid)
             self.assertEqual(floors["status"], "PROGRAMMED")
             self.assertIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
-        self.assertEqual(req(self.payload, "floor.ROOF")["status"], "ABSENT")
+        self.assertEqual(req(self.payload, "roof.roof_bulkhead")["status"], "PROGRAMMED")
+        self.assertEqual(req(self.payload, "roof.tank_machinery")["status"], "ABSENT")
 
     def test_live_route_acceptance_is_scoped(self):
         record = req(self.payload, "human.route_readability")

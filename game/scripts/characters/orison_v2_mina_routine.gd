@@ -21,6 +21,7 @@ var outside := false
 var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
+var _door_passages: Dictionary = {}
 
 static func valid_source_header(source: Variant) -> bool:
 	if source is not Dictionary:
@@ -94,6 +95,7 @@ func _select_destination() -> void:
 
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
+	_close_passed_doors()
 	_sample -= delta
 	if _sample <= 0:
 		_sample = .5
@@ -131,9 +133,9 @@ func _physics_process(delta: float) -> void:
 		path.remove_at(0)
 		if planned_id != desired_id: path.clear()
 		return
-	for door in _doors:
-		if is_instance_valid(door) and at.distance_to(door.global_position) < 1.8:
-			door.npc_set_open(true)
+	if not _route_doors_ready(delta * 1.05):
+		actor._set_walking(false)
+		return
 	var next := at + flat.limit_length(delta*1.05)
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
@@ -163,6 +165,111 @@ func _physics_process(delta: float) -> void:
 	actor._set_walking(true)
 	if flat.length_squared() > .00001:
 		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(flat.x,flat.z),minf(1,delta*7))
+
+## Only engage an aperture crossed by the remaining authored route. Being
+## nearby is not permission to open somebody's bedroom while passing it.
+func _route_crosses_door(door: DoorProp) -> bool:
+	var previous := door.to_local(actor.global_position)
+	var side := signf(previous.z)
+	var crossing := Vector3.INF
+	for index in path:
+		var next := door.to_local(graph.get_point_position(index))
+		if absf(next.z) < .001:
+			crossing = next
+		elif side != 0.0 and next.z * side < 0.0:
+			if crossing == Vector3.INF:
+				crossing = previous.lerp(next, -previous.z / (next.z - previous.z))
+			if crossing.x >= 0.0 and crossing.x <= door.width \
+					and absf(crossing.y) < .3:
+				return true
+			crossing = Vector3.INF
+			side = signf(next.z)
+		elif absf(next.z) >= .001:
+			side = signf(next.z)
+			crossing = Vector3.INF
+		previous = next
+	return false
+
+func _route_doors_ready(step: float) -> bool:
+	var ready := true
+	for door in _doors:
+		if not is_instance_valid(door): continue
+		var near := actor.global_position.distance_to(door.global_position) < door.width + .5 + step
+		if not near: continue
+		if not _door_passages.has(door):
+			if not _route_crosses_door(door): continue
+			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false}
+		var passage: Dictionary = _door_passages[door]
+		# A crossed door belongs to the close queue, not the next approach.
+		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
+		if not door.is_ready_for_passage():
+			if not door.open and not door._moving and door.leaf_state != "locked" \
+					and _door_motion_clear(door, true):
+				door.npc_set_open(true)
+				passage.opened = door.open
+			blocked_reason = "waiting for door: " + str(door.name)
+			ready = false
+	return ready
+
+func _close_passed_doors() -> void:
+	for door: DoorProp in _door_passages.keys():
+		if not is_instance_valid(door):
+			_door_passages.erase(door)
+			continue
+		var passage: Dictionary = _door_passages[door]
+		var passed := door.to_local(actor.global_position).z * float(passage.side) < -.3
+		var abandoned := not _route_crosses_door(door) and actor.global_position.distance_to(door.global_position) > door.width + .5
+		if not passed and not abandoned: continue
+		# Leave a previously propped-open door alone. Only finish our own request.
+		if not bool(passage.opened):
+			_door_passages.erase(door)
+		elif not door._moving and _door_motion_clear(door, false):
+			door.npc_set_open(false)
+			if not door.open: _door_passages.erase(door)
+
+## Conservative swept-box clearance for people, including the player. This
+## never excludes the leaf from movement queries or modifies its collision.
+## DoorProp still owns all locks, tweens, sounds and interaction state.
+func _door_motion_clear(door: DoorProp, opening: bool) -> bool:
+	var people: Array[Node] = get_tree().get_nodes_in_group("animated_residents")
+	people.append_array(get_tree().get_nodes_in_group("player_controller"))
+	var target := door.motion_target_angle(opening)
+	var angle := target - door._body.rotation.y
+	var steps := maxi(1, ceili(absf(angle) / deg_to_rad(2.0)))
+	var margin := .03 + 2.0 * (door.width + .1) * sin(absf(angle) / steps * .25)
+	var occupants: Array[Dictionary] = []
+	for person in people:
+		var body := person as Node3D
+		if body == null or not body.visible or body.get_world_3d() != door.get_world_3d(): continue
+		var radius := PlayerController.BODY_RADIUS if body is PlayerController else .28
+		var body_height := PlayerController.STANDING_HEIGHT if body is PlayerController else 1.55
+		var foot := body.global_position
+		var relative := door.to_local(foot)
+		if relative.y > door.height + margin or relative.y + body_height < -margin: continue
+		if Vector2(relative.x, relative.z).length() > door.width + radius + margin + .1: continue
+		occupants.append({"foot": foot, "radius": radius, "height": body_height})
+	if occupants.is_empty(): return true
+	for child in door._body.get_children():
+		var collision := child as CollisionShape3D
+		if collision == null or collision.disabled: continue
+		if not collision.shape is BoxShape3D: return false
+		var box := collision.shape as BoxShape3D
+		for i in range(steps + 1):
+			var pose := door._body.transform
+			pose.basis = Basis(Vector3.UP, angle * float(i) / steps) * pose.basis
+			var transform := door.global_transform * pose * collision.transform
+			var half := box.size * .5
+			for occupant in occupants:
+				var foot: Vector3 = occupant.foot
+				var radius: float = occupant.radius
+				var body_height: float = occupant.height
+				if foot.y >= transform.origin.y + half.y + margin \
+						or foot.y + body_height <= transform.origin.y - half.y - margin: continue
+				var local := transform.affine_inverse() * foot
+				var dx := maxf(absf(local.x) - half.x, 0.0)
+				var dz := maxf(absf(local.z) - half.z, 0.0)
+				if dx * dx + dz * dz <= (radius + margin) * (radius + margin): return false
+	return true
 
 func _blocked(delta: float) -> void:
 	blocked_seconds += delta

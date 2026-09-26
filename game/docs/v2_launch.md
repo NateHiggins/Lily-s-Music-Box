@@ -18,6 +18,18 @@ lamp, and Escape opens Building Services. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 
+The primary stair now continues above F06 to the roof. At its top landing,
+turn toward the west bulkhead door and press E to step onto the deck. The
+second bulkhead, to the east, connects to the service stair. Both doors open
+and close normally; the perimeter has solid parapets. The roof is still a
+plain architectural shell: tank/machinery, rooftop service activities and
+adequate night lighting remain unfinished.
+
+Mina walks her existing home, shop, laundry and mail routes. She waits for
+doors to finish opening and closes doors she opened after people clear their
+swing. Doors already left open remain open. Her bathroom destination uses the
+sink's clear stance rather than standing inside the toilet collision.
+
 ## Debug controls and zoo
 
 To expose **Debug Building** on the title, set the following before the same

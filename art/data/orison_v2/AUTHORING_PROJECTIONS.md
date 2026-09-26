@@ -37,6 +37,14 @@ and drift/mutation refusal. The runtime modules continue to validate and consume
 the same runtime geometry, mechanisms, transforms, ownership, doors and circuits.
 Historical receipts and captures are unchanged.
 
+The roof uses `roof_source.json` and `tools/build_v2_roof.py` (with a matching
+`--check` mode). Its semantic spaces, landing slabs, doors, parapets and approach
+anchors project into `game/data/orison_v2_blockout.json`. The two new flights
+inherit the installed primary/service stair dimensions; only the F06 core
+ceilings are opened below them. This additive generator preserves all other
+floor records. Roof access is architectural scope; it does not author tank,
+ventilation or lift-machine gameplay.
+
 The older `design/astra/work/*/build.py` packets record earlier build steps.
 Some still write the former runtime locations and are not current authoring
 entrypoints. Replay those packets in their historical checkout. Before adapting
