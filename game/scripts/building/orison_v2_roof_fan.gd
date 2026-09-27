@@ -1,5 +1,28 @@
 extends ExhaustFanProp
 ## Keep the production motor/cycle/refusal; bind sound to V2 register anchors.
+var fabricated: Node3D
+
+func _build_visual() -> void:
+	super._build_visual()
+	fabricated=(preload("res://assets/props/roof_ventilator.glb") as PackedScene).instantiate()
+	var materials := {
+		"Paint":smat("trim",_paint_tint()),
+		"Iron":smat("cast_iron",Color(.38,.39,.37)),
+		"Panel":smat("trim",_panel_tint()),
+		"Brass":smat("brass_dull"),
+		"Rubber":smat("rubber_aged",Color(.36,.34,.30)),
+		"Rotor":smat("trim",_panel_tint()),
+		"Shutter":smat("trim",_panel_tint())}
+	get_node("StaticCarcass").hide()
+	for pivot in [_rotor,_louver]:
+		for old in pivot.get_children():
+			if old is MeshInstance3D: old.hide()
+	add_child(fabricated)
+	for part in fabricated.get_children():
+		if not part is MeshInstance3D: continue
+		part.material_override=materials[str(part.name)]
+		if part.name=="Rotor": part.reparent(_rotor,false)
+		elif part.name=="Shutter": part.reparent(_louver,false)
 
 func _build_duct_emitters() -> void:
 	# The inherited V1 graph coordinates are not valid in the installed V2 frame.

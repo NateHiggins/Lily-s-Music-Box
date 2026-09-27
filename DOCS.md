@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted Blender cab panels, control clearances and rear enamel field | `art/blender/lift_joinery.md` |
 | Fitted Blender lift ceiling lamp, opal bowl and retaining hardware | `art/blender/lift_ceiling_lamp.md` |
 | Blender passive bathroom grilles, folded louvers and plenum seating | `art/blender/vent_register.md` |
+| Blender shared roof ventilators, motor housings and live rotor/shutter pivots | `art/blender/roof_ventilator.md` |
 | Blender lift mirror surround and shared live reflection | `art/blender/lift_mirror.md` |
 | Blender lift floor dial, ceiling mounts and height-driven needle | `art/blender/lift_indicator.md` |
 | Blender cab control board, collars and working button presentation | `art/blender/lift_cab_controls.md` |
