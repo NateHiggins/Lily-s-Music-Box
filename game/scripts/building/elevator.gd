@@ -43,6 +43,8 @@ var _landing_controls: Dictionary = {} # level -> existing plate, cap and intera
 var _panel_visuals: Dictionary = {} # moving body -> existing skin, glazing and kick
 var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and supports
 var _cab_rail_visual: Node3D # optional V2 fabricated presentation
+var _cab_mirror_parts: Array[MeshInstance3D] = []
+var _cab_mirror: Node3D # V2 live reflection surface owner
 var _cabin_controls: Dictionary = {"buttons":{},"areas":{}} # direct visual/input references
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
@@ -400,9 +402,9 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	silver.roughness = 0.18
 	silver.rim_enabled = true
 	silver.rim = 0.35
-	_cab_box(Vector3(1.06, 0.86, pr), Vector3(0, 1.52, rz + pr * 0.5), oak)
-	_cab_box(Vector3(0.96, 0.76, pr + 0.008),
-			Vector3(0, 1.52, rz + pr * 0.6), silver)
+	_cab_mirror_parts.append(_cab_box(Vector3(1.06, 0.86, pr), Vector3(0, 1.52, rz + pr * 0.5), oak))
+	_cab_mirror_parts.append(_cab_box(Vector3(0.96, 0.76, pr + 0.008),
+			Vector3(0, 1.52, rz + pr * 0.6), silver))
 
 	# --- handrail on three sides -----------------------------------
 	var hy := 0.92

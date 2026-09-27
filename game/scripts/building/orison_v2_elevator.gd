@@ -28,6 +28,8 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	_refine_landing_frames(lift)
 	_refine_landing_panels(lift)
 	_refine_cab_handrails(lift)
+	var mirror := preload("res://scripts/building/orison_v2_lift_mirror.gd").new()
+	mirror.mount(lift)
 	var cab_controls := preload("res://scripts/building/orison_v2_cab_controls.gd").new()
 	cab_controls.name = "CabControls"
 	lift.add_child(cab_controls)

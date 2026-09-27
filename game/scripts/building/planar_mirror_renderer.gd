@@ -2,9 +2,9 @@ class_name PlanarMirrorRenderer
 extends Node
 ## One honest reflected view, lent to the mirror the player can actually see.
 ##
-## Twenty-three permanent SubViewports would render the building twenty-three
-## extra times. This owner instead selects one close, front-facing cabinet,
-## reflects the production camera through its live door plane, and sleeps when
+## A permanent SubViewport per mirror would render the building many extra
+## times. This owner instead selects one close, front-facing surface,
+## reflects the production camera through its live plane, and sleeps when
 ## no mirror is useful. Mirror glass is presentation layer 20, excluded from
 ## the borrowed camera, so reflection depth is exactly zero.
 
@@ -17,7 +17,7 @@ const SHADER := preload("res://shaders/planar_mirror.gdshader")
 var _main_camera: Camera3D
 var _view: SubViewport
 var _camera: Camera3D
-var _active: MedicineCabinetProp
+var _active: Variant
 var _material: ShaderMaterial
 var _texture_bound := false
 var _stopped := false
@@ -59,7 +59,7 @@ func _bind_texture() -> void:
 	_material.shader = SHADER
 	_material.set_shader_parameter("mirror_view", _view.get_texture())
 	_texture_bound = true
-	# A cabinet can win selection on the first process tick, before this deferred
+	# A surface can win selection on the first process tick, before this deferred
 	# texture exists. Complete that same binding instead of waiting for a switch
 	# to some other mirror that may never happen.
 	if is_instance_valid(_active):
@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 	if _stopped or not is_instance_valid(_main_camera) or not is_instance_valid(_camera):
 		_sleep()
 		return
-	var candidate := _choose_mirror()
+	var candidate: Variant = _choose_mirror()
 	if candidate != _active:
 		if is_instance_valid(_active):
 			_active.set_live_mirror_material(null)
@@ -85,21 +85,24 @@ func _process(_delta: float) -> void:
 	set_meta("active_unit", _active.unit)
 
 
-func _choose_mirror() -> MedicineCabinetProp:
-	var best: MedicineCabinetProp
+func _choose_mirror() -> Variant:
+	var best: Variant
 	var best_score := -INF
 	for node in get_tree().get_nodes_in_group("planar_mirror_surface"):
-		var cabinet := node.get_parent().get_parent() as MedicineCabinetProp
-		if cabinet == null:
+		# Find the surface's actual owner, independent of cabinet door nesting.
+		var cabinet: Variant = node.get_parent()
+		while cabinet!=null and not cabinet.has_method("mirror_surface"):
+			cabinet=cabinet.get_parent()
+		if cabinet == null or cabinet.mirror_surface()!=node:
 			continue
-		var center := cabinet.mirror_center()
+		var center: Vector3 = cabinet.mirror_center()
 		var offset := center - _main_camera.global_position
 		var distance_m := offset.length()
 		if distance_m < 0.10 or distance_m > MAX_DISTANCE_M:
 			continue
 		var toward := offset / distance_m
 		var camera_facing := (-_main_camera.global_basis.z).dot(toward)
-		var glass_facing := cabinet.mirror_normal().dot(-toward)
+		var glass_facing: float = cabinet.mirror_normal().dot(-toward)
 		if camera_facing < 0.18 or glass_facing < 0.12 \
 				or not _main_camera.is_position_in_frustum(center):
 			continue
@@ -110,15 +113,15 @@ func _choose_mirror() -> MedicineCabinetProp:
 	return best
 
 
-func _pose_reflection(cabinet: MedicineCabinetProp) -> void:
-	var center := cabinet.mirror_center()
-	var normal := cabinet.mirror_normal()
+func _pose_reflection(cabinet: Variant) -> void:
+	var center: Vector3 = cabinet.mirror_center()
+	var normal: Vector3 = cabinet.mirror_normal()
 	var source := _main_camera.global_transform
 	var reflected_position := _reflect_point(source.origin, center, normal)
 	# The glass is a window, not a television showing the player's whole FOV.
 	# Align the borrowed camera to its plane and use an asymmetric frustum so
 	# each glass point sees precisely the ray from the reflected eye through it.
-	var up := cabinet.mirror_surface().global_basis.y.normalized()
+	var up: Vector3 = cabinet.mirror_surface().global_basis.y.normalized()
 	_camera.global_transform = Transform3D(
 			Basis.looking_at(normal, up), reflected_position)
 	_camera.far = _main_camera.far
@@ -152,7 +155,7 @@ func _sleep() -> void:
 	set_meta("active_unit", "")
 
 
-func active_mirror() -> MedicineCabinetProp:
+func active_mirror() -> Variant:
 	return _active
 
 
