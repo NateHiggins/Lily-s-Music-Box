@@ -5,6 +5,7 @@ bath-details contract. No interactions or gameplay authority live in this file.
 import bpy
 import math
 import json
+import sys
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
@@ -113,13 +114,15 @@ def cloth(name,gathered):
                 else:x=.34;z=-.32+length-1.32;normal=(-1,0)
                 wave=(.018+.005*v)*math.sin(u*math.tau*18)+.003*math.sin(v*7+u*21)
                 x+=normal[0]*wave;z+=normal[1]*wave
-            y=1.975-1.89*v+.005*math.sin(u*39)*v
+            # Lift both hems 75 mm: the deepest fold now clears the 129 mm
+            # receptor rim by at least 25 mm, including cloth thickness.
+            y=1.975-1.815*v+.005*math.sin(u*39)*v
             verts.append((x,y,z))
     for j in range(ny):
         for i in range(nx):
             a=j*(nx+1)+i;faces.append((a,a+1,a+nx+2,a+nx+1))
     mesh('RubberizedDuck',verts,faces,duck,parent,.0012)
-    # Separate eyelets follow the gathered/drawn top edge; cloth hangs into tray.
+    # Separate eyelets follow the unchanged gathered/drawn top edge.
     for i in range(19):
         u=i/18
         if gathered: x=.34;z=.14+.18*u;along_x=False
@@ -147,6 +150,8 @@ for parent in [o for o in bpy.context.scene.objects if o.type=='EMPTY']:
         for o in parts:o.select_set(True)
         bpy.context.view_layer.objects.active=parts[0];bpy.ops.object.join();bpy.context.object.name=parent.name+'_'+mat.name
 save('bath_shower')
+if '--shower-only' in sys.argv:
+    sys.exit(0)
 
 clear()
 linen=material('linen',(.82,.80,.72),0,.9)

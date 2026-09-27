@@ -113,6 +113,17 @@ func run() -> void:
 	check(shower != null, "player shower exists")
 	if shower != null:
 		check(shower.find_child("ShowerCasting", true, false) != null, "Blender shower casting installed")
+		var rim := shower.find_child("ShowerCasting_enamel",true,false) as MeshInstance3D
+		check(rim != null,"imported receptor enamel available for clearance measurement")
+		if rim != null:
+			var rim_bounds := _mesh_bounds(shower,rim)
+			for curtain: Node3D in [shower._curtain_closed,shower._curtain_gathered]:
+				var lowest := INF
+				for part: MeshInstance3D in curtain.find_children("*","MeshInstance3D",true,false):
+					lowest = minf(lowest,_mesh_bounds(shower,part).position.y)
+				check(is_finite(lowest) and lowest-rim_bounds.end.y>=.024,
+					str(curtain.name)+" imported hem clears actual basin rim by at least 24 mm")
+				check(lowest<.17,str(curtain.name)+" remains a full-length shower curtain")
 		var camera := Camera3D.new()
 		world.add_child(camera)
 		camera.fov = 90
@@ -128,6 +139,18 @@ func run() -> void:
 		check(curtain_shape.position.distance_to(Vector3(.34,1.18,.23)) < .001,
 				"curtain interaction follows its gathered mesh")
 		await capture("shower_open")
+		var hem_light := OmniLight3D.new()
+		world.add_child(hem_light)
+		hem_light.global_position = shower.to_global(Vector3(-.45,.6,-.6))
+		hem_light.omni_range = 2
+		hem_light.light_energy = .65
+		camera.global_position = shower.to_global(Vector3(-.55,.36,-.85))
+		camera.look_at(shower.to_global(Vector3(0,.16,0)))
+		shower.set_curtain_open(false)
+		await capture("shower_hem_drawn")
+		shower.set_curtain_open(true)
+		await capture("shower_hem_gathered")
+		hem_light.queue_free()
 		camera.fov = 60
 		camera.global_position = shower.to_global(Vector3(-.18,1.72,-.42))
 		camera.look_at(shower.to_global(Vector3(0,1.84,.23)))
@@ -187,3 +210,6 @@ func run() -> void:
 	world.free()
 	print("LAVATORY: %d checks, %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _mesh_bounds(root: Node3D,part: MeshInstance3D) -> AABB:
+	return (root.global_transform.affine_inverse()*part.global_transform)*part.mesh.get_aabb()

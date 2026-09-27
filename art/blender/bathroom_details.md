@@ -3,6 +3,7 @@
 Evidence class: **INERT**
 
 Rebuild with `blender -b -P art/blender/scripts/build_bathroom_details.py`.
+Add `-- --shower-only` to rebuild just the shower source and GLB.
 The script writes editable **bath_shower.blend** and **bath_towel.blend**, their
 game GLBs, plus **bath_water_closet.blend** and **bath_paper_holder.blend**.
 Towel and paper references and bounds remain in the existing bath-details data.
@@ -17,7 +18,11 @@ drain grille, joined riser and curved arm, bell-shaped rose with jet details,
 wall brackets, rounded curtain rail and bracing. CurtainDrawn and CurtainGathered
 are alternative authored cloth poses, not simulated cloth; their groups remain
 separate from the casting and moving valve crosses. Rings surround the rail,
-hooks connect to the cloth, and the lower hem sits inside the receptor.
+hooks connect to the cloth. Both cloth poses are shortened by 75 mm at the
+lower edge, retaining their upper attachments. The lowest hem clears the
+receptor rim by approximately 25 mm instead of intersecting its enamel.
+BathLavatoryTest measures this clearance on the imported meshes and captures
+both hem poses alongside the installed bathroom fittings.
 
 The towel has thickness, a rounded fold over its rail, and a shorter return
 behind the front drop. Two brackets bear on the lavatory apron; there is no
