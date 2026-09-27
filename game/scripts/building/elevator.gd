@@ -36,6 +36,7 @@ var _cabin: AnimatableBody3D
 var _bell: AudioStreamPlayer3D
 var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
+var _landing_frames: Dictionary = {} # level -> direct stationary visual references
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -121,6 +122,7 @@ func _brass() -> StandardMaterial3D:
 func _build_landing(level: String, door_w: float) -> void:
 	var y: float = stops[level]
 	var jamb := door_w / 2.0
+	var frames: Array[MeshInstance3D] = []
 	# frame: brass jambs and header lining the wall reveal, a hair proud
 	# of both faces so the opening reads as cased rather than cut
 	for sx in [-1.0, 1.0]:
@@ -132,6 +134,7 @@ func _build_landing(level: String, door_w: float) -> void:
 		j.position = Vector3(sx * (jamb + 0.03), y + (PANEL_H + 0.10) / 2,
 				FRONT_Z)
 		add_child(j)
+		frames.append(j)
 	var hdr := MeshInstance3D.new()
 	var hm := BoxMesh.new()
 	hm.size = Vector3(door_w + 0.18, 0.10, WALL_T + 0.02)
@@ -139,6 +142,7 @@ func _build_landing(level: String, door_w: float) -> void:
 	hdr.material_override = _brass()
 	hdr.position = Vector3(0, y + PANEL_H + 0.13, FRONT_Z)
 	add_child(hdr)
+	_landing_frames[level] = {"west":frames[0],"east":frames[1],"head":hdr}
 	# the two panels ride just inside the shaft face
 	var pair := {"t": 0.0}
 	for side in ["w", "e"]:

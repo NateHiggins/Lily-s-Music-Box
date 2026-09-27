@@ -50,7 +50,8 @@ returns in narrow vestibules, so these surfaces do not break through the casing.
 
 The adapter runs after the domestic/upper/completion door owners have mounted.
 It leaves their DoorProp leaf, hinge, locks, interaction and collision intact.
-Exterior, storefront and lift surrounds remain outside these batches.
+Exterior and storefront surrounds remain outside these batches. Lift reveals
+use the separate refinement described below.
 The production root disables the old colored debug portal masses that otherwise
 show through the new joinery; portal labels and standalone review cues remain.
 OrisonV2DoorCasingsTest requires a windowed renderer to read live MultiMesh
@@ -78,3 +79,26 @@ views retain the production lamp; a hardware close-up uses separate low fill.
 The public-door suite exercises shut-door collision, ordinary opening and
 crossing from both sides of the ground-floor service route. Logs, renders and
 suite-run receipts for this pass live under `tmp/service-frames`.
+
+## Lift landing reveals
+
+LiftReveal adds a deep brass section with rolled front shoulders and shallow
+machined grooves. The V2 lift adapter replaces the three stationary box meshes
+at each of seven stops, retaining their brass materials, depth and clear opening.
+The jambs widen to 90 mm and the header to 140 mm vertically, providing 45 mm
+side laps and a 50 mm head lap over the V2 structural wall. Uprights now end
+at the header underside, eliminating the previous
+20 mm overlap and coplanar front faces. The shared lift owner exposes direct
+frame references under its existing stop keys, so the adapter needs no generated
+node-name contract and does not guess by dimensions or child order.
+The V1 visuals and all moving panels, colliders, buttons and travel remain
+owned by the existing elevator script.
+
+OrisonV2LiftFramesTest checks the imported mesh, full clear opening, floor and
+head joints, depth envelope and real shaft-wall ray contacts. Neutral-fill
+inspection captures include three installed landings and a joint close-up.
+OrisonV2ElevatorRouteTest captures actual gameplay under the production lamp
+and checks ordinary entry, all seven rides,
+exit into the halls, the empty-shaft barrier and hall-button recall. Logs and
+suite-run receipts live under `tmp/lift-frames`; these do not promote runtime
+ledger requirements.

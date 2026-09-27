@@ -63,6 +63,15 @@ service=[(-.5,-.5),(-.5,.15),(-.48,.34),(-.44,.46),(-.4,.5),
          (.4,.5),(.44,.46),(.48,.34),(.5,.15),(.5,-.5)]
 extrusion('ServiceCasing',service)
 
+# Deep brass lift reveal: a broad face, narrow machined grooves, and rolled
+# shoulders. Depth is normalized to the full reveal; shallow front cuts stay
+# millimetric at the production 200 mm depth. Square ends make clean joints.
+lift=[(-.5,-.5),(-.5,.47),(-.47,.49),(-.43,.5),
+      (-.32,.5),(-.30,.485),(-.25,.485),(-.23,.5),
+      (.23,.5),(.25,.485),(.30,.485),(.32,.5),
+      (.43,.5),(.47,.49),(.5,.47),(.5,-.5)]
+extrusion('LiftReveal',lift)
+
 # A real-size slotted screw and washer, separate from the normalized extrusions
 # so stretching a jamb does not stretch its fasteners. Godot front is Blender -Y.
 bpy.ops.object.select_all(action='DESELECT')
