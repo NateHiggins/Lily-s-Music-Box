@@ -1,6 +1,8 @@
 extends RefCounted
 ## Shallow room-side relief, clipped to the shell's actual solid wall pieces.
 ## One trim draw, plus one panel draw in public rooms; no new collision owner.
+const PROFILE := preload("res://assets/props/millwork_profile.glb")
+static var _profile: Mesh
 
 static func build(room: Node3D, record: Dictionary, floor_y: float,
 		clear_height: float, wall_thickness: float, material: Material,
@@ -56,6 +58,10 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 			var dimensions := Vector3(finish-start, high-low, profile.z) if along_x else Vector3(profile.z, high-low, finish-start)
 			var transform := Transform3D(Basis.from_scale(dimensions), position)
 			if profile_index < profiles.size():
+				# The Blender section faces +Z and runs along X. Rotate its front
+				# into the room, keeping the original clipped world-space bounds.
+				var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
+				transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(finish-start,high-low,profile.z))
 				transforms.append(transform)
 				sources.append(label)
 			else:
@@ -83,9 +89,18 @@ static func _emit(room: Node3D, label: String, transforms: Array[Transform3D],
 	if transforms.is_empty(): return
 	var batch := MultiMeshInstance3D.new()
 	batch.name = label
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3.ONE
-	mesh.material = material
+	var mesh: Mesh
+	if label=="HistoricMillwork":
+		if _profile==null:
+			var source := PROFILE.instantiate()
+			_profile = (source.find_child("BeadedTrim",true,false) as MeshInstance3D).mesh
+			source.free()
+		mesh = _profile
+	else:
+		var box := BoxMesh.new()
+		box.size = Vector3.ONE
+		mesh = box
+	batch.material_override = material
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = mesh

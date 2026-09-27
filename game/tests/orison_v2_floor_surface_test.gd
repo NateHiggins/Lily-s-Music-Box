@@ -17,6 +17,8 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	for child in world.player.carried_device.get_children():
+		if child is CanvasLayer: child.hide()
 	var floors := 0
 	var ceilings := 0
 	var probes := 0
@@ -34,14 +36,18 @@ func _run() -> void:
 					check(record.get("class", "")=="public", "wainscot belongs only to public rooms")
 					panel_rooms+=1
 				check(trim.get_child_count()==0,"millwork adds no collision or per-strip nodes")
+				if batch_name=="HistoricMillwork":
+					check(trim.multimesh.mesh is ArrayMesh and trim.multimesh.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size()>8,"trim uses the imported profiled section")
+				check(trim.material_override!=null,"room material authority remains bound")
 				var sources: PackedStringArray=trim.get_meta("wall_sources")
 				check(sources.size()==trim.multimesh.instance_count,"each trim strip retains its solid wall owner")
 				for index in trim.multimesh.instance_count:
 					var wall := room.get_node(sources[index]) as MeshInstance3D
 					var transform := trim.multimesh.get_instance_transform(index)
-					var extent := transform.basis.get_scale()*.5
+					var bounds: AABB = transform*trim.multimesh.mesh.get_aabb()
+					var extent := bounds.size*.5
 					var solid: Vector3=wall.mesh.size*.5
-					var offset := transform.origin-wall.position
+					var offset := bounds.get_center()-wall.position
 					var along_x := str(wall.name).begins_with("WallNorth") or str(wall.name).begins_with("WallSouth")
 					check(absf(offset.y)+extent.y<=solid.y+.0001,"trim stays within solid wall height")
 					check(absf(offset.x if along_x else offset.z)+(extent.x if along_x else extent.z)<=(solid.x if along_x else solid.z)+.0001,"trim never bridges a cut aperture")
@@ -54,7 +60,8 @@ func _run() -> void:
 					for previous in index:
 						if sources[previous]!=sources[index]: continue
 						var other := trim.multimesh.get_instance_transform(previous)
-						var half := other.basis.get_scale()*.5
+						var other_bounds: AABB = other*trim.multimesh.mesh.get_aabb()
+						var half := other_bounds.size*.5
 						if absf((half.z if along_x else half.x)-projection*.5)>.0001: continue
 						var delta := (other.origin-transform.origin).abs()
 						var along_overlap: float=(half.x+extent.x-delta.x) if along_x else (half.z+extent.z-delta.z)
@@ -122,6 +129,45 @@ func _run() -> void:
 		captures+=1
 		captured_levels.append(str(record.level))
 		if captures==3: break
+	# Inspect one imported baseboard section at grazing angle, independently of
+	# the production-lamp room captures above. Choose by geometry, not room id.
+	var detail_captured := false
+	for record: Dictionary in world.layout.spaces:
+		var room := world.adapter.resolve(str(record.id)) as Node3D
+		if room==null: continue
+		var trim := room.get_node_or_null("HistoricMillwork") as MultiMeshInstance3D
+		if trim==null: continue
+		var captured := false
+		for index in trim.multimesh.instance_count:
+			var placement := trim.multimesh.get_instance_transform(index)
+			var dimensions := placement.basis.get_scale()
+			if dimensions.x<1.5 or dimensions.y<.1: continue
+			var at := room.to_global(placement.origin)
+			var eye := at+room.global_basis*placement.basis.z.normalized()*.7+Vector3.UP*.16
+			var clear := true
+			for offset in [-.25,0.0,.25]:
+				var target: Vector3 = at+room.global_basis*placement.basis.x.normalized()*offset
+				var ray := PhysicsRayQueryParameters3D.create(eye,target,1,[world.player.get_rid()])
+				ray.hit_from_inside = true
+				if not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(): clear=false
+			if not clear: continue
+			world.player.set_lamp_enabled(false)
+			var camera := Camera3D.new()
+			world.add_child(camera)
+			camera.global_position = eye
+			camera.look_at(at)
+			camera.make_current()
+			var fill := OmniLight3D.new()
+			world.add_child(fill)
+			fill.global_position = camera.global_position+Vector3.UP*.15
+			fill.light_energy = .4
+			fill.omni_range = 3
+			await shot("beaded_profile_detail")
+			captured = true
+			detail_captured = true
+			break
+		if captured: break
+	check(detail_captured,"a clear actual-wall profile detail station exists")
 	print("FLOOR OWNERSHIP: floors=%d ceilings=%d collision_probes=%d failures=%d" % [floors,ceilings,probes,failures.size()])
 	print("MILLWORK: batches=%d strips=%d public_wainscot_rooms=%d failures=%d" % [trim_rooms,trim_pieces,panel_rooms,failures.size()])
 	world.shutdown_for_tests(); world.free()

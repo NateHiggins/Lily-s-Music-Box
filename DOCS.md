@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Blender beaded millwork, room-facing profiles and aperture-safe batching | `art/blender/millwork_profile.md` |
 | Blender enamel floor signs, mounting spacers and readable runtime lettering | `art/blender/wayfinding_plate.md` |
 | Blender stair rails, tread stringers and landing support geometry | `art/blender/stair_ironwork.md` |
 | Editable Blender light switches, moving toggles and preserved V2 circuit ownership | `art/blender/light_switch.md` |
