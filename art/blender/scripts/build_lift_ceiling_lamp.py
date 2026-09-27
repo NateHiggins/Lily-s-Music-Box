@@ -25,9 +25,9 @@ def lathe(name,profile,mat):
     data=bpy.data.meshes.new(name); data.from_pydata(vertices,[],faces); data.update()
     obj=bpy.data.objects.new(name,data); bpy.context.collection.objects.link(obj); data.materials.append(mat)
     return obj
-lathe('CeilingPlate',[(.001,2.240),(.253,2.240),(.258,2.236),(.258,2.230),(.250,2.226),(.001,2.226)],brass)
+lathe('CeilingPlate',[(0,2.240),(.253,2.240),(.258,2.236),(.258,2.230),(.250,2.226),(0,2.226)],brass)
 lathe('SteppedBezel',[(.225,2.226),(.249,2.226),(.249,2.216),(.244,2.212),(.244,2.202),(.235,2.197),(.222,2.197),(.222,2.205),(.225,2.209)],brass)
-lathe('OpalBowl',[(.224,2.207),(.223,2.196),(.210,2.181),(.184,2.164),(.145,2.149),(.094,2.137),(.040,2.130),(.001,2.128),(.001,2.134),(.040,2.136),(.094,2.143),(.145,2.155),(.184,2.170),(.207,2.187),(.216,2.199),(.216,2.207)],opal)
+lathe('OpalBowl',[(.224,2.207),(.223,2.196),(.210,2.181),(.184,2.164),(.145,2.149),(.094,2.137),(.040,2.130),(0,2.128),(0,2.134),(.040,2.136),(.094,2.143),(.145,2.155),(.184,2.170),(.207,2.187),(.216,2.199),(.216,2.207)],opal)
 for i in range(3):
     a=math.tau*i/3
     bpy.ops.mesh.primitive_cube_add(size=1,location=(.237*math.cos(a),-(.02+.237*math.sin(a)),2.198))
@@ -47,10 +47,9 @@ for o in list(bpy.context.scene.objects):
     bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o
     bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.normals_make_consistent(inside=False); bpy.ops.uv.smart_project(island_margin=.01)
+    bpy.ops.mesh.remove_doubles(threshold=.0000001); bpy.ops.mesh.normals_make_consistent(inside=False); bpy.ops.uv.smart_project(island_margin=.01)
     bpy.ops.object.mode_set(mode='OBJECT')
     if o.name=='OpalBowl':
         for polygon in o.data.polygons: polygon.use_smooth=True
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/lift_ceiling_lamp.blend'))
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/lift_ceiling_lamp.glb'),export_format='GLB',export_yup=True,export_apply=True)
-

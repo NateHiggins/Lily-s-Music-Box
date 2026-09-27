@@ -42,6 +42,7 @@ func _run() -> void:
 		if not hit.is_empty(): check(absf(lift._cabin.to_local(hit.position).y-2.24)<.001,"actual ceiling contact is flush")
 		probes+=1
 	check(is_finite(_mesh_distance(bowl.mesh.get_faces(),Vector3(.08,2.0,.02),Vector3.UP)),"opal bowl covers actual lower aperture")
+	check(is_finite(_mesh_distance(bowl.mesh.get_faces(),Vector3(.0001,2.0,.0201),Vector3.UP)),"closed lathe pole has no central pinhole")
 	var camera := Camera3D.new()
 	world.add_child(camera); camera.make_current(); camera.fov=75
 	world.mirror_renderer._main_camera=camera
