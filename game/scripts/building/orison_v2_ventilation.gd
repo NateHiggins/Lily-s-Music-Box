@@ -117,20 +117,8 @@ func _draw(parent: Node3D, label: String, transforms: Array[Transform3D], materi
 	parent.add_child(draw)
 
 func _build_register(anchor: Node3D) -> void:
-	# Passive painted grille; the production roof motor owns its bearing tone.
-	for index in 9:
-		var bar := MeshInstance3D.new()
-		var mesh := BoxMesh.new()
-		mesh.size = Vector3(.36,.018,.018)
-		bar.mesh = mesh
-		bar.position = Vector3(0,0,-.14+float(index)*.035)
-		bar.material_override = MatLib.get_mat("trim")
-		anchor.add_child(bar)
-	for side in [-1.0,1.0]:
-		var frame := MeshInstance3D.new()
-		var mesh := BoxMesh.new()
-		mesh.size = Vector3(.022,.022,.34)
-		frame.mesh = mesh
-		frame.position.x = side*.18
-		frame.material_override = MatLib.get_mat("trim")
-		anchor.add_child(frame)
+	# Passive grille only; the roof motor and existing plenum remain authorities.
+	var model := (preload("res://assets/props/vent_register.glb") as PackedScene).instantiate()
+	(model.find_child("Grille",true,false) as MeshInstance3D).material_override=MatLib.get_mat("trim")
+	(model.find_child("Fasteners",true,false) as MeshInstance3D).material_override=MatLib.get_mat("metal")
+	anchor.add_child(model)
