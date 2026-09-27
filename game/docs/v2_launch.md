@@ -186,5 +186,13 @@ V2 remains an unfinished building. The playable first Mina maintenance/case
 sequence is the supported campaign slice. V1-only apartment corruption and
 resident debug shortcuts are not exposed as working V2 controls. The separate
 voxel-light seams recorded under TASKS H23 remain open.
+
+Mina waits for a clear door swing before requesting movement and closes only
+leaves she opened. If the player operates that leaf again while her close is
+pending, the later accepted operation supersedes her request, including when
+the player closes and reopens it. Locked or in-flight refused inputs do not
+transfer ownership. Door collision, locks and manual E operation are unchanged;
+the clearance check happens before a motion begins, not as an emergency stop
+for someone entering the swing afterward.
 The hero enters through its membrane over several seconds. The inspector shows
 its live state, including arrival and the intervals between appearances.

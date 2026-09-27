@@ -68,6 +68,9 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	routine.path = PackedInt64Array([0, 1])
 	_check("route through on-plane waypoint selects real aperture", routine._route_crosses_door(door))
 	door.leaf_state = "locked"
+	var revision := door.motion_revision
+	door.interact(player)
+	_check("locked player interaction does not take motion ownership", door.motion_revision == revision)
 	_check("locked passage refuses movement without changing lock", not routine._route_doors_ready(.02)
 		and door.leaf_state == "locked" and not door.open)
 	door.leaf_state = "closed"
@@ -78,6 +81,9 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	neighbour.position = Vector3(6, 0, 6)
 	_check("opening request still holds until the owner settles", not routine._route_doors_ready(.02)
 		and door.open and door._moving)
+	revision = door.motion_revision
+	door.interact(player)
+	_check("in-flight refused interaction does not take motion ownership", door.motion_revision == revision)
 	var still := resident.global_position
 	for _i in 12:
 		await get_tree().physics_frame
@@ -120,6 +126,27 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	routine.path = PackedInt64Array()
 	routine._close_passed_doors()
 	_check("resident does not close a door opened by somebody else", door.open and not door._moving
+		and routine._door_passages.is_empty())
+	# A pending close is not permanent ownership. The player can use the
+	# leaf again while Mina waits for a safe closing arc.
+	door.interact(null)
+	await _settle(door)
+	resident.global_position = frame.to_global(start)
+	routine.path = PackedInt64Array([0, 1])
+	_check("Mina acquires a fresh opening", not routine._route_doors_ready(.02) and door.open)
+	await _settle(door)
+	resident.global_position = frame.to_global(goal)
+	routine.path = PackedInt64Array()
+	player.position = Vector3(.455, 0, 0)
+	routine._close_passed_doors()
+	_check("occupied arc retains Mina's close request", door.open and not routine._door_passages.is_empty())
+	player.position = Vector3(8, 0, 8)
+	door.interact(player)
+	await _settle(door)
+	door.interact(player)
+	await _settle(door)
+	routine._close_passed_doors()
+	_check("player's later reopening retires Mina's stale close request", door.open and not door._moving
 		and routine._door_passages.is_empty())
 	viewport.queue_free()
 	for _i in 3: await get_tree().process_frame

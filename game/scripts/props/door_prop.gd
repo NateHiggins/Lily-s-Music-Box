@@ -20,6 +20,9 @@ var finish_variant := 0
 const HINGE_SETBACK := 0.026
 
 var open := false
+# Transient accepted-motion identity. A route's pending close must not take
+# ownership back after somebody else has operated this leaf.
+var motion_revision := 0
 var _hinge_offset := 0.0
 var _body: AnimatableBody3D
 var _fixed: Node3D
@@ -265,6 +268,7 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
+	motion_revision += 1
 	_play_move()
 	var tween := create_tween()
 	tween.tween_property(_body, "rotation:y",

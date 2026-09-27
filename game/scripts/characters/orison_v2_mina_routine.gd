@@ -198,7 +198,7 @@ func _route_doors_ready(step: float) -> bool:
 		if not near: continue
 		if not _door_passages.has(door):
 			if not _route_crosses_door(door): continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false}
+			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": -1}
 		var passage: Dictionary = _door_passages[door]
 		# A crossed door belongs to the close queue, not the next approach.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
@@ -207,6 +207,7 @@ func _route_doors_ready(step: float) -> bool:
 					and _door_motion_clear(door, true):
 				door.npc_set_open(true)
 				passage.opened = door.open
+				passage.revision = door.motion_revision
 			blocked_reason = "waiting for door: " + str(door.name)
 			ready = false
 	return ready
@@ -217,6 +218,11 @@ func _close_passed_doors() -> void:
 			_door_passages.erase(door)
 			continue
 		var passage: Dictionary = _door_passages[door]
+		# A later accepted operation supersedes our opening, even if it ends
+		# open again. Rejected/locked interactions do not change the revision.
+		if bool(passage.opened) and int(passage.revision) != door.motion_revision:
+			_door_passages.erase(door)
+			continue
 		var passed := door.to_local(actor.global_position).z * float(passage.side) < -.3
 		var abandoned := not _route_crosses_door(door) and actor.global_position.distance_to(door.global_position) > door.width + .5
 		if not passed and not abandoned: continue
