@@ -19,11 +19,25 @@ func _run() -> void:
 		return
 	var player: PlayerController = world.player
 	player.set_physics_process(false)
+	# Keep the production lamp, but remove the foreground display from the
+	# sign crop so it cannot falsely supply the measured ink/plate contrast.
+	for child in player.carried_device.get_children():
+		if child is CanvasLayer: child.hide()
 	player.camera.make_current()
 	var signs = world.adapter.root.get_node("Wayfinding")
 	_check(signs.plaques.size()==16,"both stairs identify all eight levels")
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	for sign_node: Node3D in signs.plaques:
 		var normal := sign_node.global_basis.z
+		var hardware := sign_node.get_node("Hardware")
+		_check(hardware.find_children("*","MeshInstance3D",true,false).size()==3,"hardware uses three shared material meshes")
+		var seats := hardware.find_children("WallSeat_*","Node3D",true,false)
+		_check(seats.size()==4,"four authored wall spacers")
+		for seat: Node3D in seats:
+			var query := PhysicsRayQueryParameters3D.create(seat.global_position+normal*.02,seat.global_position-normal*.02,1,[player.get_rid()])
+			var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(query)
+			_check(not hit.is_empty() and seat.global_position.distance_to(hit.position)<.005,"spacer back seats flush on actual wall collision")
 		# Declared camera stations, not a claim of traversing the stair here.
 		player.global_position = sign_node.global_position+normal*2.0-Vector3.UP*player.STANDING_EYE
 		player.camera.global_position = sign_node.global_position+normal*2.0
@@ -58,6 +72,20 @@ func _run() -> void:
 		print("V2 WAYFINDING: ",sign_node.name," ink=",ink," plate=",plate," contrast=",contrast)
 		_check(plate>.12 and contrast>=3.0,
 				str(sign_node.name)+" retains dark ink against the lamp-lit plate")
+	# Separate oblique hardware inspection; title checks above use the unchanged
+	# production lamp. This view uses neutral fill to expose the rolled edge.
+	var detail: Node3D = signs.plaques[-1]
+	player.set_lamp_enabled(false)
+	player.camera.global_position = detail.global_position+detail.global_basis.z*.9+detail.global_basis.x*.45
+	player.camera.look_at(detail.global_position)
+	var fill := OmniLight3D.new()
+	world.add_child(fill)
+	fill.global_position = player.camera.global_position+Vector3.UP*.2
+	fill.light_energy = .6
+	fill.omni_range = 3
+	await get_tree().create_timer(.2).timeout
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("hardware_detail.png"))
 	world.shutdown_for_tests()
 	world.free()
 	print("V2 WAYFINDING: 16 plaques; ",failures.size()," failures")

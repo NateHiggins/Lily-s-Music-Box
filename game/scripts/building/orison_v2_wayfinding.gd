@@ -1,6 +1,7 @@
 extends Node3D
 ## Lit physical plaques; coordinates come from the actual core/stair schedule.
 var plaques: Array[Node3D] = []
+const HARDWARE := preload("res://assets/props/wayfinding_plate.glb")
 
 func mount(layout: Dictionary) -> bool:
 	var primary: Dictionary = {}
@@ -11,7 +12,8 @@ func mount(layout: Dictionary) -> bool:
 	if primary.is_empty(): return false
 	var spaces := {}
 	for room: Dictionary in layout.spaces: spaces[str(room.id)] = room
-	var inset := float(layout.dimensions.core_wall)*.5+.025
+	# Core outlines are built by _build_space_outline with partition thickness.
+	var inset := float(layout.dimensions.partition_wall)*.5+.025
 	for level: Dictionary in layout.levels:
 		for core in ["PUBLIC","SERVICE"]:
 			var identity: String = str(level.id)+"_"+core+"_CORE"
@@ -31,25 +33,28 @@ func mount(layout: Dictionary) -> bool:
 			plaque.set_meta("core",core)
 			add_child(plaque)
 			plaques.append(plaque)
-			var backing := MeshInstance3D.new()
-			var mesh := BoxMesh.new()
-			mesh.size = Vector3(1.3,.48,.025)
-			backing.mesh = mesh
-			backing.material_override = MatLib.get_mat("enamel_appliance",Color(.75,.71,.59),.9)
+			var backing := HARDWARE.instantiate() as Node3D
+			backing.name = "Hardware"
 			plaque.add_child(backing)
+			for mesh: MeshInstance3D in backing.find_children("*","MeshInstance3D",true,false):
+				for surface in mesh.mesh.get_surface_count():
+					var key := mesh.mesh.surface_get_material(surface).resource_name
+					mesh.set_surface_override_material(surface,MatLib.get_mat(key,Color(.75,.71,.59),.9)
+						if key=="enamel_appliance" else MatLib.get_mat(key))
 			var title := "BASEMENT" if level.id=="B1" else "ROOF" if level.id=="ROOF" else "FLOOR "+str(int(str(level.id).substr(1)))
 			var note := "STREET BELOW / ROOF ABOVE" if public else "SERVICE STAIR"
 			if level.id=="B1": note = "LAUNDRY  <    BOILER  >" if public else "WORKSHOP / BOILER"
 			elif level.id=="F01": note = "STREET / WATCH STATION" if public else "GROUND FLOOR SERVICE"
 			elif level.id=="ROOF": note = "ROOF ACCESS / STAIRS DOWN"
-			_letter(plaque,"Floor",title,.09,64,.0022)
-			_letter(plaque,"Directions",note,-.12,32,.0018)
+			_letter(plaque,"Floor",title,.09,96,.0022)
+			_letter(plaque,"Directions",note,-.12,40,.0018)
 	return plaques.size()==16
 
 func _letter(parent: Node3D, label: String, words: String, y: float, size: int, scale_m: float) -> void:
 	var text := Label3D.new()
 	text.name = label
 	text.text = words
+	text.font = preload("res://assets/fonts/courier_prime/CourierPrime-Bold.ttf")
 	text.font_size = size
 	text.pixel_size = scale_m
 	text.modulate = Color(.015,.012,.008)
