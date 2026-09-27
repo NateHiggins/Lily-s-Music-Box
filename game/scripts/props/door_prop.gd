@@ -16,6 +16,7 @@ var swing_out := false
 var door_kind := "apartment_interior"
 var unit := ""
 var finish_variant := 0
+var knob_mesh: Mesh # optional fabricated presentation; V1 retains primitive hardware
 
 const HINGE_SETBACK := 0.026
 
@@ -121,6 +122,8 @@ func _build_domestic(is_entry: bool) -> void:
 	var paint := MatLib.get_mat("trim", tint, 0.85)
 	var shadow := MatLib.get_mat("trim", tint.darkened(0.18), 0.85)
 	var brass := MatLib.get_mat("brass_dull", Color(0.82, 0.74, 0.55))
+	# Fabricated escutcheons need a clear lock stile instead of sitting on moulding.
+	var stile := .16 if knob_mesh!=null else .095
 	_box(_body, Vector3(width - 0.02, height - 0.02, 0.044),
 			Vector3(width * 0.5, height * 0.5, 0), paint)
 	# Recesses are shallow dark beds surrounded by physical rails. From a
@@ -130,13 +133,13 @@ func _build_domestic(is_entry: bool) -> void:
 		for field in [[0.18, 0.84], [0.98, height - 0.16]]:
 			var cy: float = (field[0] + field[1]) * 0.5
 			var fh: float = field[1] - field[0]
-			_box(_body, Vector3(width - 0.24, fh, 0.006),
+			_box(_body, Vector3(width-2*stile-.045 if knob_mesh!=null else width-.24, fh, 0.006),
 					Vector3(width * 0.5, cy, face * 0.025), shadow)
-			for x in [0.095, width - 0.095]:
+			for x in [stile, width - stile]:
 				_box(_body, Vector3(0.045, fh + 0.045, 0.018),
 						Vector3(x, cy, face * 0.031), paint)
 			for y in [field[0] - 0.022, field[1] + 0.022]:
-				_box(_body, Vector3(width - 0.15, 0.045, 0.018),
+				_box(_body, Vector3(width-2*stile+.045 if knob_mesh!=null else width-.15, 0.045, 0.018),
 						Vector3(width * 0.5, y, face * 0.031), paint)
 	_build_knob_set(brass)
 	if is_entry:
@@ -184,9 +187,10 @@ func _build_service() -> void:
 	for y in [0.16, height - 0.16]:
 		_box(_body, Vector3(width - 0.10, 0.065, 0.018),
 				Vector3(width * 0.5, y, -0.035), iron)
-	var brace := _box(_body, Vector3(width * 0.92, 0.065, 0.018),
-			Vector3(width * 0.5, height * 0.51, -0.035), iron)
-	brace.rotation.z = atan2(height - 0.40, width - 0.12) - PI * 0.5
+	var brace_span := Vector2(width-.20,height-.32)
+	var brace := _box(_body, Vector3(brace_span.length() if knob_mesh!=null else width*.92, 0.065, 0.018),
+			Vector3(width*.5,height*.5 if knob_mesh!=null else height*.51,-.035),iron)
+	brace.rotation.z=brace_span.angle() if knob_mesh!=null else atan2(height-.40,width-.12)-PI*.5
 	_build_knob_set(MatLib.get_mat("brass_dull", Color(0.64, 0.58, 0.43)))
 
 
@@ -230,6 +234,16 @@ func _build_cabinet() -> void:
 
 
 func _build_knob_set(material: StandardMaterial3D) -> void:
+	if knob_mesh!=null:
+		var half_depth := .026 if door_kind in ["service","exterior_service"] else .022
+		for face in [-1.0,1.0]:
+			var part := MeshInstance3D.new()
+			part.mesh=knob_mesh
+			part.material_override=material
+			part.position=Vector3(width-.085,1.0,face*half_depth)
+			part.rotation.y=PI if face<0 else 0
+			_body.add_child(part)
+		return
 	for face in [-1.0, 1.0]:
 		var z: float = float(face) * 0.038
 		_box(_body, Vector3(0.055, 0.17, 0.010),

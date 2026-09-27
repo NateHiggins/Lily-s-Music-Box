@@ -1,4 +1,5 @@
 extends RefCounted
+static var _knob_mesh: Mesh
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
 	"F01_WATCH_MAIL_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
@@ -37,6 +38,10 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	return mount_specs(adapter, layout, SPECS)
 
 func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dictionary) -> bool:
+	if _knob_mesh==null:
+		var source := (preload("res://assets/props/door_knob_set.glb") as PackedScene).instantiate()
+		_knob_mesh=(source.find_child("KnobSet",true,false) as MeshInstance3D).mesh
+		source.free()
 	var records: Dictionary = {}
 	for record: Dictionary in layout.doors:
 		if not specs.has(str(record.id)): continue
@@ -54,6 +59,7 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		anchor.remove_child(placeholder)
 		placeholder.free()
 		var door := DoorProp.new()
+		door.knob_mesh=_knob_mesh
 		door.name = identity + "_Leaf"
 		door.width = float(record.width)
 		door.height = float(record.height)
