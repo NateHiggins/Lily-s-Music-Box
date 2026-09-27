@@ -40,6 +40,8 @@ var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
 var _landing_frames: Dictionary = {} # level -> direct stationary visual references
 var _landing_controls: Dictionary = {} # level -> existing plate, cap and interaction area
 var _panel_visuals: Dictionary = {} # moving body -> existing skin, glazing and kick
+var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and supports
+var _cab_rail_visual: Node3D # optional V2 fabricated presentation
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -405,13 +407,13 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	var off := pr + 0.055
 	for sx in [-1.0, 1.0]:
 		var hx: float = sx * (wx - off)
-		_cab_tube(Vector3(hx, hy, rz + 0.10), Vector3(hx, hy, fz - 0.16),
-				0.021, brass)
+		_cab_handrails.append(_cab_tube(Vector3(hx, hy, rz + 0.10), Vector3(hx, hy, fz - 0.16),
+				0.021, brass))
 		for bz in [rz + 0.14, fz - 0.20]:
-			_cab_tube(Vector3(sx * wx, hy, bz), Vector3(hx, hy, bz),
-					0.011, brass)
-	_cab_tube(Vector3(-wx + 0.10, hy, rz + off),
-			Vector3(wx - 0.10, hy, rz + off), 0.021, brass)
+			_cab_handrails.append(_cab_tube(Vector3(sx * wx, hy, bz), Vector3(hx, hy, bz),
+					0.011, brass))
+	_cab_handrails.append(_cab_tube(Vector3(-wx + 0.10, hy, rz + off),
+			Vector3(wx - 0.10, hy, rz + off), 0.021, brass))
 
 	# --- coved ceiling and the opal dome ---------------------------
 	for sx in [-1.0, 1.0]:

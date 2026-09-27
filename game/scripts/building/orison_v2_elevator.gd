@@ -27,6 +27,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		"stops":stops, "door_w":.91})
 	_refine_landing_frames(lift)
 	_refine_landing_panels(lift)
+	_refine_cab_handrails(lift)
 	var gate_visual := preload("res://scripts/building/orison_v2_lift_gate.gd").new()
 	gate_visual.name = "ArticulatedGate"
 	gate_visual.mount(lift)
@@ -45,6 +46,16 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		var frame := adapter.resolve(str(landing.id)) as Node3D
 		if frame != null: frame.visible = false
 	return lift
+
+
+func _refine_cab_handrails(lift: OrisonElevator) -> void:
+	var assembly := (preload("res://assets/props/lift_handrails.glb") as PackedScene).instantiate()
+	var brass := lift._cab_handrails[0].material_override
+	for old: MeshInstance3D in lift._cab_handrails: old.hide()
+	for part in assembly.get_children():
+		if part is MeshInstance3D: part.material_override = brass
+	lift._cabin.add_child(assembly)
+	lift._cab_rail_visual = assembly
 
 
 func _refine_landing_panels(lift: OrisonElevator) -> void:
