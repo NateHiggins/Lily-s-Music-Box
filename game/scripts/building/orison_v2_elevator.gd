@@ -26,6 +26,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	lift.setup({"shaft":[center_x-1.2,-center_z-1.1,center_x+1.2,-center_z+1.1], "cabin":[1.55,2.2],
 		"stops":stops, "door_w":.91})
 	_refine_landing_frames(lift)
+	_refine_landing_panels(lift)
 	var controls := preload("res://scripts/building/orison_v2_lift_controls.gd").new()
 	controls.name = "LandingControls"
 	lift.add_child(controls)
@@ -41,6 +42,26 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		var frame := adapter.resolve(str(landing.id)) as Node3D
 		if frame != null: frame.visible = false
 	return lift
+
+
+func _refine_landing_panels(lift: OrisonElevator) -> void:
+	var library := (preload("res://assets/props/lift_panels.glb") as PackedScene).instantiate()
+	var meshes := {
+		"w":(library.find_child("PanelWest",true,false) as MeshInstance3D).mesh,
+		"e":(library.find_child("PanelEast",true,false) as MeshInstance3D).mesh}
+	var kick_mesh := (library.find_child("KickPlate",true,false) as MeshInstance3D).mesh
+	library.free()
+	for level: String in lift.stop_order:
+		for side: String in ["w","e"]:
+			var body := lift._doors[level][side] as AnimatableBody3D
+			var parts: Dictionary = lift._panel_visuals[body]
+			(parts.skin as MeshInstance3D).mesh = meshes[side]
+			(parts.kick as MeshInstance3D).mesh = kick_mesh
+			var glass := parts.glass as MeshInstance3D
+			var pane := BoxMesh.new()
+			pane.size = Vector3(.108,.318,.006)
+			glass.mesh = pane
+			glass.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
 func _refine_landing_frames(lift: OrisonElevator) -> void:

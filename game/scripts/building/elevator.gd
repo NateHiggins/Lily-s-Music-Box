@@ -39,6 +39,7 @@ var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
 var _landing_frames: Dictionary = {} # level -> direct stationary visual references
 var _landing_controls: Dictionary = {} # level -> existing plate, cap and interaction area
+var _panel_visuals: Dictionary = {} # moving body -> existing skin, glazing and kick
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -183,6 +184,7 @@ func _build_landing(level: String, door_w: float) -> void:
 		kick.material_override = _steel(true)
 		kick.position = Vector3(0, -PANEL_H / 2 + 0.08, 0)
 		body.add_child(kick)
+		_panel_visuals[body] = {"skin":vis,"glass":win,"kick":kick}
 		body.position = _panel_pos(sx, y, 0.0)
 		pair[side] = body
 	_doors[level] = pair

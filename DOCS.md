@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
+| Blender sliding lift leaves, clear vision apertures and retained shaft barriers | `art/blender/lift_panels.md` |
 | Blender enamel floor signs, mounting spacers and readable runtime lettering | `art/blender/wayfinding_plate.md` |
 | Blender stair rails, tread stringers and landing support geometry | `art/blender/stair_ironwork.md` |
 | Editable Blender light switches, moving toggles and preserved V2 circuit ownership | `art/blender/light_switch.md` |
