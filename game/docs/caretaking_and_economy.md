@@ -30,6 +30,10 @@ POCKET works without a fixture. The carried cue uses `[TAP]`, and the ledger
 names the touch buttons. F1, pause, calls, seated activities, explicit backtick
 mouse release and another active camera retain ownership. On desktop, enable
 the existing **Touch controls (phone HUD)** option in F1 to try these controls.
+Opening care or F1 clears touch movement and the RUN latch. Disabling touch,
+resizing the viewport, losing window/application focus, or retiring the controls
+also releases the actions they pressed and resets their finger tracking. Actions
+not owned by touch are left alone; resume with a fresh touch after returning.
 
 Water inspection exposes independent hot and cold valves, the stopper, actual
 mixed warmth, basin level and drain condition. Open the shower curtain first.

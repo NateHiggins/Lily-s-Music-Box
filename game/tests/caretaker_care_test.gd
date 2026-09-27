@@ -11,6 +11,7 @@ func _run() -> void:
 	RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode = GameBoot.LaunchMode.DEBUG
 	CampaignClock.new().configure_date(1928,11,10,20*60)
+	_touch_release_regression()
 	var world := preload("res://scenes/building/orison_v2_runtime.tscn").instantiate()
 	add_child(world)
 	await get_tree().create_timer(.5).timeout
@@ -54,11 +55,14 @@ func _run() -> void:
 	await _shot("touch_care_discovery")
 	world.touch._press(40,Vector2(100,500))
 	world.touch._drag(40,Vector2(100,400))
+	world.touch._press(42,world.touch._buttons[2].centre)
+	world.touch._release(42)
 	_check(Input.is_action_pressed("move_forward"),"touch fixture holds real movement input before inspection")
 	_check(await _touch_care_button(world.touch,"inspect_care"),"V2 exposes reachable CARE button")
 	_check(notebook.opened and notebook.subject==tap and player.call_locked,"touch CARE opens the actual aimed fixture")
 	_check(not Input.is_action_pressed("move_forward") and world.touch._stick_finger==-1,
 		"accepted touch inspection releases held movement fingers")
+	_check(not Input.is_action_pressed("run") and not world.touch._buttons[2].on,"accepted care clears the touch RUN latch")
 	_check(not notebook.request_action(&"pocket_ledger") and notebook.subject==tap,"touch request cannot replace an active inspection")
 	await _shot("touch_care_open")
 	var hot_button := notebook.box.get_child(1) as Button
@@ -82,7 +86,10 @@ func _run() -> void:
 	_check(not notebook.request_action(&"inspect_care"),"explicit pointer release blocks touch inspection")
 	player.set_mouse_released(false)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	world.touch._press(42,world.touch._buttons[2].centre)
+	world.touch._release(42)
 	world.building_debug._set_menu_open(true)
+	_check(not Input.is_action_pressed("run") and not world.touch._buttons[2].on,"F1 clears the touch RUN latch")
 	_check(not notebook.request_action(&"inspect_care") and not notebook.request_action(&"pocket_ledger"),"F1 retains ownership against touch care requests")
 	world.building_debug._set_menu_open(false)
 	get_tree().paused = true
@@ -459,3 +466,40 @@ func _touch_point(at: Vector2) -> void:
 	event.pressed = false
 	Input.parse_input_event(event)
 	await get_tree().process_frame
+
+func _touch_release_regression() -> void:
+	for cause: String in ["disable", "resize", "focus", "application", "retire"]:
+		var controls := TouchControls.new()
+		add_child(controls)
+		controls.set_enabled(true)
+		controls._press(40,Vector2(100,500))
+		controls._drag(40,Vector2(100,400))
+		controls._press(41,Vector2(640,160))
+		controls._press(42,controls._buttons[2].centre)
+		controls._release(42)
+		controls._press(43,controls._buttons[0].centre)
+		_check(Input.is_action_pressed("move_forward") and Input.is_action_pressed("run")
+			and Input.is_action_pressed("interact"),cause+" fixture owns real touch actions")
+		Input.action_press("move_left")
+		match cause:
+			"disable": controls.set_enabled(false)
+			"resize": controls._layout()
+			"focus": controls.notification(NOTIFICATION_WM_WINDOW_FOCUS_OUT)
+			"application": controls.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+			"retire": controls.free()
+		_check(not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("run")
+			and not Input.is_action_pressed("interact"),cause+" releases all touch-owned actions")
+		_check(Input.is_action_pressed("move_left"),cause+" preserves unrelated keyboard action")
+		if is_instance_valid(controls):
+			_check(controls._stick_finger==-1 and controls._look_finger==-1 and not controls._buttons[2].on,
+				cause+" clears finger tracking and RUN indicator")
+			controls.set_enabled(true)
+			controls._press(42,controls._buttons[2].centre)
+			controls._release(42)
+			_check(Input.is_action_pressed("run") and controls._buttons[2].on,cause+" allows fresh RUN input")
+			controls._press(42,controls._buttons[2].centre)
+			controls._release(42)
+			_check(not Input.is_action_pressed("run") and not controls._buttons[2].on,cause+" allows RUN to toggle off again")
+			controls.free()
+		# Cleanup keeps a failing ownership fixture isolated from the next one.
+		for action: String in ["move_forward","move_left","run","interact"]: Input.action_release(action)

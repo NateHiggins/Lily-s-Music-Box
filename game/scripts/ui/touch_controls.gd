@@ -42,6 +42,7 @@ var _look_last := Vector2.ZERO
 ##          "toggle": bool, "finger": int, "on": bool}
 var _buttons: Array = []
 var _panel: Control
+var _held_actions: Dictionary = {}
 
 
 func _ready() -> void:
@@ -77,6 +78,8 @@ func enable_care_actions() -> void:
 
 
 func _layout() -> void:
+	# Old screen-space contacts cannot survive a resize or button rebuild.
+	_release_all()
 	_screen = Vector2(get_viewport().get_visible_rect().size)
 	_unit = minf(_screen.x, _screen.y)
 	_panel.size = _screen
@@ -146,11 +149,11 @@ func _press(finger: int, at: Vector2) -> void:
 				# Toggles latch the action down: holding RUN with a thumb
 				# on a phone is not something anyone wants to do.
 				if b["on"]:
-					Input.action_press(b["action"])
+					_press_action(b["action"])
 				else:
-					Input.action_release(b["action"])
+					_release_action(b["action"])
 			else:
-				Input.action_press(b["action"])
+				_press_action(b["action"])
 			_panel.queue_redraw()
 			return
 	if at.x < _screen.x * STICK_ZONE and _stick_finger == -1:
@@ -182,7 +185,7 @@ func _release(finger: int) -> void:
 		if b["finger"] == finger:
 			b["finger"] = -1
 			if not b["toggle"]:
-				Input.action_release(b["action"])
+				_release_action(b["action"])
 			_panel.queue_redraw()
 			return
 	if finger == _stick_finger:
@@ -210,24 +213,46 @@ func _apply_stick_vector(v: Vector2) -> void:
 
 func _set_axis(positive: String, negative: String, amount: float) -> void:
 	if amount > 0.0:
-		Input.action_release(negative)
-		Input.action_press(positive, amount)
+		_release_action(negative)
+		_press_action(positive, amount)
 	elif amount < 0.0:
-		Input.action_release(positive)
-		Input.action_press(negative, -amount)
+		_release_action(positive)
+		_press_action(negative, -amount)
 	else:
-		Input.action_release(positive)
-		Input.action_release(negative)
+		_release_action(positive)
+		_release_action(negative)
+
+
+func _press_action(action: StringName, strength := 1.0) -> void:
+	_held_actions[action] = true
+	Input.action_press(action, strength)
+
+
+func _release_action(action: StringName) -> void:
+	# Resizing/retiring an idle HUD must not release somebody else's inputs.
+	if not _held_actions.has(action): return
+	Input.action_release(action)
+	_held_actions.erase(action)
 
 
 func _release_all() -> void:
-	_apply_stick_vector(Vector2.ZERO)
+	for action: StringName in _held_actions.keys():
+		_release_action(action)
 	for b in _buttons:
 		b["finger"] = -1
-		if not b["toggle"] or not b["on"]:
-			Input.action_release(b["action"])
+		b["on"] = false
 	_stick_finger = -1
 	_look_finger = -1
+	if is_instance_valid(_panel): _panel.queue_redraw()
+
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT]:
+		_release_all()
+
+
+func _exit_tree() -> void:
+	_release_all()
 
 
 func _draw_panel() -> void:
