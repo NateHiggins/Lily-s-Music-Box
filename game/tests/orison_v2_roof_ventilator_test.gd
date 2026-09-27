@@ -50,8 +50,8 @@ func _run() -> void:
 		fill.global_position=camera.global_position
 		await shot("roof_ventilator_"+str(fan.riser))
 		if count==1:
-			camera.global_position=fan.to_global(Vector3(1.3,1.6,1.2))
-			camera.look_at(fan.to_global(Vector3(0,.45,0)))
+			camera.global_position=fan.to_global(paint.get_aabb().end+paint.get_aabb().size)
+			camera.look_at(fan.to_global(paint.get_aabb().get_center()))
 			fill.global_position=camera.global_position
 			await shot("roof_ventilator_reverse")
 	check(count==4 and actuations==4,"all four variant machines tested")
