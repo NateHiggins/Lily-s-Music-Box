@@ -14,7 +14,7 @@ and Back/View opens the pocket ledger. Use D-pad left/right to select
 a button, A to operate it and B to close. Timed tests focus the enabled Close
 button, so cancellation stays accessible. The carried paper shows R3 after
 controller input and I after keyboard input. Aim at a fitted sink, shower,
-medicine cabinet, kitchen cabinet or toilet within 2.1 metres and press I to inspect.
+medicine cabinet, kitchen cabinet, toilet or wall switch within 2.1 metres and press I to inspect.
 The ray must actually hit the fixture or one of its controls. The carried paper
 shows `[I] Inspect / care` while a supported fixture is within reach. I with
 no fixture in reach does nothing; P remains the pocket-ledger shortcut. Inspection locks
@@ -50,6 +50,15 @@ Starting inspection during an existing flush does not count as a test. Cancellin
 inspection leaves the physical flush running and grants no test result; a stalled
 refill times out without passing. The tank uses the existing full/refilling state,
 not a new calibrated water-volume or supply-pressure simulation.
+
+Switch inspection checks both toggle detents against the actual room fixtures,
+then restores their entry power states. Cancellation and a stalled toggle also
+restore the circuit through SwitchSystem; incomplete tests grant no service
+result. A missing circuit cannot pass. Overdue faceplates move slightly under
+the hand; securing their fasteners removes that movement and postpones the next
+request. This is mounting care, not a simulated wiring repair. Residential
+switches use their household's existing client; shared-building switches can be
+attended to but do not invent a paying resident. All 133 V2 plates participate.
 
 Initial service dates are staggered over days one through eight. Service
 postpones a fixture's next request by fourteen campaign days. A neglected drain
@@ -90,7 +99,7 @@ economy first binds; past closed jobs do not award retroactive tips.
 
 ## Still to build
 
-This rollout covers household water fixtures, toilet cisterns and cabinets, not every
+This rollout covers household water fixtures, toilet cisterns, cabinets and wall switches, not every
 interactable. Other object families need meaningful physical tests and care
 actions that respect their existing maintenance owners. Leisure purchases,
 consumable effects, owned camera/film, actual pool stakes and paid arcade/karaoke
@@ -114,3 +123,7 @@ the authored job lifecycle and atomic save closure separately.
 CisternCareTest adds the actual toilet interaction ray, slow/healthy refill
 timing, handle return, cancellation, timeout, prevention, tips, legacy saves and
 disk reload, with windowed inspection captures.
+SwitchCareTest checks circuit isolation, detents, cancellation, stalled travel,
+mounting movement, prevention, single payment, legacy saves and disk reload.
+LightSwitchModelTest and OrisonV2UpperLightingTest retain the existing mesh,
+physical approach, room-power and saved-circuit checks.

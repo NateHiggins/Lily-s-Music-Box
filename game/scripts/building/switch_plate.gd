@@ -2,6 +2,15 @@ extends StaticBody3D
 ## One live switch plate. See switch_system.gd.
 
 var system: Node
+var unit := ""
+var mounting_secure := true:
+	set(value):
+		mounting_secure = value
+		if value and is_instance_valid(_model):
+			if _wobble != null: _wobble.kill()
+			_model.rotation.z = 0
+var _model: Node3D
+var _wobble: Tween
 var _toggle: Node3D
 var _throw: Tween
 var _pose_known := false
@@ -13,6 +22,7 @@ func mount_model() -> void:
 	var model := load("res://assets/props/light_switch.glb") as PackedScene
 	var visual := model.instantiate() as Node3D
 	visual.name = "SwitchModel"
+	_model = visual
 	add_child(visual)
 	for mesh: MeshInstance3D in visual.find_children("*", "MeshInstance3D", true, false):
 		for surface in mesh.mesh.get_surface_count():
@@ -60,6 +70,7 @@ func _set_pose(now_on: bool, animate: bool) -> void:
 
 func _exit_tree() -> void:
 	if _throw != null: _throw.kill()
+	if _wobble != null: _wobble.kill()
 	if RealityState.state_changed.is_connected(_queue_sync):
 		RealityState.state_changed.disconnect(_queue_sync)
 	if is_instance_valid(system) and system.room_toggled.is_connected(_on_room_toggled):
@@ -72,6 +83,12 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
+	if not mounting_secure and is_instance_valid(_model):
+		if _wobble != null: _wobble.kill()
+		_wobble = create_tween()
+		_wobble.tween_property(_model, "rotation:z", .025, .08)
+		_wobble.tween_property(_model, "rotation:z", -.012, .09)
+		_wobble.tween_property(_model, "rotation:z", 0.0, .13)
 	# The click is unconditional. A toggle brake (an empty room,
 	# a fixture already dead) must still feel like a switch under the
 	# hand — a plate that answers silently reads as broken scenery.
@@ -86,3 +103,24 @@ func interact(_player: Node) -> void:
 	else:
 		AudioPolicy.present_3d(&"interaction.switch_off", global_position,
 				1.0, StringName(name))
+
+func power_snapshot() -> Dictionary:
+	return system.room_snapshot(str(get_meta("room_id", ""))) if is_instance_valid(system) else {}
+
+func location_name() -> String:
+	var parts := str(get_meta("room_id", "")).split("_")
+	return unit if parts.size()>=3 and parts[1] in ["A","B","C","D"] else "Shared building"
+
+func room_name() -> String:
+	var parts := str(get_meta("room_id", "")).split("_")
+	var first := 2 if location_name() != "Shared building" else 1
+	var room := " ".join(parts.slice(first))
+	return str({"MAIN":"LIVING ROOM", "BATH":"BATHROOM", "BED":"BEDROOM", "BED1":"BEDROOM 1",
+		"BED2":"BEDROOM 2", "PRIVATE HALL":"HALL", "VESTIBULE":"ENTRY"}.get(room,room))
+
+func restore_power(state: Dictionary) -> bool:
+	return system.restore_room(str(get_meta("room_id", "")),state) if is_instance_valid(system) else false
+
+func at_detent() -> bool:
+	return _toggle != null and (_throw == null or not _throw.is_running()) \
+		and is_equal_approx(_toggle.rotation.x, deg_to_rad(22.0 if _pose_on else -22.0))

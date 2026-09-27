@@ -2,6 +2,7 @@ extends Node
 ## Physical household service roster. Simple WorkOrders own reported requests.
 const Prep := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
 const Cistern := preload("res://scripts/building/orison_v2_water_closet.gd")
+const Switch := preload("res://scripts/building/switch_plate.gd")
 var economy: Node
 var subjects: Dictionary = {}
 var clients: Dictionary = {}
@@ -15,7 +16,7 @@ func setup(root: Node, wallet: Node) -> bool:
 	for identity: String in schedule.residents:
 		clients[str(schedule.residents[identity].unit)] = identity
 	for prop in root.find_children("*","Node",true,false):
-		var kind := "water" if prop is TapProp else "hinge" if prop is MedicineCabinetProp else "slide" if prop is Prep else "cistern" if prop is Cistern else ""
+		var kind := "water" if prop is TapProp else "hinge" if prop is MedicineCabinetProp else "slide" if prop is Prep else "cistern" if prop is Cistern else "switch" if prop is Switch else ""
 		if kind.is_empty(): continue
 		var unit := str(prop.get("unit"))
 		if unit.is_empty(): continue
@@ -70,6 +71,7 @@ func tick() -> void:
 		elif prop is MedicineCabinetProp: prop.hinges_oiled = float(record.last)>=0 and not overdue
 		elif prop is Prep: prop.track_clean = not overdue
 		elif prop is Cistern: prop.inlet_clear = not overdue
+		elif prop is Switch: prop.mounting_secure = not overdue
 		if overdue and str(record.request).is_empty() and clients.has(record.unit):
 			var request := "care:"+identity+":"+str(record.cycle)
 			# Install the identity before issue() commits the shared snapshot.
@@ -80,11 +82,15 @@ func tick() -> void:
 	_syncing = false
 
 func _kind_title(kind: String) -> String:
-	return {"water":"DRAIN", "hinge":"CABINET HINGES", "slide":"CABINET TRACK", "cistern":"CISTERN INLET"}[kind]
+	return {"water":"DRAIN", "hinge":"CABINET HINGES", "slide":"CABINET TRACK", "cistern":"CISTERN INLET", "switch":"SWITCH FACEPLATE"}[kind]
 
 func subject_title(prop: Node) -> String:
+	if prop is Switch: return prop.room_name()+" SWITCH FACEPLATE"
 	return str(prop.fixture).replace("_"," ").to_upper()+" DRAIN" if prop is TapProp \
 		else "MEDICINE CABINET HINGES" if prop is MedicineCabinetProp else "CISTERN INLET" if prop is Cistern else "KITCHEN CABINET TRACK"
+
+func subject_location(prop: Node) -> String:
+	return prop.location_name() if prop is Switch else str(prop.get("unit"))
 
 func request_entries() -> Array[Dictionary]:
 	var entries: Array[Dictionary] = []
@@ -113,6 +119,11 @@ func request_lines() -> Array[String]:
 func inspection(prop: Node) -> String:
 	if prop==null: return "Aim at a water fixture, cistern or cabinet within reach."
 	var record: Dictionary = economy.book().care[str(prop.name)]
+	if prop is Switch:
+		var state: Dictionary = prop.power_snapshot()
+		var powered := state.values().count(true)
+		return "%s / %s LIGHT SWITCH\nCircuit: %d of %d fixtures powered\nFaceplate: %s" % [subject_location(prop),prop.room_name(),powered,state.size(),
+			"secure" if prop.mounting_secure else "moves under the hand"]
 	if prop is Cistern:
 		return "%s / CISTERN\nTank: %s   Inlet: %s\nHandle: %s" % [record.unit,
 			"refilling" if prop._refilling else "full", "clear" if prop.inlet_clear else "slow",
@@ -139,6 +150,7 @@ func service(prop: Node, tested: bool) -> Dictionary:
 	elif prop is MedicineCabinetProp and not prop.is_door_open(): return {"note":"Open the cabinet to reach its hinges."}
 	elif prop is Prep and not prop.opened: return {"note":"Open the cabinet to reach the track."}
 	elif prop is Cistern and prop._refilling: return {"note":"Wait for the cistern to finish refilling before service."}
+	elif prop is Switch and not prop.at_detent(): return {"note":"Wait for the switch to reach its detent."}
 	var request := str(record.request)
 	# A fixture reference is not payment authority. The work-order owner may
 	# already have closed the request, or a recovered save may lack it.
@@ -157,4 +169,4 @@ func service(prop: Node, tested: bool) -> Dictionary:
 		economy.orders.close(request,"Tested and serviced.")
 	tick()
 	RealityState.commit()
-	return {"note":"Drain cleared." if prop is TapProp else "Hinges oiled." if prop is MedicineCabinetProp else "Cistern inlet strainer cleaned." if prop is Cistern else "Track brushed and waxed.","tip":cents}
+	return {"note":"Drain cleared." if prop is TapProp else "Hinges oiled." if prop is MedicineCabinetProp else "Cistern inlet strainer cleaned." if prop is Cistern else "Faceplate fasteners secured." if prop is Switch else "Track brushed and waxed.","tip":cents}

@@ -41,6 +41,10 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 	for record: Dictionary in source.switches:
 		var plate := Plate.new()
 		plate.system = switches
+		var room := str(record.room)
+		var floor_number := room.get_slice("_",0).trim_prefix("F").to_int()
+		var dwelling := room.get_slice("_",1)
+		plate.unit = str(floor_number)+dwelling if floor_number in range(1,7) and dwelling in ["A","B","C","D"] else room
 		plate.set_meta("room_id", str(record.room))
 		plate.set_meta("bathroom_switch", str(record.room).ends_with("_BATH"))
 		var shape := BoxShape3D.new()

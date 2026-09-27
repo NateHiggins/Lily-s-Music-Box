@@ -1,5 +1,6 @@
 extends CanvasLayer
 const Cistern := preload("res://scripts/building/orison_v2_water_closet.gd")
+const Switch := preload("res://scripts/building/switch_plate.gd")
 ## An inspection slip and pocket ledger. Physical controls remain the owners.
 var player: PlayerController
 var care: Node
@@ -23,6 +24,8 @@ var _draining := false
 var _request_page := 0
 var _cabinet_phase := 0
 var _cabinet_was_open := false
+var _switch_entry: Dictionary = {}
+var _switch_phase := 0
 
 func _ready() -> void:
 	add_to_group("caretaker_notebook")
@@ -103,9 +106,11 @@ func open(target: Node) -> void:
 			_button("Test flow, warmth and drainage",_test_water)
 		elif subject is Cistern:
 			_button("Test flush, handle return and refill",_test_cistern)
+		elif subject is Switch:
+			_button("Test both throws and room lights",_test_switch)
 		else:
 			_button("Exercise the cabinet",_test_cabinet)
-		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Clean inlet strainer" if subject is Cistern else "Brush and wax track",_service)
+		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Clean inlet strainer" if subject is Cistern else "Secure faceplate fasteners" if subject is Switch else "Brush and wax track",_service)
 	else:
 		_button("Pay $5.00 rent instalment",_pay_rent)
 		_button("Next service requests",func(): _request_page += 1; _process(0))
@@ -214,11 +219,60 @@ func _observe_cistern(delta: float) -> void:
 		_set_test_controls(false)
 		feedback.text = "Refill did not finish; test incomplete. No service recorded."
 
+func _test_switch() -> void:
+	if _testing: return
+	tested = false
+	_switch_entry = subject.power_snapshot()
+	if _switch_entry.is_empty():
+		feedback.text = "No complete room circuit found; test unavailable."
+		return
+	_testing = true
+	_switch_phase = 1
+	_test_seconds = 0
+	_set_test_controls(true)
+	subject.interact(player)
+	feedback.text = "Checking the first throw and the room lights..."
+
+func _switch_matches(inverted: bool) -> bool:
+	var current: Dictionary = subject.power_snapshot()
+	if current.size() != _switch_entry.size() or current.is_empty(): return false
+	for identity: String in _switch_entry:
+		if current.get(identity) != (not _switch_entry[identity] if inverted else _switch_entry[identity]): return false
+	return true
+
+func _restore_switch() -> bool:
+	if _switch_entry.is_empty(): return true
+	var restored: bool = subject.restore_power(_switch_entry)
+	_switch_entry.clear()
+	return restored
+
+func _observe_switch(delta: float) -> void:
+	_test_seconds += delta
+	if subject.at_detent() and _switch_matches(_switch_phase == 1):
+		if _switch_phase == 1:
+			_switch_phase = 2
+			_test_seconds = 0
+			subject.interact(player)
+			feedback.text = "Checking the return throw and restoring the room lights..."
+		else:
+			_testing = false
+			tested = true
+			_switch_entry.clear()
+			_set_test_controls(false)
+			feedback.text = "Both throws checked; original lighting restored. " + ("Faceplate is secure." if subject.mounting_secure else "Faceplate moves; secure its fasteners.")
+	elif _test_seconds >= 2:
+		_testing = false
+		var restored := _restore_switch()
+		_set_test_controls(false)
+		feedback.text = "Circuit or handle did not respond; test incomplete. " + ("Original lighting restored." if restored else "Original lighting could not be restored.")
+
 func _process(delta: float) -> void:
 	if not opened: return
 	if subject!=null:
 		readout.text = care.inspection(subject)
-		if _testing and subject is Cistern:
+		if _testing and subject is Switch:
+			_observe_switch(delta)
+		elif _testing and subject is Cistern:
 			_observe_cistern(delta)
 		elif _testing and not subject is TapProp:
 			_observe_cabinet(delta)
@@ -308,7 +362,7 @@ func _service() -> void:
 	# Repeated care and denied actions must not mint a second completion slip.
 	if result.has("tip"):
 		var paid := int(result.tip)
-		var body: String = str(subject.get("unit"))+" / "+care.subject_title(subject)+"\n"+str(result.note)
+		var body: String = care.subject_location(subject)+" / "+care.subject_title(subject)+"\n"+str(result.note)
 		body += "\nTip: "+economy.money(paid) if paid>0 else "\nNo tip paid."
 		if not _print_card({"title":"SERVICE COMPLETED", "body":body, "stamp":"CARE RECORD"}):
 			feedback.text += "  Set off; no slip printed."
@@ -320,7 +374,9 @@ func close() -> void:
 		subject.set_hot(_was_hot)
 		subject.set_cold(_was_cold)
 		subject.set_stopper(_was_stopper)
-	if _testing and is_instance_valid(subject) and not subject is TapProp and not subject is Cistern:
+	if _testing and is_instance_valid(subject) and subject is Switch:
+		_restore_switch()
+	if _testing and is_instance_valid(subject) and not subject is TapProp and not subject is Cistern and not subject is Switch:
 		_set_cabinet_open(_cabinet_was_open)
 	_testing = false
 	panel.hide()
