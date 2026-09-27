@@ -809,9 +809,10 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		_box(parent, "FlightA_Step%02d" % i,
 				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
-		_box(parent, "FlightA_Guard%02d" % i,
+		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+		guard_a.visible = not production_materials
 	_ramp_collision(parent, "FlightATraversalRamp",
 			Vector3(x0 + width * 0.5, base_y + half_rise * 0.5,
 					z0 + run * 0.5), width, run, half_rise, -1.0)
@@ -823,10 +824,11 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise - 0.1,
 					z0 + run + (landing_depth + turn_clearance) * 0.5),
 			Vector3(width * 2.0 + gap, 0.2, landing_depth + turn_clearance), "core", true)
-	_box(parent, "HalfLandingGuard",
+	var landing_guard := _box(parent, "HalfLandingGuard",
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise + guard_h * 0.5,
 					z0 + run + landing_depth + turn_clearance - 0.025),
 			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
+	landing_guard.visible = not production_materials
 	var x_b := x0 + width + gap
 	var north_start := z0 + run + landing_depth
 	for i in count:
@@ -835,13 +837,18 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		_box(parent, "FlightB_Step%02d" % i,
 				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
-		_box(parent, "FlightB_Guard%02d" % i,
+		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+		guard_b.visible = not production_materials
 	_ramp_collision(parent, "FlightBTraversalRamp",
 			Vector3(x_b + width * 0.5, base_y + half_rise + half_rise * 0.5,
 					north_start - run * 0.5), width, run, half_rise, 1.0)
+	if production_materials:
+		var ironwork := preload("res://scripts/building/orison_v2_stair_ironwork.gd").new()
+		if not ironwork.mount(parent,stair,base_y):
+			failures.append("unsupported ironwork dimensions: "+str(stair.id))
 
 func _ramp_collision(parent: Node3D, node_name: String, at: Vector3,
 		width: float, run: float, rise: float, direction: float) -> void:
