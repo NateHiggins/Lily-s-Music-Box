@@ -55,10 +55,19 @@ func _open_apartment_door(identity: String) -> bool:
 	var opening := world.adapter.resolve(identity) as Node3D
 	var door := opening.get_node_or_null(identity + "_Leaf") as DoorProp if opening != null else null
 	if not _require(door != null, "physical apartment door exists: " + identity): return false
+	if not await _wait_for_door(door): return false
 	if door.open: return true
 	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity + "_open"): return false
-	await get_tree().create_timer(.6).timeout
-	return _require(door.open, "apartment door opens through player input: " + identity)
+	if not await _wait_for_door(door): return false
+	return _require(door.is_ready_for_passage(), "apartment door opens through player input: " + identity)
+
+func _wait_for_door(door: DoorProp) -> bool:
+	# Residents use the same leaf. Observe its real tween rather than assume
+	# it was stationary on arrival or that an opening always takes .6 seconds.
+	for frame in 180:
+		await get_tree().physics_frame
+		if not door._moving: return true
+	return _require(false, "door motion did not settle: " + str(door.name))
 
 func _require(ok: bool, label: String) -> bool:
 	print("CONNECTED EXTERIOR CHECK: ", label, " = ", ok)

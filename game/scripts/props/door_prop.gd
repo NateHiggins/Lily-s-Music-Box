@@ -255,6 +255,10 @@ func _build_fixed_hardware() -> void:
 
 
 func interact_prompt() -> String:
+	# interact() refuses another command until this physical leaf settles.
+	# Do not offer an action on the carried paper that cannot be accepted.
+	if _moving:
+		return ""
 	if leaf_state == "locked":
 		return "[E]  Locked"
 	return "[E]  Close door" if open else "[E]  Open door"

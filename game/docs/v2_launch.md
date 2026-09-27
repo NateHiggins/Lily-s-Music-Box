@@ -194,5 +194,8 @@ the player closes and reopens it. Locked or in-flight refused inputs do not
 transfer ownership. Door collision, locks and manual E operation are unchanged;
 the clearance check happens before a motion begins, not as an emergency stop
 for someone entering the swing afterward.
+Open/close prompts disappear while the leaf is moving, because another command
+cannot be accepted until it settles. The carried paper then offers the actual
+next action; a stationary locked door still reports its lock.
 The hero enters through its membrane over several seconds. The inspector shows
 its live state, including arrival and the intervals between appearances.

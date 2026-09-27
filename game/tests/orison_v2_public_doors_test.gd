@@ -64,6 +64,11 @@ func _use(door: DoorProp, want_open: bool) -> bool:
 	player.face_world_point(door._body.to_global(Vector3(door.width*.5,door.height*.5,0)))
 	await get_tree().physics_frame
 	player.use_primary_interaction()
+	player._update_prompt()
+	if not door._moving or not player._prompt.text.is_empty():
+		failures.append(str(door.name)+" moving leaf retains an unavailable player action")
+		return false
+	await _capture(str(door.name)+("_opening" if want_open else "_closing"))
 	for frame in 90:
 		await get_tree().physics_frame
 		if not door._moving: break

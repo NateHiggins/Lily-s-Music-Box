@@ -68,6 +68,7 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	routine.path = PackedInt64Array([0, 1])
 	_check("route through on-plane waypoint selects real aperture", routine._route_crosses_door(door))
 	door.leaf_state = "locked"
+	_check("stationary locked leaf retains its refusal prompt", door.interact_prompt() == "[E]  Locked")
 	var revision := door.motion_revision
 	door.interact(player)
 	_check("locked player interaction does not take motion ownership", door.motion_revision == revision)
@@ -81,6 +82,7 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	neighbour.position = Vector3(6, 0, 6)
 	_check("opening request still holds until the owner settles", not routine._route_doors_ready(.02)
 		and door.open and door._moving)
+	_check("opening leaf does not advertise an unavailable action", door.interact_prompt().is_empty())
 	revision = door.motion_revision
 	door.interact(player)
 	_check("in-flight refused interaction does not take motion ownership", door.motion_revision == revision)
@@ -91,6 +93,7 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	_check("waiting never relocates the actor", resident.global_position == still)
 	await _settle(door)
 	_check("settled leaf releases the passage", routine._route_doors_ready(.02) and door.is_ready_for_passage())
+	_check("settled open leaf offers closing", door.interact_prompt() == "[E]  Close door")
 	# Move the fixture occupant to the far side; full production movement is
 	# asserted separately. Do not make a claim that this placement walked.
 	resident.global_position = frame.to_global(goal)
@@ -113,9 +116,11 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	routine._close_passed_doors()
 	_check("clearance and unlock retry through the real door owner", not door.open and door._moving
 		and routine._door_passages.is_empty())
+	_check("closing leaf does not advertise an unavailable action", door.interact_prompt().is_empty())
 	await _settle(door)
 	_check("real leaf finishes closed", not door.open and not door._moving
 		and absf(door._body.rotation.y) < .0001)
+	_check("settled closed leaf offers opening", door.interact_prompt() == "[E]  Open door")
 	# Existing player-open leaves remain propped after the resident passes.
 	door.interact(null)
 	await _settle(door)
