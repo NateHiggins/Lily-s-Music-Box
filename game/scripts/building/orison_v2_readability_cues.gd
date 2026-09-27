@@ -11,6 +11,7 @@ var show_bed_context := true
 var show_terminal_context := true
 var show_floor_context := true
 var show_portal_masses := true
+var show_route_bands := true
 
 func _ready() -> void:
 	_portal(Vector3(0, 0, -11.65), 0.0, 1.1, 2.13, PUBLIC, "PUBLIC ENTRANCE")
@@ -90,6 +91,7 @@ func _bed_mass() -> void:
 	_box(bed, Vector3(0.16, 1.0, 1.35), Vector3(-0.92, 0.5, 0), Color(0.23, 0.28, 0.34))
 
 func _band(at: Vector3, size: Vector3, color: Color) -> void:
+	if not show_route_bands: return
 	_box(self, size, at, color)
 
 func _box(parent: Node3D, size: Vector3, at: Vector3, color: Color) -> void:

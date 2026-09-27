@@ -19,6 +19,11 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	for child in world.adapter.root.get_children():
+		if child is OrisonV2ReadabilityCues:
+			check(not child.show_route_bands,"production disables raised graybox route strips")
+			for cue in child.get_children():
+				check(not cue is MeshInstance3D,"finished floors have no residual development-band meshes")
 	for child in world.player.carried_device.get_children():
 		if child is CanvasLayer: child.hide()
 	var floors := 0

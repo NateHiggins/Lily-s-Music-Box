@@ -139,6 +139,7 @@ func _ready() -> void:
 	cues.show_terminal_context = false
 	cues.show_floor_context = false
 	cues.show_portal_masses = false
+	cues.show_route_bands = false
 	_blockout.add_child(cues)
 	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
 	wayfinding.name = "Wayfinding"

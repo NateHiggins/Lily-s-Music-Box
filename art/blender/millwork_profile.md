@@ -54,6 +54,9 @@ Exterior and storefront surrounds remain outside these batches. Lift reveals
 use the separate refinement described below.
 The production root disables the old colored debug portal masses that otherwise
 show through the new joinery; portal labels and standalone review cues remain.
+It also disables raised graybox route strips over the finished lobby and hall
+floors. These remain enabled by default in the standalone review scene. The
+floor-surface suite checks that production composes no residual strip meshes.
 OrisonV2DoorCasingsTest requires a windowed renderer to read live MultiMesh
 transforms. It checks actual collision wall support behind all casing runs,
 both face orientations, clear-opening bounds and separation from room trim.
