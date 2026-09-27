@@ -1,8 +1,9 @@
 extends RefCounted
 ## Shallow room-side relief, clipped to the shell's actual solid wall pieces.
-## One trim draw, plus one panel draw in public rooms; no new collision owner.
+## One trim draw, plus backing and frame draws in public rooms; no new collision.
 const PROFILE := preload("res://assets/props/millwork_profile.glb")
 static var _profile: Mesh
+static var _frame: Mesh
 
 static func build(room: Node3D, record: Dictionary, floor_y: float,
 		clear_height: float, wall_thickness: float, material: Material,
@@ -14,6 +15,8 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 	var sources: PackedStringArray = []
 	var panels: Array[Transform3D] = []
 	var panel_sources: PackedStringArray = []
+	var frames: Array[Transform3D] = []
+	var frame_sources: PackedStringArray = []
 	# Height centre, height, projection: the established Orison millwork scale.
 	var profiles := [Vector3(.07, .14, .032), Vector3(.153, .026, .042),
 		Vector3(2.18, .042, .042)]
@@ -57,19 +60,22 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 			var position := Vector3((start+finish)*.5, (low+high)*.5, face) if along_x else Vector3(face, (low+high)*.5, (start+finish)*.5)
 			var dimensions := Vector3(finish-start, high-low, profile.z) if along_x else Vector3(profile.z, high-low, finish-start)
 			var transform := Transform3D(Basis.from_scale(dimensions), position)
-			if profile_index < profiles.size():
+			if profile_index != profiles.size():
 				# The Blender section faces +Z and runs along X. Rotate its front
 				# into the room, keeping the original clipped world-space bounds.
 				var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
 				transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(finish-start,high-low,profile.z))
-				transforms.append(transform)
-				sources.append(label)
+				if profile_index < profiles.size():
+					transforms.append(transform)
+					sources.append(label)
+				else:
+					frames.append(transform)
+					frame_sources.append(label)
 			else:
 				panels.append(transform)
 				panel_sources.append(label)
 				# Vertical stiles meet (rather than overlap) the frame rails.
 				# Build once, from the backing run, clipping again for low sills.
-				if profile_index != profiles.size(): continue
 				var stile_low := maxf(floor_y+.226, wall_low)
 				var stile_high := minf(floor_y+1.240, wall_high)
 				if stile_high-stile_low < .001 or finish-start < .15: continue
@@ -79,10 +85,13 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 					var stile_face := fixed+inward*(wall_thickness+.036)*.5
 					var stile_position := Vector3(along_stile, (stile_low+stile_high)*.5, stile_face) if along_x else Vector3(stile_face, (stile_low+stile_high)*.5, along_stile)
 					var stile_size := Vector3(.036, stile_high-stile_low, .036)
-					panels.append(Transform3D(Basis.from_scale(stile_size), stile_position))
-					panel_sources.append(label)
+					var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
+					var basis := Basis(Vector3.UP,angle)*Basis(Vector3.BACK,PI*.5)*Basis.from_scale(Vector3(stile_size.y,stile_size.x,stile_size.z))
+					frames.append(Transform3D(basis, stile_position))
+					frame_sources.append(label)
 	_emit(room, "HistoricMillwork", transforms, sources, material)
 	_emit(room, "PublicWainscot", panels, panel_sources, panel_material)
+	_emit(room, "PublicWainscotFrames", frames, frame_sources, panel_material)
 
 static func _emit(room: Node3D, label: String, transforms: Array[Transform3D],
 		sources: PackedStringArray, material: Material) -> void:
@@ -90,12 +99,13 @@ static func _emit(room: Node3D, label: String, transforms: Array[Transform3D],
 	var batch := MultiMeshInstance3D.new()
 	batch.name = label
 	var mesh: Mesh
-	if label=="HistoricMillwork":
+	if label in ["HistoricMillwork", "PublicWainscotFrames"]:
 		if _profile==null:
 			var source := PROFILE.instantiate()
 			_profile = (source.find_child("BeadedTrim",true,false) as MeshInstance3D).mesh
+			_frame = (source.find_child("WainscotFrame",true,false) as MeshInstance3D).mesh
 			source.free()
-		mesh = _profile
+		mesh = _profile if label=="HistoricMillwork" else _frame
 	else:
 		var box := BoxMesh.new()
 		box.size = Vector3.ONE

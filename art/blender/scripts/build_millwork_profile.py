@@ -23,23 +23,33 @@ for i in range(41):
     bead=max(math.exp(-((y-.35)/.065)**2),math.exp(-((y+.35)/.065)**2))
     profile.append((y,.20+.30*bead))
 profile.append((.5,-.5))
-n=len(profile)
-vertices=[(x,-z,y) for x in [-.5,.5] for y,z in profile]
-faces=[tuple(reversed(range(n))),tuple(range(n,n*2))]
-faces += [(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
-mesh=bpy.data.meshes.new('BeadedTrim')
-mesh.from_pydata(vertices,[],faces); mesh.update()
-obj=bpy.data.objects.new('BeadedTrim',mesh)
-bpy.context.collection.objects.link(obj)
-obj.data.materials.append(material)
-bpy.context.view_layer.objects.active=obj; obj.select_set(True)
-bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
-bpy.ops.mesh.normals_make_consistent(inside=False)
-bpy.ops.uv.smart_project(island_margin=.01)
-bpy.ops.object.mode_set(mode='OBJECT')
-for face in mesh.polygons:
-    # Only the exposed flowing section is smooth, not end caps or back edges.
-    face.use_smooth=face.index>=3 and face.index<=42
+def extrusion(name, section, smooth=False):
+    bpy.ops.object.select_all(action='DESELECT')
+    n=len(section)
+    vertices=[(x,-z,y) for x in [-.5,.5] for y,z in section]
+    faces=[tuple(reversed(range(n))),tuple(range(n,n*2))]
+    faces += [(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+    mesh=bpy.data.meshes.new(name)
+    mesh.from_pydata(vertices,[],faces); mesh.update()
+    obj=bpy.data.objects.new(name,mesh)
+    bpy.context.collection.objects.link(obj)
+    obj.data.materials.append(material)
+    bpy.context.view_layer.objects.active=obj; obj.select_set(True)
+    bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.mesh.normals_make_consistent(inside=False)
+    bpy.ops.uv.smart_project(island_margin=.01)
+    bpy.ops.object.mode_set(mode='OBJECT')
+    for face in mesh.polygons:
+        face.use_smooth=smooth and 3<=face.index<=len(section)-1
+
+extrusion('BeadedTrim',profile,True)
+# Symmetric quirk-and-bevel frame: a broad face, recessed grooves and rounded
+# outer shoulders. Flat ends retain rail/stile butt joints under runtime scale.
+frame=[(-.5,-.5),(-.5,-.08),(-.48,.08),(-.44,.20),(-.38,.27),
+       (-.30,.27),(-.27,.12),(-.22,.12),(-.16,.5),
+       (.16,.5),(.22,.12),(.27,.12),(.30,.27),(.38,.27),
+       (.44,.20),(.48,.08),(.5,-.08),(.5,-.5)]
+extrusion('WainscotFrame',frame)
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/millwork_profile.blend'))
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/millwork_profile.glb'),
     export_format='GLB',export_yup=True,export_apply=True)
