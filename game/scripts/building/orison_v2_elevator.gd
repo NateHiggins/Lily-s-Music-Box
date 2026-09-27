@@ -26,6 +26,12 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	lift.setup({"shaft":[center_x-1.2,-center_z-1.1,center_x+1.2,-center_z+1.1], "cabin":[1.55,2.2],
 		"stops":stops, "door_w":.91})
 	_refine_landing_frames(lift)
+	var controls := preload("res://scripts/building/orison_v2_lift_controls.gd").new()
+	controls.name = "LandingControls"
+	lift.add_child(controls)
+	if not controls.mount(lift,layout):
+		lift.queue_free()
+		return null
 	# Only the old translucent reservation is retired. Authored shaft walls,
 	# pit, landing aprons and the production moving door colliders remain.
 	var reservation := adapter.resolve(str(shaft.id)) as Node3D

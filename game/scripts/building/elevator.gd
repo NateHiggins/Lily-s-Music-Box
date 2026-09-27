@@ -1,5 +1,6 @@
 class_name OrisonElevator
 extends Node3D
+signal landing_button_pressed(level: String)
 ## The unreliable elevator, now with hardware: a kinematic cabin, real
 ## center-parting landing doors at every stop (closed doors are the shaft
 ## interlock — you cannot walk into an empty well), and brass call plates
@@ -37,6 +38,7 @@ var _bell: AudioStreamPlayer3D
 var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
 var _landing_frames: Dictionary = {} # level -> direct stationary visual references
+var _landing_controls: Dictionary = {} # level -> existing plate, cap and interaction area
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -222,6 +224,7 @@ func _build_landing(level: String, door_w: float) -> void:
 			FRONT_Z + WALL_T / 2.0 + 0.03)
 	area.set_meta("call_level", level)
 	add_child(area)
+	_landing_controls[level] = {"plate":plate,"button":btn,"area":area}
 
 
 func _panel_pos(sx: float, y: float, open_t: float) -> Vector3:
@@ -524,6 +527,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 func interact_area(area: Area3D) -> void:
 	if area.has_meta("call_level"):
 		var level: String = area.get_meta("call_level")
+		landing_button_pressed.emit(level)
 		if state == S.IDLE and level == current:
 			# car is here: reopen if someone closed on you
 			if _doors[current]["t"] < 1.0:
