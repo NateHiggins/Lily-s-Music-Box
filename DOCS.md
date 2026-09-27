@@ -38,6 +38,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
 | Blender lift handrails, wall-mounted supports and fasteners | `art/blender/lift_handrails.md` |
+| Fitted Blender cab panels, control clearances and rear enamel field | `art/blender/lift_joinery.md` |
 | Blender lift mirror surround and shared live reflection | `art/blender/lift_mirror.md` |
 | Blender lift floor dial, ceiling mounts and height-driven needle | `art/blender/lift_indicator.md` |
 | Blender cab control board, collars and working button presentation | `art/blender/lift_cab_controls.md` |

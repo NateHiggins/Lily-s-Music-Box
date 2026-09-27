@@ -45,6 +45,9 @@ var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and 
 var _cab_rail_visual: Node3D # optional V2 fabricated presentation
 var _cab_mirror_parts: Array[MeshInstance3D] = []
 var _cab_mirror: Node3D # V2 live reflection surface owner
+var _cab_panel_visuals: Array[MeshInstance3D] = []
+var _cab_wall_finish: Material
+var _cab_joinery: Node3D
 var _indicator_parts: Dictionary = {} # presentation references, car height owns needle
 var _indicator_visual: Node3D
 var _needle_sweep_sign := 1.0 # presentation orientation; V1 retains its original face
@@ -354,6 +357,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	# with a nice dado in it. A passenger car of this class has a
 	# painted field above the rail.
 	var field := _finish("enamel", Color(0.88, 0.84, 0.74), 0.42)
+	_cab_wall_finish=field
 
 	# Inner faces of the five boxes: the panelling sits proud of these.
 	var wx := cw / 2.0 - 0.025          # west/east inner face
@@ -376,9 +380,9 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 		# two raised panels per side, with a stile between them
 		for pi in 2:
 			var cz := -0.36 + pi * 0.72 + 0.03
-			_cab_box(Vector3(pr, 0.60, 0.60), Vector3(x, 0.60, cz), oak)
-			_cab_box(Vector3(pr + 0.018, 0.52, 0.52),
-					Vector3(x, 0.60, cz), oak)
+			_cab_panel_visuals.append(_cab_box(Vector3(pr, 0.60, 0.60), Vector3(x, 0.60, cz), oak))
+			_cab_panel_visuals.append(_cab_box(Vector3(pr + 0.018, 0.52, 0.52),
+					Vector3(x, 0.60, cz), oak))
 		_cab_box(Vector3(pr + 0.020, 0.06, cd - 0.06),
 				Vector3(x, 0.97, 0.03), oak)          # chair rail
 		_cab_box(Vector3(pr, 1.05, cd - 0.06),
@@ -390,9 +394,9 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 			Vector3(0, 0.19, rz + pr * 0.5), oak)
 	for pi in 2:
 		var px := -0.34 + pi * 0.68
-		_cab_box(Vector3(0.58, 0.60, pr), Vector3(px, 0.60, rz + pr * 0.5), oak)
-		_cab_box(Vector3(0.50, 0.52, pr + 0.018),
-				Vector3(px, 0.60, rz + pr * 0.5), oak)
+		_cab_panel_visuals.append(_cab_box(Vector3(0.58, 0.60, pr), Vector3(px, 0.60, rz + pr * 0.5), oak))
+		_cab_panel_visuals.append(_cab_box(Vector3(0.50, 0.52, pr + 0.018),
+				Vector3(px, 0.60, rz + pr * 0.5), oak))
 	_cab_box(Vector3(cw - 0.06, 0.06, pr + 0.020),
 			Vector3(0, 0.97, rz + pr * 0.5), oak)
 	_cab_box(Vector3(cw - 0.06, 0.09, pr + 0.024),
