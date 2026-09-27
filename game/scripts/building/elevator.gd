@@ -61,6 +61,8 @@ var _cabin_lamps: Dictionary = {}  # level -> cab button material
 var _gate: Node3D
 var _needle: Node3D
 var _dome: StandardMaterial3D
+var _cab_lamp_parts: Array[MeshInstance3D] = []
+var _cab_lamp_visual: Node3D
 var _sleep_half_width := 0.0
 var _sleep_rear_z := 0.0
 
@@ -450,12 +452,13 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	dome.material_override = _dome
 	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_cabin.add_child(dome)
+	_cab_lamp_parts.append(dome)
 	for i in 16:                       # brass retaining ring
 		var a0 := TAU * i / 16.0
 		var a1 := TAU * (i + 1) / 16.0
-		_cab_tube(Vector3(cos(a0) * 0.24, 2.225, 0.02 + sin(a0) * 0.24),
+		_cab_lamp_parts.append(_cab_tube(Vector3(cos(a0) * 0.24, 2.225, 0.02 + sin(a0) * 0.24),
 				Vector3(cos(a1) * 0.24, 2.225, 0.02 + sin(a1) * 0.24),
-				0.012, brass)
+				0.012, brass))
 
 	# --- the collapsible gate --------------------------------------
 	# A scissor gate compresses toward its jamb, so the whole lattice

@@ -29,6 +29,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	_refine_landing_panels(lift)
 	_refine_cab_handrails(lift)
 	_refine_cab_joinery(lift)
+	_refine_cab_lamp(lift)
 	var mirror := preload("res://scripts/building/orison_v2_lift_mirror.gd").new()
 	mirror.mount(lift)
 	var indicator := preload("res://scripts/building/orison_v2_lift_indicator.gd").new()
@@ -55,6 +56,17 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		var frame := adapter.resolve(str(landing.id)) as Node3D
 		if frame != null: frame.visible = false
 	return lift
+
+
+func _refine_cab_lamp(lift: OrisonElevator) -> void:
+	var model := (preload("res://assets/props/lift_ceiling_lamp.glb") as PackedScene).instantiate()
+	for part in model.get_children():
+		if part is MeshInstance3D:
+			part.material_override=lift._dome if part.name=="OpalBowl" else lift._cab_lamp_parts[1].material_override
+			part.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	for old: MeshInstance3D in lift._cab_lamp_parts: old.hide()
+	lift._cabin.add_child(model)
+	lift._cab_lamp_visual=model
 
 
 func _refine_cab_joinery(lift: OrisonElevator) -> void:
