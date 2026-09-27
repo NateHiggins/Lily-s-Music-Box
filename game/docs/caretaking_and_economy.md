@@ -35,6 +35,13 @@ resizing the viewport, losing window/application focus, or retiring the controls
 also releases the actions they pressed and resets their finger tracking. Actions
 not owned by touch are left alone; resume with a fresh touch after returning.
 
+Inspection and pocket slips fit the current window, wrap long text and scroll
+when their contents exceed its height. The mouse wheel scrolls the slip;
+controller selection brings the focused button into view. Timed tests reveal
+the enabled Close button even in a short window. Windowed regression coverage
+includes 640 by 360 and 480 by 640, with visible touch cancellation and controller
+navigation against the actual V2 fixtures and request ledger.
+
 Water inspection exposes independent hot and cold valves, the stopper, actual
 mixed warmth, basin level and drain condition. Open the shower curtain first.
 The four-second test fills briefly, closes both valves, opens the drain and

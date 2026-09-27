@@ -8,6 +8,7 @@ var economy: Node
 var debug: BuildingDebug
 var subject: Node
 var panel: PanelContainer
+var scroll: ScrollContainer
 var box: VBoxContainer
 var readout: Label
 var feedback: Label
@@ -31,14 +32,39 @@ func _ready() -> void:
 	add_to_group("caretaker_notebook")
 	layer = 20
 	panel = PanelContainer.new()
-	panel.position = Vector2(28,70)
-	panel.custom_minimum_size = Vector2(420,0)
 	panel.add_theme_stylebox_override("panel",TelegramStyle.paper_panel(.97))
 	add_child(panel)
+	scroll = ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.follow_focus = true
+	panel.add_child(scroll)
 	box = VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation",10)
-	panel.add_child(box)
+	scroll.add_child(box)
+	box.minimum_size_changed.connect(_fit_panel)
+	box.resized.connect(_reveal_focus,CONNECT_DEFERRED)
+	scroll.resized.connect(_reveal_focus,CONNECT_DEFERRED)
+	get_viewport().size_changed.connect(_fit_panel)
+	_fit_panel()
 	panel.hide()
+
+func _fit_panel() -> void:
+	# Keep readable type and full-size controls; long slips scroll rather than
+	# extending below the window. Focus follows keyboard/controller selection.
+	var viewport := get_viewport().get_visible_rect().size
+	var margin := Vector2(minf(28,viewport.x*.04),minf(70,viewport.y*.1))
+	panel.position = margin
+	var paper := panel.get_theme_stylebox("panel")
+	panel.size = Vector2(minf(560,viewport.x-margin.x*2),
+		minf(box.get_combined_minimum_size().y+paper.get_minimum_size().y,viewport.y-margin.y*2))
+
+func _reveal_focus() -> void:
+	# Focus may precede the container's deferred layout when opening/resizing
+	# directly into a timed test. Reveal it again using the finished geometry.
+	var focused := get_viewport().gui_get_focus_owner()
+	if opened and focused!=null and box.is_ancestor_of(focused):
+		scroll.ensure_control_visible(focused)
 
 func aimed_subject() -> Node:
 	var origin := player.camera.global_position
@@ -96,6 +122,7 @@ func open(target: Node) -> void:
 		box.remove_child(child)
 		child.queue_free()
 	readout = Label.new()
+	readout.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	TelegramStyle.apply(readout,17,false,TelegramStyle.CARBON)
 	box.add_child(readout)
 	if subject!=null:
@@ -121,6 +148,7 @@ func open(target: Node) -> void:
 		_button("Next service requests",func(): _request_page += 1; _process(0))
 		_button("Print pocket and request page",_print_pocket)
 	feedback = Label.new()
+	feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	TelegramStyle.apply(feedback,14,false,TelegramStyle.CARBON)
 	box.add_child(feedback)
 	_button("Close / Escape",close)
@@ -129,6 +157,8 @@ func open(target: Node) -> void:
 	opened = true
 	add_to_group("attention_maintenance")
 	panel.show()
+	scroll.scroll_vertical = 0
+	_fit_panel()
 	_focus_button(false)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_process(0.0)

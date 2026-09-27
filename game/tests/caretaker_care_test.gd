@@ -73,6 +73,7 @@ func _run() -> void:
 	_check(not notebook.opened and not tap._hot,"touch Close restores entry valve settings")
 	if notebook.opened: notebook.close()
 	_check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE and not player.call_locked,"touch close preserves visible pointer and releases player")
+	await _small_fixture_regression(notebook,tap)
 	var touch_look: Transform3D = player.camera.global_transform
 	player.camera.look_at(player.camera.global_position+Vector3.UP,Vector3.FORWARD)
 	await _touch_care_button(world.touch,"inspect_care")
@@ -353,6 +354,7 @@ func _run() -> void:
 	_check(not still_present,"closed owner request is absent even if fixture retains its reference")
 	notebook.open(null)
 	_check(notebook.readout.text.contains("POCKET") and notebook.readout.text.contains("$2.00"),"pocket presents balance and rent immediately")
+	await _layout_regression(notebook)
 	await _shot("pocket_ledger")
 	var money_before := JSON.stringify(economy.book())
 	print_count = device.printed_count
@@ -503,3 +505,64 @@ func _touch_release_regression() -> void:
 			controls.free()
 		# Cleanup keeps a failing ownership fixture isolated from the next one.
 		for action: String in ["move_forward","move_left","run","interact"]: Input.action_release(action)
+
+func _layout_regression(notebook: Node) -> void:
+	var original := get_window().size
+	for dimensions: Vector2i in [Vector2i(640,360),Vector2i(480,640)]:
+		get_window().size = dimensions
+		for frame in range(6): await get_tree().process_frame
+		var viewport := get_viewport().get_visible_rect()
+		_check(viewport.encloses(notebook.panel.get_global_rect()),str(dimensions)+" keeps the request panel inside the viewport")
+		notebook.scroll.scroll_vertical = 0
+		var wheel := InputEventMouseButton.new()
+		wheel.position = notebook.panel.get_global_rect().get_center()
+		wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN
+		wheel.pressed = true
+		Input.parse_input_event(wheel)
+		await get_tree().process_frame
+		wheel = wheel.duplicate()
+		wheel.pressed = false
+		Input.parse_input_event(wheel)
+		_check(notebook.scroll.scroll_vertical>0,str(dimensions)+" mouse wheel scrolls the actual request panel")
+		notebook._focus_button(true)
+		for frame in range(6): await get_tree().process_frame
+		var button := notebook.box.get_child(notebook.box.get_child_count()-1) as Button
+		_check(viewport.encloses(button.get_global_rect()),str(dimensions)+" scrolls focused Close into view")
+		await _shot("pocket_small_"+str(dimensions.x))
+		# Never inject an off-screen tap: the pre-fix failure must remain a real
+		# reachability failure rather than pretending an invisible button works.
+		if viewport.encloses(button.get_global_rect()):
+			await _touch_point(button.get_global_rect().get_center())
+			_check(not notebook.opened,str(dimensions)+" touch can close the visible panel")
+		notebook.close()
+		notebook.open(null)
+		for frame in range(6): await get_tree().process_frame
+		_check(notebook.box.get_child(1).has_focus(),str(dimensions)+" reopened ledger focuses its first action")
+		await _pad(JOY_BUTTON_DPAD_LEFT)
+		for frame in range(6): await get_tree().process_frame
+		button = notebook.box.get_child(notebook.box.get_child_count()-1) as Button
+		_check(button.has_focus() and viewport.encloses(button.get_global_rect()),str(dimensions)+" controller navigation reveals Close")
+		await _pad(JOY_BUTTON_A)
+		_check(not notebook.opened,str(dimensions)+" controller can close the request panel")
+		notebook.close()
+		notebook.open(null)
+	get_window().size = original
+	for frame in range(6): await get_tree().process_frame
+
+func _small_fixture_regression(notebook: Node, tap: TapProp) -> void:
+	var original := get_window().size
+	get_window().size = Vector2i(640,360)
+	notebook.open(tap)
+	notebook._test_water()
+	for frame in range(8): await get_tree().process_frame
+	var viewport := get_viewport().get_visible_rect()
+	var button := notebook.box.get_child(notebook.box.get_child_count()-1) as Button
+	_check(viewport.encloses(notebook.panel.get_global_rect()),"small window contains the timed fixture inspection")
+	_check(button.has_focus() and viewport.encloses(button.get_global_rect()),"timed test reveals its enabled cancel button in a small window")
+	await _shot("small_fixture_cancel")
+	await _touch_point(button.get_global_rect().get_center())
+	_check(not notebook.opened and not notebook.tested and not tap._hot and not tap._cold,
+		"small-window touch cancellation restores actual valves without test credit")
+	notebook.close()
+	get_window().size = original
+	for frame in range(6): await get_tree().process_frame
