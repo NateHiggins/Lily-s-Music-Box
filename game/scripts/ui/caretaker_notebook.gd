@@ -50,12 +50,20 @@ func aimed_subject() -> Node:
 
 func inspection_available() -> bool:
 	return not opened and not player.call_locked and not is_instance_valid(player.seated_interaction) \
-		and not get_tree().paused and player.camera.is_current() \
-		and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED
+		and not get_tree().paused and player.camera.is_current() and player.is_processing() \
+		and not player.mouse_released and (player.touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
 
 func action_hint() -> String:
 	if not inspection_available() or aimed_subject()==null: return ""
+	if player.touch_input: return "[TAP] Inspect / care"
 	return "[R3] Inspect / care" if player._current_prompt_family()==&"controller" else "[I] Inspect / care"
+
+func request_action(action: StringName) -> bool:
+	if action not in [&"inspect_care", &"pocket_ledger"] or not inspection_available(): return false
+	var target: Node = aimed_subject() if action==&"inspect_care" else null
+	if action==&"inspect_care" and target==null: return false
+	open(target)
+	return opened
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and opened:
@@ -76,11 +84,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			focused.pressed.emit()
 	elif not opened and (event.is_action_pressed("inspect_care") or event.is_action_pressed("pocket_ledger")):
-		if not inspection_available(): return
-		var target: Node = aimed_subject() if event.is_action_pressed("inspect_care") else null
-		if event.is_action_pressed("inspect_care") and target==null: return
-		open(target)
-		get_viewport().set_input_as_handled()
+		if request_action(&"inspect_care" if event.is_action_pressed("inspect_care") else &"pocket_ledger"):
+			get_viewport().set_input_as_handled()
 
 func open(target: Node) -> void:
 	if opened or player.call_locked: return
@@ -303,7 +308,10 @@ func _process(delta: float) -> void:
 	else:
 		var days := maxf(0.0,(float(economy.book().started)+(int(economy.book().rent_paid)+1)*economy.MONTH-economy.clock.elapsed_minutes())/1440.0)
 		readout.text = "POCKET / %s\nRent: $5.00 / next instalment in %.1f days\nOverdue instalments: %d\nNo late fees. Pay when you can.\n\nI: inspect a fixture in reach\nP: pocket ledger" % [economy.money(int(economy.book().cash)),days,economy.rent_cycles_due()]
-		if player._current_prompt_family()==&"controller":
+		if player.touch_input:
+			readout.text = readout.text.replace("I: inspect a fixture in reach\nP: pocket ledger",
+				"CARE: inspect a fixture in reach\nPOCKET: pocket ledger")
+		elif player._current_prompt_family()==&"controller":
 			readout.text = readout.text.replace("I: inspect a fixture in reach\nP: pocket ledger",
 				"R3: inspect a fixture in reach\nView: pocket ledger")
 		var requests: Array[String] = care.request_lines()

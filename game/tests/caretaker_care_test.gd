@@ -46,6 +46,58 @@ func _run() -> void:
 		await get_tree().process_frame
 		_check("[I] Inspect / care" in carrier.device.teletype.footer.text,"care control reaches physical paper")
 	await _shot("care_discovery")
+	# Simulate the production touch HUD against the same real inspection ray.
+	world.touch.set_enabled(true)
+	player.touch_input = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_check(notebook.action_hint()=="[TAP] Inspect / care","touch inspection works without captured mouse")
+	await _shot("touch_care_discovery")
+	world.touch._press(40,Vector2(100,500))
+	world.touch._drag(40,Vector2(100,400))
+	_check(Input.is_action_pressed("move_forward"),"touch fixture holds real movement input before inspection")
+	_check(await _touch_care_button(world.touch,"inspect_care"),"V2 exposes reachable CARE button")
+	_check(notebook.opened and notebook.subject==tap and player.call_locked,"touch CARE opens the actual aimed fixture")
+	_check(not Input.is_action_pressed("move_forward") and world.touch._stick_finger==-1,
+		"accepted touch inspection releases held movement fingers")
+	_check(not notebook.request_action(&"pocket_ledger") and notebook.subject==tap,"touch request cannot replace an active inspection")
+	await _shot("touch_care_open")
+	var hot_button := notebook.box.get_child(1) as Button
+	await _touch_point(hot_button.get_global_rect().get_center())
+	_check(tap._hot,"touch panel button operates the real hot valve")
+	var close_button := notebook.box.get_child(notebook.box.get_child_count()-1) as Button
+	await _touch_point(close_button.get_global_rect().get_center())
+	_check(not notebook.opened and not tap._hot,"touch Close restores entry valve settings")
+	if notebook.opened: notebook.close()
+	_check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE and not player.call_locked,"touch close preserves visible pointer and releases player")
+	var touch_look: Transform3D = player.camera.global_transform
+	player.camera.look_at(player.camera.global_position+Vector3.UP,Vector3.FORWARD)
+	await _touch_care_button(world.touch,"inspect_care")
+	_check(not notebook.opened,"touch CARE with no reachable fixture stays closed")
+	await _touch_care_button(world.touch,"pocket_ledger")
+	_check(notebook.opened and notebook.subject==null and "CARE:" in notebook.readout.text,
+		"touch POCKET opens ledger without a fixture and shows touch instructions")
+	notebook.close()
+	player.camera.global_transform = touch_look
+	player.set_mouse_released(true)
+	_check(not notebook.request_action(&"inspect_care"),"explicit pointer release blocks touch inspection")
+	player.set_mouse_released(false)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	world.building_debug._set_menu_open(true)
+	_check(not notebook.request_action(&"inspect_care") and not notebook.request_action(&"pocket_ledger"),"F1 retains ownership against touch care requests")
+	world.building_debug._set_menu_open(false)
+	get_tree().paused = true
+	_check(not notebook.request_action(&"pocket_ledger"),"pause retains ownership against touch care requests")
+	get_tree().paused = false
+	var other_camera := Camera3D.new()
+	world.add_child(other_camera)
+	other_camera.make_current()
+	_check(not notebook.request_action(&"inspect_care"),"inspector camera cannot open player care")
+	other_camera.free()
+	player.camera.make_current()
+	_check(not notebook.request_action(&"unknown_action"),"unknown touch action is refused")
+	world.touch.set_enabled(false)
+	player.touch_input = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	await _pad(JOY_BUTTON_RIGHT_STICK)
 	_check(notebook.opened and notebook.subject==tap and notebook.get_viewport().gui_get_focus_owner() is Button,
 		"controller R3 opens aimed inspection with button focus")
@@ -383,6 +435,27 @@ func _pad(button: JoyButton) -> void:
 	await get_tree().physics_frame
 	event = InputEventJoypadButton.new()
 	event.button_index = button
+	event.pressed = false
+	Input.parse_input_event(event)
+	await get_tree().process_frame
+
+func _touch_care_button(touch: TouchControls, action: String) -> bool:
+	for button: Dictionary in touch._buttons:
+		if button.action!=action: continue
+		await _touch_point(button.centre)
+		return true
+	return false
+
+func _touch_point(at: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 41
+	event.position = at
+	event.pressed = true
+	Input.parse_input_event(event)
+	await get_tree().process_frame
+	event = InputEventScreenTouch.new()
+	event.index = 41
+	event.position = at
 	event.pressed = false
 	Input.parse_input_event(event)
 	await get_tree().process_frame

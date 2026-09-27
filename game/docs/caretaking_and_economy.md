@@ -22,6 +22,15 @@ movement while the world and the mechanism keep running. Escape returns the
 pointer to its previous ownership. Calls, seated activities, paused play and
 the ecology camera do not accept this shortcut.
 
+V2's touch controls include **CARE** for the fixture under the centre ray and
+**POCKET** for the ledger. Tap the inspection's buttons to operate or test the
+mechanism and **Close** to leave. Accepted inspection releases held movement
+touches and keeps the pointer visible. CARE with nothing in reach does nothing;
+POCKET works without a fixture. The carried cue uses `[TAP]`, and the ledger
+names the touch buttons. F1, pause, calls, seated activities, explicit backtick
+mouse release and another active camera retain ownership. On desktop, enable
+the existing **Touch controls (phone HUD)** option in F1 to try these controls.
+
 Water inspection exposes independent hot and cold valves, the stopper, actual
 mixed warmth, basin level and drain condition. Open the shower curtain first.
 The four-second test fills briefly, closes both valves, opens the drain and
@@ -105,7 +114,9 @@ actions that respect their existing maintenance owners. Leisure purchases,
 consumable effects, owned camera/film, actual pool stakes and paid arcade/karaoke
 sessions are not implemented here. The pocket is not a remote shopping menu.
 Those transactions must happen at their physical venues and persist through the
-same money owner. Touch inspection and broader discoverability still need work.
+same money owner. Broader discoverability and testing on physical mobile devices
+still need work; touch coverage here uses simulated screen events in a windowed
+desktop run.
 
 ## Ownership and verification
 

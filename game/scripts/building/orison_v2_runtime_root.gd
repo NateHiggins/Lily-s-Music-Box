@@ -430,6 +430,9 @@ func _compose_debug_controls() -> void:
 	touch.name = "TouchControls"
 	add_child(touch)
 	touch.look_delta.connect(player.apply_look)
+	touch.enable_care_actions()
+	touch.care_action_requested.connect(func(action: StringName):
+		if get_node("CaretakerNotebook").request_action(action): touch._release_all())
 	player.touch_input = touch.enabled
 	shots = ShotCapture.new()
 	shots.name = "ShotCapture"

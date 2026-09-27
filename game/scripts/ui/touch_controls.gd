@@ -18,6 +18,7 @@ extends CanvasLayer
 ## holding run has to work, and that is three fingers.
 
 signal look_delta(rel: Vector2)
+signal care_action_requested(action: StringName)
 
 const STICK_RADIUS := 0.11      # of the smaller screen dimension
 const STICK_DEAD := 0.14        # fraction of radius ignored
@@ -28,6 +29,7 @@ const BUTTON_R := 0.052         # of the smaller screen dimension
 const STICK_ZONE := 0.42
 
 var enabled := false
+var care_actions_enabled := false
 
 var _screen := Vector2(1280, 720)
 var _unit := 720.0
@@ -68,6 +70,12 @@ func toggle() -> void:
 	set_enabled(not enabled)
 
 
+func enable_care_actions() -> void:
+	# Only worlds with the household-care owner expose these buttons.
+	care_actions_enabled = true
+	_layout()
+
+
 func _layout() -> void:
 	_screen = Vector2(get_viewport().get_visible_rect().size)
 	_unit = minf(_screen.x, _screen.y)
@@ -91,6 +99,9 @@ func _layout() -> void:
 		_button("LAMP", "lamp_toggle", Vector2(right, bottom - gap * 2.0), false),
 		_button("RADIO", "radio_toggle", Vector2(right - gap, bottom - gap * 2.0), false),
 	]
+	if care_actions_enabled:
+		_buttons.append(_button("CARE", "inspect_care", Vector2(right, bottom - gap * 3.0), false))
+		_buttons.append(_button("POCKET", "pocket_ledger", Vector2(right - gap, bottom - gap * 3.0), false))
 	_panel.queue_redraw()
 
 
@@ -124,6 +135,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _press(finger: int, at: Vector2) -> void:
 	for b in _buttons:
 		if at.distance_to(b["centre"]) <= b["radius"] * 1.25:
+			if b["action"] in ["inspect_care", "pocket_ledger"]:
+				# These are modal requests, not held movement actions. The owner
+				# checks reach and pointer custody before it accepts the request.
+				care_action_requested.emit(StringName(b["action"]))
+				return
 			b["finger"] = finger
 			if b["toggle"]:
 				b["on"] = not b["on"]
