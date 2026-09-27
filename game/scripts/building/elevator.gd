@@ -1,6 +1,7 @@
 class_name OrisonElevator
 extends Node3D
 signal landing_button_pressed(level: String)
+signal cabin_button_pressed(control: String)
 ## The unreliable elevator, now with hardware: a kinematic cabin, real
 ## center-parting landing doors at every stop (closed doors are the shaft
 ## interlock — you cannot walk into an empty well), and brass call plates
@@ -42,6 +43,7 @@ var _landing_controls: Dictionary = {} # level -> existing plate, cap and intera
 var _panel_visuals: Dictionary = {} # moving body -> existing skin, glazing and kick
 var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and supports
 var _cab_rail_visual: Node3D # optional V2 fabricated presentation
+var _cabin_controls: Dictionary = {"buttons":{},"areas":{}} # direct visual/input references
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -539,6 +541,7 @@ func interact_area(area: Area3D) -> void:
 			return
 		travel_to(level)
 	elif area.has_meta("cabin_floor"):
+		cabin_button_pressed.emit(String(area.get_meta("cabin_floor")))
 		# One button per stop. The panel used to be a single plate that
 		# advanced to the next floor, so reaching B1 from F06 meant riding
 		# every landing in between — a lift you cannot direct is furniture.
@@ -546,6 +549,7 @@ func interact_area(area: Area3D) -> void:
 			return
 		travel_to(String(area.get_meta("cabin_floor")))
 	elif area.has_meta("cabin_alarm"):
+		cabin_button_pressed.emit("alarm")
 		# It rings the car's own bell and nothing else. In a building
 		# where nobody answers the telephone, an alarm that summoned help
 		# would be the least believable thing in it.
@@ -741,6 +745,7 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	plate.material_override = _brass()
 	plate.position = Vector3(cw / 2 - 0.051, 1.22, cd / 2 - 0.22)
 	_cabin.add_child(plate)
+	_cabin_controls.plate = plate
 	# top of the plate is the top of the building: B1 sits at the bottom
 	for i in range(n):
 		var level: String = stop_order[i]
@@ -778,6 +783,8 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 		hit.position = Vector3(cw / 2 - 0.090, y, cd / 2 - 0.20)
 		hit.set_meta("cabin_floor", level)
 		_cabin.add_child(hit)
+		_cabin_controls.buttons[level] = b
+		_cabin_controls.areas[level] = hit
 	# Below the floor buttons, the two controls every car of this class
 	# carries and no self-service car is legal without: a red stop and an
 	# alarm. Neither is wired to a destination - the stop halts nothing
@@ -798,6 +805,7 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	stop_btn.position = Vector3(cw / 2 - 0.069, base, cd / 2 - 0.22)
 	stop_btn.material_override = stop_mat
 	_cabin.add_child(stop_btn)
+	_cabin_controls.stop = stop_btn
 	var alarm := MeshInstance3D.new()
 	var ac := CylinderMesh.new()
 	ac.top_radius = 0.017
@@ -818,6 +826,8 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	ahit.position = Vector3(cw / 2 - 0.090, base - 0.075, cd / 2 - 0.20)
 	ahit.set_meta("cabin_alarm", true)
 	_cabin.add_child(ahit)
+	_cabin_controls.buttons["alarm"] = alarm
+	_cabin_controls.areas["alarm"] = ahit
 
 
 ## Level names as the brass atlas spells them: the plates were cut for
