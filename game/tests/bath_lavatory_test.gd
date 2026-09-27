@@ -176,6 +176,13 @@ func run() -> void:
 		world.add_child(camera)
 		camera.fov = 65
 		camera.global_position = wc.to_global(Vector3(-.65,1.15,-.9))
+		for height: float in [.5,.65,.95]:
+			for side: int in [-1,1]:
+				var origin := wc.to_global(Vector3(0,height,-.13))
+				var clearance := PhysicsRayQueryParameters3D.create(origin,origin+wc.global_basis.x*side*.64,1)
+				clearance.exclude = [wc.get_rid(),world.player.get_rid()]
+				check(world.get_world_3d().direct_space_state.intersect_ray(clearance).is_empty(),
+					"4B toilet has 64 cm centerline side clearance at height %s, side %s" % [height,side])
 		camera.look_at(wc.to_global(Vector3(0,.47,0)))
 		camera.make_current()
 		await capture("toilet_approach")

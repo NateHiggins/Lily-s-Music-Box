@@ -38,6 +38,11 @@ The existing owner still controls flush sound, lever travel, refill time and
 repeat-use refusal. The paper spindle mounts on the cistern side opposite the
 lever, behind and outside the seat opening; its loose end clears the knee space.
 The seat and lid are fixed poses; this pass does not add a toileting simulation.
+The 4B installation and its standing approach move 350 mm away from the side
+wall, providing 650 mm from the toilet centerline to that wall. Attached paper
+and plumbing move with the existing owner. BathLavatoryTest checks physical
+side clearance at seated-body heights; OrisonV24BDoorRouteTest walks from the
+sink to the flush control and out again with ordinary player collision.
 
 PlanarMirrorRenderer retains one borrowed viewport. Its asymmetric frustum is
 aligned to the moving glass and clipped at that plane. The shader derives full

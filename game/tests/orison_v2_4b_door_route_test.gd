@@ -33,6 +33,17 @@ func _route() -> void:
 	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-7.6, 9.6, 4.7)]:
 		if not await _walk(point): return
 	if not await _use_water_valves("F04_4B_SINK_01"): return
+	if not await _walk(Vector3(-7.25,9.6,4.5)): return
+	var toilets: Array[BakedFurnitureInteraction] = []
+	for prop: Node in world.get_node("Caretaking").subjects.values():
+		if prop is BakedFurnitureInteraction and prop.owner_unit=="4B" and prop.furniture_kind=="toilet":
+			toilets.append(prop)
+	if not _require(toilets.size()==1,"4B has one physical toilet in the household care roster"): return
+	var wc := toilets[0]
+	if not await _use(wc,wc.to_global(Vector3(0,.65,0)),"4B_toilet_flush"): return
+	if not _require(wc._refilling,"walking approach reaches the actual flush"): return
+	await get_tree().create_timer(2.6).timeout
+	if not _require(not wc._refilling,"toilet refills before leaving the bathroom"): return
 	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-10.5, 9.6, 4.75)]:
 		if not await _walk(point): return
 	# The open bathroom leaf projects into the private hall. Close it from a
