@@ -27,6 +27,9 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		"stops":stops, "door_w":.91})
 	_refine_landing_frames(lift)
 	_refine_landing_panels(lift)
+	var gate_visual := preload("res://scripts/building/orison_v2_lift_gate.gd").new()
+	gate_visual.name = "ArticulatedGate"
+	gate_visual.mount(lift)
 	var controls := preload("res://scripts/building/orison_v2_lift_controls.gd").new()
 	controls.name = "LandingControls"
 	lift.add_child(controls)
