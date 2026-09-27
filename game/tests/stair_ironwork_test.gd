@@ -64,11 +64,36 @@ func _route() -> void:
 			if part is MeshInstance3D and "Guard" in str(part.name):
 				check(not part.visible,"opaque review guard hidden in production")
 		var supports := model.find_children("Foot_*","Node3D",true,false)
-		check(supports.size()==37,"all flight and landing feet remain authored")
+		check(supports.size()==58,"all inner, outer and landing feet remain authored")
 		for foot: Node3D in supports:
 			var ray := PhysicsRayQueryParameters3D.create(foot.global_position+Vector3.UP*.10,
 				foot.global_position-Vector3.UP*.10,1,[player.get_rid()])
 			check(not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"post bears on physical tread or landing")
+		var guards := parent.get_node_or_null("StairGuards") as StaticBody3D
+		check(guards!=null,"semantic guard collision exists")
+		if guards!=null:
+			for returning in [false,true]:
+				var width := float(stair.width)
+				var tread := float(stair.tread)
+				var offset := width+float(stair.gap) if returning else 0.0
+				var z := tread*4.5+float(stair.landing_depth) if returning else tread*5.5
+				# Lift the stationary sweep above the next nosing touched by the
+				# capsule radius; continuous grounded movement is tested separately.
+				var y := float(stair.rise)*(16 if returning else 6)+.25
+				for direction in [-1.0,1.0]:
+					var at := player.global_transform
+					at.origin = model.to_global(Vector3(offset+width*.5,y,z))
+					var collision := KinematicCollision3D.new()
+					var hit := player.test_move(at,model.global_basis*Vector3(direction*width,0,0),collision)
+					if not hit or collision.get_collider()!=guards:
+						print("GUARD DIAGNOSTIC ",stair.id," returning=",returning," direction=",direction," hit=",hit," collider=",collision.get_collider().get_path() if hit else "none"," origin=",at.origin)
+					check(hit and collision.get_collider()==guards,"player capsule cannot cross inner or outer flight guard")
+			var landing_at := player.global_transform
+			var rear := float(stair.tread)*10+float(stair.landing_depth)+.7-.025
+			landing_at.origin = model.to_global(Vector3(float(stair.width)+float(stair.gap)*.5,float(stair.rise)*10+.25,rear-.55))
+			var landing_hit := KinematicCollision3D.new()
+			check(player.test_move(landing_at,model.global_basis*Vector3(0,0,1),landing_hit)
+				and landing_hit.get_collider()==guards,"player capsule cannot cross rear landing guard")
 		if str(stair.from)=="F01":
 			camera.global_position = model.to_global(Vector3(float(stair.width)*.5,1.45,-.65))
 			camera.look_at(model.to_global(Vector3(.12,1.8,1.5)))
@@ -82,6 +107,10 @@ func _route() -> void:
 			camera.look_at(model.to_global(Vector3(float(stair.width)-.04,.85,float(stair.tread)*7)))
 			light.global_position = camera.global_position
 			await shot(str(stair.id)+"_understructure")
+			camera.global_position = model.to_global(Vector3(float(stair.width)+float(stair.gap)*.5,2.9,float(stair.tread)*10+float(stair.landing_depth)+.4))
+			camera.look_at(model.to_global(Vector3(float(stair.width)+float(stair.gap)*.5,2.0,float(stair.tread)*10-1)))
+			light.global_position = camera.global_position
+			await shot(str(stair.id)+"_inner_turn")
 	check(seen==world.layout.stairs.size(),"both cores dressed through basement and roof")
 	light.free()
 	camera.free()

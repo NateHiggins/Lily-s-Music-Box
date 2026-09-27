@@ -1,4 +1,4 @@
-"""Blender-authored V2 outer stair rails, metres; no collision authority.
+"""Blender-authored V2 stair rails, metres; runtime retains collision authority.
 
 Run: blender -b -P art/blender/scripts/build_stair_ironwork.py
 Two shared assemblies fit the public and service stair schedules exactly.
@@ -157,6 +157,23 @@ def build(name, width, tread, landing):
         post('Landing'+str(i),x,half,rear)
     rod('LandingHandrail',(.025,half+guard-.025,rear),(right,half+guard-.025,rear),.023,wood)
     rod('LandingBearer',(.025,half+.18,rear),(right,half+.18,rear),.009,iron)
+
+    # Inner flights remain separate. The return flight stops at its first
+    # tread post: extending it onto the landing pinches the player's U-turn.
+    for flight in ['A','B']:
+        x = width+gap+.025 if flight=='B' else width-.025
+        points = []
+        for i in range(count):
+            floor = rise*(i+1)+(half if flight=='B' else 0)
+            z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
+            post('Inner'+flight+str(i),x,floor,z,i in [0,count-1])
+            points.append((x,floor+guard-.025,z))
+        rod('InnerHandrail'+flight,points[0],points[-1],.023,wood)
+        rod('InnerBearer'+flight,(x,points[0][1]-.035,points[0][2]),
+            (x,points[-1][1]-.035,points[-1][2]),.009,iron)
+        if flight=='A':
+            post('InnerTerminal'+flight,x,half,run,True)
+            rod('InnerTerminalRail'+flight,points[-1],(x,half+guard-.025,run),.023,wood)
 
     # Apply machining before batching: three rail materials and one structure.
     for obj in list(bpy.context.scene.objects):
