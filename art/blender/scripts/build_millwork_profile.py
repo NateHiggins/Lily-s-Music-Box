@@ -50,6 +50,13 @@ frame=[(-.5,-.5),(-.5,-.08),(-.48,.08),(-.44,.20),(-.38,.27),
        (.16,.5),(.22,.12),(.27,.12),(.30,.27),(.38,.27),
        (.44,.20),(.48,.08),(.5,-.08),(.5,-.5)]
 extrusion('WainscotFrame',frame)
+# Door architrave: stepped outer fillets around a shallow cyma-like hollow.
+# Ends stay square for the existing upright/head butt construction.
+casing=[(-.5,-.5),(-.5,-.1),(-.46,.08),(-.40,.14),(-.34,.14),
+        (-.34,.30),(-.27,.30),(-.23,.18),(-.18,.02),(-.10,-.04),
+        (0,.02),(.10,.19),(.18,.36),(.24,.46),(.30,.5),
+        (.37,.5),(.37,.30),(.46,.30),(.5,.20),(.5,-.5)]
+extrusion('DoorCasing',casing)
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/millwork_profile.blend'))
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/millwork_profile.glb'),
     export_format='GLB',export_yup=True,export_apply=True)

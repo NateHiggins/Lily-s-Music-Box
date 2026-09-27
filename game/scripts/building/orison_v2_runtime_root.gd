@@ -138,6 +138,7 @@ func _ready() -> void:
 	cues.show_bed_context = false
 	cues.show_terminal_context = false
 	cues.show_floor_context = false
+	cues.show_portal_masses = false
 	_blockout.add_child(cues)
 	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
 	wayfinding.name = "Wayfinding"
@@ -222,6 +223,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: remaining interiors refused: %s" % [completion.errors])
 		return
+	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
 	if not preload("res://scripts/building/orison_v2_basement.gd").new().mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: basement services refused")

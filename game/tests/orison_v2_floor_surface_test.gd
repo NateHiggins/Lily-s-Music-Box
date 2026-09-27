@@ -3,11 +3,13 @@ var failures: Array[String]=[]
 func _ready() -> void: call_deferred("_run")
 func check(ok: bool, message: String) -> void:
 	if not ok: failures.append(message); push_error(message)
+func _world_scene() -> PackedScene:
+	return preload("res://scenes/building/orison_v2_runtime.tscn")
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
-	var world := preload("res://scenes/building/orison_v2_runtime.tscn").instantiate()
+	var world := _world_scene().instantiate()
 	add_child(world)
 	await get_tree().physics_frame
 	await get_tree().physics_frame

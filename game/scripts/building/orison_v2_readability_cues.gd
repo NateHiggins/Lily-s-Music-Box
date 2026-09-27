@@ -10,6 +10,7 @@ const WARM := Color(1.0, 0.72, 0.38)
 var show_bed_context := true
 var show_terminal_context := true
 var show_floor_context := true
+var show_portal_masses := true
 
 func _ready() -> void:
 	_portal(Vector3(0, 0, -11.65), 0.0, 1.1, 2.13, PUBLIC, "PUBLIC ENTRANCE")
@@ -45,9 +46,10 @@ func _portal(at: Vector3, yaw: float, width: float, height: float,
 	portal.position = at
 	portal.rotation.y = yaw
 	add_child(portal)
-	_box(portal, Vector3(0.09, height, 0.12), Vector3(-width * 0.5 - 0.045, height * 0.5, 0), color)
-	_box(portal, Vector3(0.09, height, 0.12), Vector3(width * 0.5 + 0.045, height * 0.5, 0), color)
-	_box(portal, Vector3(width + 0.18, 0.16, 0.16), Vector3(0, height + 0.08, 0), color)
+	if show_portal_masses:
+		_box(portal, Vector3(0.09, height, 0.12), Vector3(-width * 0.5 - 0.045, height * 0.5, 0), color)
+		_box(portal, Vector3(0.09, height, 0.12), Vector3(width * 0.5 + 0.045, height * 0.5, 0), color)
+		_box(portal, Vector3(width + 0.18, 0.16, 0.16), Vector3(0, height + 0.08, 0), color)
 	var plate := Label3D.new()
 	plate.text = words
 	plate.font_size = 64

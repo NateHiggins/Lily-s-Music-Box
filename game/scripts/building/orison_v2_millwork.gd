@@ -7,10 +7,11 @@ static var _frame: Mesh
 
 static func build(room: Node3D, record: Dictionary, floor_y: float,
 		clear_height: float, wall_thickness: float, material: Material,
-		panel_material: Material) -> void:
+		panel_material: Material, doors: Array = []) -> void:
 	if record.get("class", "") not in ["private", "public"]: return
 	if record.get("open_shell", false): return
 	var rect: Array = record.rect
+	var casings := _casing_boxes(record,doors,floor_y,wall_thickness)
 	var transforms: Array[Transform3D] = []
 	var sources: PackedStringArray = []
 	var panels: Array[Transform3D] = []
@@ -56,39 +57,43 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 			var start := maxf(along-length*.5, float(rect[0 if along_x else 1])+corner_pad)
 			var finish := minf(along+length*.5, float(rect[2 if along_x else 3])-corner_pad)
 			if finish-start < .001: continue
-			var face := fixed+inward*(wall_thickness+profile.z)*.5
-			var position := Vector3((start+finish)*.5, (low+high)*.5, face) if along_x else Vector3(face, (low+high)*.5, (start+finish)*.5)
-			var dimensions := Vector3(finish-start, high-low, profile.z) if along_x else Vector3(profile.z, high-low, finish-start)
-			var transform := Transform3D(Basis.from_scale(dimensions), position)
-			if profile_index != profiles.size():
-				# The Blender section faces +Z and runs along X. Rotate its front
-				# into the room, keeping the original clipped world-space bounds.
-				var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
-				transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(finish-start,high-low,profile.z))
-				if profile_index < profiles.size():
-					transforms.append(transform)
-					sources.append(label)
-				else:
-					frames.append(transform)
-					frame_sources.append(label)
-			else:
-				panels.append(transform)
-				panel_sources.append(label)
-				# Vertical stiles meet (rather than overlap) the frame rails.
-				# Build once, from the backing run, clipping again for low sills.
-				var stile_low := maxf(floor_y+.226, wall_low)
-				var stile_high := minf(floor_y+1.240, wall_high)
-				if stile_high-stile_low < .001 or finish-start < .15: continue
-				var count := maxi(1, ceili((finish-start)/.72))
-				for index in count+1:
-					var along_stile := lerpf(start+.038, finish-.038, float(index)/count)
-					var stile_face := fixed+inward*(wall_thickness+.036)*.5
-					var stile_position := Vector3(along_stile, (stile_low+stile_high)*.5, stile_face) if along_x else Vector3(stile_face, (stile_low+stile_high)*.5, along_stile)
-					var stile_size := Vector3(.036, stile_high-stile_low, .036)
+			var normal_a := fixed+inward*wall_thickness*.5
+			var normal_b := normal_a+inward*profile.z
+			for run: Vector2 in _clear_runs(start,finish,low,high,minf(normal_a,normal_b),maxf(normal_a,normal_b),along_x,casings):
+				var face := fixed+inward*(wall_thickness+profile.z)*.5
+				var position := Vector3((run.x+run.y)*.5, (low+high)*.5, face) if along_x else Vector3(face, (low+high)*.5, (run.x+run.y)*.5)
+				var dimensions := Vector3(run.y-run.x, high-low, profile.z) if along_x else Vector3(profile.z, high-low, run.y-run.x)
+				var transform := Transform3D(Basis.from_scale(dimensions), position)
+				if profile_index != profiles.size():
+					# The Blender section faces +Z and runs along X. Rotate its front
+					# into the room, keeping the original clipped world-space bounds.
 					var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
-					var basis := Basis(Vector3.UP,angle)*Basis(Vector3.BACK,PI*.5)*Basis.from_scale(Vector3(stile_size.y,stile_size.x,stile_size.z))
-					frames.append(Transform3D(basis, stile_position))
-					frame_sources.append(label)
+					transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(run.y-run.x,high-low,profile.z))
+					if profile_index < profiles.size():
+						transforms.append(transform)
+						sources.append(label)
+					else:
+						frames.append(transform)
+						frame_sources.append(label)
+				else:
+					panels.append(transform)
+					panel_sources.append(label)
+					# Vertical stiles meet (rather than overlap) the frame rails.
+					# Build once, from the backing run, clipping again for low sills.
+					var stile_low := maxf(floor_y+.226, wall_low)
+					var stile_high := minf(floor_y+1.240, wall_high)
+					if stile_high-stile_low < .001 or run.y-run.x < .15: continue
+					var count := maxi(1, ceili((run.y-run.x)/.72))
+					for index in count+1:
+						var along_stile := lerpf(run.x+.038, run.y-.038, float(index)/count)
+						var stile_face := fixed+inward*(wall_thickness+.036)*.5
+						var stile_position := Vector3(along_stile, (stile_low+stile_high)*.5, stile_face) if along_x else Vector3(stile_face, (stile_low+stile_high)*.5, along_stile)
+						var stile_size := Vector3(.036, stile_high-stile_low, .036)
+						var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
+						var basis := Basis(Vector3.UP,angle)*Basis(Vector3.BACK,PI*.5)*Basis.from_scale(Vector3(stile_size.y,stile_size.x,stile_size.z))
+						frames.append(Transform3D(basis, stile_position))
+						frame_sources.append(label)
+
 	_emit(room, "HistoricMillwork", transforms, sources, material)
 	_emit(room, "PublicWainscot", panels, panel_sources, panel_material)
 	_emit(room, "PublicWainscotFrames", frames, frame_sources, panel_material)
@@ -119,3 +124,44 @@ static func _emit(room: Node3D, label: String, transforms: Array[Transform3D],
 	batch.multimesh = multimesh
 	batch.set_meta("wall_sources", sources)
 	room.add_child(batch)
+
+# Derive the complete casing envelopes once per room, including the returns
+# on perpendicular walls at narrow vestibule corners. Coordinates remain owned
+# by the semantic aperture; these boxes are visual clipping only.
+static func _casing_boxes(room: Dictionary, doors: Array, floor_y: float,
+        wall_depth: float) -> Array[AABB]:
+	var boxes: Array[AABB] = []
+	for door: Dictionary in doors:
+		if str(room.id) not in door.connects: continue
+		var width := float(door.width)
+		var height := float(door.height)
+		var placement := Transform3D(Basis(Vector3.UP,float(door.yaw)),Vector3(door.center[0],floor_y,door.center[1]))
+		for side in [-1.0,1.0]:
+			var z: float = side*(wall_depth*.5+.009)
+			for x in [-width*.5-.045,width*.5+.045]:
+				var size := Vector3(.09,height,.018)
+				boxes.append(placement*AABB(Vector3(x,height*.5,z)-size*.5,size))
+			var size := Vector3(width+.18,.09,.018)
+			boxes.append(placement*AABB(Vector3(0,height+.045,z)-size*.5,size))
+	return boxes
+
+static func _clear_runs(start: float, finish: float, low: float, high: float,
+        normal_low: float, normal_high: float, along_x: bool,
+        casings: Array[AABB]) -> Array[Vector2]:
+	var runs: Array[Vector2] = [Vector2(start,finish)]
+	for casing: AABB in casings:
+		if minf(high,casing.end.y)-maxf(low,casing.position.y)<.0001: continue
+		var back: float = casing.position.z if along_x else casing.position.x
+		var front: float = casing.end.z if along_x else casing.end.x
+		if minf(normal_high,front)-maxf(normal_low,back)<.0001: continue
+		var left: float = casing.position.x if along_x else casing.position.z
+		var right: float = casing.end.x if along_x else casing.end.z
+		var remaining: Array[Vector2] = []
+		for run: Vector2 in runs:
+			if right<=run.x or left>=run.y:
+				remaining.append(run)
+			else:
+				if left-run.x>.001: remaining.append(Vector2(run.x,left))
+				if run.y-right>.001: remaining.append(Vector2(right,run.y))
+		runs=remaining
+	return runs
