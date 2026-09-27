@@ -1,6 +1,7 @@
 extends Node
 ## Physical household service roster. Simple WorkOrders own reported requests.
 const Prep := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
+const Cistern := preload("res://scripts/building/orison_v2_water_closet.gd")
 var economy: Node
 var subjects: Dictionary = {}
 var clients: Dictionary = {}
@@ -14,7 +15,7 @@ func setup(root: Node, wallet: Node) -> bool:
 	for identity: String in schedule.residents:
 		clients[str(schedule.residents[identity].unit)] = identity
 	for prop in root.find_children("*","Node",true,false):
-		var kind := "water" if prop is TapProp else "hinge" if prop is MedicineCabinetProp else "slide" if prop is Prep else ""
+		var kind := "water" if prop is TapProp else "hinge" if prop is MedicineCabinetProp else "slide" if prop is Prep else "cistern" if prop is Cistern else ""
 		if kind.is_empty(): continue
 		var unit := str(prop.get("unit"))
 		if unit.is_empty(): continue
@@ -68,6 +69,7 @@ func tick() -> void:
 		if prop is TapProp: prop.drain_capacity = .18 if overdue else 1.0
 		elif prop is MedicineCabinetProp: prop.hinges_oiled = float(record.last)>=0 and not overdue
 		elif prop is Prep: prop.track_clean = not overdue
+		elif prop is Cistern: prop.inlet_clear = not overdue
 		if overdue and str(record.request).is_empty() and clients.has(record.unit):
 			var request := "care:"+identity+":"+str(record.cycle)
 			# Install the identity before issue() commits the shared snapshot.
@@ -78,11 +80,11 @@ func tick() -> void:
 	_syncing = false
 
 func _kind_title(kind: String) -> String:
-	return {"water":"DRAIN", "hinge":"CABINET HINGES", "slide":"CABINET TRACK"}[kind]
+	return {"water":"DRAIN", "hinge":"CABINET HINGES", "slide":"CABINET TRACK", "cistern":"CISTERN INLET"}[kind]
 
 func subject_title(prop: Node) -> String:
 	return str(prop.fixture).replace("_"," ").to_upper()+" DRAIN" if prop is TapProp \
-		else "MEDICINE CABINET HINGES" if prop is MedicineCabinetProp else "KITCHEN CABINET TRACK"
+		else "MEDICINE CABINET HINGES" if prop is MedicineCabinetProp else "CISTERN INLET" if prop is Cistern else "KITCHEN CABINET TRACK"
 
 func request_entries() -> Array[Dictionary]:
 	var entries: Array[Dictionary] = []
@@ -109,8 +111,12 @@ func request_lines() -> Array[String]:
 	return lines
 
 func inspection(prop: Node) -> String:
-	if prop==null: return "Aim at a water fixture or cabinet within reach."
+	if prop==null: return "Aim at a water fixture, cistern or cabinet within reach."
 	var record: Dictionary = economy.book().care[str(prop.name)]
+	if prop is Cistern:
+		return "%s / CISTERN\nTank: %s   Inlet: %s\nHandle: %s" % [record.unit,
+			"refilling" if prop._refilling else "full", "clear" if prop.inlet_clear else "slow",
+			"returning" if absf(prop._lever.rotation.z)>.05 else "at rest"]
 	if prop is TapProp:
 		var flow: Dictionary = prop.get_flow_state()
 		var warmth := "cold" if float(flow.temperature)<.15 else "warm" if float(flow.temperature)<.5 else "hot"
@@ -132,6 +138,7 @@ func service(prop: Node, tested: bool) -> Dictionary:
 		if flow.hot or flow.cold or flow.stopper: return {"note":"Close both valves and open the drain before cleaning."}
 	elif prop is MedicineCabinetProp and not prop.is_door_open(): return {"note":"Open the cabinet to reach its hinges."}
 	elif prop is Prep and not prop.opened: return {"note":"Open the cabinet to reach the track."}
+	elif prop is Cistern and prop._refilling: return {"note":"Wait for the cistern to finish refilling before service."}
 	var request := str(record.request)
 	# A fixture reference is not payment authority. The work-order owner may
 	# already have closed the request, or a recovered save may lack it.
@@ -150,4 +157,4 @@ func service(prop: Node, tested: bool) -> Dictionary:
 		economy.orders.close(request,"Tested and serviced.")
 	tick()
 	RealityState.commit()
-	return {"note":"Drain cleared." if prop is TapProp else "Hinges oiled." if prop is MedicineCabinetProp else "Track brushed and waxed.","tip":cents}
+	return {"note":"Drain cleared." if prop is TapProp else "Hinges oiled." if prop is MedicineCabinetProp else "Cistern inlet strainer cleaned." if prop is Cistern else "Track brushed and waxed.","tip":cents}

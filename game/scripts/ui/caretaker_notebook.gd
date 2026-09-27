@@ -1,4 +1,5 @@
 extends CanvasLayer
+const Cistern := preload("res://scripts/building/orison_v2_water_closet.gd")
 ## An inspection slip and pocket ledger. Physical controls remain the owners.
 var player: PlayerController
 var care: Node
@@ -100,9 +101,11 @@ func open(target: Node) -> void:
 			if subject.fixture=="shower":
 				_button("Shower curtain",func(): subject.set_curtain_open(not subject.is_curtain_open()))
 			_button("Test flow, warmth and drainage",_test_water)
+		elif subject is Cistern:
+			_button("Test flush, handle return and refill",_test_cistern)
 		else:
 			_button("Exercise the cabinet",_test_cabinet)
-		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Brush and wax track",_service)
+		_button("Clear drain" if subject is TapProp else "Oil hinges" if subject is MedicineCabinetProp else "Clean inlet strainer" if subject is Cistern else "Brush and wax track",_service)
 	else:
 		_button("Pay $5.00 rent instalment",_pay_rent)
 		_button("Next service requests",func(): _request_page += 1; _process(0))
@@ -185,11 +188,39 @@ func _test_water() -> void:
 	subject.set_stopper(true)
 	feedback.text = "Running both valves; checking mixed warmth..."
 
+func _test_cistern() -> void:
+	if _testing: return
+	tested = false
+	if subject._refilling:
+		feedback.text = "Wait for the current refill to finish before starting the test."
+		return
+	_testing = true
+	_test_seconds = 0
+	_set_test_controls(true)
+	subject.interact(player)
+	feedback.text = "Flushing; watching the handle return and waiting for refill..."
+
+func _observe_cistern(delta: float) -> void:
+	_test_seconds += delta
+	if not subject._refilling:
+		tested = subject._flush_stroke_completed and absf(subject._lever.rotation.z)<.01
+		_testing = false
+		_set_test_controls(false)
+		feedback.text = ("Flush and handle return checked. Refill is slow; clean the inlet strainer."
+			if _test_seconds>4 else "Flush, handle return and refill checked.") if tested \
+			else "Handle travel was not observed; test incomplete. Try again."
+	elif _test_seconds>=8:
+		_testing = false
+		_set_test_controls(false)
+		feedback.text = "Refill did not finish; test incomplete. No service recorded."
+
 func _process(delta: float) -> void:
 	if not opened: return
 	if subject!=null:
 		readout.text = care.inspection(subject)
-		if _testing and not subject is TapProp:
+		if _testing and subject is Cistern:
+			_observe_cistern(delta)
+		elif _testing and not subject is TapProp:
 			_observe_cabinet(delta)
 		elif _testing:
 			_test_seconds += delta
@@ -289,7 +320,7 @@ func close() -> void:
 		subject.set_hot(_was_hot)
 		subject.set_cold(_was_cold)
 		subject.set_stopper(_was_stopper)
-	if _testing and is_instance_valid(subject) and not subject is TapProp:
+	if _testing and is_instance_valid(subject) and not subject is TapProp and not subject is Cistern:
 		_set_cabinet_open(_cabinet_was_open)
 	_testing = false
 	panel.hide()

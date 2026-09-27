@@ -26,7 +26,7 @@ static func valid(value: Variant) -> bool:
 			or not whole(r.get("day"),-1,10000000): return false
 	for key in value.care:
 		var r: Variant = value.care[key]
-		if key is not String or r is not Dictionary or r.get("kind") not in ["water","hinge","slide"] \
+		if key is not String or r is not Dictionary or r.get("kind") not in ["water","hinge","slide","cistern"] \
 			or r.get("unit") is not String or r.get("request") is not String: return false
 		for field in ["due","last"]:
 			if typeof(r.get(field)) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(r[field])) or r[field]<-1: return false

@@ -2,6 +2,16 @@ extends BakedFurnitureInteraction
 ## V2 supplies the porcelain body separately; preserve the production flush owner.
 const MODEL := "res://assets/props/bath_water_closet.glb"
 var model_path := MODEL
+var inlet_clear := true
+var unit: String:
+	get: return owner_unit
+
+func _refill_duration() -> float:
+	return 2.1 if inlet_clear else 5.0
+
+func _finish_refill() -> void:
+	super._finish_refill()
+	_water.stop()
 
 func _ready() -> void:
 	super._ready()

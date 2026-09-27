@@ -14,7 +14,7 @@ and Back/View opens the pocket ledger. Use D-pad left/right to select
 a button, A to operate it and B to close. Timed tests focus the enabled Close
 button, so cancellation stays accessible. The carried paper shows R3 after
 controller input and I after keyboard input. Aim at a fitted sink, shower,
-medicine cabinet or kitchen cabinet within 2.1 metres and press I to inspect.
+medicine cabinet, kitchen cabinet or toilet within 2.1 metres and press I to inspect.
 The ray must actually hit the fixture or one of its controls. The carried paper
 shows `[I] Inspect / care` while a supported fixture is within reach. I with
 no fixture in reach does nothing; P remains the pocket-ledger shortcut. Inspection locks
@@ -40,6 +40,16 @@ open/closed state. Oil quiets the
 medicine cabinet's existing squeak. Brushing and waxing restores the sliding
 cabinet's normal travel time. These actions do not replace the cabinet's
 ordinary open/close control or moving collision.
+
+Cistern inspection runs the existing flush handle and waits for its return and
+the refill to finish. The mechanism records the completed handle stroke, so a
+missed inspection frame cannot lose the brief movement. An overdue inlet strainer extends the actual refill wait;
+the completed test reports the slow refill. Cleaning the strainer restores the
+normal wait and postpones the next request. Service is refused while refilling.
+Starting inspection during an existing flush does not count as a test. Cancelling
+inspection leaves the physical flush running and grants no test result; a stalled
+refill times out without passing. The tank uses the existing full/refilling state,
+not a new calibrated water-volume or supply-pressure simulation.
 
 Initial service dates are staggered over days one through eight. Service
 postpones a fixture's next request by fourteen campaign days. A neglected drain
@@ -80,7 +90,7 @@ economy first binds; past closed jobs do not award retroactive tips.
 
 ## Still to build
 
-This first rollout covers household water fixtures and cabinets, not every
+This rollout covers household water fixtures, toilet cisterns and cabinets, not every
 interactable. Other object families need meaningful physical tests and care
 actions that respect their existing maintenance owners. Leisure purchases,
 consumable effects, owned camera/film, actual pool stakes and paid arcade/karaoke
@@ -101,3 +111,6 @@ CaretakerCareTest is a windowed production test of the real interaction ray,
 flow/drainage, prevention, requests, physical cabinet care, pointer ownership,
 disk reload, repeat-payment protection and rent. CaretakerEconomyTest exercises
 the authored job lifecycle and atomic save closure separately.
+CisternCareTest adds the actual toilet interaction ray, slow/healthy refill
+timing, handle return, cancellation, timeout, prevention, tips, legacy saves and
+disk reload, with windowed inspection captures.
