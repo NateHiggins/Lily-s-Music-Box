@@ -26,11 +26,40 @@ func _route() -> void:
 		check(model!=null,str(stair.id)+" has imported ironwork")
 		if model==null: continue
 		seen += 1
-		check(model.find_children("*","MeshInstance3D",true,false).size()==3,"three shared material meshes per assembly")
+		check(model.find_children("*","MeshInstance3D",true,false).size()==4,"three rail meshes and one structural mesh per assembly")
 		for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 			for surface in mesh.mesh.get_surface_count():
 				check(mesh.mesh.surface_get_material(surface).resource_name in ["cast_iron","wood_dark","steel"],"imported material retains exact catalogue key")
 		check(model.find_children("*","CollisionObject3D",true,false).is_empty(),"ironwork does not replace traversal collision")
+		var structure := model.get_node_or_null("StairStructure") as MeshInstance3D
+		check(structure!=null,"imported stair understructure exists")
+		if structure!=null:
+			var outside := 0
+			var vertices := 0
+			var width := float(stair.width)
+			var tread := float(stair.tread)
+			var rise := float(stair.rise)
+			var run := tread*int(stair.risers_per_flight)
+			var half := rise*int(stair.risers_per_flight)
+			var transform := model.global_transform.affine_inverse()*structure.global_transform
+			for surface in structure.mesh.get_surface_count():
+				for vertex: Vector3 in structure.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
+					var p: Vector3 = transform*vertex
+					var upper := half
+					if p.z<run or p.y>half+.013:
+						var returning := p.x>width
+						var distance := run+float(stair.landing_depth)-p.z if returning else p.z
+						upper = (half if returning else 0.0)+rise*clampf(floorf((distance+.0001)/tread)+1,1,10)
+					if p.y>upper+.013 or p.y<upper-.501: outside+=1
+					vertices+=1
+			check(vertices>0 and outside==0,"actual structural vertices stay within 0.5 m below walking surfaces")
+			check(half*2-.5>2.3,"stacked structural envelope leaves over 2.3 m clear height")
+		var bearings := model.find_children("Bearing_*","Node3D",true,false)
+		check(bearings.size()==40,"both stringers bear beneath every tread")
+		for bearing: Node3D in bearings:
+			var ray := PhysicsRayQueryParameters3D.create(bearing.global_position-Vector3.UP*.06,
+				bearing.global_position+Vector3.UP*.08,1,[player.get_rid()])
+			check(not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"stringer bearing meets physical tread underside")
 		for part in parent.get_children():
 			if part is MeshInstance3D and "Guard" in str(part.name):
 				check(not part.visible,"opaque review guard hidden in production")
@@ -49,6 +78,10 @@ func _route() -> void:
 			camera.look_at(model.to_global(Vector3(.025,2.25,float(stair.tread)*10+.8)))
 			light.global_position = camera.global_position
 			await shot(str(stair.id)+"_landing")
+			camera.global_position = model.to_global(Vector3(float(stair.width)+.15,1.1,.2))
+			camera.look_at(model.to_global(Vector3(float(stair.width)-.04,.85,float(stair.tread)*7)))
+			light.global_position = camera.global_position
+			await shot(str(stair.id)+"_understructure")
 	check(seen==world.layout.stairs.size(),"both cores dressed through basement and roof")
 	light.free()
 	camera.free()

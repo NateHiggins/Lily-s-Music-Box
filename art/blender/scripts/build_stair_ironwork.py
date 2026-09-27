@@ -47,6 +47,40 @@ def rod(name, a, b, radius, mat):
         face.use_smooth = len(face.vertices)==4
     return obj
 
+
+def stringer(name, x, width, tread, rise, count, offset, reverse, mat):
+    """Closed plate with tread-bearing notches and a continuous lower edge."""
+    bpy.ops.object.select_all(action='DESELECT')
+    run = tread*count
+    profile = []
+    for i in range(count):
+        profile.extend([(i*tread, i*rise+.012), ((i+1)*tread, i*rise+.012)])
+    profile.extend([(run, count*rise-.30), (0, -.30)])
+    def station(z, y, side):
+        return point((x+side, offset+y, run+width-z if reverse else z))
+    vertices = [station(z,y,side) for side in [-.022,.022] for z,y in profile]
+    n = len(profile)
+    faces = [tuple(reversed(range(n))), tuple(range(n,2*n))]
+    faces += [(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+    mesh = bpy.data.meshes.new(name)
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    obj.data.materials.append(mat)
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.mesh.normals_make_consistent(inside=False)
+    bpy.ops.object.mode_set(mode='OBJECT')
+    obj.select_set(False)
+    edge = obj.modifiers.new('Plate edges', 'BEVEL')
+    edge.width = .0015
+    edge.segments = 2
+    obj.modifiers.new('Plate normals', 'WEIGHTED_NORMAL')
+    return obj
+
 def build(name, width, tread, landing):
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete(use_global=False)
@@ -60,6 +94,27 @@ def build(name, width, tread, landing):
     run, half = tread*count, rise*count
     right = width*2+gap-.025
     rear = run+landing+.7-.025
+
+    # Structure remains a distinct mesh so clearance tests inspect real vertices.
+    structure = []
+    for flight in ['A','B']:
+        x0 = width+gap if flight=='B' else 0
+        offset = half if flight=='B' else 0
+        for side in [.05,width-.05]:
+            structure.append(stringer('NotchedStringer',x0+side,width,tread,rise,
+                                      count,offset,flight=='B',iron))
+        for i in range(count):
+            y = offset+i*rise
+            z = run+landing-tread*(i+.5) if flight=='B' else tread*(i+.5)
+            structure.append(box('TreadBearer',(x0+width*.5,y-.020,z),
+                                 (width-.06,.055,.065),iron,.002))
+            for side in [.05,width-.05]:
+                marker = bpy.data.objects.new('Bearing_'+flight+str(i)+'_'+str(side),None)
+                bpy.context.collection.objects.link(marker)
+                marker.location = point((x0+side,y-.02,z))
+    for z in [run+.07,rear-.045]:
+        structure.append(box('LandingBeam',(width+gap*.5,half-.26,z),
+                             (width*2+gap-.02,.15,.10),iron,.003))
 
     def post(label, x, floor, z, heavy=False, height=guard):
         marker = bpy.data.objects.new('Foot_'+label, None)
@@ -103,7 +158,7 @@ def build(name, width, tread, landing):
     rod('LandingHandrail',(.025,half+guard-.025,rear),(right,half+guard-.025,rear),.023,wood)
     rod('LandingBearer',(.025,half+.18,rear),(right,half+.18,rear),.009,iron)
 
-    # Apply machining before batching: only three material draws per assembly.
+    # Apply machining before batching: three rail materials and one structure.
     for obj in list(bpy.context.scene.objects):
         if obj.type!='MESH': continue
         bpy.ops.object.select_all(action='DESELECT')
@@ -114,13 +169,16 @@ def build(name, width, tread, landing):
         bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.uv.smart_project(island_margin=.01)
         bpy.ops.object.mode_set(mode='OBJECT')
+    groups = [(structure,'StairStructure')]
     for mat in [iron,wood,steel]:
-        parts=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.data.materials[0]==mat]
+        groups.append(([o for o in bpy.context.scene.objects if o.type=='MESH'
+                       and o.data.materials[0]==mat and o not in structure], 'Ironwork_'+mat.name))
+    for parts, label in groups:
         bpy.ops.object.select_all(action='DESELECT')
         for obj in parts: obj.select_set(True)
         bpy.context.view_layer.objects.active=parts[0]
         bpy.ops.object.join()
-        parts[0].name='Ironwork_'+mat.name
+        parts[0].name=label
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/f'art/blender/{name}.blend'))
     bpy.ops.export_scene.gltf(filepath=str(ROOT/f'game/assets/props/{name}.glb'),
         export_format='GLB',export_apply=True,export_yup=True,export_animations=False)
