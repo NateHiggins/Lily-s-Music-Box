@@ -45,6 +45,9 @@ var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and 
 var _cab_rail_visual: Node3D # optional V2 fabricated presentation
 var _cab_mirror_parts: Array[MeshInstance3D] = []
 var _cab_mirror: Node3D # V2 live reflection surface owner
+var _indicator_parts: Dictionary = {} # presentation references, car height owns needle
+var _indicator_visual: Node3D
+var _needle_sweep_sign := 1.0 # presentation orientation; V1 retains its original face
 var _cabin_controls: Dictionary = {"buttons":{},"areas":{}} # direct visual/input references
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
@@ -510,6 +513,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 			Color(0.14, 0.12, 0.11), 0.28)
 	nd.position = Vector3(0, 0.068, 0)
 	_needle.add_child(nd)
+	_indicator_parts={"face":dial,"bezel":bez,"needle":nd,"labels":[]}
 	# The stops, engraved around the arc the needle sweeps, at exactly
 	# the angles _drive_cab_hardware will put the needle at. A dial with
 	# no numerals on it is a clock with no face: you can see that
@@ -518,10 +522,10 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	for i in marks:
 		var th := deg_to_rad(lerpf(72.0, -72.0, float(i) / (marks - 1))) \
 				if marks > 1 else 0.0
-		_plate_quad(PLATE_LEGEND.get(stop_order[i], stop_order[i]),
+		_indicator_parts.labels.append(_plate_quad(PLATE_LEGEND.get(stop_order[i], stop_order[i]),
 				Vector3(-sin(th) * 0.133, 2.16 + cos(th) * 0.133,
 						fz - 0.112),
-				Vector2(0.040, 0.040), Vector3(0, 180, 0))
+				Vector2(0.040, 0.040), Vector3(0, 180, 0)))
 
 	# --- certificate of inspection, because every car carries one ---
 	_cab_box(Vector3(pr + 0.010, 0.30, 0.22),
@@ -724,7 +728,7 @@ func _drive_cab_hardware() -> void:
 				0.0, 1.0)
 		# bottom of the building at the left horn of the dial, top at the
 		# right, so the needle sweeps the way the car climbs
-		_needle.rotation.z = deg_to_rad(lerpf(72.0, -72.0, f))
+		_needle.rotation.z = deg_to_rad(lerpf(72.0, -72.0, f))*_needle_sweep_sign
 
 
 ## Cabin control panel: a brass plate carrying one pressable button per

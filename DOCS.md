@@ -39,6 +39,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
 | Blender lift handrails, wall-mounted supports and fasteners | `art/blender/lift_handrails.md` |
 | Blender lift mirror surround and shared live reflection | `art/blender/lift_mirror.md` |
+| Blender lift floor dial, ceiling mounts and height-driven needle | `art/blender/lift_indicator.md` |
 | Blender cab control board, collars and working button presentation | `art/blender/lift_cab_controls.md` |
 | Blender sliding lift leaves, clear vision apertures and retained shaft barriers | `art/blender/lift_panels.md` |
 | Articulated Blender car gate, fixed-thickness links and landing-door separation | `art/blender/lift_gate.md` |
