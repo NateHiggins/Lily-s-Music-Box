@@ -43,6 +43,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Blender passive bathroom grilles, folded louvers and plenum seating | `art/blender/vent_register.md` |
 | Blender shared roof ventilators, motor housings and live rotor/shutter pivots | `art/blender/roof_ventilator.md` |
 | Blender V2 mortise knobs, fitted backplates and clear lock stiles | `art/blender/door_knob_set.md` |
+| Blender butt hinges, fixed/moving halves and opposite-swing axis alignment | `art/blender/door_butt_hinge.md` |
 | Blender lift mirror surround and shared live reflection | `art/blender/lift_mirror.md` |
 | Blender lift floor dial, ceiling mounts and height-driven needle | `art/blender/lift_indicator.md` |
 | Blender cab control board, collars and working button presentation | `art/blender/lift_cab_controls.md` |

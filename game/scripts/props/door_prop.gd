@@ -17,6 +17,7 @@ var door_kind := "apartment_interior"
 var unit := ""
 var finish_variant := 0
 var knob_mesh: Mesh # optional fabricated presentation; V1 retains primitive hardware
+var hinge_meshes: Dictionary = {} # optional fixed/moving halves for both hinge faces
 
 const HINGE_SETBACK := 0.026
 
@@ -263,6 +264,18 @@ func _build_fixed_hardware() -> void:
 	# half away whenever it opened.
 	_box(_fixed, Vector3(width + 0.045, 0.004, 0.14),
 			Vector3(width * 0.5, 0.002, 0), metal)
+	if not hinge_meshes.is_empty():
+		var face := "Front" if _hinge_offset>0 else "Back"
+		for y in [.26,height*.5,height-.26]:
+			for moving in [false,true]:
+				var part := MeshInstance3D.new()
+				part.mesh=hinge_meshes[("Moving" if moving else "Fixed")+face]
+				part.material_override=metal
+				# The body batch receives apply_hinge_setback once after merging.
+				# Subtract it here so the moving barrels finish on the body axis.
+				part.position=Vector3(0,y,-_hinge_offset)
+				(_body if moving else _fixed).add_child(part)
+		return
 	for y in [0.26, height * 0.5, height - 0.26]:
 		_cyl(_fixed, 0.010, 0.105, Vector3(0, y, -HINGE_SETBACK),
 				metal, 0, 8)
