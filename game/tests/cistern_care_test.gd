@@ -12,6 +12,12 @@ func check(ok: bool, label: String) -> void:
 
 func _ready() -> void: call_deferred("run")
 
+func open_bathroom(world: Node) -> void:
+	# Fixture setup delegates to the real door owner, separately from timed
+	# observations of the cistern. It is not a simulated NPC action.
+	var door := world.adapter.resolve("F02_A_BATH_DOOR").get_node("F02_A_BATH_DOOR_Leaf") as DoorProp
+	door.npc_set_open(true)
+
 func capture(label: String) -> void:
 	var path := OS.get_environment("SHOT_DIR")
 	if path.is_empty(): return
@@ -44,8 +50,7 @@ func run() -> void:
 	var player: PlayerController = world.player
 	player.set_physics_process(false)
 	player.set_process_unhandled_input(false)
-	var door := world.adapter.resolve("F02_A_BATH_DOOR").get_node("F02_A_BATH_DOOR_Leaf") as DoorProp
-	door.npc_set_open(true)
+	open_bathroom(world)
 	await get_tree().create_timer(.8).timeout
 	var capsule := CapsuleShape3D.new()
 	capsule.radius = .38
@@ -158,7 +163,7 @@ func run() -> void:
 	wc._flush_tween.play()
 	notebook.close()
 	await get_tree().create_timer(2.8).timeout
-	var save_path := "user://tests/cistern_care_"+str(Time.get_ticks_usec())+".json"
+	var save_path := "user://tests/cistern_care_"+Crypto.new().generate_random_bytes(8).hex_encode()+".json"
 	RealityState.save_path = save_path
 	check(RealityState.save_game(), "care and tip written to disk")
 	RealityState.load_game()
