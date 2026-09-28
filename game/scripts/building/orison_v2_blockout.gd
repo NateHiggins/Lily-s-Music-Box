@@ -16,6 +16,7 @@ var architectural_materials := preload("res://scripts/building/orison_v2_archite
 var layout: Dictionary = {}
 var level_y: Dictionary = {}
 var materials: Dictionary = {}
+var fabricated_fixtures: Dictionary = {}
 var failures: Array[String] = []
 const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
 ## Matches the tolerance the committed suite already used for overlaps.
@@ -750,6 +751,12 @@ func _build_fixtures() -> void:
 				str(fixture.get("class", "unresolved")),
 				bool(fixture.get("collision", true)))
 		node.set_meta("purpose", str(fixture.get("purpose", "")))
+		var family := str(fixture.get("fabrication",""))
+		if not family.is_empty():
+			node.set_meta("fabrication_part",str(fixture.get("fabrication_part","")))
+			node.set_meta("fabrication_floor_y",float(level_y[fixture.level]))
+			if not fabricated_fixtures.has(family): fabricated_fixtures[family]=[]
+			fabricated_fixtures[family].append(node)
 
 func _build_platforms() -> void:
 	var slab_t := float(layout.dimensions.slab_thickness)

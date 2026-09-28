@@ -226,6 +226,7 @@ func _compose_authorities() -> void:
 		return
 	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_house_tank.gd").mount(_blockout)
 	if not preload("res://scripts/building/orison_v2_basement.gd").new().mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: basement services refused")

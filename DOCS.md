@@ -43,6 +43,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Blender passive bathroom grilles, folded louvers and plenum seating | `art/blender/vent_register.md` |
 | Blender shared roof ventilators, motor housings and live rotor/shutter pivots | `art/blender/roof_ventilator.md` |
 | Blender bonded chimney masonry, mortar joints and open stone coping | `art/blender/chimney_crown.md` |
+| Blender roof tank, timber staves, binding hardware and retained maintenance | `art/blender/house_tank.md` |
 | Blender V2 mortise knobs, fitted backplates and clear lock stiles | `art/blender/door_knob_set.md` |
 | Blender butt hinges, fixed/moving halves and opposite-swing axis alignment | `art/blender/door_butt_hinge.md` |
 | Complete Blender V2 window frames, sash fields and projecting sills | `art/blender/window_joinery.md` |
