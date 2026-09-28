@@ -44,6 +44,14 @@ func mount(boiler: BoilerProp, layout: Dictionary) -> bool:
 		_box("Face",center+Vector3(0,1.05,side*(depth-.10)*.5),Vector3(width-.20,2.1,.10),"brick")
 		_box("CopingSide",chimney_top+Vector3(side*(width-.10)*.5,0,0),Vector3(.16,.12,depth+.12),"concrete")
 		_box("CopingEnd",chimney_top+Vector3(0,0,side*(depth-.10)*.5),Vector3(width-.20,.12,.16),"concrete")
+	var crown := (preload("res://assets/props/chimney_crown.glb") as PackedScene).instantiate() as Node3D
+	crown.name="FittedChimneyCrown"
+	crown.position=chimney_base
+	crown.scale=Vector3(width/.45,1.0,depth/.70)
+	add_child(crown)
+	for part: MeshInstance3D in crown.find_children("*","MeshInstance3D",true,false):
+		for surface in part.mesh.get_surface_count():
+			part.set_surface_override_material(surface,MatLib.get_mat(part.mesh.surface_get_material(surface).resource_name))
 	return true
 
 func _pipe(a: Vector3, b: Vector3, index: int) -> void:
@@ -93,6 +101,9 @@ func _box(label: String, at: Vector3, size: Vector3, material: String) -> void:
 	mesh.size = size
 	visual.mesh = mesh
 	visual.material_override = MatLib.get_mat(material)
+	# Imported bonded masonry owns presentation; these eight original boxes
+	# continue to own the chimney's physical envelope and coping collisions.
+	visual.visible=false
 	body.add_child(visual)
 	var collision := CollisionShape3D.new()
 	var box := BoxShape3D.new()
