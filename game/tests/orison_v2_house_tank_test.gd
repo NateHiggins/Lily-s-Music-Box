@@ -21,6 +21,8 @@ func _run() -> void:
 	var bands: Array[MeshInstance3D]=[]
 	var supports: Array[MeshInstance3D]=[]
 	var lid: MeshInstance3D
+	var collector_floor: MeshInstance3D
+	var collector_walls: Array[MeshInstance3D]=[]
 	for record: Dictionary in root.layout.fixtures:
 		var identity := str(record.id)
 		if record.get("fabrication","")!="house_tank": continue
@@ -29,12 +31,14 @@ func _run() -> void:
 		if record.get("fabrication_part","")=="binding": bands.append(owner)
 		if record.get("fabrication_part","")=="support": supports.append(owner)
 		if record.get("fabrication_part","")=="lid": lid=owner
+		if record.get("fabrication_part","")=="collector_floor": collector_floor=owner
+		if record.get("fabrication_part","")=="collector_wall": collector_walls.append(owner)
 		check(not owner.visible,"primitive tank visual is retired "+identity)
 		var shape := owner.get_node("Collision").find_children("*","CollisionShape3D",false,false)[0] as CollisionShape3D
 		check(not shape.disabled and shape.shape is BoxShape3D,"original fixture collision remains enabled "+identity)
 		check((shape.shape as BoxShape3D).size.is_equal_approx(Vector3(record.size[0],record.size[1],record.size[2])),"semantic collision envelope retained")
 		owners+=1
-	check(owners==18,"all eighteen structural and binding owners retained")
+	check(owners-collector_walls.size()-1==18 and collector_walls.size()==4 and collector_floor!=null,"eighteen tank owners plus five collector owners retained")
 	var timber := model.get_node("Timber") as MeshInstance3D
 	var size := (body.mesh as BoxMesh).size
 	var center := model.to_local(body.global_position)+Vector3.UP*.25
@@ -50,6 +54,35 @@ func _run() -> void:
 		check(is_finite(distance),"tank side has real timber triangles")
 		if not hit.is_empty(): check(absf(distance-origin.distance_to(model.to_local(hit.position)))<.012,"fabricated timber follows the existing envelope")
 		contacts+=1
+	var collector_center := model.to_local(collector_floor.global_position)
+	var collector_size := (collector_floor.mesh as BoxMesh).size
+	var wall_size := (collector_walls[0].mesh as BoxMesh).size
+	var wall_center := model.to_local(collector_walls[0].global_position)
+	var inside := collector_center
+	inside.y=wall_center.y
+	for direction in [Vector3.LEFT,Vector3.RIGHT,Vector3.FORWARD,Vector3.BACK]:
+		var at := inside+Vector3(direction.z,0,-direction.x)*.031
+		var outside: Vector3=at+direction*maxf(collector_size.x,collector_size.z)
+		var ray := PhysicsRayQueryParameters3D.create(model.to_global(at),model.to_global(outside),1,[world.player.get_rid()])
+		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
+		check(not hit.is_empty() and hit.collider.get_parent() in collector_walls,"collector retains its actual inner wall")
+		var distance := _mesh_distance(timber.mesh.get_faces(),at,direction)
+		check(is_finite(distance),"collector wall has real timber geometry")
+		if not hit.is_empty(): check(absf(distance-at.distance_to(model.to_local(hit.position)))<.003,"collector boards fit the inner collision faces")
+		contacts+=1
+	var floor_top := collector_center.y+collector_size.y*.5
+	var over_mouth := collector_center
+	over_mouth.y=wall_center.y+wall_size.y*.5+.2
+	var above_floor := Vector3(collector_center.x,floor_top+.01,collector_center.z)
+	var cavity_ray := PhysicsRayQueryParameters3D.create(model.to_global(over_mouth),model.to_global(above_floor),1,[world.player.get_rid()])
+	check(world.get_world_3d().direct_space_state.intersect_ray(cavity_ray).is_empty(),"collector cavity remains physically open")
+	for part: MeshInstance3D in parts:
+		var distance := _mesh_distance(part.mesh.get_faces(),over_mouth,Vector3.DOWN)
+		check(not is_finite(distance) or distance>=over_mouth.y-floor_top-.001,"no imported lid closes the collector mouth")
+	var bottom_ray := PhysicsRayQueryParameters3D.create(model.to_global(above_floor),model.to_global(collector_center),1,[world.player.get_rid()])
+	var bottom_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(bottom_ray)
+	check(not bottom_hit.is_empty() and bottom_hit.collider==collector_floor.get_node("Collision"),"collector floor remains solid")
+	contacts+=1
 	var iron := model.get_node("Iron") as MeshInstance3D
 	for owner: MeshInstance3D in supports+[lid]:
 		var direction := Vector3.DOWN if owner==lid else Vector3.RIGHT
@@ -83,6 +116,10 @@ func _run() -> void:
 	camera.global_position=target+model.global_basis*Vector3(size.x*.1,size.y*.02,size.z*.32)
 	camera.look_at(target); fill.global_position=camera.global_position; fill.light_energy=.2
 	await shot("binding_clamp_detail")
+	target=model.to_global(inside)
+	camera.global_position=target+model.global_basis*Vector3(-collector_size.x*.8,wall_size.y,collector_size.z*1.2)
+	camera.look_at(target); fill.global_position=camera.global_position; fill.light_energy=.3
+	await shot("open_overflow_collector")
 	print("HOUSE TANK: original_owners=%d fitted_contacts=%d failures=%d" % [owners,contacts,failures.size()])
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)

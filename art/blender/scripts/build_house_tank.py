@@ -70,7 +70,7 @@ for record in records:
             for fraction in [-.38,.38]:
                 point=at+Vector((0,size.y*fraction,0))+normal*(size.x*.5+.004)
                 cylinder('ColumnRivet',point,.012,.008,normal)
-    else:
+    elif role=='binding':
         box('BindingStrap',at,size,'Iron',.002)
         along=Vector((1,0,0)) if size.x>size.z else Vector((0,0,1))
         normal=Vector((0,0,1 if at.z>0 else -1)) if size.x>size.z else Vector((1 if at.x>0 else -1,0,0))
@@ -81,6 +81,34 @@ for record in records:
             point=at+along*(hand*.065)+normal*(depth*.5+.006)
             cylinder('BindingWasher',point+normal*.001,.012,.002,normal)
             cylinder('BindingNut',point+normal*.006,.008,.008,normal,6)
+
+
+    elif role=='collector_floor':
+        box('CollectorFloor',at,size,'Timber',.002)
+    elif role=='collector_wall':
+        # X cheeks own all four corners; Z ends terminate at their inner faces.
+        along_x=size.x>size.z
+        collector=[r for r in records if r['fabrication_part']=='collector_floor'][0]
+        collector_at=Vector(collector['position'])-origin
+        wall=min(size.x,size.z)
+        span=(size.x-2*wall) if along_x else size.z
+        count=math.ceil(span/.16); pitch=span/count
+        for i in range(count):
+            offset=-span*.5+(i+.5)*pitch
+            plank_at=at+Vector((offset if along_x else 0,-.015,0 if along_x else offset))
+            plank_size=(pitch-.002,size.y-.03,wall) if along_x else (wall,size.y-.03,pitch-.002)
+            box('CollectorStave',plank_at,plank_size,'Timber',.0006)
+        cap_span=span-.006 if along_x else span+.006
+        cap_size=(cap_span,.03,wall+.006) if along_x else (wall+.006,.03,cap_span)
+        box('CollectorRim',at+Vector((0,size.y*.5-.015,0)),cap_size,'Iron',.001)
+        normal=Vector((0,0,1 if at.z>collector_at.z else -1)) if along_x else Vector((1 if at.x>collector_at.x else -1,0,0))
+        strap_span=size.x if along_x else size.z+.012
+        strap_size=(strap_span,.05,.006) if along_x else (.006,.05,strap_span)
+        strap_at=at+Vector((0,-size.y*.5+.14,0))+normal*(wall*.5+.003)
+        box('CollectorBinding',strap_at,strap_size,'Iron',.001)
+        along=Vector((1,0,0)) if along_x else Vector((0,0,1))
+        for hand in [-1,1]:
+            cylinder('CollectorRivet',strap_at+along*(span*.3*hand)+normal*.005,.008,.004,normal)
 
 for obj in list(bpy.context.scene.objects):
     bpy.ops.object.select_all(action='DESELECT'); obj.select_set(True); bpy.context.view_layer.objects.active=obj
