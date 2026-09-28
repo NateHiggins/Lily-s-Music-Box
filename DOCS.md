@@ -44,6 +44,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | Blender shared roof ventilators, motor housings and live rotor/shutter pivots | `art/blender/roof_ventilator.md` |
 | Blender bonded chimney masonry, mortar joints and open stone coping | `art/blender/chimney_crown.md` |
 | Blender roof tank, timber staves, binding hardware and retained maintenance | `art/blender/house_tank.md` |
+| Blender roof coping, mitered corners, weather slopes and drip grooves | `art/blender/roof_coping.md` |
+| Architecture batch handoff, validation locations and remaining work | `design/V2_ARCHITECTURE_HANDOFF_2026-09-27.md` |
 | Blender V2 mortise knobs, fitted backplates and clear lock stiles | `art/blender/door_knob_set.md` |
 | Blender butt hinges, fixed/moving halves and opposite-swing axis alignment | `art/blender/door_butt_hinge.md` |
 | Complete Blender V2 window frames, sash fields and projecting sills | `art/blender/window_joinery.md` |
