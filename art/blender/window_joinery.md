@@ -22,6 +22,12 @@ barrier, opening dimension or save state is added. The chase aperture correction
 also applies to standalone blockout; Blender framing is production-only and V1
 is unchanged. This batch supplies framing, not operable sashes.
 
+The imported frame triangles also supply clearance bounds to the room
+millwork builder. Mouldings and wainscot stop at those bounds. Tall panel
+backing is split at aperture heights before horizontal clipping, preserving
+the wood below low sills. One spacing grid per wall piece keeps vertical
+stiles aligned across those height bands. Draws remain batched by material.
+
 OrisonV2WindowJoineryTest checks 72 installed meshes, both sash apertures,
 head/meeting/bottom rails, 144 unobstructed aperture rays and 288 actual wall-face
 probes, with rendered views
@@ -29,3 +35,9 @@ for both plan axes and exterior directions. The existing blockout, upper-floor
 and title suites cover composition. Captures use inspection fill. Logs and
 suite-run receipts live under **tmp/window-joinery**. No runtime-contract or
 completeness-ledger promotion is claimed.
+
+The follow-up trim regression checks actual imported window triangle edges
+against neighboring trim bounds and confirms public panel backing below each
+sill. It reproduced 180 overlaps before the correction. Focused captures,
+floor-surface, door-casing and title regression receipts for this follow-up
+live under **tmp/window-trim**.

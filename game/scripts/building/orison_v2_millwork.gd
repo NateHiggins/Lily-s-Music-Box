@@ -7,11 +7,12 @@ static var _frame: Mesh
 
 static func build(room: Node3D, record: Dictionary, floor_y: float,
 		clear_height: float, wall_thickness: float, material: Material,
-		panel_material: Material, doors: Array = []) -> void:
+		panel_material: Material, doors: Array = [], window_boxes: Array[AABB] = []) -> void:
 	if record.get("class", "") not in ["private", "public"]: return
 	if record.get("open_shell", false): return
 	var rect: Array = record.rect
 	var casings := _casing_boxes(record,doors,floor_y,wall_thickness)
+	casings.append_array(window_boxes)
 	var transforms: Array[Transform3D] = []
 	var sources: PackedStringArray = []
 	var panels: Array[Transform3D] = []
@@ -47,52 +48,58 @@ static func build(room: Node3D, record: Dictionary, floor_y: float,
 				Vector3(1.255, .030, .036)])
 		for profile_index in wall_profiles.size():
 			var profile: Vector3 = wall_profiles[profile_index]
-			var low := maxf(floor_y+profile.x-profile.y*.5, wall_low)
-			var high := minf(floor_y+profile.x+profile.y*.5, wall_high)
-			if high-low < .001: continue
-			var along: float = at.x if along_x else at.z
-			var length: float = size.x if along_x else size.z
-			# Butt corners: X runs meet the wall face; Z runs stop at the X trim.
-			var corner_pad := wall_thickness*.5 + (0.0 if along_x else profile.z)
-			var start := maxf(along-length*.5, float(rect[0 if along_x else 1])+corner_pad)
-			var finish := minf(along+length*.5, float(rect[2 if along_x else 3])-corner_pad)
-			if finish-start < .001: continue
-			var normal_a := fixed+inward*wall_thickness*.5
-			var normal_b := normal_a+inward*profile.z
-			for run: Vector2 in _clear_runs(start,finish,low,high,minf(normal_a,normal_b),maxf(normal_a,normal_b),along_x,casings):
-				var face := fixed+inward*(wall_thickness+profile.z)*.5
-				var position := Vector3((run.x+run.y)*.5, (low+high)*.5, face) if along_x else Vector3(face, (low+high)*.5, (run.x+run.y)*.5)
-				var dimensions := Vector3(run.y-run.x, high-low, profile.z) if along_x else Vector3(profile.z, high-low, run.y-run.x)
-				var transform := Transform3D(Basis.from_scale(dimensions), position)
-				if profile_index != profiles.size():
-					# The Blender section faces +Z and runs along X. Rotate its front
-					# into the room, keeping the original clipped world-space bounds.
-					var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
-					transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(run.y-run.x,high-low,profile.z))
-					if profile_index < profiles.size():
-						transforms.append(transform)
-						sources.append(label)
-					else:
-						frames.append(transform)
-						frame_sources.append(label)
-				else:
-					panels.append(transform)
-					panel_sources.append(label)
-					# Vertical stiles meet (rather than overlap) the frame rails.
-					# Build once, from the backing run, clipping again for low sills.
-					var stile_low := maxf(floor_y+.226, wall_low)
-					var stile_high := minf(floor_y+1.240, wall_high)
-					if stile_high-stile_low < .001 or run.y-run.x < .15: continue
-					var count := maxi(1, ceili((run.y-run.x)/.72))
-					for index in count+1:
-						var along_stile := lerpf(run.x+.038, run.y-.038, float(index)/count)
-						var stile_face := fixed+inward*(wall_thickness+.036)*.5
-						var stile_position := Vector3(along_stile, (stile_low+stile_high)*.5, stile_face) if along_x else Vector3(stile_face, (stile_low+stile_high)*.5, along_stile)
-						var stile_size := Vector3(.036, stile_high-stile_low, .036)
+			var profile_low := maxf(floor_y+profile.x-profile.y*.5, wall_low)
+			var profile_high := minf(floor_y+profile.x+profile.y*.5, wall_high)
+			if profile_high-profile_low < .001: continue
+			for band: Vector2 in _height_bands(profile_low,profile_high,casings):
+				var low := band.x
+				var high := band.y
+				var along: float = at.x if along_x else at.z
+				var length: float = size.x if along_x else size.z
+				# Butt corners: X runs meet the wall face; Z runs stop at the X trim.
+				var corner_pad := wall_thickness*.5 + (0.0 if along_x else profile.z)
+				var start := maxf(along-length*.5, float(rect[0 if along_x else 1])+corner_pad)
+				var finish := minf(along+length*.5, float(rect[2 if along_x else 3])-corner_pad)
+				if finish-start < .001: continue
+				var normal_a := fixed+inward*wall_thickness*.5
+				var normal_b := normal_a+inward*profile.z
+				for run: Vector2 in _clear_runs(start,finish,low,high,minf(normal_a,normal_b),maxf(normal_a,normal_b),along_x,casings):
+					var face := fixed+inward*(wall_thickness+profile.z)*.5
+					var position := Vector3((run.x+run.y)*.5, (low+high)*.5, face) if along_x else Vector3(face, (low+high)*.5, (run.x+run.y)*.5)
+					var dimensions := Vector3(run.y-run.x, high-low, profile.z) if along_x else Vector3(profile.z, high-low, run.y-run.x)
+					var transform := Transform3D(Basis.from_scale(dimensions), position)
+					if profile_index != profiles.size():
+						# The Blender section faces +Z and runs along X. Rotate its front
+						# into the room, keeping the original clipped world-space bounds.
 						var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
-						var basis := Basis(Vector3.UP,angle)*Basis(Vector3.BACK,PI*.5)*Basis.from_scale(Vector3(stile_size.y,stile_size.x,stile_size.z))
-						frames.append(Transform3D(basis, stile_position))
-						frame_sources.append(label)
+						transform.basis = Basis(Vector3.UP,angle)*Basis.from_scale(Vector3(run.y-run.x,high-low,profile.z))
+						if profile_index < profiles.size():
+							transforms.append(transform)
+							sources.append(label)
+						else:
+							frames.append(transform)
+							frame_sources.append(label)
+					else:
+						panels.append(transform)
+						panel_sources.append(label)
+						# Vertical stiles meet (rather than overlap) the frame rails.
+						# Build once, from the backing run, clipping again for low sills.
+						var stile_low := maxf(floor_y+.226, low)
+						var stile_high := minf(floor_y+1.240, high)
+						if stile_high-stile_low < .001 or run.y-run.x < .15: continue
+						# A wall piece owns one grid. Re-spacing per height band makes
+						# broken, staggered stiles beside a projecting window sill.
+						var count := maxi(1, ceili((finish-start)/.72))
+						for index in count+1:
+							var along_stile := lerpf(start+.038, finish-.038, float(index)/count)
+							if along_stile-.018<run.x or along_stile+.018>run.y: continue
+							var stile_face := fixed+inward*(wall_thickness+.036)*.5
+							var stile_position := Vector3(along_stile, (stile_low+stile_high)*.5, stile_face) if along_x else Vector3(stile_face, (stile_low+stile_high)*.5, along_stile)
+							var stile_size := Vector3(.036, stile_high-stile_low, .036)
+							var angle := (0.0 if inward>0 else PI) if along_x else (PI*.5 if inward>0 else -PI*.5)
+							var basis := Basis(Vector3.UP,angle)*Basis(Vector3.BACK,PI*.5)*Basis.from_scale(Vector3(stile_size.y,stile_size.x,stile_size.z))
+							frames.append(Transform3D(basis, stile_position))
+							frame_sources.append(label)
 
 	_emit(room, "HistoricMillwork", transforms, sources, material)
 	_emit(room, "PublicWainscot", panels, panel_sources, panel_material)
@@ -165,3 +172,19 @@ static func _clear_runs(start: float, finish: float, low: float, high: float,
 				if run.y-right>.001: remaining.append(Vector2(right,run.y))
 		runs=remaining
 	return runs
+
+# Split tall panel backing at aperture edges before clipping horizontal runs.
+# Otherwise a low sill erases the entire panel below it.
+static func _height_bands(low: float, high: float, casings: Array[AABB]) -> Array[Vector2]:
+	var edges: Array[float]=[low,high]
+	for casing: AABB in casings:
+		for edge in [casing.position.y,casing.end.y]:
+			if edge>low+.001 and edge<high-.001: edges.append(edge)
+	edges.sort()
+	var result: Array[Vector2]=[]
+	var start := low
+	for edge: float in edges:
+		if edge-start>.001:
+			result.append(Vector2(start,edge))
+			start=edge
+	return result
