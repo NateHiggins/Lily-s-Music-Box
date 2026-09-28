@@ -868,9 +868,71 @@ func _build_risers() -> void:
 		var rect: Array = riser.rect
 		var y0 := float(riser.from_y)
 		var y1 := float(riser.to_y)
+		var bounds := AABB(Vector3(rect[0],y0,rect[1]),Vector3(_rect_w(rect),y1-y0,_rect_d(rect)))
+		var pieces: Array[AABB]=[bounds]
+		for window: Dictionary in layout.windows:
+			if not _window_meets_riser(window,riser): continue
+			var along_x := str(window.axis)=="x"
+			var low := float(level_y[window.level])+float(window.sill)
+			var cut := AABB(Vector3(float(window.center[0])-float(window.width)*.5,low,bounds.position.z),Vector3(float(window.width),float(window.height),bounds.size.z)) if along_x else AABB(Vector3(bounds.position.x,low,float(window.center[1])-float(window.width)*.5),Vector3(bounds.size.x,float(window.height),float(window.width)))
+			var remaining: Array[AABB]=[]
+			for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,cut))
+			pieces=remaining
+		if pieces.size()!=1 or pieces[0]!=bounds:
+			var parent := Node3D.new()
+			parent.name=str(riser.id)
+			add_child(parent)
+			for i in pieces.size():
+				_box(parent,"RevealSection%d" % i,pieces[i].get_center(),pieces[i].size,str(riser.get("class","service")),bool(riser.get("solid",true)))
+			continue
 		_box(self, str(riser.id), _rect_center(rect, (y0 + y1) * 0.5),
 				Vector3(_rect_w(rect), y1 - y0, _rect_d(rect)),
 				str(riser.get("class", "service")), bool(riser.get("solid", true)))
+
+## Shaft/court windows must pass through the adjacent service chase as well
+## as the room wall. Retain solid chase volume everywhere outside the aperture.
+func _window_meets_riser(window: Dictionary,riser: Dictionary) -> bool:
+	if not bool(riser.get("solid",true)): return false
+	var rect: Array=riser.rect
+	var along_x := str(window.axis)=="x"
+	var fixed := float(window.center[1 if along_x else 0])
+	var start := float(rect[1 if along_x else 0])
+	var finish := float(rect[3 if along_x else 2])
+	if fixed<start-.001 or fixed>finish+.001: return false
+	var along := float(window.center[0 if along_x else 1])
+	if along+float(window.width)*.5<=float(rect[0 if along_x else 1]) or along-float(window.width)*.5>=float(rect[2 if along_x else 3]): return false
+	var low := float(level_y[window.level])+float(window.sill)
+	return low<float(riser.to_y) and low+float(window.height)>float(riser.from_y)
+
+func window_reveal_span(window: Dictionary) -> Vector2:
+	var along_x := str(window.axis)=="x"
+	var fixed := float(window.center[1 if along_x else 0])
+	var half := float(layout.dimensions.partition_wall)*.5
+	var span := Vector2(fixed-half,fixed+half)
+	for riser: Dictionary in layout.risers:
+		if _window_meets_riser(window,riser):
+			span.x=minf(span.x,float(riser.rect[1 if along_x else 0]))
+			span.y=maxf(span.y,float(riser.rect[3 if along_x else 2]))
+	return span
+
+static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
+	if not box.intersects(cut): return [box]
+	var overlap := box.intersection(cut)
+	var result: Array[AABB]=[]
+	var middle := box
+	for axis in 3:
+		if overlap.position[axis]>middle.position[axis]:
+			var low := middle
+			low.size[axis]=overlap.position[axis]-middle.position[axis]
+			result.append(low)
+		if overlap.end[axis]<middle.end[axis]:
+			var high := middle
+			high.position[axis]=overlap.end[axis]
+			high.size[axis]=middle.end[axis]-overlap.end[axis]
+			result.append(high)
+		middle.position[axis]=overlap.position[axis]
+		middle.size[axis]=overlap.size[axis]
+	return result
 
 func _build_anchors() -> void:
 	for anchor: Dictionary in layout.anchors:
