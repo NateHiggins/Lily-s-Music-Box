@@ -184654,6 +184654,237 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "ea67c5fcb46affaf",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/scripts/building/orison_v2_public_furnishings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    6,
+    17
+   ],
+   "count": 2,
+   "context": [
+    "for room_id in [\"F01_LOBBY\",\"F01_PACKAGE\"]:",
+    "if room_id==\"F01_LOBBY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2099e9185a02507b",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE",
+   "file": "game/scripts/building/orison_v2_public_furnishings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F01_LOBBY\",\"F01_PACKAGE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c6bb6e5a0550c0d5",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/tests/orison_v2_public_furnishings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "for id in [\"F01_LOBBY\",\"F01_PACKAGE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e47638b929f71e69",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE",
+   "file": "game/tests/orison_v2_public_furnishings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10,
+    43
+   ],
+   "count": 2,
+   "context": [
+    "for id in [\"F01_LOBBY\",\"F01_PACKAGE\"]:",
+    "player.face_world_point(world.adapter.resolve(\"F01_PACKAGE\").get_node(\"PublicFurnishings/NorthRack\").to_global(Vector3(0,1,0)))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8864bb6e067c1c85",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE_COMMON_DOOR",
+   "file": "game/tests/orison_v2_public_furnishings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "var anchor := world.adapter.resolve(\"F01_PACKAGE_COMMON_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cd42cfc755747fde",
+   "kind": "node_path",
+   "token": "F01_PACKAGE_COMMON_DOOR_Leaf",
+   "file": "game/tests/orison_v2_public_furnishings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "var door := anchor.get_node(\"F01_PACKAGE_COMMON_DOOR_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "995ff398ad21ae7b",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_public_furnishings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    41,
+    41,
+    41,
+    41,
+    41,
+    43,
+    52,
+    58
+   ],
+   "count": 15,
+   "context": [
+    "for point in [Vector3(2.3,0,-6.2),Vector3(3.9,0,-6.7),Vector3(0,0,-7.15),Vector3(-3.9,0,-7.15),Vector3(-3.3,0,-5.0),Vector3(2.3,0,-5.0),Vector3(2.3,0,-3.5)]:",
+    "for point in [Vector3(-8.1,0,2.4),Vector3(-7.3,0,2.4),Vector3(-7.3,0,3.15),Vector3(-6.5,0,2.4),Vector3(-7.3,0,1.4)]:",
+    "player.face_world_point(world.adapter.resolve(\"F01_PACKAGE\").get_node(\"PublicFurnishings/NorthRack\").to_global(Vector3(0,1,0)))",
+    "camera.global_position=root.to_global(Vector3(1.2,1.41,-5.3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
