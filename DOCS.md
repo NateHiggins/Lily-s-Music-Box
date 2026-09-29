@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Boiler firing/ash door outward swing and matching moving plate collision | `art/blender/boiler_door_swing.md` |
 | Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
 | Blender lift handrails, wall-mounted supports and fasteners | `art/blender/lift_handrails.md` |

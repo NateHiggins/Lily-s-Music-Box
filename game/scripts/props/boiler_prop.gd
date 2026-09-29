@@ -107,6 +107,8 @@ func _build_visual() -> void:
 	merge_static(_ash_door)
 	merge_static(_draft_damper)
 	merge_static(_gauge_needle)
+	_door_collision(_fire_door, Vector3(0.66, 0.43, 0.055))
+	_door_collision(_ash_door, Vector3(0.58, 0.26, 0.05))
 	_fire_material = (_firebed_mesh.material_override as StandardMaterial3D).duplicate()
 	_firebed_mesh.material_override = _fire_material
 
@@ -349,6 +351,20 @@ func _build_collision() -> void:
 	add_child(body)
 
 
+func _door_collision(hinge: Node3D, size: Vector3) -> void:
+	# The outward leaf occupies the service aisle as it turns. Keep its solid
+	# plate on the same pivot as the mesh; the fixed plant envelope stays put.
+	var body := StaticBody3D.new()
+	body.name = "LeafCollision"
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = size
+	shape.shape = box
+	shape.position.x = size.x * 0.5
+	body.add_child(shape)
+	hinge.add_child(body)
+
+
 func _start_normal_function() -> void:
 	state = PState.OPERATING
 
@@ -480,16 +496,18 @@ func _column_level_y(value: float) -> float:
 
 
 func set_fire_door_open(open: bool, seconds := 0.55) -> void:
+	# Both leaves extend +X from their hinge; +Y rotation swings toward the
+	# front (-Z), away from the firebox rather than through the hot casing.
 	_fire_open = open
 	if _fire_tween and _fire_tween.is_valid():
 		_fire_tween.kill()
 	if seconds <= 0.0:
-		_fire_door.rotation.y = deg_to_rad(-95.0 if open else 0.0)
+		_fire_door.rotation.y = deg_to_rad(95.0 if open else 0.0)
 	else:
 		_fire_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
 				Tween.EASE_IN_OUT)
 		_fire_tween.tween_property(_fire_door, "rotation:y",
-				deg_to_rad(-95.0 if open else 0.0), seconds)
+				deg_to_rad(95.0 if open else 0.0), seconds)
 	boiler_state_changed.emit(get_boiler_state())
 
 
@@ -498,12 +516,12 @@ func set_ash_door_open(open: bool, seconds := 0.45) -> void:
 	if _ash_tween and _ash_tween.is_valid():
 		_ash_tween.kill()
 	if seconds <= 0.0:
-		_ash_door.rotation.y = deg_to_rad(-82.0 if open else 0.0)
+		_ash_door.rotation.y = deg_to_rad(82.0 if open else 0.0)
 	else:
 		_ash_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
 				Tween.EASE_IN_OUT)
 		_ash_tween.tween_property(_ash_door, "rotation:y",
-				deg_to_rad(-82.0 if open else 0.0), seconds)
+				deg_to_rad(82.0 if open else 0.0), seconds)
 	boiler_state_changed.emit(get_boiler_state())
 
 
