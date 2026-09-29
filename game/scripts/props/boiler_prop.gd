@@ -191,6 +191,11 @@ func _build_doors() -> void:
 
 
 func _build_water_column() -> void:
+	var mounts := preload("res://assets/props/boiler_instruments.glb").instantiate()
+	mounts.name="InstrumentMounts"
+	_carcass.add_child(mounts)
+	for mesh: MeshInstance3D in mounts.find_children("*","MeshInstance3D",true,false):
+		mesh.material_override=_pmat(BRASS if mesh.name=="Brass" else (STEEL if mesh.name=="Steel" else IRON))
 	# Glass tube, separate top and bottom cocks, and a blow-down tail. The
 	# water level is a real moving object because judging it is the activity.
 	var glass_mat := StandardMaterial3D.new()
@@ -205,7 +210,8 @@ func _build_water_column() -> void:
 		_cyl(_carcass, 0.035, 0.035, 0.075,
 				Vector3(0.50, y, -D * 0.5 - 0.075), BRASS)
 		var cock_root := Node3D.new()
-		cock_root.position = Vector3(0.50, y, -D * 0.5 - 0.075)
+		# The spindle projects forward: a closed handle must clear the glass.
+		cock_root.position = Vector3(0.50, y, -D * 0.5 - 0.125)
 		add_child(cock_root)
 		var cock := _cyl(cock_root, 0.010, 0.010, 0.12,
 				Vector3(0.06, 0.0, 0.0), BRASS)
@@ -251,7 +257,7 @@ func _build_pressure_gauge() -> void:
 	needle.position.y = 0.030
 	# The pointer and its hub turn as one blackened-steel movement. A brass hub
 	# too small to read at service distance cost a whole additional mesh batch.
-	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, IRON)
+	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, IRON).rotation_degrees.x = 90.0
 
 
 func _build_header_and_return() -> void:

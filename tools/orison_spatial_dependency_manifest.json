@@ -184915,6 +184915,36 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/furniture",
    "target_exists": true
+  },
+  {
+   "key": "57df5ef79461068c",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_boiler_instruments_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "var boiler := world.adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
   }
  ]
 }

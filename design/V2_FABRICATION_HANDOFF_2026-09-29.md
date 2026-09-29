@@ -2,137 +2,107 @@
 
 Evidence class: **INERT**
 
-REPORT - V2 FABRICATION / BOILER CORRECTIONS - 2026-09-29
+REPORT - V2 FABRICATION - 2026-09-29
 
-## Branch and verified scope
+## Branch and owner preservation
 
-Canonical checkout: **C:/PleaseRemainOnTheLine**, **main**. Started from
-**1d2b4fb6d2f289387d7287be8270632e90603c15**, which matched fetched origin/main;
-there was no newer work. Completed source changes are in:
+Branch / HEAD / origin/main / merge-base: canonical **C:/PleaseRemainOnTheLine**,
+**main**. The last verified and pushed predecessor is
+**f9c99d5bcd16408ed008911abc303e413db5f515**. This report accompanies the next
+instrument-mount candidate; its own identity and merge-base belong in
+**tmp/boiler-instruments/verified/verification.json** after verification.
+No secondary worktree was created.
 
-- **643c161b0f4e3aadb44fdcba576478476eb4d801** — both boiler doors swing outward;
-  their solid plates follow the same hinges.
-- **1ec300d18d5b89a6406bef03923502de6459ef55** — editable Blender breeching, production integration,
-  contact tests and a regenerable V2 fabrication index.
+Worktree clean at end: **no**. Preserve the owner's **art/renders/insitu/shots.md**
+and **shot_024.png** through **shot_028.png**. Each in-place verifier used checked
+ignored backups and restored all six byte-identical files. Generated untracked
+UIDs are removed after the runs. No reference-image bytes or rescue archive
+were committed.
 
-Both commits were verified in place against complete clean preceding-main
-boards, then pushed. The documentation commit containing this handoff follows
-the second commit; its final local/remote identity belongs in the delivery
-message and Git history rather than a self-referential hash in this document.
+Protected 17/17: **yes through the verified predecessor**. Selector: **v2**;
+explicit **ORISON_BUILDING_ROOT=v1** rollback remains. Ledger before -> after:
+**[7,8,127,42,151,153] -> [7,8,127,42,151,153]**; requirements_changed: **[]**.
+The current instrument candidate's independent checks are in its receipt.
 
-Worktree clean at end: no. Preserve **art/renders/insitu/shots.md** and
-**shot_024.png** through **shot_028.png**. Verification made checked backups
-under ignored tmp directories and restored all six exact owner byte streams.
-No rescue archive or reference-image bytes were committed. No worktree was
-created. Generated untracked import UIDs were removed after verification.
+## Implemented and rendered batches
 
-Protected 17/17: yes, with the already-authorized selector default retained.
-Selector: **v2**; explicit **ORISON_BUILDING_ROOT=v1** rollback remains.
-Ledger before -> after: **[7,8,127,42,151,153] -> [7,8,127,42,151,153]**;
-requirements_changed: **[]**. No new runtime-contract acceptance is claimed.
+- **643c161**: firing/ash doors swing outward; solid plates follow their hinges.
+- **1ec300d**: three hollow Blender breeching elbows and joined straight shells.
+- **45c7b13**: hollow boiler casing, real firing/ash openings, recessed brick,
+  grate, tray and independent live coal bed.
+- **1a87ad0**: reading table, six chairs and two bookcases; all 200 semantic
+  spaces captured from two sampled stances, with every overview sheet reviewed.
+- **573a156**: missing lowest-stair foundation filled; stepped coal heap boxes
+  replaced by a shaped Blender pile with matching collision.
+- **b1337f1**: two lobby benches and two parcel racks with fitted joinery and
+  clear doors/aisles.
+- **f9c99d5**: fourteen beds receive three shared Blender bedding variants,
+  retained frame geometry, thin draped blankets, padded linen pillows and
+  collision from the visible assembly.
+- This candidate: fitted boiler instrument connections and glass guards;
+  handles no longer enter the glass and the gauge hub faces its dial.
 
-## Completed coverage and sources
+Each batch has an editable Blender file, generator, exported glTF and focused
+note in **art/blender**. The flat stair slab is intentionally simple source-
+projected geometry. **v2_fabrication_coverage.md** is the current family queue;
+**v2_fabrication_inventory.json** comes from **tools/inventory_v2_fabrication.py**.
+**v2_space_review.json** retains detail/route review pending: overview captures
+are discovery, not proof that a room is reachable or finished.
 
-The owner's reported door defect affected both the firing and ash leaves.
-Negative local Y rotation drove their positive-X free edges through the boiler.
-Both immediate and tweened paths now swing outward. Moving plate collisions
-were added; the fixed plant and all maintenance/state owners remain.
-The focused production test samples fourteen moving poses, compares actual
-merged triangles and physical contacts, checks closing and immediate restore.
+## Gates and evidence
 
-Three hollow six-gore elbows replace the sphere joints in the boiler flue.
-The first mouth seats on the real horizontal smoke collar. Straight pipes and
-slip bands join their tangent ends; bend collision uses the same triangles.
-The pipe library has 170 mm outer radius, 3 mm walls and 270 mm bend radius.
+Verified batches used complete clean preceding-main boards and in-place
+candidate verification, then were pushed. The latest predecessor's gates are:
+completeness ledger **2** (incomplete by design), spatial **0**, systemic **0**,
+period **0**, reader **0**; tools tests **0** except the existing baseline
+**test_m11c1_runtime_rehearsal = 1**. Board comparisons show zero regressions;
+reader has zero new unread fields. The spatial manifest only appends reviewed
+new references. Gate logic and existing classifications are preserved.
 
-- Generator: **art/blender/scripts/build_breeching.py**.
-- Editable source: **art/blender/breeching.blend**.
-- Export: **game/assets/props/breeching.glb**.
-- Runtime placement: **game/scripts/building/orison_v2_boiler_flue.gd**.
-- Door authority: **game/scripts/props/boiler_prop.gd**.
-- Notes: **art/blender/breeching.md**, **art/blender/boiler_door_swing.md**.
-- Coverage decisions: **art/blender/v2_fabrication_coverage.md**.
-- Structural/installation index: **art/blender/v2_fabrication_inventory.json**;
-  regenerate with **python tools/inventory_v2_fabrication.py**.
+Evidence roots are **tmp/boiler-doors**, **tmp/breeching**,
+**tmp/boiler-firebox**, **tmp/reading-room**, **tmp/v2-space-sweep**,
+**tmp/basement-foundation**, **tmp/coal-heap**, **tmp/public-furnishings**,
+**tmp/bedding** and **tmp/boiler-instruments**. Their **verified** directories
+contain candidate boards, protected checks and bound Godot receipts. Every
+completed Godot suite has an adjacent **.log.receipt.json**. These wrapper
+receipts are not runtime contracts and do not promote the completeness ledger.
 
-The index includes all 200 semantic spaces and ten structural tables, plus
-thirteen installation/program data files, building asset references and
-Blender generator locations. It is discovery, not an assertion of completed
-geometry. The focused run also emits a live mesh/material census beside its
-captures. That census observed 11,378 geometry nodes, 9,812 visible in the scene
-tree; composed/debug content and intentional simple primitives are included.
+Numbers: door swing **14 poses**; breeching **18 contacts**; firebox **12 contacts**;
+reading furniture **9 contacts / 25 waypoints**; basement foundation
+**12 contacts / 11 waypoints**; coal heap **9 contacts / 32 waypoints**;
+public furnishings **4 contacts / 29 waypoints**; bedding **14 beds / 56 contacts**;
+upper furniture **1043 checks**; wake reconstruction **49 checks**, preserving
+original save bytes. Those completed checks have zero failures. The instrument
+focused run has **4 fitted contacts / 4 handle poses**, zero failures; its full
+candidate run follows this report. Title-launch checks pass on each verified
+predecessor. Earlier failed, interrupted, obscured or wrong-axis attempts are
+recorded in the individual notes and are not counted as final acceptance.
 
-## Material and performance decisions
+## Open findings and owner decision
 
-No new bitmap, catalogue key or shader was introduced. Breeching keeps
-**cast_iron** and **metal**, resolved through MatLib and the generated material
-table. It has metre UVs; variable pipe lengths are baked into mesh vertices
-and UVs so the existing local triplanar projection does not stretch with
-MeshInstance scale. The broader architectural SurfacePass, calibrated layers,
-lamp/voxel integrations and carried HUD are unchanged.
+The full geometry and coordinated material request is **unfinished**. All 200
+room overviews were inspected, but targeted installation/route coverage is not
+complete. Header/return fit, remaining duct/support details, other apartment
+furniture, fixture joins, exterior composition and landing views still need
+review. Retain the existing Blender lift machinery, wet fixtures, window
+joinery, millwork, roof tank/coping/chimney, accepted hero/organelles and sixteen
+intentional critter placeholders. A broad zoo regression remains outstanding.
 
-The three elbow instances share their mesh, with 12,672 triangles total.
-Their two material surfaces add three draws relative to the three former
-single-surface sphere joints. The library export is about 303 KB. The live
-census retains render counters, but those include multiple passes/viewports;
-no controlled full-building frame-time comparison or performance acceptance
-has been completed.
+The coordinated material pass is **not begun**. Existing keys and metres-based
+UVs are used for these geometry batches. Wood grain direction, bright lamp-lit
+cloth/ceramic/metal response and the brown-looking coal finish are concrete
+follow-ups. Global lighting or shader replacement is not justified by them.
 
-## Verification and rendered evidence
+Decision needed from owner: **receiving court or street-connected service alley
+beyond the rear door?** The source defines **F01_REAR_APRON** as a receiving
+approach but gives it no surrounding exterior ground or onward connection.
+Its current production view exposes slab edges and empty space. An asynchronous
+question was sent while independent boiler work continued; no answer has yet
+been incorporated. This is a missing exterior-layout decision, not a request
+for permission to carry out already-authorized routine fabrication.
 
-**tmp/boiler-doors/verified/verification.json** and **verification.md** contain
-the accepted door candidate result, complete gate board, protected-path checks,
-double import and bound receipts for BoilerDoorSwing, Blockout, BoilerRoute
-and TitleContinueActualLaunch. **tmp/breeching/verified** contains the same
-roster with Breeching in place of BoilerDoorSwing.
-
-Both boards: ledger remains INCOMPLETE/exit 2 by design; spatial, systemic,
-period, reader, carriers, rulings and every tools test pass. Reader has zero
-new unread fields; board comparisons have zero regressions. The spatial
-manifest adds only the reviewed new test references/camera station and elbow
-name template. Existing classifications and gate logic are unchanged.
-
-Numbers requested: **BOILER DOOR SWING: doors=2 animated_samples=14 failures=0**;
-**BREECHING: elbows=3 collision_contacts=18 elbow_triangles=12672 failures=0**;
-production **V2 BOILER SERVICE: 17 waypoints; 0 failures**. The route exercises
-actual E controls, both door states, draft/heat response, water-column proving
-and return through the fire door. All cited completed suites have adjacent
-**.log.receipt.json** files. Wrapper receipts are suite-run evidence, not
-runtime-contract proof.
-
-Inspected captures: **tmp/boiler-doors/shots**, **tmp/breeching/shots** and
-**tmp/breeching/route-shots**. Detail views use a local inspection fill;
-route views use the actual carried lamp and readable physical paper HUD.
-The first pre-change route hit its 60-second ceiling. Its rerun failed the
-lamp-settle assertion; neither is counted as passing. Subsequent completed
-production routes and candidate routes passed without loosening that test.
-
-## Remaining work and exact continuation
-
-The user's full geometry and texture/mapping request is **unfinished**. The
-coverage document is the next work queue, not a substitute for implementation.
-The boiler still needs a fabricated body/firebox interior; the outward-door
-views expose the existing shallow throat treatment. Broader fixtures, roof
-machinery, ducts/supports, public furnishing, apartment variants and all
-uninspected space installations remain. Reuse the accepted lift, window,
-millwork, roof-tank/coping/chimney, wet-fixture and critter work.
-
-The coordinated texture pass has **not begun**. Its material families and
-current production binding decisions are recorded in the coverage document.
-Complete geometry first, then validate representative material families under
-production lighting before broad rollout. Do not interpret existing texture
-bindings as completed mapping or material acceptance.
-
-Known preserved limitations: static window sashes and tank lid; decorative
-lift emergency-stop presentation; exterior wall-thickness issue from the
-prior handoff; no new gas/fluid simulation. Existing TASKS H23 and historical
-M11C1 debt remain. No full zoo, continuous-shift or whole-building visual
-acceptance claim is made for these scoped boiler batches.
-
-Decision needed from owner: none for the remaining authorized routine work.
-Check fetch/status before continuing, preserve owner files, obtain a clean
-current-main board or extract the clean candidate_board from the last verified
-JSON, use named-path commits, and push only verified work.
+Changes outside the expected boundary: **none**; notes, test fixtures and the
+reviewed manifest records accompany the production geometry.
 
 ## Launch and zoo
 
@@ -158,4 +128,4 @@ For explicit rollback set **$env:ORISON_BUILDING_ROOT = "v1"** before launch.
 Use the lane status/wait support when occupied; never close another Godot.
 The accepted hero, organelles, sixteen critters and reserved bays remain.
 
-Last implementation verdict: **MERGE-CANDIDATE 1ec300d18d5b89a6406bef03923502de6459ef55**.
+Last line: **NEEDS-OWNER — rear receiving court or street-connected service alley?**
