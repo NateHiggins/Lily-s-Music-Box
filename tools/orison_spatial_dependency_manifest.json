@@ -185145,6 +185145,65 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f721d15bd5a2fb30",
+   "kind": "id_reference",
+   "token": "F06_A_STUDY_SWITCH_STANCE",
+   "file": "game/tests/orison_v2_connected_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_verify_study_switch_sweep"
+   ],
+   "lines": [
+    291
+   ],
+   "count": 1,
+   "context": [
+    "var anchor := world.adapter.resolve(\"F06_A_STUDY_SWITCH_STANCE\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "99afe8aef3687ed7",
+   "kind": "node_path",
+   "token": "F06_A_KITCHEN_STUDY_DOOR_Leaf",
+   "file": "game/tests/orison_v2_connected_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_verify_study_switch_sweep"
+   ],
+   "lines": [
+    290
+   ],
+   "count": 1,
+   "context": [
+    "var door := world.find_child(\"F06_A_KITCHEN_STUDY_DOOR_Leaf\",true,false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
