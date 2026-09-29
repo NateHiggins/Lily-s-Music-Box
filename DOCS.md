@@ -38,6 +38,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |
 | Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
 | Blender boiler breeching, open gores, collar seating and bend collision | `art/blender/breeching.md` |
+| Blender boiler casing, recessed firebox/ash pit, grate and matching fixed collision | `art/blender/boiler_body.md` |
 | Boiler firing/ash door outward swing and matching moving plate collision | `art/blender/boiler_door_swing.md` |
 | Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |

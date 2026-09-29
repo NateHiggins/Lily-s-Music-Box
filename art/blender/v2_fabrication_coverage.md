@@ -36,14 +36,15 @@ has yet been demonstrated; none is silently marked complete.
 | Ordinary doors | existing leaf owner, Blender knobs and articulated butt hinges | Retain completed hardware; sweep swing clearance and thresholds across both handed orientations. |
 | Public/service stairs and landings | stair_ironwork Blender generator and existing collision ramps | Retain completed ironwork; route and tread/landing fit sweep pending. |
 | Lift cab, landings and controls | lift_* Blender generators, OrisonElevator | Retain completed assemblies and mechanisms. Emergency-stop presentation remains decorative. |
-| Lift roof drive, suspension and guards | V2 lift drive/suspension owners | Inspect primitive machinery, bearings, mounts and guard clearance; fabrication coverage pending. |
+| Lift roof drive, suspension and guards | build_lift_drive.py and V2 lift drive/suspension owners | Existing Blender machinery found and retained; inspect bearings, mounts and guard clearance before deciding whether refinement is needed. |
 | Roof parapet, coping and chimney | roof_coping / chimney_crown Blender generators | Retain prior completed masonry/weather caps. Parapet planar substrate is intentional; inspect joins and roof route. |
 | Roof tank and overflow collector | house_tank Blender generator | Retain completed timber/binding assemblies and maintenance; lid remains static. |
 | Roof ventilators and bathroom registers | roof_ventilator / vent_register Blender generators | Retain completed rotor/shutter pivots and passive registers; stack integration sweep pending. |
 | Shared ductwork and service chases | V2 ventilation and semantic risers | Inspect junctions, supports and maintenance clearance; do not infer completion from hidden shaft boxes. |
 | Boiler firing and ash doors | BoilerProp | Outward swing and matching plate collision fixed in 643c161; 14 animated poses, actual contacts and service route checked. Full boiler fabrication remains open. |
 | Boiler breeching | build_breeching.py / V2 boiler flue owner | Three fitted elbows and open straight shells implemented; focused rendered/contact checks passed. Candidate verification and production route belong to the batch receipts. |
-| Boiler body, firebox, water column, header | BoilerProp | Script-built geometry retained; firebox opening/depth, lagging, hinges and service hardware need fabrication review. Do not call this complete. |
+| Boiler body and firebox | build_boiler_body.py / BoilerProp | Hollow casing, fitted surrounds, recessed firebrick, internal grate, ash tray and live shaped coal fabricated. Twelve cavity contacts and closed plate seals checked; production renders inspected. |
+| Boiler water column, header and service hardware | BoilerProp | Existing mechanism geometry retained; installation sweep pending. |
 | Coal delivery, electrical room, workshop, storage | V2 basement / coal delivery / existing apparatus | Primitive structural vs unfinished detail classification and rendered inspection pending. Preserve all service and storage access. |
 | Public rooms, laundry, watch/mail/package/reading spaces | Production prop owners and completion interiors | Existing mechanisms remain; reading-room furnishing was explicitly unfinished in launch documentation. Inventory and fabricate missing furnishings after room inspection. |
 | Apartment fixed wet fittings | bath_lavatory / bath_water_closet / bathroom_details | Reuse existing Blender fittings; check all installed variants and close-range controls. |

@@ -85,7 +85,6 @@ func _build_visual() -> void:
 	_build_smoke_hood()
 	_build_service_plate()
 	_build_doors()
-	_build_collision()
 
 	retexture(self, [
 		[IRON, "cast_iron", Color(0.34, 0.33, 0.31), 0.72],
@@ -103,6 +102,7 @@ func _build_visual() -> void:
 	# plant is one mesh per finish; each tended assembly is merged internally
 	# but remains outside the carcass so its transform survives.
 	merge_static(_carcass)
+	_build_collision()
 	merge_static(_fire_door)
 	merge_static(_ash_door)
 	merge_static(_draft_damper)
@@ -135,43 +135,21 @@ func _build_visual() -> void:
 
 
 func _build_hearth_and_sections() -> void:
-	_box(_carcass, Vector3(W + 0.28, 0.10, D + 0.40),
-			Vector3(0, 0.05, -0.10), Color(0.42, 0.40, 0.37))
-	_box(_carcass, Vector3(W, 0.22, D), Vector3(0, 0.21, 0), IRON)
-	# Five joined sections make the silhouette read as bolted heating plant,
-	# not a domestic tank. Narrow seams remain as honest assembly shadows.
-	for i in 5:
-		var x := -0.46 + float(i) * 0.23
-		_box(_carcass, Vector3(0.205, 1.28, D),
-				Vector3(x, 0.94, 0), IRON)
-		for y in [0.41, 1.48]:
-			var boss := _cyl(_carcass, 0.045, 0.045, 0.225,
-					Vector3(x, y, -D * 0.50 - 0.015), IRON_EDGE)
-			boss.rotation_degrees.z = 90.0
-	# Patched canvas/asbestos lagging covers the hot block, held by straps.
-	_box(_carcass, Vector3(W + 0.065, 1.12, D + 0.065),
-			Vector3(0, 1.00, 0), JACKET)
-	for y in [0.56, 0.94, 1.32]:
-		_box(_carcass, Vector3(W + 0.09, 0.035, D + 0.09),
-				Vector3(0, y, 0), STEEL)
-	# A torn inspection patch exposes the dark fibrous edge underneath.
-	_box(_carcass, Vector3(0.22, 0.22, 0.012),
-			Vector3(-0.45, 0.78, -D * 0.5 - 0.040), SOOT)
-	# Soot belongs above the firing opening and fades before the gauge side.
-	_box(_carcass, Vector3(0.50, 0.22, 0.008),
-			Vector3(0.06, 1.37, -D * 0.5 - 0.047), SOOT)
-	# Firebrick throat and grate bars exist behind the opening; an open door
-	# reveals a place coal can actually be put rather than another black card.
-	_box(_carcass, Vector3(0.58, 0.42, 0.06),
-			Vector3(0, 1.03, -D * 0.5 - 0.008), FIREBRICK)
-	for i in 7:
-		var gx := -0.24 + float(i) * 0.08
-		var bar := _cyl(_carcass, 0.012, 0.012, 0.34,
-				Vector3(gx, 0.86, -D * 0.5 - 0.055), IRON_EDGE)
-		bar.rotation_degrees.x = 90.0
-	# Kept outside the static carcass because its emission follows the firebed.
-	_firebed_mesh = _box(self, Vector3(0.46, 0.07, 0.24),
-			Vector3(0, 0.91, -0.34), SOOT)
+	var body := (preload("res://assets/props/boiler_body.glb") as PackedScene).instantiate()
+	body.name = "FittedBoilerBody"
+	_carcass.add_child(body)
+	# These are fabrication roles, not new catalogue material keys. Retexture
+	# below maps them through the same established finishes as the old body.
+	var colors := {"Iron":IRON,"Jacket":JACKET,"Steel":STEEL,"Soot":SOOT,
+		"Lining":FIREBRICK,"Hearth":Color(0.42,0.40,0.37),"LiveCoal":SOOT}
+	for part: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+		var material := StandardMaterial3D.new()
+		material.albedo_color=colors[str(part.name)]
+		part.material_override=material
+		if part.name == "LiveCoal":
+			# Baked boiler-local vertices; independent of fixed-plant batching.
+			part.reparent(self)
+			_firebed_mesh=part
 
 
 func _build_doors() -> void:
@@ -342,12 +320,14 @@ func _build_service_plate() -> void:
 func _build_collision() -> void:
 	var body := StaticBody3D.new()
 	body.name = "BoilerCollision"
-	var shape := CollisionShape3D.new()
-	var box := BoxShape3D.new()
-	box.size = Vector3(W + 0.16, BARREL_TOP, D + 0.24)
-	shape.shape = box
-	shape.position = Vector3(0, BARREL_TOP * 0.5, 0)
-	body.add_child(shape)
+	# The former broad box filled both open throats. Fixed collision now
+	# follows the finished static plant, including the cavity walls and grate.
+	# The separately moving leaves keep their hinge-owned plate colliders.
+	for part: MeshInstance3D in _carcass.find_children("*","MeshInstance3D",true,false):
+		var shape := CollisionShape3D.new()
+		shape.shape=part.mesh.create_trimesh_shape()
+		shape.transform=part.transform
+		body.add_child(shape)
 	add_child(body)
 
 
