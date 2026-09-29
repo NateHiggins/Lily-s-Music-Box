@@ -7,10 +7,13 @@ REPORT - V2 FABRICATION - 2026-09-29
 ## Branch and owner preservation
 
 Branch / HEAD / origin/main / merge-base: canonical **C:/PleaseRemainOnTheLine**,
-**main**. The last verified and pushed predecessor is
-**f9c99d5bcd16408ed008911abc303e413db5f515**. This report accompanies the next
-instrument-mount candidate; its own identity and merge-base belong in
-**tmp/boiler-instruments/verified/verification.json** after verification.
+**main**. The latest verified implementation is **af8b8cc** (alley,
+study-door clearance and quieter waking lamp). Its merge-base is **e30b4b1**.
+The complete gate comparison is **tmp/service-alley/verified/verification.json**.
+The six windowed geometry, route, launch and lamp suites passed on **650cfe7**;
+the only subsequent change registers two reviewed test references. Those bound
+receipts remain in **tmp/service-alley/verified-650c-manifest-drift/godot**.
+The full connected-world run binds to **af8b8cc** in the final evidence folder.
 No secondary worktree was created.
 
 Worktree clean at end: **no**. Preserve the owner's **art/renders/insitu/shots.md**
@@ -19,10 +22,10 @@ ignored backups and restored all six byte-identical files. Generated untracked
 UIDs are removed after the runs. No reference-image bytes or rescue archive
 were committed.
 
-Protected 17/17: **yes through the verified predecessor**. Selector: **v2**;
+Protected 17/17: **yes, all unchanged**. Selector: **v2**;
 explicit **ORISON_BUILDING_ROOT=v1** rollback remains. Ledger before -> after:
 **[7,8,127,42,151,153] -> [7,8,127,42,151,153]**; requirements_changed: **[]**.
-The current instrument candidate's independent checks are in its receipt.
+The final gate comparison has zero regressions and zero new unread fields.
 
 ## Implemented and rendered batches
 
@@ -39,8 +42,15 @@ The current instrument candidate's independent checks are in its receipt.
 - **f9c99d5**: fourteen beds receive three shared Blender bedding variants,
   retained frame geometry, thin draped blankets, padded linen pillows and
   collision from the visible assembly.
-- This candidate: fitted boiler instrument connections and glass guards;
+- **e30b4b1**: fitted boiler instrument connections and glass guards;
   handles no longer enter the glass and the gauge hub faces its dial.
+- **37a7b71**: street-connected service alley, operating rear door, closed
+  stair-core wall bands and connected-world fixture maintenance.
+- **22efcb9**: waking lamp output reduced from 24 to 6 at the owner's request;
+  four matched night comparisons pass. Thermal state, beam optics and Dream
+  inspection profiles remain intact. Evidence: **tmp/lamp-gentler**.
+- **650cfe7**: study switch stance moved clear of the full door sweep;
+  **af8b8cc** registers the two new test references.
 
 Each batch has an editable Blender file, generator, exported glTF and focused
 note in **art/blender**. The flat stair slab is intentionally simple source-
@@ -62,7 +72,7 @@ new references. Gate logic and existing classifications are preserved.
 Evidence roots are **tmp/boiler-doors**, **tmp/breeching**,
 **tmp/boiler-firebox**, **tmp/reading-room**, **tmp/v2-space-sweep**,
 **tmp/basement-foundation**, **tmp/coal-heap**, **tmp/public-furnishings**,
-**tmp/bedding** and **tmp/boiler-instruments**. Their **verified** directories
+**tmp/bedding**, **tmp/boiler-instruments**, **tmp/service-alley** and **tmp/lamp-gentler**. Their **verified** directories
 contain candidate boards, protected checks and bound Godot receipts. Every
 completed Godot suite has an adjacent **.log.receipt.json**. These wrapper
 receipts are not runtime contracts and do not promote the completeness ledger.
@@ -74,7 +84,7 @@ public furnishings **4 contacts / 29 waypoints**; bedding **14 beds / 56 contact
 upper furniture **1043 checks**; wake reconstruction **49 checks**, preserving
 original save bytes. Those completed checks have zero failures. The instrument
 focused run has **4 fitted contacts / 4 handle poses**, zero failures; its full
-candidate run follows this report. Title-launch checks pass on each verified
+candidate run passed and was pushed as **e30b4b1**. Title-launch checks pass on each verified
 predecessor. Earlier failed, interrupted, obscured or wrong-axis attempts are
 recorded in the individual notes and are not counted as final acceptance.
 
