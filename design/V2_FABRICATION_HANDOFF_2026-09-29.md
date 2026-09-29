@@ -86,20 +86,20 @@ complete. Header/return fit, remaining duct/support details, other apartment
 furniture, fixture joins, exterior composition and landing views still need
 review. Retain the existing Blender lift machinery, wet fixtures, window
 joinery, millwork, roof tank/coping/chimney, accepted hero/organelles and sixteen
-intentional critter placeholders. A broad zoo regression remains outstanding.
+intentional critter placeholders. Preservation checks after the instrument batch passed: zoo teleport **59/59**, warehouse **147/147**, hero lifecycle **14/14** and organelle lifecycle **16/16**; evidence is in **tmp/fabrication-zoo-preservation**.
 
 The coordinated material pass is **not begun**. Existing keys and metres-based
 UVs are used for these geometry batches. Wood grain direction, bright lamp-lit
 cloth/ceramic/metal response and the brown-looking coal finish are concrete
 follow-ups. Global lighting or shader replacement is not justified by them.
 
-Decision needed from owner: **receiving court or street-connected service alley
-beyond the rear door?** The source defines **F01_REAR_APRON** as a receiving
-approach but gives it no surrounding exterior ground or onward connection.
-Its current production view exposes slab edges and empty space. An asynchronous
-question was sent while independent boiler work continued; no answer has yet
-been incorporated. This is a missing exterior-layout decision, not a request
-for permission to carry out already-authorized routine fabrication.
+Owner decision received: **street-connected service alley**. The new assembly
+wraps around the service core, follows the west side in street coordinates and
+joins the existing sidewalk. A working rear door replaces its static review
+leaf. See **art/blender/service_alley.md** and **tmp/service-alley**; candidate
+verification is tracked in **tmp/service-alley/verified/verification.json**.
+No owner intervention is currently required. Continue the remaining geometry
+and then the coordinated material pass autonomously.
 
 Changes outside the expected boundary: **none**; notes, test fixtures and the
 reviewed manifest records accompany the production geometry.

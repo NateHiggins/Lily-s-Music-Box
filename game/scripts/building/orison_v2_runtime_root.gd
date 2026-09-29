@@ -121,12 +121,15 @@ func _ready() -> void:
 		push_error("ORISON V2 RUNTIME: front-door world connection refused")
 		return
 	_blockout.transform = _connection.interior_transform
-	_blockout.space_geometry_exclusions.assign([_connection.excluded_space])
+	_blockout.space_geometry_exclusions.assign([_connection.excluded_space, "F01_REAR_APRON"])
 	add_child(_blockout)
 	if not _blockout.failures.is_empty():
 		startup_failed = true
 		return
 	layout = _blockout.layout
+	var service_alley := preload("res://scripts/building/orison_v2_service_alley.gd").new()
+	service_alley.name = "ServiceAlley"
+	_blockout.add_child(service_alley)
 	for level: Dictionary in layout.get("levels", []):
 		floor_nodes[str(level.id)] = _blockout
 	adapter = Adapter.new(_blockout)

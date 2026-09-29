@@ -37,7 +37,7 @@ has yet been demonstrated; none is silently marked complete.
 
 | Family / installation | Existing authority | Current disposition and next check |
 |---|---|---|
-| Floors, ceilings, partitions, corners, openings | V2 blockout and architectural materials | Simple planar solids can be intentional. Review every room class for seams, thickness and collisions; exterior wall-thickness issue from the prior handoff remains. |
+| Floors, ceilings, partitions, corners, openings | V2 blockout and architectural materials | Open stair-core walls now span the full storey, closing the missing 200 mm ceiling band; twelve contacts and alley views checked. Simple planar solids can be intentional. Review every room class for seams, thickness and collisions; exterior wall-thickness issue from the prior handoff remains. |
 | Window surrounds and room millwork | window_joinery / millwork_profile Blender generators | Existing completed work retained; per-space visual sweep still pending. Sashes intentionally remain static. |
 | Ordinary doors | existing leaf owner, Blender knobs and articulated butt hinges | Retain completed hardware; sweep swing clearance and thresholds across both handed orientations. |
 | Public/service stairs and landings | stair_ironwork Blender generator and existing collision ramps | Lowest stair foundation gap filled and checked at twelve contacts and eleven walking waypoints. Retain completed ironwork; remaining landing fit sweep pending. |
@@ -58,7 +58,7 @@ has yet been demonstrated; none is silently marked complete.
 | Apartment furniture and built-ins | domestic_furniture_source and installed surfaces | Existing source-derived surfaces are not automatically placeholders. All fourteen bed coverings/pillows now use three Blender variants and matching collision; 56 contacts and visible inspection captures pass. Other furniture kinds, hardware, pivots and UVs still require detail review. |
 | Household radiators and accessories | heating/accessory source and mechanism owners | Preserve one-pipe steam and service semantics; inspect support, union and vent geometry. |
 | Room lights and switches | lighting data / light_switch Blender generator | Retain completed switches; fixture bodies and mounting clearance need complete sweep. |
-| Street, entry, passage, shop installations | exterior cell / passage composition | Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |
+| Street, entry, passage, shop installations | exterior cell / passage composition | Rear service alley fabricated and joined to the existing sidewalk, with an operating rear door. Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |
 | Carried radiophone, teletype and lamp | existing service-set owners | Preserve accepted assembly, physical HUD, pointer and debug behavior; no redesign authorized by the inventory. |
 | Dream zoo, hero, organelles, sixteen critters | accepted zoo and Blender critter sources | Intentional preservation boundary. Keep accepted assets, behaviors and declared placeholders; regression checks remain required. |
 

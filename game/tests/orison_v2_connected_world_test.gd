@@ -58,8 +58,20 @@ func _run() -> void:
 				_check(body != null and body.get_meta("v2_furniture_id", "") == str(record.id),
 						"furniture has a collision owner: " + str(record.id))
 				if body != null:
-					_check(body.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
-							"furniture has its extracted visible surfaces: " + str(record.id))
+					var installed := body.find_children("*", "MeshInstance3D", true, false)
+					if record.has("model"):
+						var reference := (load(str(record.model)) as PackedScene).instantiate()
+						var expected := reference.find_children("*", "MeshInstance3D", true, false)
+						_check(not expected.is_empty(), "imported furniture has reference meshes: " + str(record.id))
+						for part: MeshInstance3D in expected:
+							var matches := 0
+							for actual: MeshInstance3D in installed:
+								if actual.name == part.name and actual.mesh == part.mesh and actual.is_visible_in_tree(): matches += 1
+							_check(matches == 1, "imported furniture retains its visible mesh: " + str(record.id) + "/" + str(part.name))
+						reference.free()
+					else:
+						_check(installed.size() >= record.surfaces.size(),
+								"furniture has its extracted visible surfaces: " + str(record.id))
 			var wc := world.adapter.resolve("3B_wc") as BakedFurnitureInteraction
 			var wardrobe := world.adapter.resolve("3B_aw_wardrobe") as BakedFurnitureInteraction
 			_check(wardrobe != null and wardrobe.owner_unit == "3B", "wardrobe preserves household ownership")
@@ -83,7 +95,11 @@ func _run() -> void:
 			_check(loader.validate(fitting_source, world.adapter), "domestic fitting records validate")
 			for side in [-1.0, 1.0, 0.0, 1.5, "1"]:
 				var drain_source := fitting_source.duplicate(true)
-				drain_source.fittings[0].properties.drain_side = side
+				# Source order is not a fixture contract: the first record is
+				# now a shower, which correctly rejects drainboard properties.
+				for fitting: Dictionary in drain_source.fittings:
+					if fitting.properties.get("fixture") == "kitchen_sink":
+						fitting.properties.drain_side = side
 				_check(loader.validate(drain_source, world.adapter) == (typeof(side) == TYPE_FLOAT and absf(float(side)) == 1.0),
 						"drain side accepts only numeric left/right: " + str(side))
 			var duplicate_fitting := fitting_source.duplicate(true)
@@ -185,13 +201,34 @@ func _verify_3b_switches(world: Node3D) -> void:
 			if anchor.id == record.id:
 				feet.y = plate.global_position.y - float(anchor.position[1]) + 0.02
 		var authored_stance := world.adapter.resolve(str(record.id) + "_STANCE") as Node3D
+		var adjusted_pose := false
 		if authored_stance != null:
 			feet = authored_stance.global_position + Vector3.UP * 0.02
+		else:
+			# A fixture may be reached obliquely beside a basin or open leaf.
+			# Require a supported, capsule-clear pose with a direct plate ray;
+			# an assumed 0.75 m frontal pose is not itself an authored route.
+			var preferred := feet
+			feet = _clear_switch_pose(world, player, plate, preferred)
+			adjusted_pose = not feet.is_equal_approx(preferred)
+			_check(feet.is_finite(), "switch has a clear reachable operating pose: " + str(record.id))
+			if not feet.is_finite(): continue
 		player.global_position = feet
 		player.camera.global_position = feet + Vector3.UP * player.STANDING_EYE
 		player.camera.look_at(plate.to_global(Vector3(0, 0, -0.045)))
 		await get_tree().physics_frame
 		await get_tree().process_frame
+		if adjusted_pose and DisplayServer.get_name() != "headless":
+			var directory := OS.get_environment("SHOT_DIR")
+			if not directory.is_empty():
+				DirAccess.make_dir_recursive_absolute(directory)
+				var overlays: Array[CanvasLayer] = []
+				for layer in player.carried_device.get_children():
+					if layer is CanvasLayer and layer.visible:
+						overlays.append(layer);layer.hide()
+				await RenderingServer.frame_post_draw
+				get_viewport().get_texture().get_image().save_png(directory.path_join("operating_pose_"+str(record.id)+".png"))
+				for layer in overlays:layer.show()
 		var capsule := CapsuleShape3D.new()
 		capsule.radius = 0.33
 		capsule.height = 1.524
@@ -244,6 +281,32 @@ func _verify_3b_switches(world: Node3D) -> void:
 	player.camera.transform = saved_camera
 	player.set_physics_process(was_processing)
 	player.set_process_unhandled_input(was_looking)
+
+func _clear_switch_pose(world: Node3D, player: CharacterBody3D, plate: Node3D, preferred: Vector3) -> Vector3:
+	var candidates: Array[Vector3] = [preferred]
+	for distance in [.55,.75,1.0,1.25]:
+		for offset in [-.3,.3,-.6,.6,-.9,.9]:
+			var at: Vector3 = plate.global_position-plate.global_basis.z*distance+plate.global_basis.x*offset
+			at.y=preferred.y
+			candidates.append(at)
+	var capsule := CapsuleShape3D.new()
+	capsule.radius=.33;capsule.height=1.524
+	var state := world.get_world_3d().direct_space_state
+	for feet in candidates:
+		var stance := PhysicsShapeQueryParameters3D.new()
+		stance.shape=capsule;stance.transform.origin=feet+Vector3.UP*.762
+		stance.exclude=[player.get_rid()]
+		if not state.intersect_shape(stance).is_empty():continue
+		var floor_ray := PhysicsRayQueryParameters3D.create(feet+Vector3.UP*.1,feet-Vector3.UP*.15,1,[player.get_rid()])
+		var ground := state.intersect_ray(floor_ray)
+		if ground.is_empty() or (ground.normal as Vector3).y<.9:continue
+		var eye: Vector3=feet+Vector3.UP*player.STANDING_EYE
+		var target := plate.to_global(Vector3(0,0,-.045))
+		if eye.distance_to(target)>2.1:continue
+		var ray := PhysicsRayQueryParameters3D.create(eye,eye+(target-eye).normalized()*2.1,1,[player.get_rid()])
+		ray.collide_with_areas=true
+		if state.intersect_ray(ray).get("collider")==plate:return feet
+	return Vector3.INF
 
 func _capture_3b(world: Node3D) -> void:
 	var directory := OS.get_environment("SHOT_DIR")

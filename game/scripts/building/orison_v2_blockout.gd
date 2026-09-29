@@ -457,7 +457,10 @@ func _build_spaces() -> void:
 			_box(parent, "Ceiling", _rect_center(rect, y + clear_h + slab_t * 0.5),
 					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, false)
 		if not bool(space.get("open_shell", false)):
-			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls,
+			# Open stair volumes have no ceiling slab to close the 200 mm
+			# storey band. Their walls must continue to the next walking level.
+			var wall_h := float(dims.floor_to_floor) if bool(space.get("no_ceiling", false)) else clear_h
+			_build_space_outline(parent, str(space.id), rect, y, wall_h, cls,
 					space.get("wall_sides", ["south", "north", "west", "east"]))
 			for index in space.get("wall_extensions", []).size():
 				var extension: Dictionary = space.wall_extensions[index]
@@ -465,7 +468,7 @@ func _build_spaces() -> void:
 				var edge := _wall_edge(rect, side)
 				_wall_with_openings(parent, str(space.id), side.capitalize() + "Extension%02d" % index,
 						"z" if side in ["west","east"] else "x", edge.x,
-						float(extension.start), float(extension.end), y, clear_h,
+						float(extension.start), float(extension.end), y, wall_h,
 						float(layout.dimensions.partition_wall), cls)
 		if production_materials:
 			preload("res://scripts/building/orison_v2_millwork.gd").build(parent, space,

@@ -52,3 +52,12 @@ Stair voids and open landings retain their existing finishes.
 The production surface suite checks panel bounds and coplanar frame overlap,
 and captures every affected public room. The vertical route covers actual
 player travel through the narrow east hall and stair connections.
+
+## Open stair volumes
+
+Spaces explicitly marked `no_ceiling` continue their wall outlines to the next
+floor elevation. Stopping at the ordinary three-metre ceiling height left a
+200 mm opening between stacked core walls. This closes the wall band without
+adding a ceiling across the stairs or changing slab face ownership. The alley
+route suite checks twelve former openings on the service-core exterior; the
+vertical route checks the actual stair circulation.
