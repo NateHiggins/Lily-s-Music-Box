@@ -3784,6 +3784,11 @@
         "id": "ROOF_LIFT_DECK_N",
         "class": "core",
         "level": "ROOF"
+      },
+      {
+        "id": "B1_PRIMARY_STAIR_BASE",
+        "class": "service",
+        "level": "B1"
       }
     ],
     "lift_landings": [
@@ -7353,7 +7358,8 @@
       "res://assets/props/lift_call_plate.glb"
     ],
     "game/scripts/building/orison_v2_coal_delivery.gd": [
-      "res://assets/building/v2_coal_delivery.glb"
+      "res://assets/building/v2_coal_delivery.glb",
+      "res://assets/props/coal_heap.glb"
     ],
     "game/scripts/building/orison_v2_domestic_doors.gd": [
       "res://assets/props/door_butt_hinge.glb",
@@ -7437,6 +7443,7 @@
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_chimney_crown.py",
     "art/blender/scripts/build_coal_delivery.py",
+    "art/blender/scripts/build_coal_heap.py",
     "art/blender/scripts/build_door_butt_hinge.py",
     "art/blender/scripts/build_door_knob_set.py",
     "art/blender/scripts/build_dream_critter.py",

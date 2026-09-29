@@ -184466,6 +184466,194 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "e53f117333715e3b",
+   "kind": "id_candidate",
+   "token": "B1_COAL_HEAP_",
+   "file": "game/scripts/building/orison_v2_coal_delivery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_coal_heap"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "if not str(old.name).begins_with(\"B1_COAL_HEAP_\"): continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "de1e37e22e32a554",
+   "kind": "id_reference",
+   "token": "B1_PRIMARY_STAIR_BASE",
+   "file": "game/tests/orison_v2_basement_ground_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var foundation := world.adapter.resolve(\"B1_PRIMARY_STAIR_BASE\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "593770e6cc069f56",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_basement_ground_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(4.9,-3.18,-1.2))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0753826b1b5984ab",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_basement_ground_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    30,
+    38,
+    38,
+    38,
+    38,
+    38,
+    38,
+    38,
+    38,
+    38
+   ],
+   "count": 10,
+   "context": [
+    "player.face_world_point(root.to_global(Vector3(3,-3.15,0)))",
+    "for point in [Vector3(3.7,-3.2,-1.4),Vector3(3.7,-3.2,-.55),Vector3(4.9,-3.2,-.55),Vector3(4.9,-3.2,-3.4),Vector3(2.3,-3.2,-3.4),Vector3(2.3,-1.6,1.3),Vector3(3"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f515d949ad7d9344",
+   "kind": "id_candidate",
+   "token": "B1_COAL_HEAP_",
+   "file": "game/tests/orison_v2_coal_heap_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "if str(old.name).begins_with(\"B1_COAL_HEAP_\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6c0b4a061b59a8d7",
+   "kind": "id_reference",
+   "token": "B1_COAL_BUNKER",
+   "file": "game/tests/orison_v2_coal_heap_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "var bunker := world.adapter.resolve(\"B1_COAL_BUNKER\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

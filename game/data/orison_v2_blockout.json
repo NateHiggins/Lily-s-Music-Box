@@ -1876,7 +1876,8 @@
     {"id":"ROOF_LIFT_DECK_E","level":"ROOF","rect":[-0.64,-3.85,1.7,3.85],"class":"core"},
     {"id":"ROOF_LIFT_DECK_S","level":"ROOF","rect":[-0.86,-3.85,-0.64,-2.18],"class":"core"},
     {"id":"ROOF_LIFT_DECK_BRIDGE","level":"ROOF","rect":[-0.86,-2.09,-0.64,-0.54],"class":"core"},
-    {"id":"ROOF_LIFT_DECK_N","level":"ROOF","rect":[-0.86,-0.42,-0.64,3.85],"class":"core"}
+    {"id":"ROOF_LIFT_DECK_N","level":"ROOF","rect":[-0.86,-0.42,-0.64,3.85],"class":"core"},
+    {"id":"B1_PRIMARY_STAIR_BASE","level":"B1","rect":[1.7,-1.9,4.4,1.65],"class":"service"}
   ],
   "lift_landings": [
     {"id":"F01_PASSENGER_LIFT_LANDING","level":"F01","shaft":"PASSENGER_LIFT_SHAFT","center":[0.0,-2.8],"width":0.91,"height":2.13,"yaw":0.0,"clear_depth":1.8},
