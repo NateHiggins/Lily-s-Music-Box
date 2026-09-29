@@ -7365,6 +7365,9 @@
       "res://assets/props/door_butt_hinge.glb",
       "res://assets/props/door_knob_set.glb"
     ],
+    "game/scripts/building/orison_v2_domestic_furniture.gd": [
+      "res://assets/props/bedding.glb"
+    ],
     "game/scripts/building/orison_v2_door_casings.gd": [
       "res://assets/props/millwork_profile.glb"
     ],
@@ -7442,6 +7445,7 @@
   "blender_generators": [
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
+    "art/blender/scripts/build_bedding.py",
     "art/blender/scripts/build_boiler_body.py",
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_chimney_crown.py",
