@@ -35,6 +35,8 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
+| Blender boiler breeching, open gores, collar seating and bend collision | `art/blender/breeching.md` |
 | Boiler firing/ash door outward swing and matching moving plate collision | `art/blender/boiler_door_swing.md` |
 | Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
 | Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
