@@ -132,11 +132,12 @@ car. Guarded openings carry the ropes through the roof and machinery plinth;
 the roof access path stays outside the moving apparatus. This does not add
 another repair job or a second lift controller.
 
-The service lamp is now bright enough to serve as the primary local light in
-unlit rooms, the basement and on the roof. Press L to switch it. It retains its
+The service lamp provides local light in unlit rooms, the basement and on the
+roof. Its waking output is reduced to one quarter of the former setting to
+keep nearby pale surfaces readable. Press L to switch it. It retains its
 physical aim and thermal warm-up. Its native throw is 16 metres; the shared
 voxel field supplies instantaneous optical response rather than building-wide
-indirect illumination. Dream and close-up inspection use lower, scene-specific
+indirect illumination. Dream and close-up inspection retain scene-specific
 output. The ecology camera's lamp takes over the field while inspecting and
 returns ownership to the carried lamp when you leave.
 

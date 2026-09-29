@@ -1,7 +1,7 @@
 extends RefCounted
 ## Shared useful output for the service lamp. Electrical transients and the
 ## optical field multiply/observe this value; they do not own another light.
-const BASE_ENERGY := 24.0
+const BASE_ENERGY := 6.0
 const WAKING_RANGE := 16.0
 const WAKING_ATTENUATION := .5
 ## A work-light reflector covers nearby controls despite the carried lens's
