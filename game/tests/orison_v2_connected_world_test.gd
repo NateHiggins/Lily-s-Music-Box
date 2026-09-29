@@ -166,6 +166,7 @@ func _run() -> void:
 				_check(not world.get_world_3d().direct_space_state.intersect_ray(ground).is_empty(),
 						"F03 capsule station has floor: " + str(station.id))
 		if not world.startup_failed:
+			await _verify_study_switch_sweep(world)
 			await _verify_3b_switches(world)
 		if iteration == 0 and not OS.get_environment("SHOT_DIR").is_empty() and not world.startup_failed:
 			await _capture_3b(world)
@@ -236,7 +237,10 @@ func _verify_3b_switches(world: Node3D) -> void:
 		stance.shape = capsule
 		stance.transform.origin = feet + Vector3.UP * 0.762
 		stance.exclude = [player.get_rid()]
-		_check(world.get_world_3d().direct_space_state.intersect_shape(stance).is_empty(),
+		var obstructions := world.get_world_3d().direct_space_state.intersect_shape(stance)
+		for obstruction in obstructions:
+			print("SWITCH OBSTRUCTION ", record.id, " ", obstruction.collider.get_path())
+		_check(obstructions.is_empty(),
 				"switch standing capsule clear: " + str(record.id))
 		var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
 				player.camera.global_position - player.camera.global_basis.z * 2.1)
@@ -281,6 +285,25 @@ func _verify_3b_switches(world: Node3D) -> void:
 	player.camera.transform = saved_camera
 	player.set_physics_process(was_processing)
 	player.set_process_unhandled_input(was_looking)
+
+func _verify_study_switch_sweep(world: Node3D) -> void:
+	var door := world.find_child("F06_A_KITCHEN_STUDY_DOOR_Leaf",true,false) as DoorProp
+	var anchor := world.adapter.resolve("F06_A_STUDY_SWITCH_STANCE") as Node3D
+	var saved := door._body.rotation.y
+	var capsule := CapsuleShape3D.new()
+	capsule.radius=.33;capsule.height=1.524
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape=capsule
+	query.transform.origin=anchor.global_position+Vector3.UP*(.02+.762)
+	query.exclude=[world.player.get_rid()]
+	for degrees in range(0,101,10):
+		door._body.rotation.y=deg_to_rad(degrees)
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		_check(world.get_world_3d().direct_space_state.intersect_shape(query).is_empty(),
+				"study switch stance clears door sweep at %d degrees" % degrees)
+	door._body.rotation.y=saved
+	await get_tree().physics_frame
 
 func _clear_switch_pose(world: Node3D, player: CharacterBody3D, plate: Node3D, preferred: Vector3) -> Vector3:
 	var candidates: Array[Vector3] = [preferred]

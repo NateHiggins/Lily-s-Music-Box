@@ -61,6 +61,11 @@ world constructions. Alternate poses receive inspection captures. The former
 now matches the already-authored and walked dining-table stance at 12.5 m.
 No furniture, collision dimensions, interaction range or control is weakened.
 
+The sixth-floor study switch stance moves 0.51 m clear of the kitchen door's
+intermediate sweep. The old stance was clear at both endpoints but intersected
+the leaf from 10 to 50 degrees. Eleven sampled door angles now receive strict
+capsule checks before the full switch interaction loop.
+
 The initial headless stair attempt waited for a capture and was interrupted;
 the initial connected-world fixture raised an absent-surfaces error. Those
 attempts are preserved under **initial-verification** and are not passing
