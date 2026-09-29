@@ -224,6 +224,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: remaining interiors refused: %s" % [completion.errors])
 		return
+	preload("res://scripts/building/orison_v2_reading_furniture.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_house_tank.gd").mount(_blockout)

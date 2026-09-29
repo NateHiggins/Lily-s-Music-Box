@@ -11,6 +11,12 @@ Discovery does not classify a hidden reservation as an unfinished visible prop.
 The production root, its exterior/passage composition and rendered inspection
 remain necessary to establish what the player actually sees.
 
+The all-space overview now has 400 captures across all 200 spaces. See
+**v2_space_sweep.md** and **v2_space_review.json** for the reviewed overviews,
+obstructed landing views and remaining detail/route work. This is a coverage
+advance, not acceptance of every installation. The composed exterior and
+passage still require a complete independent sweep.
+
 The focused production run also writes **production_geometry_inventory.json**
 beside its screenshots, recording actual mesh types, visibility, instances and
 active material/texture or shader bindings. The 2026-09-29 discovery observed
@@ -45,8 +51,9 @@ has yet been demonstrated; none is silently marked complete.
 | Boiler breeching | build_breeching.py / V2 boiler flue owner | Three fitted elbows and open straight shells implemented; focused rendered/contact checks passed. Candidate verification and production route belong to the batch receipts. |
 | Boiler body and firebox | build_boiler_body.py / BoilerProp | Hollow casing, fitted surrounds, recessed firebrick, internal grate, ash tray and live shaped coal fabricated. Twelve cavity contacts and closed plate seals checked; production renders inspected. |
 | Boiler water column, header and service hardware | BoilerProp | Existing mechanism geometry retained; installation sweep pending. |
-| Coal delivery, electrical room, workshop, storage | V2 basement / coal delivery / existing apparatus | Primitive structural vs unfinished detail classification and rendered inspection pending. Preserve all service and storage access. |
-| Public rooms, laundry, watch/mail/package/reading spaces | Production prop owners and completion interiors | Existing mechanisms remain; reading-room furnishing was explicitly unfinished in launch documentation. Inventory and fabricate missing furnishings after room inspection. |
+| Coal delivery, electrical room, workshop, storage | V2 basement / coal delivery / existing apparatus | Overview found a stepped rectangular coal heap needing fabrication. Preserve delivery state and service/storage access; inspect supports and storage construction in detail. |
+| Public reading room | build_reading_furniture.py / existing room and door owners | Empty shell furnished with a six-place table, chairs and two bookcases. Nine actual contacts and 25 walking waypoints pass; shared reading activities remain unimplemented. |
+| Public rooms, laundry, watch/mail/package spaces | Production prop owners and completion interiors | Existing mechanisms remain. Overview confirms sparse lobby/package rooms; furnishings, controls and service access need focused follow-up. |
 | Apartment fixed wet fittings | bath_lavatory / bath_water_closet / bathroom_details | Reuse existing Blender fittings; check all installed variants and close-range controls. |
 | Apartment furniture and built-ins | domestic_furniture_source and installed surfaces | Existing source-derived surfaces are not automatically placeholders. Review all kinds, furniture clearances, hardware, pivots, and missing UVs before replacing anything. |
 | Household radiators and accessories | heating/accessory source and mechanism owners | Preserve one-pipe steam and service semantics; inspect support, union and vent geometry. |

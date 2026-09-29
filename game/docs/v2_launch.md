@@ -24,8 +24,8 @@ to the common reading room. These three doors now start closed and use E to
 open or close their production leaves. Just inside the watch-room threshold,
 turn alongside the existing desk; the desk occupies the straight-ahead space.
 Door positions follow the ordinary transient door lifecycle and reset on
-building reconstruction. The reading-room shell and wall finishes are present;
-its furnishings and shared reading activities remain unfinished.
+building reconstruction. The reading room has a six-place oak table, fitted
+chairs and two bookcases. Shared reading activities remain unfinished.
 
 OrisonV2PublicDoorsTest checks closed-leaf collision, real player interaction,
 crossings and closing from both sides, plus a continuous trip through all

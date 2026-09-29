@@ -184364,6 +184364,108 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "aa78c24a50fe1f14",
+   "kind": "id_reference",
+   "token": "F01_COMMON_B",
+   "file": "game/scripts/building/orison_v2_reading_furniture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "var room := adapter.resolve(\"F01_COMMON_B\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ec55e54d92dee352",
+   "kind": "id_reference",
+   "token": "F01_COMMON_B",
+   "file": "game/tests/orison_v2_reading_furniture_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "var room := world.adapter.resolve(\"F01_COMMON_B\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0f57fd9873471932",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_reading_furniture_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    22,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    47
+   ],
+   "count": 10,
+   "context": [
+    "var origin := Vector3(0,1.1,0) if body.name==\"Table\" else Vector3(0,.7,0)",
+    "for point in [Vector3(-10.3,0,2.4),Vector3(-10.3,0,-1.4),Vector3(-14.6,0,-1.4),Vector3(-14.6,0,3.4),Vector3(-14.6,0,4.35),Vector3(-11.4,0,4.35),Vector3(-10.3,0,",
+    "camera.global_position=furniture.get_node(\"Table\").to_global(Vector3(-1.8,1.05,-1.3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

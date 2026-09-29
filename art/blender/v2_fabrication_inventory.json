@@ -7403,6 +7403,9 @@
       "res://assets/video/clips/%s.ogv",
       "res://assets/video/clips/clips.json"
     ],
+    "game/scripts/building/orison_v2_reading_furniture.gd": [
+      "res://assets/props/reading_furniture.glb"
+    ],
     "game/scripts/building/orison_v2_roof_coping.gd": [
       "res://assets/props/roof_coping.glb"
     ],
@@ -7453,6 +7456,7 @@
     "art/blender/scripts/build_light_switch.py",
     "art/blender/scripts/build_millwork_profile.py",
     "art/blender/scripts/build_orison.py",
+    "art/blender/scripts/build_reading_furniture.py",
     "art/blender/scripts/build_roof_coping.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_stair_ironwork.py",
