@@ -24,6 +24,9 @@ const PAPER := Color(0.82, 0.76, 0.62)
 const FIREBRICK := Color(0.39, 0.19, 0.12)
 const WATER := Color(0.28, 0.48, 0.52, 0.72)
 
+## V2 supplies fabricated pipework; legacy compositions retain local fittings.
+var external_pipework := false
+
 var pressure := 0.48
 var water_level := 0.62
 var firebed := 0.78
@@ -269,21 +272,23 @@ func _build_header_and_return() -> void:
 	var takeoff := _cyl(_carcass, 0.078, 0.078, 0.40,
 			Vector3(0.05, 1.84, 0.02), STEEL)
 	takeoff.position.y = 1.82
-	# Equalizer and low return form a visible Hartford-style loop at the left.
-	_cyl(_carcass, 0.038, 0.038, 0.72,
-			Vector3(-0.49, 0.54, 0.28), STEEL)
-	var return_leg := _cyl(_carcass, 0.038, 0.038, 0.48,
-			Vector3(-0.26, 0.18, 0.28), STEEL)
-	return_leg.rotation_degrees.z = 90.0
-	_cyl(_carcass, 0.055, 0.055, 0.09,
-			Vector3(-0.49, 0.77, 0.28), BRASS)
+	if not external_pipework:
+		# Equalizer and low return form a visible Hartford-style loop at the left.
+		_cyl(_carcass, 0.038, 0.038, 0.72,
+				Vector3(-0.49, 0.54, 0.28), STEEL)
+		var return_leg := _cyl(_carcass, 0.038, 0.038, 0.48,
+				Vector3(-0.26, 0.18, 0.28), STEEL)
+		return_leg.rotation_degrees.z = 90.0
+		_cyl(_carcass, 0.055, 0.055, 0.09,
+				Vector3(-0.49, 0.77, 0.28), BRASS)
 	# Safety valve is vertical, with a discharge elbow aimed away from the
 	# person reading the water glass.
 	_cyl(_carcass, 0.042, 0.052, 0.13,
 			Vector3(-0.30, 1.68, -0.10), BRASS)
-	var relief := _cyl(_carcass, 0.022, 0.022, 0.34,
-			Vector3(-0.30, 1.88, -0.10), STEEL)
-	relief.rotation_degrees.z = -18.0
+	if not external_pipework:
+		var relief := _cyl(_carcass, 0.022, 0.022, 0.34,
+				Vector3(-0.30, 1.88, -0.10), STEEL)
+		relief.rotation_degrees.z = -18.0
 
 
 func smoke_outlet() -> Vector3:

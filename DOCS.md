@@ -40,6 +40,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |
 | Rear service door, receiving approach and continuous street-connected alley | `art/blender/service_alley.md` |
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |
+| Boiler steam header, exposed equalizer, discharge and fitted supports | `art/blender/boiler_pipework.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
 | Lobby waiting benches and fixed parcel shelving | `art/blender/public_furnishings.md` |
 | Basement stair foundation and Blender coal pile | `art/blender/basement_fabrication.md` |

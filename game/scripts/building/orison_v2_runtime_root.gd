@@ -641,6 +641,7 @@ func _compose_service_round_props() -> void:
 		return
 	heat_balance = heating.balance
 	var boiler := BoilerProp.new()
+	boiler.external_pipework = true
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)
 	# The semantic anchor names the inspection height. BoilerProp's origin
@@ -664,6 +665,7 @@ func _compose_service_round_props() -> void:
 		push_error("ORISON V2 RUNTIME: boiler flue connection refused")
 		return
 	_retire_blockout_fixture("B1_BREECHING_MASS")
+	preload("res://scripts/building/orison_v2_boiler_pipework.gd").mount(adapter.root)
 	watch_station_network = WatchStationNetwork.new()
 	watch_station_network.name = "WatchStationNetwork"
 	add_child(watch_station_network)

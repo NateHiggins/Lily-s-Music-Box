@@ -7353,6 +7353,9 @@
       "res://assets/props/breeching.glb",
       "res://assets/props/chimney_crown.glb"
     ],
+    "game/scripts/building/orison_v2_boiler_pipework.gd": [
+      "res://assets/props/boiler_pipework.glb"
+    ],
     "game/scripts/building/orison_v2_cab_controls.gd": [
       "res://assets/props/lift_cab_controls.glb",
       "res://assets/props/lift_call_plate.glb"
@@ -7451,6 +7454,7 @@
     "art/blender/scripts/build_bedding.py",
     "art/blender/scripts/build_boiler_body.py",
     "art/blender/scripts/build_boiler_instruments.py",
+    "art/blender/scripts/build_boiler_pipework.py",
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_chimney_crown.py",
     "art/blender/scripts/build_coal_delivery.py",
