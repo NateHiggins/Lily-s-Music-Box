@@ -34,10 +34,41 @@ func _route() -> void:
 	for point in [Vector3(3.7,-2.8,34.5),Vector3(2.5,-2.8,34.5),Vector3(1.45,-2.8,34.5)]:
 		if not await _walk_source(bar,point): return
 	await _capture("bar_room",bar.to_global(Vector3(-5,-1.3,32)))
+	var pool_zone = bar.actors.get_node("BAR_POOL_TABLE")
+	if not _require(pool_zone.position.distance_to(Vector3(-7.4,-1.95,31.25))<.001,
+			"pool inspection volume follows the retained table in the west bay"):return
 	if not _require(bar.actors.has_node("F01_BAR_SONGBOOK")
 			and bar.actors.has_node("F01_BAR_DARTS") and bar.actors.has_node("F01_BAR_POOL")
 			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).size()==2,
 			"retained games and recording apparatus have their original owners"): return
+	var service = [Vector3(1.45,-2.8,33.1),Vector3(-1,-2.8,33.1),Vector3(-3,-2.8,33.1),Vector3(-5.6,-2.8,33.1),Vector3(-8.0,-2.8,33.1),Vector3(-10.5,-2.8,33.1),Vector3(-10.5,-2.8,35.4)]
+	for point in service:
+		if not await _walk_source(bar,point): return
+	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
+	if not await _use(wc,wc.to_global(Vector3(wc.width*.5,1.15,0)),"wc_door"):return
+	await get_tree().create_timer(.6).timeout
+	if not _require(wc.open and absf(rad_to_deg(wc._body.rotation.y)-145.0)<.1,
+			"ordinary restroom input clears the retained jamb with a 145-degree opening"):return
+	if not await _walk_source(bar,Vector3(-10.48,-2.8,36.65)):return
+	await _capture("wc_inside",bar.to_global(Vector3(-10.1,-1.9,37.5)))
+	var sink = bar.actors.get_node("F01_BAR_WC_SINK_01")
+	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink"):return
+	if not _require(sink.get_flow_state().hot and not sink.get_flow_state().cold,
+			"retained sink first opens its hot valve through ordinary input"):return
+	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_mixed"):return
+	if not _require(sink.get_flow_state().hot and sink.get_flow_state().cold,
+			"retained sink admits both valves on repeated input"):return
+	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_off"):return
+	if not _require(not sink.get_flow_state().hot and not sink.get_flow_state().cold,
+			"retained sink closes both valves through ordinary input"):return
+	if not await _walk_source(bar,Vector3(-10.48,-2.8,35.4)):return
+	if not await _use(wc,wc._body.to_global(Vector3(.25,1.15,.026)),"wc_door_close"):return
+	await get_tree().create_timer(.6).timeout
+	if not _require(not wc.open and absf(wc._body.rotation.y)<.001,"restroom leaf returns to its original closed pose"):return
+	service.reverse()
+	for point in service.slice(1):
+		if not await _walk_source(bar,point):return
+	if not await _walk_source(bar,Vector3(1.45,-2.8,34.5)):return
 	# The bar stays resident independently while the arcade reloads on exit.
 	var bar_geometry := bar.get_node("RetainedBarGeometry")
 	for point in [Vector3(2.5,-2.8,34.5),Vector3(3.7,-2.8,34.5),Vector3(4.8,-2.8,34.55)]:

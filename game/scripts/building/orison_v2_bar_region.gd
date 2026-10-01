@@ -7,13 +7,14 @@ const CELL := "res://assets/building/floor_01_cells/shop_bar.gltf"
 const REGISTRY := "res://data/floor_01_cell_registry.json"
 const LAYOUT := "res://data/building_layout.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
+const WCDoor := preload("res://scripts/building/orison_v2_bar_wc_door.gd")
 const PROP_SCRIPTS := {
 	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
 	"songbook_terminal": preload("res://scripts/props/songbook_terminal_prop.gd"),
 	"darts": preload("res://scripts/props/darts_prop.gd"),
 	"point_ball": preload("res://scripts/props/point_ball_prop.gd"),
-	"sink": preload("res://scripts/props/tap_prop.gd"),
+	"sink": preload("res://scripts/building/orison_v2_bar_sink.gd"),
 	"speaker": preload("res://scripts/props/speaker_prop.gd"),
 }
 
@@ -81,6 +82,16 @@ func _ready() -> void:
 		if child is Node3D and child not in before and child != hands:
 			child.position = child.global_position
 	var floor_copy: Dictionary = source_layout.floors.filter(func(f): return f.id == "F01")[0].duplicate(true)
+	# The retained helper predates the pool table's move to the west bay.
+	# Fit its inspection volume to the actual authored body, keeping its text.
+	var pools: Array = floor_copy.furniture.filter(func(f): return f.id == "retail_bar_pool_body")
+	if pools.size() != 1:
+		_fail("retained pool table has no unique physical body")
+		return
+	var pool: Dictionary = pools[0]
+	var rect: Array = pool.rect
+	actors.get_node("BAR_POOL_TABLE").position = GameBoot.b2g([
+		(rect[0] + rect[2]) * .5, (rect[1] + rect[3]) * .5, float(pool.z0) + .85])
 	floor_copy.furniture = floor_copy.furniture.filter(func(f): return str(f.id).begins_with("retail_bar"))
 	var bar_layout := {"floors": [floor_copy]}
 	var arcade := ArcadeRow.new()
@@ -97,7 +108,7 @@ func _mount_marker(marker: Dictionary) -> bool:
 	var prop: Node3D
 	var kind := str(marker.kind)
 	if kind == "door":
-		var door := DoorProp.new()
+		var door: DoorProp = WCDoor.new() if marker.id == "F01_BAR_WC_DOOR" else DoorProp.new()
 		door.width = float(marker.w)
 		door.height = float(marker.h)
 		door.leaf_state = str(marker.leaf)
