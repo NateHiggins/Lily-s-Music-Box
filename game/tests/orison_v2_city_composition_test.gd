@@ -42,7 +42,7 @@ func _run() -> void:
 				check(is_equal_approx(fixture._state_gain,expected),"existing hours direct actual fixture: " + str(fixture.name))
 		var shells := world.get_node("CityShells")
 		var meshes := shells.find_children("*","MeshInstance3D",true,false)
-		check(meshes.size()==87,"building and material partitions retained")
+		check(meshes.size()==84,"building and material partitions retained")
 		for mesh: MeshInstance3D in meshes:
 			var material := mesh.material_override as StandardMaterial3D
 			check(material!=null and material.albedo_texture!=null and material.normal_texture!=null,

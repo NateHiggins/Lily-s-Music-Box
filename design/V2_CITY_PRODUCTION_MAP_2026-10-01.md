@@ -16,7 +16,8 @@ Canonical checkout is **C:/PleaseRemainOnTheLine**, **main**. The clean starting
 HEAD, origin/main and merge-base were **4c4d641318289983a68d04769de411f7e984535c**.
 The complete clean baseline board is **tmp/city-architecture/baseline/board.json**.
 Candidate verification and the exact committed outcome are recorded in
-**tmp/city-architecture/verified/verification.json** and the follow-up report.
+**tmp/city-architecture/final-verified/verification.json** and the follow-up report.
+The earlier **verified/verification.json** records the blocked provisional candidate.
 
 **tools/inventory_v2_fabrication.py** now indexes the composition as well as the
 200-space interior. Its generated **art/blender/v2_fabrication_inventory.json**
@@ -30,7 +31,15 @@ cells. A source reference alone is not a successful walk or a quality verdict.
 | Vantry Arcade | **orison_v2_passage_region.gd** mounts gateway plus twelve cells: passage and eleven shops. Passage geometry is the admitted V2 derivative; eleven shop assets remain retained cell exports. Imported collision, source marker doors and hours grilles retain their owners. | **passage_finish_pass.gd**, **passage_hours_director.gd**, shared **MaintenanceShopService** and **orison_v2_passage_residency.gd**. Portal and both nave directions inspected; actual hardware purchase and reload route retained as regression coverage. Individual shop/service and closed-hours walks remain open. |
 | Street | Exterior cell owns the north pavement, curb and road. Extracted **passage_gateway.gltf** owns the opposite gateway/kiosk ground and retained transit approach. **orison_v2_street_boundaries.gd** owns route limits; **service_alley.glb** owns the rear/service paving up to the existing pavement. | Existing street traffic, light budget and shop presentation; no second city simulator. The street template's duplicate facade/window/cornice boxes are removed in composition. Kiosk rails and arcade piers require the actual public approach, as used by the bar route. Drainage slopes and all transit edges need further close review. |
 | Harukiya bar | **orison_v2_bar_region.gd** mounts registered **shop_bar.gltf**, whose shell, floor, ceiling, sanitary partition, stair, backbar, retained furniture and static collision are unchanged. Source marker doors are the moving owners. | Exact **CELL_SHOP_BAR** roster: 29 markers, including 18 lights and three doors; existing Harukiya hours, nine interaction sockets and two ArcadeRow receivers. Acoustic fixture mouths register to world coordinates and restore on teardown. Public entry, descent, red door, room and return walked successfully. Restroom, seat fit, apparatus reach and service continuity still require focused review. |
-| Cityscape | **build_city_shells.py** derives 338 authored box solids from immutable generated city records. Editable **city_shells.blend**, exported **city_shells.glb**, and **orison_v2_city_shells.gd** own 87 building/material mesh and collision partitions. Source ground/shop interiors are omitted. | Geometry-only neighbors, backs, cornices, roofs and distant closures. No new live controls, modern services or simulation. Two north neighbors register to the current bodega/alley; southern bar/arcade geometry retains its authored frame. Oblique, street-wall, roof and overhead views inspected. Rear courtyards and more boundary sightlines remain uninspected. |
+| Cityscape | **build_city_shells.py** derives 335 authored box solids from immutable generated city records. Editable **city_shells.blend**, exported **city_shells.glb**, and **orison_v2_city_shells.gd** own 84 building/material mesh and collision partitions. Source ground/shop interiors are omitted. | Geometry-only neighbors, backs, cornices, roofs and distant closures. No new live controls, modern services or simulation. Two north neighbors register to the current bodega/alley; southern bar/arcade geometry retains its authored frame. Oblique, street-wall, roof and overhead views inspected. Rear courtyards and more boundary sightlines remain uninspected. |
+
+The northeast row also registers **+5.58 m** beyond the current street region,
+including the construction-shed approach: projecting cornices begin at world X
+**25.58 m**, the ground mass at **25.78 m**. Restoring its old X **20.20 m** ground
+face blocked the admitted east route; that failed run is preserved. The corrected
+**street-fixed.log.receipt.json** completed 24 waypoints with zero failures;
+candidate-bound repetition remains required. The shell filter excludes street news
+boxes, whose shared name prefix is not a neighboring-building identity.
 
 The dormant old Orison interior/facade and bodega cells remain available for V1.
 The street-common cell supplies only the gateway derivative; it is not wholly
@@ -52,7 +61,7 @@ from **regions.json**. Do not substitute one frame's coordinates for another.
 | Bodega / pavement | Threshold frame 1.2 m by 2.5 m; instance center world X **18.655 m**. Current shop floor and threshold stay in the exterior resolver's frame. Physical storefront leaf parameters remain in **exterior_geometry.json**. | Exterior cell owns both shop and north pavement, including existing colliders/counter. Source east neighbor shifts **+1.255 m** to the registered bodega. Delivery aperture and swept volume are not yet accepted. |
 | Arcade gateway / passage and eleven shops | Source marker openings, door dimensions, lintels and grilles remain authoritative in **building_layout.json** and cell exports. One imported frame; nave datum 0. | Imported cells own floor/collision; passage actors own doors and hours grilles. Shared hardware counter retains actual stock/inventory. Residency unload/reload occurs at the Orison core/vestibule, retaining physical actors. Separate shop-by-shop and closed-grille route work remains. |
 | Street / bar lobby / bar basement | Source shaft X **4.30..5.90 m**, 1.60 m clear, street lobby top **0.02 m**. Fifteen **0.175 m** risers with **0.27 m** treads reach the **-2.80 m** room through the bottom landing. Street leaf 0.90 m; red leaf 0.90 m at source hinge **(4.15,-33.95,-2.8)**, outward hand. | Original imported slab, 0.30 m wall/threshold strip and collision remain. Use the west lane past the umbrella stand, then continue beyond the lobby crate before the descent stance. Red-door notch admits the capsule without crossing the 0.18 m lounge lip. No interstage teleport. Bar actor acoustic mouths register with the same city transform. |
-| City neighbors / service alley and bodega | West north neighbor shift **-3.20 m** derives from the accepted alley boundary plus 0.08 m separation; east shift derives from bodega registration. Other buildings retain source coordinates. | City shells own their solid backs/roofs/collision, with no copied street floor or shop interiors. Eight-millimetre arrises are visual detail; microscopic corner triangles are excluded from structural ray sampling. Roof/wet/utility penetrations beyond the accepted sources remain a review task. |
+| City neighbors / service alley and bodega | West north neighbor shift **-3.20 m** derives from the accepted alley boundary plus 0.08 m separation; east shift derives from bodega registration. Northeast row shift **+5.58 m** clears the admitted construction route. Southern buildings retain source coordinates. | City shells own their solid backs/roofs/collision, with no copied street floor or shop interiors. Eight-millimetre arrises are visual detail; microscopic corner triangles are excluded from structural ray sampling. Roof/wet/utility penetrations beyond the accepted sources remain a review task. |
 
 ## Shared infrastructure register
 
@@ -74,7 +83,7 @@ their own source-grounded geometry and route checks.
 ## Inspection, measurements and next queues
 
 Before: **tmp/city-architecture/before/city**. After:
-**tmp/city-architecture/after/city-shells**. Thirteen production camera views
+**tmp/city-architecture/after/city-final**. Thirteen production camera views
 include player-height frontage, shop, arcade, bar approach, alley and street
 walls, plus roof and overhead discovery. The paired **census.json** files record
 visible mesh bounds, ownership paths, transforms, residency and render counters.
@@ -88,12 +97,12 @@ and the bar's first approach camera lies near kiosk rails. These limitations
 are retained in discovery, not counted as clear installation acceptance.
 Successful bar route frames are in **tmp/city-architecture/bar-route-5**.
 
-Geometry-node discovery changed **11,007 → 11,404**. Startup samples were
-**19.04 → 20.97 s**. Representative all-pass draw counters: front
-**37,848 → 38,741**, bar approach **5,426 → 7,736**, alley
-**17,841 → 17,324**, overhead **26,180 → 30,833**. Process samples vary strongly
-with view and residency: front **139 → 127 ms**, bar **101 → 115 ms**, alley
-**178 → 288 ms**, overhead **311 → 319 ms**. These single-frame, multipass
+Geometry-node discovery changed **11,007 → 11,401**. Startup samples were
+**19.04 → 19.97 s**. Representative all-pass draw counters: front
+**37,848 → 38,719**, bar approach **5,426 → 7,908**, alley
+**17,841 → 18,570**, overhead **26,180 → 30,979**. Process samples vary strongly
+with view and residency: front **139 → 127 ms**, bar **101 → 149 ms**, alley
+**178 → 177 ms**, overhead **311 → 342 ms**. These single-frame, multipass
 observations are not stable FPS measurements or a performance acceptance claim.
 The additional city asset is approximately **1.72 MB**, partitioned for culling.
 
@@ -108,10 +117,11 @@ The additional city asset is approximately **1.72 MB**, partitioned for culling.
 
 ## Gates, failures and preservation
 
-Focused **bar-route-5.log.receipt.json** completed with **38 waypoints / 0 failures**.
-**city-composition-3.log.receipt.json** completed with **1,295 checks / 468 structural
-contacts / 0 failures**, two world constructions, all three original hours states,
-87 mapped mesh partitions with active UVs/normals/tangents, and acoustic restoration.
+Initial focused **bar-route-5.log.receipt.json** completed with **38 waypoints / 0 failures**.
+The provisional **city-composition-3.log.receipt.json** completed with **1,295 checks /
+468 structural contacts / 0 failures** on the original 87-partition export, two world
+constructions, all three original hours states, active UVs/normals/tangents and acoustic
+restoration. The 84-partition correction must pass its own final candidate checks.
 Earlier runs that stopped on an approach pier, umbrella stand, a crate/tread stance,
 or microscopic bevel probes are not acceptance evidence. One earlier import
 argument error ran the wrong scene and reached its ceiling; it is not an import

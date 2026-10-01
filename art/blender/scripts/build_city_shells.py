@@ -1,8 +1,8 @@
 """Restore authored city masses around V2 without importing their old ground.
 
 The immutable generated city plan supplies every solid and roof profile.
-Only the two north neighbors register to V2's wider envelope and accepted
-service alley. Each building/material is a separate export for culling.
+North neighbors and the northeast row register to V2's wider envelope,
+accepted service alley and construction-shed route. Each building/material is a separate export for culling.
 """
 from pathlib import Path
 import json
@@ -15,8 +15,11 @@ v2 = json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text(encoding='u
 regions = json.loads((ROOT/'game/data/orison_v2/exterior/regions.json').read_text(encoding='utf-8'))
 spaces = {r['id']: r for r in v2['spaces']}
 floor = next(f for f in layout['floors'] if f['id']=='F01')
-prefixes = ('site_nbr_', 'site_back_', 'site_nw', 'site_ne', 'site_sw', 'site_se', 'site_far_')
-records = [r for r in floor['furniture'] if r['id'].startswith(prefixes) and 'rect' in r
+def is_city_shell(identity):
+    return (identity.startswith(('site_nbr_', 'site_back_', 'site_far_'))
+            or re.match(r'^site_(?:nw|ne|sw|se)\d+_', identity) is not None)
+
+records = [r for r in floor['furniture'] if is_city_shell(r['id']) and 'rect' in r
            and not r['id'].endswith('_beacon')]
 # The existing bodega instance is the east neighbor's registration authority.
 instance = next(r for r in regions['instances'] if r['semantic_identity']=='SHOP_BODEGA')
@@ -27,6 +30,13 @@ east_offset = float(pavement['point_m'][0])+float(instance['offset_uvn_m'][0])-1
 alley_outer = spaces['F01_D_MAIN']['rect'][2]+2.35+.24+.08
 west_offset = -alley_outer-.08-(-15.2)
 offsets = {'site_nbr_e': east_offset, 'site_nbr_w': west_offset}
+# The admitted street includes the construction-shed corridor. The old
+# northeast mass starts inside that enlarged route; register its whole row
+# beyond the current street extent, including its projecting cornices.
+northeast = [r for r in records if re.match(r'^site_ne\d+_',r['id'])]
+street_region = next(r for r in regions['regions'] if r['id']=='REGION_STREET')
+northeast_offset = max(p[0] for p in street_region['boundary'])+.08-min(r['rect'][0] for r in northeast)
+offsets.update({re.match(r'^(site_ne\d+)_',r['id']).group(1):northeast_offset for r in northeast})
 runtime_keys = {'common_brick':'brick', 'brick_patched':'brick', 'face_brick':'brick',
                 'limestone':'concrete', 'concrete':'concrete', 'bronze':'bronze',
                 'soot':'soot', 'metal':'metal', 'brass_mesh':'brass_mesh', 'lacquer_red':'metal'}
