@@ -67,6 +67,11 @@ rerun passed all twelve turns. The final fixture also observes exactly one
 physical turn per press. No input/service change is made from that unreproduced
 failure. Its failed receipt remains alongside the successful rerun.
 
+The first gate comparison also flagged the geometry fixture's decoder-shutdown
+wait as a timer-driven radiator actor. The wait occurred after world retirement;
+it now has its own explicit retirement-only scope. Geometry/pitch checks retain
+the same order and assertions. No audit code or systemic baseline is changed.
+
 An initial new-helper type-inference parse error is retained in **after.log**;
 it was repaired explicitly before the successful **after-fixed.log**. The
 runner's stale-cache label does not establish a cache cause for that source error.

@@ -146,5 +146,10 @@ func _run() -> void:
 	print("RADIATOR WALL TIES: checks=%d feeds=%d ties=%d pitched_fitted_ties=%d batches=%d failures=%d" % [checks,feeds,ties,fitted,batches,failures.size()])
 	world.shutdown_for_tests()
 	world.free()
-	await get_tree().create_timer(.25).timeout
+	await _wait_for_retired_audio()
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _wait_for_retired_audio() -> void:
+	# The production world is already gone. Drain decoder shutdown only;
+	# no elapsed-time gate schedules or applies a radiator consequence.
+	await get_tree().create_timer(.25).timeout
