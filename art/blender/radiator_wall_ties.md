@@ -72,6 +72,15 @@ wait as a timer-driven radiator actor. The wait occurred after world retirement;
 it now has its own explicit retirement-only scope. Geometry/pitch checks retain
 the same order and assertions. No audit code or systemic baseline is changed.
 
+The first clean candidate also found stale category totals in the existing
+apartment lifecycle test: 41 wall extensions and twelve radiators predated the
+completion-interior projection. Current source has exactly **53** intervals
+(the original 41 plus twelve completion intervals) and **18** installed homes.
+Only those expected totals and an obsolete "unbuilt household" label change;
+every interval, aperture, radiator, custody and teardown assertion stays active.
+The blocked first candidate remains at **tmp/heating-attachments/verified**;
+corrected clean binding belongs to **tmp/heating-attachments/verified-final**.
+
 An initial new-helper type-inference parse error is retained in **after.log**;
 it was repaired explicitly before the successful **after-fixed.log**. The
 runner's stale-cache label does not establish a cache cause for that source error.
@@ -80,7 +89,7 @@ runner's stale-cache label does not establish a cache cause for that source erro
 
 The complete clean baseline is **tmp/duct-supports/7b75755-clean-board.json**.
 The full candidate comparison and bound suites belong to
-**tmp/heating-attachments/verified/verification.json**. Discovery receipts above
+**tmp/heating-attachments/verified-final/verification.json**. Discovery receipts above
 are provisional until that clean candidate check completes. Wrapper receipts
 and captures grant no completeness-ledger runtime proof.
 

@@ -401,7 +401,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 41, "23 lower and 18 upper wall intervals have build coverage")
+	check(count == 53, "41 developed-home and 12 completion-interior wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -842,7 +842,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	if target != null:
 		target.set_supply_open(false,0)
 		check(is_zero_approx(float(balance.result_for(target.graph_node_id).heat)), "closed radiator receives no steam")
-		check(float(balance.result_for("F06_C_RADIATOR_01").heat) > neighbor_before, "unbuilt household retains its share of released steam")
+		check(float(balance.result_for("F06_C_RADIATOR_01").heat) > neighbor_before, "other household retains its share of released steam")
 		check(is_equal_approx(total,balance.total_delivered_heat()), "closing one valve does not manufacture steam")
 		target.set_supply_open(true,0)
 	var dry_adapter := SurfaceSourceAdapter.new()
@@ -882,7 +882,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
 			radiator.set_supply_open(false)
 			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
-	check(count == 12, "complete developed-home heating category")
+	check(count == 18, "complete eighteen-household heating category")
 	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
 	var water := boiler.water_level
 	boiler.set_water_level(0)
