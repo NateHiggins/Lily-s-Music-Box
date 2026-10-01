@@ -19,11 +19,13 @@ these results; it does not change the verified runtime.
 Earlier alley/connected-world evidence remains in **tmp/service-alley/verified**.
 No secondary worktree was created.
 
-Worktree clean at end: **no**. Preserve the owner's **art/renders/insitu/shots.md**
-and **shot_024.png** through **shot_028.png**. Each in-place verifier used checked
-ignored backups and restored all six byte-identical files. Generated untracked
-UIDs are removed after the runs. No reference-image bytes or rescue archive
-were committed.
+Worktree cleanup authorized October 1: the owner requested removal of outdated
+**shot_024.png** through **shot_028.png** and their capture-log entries. Those
+five untracked images were removed and **art/renders/insitu/shots.md** restored
+to its committed content. Earlier verifier backups remain historical evidence;
+do not restore the removed captures. All six files had been restored byte-for-byte
+after verification before the owner authorized this cleanup. Generated untracked
+UIDs were removed after the runs. No reference-image bytes were committed.
 
 Protected 17/17: **yes, all unchanged**. Selector: **v2**;
 explicit **ORISON_BUILDING_ROOT=v1** rollback remains. Ledger before -> after:

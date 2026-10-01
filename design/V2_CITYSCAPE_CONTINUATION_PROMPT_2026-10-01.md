@@ -28,9 +28,9 @@ Preserve the outward boiler-door fix, installed boiler pipework, street-connecte
 service alley and gentler waking flashlight (energy 6, range 16). Keep existing
 gameplay, persistence, shop hours, stock, resident schedules, maintenance,
 interactions, Dream boundaries and V1 rollback. Retain accepted Blender assets,
-hero, organelles and sixteen intentional critter placeholders. The six owner
-files **art/renders/insitu/shots.md** and **shot_024.png** through **shot_028.png**
-are unrelated work: preserve their exact bytes and never stage them.
+hero, organelles and sixteen intentional critter placeholders. The owner removed outdated **shot_024.png** through **shot_028.png** and their
+capture-log entries on October 1. Do not restore those captures from verification
+backups. Preserve any new unrelated work found at the start of the next session.
 
 ## First establish the production map
 
