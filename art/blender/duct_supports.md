@@ -41,6 +41,12 @@ stack owners add eight MultiMesh draws, without per-fitting nodes or new
 collision bodies. The asset has explicit triangles, outward normals, active
 metre-projected UVs and exported tangents. An early non-triangulated export
 warned about tangents; that prototype was regenerated before acceptance.
+The first candidate's scale assertion also required a 30 mm edge on the
+24 mm nuts and ignored compressed-UV rounding. Independent inspection found
+only **21.75 / 27.78 micrometre** edge excess in Godot, while the exported GLB
+retained unit scale. The corrected assertion checks real edges above 10 mm,
+50 micrometre rounding and 0.5% scale tolerance; it still rejects missing,
+enlarged or uniformly shrunken active UV mapping. The failed receipt is retained.
 
 Directly inspected production views include ground north and staff branches,
 the second-floor south register, third-floor east and fourth-floor west.
@@ -73,7 +79,7 @@ independent rendered ceiling triangles, original duct collider contacts,
 headroom, both material partitions and active mapping. Preliminary contact
 inspection reports **65 stations / eight batches / zero failures**. Final source
 binding, mapping checks, existing ventilation service behavior and continuous
-roof access belong to **tmp/duct-supports/verified/verification.json**.
+roof access belong to **tmp/duct-supports/verified-final/verification.json**.
 Wrapper receipts and these captures are INERT; they grant no ledger runtime proof.
 
 The full clean baseline is **tmp/arcade-thresholds/4cbed73-clean-board.json**.

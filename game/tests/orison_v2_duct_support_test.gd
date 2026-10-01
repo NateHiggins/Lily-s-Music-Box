@@ -59,7 +59,7 @@ func _run() -> void:
 						finite = finite and direction.is_finite() and absf(direction.length()-1)<.001 and absf(direction.dot(normals[i]))<.001 and absf(absf(tangent[i*4+3])-1)<.001
 				check(finite,"finite unit normals, orthogonal tangents and handedness")
 				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
-				var metres := true
+				var metres := indices.size()>=3
 				var widest := 0.0
 				for triangle in range(0,indices.size(),3):
 					for edge in 3:
@@ -67,9 +67,11 @@ func _run() -> void:
 						var b := indices[triangle+(edge+1)%3]
 						var length := points[a].distance_to(points[b])
 						var mapped := uv[a].distance_to(uv[b])
-						metres = metres and mapped<=length+.00001
-						if length>.03: widest = maxf(widest,mapped/length)
-				check(metres and absf(widest-1)<.001,"active planar UVs retain one texture metre per model metre")
+						# Godot's compressed UV storage rounds these small fittings
+						# by up to 28 micrometres. The nut has no 30 mm edge.
+						metres = metres and mapped<=length+.00005
+						if length>.01: widest = maxf(widest,mapped/length)
+				check(metres and absf(widest-1)<.005,"active planar UVs retain one texture metre per model metre within importer precision")
 				vertices += points.size()
 			batches += 1
 		var faces := metal.multimesh.mesh.get_faces()
