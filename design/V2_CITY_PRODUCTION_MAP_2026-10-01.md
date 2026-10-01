@@ -77,7 +77,7 @@ their own source-grounded geometry and route checks.
 | Heating and return | Boiler/BoilerTend → fitted header/equalizer and **HEAT_STACK** → **heating.json**, HeatBalance and installed one-pipe radiators. | Preserve accepted boiler piping. Trace vertical and branch support, sleeves, expansion/joints and access at every floor; bar/bodega/arcade heat must follow an authored source rather than a fictitious new live loop. |
 | Water | Roof tank/ballcock and existing water/hot-water owners → **WEST_WET_STACK**, domestic fittings/completion data → apartment, laundry and sanitary fixture controls. | Inspect supply/return branch joins, valve clearance and floor penetrations; bar WC sink input and reach now pass; physical supply/drain joins still need tracing. No speculative municipal tie-in. |
 | Drainage | Existing wet-stack reservation and fixture traps → shaft and basement routes. | Full drain/vent continuity, fall, cleanouts, sleeves and street outlet geometry are not verified by this batch. |
-| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters → **orison_v2_ventilation.gd** ducts and roof fans; separate boiler breeching → **B1_BOILER_FLUE** and chimney. | Fan/duct supports, register branch junctions, penetrations and access remain a focused queue. Bar sanitary/exhaust and shop distribution require source tracing. |
+| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters → **orison_v2_ventilation.gd** ducts and roof fans; 65 exposed-branch trapezes seat on existing ducts/ceilings. Separate boiler breeching → **B1_BOILER_FLUE** and chimney. | Branch attachments are described in **art/blender/duct_supports.md**; concealed riser/roof joins, sleeves and remaining access remain focused inspection. Bar sanitary/exhaust and shop distribution require source tracing. |
 | Power/conduit | Existing basement electrical/service equipment and **ELECTRICAL_SERVICE_RISER** → existing fixture/switch and lamp owners. | Trace conduit supports, drops and termination boxes across shops/bar; mounted lighting and hours behavior alone do not establish electrical fabrication completion. |
 | Lift equipment | Existing passenger/service shafts, landings, OrisonElevator, Blender roof drive and suspension. | Retain accepted mechanisms; inspect bearings, support/guard clearances, roof closures and landings. No new control authority. |
 | Communications/deliveries | Existing switchboard, telephone network, **TELEPHONE_MESSAGE_RISER**, AcousticGraphData and service-set owners; accepted service alley, coal route and passage handcarts. | Verify penetrations, mounts, cable runs and physical delivery endpoints; bodega receiving access now passes through the storefront/sales aisle; external delivery and bar service/storage connections remain unauthored or uninspected. |
@@ -181,9 +181,10 @@ schema-2 contract; the six architecture/infrastructure queues remain open.
 
 **art/blender/arcade_thresholds.md** records every shop connection, source parked
 leaf poses, the diner customer aisle, normal key/door input, night barriers and
-continuous retirement. Provisional west/east routes report **68 / 76 waypoints**,
-zero failures; the final candidate additionally checks physical grille/leaf-sweep
-separation. Geometry and simulations are retained. Borrowed-light rear rooms,
+continuous retirement. Verified/pushed **4cbed737bc2b66ebfa6b518eeb2a1894d7b4bf7b**
+reports **68 / 76 waypoints**, zero failures, physical grille/leaf-sweep separation
+at all sampled poses and the existing **42-waypoint** purchase/residency route.
+Geometry and simulations are retained. Borrowed-light rear rooms,
 painted service panels and the funeral rail are authored view-only boundaries.
 Final verification belongs to **tmp/arcade-thresholds/verified/verification.json**;
 the source test/capture batch does not close the arcade infrastructure queue.

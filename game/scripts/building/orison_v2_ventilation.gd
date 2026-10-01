@@ -3,6 +3,7 @@ const Fan := preload("res://scripts/building/orison_v2_roof_fan.gd")
 const DATA := "res://data/orison_v2/completion_interiors.json"
 const VARIANTS := {"A":"west_weathered","B":"north_belt","C":"south_repainted","D":"east_oxidised"}
 const DUCT_WIDTH := .18
+const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -36,6 +37,8 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var ducts := Node3D.new()
 	ducts.name = "VentilationDucts"
 	adapter.root.add_child(ducts)
+	var supports := Supports.new()
+	supports.configure(adapter.root, layout)
 	for stack: String in registers:
 		var fan := Fan.new()
 		fan.riser = "V-"+stack
@@ -47,10 +50,11 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		var anchors: Array[Node3D] = []
 		anchors.assign(registers[stack])
 		fan.bind_registers(anchors)
-		_build_stack(ducts,stack,stacks[stack],anchors,fan)
+		supports.begin_stack()
+		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height))
 	return true
 
-func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D) -> void:
+func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float) -> void:
 	var stack := StaticBody3D.new()
 	stack.name = "Stack_"+id
 	root.add_child(stack)
@@ -71,6 +75,9 @@ func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Nod
 		_piece(stack,sections,grille+Vector3.UP*.045,Vector3(.36,.09,.34))
 		_segment(stack,sections,seams,start,corner)
 		_segment(stack,sections,seams,corner,end)
+		var ceiling_y := grille.y - 2.6 + clear_height
+		supports.append_branch(start,corner,ceiling_y)
+		supports.append_branch(corner,end,ceiling_y)
 	stack.set_meta("registers",roster)
 	_segment(stack,sections,seams,Vector3(top.x,lowest,top.z),top)
 	var roof_corner := Vector3(roof.x,top.y,top.z)
@@ -80,6 +87,7 @@ func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Nod
 	_segment(stack,sections,seams,roof_end,roof+Vector3.UP*.08)
 	_draw(stack,"SheetMetal",sections,"metal")
 	_draw(stack,"SeamBands",seams,"cast_iron")
+	supports.draw(stack)
 
 func _segment(body: StaticBody3D, sections: Array[Transform3D], seams: Array[Transform3D], a: Vector3, b: Vector3) -> void:
 	var delta := (b-a).abs()

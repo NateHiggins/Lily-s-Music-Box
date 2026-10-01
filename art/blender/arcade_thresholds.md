@@ -55,14 +55,16 @@ moving actors or disabling colliders. Return reaches the actual core, waits for
 retirement and checks that operated leaf identities/poses and shop simulation
 survive. Stopping at the prefetch edge is insufficient to prove dormancy.
 
-Provisional complete routes report **68 west / 76 east waypoints**, zero failures,
-in **117.17 / 122.68 s**. They remain within the approved **180 s** serial ceiling.
-The added grille-sweep checks require final candidate binding. Before those
-complete, **tmp/arcade-thresholds/west.log.receipt.json** and **east.log.receipt.json**
-are provisional suite-run receipts; they grant no ledger runtime proof.
+The verified/pushed candidate is **4cbed737bc2b66ebfa6b518eeb2a1894d7b4bf7b**.
+Final bound routes report **68 west / 76 east waypoints**, zero failures,
+in **117.17 / 124.94 s**, including all sampled grille/leaf poses. The existing
+purchase/residency route reports **42 waypoints / 0 failures** in **95.07 s**.
+They remain within the approved **180 s** serial ceiling. Their exact wrapper
+receipts are under **tmp/arcade-thresholds/verified/godot**; these suite-run
+receipts grant no ledger runtime proof.
 
-Player-height shop/rear-volume and night-frontage captures are under
-**tmp/arcade-thresholds/west** and **east**. Inspection temporarily hides only the
+All eleven shop/rear-volume and night-frontage captures were directly inspected
+under **tmp/arcade-thresholds/verified/godot**. Inspection temporarily hides only the
 isolated held-device overlay; the standing player, practical world lighting,
 light mask and collision remain. It introduces no inspection fill lights.
 The batch adds no production geometry or asset bytes, so it makes no new render

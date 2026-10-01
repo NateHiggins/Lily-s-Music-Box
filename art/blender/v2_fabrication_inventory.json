@@ -7352,6 +7352,9 @@
       "res://assets/props/bath_paper_holder.glb",
       "res://assets/props/bath_towel.glb"
     ],
+    "game/scripts/building/orison_v2_bodega_receiving.gd": [
+      "res://assets/props/bodega_receiving.glb"
+    ],
     "game/scripts/building/orison_v2_boiler_flue.gd": [
       "res://assets/props/breeching.glb",
       "res://assets/props/chimney_crown.glb"
@@ -7379,6 +7382,9 @@
     ],
     "game/scripts/building/orison_v2_door_casings.gd": [
       "res://assets/props/millwork_profile.glb"
+    ],
+    "game/scripts/building/orison_v2_duct_supports.gd": [
+      "res://assets/props/duct_hanger.glb"
     ],
     "game/scripts/building/orison_v2_elevator.gd": [
       "res://assets/props/lift_ceiling_lamp.glb",
@@ -7461,6 +7467,7 @@
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
     "art/blender/scripts/build_bedding.py",
+    "art/blender/scripts/build_bodega_receiving.py",
     "art/blender/scripts/build_boiler_body.py",
     "art/blender/scripts/build_boiler_instruments.py",
     "art/blender/scripts/build_boiler_pipework.py",
@@ -7473,6 +7480,7 @@
     "art/blender/scripts/build_door_knob_set.py",
     "art/blender/scripts/build_dream_critter.py",
     "art/blender/scripts/build_dream_tentacle.py",
+    "art/blender/scripts/build_duct_hanger.py",
     "art/blender/scripts/build_exterior_masonry.py",
     "art/blender/scripts/build_gesture_library.py",
     "art/blender/scripts/build_house_tank.py",
@@ -7491,6 +7499,7 @@
     "art/blender/scripts/build_orison.py",
     "art/blender/scripts/build_public_furnishings.py",
     "art/blender/scripts/build_reading_furniture.py",
+    "art/blender/scripts/build_resident_key.py",
     "art/blender/scripts/build_roof_coping.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_service_alley.py",

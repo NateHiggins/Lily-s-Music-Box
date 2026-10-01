@@ -188858,6 +188858,36 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "319b20879234f57e",
+   "kind": "generated_name",
+   "token": "draw",
+   "file": "game/scripts/building/orison_v2_duct_supports.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "draw"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "\"Hangers_\" + str(part.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
