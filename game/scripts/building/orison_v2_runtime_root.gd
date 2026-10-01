@@ -524,6 +524,13 @@ func _compose_exterior() -> bool:
 	add_child(exterior_cell)
 	if exterior_cell.startup_failed:
 		return false
+	var receiving := preload("res://scripts/building/orison_v2_bodega_receiving.gd").new()
+	receiving.name = "BodegaReceiving"
+	if not receiving.configure(exterior_cell):
+		receiving.free()
+		return false
+	add_child(receiving)
+	if receiving.startup_failed: return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	add_child(street_boundaries)

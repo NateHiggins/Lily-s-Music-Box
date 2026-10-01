@@ -40,3 +40,11 @@ manifest records and audit logic remain. Reader has zero new unread fields.
 The city composition handoff records the preceding pushed candidate. Continue
 bar seat/apparatus reach, service/storage and physical utility distribution;
 this sanitary connection does not finish the wider infrastructure phase.
+
+Published on canonical main as **3bdd7e5bf4a1d4876b0c3cc07efb8a4bc0fc6fac**.
+Its complete clean baseline is **tmp/city-architecture/d5330a5-clean-board.json**.
+The bound verifier repeats city composition, the 54-waypoint bar route, the
+36-waypoint passage/reload route and the six title Continue checks, all with
+zero failures. It records zero regressions, 17 protected paths, selector V2,
+zero new unread fields and unchanged completeness counts. The complete clean
+candidate board is preserved as **tmp/bar-access/3bdd7e5-clean-board.json**.
