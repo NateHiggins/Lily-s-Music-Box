@@ -7,13 +7,16 @@ REPORT - V2 FABRICATION - 2026-09-29
 ## Branch and owner preservation
 
 Branch / HEAD / origin/main / merge-base: canonical **C:/PleaseRemainOnTheLine**,
-**main**. The latest verified implementation is **af8b8cc** (alley,
-study-door clearance and quieter waking lamp). Its merge-base is **e30b4b1**.
-The complete gate comparison is **tmp/service-alley/verified/verification.json**.
-The six windowed geometry, route, launch and lamp suites passed on **650cfe7**;
-the only subsequent change registers two reviewed test references. Those bound
-receipts remain in **tmp/service-alley/verified-650c-manifest-drift/godot**.
-The full connected-world run binds to **af8b8cc** in the final evidence folder.
+**main**. Updated October 1: the latest verified implementation is
+**96d29d2bf64a61d773ae1ae89bd9ae0a59e6a30a** (exterior masonry and continuation
+prompt). Its clean merge-base is **f00b7de04f811e66299aa578955f021beef6c35d**.
+The complete gate comparison and seven bound windowed suites are in
+**tmp/exterior-walls/verified/verification.json** and its **godot** directory.
+All passed: masonry, windows, service alley, door casings, street boundaries,
+vertical routes and title launch. There are zero regressions, zero new unread
+fields and no completeness promotions. The following report-only commit records
+these results; it does not change the verified runtime.
+Earlier alley/connected-world evidence remains in **tmp/service-alley/verified**.
 No secondary worktree was created.
 
 Worktree clean at end: **no**. Preserve the owner's **art/renders/insitu/shots.md**
@@ -66,7 +69,7 @@ verified in **f00b7de**, with zero regressions against **42e7493**. Evidence:
 **tmp/boiler-pipework/verified/verification.json**. Seven contact probes, three
 damper poses and the boiler/route/title suites passed.
 
-The exterior masonry follow-up covers slab edges, partial wall extensions and
+The verified exterior masonry follow-up covers slab edges, partial wall extensions and
 window/door depth; see **art/blender/exterior_masonry.md**. The current continuation
 prompt is **design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md**. It prioritizes
 raw architecture and infrastructure across six locations and their shared
@@ -100,6 +103,13 @@ focused run has **4 fitted contacts / 4 handle poses**, zero failures; its full
 candidate run passed and was pushed as **e30b4b1**. Title-launch checks pass on each verified
 predecessor. Earlier failed, interrupted, obscured or wrong-axis attempts are
 recorded in the individual notes and are not counted as final acceptance.
+
+October 1 checks: **72 windows / 288 reveal contacts / 192 trim checks**;
+**106 cased openings / 636 wall contacts / 240 service fasteners**; alley
+**25 waypoints**, street **24**, vertical route **79**, all with zero failures.
+The final exported shell has **7,992 triangles / two material surfaces**.
+All eight exterior views were inspected. Earlier failed attempts remain in
+**tmp/exterior-walls** and are not acceptance evidence.
 
 ## Open findings and owner decision
 
