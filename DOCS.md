@@ -35,6 +35,8 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| V2 city architecture/infrastructure continuation by location and transition | `design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md` |
+| Blender exterior masonry, deeper reveals and narrow light-slot preservation | `art/blender/exterior_masonry.md` |
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |
 | Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
 | All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |

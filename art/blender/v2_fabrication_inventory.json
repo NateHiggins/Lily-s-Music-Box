@@ -7381,6 +7381,9 @@
       "res://assets/props/lift_panels.glb",
       "res://assets/props/millwork_profile.glb"
     ],
+    "game/scripts/building/orison_v2_exterior_masonry.gd": [
+      "res://assets/props/exterior_masonry.glb"
+    ],
     "game/scripts/building/orison_v2_house_tank.gd": [
       "res://assets/props/house_tank.glb"
     ],
@@ -7463,6 +7466,7 @@
     "art/blender/scripts/build_door_knob_set.py",
     "art/blender/scripts/build_dream_critter.py",
     "art/blender/scripts/build_dream_tentacle.py",
+    "art/blender/scripts/build_exterior_masonry.py",
     "art/blender/scripts/build_gesture_library.py",
     "art/blender/scripts/build_house_tank.py",
     "art/blender/scripts/build_lift_cab_controls.py",

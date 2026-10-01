@@ -42,6 +42,9 @@ func _run() -> void:
 		if anchor==null: continue
 		var leaf := anchor.get_node_or_null(str(record.id)+"_Leaf") as DoorProp
 		if leaf==null or leaf.door_kind not in ["apartment_entry","apartment_interior","service"]: continue
+		var span: Vector2=preload("res://scripts/generated/v2_exterior_masonry.gd").DOOR_SPANS.get(str(record.id),Vector2(-half_depth,half_depth))
+		var center := (span.x+span.y)*.5
+		var depth := (span.y-span.x)*.5
 		var service := leaf.door_kind=="service"
 		if service:
 			service_openings+=1
@@ -69,13 +72,13 @@ func _run() -> void:
 					var screw := screws.multimesh.get_instance_transform(screw_index)
 					var screw_bounds: AABB = screw*screws.multimesh.mesh.get_aabb()
 					check(screw.basis.get_scale().is_equal_approx(Vector3.ONE),"hardware retains real dimensions on differently sized openings")
-					var side := signf(screw.origin.z)
-					var back: float = screw_bounds.position.z if side>0 else -screw_bounds.end.z
-					check(absf(back-half_depth-.018)<.0001,"washer back seats on the metal frame face")
+					var side := signf(screw.origin.z-center)
+					var back: float = screw_bounds.position.z-center if side>0 else center-screw_bounds.end.z
+					check(absf(back-depth-.018)<.0001,"washer back seats on the metal frame face")
 					var on_face := false
 					for face_index in casing.multimesh.instance_count:
 						var face: AABB = casing.multimesh.get_instance_transform(face_index)*casing.multimesh.mesh.get_aabb()
-						if face.grow(.0002).has_point(Vector3(screw.origin.x,screw.origin.y,side*(half_depth+.018))): on_face=true
+						if face.grow(.0002).has_point(Vector3(screw.origin.x,screw.origin.y,center+side*(depth+.018))): on_face=true
 					check(on_face,"each screw has a frame behind it")
 					fasteners+=1
 		for index in 6:
@@ -101,9 +104,9 @@ func _run() -> void:
 				check(bounds.position.y>=float(record.height)-.0001,"head stays above the clear opening")
 			else:
 				check(bounds.end.x<=-float(record.width)*.5+.0001 or bounds.position.x>=float(record.width)*.5-.0001,"uprights retain full aperture width")
-			var side := signf(transform.origin.z)
+			var side := signf(transform.origin.z-center)
 			check(transform.basis.z.normalized().dot(Vector3.BACK*side)>.999,"molded face points away from wall")
-			check(absf(absf(transform.origin.z)-half_depth-.009)<.0001,"casing back touches the partition face")
+			check(absf(absf(transform.origin.z-center)-depth-.009)<.0001,"casing back touches the partition face")
 			# A real ray independently checks that the built collision wall is
 			# behind each jamb/head, on both faces of the semantic aperture.
 			var at := frame.position

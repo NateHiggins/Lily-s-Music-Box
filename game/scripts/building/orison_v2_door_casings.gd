@@ -10,12 +10,19 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 	source.free()
 	var lining := BoxMesh.new()
 	lining.size = Vector3.ONE
-	var wall_depth := float(layout.dimensions.partition_wall)
+	var partition_depth := float(layout.dimensions.partition_wall)
 	for record: Dictionary in layout.doors:
 		var anchor := adapter.resolve(str(record.id)) as Node3D
 		if anchor==null: continue
 		var leaf := anchor.get_node_or_null(str(record.id)+"_Leaf") as DoorProp
 		if leaf==null or leaf.door_kind not in ["apartment_entry","apartment_interior","service"]: continue
+		var span: Vector2=preload("res://scripts/generated/v2_exterior_masonry.gd").DOOR_SPANS.get(str(record.id),Vector2(-partition_depth*.5,partition_depth*.5))
+		var wall_depth := span.y-span.x
+		var center := (span.x+span.y)*.5
+		if wall_depth>partition_depth+.001:
+			var outward := span.y if absf(span.y)>absf(span.x) else span.x
+			var swing: Vector3=leaf.basis*Vector3(0,0,1 if leaf.swing_out else -1)
+			if signf(swing.z)==signf(outward):leaf.position.z=outward+signf(outward)*.01
 		var service := leaf.door_kind=="service"
 		var faces: Array[Transform3D] = []
 		var reveals: Array[Transform3D] = []
@@ -27,9 +34,10 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 			var size: Vector3 = frame.mesh.size
 			# Keep source dimensions for the schema/review owners. The playable
 			# lining spans the actual partition, with the casing back on its face.
-			reveals.append(Transform3D(Basis.from_scale(Vector3(size.x,size.y,wall_depth)),frame.position))
+			var frame_center := frame.position+Vector3(0,0,center)
+			reveals.append(Transform3D(Basis.from_scale(Vector3(size.x,size.y,wall_depth)),frame_center))
 			for side in [-1.0,1.0]:
-				var at := frame.position+Vector3(0,0,side*(wall_depth*.5+.009))
+				var at := frame_center+Vector3(0,0,side*(wall_depth*.5+.009))
 				var rotation := Basis(Vector3.UP,0 if side>0 else PI)
 				var dimensions := Vector3(size.x,size.y,.018)
 				if part!="FrameHead":
@@ -45,7 +53,7 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 			var screws: Array[Transform3D] = []
 			for side in [-1.0,1.0]:
 				var rotation := Basis(Vector3.UP,0 if side>0 else PI)
-				var z: float = side*(wall_depth*.5+.0197)
+				var z: float = center+side*(wall_depth*.5+.0197)
 				for x in [-leaf.width*.5-.045,leaf.width*.5+.045]:
 					for y in [.15,leaf.height*.5,leaf.height-.15]:
 						screws.append(Transform3D(rotation,Vector3(x,y,z)))

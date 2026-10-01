@@ -40,5 +40,9 @@ static func mount(root: Node3D) -> void:
 		frame.material_override=jamb.get_active_material(0)
 		frame.transform=opening.transform.affine_inverse()*_placement(root,record)
 		opening.add_child(frame)
+		var span: Vector2=root.window_reveal_span(record)
+		var axis := 2 if str(record.axis)=="x" else 0
+		var pane := opening.get_node("Glazing") as MeshInstance3D
+		pane.position[axis]=(span.x+span.y)*.5-float(record.center[1 if axis==2 else 0])
 		jamb.hide()
 		opening.get_node("JambB").hide()

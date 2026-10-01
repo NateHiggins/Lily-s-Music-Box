@@ -5,7 +5,7 @@ Evidence class: **INERT**
 This is an implementation work index, not acceptance evidence. Regenerate
 **v2_fabrication_inventory.json** with **tools/inventory_v2_fabrication.py**.
 The index names all 200 semantic spaces, 111 doors, 87 openings, 72 windows,
-74 envelopes, 85 fixtures, 64 platforms, 12 lift landings, 14 stairs and seven
+74 envelopes, 85 fixtures, 65 platforms, 12 lift landings, 14 stairs and seven
 risers, plus thirteen installed-data files and building-script asset references.
 Discovery does not classify a hidden reservation as an unfinished visible prop.
 The production root, its exterior/passage composition and rendered inspection
@@ -37,7 +37,7 @@ has yet been demonstrated; none is silently marked complete.
 
 | Family / installation | Existing authority | Current disposition and next check |
 |---|---|---|
-| Floors, ceilings, partitions, corners, openings | V2 blockout and architectural materials | Open stair-core walls now span the full storey, closing the missing 200 mm ceiling band; twelve contacts and alley views checked. Simple planar solids can be intentional. Review every room class for seams, thickness and collisions; exterior wall-thickness issue from the prior handoff remains. |
+| Floors, ceilings, partitions, corners, openings | V2 blockout and architectural materials | Open stair-core walls now span the full storey, closing the missing 200 mm ceiling band; twelve contacts and alley views checked. Simple planar solids can be intentional. Review every room class for seams, thickness and collisions; the Blender outer masonry leaf now covers exposed slab bands and extends reveals while preserving narrow light slots; see **exterior_masonry.md**. Full facade composition remains pending. |
 | Window surrounds and room millwork | window_joinery / millwork_profile Blender generators | Existing completed work retained; per-space visual sweep still pending. Sashes intentionally remain static. |
 | Ordinary doors | existing leaf owner, Blender knobs and articulated butt hinges | Retain completed hardware; sweep swing clearance and thresholds across both handed orientations. |
 | Public/service stairs and landings | stair_ironwork Blender generator and existing collision ramps | Lowest stair foundation gap filled and checked at twelve contacts and eleven walking waypoints. Retain completed ironwork; remaining landing fit sweep pending. |

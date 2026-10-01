@@ -920,6 +920,7 @@ func window_reveal_span(window: Dictionary) -> Vector2:
 	var fixed := float(window.center[1 if along_x else 0])
 	var half := float(layout.dimensions.partition_wall)*.5
 	var span := Vector2(fixed-half,fixed+half)
+	span=preload("res://scripts/generated/v2_exterior_masonry.gd").WINDOW_SPANS.get(str(window.id),span)
 	for riser: Dictionary in layout.risers:
 		if _window_meets_riser(window,riser):
 			span.x=minf(span.x,float(riser.rect[1 if along_x else 0]))

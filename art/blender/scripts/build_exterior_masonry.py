@@ -1,0 +1,156 @@
+"""Derive the V2 outer masonry leaf from the authored occupied footprint.
+
+The existing partition retains its room-side face. This adds the remaining
+outer-wall thickness outside it, with the same aperture roster and storeys.
+"""
+from pathlib import Path
+import json, math
+import bpy
+
+ROOT=Path(__file__).resolve().parents[3]
+source=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text(encoding='utf-8'))
+partition=float(source['dimensions']['partition_wall'])
+outer=float(source['dimensions']['outer_wall'])
+inner=partition/2
+reach=outer-inner
+height=float(source['dimensions']['floor_to_floor'])
+slab=float(source['dimensions']['slab_thickness'])
+levels={r['id']:float(r['y']) for r in source['levels']}
+rooms={r['id']:r for r in source['spaces'] if not r.get('open_shell')}
+edges=[]
+corners=[]
+
+def occupied(blockers,x,z):
+ return any(r[0]-.001<x<r[2]+.001 and r[1]-.001<z<r[3]+.001 for r in blockers)
+
+for level in levels:
+ local=[r for r in rooms.values() if r['level']==level]
+ blockers=[r['rect'] for r in local]+[r['rect'] for r in source['risers']]
+ level_edges=[]
+ for room in local:
+  x0,z0,x1,z1=room['rect']
+  segments=[dict(side=side) for side in room.get('wall_sides',['south','north','west','east'])]+room.get('wall_extensions',[])
+  for segment in segments:
+   side=segment['side']
+   along_x=side in ['south','north'];sign=-1 if side in ['south','west'] else 1
+   fixed={'south':z0,'north':z1,'west':x0,'east':x1}[side]
+   start,end=(x0,x1) if along_x else (z0,z1)
+   start,end=segment.get('start',start),segment.get('end',end)
+   cuts={start,end}
+   for rect in blockers:
+    low,high=(rect[0],rect[2]) if along_x else (rect[1],rect[3])
+    cuts.update(v for v in [low,high] if start<v<end)
+   cuts=sorted(cuts);runs=[]
+   for a,b in zip(cuts,cuts[1:]):
+    middle=(a+b)/2
+    x,z=(middle,fixed+sign*(inner+.01)) if along_x else (fixed+sign*(inner+.01),middle)
+    if occupied(blockers,x,z):continue
+    # Preserve narrow light slots where opposing leaves would bury windows.
+    x_far,z_far=(middle,fixed+sign*(2*reach+.01)) if along_x else (fixed+sign*(2*reach+.01),middle)
+    if occupied(blockers,x_far,z_far):continue
+    if runs and abs(runs[-1][1]-a)<.001:runs[-1][1]=b
+    else:runs.append([a,b])
+   for a,b in runs:
+    level_edges.append(dict(room=room['id'],level=level,side=side,axis='x' if along_x else 'z',sign=sign,fixed=fixed,start=a,end=b))
+ edges.extend(level_edges)
+ # Fill convex exterior corners. Straight leaves stop at their semantic
+ # endpoints; this quarter-column closes the new outer quadrant without
+ # duplicating either outward face.
+ vertices={(r['rect'][i],r['rect'][j]) for r in local for i in [0,2] for j in [1,3]}
+ for x,z in vertices:
+  quadrants=[(sx,sz) for sx in [-1,1] for sz in [-1,1] if occupied(blockers,x+sx*.08,z+sz*.08)]
+  if len(quadrants)!=1:continue
+  sx,sz=(-quadrants[0][0],-quadrants[0][1])
+  ends=[e for e in level_edges if abs(e['fixed']-(z if e['axis']=='x' else x))<.001 and any(abs(v-(x if e['axis']=='x' else z))<.001 for v in [e['start'],e['end']])]
+  if {e['axis'] for e in ends}=={'x','z'}:corners.append((level,x,z,sx,sz))
+
+def holes(edge):
+ result=[]
+ for table in ['doors','openings','windows']:
+  for record in source.get(table,[]):
+   if record['level']!=edge['level']:continue
+   if table=='windows':
+    if record['space']!=edge['room'] or record['axis']!=edge['axis']:continue
+   elif edge['room'] not in record['connects']:continue
+   if table=='openings' and record['axis']!=edge['axis']:continue
+   axis=0 if edge['axis']=='x' else 1
+   if abs(record['center'][1-axis]-edge['fixed'])>.001:continue
+   center=record['center'][axis];half=record['width']/2;sill=record.get('sill',0)
+   if center+half<=edge['start'] or center-half>=edge['end']:continue
+   result.append((center-half,sill,center+half,sill+record['height'],record))
+ return result
+
+def subtract(rect,hole):
+ a,b,c,d=rect;e,f,g,h=hole[:4]
+ lo=max(a,e);hi=min(c,g);bottom=max(b,f);top=min(d,h)
+ if hi<=lo or top<=bottom:return [rect]
+ result=[]
+ if lo>a:result.append((a,b,lo,d))
+ if hi<c:result.append((hi,b,c,d))
+ if bottom>b:result.append((lo,b,hi,bottom))
+ if top<d:result.append((lo,top,hi,d))
+ return result
+
+bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+materials=[]
+for name,color in [('CommonBrick',(.43,.30,.23)),('FaceBrick',(.39,.17,.10))]:
+ mat=bpy.data.materials.new(name);mat.diffuse_color=(*color,1);materials.append(mat)
+
+def box(name,at,size,front=False,corner=False):
+ bpy.ops.mesh.primitive_cube_add(size=1,location=(at[0],-at[2],at[1]))
+ obj=bpy.context.object;obj.name=name;obj.scale=(size[0],size[2],size[1])
+ bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
+ for mat in materials:obj.data.materials.append(mat)
+ for face in obj.data.polygons:
+  face.material_index=1 if front or (corner and face.normal.y>.5) else 0
+ return obj
+
+window_spans={};door_spans={}
+for edge in edges:
+ sections=[(edge['start'],-slab,edge['end'],height-slab)]
+ for hole in holes(edge):
+  sections=[piece for section in sections for piece in subtract(section,hole)]
+  record=hole[4];fixed=edge['fixed'];sign=edge['sign']
+  low,high=sorted([fixed-sign*inner,fixed+sign*reach])
+  if 'space' in record and 'sill' in record:
+   previous=window_spans.get(record['id'],[low,high])
+   window_spans[record['id']]=[min(previous[0],low),max(previous[1],high)]
+  elif record in source['doors']:
+   # The door's local Z can reverse under authored yaw. Store local spans.
+   factor=math.cos(record['yaw']) if edge['axis']=='x' else math.sin(record['yaw'])
+   span=sorted([(low-fixed)*factor,(high-fixed)*factor])
+   previous=door_spans.get(record['id'],span)
+   door_spans[record['id']]=[min(previous[0],span[0]),max(previous[1],span[1])]
+ for a,b,c,d in sections:
+  middle=(a+c)/2;fixed=edge['fixed']+edge['sign']*(inner+reach)/2;y=levels[edge['level']]+(b+d)/2
+  at=(middle,y,fixed) if edge['axis']=='x' else (fixed,y,middle)
+  size=(c-a,d-b,reach-inner) if edge['axis']=='x' else (reach-inner,d-b,c-a)
+  box(edge['room']+'_'+edge['side'],at,size,edge['side']=='south' and edge['level']!='B1')
+for level,x,z,sx,sz in corners:
+ box(level+'_Corner',(x+sx*reach/2,levels[level]+height/2-slab,z+sz*reach/2),(reach,height,reach),corner=level!='B1' and sz<0)
+
+for obj in list(bpy.context.scene.objects):
+ if obj.type!='MESH':continue
+ # Edit-friendly UVs in metres; production catalogue remains triplanar.
+ for layer in list(obj.data.uv_layers):obj.data.uv_layers.remove(layer)
+ uv=obj.data.uv_layers.new(name='Metres')
+ uv.active_render=True
+ for face in obj.data.polygons:
+  axis=max(range(3),key=lambda i:abs(face.normal[i]));axes=((1,2),(0,2),(0,1))[axis]
+  for loop in face.loop_indices:
+   v=obj.matrix_world@obj.data.vertices[obj.data.loops[loop].vertex_index].co
+   uv.data[loop].uv=(v[axes[0]],v[axes[1]])
+bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/exterior_masonry.blend'))
+bpy.ops.object.select_all(action='SELECT');bpy.context.view_layer.objects.active=bpy.context.selected_objects[0]
+bpy.ops.object.join();mesh=bpy.context.object;mesh.name='ExteriorMasonry'
+bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/exterior_masonry.glb'),export_format='GLB',export_yup=True,export_apply=True)
+
+def dictionary(name,values):
+ lines=[f'const {name} := {{']
+ for key,span in sorted(values.items()):lines.append(f'\t"{key}": Vector2({span[0]:.9f},{span[1]:.9f}),')
+ return '\n'.join(lines+['}'])
+generated='extends RefCounted\n## Generated by build_exterior_masonry.py; metres in the authored building frame.\n'
+generated+=dictionary('WINDOW_SPANS',window_spans)+'\n'+dictionary('DOOR_SPANS',door_spans)+'\n'
+(ROOT/'game/scripts/generated/v2_exterior_masonry.gd').write_text(generated,encoding='utf-8',newline='\n')
+print('EXTERIOR MASONRY',len(edges),'exposed edges;',len(corners),'corners;',len(window_spans),'window reveals;',len(door_spans),'door reveals')

@@ -59,6 +59,19 @@ projected geometry. **v2_fabrication_coverage.md** is the current family queue;
 **v2_space_review.json** retains detail/route review pending: overview captures
 are discovery, not proof that a room is reachable or finished.
 
+## October 1 continuation
+
+The boiler header, equalizer, discharge and fitted supports were completed and
+verified in **f00b7de**, with zero regressions against **42e7493**. Evidence:
+**tmp/boiler-pipework/verified/verification.json**. Seven contact probes, three
+damper poses and the boiler/route/title suites passed.
+
+The exterior masonry follow-up covers slab edges, partial wall extensions and
+window/door depth; see **art/blender/exterior_masonry.md**. The current continuation
+prompt is **design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md**. It prioritizes
+raw architecture and infrastructure across six locations and their shared
+transitions. The broader city and final coordinated material pass remain open.
+
 ## Gates and evidence
 
 Verified batches used complete clean preceding-main boards and in-place
@@ -92,7 +105,7 @@ recorded in the individual notes and are not counted as final acceptance.
 
 The full geometry and coordinated material request is **unfinished**. All 200
 room overviews were inspected, but targeted installation/route coverage is not
-complete. Header/return fit, remaining duct/support details, other apartment
+complete. Remaining duct/support details, other apartment
 furniture, fixture joins, exterior composition and landing views still need
 review. Retain the existing Blender lift machinery, wet fixtures, window
 joinery, millwork, roof tank/coping/chimney, accepted hero/organelles and sixteen
@@ -138,4 +151,4 @@ For explicit rollback set **$env:ORISON_BUILDING_ROOT = "v1"** before launch.
 Use the lane status/wait support when occupied; never close another Godot.
 The accepted hero, organelles, sixteen critters and reserved bays remain.
 
-Last line: **NEEDS-OWNER — rear receiving court or street-connected service alley?**
+Latest owner direction: **finish open work, then use the location-bucketed architecture/infrastructure continuation prompt**. The street-connected service alley decision is resolved. No owner intervention is currently required.
