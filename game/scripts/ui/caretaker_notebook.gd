@@ -345,6 +345,7 @@ func _process(delta: float) -> void:
 			readout.text = readout.text.replace("I: inspect a fixture in reach\nP: pocket ledger",
 				"R3: inspect a fixture in reach\nView: pocket ledger")
 		var requests: Array[String] = care.request_lines()
+		for line: String in DoorKeyring.pocket_lines(): readout.text += "\n"+line
 		var pages := maxi(1,ceili(requests.size()/6.0))
 		_request_page = posmod(_request_page,pages)
 		readout.text += "\n\nSERVICE REQUESTS: %d / page %d of %d / oldest first" % [requests.size(),_request_page+1,pages]

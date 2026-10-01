@@ -7,6 +7,7 @@ const ACTIONS := {
 	"move_left": KEY_A, "move_right": KEY_D,
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
 	"interact": KEY_E, "shot_capture": KEY_F,
+	"door_key": KEY_K,
 	"lamp_toggle": KEY_L, "radio_toggle": KEY_R,
 	"music_player": KEY_M,
 	"pause_services": KEY_ESCAPE,
@@ -23,6 +24,7 @@ const ACTIONS := {
 ## branches on input device.
 const JOYPAD_ACTIONS := {
 	"interact": JOY_BUTTON_A,
+	"door_key": JOY_BUTTON_DPAD_UP,
 	"jump": JOY_BUTTON_Y,
 	"crouch": JOY_BUTTON_LEFT_STICK,
 	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,

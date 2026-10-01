@@ -21,11 +21,14 @@ var failures: Array[String] = []
 
 func _ready() -> void:
 	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
 	call_deferred("_run")
 
 func _run() -> void:
 	await _context(Vector3.ZERO, 0.0, false)
 	await _context(Vector3(12, 6, -19), .73, true)
+	# The mixer retires stopped decoders asynchronously after scene destruction.
+	await get_tree().create_timer(.25).timeout
 	print("V2 MINA DOOR SAFETY: %d checks; %d failures" % [checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
@@ -153,6 +156,25 @@ func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	routine._close_passed_doors()
 	_check("player's later reopening retires Mina's stale close request", door.open and not door._moving
 		and routine._door_passages.is_empty())
+	# The actual route caller may now use Mina's original on her own lock.
+	# Sweep clearance and motion revision remain with their existing owners.
+	door.interact(null)
+	await _settle(door)
+	door.unit = "2A"
+	door.leaf_state = "locked"
+	resident.resident_id = "mina_vale"
+	resident.global_position = frame.to_global(start)
+	routine.path = PackedInt64Array([0,1])
+	_check("Mina's original opens her own locked route through the owner",
+		not routine._route_doors_ready(.02) and door.open and door._moving)
+	await _settle(door)
+	_check("original-key route waits for the settled physical leaf",routine._route_doors_ready(.02))
+	resident.global_position = frame.to_global(goal)
+	routine.path = PackedInt64Array()
+	routine._close_passed_doors()
+	await _settle(door)
+	_check("Mina's route restores its original lock after passing",
+		not door.open and door.leaf_state=="locked" and routine._door_passages.is_empty())
 	viewport.queue_free()
 	for _i in 3: await get_tree().process_frame
 

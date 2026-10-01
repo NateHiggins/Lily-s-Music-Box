@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "player_unit": "4B",
+  "copy_allowed_residents": [
+    "evelyn_marsh",
+    "teresa_vale",
+    "mina_vale",
+    "lena_ortiz",
+    "juno_kells",
+    "malcolm_reed",
+    "omar_bell",
+    "rhea_sato",
+    "peter_wren",
+    "cam_ortiz",
+    "noel_price",
+    "transient_guests",
+    "nadia_quell",
+    "cal_dwyer",
+    "iris_bell",
+    "sacha_reed",
+    "jonah_price",
+    "mae_kessler"
+  ],
+  "v2_initial_states": [
+    {
+      "door_id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+      "leaf_state": "closed"
+    }
+  ]
+}

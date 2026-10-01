@@ -94,6 +94,14 @@ func interact_prompt() -> String:
 	return "[E]  Speak with %s" % display_name
 
 
+func key_prompt() -> String:
+	return DoorKeyring.copy_prompt(resident_id)
+
+
+func interact_key(_player: Node) -> Dictionary:
+	return DoorKeyring.request_copy(resident_id)
+
+
 func interact(_player: Node) -> void:
 	var music := get_tree().get_first_node_in_group("music_director")
 	if music and music.try_music_conversation(resident_id):

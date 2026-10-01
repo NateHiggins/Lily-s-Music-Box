@@ -157,6 +157,17 @@ source dimensions, inferred 2.00 m extension, ordinary-input 30-waypoint route,
 six structural contacts, six mapped partitions and directly inspected production
 views. Public-view samples and their limits are retained there. The full clean
 baseline is **tmp/bar-access/3bdd7e5-clean-board.json**. Final bound checks are
-required in **tmp/bodega-receiving/verified/verification.json** before publication.
+recorded in **tmp/bodega-receiving/verified/verification.json** for the verified,
+pushed **7c2e35825df0b3827134739ac3c1c97448f4e3ec** implementation.
 This batch appends only two individually reviewed spatial records, preserving
 the previous 6,313 records; it does not promote the completeness ledger.
+
+## Resident-key steering
+
+The owner's later request adds resident originals and resident-authorized copies,
+manual hinged-leaf lock control and a fresh V2 News Cigars unlock. The fitted key,
+retained Keys Cut counter, ownership/save rules and scoped tests are described in
+**art/blender/resident_keys.md**. Existing shop grilles/hours remain authoritative.
+The key follow-up changes none of the six raw-architecture/infrastructure phase
+states above. Continue the arcade threshold and service/interface queues after
+the clean key-candidate verification; no ledger promotion follows from this work.

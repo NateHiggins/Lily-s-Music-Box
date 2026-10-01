@@ -206,6 +206,14 @@ func interact_prompt() -> String:
 	return "[E]  Speak with %s" % display_name
 
 
+func key_prompt() -> String:
+	return DoorKeyring.copy_prompt(resident_id)
+
+
+func interact_key(_player: Node) -> Dictionary:
+	return DoorKeyring.request_copy(resident_id)
+
+
 func interact(_player: Node) -> void:
 	if face_interacting_player and _player is Node3D:
 		var toward: Vector3 = _player.global_position - global_position

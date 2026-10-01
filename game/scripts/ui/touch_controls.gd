@@ -101,6 +101,7 @@ func _layout() -> void:
 		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), false),
 		_button("LAMP", "lamp_toggle", Vector2(right, bottom - gap * 2.0), false),
 		_button("RADIO", "radio_toggle", Vector2(right - gap, bottom - gap * 2.0), false),
+		_button("KEY", "door_key", Vector2(right - gap * 2.0, bottom - gap * 2.0), false),
 	]
 	if care_actions_enabled:
 		_buttons.append(_button("CARE", "inspect_care", Vector2(right, bottom - gap * 3.0), false))

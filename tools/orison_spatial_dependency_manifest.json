@@ -188234,6 +188234,521 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "0b7b557a54573cf8",
+   "kind": "id_reference",
+   "token": "F02_DOOR_02",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    89
+   ],
+   "count": 1,
+   "context": [
+    "var opening := world.adapter.resolve(\"F02_DOOR_02\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0e47c01bb4fe12c9",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_NEWS_CIGARS",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    99,
+    107,
+    111,
+    113
+   ],
+   "count": 4,
+   "context": [
+    "news.name = \"SITE_SHOP_DOOR_NEWS_CIGARS\"",
+    "DoorKeyring.book().locks.erase(\"SITE_SHOP_DOOR_NEWS_CIGARS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "1926e5d5d91a8606",
+   "kind": "node_path",
+   "token": "F02_DOOR_02_Leaf",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    90
+   ],
+   "count": 1,
+   "context": [
+    "var apartment := opening.get_node(\"F02_DOOR_02_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3fd535a33ef86c33",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    14,
+    15,
+    45,
+    51
+   ],
+   "count": 4,
+   "context": [
+    "if not _require(DoorKeyring.book().permissions.get(\"2A\")==\"mina_vale\"",
+    "and not DoorKeyring.book().copies.has(\"2A\") and DoorKeyring.book().originals==originals,",
+    "if not _require(DoorKeyring.book().copies.get(\"2A\")==\"mina_vale\" and DoorKeyring.book().originals==originals,",
+    "if not _require(not DoorKeyring.make_copy(\"2A\"),\"second spare refused\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "48e118f0e2872340",
+   "kind": "generated_name",
+   "token": "_run",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    31,
+    68
+   ],
+   "count": 2,
+   "context": [
+    "\"ResidentKeyFixture_\"+id",
+    "\"KeyKind_%d\" % index"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4d4ea540a2ad2f6f",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    26,
+    119
+   ],
+   "count": 2,
+   "context": [
+    "_check(not DoorKeyring.make_copy(\"2A\"),\"copy without permission denied\")",
+    "DoorKeyring.make_copy(\"2A\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "793167bfa2a6289c",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "if not door.unit.is_empty(): door.unit = \"4B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "962a0443f7c6a8ff",
+   "kind": "unit_reference",
+   "token": "6D",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    127
+   ],
+   "count": 1,
+   "context": [
+    "malformed.door_keys.copies[\"6D\"] = \"mina_vale\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a0da474492094764",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_NEWS_CIGARS",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "var news: DoorProp = passage.doors.get(\"SITE_SHOP_DOOR_NEWS_CIGARS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "abe48ffa10f5543f",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_counter_top",
+   "file": "game/scripts/building/orison_v2_passage_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_key_counter"
+   ],
+   "lines": [
+    182
+   ],
+   "count": 1,
+   "context": [
+    "if item.id == \"storm_shop_keys_cut_counter_top\": matches.append(item)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "afb66b6666451130",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/data/door_key_policy.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/player_unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "c96846eec78a6682",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/tests/resident_keys_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    137
+   ],
+   "count": 1,
+   "context": [
+    "_check(DoorKeyring.request_copy(\"evelyn_marsh\").is_empty() and not DoorKeyring.make_copy(\"1A\"),\"read-only state refuses copy changes\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "de1fbe8c874e1267",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    9,
+    9,
+    9,
+    17,
+    17,
+    17,
+    20,
+    20,
+    20,
+    20,
+    22,
+    22,
+    22,
+    23,
+    23,
+    23,
+    24,
+    24,
+    77,
+    82
+   ],
+   "count": 31,
+   "context": [
+    "for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:",
+    "for point in [Vector3(-13.4,3.2,2.5),Vector3(-10.5,3.2,2.5),Vector3(-9.2,3.2,1.4)]:",
+    "for point in [Vector3(2.3,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:",
+    "var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e0d8fb9d06a6b664",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_NEWS_CIGARS",
+   "file": "game/data/door_key_policy.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/v2_initial_states[0]/door_id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "f23035d86c8ac953",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_KEYS_CUT",
+   "file": "game/tests/orison_v2_resident_key_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "var door: DoorProp = passage.doors.get(\"SITE_SHOP_DOOR_KEYS_CUT\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "e5be1c27b0cbec6e",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_mina_door_safety_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_context"
+   ],
+   "lines": [
+    161
+   ],
+   "count": 1,
+   "context": [
+    "door.unit = \"2A\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }

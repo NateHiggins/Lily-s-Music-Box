@@ -32,6 +32,8 @@ var _fixed: Node3D
 var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
 var _moving := false
+var _relock_after_close := false
+var _key_turning := false
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -57,6 +59,7 @@ func warehouse_rotation_y() -> float:
 
 
 func _ready() -> void:
+	leaf_state = DoorKeyring.initial_state(self, leaf_state)
 	if door_kind == "apartment_entry" and unit != "":
 		add_to_group("apartment_doors")
 	_build_leaf()
@@ -291,8 +294,27 @@ func interact_prompt() -> String:
 	return "[E]  Close door" if open else "[E]  Open door"
 
 
+func key_prompt() -> String:
+	if _moving or _key_turning: return ""
+	if open: return "Close door to use the lock"
+	if not DoorKeyring.player_has_key(self): return "Needs key for " + DoorKeyring.unit_for(self)
+	return "Unlock door" if leaf_state == "locked" else "Lock door"
+
+
+func interact_key(_player: Node) -> Dictionary:
+	if _moving or _key_turning or open or RealityState.save_write_blocked or not DoorKeyring.player_has_key(self): return {}
+	var locked := leaf_state != "locked"
+	leaf_state = "locked" if locked else "closed"
+	_relock_after_close = false
+	motion_revision += 1
+	_play_latch()
+	_turn_key(_player)
+	DoorKeyring.remember_lock(self, locked)
+	return {"title":"DOOR KEY", "body":"Door locked." if locked else "Door unlocked.", "stamp":"KEY RING"}
+
+
 func interact(_player: Node) -> void:
-	if _moving:
+	if _moving or (_key_turning and _player != null):
 		return
 	if leaf_state == "locked":
 		_rattle()
@@ -312,10 +334,39 @@ func motion_target_angle(want_open: bool) -> float:
 	return deg_to_rad(-100.0 if swing_out else 100.0) if want_open else 0.0
 
 
-func npc_set_open(want_open: bool) -> void:
-	if leaf_state == "locked" or _moving or open == want_open:
+func npc_set_open(want_open: bool, resident_id := "") -> void:
+	if _moving or _key_turning or open == want_open:
 		return
+	if leaf_state == "locked":
+		if not want_open or not DoorKeyring.resident_has_key(resident_id, self): return
+		leaf_state = "closed"
+		_relock_after_close = true
+		_play_latch()
+		var holder: Node
+		for candidate in get_tree().get_nodes_in_group("resident_placeholders"):
+			if str(candidate.get("resident_id")) == resident_id: holder = candidate; break
+		_turn_key(holder)
 	interact(null)
+
+
+func _turn_key(holder: Node) -> void:
+	_key_turning = true
+	var key := preload("res://assets/props/resident_key.glb").instantiate() as Node3D
+	var face := signf(to_local(holder.global_position).z) if holder is Node3D else 1.0
+	if is_zero_approx(face): face = 1.0
+	key.position = Vector3(width-.085,.89,_hinge_offset+face*.050)
+	if door_kind == "cabinet" or height < 1.2:
+		key.position = Vector3(width-.055,height*.53,_hinge_offset+face*.05)
+	key.basis = Basis(Vector3.UP,face*PI*.5)*Basis(Vector3.RIGHT,PI*.5)
+	for mesh: MeshInstance3D in key.find_children("*","MeshInstance3D",true,false):
+		mesh.material_override = MatLib.get_mat("brass_dull")
+	_body.add_child(key)
+	var turn := create_tween()
+	turn.tween_property(key,"rotation:x",key.rotation.x+PI*.5,.22)
+	turn.tween_interval(.12)
+	turn.tween_callback(func():
+		key.queue_free()
+		_key_turning = false)
 
 
 ## An NPC may cross only after this owner's real opening motion has settled.
@@ -328,6 +379,9 @@ func _settled() -> void:
 	_moving = false
 	if not open:
 		_play_latch()
+		if _relock_after_close:
+			leaf_state = "locked"
+			_relock_after_close = false
 
 
 func _rattle() -> void:

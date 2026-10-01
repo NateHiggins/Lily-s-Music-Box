@@ -322,6 +322,11 @@ func _update_prompt() -> void:
 		if node.has_method("interact_prompt"):
 			_prompt.text = format_interaction_prompt(
 					node.interact_prompt(), _current_prompt_family())
+			if node.has_method("key_prompt"):
+				var key_words := str(node.call("key_prompt"))
+				if not key_words.is_empty():
+					var carrier := "[K]" if _current_prompt_family()==&"keyboard" else "[D-PAD UP]" if _current_prompt_family()==&"controller" else "[KEY]"
+					_prompt.text += "\n"+carrier+"  "+key_words
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
@@ -363,7 +368,9 @@ func _process(_delta: float) -> void:
 			apply_look_rate(stick_look, _delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
-	if Input.is_action_just_pressed("interact") \
+	if Input.is_action_just_pressed("door_key") and not call_locked:
+		use_key_interaction()
+	elif Input.is_action_just_pressed("interact") \
 			and (not call_locked or is_instance_valid(seated_interaction)):
 		use_primary_interaction()
 	# These are physical switches in the hand, not modal UI. They remain usable
@@ -975,6 +982,24 @@ func use_primary_interaction() -> void:
 		return
 	if not call_locked:
 		_try_interact()
+
+
+func use_key_interaction() -> void:
+	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): return
+	var query := PhysicsRayQueryParameters3D.create(camera.global_position,
+			camera.global_position-camera.global_basis.z*2.1)
+	query.collide_with_areas = true
+	query.exclude = [get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	var owner: Node = hit.get("collider")
+	while owner:
+		if owner.has_method("interact_key"):
+			var result: Variant = owner.call("interact_key",self)
+			_present_interaction_telegram(owner,result)
+			world_modified.emit(owner.global_position if owner is Node3D else global_position,owner.name)
+			return
+		if owner.has_method("interact"): return
+		owner = owner.get_parent()
 
 
 ## Traffic supplies a world-space carry vector. Keep look and partial steering

@@ -38,6 +38,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | October 1 composed city/bar batch, bound verification and next service connections | `design/V2_CITY_COMPOSITION_HANDOFF_2026-10-01.md` and `design/V2_CITY_PRODUCTION_MAP_2026-10-01.md` |
 | Retained bar restroom clearance, working sink input and pool inspection fit | `art/blender/bar_service_access.md` |
 | Supported bodega receiving room, fitted delivery leaf and sales-aisle route | `art/blender/bodega_receiving.md` |
+| Resident original keys, permission at Keys Cut and saved hinged-door locks | `art/blender/resident_keys.md` |
 | V2 city architecture/infrastructure continuation by location and transition | `design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md` |
 | Blender exterior masonry, deeper reveals and narrow light-slot preservation | `art/blender/exterior_masonry.md` |
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |

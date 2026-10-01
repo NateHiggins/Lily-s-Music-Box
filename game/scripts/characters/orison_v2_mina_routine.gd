@@ -203,9 +203,9 @@ func _route_doors_ready(step: float) -> bool:
 		# A crossed door belongs to the close queue, not the next approach.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
 		if not door.is_ready_for_passage():
-			if not door.open and not door._moving and door.leaf_state != "locked" \
+			if not door.open and not door._moving \
 					and _door_motion_clear(door, true):
-				door.npc_set_open(true)
+				door.npc_set_open(true,actor.resident_id)
 				passage.opened = door.open
 				passage.revision = door.motion_revision
 			blocked_reason = "waiting for door: " + str(door.name)
@@ -230,7 +230,7 @@ func _close_passed_doors() -> void:
 		if not bool(passage.opened):
 			_door_passages.erase(door)
 		elif not door._moving and _door_motion_clear(door, false):
-			door.npc_set_open(false)
+			door.npc_set_open(false,actor.resident_id)
 			if not door.open: _door_passages.erase(door)
 
 ## Conservative swept-box clearance for people, including the player. This

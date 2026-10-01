@@ -44,7 +44,11 @@ ordinary input from both sides, inside closure/reopening and the return to
 Orison. The same counter cannot supply the hardware shop's part or mutate the
 shared job/inventory. No interstage teleport or manual door pose is used.
 The scratch prototype pass is discovery only. Final candidate binding is
-required in **tmp/bodega-receiving/verified/verification.json** before push.
+recorded in **tmp/bodega-receiving/verified/verification.json** for the verified,
+pushed **7c2e35825df0b3827134739ac3c1c97448f4e3ec** implementation. All seven
+requested suites passed; zero static regressions, reader NEW **0**, protected
+**17/17** and selector **v2** with explicit V1 rollback were checked. The complete
+clean next baseline is **tmp/bodega-receiving/7c2e358-clean-board.json**.
 
 Before views are **tmp/city-architecture/bodega-delivery-before**. Production
 after views in **tmp/bodega-receiving/views** were inspected directly, including

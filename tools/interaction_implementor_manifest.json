@@ -4,6 +4,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "props/key_copy_counter.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/key_copy_counter.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/key_copy_counter.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Source-sized Keys Cut counter owns its permission menu and same-node interact action; physical player ray tested.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "building/light_debug_handle.gd",
    "extraction": "game-only",
    "family": "interact_prompt",

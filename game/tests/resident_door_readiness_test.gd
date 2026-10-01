@@ -331,6 +331,8 @@ func _check(label: String, ok: bool) -> void:
 
 
 func _finish() -> void:
+	# Match the composed-world teardown grace for stopped audio decoders.
+	await get_tree().create_timer(.25).timeout
 	var output := OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		var error := DirAccess.make_dir_recursive_absolute(output)
