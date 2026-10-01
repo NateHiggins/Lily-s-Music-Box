@@ -112,7 +112,7 @@ The additional city asset is approximately **1.72 MB**, partitioned for culling.
 |---|---|---|---|
 | Orison | Duplicate facade removed; installed masonry retained. | Basement/roof/landing and targeted room interfaces; existing service joins. | Raw architecture open; infrastructure open; mapping partly prepared; final polish open. |
 | Bodega | Registered shell and counter/state retained; fitted receiving room and 30-waypoint delivery return with one working leaf. | Storefront threshold/glazing/support detail; physical service distribution. | Raw architecture/infrastructure open; receiving metre UVs prepared; final polish open; stock simplifications recorded. |
-| Arcade | Thirteen composed cells and retained eleven-shop roster. | Every shop threshold/service route; closed-hours circulation; roof/support/wet joins. | Raw architecture/infrastructure open; existing imported mapping retained; final polish open. |
+| Arcade | Thirteen composed cells; all eleven shop thresholds, inside locks and ten night barriers walked in two normal-input routes. | Full sales-floor/apparatus reach; roof/support/wet/electrical joins. View-only rear rooms and shallow service panels remain intentional source boundaries. | Raw architecture/infrastructure open; existing imported mapping retained; final polish open. |
 | Street | One Orison facade owner; continuous tested public route to bar. | Drainage and paving contacts; crossing/transit edges; remaining route limits. | Raw architecture/infrastructure open; mapping partly prepared; final polish open. |
 | Bar | Retained cell playable; public route and 54-waypoint WC/sink return; pool inspection volume fitted to the actual source table. | Other moving poses, seats/apparatus, service/storage and utilities. | Public and sanitary connections implemented; raw architecture/infrastructure still open; imported mapping retained; final polish open. |
 | Cityscape | Missing source masses restored with physical backing. | Courtyards/backs; boundary sightlines; neighbor supports/penetrations. | Structural composition advanced; infrastructure open; metre UVs prepared; final polish open. |
@@ -171,3 +171,19 @@ retained Keys Cut counter, ownership/save rules and scoped tests are described i
 The key follow-up changes none of the six raw-architecture/infrastructure phase
 states above. Continue the arcade threshold and service/interface queues after
 the clean key-candidate verification; no ledger promotion follows from this work.
+The verified/pushed key candidate is **693000cb7f83ecf9c7efea94e84fe85c726f4168**;
+**tmp/resident-keys/verified/verification.json** records zero regressions, NEW **0**,
+unchanged protected paths and eleven successful bound suites. Resident originals,
+permission, copying, physical locks and reconstruction are scoped by the test's
+schema-2 contract; the six architecture/infrastructure queues remain open.
+
+## Arcade threshold follow-up
+
+**art/blender/arcade_thresholds.md** records every shop connection, source parked
+leaf poses, the diner customer aisle, normal key/door input, night barriers and
+continuous retirement. Provisional west/east routes report **68 / 76 waypoints**,
+zero failures; the final candidate additionally checks physical grille/leaf-sweep
+separation. Geometry and simulations are retained. Borrowed-light rear rooms,
+painted service panels and the funeral rail are authored view-only boundaries.
+Final verification belongs to **tmp/arcade-thresholds/verified/verification.json**;
+the source test/capture batch does not close the arcade infrastructure queue.

@@ -73,7 +73,8 @@ The focused resident-key suite exercises all eighteen originals, wrong-owner
 refusal, permission-only refusal, copying once, retained originals, actual door
 motion/relocking, six leaf kinds, the landmark, V2 initial News state, V1 state,
 chosen-lock reconstruction, malformed/read-only saves and actual isolated disk
-reload. Its provisional run reports **322 checks / 0 failures**.
+reload. Its final bound run reports **328 checks / 0 failures**, including
+unsupported and malformed key-domain version values.
 
 The production route reports **84 waypoints / 0 failures**: normal arrival and
 stairs, Mina permission, continuous street/arcade approach, actual Keys Cut menu,
@@ -95,8 +96,24 @@ Spatial classification appends sixteen individually reviewed source/fixture
 references, preserving the previous 6,315 entries. The interaction census adds
 exactly the new same-node Keys Cut counter; its smoke counts increase by one
 with explicit owner assertions. Carrier audit baseline and audit logic remain
-unchanged. Final clean-candidate gates, protected-path comparison and bound
-regressions are required in **tmp/resident-keys/verified/verification.json**.
+unchanged. **tmp/resident-keys/verified/verification.json** verifies the clean
+**693000cb7f83ecf9c7efea94e84fe85c726f4168** candidate against the complete
+receiving baseline: zero gate regressions, reader NEW **0**, protected **17/17**
+unchanged, selector **v2**, zero design lint errors and eleven bound successful
+suites. The implementation **5afff7b** and strict-version correction **693000c**
+are pushed on canonical main.
+
+The test-written schema-2 proof is preserved verbatim at
+**tmp/resident-keys/verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json**.
+It binds the same candidate, final test bytes and runtime input digest; the
+existing runtime-receipt validator reports no errors. The verifier's relative
+SHOT_DIR initially wrote these captures beneath **game/tmp**; the preserved
+copy changes neither receipt contents nor source binding. Future runs use
+absolute output paths. Its scope remains keys and their reconstruction/teardown.
+
+The key export is **37,372 bytes**; two stationary counter meshes and transient
+turning instances reuse that one mesh/material. This is an asset/node observation,
+not a stable FPS claim. No global light or rendering-pipeline setting changed.
 
 ## Previous batch publication
 

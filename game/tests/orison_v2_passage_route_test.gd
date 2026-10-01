@@ -36,8 +36,8 @@ func _route() -> void:
 	await get_tree().create_timer(0.6).timeout
 	if not _require(door.open, "hardware door opens through ordinary input"): return
 	if not await _walk_world(Vector3(10.8, 0, door_center.z)): return
-	# The inward leaf occupies the narrow customer aisle while open. Step
-	# beyond its sweep and close it using the real panel before turning north.
+	# Step through the source opening and close the leaf using its real
+	# panel before turning north along the fitted customer counter aisle.
 	if not await _walk_world(Vector3(9.7, 0, door_center.z)): return
 	if not await _use(door, door._body.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door_close"): return
 	await get_tree().create_timer(0.6).timeout
