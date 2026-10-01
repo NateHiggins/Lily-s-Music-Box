@@ -119,6 +119,10 @@ func _run() -> void:
 	DoorKeyring.make_copy("2A")
 	var snapshot := RealityState.data.duplicate(true)
 	_check(RealityState._validate_document(snapshot).ok,"key domain validates in existing save")
+	for version in [null,true,"1",2,[],{}]:
+		var invalid_version := snapshot.duplicate(true)
+		invalid_version.door_keys.version = version
+		_check(not RealityState._validate_document(invalid_version).ok,"invalid key-domain version protected")
 	for field in ["originals","permissions","copies","locks"]:
 		var malformed := snapshot.duplicate(true)
 		malformed.door_keys[field] = []

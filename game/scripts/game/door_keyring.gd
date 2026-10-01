@@ -32,7 +32,9 @@ static func _sources() -> void:
 
 static func valid(value: Variant) -> bool:
 	_sources()
-	if value is not Dictionary or value.get("version") != 1: return false
+	if value is not Dictionary: return false
+	var version: Variant = value.get("version")
+	if typeof(version) not in [TYPE_INT,TYPE_FLOAT] or version != 1: return false
 	for field in ["originals","permissions","copies","locks"]:
 		if value.get(field) is not Dictionary: return false
 	for field in ["originals","permissions","copies"]:
