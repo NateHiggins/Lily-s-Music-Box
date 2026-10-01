@@ -15,6 +15,9 @@ func _route() -> void:
 		var radiator := world.adapter.resolve(identity) as RadiatorProp
 		if not _require(radiator != null and radiator._balance == world.heat_balance,
 				"one production heat supply: "+unit): return
+		var actions: Array[String] = []
+		radiator.physical_action.connect(func(action: String, _result: Dictionary) -> void:
+			actions.append(action))
 		var floor_at := radiator.global_position-Vector3.UP*.75
 		var front := -radiator.global_basis.z
 		player.global_position = floor_at+front*1.6+Vector3.UP*.02
@@ -28,6 +31,8 @@ func _route() -> void:
 		if not await _use(valve,valve.global_position,unit+"_open_supply"): return
 		if not _require(radiator.supply_position > .98,
 				"ordinary E restores supply: "+unit): return
+		if not _require(actions == ["turn_valve","turn_valve"],
+				"one physical turn per ordinary E press: "+unit): return
 		await _roof_capture(unit+"_radiator",world.adapter.root.to_local(radiator.global_position))
 		player.rotation.y = atan2(front.x,front.z)
 		player.camera.rotation = Vector3.ZERO

@@ -10,6 +10,8 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if not validate(source,adapter): return false
 	var acoustic_ids: Array[String] = []
+	var mounts := preload("res://scripts/building/orison_v2_radiator_mounts.gd").new()
+	mounts.configure(adapter.root)
 	for record: Dictionary in source.installed: acoustic_ids.append(str(record.id))
 	if not adapter.install_acoustic_overrides(acoustic_ids):
 		errors.append("installed radiator acoustic anchors could not be rebound")
@@ -23,6 +25,7 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 		radiator.section_count = int(record.sections)
 		radiator.installation_drop = .75
 		radiator.graph_node_id = record.id
+		mounts.fit(radiator,adapter.resolve(str(record.id)),str(record.id).left(3))
 		if record.unit == "2B": radiator.bind_inventory(inventory)
 		radiator.bind_heat_balance(balance)
 		_add_collision(radiator)
@@ -30,6 +33,7 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 			radiator.free()
 			errors.append("radiator mount refused: "+str(record.id))
 			return false
+	mounts.draw()
 	return true
 
 func _add_collision(radiator: RadiatorProp) -> void:

@@ -76,10 +76,14 @@ FPS or a speedup. No pipeline extension is adopted from these numbers.
 
 **OrisonV2DuctSupportTest** checks actual imported bearing/plate triangles,
 independent rendered ceiling triangles, original duct collider contacts,
-headroom, both material partitions and active mapping. Preliminary contact
-inspection reports **65 stations / eight batches / zero failures**. Final source
-binding, mapping checks, existing ventilation service behavior and continuous
-roof access belong to **tmp/duct-supports/verified-final/verification.json**.
+headroom, both material partitions and active mapping. Published source
+**7b75755f6bb3e3b82686f3007badac11e3ccd882** passes **395 checks**, **65 stations**,
+eight batches and zero failures. The complete clean candidate proof is
+**tmp/duct-supports/verified-final/verification.json**: both imports bind,
+CityComposition passes 1,253 checks/450 contacts, existing ventilation behavior
+passes 23 checks and the continuous roof route passes 51 waypoints, all with zero
+failures. Gate regressions and reader NEW are zero; protected paths are 17/17,
+selector V2 and ledger counts unchanged. The candidate was pushed to main.
 Wrapper receipts and these captures are INERT; they grant no ledger runtime proof.
 
 The full clean baseline is **tmp/arcade-thresholds/4cbed73-clean-board.json**.

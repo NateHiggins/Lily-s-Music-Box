@@ -188888,6 +188888,108 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f5611b2a2515a4d2",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_radiator_wall_tie_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    95,
+    109,
+    139
+   ],
+   "count": 3,
+   "context": [
+    "var poses := [-1.0,0.0,1.0] if str(record.unit) in [\"2A\",\"3A\",\"4B\"] else [radiator.pitch_toward_supply]",
+    "if str(record.unit) in [\"2A\",\"3A\",\"4B\"]:",
+    "for unit: String in [\"2A\",\"3A\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "3239253e700b656d",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/tests/orison_v2_radiator_wall_tie_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    95,
+    109,
+    139
+   ],
+   "count": 3,
+   "context": [
+    "var poses := [-1.0,0.0,1.0] if str(record.unit) in [\"2A\",\"3A\",\"4B\"] else [radiator.pitch_toward_supply]",
+    "if str(record.unit) in [\"2A\",\"3A\",\"4B\"]:",
+    "for unit: String in [\"2A\",\"3A\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e5ed04616d7fba10",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/orison_v2_radiator_wall_tie_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    95,
+    109,
+    139
+   ],
+   "count": 3,
+   "context": [
+    "var poses := [-1.0,0.0,1.0] if str(record.unit) in [\"2A\",\"3A\",\"4B\"] else [radiator.pitch_toward_supply]",
+    "if str(record.unit) in [\"2A\",\"3A\",\"4B\"]:",
+    "for unit: String in [\"2A\",\"3A\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }

@@ -50,6 +50,9 @@ var section_count := 10
 ## V2's compatibility marker is a chest-height interaction anchor. Runtime
 ## composition sets this to 0.75 so the permanent appliance still meets floor.
 var installation_drop := 0.0
+## V2 fits floating wall ties to the built shell before ready; an empty array
+## retains the legacy 190 mm termination and all existing mechanism behavior.
+var wall_standoff_depths := PackedFloat32Array()
 
 var supply_position := 1.0
 var vent_grade := 2
@@ -217,9 +220,11 @@ func _build_sections(iron: Color) -> void:
 	# trough, plus two wall braces that make installation load legible.
 	_box(_shell, Vector3(half_width * 1.75, 0.008, 0.055),
 			Vector3(0.0, 0.135, 0.075), Color(0.12, 0.105, 0.09))
-	for x in [-half_width * 0.55, half_width * 0.55]:
+	for side in 2:
+		var x := half_width * .55 * (-1.0 if side==0 else 1.0)
+		var depth := wall_standoff_depths[side] if wall_standoff_depths.size()==2 else .19
 		var brace := _tube_between(_shell, Vector3(x, 0.58, 0.10),
-				Vector3(x, 0.58, 0.19), 0.009, PIPE)
+				Vector3(x, 0.58, depth), 0.009, PIPE)
 		brace.name = "WallStandOff"
 
 
