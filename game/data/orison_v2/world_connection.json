@@ -7,6 +7,15 @@
   "surface_id": "orison_threshold",
   "arrival_placement_id": "orison_exit",
   "template_id": "TEMPLATE_STREET_SEGMENT_V1",
-  "remove_boxes": ["orison_entry_recess", "orison_entry_door", "orison_door_glass", "orison_door_kick"],
-  "split_boxes": ["orison_base_course"]
+  "remove_boxes": [
+    "orison_entry_recess", "orison_entry_door", "orison_door_glass", "orison_door_kick",
+    "orison_facade_left", "orison_facade_right", "orison_facade_lintel",
+    "orison_upper_mass", "orison_base_course", "orison_string_course",
+    "orison_cornice_lower", "orison_cornice_cap", "orison_threshold_step",
+    "orison_window_west", "orison_window_center", "orison_window_east",
+    "orison_window_1_sill", "orison_window_1_head", "orison_window_1_mullion",
+    "orison_window_2_sill", "orison_window_2_head", "orison_window_2_mullion",
+    "orison_window_3_sill", "orison_window_3_head", "orison_window_3_mullion"
+  ],
+  "split_boxes": []
 }

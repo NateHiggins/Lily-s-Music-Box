@@ -7345,6 +7345,9 @@
       "res://assets/building/textures/sky/orison_queens_night_rain_half_dome_4k.png",
       "res://assets/environment/lroc_color_poles_1k.jpg"
     ],
+    "game/scripts/building/orison_v2_bar_region.gd": [
+      "res://assets/building/floor_01_cells/shop_bar.gltf"
+    ],
     "game/scripts/building/orison_v2_bath_details.gd": [
       "res://assets/props/bath_paper_holder.glb",
       "res://assets/props/bath_towel.glb"
@@ -7359,6 +7362,9 @@
     "game/scripts/building/orison_v2_cab_controls.gd": [
       "res://assets/props/lift_cab_controls.glb",
       "res://assets/props/lift_call_plate.glb"
+    ],
+    "game/scripts/building/orison_v2_city_shells.gd": [
+      "res://assets/props/city_shells.glb"
     ],
     "game/scripts/building/orison_v2_coal_delivery.gd": [
       "res://assets/building/v2_coal_delivery.glb",
@@ -7460,6 +7466,7 @@
     "art/blender/scripts/build_boiler_pipework.py",
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_chimney_crown.py",
+    "art/blender/scripts/build_city_shells.py",
     "art/blender/scripts/build_coal_delivery.py",
     "art/blender/scripts/build_coal_heap.py",
     "art/blender/scripts/build_door_butt_hinge.py",
@@ -7492,5 +7499,579 @@
     "art/blender/scripts/build_vent_register.py",
     "art/blender/scripts/build_wayfinding_plate.py",
     "art/blender/scripts/build_window_joinery.py"
-  ]
+  ],
+  "city_composition": {
+    "interpretation": "INERT source discovery; active/dormant is composition, not acceptance.",
+    "imported_frame": {
+      "authority": "game/data/orison_v2/exterior/street_frame.json",
+      "transform": "Godot translation Z = -source_threshold_z; coordinates via GameBoot.b2g"
+    },
+    "buckets": {
+      "orison": {
+        "shell": "game/scripts/building/orison_v2_blockout.gd",
+        "source": "game/data/orison_v2_blockout.json",
+        "outer_leaf": "art/blender/scripts/build_exterior_masonry.py",
+        "connection": "game/scripts/building/orison_v2_world_connection.gd"
+      },
+      "bodega": {
+        "shell": "game/scripts/building/orison_v2_exterior_cell.gd",
+        "geometry": "game/data/orison_v2/exterior/exterior_geometry.json",
+        "frames": "game/data/orison_v2/exterior/regions.json",
+        "state": "game/scripts/building/orison_v2_shop_bucket_registry.gd"
+      },
+      "arcade": {
+        "shell": "game/scripts/building/orison_v2_passage_region.gd",
+        "cells": [
+          "passage",
+          "shop_model_laundry",
+          "shop_shoe_rebuilding",
+          "shop_keys_cut",
+          "shop_hardware_paint",
+          "shop_funeral_parlour",
+          "shop_photo_supplies",
+          "shop_radio_service",
+          "shop_pawnbroker",
+          "shop_news_cigars",
+          "shop_otis_son",
+          "shop_luncheonette"
+        ],
+        "gateway": "tools/build_v2_passage_gateway.py",
+        "residency": "game/scripts/building/orison_v2_passage_residency.gd",
+        "hours": "game/scripts/building/passage_hours_director.gd"
+      },
+      "street": {
+        "geometry": "game/data/orison_v2/exterior/exterior_geometry.json",
+        "boundaries": "game/scripts/building/orison_v2_street_boundaries.gd",
+        "rear_alley": "art/blender/scripts/build_service_alley.py"
+      },
+      "bar": {
+        "active": true,
+        "shell": "game/assets/building/floor_01_cells/shop_bar.gltf",
+        "composition": "game/scripts/building/orison_v2_bar_region.gd",
+        "source": "art/data/gen_layout.py",
+        "actors": "game/data/floor_01_cell_registry.json:CELL_SHOP_BAR",
+        "hours": "game/scripts/building/harukiya_state_director.gd"
+      },
+      "cityscape": {
+        "shell": "art/blender/scripts/build_city_shells.py",
+        "source": "art/data/building_layout.json",
+        "composition": "game/scripts/building/orison_v2_city_shells.gd",
+        "omitted": "old ground, active shop interiors, unsupported antenna fragments"
+      }
+    },
+    "registered_cells": [
+      {
+        "id": "CELL_ORISON_F01_INTERIOR",
+        "asset": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+        "production_composition": "dormant",
+        "semantic_owners": [
+          "1A_LT_SCONCE",
+          "1D_LT_SCONCE",
+          "F01WC_LT_SCONCE",
+          "F01_1A_FRIDGE_01",
+          "F01_1A_KETTLE_01",
+          "F01_1A_KITCHEN_SINK_01",
+          "F01_1A_MIRROR_01",
+          "F01_1A_SHOWER_01",
+          "F01_1A_SINK_01",
+          "F01_1A_STOVE_01",
+          "F01_1A_TOASTER_01",
+          "F01_1D_FRIDGE_01",
+          "F01_1D_KETTLE_01",
+          "F01_1D_KITCHEN_SINK_01",
+          "F01_1D_MIRROR_01",
+          "F01_1D_SHOWER_01",
+          "F01_1D_SINK_01",
+          "F01_1D_STOVE_01",
+          "F01_1D_TOASTER_01",
+          "F01_ATRIUM_FRUIT_1",
+          "F01_A_BED_LT_FLUSH_DOME",
+          "F01_A_MAIN_LT_PENDANT_SHADE",
+          "F01_A_RADIATOR_01",
+          "F01_COMMON_B_LT_PENDANT_SHADE",
+          "F01_CORRIDOR_DOME_01",
+          "F01_CORRIDOR_DOME_02",
+          "F01_CORRIDOR_DOME_03",
+          "F01_CORRIDOR_DOME_04",
+          "F01_CORRIDOR_DOME_05",
+          "F01_CORRIDOR_DOME_06",
+          "F01_CORRIDOR_DOME_07",
+          "F01_CORRIDOR_DOME_08",
+          "F01_DOOR_01",
+          "F01_DOOR_02",
+          "F01_DOOR_03",
+          "F01_DOOR_04",
+          "F01_DOOR_05",
+          "F01_DOOR_07",
+          "F01_DOOR_08",
+          "F01_DOOR_09",
+          "F01_DOOR_10",
+          "F01_DOOR_11",
+          "F01_DOOR_12",
+          "F01_DOOR_13",
+          "F01_DOOR_14",
+          "F01_D_BED_LT_FLUSH_DOME",
+          "F01_D_MAIN_LT_PENDANT_SHADE",
+          "F01_D_OFFICE_LT_PENDANT_SHADE",
+          "F01_D_RADIATOR_01",
+          "F01_F01WC_MIRROR_01",
+          "F01_F01WC_SHOWER_01",
+          "F01_F01WC_SINK_01",
+          "F01_HALL_LT_FLUSH_DOME",
+          "F01_LOBBY_CLOCK_01",
+          "F01_LOBBY_LT_CHANDELIER",
+          "F01_LOBBY_RADIATOR_01",
+          "F01_OFFICE_LT_PENDANT_SHADE",
+          "F01_PACKAGE_LT_CAGE_BULB",
+          "F01_STORAGE_C_LT_CAGE_BULB",
+          "F01_UTILITY_LT_CAGE_BULB",
+          "F01_common_KITCHEN_SINK_01"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_ORISON_FACADE_SHELL",
+        "asset": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+        "production_composition": "dormant",
+        "semantic_owners": [
+          "F01_DOOR_06",
+          "F01_MARQUEE_LT_01",
+          "F01_MARQUEE_LT_02",
+          "F01_NEON_BLADE",
+          "F01_NEON_TENANT"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SITE_STREET_COMMON",
+        "asset": "res://assets/building/floor_01_cells/site_street_common.gltf",
+        "production_composition": "derived_geometry",
+        "semantic_owners": [
+          "F01_STREETLAMP_03",
+          "F01_STREETLAMP_04",
+          "F01_STREETLAMP_06",
+          "F01_STREETLAMP_07",
+          "F01_STREETLAMP_08",
+          "PASSAGE_PORTAL_LT_E",
+          "PASSAGE_PORTAL_LT_W"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_PASSAGE",
+        "asset": "res://assets/building/floor_01_cells/passage.gltf",
+        "production_composition": "derived_geometry",
+        "semantic_owners": [
+          "PASSAGE_AISLE_LT_00",
+          "PASSAGE_AISLE_LT_01",
+          "PASSAGE_AISLE_LT_02",
+          "PASSAGE_AISLE_LT_03",
+          "PASSAGE_AISLE_LT_04",
+          "PASSAGE_AISLE_LT_05",
+          "PASSAGE_AISLE_LT_06",
+          "PASSAGE_AISLE_LT_07"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_BAR",
+        "asset": "res://assets/building/floor_01_cells/shop_bar.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "F01_BAR_DARTS",
+          "F01_BAR_DOOR",
+          "F01_BAR_LT_CAN0",
+          "F01_BAR_LT_CAN1",
+          "F01_BAR_LT_DARTS",
+          "F01_BAR_LT_DECK0",
+          "F01_BAR_LT_DECK1",
+          "F01_BAR_LT_DECK2",
+          "F01_BAR_LT_LOBBY",
+          "F01_BAR_LT_POOL",
+          "F01_BAR_LT_STAGE0",
+          "F01_BAR_LT_STAGE1",
+          "F01_BAR_LT_STAIR",
+          "F01_BAR_LT_TAB0",
+          "F01_BAR_LT_TAB1",
+          "F01_BAR_LT_TAB2",
+          "F01_BAR_LT_WC",
+          "F01_BAR_LT_WELL",
+          "F01_BAR_LT_WEST0",
+          "F01_BAR_LT_WEST1",
+          "F01_BAR_POOL",
+          "F01_BAR_RED_DOOR",
+          "F01_BAR_SIGNAGE",
+          "F01_BAR_SONGBOOK",
+          "F01_BAR_STAGE_SIGN",
+          "F01_BAR_WC_DOOR",
+          "F01_BAR_WC_SINK_01",
+          "F01_KARAOKE_SPK_0",
+          "F01_KARAOKE_SPK_1"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_BODEGA",
+        "asset": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+        "production_composition": "dormant",
+        "semantic_owners": [
+          "F01_BODEGA_DOOR",
+          "F01_BODEGA_LT_0",
+          "F01_BODEGA_LT_1",
+          "F01_BODEGA_LT_2",
+          "F01_BODEGA_RADIO",
+          "F01_BODEGA_SIGNAGE",
+          "THRESHOLD_SHOP_BODEGA_FRONT"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_MODEL_LAUNDRY",
+        "asset": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+          "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+          "SITE_SHOP_IN0_MODEL_LAUNDRY",
+          "SITE_SHOP_IN1_MODEL_LAUNDRY",
+          "SITE_SHOP_IN2_MODEL_LAUNDRY",
+          "SITE_SHOP_LT_MODEL_LAUNDRY",
+          "SITE_SHOP_SIGN_MODEL_LAUNDRY"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_SHOE_REBUILDING",
+        "asset": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_SHOE_REBUILDING",
+          "SITE_SHOP_HOURS_SHOE_REBUILDING",
+          "SITE_SHOP_IN0_SHOE_REBUILDING",
+          "SITE_SHOP_IN1_SHOE_REBUILDING",
+          "SITE_SHOP_LT_SHOE_REBUILDING",
+          "SITE_SHOP_SIGN_SHOE_REBUILDING"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_KEYS_CUT",
+        "asset": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_KEYS_CUT",
+          "SITE_SHOP_HOURS_KEYS_CUT",
+          "SITE_SHOP_IN0_KEYS_CUT",
+          "SITE_SHOP_IN1_KEYS_CUT",
+          "SITE_SHOP_LT_KEYS_CUT",
+          "SITE_SHOP_SIGN_KEYS_CUT"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_HARDWARE_PAINT",
+        "asset": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_HARDWARE_PAINT",
+          "SITE_SHOP_HOURS_HARDWARE_PAINT",
+          "SITE_SHOP_IN0_HARDWARE_PAINT",
+          "SITE_SHOP_IN1_HARDWARE_PAINT",
+          "SITE_SHOP_IN2_HARDWARE_PAINT",
+          "SITE_SHOP_LT_HARDWARE_PAINT",
+          "SITE_SHOP_SIGN_HARDWARE_PAINT"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "asset": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+          "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+          "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+          "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+          "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+          "SITE_SHOP_LT_FUNERAL_PARLOUR",
+          "SITE_SHOP_SIGN_FUNERAL_PARLOUR"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "asset": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+          "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+          "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+          "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+          "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+          "SITE_SHOP_LT_PHOTO_SUPPLIES",
+          "SITE_SHOP_SIGN_PHOTO_SUPPLIES"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_RADIO_SERVICE",
+        "asset": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_RADIO_SERVICE",
+          "SITE_SHOP_HOURS_RADIO_SERVICE",
+          "SITE_SHOP_IN0_RADIO_SERVICE",
+          "SITE_SHOP_IN1_RADIO_SERVICE",
+          "SITE_SHOP_LT_RADIO_SERVICE",
+          "SITE_SHOP_SIGN_RADIO_SERVICE"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_PAWNBROKER",
+        "asset": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_PAWNBROKER",
+          "SITE_SHOP_HOURS_PAWNBROKER",
+          "SITE_SHOP_IN0_PAWNBROKER",
+          "SITE_SHOP_IN1_PAWNBROKER",
+          "SITE_SHOP_LT_PAWNBROKER",
+          "SITE_SHOP_SIGN_PAWNBROKER"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_NEWS_CIGARS",
+        "asset": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_NEWS_CIGARS",
+          "SITE_SHOP_HOURS_NEWS_CIGARS",
+          "SITE_SHOP_IN0_NEWS_CIGARS",
+          "SITE_SHOP_IN1_NEWS_CIGARS",
+          "SITE_SHOP_LT_NEWS_CIGARS",
+          "SITE_SHOP_SIGN_NEWS_CIGARS"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_OTIS_SON",
+        "asset": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_OTIS___SON",
+          "SITE_SHOP_HOURS_OTIS___SON",
+          "SITE_SHOP_IN0_OTIS___SON",
+          "SITE_SHOP_IN1_OTIS___SON",
+          "SITE_SHOP_IN2_OTIS___SON",
+          "SITE_SHOP_LT_OTIS___SON",
+          "SITE_SHOP_SIGN_OTIS___SON"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      },
+      {
+        "id": "CELL_SHOP_LUNCHEONETTE",
+        "asset": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+        "production_composition": "active",
+        "semantic_owners": [
+          "SITE_SHOP_DOOR_LUNCHEONETTE",
+          "SITE_SHOP_HOURS_LUNCHEONETTE",
+          "SITE_SHOP_IN0_LUNCHEONETTE",
+          "SITE_SHOP_IN1_LUNCHEONETTE",
+          "SITE_SHOP_IN2_LUNCHEONETTE",
+          "SITE_SHOP_LT_LUNCHEONETTE",
+          "SITE_SHOP_SIGN_LUNCHEONETTE"
+        ],
+        "lifecycle": {
+          "allowed_transitions": [
+            "UNLOADED_TO_LOADING",
+            "LOADING_TO_RESIDENT",
+            "RESIDENT_TO_UNLOADING",
+            "UNLOADING_TO_UNLOADED"
+          ],
+          "initial_state": "UNLOADED",
+          "persistent_gameplay_authority": false,
+          "teardown_api_required": true,
+          "unload_destroys_durable_authority": false
+        }
+      }
+    ]
+  }
 }

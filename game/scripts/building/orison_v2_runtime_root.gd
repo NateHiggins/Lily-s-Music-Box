@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
 
@@ -58,6 +59,7 @@ var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
 var passage_region: OrisonV2PassageRegion
+var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var shop_simulation: Node
 var day_night_director: DayNightDirector
@@ -536,6 +538,14 @@ func _compose_exterior() -> bool:
 		return false
 	if not passage_region.enable_residency(player, _blockout, layout):
 		return false
+	bar_region = BarRegion.new()
+	bar_region.name = "Harukiya"
+	add_child(bar_region)
+	if bar_region.startup_failed:
+		return false
+	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
+	city_shells.name = "CityShells"
+	add_child(city_shells)
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:
@@ -753,6 +763,8 @@ func shutdown_for_tests() -> void:
 	if is_instance_valid(shop_simulation):
 		shop_simulation.shutdown()
 	if is_instance_valid(exterior_cell):
+		if is_instance_valid(bar_region):
+			bar_region.shutdown()
 		if is_instance_valid(passage_region):
 			passage_region.shutdown()
 		exterior_cell.shutdown_for_tests()

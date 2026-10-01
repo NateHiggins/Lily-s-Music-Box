@@ -66,3 +66,7 @@ art/renders/debug_menu_input_20260919/** -text whitespace=-blank-at-eol
 
 # Exact resident home-door before/after diagnostics.
 art/renders/resident_home_door_20260919/** -text whitespace=-blank-at-eol
+
+# Source-derived V2 city geometry retains exact binary bytes on checkout.
+art/blender/city_shells.blend binary
+game/assets/props/city_shells.glb binary
