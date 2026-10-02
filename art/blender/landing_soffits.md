@@ -63,3 +63,13 @@ door-casing, ventilation, hot-water and resident-key suites.
 The owner's **art/renders/insitu/shots.md** bytes and absence of captures
 **shot_024** through **shot_028** are preserved. The protected selector, V1 rollback,
 accepted service/gameplay states and earlier native fabrication remain intact.
+
+Published **fc3b90db92364bb61a2a6a22fded6edffd94f941** passes the complete **47**-gate
+candidate comparison with zero regressions, reader NEW **0**, **17/17** protected
+paths unchanged, selector V2 and no requirement promotions. Both imports and all
+nine named windowed scenes complete with binding receipts. The final four soffit
+frames under **tmp/landing-soffits/verified/godot/** were directly inspected.
+The genuine complete clean candidate board is retained as
+**tmp/landing-soffits/fc3b90d-clean-board.json**. Verification is in-place; fresh
+checkout/autocrlf behavior is outside its scope. Post-run cleanup removed **259**
+untracked legacy import UIDs; the two new source/test UIDs were committed.

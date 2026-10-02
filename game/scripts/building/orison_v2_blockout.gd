@@ -474,6 +474,11 @@ func _build_spaces() -> void:
 	var dims: Dictionary = layout.dimensions
 	var clear_h := float(dims.clear_height)
 	var slab_t := float(dims.slab_thickness)
+	var soffits:=preload("res://scripts/building/orison_v2_platform_soffits.gd")
+	var floor_owners: Array[Dictionary]=soffits.ceiling_owners(layout,level_y,space_geometry_exclusions,show_ceilings)
+	# Platforms retain their already accepted underside ownership. Room slabs
+	# fill only exposed gaps, and earlier room slabs own overlapping footprints.
+	for platform: Dictionary in layout.get("platforms",[]):floor_owners.append_array(soffits.floor_owners(platform,layout,level_y))
 	for space: Dictionary in layout.spaces:
 		var rect: Array = space.rect
 		var y := float(level_y[space.level])
@@ -488,6 +493,9 @@ func _build_spaces() -> void:
 			continue
 		if not bool(space.get("no_floor", false)):
 			_build_slab(parent, "Floor", rect, y - slab_t * .5, slab_t, cls, true)
+			if production_materials:
+				soffits.append(parent.get_node("Floor"),space,layout,level_y,floor_owners,architectural_materials.material_for("Ceiling",cls),true)
+				floor_owners.append_array(soffits.floor_owners(space,layout,level_y))
 		if show_ceilings and not bool(space.get("no_ceiling", false)):
 			_build_slab(parent, "Ceiling", rect, y + clear_h + slab_t * .5, slab_t, cls, false)
 		if not bool(space.get("open_shell", false)):

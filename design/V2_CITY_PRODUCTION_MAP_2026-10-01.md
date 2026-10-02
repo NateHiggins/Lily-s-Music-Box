@@ -217,3 +217,27 @@ lower-ceiling ownership subtracted. Focused inspection passes **1,557** checks a
 the complete clean candidate comparison remain required before publication.
 The added surfaces prepare physical support seating; they do not close any of
 the six location phases or accept the proposed heating distribution.
+
+Published **fc3b90db92364bb61a2a6a22fded6edffd94f941** completes the landing
+prerequisite with nine binding scene suites and the full **47**-gate comparison:
+zero regressions, NEW **0**, unchanged protected paths and requirement statuses.
+**tmp/landing-soffits/verified/verification.json** and the genuine
+**tmp/landing-soffits/fc3b90d-clean-board.json** retain the final observations.
+One routing trial cleared retained millwork and had **466** proposed nine-point
+underside seats with **49** unresolved stations. Subsequent pipe-to-pipe checks
+rejected that trial's height packing and exposed a self-crossing north-wing
+detour. Heating routes, structural sleeves, chase access, supports and the
+ground-floor channel remain construction planning, not phase acceptance.
+
+## Room-floor underside prerequisite
+
+The same source inspection found exposed room-floor slabs without rendered
+undersides. **art/blender/room_slab_soffits.md** records **54** additional mapped
+partitions, with source apertures and all earlier ceiling/platform owners
+subtracted. The focused inspection passes **2,881** checks over **585** landing
+and **468** room-slab stations. Three retained roof-wall foreground contacts are
+reported separately from the named slab-body query. No physics body changes.
+The north-wing and ground-west perimeter frames were directly inspected; finish
+response remains open. The full clean candidate comparison and normal routes
+remain required before publication. This prerequisite accepts no heating route
+or support station and closes none of the six location phases.
