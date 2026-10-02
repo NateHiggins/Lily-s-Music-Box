@@ -55,6 +55,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |
 | Boiler steam header, exposed equalizer, discharge and fitted supports | `art/blender/boiler_pipework.md` |
 | Retained steam inlet wall/chase sleeves, fitted plates and opened internal tee | `art/blender/boiler_inlet.md` |
+| Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
 | Lobby waiting benches and fixed parcel shelving | `art/blender/public_furnishings.md` |
 | Basement stair foundation and Blender coal pile | `art/blender/basement_fabrication.md` |

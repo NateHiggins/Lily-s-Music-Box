@@ -880,12 +880,16 @@ func _build_fixtures() -> void:
 
 func _build_platforms() -> void:
 	var slab_t := float(layout.dimensions.slab_thickness)
+	var soffits:=preload("res://scripts/building/orison_v2_platform_soffits.gd")
+	var ceiling_owners: Array[Dictionary]=soffits.ceiling_owners(layout,level_y,space_geometry_exclusions,show_ceilings)
 	for platform: Dictionary in layout.get("platforms", []):
 		var rect: Array = platform.rect
 		var y := float(level_y[platform.level])
-		_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
+		var draw:=_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
 				Vector3(_rect_w(rect), slab_t, _rect_d(rect)),
 				str(platform.get("class", "core")), true, "Floor")
+		if production_materials:
+			soffits.append(draw,platform,layout,level_y,ceiling_owners,architectural_materials.material_for("Ceiling",str(platform.get("class","core"))))
 
 func _build_lift_landings() -> void:
 	for landing: Dictionary in layout.get("lift_landings", []):

@@ -34,7 +34,7 @@ welded export preview. Local mesh coordinates around the inlet avoid the
 Boolean precision faults seen in the first global-coordinate construction.
 The final union has **zero** nonmanifold edges. The generator triangulates
 and removes submicrometre degeneracies before assigning metre UVs and
-correcting exported tangent handedness. **boiler_inlet.blend** is **261,904**
+correcting exported tangent handedness. **boiler_inlet.blend** is **261,905**
 bytes; its GLB is **615,648** bytes, **5,560** triangles and one material draw.
 The existing **metal** material is reused. No bitmap, material key, state,
 light or interactive control is added. Precision-controlled import metadata
@@ -108,6 +108,28 @@ reader and candidate-bound runtime checks must pass before publication;
 their final results belong under **tmp/boiler-inlet/verified**. This note,
 captures and wrapper receipts grant no runtime-contract or ledger promotion.
 In-place verification does not prove fresh-checkout/autocrlf behavior.
+
+Published candidate **e93b9c25dc4e439a75222c0e89efe326b07f0848** passes the
+complete **47**-gate comparison with zero regressions, zero new unread fields,
+unchanged completeness counts and all **17** protected paths. The four newly
+registered spatial references and three owner-preservation projection tests
+are reviewed; no audit baseline or classifier is weakened.
+**tmp/boiler-inlet/verified/verification.json** records two completed imports
+and eleven successful binding windowed suites: inlet, retained pipework, boiler
+body, outward door movement, boiler service route, basement circuit, ventilation
+fabric, apartment batch, hot water, resident-key route and city composition.
+The actual clean candidate board is retained as
+**tmp/boiler-inlet/e93b9c2-clean-board.json**. The key test writes its own
+schema-2 contract; the new construction test makes no actor-consequence claim.
+
+The final candidate's four inlet frames and original production-lamp pipework
+view are directly inspected. Because this verifier's output argument was
+relative, captures are under **game/tmp/boiler-inlet/verified/godot**; log and
+verification files remain under **tmp/boiler-inlet/verified**. Their paths and
+scope are retained in **tmp/boiler-inlet/validation-index.json**. The owner's
+capture log retains SHA-256 **1C97D690FD73325B00AE1F7AE84311BDDD42DBD25BC10AE417830C8E3EF03525**,
+and the five owner-removed images remain absent. Only the 259 untracked
+import-generated legacy UIDs are removed after verification.
 
 Continue the four physical heat risers and pitched routes to the eighteen
 actual installed feeds. The first draft's straight runs crossed unoccupied

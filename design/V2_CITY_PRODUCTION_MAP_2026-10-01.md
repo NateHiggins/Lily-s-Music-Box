@@ -194,3 +194,26 @@ Geometry and simulations are retained. Borrowed-light rear rooms,
 painted service panels and the funeral rail are authored view-only boundaries.
 Final verification belongs to **tmp/arcade-thresholds/verified/verification.json**;
 the source test/capture batch does not close the arcade infrastructure queue.
+
+## Boiler inlet follow-up
+
+Published **e93b9c25dc4e439a75222c0e89efe326b07f0848** fits the retained steam
+feed's three structural crossings and opens its hidden equalizer junction.
+**art/blender/boiler_inlet.md** records native geometry invariance, actual
+plate/bolt seats, 324 airway samples and the construction scope. The complete
+**47**-gate comparison and eleven binding windowed scene suites pass with zero
+regressions, NEW **0**, unchanged protected paths and no ledger promotions.
+Final verification is **tmp/boiler-inlet/verified/verification.json**; the
+clean complete comparison board is **tmp/boiler-inlet/e93b9c2-clean-board.json**.
+The six location phases and source-to-radiator distribution remain open.
+
+## Landing underside prerequisite
+
+Heating-support inspection exposed missing rendered landing undersides despite
+retained slab collision. **art/blender/landing_soffits.md** records the source
+repair: **64** additional ceiling partitions across **65** platforms, with actual
+lower-ceiling ownership subtracted. Focused inspection passes **1,557** checks at
+**585** surface/collision stations without duplicates. Normal-input routes and
+the complete clean candidate comparison remain required before publication.
+The added surfaces prepare physical support seating; they do not close any of
+the six location phases or accept the proposed heating distribution.
