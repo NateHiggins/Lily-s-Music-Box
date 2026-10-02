@@ -16,6 +16,7 @@ def installed(p):
 shaft=next(r for r in source['risers'] if r['id']=='HEAT_STACK')['rect']
 shaft_center=Vector(((shaft[0]+shaft[2])/2,base+2.65,(shaft[1]+shaft[3])/2))
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+bpy.context.preferences.filepaths.save_version=0
 mats={}
 for key,color in {'Iron':(.18,.17,.15),'Steel':(.32,.31,.28)}.items():
  m=bpy.data.materials.new(key);m.diffuse_color=(*color,1);mats[key]=m
@@ -102,6 +103,45 @@ for x in [9.8,10.9,12.0]:
 # A wall sleeve makes the concealed shaft transition explicit.
 at=Vector((9.58,high.y,high.z));direction=Vector((1,0,0))
 tube('WallEscutcheon',[(at-direction*.008,direction),(at+direction*.008,direction)],.13,'Steel',.045)
+# The existing equalizer shares the steam takeoff. Its two independently
+# generated open tubes previously left their hidden end rings/side walls
+# inside one another. Open only the internal junction, retaining the installed
+# route, outer silhouettes, socket bands, supports and all plant authority.
+tee=installed((.05,2.35,.02))
+junction_cutters=[]
+for name,a,b,radius in [
+ ('SteamTeeLumen',tee-Vector((0,.15,0)),tee+Vector((0,.15,0)),.0715),
+ ('EqualizerTeeLumen',tee,tee+Vector((0,0,.15)),.032)]:
+ cutter=cylinder(name,a,b,radius,sides=64)
+ cutter.data.materials.clear();junction_cutters.append(cutter)
+original_parts=[o for o in bpy.context.scene.objects if o.type=='MESH' and o not in junction_cutters]
+changed=[]
+for o in original_parts:
+ bounds=[o.matrix_world@Vector(p) for p in o.bound_box]
+ low=Vector(tuple(min(p[i] for p in bounds) for i in range(3)))
+ high_box=Vector(tuple(max(p[i] for p in bounds) for i in range(3)))
+ at=point(tee)
+ if any(high_box[i]<at[i]-.16 or low[i]>at[i]+.16 for i in range(3)):continue
+ bpy.context.view_layer.objects.active=o
+ for cutter in junction_cutters:
+  mod=o.modifiers.new(cutter.name,'BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+  bpy.ops.object.modifier_apply(modifier=mod.name)
+ o.data.validate(clean_customdata=False)
+ changed.append(o.name)
+ if not o.data.polygons:
+  # The takeoff's old socket was wholly hidden inside the parent tube.
+  # The open junction consumes that redundant internal ring completely.
+  bpy.data.objects.remove(o,do_unlink=True)
+  continue
+ uv=o.data.uv_layers.active
+ if uv is None:uv=o.data.uv_layers.new(name='UVMap')
+ for face in o.data.polygons:
+  normal=face.normal.normalized();seed=Vector((0,0,1)) if abs(normal.z)<.9 else Vector((0,1,0))
+  u=normal.cross(seed).normalized();v=normal.cross(u).normalized();origin=o.data.vertices[face.vertices[0]].co
+  for loop in face.loop_indices:
+   p=o.data.vertices[o.data.loops[loop].vertex_index].co-origin;uv.data[loop].uv=(p.dot(u),p.dot(v))
+for cutter in junction_cutters:bpy.data.objects.remove(cutter,do_unlink=True)
+print('BOILER INTERNAL TEE: fitted source parts='+str(changed))
 for o in bpy.context.scene.objects:
  if o.type!='MESH':continue
  bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()

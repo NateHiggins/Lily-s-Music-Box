@@ -189177,6 +189177,124 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F03/marker+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "c98dce5284a94202",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_boiler_inlet_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "var boiler:=world.adapter.resolve(\"B1_BOILER_01\") as BoilerProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2f6649a10c9348ea",
+   "kind": "id_reference",
+   "token": "B1_BOILER_APPROACH",
+   "file": "game/tests/orison_v2_boiler_inlet_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    94,
+    95
+   ],
+   "count": 2,
+   "context": [
+    "[\"B1_BOILER_APPROACH\",2,Vector3(8.675,-.55,.13),-1.0],",
+    "[\"B1_BOILER_APPROACH\",2,Vector3(8.675,-.55,.27),1.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f59ef92946f2c95c",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/tests/orison_v2_boiler_inlet_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    92,
+    93
+   ],
+   "count": 2,
+   "context": [
+    "[\"B1_BOILER_ROOM\",0,Vector3(9.43,-.55,-.55),-1.0],",
+    "[\"B1_BOILER_ROOM\",0,Vector3(9.57,-.55,-.55),1.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fb04fe373c6acf53",
+   "kind": "id_reference",
+   "token": "HEAT_STACK",
+   "file": "game/tests/orison_v2_boiler_inlet_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    96
+   ],
+   "count": 1,
+   "context": [
+    "[\"HEAT_STACK\",2,Vector3(8.675,-.55,.3),-1.0]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

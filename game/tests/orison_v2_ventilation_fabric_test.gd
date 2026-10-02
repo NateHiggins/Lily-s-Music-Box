@@ -102,7 +102,10 @@ func _run() -> void:
 			if hit.begins_with(str(volume[0])+" -> "):hits.append(hit)
 		check(hits.is_empty(),"actual triangle volume: "+str(volume[0])+" "+str(hits))
 	check(traced==59 and volumes.size()==82 and physics_samples==531,"all source branches, four stems/roof routes and 23 complete plenums are checked")
-	check(root.layout.wall_service_openings.size()==67 and root.layout.masonry_service_openings.size()==26,"all reviewed structural owners carry their bounded ports")
+	var ventilation_wall_ports:=0
+	for port: Dictionary in root.layout.wall_service_openings:
+		if str(port.id).get_slice("_",0)=="VENT":ventilation_wall_ports+=1
+	check(ventilation_wall_ports==67 and root.layout.masonry_service_openings.size()==26,"all reviewed ventilation structural owners retain their bounded ports in the shared table")
 	var shower:=world.adapter.resolve("F03_3D_SHOWER_01") as Node3D
 	check(absf(root.to_local(shower.global_position).z+11.84)<.0001,"retained third-floor shower clears the original north stack")
 	await _capture(world,root)

@@ -119,9 +119,17 @@ startup observations and direct image inspection are recorded with final checks.
 ## Binding and continuation
 
 The complete clean baseline is **tmp/vent-fabric-audit/8eb96c7-clean-board.json**.
-Candidate verification belongs under **tmp/vent-wall-ports/verified** and must
-record zero regressions/new unread fields, **17/17** protected paths, unchanged
-requirements and the V2 default with explicit V1 rollback. The board includes
+Published **bfaeb9d15b4ee763ffab43075980679429bca06b** passes the complete
+**46-gate** board, zero regressions/new unread fields, **17/17** protected paths,
+unchanged requirements and the V2 default with explicit V1 rollback. Nine
+candidate-bound suites pass under **tmp/vent-wall-ports/verified**. The first
+two attempted city scene names did not exist; those runs grant no city proof.
+The confirmed **OrisonV2CityCompositionTest** passes **1,253** checks and **450**
+contacts under **tmp/vent-wall-ports/city-corrected-verified**, whose clean
+verification has zero blocking findings. **validation-index.json** links the
+ten passing bound suites on that unchanged candidate and preserves both naming
+failures. The resident-key route's own schema-2 contract passes **84** waypoints
+and **55** checks; hot water passes **1,738** checks. The board includes
 one new projection test gate; no existing gate or test is weakened. Only the
 individually reviewed new test references enter the spatial manifest; its five
 historical cleanup opportunities remain preserved. Owner capture bytes/absences
