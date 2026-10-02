@@ -189736,6 +189736,36 @@
    "rationale": "Reviewed ordinary-input west passage/laundry route: one initial basement landing placement, retained source door and explicit registered-frame waypoints; update this fixture when its layout moves.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "7cf9db5be1d0caaf",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_rear_wing_a_support.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed native rear-wing frame collision names, derived from the source-owned bounded asset pieces. Regenerate the fixed triangle bodies with the asset; this introduces no save, room or gameplay identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

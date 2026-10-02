@@ -92,3 +92,23 @@ new collision naming and route references are appended to the spatial manifest.
 Required routes include the normal basement, vertical, roof, boiler, alley,
 door/key reconstruction and retained fabric circuits. Wider raw architecture
 and all seven location/utility phases remain open.
+
+Published **366653ce52e6bf6eb8ee97a52faeb8fd1566c91f** passes all fifteen bound
+windowed suites and the complete 47-gate comparison against clean **244853b**:
+zero regressions, NEW zero, protected 17/17, V2 default/V1 rollback retained and
+no requirement promotions. All nine final frame/route views were directly
+inspected. Normal basement, roof and vertical circuits retain 88, 51 and 79
+waypoints; keys retain their schema-2 two-world contract, 84 waypoints and 55
+checks. **tmp/ground-core-transfer/verified/verification.json** retains the
+comparison; **tmp/ground-core-transfer/366653c-clean-board.json** preserves its
+genuine clean complete candidate board. The wider shell is still open. Fresh
+post-frame discovery uses a longer ray span before any new backing is fabricated.
+
+**tmp/shell-readiness/post-frame-contact1.log.receipt.json** records the corrected
+actual survey; all three discovery views were inspected. Separate editable
+source reconciliation in **post-frame-source-continuity.json** accounts for 943
+of 1,030 stations and leaves 87 upper-storey stations (56 on the first upper
+floor). Ground stations are accounted for by actual contact or lower source
+masonry. The longer ray finds all three front-threshold samples on the existing
+foundation; the earlier single miss required no new backing. The remaining
+work list still makes no load-path, capacity or whole-shell readiness claim.

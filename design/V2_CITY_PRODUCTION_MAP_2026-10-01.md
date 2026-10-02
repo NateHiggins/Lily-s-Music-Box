@@ -397,3 +397,57 @@ post-closure/source-masonry survey leaves 92 unresolved stations as a work list.
 This frame targets four local stations; higher-storey transfers, front threshold
 backing, weather closures and infrastructure remain open. No load capacity or
 completeness requirement is promoted, and heating apertures remain parked.
+
+Published **366653ce52e6bf6eb8ee97a52faeb8fd1566c91f** passes all fifteen bound
+windowed suites and the complete 47-gate comparison against clean **244853b**:
+zero regressions, NEW zero, protected 17/17, V2 default/V1 rollback and no
+requirement promotions. All nine final frame/route views were directly
+inspected. Normal basement, roof and vertical circuits retain 88, 51 and 79
+waypoints; keys retain their schema-2 two-world contract, 84 waypoints and 55
+checks. Comparison and genuine clean complete board are
+**tmp/ground-core-transfer/verified/verification.json** and
+**tmp/ground-core-transfer/366653c-clean-board.json**. Continue current contact
+discovery before adding upper transfers: longer native rays must distinguish
+small-triangle probe misses from actual missing construction. Heating cuts
+remain parked while shell and support continuity are open.
+
+## First-upper A rear-wing support prerequisite
+
+The fresh longer-ray survey and separate editable-source reconciliation at
+**tmp/shell-readiness/post-frame-contact1.log.receipt.json** and
+**post-frame-source-continuity.json** account for 943 of 1,030 stations, leaving
+87 upper-storey stations. The front threshold contacts the existing foundation;
+no additional backing is required there. These counts describe a work list,
+without load-path, capacity or shell-readiness acceptance.
+
+**art/blender/rear_wing_a_support.md** records seven source-derived I beams,
+nine fitted H posts, independent external pedestals/pads and retained storage
+roof/wall seats beneath twenty first-upper A rear-wing stations. The bath seat
+preserves the wet stack and common-room corner. Complete connected native steel
+is beveled before surface clipping into 18 bounded partitions, with 8,414 mapped
+triangles, original outward winding and matching collision. Retained source
+masonry, floors, services, controls and lighting remain authoritative.
+
+The installed inspection passes 506 checks at
+**tmp/shell-readiness/rear-wing-a-production-inspection3.log.receipt.json**:
+60 contacts and reproduced original gaps, 36 bases, 20 pad contacts, eight
+retained basement-wall seats, 36 exposed native/live anchors and zero positive
+retained-body overlaps. All six installed views were directly inspected.
+Earlier collision, tangent/export and visually reversed open-section trials
+remain rejected. Final imported UV-derivative and unit-basis checks pass with
+their original tolerances.
+
+The installed normal-input apartment circuit passes 45 waypoints at
+**tmp/shell-readiness/rear-wing-a-production-apartment-route1.log.receipt.json**;
+all fourteen route frames were inspected. The earlier basement trial passes 88
+but precedes the final winding-preserving export. The complete clean candidate
+comparison must repeat that route and use **366653c**, including the retained
+broader routes and fabric checks. The 47-gate precommit comparison has zero
+regressions, reader NEW zero and no changed requirements. The six fixed main
+viewport observations add two to eight visible draws; these are diagnostics,
+without timing or whole-world performance acceptance.
+One individually reviewed collision naming reference is appended; audit
+logic and existing manifest classifications remain unchanged. A fresh actual
+survey is required before counting these twenty targets as resolved in the wider
+work list. The other rear wing, upper-storey transfers, weather closures and
+shared utility construction remain open. Heating apertures remain parked.
