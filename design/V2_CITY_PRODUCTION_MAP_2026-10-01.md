@@ -451,3 +451,60 @@ logic and existing manifest classifications remain unchanged. A fresh actual
 survey is required before counting these twenty targets as resolved in the wider
 work list. The other rear wing, upper-storey transfers, weather closures and
 shared utility construction remain open. Heating apertures remain parked.
+
+Published **0454d43fa75dac182d58d3a9409d1cf1a50dd8b5** passes all seventeen bound
+windowed suites and the complete 47-gate comparison against clean **366653c**:
+zero regressions, reader NEW zero, protected 17/17, V2 default/V1 rollback and
+no requirement promotions. The bound frame repeats 506 checks and its apartment
+route repeats 45 waypoints; all twenty final captures were reviewed. The final
+export repeats the 88-waypoint basement circuit, with all thirteen frames
+reviewed, plus 51 roof and 79 vertical waypoints. Keys retain their schema-2
+two-world contract, 84 waypoints and 55 checks with clean teardown. Comparison
+and genuine clean complete board are
+**tmp/rear-wing-a-support/verified/verification.json** and
+**tmp/rear-wing-a-support/0454d43-clean-board.json**. Continue fresh actual contact
+discovery before counting the twenty target stations in the wider work list or
+fabricating the next wing. Heating cuts remain parked.
+
+The fresh **tmp/shell-readiness/post-rear-wing-a-contact1.log.receipt.json**
+and separate **post-rear-wing-a-source-continuity.json** account for 963 of
+1,030 stations, leaving 67: **F02** 36, **F03** eleven, **F04** eight and **F05**
+twelve. The installed frame now supplies actual contact at all twenty original
+A targets. All three discovery views were reviewed. The front threshold retains
+its existing foundation. Continue the other rear wing and upper transfers;
+these measured counts do not establish shell readiness or weather closure.
+
+## First-upper C rear-wing support prerequisite
+
+**art/blender/rear_wing_c_support.md** records seven source-derived I beams,
+sixteen H posts, nine retained basement roof seats and seven independent external
+pedestals/pads beneath twenty-nine first-upper C stations. The studio and kitchen
+southern beams terminate at the actual package/core wall faces. Complete closed
+native unions are chamfered before surface clipping into 24 bounded partitions,
+with 15,022 triangles, original outward winding and matching collision. Retained
+source masonry, floors, services, doors and the gentler lamp remain authoritative.
+
+The installed inspection passes 749 checks at
+**tmp/shell-readiness/rear-wing-c-production-inspection1.log.receipt.json**:
+87 matching seats and reproduced original gaps, 64 bases, 28 external pad contacts,
+64 exposed anchors and zero retained-body conflicts across 243 component queries.
+All eight final production views were inspected. Native studio details show the
+chamfers and fasteners; those temporary diagnostic lights/materials do not confer
+live finish acceptance. Base steel remains dark under the existing in-game finish.
+Strict imported metre UV, unit-basis and derivative checks pass unchanged.
+
+The final installed normal-controller 2C circuit passes 32 waypoints at
+**tmp/shell-readiness/rear-wing-c-production-apartment-route1.log.receipt.json**,
+with all seven rooms, actual input opening/closing five retained leaves and the
+restored closed-entry barrier. All eleven route frames were inspected. The first
+trial's six wardrobe-blocked waypoints remain rejected; furniture is preserved.
+Eight fixed main-viewport observations add one to thirteen visible draws and
+992 to 11,739 primitives, without timing or whole-world performance acceptance.
+
+Only six individually reviewed references are appended to the spatial manifest.
+The full clean candidate comparison must use **0454d43**, repeat the retained
+broader routes and native fabrics, and preserve protected paths/V1 rollback.
+A fresh actual wider survey remains required before counting these 29 targets
+in the remaining work list. Higher transfers, weather closures, courtyard/grade
+inspection and shared utility construction remain open. Heating cuts stay parked;
+no capacity, shell-readiness or completeness requirement is promoted.

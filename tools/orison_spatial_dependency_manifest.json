@@ -189766,6 +189766,188 @@
    "rationale": "Reviewed native rear-wing frame collision names, derived from the source-owned bounded asset pieces. Regenerate the fixed triangle bodies with the asset; this introduces no save, room or gameplay identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "63ab8964956e9f14",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_rear_wing_c_support.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed collision names derived from the bounded native C rear-wing pieces. Regenerate the matching triangle bodies with the asset; no save, room or gameplay identity is introduced.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7dee8c268a591ad4",
+   "kind": "id_reference",
+   "token": "F02_C_ENTRY_DOOR",
+   "file": "game/tests/orison_v2_rear_wing_c_apartment_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    13,
+    28,
+    36
+   ],
+   "count": 3,
+   "context": [
+    "{\"open\":\"F02_C_ENTRY_DOOR\"},",
+    "{\"walk\":[-.85,4.75]},{\"walk\":[-.85,3.0]},{\"close\":\"F02_C_ENTRY_DOOR\"}]",
+    "var door:=_leaf(\"F02_C_ENTRY_DOOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed the existing 2C entry leaf used by the ordinary-input route for opening, return, closing and physical barrier restoration. Update this test fixture if its authored door identity changes.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d097555bcf1f1fef",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/tests/orison_v2_rear_wing_c_apartment_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    17,
+    19
+   ],
+   "count": 2,
+   "context": [
+    "{\"walk\":[2.1,7.1]},{\"open\":\"F02_C_PRIVATE_HALL_BATH_DOOR\"},",
+    "{\"close\":\"F02_C_PRIVATE_HALL_BATH_DOOR\"},{\"open\":\"F02_C_PRIVATE_HALL_BED1_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed the existing 2C private-hall bathroom leaf exercised through actual input and normal controller entry/return. Update the test fixture with the authored door identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ceddbe8f34c68d2d",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED1_DOOR",
+   "file": "game/tests/orison_v2_rear_wing_c_apartment_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    19,
+    21
+   ],
+   "count": 2,
+   "context": [
+    "{\"close\":\"F02_C_PRIVATE_HALL_BATH_DOOR\"},{\"open\":\"F02_C_PRIVATE_HALL_BED1_DOOR\"},",
+    "{\"close\":\"F02_C_PRIVATE_HALL_BED1_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed the existing 2C private-hall first-bedroom leaf exercised through actual input and normal controller entry/return. Update the test fixture with the authored door identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "34a0c8050d8a05e9",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED2_DOOR",
+   "file": "game/tests/orison_v2_rear_wing_c_apartment_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    24,
+    26
+   ],
+   "count": 2,
+   "context": [
+    "{\"close\":\"F02_C_PRIVATE_HALL_KITCHEN_DOOR\"},{\"open\":\"F02_C_PRIVATE_HALL_BED2_DOOR\"},",
+    "{\"close\":\"F02_C_PRIVATE_HALL_BED2_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed the existing 2C private-hall second-bedroom leaf exercised through actual input and normal controller entry/return. Update the test fixture with the authored door identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0edfde061bb52ddb",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/tests/orison_v2_rear_wing_c_apartment_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    22,
+    24
+   ],
+   "count": 2,
+   "context": [
+    "{\"walk\":[5.4,7.1]},{\"open\":\"F02_C_PRIVATE_HALL_KITCHEN_DOOR\"},",
+    "{\"close\":\"F02_C_PRIVATE_HALL_KITCHEN_DOOR\"},{\"open\":\"F02_C_PRIVATE_HALL_BED2_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed the existing 2C private-hall kitchen leaf exercised through actual input and normal controller entry/return. Update the test fixture with the authored door identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

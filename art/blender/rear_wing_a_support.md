@@ -86,3 +86,29 @@ against that baseline; it does not replace the clean committed candidate check.
 Higher-storey transfers, the other rear wing, weather closures and infrastructure
 remain open. Heating
 apertures stay parked. No runtime or completeness requirement is promoted.
+
+Published **0454d43fa75dac182d58d3a9409d1cf1a50dd8b5** passes the complete
+47-gate comparison against clean **366653c** and all seventeen bound windowed
+suites: zero regressions, reader NEW zero, protected 17/17, V2 default and
+explicit V1 rollback. No completeness requirement changes. The bound frame's
+506 checks and apartment's 45 waypoints repeat successfully; all twenty final
+frame/apartment captures were reviewed. The final export also repeats the normal
+88-waypoint basement circuit, whose thirteen captures were reviewed, plus the
+51-waypoint roof and 79-waypoint vertical routes. Resident keys retain their
+schema-2 two-world contract, 84 waypoints and 55 checks with clean teardown.
+The comparison and genuine clean complete board are
+**tmp/rear-wing-a-support/verified/verification.json** and
+**tmp/rear-wing-a-support/0454d43-clean-board.json**. A new actual wider survey,
+the other wing, upper transfers and weather closures remain required before
+heating cuts.
+
+The separate fresh survey at
+**tmp/shell-readiness/post-rear-wing-a-contact1.log.receipt.json** includes the
+installed frame as a structural owner. Its longer rays and source-masonry
+reconciliation at **post-rear-wing-a-source-continuity.json** account for 963 of
+1,030 stations, leaving 67: 36 on the first upper floor, eleven on the second,
+eight on the third and twelve on the fourth. All twenty targeted A stations
+now have actual native contact; this is a measured change from the earlier
+87-station work list. The front threshold still contacts its existing foundation.
+All three discovery views were inspected. These counts do not establish whole
+shell readiness, capacity or weather continuity.
