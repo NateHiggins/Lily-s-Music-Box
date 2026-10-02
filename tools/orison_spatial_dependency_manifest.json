@@ -189564,6 +189564,36 @@
    "rationale": "Reviewed test fixture uses the retained B1 floor datum and ten basement room records for native footing contacts and occupied-volume preservation. Update this fixture with a source floor change.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "9ef1b88e678a9551",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_ceiling_top_closures.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed collision names derive only from source-owned native ceiling closure pieces. Regenerate these local rectangular slab bodies with the asset; no room, save or gameplay identity is introduced.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -56,3 +56,23 @@ routes must pass before publication. Only the two individually reviewed new
 spatial references are appended; audit logic and prior records are retained.
 This report, its captures and wrapper receipt promote no runtime requirement.
 Heating apertures remain parked until shell support and closure work settles.
+
+Published **202e55d18a402305675307b11c9b19184dca049b** passes the complete
+47-gate comparison against **de69156**, with zero regressions, NEW zero,
+protected 17/17, V2 default/V1 rollback and requirement statuses retained.
+All twelve windowed suites bind to the candidate: Foundations, BasementRoute,
+BoilerRoute, BoilerInlet, BoilerDoorSwing, ServiceAlley, RoofRoute, VerticalRoute,
+ResidentKeyRoute, ExteriorMasonry, VentilationFabric and Blockout. The basement,
+roof and vertical circuits pass 88, 51 and 79 waypoints respectively. Resident
+keys retain their schema-2 two-world contract, 84 waypoints and 55 checks.
+
+The final report is **tmp/foundations/verified/verification.json**; its genuine
+complete clean board is **tmp/foundations/202e55d-clean-board.json**. All four
+final foundation diagnostic frames were directly inspected in the verifier's
+absolute capture directory. The bound inspection repeats the 1,119 checks and
+contacts above; its one-view census records 7,283 visible-pass draws and
+3,970,521 primitives, startup 20,611 ms. These diagnostic counts do not accept
+player-route performance. Only the reviewed two manifest additions changed;
+no audit rule, prior classification, baseline or protected source changed.
+The next work is uncovered lower-ceiling tops, slab-edge seats and transfers.
+Whole-shell, infrastructure and material refinement remain open.

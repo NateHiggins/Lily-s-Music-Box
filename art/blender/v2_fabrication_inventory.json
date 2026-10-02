@@ -7370,6 +7370,9 @@
       "res://assets/props/lift_cab_controls.glb",
       "res://assets/props/lift_call_plate.glb"
     ],
+    "game/scripts/building/orison_v2_ceiling_top_closures.gd": [
+      "res://assets/props/ceiling_top_closures.glb"
+    ],
     "game/scripts/building/orison_v2_city_shells.gd": [
       "res://assets/props/city_shells.glb"
     ],
@@ -7495,6 +7498,7 @@
     "art/blender/scripts/build_boiler_instruments.py",
     "art/blender/scripts/build_boiler_pipework.py",
     "art/blender/scripts/build_breeching.py",
+    "art/blender/scripts/build_ceiling_top_closures.py",
     "art/blender/scripts/build_chimney_crown.py",
     "art/blender/scripts/build_city_shells.py",
     "art/blender/scripts/build_coal_delivery.py",

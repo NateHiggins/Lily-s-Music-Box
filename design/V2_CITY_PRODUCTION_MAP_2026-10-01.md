@@ -324,3 +324,32 @@ Foundation native construction and **game/tests/fixtures/orison_foundation_stati
 retain the original discovery's source identity. Only two new spatial references
 are individually appended. Reader NEW remains zero. Raw architecture and all
 seven location/utility phases remain open; heating apertures stay parked.
+
+Published **202e55d18a402305675307b11c9b19184dca049b** passes the complete
+47-gate comparison against **de69156** and twelve bound windowed suites:
+zero regressions, NEW zero, protected 17/17 and no requirement promotions.
+Normal basement, roof and vertical routes pass 88, 51 and 79 waypoints; keys
+retain their schema-2 two-world contract with 84 waypoints and 55 checks.
+All four final foundation frames were directly inspected. Comparison and clean
+board are **tmp/foundations/verified/verification.json** and
+**tmp/foundations/202e55d-clean-board.json**. Continue uncovered ceiling upper
+closures, slab-edge seats and transfer continuity before heating cuts.
+
+## Uncovered ceiling top prerequisite
+
+**art/blender/ceiling_top_closures.md** records source-bound upper closures on
+twenty-three retained ceiling owners. Fifty-one mapped native pieces add only
+uncovered tops and genuine outer edges; upper walking floors, landings, source
+ports, original undersides and the native service-alley pavement remain with
+their earlier owners. The first isolated trial rejects alley overlap and a
+degenerate edge. The repaired trial and production inspection preserve both
+failures for review and use no tolerance or audit exception.
+
+The production inspection passes **459** physical upper contacts, reproduced
+earlier gaps and retained undersides, with zero foreground conflicts and zero
+overlapping volumes across **14,484** comparisons with retained floor and landing
+shapes. All five production frames were directly inspected. The complete clean
+candidate comparison must use **202e55d**, with normal basement, vertical,
+roof, alley, door/key reconstruction and retained fabric routes. Slab-edge
+seats, transfers and wider shell continuity remain open; no heating port or
+completeness requirement is promoted.
