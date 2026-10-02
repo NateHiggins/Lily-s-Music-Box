@@ -43,6 +43,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Existing ventilation branch hangers, ceiling contact and mapped steel fittings | `art/blender/duct_supports.md` |
 | Radiator wall-tie seating, slotted plates and retained service mechanisms | `art/blender/radiator_wall_ties.md` |
 | Hollow ventilation sheets, seam airways and fitted fan slab/curb throats | `art/blender/ventilation_throats.md` |
+| Independent bodega lighting intake, supported conduit and fitted wall sleeves | `art/blender/bodega_power.md` |
 | V2 city architecture/infrastructure continuation by location and transition | `design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md` |
 | Blender exterior masonry, deeper reveals and narrow light-slot preservation | `art/blender/exterior_masonry.md` |
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |

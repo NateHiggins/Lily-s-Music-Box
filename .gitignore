@@ -2,6 +2,7 @@
 .godot/
 *.import
 !game/assets/props/ventilation_ducts.glb.import
+!game/assets/props/bodega_power.glb.import
 # ...except the sky plates. Their import settings are not incidental: with
 # mipmaps off, the equirect pole minifies 18-57x, the samplers' own
 # filter_linear_mipmap hint has nothing to filter with, and the textureLod

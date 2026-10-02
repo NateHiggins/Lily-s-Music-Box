@@ -7352,6 +7352,9 @@
       "res://assets/props/bath_paper_holder.glb",
       "res://assets/props/bath_towel.glb"
     ],
+    "game/scripts/building/orison_v2_bodega_power.gd": [
+      "res://assets/props/bodega_power.glb"
+    ],
     "game/scripts/building/orison_v2_bodega_receiving.gd": [
       "res://assets/props/bodega_receiving.glb"
     ],
@@ -7471,6 +7474,7 @@
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
     "art/blender/scripts/build_bedding.py",
+    "art/blender/scripts/build_bodega_power.py",
     "art/blender/scripts/build_bodega_receiving.py",
     "art/blender/scripts/build_boiler_body.py",
     "art/blender/scripts/build_boiler_instruments.py",

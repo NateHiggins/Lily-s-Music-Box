@@ -531,6 +531,13 @@ func _compose_exterior() -> bool:
 		return false
 	add_child(receiving)
 	if receiving.startup_failed: return false
+	var bodega_power:=preload("res://scripts/building/orison_v2_bodega_power.gd").new()
+	bodega_power.name="BodegaPower"
+	if not bodega_power.configure(exterior_cell):
+		bodega_power.free()
+		return false
+	add_child(bodega_power)
+	if bodega_power.startup_failed:return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	add_child(street_boundaries)

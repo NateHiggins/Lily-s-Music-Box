@@ -7,6 +7,9 @@ from pathlib import Path
 import json
 import math
 import bpy
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from bodega_services_geometry import dimensions as service_dimensions
 ROOT=Path(__file__).resolve().parents[3]
 
 g=json.loads((ROOT/'game/data/orison_v2/exterior/exterior_geometry.json').read_text())
@@ -39,7 +42,13 @@ box('ReceivingFoundation',(-half,end,half,start),-.30,-.05,'brick',0)
 box('ReceivingFloor',(-half,end,half,start),-.05,0,'terrazzo',.001)
 for x0,x1 in [(-half,-half+.14),(half-.14,half)]:
  box('ReceivingPartyWall',(x0,end,x1,start),-.30,3.25,'plaster_stained')
-box('ReceivingBackWall',(-half,end-.16,half,end),-.30,3.25,'plaster_stained')
+# This owner's wall keeps its single mesh/collision partition. The independent
+# electrical intake has a 44 mm square sleeve through the actual 160 mm fabric.
+service=service_dimensions();px,py,pz=service['rear_port'];r=.022
+box('ReceivingBackWallW',(-half,end-.16,px-r,end),-.30,3.25,'plaster_stained')
+box('ReceivingBackWallE',(px+r,end-.16,half,end),-.30,3.25,'plaster_stained')
+box('ReceivingBackWallBelow',(px-r,end-.16,px+r,end),-.30,py-r,'plaster_stained')
+box('ReceivingBackWallAbove',(px-r,end-.16,px+r,end),py+r,3.25,'plaster_stained')
 box('ReceivingCeiling',(-half,end,half,start),3.15,3.25,'plaster_stained')
 # Original opening: 1.05 m clear; frame does not reduce its accepted width.
 a=rows['back_opening_head'];cx=a['position_m'][0];width=a['size_m'][0]

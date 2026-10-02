@@ -93,7 +93,14 @@ The precommit board reports zero regressions, reader NEW **0** and unchanged
 ledger counts **[7,8,127,42,151,153]**. Four individually reviewed test references
 extend the spatial manifest from **6,338** to **6,342**; all prior records and
 heuristic classifications remain. Final candidate binding belongs to
-**tmp/roof-throats/verified/verification.json** and must pass before push.
+**tmp/roof-throats/verified/verification.json**. Published on canonical main as
+**72b3033117058f17c480bb43092e510c79de7b8e** after all seven bound windowed suites
+passed: throat **247**, hanger **395**, roof ventilators **4 machines / 4 actuations**, ventilation **23**,
+roof route **51**, city **1,253 / 450 contacts**, apartment batch **20,315**;
+zero failures. The complete clean next baseline is
+**tmp/roof-throats/72b3033-clean-board.json**. Its comparison has zero regressions,
+no requirement changes and no new unread fields. These scoped checks do not
+complete the remaining fabric/network work below.
 Protected paths **17/17**, selector V2/V1 rollback, keys/copies/door locks,
 News Cigars initial unlock and owner capture absences remain required.
 
