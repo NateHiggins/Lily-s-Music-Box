@@ -353,3 +353,47 @@ candidate comparison must use **202e55d**, with normal basement, vertical,
 roof, alley, door/key reconstruction and retained fabric routes. Slab-edge
 seats, transfers and wider shell continuity remain open; no heating port or
 completeness requirement is promoted.
+
+Published **244853be4af90ca95445eacf232859e918af7e08** passes all thirteen bound
+windowed suites and the complete 47-gate comparison against clean **202e55d**:
+zero regressions, NEW zero, protected 17/17, V2 default/V1 rollback retained and
+no requirement promotions. All five final bound closure frames were directly
+inspected. Normal basement, roof and vertical circuits retain 88, 51 and 79
+waypoints; keys retain their schema-2 two-world contract, 84 waypoints and 55
+checks. Comparison and clean board are
+**tmp/ceiling-closures/verified/verification.json** and
+**tmp/ceiling-closures/244853b-clean-board.json**. Continue actual current wall-base
+and transfer discovery before making further shell cuts. Source aperture
+classification is distinct from actual support contact; retained vent bores
+must remain open. Heating apertures remain parked.
+
+## Shifted ground core support prerequisite
+
+**art/blender/ground_core_transfer.md** records a fitted 350 mm wide I transfer
+frame, short watch-wall seat, two offset H columns and supplemental footing
+pads beneath the retained basement landing. The native steel assembly is
+connected; three mapped partitions have 1,884 triangles, actual chamfers and
+matching triangle collision. No wall, laundry pocket or service port is cut.
+The southern column preserves the west passage. Existing foundations and
+editable masonry are subtracted from the new pads and edge band.
+
+The final focused inspection passes 116 checks at
+**tmp/shell-readiness/ground-transfer-production-inspection3.log.receipt.json**:
+twelve matching seats and reproduced prior gaps, eight base and eight pad
+contacts, eight exposed native/live anchor tops and zero positive overlap with
+retained collision. All six construction views were directly inspected. Earlier
+overlong-beam, buried-anchor and short-ray failures remain recorded. The
+diagnosed short-ray parallel threshold is repaired with a longer segment and
+the same first-hit owner and 30 micron contact requirement.
+
+The final installed route passes 27 normal-input waypoints in
+**tmp/shell-readiness/ground-transfer-production-route2.log.receipt.json**:
+both west passage directions, actual input opening the retained laundry leaf,
+entry/exit and return. All three route frames were inspected. The complete clean
+candidate comparison must use **244853b**, the broader normal routes and the
+retained native fabrics. Reader NEW and unclassified spatial references are zero;
+only four individually reviewed references are appended. The separate actual
+post-closure/source-masonry survey leaves 92 unresolved stations as a work list.
+This frame targets four local stations; higher-storey transfers, front threshold
+backing, weather closures and infrastructure remain open. No load capacity or
+completeness requirement is promoted, and heating apertures remain parked.

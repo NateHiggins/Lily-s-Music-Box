@@ -58,3 +58,15 @@ publication. Only one individually reviewed collision naming reference is
 appended to the manifest. Reader NEW is zero. This report, native construction,
 captures and wrapper receipts promote no runtime or ledger requirement. Heating
 apertures remain parked while support and closure work continues.
+
+Published **244853be4af90ca95445eacf232859e918af7e08** passes the complete
+47-gate comparison against clean **202e55d** and thirteen bound windowed suites.
+There are zero regressions, reader NEW zero, protected paths 17/17 and no
+requirement promotions. Normal basement, roof and vertical routes retain 88,
+51 and 79 waypoints. Resident keys retain their schema-2 two-world contract,
+84 waypoints and 55 checks. All five final bound closure frames were directly
+inspected. The final inspection retains 459 upper contacts and no overlapping
+retained slab volumes. Comparison and complete clean candidate board are
+**tmp/ceiling-closures/verified/verification.json** and
+**tmp/ceiling-closures/244853b-clean-board.json**. Whole-shell readiness remains
+open pending actual wall-base and transfer inspection; heating cuts stay parked.

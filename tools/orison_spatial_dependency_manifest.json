@@ -189594,6 +189594,148 @@
    "rationale": "Reviewed fixed collision names derive only from source-owned native ceiling closure pieces. Regenerate these local rectangular slab bodies with the asset; no room, save or gameplay identity is introduced.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "75fd7d0046fa2b89",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_ground_core_transfer.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed native transfer-frame collision names; regenerate static bodies with the asset, with no save or gameplay identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8ea6974ad6ace381",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY_DOOR",
+   "file": "game/tests/orison_v2_ground_core_transfer_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"B1_LAUNDRY_DOOR\"):return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed ordinary-input west passage/laundry route: one initial basement landing placement, retained source door and explicit registered-frame waypoints; update this fixture when its layout moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "deb528fa199680a5",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_ground_core_transfer_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(2.3,-3.18,-3.5));player.velocity=Vector3.ZERO"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed ordinary-input west passage/laundry route: one initial basement landing placement, retained source door and explicit registered-frame waypoints; update this fixture when its layout moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f8c41fd9f23314e7",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_ground_core_transfer_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    13,
+    13,
+    13,
+    13,
+    16,
+    16,
+    16,
+    16,
+    16,
+    19,
+    19,
+    19,
+    19
+   ],
+   "count": 22,
+   "context": [
+    "for point: Vector3 in [Vector3(1.5,-3.2,-3.3),Vector3(-1.7,-3.2,-3.3),Vector3(-1.7,-3.2,-1.5),Vector3(-1.7,-3.2,.25),Vector3(-1.7,-3.2,1.5),Vector3(-1.7,-3.2,3.",
+    "for point: Vector3 in [Vector3(-3.2,-3.2,-1.5),Vector3(-4.5,-3.2,-1.5),Vector3(-4.5,-3.2,1.5),Vector3(-3.2,-3.2,1.5)]:",
+    "for point: Vector3 in [Vector3(-4.5,-3.2,1.5),Vector3(-4.5,-3.2,-1.5),Vector3(-1.7,-3.2,-1.5),Vector3(-1.7,-3.2,.25),Vector3(-1.7,-3.2,1.5),Vector3(-1.7,-3.2,3.",
+    "for point: Vector3 in [Vector3(-1.7,-3.2,3.15),Vector3(-1.7,-3.2,1.5),Vector3(-1.7,-3.2,-1.5),Vector3(-1.7,-3.2,-3.3),Vector3(1.5,-3.2,-3.3),Vector3(2.3,-3.2,-3"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed ordinary-input west passage/laundry route: one initial basement landing placement, retained source door and explicit registered-frame waypoints; update this fixture when its layout moves.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

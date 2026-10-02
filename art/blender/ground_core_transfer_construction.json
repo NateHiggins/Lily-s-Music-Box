@@ -1,0 +1,581 @@
+{
+  "evidence_class": "INERT",
+  "source_plan": {
+    "evidence_class": "INERT",
+    "authority": [
+      "game/data/orison_v2_blockout.json:spaces/dimensions/levels",
+      "art/blender/orison_foundations_construction.json:source_plan"
+    ],
+    "beam_width_m": 0.35,
+    "beam_depth_m": 0.45,
+    "flange_m": 0.035,
+    "web_m": 0.016,
+    "beam": {
+      "bounds": [
+        -1.48,
+        -0.65,
+        0.48000000000000004,
+        -1.13,
+        -0.2,
+        3.7800000000000002
+      ]
+    },
+    "cantilever": {
+      "bounds": [
+        -2.1300000000000003,
+        -0.65,
+        0.48000000000000004,
+        -1.48,
+        -0.2,
+        0.8300000000000001
+      ]
+    },
+    "edge_closure": {
+      "bounds": [
+        -1.27,
+        -0.2,
+        0.55,
+        -1.2,
+        0.0,
+        3.7800000000000002
+      ]
+    },
+    "columns": [
+      {
+        "id": "South",
+        "center": [
+          -1.1749999999999998,
+          -3.2,
+          0.6900000000000001
+        ],
+        "floor_owner": "B1_PUBLIC_LANDING_W_SHAFT_1"
+      },
+      {
+        "id": "North",
+        "center": [
+          -1.305,
+          -3.2,
+          3.64
+        ],
+        "floor_owner": "B1_PUBLIC_LANDING_W_SHAFT_1"
+      }
+    ],
+    "column_width_m": 0.18,
+    "column_flange_m": 0.02,
+    "column_web_m": 0.016,
+    "base_plate_m": 0.26,
+    "base_plate_depth_m": 0.02,
+    "pad_width_m": 0.7,
+    "pad_depth_m": 0.4,
+    "method": "Rolled I transfer beam under the source wall base; a short westward cantilever seats the uncovered watch-wall end. Two fitted columns bear on retained basement landing slabs with supplemental pads beneath their exact bottoms, excluding existing foundation union. No laundry wall pocket, service aperture, occupied-room fill or simulation change. Modeled contact does not determine load, reinforcement or soil capacity."
+  },
+  "components": [
+    {
+      "family": "Steel",
+      "id": "Main_Upper",
+      "bounds": [
+        -1.48,
+        -0.235,
+        0.48,
+        -1.13,
+        -0.2,
+        3.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Main_Lower",
+      "bounds": [
+        -1.48,
+        -0.65,
+        0.48,
+        -1.13,
+        -0.615,
+        3.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Main_Web",
+      "bounds": [
+        -1.313,
+        -0.615,
+        0.48,
+        -1.297,
+        -0.235,
+        3.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Cantilever_Upper",
+      "bounds": [
+        -2.13,
+        -0.235,
+        0.48,
+        -1.48,
+        -0.2,
+        0.83
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Cantilever_Lower",
+      "bounds": [
+        -2.13,
+        -0.65,
+        0.48,
+        -1.48,
+        -0.615,
+        0.83
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Cantilever_Web",
+      "bounds": [
+        -2.13,
+        -0.615,
+        0.647,
+        -1.48,
+        -0.235,
+        0.663
+      ]
+    },
+    {
+      "family": "Concrete",
+      "id": "CoreEdge00",
+      "bounds": [
+        -1.27,
+        -0.2,
+        0.55,
+        -1.2,
+        0.0,
+        0.62
+      ]
+    },
+    {
+      "family": "Concrete",
+      "id": "CoreEdge01",
+      "bounds": [
+        -1.27,
+        -0.2,
+        0.83,
+        -1.2,
+        0.0,
+        3.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_Base",
+      "bounds": [
+        -1.305,
+        -3.2,
+        0.56,
+        -1.045,
+        -3.18,
+        0.82
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorWasher0",
+      "bounds": [
+        -1.2975,
+        -3.18,
+        0.5675,
+        -1.2725,
+        -3.177,
+        0.5925
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorHead0",
+      "bounds": [
+        -1.294,
+        -3.177,
+        0.571,
+        -1.276,
+        -3.165,
+        0.589
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorWasher1",
+      "bounds": [
+        -1.2975,
+        -3.18,
+        0.7875,
+        -1.2725,
+        -3.177,
+        0.8125
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorHead1",
+      "bounds": [
+        -1.294,
+        -3.177,
+        0.791,
+        -1.276,
+        -3.165,
+        0.809
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorWasher2",
+      "bounds": [
+        -1.0775,
+        -3.18,
+        0.5675,
+        -1.0525,
+        -3.177,
+        0.5925
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorHead2",
+      "bounds": [
+        -1.074,
+        -3.177,
+        0.571,
+        -1.056,
+        -3.165,
+        0.589
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorWasher3",
+      "bounds": [
+        -1.0775,
+        -3.18,
+        0.7875,
+        -1.0525,
+        -3.177,
+        0.8125
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_AnchorHead3",
+      "bounds": [
+        -1.074,
+        -3.177,
+        0.791,
+        -1.056,
+        -3.165,
+        0.809
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_Cap",
+      "bounds": [
+        -1.35,
+        -0.67,
+        0.56,
+        -1.0,
+        -0.65,
+        0.82
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_WestFlange",
+      "bounds": [
+        -1.265,
+        -3.18,
+        0.6,
+        -1.245,
+        -0.67,
+        0.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_EastFlange",
+      "bounds": [
+        -1.105,
+        -3.18,
+        0.6,
+        -1.085,
+        -0.67,
+        0.78
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "South_Web",
+      "bounds": [
+        -1.245,
+        -3.18,
+        0.682,
+        -1.105,
+        -0.67,
+        0.698
+      ]
+    },
+    {
+      "family": "Concrete",
+      "id": "South_Pad00",
+      "bounds": [
+        -1.525,
+        -3.8,
+        0.34,
+        -0.825,
+        -3.4,
+        1.04
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_Base",
+      "bounds": [
+        -1.435,
+        -3.2,
+        3.51,
+        -1.175,
+        -3.18,
+        3.77
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorWasher0",
+      "bounds": [
+        -1.4275,
+        -3.18,
+        3.5175,
+        -1.4025,
+        -3.177,
+        3.5425
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorHead0",
+      "bounds": [
+        -1.424,
+        -3.177,
+        3.521,
+        -1.406,
+        -3.165,
+        3.539
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorWasher1",
+      "bounds": [
+        -1.4275,
+        -3.18,
+        3.7375,
+        -1.4025,
+        -3.177,
+        3.7625
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorHead1",
+      "bounds": [
+        -1.424,
+        -3.177,
+        3.741,
+        -1.406,
+        -3.165,
+        3.759
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorWasher2",
+      "bounds": [
+        -1.2075,
+        -3.18,
+        3.5175,
+        -1.1825,
+        -3.177,
+        3.5425
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorHead2",
+      "bounds": [
+        -1.204,
+        -3.177,
+        3.521,
+        -1.186,
+        -3.165,
+        3.539
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorWasher3",
+      "bounds": [
+        -1.2075,
+        -3.18,
+        3.7375,
+        -1.1825,
+        -3.177,
+        3.7625
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_AnchorHead3",
+      "bounds": [
+        -1.204,
+        -3.177,
+        3.741,
+        -1.186,
+        -3.165,
+        3.759
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_Cap",
+      "bounds": [
+        -1.435,
+        -0.67,
+        3.51,
+        -1.175,
+        -0.65,
+        3.77
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_WestFlange",
+      "bounds": [
+        -1.395,
+        -3.18,
+        3.55,
+        -1.375,
+        -0.67,
+        3.73
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_EastFlange",
+      "bounds": [
+        -1.235,
+        -3.18,
+        3.55,
+        -1.215,
+        -0.67,
+        3.73
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "North_Web",
+      "bounds": [
+        -1.375,
+        -3.18,
+        3.632,
+        -1.235,
+        -0.67,
+        3.648
+      ]
+    },
+    {
+      "family": "Concrete",
+      "id": "North_Pad00",
+      "bounds": [
+        -1.655,
+        -3.8,
+        3.29,
+        -0.955,
+        -3.4,
+        3.99
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Junction_Front",
+      "bounds": [
+        -1.48,
+        -0.615,
+        0.48,
+        -1.305,
+        -0.235,
+        0.496
+      ]
+    },
+    {
+      "family": "Steel",
+      "id": "Junction_Rear",
+      "bounds": [
+        -1.48,
+        -0.615,
+        0.814,
+        -1.305,
+        -0.235,
+        0.83
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "Steel_N1_N1_P0",
+      "family": "Steel",
+      "bounds": [
+        -2.13,
+        -3.2,
+        0.48,
+        -1.0,
+        -0.2,
+        3.78
+      ],
+      "source_union_quads": 5718,
+      "native_triangles": 1836,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N1_N1_P0",
+      "family": "Concrete",
+      "bounds": [
+        -1.655,
+        -3.8,
+        0.34,
+        -0.825,
+        0.0,
+        3.99
+      ],
+      "source_union_quads": 92,
+      "native_triangles": 44,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N1_P0_P0",
+      "family": "Concrete",
+      "bounds": [
+        -1.27,
+        0.0,
+        0.55,
+        -1.2,
+        0.0,
+        3.78
+      ],
+      "source_union_quads": 4,
+      "native_triangles": 4,
+      "internal_caps": false
+    }
+  ],
+  "grid_union_quads": 5814,
+  "native_triangles": 1884,
+  "source_layout_sha256_lf": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4",
+  "source_masonry_sha256": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41"
+}

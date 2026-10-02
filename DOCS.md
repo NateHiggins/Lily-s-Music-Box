@@ -60,6 +60,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Roof bulkhead upper closures, retained ceiling faces and physical wall contacts | `art/blender/roof_bulkhead_caps.md` |
 | Source-derived foundation stems, basement footings and retained occupied volumes | `art/blender/orison_foundations.md` |
 | Uncovered ceiling upper closures and single-owner floor, landing and alley interfaces | `art/blender/ceiling_top_closures.md` |
+| Fitted frame beneath the shifted ground stair-core wall, retained basement landings and west passage | `art/blender/ground_core_transfer.md` |
 | Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
