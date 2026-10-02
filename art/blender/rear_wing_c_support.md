@@ -76,3 +76,25 @@ Higher transfers, wider shell/weather continuity and shared infrastructure
 remain open. Modeled seats do not establish reinforcement, weld/joint capacity,
 soil suitability or whole-building load paths. Heating cuts remain parked;
 no completeness or runtime requirement is promoted by this inert report.
+
+Published **3ad3a2cd2929726634ec6f8517680c9cc5804f57** passes the complete
+47-gate comparison against clean **0454d43** and all nineteen bound windowed
+suites: zero regressions, reader NEW zero, protected 17/17, V2 default and
+explicit V1 rollback. No completeness requirement changes. Its frame repeats
+749 checks and its 2C route repeats 32 waypoints; all nineteen bound frame/route
+captures were reviewed. The normal basement circuit repeats 88 waypoints and
+its thirteen captures were reviewed; roof and vertical routes repeat 51 and 79
+waypoints. Resident keys retain their schema-2 two-world contract, 84 waypoints
+and 55 checks with clean teardown. Comparison and genuine clean complete board
+are **tmp/rear-wing-c-support/verified/verification.json** and
+**tmp/rear-wing-c-support/3ad3a2c-clean-board.json**. A fresh actual wider survey,
+higher transfers and weather/ground continuity remain required before heating cuts.
+
+The fresh **tmp/shell-readiness/post-rear-wing-c-contact1.log.receipt.json**
+includes both installed rear-wing frames as structural owners. Separate original
+editable-masonry reconciliation at **post-rear-wing-c-source-continuity.json**
+accounts for 992 of 1,030 stations, leaving 38: **F02** seven, **F03** eleven,
+**F04** eight and **F05** twelve. All twenty-nine C targets now have actual native
+contact. Three discovery captures were reviewed; the west-slot camera is
+obstructed and provides no weather/slot inspection acceptance. These counts
+remain a work list, without whole-shell or load-capacity acceptance.

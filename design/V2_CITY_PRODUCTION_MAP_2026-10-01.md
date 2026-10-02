@@ -508,3 +508,73 @@ A fresh actual wider survey remains required before counting these 29 targets
 in the remaining work list. Higher transfers, weather closures, courtyard/grade
 inspection and shared utility construction remain open. Heating cuts stay parked;
 no capacity, shell-readiness or completeness requirement is promoted.
+
+Published **3ad3a2cd2929726634ec6f8517680c9cc5804f57** passes the complete
+47-gate comparison against clean **0454d43** and all nineteen bound windowed
+suites: zero regressions, reader NEW zero, protected 17/17, V2 default/V1
+rollback and no requirement promotions. The bound C frame repeats 749 checks
+and the 2C apartment repeats 32 waypoints; all nineteen final captures were
+reviewed. The normal basement circuit repeats 88 waypoints with thirteen
+reviewed captures; roof and vertical routes repeat 51 and 79 waypoints. Keys
+retain their schema-2 two-world contract, 84 waypoints and 55 checks with clean
+teardown. Comparison and genuine clean complete board are
+**tmp/rear-wing-c-support/verified/verification.json** and
+**tmp/rear-wing-c-support/3ad3a2c-clean-board.json**. Continue the fresh actual
+survey and retained structural interfaces before accepting shell readiness.
+
+The fresh **tmp/shell-readiness/post-rear-wing-c-contact1.log.receipt.json**
+and separate **post-rear-wing-c-source-continuity.json** account for 992 of
+1,030 stations, leaving 38: **F02** seven, **F03** eleven, **F04** eight and
+**F05** twelve. All twenty-nine C targets now have actual native contact. Three
+discovery captures were reviewed; the west-slot view is obstructed and confers
+no slot/weather inspection acceptance. The first-upper hall overhangs, higher
+transfers, wider weather/ground continuity and shared utilities remain open.
+
+## First-upper hall support prerequisite
+
+**art/blender/first_upper_hall_seats.md** records two source-derived 350 mm wide,
+300 mm deep bracket-supported I beams and a narrow watch-wall toe ledger at
+seven original first-upper hall stations. Fifteen original sample points receive
+new seats; six retain their old source-masonry footprint. Four wall brackets and
+the ledger meet five retained source faces without cutting or moving old fabric.
+The first live preflight rejects an eleven-component redundant ledge segment
+against the inner package-room partition; it is removed entirely. The final
+preflight checks 92 component volumes with zero old-body conflicts.
+
+The portable Blender generator reproduces the reviewed isolated plan from
+canonical layout and editable masonry. Three closed chamfered native assemblies
+are clipped into six bounded draws with 5,214 triangles and matching collision.
+Thirty-two exposed anchor heads sit beside actual triangular gussets. Strict
+imported metre UV, tangent handedness and derivative checks remain unchanged.
+The installed geometry inspection at
+**tmp/shell-readiness/first-upper-hall-production-inspection1.log.receipt.json**
+passes 180 checks, including all fifteen new contacts, reproduced old gaps,
+five actual retained wall-face joints and zero conflicts. All five production
+frames are reviewed; the dark live steel finish still prevents fine-fastener
+appearance acceptance. Main-viewport visible/hidden observations add one or two
+draws and 1,075 to 2,771 primitives; no timing acceptance is inferred.
+
+The isolated ordinary-controller route passes 50 waypoints through 2A/2B and
+both public-hall returns, with retained input-operated doors and restored closed
+entry barriers. All fourteen trial frames are reviewed. The installed route
+repeats all 50 waypoints at
+**tmp/shell-readiness/first-upper-hall-production-route1.log.receipt.json**;
+all fourteen production route frames are reviewed. Clean candidate validation
+against genuine clean **3ad3a2c** remains required before publication. Only two
+individually reviewed spatial references are appended.
+The wider contact count remains 38 until a fresh actual survey is run. Upper
+transfers, weather closure, courtyard/grade continuity and infrastructure remain
+open. Heating cuts remain parked; no capacity, readiness or completeness
+requirement is promoted.
+
+The complete precommit comparison at
+**tmp/first-upper-hall-seats/precommit/board.json** has 47 gates, zero regressions,
+reader NEW zero, spatial drift zero and no changed requirements. Clean candidate
+verification remains required. A fresh actual installed wider survey at
+**tmp/shell-readiness/post-first-upper-hall-contact1.log.receipt.json** and
+**post-first-upper-hall-source-continuity.json** accounts for 999 of 1,030
+stations, leaving 31: **F03** eleven, **F04** eight and **F05** twelve. All seven
+hall targets are accounted for by the new native contacts and retained source
+footprints. Ground-watch and north-setback views are reviewed. The rolled narrow
+west-slot diagnostic has a collinear-up warning and does not confer weather
+closure acceptance; a level view remains required.

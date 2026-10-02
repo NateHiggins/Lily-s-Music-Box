@@ -189948,6 +189948,71 @@
    "rationale": "Reviewed the existing 2C private-hall kitchen leaf exercised through actual input and normal controller entry/return. Update the test fixture with the authored door identity.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "a4145bc597f82a1f",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_first_upper_hall_seats.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed collision names derived from the six bounded native hall-seat parts. Regenerate the matching triangle bodies with the asset; no gameplay or persistence identity is introduced.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c7c600a924f3d1f4",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_first_upper_hall_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "count": 5,
+   "context": [
+    "for point in [Vector3(6.2,3.2,-3.25),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed five reverse-hall stances after the retained two-apartment input circuit: east connector, public core, west hall and original west stance. The isolated ordinary-controller route passes all fifty waypoints; update these fixture coordinates if the authoritative hall changes.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

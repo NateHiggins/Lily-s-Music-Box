@@ -63,6 +63,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted frame beneath the shifted ground stair-core wall, retained basement landings and west passage | `art/blender/ground_core_transfer.md` |
 | Fitted first-upper A rear-wing beams, posts, storage seats and independent external footings | `art/blender/rear_wing_a_support.md` |
 | Fitted first-upper C rear-wing beams, posts, retained basement roof seats and external footings | `art/blender/rear_wing_c_support.md` |
+| First-upper hall brackets, fitted beam seats and retained watch-wall toe ledger | `art/blender/first_upper_hall_seats.md` |
 | Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
