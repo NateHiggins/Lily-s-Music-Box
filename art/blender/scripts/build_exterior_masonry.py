@@ -92,11 +92,15 @@ def subtract(rect,hole):
  return result
 
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+construction=bpy.data.collections.new('PreServiceMasonry')
+bpy.context.scene.collection.children.link(construction)
+construction.hide_render=True
+construction.hide_viewport=True
 materials=[]
 for name,color in [('CommonBrick',(.43,.30,.23)),('FaceBrick',(.39,.17,.10))]:
  mat=bpy.data.materials.new(name);mat.diffuse_color=(*color,1);materials.append(mat)
 
-def box(name,at,size,front=False,corner=False):
+def solid_piece(name,at,size,front=False,corner=False):
  bpy.ops.mesh.primitive_cube_add(size=1,location=(at[0],-at[2],at[1]))
  obj=bpy.context.object;obj.name=name;obj.scale=(size[0],size[2],size[1])
  bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
@@ -104,6 +108,29 @@ def box(name,at,size,front=False,corner=False):
  for face in obj.data.polygons:
   face.material_index=1 if front or (corner and face.normal.y>.5) else 0
  return obj
+
+def subtract_volume(bounds,cut):
+ lo=[max(bounds[i],cut[i]) for i in range(3)]
+ hi=[min(bounds[i+3],cut[i+3]) for i in range(3)]
+ if any(hi[i]<=lo[i]+1e-7 for i in range(3)):return [bounds]
+ a,b,c,d,e,f=bounds;x,y,z,u,v,w=(*lo,*hi)
+ parts=[(a,b,c,x,e,f),(u,b,c,d,e,f),(x,b,c,u,y,f),
+        (x,v,c,u,e,f),(x,y,c,u,v,z),(x,y,w,u,v,f)]
+ return [p for p in parts if all(p[i+3]-p[i]>1e-6 for i in range(3))]
+
+def box(name,at,size,front=False,corner=False):
+ bounds=tuple(at[i]-size[i]/2 for i in range(3))+tuple(at[i]+size[i]/2 for i in range(3))
+ datum=bpy.data.objects.new(name+'_ConstructionBound',None)
+ datum.empty_display_type='CUBE';datum.empty_display_size=.5
+ datum.location=(at[0],-at[2],at[1]);datum.scale=(size[0],size[2],size[1])
+ construction.objects.link(datum)
+ parts=[bounds]
+ for opening in source.get('masonry_service_openings',[]):
+  assert opening['owner']=='ExteriorMasonry'
+  parts=[p for original in parts for p in subtract_volume(original,opening['bounds'])]
+ for index,p in enumerate(parts):
+  center=tuple((p[i]+p[i+3])/2 for i in range(3));extent=tuple(p[i+3]-p[i] for i in range(3))
+  solid_piece(name if len(parts)==1 and parts[0]==bounds else name+f'_ServiceReveal{index:02d}',center,extent,front,corner)
 
 window_spans={};door_spans={}
 for edge in edges:
@@ -141,10 +168,22 @@ for obj in list(bpy.context.scene.objects):
    v=obj.matrix_world@obj.data.vertices[obj.data.loops[loop].vertex_index].co
    uv.data[loop].uv=(v[axes[0]],v[axes[1]])
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/exterior_masonry.blend'))
-bpy.ops.object.select_all(action='SELECT');bpy.context.view_layer.objects.active=bpy.context.selected_objects[0]
+bpy.ops.object.select_all(action='DESELECT')
+export_meshes=[obj for obj in bpy.context.scene.objects if obj.type=='MESH']
+for obj in export_meshes:obj.select_set(True)
+bpy.context.view_layer.objects.active=export_meshes[0]
 bpy.ops.object.join();mesh=bpy.context.object;mesh.name='ExteriorMasonry'
 bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/exterior_masonry.glb'),export_format='GLB',export_yup=True,export_apply=True)
+class ExportUVHandedness:
+ partitions=0
+ def gather_attribute_change(self,attribute,data,normalized,export_settings):
+  if attribute=='TANGENT':
+   data['data'][:,3]*=-1
+   type(self).partitions+=1
+import io_scene_gltf2
+io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
+bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/exterior_masonry.glb'),export_format='GLB',export_yup=True,export_apply=True,export_tangents=True,use_selection=True)
+assert ExportUVHandedness.partitions==2
 
 def dictionary(name,values):
  lines=[f'const {name} := {{']

@@ -7,6 +7,7 @@ const DUCT_HALF := .09
 const MAX_SPAN := 1.2
 var solids: Array[AABB] = []
 var ceilings: Array[AABB] = []
+var ceiling_faces: Array[PackedVector3Array] = []
 var stations: Array[Transform3D] = []
 
 func configure(root: Node3D, layout: Dictionary) -> void:
@@ -17,7 +18,9 @@ func configure(root: Node3D, layout: Dictionary) -> void:
 		for part in room.get_children():
 			if not part is MeshInstance3D: continue
 			var bounds: AABB = (root.global_transform.affine_inverse() * part.global_transform) * part.get_aabb()
-			if str(part.name) in ["Floor", "Ceiling"]: ceilings.append(bounds)
+			if str(part.name)=="Ceiling":
+				ceilings.append(bounds)
+				ceiling_faces.append((root.global_transform.affine_inverse()*part.global_transform)*part.mesh.get_faces())
 			elif str(part.name).begins_with("Wall") and part.get_node_or_null("Collision") != null:
 				solids.append(bounds)
 	for record: Dictionary in layout.risers:
@@ -53,13 +56,10 @@ func append_branch(a: Vector3, b: Vector3, ceiling_y: float) -> void:
 		var carried := true
 		for side in [-1.0, 1.0]:
 			var contact := at + basis * Vector3(0,0,.128 * side)
-			contact.y = ceiling_y + .001
-			var bearing := false
-			for ceiling in ceilings:
-				if ceiling.grow(.002).has_point(contact):
-					bearing = true
-					break
-			carried = carried and bearing
+			contact.y = ceiling_y
+			for x in [-.044,0.0,.044]:
+				for z in [-.033,0.0,.033]:
+					carried=carried and _ceiling_bearing(contact+basis*Vector3(x,0,z))
 		if not carried: continue
 		var duplicate := false
 		for station in stations:
@@ -67,6 +67,15 @@ func append_branch(a: Vector3, b: Vector3, ceiling_y: float) -> void:
 				duplicate = true
 				break
 		if not duplicate: stations.append(Transform3D(basis,at))
+
+func _ceiling_bearing(contact: Vector3) -> bool:
+	for index in ceilings.size():
+		if not ceilings[index].grow(.002).has_point(contact): continue
+		var faces:=ceiling_faces[index]
+		for triangle in range(0,faces.size(),3):
+			var hit: Variant=Geometry3D.ray_intersects_triangle(contact-Vector3.UP*.02,Vector3.UP,faces[triangle],faces[triangle+1],faces[triangle+2])
+			if hit is Vector3 and absf(hit.y-contact.y)<.001:return true
+	return false
 
 func draw(parent: Node3D) -> void:
 	parent.set_meta("hanger_stations", stations.duplicate())

@@ -94,8 +94,11 @@ are single samples, not stable FPS or performance acceptance.
 
 The complete clean baseline is **tmp/bodega-power/9b68818-clean-board.json**,
 at published **9b68818220600f839468cae1d37342830cd67faa**. Final candidate
-verification belongs to **tmp/vent-fabric-audit/verified/verification.json** and
-must pass before publication. Require zero new unread fields, zero board
+verification is **tmp/vent-fabric-audit/verified/verification.json**: published
+**8eb96c7faa1c2d5e112e5871fe48181c6acd5166** passed its complete 45-gate board
+and eight candidate-bound windowed suites. It recorded zero blocking findings,
+zero new unread fields, zero board regressions, **17/17** protected paths and
+unchanged requirement statuses. Require zero new unread fields, zero board
 regressions, protected paths **17/17**, V2 default/V1 rollback, unchanged
 requirements and owner capture bytes/absences. Wrapper receipts and images grant
 no runtime-contract or completeness-ledger status. No gate or spatial-audit

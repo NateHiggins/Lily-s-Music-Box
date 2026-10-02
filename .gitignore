@@ -4,6 +4,8 @@
 !game/assets/props/ventilation_ducts.glb.import
 !game/assets/props/bodega_power.glb.import
 !game/assets/props/ventilation_slab_sleeve.glb.import
+!game/assets/props/exterior_masonry.glb.import
+!game/assets/props/ventilation_fabric_lining.glb.import
 # ...except the sky plates. Their import settings are not incidental: with
 # mipmaps off, the equirect pole minifies 18-57x, the samplers' own
 # filter_linear_mipmap hint has nothing to filter with, and the textureLod

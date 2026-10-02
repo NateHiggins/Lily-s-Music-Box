@@ -75,6 +75,10 @@ func _run() -> void:
 				vertices += points.size()
 			batches += 1
 		var faces := metal.multimesh.mesh.get_faces()
+		var plate_corners:=PackedVector3Array()
+		for point: Vector3 in faces:
+			if point.y>.30999 and not plate_corners.has(point):plate_corners.append(point)
+		check(plate_corners.size()==8,"both imported ceiling plates expose their four actual top corners")
 		var bearing := _mesh_distance(faces,Vector3(0,-.08,0),Vector3.DOWN)
 		check(is_finite(bearing) and absf(bearing-.01)<.0001,"imported bearing flange touches 180 mm duct underside")
 		for side in [-1.0,1.0]:
@@ -97,7 +101,16 @@ func _run() -> void:
 					if is_finite(distance) and absf(distance-.02)<.001:
 						seated = true
 						break
-				check(seated,"ceiling plate meets an actual existing rendered ceiling face")
+				check(seated,"ceiling plate meets an actual existing rendered ceiling face: "+str(stack.name)+" "+str(contact))
+			var full_bearing:=true
+			for corner: Vector3 in plate_corners:
+				var contact:=pose*corner
+				var seated:=false
+				for surface: PackedVector3Array in ceiling_faces:
+					var distance:=_mesh_distance(surface,contact-Vector3.UP*.02,Vector3.UP)
+					if is_finite(distance) and absf(distance-.02)<.001:seated=true;break
+				full_bearing=full_bearing and seated
+			check(full_bearing,"all imported ceiling-plate top corners bear on actual fabric: "+str(stack.name)+" "+str(at))
 			check(at.y-.117 > floorf(at.y/3.2)*3.2+2.5,"support remains above standing player headroom")
 			total += 1
 	check(total>23 and batches==8,"supports cover all four geographic stacks with eight instanced draws")

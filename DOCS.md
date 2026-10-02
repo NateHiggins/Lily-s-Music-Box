@@ -44,6 +44,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Radiator wall-tie seating, slotted plates and retained service mechanisms | `art/blender/radiator_wall_ties.md` |
 | Hollow ventilation sheets, seam airways and fitted fan slab/curb throats | `art/blender/ventilation_throats.md` |
 | Ventilation storey slab ports, shared sleeve linings and upper branch clearance | `art/blender/ventilation_slab_ports.md` |
+| Ventilation wall/chase/masonry ports, fitted steel linings and full-bore inspection | `art/blender/ventilation_fabric_ports.md` |
 | Independent bodega lighting intake, supported conduit and fitted wall sleeves | `art/blender/bodega_power.md` |
 | V2 city architecture/infrastructure continuation by location and transition | `design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md` |
 | Blender exterior masonry, deeper reveals and narrow light-slot preservation | `art/blender/exterior_masonry.md` |

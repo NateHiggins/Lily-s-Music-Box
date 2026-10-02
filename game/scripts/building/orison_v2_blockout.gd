@@ -90,7 +90,7 @@ func _validate_layout() -> void:
 	for table in ["spaces", "doors", "openings", "windows", "envelopes", "fixtures", "platforms",
 			"lift_landings",
 			"anchors", "capsule_stations", "stairs", "risers", "route_edges",
-			"service_connections", "slab_openings", "riser_openings"]:
+			"service_connections", "slab_openings", "riser_openings", "wall_service_openings", "masonry_service_openings"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -106,6 +106,14 @@ func _validate_layout() -> void:
 	for opening: Dictionary in layout.get("slab_openings", []):
 		if opening.get("surface","") not in ["Floor","Ceiling"] or not _valid_rect(opening.get("rect",[])):
 			failures.append("invalid slab opening: " + str(opening.get("id","?")))
+	for table: String in ["wall_service_openings","masonry_service_openings"]:
+		for opening: Dictionary in layout.get(table,[]):
+			if not _valid_service_bounds(opening.get("bounds",[])):
+				failures.append("invalid service volume: "+str(opening.get("id","?")))
+			if table=="wall_service_openings" and opening.get("side","") not in ["north","south","west","east"]:
+				failures.append("invalid service wall side: "+str(opening.get("id","?")))
+			if table=="masonry_service_openings" and opening.get("owner","")!="ExteriorMasonry":
+				failures.append("invalid exterior-leaf service owner: "+str(opening.get("id","?")))
 	for opening: Dictionary in layout.get("riser_openings", []):
 		var bounds: Array=opening.get("bounds",[])
 		if bounds.size()!=6 or bounds[0]>=bounds[3] or bounds[1]>=bounds[4] or bounds[2]>=bounds[5]:
@@ -139,6 +147,13 @@ func _validate_layout() -> void:
 ## the build continued, printed its success census, joined the selector
 ## group and exited 0 with the stair simply absent.
 func _validate_references(ids: Dictionary) -> void:
+	for opening: Dictionary in layout.get("wall_service_openings",[]):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("space","")),"spaces","service wall owner")
+		var room:=_space_by_id(str(opening.get("space","")))
+		if room.is_empty() or not _valid_service_bounds(opening.get("bounds",[])) or opening.get("side","") not in ["north","south","west","east"]: continue
+		var owned:=_service_wall_bounds(room,str(opening.side))
+		if not owned.grow(.00001).encloses(_service_box(opening.bounds)):
+			failures.append("service wall opening exceeds its owner: "+str(opening.id))
 	for opening: Dictionary in layout.get("riser_openings", []):
 		_require_record(ids,str(opening.get("id","?")),str(opening.get("riser","")),"risers","riser owner")
 		for riser: Dictionary in layout.risers:
@@ -727,12 +742,56 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		start: float, finish: float, y: float, height: float, thickness: float,
 		cls: String) -> void:
 	var center := (start + finish) * 0.5
-	if axis == "x":
-		_box(parent, node_name, Vector3(center, y + height * 0.5, fixed),
-				Vector3(finish - start, height, thickness), cls, true)
-	else:
-		_box(parent, node_name, Vector3(fixed, y + height * 0.5, center),
-				Vector3(thickness, height, finish - start), cls, true)
+	var at:=Vector3(center,y+height*.5,fixed) if axis=="x" else Vector3(fixed,y+height*.5,center)
+	var size:=Vector3(finish-start,height,thickness) if axis=="x" else Vector3(thickness,height,finish-start)
+	var bounds:=AABB(at-size*.5,size)
+	var pieces: Array[AABB]=[bounds]
+	for opening: Dictionary in layout.get("wall_service_openings",[]):
+		if str(opening.space)!=str(parent.name) or not node_name.begins_with("Wall"+str(opening.side).capitalize()): continue
+		var remaining: Array[AABB]=[]
+		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,_service_box(opening.bounds)))
+		pieces=remaining
+	var draw:=_box(parent,node_name,at,size,cls,true)
+	if pieces.size()==1 and pieces[0]==bounds: return
+	var body:=draw.get_node("Collision") as StaticBody3D
+	for shape: CollisionShape3D in body.get_children(): shape.free()
+	if pieces.is_empty():
+		draw.visible=false
+		return
+	var surface:=SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for piece: AABB in pieces:
+		var box:=BoxMesh.new()
+		box.size=piece.size
+		var local:=piece.get_center()-at
+		surface.append_from(box,0,Transform3D(Basis.IDENTITY,local))
+		var shape:=CollisionShape3D.new()
+		var box_shape:=BoxShape3D.new()
+		box_shape.size=piece.size
+		shape.shape=box_shape
+		shape.position=local
+		body.add_child(shape)
+	draw.mesh=surface.commit()
+
+static func _valid_service_bounds(bounds: Variant) -> bool:
+	if bounds is not Array or bounds.size()!=6: return false
+	for value: Variant in bounds:
+		if typeof(value) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value)): return false
+	return bounds[0]<bounds[3] and bounds[1]<bounds[4] and bounds[2]<bounds[5]
+
+static func _service_box(bounds: Array) -> AABB:
+	return AABB(Vector3(bounds[0],bounds[1],bounds[2]),Vector3(bounds[3]-bounds[0],bounds[4]-bounds[1],bounds[5]-bounds[2]))
+
+func _service_wall_bounds(room: Dictionary,side: String) -> AABB:
+	var r: Array=room.rect
+	var y: float=level_y[str(room.level)]
+	var height: float=layout.dimensions.floor_to_floor if room.get("no_ceiling",false) else layout.dimensions.clear_height
+	var half: float=layout.dimensions.partition_wall*.5
+	if side in ["south","north"]:
+		var z: float=r[1] if side=="south" else r[3]
+		return AABB(Vector3(r[0],y,z-half),Vector3(r[2]-r[0],height,half*2))
+	var x: float=r[0] if side=="west" else r[2]
+	return AABB(Vector3(x-half,y,r[1]),Vector3(half*2,height,r[3]-r[1]))
 
 func _build_doors() -> void:
 	for door: Dictionary in layout.doors:
@@ -997,12 +1056,17 @@ static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
 	var overlap := box.intersection(cut)
 	var result: Array[AABB]=[]
 	var middle := box
+	# Vector3 stores single-precision coordinates. Decimal owner boundaries
+	# can otherwise leave sub-micrometre closing plates across a real opening.
+	# Ten micrometres is below any authored construction detail; never emit
+	# these numerical slivers as either visible boxes or collision shapes.
+	const CONSTRUCTION_EPS := .00001
 	for axis in 3:
-		if overlap.position[axis]>middle.position[axis]:
+		if overlap.position[axis]-middle.position[axis]>CONSTRUCTION_EPS:
 			var low := middle
 			low.size[axis]=overlap.position[axis]-middle.position[axis]
 			result.append(low)
-		if overlap.end[axis]<middle.end[axis]:
+		if middle.end[axis]-overlap.end[axis]>CONSTRUCTION_EPS:
 			var high := middle
 			high.position[axis]=overlap.end[axis]
 			high.size[axis]=middle.end[axis]-overlap.end[axis]

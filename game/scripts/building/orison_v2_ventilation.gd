@@ -6,6 +6,7 @@ const DUCT_WIDTH := .18
 const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
 const FabricatedDucts := preload("res://assets/props/ventilation_ducts.glb")
 const Sleeves := preload("res://scripts/building/orison_v2_ventilation_sleeves.gd")
+const FabricLining := preload("res://assets/props/ventilation_fabric_lining.glb")
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -44,6 +45,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var supports := Supports.new()
 	supports.configure(adapter.root, layout)
 	var fabricated := FabricatedDucts.instantiate()
+	var lining := FabricLining.instantiate()
 	for stack: String in registers:
 		var fan := Fan.new()
 		fan.riser = "V-"+stack
@@ -57,7 +59,9 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		fan.bind_registers(anchors)
 		supports.begin_stack()
 		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height),fabricated,roof_drop)
+		_draw(ducts.get_node("Stack_"+stack),"FabricLining",lining.get_node(stack+"_FabricLining"),"metal")
 	fabricated.free()
+	lining.free()
 	Sleeves.mount(ducts,layout,stacks)
 	return true
 
