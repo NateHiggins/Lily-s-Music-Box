@@ -5,11 +5,14 @@ const VARIANTS := {"A":"west_weathered","B":"north_belt","C":"south_repainted","
 const DUCT_WIDTH := .18
 const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
 const FabricatedDucts := preload("res://assets/props/ventilation_ducts.glb")
+const Sleeves := preload("res://scripts/building/orison_v2_ventilation_sleeves.gd")
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
 	if parsed is not Dictionary: return false
 	var graph: Dictionary = parsed.get("ventilation",{})
+	var roof_drop := float(graph.get("roof_branch_drop_m",0))
+	if roof_drop<.29 or roof_drop>.5: return false
 	var stacks := {}
 	var registers := {}
 	var actual := {}
@@ -53,16 +56,17 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		anchors.assign(registers[stack])
 		fan.bind_registers(anchors)
 		supports.begin_stack()
-		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height),fabricated)
+		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height),fabricated,roof_drop)
 	fabricated.free()
+	Sleeves.mount(ducts,layout,stacks)
 	return true
 
-func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float, fabricated: Node3D) -> void:
+func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float, fabricated: Node3D, roof_drop: float) -> void:
 	var stack := StaticBody3D.new()
 	stack.name = "Stack_"+id
 	root.add_child(stack)
 	var roof := root.to_local(fan.global_position)
-	var top := Vector3(float(spec.riser[0]),roof.y-.22,float(spec.riser[1]))
+	var top := Vector3(float(spec.riser[0]),roof.y-roof_drop,float(spec.riser[1]))
 	var lowest := top.y
 	var roster: Array[String] = []
 	for anchor: Node3D in anchors:

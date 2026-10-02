@@ -79,8 +79,9 @@ grant no completeness-ledger or runtime-contract status.
 The first export had **24,552** triangles. Using solid fasteners and sixteen-sided
 conduit reduced the intermediate assembly to **9,288** triangles with **81** focused
 checks and zero failures. The finished enclosure flange and wall fasteners bring
-that assembly to **9,556** triangles. Final release byte sizes and the
-service-rise junction binding belong to the candidate run. The fitted receiving source is **117,843 bytes**, GLB
+that assembly to **9,556** triangles. The published service-rise junction brings
+the final assembly to **9,600** triangles. The final native power source is
+**232,414 bytes**, GLB **918,820 bytes**. The fitted receiving source is **117,843 bytes**, GLB
 **123,964 bytes**, compared with **116,004 / 109,344** before the rear bore.
 The power GLB retains twenty-four bearing marker nodes and the port/fitting
 datums; these add no draws or simulation. Startup samples are **19,533.354 ms**
@@ -90,10 +91,17 @@ performance acceptance claim.
 ## Binding and remaining work
 
 The complete clean baseline is **tmp/roof-throats/72b3033-clean-board.json** at
-**72b3033117058f17c480bb43092e510c79de7b8e**. Candidate checks belong to
-**tmp/bodega-power/verified/verification.json** and must pass before publication.
-Require zero new unread fields, zero static regressions, all seventeen protected
-paths, V2 default/V1 rollback and unchanged owner capture bytes/absences.
+**72b3033117058f17c480bb43092e510c79de7b8e**. Published on canonical main as
+**9b68818220600f839468cae1d37342830cd67faa** after
+**tmp/bodega-power/verified/verification.json** reported zero blocking findings,
+zero regressions, reader NEW **0**, unchanged requirements, all seventeen
+protected paths, V2 default/V1 rollback and three clean document lints.
+All five bound windowed suites passed: power **89 checks / 9,600 triangles**,
+receiving **30 waypoints**, city **1,253 / 450 contacts**, apartment batch
+**20,315**, title/continue **6**. All four final candidate views were inspected
+directly. The complete clean next baseline is
+**tmp/bodega-power/9b68818-clean-board.json**. This in-place verification does
+not establish fresh-checkout import/autocrlf behavior.
 
 **route.log.receipt.json** records the existing thirty-waypoint public/store/
 receiving/return walk with zero failures: both doors use normal input, the leaf

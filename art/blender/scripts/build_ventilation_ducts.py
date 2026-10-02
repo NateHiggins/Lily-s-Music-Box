@@ -190,7 +190,7 @@ for specification in graph['stacks']:
             cube(name + f'Seam{i:02d}', a.lerp(b, i/count), band, seams)
 
     fan = placement('ROOF_VENT_FAN_' + identity)
-    top = Vector((specification['riser'][0], fan.y-.22, specification['riser'][1]))
+    top = Vector((specification['riser'][0], fan.y-graph['roof_branch_drop_m'], specification['riser'][1]))
     lowest = top.y
     ports = []
     for record in graph['registers']:

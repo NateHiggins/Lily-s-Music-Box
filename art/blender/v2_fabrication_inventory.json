@@ -7459,6 +7459,9 @@
       "res://assets/props/vent_register.glb",
       "res://assets/props/ventilation_ducts.glb"
     ],
+    "game/scripts/building/orison_v2_ventilation_sleeves.gd": [
+      "res://assets/props/ventilation_slab_sleeve.glb"
+    ],
     "game/scripts/building/orison_v2_water_closet.gd": [
       "res://assets/props/bath_water_closet.glb"
     ],
@@ -7516,6 +7519,7 @@
     "art/blender/scripts/build_traffic_vehicle.py",
     "art/blender/scripts/build_vent_register.py",
     "art/blender/scripts/build_ventilation_ducts.py",
+    "art/blender/scripts/build_ventilation_slab_sleeve.py",
     "art/blender/scripts/build_wayfinding_plate.py",
     "art/blender/scripts/build_window_joinery.py"
   ],

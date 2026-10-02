@@ -49,7 +49,8 @@ func _run() -> void:
 			batches+=1
 		var fan:=world.adapter.resolve("ROOF_VENT_FAN_"+identity) as ExhaustFanProp
 		var roof:=root.to_local(fan.global_position)
-		var top:=Vector3(specification.riser[0],roof.y-.22,specification.riser[1])
+		var top:=Vector3(specification.riser[0],roof.y-float(source.ventilation.roof_branch_drop_m),specification.riser[1])
+		check(top.y+.097<19.0,"roof horizontal sheet and seams remain below the upper ceiling")
 		var lowest:=top.y
 		var count:=0
 		for record: Dictionary in source.ventilation.registers:
@@ -81,7 +82,7 @@ func _run() -> void:
 			if length<.001: continue
 			var direction: Vector3=(leg[1]-leg[0]).normalized()
 			_clear(faces,leg[0]+direction*.002,direction,length-.003,"roof branch lumen")
-		_clear(faces,roof_end+Vector3.UP*.002,Vector3.UP,.50,"roof uptake opens through flashing")
+		_clear(faces,roof_end+Vector3.UP*.002,Vector3.UP,.65,"roof uptake opens through flashing")
 		var paint:=fan.get("fabricated").get_node("Paint") as MeshInstance3D
 		_check_mapping(paint.mesh)
 		_clear(paint.mesh.get_faces(),Vector3(.015,.40,.015),Vector3.DOWN,.5,"curb and flashing throat is open")
@@ -100,8 +101,17 @@ func _run() -> void:
 		var cut: Array=opening.rect
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		var faces:=pose*draw.mesh.get_faces()
-		var at:=Vector3((cut[0]+cut[2])*.5,19.5,(cut[1]+cut[3])*.5)
-		_clear(faces,at,Vector3.DOWN,.6,"actual slab triangles clear their declared service aperture")
+		var bounds: AABB=pose*draw.mesh.get_aabb()
+		var at:=Vector3((cut[0]+cut[2])*.5,bounds.end.y+.02,(cut[1]+cut[3])*.5)
+		_clear(faces,at,Vector3.DOWN,bounds.size.y+.04,"actual slab triangles clear their declared service aperture: "+str(opening.id))
+		var body:=draw.get_node_or_null("Collision") as StaticBody3D
+		check((body!=null)==(opening.surface=="Floor"),"floor collision and visual-only ceiling ownership stay unchanged")
+		if body!=null:
+			check(_owner_hit(world,root.to_global(at),root.to_global(at-Vector3.UP*(bounds.size.y+.04)),body).is_empty(),"actual slab physics clears declared port independently of unresolved neighboring walls")
+			var retained:=Vector3(cut[0]-.025,at.y,(cut[1]+cut[3])*.5)
+			var bearing:=_owner_hit(world,root.to_global(retained),root.to_global(retained-Vector3.UP*(bounds.size.y+.04)),body)
+			check(not bearing.is_empty(),"original slab collision remains beside each port")
+	_check_sleeves(root,layout,source.ventilation)
 	var chase_faces:=PackedVector3Array()
 	for draw: MeshInstance3D in root.get_node("WEST_WET_STACK").find_children("*","MeshInstance3D",true,false):
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
@@ -117,6 +127,48 @@ func _run() -> void:
 	world.free()
 	await _retired_audio()
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _owner_hit(world: Node3D,a: Vector3,b: Vector3,owner: CollisionObject3D) -> Dictionary:
+	# Filter encountered neighbors without changing any live collision layer.
+	# This checks the selected slab only, not the unresolved whole wall route.
+	var excluded: Array[RID]=[]
+	for attempt in 32:
+		var query:=PhysicsRayQueryParameters3D.create(a,b,1,excluded)
+		query.hit_from_inside=true
+		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
+		if hit.is_empty() or hit.collider==owner: return hit
+		excluded.append(hit.collider.get_rid())
+	check(false,"slab-owner ray exhausted its explicit neighbor filter")
+	return {"unresolved":true}
+
+func _check_sleeves(root: Node3D,layout: Dictionary,graph: Dictionary) -> void:
+	var slots: Dictionary={"A":[6.4,9.6,12.8],"B":[3.2,6.4,9.6,12.8,16.0],"C":[9.6,12.8],"D":[3.2,6.4,9.6,12.8,16.0]}
+	var total:=0
+	var mesh: Mesh
+	for spec: Dictionary in graph.stacks:
+		var draw:=root.get_node("VentilationDucts/Stack_"+str(spec.id)+"/SlabSleeves") as MultiMeshInstance3D
+		check(draw!=null and draw.material_override==MatLib.get_mat("metal"),"sleeves retain catalogue steel")
+		check(draw.get_child_count()==0,"slab lining adds no light, collider, interaction or state")
+		check(draw.multimesh.instance_count==slots[spec.id].size(),"adjacent slab owners share one lining instance")
+		if mesh==null:
+			mesh=draw.multimesh.mesh
+			_check_mapping(mesh,true)
+		else: check(draw.multimesh.mesh==mesh,"four geographic draws share one sleeve mesh")
+		for index in draw.multimesh.instance_count:
+			var at:=draw.multimesh.get_instance_transform(index).origin
+			check(absf(at.x-spec.riser[0])<.00001 and absf(at.z-spec.riser[1])<.00001,"sleeve follows original stack datum")
+			var expected:=false
+			for y: float in slots[spec.id]: expected=expected or absf(at.y-y)<.0001
+			check(expected,"sleeve covers an actual intersected slab")
+			total+=1
+	var faces:=mesh.get_faces()
+	_clear(faces,Vector3(.075,.05,.075),Vector3.DOWN,.30,"lining and flange retain a continuous inner bore")
+	var inner:=_mesh_distance(faces,Vector3(0,-.10,0),Vector3.RIGHT)
+	check(is_finite(inner) and absf(inner-.098)<.0001,"196 mm lining clears the 194 mm seam")
+	var bearing:=_mesh_distance(faces,Vector3(.106,.05,0),Vector3.DOWN)
+	check(is_finite(bearing) and absf(bearing-.046)<.0001,"224 mm escutcheon covers the 200 mm slab cut")
+	check(total==15,"27 floor and ceiling surfaces receive 15 deduplicated sleeves")
+	print("VENTILATION SLABS: authored_ports=",layout.slab_openings.size()," sleeve_instances=",total," sleeve_triangles=",faces.size()/3)
 
 func _clear(faces: PackedVector3Array, at: Vector3, direction: Vector3, length: float, message: String) -> void:
 	var hit:=_mesh_distance(faces,at,direction)
