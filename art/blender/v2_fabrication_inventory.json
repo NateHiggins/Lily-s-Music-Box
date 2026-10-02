@@ -7400,6 +7400,9 @@
     "game/scripts/building/orison_v2_exterior_masonry.gd": [
       "res://assets/props/exterior_masonry.glb"
     ],
+    "game/scripts/building/orison_v2_foundations.gd": [
+      "res://assets/props/orison_foundations.glb"
+    ],
     "game/scripts/building/orison_v2_house_tank.gd": [
       "res://assets/props/house_tank.glb"
     ],
@@ -7517,6 +7520,7 @@
     "art/blender/scripts/build_light_switch.py",
     "art/blender/scripts/build_millwork_profile.py",
     "art/blender/scripts/build_orison.py",
+    "art/blender/scripts/build_orison_foundations.py",
     "art/blender/scripts/build_public_furnishings.py",
     "art/blender/scripts/build_radiator_wall_tie.py",
     "art/blender/scripts/build_reading_furniture.py",

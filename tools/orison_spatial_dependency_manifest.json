@@ -189502,6 +189502,68 @@
    "rationale": "Reviewed test-only node-path fragment resolves all four retained parapet bodies for physical bearing checks; update the fixture with source names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "35014f811b50a39f",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_foundations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed collision names derive only from the bounded native foundation piece names; regenerate these local fixed bodies with the source asset. No save or room authority is added.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "963de40654cf1c16",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/orison_v2_foundations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    57,
+    75
+   ],
+   "count": 2,
+   "context": [
+    "var footing_top: float=root.level_y[\"B1\"]-root.layout.dimensions.slab_thickness",
+    "if str(room.level)!=\"B1\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test fixture uses the retained B1 floor datum and ten basement room records for native footing contacts and occupied-volume preservation. Update this fixture with a source floor change.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   }
  ]
 }

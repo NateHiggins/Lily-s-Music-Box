@@ -46,3 +46,19 @@ Discovery also identifies potentially exposed lower-ceiling tops; these are
 unaccepted findings, since existing stairs, walking slabs and registered exterior
 owners must be resolved first. Neither roof repair closes whole-shell readiness
 or any of the six location and infrastructure phases.
+
+Published **de69156b33bac0f6bfc3149837354242b346d2d2** verifies both roof
+corrections against the original clean **cd5498b** baseline. The complete
+47-gate comparison has zero regressions, NEW zero, unchanged 17 protected paths,
+default V2 and explicit V1 rollback, and no requirement promotions. All eleven
+windowed suites bind to this candidate, including RoofBulkheadCaps, RoofEdgeSupport,
+RoofCoping, RoofRoute, LandingSoffit, ExteriorMasonry, WindowJoinery,
+VentilationFabric, VerticalRoute, ResidentKeyRoute and Blockout.
+
+The final report is **tmp/roof-closures/verified/verification.json**. The complete
+clean candidate board is preserved as **tmp/roof-closures/de69156-clean-board.json**.
+The verifier's relative capture directories resolve beneath **game/tmp**;
+all eight final cap/rim frames there were directly inspected. The resident-key
+schema-2 contract passes the 84-waypoint, 55-check two-world route and teardown;
+it does not provide structural acceptance. Whole-shell and heating readiness
+remain open.

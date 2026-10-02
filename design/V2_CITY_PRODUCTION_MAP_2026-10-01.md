@@ -292,3 +292,35 @@ and retained interior ceiling owners. All five exported views were inspected.
 The combined candidate must pass normal routes and the full original clean
 **cd5498b** comparison before push. Foundation/setback ownership and exposed
 ceiling tops remain inspection work; heating apertures remain parked.
+
+Published **de69156b33bac0f6bfc3149837354242b346d2d2** completes both scoped
+roof corrections with eleven binding windowed suites and the full 47-gate
+comparison against **cd5498b**: zero regressions, NEW zero, protected 17/17,
+V2 default/V1 rollback retained, and no completeness promotions. All eight final
+cap/rim frames were directly inspected beneath **game/tmp/roof-closures/verified**.
+**tmp/roof-closures/verified/verification.json** retains the comparison; its
+genuine clean complete candidate board is **tmp/roof-closures/de69156-clean-board.json**.
+Normal roof and vertical circuits pass 51 and 79 waypoints; resident keys pass
+their schema-2 two-world route, 84 waypoints and 55 checks, with clean teardown.
+Foundations, setbacks, source-only slab contacts and independent city service
+routes remain open. The parked heating draft receives no readiness acceptance.
+
+## Foundation contact prerequisite
+
+**art/blender/orison_foundations.md** records nineteen source-derived stem
+rectangles and fifty-one footing rectangles, outside retained basement room,
+wall and riser projections. The complete union is closed; seventy-four bounded
+mapped pieces use matching native triangle collision. No service cut is added.
+The focused production inspection passes **1,119** checks: **61** closed ground
+stations, **183** matching contacts and reproduced earlier gaps, **96** basement
+masonry footing contacts and zero surface intrusion into ten occupied masks.
+All four diagnostic frames were directly inspected. Fifty-one other deficient
+ground stations, higher-storey bearing findings and upper setback closures remain
+open. Modeled contact does not determine soil, reinforcement or load capacity.
+
+The next clean candidate comparison uses the genuine complete **de69156** board,
+with normal basement, boiler, alley, roof, vertical and key-reconstruction routes.
+Foundation native construction and **game/tests/fixtures/orison_foundation_stations.json**
+retain the original discovery's source identity. Only two new spatial references
+are individually appended. Reader NEW remains zero. Raw architecture and all
+seven location/utility phases remain open; heating apertures stay parked.

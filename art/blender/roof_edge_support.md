@@ -47,3 +47,10 @@ references in the spatial board. They are individually reviewed and registered
 with the follow-up bulkhead closure batch; see **roof_bulkhead_caps.md**.
 The failed comparison remains in **tmp/shell-readiness/verified**. The combined
 candidate must compare against the original genuine clean **cd5498b** board.
+
+The combined roof candidate **de69156b33bac0f6bfc3149837354242b346d2d2** is
+verified and pushed, with eleven binding scene suites and the complete 47-gate
+comparison: zero regressions, NEW zero, protected paths and requirement statuses
+retained. Final evidence and actual **game/tmp** capture paths are indexed in
+**roof_bulkhead_caps.md**. The rim's three final candidate frames were directly
+inspected. Foundation and setback readiness remain open.
