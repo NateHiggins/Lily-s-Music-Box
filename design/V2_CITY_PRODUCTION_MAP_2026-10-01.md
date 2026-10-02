@@ -67,6 +67,12 @@ from **regions.json**. Do not substitute one frame's coordinates for another.
 
 ## Shared infrastructure register
 
+Owner decision, October 1: **independent building services** govern the bar,
+bodega and arcade buildings. Each building's incoming supplies and local plant
+remain separate from Orison. This settles service ownership; the physical
+routes, fittings and access still require source-authored construction and
+verification. Existing controls/simulations stay their state authorities.
+
 Existence of a riser, fixture or authored control does not prove a supported,
 continuous physical network. Preserve the existing simulations while completing
 the visual source/distribution/endpoint trace. Cross-location extensions need
@@ -77,7 +83,7 @@ their own source-grounded geometry and route checks.
 | Heating and return | Boiler/BoilerTend → fitted header/equalizer and **HEAT_STACK** → **heating.json**, HeatBalance and installed one-pipe radiators. All eighteen original floor feeds contact their actual slabs; six floating wall ties are fitted with fixed slotted plates. | Endpoint fit is described in **art/blender/radiator_wall_ties.md**. Trace concealed mains, vertical/branch support, sleeves, expansion/joints and access at every floor; bar/bodega/arcade heat must follow an authored source rather than a fictitious new live loop. |
 | Water | Roof tank/ballcock and existing water/hot-water owners → **WEST_WET_STACK**, domestic fittings/completion data → apartment, laundry and sanitary fixture controls. | Inspect supply/return branch joins, valve clearance and floor penetrations; bar WC sink input and reach now pass; physical supply/drain joins still need tracing. No speculative municipal tie-in. |
 | Drainage | Existing wet-stack reservation and fixture traps → shaft and basement routes. | Full drain/vent continuity, fall, cleanouts, sleeves and street outlet geometry are not verified by this batch. |
-| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters → **orison_v2_ventilation.gd** ducts and roof fans; 65 exposed-branch trapezes seat on existing ducts/ceilings. Separate boiler breeching → **B1_BOILER_FLUE** and chimney. | Branch attachments are described in **art/blender/duct_supports.md**; concealed riser/roof joins, sleeves and remaining access remain focused inspection. Bar sanitary/exhaust and shop distribution require source tracing. |
+| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters → hollow Blender sheets/seams and four fitted roof curbs; 65 exposed-branch trapezes seat on existing ducts/ceilings. Separate boiler breeching → **B1_BOILER_FLUE** and chimney. | **art/blender/ventilation_throats.md** scopes the 23 imported airway ports, six fan slab apertures and two west-chase bores. Remaining concealed fabric/branch penetrations and support/access remain open. Bar sanitary/exhaust and shop distribution follow their independent building supplies. |
 | Power/conduit | Existing basement electrical/service equipment and **ELECTRICAL_SERVICE_RISER** → existing fixture/switch and lamp owners. | Trace conduit supports, drops and termination boxes across shops/bar; mounted lighting and hours behavior alone do not establish electrical fabrication completion. |
 | Lift equipment | Existing passenger/service shafts, landings, OrisonElevator, Blender roof drive and suspension. | Retain accepted mechanisms; inspect bearings, support/guard clearances, roof closures and landings. No new control authority. |
 | Communications/deliveries | Existing switchboard, telephone network, **TELEPHONE_MESSAGE_RISER**, AcousticGraphData and service-set owners; accepted service alley, coal route and passage handcarts. | Verify penetrations, mounts, cable runs and physical delivery endpoints; bodega receiving access now passes through the storefront/sales aisle; external delivery and bar service/storage connections remain unauthored or uninspected. |

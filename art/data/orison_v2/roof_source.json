@@ -317,7 +317,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "weathering cap over parapet"
+        "purpose": "weathering cap over parapet",
+        "fabrication": "roof_coping",
+        "fabrication_part": "cap"
       },
       {
         "id": "ROOF_PARAPET_NORTH",
@@ -351,7 +353,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "weathering cap over parapet"
+        "purpose": "weathering cap over parapet",
+        "fabrication": "roof_coping",
+        "fabrication_part": "cap"
       },
       {
         "id": "ROOF_PARAPET_WEST",
@@ -385,7 +389,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "weathering cap over parapet"
+        "purpose": "weathering cap over parapet",
+        "fabrication": "roof_coping",
+        "fabrication_part": "cap"
       },
       {
         "id": "ROOF_PARAPET_EAST",
@@ -419,7 +425,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "weathering cap over parapet"
+        "purpose": "weathering cap over parapet",
+        "fabrication": "roof_coping",
+        "fabrication_part": "cap"
       },
       {
         "id": "ROOF_TANK_BODY",
@@ -436,7 +444,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "timber house water tank"
+        "purpose": "timber house water tank",
+        "fabrication": "house_tank",
+        "fabrication_part": "body"
       },
       {
         "id": "ROOF_TANK_LEG_0",
@@ -453,7 +463,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron water tank support"
+        "purpose": "iron water tank support",
+        "fabrication": "house_tank",
+        "fabrication_part": "support"
       },
       {
         "id": "ROOF_TANK_LEG_1",
@@ -470,7 +482,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron water tank support"
+        "purpose": "iron water tank support",
+        "fabrication": "house_tank",
+        "fabrication_part": "support"
       },
       {
         "id": "ROOF_TANK_LEG_2",
@@ -487,7 +501,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron water tank support"
+        "purpose": "iron water tank support",
+        "fabrication": "house_tank",
+        "fabrication_part": "support"
       },
       {
         "id": "ROOF_TANK_LEG_3",
@@ -504,7 +520,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron water tank support"
+        "purpose": "iron water tank support",
+        "fabrication": "house_tank",
+        "fabrication_part": "support"
       },
       {
         "id": "ROOF_TANK_LID",
@@ -521,7 +539,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "weather cap on house tank"
+        "purpose": "weather cap on house tank",
+        "fabrication": "house_tank",
+        "fabrication_part": "lid"
       },
       {
         "id": "ROOF_TANK_BAND_0_SOUTH",
@@ -538,7 +558,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_0_NORTH",
@@ -555,7 +577,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_0_WEST",
@@ -572,7 +596,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_0_EAST",
@@ -589,7 +615,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_1_SOUTH",
@@ -606,7 +634,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_1_NORTH",
@@ -623,7 +653,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_1_WEST",
@@ -640,7 +672,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_1_EAST",
@@ -657,7 +691,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_2_SOUTH",
@@ -674,7 +710,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_2_NORTH",
@@ -691,7 +729,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_2_WEST",
@@ -708,7 +748,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BAND_2_EAST",
@@ -725,7 +767,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "iron tank binding"
+        "purpose": "iron tank binding",
+        "fabrication": "house_tank",
+        "fabrication_part": "binding"
       },
       {
         "id": "ROOF_TANK_BUTT_BASE",
@@ -742,7 +786,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "overflow collection butt base"
+        "purpose": "overflow collection butt base",
+        "fabrication": "house_tank",
+        "fabrication_part": "collector_floor"
       },
       {
         "id": "ROOF_TANK_BUTT_WEST",
@@ -759,7 +805,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "open overflow collection butt wall"
+        "purpose": "open overflow collection butt wall",
+        "fabrication": "house_tank",
+        "fabrication_part": "collector_wall"
       },
       {
         "id": "ROOF_TANK_BUTT_EAST",
@@ -776,7 +824,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "open overflow collection butt wall"
+        "purpose": "open overflow collection butt wall",
+        "fabrication": "house_tank",
+        "fabrication_part": "collector_wall"
       },
       {
         "id": "ROOF_TANK_BUTT_SOUTH",
@@ -793,7 +843,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "open overflow collection butt wall"
+        "purpose": "open overflow collection butt wall",
+        "fabrication": "house_tank",
+        "fabrication_part": "collector_wall"
       },
       {
         "id": "ROOF_TANK_BUTT_NORTH",
@@ -810,7 +862,9 @@
         ],
         "class": "service",
         "collision": true,
-        "purpose": "open overflow collection butt wall"
+        "purpose": "open overflow collection butt wall",
+        "fabrication": "house_tank",
+        "fabrication_part": "collector_wall"
       }
     ],
     "anchors": [
@@ -1021,6 +1075,112 @@
         "connects": [
           "ROOF_DECK_NORTHEAST",
           "ROOF_DECK_NORTH"
+        ]
+      }
+    ],
+    "slab_openings": [
+      {
+        "id": "ROOF_FAN_A_SLAB_PORT",
+        "space": "ROOF_DECK_WEST",
+        "surface": "Floor",
+        "rect": [
+          -6.275,
+          4.275,
+          -6.075,
+          4.475
+        ]
+      },
+      {
+        "id": "ROOF_FAN_B_SLAB_PORT",
+        "space": "ROOF_DECK_WEST",
+        "surface": "Floor",
+        "rect": [
+          -6.9,
+          -11.3,
+          -6.7,
+          -11.1
+        ]
+      },
+      {
+        "id": "ROOF_FAN_B_CEILING_PORT",
+        "space": "F06_A_BATH",
+        "surface": "Ceiling",
+        "rect": [
+          -6.9,
+          -11.3,
+          -6.7,
+          -11.1
+        ]
+      },
+      {
+        "id": "ROOF_FAN_C_SLAB_PORT",
+        "space": "ROOF_DECK_WEST",
+        "surface": "Floor",
+        "rect": [
+          -6.275,
+          5.7,
+          -6.075,
+          5.9
+        ]
+      },
+      {
+        "id": "ROOF_FAN_D_SLAB_PORT",
+        "space": "ROOF_DECK_SOUTH",
+        "surface": "Floor",
+        "rect": [
+          14.6,
+          -10.95,
+          14.8,
+          -10.75
+        ]
+      },
+      {
+        "id": "ROOF_FAN_D_CEILING_PORT",
+        "space": "F06_D_RESTRICTED",
+        "surface": "Ceiling",
+        "rect": [
+          14.6,
+          -10.95,
+          14.8,
+          -10.75
+        ]
+      }
+    ],
+    "riser_openings": [
+      {
+        "id": "VENT_A_CHASE_BORE",
+        "riser": "WEST_WET_STACK",
+        "bounds": [
+          -6.275,
+          5.79,
+          3.55,
+          -6.075,
+          19.2,
+          3.75
+        ]
+      },
+      {
+        "id": "VENT_C_CHASE_BORE",
+        "riser": "WEST_WET_STACK",
+        "bounds": [
+          -6.275,
+          5.79,
+          5.7,
+          -6.075,
+          19.2,
+          5.9
+        ]
+      },
+      {
+        "id": "VENT_A_ROOF_CHASE_PORT",
+        "riser": "WEST_WET_STACK",
+        "bounds": [
+          -6.275,
+          18.88,
+          3.55,
+          -6.075,
+          19.2,
+          4.475
         ]
       }
     ]

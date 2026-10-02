@@ -90,7 +90,11 @@ runner's stale-cache label does not establish a cache cause for that source erro
 The complete clean baseline is **tmp/duct-supports/7b75755-clean-board.json**.
 The full candidate comparison and bound suites belong to
 **tmp/heating-attachments/verified-final/verification.json**. Discovery receipts above
-are provisional until that clean candidate check completes. Wrapper receipts
+are scoped discovery. Verified/pushed **b893fc431174987c01be0ce109b1331eee242ae7**
+passes all six bound suites with zero blocking findings or gate regressions,
+reader NEW **0**, protected paths **17/17** and selector V2. Its apartment
+lifecycle suite passes **20,315 checks** after the documented roster correction.
+The next clean baseline is **tmp/heating-attachments/b893fc4-clean-board.json**. Wrapper receipts
 and captures grant no completeness-ledger runtime proof.
 
 Three individually reviewed unit references extend the spatial manifest from

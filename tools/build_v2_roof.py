@@ -1,7 +1,7 @@
 """Project the roof's authored program into V2 without rebuilding older floors.
 
-Only ROOF records, the two F06 ceiling flags, and the two F06-to-roof flights
-are owned here. Re-running is deterministic and retains unrelated layout work.
+Only ROOF records, fan slab apertures, the two F06 core ceiling flags, and the
+two F06-to-roof flights are owned here. Unrelated layout work stays unchanged.
 """
 import argparse
 import copy
@@ -29,7 +29,7 @@ def project(layout, source):
     result = copy.deepcopy(layout)
     assert source['schema_version'] == 1
     for table, additions in source['records'].items():
-        result[table] = upsert_records(result[table], additions)
+        result[table] = upsert_records(result.get(table, []), additions)
     for core in ['PUBLIC', 'SERVICE']:
         room = next(r for r in result['spaces'] if r['id'] == f'F06_{core}_CORE')
         room['no_ceiling'] = True
@@ -69,6 +69,13 @@ def render(original, result):
         edits.append((start, end, '[\n    ' + ',\n    '.join(rows) + '\n  ]'))
     for start, end, text in reversed(edits):
         original = original[:start] + text + original[end:]
+    missing = [key for key in result if key not in json.loads(original)]
+    if missing:
+        end = original.rfind('}')
+        additions = ''.join(',\n  '+json.dumps(key)+': [\n    '+
+                            ',\n    '.join(json.dumps(row,separators=(',',':')) for row in result[key])+ '\n  ]'
+                            for key in missing)
+        original = original[:end].rstrip()+additions+'\n'+original[end:]
     if json.loads(original) != result:
         raise ValueError('Formatting changed layout semantics')
     return original

@@ -1,7 +1,7 @@
 """Four shared roof ventilators: formed sheet hood, motor, guard and live parts."""
 from pathlib import Path
 import math
-import bpy
+import bpy, bmesh
 ROOT=Path(__file__).resolve().parents[3]
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
 def material(name,color,metal,rough):
@@ -36,8 +36,24 @@ def lathe(name,profile,mat,group):
         for i in range(n): f.append((j*n+i,j*n+(i+1)%n,((j+1)%len(profile))*n+(i+1)%n,((j+1)%len(profile))*n+i))
     mesh=bpy.data.meshes.new(name); mesh.from_pydata(v,[],f); mesh.update()
     o=bpy.data.objects.new(name,mesh); bpy.context.collection.objects.link(o); return keep(o,name,mat,group)
-box('RoofCurb',(0,.08,0),(.72,.16,.72),paint,'Paint',.008)
-box('CurbFlashing',(0,.163,0),(.66,.012,.66),paint,'Paint',.003)
+def square_ring(name,outer,inner,low,high,bevel):
+    vertices=[]; faces=[]
+    for half,y in [(outer*.5,low),(outer*.5,high),(inner*.5,high),(inner*.5,low)]:
+        for x,z in [(-half,-half),(half,-half),(half,half),(-half,half)]:
+            vertices.append((x,-z,y))
+    for row in range(4):
+        for side in range(4):
+            faces.append((row*4+side,row*4+(side+1)%4,((row+1)%4)*4+(side+1)%4,((row+1)%4)*4+side))
+    mesh=bpy.data.meshes.new(name); mesh.from_pydata(vertices,[],faces); mesh.update()
+    obj=bpy.data.objects.new(name,mesh); bpy.context.collection.objects.link(obj)
+    bpy.context.view_layer.objects.active=obj; obj.select_set(True)
+    modifier=obj.modifiers.new('Formed ring edges','BEVEL'); modifier.width=bevel; modifier.segments=3
+    bpy.ops.object.modifier_apply(modifier=modifier.name)
+    return keep(obj,name,paint,'Paint')
+
+# The 200 mm curb throat clears the 180 mm duct; flashing laps its 2 mm wall.
+square_ring('RoofCurb',.72,.20,0,.16,.008)
+square_ring('CurbFlashing',.66,.176,.157,.169,.003)
 # Actual formed walls leave the rotor throat hollow.
 for x in [-.286,.286]: box('SideWall',(x,.398,0),(.008,.458,.58),paint,'Paint',.002)
 for z in [-.286,.286]: box('EndWall',(0,.398,z),(.564,.458,.008),paint,'Paint',.002)
@@ -80,12 +96,22 @@ for i in range(4):
 for o in list(bpy.context.scene.objects):
     bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o
     bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
-    bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.remove_doubles(threshold=.0000001); bpy.ops.mesh.normals_make_consistent(inside=False)
-    bpy.ops.uv.smart_project(island_margin=.01); bpy.ops.object.mode_set(mode='OBJECT')
+    mesh=bmesh.new(); mesh.from_mesh(o.data)
+    bmesh.ops.remove_doubles(mesh,verts=list(mesh.verts),dist=.0000001)
+    bmesh.ops.triangulate(mesh,faces=list(mesh.faces))
+    bmesh.ops.recalc_face_normals(mesh,faces=list(mesh.faces))
+    mesh.to_mesh(o.data); mesh.free(); o.data.update()
+    for layer in list(o.data.uv_layers): o.data.uv_layers.remove(layer)
+    uv=o.data.uv_layers.new(name='Metres'); uv.active_render=True
+    for face in o.data.polygons:
+        axis=max(range(3),key=lambda i:abs(face.normal[i])); axes=((1,2),(0,2),(0,1))[axis]
+        for loop in face.loop_indices:
+            v=o.data.vertices[o.data.loops[loop].vertex_index].co
+            uv.data[loop].uv=(v[axes[0]],v[axes[1]])
+bpy.context.preferences.filepaths.save_version=0
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/roof_ventilator.blend'))
 for name,parts in groups.items():
     bpy.ops.object.select_all(action='DESELECT')
     for o in parts: o.select_set(True)
     bpy.context.view_layer.objects.active=parts[0]; bpy.ops.object.join(); bpy.context.object.name=name
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/roof_ventilator.glb'),export_format='GLB',export_yup=True,export_apply=True)
+bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/roof_ventilator.glb'),export_format='GLB',export_yup=True,export_apply=True,export_tangents=True)

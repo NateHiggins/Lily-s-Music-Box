@@ -90,7 +90,7 @@ func _validate_layout() -> void:
 	for table in ["spaces", "doors", "openings", "windows", "envelopes", "fixtures", "platforms",
 			"lift_landings",
 			"anchors", "capsule_stations", "stairs", "risers", "route_edges",
-			"service_connections"]:
+			"service_connections", "slab_openings", "riser_openings"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -103,6 +103,13 @@ func _validate_layout() -> void:
 			failures.append("invalid apartment unit for space level: " + str(space.get("id", "?")))
 		if not _valid_rect(space.get("rect", [])):
 			failures.append("invalid space rect: " + str(space.get("id", "?")))
+	for opening: Dictionary in layout.get("slab_openings", []):
+		if opening.get("surface","") not in ["Floor","Ceiling"] or not _valid_rect(opening.get("rect",[])):
+			failures.append("invalid slab opening: " + str(opening.get("id","?")))
+	for opening: Dictionary in layout.get("riser_openings", []):
+		var bounds: Array=opening.get("bounds",[])
+		if bounds.size()!=6 or bounds[0]>=bounds[3] or bounds[1]>=bounds[4] or bounds[2]>=bounds[5]:
+			failures.append("invalid riser opening: "+str(opening.get("id","?")))
 	for riser: Dictionary in layout.get("risers", []):
 		if not _valid_rect(riser.get("rect", [])):
 			failures.append("invalid riser rect: " + str(riser.get("id", "?")))
@@ -132,6 +139,20 @@ func _validate_layout() -> void:
 ## the build continued, printed its success census, joined the selector
 ## group and exited 0 with the stair simply absent.
 func _validate_references(ids: Dictionary) -> void:
+	for opening: Dictionary in layout.get("riser_openings", []):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("riser","")),"risers","riser owner")
+		for riser: Dictionary in layout.risers:
+			if str(riser.id)!=str(opening.get("riser","")) or opening.get("bounds",[]).size()!=6: continue
+			var cut: Array=opening.bounds
+			if cut[0]<riser.rect[0] or cut[2]<riser.rect[1] or cut[3]>riser.rect[2] or cut[5]>riser.rect[3] or cut[1]<riser.from_y or cut[4]>riser.to_y:
+				failures.append("riser opening exceeds its owner: "+str(opening.id))
+	for opening: Dictionary in layout.get("slab_openings", []):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("space","")),"spaces","slab owner")
+		for space: Dictionary in layout.spaces:
+			if str(space.id)!=str(opening.get("space","")) or not _valid_rect(opening.get("rect",[])): continue
+			var cut: Array=opening.rect
+			if cut[0]<space.rect[0] or cut[1]<space.rect[1] or cut[2]>space.rect[2] or cut[3]>space.rect[3]:
+				failures.append("slab opening exceeds its owner: "+str(opening.id))
 	for door: Dictionary in layout.get("doors", []):
 		for target: Variant in door.get("connects", []):
 			_require_record(ids, str(door.get("id", "?")), str(target),
@@ -451,11 +472,9 @@ func _build_spaces() -> void:
 			parent.set_meta("geometry_owned_by_exterior", true)
 			continue
 		if not bool(space.get("no_floor", false)):
-			_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
-					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
+			_build_slab(parent, "Floor", rect, y - slab_t * .5, slab_t, cls, true)
 		if show_ceilings and not bool(space.get("no_ceiling", false)):
-			_box(parent, "Ceiling", _rect_center(rect, y + clear_h + slab_t * 0.5),
-					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, false)
+			_build_slab(parent, "Ceiling", rect, y + clear_h + slab_t * .5, slab_t, cls, false)
 		if not bool(space.get("open_shell", false)):
 			# Open stair volumes have no ceiling slab to close the 200 mm
 			# storey band. Their walls must continue to the next walking level.
@@ -476,6 +495,45 @@ func _build_spaces() -> void:
 					architectural_materials.material_for("FrameTrim", cls),
 					architectural_materials.material_for("Leaf", cls), layout.doors,
 					preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space))
+
+## A single slab render/collision owner retains the original stable node path.
+## Only explicit, owner-bounded service apertures change its physical surface.
+func _build_slab(parent: Node3D, label: String, rect: Array, y: float, thickness: float, cls: String, collision: bool) -> void:
+	var bounds:=AABB(Vector3(rect[0],y-thickness*.5,rect[1]),Vector3(_rect_w(rect),thickness,_rect_d(rect)))
+	var pieces: Array[AABB]=[bounds]
+	for opening: Dictionary in layout.get("slab_openings",[]):
+		if str(opening.space)!=str(parent.name) or str(opening.surface)!=label: continue
+		var cut: Array=opening.rect
+		var aperture:=AABB(Vector3(cut[0],bounds.position.y-.001,cut[1]),Vector3(cut[2]-cut[0],thickness+.002,cut[3]-cut[1]))
+		var remaining: Array[AABB]=[]
+		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,aperture))
+		pieces=remaining
+	if pieces.size()==1 and pieces[0]==bounds:
+		_box(parent,label,bounds.get_center(),bounds.size,cls,collision)
+		return
+	var draw:=MeshInstance3D.new()
+	draw.name=label
+	var surface:=SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var body:=StaticBody3D.new() if collision else null
+	if body!=null: body.name="Collision"
+	for piece: AABB in pieces:
+		var box:=BoxMesh.new()
+		box.size=piece.size
+		var mesh: Mesh=_slab_faces(box,label=="Floor") if production_materials else box
+		surface.append_from(mesh,0,Transform3D(Basis.IDENTITY,piece.get_center()))
+		if body!=null:
+			var shape_node:=CollisionShape3D.new()
+			var shape:=BoxShape3D.new()
+			shape.size=piece.size
+			shape_node.shape=shape
+			shape_node.position=piece.get_center()
+			body.add_child(shape_node)
+	draw.mesh=surface.commit()
+	draw.material_override=architectural_materials.material_for(label,cls) if production_materials else materials.get(cls)
+	if production_materials: draw.set_meta("v2_material_key",architectural_materials.key_for(label,cls))
+	parent.add_child(draw)
+	if body!=null: draw.add_child(body)
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String, sides: Array) -> void:
@@ -881,6 +939,13 @@ func _build_risers() -> void:
 		var y1 := float(riser.to_y)
 		var bounds := AABB(Vector3(rect[0],y0,rect[1]),Vector3(_rect_w(rect),y1-y0,_rect_d(rect)))
 		var pieces: Array[AABB]=[bounds]
+		for opening: Dictionary in layout.get("riser_openings",[]):
+			if str(opening.riser)!=str(riser.id): continue
+			var at: Array=opening.bounds
+			var cut:=AABB(Vector3(at[0],at[1],at[2]),Vector3(at[3]-at[0],at[4]-at[1],at[5]-at[2]))
+			var remaining: Array[AABB]=[]
+			for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,cut))
+			pieces=remaining
 		for window: Dictionary in layout.windows:
 			if not _window_meets_riser(window,riser): continue
 			var along_x := str(window.axis)=="x"

@@ -4,6 +4,7 @@ const DATA := "res://data/orison_v2/completion_interiors.json"
 const VARIANTS := {"A":"west_weathered","B":"north_belt","C":"south_repainted","D":"east_oxidised"}
 const DUCT_WIDTH := .18
 const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
+const FabricatedDucts := preload("res://assets/props/ventilation_ducts.glb")
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -39,6 +40,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	adapter.root.add_child(ducts)
 	var supports := Supports.new()
 	supports.configure(adapter.root, layout)
+	var fabricated := FabricatedDucts.instantiate()
 	for stack: String in registers:
 		var fan := Fan.new()
 		fan.riser = "V-"+stack
@@ -51,15 +53,14 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		anchors.assign(registers[stack])
 		fan.bind_registers(anchors)
 		supports.begin_stack()
-		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height))
+		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height),fabricated)
+	fabricated.free()
 	return true
 
-func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float) -> void:
+func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float, fabricated: Node3D) -> void:
 	var stack := StaticBody3D.new()
 	stack.name = "Stack_"+id
 	root.add_child(stack)
-	var sections: Array[Transform3D] = []
-	var seams: Array[Transform3D] = []
 	var roof := root.to_local(fan.global_position)
 	var top := Vector3(float(spec.riser[0]),roof.y-.22,float(spec.riser[1]))
 	var lowest := top.y
@@ -72,38 +73,32 @@ func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Nod
 		lowest = minf(lowest,start.y)
 		var end := Vector3(top.x,start.y,top.z)
 		var corner := Vector3(end.x,start.y,start.z) if str(spec.branch_axis)=="xz" else Vector3(start.x,start.y,end.z)
-		_piece(stack,sections,grille+Vector3.UP*.045,Vector3(.36,.09,.34))
-		_segment(stack,sections,seams,start,corner)
-		_segment(stack,sections,seams,corner,end)
+		_piece(stack,grille+Vector3.UP*.045,Vector3(.36,.09,.34))
+		_segment(stack,start,corner)
+		_segment(stack,corner,end)
 		var ceiling_y := grille.y - 2.6 + clear_height
 		supports.append_branch(start,corner,ceiling_y)
 		supports.append_branch(corner,end,ceiling_y)
 	stack.set_meta("registers",roster)
-	_segment(stack,sections,seams,Vector3(top.x,lowest,top.z),top)
+	_segment(stack,Vector3(top.x,lowest,top.z),top)
 	var roof_corner := Vector3(roof.x,top.y,top.z)
 	var roof_end := Vector3(roof.x,top.y,roof.z)
-	_segment(stack,sections,seams,top,roof_corner)
-	_segment(stack,sections,seams,roof_corner,roof_end)
-	_segment(stack,sections,seams,roof_end,roof+Vector3.UP*.08)
-	_draw(stack,"SheetMetal",sections,"metal")
-	_draw(stack,"SeamBands",seams,"cast_iron")
+	_segment(stack,top,roof_corner)
+	_segment(stack,roof_corner,roof_end)
+	_segment(stack,roof_end,roof+Vector3.UP*.08)
+	_draw(stack,"SheetMetal",fabricated.get_node(id+"_metal"),"metal")
+	_draw(stack,"SeamBands",fabricated.get_node(id+"_cast_iron"),"cast_iron")
 	supports.draw(stack)
 
-func _segment(body: StaticBody3D, sections: Array[Transform3D], seams: Array[Transform3D], a: Vector3, b: Vector3) -> void:
+func _segment(body: StaticBody3D, a: Vector3, b: Vector3) -> void:
 	var delta := (b-a).abs()
 	if delta.length()<.001: return
 	var axis := delta.max_axis_index()
 	var size := Vector3.ONE*DUCT_WIDTH
 	size[axis] = delta[axis]+DUCT_WIDTH
-	_piece(body,sections,(a+b)*.5,size)
-	var bands := maxi(1,int(ceil(delta[axis]/1.2)))
-	for i in bands+1:
-		var band_size := Vector3.ONE*(DUCT_WIDTH+.014)
-		band_size[axis] = .025
-		seams.append(Transform3D(Basis.from_scale(band_size),a.lerp(b,float(i)/float(bands))))
+	_piece(body,(a+b)*.5,size)
 
-func _piece(body: StaticBody3D, sections: Array[Transform3D], at: Vector3, size: Vector3) -> void:
-	sections.append(Transform3D(Basis.from_scale(size),at))
+func _piece(body: StaticBody3D, at: Vector3, size: Vector3) -> void:
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = size
@@ -111,17 +106,11 @@ func _piece(body: StaticBody3D, sections: Array[Transform3D], at: Vector3, size:
 	collision.position = at
 	body.add_child(collision)
 
-func _draw(parent: Node3D, label: String, transforms: Array[Transform3D], material: String) -> void:
-	var draw := MultiMeshInstance3D.new()
+func _draw(parent: Node3D, label: String, source: MeshInstance3D, material: String) -> void:
+	var draw := MeshInstance3D.new()
 	draw.name = label
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3.ONE
-	mesh.material = MatLib.get_mat(material)
-	draw.multimesh = MultiMesh.new()
-	draw.multimesh.transform_format = MultiMesh.TRANSFORM_3D
-	draw.multimesh.mesh = mesh
-	draw.multimesh.instance_count = transforms.size()
-	for i in transforms.size(): draw.multimesh.set_instance_transform(i,transforms[i])
+	draw.mesh = source.mesh
+	draw.material_override = MatLib.get_mat(material)
 	parent.add_child(draw)
 
 func _build_register(anchor: Node3D) -> void:

@@ -23,3 +23,8 @@ access, motor assignments and player curb stops. Captures use an inspection
 fill to expose the sheetwork; they are not a production night-lighting claim.
 Logs and suite-run receipts live under **tmp/roof-ventilator**. No completeness
 ledger or runtime-contract promotion is claimed.
+
+The October 1 continuation opens the formerly solid curb/flashing throat,
+retains all seven partitions and moving pivots, and prepares metre UVs and
+tangents. **art/blender/ventilation_throats.md** records the actual fitted slab
+ports, hollow duct geometry, production captures and comparative verification.

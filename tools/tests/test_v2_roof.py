@@ -52,6 +52,28 @@ class RoofProjectionTest(unittest.TestCase):
                 self.assertAlmostEqual(stair['rise'] * stair['risers_per_flight'] * 2, 3.2)
         self.assertEqual(len([s for s in result['stairs'] if s['to'] == 'ROOF']), 2)
 
+    def test_roof_projection_preserves_installed_fabrication(self):
+        # A stale roof source once stripped the tank/coping mount metadata.
+        # These installed fixtures must survive adding unrelated slab ports.
+        result = builder.project(self.layout, self.source)
+        installed = [row for row in self.layout['fixtures']
+                     if row['level'] == 'ROOF' and row.get('fabrication')]
+        self.assertTrue(installed)
+        projected = {row['id']: row for row in result['fixtures']}
+        for row in installed:
+            self.assertEqual(projected[row['id']], row)
+
+    def test_first_service_table_addition_round_trips_existing_text(self):
+        before = copy.deepcopy(self.layout)
+        for table in ['slab_openings', 'riser_openings']:
+            before.pop(table, None)
+        original = json.dumps(before, indent=2)+'\n'
+        result = builder.project(before, self.source)
+        rendered = builder.render(original, result)
+        self.assertEqual(json.loads(rendered), result)
+        self.assertEqual(builder.render(rendered, builder.project(result, self.source)), rendered)
+        self.assertEqual(result['anchors'], before['anchors'])
+
 
 if __name__ == '__main__':
     unittest.main()

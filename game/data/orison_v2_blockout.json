@@ -1951,5 +1951,18 @@
     {"id":"F02_B_KITCHEN_EXHAUST","from":"F02_B_KITCHEN","to":"F02_SERVICE_CORE","system":"exhaust"},
     {"id":"F03_B_HEAT_BRANCH","from":"HEAT_STACK","to":"F03_B_RADIATOR_01","system":"heat"},
     {"id":"F03_B_KITCHEN_EXHAUST","from":"F03_B_KITCHEN","to":"F03_SERVICE_CORE","system":"exhaust"}
+  ],
+  "slab_openings": [
+    {"id":"ROOF_FAN_A_SLAB_PORT","space":"ROOF_DECK_WEST","surface":"Floor","rect":[-6.275,4.275,-6.075,4.475]},
+    {"id":"ROOF_FAN_B_SLAB_PORT","space":"ROOF_DECK_WEST","surface":"Floor","rect":[-6.9,-11.3,-6.7,-11.1]},
+    {"id":"ROOF_FAN_B_CEILING_PORT","space":"F06_A_BATH","surface":"Ceiling","rect":[-6.9,-11.3,-6.7,-11.1]},
+    {"id":"ROOF_FAN_C_SLAB_PORT","space":"ROOF_DECK_WEST","surface":"Floor","rect":[-6.275,5.7,-6.075,5.9]},
+    {"id":"ROOF_FAN_D_SLAB_PORT","space":"ROOF_DECK_SOUTH","surface":"Floor","rect":[14.6,-10.95,14.8,-10.75]},
+    {"id":"ROOF_FAN_D_CEILING_PORT","space":"F06_D_RESTRICTED","surface":"Ceiling","rect":[14.6,-10.95,14.8,-10.75]}
+  ],
+  "riser_openings": [
+    {"id":"VENT_A_CHASE_BORE","riser":"WEST_WET_STACK","bounds":[-6.275,5.79,3.55,-6.075,19.2,3.75]},
+    {"id":"VENT_C_CHASE_BORE","riser":"WEST_WET_STACK","bounds":[-6.275,5.79,5.7,-6.075,19.2,5.9]},
+    {"id":"VENT_A_ROOF_CHASE_PORT","riser":"WEST_WET_STACK","bounds":[-6.275,18.88,3.55,-6.075,19.2,4.475]}
   ]
 }
