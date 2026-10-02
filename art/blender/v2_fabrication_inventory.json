@@ -7480,6 +7480,9 @@
       "res://assets/props/stair_ironwork_public.glb",
       "res://assets/props/stair_ironwork_service.glb"
     ],
+    "game/scripts/building/orison_v2_upper_wall_seats.gd": [
+      "res://assets/props/upper_wall_seats.glb"
+    ],
     "game/scripts/building/orison_v2_ventilation.gd": [
       "res://assets/props/vent_register.glb",
       "res://assets/props/ventilation_ducts.glb",
@@ -7552,6 +7555,7 @@
     "art/blender/scripts/build_service_alley.py",
     "art/blender/scripts/build_stair_ironwork.py",
     "art/blender/scripts/build_traffic_vehicle.py",
+    "art/blender/scripts/build_upper_wall_seats.py",
     "art/blender/scripts/build_vent_register.py",
     "art/blender/scripts/build_ventilation_ducts.py",
     "art/blender/scripts/build_ventilation_fabric_lining.py",

@@ -83,3 +83,16 @@ retained source footprints. The ground-watch and north-setback captures are
 reviewed. The corrected west-slot camera shows a narrow exterior gap but issues
 a collinear-up warning; that rolled diagnostic view does not establish weather
 closure or whole-slot acceptance. A level inspection view remains required.
+
+Published **120b28f413b212ede0ce3f777370aba6e0f409da** passes the complete
+47-gate comparison against genuine clean **3ad3a2c** and all twenty-one bound
+windowed suites: no regressions, reader NEW zero, protected 17/17, V2 default
+and explicit V1 rollback. No requirement statuses change. The bound native test
+repeats 180 checks and the hall circuit repeats 50 waypoints; all nineteen final
+hall captures are reviewed. The retained C frame/apartment captures and all
+thirteen basement captures are also reviewed. Basement, roof and vertical
+circuits repeat 88, 51 and 79 waypoints. Keys retain their schema-2 two-world
+contract, 84 waypoints and 55 checks with clean teardown. Comparison and genuine
+clean complete board are **tmp/first-upper-hall-seats/verified/verification.json**
+and **tmp/first-upper-hall-seats/120b28f-clean-board.json**. Upper transfers,
+external grade and weather closure remain open before heating cuts.

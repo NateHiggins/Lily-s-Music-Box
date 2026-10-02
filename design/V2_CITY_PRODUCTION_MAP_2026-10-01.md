@@ -578,3 +578,73 @@ hall targets are accounted for by the new native contacts and retained source
 footprints. Ground-watch and north-setback views are reviewed. The rolled narrow
 west-slot diagnostic has a collinear-up warning and does not confer weather
 closure acceptance; a level view remains required.
+
+Published **120b28f413b212ede0ce3f777370aba6e0f409da** passes the complete
+47-gate comparison against genuine clean **3ad3a2c** and all twenty-one bound
+windowed suites: no regressions, reader NEW zero, protected 17/17, V2 default/V1
+rollback and no requirement promotions. Its native fitting repeats 180 checks
+and the hall circuit repeats 50 waypoints; all nineteen final hall captures are
+reviewed. The retained C frame/apartment and thirteen basement captures are also
+reviewed. Basement, roof and vertical circuits repeat 88, 51 and 79 waypoints;
+keys retain their schema-2 two-world contract, 84 waypoints and 55 checks with
+clean teardown. Comparison and genuine clean complete board are
+**tmp/first-upper-hall-seats/verified/verification.json** and
+**tmp/first-upper-hall-seats/120b28f-clean-board.json**. Continue the thirty-one
+upper stations, external grade and weather/slot inspection. Heating cuts stay
+parked; this publication does not establish whole-shell readiness.
+
+## External grade discovery before further service cuts
+
+**tmp/shell-readiness/external-grade-discovery1.log.receipt.json** inspects
+four points 450 mm beside each of twelve actual external rear-wing posts.
+Frame steel/concrete and foundation bodies are excluded so footing faces cannot
+masquerade as courtyard terrain. Forty-seven probes have no first hit down to
+four metres below grade; the remaining probe hits an existing basement wall top
+at minus 200 mm. None establishes a grade-level terrain owner. The detailed
+results are **tmp/shell-readiness/external-grade-probe-results.json**.
+
+West and north rendered views confirm exposed below-grade construction amid
+empty terrain. The east camera is obstructed and confers no visual acceptance.
+The revised upward slot camera has no collinear-up warning and shows the retained
+narrow gap; this limited view does not establish drainage or weather closure.
+All four captures are inspected directly. Source-ground ownership, bounded
+courtyard/subgrade construction and an unobstructed east inspection remain open.
+Retained basement roofs, native foundations and accepted alley paving must keep
+their own surfaces and collision. Heating cuts remain parked.
+
+## Repeated upper-core transfers and C inner-wall toe
+
+**art/blender/upper_wall_seats.md** records two source-derived west-core I spans
+beneath the original **F03** and **F05** wall bases, plus a fitted C west-toe ledger
+on the actual retained **F04_C_MAIN** inner partition. Five backplates meet retained
+wall faces; 92 component volumes preserve existing collision. Three closed native
+assemblies have four bounded draws, 5,116 triangles, actual triangular gussets and
+32 exposed heads. No retained wall, opening or service is moved or cut.
+
+The first isolated native trial fails one strict UV derivative check at a narrow
+clipped face. The corrected export preserves the exact authored chart U direction
+through undefined-tangent repair; its temporary construction attribute is omitted
+from the runtime export. All original mapping tolerances remain unchanged.
+Corrected isolated and installed inspections pass 178 checks, with 21 original
+sample contacts and reproduction of all old gaps when only the seats are excluded.
+All five installed frames and both native studio details are inspected. Fine live
+steel finish acceptance remains open. Main-viewport observations add one or two
+draws and 1,400 to 2,830 primitives; no timing acceptance is inferred.
+
+Isolated and installed whole-building stair circuits each pass 79 ordinary-input
+waypoints. Their final wall/radio-obstructed captures are inspected with that
+limitation. Evidence is **tmp/shell-readiness/upper-wall-seats-production-inspection1.log.receipt.json**
+and **upper-wall-seats-production-route1.log.receipt.json**. Only one individually
+reviewed generated collision-name reference is appended. The full precommit board
+at **tmp/upper-wall-seats/precommit/board.json** has 47 gates, zero regressions,
+reader NEW zero, spatial drift zero and no requirement changes. Clean committed
+candidate verification against genuine clean **120b28f** remains required.
+
+Fresh actual installed contact discovery and separate source reconciliation at
+**tmp/shell-readiness/post-upper-wall-seats-contact1.log.receipt.json** and
+**post-upper-wall-seats-source-continuity.json** account for 1,006 of 1,030 original
+stations, leaving 24: eight each on **F03**, **F04** and **F05**. All seven target
+stations now have actual contacts. Three discovery views are reviewed; the west
+slot is upright without the earlier collinear warning, but weather closure is
+still unaccepted. The remaining transfers, external grade and weather closure
+must precede heating cutouts. Whole-shell readiness and completeness stay open.

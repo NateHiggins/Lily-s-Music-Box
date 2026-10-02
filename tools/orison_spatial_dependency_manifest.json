@@ -190013,6 +190013,36 @@
    "rationale": "Reviewed five reverse-hall stances after the retained two-apartment input circuit: east connector, public core, west hall and original west stance. The isolated ordinary-controller route passes all fifty waypoints; update these fixture coordinates if the authoritative hall changes.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d8dfe09bd2657dde",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_upper_wall_seats.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed collision names derived from the four true bounded native upper-wall-seat partitions. Regenerate matching triangle bodies with the asset; this introduces no gameplay, persistence or canonical spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
