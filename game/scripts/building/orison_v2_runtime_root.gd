@@ -234,6 +234,7 @@ func _compose_authorities() -> void:
 	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_exterior_masonry.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_edge_support.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_house_tank.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_roof_coping.gd").mount(_blockout)
 	if not preload("res://scripts/building/orison_v2_basement.gd").new().mount(adapter):

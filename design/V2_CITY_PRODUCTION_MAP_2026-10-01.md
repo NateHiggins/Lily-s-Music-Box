@@ -241,3 +241,39 @@ The north-wing and ground-west perimeter frames were directly inspected; finish
 response remains open. The full clean candidate comparison and normal routes
 remain required before publication. This prerequisite accepts no heating route
 or support station and closes none of the six location phases.
+
+Published **cd5498b6f193d1bb6c9b2eea0bafa796e890812d** completes this room-slab
+prerequisite with the full **47**-gate comparison and nine binding windowed scene
+suites: zero regressions, NEW **0**, protected paths and requirement statuses
+retained. All six final frames were directly inspected. The final comparison and
+complete clean board are **tmp/room-slab-soffits/verified/verification.json** and
+**tmp/room-slab-soffits/cd5498b-clean-board.json**. Continue the open physical
+service routes, fitted ports, supports, chase access and mapping queues.
+
+## Heating distribution construction
+
+**art/blender/heating_distribution.md** indexes the provisional source and
+editable one-pipe installation. Original masonry volumes exposed two buried
+light-slot routes and an oblique service-wall route; the construction draft now
+clears those leaves rather than cutting long slots through them. Native-only
+lumen inspection and proposed support seats are scoped planning observations.
+Sleeves, common plates, native hangers, guides, access covers, ground protection,
+receiver union, ordinary routes and final verification remain open. No location,
+utility or completeness requirement is promoted by this construction draft.
+
+Owner review on October 2 asked whether the external shell was ready for cuts.
+The draft heating apertures were removed from runtime, the published masonry
+restored, and eight uncommitted fabrication/source/tool files preserved under
+**tmp/heat-distribution/parked-work**. The current priority is wall-base,
+foundation, setback and roof-rim readiness. **tmp/shell-readiness** retains actual
+exported geometry, support discovery and direct frames. A missing sampled
+contact is a construction finding requiring inspection, not a structural load
+calculation or permission to close an authored light slot or circulation route.
+
+The first correction is the source-bound roof rim in
+**art/blender/roof_edge_support.md**: 28 native pieces, 240 triangles, 466 focused
+checks, twelve physical edge contacts and twelve retained parapet bearings.
+All twelve earlier recessed edge rays are reproduced with the new course
+excluded. Three exported views were directly inspected. Normal routes and the
+clean committed comparison remain required. Foundations and setback continuity
+are still under review; no whole-shell or heating readiness is declared.

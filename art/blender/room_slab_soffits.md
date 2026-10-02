@@ -62,3 +62,29 @@ remain open. Temporary native pipe trials stay under **tmp/heat-distribution/**;
 their failed conditioning attempts are not installed assets or acceptance.
 The protected paths, V1 rollback and the owner's six capture-file decisions are
 preserved. The six location phases remain open.
+
+## Final candidate comparison
+
+Published **cd5498b6f193d1bb6c9b2eea0bafa796e890812d** passes the complete
+clean in-place comparison against **fc3b90d**: **47** gates, zero regressions,
+reader NEW **0**, all **17** protected paths retained and selector V2. The two
+imports and nine windowed scene suites complete successfully and bind to that
+candidate. Vertical, basement and roof routes retain **79 / 88 / 51** normal
+input waypoints; the resident-key route retains **84** waypoints and its own
+schema-2 **55**-check PASS contract. No requirement status changes.
+
+**tmp/room-slab-soffits/verified/verification.json** retains the final comparison;
+**tmp/room-slab-soffits/cd5498b-clean-board.json** is its actual complete clean
+board. The bound slab inspection repeats **2,881** checks with **54** room draws,
+**468** room samples, **585** landing samples and the three reported roof-wall
+foreground contacts. Focused startup in this candidate run is **20.10 s**;
+there is no performance acceptance claim.
+
+All six final frames under
+**tmp/room-slab-soffits/verified/godot/OrisonV2LandingSoffitTest_tscn_windowed_shots/**
+were directly inspected: **basement_north**, **floor_02_south**,
+**floor_03_lift_side**, **service_basement**, **north_second_slab** and
+**ground_west_slab**. They remain construction views. The unchanged capture
+index hash and the owner's five absent images were checked after import-UID
+cleanup; only untracked UIDs belonging to tracked legacy sources were removed.
+In-place verification leaves fresh-checkout/autocrlf behavior unproved.

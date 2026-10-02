@@ -55,6 +55,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |
 | Boiler steam header, exposed equalizer, discharge and fitted supports | `art/blender/boiler_pipework.md` |
 | Retained steam inlet wall/chase sleeves, fitted plates and opened internal tee | `art/blender/boiler_inlet.md` |
+| Source-bound one-pipe distribution, structural ports and open support/access construction | `art/blender/heating_distribution.md` |
+| Roof slab-edge support, retained parapet bearing and open shell-readiness findings | `art/blender/roof_edge_support.md` |
 | Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |

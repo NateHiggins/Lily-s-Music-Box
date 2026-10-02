@@ -1,0 +1,376 @@
+{
+  "evidence_class": "INERT",
+  "authority": [
+    "art/data/orison_v2/roof_source.json",
+    "game/data/orison_v2_blockout.json:dimensions"
+  ],
+  "roof_datum": 19.2,
+  "depth_m": 0.2,
+  "outer_reach_m": 0.27999999999999997,
+  "parts": [
+    {
+      "id": "RoofEdge_South_00",
+      "side": "South",
+      "bounds": [
+        -15.93,
+        19.0,
+        -12.629999999999999,
+        -11.9475,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_01",
+      "side": "South",
+      "bounds": [
+        -11.9475,
+        19.0,
+        -12.629999999999999,
+        -7.965,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_02",
+      "side": "South",
+      "bounds": [
+        -7.965,
+        19.0,
+        -12.629999999999999,
+        -3.9825,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_03",
+      "side": "South",
+      "bounds": [
+        -3.9825,
+        19.0,
+        -12.629999999999999,
+        0.0,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_04",
+      "side": "South",
+      "bounds": [
+        0.0,
+        19.0,
+        -12.629999999999999,
+        3.9825000000000017,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_05",
+      "side": "South",
+      "bounds": [
+        3.9825000000000017,
+        19.0,
+        -12.629999999999999,
+        7.965,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_06",
+      "side": "South",
+      "bounds": [
+        7.965,
+        19.0,
+        -12.629999999999999,
+        11.947499999999998,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_South_07",
+      "side": "South",
+      "bounds": [
+        11.947499999999998,
+        19.0,
+        -12.629999999999999,
+        15.93,
+        19.2,
+        -12.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_00",
+      "side": "North",
+      "bounds": [
+        -15.93,
+        19.0,
+        11.65,
+        -11.9475,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_01",
+      "side": "North",
+      "bounds": [
+        -11.9475,
+        19.0,
+        11.65,
+        -7.965,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_02",
+      "side": "North",
+      "bounds": [
+        -7.965,
+        19.0,
+        11.65,
+        -3.9825,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_03",
+      "side": "North",
+      "bounds": [
+        -3.9825,
+        19.0,
+        11.65,
+        0.0,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_04",
+      "side": "North",
+      "bounds": [
+        0.0,
+        19.0,
+        11.65,
+        3.9825000000000017,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_05",
+      "side": "North",
+      "bounds": [
+        3.9825000000000017,
+        19.0,
+        11.65,
+        7.965,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_06",
+      "side": "North",
+      "bounds": [
+        7.965,
+        19.0,
+        11.65,
+        11.947499999999998,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_North_07",
+      "side": "North",
+      "bounds": [
+        11.947499999999998,
+        19.0,
+        11.65,
+        15.93,
+        19.2,
+        11.93
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_00",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        -12.35,
+        -15.65,
+        19.2,
+        -8.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_01",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        -8.35,
+        -15.65,
+        19.2,
+        -4.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_02",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        -4.35,
+        -15.65,
+        19.2,
+        -0.34999999999999964
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_03",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        -0.34999999999999964,
+        -15.65,
+        19.2,
+        3.6500000000000004
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_04",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        3.6500000000000004,
+        -15.65,
+        19.2,
+        7.65
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_West_05",
+      "side": "West",
+      "bounds": [
+        -15.93,
+        19.0,
+        7.65,
+        -15.65,
+        19.2,
+        11.65
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_00",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        -12.35,
+        15.93,
+        19.2,
+        -8.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_01",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        -8.35,
+        15.93,
+        19.2,
+        -4.35
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_02",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        -4.35,
+        15.93,
+        19.2,
+        -0.34999999999999964
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_03",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        -0.34999999999999964,
+        15.93,
+        19.2,
+        3.6500000000000004
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_04",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        3.6500000000000004,
+        15.93,
+        19.2,
+        7.65
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "RoofEdge_East_05",
+      "side": "East",
+      "bounds": [
+        15.65,
+        19.0,
+        7.65,
+        15.93,
+        19.2,
+        11.65
+      ],
+      "internal_caps": false
+    }
+  ]
+}
