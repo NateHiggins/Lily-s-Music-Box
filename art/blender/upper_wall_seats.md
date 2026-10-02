@@ -89,3 +89,16 @@ has 47 gates, zero regressions, reader NEW zero, spatial drift zero and no chang
 requirements. Complete clean committed candidate verification against the genuine
 clean **120b28f** baseline remains required before publication. This report does
 not turn wrapper receipts or images into runtime-contract proof.
+
+Published **a44bf6f95caf9d122a1c1ea504ae06b78c47df06** passes the complete clean
+47-gate comparison against genuine clean **120b28f** and all twenty-three bound
+windowed suites. There are zero regressions, reader NEW zero, protected 17/17,
+V2 default/V1 rollback and no changed requirement statuses. Bound native checks
+repeat 178 checks and the stair circuit repeats 79 waypoints. All six final new
+batch frames, nineteen retained hall frames and thirteen basement frames are
+reviewed with their stated appearance limits. Hall, basement and roof routes
+repeat 50, 88 and 51 waypoints; resident keys retain their schema-2 two-world
+contract with 84 waypoints and 55 checks. Full comparison and genuine clean board
+are **tmp/upper-wall-seats/verified/verification.json** and
+**tmp/upper-wall-seats/a44bf6f-clean-board.json**. Remaining twenty-four upper
+stations, external grade and weather closure stay open before heating cutouts.

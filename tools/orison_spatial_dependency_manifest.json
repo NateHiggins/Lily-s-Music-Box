@@ -190043,6 +190043,191 @@
    "rationale": "Reviewed fixed collision names derived from the four true bounded native upper-wall-seat partitions. Regenerate matching triangle bodies with the asset; this introduces no gameplay, persistence or canonical spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "703744893f0e3497",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_remaining_upper_transfers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed collision names derived from thirteen bounded native remaining-transfer partitions. Regenerate matching triangle bodies with the source export; no gameplay or persistence identity is added.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "dcf4a79a25119d82",
+   "kind": "id_reference",
+   "token": "F03_A_BATH_DOOR",
+   "file": "game/tests/orison_v2_remaining_upper_transfers_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    18,
+    19
+   ],
+   "count": 2,
+   "context": [
+    "{\"open\":\"F03_A_BATH_DOOR\"},{\"walk\":[-7.7,4.6]},{\"walk\":[-9.6,4.6]},",
+    "{\"close\":\"F03_A_BATH_DOOR\"},{\"walk\":[-9.6,6.4]},{\"walk\":[-9.6,7.1]},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual F03 A bath leaf at (-8.95,4.6), used by the 28-waypoint ordinary-input affected-room circuit. Preserve its source id or update the route fixture with the canonical layout.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bd7293993931f7a4",
+   "kind": "id_reference",
+   "token": "F03_A_BED_DOOR",
+   "file": "game/tests/orison_v2_remaining_upper_transfers_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    20,
+    21
+   ],
+   "count": 2,
+   "context": [
+    "{\"open\":\"F03_A_BED_DOOR\"},{\"walk\":[-11.4,7.1]},{\"walk\":[-12.7,8.0]},",
+    "{\"walk\":[-11.4,7.1]},{\"walk\":[-9.6,7.1]},{\"close\":\"F03_A_BED_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual F03 A bed leaf at (-10.25,7.1), used by the ordinary-input affected-room circuit. Preserve its source id or update the route fixture with the canonical layout.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "033fa9c7dd2434c9",
+   "kind": "id_reference",
+   "token": "F03_A_HALL_DOOR",
+   "file": "game/tests/orison_v2_remaining_upper_transfers_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    17,
+    23
+   ],
+   "count": 2,
+   "context": [
+    "{\"open\":\"F03_A_HALL_DOOR\"},{\"walk\":[-9.6,4.0]},{\"walk\":[-9.6,4.6]},",
+    "{\"walk\":[-9.6,2.25]},{\"close\":\"F03_A_HALL_DOOR\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual F03 A private-hall leaf at (-9.6,3.1), opened and closed through player input in the affected-room circuit. Regenerate the test with its canonical source.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "156b2dd316ab2d8d",
+   "kind": "id_reference",
+   "token": "F03_DOOR_02",
+   "file": "game/tests/orison_v2_remaining_upper_transfers_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    13,
+    25,
+    33
+   ],
+   "count": 3,
+   "context": [
+    "{\"open\":\"F03_DOOR_02\"},",
+    "{\"walk\":[-6.65,0]},{\"walk\":[-4.65,0]},{\"close\":\"F03_DOOR_02\"}]",
+    "var door:=_leaf(\"F03_DOOR_02\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual F03 A entry leaf at (-5.6,0), including restored closed collision after the continuous room circuit. This is a test reference to retained identity, not a new saved identity.",
+   "resolved_target": "F03/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "71c4d159d5b84c3e",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_remaining_upper_transfers_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(-4.65,6.42,0));player.velocity=Vector3.ZERO"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed one initial F03 public-hall placement at (-4.65,6.42,0). Every subsequent affected-room waypoint uses ordinary player input and collision; update the fixture if its canonical hall moves.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

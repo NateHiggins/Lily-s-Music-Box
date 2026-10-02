@@ -648,3 +648,71 @@ stations now have actual contacts. Three discovery views are reviewed; the west
 slot is upright without the earlier collinear warning, but weather closure is
 still unaccepted. The remaining transfers, external grade and weather closure
 must precede heating cutouts. Whole-shell readiness and completeness stay open.
+
+Published **a44bf6f95caf9d122a1c1ea504ae06b78c47df06** passes the complete clean
+47-gate comparison against genuine clean **120b28f** and all twenty-three bound
+windowed suites: zero regressions, reader NEW zero, protected 17/17, V2 default
+and V1 rollback, no changed requirements. All six final new batch captures,
+nineteen retained hall captures and thirteen basement captures are reviewed with
+their stated appearance limits. Native fitting repeats 178 checks; stair, hall,
+basement and roof circuits repeat 79, 50, 88 and 51 waypoints. Keys retain their
+schema-2 two-world contract, 84 waypoints and 55 checks. Exact comparison and
+genuine clean complete board are **tmp/upper-wall-seats/verified/verification.json**
+and **tmp/upper-wall-seats/a44bf6f-clean-board.json**. The remaining twenty-four
+upper stations, external grade and weather closure stay open before heating cuts.
+
+## Remaining upper transfers before grade and weather closure
+
+**art/blender/remaining_upper_transfers.md** records source-fitted **F03** service
+and vestibule spans, **F04** vestibule toe/northern T frame and **F05** offset
+vestibule/northern kitchen T frame. The actual lower A/B room identities and
+retained source faces govern their position. Seven closed native assemblies
+export in thirteen bounded draws with 13,154 triangles, 233 component volumes,
+sixteen wall interfaces and 72 exposed heads. The original light-slot width,
+wet-stack volume and retained structural fabric stay unchanged.
+
+The first preflight rejects 32 overlaps against two retained B partitions.
+The revised vestibule profile fits their measured 210 mm channel. A later
+native face/UV precision failure is corrected with small local part coordinates
+and an equivalent stable exported V chart; strict checks are not relaxed.
+Corrected isolated and installed fitting inspections each pass 667 checks,
+including all 72 frozen original sample contacts, reproduced old gaps, sixteen
+actual wall joints, 72 exposed heads and zero old-body overlaps. All seven
+installed frames and three isolated native details are reviewed; the narrow
+vestibule camera is a geometry diagnostic, and fine live finish remains open.
+Matched visible/hidden observations add one to six draws and 1,514 to 7,783
+primitives; no timing or capacity acceptance is inferred.
+
+The isolated affected lower A/4B circuits pass 28 and 32 ordinary-input waypoints,
+and the whole-building stair circuit passes 79. Retained door and household
+controls remain live. All nine A and 22 B trial captures are reviewed; the last
+stair capture is wall/radio obstructed. Installed routes, a fresh whole-building
+source-contact discovery and complete clean candidate comparison remain in
+progress. The previous wider count of 24 is retained until fresh reconciliation.
+
+The unobstructed east grade view and live frame export at
+**tmp/shell-readiness/external-grade-frame-discovery1.log.receipt.json** confirm
+the earlier missing-ground finding: 47 of 48 original probes remain empty and
+one meets a basement wall at minus 200 mm. All four captures are reviewed. The
+Orison's actual registered pose rotates pi around UP at world Z minus 11.65;
+CityShells retain source orientation at minus 9.795. These frames must be
+reconciled explicitly when projecting old source ground. Ground/subgrade,
+drainage, weather closure and wider shared systems remain open before heating
+cutouts. This batch establishes no whole-shell readiness or ledger promotion.
+
+Installed affected-room and full stair routes repeat 28, 32 and 79 waypoints.
+All nine A and 22 B captures, one qualified stair capture and three actual native
+studio details are directly reviewed. Fresh installed discovery at
+**tmp/shell-readiness/post-remaining-transfers-contact1.log.receipt.json** and
+separate **post-remaining-transfers-source-continuity.json** reconciliation now
+account for all 1,030 original stations, leaving zero unresolved. All 24 targets
+have actual native contact. Three fresh discovery captures are reviewed; the
+upright slot view confers no drainage or weather acceptance. The wider station
+count therefore moves from 24 to zero, without claiming structural capacity or
+whole-shell readiness.
+
+The full precommit board at **tmp/remaining-upper-transfers/precommit/board.json**
+has 47 gates, zero regressions, reader NEW zero, spatial drift zero and no changed
+requirements. Clean committed candidate verification against genuine clean
+**a44bf6f** remains required. External ground/subgrade, drainage, weather closure
+and shared service routes remain the next prerequisites; heating cuts stay parked.

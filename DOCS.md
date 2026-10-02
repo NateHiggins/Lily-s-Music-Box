@@ -65,6 +65,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted first-upper C rear-wing beams, posts, retained basement roof seats and external footings | `art/blender/rear_wing_c_support.md` |
 | First-upper hall brackets, fitted beam seats and retained watch-wall toe ledger | `art/blender/first_upper_hall_seats.md` |
 | Repeated upper-core wall transfers and fitted C west toe against its retained inner wall | `art/blender/upper_wall_seats.md` |
+| Remaining F03–F05 wall transfers, connected T frames and retained wet-stack/light-slot boundaries | `art/blender/remaining_upper_transfers.md` |
 | Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
