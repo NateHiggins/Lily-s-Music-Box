@@ -189325,6 +189325,183 @@
    "rationale": "Reviewed roof-rim collision names follow the bounded native piece names under RoofEdgeSupport. They have no save, schedule or gameplay lookup; regenerate them with the source-owned roof envelope.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "0e25240f83440d5d",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_roof_bulkhead_caps.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed fixed cap-body names derive from the seven native roof pieces. They carry no save, schedule or gameplay state and regenerate with the roof source.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "aa29c62c3137c256",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_CORE",
+   "file": "game/tests/orison_v2_roof_bulkhead_caps_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"ROOF_PUBLIC_CORE\",\"ROOF_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test fixture names the retained public roof bulkhead; its slab and wall-contact stations follow this source owner.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4bb83925a1b8b010",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_CORE",
+   "file": "game/tests/orison_v2_roof_bulkhead_caps_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"ROOF_PUBLIC_CORE\",\"ROOF_SERVICE_CORE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test fixture names the retained service roof bulkhead; its slab and wall-contact stations follow this source owner.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a9c107f3706cbf77",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/tests/orison_v2_roof_edge_support_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    65
+   ],
+   "count": 1,
+   "context": [
+    "if not str(room.id).begins_with(\"ROOF_DECK_\"):continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test-only prefix selects the seven actual ROOF_DECK_ space records for rim/deck footprint separation; update with the source roster.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fc327805d25bfcc2",
+   "kind": "id_candidate",
+   "token": "ROOF_PARAPET_",
+   "file": "game/tests/orison_v2_roof_edge_support_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "var parapet:=root.get_node(\"ROOF_PARAPET_\"+side.to_upper())"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test-only fragment combines with SOUTH, NORTH, WEST and EAST to resolve the four existing parapet fixture owners.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a2f132157532b770",
+   "kind": "node_path",
+   "token": "ROOF_PARAPET_",
+   "file": "game/tests/orison_v2_roof_edge_support_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "var parapet:=root.get_node(\"ROOF_PARAPET_\"+side.to_upper())"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed test-only node-path fragment resolves all four retained parapet bodies for physical bearing checks; update the fixture with source names.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

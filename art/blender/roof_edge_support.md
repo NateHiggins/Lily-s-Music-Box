@@ -40,3 +40,10 @@ until the affected shell is settled; see **heating_distribution.md**.
 Initial generator tangent-hook and survey capture-call errors are retained in
 **tmp/shell-readiness**. Their failed runs are not acceptance evidence. This
 batch must pass its exact committed candidate check before being published.
+
+The first committed comparison for **3a3ca03** passes all ten binding runtime
+scene suites and both imports, but is blocked by three new incidental test
+references in the spatial board. They are individually reviewed and registered
+with the follow-up bulkhead closure batch; see **roof_bulkhead_caps.md**.
+The failed comparison remains in **tmp/shell-readiness/verified**. The combined
+candidate must compare against the original genuine clean **cd5498b** board.

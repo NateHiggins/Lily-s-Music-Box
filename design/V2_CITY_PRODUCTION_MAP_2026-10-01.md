@@ -277,3 +277,18 @@ All twelve earlier recessed edge rays are reproduced with the new course
 excluded. Three exported views were directly inspected. Normal routes and the
 clean committed comparison remain required. Foundations and setback continuity
 are still under review; no whole-shell or heating readiness is declared.
+
+The rim candidate **3a3ca03effc97fb8e502aa0600a671e3c8a35cf2** passes ten binding
+windowed scene suites, including the 51-waypoint roof and 79-waypoint vertical
+circuits, but its complete comparison is blocked by three new incidental test
+references. They are individually registered with the next roof batch. Preserve
+**tmp/shell-readiness/verified/verification.json** as the failed comparison.
+
+The actual overhead view also showed two open bulkheads despite retained
+interior ceilings. **art/blender/roof_bulkhead_caps.md** records source-derived
+200 mm closures on their full wall footprints: seven pieces, 78 triangles,
+210 focused checks, eighteen matching upper contacts, twenty-four wall bearings
+and retained interior ceiling owners. All five exported views were inspected.
+The combined candidate must pass normal routes and the full original clean
+**cd5498b** comparison before push. Foundation/setback ownership and exposed
+ceiling tops remain inspection work; heating apertures remain parked.
