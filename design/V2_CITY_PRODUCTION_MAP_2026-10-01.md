@@ -940,3 +940,30 @@ Heating cutouts remain parked. Main-roof/courtyard outlets, street-main closure,
 boiler operating glazing, farther city weather fit and independent bar/bodega/
 arcade services remain open. Full raw architecture, infrastructure and surface
 polish continue beyond this court batch.
+
+## October 3 Mina and roof-wall continuation
+
+The owner-requested Mina replacement was completed first and published as
+**7b96e27**: her own Gray Resolve mesh/rig and exactly twenty animation clips,
+with the first batch bound to production walking, speech and door behavior.
+Its exact verification is **tmp/mina-resolve/verified/verification.json** and
+its review gallery is **art/renders/mina_resolve_20261003/README.md**.
+
+The subsequent bounded roof-wall adaptation is documented in
+**art/blender/roof_base_flashings.md**. It fits both retained bulkheads and the
+inner parapets at the 19.2 m deck datum, retains both source door apertures,
+and makes no new wall/slab/service cut. Closed native counterparts number 449;
+54 runtime partitions contain 5,412 triangles. Original fabric owns omitted
+wall/deck contact faces. The installed physical/mapping inspection passes
+818 checks, and saved-source inspection checks 53 contact stations.
+Both existing open rainleaders now first contact their fitted flashing feet;
+separate queries preserve the original deck ownership below. Capacity, joint
+sealing, main-roof finish/falls/outlets and downstream drainage remain open.
+
+The complete clean comparison board is **tmp/mina-resolve/7b96e27-clean-board.json**.
+Exact candidate verification belongs to
+**tmp/roof-base-flashings/verified/verification.json** and binds all 47 gates,
+protected 17/17, selector rollback and the roof/stair/lock/launch regressions.
+These INERT construction observations do not promote ledger requirements or
+establish full shell readiness. Heating cutouts remain parked; broader
+architecture, infrastructure and material work remains in the location queues.

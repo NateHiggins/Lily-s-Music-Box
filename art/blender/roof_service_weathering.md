@@ -31,7 +31,9 @@ The leader has three fitted wall plates/straps; the gutter has rigid brackets.
 
 The leader ends at **19.225 m**, 25 mm above the retained **19.2 m** east deck.
 Main-roof drainage and the downstream property connection remain **OPEN**.
-The physics ray through the outlet intentionally finds that unfinished deck.
+The October 3 base-flashing batch adds a 1.2 mm fitted foot below this outlet.
+The first-contact ray now requires that foot, with a separate query verifying
+the retained deck beneath it; see **roof_base_flashings.md**.
 This assembly adds no second maintenance simulation or fictional live control.
 
 The saved source retains **140 closed positive construction pieces**, including

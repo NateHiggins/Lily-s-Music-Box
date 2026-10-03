@@ -85,7 +85,11 @@ func _route() -> void:
 	var native_outlet:=_weather_hit(fluid,Vector3(fluid.x,fixture.leader_y[0]-.01,fluid.z))
 	_require(native_outlet.is_empty(),"actual gutter and leader have an unplugged throat")
 	var outlet:=space.intersect_ray(PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,19.19,fluid.z)),1,[player.get_rid()]))
-	_require(not outlet.is_empty() and "ROOF_DECK_MIDDLE/Floor" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-19.2)<.00005,"actual open outlet reaches the unfinished main roof field")
+	_require(not outlet.is_empty() and "RoofBaseFlashings/" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-19.2012)<.00005,"actual open outlet reaches the fitted base flashing foot")
+	var outlet_exclude: Array[RID]=[player.get_rid()]
+	for body: CollisionObject3D in root.get_node("RoofBaseFlashings").find_children("*","CollisionObject3D",true,false):outlet_exclude.append(body.get_rid())
+	outlet=space.intersect_ray(PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,19.19,fluid.z)),1,outlet_exclude))
+	_require(not outlet.is_empty() and "ROOF_DECK_MIDDLE/Floor" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-19.2)<.00005,"flashing foot retains the original unfinished main roof field below")
 	for direction: Vector3 in [Vector3.RIGHT,Vector3.LEFT,Vector3.FORWARD,Vector3.BACK]:
 		var at:=Vector3(fixture.gutter_x,21.,fixture.outlet_z)
 		var hit:=_weather_hit(at,at+direction*.05)

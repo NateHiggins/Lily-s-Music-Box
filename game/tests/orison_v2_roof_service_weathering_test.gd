@@ -58,7 +58,12 @@ func _run() -> void:
 	check(not is_finite(_mesh_distance(native,fluid,Vector3.DOWN)),"native gutter floor drains into the continuous open leader")
 	var outlet_query:=PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,root.level_y.ROOF-.01,fluid.z)),1,[world.player.get_rid()])
 	var outlet_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(outlet_query)
-	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("ROOF_DECK_EAST/Floor") and absf(root.to_local(outlet_hit.position).y-root.level_y.ROOF)<.00005,"real outlet has no throat plug and discharges at the unfinished main roof field")
+	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("RoofBaseFlashings/") and absf(root.to_local(outlet_hit.position).y-root.level_y.ROOF-.0012)<.00005,"real open outlet discharges onto the fitted base flashing foot")
+	var outlet_exclude: Array[RID]=[world.player.get_rid()]
+	for body: CollisionObject3D in root.get_node("RoofBaseFlashings").find_children("*","CollisionObject3D",true,false):outlet_exclude.append(body.get_rid())
+	outlet_query.exclude=outlet_exclude
+	outlet_hit=world.get_world_3d().direct_space_state.intersect_ray(outlet_query)
+	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("ROOF_DECK_EAST/Floor") and absf(root.to_local(outlet_hit.position).y-root.level_y.ROOF)<.00005,"flashing foot retains the original unfinished main roof field below")
 	for z_fraction: float in [.2,.5,.8]:
 		var z:=lerpf(manifest.gutter_z[0],manifest.outlet_z,z_fraction)
 		var centre_y: float=manifest.gutter_low_y+manifest.gutter_fall*absf(z-manifest.outlet_z)
