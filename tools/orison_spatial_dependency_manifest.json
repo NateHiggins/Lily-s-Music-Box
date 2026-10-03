@@ -190626,6 +190626,36 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "577c06a53784ce7d",
+   "kind": "node_path",
+   "token": "F01_WATCH_MAIL_DOOR_Leaf",
+   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "var mail_door := world.find_child(\"F01_WATCH_MAIL_DOOR_Leaf\",true,false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

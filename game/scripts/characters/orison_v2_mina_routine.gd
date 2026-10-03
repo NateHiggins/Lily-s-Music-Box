@@ -60,6 +60,9 @@ func setup(root: Node3D) -> bool:
 	graph.connect_points(previous,_point("bodega",service.position))
 	_doors.assign([world.exterior_cell.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF"),
 			world.find_child("B1_LAUNDRY_DOOR_Leaf",true,false)])
+	var mail_door := world.find_child("F01_WATCH_MAIL_DOOR_Leaf",true,false) as DoorProp
+	if mail_door == null: return false
+	_doors.append(mail_door)
 	for identity in ["F02_DOOR_02", "F02_A_HALL_DOOR", "F02_A_BATH_DOOR", "F02_A_BED_DOOR"]:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != "2A": return false
