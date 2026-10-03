@@ -15,6 +15,7 @@ func _ready() -> void:
 		assert(MatLib.SETS.has(key),"City material must be catalogued: " + key)
 		mesh.material_override = MatLib.get_mat(key)
 		var body := StaticBody3D.new()
+		body.set_meta("retained_city_shell",true)
 		body.name = str(mesh.name)+"Collision"
 		var collision := CollisionShape3D.new()
 		collision.shape = mesh.mesh.create_trimesh_shape()
@@ -22,3 +23,4 @@ func _ready() -> void:
 		body.add_child(collision)
 		model.add_child(body)
 	preload("res://scripts/building/orison_v2_city_masts.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_aerials.gd").mount(self)

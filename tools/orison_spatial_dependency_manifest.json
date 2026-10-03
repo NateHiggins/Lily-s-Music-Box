@@ -191447,17 +191447,205 @@
    "file": "game/tests/orison_v2_city_foundations_test.gd",
    "tier": "test",
    "subsystem": "tests",
-   "symbols": ["_run"],
-   "lines": [105],
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    105
+   ],
    "count": 1,
-   "context": ["var window_mount: Node=world.adapter.resolve(\"B1_BOILER_AIR_E\")"],
+   "context": [
+    "var window_mount: Node=world.adapter.resolve(\"B1_BOILER_AIR_E\")"
+   ],
    "gameplay_binding": false,
-   "authority": ["TEST_CONTRACT"],
+   "authority": [
+    "TEST_CONTRACT"
+   ],
    "spatial": [],
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3e410f11949edba1",
+   "kind": "id_reference",
+   "token": "site_far_n_dish",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "if str(dish.id) in [\"site_nw1_dish\",\"site_nbr_s2_dish\",\"site_far_n_dish\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e370e39abab48dde",
+   "kind": "id_reference",
+   "token": "site_nbr_s2_dish",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "if str(dish.id) in [\"site_nw1_dish\",\"site_nbr_s2_dish\",\"site_far_n_dish\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "91cadcdc686c141d",
+   "kind": "id_reference",
+   "token": "site_nbr_s2_downlead",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "if str(contact.id) not in [\"site_nw1_spread0\",\"site_nbr_s2_downlead\",\"site_ne2_downlead\"]:continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "371788728caa67aa",
+   "kind": "id_reference",
+   "token": "site_ne2_downlead",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "if str(contact.id) not in [\"site_nw1_spread0\",\"site_nbr_s2_downlead\",\"site_ne2_downlead\"]:continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "50a7f45312a2890e",
+   "kind": "id_reference",
+   "token": "site_nw1_dish",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "if str(dish.id) in [\"site_nw1_dish\",\"site_nbr_s2_dish\",\"site_far_n_dish\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f3de2829c5935167",
+   "kind": "id_reference",
+   "token": "site_nw1_spread0",
+   "file": "game/tests/orison_v2_city_aerials_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    75
+   ],
+   "count": 1,
+   "context": [
+    "if str(contact.id) not in [\"site_nw1_spread0\",\"site_nbr_s2_downlead\",\"site_ne2_downlead\"]:continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
    "target_exists": true
   }
  ]

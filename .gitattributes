@@ -233,3 +233,9 @@ art/blender/city_masts_construction.json -text
 game/tests/fixtures/orison_city_masts.json -text
 game/assets/props/city_masts.glb.import -text
 game/assets/props/city_shells.glb.import -text
+art/blender/city_aerials.blend binary
+art/data/city_aerials/source_plan.json -text
+art/blender/city_aerials_construction.json -text
+game/tests/fixtures/orison_city_aerials.json -text
+game/assets/props/city_aerials.glb.import -text
+art/blender/scripts/build_city_aerials.py -text

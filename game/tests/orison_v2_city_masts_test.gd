@@ -31,7 +31,7 @@ func _run() -> void:
 	var old_ids: Dictionary={};var all_ids: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
 		all_ids.append(body.get_rid())
-		if city.is_ancestor_of(body) and not model.is_ancestor_of(body):old_ids[body.get_rid()]=true
+		if city.is_ancestor_of(body) and body.get_meta("retained_city_shell",false):old_ids[body.get_rid()]=true
 	var exclude: Array[RID]=[]
 	for rid: RID in all_ids:
 		if not old_ids.has(rid):exclude.append(rid)
