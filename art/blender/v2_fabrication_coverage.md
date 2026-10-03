@@ -5,8 +5,8 @@ Evidence class: **INERT**
 This is an implementation work index, not acceptance evidence. Regenerate
 **v2_fabrication_inventory.json** with **tools/inventory_v2_fabrication.py**.
 The index names all 200 semantic spaces, 111 doors, 87 openings, 72 windows,
-74 envelopes, 85 fixtures, 65 platforms, 12 lift landings, 14 stairs and seven
-risers, plus thirteen installed-data files and building-script asset references.
+74 envelopes, 85 fixtures, 67 platforms, 12 lift landings, 14 stairs and seven
+risers, plus fourteen installed-data files and building-script asset references.
 Discovery does not classify a hidden reservation as an unfinished visible prop.
 The production root, its exterior/passage composition and rendered inspection
 remain necessary to establish what the player actually sees.
@@ -40,7 +40,7 @@ has yet been demonstrated; none is silently marked complete.
 | Floors, ceilings, partitions, corners, openings | V2 blockout and architectural materials | Open stair-core walls now span the full storey, closing the missing 200 mm ceiling band; twelve contacts and alley views checked. Simple planar solids can be intentional. Review every room class for seams, thickness and collisions; the Blender outer masonry leaf now covers exposed slab bands and extends reveals while preserving narrow light slots; see **exterior_masonry.md**. Full facade composition remains pending. |
 | Window surrounds and room millwork | window_joinery / millwork_profile Blender generators | Existing completed work retained; per-space visual sweep still pending. Sashes intentionally remain static. |
 | Ordinary doors | existing leaf owner, Blender knobs and articulated butt hinges | Retain completed hardware; sweep swing clearance and thresholds across both handed orientations. |
-| Public/service stairs and landings | stair_ironwork Blender generator and existing collision ramps | Lowest stair foundation gap filled and checked at twelve contacts and eleven walking waypoints. Retain completed ironwork; remaining landing fit sweep pending. |
+| Public/service stairs and landings | court stair-ironwork generator and existing collision ramps | Seven public flights fit a one-metre court eye; service assembly retained. Source-owned landing trims, fourteen guards and local transfer seats are in light_court.md. Wider landing/shell fit remains open. |
 | Lift cab, landings and controls | lift_* Blender generators, OrisonElevator | Retain completed assemblies and mechanisms. Emergency-stop presentation remains decorative. |
 | Lift roof drive, suspension and guards | build_lift_drive.py and V2 lift drive/suspension owners | Existing Blender machinery found and retained; inspect bearings, mounts and guard clearance before deciding whether refinement is needed. |
 | Roof parapet, coping and chimney | roof_coping / chimney_crown Blender generators | Retain prior completed masonry/weather caps. Parapet planar substrate is intentional; inspect joins and roof route. |
@@ -61,7 +61,8 @@ has yet been demonstrated; none is silently marked complete.
 | Street, entry, passage, shop installations | exterior cell / passage composition | Rear service alley fabricated and joined to the existing sidewalk, with an operating rear door. Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |
 | Bounded courtyard subgrade and alley groundworks | build_orison_ground / build_alley_groundworks / retained-grade authoring map | Fitted source volume, graded original paving, grated boiler well, open catches and hollow construction-stage collector; scoped native and walking checks in groundworks.md. Street-main connection, residual courtyard drainage, operating glazing and full weather/terrain closure remain open. |
 | Neighboring city bedding and terrain | build_city_shells / build_city_foundations / build_orison_ground | Northwest row registration overlap removed; seven native undersides fitted around retained sidewalk support. Scoped source, mapping and terrain checks in city_foundations.md; farther boundary, weather and drainage work remains. |
-| Service-bulkhead weather cover and rainleader | build_roof_service_weathering / source-owned retained roof cap | Sloped metal cover, open gutter/leader and fitted supports; downstream main-roof field, public light court and final weather materials remain open; see roof_service_weathering.md. |
+| Service-bulkhead weather cover and rainleader | build_roof_service_weathering / source-owned retained roof cap | Sloped metal cover, open gutter/leader and fitted supports; downstream main-roof field and final weather materials remain open; see roof_service_weathering.md. |
+| Public light court and skylight weather fit | public stair/court/bridge generators, roof cap generator and public-weather source plan | One-metre eye, fitted guards/supports and six pitched panes installed within the retained core; bounded curb/cricket/gutter/leader fit in light_court.md. Whole-shell readiness, drainage connection and broad materials remain open. |
 | Carried radiophone, teletype and lamp | existing service-set owners | Preserve accepted assembly, physical HUD, pointer and debug behavior; no redesign authorized by the inventory. |
 | Dream zoo, hero, organelles, sixteen critters | accepted zoo and Blender critter sources | Intentional preservation boundary. Keep accepted assets, behaviors and declared placeholders; regression checks remain required. |
 

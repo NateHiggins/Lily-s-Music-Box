@@ -13,7 +13,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders
 			and not world.shop_service.stock_record("carbon_transmitter_capsule").is_empty(),
 			"hardware stock uses initialized shared authorities"): return
-	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
+	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
 	var outward := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),
@@ -68,7 +68,7 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(2.3, 0, -6.5)]:
+	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
 		if not await _walk(point): return
 	_require(var_to_bytes(RealityState.data.maintenance_items) == saved_items,
 			"return indoors retains the physically acquired part")

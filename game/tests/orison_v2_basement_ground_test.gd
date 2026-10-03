@@ -35,7 +35,7 @@ func _route() -> void:
 	await _ground_capture("continuous_basement_stair_foundation")
 	# The return flight has standing clearance here. Stay out of the deliberately
 	# low space under the half-landing, then climb and descend the ordinary stair.
-	for point in [Vector3(3.7,-3.2,-1.4),Vector3(3.7,-3.2,-.55),Vector3(4.9,-3.2,-.55),Vector3(4.9,-3.2,-3.4),Vector3(2.3,-3.2,-3.4),Vector3(2.3,-1.6,1.3),Vector3(3.8,-1.6,1.3),Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.4)]:
+	for point in [Vector3(3.7,-3.2,-1.4),Vector3(3.7,-3.2,-.55),Vector3(4.9,-3.2,-.55),Vector3(4.9,-3.2,-3.4),Vector3(1.925,-3.2,-3.4),Vector3(1.925,-1.6,1.3),Vector3(3.975,-1.6,1.3),Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.4)]:
 		if not await _walk(point):return
 	print("BASEMENT FOUNDATION CONTACTS: contacts=%d failures=%d" % [contacts,failures.size()])
 

@@ -23,7 +23,7 @@ func _run() -> void:
 		check(maxf(bounds.size.x,bounds.size.z)<=4.00001,"new upper faces have bounded extents")
 		native.append_array(pose*draw.mesh.get_faces())
 	await get_tree().physics_frame;await get_tree().physics_frame
-	check(parts==51 and triangles==370,"closure exports fifty-one source-owned uncovered partitions")
+	check(parts==51 and triangles==374,"closure exports fifty-one source-owned uncovered partitions")
 	for i in footprints.size():
 		for j in range(i+1,footprints.size()):
 			var a:=footprints[i];var b:=footprints[j]

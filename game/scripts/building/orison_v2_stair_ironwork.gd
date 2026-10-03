@@ -1,17 +1,17 @@
 extends RefCounted
 ## Blender dressing and semantic guard barriers. Steps and ramps remain owned
 ## by the blockout; collision is never inferred from imported visual triangles.
-const PUBLIC := preload("res://assets/props/stair_ironwork_public.glb")
+const PUBLIC := preload("res://assets/props/stair_ironwork_court.glb")
 const SERVICE := preload("res://assets/props/stair_ironwork_service.glb")
 
 func mount(parent: Node3D, stair: Dictionary, base_y: float) -> bool:
-	var public := is_equal_approx(float(stair.width),1.2)
-	var width := 1.2 if public else 1.05
+	var public := str(stair.id).begins_with("PRIMARY_")
+	var width := 1.05
 	if not is_equal_approx(float(stair.width),width) \
 		or not is_equal_approx(float(stair.tread),.285 if public else .275) \
-		or not is_equal_approx(float(stair.landing_depth),width) \
+		or not is_equal_approx(float(stair.landing_depth),1.2 if public else width) \
 		or not is_equal_approx(float(stair.rise),.16) or int(stair.risers_per_flight)!=10 \
-		or not is_equal_approx(float(stair.gap),.3) or not is_equal_approx(float(stair.guard_height),.91):
+		or not is_equal_approx(float(stair.gap),1.0 if public else .3) or not is_equal_approx(float(stair.guard_height),.91):
 		return false
 	var model := (PUBLIC if public else SERVICE).instantiate() as Node3D
 	model.name = "Ironwork"

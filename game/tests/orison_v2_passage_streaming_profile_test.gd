@@ -7,7 +7,7 @@ func _route() -> void:
 	await get_tree().physics_frame
 	await get_tree().process_frame
 	for cycle in 2:
-		for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:
+		for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:
 			if not await _walk(point): return
 		var started := Time.get_ticks_msec()
 		while world.passage_region.residency.state == "LOADING" and Time.get_ticks_msec()-started < 10000:
@@ -15,7 +15,7 @@ func _route() -> void:
 		if world.passage_region.residency.state != "RESIDENT":
 			failures.append("resident after prefetch")
 			return
-		for point in [Vector3(0, 0, -8.5), Vector3(2.3, 0, -6.5), Vector3(2.3, 0, -3.5)]:
+		for point in [Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5), Vector3(1.925, 0, -3.5)]:
 			if not await _walk(point): return
 		await get_tree().physics_frame
 		await get_tree().process_frame

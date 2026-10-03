@@ -41,15 +41,15 @@ func _run() -> void:
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _prepare_player_start() -> void:
-	player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925, 0.02, -3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:
 	# Both occupied upper storeys are part of the default building now.
 	for floor_index in 5:
 		var base := floor_index * 3.2
-		for point in [Vector3(2.3, base + 1.6, 1.3), Vector3(3.8, base + 1.6, 1.3),
-				Vector3(3.8, base + 3.2, -2.4), Vector3(3.8, base + 3.2, -3.4)]:
+		for point in [Vector3(1.925, base + 1.6, 1.3), Vector3(3.975, base + 1.6, 1.3),
+				Vector3(3.975, base + 3.2, -2.4), Vector3(3.975, base + 3.2, -3.4)]:
 			if not await _walk(point): return
 		if floor_index == 1:
 			# F03 decision landing connects to the same crossing used by the 3B route.
@@ -68,20 +68,20 @@ func _route() -> void:
 			service_approach.reverse()
 			for point in service_approach:
 				if not await _walk(point): return
-			for point in [Vector3(8.85, 6.4, -3.25), Vector3(5.0, 6.4, -3.25), Vector3(3.8, 6.4, -3.4)]:
+			for point in [Vector3(8.85, 6.4, -3.25), Vector3(5.0, 6.4, -3.25), Vector3(3.975, 6.4, -3.4)]:
 				if not await _walk(point): return
-		if not await _walk(Vector3(2.3, base + 3.2, -3.4)): return
+		if not await _walk(Vector3(1.925, base + 3.2, -3.4)): return
 	# Return down the same physical stair, keeping the controller live throughout.
 	for floor_index in [4, 3, 2, 1, 0]:
 		var base: float = floor_index * 3.2
-		for point in [Vector3(3.8, base + 3.2, -3.4), Vector3(3.8, base + 1.6, 1.3),
-				Vector3(2.3, base + 1.6, 1.3), Vector3(2.3, base, -3.5)]:
+		for point in [Vector3(3.975, base + 3.2, -3.4), Vector3(3.975, base + 1.6, 1.3),
+				Vector3(1.925, base + 1.6, 1.3), Vector3(1.925, base, -3.5)]:
 			if not await _walk(point): return
 	# The lower primary flight must also connect the actual B1 landing.
-	for point in [Vector3(3.8, 0, -3.4), Vector3(3.8, -1.6, 1.3),
-			Vector3(2.3, -1.6, 1.3), Vector3(2.3, -3.2, -3.5),
-			Vector3(2.3, -1.6, 1.3), Vector3(3.8, -1.6, 1.3),
-			Vector3(3.8, 0, -2.4)]:
+	for point in [Vector3(3.975, 0, -3.4), Vector3(3.975, -1.6, 1.3),
+			Vector3(1.925, -1.6, 1.3), Vector3(1.925, -3.2, -3.5),
+			Vector3(1.925, -1.6, 1.3), Vector3(3.975, -1.6, 1.3),
+			Vector3(3.975, 0, -2.4)]:
 		if not await _walk(point): return
 
 func _walk(local_target: Vector3) -> bool:

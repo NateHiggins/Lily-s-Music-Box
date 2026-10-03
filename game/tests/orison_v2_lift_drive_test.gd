@@ -6,7 +6,7 @@ func _init() -> void:
 
 func _route() -> void:
 	failures.append("lift suspension checks interrupted before completion")
-	for point in [Vector3(2.3,17.6,1.3),Vector3(3.8,17.6,1.3),Vector3(3.8,19.2,-3.4),Vector3(1.5,19.2,-3.4),Vector3(1.5,19.2,0),Vector3(0,19.2,.15)]:
+	for point in [Vector3(1.925,17.6,1.3),Vector3(3.975,17.6,1.3),Vector3(3.975,19.2,-3.4),Vector3(5,19.2,-3.4),Vector3(5,19.2,2.5),Vector3(-1.35,19.2,2.5),Vector3(-1.35,19.2,0),Vector3(0,19.2,.15)]:
 		if not await _walk(point): return
 	var drive := world.adapter.resolve("ROOF_LIFT_DRIVE") as Node3D
 	if not _require(drive != null and drive.get("lift") == world.elevator,"drive observes the production lift"): return
@@ -97,7 +97,7 @@ func _route() -> void:
 	if not await _walk(Vector3(-3.6,19.2,0)): return
 	await _roof_capture("roof_machine_bulkhead",Vector3(-.1,20.4,-1.7))
 	if not await _walk(Vector3(-1.35,19.2,0)): return
-	for point in [Vector3(1.5,19.2,0),Vector3(1.5,19.2,-3.4),Vector3(3.8,19.2,-3.4),Vector3(3.8,17.6,1.3),Vector3(2.3,17.6,1.3),Vector3(2.3,16,-3.5)]:
+	for point in [Vector3(-1.35,19.2,2.5),Vector3(5,19.2,2.5),Vector3(5,19.2,-3.4),Vector3(3.975,19.2,-3.4),Vector3(3.975,17.6,1.3),Vector3(1.925,17.6,1.3),Vector3(1.925,16,-3.5)]:
 		if not await _walk(point): return
 	_require(player.is_on_floor() and not player.noclip,"machine route returns to F06 with ordinary collision")
 	failures.erase("lift suspension checks interrupted before completion")

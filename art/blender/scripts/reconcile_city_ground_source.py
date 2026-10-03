@@ -29,7 +29,10 @@ assert registration['source_native_sha256'] == current
 assert registration['source_solids'] == 335 and registration['runtime_batches'] == 84
 assert abs(registration['offsets']['site_nbr_w'] + 3.2) < 1e-7
 assert all(registration['offsets']['site_nw'+str(i)] == registration['offsets']['site_nbr_w'] for i in range(1, 5))
-assert len(plan['retained_solids']) == 899
+expected_retained = 900 if 'light_court_reconciliation' in plan else 899
+assert len(plan['retained_solids']) == expected_retained
+if expected_retained == 900:
+    assert sum(r['owner'] == 'OrisonV2Blockout/F01_LIGHT_COURT_BASE/Collision' for r in plan['retained_solids']) == 1
 assert not any('city' in r['owner'].lower() or r['owner'].startswith('site_') for r in plan['retained_solids'])
 previous = plan['bindings'][CITY]
 if 'city_registration_reconciliation' not in plan:
@@ -47,4 +50,4 @@ plan['bindings'][CITY] = current
 plan['region'] = [-44, -16.605, 39.5, 24]
 plan['method'] = 'Classified retained Orison geometry and occupied rooms, expanded to seven registered neighboring masses. Fresh native city foundation components and underside projections are added by build_orison_ground.py. Residual court drainage, farther city/street subgrade and weather closure remain open.'
 PLAN.write_text(json.dumps(plan, indent=2)+'\n', encoding='utf-8', newline='\n')
-print('Reconciled only city registration and the finite terrain envelope; 899 retained masks preserved.')
+print(f'Reconciled only city registration and the finite terrain envelope; {expected_retained} retained masks preserved.')

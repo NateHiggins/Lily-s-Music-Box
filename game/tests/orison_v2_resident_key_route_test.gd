@@ -48,7 +48,7 @@ func _init() -> void:
 
 func _route() -> void:
 	_track_world()
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5)]:
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	if not await _enter_2a(): return
 	for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:
@@ -62,7 +62,7 @@ func _route() -> void:
 	for point in [Vector3(-13.4,3.2,2.5),Vector3(-10.5,3.2,2.5),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return
 	if not await _return_core(): return
-	for point in [Vector3(2.3,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
 		if not await _walk(point): return
 	var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),
 		Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,17.3),Vector3(14,0,20),
@@ -132,12 +132,12 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5)]:
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	# Finish at the private threshold. The spare now controls the resident's
 	# real leaf, after a continuous return from its actual copying counter.
-	for point in [Vector3(2.3,1.6,1.3),Vector3(3.8,1.6,1.3),Vector3(3.8,3.2,-2.4),
-		Vector3(3.8,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
+	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
+		Vector3(3.975,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
 		if not await _walk(point): return
 	var opening := world.adapter.resolve("F02_DOOR_02") as Node3D
 	var apartment := opening.get_node("F02_DOOR_02_Leaf") as DoorProp

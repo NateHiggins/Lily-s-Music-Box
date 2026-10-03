@@ -6,7 +6,7 @@ func _init() -> void:
 func _prepare_player_start() -> void:
 	# This separate saved-wake fixture starts at the core; unlike the golden
 	# route it does not replay the arrival and first-shift opening.
-	player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925, 0.02, -3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:

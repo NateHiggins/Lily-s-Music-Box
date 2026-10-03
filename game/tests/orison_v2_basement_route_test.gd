@@ -4,11 +4,11 @@ func _init() -> void:
 	route_label = "BASEMENT ROUTE"
 
 func _prepare_player_start() -> void:
-	player.global_position = world.adapter.root.to_global(Vector3(2.3,.02,-3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925,.02,-3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:
-	for point in [Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,2.8),Vector3(4.4,-3.2,2.8)]:
+	for point in [Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,2.8),Vector3(4.4,-3.2,2.8)]:
 		if not await _walk(point): return
 	if not await _open_door("B1_STORAGE_DOOR"): return
 	for point in [Vector3(4.4,-3.2,5),Vector3(4.4,-3.2,6.675)]:

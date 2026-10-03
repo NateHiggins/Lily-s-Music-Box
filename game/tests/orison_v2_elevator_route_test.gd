@@ -5,7 +5,7 @@ func _init() -> void:
 	route_label = "V2 ELEVATOR ROUTE"
 
 func _prepare_player_start() -> void:
-	player.global_position = world.adapter.root.to_global(Vector3(2.3,.02,-3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925,.02,-3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:

@@ -41,7 +41,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders, "shared world authorities"): return
 	if not _require(world.shop_service.stock_record("carbon_transmitter_capsule").get("shop_id") == "hardware_paint",
 			"shared service loads the actual authored hardware stock"): return
-	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
+	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
 	var outbound: Dictionary = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA")
@@ -93,7 +93,7 @@ func _route() -> void:
 			"bodega cannot supply the hardware shop's part or mutate shared inventory"): return
 	for record: Dictionary in returning.nodes:
 		if not await _walk_world(record.placement.position): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(2.3, 0, -6.5)]:
+	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
 		if not await _walk(point): return
 	_require(world.work_orders.job_state(job) == job_before, "interior return retains the same job owner and facts")
 

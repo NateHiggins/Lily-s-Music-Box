@@ -4,7 +4,7 @@ func _init() -> void:
 	route_label = "V2 BOILER SERVICE"
 
 func _prepare_player_start() -> void:
-	player.global_position = world.adapter.root.to_global(Vector3(2.3,.02,-3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925,.02,-3.5))
 	player.velocity = Vector3.ZERO
 
 func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
@@ -19,8 +19,8 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 	return await super._use(owner_node,target,label)
 
 func _route() -> void:
-	for point in [Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),
-			Vector3(2.3,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:
+	for point in [Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),
+			Vector3(1.925,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:
 		if not await _walk(point): return
 	if not await _open_door("B1_BOILER_FIRE_DOOR"): return
 	for point in [Vector3(11.1,-3.2,-.4),Vector3(10.9,-3.2,-.5)]:

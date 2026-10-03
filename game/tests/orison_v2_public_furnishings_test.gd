@@ -1,7 +1,7 @@
 extends "res://tests/orison_v2_public_doors_test.gd"
 ## Benches leave the arrival/turn routes clear; racks leave both parcel doors usable.
 func _route() -> void:
-	for point in [Vector3(2.3,0,-6.2),Vector3(3.9,0,-6.7),Vector3(0,0,-7.15),Vector3(-3.9,0,-7.15),Vector3(-3.3,0,-5.0),Vector3(2.3,0,-5.0),Vector3(2.3,0,-3.5)]:
+	for point in [Vector3(1.925,0,-6.2),Vector3(3.9,0,-6.7),Vector3(0,0,-7.15),Vector3(-3.9,0,-7.15),Vector3(-3.3,0,-5.0),Vector3(1.925,0,-5.0),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point):return
 	await super._route()
 	route_label="PUBLIC FURNISHINGS"

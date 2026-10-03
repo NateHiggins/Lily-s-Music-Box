@@ -40,7 +40,7 @@ func _route() -> void:
 	if not await _return_core(): return
 	await super._route()
 	if not failures.is_empty(): return
-	if not await _walk(Vector3(2.3,0,-3.5)): return
+	if not await _walk(Vector3(1.925,0,-3.5)): return
 	if not await _enter_2a(): return
 	if not await _use(detector,detector.global_position-Vector3.UP*.05,"listening_head_repair"): return
 	await get_tree().create_timer(.6).timeout
@@ -66,8 +66,8 @@ func _open_first_shift() -> bool:
 			"production first-shift owner commits the arrival"): return false
 	# The caretaker desk occupies the watch room's south frontage. Enter the
 	# working side through its authored core doorway, preserving the desk body.
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),
-			Vector3(2.3,0,-3.5),Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),
+			Vector3(1.925,0,-3.5),Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),
 			Vector3(-2,0,-1.5),Vector3(-2,0,-2.2)]:
 		if not await _walk(point): return false
 	var detector := world.adapter.resolve("F01_WATCHMAN_DETECTOR") as WatchmanClockProp
@@ -87,7 +87,7 @@ func _open_first_shift() -> bool:
 			and world.work_orders.job_stage(ChirpHunt.JOB_ID) == "acknowledged",
 			"taking the physical paper activates the existing first case"): return false
 	for point in [Vector3(-3.25,0,-1.5),Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.3),Vector3(0,0,-3.35),
-			Vector3(2.3,0,-3.5)]:
+			Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return false
 	return true
 
@@ -101,8 +101,8 @@ func _prepare_procurement() -> bool:
 			"hardware errand uses the actually inspected job without reseeding")
 
 func _enter_2a() -> bool:
-	for point in [Vector3(2.3,1.6,1.3),Vector3(3.8,1.6,1.3),Vector3(3.8,3.2,-2.4),
-			Vector3(3.8,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),
+	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
+			Vector3(3.975,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),
 			Vector3(-4.65,3.2,0),Vector3(-6.4,3.2,0),Vector3(-8.5,3.2,0),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return false
 		if point.is_equal_approx(Vector3(-4.65,3.2,0)):
@@ -111,7 +111,7 @@ func _enter_2a() -> bool:
 
 func _return_core() -> bool:
 	for point in [Vector3(-8.5,3.2,0),Vector3(-6.4,3.2,0),Vector3(-3.2,3.2,0),Vector3(-1.75,3.2,0),
-			Vector3(-1.75,3.2,-3.4),Vector3(3.8,3.2,-3.4),Vector3(3.8,3.2,-2.4),Vector3(3.8,1.6,1.3),
-			Vector3(2.3,1.6,1.3),Vector3(2.3,0,-3.5)]:
+			Vector3(-1.75,3.2,-3.4),Vector3(3.975,3.2,-3.4),Vector3(3.975,3.2,-2.4),Vector3(3.975,1.6,1.3),
+			Vector3(1.925,1.6,1.3),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return false
 	return true

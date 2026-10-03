@@ -10,8 +10,8 @@ func _route() -> void:
 	var previous := owner.console.global_transform
 	_require(not owner.place_case_objects({}) and owner.console.global_transform == previous,
 			"incomplete placement refused without partial mutation")
-	for point in [Vector3(2.3,1.6,1.3),Vector3(3.8,1.6,1.3),Vector3(3.8,3.2,-2.4),
-			Vector3(3.8,3.2,-3.4),Vector3(0,3.2,-3.0),Vector3(0,3.2,0),
+	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
+			Vector3(3.975,3.2,-3.4),Vector3(0,3.2,-3.0),Vector3(0,3.2,0),
 			Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0),Vector3(-6.4,3.2,0),Vector3(-8.5,3.2,0),
 			Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return

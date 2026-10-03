@@ -163,7 +163,7 @@
         "id": "ROOF_PUBLIC_LANDING_S",
         "level": "ROOF",
         "rect": [
-          1.7,
+          1.4,
           -3.85,
           5.4,
           -1.9
@@ -174,7 +174,7 @@
         "id": "ROOF_PUBLIC_LANDING_N",
         "level": "ROOF",
         "rect": [
-          1.7,
+          1.4,
           1.65,
           5.4,
           3.85
@@ -209,7 +209,7 @@
         "rect": [
           -0.64,
           -3.85,
-          1.7,
+          1.4,
           3.85
         ],
         "class": "core"
@@ -244,6 +244,17 @@
           -0.42,
           -0.64,
           3.85
+        ],
+        "class": "core"
+      },
+      {
+        "id": "ROOF_PUBLIC_LANDING_E",
+        "level": "ROOF",
+        "rect": [
+          4.5,
+          -1.9,
+          5.4,
+          1.65
         ],
         "class": "core"
       }
@@ -1143,6 +1154,17 @@
           -10.95,
           14.8,
           -10.75
+        ]
+      },
+      {
+        "id": "ROOF_PUBLIC_COURT_SKYLIGHT",
+        "space": "ROOF_PUBLIC_CORE",
+        "surface": "Ceiling",
+        "rect": [
+          2.45,
+          -1.9,
+          3.45,
+          -0.25
         ]
       }
     ],

@@ -29,7 +29,11 @@ func _route() -> void:
 		check(model.find_children("*","MeshInstance3D",true,false).size()==4,"three rail meshes and one structural mesh per assembly")
 		for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 			for surface in mesh.mesh.get_surface_count():
-				check(mesh.mesh.surface_get_material(surface).resource_name in ["cast_iron","wood_dark","steel"],"imported material retains exact catalogue key")
+				if str(stair.id).begins_with("PRIMARY_"):_check_planar_mapping(mesh.mesh,true)
+				var key: String=mesh.mesh.surface_get_material(surface).resource_name
+				var allowed: Array=["cast_iron","wood_dark","metal"] if str(stair.id).begins_with("PRIMARY_") else ["cast_iron","wood_dark","steel"]
+				check(key in allowed,"imported material retains its assembly catalogue key")
+				if str(stair.id).begins_with("PRIMARY_"):check(MatLib.SETS.has(key),"public ironwork uses a mapped runtime material")
 		check(model.find_children("*","CollisionObject3D",true,false).is_empty(),"ironwork does not replace traversal collision")
 		var structure := model.get_node_or_null("StairStructure") as MeshInstance3D
 		check(structure!=null,"imported stair understructure exists")
@@ -122,3 +126,63 @@ func shot(label: String) -> void:
 	await get_tree().create_timer(.2).timeout
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(path.path_join(label+".png"))
+
+func _check_planar_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
+	for surface in mesh.get_surface_count():
+		var arrays:=mesh.surface_get_arrays(surface)
+		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+		var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+		var uv: PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
+		var tangents: PackedFloat32Array=arrays[Mesh.ARRAY_TANGENT]
+		check(vertices.size()>=4 and normals.size()==vertices.size() and uv.size()==vertices.size() and tangents.size()==vertices.size()*4,"planar quad has active UV, normal and tangent on every imported vertex")
+		var valid:=true
+		for i in vertices.size():
+			valid=valid and vertices[i].is_finite() and uv[i].is_finite() and absf(normals[i].length()-1)<.001
+			if tangents.size()==vertices.size()*4:
+				var tangent:=Vector3(tangents[i*4],tangents[i*4+1],tangents[i*4+2])
+				valid=valid and tangent.is_finite() and absf(tangent.length()-1)<.001 and absf(tangent.dot(normals[i]))<.001 and absf(absf(tangents[i*4+3])-1)<.001
+		check(valid,"finite unit normals and orthogonal tangent handedness")
+		var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+		check(indices.size()>=6 and indices.size()%3==0,"planar surface has complete native indexed triangles")
+		var mapped:=true
+		var widest:=0.0
+		var excess:=0.0
+		var derivatives:=true
+		var bad_derivatives:=0
+		var min_determinant:=INF
+		var worst_dot:=1.0
+		for triangle in range(0,indices.size(),3):
+			if check_derivatives:
+				var a:=indices[triangle]
+				var b:=indices[triangle+1]
+				var c:=indices[triangle+2]
+				var first:=vertices[b]-vertices[a]
+				var second:=vertices[c]-vertices[a]
+				var uv_first:=uv[b]-uv[a]
+				var uv_second:=uv[c]-uv[a]
+				var determinant:=uv_first.x*uv_second.y-uv_second.x*uv_first.y
+				min_determinant=minf(min_determinant,absf(determinant))
+				derivatives=derivatives and absf(determinant)>1e-12
+				if absf(determinant)>1e-12:
+					var expected: Vector3=(first*uv_second.y-second*uv_first.y)/determinant
+					var bitangent: Vector3=(second*uv_first.x-first*uv_second.x)/determinant
+					for index: int in [a,b,c]:
+						var projected: Vector3=(expected-normals[index]*expected.dot(normals[index])).normalized()
+						var actual:=Vector3(tangents[index*4],tangents[index*4+1],tangents[index*4+2])
+						worst_dot=minf(worst_dot,projected.dot(actual))
+						if projected.dot(actual)<=.999 or normals[index].cross(actual).dot(bitangent)*tangents[index*4+3]<=0:
+							bad_derivatives+=1
+							if bad_derivatives<4:print("UV DERIVATIVE DIAGNOSTIC: ",mesh.resource_name," tri=",triangle," n=",normals[index]," actual=",actual," expected=",projected," bitangent=",bitangent," determinant=",determinant)
+						derivatives=derivatives and projected.dot(actual)>.999
+						derivatives=derivatives and normals[index].cross(actual).dot(bitangent)*tangents[index*4+3]>0
+			for edge in 3:
+				var a:=indices[triangle+edge]
+				var b:=indices[triangle+(edge+1)%3]
+				var length:=vertices[a].distance_to(vertices[b])
+				var texture:=uv[a].distance_to(uv[b])
+				mapped=mapped and texture<=length+.00005
+				excess=maxf(excess,texture-length)
+				if length>.00005: widest=maxf(widest,texture/length)
+		check(mapped and absf(widest-1)<.005,"planar mapping retains one texture metre per model metre")
+		if check_derivatives: check(derivatives,"tangent direction and handedness match actual imported UV derivatives")
+		print("CEILING MAPPING: mesh=",mesh.resource_name," valid_basis=",valid," max_uv_excess=",excess," widest=",widest," vertices=",vertices.size()," derivatives=",derivatives," bad_derivatives=",bad_derivatives," min_determinant=",min_determinant," worst_dot=",worst_dot)

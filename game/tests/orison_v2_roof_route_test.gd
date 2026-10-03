@@ -6,13 +6,16 @@ func _init() -> void:
 	route_label = "ROOF ROUTE"
 
 func _prepare_player_start() -> void:
-	player.global_position = world.adapter.root.to_global(Vector3(2.3, 16.02, -3.5))
+	var carrier := player.carried_device as ServiceSetCarrier
+	if _require(carrier != null, "production handheld carrier is available for unobstructed roof review"):
+		carrier.set_capture_hidden(true)
+	player.global_position = world.adapter.root.to_global(Vector3(1.925, 16.02, -3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:
-	for point in [Vector3(2.3,17.6,1.3), Vector3(3.8,17.6,1.3),
-			Vector3(3.8,19.2,-3.4), Vector3(1.5,19.2,-3.4),
-			Vector3(1.5,19.2,0), Vector3(-1.35,19.2,0)]:
+	for point in [Vector3(1.925,17.6,1.3), Vector3(3.975,17.6,1.3),
+			Vector3(3.975,19.2,-3.4), Vector3(5.0,19.2,-3.4),
+			Vector3(5.0,19.2,2.5), Vector3(-1.35,19.2,2.5), Vector3(-1.35,19.2,0)]:
 		if not await _walk(point): return
 	if not await _open_door("ROOF_PUBLIC_DOOR"): return
 	if not await _walk(Vector3(-3.6,19.2,0)): return
@@ -82,9 +85,9 @@ func _route() -> void:
 	for point in [Vector3(14.1,19.2,-6),Vector3(7,19.2,-6),Vector3(-4,19.2,-6), Vector3(-3.4,19.2,0)]:
 		if not await _walk(point): return
 	if not await _open_door("ROOF_PUBLIC_DOOR"): return
-	for point in [Vector3(-1.35,19.2,0), Vector3(1.5,19.2,0),
-			Vector3(1.5,19.2,-3.4), Vector3(3.8,19.2,-3.4),
-			Vector3(3.8,17.6,1.3), Vector3(2.3,17.6,1.3), Vector3(2.3,16,-3.5)]:
+	for point in [Vector3(-1.35,19.2,0), Vector3(-1.35,19.2,2.5),
+			Vector3(5.0,19.2,2.5), Vector3(5.0,19.2,-3.4), Vector3(3.975,19.2,-3.4),
+			Vector3(3.975,17.6,1.3), Vector3(1.925,17.6,1.3), Vector3(1.925,16,-3.5)]:
 		if not await _walk(point): return
 	_require(not player.noclip and player.collision_mask == 1, "roof circuit returns to F06 with collision active")
 

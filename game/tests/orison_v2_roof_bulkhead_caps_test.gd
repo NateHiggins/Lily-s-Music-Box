@@ -16,7 +16,8 @@ func _run() -> void:
 	# Exclude only its bodies when inspecting the original cap interface datum;
 	# its independent suite tests first-contact physics without these exclusions.
 	var weather_bodies: Array[RID]=[world.player.get_rid()]
-	for body: CollisionObject3D in root.get_node("RoofServiceWeathering").find_children("*","CollisionObject3D",true,false):weather_bodies.append(body.get_rid())
+	for weather_owner: String in ["RoofServiceWeathering","RoofPublicWeathering"]:
+		for body: CollisionObject3D in root.get_node(weather_owner).find_children("*","CollisionObject3D",true,false):weather_bodies.append(body.get_rid())
 	cap_bodies.append_array(weather_bodies.slice(1))
 	var parts:=0;var triangles:=0;var footprints: Array[AABB]=[]
 	for draw: MeshInstance3D in owner.find_children("*","MeshInstance3D",true,false):
@@ -26,10 +27,10 @@ func _run() -> void:
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		var bounds: AABB=pose*draw.mesh.get_aabb()
 		check(maxf(bounds.size.x,bounds.size.z)<=4.00001,"roof closure pieces have bounded culling extents")
-		_check_mapping(draw.mesh,true)
+		_check_cap_mapping(draw.mesh,true)
 		native.append_array(pose*draw.mesh.get_faces());footprints.append(bounds)
 	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false):cap_bodies.append(body.get_rid())
-	check(parts==7,"two source bulkheads use seven bounded closure pieces")
+	check(parts==10 and triangles==100,"two source bulkheads use ten bounded pieces around the true court aperture")
 	for i in footprints.size():
 		for j in range(i+1,footprints.size()):
 			var a:=footprints[i];var b:=footprints[j]
@@ -93,3 +94,66 @@ func _run() -> void:
 	print("ROOF BULKHEAD CAPS: parts=%d triangles=%d upper_contacts=%d wall_bearings=%d reproduced_gaps=%d retained_undersides=%d checks=%d failures=%d" % [parts,triangles,contacts,bearings,before_missing,underside_samples,checks,failures.size()])
 	for failure: String in failures:print("ROOF BULKHEAD CAP FAIL: ",failure)
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+# A source partition may contain only its upper quad and one real aperture
+# edge. Inspect complete indexed native triangles rather than requiring the
+# closed-duct helper's nine-vertex minimum. All UV/basis/derivative checks stay.
+func _check_cap_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
+	for surface in mesh.get_surface_count():
+		var arrays:=mesh.surface_get_arrays(surface)
+		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+		var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+		var uv: PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
+		var tangents: PackedFloat32Array=arrays[Mesh.ARRAY_TANGENT]
+		check(vertices.size()>=4 and normals.size()==vertices.size() and uv.size()==vertices.size() and tangents.size()==vertices.size()*4,"planar quad has active UV, normal and tangent on every imported vertex")
+		var valid:=true
+		for i in vertices.size():
+			valid=valid and vertices[i].is_finite() and uv[i].is_finite() and absf(normals[i].length()-1)<.001
+			if tangents.size()==vertices.size()*4:
+				var tangent:=Vector3(tangents[i*4],tangents[i*4+1],tangents[i*4+2])
+				valid=valid and tangent.is_finite() and absf(tangent.length()-1)<.001 and absf(tangent.dot(normals[i]))<.001 and absf(absf(tangents[i*4+3])-1)<.001
+		check(valid,"finite unit normals and orthogonal tangent handedness")
+		var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+		check(indices.size()>=6 and indices.size()%3==0,"planar surface has complete native indexed triangles")
+		var mapped:=true
+		var widest:=0.0
+		var excess:=0.0
+		var derivatives:=true
+		var bad_derivatives:=0
+		var min_determinant:=INF
+		var worst_dot:=1.0
+		for triangle in range(0,indices.size(),3):
+			if check_derivatives:
+				var a:=indices[triangle]
+				var b:=indices[triangle+1]
+				var c:=indices[triangle+2]
+				var first:=vertices[b]-vertices[a]
+				var second:=vertices[c]-vertices[a]
+				var uv_first:=uv[b]-uv[a]
+				var uv_second:=uv[c]-uv[a]
+				var determinant:=uv_first.x*uv_second.y-uv_second.x*uv_first.y
+				min_determinant=minf(min_determinant,absf(determinant))
+				derivatives=derivatives and absf(determinant)>1e-12
+				if absf(determinant)>1e-12:
+					var expected: Vector3=(first*uv_second.y-second*uv_first.y)/determinant
+					var bitangent: Vector3=(second*uv_first.x-first*uv_second.x)/determinant
+					for index: int in [a,b,c]:
+						var projected: Vector3=(expected-normals[index]*expected.dot(normals[index])).normalized()
+						var actual:=Vector3(tangents[index*4],tangents[index*4+1],tangents[index*4+2])
+						worst_dot=minf(worst_dot,projected.dot(actual))
+						if projected.dot(actual)<=.999 or normals[index].cross(actual).dot(bitangent)*tangents[index*4+3]<=0:
+							bad_derivatives+=1
+							if bad_derivatives<4:print("UV DERIVATIVE DIAGNOSTIC: ",mesh.resource_name," tri=",triangle," n=",normals[index]," actual=",actual," expected=",projected," bitangent=",bitangent," determinant=",determinant)
+						derivatives=derivatives and projected.dot(actual)>.999
+						derivatives=derivatives and normals[index].cross(actual).dot(bitangent)*tangents[index*4+3]>0
+			for edge in 3:
+				var a:=indices[triangle+edge]
+				var b:=indices[triangle+(edge+1)%3]
+				var length:=vertices[a].distance_to(vertices[b])
+				var texture:=uv[a].distance_to(uv[b])
+				mapped=mapped and texture<=length+.00005
+				excess=maxf(excess,texture-length)
+				if length>.00005: widest=maxf(widest,texture/length)
+		check(mapped and absf(widest-1)<.005,"planar mapping retains one texture metre per model metre")
+		if check_derivatives: check(derivatives,"tangent direction and handedness match actual imported UV derivatives")
+		print("CAP MAPPING: mesh=",mesh.resource_name," valid_basis=",valid," max_uv_excess=",excess," widest=",widest," vertices=",vertices.size()," derivatives=",derivatives," bad_derivatives=",bad_derivatives," min_determinant=",min_determinant," worst_dot=",worst_dot)

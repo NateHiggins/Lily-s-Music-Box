@@ -36,34 +36,34 @@ func _complete_route() -> Array[Vector3]:
 		Vector3(10.9, -3.2, -0.4), Vector3(10.1, -3.2, -0.4),
 		Vector3(9.0, -3.2, -0.4),
 		Vector3(7.2, -3.2, -0.4), Vector3(4.9, -3.2, -0.4),
-		Vector3(4.9, -3.2, -2.5), Vector3(2.3, -3.2, -3.0)]
+		Vector3(4.9, -3.2, -2.5), Vector3(1.925, -3.2, -3.0)]
 	_append_up(points, -3.2)
 	points.append_array([Vector3(0.0, 0.0, -1.5), Vector3(-1.5, 0.0, -1.5),
 		Vector3(-2.0, 0.0, -2.2),
 		Vector3(-3.25, 0.0, -0.95), Vector3(-4.0, 0.0, -0.6),
 		Vector3(-4.0, 0.0, -1.75), Vector3(-1.5, 0.0, -1.5),
-		Vector3(2.3, 0.0, -3.0)])
+		Vector3(1.925, 0.0, -3.0)])
 	_append_up(points, 0.0)
 	points.append_array([Vector3(5.9, 3.2, -3.25), Vector3(8.7, 3.2, -3.25),
 		Vector3(10.15, 3.2, -3.25), Vector3(13.6, 3.2, -1.8),
 		Vector3(14.5, 3.2, -3.0), Vector3(11.9, 3.2, -2.5),
 		Vector3(10.8, 3.2, -2.5), Vector3(10.15, 3.2, -3.25),
-		Vector3(5.9, 3.2, -3.25), Vector3(2.3, 3.2, -3.0)])
+		Vector3(5.9, 3.2, -3.25), Vector3(1.925, 3.2, -3.0)])
 	_append_down(points, 0.0)
 	points.append_array([Vector3(0.0, 0.0, -1.5), Vector3(-1.5, 0.0, -1.5),
 		Vector3(-3.2, 0.0, -2.2), Vector3(-1.5, 0.0, -1.5),
-		Vector3(0.0, 0.0, -1.5), Vector3(2.3, 0.0, -3.0)])
+		Vector3(0.0, 0.0, -1.5), Vector3(1.925, 0.0, -3.0)])
 	_append_down(points, -3.2)
-	points.append_array([Vector3(2.3, -3.2, -3.0), Vector3(4.9, -3.2, -2.5),
+	points.append_array([Vector3(1.925, -3.2, -3.0), Vector3(4.9, -3.2, -2.5),
 		Vector3(4.9, -3.2, -0.4), Vector3(7.2, -3.2, -0.4),
 		Vector3(9.0, -3.2, -0.4),
 		Vector3(10.1, -3.2, -0.4), Vector3(10.9, -3.2, -0.4),
 		Vector3(10.9, -3.2, -0.5), Vector3(10.9, -3.2, -0.4),
 		Vector3(10.1, -3.2, -0.4), Vector3(9.0, -3.2, -0.4),
 		Vector3(7.2, -3.2, -0.4), Vector3(4.9, -3.2, -0.4),
-		Vector3(4.9, -3.2, -2.5), Vector3(2.3, -3.2, -3.0)])
+		Vector3(4.9, -3.2, -2.5), Vector3(1.925, -3.2, -3.0)])
 	_append_up(points, -3.2)
-	points.append(Vector3(2.3, 0.0, -3.0))
+	points.append(Vector3(1.925, 0.0, -3.0))
 	_append_up(points, 0.0)
 	points.append_array([Vector3(5.9, 3.2, -3.25), Vector3(10.15, 3.2, -3.25),
 		Vector3(13.6, 3.2, -1.8), Vector3(14.5, 3.2, -3.0)])
@@ -71,13 +71,13 @@ func _complete_route() -> Array[Vector3]:
 
 func _append_up(points: Array[Vector3], base_y: float) -> void:
 	for i in 10:
-		points.append(Vector3(2.3, base_y + 0.16 * float(i + 1), -3.1 + 0.285 * (i + 0.5)))
-	points.append(Vector3(2.3, base_y + 1.6, 1.25))
-	points.append(Vector3(3.8, base_y + 1.6, 1.25))
+		points.append(Vector3(1.925, base_y + 0.16 * float(i + 1), -3.1 + 0.285 * (i + 0.5)))
+	points.append(Vector3(1.925, base_y + 1.6, 1.25))
+	points.append(Vector3(3.975, base_y + 1.6, 1.25))
 	for i in 10:
-		points.append(Vector3(3.8, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
-	points.append(Vector3(3.8, base_y + 3.2, -3.45))
-	points.append(Vector3(2.3, base_y + 3.2, -3.0))
+		points.append(Vector3(3.975, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
+	points.append(Vector3(3.975, base_y + 3.2, -3.45))
+	points.append(Vector3(1.925, base_y + 3.2, -3.0))
 
 func _append_down(points: Array[Vector3], base_y: float) -> void:
 	var up: Array[Vector3] = []

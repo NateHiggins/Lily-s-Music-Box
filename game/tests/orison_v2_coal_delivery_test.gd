@@ -5,12 +5,12 @@ func _init() -> void:
 	route_label = "COAL DELIVERY"
 
 func _route() -> void:
-	for point in [Vector3(2.3,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-12.8),Vector3(14.2,0,-13.3)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-12.8),Vector3(14.2,0,-13.3)]:
 		if not await _walk(point): return
 	await _roof_capture("closed_delivery_cover",Vector3(14.2,.02,-13.3))
 	if not _require(player.is_on_floor(),"closed coal cover remains walkable"): return
-	for point in [Vector3(0,0,-12.8),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5),
-			Vector3(3.8,0,-3.4),Vector3(3.8,-1.6,1.3),Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.5),
+	for point in [Vector3(0,0,-12.8),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5),
+			Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.5),
 			Vector3(5,-3.2,-3.5),Vector3(5,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:
 		if not await _walk(point): return
 	if not await _open_door("B1_BOILER_FIRE_DOOR"): return

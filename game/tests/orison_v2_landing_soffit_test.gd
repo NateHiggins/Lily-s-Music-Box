@@ -29,7 +29,7 @@ func _run() -> void:
 		if not draw.is_visible_in_tree():continue
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		cache.append({"owner":str(root.get_path_to(draw)),"bounds":pose*draw.mesh.get_aabb(),"faces":pose*draw.mesh.get_faces()})
-	var samples:=0;var missing:=0;var duplicate:=0
+	var samples:=0;var missing:=0;var duplicate:=0;var platform_bearing_contacts:=0
 	for platform: Dictionary in layout.platforms:
 		var draw:=root.get_node(str(platform.id)) as MeshInstance3D
 		if draw.mesh.get_surface_count()==2:
@@ -72,8 +72,26 @@ func _run() -> void:
 				check(surfaces==1,"one visible underside at "+str(platform.id)+" "+str(point)+" owners="+str(surfaces))
 				var query:=PhysicsRayQueryParameters3D.create(root.to_global(point),root.to_global(point+Vector3.UP*.16),1,[world.player.get_rid()])
 				var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
-				check(not hit.is_empty() and absf(point.distance_to(root.to_local(hit.position))-.08)<.0001,"visible underside meets retained structural collision")
+				if not hit.is_empty() and absf(point.distance_to(root.to_local(hit.position))-.08)>=.0001:
+					var first_owner:=str(root.get_path_to(hit.collider))
+					var fitted_support: bool=(str(platform.id)=="F01_LIGHT_COURT_BASE" and first_owner.begins_with("LightCourtStructure/LightCourtTransfer_cast_iron/")) or (str(platform.id)=="ROOF_PUBLIC_LANDING_E" and first_owner.begins_with("CourtRoofBridge/RoofCourtBridgeTransfer_cast_iron/"))
+					var support:=hit.collider.get_parent() as MeshInstance3D
+					var seated:=false
+					if fitted_support and support!=null:
+						var support_pose: Transform3D=root.global_transform.affine_inverse()*support.global_transform
+						var support_bounds: AABB=support_pose*support.mesh.get_aabb()
+						seated=absf(support_bounds.end.y-underside)<.00002
+					check(fitted_support and seated,"foreground is the fitted native slab support with its top seated at the underside: "+str(platform.id)+" "+first_owner)
+					if fitted_support and seated:
+						print("PLATFORM SOFFIT BEARING: ",platform.id," target=",point+Vector3.UP*.08," first=",first_owner," at=",root.to_local(hit.position))
+						# Only this measured seated bearing is excluded for the separate
+						# retained-slab datum query; actual first contact remains checked.
+						query.exclude=[world.player.get_rid(),hit.collider.get_rid()]
+						hit=world.get_world_3d().direct_space_state.intersect_ray(query)
+						platform_bearing_contacts+=1
+				check(not hit.is_empty() and hit.collider==body and absf(point.distance_to(root.to_local(hit.position))-.08)<.0001,"visible underside meets its named retained structural collision: "+str(platform.id)+" target="+str(point+Vector3.UP*.08))
 				samples+=1
+	check(platform_bearing_contacts==6,"six native court/roof bearing contacts precede their independently checked retained slabs")
 	var room_draws:=0;var room_samples:=0;var foreground_contacts:=0
 	var world_bodies: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):world_bodies.append(body.get_rid())

@@ -12,7 +12,7 @@ func _route() -> void:
 	var hours := passage.finish.hours_director
 	if not _require(side in ["west", "east"] and passage.cell_nodes.size() == 13
 			and passage.doors.size() == 11, "complete retained arcade roster"): return
-	for point in [Vector3(2.3,0,-6.5), Vector3(0,0,-8.5),
+	for point in [Vector3(1.925,0,-6.5), Vector3(0,0,-8.5),
 			Vector3(0,0,-10.2), Vector3(0,0,-12.2)]:
 		if not await _walk(point): return
 	var outward := [Vector3(0,0,3), Vector3(14,0,3), Vector3(14,0,4.2),
@@ -57,7 +57,7 @@ func _route() -> void:
 	for point in outward:
 		if not await _walk_world(point): return
 	for point in [Vector3(0,0,-10.2), Vector3(0,0,-8.5),
-			Vector3(2.3,0,-6.5), Vector3(2.3,0,-3.5)]:
+			Vector3(1.925,0,-6.5), Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	await get_tree().process_frame
 	await get_tree().physics_frame

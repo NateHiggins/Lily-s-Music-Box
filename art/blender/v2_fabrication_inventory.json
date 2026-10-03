@@ -3789,6 +3789,16 @@
         "id": "B1_PRIMARY_STAIR_BASE",
         "class": "service",
         "level": "B1"
+      },
+      {
+        "id": "F01_LIGHT_COURT_BASE",
+        "class": "public",
+        "level": "F01"
+      },
+      {
+        "id": "ROOF_PUBLIC_LANDING_E",
+        "class": "core",
+        "level": "ROOF"
       }
     ],
     "lift_landings": [
@@ -6571,6 +6581,52 @@
         }
       ]
     },
+    "game/data/orison_v2/light_court_guards.json": {
+      "guards": [
+        {
+          "id": "F01_LightCourtGuard_North"
+        },
+        {
+          "id": "F02_LightCourtGuard_North"
+        },
+        {
+          "id": "F03_LightCourtGuard_North"
+        },
+        {
+          "id": "F04_LightCourtGuard_North"
+        },
+        {
+          "id": "F05_LightCourtGuard_North"
+        },
+        {
+          "id": "F06_LightCourtGuard_North"
+        },
+        {
+          "id": "ROOF_LightCourtGuard_North"
+        },
+        {
+          "id": "F02_LightCourtGuard_South"
+        },
+        {
+          "id": "F03_LightCourtGuard_South"
+        },
+        {
+          "id": "F04_LightCourtGuard_South"
+        },
+        {
+          "id": "F05_LightCourtGuard_South"
+        },
+        {
+          "id": "F06_LightCourtGuard_South"
+        },
+        {
+          "id": "ROOF_LightCourtGuard_South"
+        },
+        {
+          "id": "F01_LightCourtGuard_CourtStop"
+        }
+      ]
+    },
     "game/data/orison_v2/room_lighting.json": {
       "fixtures": [
         {
@@ -7383,6 +7439,9 @@
       "res://assets/building/v2_coal_delivery.glb",
       "res://assets/props/coal_heap.glb"
     ],
+    "game/scripts/building/orison_v2_court_roof_bridge.gd": [
+      "res://assets/props/court_roof_bridge.glb"
+    ],
     "game/scripts/building/orison_v2_domestic_doors.gd": [
       "res://assets/props/door_butt_hinge.glb",
       "res://assets/props/door_knob_set.glb"
@@ -7440,6 +7499,12 @@
     "game/scripts/building/orison_v2_lift_mirror.gd": [
       "res://assets/props/lift_mirror.glb"
     ],
+    "game/scripts/building/orison_v2_light_court_skylight.gd": [
+      "res://assets/props/light_court_skylight.glb"
+    ],
+    "game/scripts/building/orison_v2_light_court_structure.gd": [
+      "res://assets/props/light_court_structure.glb"
+    ],
     "game/scripts/building/orison_v2_millwork.gd": [
       "res://assets/props/millwork_profile.glb"
     ],
@@ -7485,6 +7550,9 @@
     "game/scripts/building/orison_v2_roof_fan.gd": [
       "res://assets/props/roof_ventilator.glb"
     ],
+    "game/scripts/building/orison_v2_roof_public_weathering.gd": [
+      "res://assets/props/roof_public_weathering.glb"
+    ],
     "game/scripts/building/orison_v2_roof_service_weathering.gd": [
       "res://assets/props/roof_service_weathering.glb"
     ],
@@ -7493,7 +7561,7 @@
       "res://assets/props/service_alley.glb"
     ],
     "game/scripts/building/orison_v2_stair_ironwork.gd": [
-      "res://assets/props/stair_ironwork_public.glb",
+      "res://assets/props/stair_ironwork_court.glb",
       "res://assets/props/stair_ironwork_service.glb"
     ],
     "game/scripts/building/orison_v2_upper_wall_seats.gd": [
@@ -7536,6 +7604,7 @@
     "art/blender/scripts/build_city_shells.py",
     "art/blender/scripts/build_coal_delivery.py",
     "art/blender/scripts/build_coal_heap.py",
+    "art/blender/scripts/build_court_roof_bridge.py",
     "art/blender/scripts/build_door_butt_hinge.py",
     "art/blender/scripts/build_door_knob_set.py",
     "art/blender/scripts/build_dream_critter.py",
@@ -7557,6 +7626,8 @@
     "art/blender/scripts/build_lift_joinery.py",
     "art/blender/scripts/build_lift_mirror.py",
     "art/blender/scripts/build_lift_panels.py",
+    "art/blender/scripts/build_light_court_stair.py",
+    "art/blender/scripts/build_light_court_structure.py",
     "art/blender/scripts/build_light_switch.py",
     "art/blender/scripts/build_millwork_profile.py",
     "art/blender/scripts/build_orison.py",
@@ -7572,6 +7643,7 @@
     "art/blender/scripts/build_roof_bulkhead_caps.py",
     "art/blender/scripts/build_roof_coping.py",
     "art/blender/scripts/build_roof_edge_support.py",
+    "art/blender/scripts/build_roof_public_weathering.py",
     "art/blender/scripts/build_roof_service_weathering.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_service_alley.py",

@@ -3,8 +3,8 @@ func _init() -> void:
 	route_label = "V2 LAUNDRY INPUT"
 
 func _route() -> void:
-	for point in [Vector3(3.8,0,-3.4),Vector3(3.8,0,-2.4),Vector3(3.8,-1.6,1.3),
-			Vector3(2.3,-1.6,1.3),Vector3(2.3,-3.2,-3.5),Vector3(-1.75,-3.2,-3.4),Vector3(-1.75,-3.2,-1.5)]:
+	for point in [Vector3(3.975,0,-3.4),Vector3(3.975,0,-2.4),Vector3(3.975,-1.6,1.3),
+			Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.5),Vector3(-1.75,-3.2,-3.4),Vector3(-1.75,-3.2,-1.5)]:
 		if not await _walk(point): return
 	var door: DoorProp = world.find_child("B1_LAUNDRY_DOOR_Leaf",true,false)
 	if not await _walk(Vector3(-1.75,-3.2,-1.5)): return

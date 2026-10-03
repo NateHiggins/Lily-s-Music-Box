@@ -908,3 +908,35 @@ source-owned stairs/landings, supports, fitted glazing and walking/sightline
 proof. Heating apertures stay parked. Main roof drainage, courtyard outlets,
 street-main connection and independent bar/bodega/arcade services remain open;
 the wider six-bucket architecture and infrastructure task continues.
+
+## October 3 public court construction
+
+**art/blender/light_court.md** records the bounded court installation based on
+published **619e88348291fc04d62f206a73516e2890484bf3**. The existing public core
+now contains a one-metre stair eye, seven fitted public flights, fourteen landing
+guards, a ground-level court slab and local basement/roof support frames. The
+source-owned opening reaches a six-pane pitched skylight through the retained
+**22.4 m** cap. Public-bulkhead sheet/cricket/curb flashings feed an open supported
+gutter and leader; their downstream main-roof field remains unfinished.
+
+Vertical, completion-interior and roof projectors retain their individual owners.
+Thirteen Mina stair X coordinates and existing geometry probes follow the fitted
+stairs; no routine timing, key, schedule, shop, lift or save authority changes.
+The retained ground map has 900 classified masks after thirty-one individually
+checked court boxes, all inside the existing basement-core reservation. Replayed
+support exports preserve their actual oriented triangles and mapping. Ground
+and upper-ceiling closures are intentionally regenerated.
+
+Fifteen saved-native renders are directly reviewed. Installed court/weather,
+53-waypoint roof, 79-waypoint vertical and 88-waypoint basement runs pass. The
+lift's initial return-walk failure is retained; diagnostic and uninstrumented
+repeats pass nineteen waypoints and 2,062 suspension-clearance samples. These
+scoped observations do not accept the court scale, every lobby sightline,
+structural/weather capacity or final surfaces. The exact candidate verification
+belongs to **tmp/shell-weather/light-court-verified/verification.json**, comparing
+the complete clean **619e883** board and binding the production regressions.
+
+Heating cutouts remain parked. Main-roof/courtyard outlets, street-main closure,
+boiler operating glazing, farther city weather fit and independent bar/bodega/
+arcade services remain open. Full raw architecture, infrastructure and surface
+polish continue beyond this court batch.
