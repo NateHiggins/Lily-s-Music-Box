@@ -78,7 +78,8 @@ Branch / HEAD / origin/main / merge-base: canonical **main**, named-path
 candidate over **ec25d42d57559f2f61c027f91506c1fbe410af3e**. Exact publication
 identity and cleanliness belong to the bound report. The complete clean
 baseline is **tmp/bodega-frontage/ec25d42-clean-board.json**. Final publication
-proof belongs to **tmp/city-masts/final-verified/verification.json**. Protected 17/17,
+proof belongs to **tmp/city-masts/published-verified/verification.json**, with the
+unchanged runtime's ten-suite run at **final-verified/verification.json**. Protected 17/17,
 default V2 and explicit V1 rollback are enforced by the verifier. This INERT
 record does not promote the completeness ledger. Reader NEW unread and gate
 regressions must remain zero.
@@ -97,6 +98,12 @@ boiler sash was absent. Original shell meshes are now explicitly identified;
 their full census and probes remain. The terrain check requires the actual
 closed sash, then excludes only that moving leaf when checking the ground's
 open throat. Fixed reveal, terrain and backing tolerances remain unchanged.
+The test resolves its original window mount through the existing semantic
+adapter; it introduces no new raw building path or spatial-baseline exception.
+The spatial manifest adds exactly one individually reviewed test dependency
+for existing **B1_BOILER_AIR_E**, resolved to the current blockout. Audit rules,
+classifications, unrelated records and tolerances are unchanged. The verifier
+flags this named manifest addition for review.
 
 Changes outside asset/runtime/test paths: two precision import sidecars, hash
 attributes, three exact derived-image ignore entries and document indices.
