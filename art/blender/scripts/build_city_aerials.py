@@ -6,6 +6,9 @@ to actual native faces. There is no new occupied space, control or utility cut.
 """
 from pathlib import Path
 import collections,hashlib,json,math,re
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from fabrication_uvs import chart_for_triangle
 import bpy,bmesh,numpy as np
 from mathutils import Vector,Matrix
 from mathutils.bvhtree import BVHTree
@@ -316,26 +319,13 @@ for identity in sorted(assemblies):
   guides=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER')
   split_normals=[None]*len(mesh.loops)
   for face in mesh.polygons:
-   # Double precision and an edge-aligned local chart preserve narrow joint
-   # triangles without subtracting two large almost-equal UV coordinates.
+   # Common surface axes preserve texture phase across each stock. The
+   # shared helper checks precision and charts microscopic joints locally.
    pts=np.asarray([mesh.vertices[i].co[:] for i in face.vertices],dtype=np.float64)
-   n=np.cross(pts[1]-pts[0],pts[2]-pts[0]);n/=np.linalg.norm(n)
-   pairs=sorted([(i,(i+1)%3) for i in range(3)],key=lambda pair:np.linalg.norm(pts[pair[1]]-pts[pair[0]]),reverse=True)
-   for choice,(a,b) in enumerate(pairs):
-    u=pts[b]-pts[a];u/=np.linalg.norm(u);v=np.cross(n,u)
-    values=np.column_stack(((pts-pts[a])@u,(pts-pts[a])@v)).astype(np.float32)
-    # Blender exports V as 1-V. A longest-edge chart can lose a nanometre
-    # height at that subtraction even though the model triangle is valid.
-    # Select another actual edge when its float32 UV round trip collapses.
-    exported=values.copy();exported[:,1]=np.float32(1)-exported[:,1]
-    first=exported[1]-exported[0];second=exported[2]-exported[0]
-    determinant=float(first[0])*float(second[1])-float(second[0])*float(first[1])
-    if abs(determinant)>1e-12:break
-   else:raise AssertionError(('no representable metre chart',name,pts.tolist()))
-   precision_chart_fallbacks+=choice>0
-   for loop in face.loop_indices:
-    p=np.asarray(mesh.vertices[mesh.loops[loop].vertex_index].co[:],dtype=np.float64)-pts[a]
-    chart.data[loop].uv=(float(np.dot(p,u)),float(np.dot(p,v)))
+   n,u,values,local_chart=chart_for_triangle(pts,origin[:],sets[key]['meters_per_tile'])
+   precision_chart_fallbacks+=local_chart
+   for j,loop in enumerate(face.loop_indices):
+    chart.data[loop].uv=tuple(values[j])
     guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));split_normals[loop]=tuple(n)
   mesh.normals_split_custom_set(split_normals)
   obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
@@ -375,6 +365,6 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=ROOT/'game/assets/props/city_aerials.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True)
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in [plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in [plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
 for path in ['art/blender/city_aerials_construction.json','game/tests/fixtures/orison_city_aerials.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY AERIALS',len(records),'original components;',len(groups),'roofs;',report['closed_source_stocks'],'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'actual support contacts;',len(assemblies),'connected fabricated assemblies')

@@ -7085,7 +7085,7 @@
     }
   ],
   "triangles": 143058,
-  "precision_chart_fallbacks": 5,
+  "precision_chart_fallbacks": 0,
   "contacts": [
     {
       "id": "site_back_e_spread0",
@@ -10960,14 +10960,15 @@
     },
     "historical_blockout_binding_stale": true
   },
-  "asset_sha256": "dc596d20b54211a02dc844a52f763dfa59268cfc12be89aafb8d4f578dec706a",
+  "asset_sha256": "906e9dabed8ff81005c6fab4e10d30531e90762d397b0250e236aa84a24bb0a0",
   "source_bindings": {
     "art/data/city_aerials/source_plan.json": "eae5598623f227360c0a9dbde0c841ee9563c8bd0d791b938830bb845b874eb8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/city_shells_registration.json": "3f2526192bd9c713855a428080421707264adc35be531003840e7fe88c39093b",
     "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
     "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-    "art/blender/scripts/build_city_aerials.py": "245d2d6f733d7026fea4fd1eab896455b403570fc125b6cbdbe3c25ec5b6cd14",
+    "art/blender/scripts/build_city_aerials.py": "cfd4c36f44f5c5a1ff11f80607bcdb2068f57d03e138163b8d5168c51d52c83e",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a36111c708ce7166308c303055c1647c4e7362df7caaa0dacd9f8f6d227ca05c"
   },
   "open_work": "Source-authored static signal collectors only. Original actor/control/utility authority remains. Neighboring tanks and beacon housings remain separate batches. Whole-city weather closure and broader material acceptance remain open. Heating cutouts remain parked."
