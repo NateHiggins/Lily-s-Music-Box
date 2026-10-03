@@ -1016,3 +1016,27 @@ production routes. No completeness promotion is requested.
 The flat datum remains: coordinated main-roof falls/outlets, downstream property
 drainage, court/street-main closure, independent shop services and broader city
 geometry/material acceptance remain open. Heating cutouts stay parked.
+
+## October 3 fitted bodega frontage
+
+**art/blender/bodega_frontage.md** records the bounded continuation from published
+**036b2e4**. The three observed open bands above retained displays/transom receive
+fitted timber, beads and 6 mm upper lights. The original 950 mm inward door gains
+a raised lower infill inside its existing physical box. Saved native construction
+has **68** closed positive pieces; three installed draws contain **1,280** triangles.
+Original panes retain their solids and physical owners with a scoped clear-glass
+binding. Frame and leaf use existing quartered-oak maps with grain-aligned metre
+charts. No original doorway, shell or service-source cut is added.
+
+The focused production check passes **1,460** checks, including **1,236** exact
+fitted-face contacts and **57** original leaf poses through 168 degrees. Original
+keys, locks, maintenance, hours, schedules, saves and independent shop services
+remain. Same-camera renders and actual native inspection are bound under
+**tmp/bodega-frontage**; final publication proof belongs to
+**verified/verification.json**, comparing all 47 gates with the complete clean
+**tmp/roof-field/036b2e4-clean-board.json**. Initial name-lookup and short-ray
+diagnostic failures are retained and described in the fitting record.
+
+This does not close the broader shop-shell, drainage, independent-service or
+city/material queues, and it does not promote requirements. Heating cuts remain
+parked while shell geometry continues.

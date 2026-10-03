@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | October 1 composed city/bar batch, bound verification and next service connections | `design/V2_CITY_COMPOSITION_HANDOFF_2026-10-01.md` and `design/V2_CITY_PRODUCTION_MAP_2026-10-01.md` |
 | Retained bar restroom clearance, working sink input and pool inspection fit | `art/blender/bar_service_access.md` |
 | Supported bodega receiving room, fitted delivery leaf and sales-aisle route | `art/blender/bodega_receiving.md` |
+| Fitted bodega display frame, upper lights and original hinged-leaf infill | `art/blender/bodega_frontage.md` |
 | Resident original keys, permission at Keys Cut and saved hinged-door locks | `art/blender/resident_keys.md` |
 | Fitted front public slab, retained room/shop/shed floor ownership and paving validation | `art/blender/front_pavement.md` |
 | Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |

@@ -541,6 +541,8 @@ func _compose_exterior() -> bool:
 	add_child(exterior_cell)
 	if exterior_cell.startup_failed:
 		return false
+	if preload("res://scripts/building/orison_v2_bodega_frontage.gd").mount(exterior_cell,_blockout.architectural_materials)==null:
+		return false
 	var front_pavement:=preload("res://scripts/building/orison_v2_front_pavement.gd").new()
 	front_pavement.name="FrontPavement"
 	_blockout.add_child(front_pavement)
