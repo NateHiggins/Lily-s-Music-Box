@@ -18,6 +18,13 @@ and Bible §VIII.5.j.*
 | Interact | `E` | `interact` | uses the first authored world mechanism under the 2.1 m eye ray; while seated it operates the remembered seat instead of trying to reacquire a ray behind the player; after a non-modal object response, a powered set advances a service-wire field slip |
 | Work lamp | `L` | `lamp_toggle` / `LAMP` | moves the guarded two-state lever, changes the real SpotLight3D, beam plates and rear `LAMP` jewel together |
 | Radio power | `R` | `radio_toggle` / `RADIO` | pushes the aerial home or pulls it out and changes the rear `NET` jewel |
+| Capture visibility | `H` | `capture_device_toggle` | hides or restores the carried instrument and its paper while the lamp, radio and printer keep running |
+| Screenshot | `F` | `shot_capture` | captures the current view and records its pose in `art/renders/insitu` |
+
+The capture visibility preference lasts for the current building instance and
+starts visible in a new one. It also works with the pointer released. The
+Debug Building capture section exposes the same toggle. Hidden paper retains
+incoming reports and printing progress; press H again to read it.
 
 Controller shoulders feed those same actions: left shoulder operates the lamp
 and right shoulder operates the radio/aerial. N3 proves keyboard, controller and
@@ -146,6 +153,9 @@ the support interface through the same release path.
 
 ## Proof
 
+- `CaptureDeviceToggleTest.tscn`: real H input in V1 and V2, auto-repeat,
+  released pointer and focused text entry, unchanged lamp settings and pose,
+  hidden report delivery/printing, and visible/hidden/restored review frames.
 - `ServiceSetTest.tscn`: production scene; no PhoneCarrier/Phone3D instance,
   no screen viewport in the prop, lamp/radio/ORDER transitions, 18/18 cold-box
   areas, powered/off field-slip behavior, shared non-modal telegram, a real 4B

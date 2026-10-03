@@ -15,7 +15,9 @@ pwsh -File tools/lane.ps1 run -Scene res://scenes/ui/title_screen.tscn -Windowed
 The long runner requires an explicit scene; this opens the normal title.
 The approved long runner allows a 25-minute
 session. WASD moves, the mouse looks, E interacts, Shift runs, L switches the
-lamp, and Escape opens Building Services. At the entrance, use the lobby's
+lamp, and Escape opens Building Services. H hides or restores the handheld
+device and paper for image capture while keeping the lamp active; F captures
+the current view. At the entrance, use the lobby's
 right-side opening into the stair core, then the caretaker-room doorway to
 reach the watchman's detector and night register. Clock in and take the report.
 

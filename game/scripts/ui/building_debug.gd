@@ -867,9 +867,15 @@ func _build_capture() -> void:
 	_button(box, "Screenshot  (F)", func():
 		if root and root.shots:
 			root.shots.capture())
+	var device_toggle := _button(box, "Hide handheld device  (H)", func():
+		if root and root.shots:
+			root.shots.toggle_device_visibility())
+	device_toggle.tooltip_text = "Hide or restore the device and paper for review; the lamp stays active."
 	box.add_child(status)
 	_shot_status = status
 	if root and root.shots:
+		root.shots.device_visibility_changed.connect(func(hidden: bool):
+			device_toggle.text = ("Show" if hidden else "Hide") + " handheld device  (H)")
 		root.shots.captured.connect(func(stem, aim):
 			status.text = "%s.png · %s" % [stem, aim])
 
@@ -879,7 +885,8 @@ func _build_keys() -> void:
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
 			+ "L / left shoulder: lamp · R / right shoulder: radio\n" \
-			+ "F screenshot · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "F screenshot · H hide/show device · V noclip\n" \
+			+ "F2 intro · F3 distort · F4 chaos\n" \
 			+ "` (backtick) releases or recaptures the mouse in play\n" \
 			+ "F1 controls + pointer · F1 / Esc return to play\n" \
 			+ "Esc in play: pause · wheel scrolls these controls"

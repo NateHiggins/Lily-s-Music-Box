@@ -1,6 +1,7 @@
 class_name ShotCapture
 extends Node
 ## F drops a screenshot, and beside it the pose that took it.
+## H hides or restores the carried device and paper; its lamp stays active.
 ##
 ## Scripted camera stands only ever frame what someone already suspects is
 ## wrong. The problems that actually survive to the player — a hump at a
@@ -15,6 +16,7 @@ extends Node
 ## a "look at this" becomes a before/after.
 
 signal captured(stem: String, aim: String)
+signal device_visibility_changed(hidden: bool)
 
 ## Outside res:// on purpose: shots are review material, not game data, and
 ## they land where the rest of the renders already live.
@@ -28,9 +30,28 @@ var _busy := false
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shot_capture"):
+	if event.is_echo():
+		return
+	if event.is_action_pressed("capture_device_toggle"):
+		toggle_device_visibility()
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("shot_capture"):
 		capture()
 		get_viewport().set_input_as_handled()
+
+
+func toggle_device_visibility() -> void:
+	var owner_root := get_parent()
+	if owner_root == null or owner_root.get("player") == null:
+		return
+	var carrier := owner_root.player.carried_device as ServiceSetCarrier
+	if not is_instance_valid(carrier):
+		return
+	var hidden := not carrier.is_capture_hidden()
+	carrier.set_capture_hidden(hidden)
+	device_visibility_changed.emit(hidden)
+	print("[shot] Carried device %s; lamp and radio unchanged" %
+			("hidden" if hidden else "visible"))
 
 
 func capture() -> void:

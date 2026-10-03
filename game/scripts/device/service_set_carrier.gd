@@ -24,6 +24,8 @@ var _player: PlayerController
 var _pass_view: SubViewport
 var _pass_cam: Camera3D
 var _pass_src: Camera3D
+var _presentation_layer: CanvasLayer
+var _capture_hidden := false
 var _life := 0.0
 var _bob := 0.0
 var _sway := Vector2.ZERO
@@ -45,6 +47,18 @@ func setup(player: PlayerController, camera: Camera3D,
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
 			print_telegram_card(card))
 	set_process(true)
+
+
+## Review preference for this carrier's lifetime. Keep the live lamp, radio
+## and printer running while removing only their held-object presentation.
+func set_capture_hidden(hidden: bool) -> void:
+	_capture_hidden = hidden
+	if _presentation_layer:
+		_presentation_layer.visible = not hidden
+
+
+func is_capture_hidden() -> bool:
+	return _capture_hidden
 
 
 func set_lamp_enabled(on: bool) -> void:
@@ -175,15 +189,17 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	softbox.shadow_enabled = false
 	_pass_view.add_child(softbox)
 
-	var layer := CanvasLayer.new()
-	layer.layer = 8
-	add_child(layer)
+	_presentation_layer = CanvasLayer.new()
+	_presentation_layer.name = "ServiceSetPresentation"
+	_presentation_layer.layer = 8
+	_presentation_layer.visible = not _capture_hidden
+	add_child(_presentation_layer)
 	var rect := TextureRect.new()
 	rect.texture = _pass_view.get_texture()
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(rect)
+	_presentation_layer.add_child(rect)
 	get_viewport().size_changed.connect(_resize_pass)
 
 
