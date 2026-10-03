@@ -190376,6 +190376,138 @@
    "rationale": "Individually reviewed retained F01_A_BATH floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
    "resolved_target": "F01/room+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "29220fc871dc782b",
+   "kind": "id_reference",
+   "token": "F01_REAR_SERVICE_DOOR",
+   "file": "game/tests/orison_v2_alley_groundworks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "var rear_anchor:=world.adapter.resolve(\"F01_REAR_SERVICE_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed existing rear-service semantic anchor at (8.9,9.25). The inherited 25-waypoint continuous alley route and seven well-crossing waypoints use its existing DoorProp. Preserve canonical identity or reconcile this fixture when the source moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7d1ae5455f79ddc3",
+   "kind": "node_path",
+   "token": "F01_REAR_SERVICE_DOOR_Leaf",
+   "file": "game/tests/orison_v2_alley_groundworks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "var rear_leaf:=rear_anchor.get_node(\"F01_REAR_SERVICE_DOOR_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed existing rear-service leaf under its canonical anchor. Reopening uses real player input after the inherited route closes it; no door state or second authority is introduced.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1c854701e7a280ec",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_alley_groundworks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    41,
+    42,
+    66,
+    66,
+    66,
+    66,
+    66,
+    66,
+    66
+   ],
+   "count": 9,
+   "context": [
+    "var probe:=Vector3(16.6,-1.3,3.2)",
+    "var window_ray:=PhysicsRayQueryParameters3D.create(root.to_global(probe),root.to_global(Vector3(15.5,-1.3,3.2)),1,[player.get_rid()])",
+    "for point: Vector3 in [Vector3(8.9,0,10.7),Vector3(16.8,0,10.7),Vector3(16.8,0,4.4),Vector3(16.8,0,3.2),Vector3(16.8,0,2.0),Vector3(16.8,0,3.2),Vector3(16.8,0,4"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed actual existing boiler reveal ray and seven normal-controller well-crossing stations. Probe fits source span X15.58..15.93, sill -1.8 and head -0.8; well crosses the retained alley at X16.8/Z3.2. Update this scoped fixture with canonical geometry.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "239c13b224c2754e",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_ground_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    83,
+    83
+   ],
+   "count": 2,
+   "context": [
+    "[\"east_maint_route\",Vector3(14,1.524,10.8),Vector3(8.5,0,11)],"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed east maintenance-route camera station at (14,1.524,10.8) targeting (8.5,0,11), inside the retained rear alley. Camera observation only; normal traversal comes from the separate inherited route.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -784,3 +784,81 @@ unchanged. A clean follow-up candidate must pass the corrected complete matrix,
 the installed paving and resident-key contract before the authorized push.
 The prior eleven passing receipts remain separately attributable to **2ac3b8e**;
 they do not become follow-up-head runtime-contract proof. Heating cuts stay parked.
+
+## Fitted pavement publication
+
+Published **118d770362f1c20c9873c4d1165d86a904a637a8** includes the fitted
+paving **2ac3b8e** and the strict reconstruction-matrix owner correction.
+The unmodified candidate verifier at
+**tmp/front-pavement/matrix-followup-verified/verification.json** records a
+complete clean 47-gate comparison against **97faa90**, zero regressions,
+no requirement changes, protected paths 17/17 and retained default V2/explicit
+V1 rollback. Both imports complete; the first recreates legacy untracked
+UIDs from cache with warnings, and the second has empty stderr.
+
+The approved long matrix completes all 44 checks in 138 seconds with all four
+save/reload directions passing. Its only stderr warnings are the deliberate
+invalid-selector exercise and the existing V1 found-art placement warning.
+Fresh current-head windowed paving and resident-key runs pass 911 checks and
+84 waypoints/55 checks respectively, both with empty stderr. All five paving
+frames and 21 key-route frames are reviewed; ordinary radio foreground remains
+qualified. Eleven passing parent wrapper receipts retain their **2ac3b8e**
+attribution and still bind to unchanged current runtime/test sources. Their
+receipts are preserved without relabelling the resident-key runtime contract.
+
+The next genuine clean board is **tmp/front-pavement/118d770-clean-board.json**;
+**followup-verification-summary.json** records exact source attribution.
+Fresh production discovery at
+**tmp/shell-readiness/post-front-pavement-grade-discovery1.log.receipt.json**
+exports 782 enabled grade colliders and preserves all 48 ground stations:
+47 remain empty and one meets an existing wall. Seven new frames are reviewed.
+Overhead rays find roof-deck floors above the two front recesses at 19 m;
+the north courtyard and east airwell have no overhead collider. Those rays
+describe collision ownership, not comprehensive weather closure. The existing
+alley still covers the boiler air opening at minus 300 mm.
+
+The new uninstalled flat ground source accounts for the exact 296 fitted slab
+cells, clears 946 retained/reserved volumes and has zero nonmanifold edges.
+Its native/grid volume is approximately 4,186.17 cubic metres, with difference
+below 0.001 cubic metre; the actual saved native render is reviewed. Drainage,
+city-plinth joins, narrow wall-edge closure, boiler airwell and broader raw
+infrastructure remain open. Heating cuts stay parked; this is no whole-shell
+acceptance or ledger promotion. The authorized wider task continues.
+
+## Bounded groundworks continuation
+
+**art/blender/groundworks.md** records the fitted ground, graded original alley,
+grated boiler well, open catches and hollow construction-stage collector.
+The V2 Ground module mounts once in the existing blockout frame; ServiceAlley
+replaces only its old Paving/Iron owners and retains masonry, lamps and doors.
+The public slab/retained floors/basement roofs keep their original ownership.
+The source-bound geometry-authoring map distinguishes exact solid masks from
+occupied volumes and qualified clearance envelopes; it refuses stale bindings.
+
+The installed inspection passes 1,535 checks at all 48 original ground stations,
+including 46 actual terrain contacts and two retained embedded-masonry stations.
+The installed alley passes 195 strict mapping checks and 32 normal-controller
+waypoints, with clear well/catch outlets, collector bore and unchanged boiler
+window reveal. Reopened saved Blender sources show 277 closed alley pieces,
+32 bounded alley partitions, 198 ground partitions and no ground intrusion into
+976 retained/reserved volumes. Fresh 48,817-station native runoff discovery
+reaches all four receivers without missing/stranded samples. These are scoped
+construction observations, not downstream drainage or whole-shell acceptance.
+
+The property collector ends at local Z **-16.605 m**, X **17.75 m**, with a bolted
+construction blank awaiting the street main. It is an **ADAPTATION** physical
+recipe with no second simulation. Source water/drain services in the bar, bodega
+and arcade remain independent under the owner's prior choice. Residual courtyard
+falls/outlets, neighbor plinths/terrain, joint seals, boiler-window operating
+glazing and roof/weather/light-slot closure remain open. Heating cuts stay parked.
+
+The catalogue admits **asphalt** through its existing runtime-policy generator,
+using the original three maps and authored 2.5 m scale without a new visual lock.
+Five paired prototype view costs and nine installed ground observations are
+recorded in the construction note; they grant no frame-rate verdict. Four
+individually reviewed new test references are appended while all 6,383 existing
+spatial records remain unchanged. No ledger requirement changes are claimed.
+The clean complete baseline remains **tmp/front-pavement/118d770-clean-board.json**;
+the final named-path candidate result belongs to
+**tmp/shell-readiness/groundworks-verified/verification.json** after verification.
+The six location phases and shared infrastructure register remain unfinished.

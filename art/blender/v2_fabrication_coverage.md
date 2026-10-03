@@ -59,6 +59,7 @@ has yet been demonstrated; none is silently marked complete.
 | Household radiators and accessories | heating/accessory source and mechanism owners | Preserve one-pipe steam and service semantics; inspect support, union and vent geometry. |
 | Room lights and switches | lighting data / light_switch Blender generator | Retain completed switches; fixture bodies and mounting clearance need complete sweep. |
 | Street, entry, passage, shop installations | exterior cell / passage composition | Rear service alley fabricated and joined to the existing sidewalk, with an operating rear door. Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |
+| Bounded courtyard subgrade and alley groundworks | build_orison_ground / build_alley_groundworks / retained-grade authoring map | Fitted source volume, graded original paving, grated boiler well, open catches and hollow construction-stage collector; scoped native and walking checks in groundworks.md. Street-main connection, residual courtyard drainage, operating glazing and full weather/terrain closure remain open. |
 | Carried radiophone, teletype and lamp | existing service-set owners | Preserve accepted assembly, physical HUD, pointer and debug behavior; no redesign authorized by the inventory. |
 | Dream zoo, hero, organelles, sixteen critters | accepted zoo and Blender critter sources | Intentional preservation boundary. Keep accepted assets, behaviors and declared placeholders; regression checks remain required. |
 

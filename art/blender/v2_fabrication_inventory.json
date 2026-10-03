@@ -7412,6 +7412,9 @@
     "game/scripts/building/orison_v2_front_pavement.gd": [
       "res://assets/props/front_pavement.glb"
     ],
+    "game/scripts/building/orison_v2_ground.gd": [
+      "res://assets/props/orison_ground.glb"
+    ],
     "game/scripts/building/orison_v2_ground_core_transfer.gd": [
       "res://assets/props/ground_core_transfer.glb"
     ],
@@ -7480,6 +7483,7 @@
       "res://assets/props/roof_ventilator.glb"
     ],
     "game/scripts/building/orison_v2_service_alley.gd": [
+      "res://assets/props/alley_groundworks.glb",
       "res://assets/props/service_alley.glb"
     ],
     "game/scripts/building/orison_v2_stair_ironwork.gd": [
@@ -7509,6 +7513,7 @@
     ]
   },
   "blender_generators": [
+    "art/blender/scripts/build_alley_groundworks.py",
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
     "art/blender/scripts/build_bedding.py",
@@ -7549,6 +7554,7 @@
     "art/blender/scripts/build_millwork_profile.py",
     "art/blender/scripts/build_orison.py",
     "art/blender/scripts/build_orison_foundations.py",
+    "art/blender/scripts/build_orison_ground.py",
     "art/blender/scripts/build_public_furnishings.py",
     "art/blender/scripts/build_radiator_wall_tie.py",
     "art/blender/scripts/build_reading_furniture.py",
@@ -7614,7 +7620,10 @@
         "geometry": "game/data/orison_v2/exterior/exterior_geometry.json",
         "boundaries": "game/scripts/building/orison_v2_street_boundaries.gd",
         "front_pavement": "art/blender/scripts/build_front_pavement.py",
-        "rear_alley": "art/blender/scripts/build_service_alley.py"
+        "rear_alley": "art/blender/scripts/build_service_alley.py",
+        "alley_groundworks": "art/blender/scripts/build_alley_groundworks.py",
+        "orison_ground": "art/blender/scripts/build_orison_ground.py",
+        "ground_source": "art/data/orison_ground/retained_grade_source.json"
       },
       "bar": {
         "active": true,

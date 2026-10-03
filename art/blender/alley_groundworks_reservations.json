@@ -1,0 +1,401 @@
+{
+  "evidence_class": "INERT",
+  "reservations": [
+    {
+      "owner": "BoilerWell/ConstructionAndAir",
+      "bounds": [
+        15.915,
+        -2.45,
+        2.32,
+        18.24,
+        0.05,
+        4.08
+      ],
+      "kind": "source_bound_well_construction_and_air_reservation",
+      "note": "Retain soil below the actual well-wall bottoms. The floor bears into those sides; well air and concrete remain unfilled."
+    },
+    {
+      "owner": "Catch0/Construction",
+      "bounds": [
+        17.599,
+        -0.75575,
+        -10.708,
+        17.901,
+        0.05,
+        -10.192
+      ],
+      "kind": "source_bound_catch_construction_reservation"
+    },
+    {
+      "owner": "Catch1/Construction",
+      "bounds": [
+        17.599,
+        -0.75575,
+        1.742,
+        17.901,
+        0.05,
+        2.258
+      ],
+      "kind": "source_bound_catch_construction_reservation"
+    },
+    {
+      "owner": "Catch2/Construction",
+      "bounds": [
+        17.599,
+        -0.75708,
+        13.592,
+        17.901,
+        0.05,
+        14.108
+      ],
+      "kind": "source_bound_catch_construction_reservation"
+    },
+    {
+      "owner": "LocalCollector/Trench",
+      "bounds": [
+        17.635,
+        -2.829025,
+        -16.645,
+        17.865,
+        -2.4160000000000004,
+        14.0
+      ],
+      "kind": "source_bound_collector_service_clearance",
+      "note": "Clearance envelope around the hollow pipe and bells; not a solid-volume claim. Each saddle has its own seated bedding datum."
+    },
+    {
+      "owner": "LocalCollector/catch0",
+      "bounds": [
+        17.67,
+        -2.79825,
+        -10.530000000000001,
+        17.83,
+        -0.63575,
+        -10.370000000000001
+      ],
+      "kind": "source_bound_drain_leg_clearance"
+    },
+    {
+      "owner": "LocalCollector/catch1",
+      "bounds": [
+        17.67,
+        -2.7359999999999998,
+        1.92,
+        17.83,
+        -0.63575,
+        2.08
+      ],
+      "kind": "source_bound_drain_leg_clearance"
+    },
+    {
+      "owner": "LocalCollector/catch2",
+      "bounds": [
+        17.67,
+        -2.67675,
+        13.77,
+        17.83,
+        -0.63708,
+        13.93
+      ],
+      "kind": "source_bound_drain_leg_clearance"
+    },
+    {
+      "owner": "LocalCollector/well",
+      "bounds": [
+        17.67,
+        -2.73,
+        3.12,
+        17.83,
+        -2.23,
+        3.2800000000000002
+      ],
+      "kind": "source_bound_drain_leg_clearance"
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed0",
+      "bounds": [
+        17.56,
+        -2.99843,
+        -16.685,
+        17.94,
+        -2.67842,
+        -16.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed1",
+      "bounds": [
+        17.56,
+        -2.99093,
+        -15.185,
+        17.94,
+        -2.67092,
+        -14.785
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed2",
+      "bounds": [
+        17.56,
+        -2.98343,
+        -13.685,
+        17.94,
+        -2.66342,
+        -13.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed3",
+      "bounds": [
+        17.56,
+        -2.97592,
+        -12.185,
+        17.94,
+        -2.65592,
+        -11.785
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed4",
+      "bounds": [
+        17.56,
+        -2.96843,
+        -10.685,
+        17.94,
+        -2.64842,
+        -10.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed5",
+      "bounds": [
+        17.56,
+        -2.96093,
+        -9.185,
+        17.94,
+        -2.64092,
+        -8.785
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed6",
+      "bounds": [
+        17.56,
+        -2.95343,
+        -7.685,
+        17.94,
+        -2.63342,
+        -7.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed7",
+      "bounds": [
+        17.56,
+        -2.94592,
+        -6.185,
+        17.94,
+        -2.62592,
+        -5.785
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed8",
+      "bounds": [
+        17.56,
+        -2.93843,
+        -4.685,
+        17.94,
+        -2.61842,
+        -4.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed9",
+      "bounds": [
+        17.56,
+        -2.93093,
+        -3.185,
+        17.94,
+        -2.61092,
+        -2.785
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed10",
+      "bounds": [
+        17.56,
+        -2.92343,
+        -1.685,
+        17.94,
+        -2.60343,
+        -1.285
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed11",
+      "bounds": [
+        17.56,
+        -2.91593,
+        -0.185,
+        17.94,
+        -2.59592,
+        0.215
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed12",
+      "bounds": [
+        17.56,
+        -2.90843,
+        1.315,
+        17.94,
+        -2.58842,
+        1.715
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed13",
+      "bounds": [
+        17.56,
+        -2.90093,
+        2.815,
+        17.94,
+        -2.58092,
+        3.215
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed14",
+      "bounds": [
+        17.56,
+        -2.89342,
+        4.315,
+        17.94,
+        -2.57342,
+        4.715
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed15",
+      "bounds": [
+        17.56,
+        -2.88593,
+        5.815,
+        17.94,
+        -2.56592,
+        6.215
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed16",
+      "bounds": [
+        17.56,
+        -2.87843,
+        7.315,
+        17.94,
+        -2.55842,
+        7.715
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed17",
+      "bounds": [
+        17.56,
+        -2.87093,
+        8.815,
+        17.94,
+        -2.55093,
+        9.215
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed18",
+      "bounds": [
+        17.56,
+        -2.86343,
+        10.315,
+        17.94,
+        -2.54342,
+        10.715
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed19",
+      "bounds": [
+        17.56,
+        -2.85593,
+        11.815,
+        17.94,
+        -2.53592,
+        12.215
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    },
+    {
+      "owner": "LocalCollector/CollectorSaddleBed20",
+      "bounds": [
+        17.56,
+        -2.84843,
+        13.315,
+        17.94,
+        -2.52842,
+        13.715
+      ],
+      "kind": "source_bound_saddle_bedding_reservation",
+      "note": "Reserved construction envelope, with actual flat underside seated directly on the remaining native soil."
+    }
+  ],
+  "bindings": {
+    "art/blender/alley_groundworks.blend": "eb1279f3f43df3ca38bc891d0789e3d8da21d6de27159b1ebb09887d1fb00b5c",
+    "game/assets/props/alley_groundworks.glb": "c69d2d8a8097a2124785632e4495d0dc118c7228ca4a703201781d609dbe0ea4",
+    "art/blender/alley_groundworks_construction.json": "b266b18fce022afbf8d799261370223ad704e82cb3bc44cff6c12a8967ce2cbe"
+  },
+  "well_wall_bottom": -2.45,
+  "well_mouth": [
+    15.93,
+    2.46,
+    18.0,
+    3.9400000000000004
+  ],
+  "note": "Native closed-piece validation and explicit construction/air reservations only. Soil capacity and waterproofing are unaccepted."
+}

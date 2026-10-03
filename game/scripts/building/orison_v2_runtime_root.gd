@@ -537,6 +537,9 @@ func _compose_exterior() -> bool:
 	var front_pavement:=preload("res://scripts/building/orison_v2_front_pavement.gd").new()
 	front_pavement.name="FrontPavement"
 	_blockout.add_child(front_pavement)
+	var ground:=preload("res://scripts/building/orison_v2_ground.gd").new()
+	ground.name="Ground"
+	_blockout.add_child(ground)
 	var receiving := preload("res://scripts/building/orison_v2_bodega_receiving.gd").new()
 	receiving.name = "BodegaReceiving"
 	if not receiving.configure(exterior_cell):
