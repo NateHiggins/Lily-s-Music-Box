@@ -10,6 +10,7 @@ func _ready() -> void:
 	var model := ASSET.instantiate() as Node3D
 	add_child(model)
 	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		mesh.set_meta("retained_city_shell",true)
 		var key := str(mesh.name).split("__")[-1]
 		assert(MatLib.SETS.has(key),"City material must be catalogued: " + key)
 		mesh.material_override = MatLib.get_mat(key)

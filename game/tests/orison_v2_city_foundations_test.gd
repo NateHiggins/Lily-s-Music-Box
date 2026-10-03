@@ -102,6 +102,14 @@ func _run() -> void:
 	var air_ray:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(16.6,-1.3,3.2)),root.to_global(Vector3(15.5,-1.3,3.2)),1,[world.player.get_rid()])
 	var air_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	print("POST PAVEMENT AIR THROAT: owner=",str(world.get_path_to(air_hit.collider)) if not air_hit.is_empty() else "empty")
+	var sash: Node3D=root.get_node("B1_BOILER_AIR_E/OperatingWindow/Fabrication/Sash")
+	check(not air_hit.is_empty() and sash.is_ancestor_of(air_hit.collider),"retained closed operating sash supplies the actual boiler-window closure")
+	# The ground contract excludes only the movable sash installed after the
+	# original terrain discovery. Its fixed reveal and all terrain stay tested.
+	var air_exclude: Array[RID]=[world.player.get_rid()]
+	for body: CollisionObject3D in sash.find_children("*","CollisionObject3D",true,false):air_exclude.append(body.get_rid())
+	air_ray.exclude=air_exclude
+	air_hit=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	check(air_hit.is_empty(),"ground subgrade preserves the existing open collision throat of the boiler window")
 	var camera: Camera3D=world.player.camera;camera.make_current();camera.fov=65
 	var observations: Array=[]

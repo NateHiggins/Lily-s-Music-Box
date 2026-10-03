@@ -20,6 +20,10 @@ func _run() -> void:
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null and not material.uv1_triplanar,"all original aerials receive existing metal maps with native metre charts")
 		check(draw.get_node("MastCollision/Surface").shape is ConcavePolygonShape3D,"visible aerial partition has native triangle collision")
+		var shape: CollisionShape3D=draw.get_node("MastCollision/Surface")
+		var physical_mesh:=shape.shape as ConcavePolygonShape3D
+		check(physical_mesh!=null and physical_mesh.get_faces()==draw.mesh.get_faces(),"every installed mast triangle has identical physical backing")
+		check(shape.global_transform.is_equal_approx(draw.global_transform),"mast collision and visible triangles share the actual world pose")
 		var size: Vector3=draw.mesh.get_aabb().size
 		check(size.x<4.0001 and size.y<4.0001 and size.z<4.0001,"actual partition stays in its four metre cell")
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"actual imported counts bind source inventory")

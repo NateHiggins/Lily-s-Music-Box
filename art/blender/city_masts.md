@@ -63,7 +63,9 @@ connected fabrication, source bindings, partition bounds and relative maps.
 It renders assembly, base and anchor views with read-only city context.
 The installed test checks 100 plate centres plus 400 corners against original
 city collision, 75 clear guy spans and four paired production camera views.
-The focused installed run passes **2,364 checks** with zero failures.
+The initial focused installed run passes **2,364 checks** with zero failures.
+Final verification also compares every collision triangle and actual world
+pose with its visible partition, retaining all 84 original city-shell checks.
 Street visibility is limited by the nearer buildings. Render counters are
 observations, not frame-rate proof. Normal walking and retained behavior are
 checked separately by the candidate suites.
@@ -76,7 +78,7 @@ Branch / HEAD / origin/main / merge-base: canonical **main**, named-path
 candidate over **ec25d42d57559f2f61c027f91506c1fbe410af3e**. Exact publication
 identity and cleanliness belong to the bound report. The complete clean
 baseline is **tmp/bodega-frontage/ec25d42-clean-board.json**. Final publication
-proof belongs to **tmp/city-masts/verified/verification.json**. Protected 17/17,
+proof belongs to **tmp/city-masts/final-verified/verification.json**. Protected 17/17,
 default V2 and explicit V1 rollback are enforced by the verifier. This INERT
 record does not promote the completeness ledger. Reader NEW unread and gate
 regressions must remain zero.
@@ -88,6 +90,13 @@ found eight unsupported corners on four anchors and one blocked wire span;
 the anchors are fitted to complete visible faces rather than accepting only
 their centre hits. Export-hook failures are retained as failed construction
 attempts. The generator's final strict counter rejects a partial correction.
+The first candidate verification also exposed two older harness assumptions:
+the city composition census included new rooftop hardware among its 84 shell
+partitions, and the terrain check assumed the subsequently fitted operating
+boiler sash was absent. Original shell meshes are now explicitly identified;
+their full census and probes remain. The terrain check requires the actual
+closed sash, then excludes only that moving leaf when checking the ground's
+open throat. Fixed reveal, terrain and backing tolerances remain unchanged.
 
 Changes outside asset/runtime/test paths: two precision import sidecars, hash
 attributes, three exact derived-image ignore entries and document indices.

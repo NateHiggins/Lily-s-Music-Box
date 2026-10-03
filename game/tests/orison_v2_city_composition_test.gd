@@ -41,7 +41,9 @@ func _run() -> void:
 				var expected: float = HarukiyaStateDirector.FIXTURE_STATES.get(str(fixture.name),HarukiyaStateDirector.DEFAULT)[state]
 				check(is_equal_approx(fixture._state_gain,expected),"existing hours direct actual fixture: " + str(fixture.name))
 		var shells := world.get_node("CityShells")
-		var meshes := shells.find_children("*","MeshInstance3D",true,false)
+		var meshes: Array[MeshInstance3D]=[]
+		for draw: MeshInstance3D in shells.find_children("*","MeshInstance3D",true,false):
+			if draw.get_meta("retained_city_shell",false):meshes.append(draw)
 		check(meshes.size()==84,"building and material partitions retained")
 		for mesh: MeshInstance3D in meshes:
 			var material := mesh.material_override as StandardMaterial3D
