@@ -77,7 +77,7 @@ night-shift maintenance tenant. Godot 4.7.1, Blender, Python. Repository
 **The team.** One owner. Claude Code sessions (author trailer
 `Co-Authored-By: Claude ...`, long narrative commit bodies). An OpenAI Codex
 agent called **Astra** (model `gpt-6-astra` at ultra effort, no approval
-prompts, full sandbox access per `C:/Users/nate_/.codex/config.toml`; short
+prompts, full sandbox access per the owner's `~/.codex/config.toml`; short
 imperative subjects, empty commit bodies). Both agents commit under the
 owner's git identity and share one working tree. The rules file both read is
 `AGENTS.md`; `CLAUDE.md` is literally the one line `@AGENTS.md`.
