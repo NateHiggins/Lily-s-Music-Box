@@ -126,3 +126,29 @@ retained rehearsal failure remain in the baseline. Only the five individually
 reviewed test room identities are appended to the spatial manifest; no gate,
 runner, baseline or protected receipt is rewritten. Clean committed candidate
 comparison is still required before the authorized push.
+
+## Reconstruction-matrix owner boundary
+
+The committed **2ac3b8e** attempt at **tmp/front-pavement/verified/verification.json**
+has zero static regressions and eleven completed, source-bound windowed suites,
+but the additional V1/V2 reconstruction matrix reached 180 seconds. It is blocked
+and is not a publication receipt. The approved long windowed repeat at
+**tmp/front-pavement/matrix-recheck/matrix.log.receipt.json** completes in 239 seconds:
+all four reconstruction directions preserve calendar, inventory, case and optical
+state; one acoustic-restoration assertion fails.
+
+The separate actual owner probe at **tmp/front-pavement/matrix-acoustic-probe1.log.receipt.json**
+and **matrix-acoustic-probe.json** confirms that scoped adapter restoration matches
+the complete expected graph. Its only remaining pre-world differences are the
+21 independently resident bar mouths. The test previously required the adapter
+to unmount the bar while the bar was still live. The corrected matrix compares
+all owned adapter originals with the pre-world records, checks disjoint bar
+ownership, requires the whole graph to match those restored records plus every
+unaffected active owner, and retains the exact full-graph world-teardown check.
+Runtime acoustic code and bar poses are unchanged. No suite failure is waived.
+
+The paving asset, affected-route evidence and existing material state remain
+unchanged. A clean follow-up candidate must pass the corrected complete matrix,
+the installed paving and resident-key contract before the authorized push.
+The prior eleven passing receipts remain separately attributable to **2ac3b8e**;
+they do not become follow-up-head runtime-contract proof. Heating cuts stay parked.
