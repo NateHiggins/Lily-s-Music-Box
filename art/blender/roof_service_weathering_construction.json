@@ -1,0 +1,1487 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "authority": [
+    "art/data/orison_v2/roof_source.json:ROOF_SERVICE_CORE",
+    "game/data/orison_v2_blockout.json:dimensions"
+  ],
+  "source_bindings": {
+    "game\\data\\orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art\\data\\orison_v2\\roof_source.json": "e1cbfa59244c0c3eb9ee5323db15282ee7618eafc55782003713440005b414d9",
+    "art\\data\\roof_service_weather\\source_plan.json": "5a6edb5816153978714031be52ee8085df6b8ee6473a9e680fd99be586702027"
+  },
+  "cap_outer_rect": [
+    9.43,
+    0.22999999999999998,
+    13.27,
+    10.27
+  ],
+  "retained_cap_top": 22.4,
+  "bearing_toe": 0.003,
+  "sheet_thickness": 0.0012,
+  "roof_fall": 0.01,
+  "gutter_x": 13.325,
+  "gutter_z": [
+    0.22999999999999998,
+    10.27
+  ],
+  "gutter_radius": 0.05,
+  "gutter_wall": 0.0012,
+  "gutter_fall": 0.005,
+  "gutter_low_y": 22.345,
+  "outlet_z": 10.08,
+  "leader_bore_radius": 0.0381,
+  "leader_y": [
+    19.224999999999998,
+    22.333
+  ],
+  "parts": 6,
+  "native_triangles": 4546,
+  "sheets": [
+    {
+      "id": "ServiceRoofBearing_0_0",
+      "key": "concrete",
+      "rect": [
+        9.43,
+        0.22999999999999998,
+        13.27,
+        3.576666666666666
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "ServiceRoofBearing_0_1",
+      "key": "concrete",
+      "rect": [
+        9.43,
+        3.576666666666666,
+        13.27,
+        6.923333333333332
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "ServiceRoofBearing_0_2",
+      "key": "concrete",
+      "rect": [
+        9.43,
+        6.923333333333332,
+        13.27,
+        10.27
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "ServiceRoofSheet_00_00",
+      "key": "metal",
+      "rect": [
+        9.43,
+        0.22999999999999998,
+        10.067,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_01",
+      "key": "metal",
+      "rect": [
+        9.43,
+        1.3455555555555554,
+        10.067,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_02",
+      "key": "metal",
+      "rect": [
+        9.43,
+        2.461111111111111,
+        10.067,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_03",
+      "key": "metal",
+      "rect": [
+        9.43,
+        3.576666666666666,
+        10.067,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_04",
+      "key": "metal",
+      "rect": [
+        9.43,
+        4.692222222222222,
+        10.067,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_05",
+      "key": "metal",
+      "rect": [
+        9.43,
+        5.807777777777778,
+        10.067,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_06",
+      "key": "metal",
+      "rect": [
+        9.43,
+        6.923333333333332,
+        10.067,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_07",
+      "key": "metal",
+      "rect": [
+        9.43,
+        8.03888888888889,
+        10.067,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_00_08",
+      "key": "metal",
+      "rect": [
+        9.43,
+        9.154444444444444,
+        10.067,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_00",
+      "key": "metal",
+      "rect": [
+        10.073,
+        0.22999999999999998,
+        10.706999999999999,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_00",
+      "key": "metal",
+      "rect": [
+        10.067,
+        0.22999999999999998,
+        10.073,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_01",
+      "key": "metal",
+      "rect": [
+        10.073,
+        1.3455555555555554,
+        10.706999999999999,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_01",
+      "key": "metal",
+      "rect": [
+        10.067,
+        1.3455555555555554,
+        10.073,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_02",
+      "key": "metal",
+      "rect": [
+        10.073,
+        2.461111111111111,
+        10.706999999999999,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_02",
+      "key": "metal",
+      "rect": [
+        10.067,
+        2.461111111111111,
+        10.073,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_03",
+      "key": "metal",
+      "rect": [
+        10.073,
+        3.576666666666666,
+        10.706999999999999,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_03",
+      "key": "metal",
+      "rect": [
+        10.067,
+        3.576666666666666,
+        10.073,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_04",
+      "key": "metal",
+      "rect": [
+        10.073,
+        4.692222222222222,
+        10.706999999999999,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_04",
+      "key": "metal",
+      "rect": [
+        10.067,
+        4.692222222222222,
+        10.073,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_05",
+      "key": "metal",
+      "rect": [
+        10.073,
+        5.807777777777778,
+        10.706999999999999,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_05",
+      "key": "metal",
+      "rect": [
+        10.067,
+        5.807777777777778,
+        10.073,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_06",
+      "key": "metal",
+      "rect": [
+        10.073,
+        6.923333333333332,
+        10.706999999999999,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_06",
+      "key": "metal",
+      "rect": [
+        10.067,
+        6.923333333333332,
+        10.073,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_07",
+      "key": "metal",
+      "rect": [
+        10.073,
+        8.03888888888889,
+        10.706999999999999,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_07",
+      "key": "metal",
+      "rect": [
+        10.067,
+        8.03888888888889,
+        10.073,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_01_08",
+      "key": "metal",
+      "rect": [
+        10.073,
+        9.154444444444444,
+        10.706999999999999,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_01_08",
+      "key": "metal",
+      "rect": [
+        10.067,
+        9.154444444444444,
+        10.073,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_00",
+      "key": "metal",
+      "rect": [
+        10.713,
+        0.22999999999999998,
+        11.347,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_00",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        0.22999999999999998,
+        10.713,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_01",
+      "key": "metal",
+      "rect": [
+        10.713,
+        1.3455555555555554,
+        11.347,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_01",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        1.3455555555555554,
+        10.713,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_02",
+      "key": "metal",
+      "rect": [
+        10.713,
+        2.461111111111111,
+        11.347,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_02",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        2.461111111111111,
+        10.713,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_03",
+      "key": "metal",
+      "rect": [
+        10.713,
+        3.576666666666666,
+        11.347,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_03",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        3.576666666666666,
+        10.713,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_04",
+      "key": "metal",
+      "rect": [
+        10.713,
+        4.692222222222222,
+        11.347,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_04",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        4.692222222222222,
+        10.713,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_05",
+      "key": "metal",
+      "rect": [
+        10.713,
+        5.807777777777778,
+        11.347,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_05",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        5.807777777777778,
+        10.713,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_06",
+      "key": "metal",
+      "rect": [
+        10.713,
+        6.923333333333332,
+        11.347,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_06",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        6.923333333333332,
+        10.713,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_07",
+      "key": "metal",
+      "rect": [
+        10.713,
+        8.03888888888889,
+        11.347,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_07",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        8.03888888888889,
+        10.713,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_02_08",
+      "key": "metal",
+      "rect": [
+        10.713,
+        9.154444444444444,
+        11.347,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_02_08",
+      "key": "metal",
+      "rect": [
+        10.706999999999999,
+        9.154444444444444,
+        10.713,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_00",
+      "key": "metal",
+      "rect": [
+        11.353,
+        0.22999999999999998,
+        11.987,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_00",
+      "key": "metal",
+      "rect": [
+        11.347,
+        0.22999999999999998,
+        11.353,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_01",
+      "key": "metal",
+      "rect": [
+        11.353,
+        1.3455555555555554,
+        11.987,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_01",
+      "key": "metal",
+      "rect": [
+        11.347,
+        1.3455555555555554,
+        11.353,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_02",
+      "key": "metal",
+      "rect": [
+        11.353,
+        2.461111111111111,
+        11.987,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_02",
+      "key": "metal",
+      "rect": [
+        11.347,
+        2.461111111111111,
+        11.353,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_03",
+      "key": "metal",
+      "rect": [
+        11.353,
+        3.576666666666666,
+        11.987,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_03",
+      "key": "metal",
+      "rect": [
+        11.347,
+        3.576666666666666,
+        11.353,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_04",
+      "key": "metal",
+      "rect": [
+        11.353,
+        4.692222222222222,
+        11.987,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_04",
+      "key": "metal",
+      "rect": [
+        11.347,
+        4.692222222222222,
+        11.353,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_05",
+      "key": "metal",
+      "rect": [
+        11.353,
+        5.807777777777778,
+        11.987,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_05",
+      "key": "metal",
+      "rect": [
+        11.347,
+        5.807777777777778,
+        11.353,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_06",
+      "key": "metal",
+      "rect": [
+        11.353,
+        6.923333333333332,
+        11.987,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_06",
+      "key": "metal",
+      "rect": [
+        11.347,
+        6.923333333333332,
+        11.353,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_07",
+      "key": "metal",
+      "rect": [
+        11.353,
+        8.03888888888889,
+        11.987,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_07",
+      "key": "metal",
+      "rect": [
+        11.347,
+        8.03888888888889,
+        11.353,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_03_08",
+      "key": "metal",
+      "rect": [
+        11.353,
+        9.154444444444444,
+        11.987,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_03_08",
+      "key": "metal",
+      "rect": [
+        11.347,
+        9.154444444444444,
+        11.353,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_00",
+      "key": "metal",
+      "rect": [
+        11.993,
+        0.22999999999999998,
+        12.626999999999999,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_00",
+      "key": "metal",
+      "rect": [
+        11.987,
+        0.22999999999999998,
+        11.993,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_01",
+      "key": "metal",
+      "rect": [
+        11.993,
+        1.3455555555555554,
+        12.626999999999999,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_01",
+      "key": "metal",
+      "rect": [
+        11.987,
+        1.3455555555555554,
+        11.993,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_02",
+      "key": "metal",
+      "rect": [
+        11.993,
+        2.461111111111111,
+        12.626999999999999,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_02",
+      "key": "metal",
+      "rect": [
+        11.987,
+        2.461111111111111,
+        11.993,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_03",
+      "key": "metal",
+      "rect": [
+        11.993,
+        3.576666666666666,
+        12.626999999999999,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_03",
+      "key": "metal",
+      "rect": [
+        11.987,
+        3.576666666666666,
+        11.993,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_04",
+      "key": "metal",
+      "rect": [
+        11.993,
+        4.692222222222222,
+        12.626999999999999,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_04",
+      "key": "metal",
+      "rect": [
+        11.987,
+        4.692222222222222,
+        11.993,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_05",
+      "key": "metal",
+      "rect": [
+        11.993,
+        5.807777777777778,
+        12.626999999999999,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_05",
+      "key": "metal",
+      "rect": [
+        11.987,
+        5.807777777777778,
+        11.993,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_06",
+      "key": "metal",
+      "rect": [
+        11.993,
+        6.923333333333332,
+        12.626999999999999,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_06",
+      "key": "metal",
+      "rect": [
+        11.987,
+        6.923333333333332,
+        11.993,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_07",
+      "key": "metal",
+      "rect": [
+        11.993,
+        8.03888888888889,
+        12.626999999999999,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_07",
+      "key": "metal",
+      "rect": [
+        11.987,
+        8.03888888888889,
+        11.993,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_04_08",
+      "key": "metal",
+      "rect": [
+        11.993,
+        9.154444444444444,
+        12.626999999999999,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_04_08",
+      "key": "metal",
+      "rect": [
+        11.987,
+        9.154444444444444,
+        11.993,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_00",
+      "key": "metal",
+      "rect": [
+        12.633,
+        0.22999999999999998,
+        13.27,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_00",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        0.22999999999999998,
+        12.633,
+        1.3455555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_01",
+      "key": "metal",
+      "rect": [
+        12.633,
+        1.3455555555555554,
+        13.27,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_01",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        1.3455555555555554,
+        12.633,
+        2.461111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_02",
+      "key": "metal",
+      "rect": [
+        12.633,
+        2.461111111111111,
+        13.27,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_02",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        2.461111111111111,
+        12.633,
+        3.576666666666666
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_03",
+      "key": "metal",
+      "rect": [
+        12.633,
+        3.576666666666666,
+        13.27,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_03",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        3.576666666666666,
+        12.633,
+        4.692222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_04",
+      "key": "metal",
+      "rect": [
+        12.633,
+        4.692222222222222,
+        13.27,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_04",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        4.692222222222222,
+        12.633,
+        5.807777777777778
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_05",
+      "key": "metal",
+      "rect": [
+        12.633,
+        5.807777777777778,
+        13.27,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_05",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        5.807777777777778,
+        12.633,
+        6.923333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_06",
+      "key": "metal",
+      "rect": [
+        12.633,
+        6.923333333333332,
+        13.27,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_06",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        6.923333333333332,
+        12.633,
+        8.03888888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_07",
+      "key": "metal",
+      "rect": [
+        12.633,
+        8.03888888888889,
+        13.27,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_07",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        8.03888888888889,
+        12.633,
+        9.154444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSheet_05_08",
+      "key": "metal",
+      "rect": [
+        12.633,
+        9.154444444444444,
+        13.27,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofSeam_05_08",
+      "key": "metal",
+      "rect": [
+        12.626999999999999,
+        9.154444444444444,
+        12.633,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofDrainApron",
+      "key": "metal",
+      "rect": [
+        13.251999999999999,
+        0.22999999999999998,
+        13.332999999999998,
+        10.27
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallPlate_0",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        10.045,
+        13.272,
+        10.115
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallTongue_0",
+      "key": "metal",
+      "rect": [
+        13.27,
+        10.068,
+        13.285699999999999,
+        10.092
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallPlate_1",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        10.045,
+        13.272,
+        10.115
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallTongue_1",
+      "key": "metal",
+      "rect": [
+        13.27,
+        10.068,
+        13.285699999999999,
+        10.092
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallPlate_2",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        10.045,
+        13.272,
+        10.115
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofLeaderWallTongue_2",
+      "key": "metal",
+      "rect": [
+        13.27,
+        10.068,
+        13.285699999999999,
+        10.092
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_00",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        0.21799999999999997,
+        13.337,
+        0.242
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_01",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        1.3335555555555554,
+        13.337,
+        1.3575555555555554
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_02",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        2.449111111111111,
+        13.337,
+        2.473111111111111
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_03",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        3.564666666666666,
+        13.337,
+        3.5886666666666662
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_04",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        4.6802222222222225,
+        13.337,
+        4.704222222222222
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_05",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        5.795777777777778,
+        13.337,
+        5.8197777777777775
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_06",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        6.911333333333332,
+        13.337,
+        6.935333333333332
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_07",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        8.02688888888889,
+        13.337,
+        8.05088888888889
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_08",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        9.142444444444443,
+        13.337,
+        9.166444444444444
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "ServiceRoofGutterBracket_09",
+      "key": "metal",
+      "rect": [
+        13.267999999999999,
+        10.258,
+        13.337,
+        10.282
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    }
+  ],
+  "seam_recipe": {
+    "x": [
+      10.07,
+      10.709999999999999,
+      11.35,
+      11.99,
+      12.629999999999999
+    ],
+    "half_width": 0.003,
+    "extra_height": 0
+  },
+  "leader_wall_plates": [
+    19.8,
+    21.0,
+    22.032999999999998
+  ],
+  "open_work": "Downstream main roof field drainage and property connection; public-core light court; final weather materials."
+}

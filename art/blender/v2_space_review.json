@@ -1,0 +1,5817 @@
+{
+  "evidence_class": "INERT",
+  "spaces": [
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.7519998550415,
+            -3.17000007629395,
+            -2.61800003051758
+          ],
+          "image": "B1_LAUNDRY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -3.44799995422363,
+            -3.17000007629395,
+            2.61800003051758
+          ],
+          "image": "B1_LAUNDRY_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 22,
+      "id": "B1_LAUNDRY",
+      "level": "B1",
+      "purpose": "shared wringer washing, rinse tubs and ceiling airer",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            -3.17000007629395,
+            1.30900001525879
+          ],
+          "image": "B1_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            -3.17000007629395,
+            -2.61800003051758
+          ],
+          "image": "B1_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "B1_PUBLIC_CORE",
+      "level": "B1",
+      "purpose": "readable basement arrival and primary stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg",
+      "focused_followup": "art/blender/basement_fabrication.md",
+      "focused_scope": "Stair foundation filled; 12 contacts and 11 waypoints pass."
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            6.05600023269653,
+            -3.17000007629395,
+            -0.400000005960464
+          ],
+          "image": "B1_BOILER_APPROACH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.8439998626709,
+            -3.17000007629395,
+            -0.400000005960464
+          ],
+          "image": "B1_BOILER_APPROACH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 10,
+      "id": "B1_BOILER_APPROACH",
+      "level": "B1",
+      "purpose": "lit 1.2 m core-to-boiler retreat route",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.4840002059937,
+            -3.17000007629395,
+            -3.98000001907349
+          ],
+          "image": "B1_BOILER_ROOM_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.6660003662109,
+            -3.17000007629395,
+            2.48000001907349
+          ],
+          "image": "B1_BOILER_ROOM_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 23,
+      "id": "B1_BOILER_ROOM",
+      "level": "B1",
+      "purpose": "heat plant, water-column comparison and firing access",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -2.03999996185303,
+            0.0299999993294477,
+            -14.46399974823
+          ],
+          "image": "F01_STREET_APRON_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.03999996185303,
+            0.0299999993294477,
+            -12.1859998703003
+          ],
+          "image": "F01_STREET_APRON_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F01_STREET_APRON",
+      "level": "F01",
+      "purpose": "street threshold review approach",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.15200042724609,
+            0.0299999993294477,
+            9.6899995803833
+          ],
+          "image": "F01_REAR_APRON_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.64799976348877,
+            0.0299999993294477,
+            11.5600004196167
+          ],
+          "image": "F01_REAR_APRON_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 21,
+      "id": "F01_REAR_APRON",
+      "level": "F01",
+      "purpose": "rear service receiving approach",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.63199996948242,
+            0.0299999993294477,
+            -10.8579998016357
+          ],
+          "image": "F01_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            1.63199996948242,
+            0.0299999993294477,
+            -10.0419998168945
+          ],
+          "image": "F01_VESTIBULE_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 17,
+      "id": "F01_VESTIBULE",
+      "level": "F01",
+      "purpose": "weather lock and address",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -3.67199993133545,
+            0.0299999993294477,
+            -8.38599967956543
+          ],
+          "image": "F01_LOBBY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            3.67199993133545,
+            0.0299999993294477,
+            -4.71400022506714
+          ],
+          "image": "F01_LOBBY_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F01_LOBBY",
+      "level": "F01",
+      "purpose": "arrival, waiting and orientation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg",
+      "focused_followup": "art/blender/public_furnishings.md",
+      "focused_scope": "Fixed benches/racks fabricated; four contacts, solid intersection and 29 route waypoints pass. Material and interaction work remain."
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -4.01399993896484,
+            0.0299999993294477,
+            -1.64999997615814
+          ],
+          "image": "F01_WATCH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -1.87199997901917,
+            0.0299999993294477,
+            -3.14599990844727
+          ],
+          "image": "F01_WATCH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "F01_WATCH",
+      "level": "F01",
+      "purpose": "watch, keys and annunciator",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.59200000762939,
+            0.0299999993294477,
+            -3.14599990844727
+          ],
+          "image": "F01_MAIL_TELEPHONE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.00799989700317,
+            0.0299999993294477,
+            -0.153999999165535
+          ],
+          "image": "F01_MAIL_TELEPHONE_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "F01_MAIL_TELEPHONE",
+      "level": "F01",
+      "purpose": "mail and house-line custody",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.59200000762939,
+            0.0299999993294477,
+            1.14199995994568
+          ],
+          "image": "F01_PACKAGE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.00799989700317,
+            0.0299999993294477,
+            2.40000009536743
+          ],
+          "image": "F01_PACKAGE_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 21,
+      "id": "F01_PACKAGE",
+      "level": "F01",
+      "purpose": "secure parcel handling",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg",
+      "focused_followup": "art/blender/public_furnishings.md",
+      "focused_scope": "Fixed benches/racks fabricated; four contacts, solid intersection and 29 route waypoints pass. Material and interaction work remain."
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.6180000305176,
+            0.0299999993294477,
+            -2.32999992370605
+          ],
+          "image": "F01_COMMON_B_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -10.2320003509521,
+            0.0299999993294477,
+            4.13000011444092
+          ],
+          "image": "F01_COMMON_B_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F01_COMMON_B",
+      "level": "F01",
+      "purpose": "resident meeting and reading",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.143999993801117,
+            0.0299999993294477,
+            1.30900001525879
+          ],
+          "image": "F01_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.3439998626709,
+            0.0299999993294477,
+            -2.61800003051758
+          ],
+          "image": "F01_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F01_PUBLIC_CORE",
+      "level": "F01",
+      "purpose": "passenger lift and primary stair approach",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            0.0299999993294477,
+            -0.340000003576279
+          ],
+          "image": "F01_CORE_TO_SERVICE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            0.0299999993294477,
+            0.340000003576279
+          ],
+          "image": "F01_CORE_TO_SERVICE_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 15,
+      "id": "F01_CORE_TO_SERVICE",
+      "level": "F01",
+      "purpose": "controlled public-to-service transfer",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            0.0299999993294477,
+            -6.28999996185303
+          ],
+          "image": "F01_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            0.0299999993294477,
+            6.28999996185303
+          ],
+          "image": "F01_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 5,
+      "id": "F01_SERVICE_HALL",
+      "level": "F01",
+      "purpose": "staff, delivery and maintenance route",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            0.0299999993294477,
+            1.88399994373322
+          ],
+          "image": "F01_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            0.0299999993294477,
+            5.25
+          ],
+          "image": "F01_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "F01_SERVICE_CORE",
+      "level": "F01",
+      "purpose": "service lift and stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_00.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.61600005626678,
+            3.23000001907349,
+            -2.71799993515015
+          ],
+          "image": "F02_LANDING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -1.61600005626678,
+            3.23000001907349,
+            -0.0320000015199184
+          ],
+          "image": "F02_LANDING_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F02_LANDING",
+      "level": "F02",
+      "purpose": "floor and unit decision",
+      "status": "overview_obstructed_needs_targeted_view",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            3.23000001907349,
+            -0.203999996185303
+          ],
+          "image": "F02_WEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            3.23000001907349,
+            0.0
+          ],
+          "image": "F02_WEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 8,
+      "id": "F02_WEST_HALL",
+      "level": "F02",
+      "purpose": "2A public approach",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.23799991607666,
+            3.23000001907349,
+            0.0
+          ],
+          "image": "F02_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.24350023269653,
+            3.23000001907349,
+            -0.917999982833862
+          ],
+          "image": "F02_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_A_VESTIBULE",
+      "level": "F02",
+      "purpose": "2A privacy and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.3540000915527,
+            3.23000001907349,
+            -1.55649995803833
+          ],
+          "image": "F02_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.8459997177124,
+            3.23000001907349,
+            1.98800003528595
+          ],
+          "image": "F02_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F02_A_MAIN",
+      "level": "F02",
+      "purpose": "Mina living, caption work and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.78600025177,
+            3.23000001907349,
+            4.1230001449585
+          ],
+          "image": "F02_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.1140003204346,
+            3.23000001907349,
+            3.59599995613098
+          ],
+          "image": "F02_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_A_KITCHEN",
+      "level": "F02",
+      "purpose": "cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.82100009918213,
+            3.23000001907349,
+            3.85999989509583
+          ],
+          "image": "F02_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.37899971008301,
+            3.23000001907349,
+            7.09000015258789
+          ],
+          "image": "F02_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F02_A_PRIVATE_HALL",
+      "level": "F02",
+      "purpose": "bed and bath distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.47000026702881,
+            3.23000001907349,
+            3.94149994850159
+          ],
+          "image": "F02_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94000005722046,
+            3.23000001907349,
+            4.375
+          ],
+          "image": "F02_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 9,
+      "id": "F02_A_BATH",
+      "level": "F02",
+      "purpose": "private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.78600025177,
+            3.23000001907349,
+            7.07200002670288
+          ],
+          "image": "F02_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.1140003204346,
+            3.23000001907349,
+            9.85149955749512
+          ],
+          "image": "F02_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F02_A_BED",
+      "level": "F02",
+      "purpose": "sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            3.23000001907349,
+            1.30900001525879
+          ],
+          "image": "F02_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            3.23000001907349,
+            -2.61800003051758
+          ],
+          "image": "F02_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F02_PUBLIC_CORE",
+      "level": "F02",
+      "purpose": "passenger lift and primary stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            3.23000001907349,
+            -3.25
+          ],
+          "image": "F02_EAST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            3.23000001907349,
+            -3.25
+          ],
+          "image": "F02_EAST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F02_EAST_HALL",
+      "level": "F02",
+      "purpose": "1.2 m public approach to apartment 2B",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.49199962615967,
+            3.23000001907349,
+            -3.25
+          ],
+          "image": "F02_SERVICE_CROSSING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.10400009155273,
+            3.23000001907349,
+            -3.4539999961853
+          ],
+          "image": "F02_SERVICE_CROSSING_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 12,
+      "id": "F02_SERVICE_CROSSING",
+      "level": "F02",
+      "purpose": "controlled public threshold across the service spine",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.1599998474121,
+            3.23000001907349,
+            -3.41799998283386
+          ],
+          "image": "F02_B_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            10.8400001525879,
+            3.23000001907349,
+            -1.58200001716614
+          ],
+          "image": "F02_B_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_B_VESTIBULE",
+      "level": "F02",
+      "purpose": "2B privacy, coat storage and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            12.1639995574951,
+            3.23000001907349,
+            -2.71499991416931
+          ],
+          "image": "F02_B_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.2805004119873,
+            3.23000001907349,
+            -3.48000001907349
+          ],
+          "image": "F02_B_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 11,
+      "id": "F02_B_MAIN",
+      "level": "F02",
+      "purpose": "Lena living, conversation and fabric repair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0279998779297,
+            3.23000001907349,
+            -4.86399984359741
+          ],
+          "image": "F02_B_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            3.23000001907349,
+            -6.98050022125244
+          ],
+          "image": "F02_B_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F02_B_KITCHEN",
+      "level": "F02",
+      "purpose": "complete cooking and washing provision with wet-stack exhaust",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            11.1499996185303,
+            3.23000001907349,
+            -8.98999977111816
+          ],
+          "image": "F02_B_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            3.23000001907349,
+            -11.710000038147
+          ],
+          "image": "F02_B_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 11,
+      "id": "F02_B_BED",
+      "level": "F02",
+      "purpose": "sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            3.23000001907349,
+            -8.52600002288818
+          ],
+          "image": "F02_B_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.7095003128052,
+            3.23000001907349,
+            -5.02400016784668
+          ],
+          "image": "F02_B_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 20,
+      "id": "F02_B_PRIVATE_HALL",
+      "level": "F02",
+      "purpose": "bed, bath and vertical fabric-storage distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_01.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            3.23000001907349,
+            -10.3400001525879
+          ],
+          "image": "F02_B_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.1940002441406,
+            3.23000001907349,
+            -10.8500003814697
+          ],
+          "image": "F02_B_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 14,
+      "id": "F02_B_BATH",
+      "level": "F02",
+      "purpose": "complete private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            3.23000001907349,
+            -0.745999991893768
+          ],
+          "image": "F02_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            3.23000001907349,
+            7.34600019454956
+          ],
+          "image": "F02_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 6,
+      "id": "F02_SERVICE_HALL",
+      "level": "F02",
+      "purpose": "north maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            3.23000001907349,
+            -8.38599967956543
+          ],
+          "image": "F02_SERVICE_HALL_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            3.23000001907349,
+            -4.71400022506714
+          ],
+          "image": "F02_SERVICE_HALL_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 5,
+      "id": "F02_SERVICE_HALL_SOUTH",
+      "level": "F02",
+      "purpose": "south maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            3.23000001907349,
+            1.88399994373322
+          ],
+          "image": "F02_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            3.23000001907349,
+            5.25
+          ],
+          "image": "F02_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "F02_SERVICE_CORE",
+      "level": "F02",
+      "purpose": "service lift and stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            6.42999982833862,
+            1.30900001525879
+          ],
+          "image": "F03_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            6.42999982833862,
+            -2.61800003051758
+          ],
+          "image": "F03_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F03_PUBLIC_CORE",
+      "level": "F03",
+      "purpose": "intermediate passenger lift and primary stair transfer",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            6.42999982833862,
+            1.88399994373322
+          ],
+          "image": "F03_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            6.42999982833862,
+            5.25
+          ],
+          "image": "F03_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 13,
+      "id": "F03_SERVICE_CORE",
+      "level": "F03",
+      "purpose": "intermediate service lift and stair transfer",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.61600005626678,
+            9.63000011444092,
+            -2.71799993515015
+          ],
+          "image": "F04_LANDING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -1.61600005626678,
+            9.63000011444092,
+            -0.0320000015199184
+          ],
+          "image": "F04_LANDING_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F04_LANDING",
+      "level": "F04",
+      "purpose": "floor and unit decision",
+      "status": "overview_obstructed_needs_targeted_view",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            9.63000011444092,
+            -0.203999996185303
+          ],
+          "image": "F04_WEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            9.63000011444092,
+            0.0
+          ],
+          "image": "F04_WEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 8,
+      "id": "F04_WEST_HALL",
+      "level": "F04",
+      "purpose": "4B public approach",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.23799991607666,
+            9.63000011444092,
+            -0.360000014305115
+          ],
+          "image": "F04_B_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.24350023269653,
+            9.63000011444092,
+            1.16999995708466
+          ],
+          "image": "F04_B_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 16,
+      "id": "F04_B_VESTIBULE",
+      "level": "F04",
+      "purpose": "4B privacy and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.3540000915527,
+            9.63000011444092,
+            -2.68199992179871
+          ],
+          "image": "F04_B_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.8459997177124,
+            9.63000011444092,
+            2.28200006484985
+          ],
+          "image": "F04_B_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F04_B_MAIN",
+      "level": "F04",
+      "purpose": "player rest, work and calls",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9219999313354,
+            9.63000011444092,
+            4.40700006484985
+          ],
+          "image": "F04_B_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.8280000686646,
+            9.63000011444092,
+            3.91400003433228
+          ],
+          "image": "F04_B_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 13,
+      "id": "F04_B_KITCHEN",
+      "level": "F04",
+      "purpose": "cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.4235000610352,
+            9.63000011444092,
+            3.91400003433228
+          ],
+          "image": "F04_B_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.72649955749512,
+            9.63000011444092,
+            5.88600015640259
+          ],
+          "image": "F04_B_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F04_B_PRIVATE_HALL",
+      "level": "F04",
+      "purpose": "bath and sleeping-zone distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.0699996948242,
+            9.63000011444092,
+            6.65399980545044
+          ],
+          "image": "F04_B_ALCOVE_APPROACH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.02999973297119,
+            9.63000011444092,
+            7.6230001449585
+          ],
+          "image": "F04_B_ALCOVE_APPROACH_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F04_B_ALCOVE_APPROACH",
+      "level": "F04",
+      "purpose": "closet and sleeping-alcove distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.55399990081787,
+            9.63000011444092,
+            3.8659999370575
+          ],
+          "image": "F04_B_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.97300004959106,
+            9.63000011444092,
+            4.75
+          ],
+          "image": "F04_B_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 7,
+      "id": "F04_B_BATH",
+      "level": "F04",
+      "purpose": "private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.02199983596802,
+            9.63000011444092,
+            6.77600002288818
+          ],
+          "image": "F04_B_CLOSET_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.75,
+            9.63000011444092,
+            7.52400016784668
+          ],
+          "image": "F04_B_CLOSET_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 6,
+      "id": "F04_B_CLOSET",
+      "level": "F04",
+      "purpose": "clothes and equipment storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.8339996337891,
+            9.63000011444092,
+            7.19799995422363
+          ],
+          "image": "F04_B_ALCOVE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.3660001754761,
+            9.63000011444092,
+            10.8020000457764
+          ],
+          "image": "F04_B_ALCOVE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 16,
+      "id": "F04_B_ALCOVE",
+      "level": "F04",
+      "purpose": "player sleeping context",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_02.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            9.63000011444092,
+            1.30900001525879
+          ],
+          "image": "F04_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            9.63000011444092,
+            -2.61800003051758
+          ],
+          "image": "F04_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F04_PUBLIC_CORE",
+      "level": "F04",
+      "purpose": "passenger lift and primary stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            7.89200019836426,
+            9.63000011444092,
+            -0.745999991893768
+          ],
+          "image": "F04_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.70800018310547,
+            9.63000011444092,
+            7.34600019454956
+          ],
+          "image": "F04_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "F04_SERVICE_HALL",
+      "level": "F04",
+      "purpose": "maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            9.63000011444092,
+            1.88399994373322
+          ],
+          "image": "F04_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            9.63000011444092,
+            5.25
+          ],
+          "image": "F04_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "F04_SERVICE_CORE",
+      "level": "F04",
+      "purpose": "service lift and stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.61600005626678,
+            6.42999982833862,
+            -2.71799993515015
+          ],
+          "image": "F03_LANDING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -1.61600005626678,
+            6.42999982833862,
+            -0.0320000015199184
+          ],
+          "image": "F03_LANDING_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F03_LANDING",
+      "level": "F03",
+      "purpose": "floor and unit decision",
+      "status": "overview_obstructed_needs_targeted_view",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            6.42999982833862,
+            -3.25
+          ],
+          "image": "F03_EAST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            6.42999982833862,
+            -3.25
+          ],
+          "image": "F03_EAST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F03_EAST_HALL",
+      "level": "F03",
+      "purpose": "public approach to Omar Bell at 3B",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.49199962615967,
+            6.42999982833862,
+            -3.4539999961853
+          ],
+          "image": "F03_SERVICE_CROSSING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.10400009155273,
+            6.42999982833862,
+            -3.0460000038147
+          ],
+          "image": "F03_SERVICE_CROSSING_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 16,
+      "id": "F03_SERVICE_CROSSING",
+      "level": "F03",
+      "purpose": "controlled public crossing of the service spine",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            7.89200019836426,
+            6.42999982833862,
+            -0.745999991893768
+          ],
+          "image": "F03_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.70800018310547,
+            6.42999982833862,
+            7.34600019454956
+          ],
+          "image": "F03_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "F03_SERVICE_HALL",
+      "level": "F03",
+      "purpose": "maintenance route with bypass and inspection clearance around continuous risers",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            6.42999982833862,
+            -8.38599967956543
+          ],
+          "image": "F03_SERVICE_HALL_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            6.42999982833862,
+            -4.71400022506714
+          ],
+          "image": "F03_SERVICE_HALL_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 6,
+      "id": "F03_SERVICE_HALL_SOUTH",
+      "level": "F03",
+      "purpose": "kitchen service access without crossing sleeping rooms",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.1599998474121,
+            6.42999982833862,
+            -3.41799998283386
+          ],
+          "image": "F03_B_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            10.8400001525879,
+            6.42999982833862,
+            -1.58200001716614
+          ],
+          "image": "F03_B_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F03_B_VESTIBULE",
+      "level": "F03",
+      "purpose": "3B privacy, coats and household distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            12.1639995574951,
+            6.42999982833862,
+            -2.47499990463257
+          ],
+          "image": "F03_B_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.2805004119873,
+            6.42999982833862,
+            -4.36199998855591
+          ],
+          "image": "F03_B_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 8,
+      "id": "F03_B_MAIN",
+      "level": "F03",
+      "purpose": "Omar Bell living, meals and categorized repair work",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0600004196167,
+            6.42999982833862,
+            -7.60200023651123
+          ],
+          "image": "F03_B_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.4399995803833,
+            6.42999982833862,
+            -6.65000009536743
+          ],
+          "image": "F03_B_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 11,
+      "id": "F03_B_KITCHEN",
+      "level": "F03",
+      "purpose": "cooking, washing and service access; no sleeping-room through route",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.423999786377,
+            6.42999982833862,
+            -9.07199954986572
+          ],
+          "image": "F03_B_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.2259998321533,
+            6.42999982833862,
+            -5.97800016403198
+          ],
+          "image": "F03_B_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F03_B_PRIVATE_HALL",
+      "level": "F03",
+      "purpose": "independent access to sleeping alcove and bathroom",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            11.8450002670288,
+            6.42999982833862,
+            -10.1999998092651
+          ],
+          "image": "F03_B_ALCOVE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.4399995803833,
+            6.42999982833862,
+            -11.6619997024536
+          ],
+          "image": "F03_B_ALCOVE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 8,
+      "id": "F03_B_ALCOVE",
+      "level": "F03",
+      "purpose": "Omar sleeping and clothes storage; retained canonical alcove identity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.423999786377,
+            6.42999982833862,
+            -11.0749998092651
+          ],
+          "image": "F03_B_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.2259998321533,
+            6.42999982833862,
+            -11.0749998092651
+          ],
+          "image": "F03_B_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F03_B_BATH",
+      "level": "F03",
+      "purpose": "complete private bathing and sanitation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.23799991607666,
+            6.42999982833862,
+            0.0
+          ],
+          "image": "F03_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.24350023269653,
+            6.42999982833862,
+            -0.917999982833862
+          ],
+          "image": "F03_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F03_A_VESTIBULE",
+      "level": "F03",
+      "purpose": "2A privacy and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.3540000915527,
+            6.42999982833862,
+            -1.55649995803833
+          ],
+          "image": "F03_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.8459997177124,
+            6.42999982833862,
+            1.98800003528595
+          ],
+          "image": "F03_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 22,
+      "id": "F03_A_MAIN",
+      "level": "F03",
+      "purpose": "Malcolm Reed living, meals and propagation work",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_03.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.78600025177,
+            6.42999982833862,
+            4.1230001449585
+          ],
+          "image": "F03_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.1140003204346,
+            6.42999982833862,
+            3.59599995613098
+          ],
+          "image": "F03_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F03_A_KITCHEN",
+      "level": "F03",
+      "purpose": "cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.82100009918213,
+            6.42999982833862,
+            3.85999989509583
+          ],
+          "image": "F03_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.37899971008301,
+            6.42999982833862,
+            7.09000015258789
+          ],
+          "image": "F03_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F03_A_PRIVATE_HALL",
+      "level": "F03",
+      "purpose": "bed and bath distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.47000026702881,
+            6.42999982833862,
+            3.94149994850159
+          ],
+          "image": "F03_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94000005722046,
+            6.42999982833862,
+            4.375
+          ],
+          "image": "F03_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 9,
+      "id": "F03_A_BATH",
+      "level": "F03",
+      "purpose": "private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.78600025177,
+            6.42999982833862,
+            7.07200002670288
+          ],
+          "image": "F03_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.1140003204346,
+            6.42999982833862,
+            9.85149955749512
+          ],
+          "image": "F03_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F03_A_BED",
+      "level": "F03",
+      "purpose": "sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.1599998474121,
+            9.63000011444092,
+            -3.41799998283386
+          ],
+          "image": "F04_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            10.8400001525879,
+            9.63000011444092,
+            -1.58200001716614
+          ],
+          "image": "F04_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F04_A_VESTIBULE",
+      "level": "F04",
+      "purpose": "2B privacy, coat storage and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            12.1639995574951,
+            9.63000011444092,
+            -2.71499991416931
+          ],
+          "image": "F04_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.9860000610352,
+            9.63000011444092,
+            -3.48000001907349
+          ],
+          "image": "F04_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 10,
+      "id": "F04_A_MAIN",
+      "level": "F04",
+      "purpose": "Peter Wren living, meals and legal correspondence",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0279998779297,
+            9.63000011444092,
+            -4.86399984359741
+          ],
+          "image": "F04_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            9.63000011444092,
+            -6.98050022125244
+          ],
+          "image": "F04_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F04_A_KITCHEN",
+      "level": "F04",
+      "purpose": "complete cooking and washing provision with wet-stack exhaust",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            11.1499996185303,
+            9.63000011444092,
+            -8.98999977111816
+          ],
+          "image": "F04_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            9.63000011444092,
+            -10.3500003814697
+          ],
+          "image": "F04_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 6,
+      "id": "F04_A_BED",
+      "level": "F04",
+      "purpose": "sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            9.63000011444092,
+            -8.52600002288818
+          ],
+          "image": "F04_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.1940002441406,
+            9.63000011444092,
+            -5.02400016784668
+          ],
+          "image": "F04_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F04_A_PRIVATE_HALL",
+      "level": "F04",
+      "purpose": "private bed and bath distribution with document storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            9.63000011444092,
+            -10.3400001525879
+          ],
+          "image": "F04_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.1940002441406,
+            9.63000011444092,
+            -10.8500003814697
+          ],
+          "image": "F04_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 14,
+      "id": "F04_A_BATH",
+      "level": "F04",
+      "purpose": "complete private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            6.42999982833862,
+            -0.203999996185303
+          ],
+          "image": "F03_WEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            6.42999982833862,
+            0.0
+          ],
+          "image": "F03_WEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 8,
+      "id": "F03_WEST_HALL",
+      "level": "F03",
+      "purpose": "public approach to Malcolm Reed at 3A",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            9.63000011444092,
+            -3.25
+          ],
+          "image": "F04_EAST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            9.63000011444092,
+            -3.25
+          ],
+          "image": "F04_EAST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F04_EAST_HALL",
+      "level": "F04",
+      "purpose": "1.2 m public approach to apartment 4A",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.49199962615967,
+            9.63000011444092,
+            -3.25
+          ],
+          "image": "F04_SERVICE_CROSSING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.10400009155273,
+            9.63000011444092,
+            -3.4539999961853
+          ],
+          "image": "F04_SERVICE_CROSSING_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 12,
+      "id": "F04_SERVICE_CROSSING",
+      "level": "F04",
+      "purpose": "controlled public threshold across the service spine",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            9.63000011444092,
+            -8.38599967956543
+          ],
+          "image": "F04_SERVICE_HALL_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            9.63000011444092,
+            -4.71400022506714
+          ],
+          "image": "F04_SERVICE_HALL_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 5,
+      "id": "F04_SERVICE_HALL_SOUTH",
+      "level": "F04",
+      "purpose": "south maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            12.8299999237061,
+            1.30900001525879
+          ],
+          "image": "F05_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            12.8299999237061,
+            -2.61800003051758
+          ],
+          "image": "F05_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F05_PUBLIC_CORE",
+      "level": "F05",
+      "purpose": "passenger lift landing and primary stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            12.8299999237061,
+            1.88399994373322
+          ],
+          "image": "F05_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            12.8299999237061,
+            5.25
+          ],
+          "image": "F05_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "F05_SERVICE_CORE",
+      "level": "F05",
+      "purpose": "service lift landing and service stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_04.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            7.89200019836426,
+            12.8299999237061,
+            -0.745999991893768
+          ],
+          "image": "F05_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.70800018310547,
+            12.8299999237061,
+            7.34600019454956
+          ],
+          "image": "F05_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "F05_SERVICE_HALL",
+      "level": "F05",
+      "purpose": "maintenance and delivery continuity beside the service core",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            12.8299999237061,
+            -3.25
+          ],
+          "image": "F05_EAST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            12.8299999237061,
+            -3.25
+          ],
+          "image": "F05_EAST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F05_EAST_HALL",
+      "level": "F05",
+      "purpose": "public approach to the restricted unit threshold",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.49199962615967,
+            12.8299999237061,
+            -3.25
+          ],
+          "image": "F05_SERVICE_CROSSING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.10400009155273,
+            12.8299999237061,
+            -3.4539999961853
+          ],
+          "image": "F05_SERVICE_CROSSING_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 12,
+      "id": "F05_SERVICE_CROSSING",
+      "level": "F05",
+      "purpose": "controlled public threshold across the service spine",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            12.8299999237061,
+            -8.38599967956543
+          ],
+          "image": "F05_SERVICE_HALL_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            12.8299999237061,
+            -4.71400022506714
+          ],
+          "image": "F05_SERVICE_HALL_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 5,
+      "id": "F05_SERVICE_HALL_SOUTH",
+      "level": "F05",
+      "purpose": "south maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.32399988174438,
+            12.8299999237061,
+            -0.203999996185303
+          ],
+          "image": "F05_WEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -3.17600011825562,
+            12.8299999237061,
+            0.0
+          ],
+          "image": "F05_WEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 7,
+      "id": "F05_WEST_HALL",
+      "level": "F05",
+      "purpose": "public approach to 5A and 5B",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.4739999771118,
+            12.8299999237061,
+            -5.42999982833862
+          ],
+          "image": "F05_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.47599983215332,
+            12.8299999237061,
+            -1.51999998092651
+          ],
+          "image": "F05_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 16,
+      "id": "F05_A_MAIN",
+      "level": "F05",
+      "purpose": "Nadia Quell: living and meals",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            12.8299999237061,
+            -3.32999992370605
+          ],
+          "image": "F05_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            12.8299999237061,
+            -1.12000000476837
+          ],
+          "image": "F05_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F05_A_VESTIBULE",
+      "level": "F05",
+      "purpose": "Nadia Quell: private arrival and coat storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            12.8299999237061,
+            -8.05000019073486
+          ],
+          "image": "F05_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            12.8299999237061,
+            -4.65000009536743
+          ],
+          "image": "F05_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F05_A_PRIVATE_HALL",
+      "level": "F05",
+      "purpose": "Nadia Quell: bed and sanitary distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            12.8299999237061,
+            -11.1949996948242
+          ],
+          "image": "F05_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            12.8299999237061,
+            -9.40999984741211
+          ],
+          "image": "F05_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 15,
+      "id": "F05_A_BATH",
+      "level": "F05",
+      "purpose": "Nadia Quell: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9379997253418,
+            12.8299999237061,
+            -9.35000038146973
+          ],
+          "image": "F05_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.9119997024536,
+            12.8299999237061,
+            -11.3900003433228
+          ],
+          "image": "F05_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 16,
+      "id": "F05_A_BED",
+      "level": "F05",
+      "purpose": "Nadia Quell: sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.75,
+            12.8299999237061,
+            -8.86999988555908
+          ],
+          "image": "F05_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.76399993896484,
+            12.8299999237061,
+            -6.82999992370605
+          ],
+          "image": "F05_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 7,
+      "id": "F05_A_KITCHEN",
+      "level": "F05",
+      "purpose": "Nadia Quell: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.7360000610352,
+            12.8299999237061,
+            -11.3599996566772
+          ],
+          "image": "F05_A_STUDY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.76399993896484,
+            12.8299999237061,
+            -9.82999992370605
+          ],
+          "image": "F05_A_STUDY_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F05_A_STUDY",
+      "level": "F05",
+      "purpose": "Nadia Quell: architectural drawing and correspondence",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.6339998245239,
+            12.8299999237061,
+            1.51999998092651
+          ],
+          "image": "F05_B_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -10.3159999847412,
+            12.8299999237061,
+            5.42999982833862
+          ],
+          "image": "F05_B_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 20,
+      "id": "F05_B_MAIN",
+      "level": "F05",
+      "purpose": "Cal Dwyer: living, meals and radio listening and collecting",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            12.8299999237061,
+            1.42499995231628
+          ],
+          "image": "F05_B_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94799995422363,
+            12.8299999237061,
+            2.70000004768372
+          ],
+          "image": "F05_B_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 19,
+      "id": "F05_B_VESTIBULE",
+      "level": "F05",
+      "purpose": "Cal Dwyer: private arrival and coat storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            12.8299999237061,
+            3.61999988555908
+          ],
+          "image": "F05_B_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -7.90000009536743,
+            12.8299999237061,
+            5.82999992370605
+          ],
+          "image": "F05_B_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F05_B_BATH",
+      "level": "F05",
+      "purpose": "Cal Dwyer: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9379997253418,
+            12.8299999237061,
+            7.19799995422363
+          ],
+          "image": "F05_B_ALCOVE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.9119997024536,
+            12.8299999237061,
+            10.8020000457764
+          ],
+          "image": "F05_B_ALCOVE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 13,
+      "id": "F05_B_ALCOVE",
+      "level": "F05",
+      "purpose": "Cal Dwyer: sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_05.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.8959999084473,
+            12.8299999237061,
+            9.0
+          ],
+          "image": "F05_B_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.92700004577637,
+            12.8299999237061,
+            7.19799995422363
+          ],
+          "image": "F05_B_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F05_B_PRIVATE_HALL",
+      "level": "F05",
+      "purpose": "Cal Dwyer: sleep and kitchen distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            12.8299999237061,
+            9.0
+          ],
+          "image": "F05_B_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94799995422363,
+            12.8299999237061,
+            8.09899997711182
+          ],
+          "image": "F05_B_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F05_B_KITCHEN",
+      "level": "F05",
+      "purpose": "Cal Dwyer: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.76800000667572,
+            12.8299999237061,
+            4.25
+          ],
+          "image": "F05_C_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            0.068000003695488,
+            12.8299999237061,
+            5.94999980926514
+          ],
+          "image": "F05_C_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F05_C_VESTIBULE",
+      "level": "F05",
+      "purpose": "Iris Bell: private arrival and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -4.62400007247925,
+            12.8299999237061,
+            7.19799995422363
+          ],
+          "image": "F05_C_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -0.476000010967255,
+            12.8299999237061,
+            10.8020000457764
+          ],
+          "image": "F05_C_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F05_C_MAIN",
+      "level": "F05",
+      "purpose": "Iris Bell: living and meals",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            12.8299999237061,
+            5.09999990463257
+          ],
+          "image": "F05_C_STUDIO_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            12.8299999237061,
+            5.94999980926514
+          ],
+          "image": "F05_C_STUDIO_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F05_C_STUDIO",
+      "level": "F05",
+      "purpose": "Iris Bell: painting and drying work",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.55599999427795,
+            12.8299999237061,
+            6.84499979019165
+          ],
+          "image": "F05_C_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.04400014877319,
+            12.8299999237061,
+            7.35500001907349
+          ],
+          "image": "F05_C_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F05_C_PRIVATE_HALL",
+      "level": "F05",
+      "purpose": "Iris Bell: private bed and service distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            12.8299999237061,
+            5.09999990463257
+          ],
+          "image": "F05_C_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            12.8299999237061,
+            5.94999980926514
+          ],
+          "image": "F05_C_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 8,
+      "id": "F05_C_BATH",
+      "level": "F05",
+      "purpose": "Iris Bell: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.88899993896484,
+            12.8299999237061,
+            5.09999990463257
+          ],
+          "image": "F05_C_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            5.44999980926514,
+            12.8299999237061,
+            5.52500009536743
+          ],
+          "image": "F05_C_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 5,
+      "id": "F05_C_KITCHEN",
+      "level": "F05",
+      "purpose": "Iris Bell: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            12.8299999237061,
+            8.45800018310547
+          ],
+          "image": "F05_C_BED1_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            12.8299999237061,
+            11.0419998168945
+          ],
+          "image": "F05_C_BED1_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F05_C_BED1",
+      "level": "F05",
+      "purpose": "Iris Bell: principal sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            12.8299999237061,
+            8.45800018310547
+          ],
+          "image": "F05_C_BED2_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.01100015640259,
+            12.8299999237061,
+            11.0419998168945
+          ],
+          "image": "F05_C_BED2_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F05_C_BED2",
+      "level": "F05",
+      "purpose": "Iris Bell: second room; no additional resident assigned",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.4840002059937,
+            12.8299999237061,
+            -10.326000213623
+          ],
+          "image": "F05_D_RESTRICTED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.6660003662109,
+            12.8299999237061,
+            -1.72399997711182
+          ],
+          "image": "F05_D_RESTRICTED_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "F05_D_RESTRICTED",
+      "level": "F05",
+      "purpose": "vacant after fire damage; sealed threshold",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            16.0300006866455,
+            1.30900001525879
+          ],
+          "image": "F06_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            16.0300006866455,
+            -2.61800003051758
+          ],
+          "image": "F06_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 8,
+      "id": "F06_PUBLIC_CORE",
+      "level": "F06",
+      "purpose": "passenger lift landing and primary stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            16.0300006866455,
+            1.88399994373322
+          ],
+          "image": "F06_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            16.0300006866455,
+            5.25
+          ],
+          "image": "F06_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "F06_SERVICE_CORE",
+      "level": "F06",
+      "purpose": "service lift landing and service stair",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            7.89200019836426,
+            16.0300006866455,
+            -0.745999991893768
+          ],
+          "image": "F06_SERVICE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.70800018310547,
+            16.0300006866455,
+            7.34600019454956
+          ],
+          "image": "F06_SERVICE_HALL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "F06_SERVICE_HALL",
+      "level": "F06",
+      "purpose": "maintenance and delivery continuity beside the service core",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            16.0300006866455,
+            -3.25
+          ],
+          "image": "F06_EAST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            16.0300006866455,
+            -3.25
+          ],
+          "image": "F06_EAST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 5,
+      "id": "F06_EAST_HALL",
+      "level": "F06",
+      "purpose": "public approach to the restricted unit threshold",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.49199962615967,
+            16.0300006866455,
+            -3.25
+          ],
+          "image": "F06_SERVICE_CROSSING_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            9.10400009155273,
+            16.0300006866455,
+            -3.4539999961853
+          ],
+          "image": "F06_SERVICE_CROSSING_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 12,
+      "id": "F06_SERVICE_CROSSING",
+      "level": "F06",
+      "purpose": "controlled public threshold across the service spine",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_06.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            8.89999961853027,
+            16.0300006866455,
+            -8.38599967956543
+          ],
+          "image": "F06_SERVICE_HALL_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.89999961853027,
+            16.0300006866455,
+            -4.71400022506714
+          ],
+          "image": "F06_SERVICE_HALL_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 5,
+      "id": "F06_SERVICE_HALL_SOUTH",
+      "level": "F06",
+      "purpose": "south maintenance continuity",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.32399988174438,
+            16.0300006866455,
+            -0.203999996185303
+          ],
+          "image": "F06_WEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -3.17600011825562,
+            16.0300006866455,
+            0.0
+          ],
+          "image": "F06_WEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 7,
+      "id": "F06_WEST_HALL",
+      "level": "F06",
+      "purpose": "public approach to 6A and 6B",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.4739999771118,
+            16.0300006866455,
+            -2.49749994277954
+          ],
+          "image": "F06_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.47599983215332,
+            16.0300006866455,
+            -5.42999982833862
+          ],
+          "image": "F06_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F06_A_MAIN",
+      "level": "F06",
+      "purpose": "Sacha Reed: living and meals",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            16.0300006866455,
+            -3.32999992370605
+          ],
+          "image": "F06_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            16.0300006866455,
+            -1.12000000476837
+          ],
+          "image": "F06_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F06_A_VESTIBULE",
+      "level": "F06",
+      "purpose": "Sacha Reed: private arrival and coat storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            16.0300006866455,
+            -8.05000019073486
+          ],
+          "image": "F06_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            16.0300006866455,
+            -4.65000009536743
+          ],
+          "image": "F06_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F06_A_PRIVATE_HALL",
+      "level": "F06",
+      "purpose": "Sacha Reed: bed and sanitary distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.86800003051758,
+            16.0300006866455,
+            -11.1949996948242
+          ],
+          "image": "F06_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.03200006484985,
+            16.0300006866455,
+            -9.40999984741211
+          ],
+          "image": "F06_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 15,
+      "id": "F06_A_BATH",
+      "level": "F06",
+      "purpose": "Sacha Reed: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9379997253418,
+            16.0300006866455,
+            -9.35000038146973
+          ],
+          "image": "F06_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.9119997024536,
+            16.0300006866455,
+            -11.3900003433228
+          ],
+          "image": "F06_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 16,
+      "id": "F06_A_BED",
+      "level": "F06",
+      "purpose": "Sacha Reed: sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.75,
+            16.0300006866455,
+            -8.86999988555908
+          ],
+          "image": "F06_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.76399993896484,
+            16.0300006866455,
+            -6.82999992370605
+          ],
+          "image": "F06_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 7,
+      "id": "F06_A_KITCHEN",
+      "level": "F06",
+      "purpose": "Sacha Reed: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.7360000610352,
+            16.0300006866455,
+            -10.8500003814697
+          ],
+          "image": "F06_A_STUDY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.25699996948242,
+            16.0300006866455,
+            -9.82999992370605
+          ],
+          "image": "F06_A_STUDY_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 10,
+      "id": "F06_A_STUDY",
+      "level": "F06",
+      "purpose": "Sacha Reed: photographic documentation and equipment",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.6339998245239,
+            16.0300006866455,
+            1.51999998092651
+          ],
+          "image": "F06_B_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -10.3159999847412,
+            16.0300006866455,
+            5.42999982833862
+          ],
+          "image": "F06_B_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F06_B_MAIN",
+      "level": "F06",
+      "purpose": "Jonah Price: living, meals and writing and annotated notebooks",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            16.0300006866455,
+            1.42499995231628
+          ],
+          "image": "F06_B_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94799995422363,
+            16.0300006866455,
+            2.70000004768372
+          ],
+          "image": "F06_B_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 19,
+      "id": "F06_B_VESTIBULE",
+      "level": "F06",
+      "purpose": "Jonah Price: private arrival and coat storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            16.0300006866455,
+            3.61999988555908
+          ],
+          "image": "F06_B_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -7.90000009536743,
+            16.0300006866455,
+            5.82999992370605
+          ],
+          "image": "F06_B_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F06_B_BATH",
+      "level": "F06",
+      "purpose": "Jonah Price: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9379997253418,
+            16.0300006866455,
+            7.19799995422363
+          ],
+          "image": "F06_B_ALCOVE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.9119997024536,
+            16.0300006866455,
+            10.8020000457764
+          ],
+          "image": "F06_B_ALCOVE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 13,
+      "id": "F06_B_ALCOVE",
+      "level": "F06",
+      "purpose": "Jonah Price: sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.8959999084473,
+            16.0300006866455,
+            9.0
+          ],
+          "image": "F06_B_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.92700004577637,
+            16.0300006866455,
+            7.19799995422363
+          ],
+          "image": "F06_B_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F06_B_PRIVATE_HALL",
+      "level": "F06",
+      "purpose": "Jonah Price: sleep and kitchen distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -8.85200023651123,
+            16.0300006866455,
+            9.0
+          ],
+          "image": "F06_B_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.94799995422363,
+            16.0300006866455,
+            8.09899997711182
+          ],
+          "image": "F06_B_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F06_B_KITCHEN",
+      "level": "F06",
+      "purpose": "Jonah Price: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.76800000667572,
+            16.0300006866455,
+            4.25
+          ],
+          "image": "F06_C_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            0.068000003695488,
+            16.0300006866455,
+            5.94999980926514
+          ],
+          "image": "F06_C_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F06_C_VESTIBULE",
+      "level": "F06",
+      "purpose": "Mae Kessler: private arrival and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_07.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -4.62400007247925,
+            16.0300006866455,
+            7.19799995422363
+          ],
+          "image": "F06_C_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -0.476000010967255,
+            16.0300006866455,
+            9.90100002288818
+          ],
+          "image": "F06_C_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F06_C_MAIN",
+      "level": "F06",
+      "purpose": "Mae Kessler: living and meals",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            16.0300006866455,
+            5.09999990463257
+          ],
+          "image": "F06_C_STUDIO_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            16.0300006866455,
+            5.94999980926514
+          ],
+          "image": "F06_C_STUDIO_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F06_C_STUDIO",
+      "level": "F06",
+      "purpose": "Mae Kessler: antique appraisal and records",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.55599999427795,
+            16.0300006866455,
+            6.84499979019165
+          ],
+          "image": "F06_C_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.04400014877319,
+            16.0300006866455,
+            7.35500001907349
+          ],
+          "image": "F06_C_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F06_C_PRIVATE_HALL",
+      "level": "F06",
+      "purpose": "Mae Kessler: private bed and service distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            16.0300006866455,
+            5.09999990463257
+          ],
+          "image": "F06_C_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            16.0300006866455,
+            5.94999980926514
+          ],
+          "image": "F06_C_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 8,
+      "id": "F06_C_BATH",
+      "level": "F06",
+      "purpose": "Mae Kessler: private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.88899993896484,
+            16.0300006866455,
+            5.09999990463257
+          ],
+          "image": "F06_C_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            5.44999980926514,
+            16.0300006866455,
+            5.52500009536743
+          ],
+          "image": "F06_C_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 5,
+      "id": "F06_C_KITCHEN",
+      "level": "F06",
+      "purpose": "Mae Kessler: cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            16.0300006866455,
+            8.45800018310547
+          ],
+          "image": "F06_C_BED1_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            16.0300006866455,
+            11.0419998168945
+          ],
+          "image": "F06_C_BED1_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F06_C_BED1",
+      "level": "F06",
+      "purpose": "Mae Kessler: principal sleep and clothing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            16.0300006866455,
+            8.45800018310547
+          ],
+          "image": "F06_C_BED2_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.01100015640259,
+            16.0300006866455,
+            11.0419998168945
+          ],
+          "image": "F06_C_BED2_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F06_C_BED2",
+      "level": "F06",
+      "purpose": "Mae Kessler: second room; no additional resident assigned",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.4840002059937,
+            16.0300006866455,
+            -10.326000213623
+          ],
+          "image": "F06_D_RESTRICTED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.6660003662109,
+            16.0300006866455,
+            -1.72399997711182
+          ],
+          "image": "F06_D_RESTRICTED_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "F06_D_RESTRICTED",
+      "level": "F06",
+      "purpose": "landlord storage; restricted threshold",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.984000027179718,
+            19.2299995422363,
+            0.0
+          ],
+          "image": "ROOF_PUBLIC_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            4.18400001525879,
+            19.2299995422363,
+            -2.61800003051758
+          ],
+          "image": "ROOF_PUBLIC_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 15,
+      "id": "ROOF_PUBLIC_CORE",
+      "level": "ROOF",
+      "purpose": "public stair roof access bulkhead",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            19.2299995422363,
+            1.88399994373322
+          ],
+          "image": "ROOF_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            19.2299995422363,
+            5.25
+          ],
+          "image": "ROOF_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 12,
+      "id": "ROOF_SERVICE_CORE",
+      "level": "ROOF",
+      "purpose": "service stair roof access bulkhead",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -13.4980001449585,
+            19.2299995422363,
+            -8.51000022888184
+          ],
+          "image": "ROOF_DECK_WEST_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -4.35200023651123,
+            19.2299995422363,
+            7.80999994277954
+          ],
+          "image": "ROOF_DECK_WEST_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 24,
+      "id": "ROOF_DECK_WEST",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            0.656000018119812,
+            19.2299995422363,
+            -10.9899997711182
+          ],
+          "image": "ROOF_DECK_SOUTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.793999671936,
+            19.2299995422363,
+            -5.21000003814697
+          ],
+          "image": "ROOF_DECK_SOUTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "ROOF_DECK_SOUTH",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -0.328000009059906,
+            19.2299995422363,
+            5.09800004959106
+          ],
+          "image": "ROOF_DECK_NORTH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.62799978256226,
+            19.2299995422363,
+            10.4020004272461
+          ],
+          "image": "ROOF_DECK_NORTH_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "ROOF_DECK_NORTH",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            6.05600023269653,
+            19.2299995422363,
+            -2.61800003051758
+          ],
+          "image": "ROOF_DECK_MIDDLE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.8439998626709,
+            19.2299995422363,
+            2.61800003051758
+          ],
+          "image": "ROOF_DECK_MIDDLE_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "ROOF_DECK_MIDDLE",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            14.0085000991821,
+            19.2299995422363,
+            2.1159999370575
+          ],
+          "image": "ROOF_DECK_EAST_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.8415002822876,
+            19.2299995422363,
+            9.83399963378906
+          ],
+          "image": "ROOF_DECK_EAST_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 14,
+      "id": "ROOF_DECK_EAST",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.4840002059937,
+            19.2299995422363,
+            -3.18600010871887
+          ],
+          "image": "ROOF_DECK_SOUTHEAST_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.6660003662109,
+            19.2299995422363,
+            -0.363999992609024
+          ],
+          "image": "ROOF_DECK_SOUTHEAST_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "ROOF_DECK_SOUTHEAST",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_08.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            19.2299995422363,
+            10.6785001754761
+          ],
+          "image": "ROOF_DECK_NORTHEAST_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.6079998016357,
+            19.2299995422363,
+            10.9250001907349
+          ],
+          "image": "ROOF_DECK_NORTHEAST_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 10,
+      "id": "ROOF_DECK_NORTHEAST",
+      "level": "ROOF",
+      "purpose": "open air maintenance roof deck",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.76800000667572,
+            3.23000001907349,
+            4.25
+          ],
+          "image": "F02_C_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            0.068000003695488,
+            3.23000001907349,
+            5.94999980926514
+          ],
+          "image": "F02_C_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F02_C_VESTIBULE",
+      "level": "F02",
+      "purpose": "Juno Kells privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -4.62400007247925,
+            3.23000001907349,
+            7.19799995422363
+          ],
+          "image": "F02_C_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -0.476000010967255,
+            3.23000001907349,
+            10.8020000457764
+          ],
+          "image": "F02_C_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F02_C_MAIN",
+      "level": "F02",
+      "purpose": "Juno Kells living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            3.23000001907349,
+            5.09999990463257
+          ],
+          "image": "F02_C_STUDIO_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            3.23000001907349,
+            5.94999980926514
+          ],
+          "image": "F02_C_STUDIO_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F02_C_STUDIO",
+      "level": "F02",
+      "purpose": "household work and storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.55599999427795,
+            3.23000001907349,
+            6.84499979019165
+          ],
+          "image": "F02_C_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.04400014877319,
+            3.23000001907349,
+            7.35500001907349
+          ],
+          "image": "F02_C_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_C_PRIVATE_HALL",
+      "level": "F02",
+      "purpose": "private bed and service distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            3.23000001907349,
+            5.09999990463257
+          ],
+          "image": "F02_C_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            3.23000001907349,
+            5.94999980926514
+          ],
+          "image": "F02_C_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 8,
+      "id": "F02_C_BATH",
+      "level": "F02",
+      "purpose": "private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            3.23000001907349,
+            5.09999990463257
+          ],
+          "image": "F02_C_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            5.44999980926514,
+            3.23000001907349,
+            5.52500009536743
+          ],
+          "image": "F02_C_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 7,
+      "id": "F02_C_KITCHEN",
+      "level": "F02",
+      "purpose": "cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            3.23000001907349,
+            8.45800018310547
+          ],
+          "image": "F02_C_BED1_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            3.23000001907349,
+            11.0419998168945
+          ],
+          "image": "F02_C_BED1_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_C_BED1",
+      "level": "F02",
+      "purpose": "Juno Kells sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            3.23000001907349,
+            8.45800018310547
+          ],
+          "image": "F02_C_BED2_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.01100015640259,
+            3.23000001907349,
+            11.0419998168945
+          ],
+          "image": "F02_C_BED2_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F02_C_BED2",
+      "level": "F02",
+      "purpose": "Juno Kells sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -1.76800000667572,
+            9.63000011444092,
+            4.25
+          ],
+          "image": "F04_C_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            0.068000003695488,
+            9.63000011444092,
+            5.94999980926514
+          ],
+          "image": "F04_C_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F04_C_VESTIBULE",
+      "level": "F04",
+      "purpose": "Cam Ortiz and Noel Price privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -4.62400007247925,
+            9.63000011444092,
+            7.19799995422363
+          ],
+          "image": "F04_C_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -0.476000010967255,
+            9.63000011444092,
+            10.8020000457764
+          ],
+          "image": "F04_C_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F04_C_MAIN",
+      "level": "F04",
+      "purpose": "Cam Ortiz and Noel Price living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            9.63000011444092,
+            5.09999990463257
+          ],
+          "image": "F04_C_STUDIO_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            9.63000011444092,
+            5.94999980926514
+          ],
+          "image": "F04_C_STUDIO_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F04_C_STUDIO",
+      "level": "F04",
+      "purpose": "household work and storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.55599999427795,
+            9.63000011444092,
+            6.84499979019165
+          ],
+          "image": "F04_C_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.04400014877319,
+            9.63000011444092,
+            7.35500001907349
+          ],
+          "image": "F04_C_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F04_C_PRIVATE_HALL",
+      "level": "F04",
+      "purpose": "private bed and service distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            9.63000011444092,
+            5.09999990463257
+          ],
+          "image": "F04_C_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            9.63000011444092,
+            5.94999980926514
+          ],
+          "image": "F04_C_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 8,
+      "id": "F04_C_BATH",
+      "level": "F04",
+      "purpose": "private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            9.63000011444092,
+            5.09999990463257
+          ],
+          "image": "F04_C_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            5.44999980926514,
+            9.63000011444092,
+            5.52500009536743
+          ],
+          "image": "F04_C_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 7,
+      "id": "F04_C_KITCHEN",
+      "level": "F04",
+      "purpose": "cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            1.02799999713898,
+            9.63000011444092,
+            8.45800018310547
+          ],
+          "image": "F04_C_BED1_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.71099996566772,
+            9.63000011444092,
+            11.0419998168945
+          ],
+          "image": "F04_C_BED1_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F04_C_BED1",
+      "level": "F04",
+      "purpose": "Cam Ortiz and Noel Price sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_09.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            4.32800006866455,
+            9.63000011444092,
+            8.45800018310547
+          ],
+          "image": "F04_C_BED2_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            6.01100015640259,
+            9.63000011444092,
+            11.0419998168945
+          ],
+          "image": "F04_C_BED2_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F04_C_BED2",
+      "level": "F04",
+      "purpose": "Cam Ortiz and Noel Price sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.1599998474121,
+            0.0299999993294477,
+            -3.41799998283386
+          ],
+          "image": "F01_D_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            10.8400001525879,
+            0.0299999993294477,
+            -1.58200001716614
+          ],
+          "image": "F01_D_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 15,
+      "id": "F01_D_VESTIBULE",
+      "level": "F01",
+      "purpose": "Teresa Vale privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            12.1639995574951,
+            0.0299999993294477,
+            -2.71499991416931
+          ],
+          "image": "F01_D_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.9860000610352,
+            0.0299999993294477,
+            -3.48000001907349
+          ],
+          "image": "F01_D_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 12,
+      "id": "F01_D_MAIN",
+      "level": "F01",
+      "purpose": "Teresa Vale living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0279998779297,
+            0.0299999993294477,
+            -4.86399984359741
+          ],
+          "image": "F01_D_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            0.0299999993294477,
+            -7.68599987030029
+          ],
+          "image": "F01_D_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 17,
+      "id": "F01_D_KITCHEN",
+      "level": "F01",
+      "purpose": "complete cooking and washing provision with wet-stack exhaust",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            11.1499996185303,
+            0.0299999993294477,
+            -8.98999977111816
+          ],
+          "image": "F01_D_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            12.2720003128052,
+            0.0299999993294477,
+            -11.710000038147
+          ],
+          "image": "F01_D_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 11,
+      "id": "F01_D_BED",
+      "level": "F01",
+      "purpose": "Teresa Vale sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            0.0299999993294477,
+            -8.52600002288818
+          ],
+          "image": "F01_D_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.1940002441406,
+            0.0299999993294477,
+            -5.02400016784668
+          ],
+          "image": "F01_D_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F01_D_PRIVATE_HALL",
+      "level": "F01",
+      "purpose": "bed, bath and vertical fabric-storage distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            13.2559995651245,
+            0.0299999993294477,
+            -10.3400001525879
+          ],
+          "image": "F01_D_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            15.1940002441406,
+            0.0299999993294477,
+            -10.8500003814697
+          ],
+          "image": "F01_D_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 14,
+      "id": "F01_D_BATH",
+      "level": "F01",
+      "purpose": "complete private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.7519998550415,
+            0.0299999993294477,
+            -6.11800003051758
+          ],
+          "image": "F01_A_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -5.84800004959106,
+            0.0299999993294477,
+            -4.28200006484985
+          ],
+          "image": "F01_A_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F01_A_VESTIBULE",
+      "level": "F01",
+      "purpose": "Evelyn Marsh privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.4580001831055,
+            0.0299999993294477,
+            -6.66400003433228
+          ],
+          "image": "F01_A_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.39200019836426,
+            0.0299999993294477,
+            -4.38600015640259
+          ],
+          "image": "F01_A_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F01_A_MAIN",
+      "level": "F01",
+      "purpose": "Evelyn Marsh living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.7519998550415,
+            0.0299999993294477,
+            -9.1540002822876
+          ],
+          "image": "F01_A_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -5.84800004959106,
+            0.0299999993294477,
+            -7.0460000038147
+          ],
+          "image": "F01_A_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F01_A_PRIVATE_HALL",
+      "level": "F01",
+      "purpose": "Evelyn Marsh bed and bath distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.7519998550415,
+            0.0299999993294477,
+            -11.0
+          ],
+          "image": "F01_A_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -5.84800004959106,
+            0.0299999993294477,
+            -10.0819997787476
+          ],
+          "image": "F01_A_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F01_A_BATH",
+      "level": "F01",
+      "purpose": "Evelyn Marsh private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.75,
+            0.0299999993294477,
+            -8.42500019073486
+          ],
+          "image": "F01_A_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            0.0299999993294477,
+            -8.8415002822876
+          ],
+          "image": "F01_A_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 9,
+      "id": "F01_A_KITCHEN",
+      "level": "F01",
+      "purpose": "Evelyn Marsh cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9540004730225,
+            0.0299999993294477,
+            -8.89949989318848
+          ],
+          "image": "F01_A_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.996000289917,
+            0.0299999993294477,
+            -10.6505002975464
+          ],
+          "image": "F01_A_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F01_A_BED",
+      "level": "F01",
+      "purpose": "Evelyn Marsh sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.8039999008179,
+            0.0299999993294477,
+            -11.4589996337891
+          ],
+          "image": "F01_A_STUDY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            0.0299999993294477,
+            -10.0819997787476
+          ],
+          "image": "F01_A_STUDY_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 23,
+      "id": "F01_A_STUDY",
+      "level": "F01",
+      "purpose": "Evelyn Marsh quiet work and household storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            6.42999982833862,
+            -6.11800003051758
+          ],
+          "image": "F03_D_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            6.42999982833862,
+            -4.28200006484985
+          ],
+          "image": "F03_D_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F03_D_VESTIBULE",
+      "level": "F03",
+      "purpose": "Rhea Sato privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.4580001831055,
+            6.42999982833862,
+            -6.66400003433228
+          ],
+          "image": "F03_D_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.39200019836426,
+            6.42999982833862,
+            -4.38600015640259
+          ],
+          "image": "F03_D_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F03_D_MAIN",
+      "level": "F03",
+      "purpose": "Rhea Sato living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_10.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            6.42999982833862,
+            -9.1540002822876
+          ],
+          "image": "F03_D_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            6.42999982833862,
+            -7.0460000038147
+          ],
+          "image": "F03_D_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F03_D_PRIVATE_HALL",
+      "level": "F03",
+      "purpose": "Rhea Sato bed and bath distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            6.42999982833862,
+            -11.0
+          ],
+          "image": "F03_D_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            6.42999982833862,
+            -10.0819997787476
+          ],
+          "image": "F03_D_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F03_D_BATH",
+      "level": "F03",
+      "purpose": "Rhea Sato private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.75,
+            6.42999982833862,
+            -8.42500019073486
+          ],
+          "image": "F03_D_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            6.42999982833862,
+            -8.8415002822876
+          ],
+          "image": "F03_D_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 9,
+      "id": "F03_D_KITCHEN",
+      "level": "F03",
+      "purpose": "Rhea Sato cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9540004730225,
+            6.42999982833862,
+            -8.89949989318848
+          ],
+          "image": "F03_D_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.996000289917,
+            6.42999982833862,
+            -10.6505002975464
+          ],
+          "image": "F03_D_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F03_D_BED",
+      "level": "F03",
+      "purpose": "Rhea Sato sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.8039999008179,
+            6.42999982833862,
+            -11.4589996337891
+          ],
+          "image": "F03_D_STUDY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            6.42999982833862,
+            -10.0819997787476
+          ],
+          "image": "F03_D_STUDY_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 23,
+      "id": "F03_D_STUDY",
+      "level": "F03",
+      "purpose": "Rhea Sato quiet work and household storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            9.63000011444092,
+            -6.11800003051758
+          ],
+          "image": "F04_D_VESTIBULE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            9.63000011444092,
+            -4.28200006484985
+          ],
+          "image": "F04_D_VESTIBULE_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F04_D_VESTIBULE",
+      "level": "F04",
+      "purpose": "Transient guests privacy, coats and distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.4580001831055,
+            9.63000011444092,
+            -6.66400003433228
+          ],
+          "image": "F04_D_MAIN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -9.39200019836426,
+            9.63000011444092,
+            -4.38600015640259
+          ],
+          "image": "F04_D_MAIN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 21,
+      "id": "F04_D_MAIN",
+      "level": "F04",
+      "purpose": "Transient guests living, meals and conversation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            9.63000011444092,
+            -9.1540002822876
+          ],
+          "image": "F04_D_PRIVATE_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            9.63000011444092,
+            -7.0460000038147
+          ],
+          "image": "F04_D_PRIVATE_HALL_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 24,
+      "id": "F04_D_PRIVATE_HALL",
+      "level": "F04",
+      "purpose": "Transient guests bed and bath distribution",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.78399991989136,
+            9.63000011444092,
+            -11.0
+          ],
+          "image": "F04_D_BATH_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -6.01599979400635,
+            9.63000011444092,
+            -10.0819997787476
+          ],
+          "image": "F04_D_BATH_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 13,
+      "id": "F04_D_BATH",
+      "level": "F04",
+      "purpose": "Transient guests private sanitary room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -9.75,
+            9.63000011444092,
+            -8.42500019073486
+          ],
+          "image": "F04_D_KITCHEN_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            9.63000011444092,
+            -8.8415002822876
+          ],
+          "image": "F04_D_KITCHEN_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 9,
+      "id": "F04_D_KITCHEN",
+      "level": "F04",
+      "purpose": "Transient guests cooking and washing",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.9540004730225,
+            9.63000011444092,
+            -8.89949989318848
+          ],
+          "image": "F04_D_BED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -11.996000289917,
+            9.63000011444092,
+            -10.6505002975464
+          ],
+          "image": "F04_D_BED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 14,
+      "id": "F04_D_BED",
+      "level": "F04",
+      "purpose": "Transient guests sleep and clothes storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -10.8039999008179,
+            9.63000011444092,
+            -11.4589996337891
+          ],
+          "image": "F04_D_STUDY_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -8.69600009918213,
+            9.63000011444092,
+            -10.0819997787476
+          ],
+          "image": "F04_D_STUDY_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 23,
+      "id": "F04_D_STUDY",
+      "level": "F04",
+      "purpose": "Transient guests luggage and flexible household storage",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            3.23000001907349,
+            -6.22800016403198
+          ],
+          "image": "F02_SOUTHWEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            3.23000001907349,
+            -1.67200005054474
+          ],
+          "image": "F02_SOUTHWEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F02_SOUTHWEST_HALL",
+      "level": "F02",
+      "purpose": "public approach to southwest apartment",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            6.42999982833862,
+            -6.22800016403198
+          ],
+          "image": "F03_SOUTHWEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            6.42999982833862,
+            -1.67200005054474
+          ],
+          "image": "F03_SOUTHWEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F03_SOUTHWEST_HALL",
+      "level": "F03",
+      "purpose": "public approach to southwest apartment",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -5.05600023269653,
+            9.63000011444092,
+            -6.22800016403198
+          ],
+          "image": "F04_SOUTHWEST_HALL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -2.74399995803833,
+            9.63000011444092,
+            -1.67200005054474
+          ],
+          "image": "F04_SOUTHWEST_HALL_1.png"
+        }
+      ],
+      "class": "public",
+      "clear_stations": 25,
+      "id": "F04_SOUTHWEST_HALL",
+      "level": "F04",
+      "purpose": "public approach to southwest apartment",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -14.0419998168945,
+            3.23000001907349,
+            -10.9899997711182
+          ],
+          "image": "F02_D_RESTRICTED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            -7.20800018310547,
+            3.23000001907349,
+            -5.21000003814697
+          ],
+          "image": "F02_D_RESTRICTED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F02_D_RESTRICTED",
+      "level": "F02",
+      "purpose": "sealed apartment retained behind locked entry",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_11.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -3.56800007820129,
+            6.42999982833862,
+            5.09800004959106
+          ],
+          "image": "F03_C_RESTRICTED_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            5.06799983978271,
+            6.42999982833862,
+            10.4020004272461
+          ],
+          "image": "F03_C_RESTRICTED_1.png"
+        }
+      ],
+      "class": "private",
+      "clear_stations": 25,
+      "id": "F03_C_RESTRICTED",
+      "level": "F03",
+      "purpose": "sealed apartment retained behind locked entry",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            5.86399984359741,
+            0.0299999993294477,
+            -7.0789999961853
+          ],
+          "image": "F01_STAFF_RESTROOM_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.83599996566772,
+            0.0299999993294477,
+            -5.19199991226196
+          ],
+          "image": "F01_STAFF_RESTROOM_1.png"
+        }
+      ],
+      "class": "wet",
+      "clear_stations": 19,
+      "id": "F01_STAFF_RESTROOM",
+      "level": "F01",
+      "purpose": "staff sanitary room with basin and WC",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            6.05600023269653,
+            -3.17000007629395,
+            -5.61199998855591
+          ],
+          "image": "B1_ELECTRICAL_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.8439998626709,
+            -3.17000007629395,
+            -2.68799996376038
+          ],
+          "image": "B1_ELECTRICAL_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "B1_ELECTRICAL",
+      "level": "B1",
+      "purpose": "dry main panel room with clear working front",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            6.05600023269653,
+            -3.17000007629395,
+            1.09599995613098
+          ],
+          "image": "B1_MAINTENANCE_SHOP_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            8.8439998626709,
+            -3.17000007629395,
+            4.90399980545044
+          ],
+          "image": "B1_MAINTENANCE_SHOP_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 17,
+      "id": "B1_MAINTENANCE_SHOP",
+      "level": "B1",
+      "purpose": "repair bench, parts and tool custody outside resident circulation",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.4840002059937,
+            -3.17000007629395,
+            -11.253999710083
+          ],
+          "image": "B1_COAL_ROOM_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            14.6660003662109,
+            -3.17000007629395,
+            -6.59600019454956
+          ],
+          "image": "B1_COAL_ROOM_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 21,
+      "id": "B1_COAL_ROOM",
+      "level": "B1",
+      "purpose": "fuel bunker and short firing supply route, separate from dry electrical room",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg",
+      "focused_followup": "art/blender/basement_fabrication.md",
+      "focused_scope": "Coal heap fabricated; 9 contacts and 32 delivery waypoints pass. Material pass pending."
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            -7.53599977493286,
+            -3.17000007629395,
+            4.75400018692017
+          ],
+          "image": "B1_RESIDENT_STORAGE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            2.93600010871887,
+            -3.17000007629395,
+            8.5959997177124
+          ],
+          "image": "B1_RESIDENT_STORAGE_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 25,
+      "id": "B1_RESIDENT_STORAGE",
+      "level": "B1",
+      "purpose": "eighteen dry household storage bays with central and east aisles",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            10.0920000076294,
+            -3.17000007629395,
+            4.99200010299683
+          ],
+          "image": "B1_SERVICE_CORE_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            10.0920000076294,
+            -3.17000007629395,
+            9.20800018310547
+          ],
+          "image": "B1_SERVICE_CORE_1.png"
+        }
+      ],
+      "class": "core",
+      "clear_stations": 11,
+      "id": "B1_SERVICE_CORE",
+      "level": "B1",
+      "purpose": "service stair continuation from basement plant to ground floor",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    },
+    {
+      "captures": [
+        {
+          "device_visible": true,
+          "feet": [
+            7.0939998626709,
+            -3.17000007629395,
+            -1.5
+          ],
+          "image": "B1_ELECTRICAL_RECESS_0.png"
+        },
+        {
+          "device_visible": false,
+          "feet": [
+            7.70599985122681,
+            -3.17000007629395,
+            -1.1599999666214
+          ],
+          "image": "B1_ELECTRICAL_RECESS_1.png"
+        }
+      ],
+      "class": "service",
+      "clear_stations": 9,
+      "id": "B1_ELECTRICAL_RECESS",
+      "level": "B1",
+      "purpose": "outward panel-room leaf swings outside the through corridor",
+      "status": "overview_reviewed_detail_and_route_pending",
+      "overview_sheet": "overview_12.jpg"
+    }
+  ],
+  "schema": "orison.fabrication-space-review.v1",
+  "source_commit": "45c7b13286c416b83d6e9167f5fcc1f474c8bd6d",
+  "capture_root": "tmp/v2-space-sweep/shots",
+  "scope": "Room overview only. Does not establish geometry, materials or route acceptance."
+}

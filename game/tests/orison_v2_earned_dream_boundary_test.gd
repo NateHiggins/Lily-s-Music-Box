@@ -30,7 +30,7 @@ func _ready() -> void:
 		return
 	shell = CampaignShell.new()
 	shell.waking_scene_path = "res://scenes/building/orison_v2_runtime.tscn"
-	shell.sleep_manual_clock = true
+	shell.sleep_manual_clock = manual_onset_clock()
 	add_child(shell)
 	await get_tree().create_timer(.5).timeout
 	check(shell.world_kind()=="waking" and shell.world_child_count()==1,"actual V2 reconstructs exclusively")
@@ -53,7 +53,9 @@ func _ready() -> void:
 		check(furnishing is Node3D,"wake furnishing mounted: " + identity)
 		if furnishing != null: retired_subjects.append(weakref(furnishing))
 
-	check(shell.dream_director.enter_armed_dream(),"public dream entry accepts earned transaction")
+	if not await enter_earned_dream():
+		await finish()
+		return
 	await get_tree().create_timer(1).timeout
 	check(shell.world_kind()=="dream" and shell.active_world is DreamMazeRoot and shell.world_child_count()==1,"real Dream root replaces V2 exclusively")
 	check(retired.get_ref()==null,"retired V2 root is released")
@@ -103,6 +105,12 @@ func _ready() -> void:
 
 func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
+
+func manual_onset_clock() -> bool:
+	return true
+
+func enter_earned_dream() -> bool:
+	return check(shell.dream_director.enter_armed_dream(), "public dream entry accepts earned transaction")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp

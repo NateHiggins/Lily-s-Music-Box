@@ -1,0 +1,1934 @@
+{
+  "evidence_class": "INERT",
+  "parts": [
+    {
+      "id": "Groundworks_cast_iron_1_-3",
+      "material": "cast_iron",
+      "triangles": 430
+    },
+    {
+      "id": "Groundworks_cast_iron_2_-3",
+      "material": "cast_iron",
+      "triangles": 2
+    },
+    {
+      "id": "Groundworks_cast_iron_3_-1",
+      "material": "cast_iron",
+      "triangles": 402
+    },
+    {
+      "id": "Groundworks_cast_iron_4_-4",
+      "material": "cast_iron",
+      "triangles": 2992
+    },
+    {
+      "id": "Groundworks_cast_iron_4_-3",
+      "material": "cast_iron",
+      "triangles": 768
+    },
+    {
+      "id": "Groundworks_cast_iron_4_-2",
+      "material": "cast_iron",
+      "triangles": 896
+    },
+    {
+      "id": "Groundworks_cast_iron_4_-1",
+      "material": "cast_iron",
+      "triangles": 4578
+    },
+    {
+      "id": "Groundworks_cast_iron_4_0",
+      "material": "cast_iron",
+      "triangles": 768
+    },
+    {
+      "id": "Groundworks_cast_iron_4_1",
+      "material": "cast_iron",
+      "triangles": 896
+    },
+    {
+      "id": "Groundworks_cast_iron_4_2",
+      "material": "cast_iron",
+      "triangles": 3160
+    },
+    {
+      "id": "Groundworks_cast_iron_4_3",
+      "material": "cast_iron",
+      "triangles": 768
+    },
+    {
+      "id": "Groundworks_cast_iron_4_4",
+      "material": "cast_iron",
+      "triangles": 1316
+    },
+    {
+      "id": "Groundworks_concrete_1_-4",
+      "material": "concrete",
+      "triangles": 200
+    },
+    {
+      "id": "Groundworks_concrete_1_-3",
+      "material": "concrete",
+      "triangles": 210
+    },
+    {
+      "id": "Groundworks_concrete_2_-4",
+      "material": "concrete",
+      "triangles": 994
+    },
+    {
+      "id": "Groundworks_concrete_2_-3",
+      "material": "concrete",
+      "triangles": 794
+    },
+    {
+      "id": "Groundworks_concrete_3_-4",
+      "material": "concrete",
+      "triangles": 1300
+    },
+    {
+      "id": "Groundworks_concrete_3_-3",
+      "material": "concrete",
+      "triangles": 1552
+    },
+    {
+      "id": "Groundworks_concrete_3_-2",
+      "material": "concrete",
+      "triangles": 1092
+    },
+    {
+      "id": "Groundworks_concrete_3_-1",
+      "material": "concrete",
+      "triangles": 1246
+    },
+    {
+      "id": "Groundworks_concrete_3_0",
+      "material": "concrete",
+      "triangles": 244
+    },
+    {
+      "id": "Groundworks_concrete_3_1",
+      "material": "concrete",
+      "triangles": 264
+    },
+    {
+      "id": "Groundworks_concrete_3_2",
+      "material": "concrete",
+      "triangles": 268
+    },
+    {
+      "id": "Groundworks_concrete_4_-4",
+      "material": "concrete",
+      "triangles": 1147
+    },
+    {
+      "id": "Groundworks_concrete_4_-3",
+      "material": "concrete",
+      "triangles": 1183
+    },
+    {
+      "id": "Groundworks_concrete_4_-2",
+      "material": "concrete",
+      "triangles": 1150
+    },
+    {
+      "id": "Groundworks_concrete_4_-1",
+      "material": "concrete",
+      "triangles": 1485
+    },
+    {
+      "id": "Groundworks_concrete_4_0",
+      "material": "concrete",
+      "triangles": 991
+    },
+    {
+      "id": "Groundworks_concrete_4_1",
+      "material": "concrete",
+      "triangles": 1064
+    },
+    {
+      "id": "Groundworks_concrete_4_2",
+      "material": "concrete",
+      "triangles": 1469
+    },
+    {
+      "id": "Groundworks_concrete_4_3",
+      "material": "concrete",
+      "triangles": 267
+    },
+    {
+      "id": "Groundworks_concrete_4_4",
+      "material": "concrete",
+      "triangles": 96
+    }
+  ],
+  "closed_source_pieces": [
+    {
+      "id": "WellFallingFloor",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.4356795974204885
+    },
+    {
+      "id": "Catch0_FallingFloor",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.014330587079602403
+    },
+    {
+      "id": "Catch1_FallingFloor",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.01433059244818798
+    },
+    {
+      "id": "Catch2_FallingFloor",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.014330594878519756
+    },
+    {
+      "id": "LocalCollectorClosedWall",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.24761244358090137
+    },
+    {
+      "id": "PropertyBoundaryBlank",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0009442379950787322
+    },
+    {
+      "id": "PropertyBlankBolt0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.292813344104442e-06
+    },
+    {
+      "id": "PropertyBlankBolt1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.292813344204622e-06
+    },
+    {
+      "id": "PropertyBlankBolt2",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.29281334418592e-06
+    },
+    {
+      "id": "PropertyBlankBolt3",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.292813344113387e-06
+    },
+    {
+      "id": "PropertyBlankBolt4",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.292813344194268e-06
+    },
+    {
+      "id": "PropertyBlankBolt5",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.292813344221807e-06
+    },
+    {
+      "id": "PavingFoundation",
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.227793227477148
+    },
+    {
+      "id": "PavingSlab",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558150619843824
+    },
+    {
+      "id": "PavingSlab.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955815065587526
+    },
+    {
+      "id": "PavingSlab.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558149852875155
+    },
+    {
+      "id": "PavingSlab.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955815039980577
+    },
+    {
+      "id": "PavingSlab.004",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955815056333981
+    },
+    {
+      "id": "PavingSlab.005",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558149795860824
+    },
+    {
+      "id": "PavingSlab.006",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558150032128
+    },
+    {
+      "id": "PavingSlab.007",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955815153904112
+    },
+    {
+      "id": "PavingSlab.008",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558149882588554
+    },
+    {
+      "id": "PavingSlab.009",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955814775545704
+    },
+    {
+      "id": "PavingSlab.010",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955814520510228
+    },
+    {
+      "id": "PavingSlab.011",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047755714717374956
+    },
+    {
+      "id": "PavingSlab.012",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.045164011718380345
+    },
+    {
+      "id": "PavingSlab.013",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955819031577771
+    },
+    {
+      "id": "PavingSlab.014",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558189362540556
+    },
+    {
+      "id": "PavingSlab.015",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955819119501583
+    },
+    {
+      "id": "PavingSlab.016",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955819055911294
+    },
+    {
+      "id": "PavingSlab.017",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0495581896674596
+    },
+    {
+      "id": "PavingSlab.018",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955818926798306
+    },
+    {
+      "id": "PavingSlab.019",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955818944297272
+    },
+    {
+      "id": "PavingSlab.020",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04955818676826597
+    },
+    {
+      "id": "PavingSlab.021",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.049558184383772755
+    },
+    {
+      "id": "PavingFoundation.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 11.57216376886131
+    },
+    {
+      "id": "PavingSlab.022",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051753773825866434
+    },
+    {
+      "id": "PavingSlab.023",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377877930264
+    },
+    {
+      "id": "PavingSlab.024",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377802083445
+    },
+    {
+      "id": "PavingSlab.025",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0517537767090922
+    },
+    {
+      "id": "PavingSlab.026",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377739934325
+    },
+    {
+      "id": "PavingSlab.027",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377780068619
+    },
+    {
+      "id": "PavingSlab.028",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051776698814591064
+    },
+    {
+      "id": "PavingSlab.029",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05251938370332588
+    },
+    {
+      "id": "PavingSlab.030",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05176766931939899
+    },
+    {
+      "id": "PavingSlab.031",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377342475524
+    },
+    {
+      "id": "PavingSlab.032",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0517537779662677
+    },
+    {
+      "id": "PavingSlab.033",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051753779222554315
+    },
+    {
+      "id": "PavingSlab.034",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051753779111550165
+    },
+    {
+      "id": "PavingSlab.035",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377780112277
+    },
+    {
+      "id": "PavingSlab.036",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377820183542
+    },
+    {
+      "id": "PavingSlab.037",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05177669818995379
+    },
+    {
+      "id": "PavingSlab.038",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.052519382501074394
+    },
+    {
+      "id": "PavingSlab.039",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05176767092277642
+    },
+    {
+      "id": "PavingSlab.040",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377025714162
+    },
+    {
+      "id": "PavingSlab.041",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.042947621039952755
+    },
+    {
+      "id": "PavingSlab.042",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.012877811775907091
+    },
+    {
+      "id": "PavingSlab.043",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.03727730608268469
+    },
+    {
+      "id": "PavingSlab.044",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051753776634177864
+    },
+    {
+      "id": "PavingSlab.045",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0517537778360454
+    },
+    {
+      "id": "PavingSlab.046",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05177670045348371
+    },
+    {
+      "id": "PavingSlab.047",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05251938275772505
+    },
+    {
+      "id": "PavingSlab.048",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05176766859782533
+    },
+    {
+      "id": "PavingSlab.049",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051753770610042715
+    },
+    {
+      "id": "PavingSlab.050",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.03379731179422424
+    },
+    {
+      "id": "PavingSlab.052",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.032481920689091386
+    },
+    {
+      "id": "PavingSlab.053",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377644068083
+    },
+    {
+      "id": "PavingSlab.054",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05175377692554203
+    },
+    {
+      "id": "PavingSlab.055",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.05176705226741237
+    },
+    {
+      "id": "PavingSlab.056",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.052197534403557996
+    },
+    {
+      "id": "PavingSlab.057",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.051761828761775985
+    },
+    {
+      "id": "PavingFoundation.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 11.074429947393092
+    },
+    {
+      "id": "PavingSlab.058",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047674866022317006
+    },
+    {
+      "id": "PavingSlab.059",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0476748649158627
+    },
+    {
+      "id": "PavingSlab.060",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486380694169
+    },
+    {
+      "id": "PavingSlab.061",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486514353551
+    },
+    {
+      "id": "PavingSlab.062",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0476748646982134
+    },
+    {
+      "id": "PavingSlab.063",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486432798289
+    },
+    {
+      "id": "PavingSlab.064",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486691383713
+    },
+    {
+      "id": "PavingSlab.065",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506813441
+    },
+    {
+      "id": "PavingSlab.066",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0476748672833372
+    },
+    {
+      "id": "PavingSlab.067",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486543710267
+    },
+    {
+      "id": "PavingSlab.068",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506718141
+    },
+    {
+      "id": "PavingSlab.069",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486435954441
+    },
+    {
+      "id": "PavingSlab.070",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506718158
+    },
+    {
+      "id": "PavingSlab.071",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047674863222487526
+    },
+    {
+      "id": "PavingSlab.072",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486580669167
+    },
+    {
+      "id": "PavingSlab.073",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047674865210802116
+    },
+    {
+      "id": "PavingSlab.074",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486580669167
+    },
+    {
+      "id": "PavingSlab.075",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486543745278
+    },
+    {
+      "id": "PavingSlab.076",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506772055
+    },
+    {
+      "id": "PavingSlab.077",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486469955975
+    },
+    {
+      "id": "PavingSlab.078",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486469866673
+    },
+    {
+      "id": "PavingSlab.079",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486432927592
+    },
+    {
+      "id": "PavingSlab.080",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486691404087
+    },
+    {
+      "id": "PavingSlab.081",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506889
+    },
+    {
+      "id": "PavingSlab.082",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047674866914040874
+    },
+    {
+      "id": "PavingSlab.083",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506911528
+    },
+    {
+      "id": "PavingSlab.084",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486506657651
+    },
+    {
+      "id": "PavingSlab.085",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486428807052
+    },
+    {
+      "id": "PavingSlab.086",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486629334432
+    },
+    {
+      "id": "PavingSlab.087",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486592374245
+    },
+    {
+      "id": "PavingSlab.088",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486407694396
+    },
+    {
+      "id": "PavingSlab.089",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486700421901
+    },
+    {
+      "id": "PavingSlab.090",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.047674865956306885
+    },
+    {
+      "id": "PavingSlab.091",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04767486670667784
+    },
+    {
+      "id": "PavingSlab.092",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0476748681383315
+    },
+    {
+      "id": "PavingSlab.093",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.041441616312238964
+    },
+    {
+      "id": "PavingFoundation.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.43618055052086213
+    },
+    {
+      "id": "PavingSlab.094",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.033031366586139616
+    },
+    {
+      "id": "PavingSlab.095",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.033031366891888535
+    },
+    {
+      "id": "DrainBar",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950027418354e-05
+    },
+    {
+      "id": "DrainBar.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.90259517610484e-05
+    },
+    {
+      "id": "DrainBar.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951590046958e-05
+    },
+    {
+      "id": "DrainBar.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951116474395e-05
+    },
+    {
+      "id": "DrainBar.004",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950895803813e-05
+    },
+    {
+      "id": "DrainBar.005",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951410577817e-05
+    },
+    {
+      "id": "DrainBar.006",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902595092124761e-05
+    },
+    {
+      "id": "DrainBar.007",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950268154036e-05
+    },
+    {
+      "id": "DrainBar.008",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902595065293946e-05
+    },
+    {
+      "id": "DrainBar.009",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902595090856966e-05
+    },
+    {
+      "id": "DrainBar.010",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902595115366026e-05
+    },
+    {
+      "id": "DrainBar.011",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025964359480777e-05
+    },
+    {
+      "id": "DrainBar.012",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025963896190286e-05
+    },
+    {
+      "id": "DrainBar.013",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902596262448872e-05
+    },
+    {
+      "id": "DrainBar.014",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025964356119754e-05
+    },
+    {
+      "id": "DrainBar.015",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025963082854366e-05
+    },
+    {
+      "id": "DrainBar.016",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025998889555188e-05
+    },
+    {
+      "id": "DrainBar.017",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902603556335167e-05
+    },
+    {
+      "id": "DrainBar.018",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9026035987381853e-05
+    },
+    {
+      "id": "DrainBar.019",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902603600710683e-05
+    },
+    {
+      "id": "DrainBar.020",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9026036481351888e-05
+    },
+    {
+      "id": "DrainBar.021",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902603687507468e-05
+    },
+    {
+      "id": "DrainBar.022",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950916275817e-05
+    },
+    {
+      "id": "DrainBar.023",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951840120995e-05
+    },
+    {
+      "id": "DrainBar.024",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025949898112876e-05
+    },
+    {
+      "id": "DrainBar.025",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950952548583e-05
+    },
+    {
+      "id": "DrainBar.026",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951393856645e-05
+    },
+    {
+      "id": "DrainBar.027",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951281433502e-05
+    },
+    {
+      "id": "DrainBar.028",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902595186049931e-05
+    },
+    {
+      "id": "DrainBar.029",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025950839491172e-05
+    },
+    {
+      "id": "DrainBar.030",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902594995313271e-05
+    },
+    {
+      "id": "DrainBar.031",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.9025951895378497e-05
+    },
+    {
+      "id": "DrainBar.032",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.902594995355579e-05
+    },
+    {
+      "id": "LampPlate",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0009168291439123447
+    },
+    {
+      "id": "LampArm",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002563909496021449
+    },
+    {
+      "id": "LampBolt",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampBolt.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampPlate.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0009168291439123447
+    },
+    {
+      "id": "LampArm.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002563909496021449
+    },
+    {
+      "id": "LampBolt.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampBolt.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampPlate.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0009168291439123447
+    },
+    {
+      "id": "LampArm.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002563909496021449
+    },
+    {
+      "id": "LampBolt.004",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampBolt.005",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampPlate.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0009168291439123447
+    },
+    {
+      "id": "LampArm.003",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0002563909496021449
+    },
+    {
+      "id": "LampBolt.006",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "LampBolt.007",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6072961413281177e-05
+    },
+    {
+      "id": "WellNorth",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.6981581665955984
+    },
+    {
+      "id": "WellSouth",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.6990983050116928
+    },
+    {
+      "id": "WellEast",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.9081600150632848
+    },
+    {
+      "id": "WellNorthBearing",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.011332896061797026
+    },
+    {
+      "id": "WellSouthBearing",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.012271868143613505
+    },
+    {
+      "id": "Catch0_West",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010239837119648175
+    },
+    {
+      "id": "Catch0_East",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010239837119648177
+    },
+    {
+      "id": "Catch0_North",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0058371124521676915
+    },
+    {
+      "id": "Catch0_South",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.005837112452167691
+    },
+    {
+      "id": "Catch1_West",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010239820560009471
+    },
+    {
+      "id": "Catch1_East",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010239820560009452
+    },
+    {
+      "id": "Catch1_North",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0058371124521676915
+    },
+    {
+      "id": "Catch1_South",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.005837112452167691
+    },
+    {
+      "id": "Catch2_West",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010206365635709086
+    },
+    {
+      "id": "Catch2_East",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.010206365635709085
+    },
+    {
+      "id": "Catch2_North",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.005819414884760089
+    },
+    {
+      "id": "Catch2_South",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00581941488476009
+    },
+    {
+      "id": "WellBar_00_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933445237351
+    },
+    {
+      "id": "WellBar_00_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909783404293e-05
+    },
+    {
+      "id": "WellBar_01_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593346783715
+    },
+    {
+      "id": "WellBar_01_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_02_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_02_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_03_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933558236349
+    },
+    {
+      "id": "WellBar_03_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841154e-05
+    },
+    {
+      "id": "WellBar_04_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933558236349
+    },
+    {
+      "id": "WellBar_04_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841155e-05
+    },
+    {
+      "id": "WellBar_05_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933558236349
+    },
+    {
+      "id": "WellBar_05_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910000710097e-05
+    },
+    {
+      "id": "WellBar_06_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933445237351
+    },
+    {
+      "id": "WellBar_06_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909783404293e-05
+    },
+    {
+      "id": "WellBar_07_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593346783715
+    },
+    {
+      "id": "WellBar_07_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_08_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_08_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_09_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933580836149
+    },
+    {
+      "id": "WellBar_09_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_10_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933558236349
+    },
+    {
+      "id": "WellBar_10_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841154e-05
+    },
+    {
+      "id": "WellBar_11_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_11_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910000710097e-05
+    },
+    {
+      "id": "WellBar_12_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593349043695
+    },
+    {
+      "id": "WellBar_12_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990981444798e-05
+    },
+    {
+      "id": "WellBar_13_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593355823635
+    },
+    {
+      "id": "WellBar_13_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_14_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_14_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_15_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593358083615
+    },
+    {
+      "id": "WellBar_15_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579037e-05
+    },
+    {
+      "id": "WellBar_16_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933603435948
+    },
+    {
+      "id": "WellBar_16_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910031753782e-05
+    },
+    {
+      "id": "WellBar_17_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_17_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910000710097e-05
+    },
+    {
+      "id": "WellBar_18_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593349043695
+    },
+    {
+      "id": "WellBar_18_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990981444798e-05
+    },
+    {
+      "id": "WellBar_19_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933377437952
+    },
+    {
+      "id": "WellBar_19_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909659229549e-05
+    },
+    {
+      "id": "WellBar_20_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_20_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990996966641e-05
+    },
+    {
+      "id": "WellBar_21_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933580836149
+    },
+    {
+      "id": "WellBar_21_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909907579038e-05
+    },
+    {
+      "id": "WellBar_22_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_22_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841155e-05
+    },
+    {
+      "id": "WellBar_23_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593364863555
+    },
+    {
+      "id": "WellBar_23_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990996966641e-05
+    },
+    {
+      "id": "WellBar_24_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593349043695
+    },
+    {
+      "id": "WellBar_24_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909814447979e-05
+    },
+    {
+      "id": "WellBar_25_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933377437952
+    },
+    {
+      "id": "WellBar_25_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909721316921e-05
+    },
+    {
+      "id": "WellBar_26_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933693835148
+    },
+    {
+      "id": "WellBar_26_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909969666411e-05
+    },
+    {
+      "id": "WellBar_27_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933626035748
+    },
+    {
+      "id": "WellBar_27_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909938622724e-05
+    },
+    {
+      "id": "WellBar_28_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593364863555
+    },
+    {
+      "id": "WellBar_28_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841154e-05
+    },
+    {
+      "id": "WellBar_29_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933603435949
+    },
+    {
+      "id": "WellBar_29_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841155e-05
+    },
+    {
+      "id": "WellBar_30_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593349043695
+    },
+    {
+      "id": "WellBar_30_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990981444798e-05
+    },
+    {
+      "id": "WellBar_31_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933377437952
+    },
+    {
+      "id": "WellBar_31_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909721316921e-05
+    },
+    {
+      "id": "WellBar_32_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933693835149
+    },
+    {
+      "id": "WellBar_32_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.99990996966641e-05
+    },
+    {
+      "id": "WellBar_33_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933626035749
+    },
+    {
+      "id": "WellBar_33_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909814447979e-05
+    },
+    {
+      "id": "WellBar_34_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933558236349
+    },
+    {
+      "id": "WellBar_34_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841155e-05
+    },
+    {
+      "id": "WellBar_35_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0005095933648635549
+    },
+    {
+      "id": "WellBar_35_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999910093841154e-05
+    },
+    {
+      "id": "WellBar_36_0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.000509593351303675
+    },
+    {
+      "id": "WellBar_36_1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.999909876535351e-05
+    },
+    {
+      "id": "WellLongBearer",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0026640610867466486
+    },
+    {
+      "id": "WellLongBearer.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0026638918244450025
+    },
+    {
+      "id": "WellLongBearer.002",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0026638917693129482
+    },
+    {
+      "id": "WellEndBearing",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0037260256569357237
+    },
+    {
+      "id": "WellEndBearing.001",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.0037260257433630525
+    },
+    {
+      "id": "CollectorSaddleBed0",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023937912363004
+    },
+    {
+      "id": "CollectorSaddleBed1",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938934260336
+    },
+    {
+      "id": "CollectorSaddleBed2",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.040239399131257875
+    },
+    {
+      "id": "CollectorSaddleBed3",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023937968594614
+    },
+    {
+      "id": "CollectorSaddleBed4",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938934260336
+    },
+    {
+      "id": "CollectorSaddleBed5",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938934260336
+    },
+    {
+      "id": "CollectorSaddleBed6",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023939877963689
+    },
+    {
+      "id": "CollectorSaddleBed7",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023937933432518
+    },
+    {
+      "id": "CollectorSaddleBed8",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938911936389
+    },
+    {
+      "id": "CollectorSaddleBed9",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938919934319
+    },
+    {
+      "id": "CollectorSaddleBed10",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023939896964102
+    },
+    {
+      "id": "CollectorSaddleBed11",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.040239389171479095
+    },
+    {
+      "id": "CollectorSaddleBed12",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.040239389146330205
+    },
+    {
+      "id": "CollectorSaddleBed13",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023939899901613
+    },
+    {
+      "id": "CollectorSaddleBed14",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023937933432518
+    },
+    {
+      "id": "CollectorSaddleBed15",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938911936389
+    },
+    {
+      "id": "CollectorSaddleBed16",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938911936389
+    },
+    {
+      "id": "CollectorSaddleBed17",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.040239399131257875
+    },
+    {
+      "id": "CollectorSaddleBed18",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938934260336
+    },
+    {
+      "id": "CollectorSaddleBed19",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.04023938934260336
+    },
+    {
+      "id": "CollectorSaddleBed20",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.040239399131257875
+    }
+  ],
+  "cut_owners": [
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingFoundation.001"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.041"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.042"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.043"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.050"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.051"
+    },
+    {
+      "cut": "BoilerWell",
+      "retained_source": "PavingSlab.052"
+    },
+    {
+      "cut": "Catch_0",
+      "retained_source": "PavingFoundation"
+    },
+    {
+      "cut": "Catch_0",
+      "retained_source": "PavingSlab.011"
+    },
+    {
+      "cut": "Catch_0",
+      "retained_source": "PavingSlab.012"
+    },
+    {
+      "cut": "Catch_1",
+      "retained_source": "PavingFoundation.001"
+    },
+    {
+      "cut": "Catch_1",
+      "retained_source": "PavingSlab.050"
+    },
+    {
+      "cut": "Catch_2",
+      "retained_source": "PavingFoundation.002"
+    },
+    {
+      "cut": "Catch_2",
+      "retained_source": "PavingSlab.093"
+    }
+  ],
+  "fully_removed_sources": [
+    {
+      "id": "PavingSlab.051",
+      "original_bounds": [
+        16.819000244140625,
+        -0.03999999910593033,
+        2.571499824523926,
+        17.99850082397461,
+        0.0,
+        3.6684999465942383
+      ],
+      "source_cuts": [
+        "BoilerWell"
+      ]
+    }
+  ],
+  "zero_area_world_triangles_omitted": [
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 1.1292286217212677e-08,
+      "altitude_m": 5.943296342647528e-09
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    },
+    {
+      "source": "PavingFoundation.001",
+      "area_m2": 0.0,
+      "altitude_m": 0.0
+    }
+  ],
+  "well": [
+    15.93,
+    2.46,
+    18.0,
+    3.9400000000000004
+  ],
+  "well_floor": -2.2,
+  "drain_centres": [
+    [
+      17.75,
+      -10.450000000000001
+    ],
+    [
+      17.75,
+      2.0
+    ],
+    [
+      17.75,
+      13.85
+    ]
+  ],
+  "local_collector": {
+    "classification": "ADAPTATION",
+    "owner": "LocalCollectorClosedWall",
+    "main_axis": [
+      [
+        17.75,
+        -2.6990250000000002,
+        -16.605
+      ],
+      [
+        17.75,
+        -2.5460000000000003,
+        14.0
+      ]
+    ],
+    "main_bore_radius": 0.0762,
+    "main_outer_radius": 0.0889,
+    "main_fall": 0.005,
+    "branches": [
+      {
+        "id": "catch0",
+        "centre": [
+          17.75,
+          -10.450000000000001
+        ],
+        "top_y": -0.65575,
+        "collector_y": -2.66825,
+        "bore_radius": 0.0508,
+        "outer_radius": 0.0635,
+        "socket_y": [
+          -0.86575,
+          -0.77575
+        ]
+      },
+      {
+        "id": "catch1",
+        "centre": [
+          17.75,
+          2.0
+        ],
+        "top_y": -0.65575,
+        "collector_y": -2.606,
+        "bore_radius": 0.0508,
+        "outer_radius": 0.0635,
+        "socket_y": [
+          -0.86575,
+          -0.77575
+        ]
+      },
+      {
+        "id": "catch2",
+        "centre": [
+          17.75,
+          13.85
+        ],
+        "top_y": -0.65708,
+        "collector_y": -2.5467500000000003,
+        "bore_radius": 0.0508,
+        "outer_radius": 0.0635,
+        "socket_y": [
+          -0.86708,
+          -0.77708
+        ]
+      },
+      {
+        "id": "well",
+        "centre": [
+          17.75,
+          3.2
+        ],
+        "top_y": -2.25,
+        "collector_y": -2.6,
+        "bore_radius": 0.0508,
+        "outer_radius": 0.0635,
+        "socket_y": [
+          -2.48,
+          -2.39
+        ]
+      }
+    ],
+    "socket_centres_z": [
+      -16.485,
+      -14.985,
+      -13.485,
+      -11.985,
+      -10.485,
+      -8.985,
+      -7.484999999999999,
+      -5.984999999999999,
+      -4.484999999999999,
+      -2.9849999999999994,
+      -1.4849999999999994,
+      0.015000000000000568,
+      1.5150000000000006,
+      3.0150000000000006,
+      4.515000000000001,
+      6.015000000000001,
+      7.515000000000001,
+      9.015,
+      10.515,
+      12.015,
+      13.515
+    ],
+    "saddle_beds": [
+      {
+        "id": "CollectorSaddleBed0",
+        "z": -16.485,
+        "bottom_y": -2.998425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed1",
+        "z": -14.985,
+        "bottom_y": -2.990925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed2",
+        "z": -13.485,
+        "bottom_y": -2.983425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed3",
+        "z": -11.985,
+        "bottom_y": -2.9759249999999997,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed4",
+        "z": -10.485,
+        "bottom_y": -2.968425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed5",
+        "z": -8.985,
+        "bottom_y": -2.960925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed6",
+        "z": -7.484999999999999,
+        "bottom_y": -2.9534249999999997,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed7",
+        "z": -5.984999999999999,
+        "bottom_y": -2.945925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed8",
+        "z": -4.484999999999999,
+        "bottom_y": -2.938425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed9",
+        "z": -2.9849999999999994,
+        "bottom_y": -2.930925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed10",
+        "z": -1.4849999999999994,
+        "bottom_y": -2.923425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed11",
+        "z": 0.015000000000000568,
+        "bottom_y": -2.915925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed12",
+        "z": 1.5150000000000006,
+        "bottom_y": -2.908425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed13",
+        "z": 3.0150000000000006,
+        "bottom_y": -2.900925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed14",
+        "z": 4.515000000000001,
+        "bottom_y": -2.8934249999999997,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed15",
+        "z": 6.015000000000001,
+        "bottom_y": -2.885925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed16",
+        "z": 7.515000000000001,
+        "bottom_y": -2.878425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed17",
+        "z": 9.015,
+        "bottom_y": -2.8709249999999997,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed18",
+        "z": 10.515,
+        "bottom_y": -2.863425,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed19",
+        "z": 12.015,
+        "bottom_y": -2.855925,
+        "contact_radius": 0.104
+      },
+      {
+        "id": "CollectorSaddleBed20",
+        "z": 13.515,
+        "bottom_y": -2.8484249999999998,
+        "contact_radius": 0.104
+      }
+    ],
+    "downstream": {
+      "owner": "PropertyBoundaryBlank",
+      "z": -16.605,
+      "state": "bolted construction-stage blank",
+      "open_work": "Replace blank with the physical street-main connection before infrastructure acceptance."
+    }
+  },
+  "grade_recipe": "east V crossfall .005 and nearest catch longitudinal .002 with -.001 datum; blend to rear .0008 crossfall from Z7.8 to9.32",
+  "bindings": {
+    "art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688",
+    "game/data/orison_v2_blockout.json": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4"
+  },
+  "asset_sha256": "c69d2d8a8097a2124785632e4495d0dc118c7228ca4a703201781d609dbe0ea4",
+  "open": [
+    "Downstream street-main connection at the bolted property blank",
+    "Boiler air-window operating geometry",
+    "Joint-scale runoff and weather joins"
+  ],
+  "note": "Fitted production construction, replacing only the original alley paving and iron owners. No new simulation or drainage-capacity verdict."
+}

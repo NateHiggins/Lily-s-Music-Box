@@ -325,9 +325,11 @@ func interact(_player: Node) -> void:
 	set_door_open(not _open)
 
 
+var hinges_oiled := false
+
 func set_door_open(open: bool, duration := 0.35) -> void:
 	_open = open
-	if _squeak and not _squeak.playing:
+	if _squeak and not _squeak.playing and not hinges_oiled:
 		_squeak.pitch_scale = 1.05 + randf_range(-0.06, 0.06)
 		_squeak.play()
 	if duration <= 0.0:

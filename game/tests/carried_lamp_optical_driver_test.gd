@@ -28,6 +28,18 @@ func _run() -> void:
 	_make_player()
 	for i in 120: player._advance_lamp(1.0/120.0)
 	_check(player.lamp_is_enabled() and player.flashlight.light_energy > 0,"preserved controller warms actual lamp")
+	var thermal_before: Dictionary = driver.state.save_state()
+	driver.cone_scale = 1.45
+	driver.apply_output()
+	_check(is_equal_approx(player.flashlight.spot_angle,float(driver.output.cone_angle_deg)*1.45)
+			and driver.state.save_state() == thermal_before,"wider presentation leaves saved thermal state unchanged")
+	var observation := preload("res://scripts/lamp/carried_lamp_observation.gd").new()
+	add_child(observation)
+	observation.observe_player(player,1.0/60.0)
+	_check(is_equal_approx(observation.state.angle,player.flashlight.spot_angle),"voxel observation follows delivered wider cone")
+	observation.free()
+	driver.cone_scale = 1.0
+	driver.apply_output()
 	var reference := State.new()
 	reference.restore_state(driver.state.save_state())
 	for i in 120:

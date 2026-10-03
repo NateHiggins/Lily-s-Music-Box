@@ -12,9 +12,12 @@ func _ready() -> void:
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	environment.glow_enabled = true
-	environment.glow_intensity = 0.68
-	environment.glow_bloom = 0.10
-	environment.glow_hdr_threshold = 0.85
+	# Keep bright lamp spill from bleaching dark lettering and nearby controls.
+	# Optical reach/energy still belong to the carried lamp; this is bloom only.
+	environment.glow_intensity = 0.02
+	environment.glow_bloom = 0.0
+	environment.glow_hdr_threshold = 2.0
+	environment.glow_hdr_luminance_cap = 2.0
 	if RenderingServer.get_current_rendering_method() == "forward_plus":
 		environment.ssao_enabled = true
 		environment.ssao_radius = 0.9

@@ -162,6 +162,28 @@ func _map_fixtures(layout: Dictionary) -> void:
 			% [wired, _room_fixtures.size(), homeless])
 
 
+func room_snapshot(room_id: String) -> Dictionary:
+	var result := {}
+	var wanted: Array = _room_fixtures.get(room_id, [])
+	for fixture in get_tree().get_nodes_in_group("light_fixtures"):
+		if str(fixture.name) in wanted: result[str(fixture.name)] = fixture.powered
+	return result if result.size() == wanted.size() else {}
+
+
+func restore_room(room_id: String, state: Dictionary) -> bool:
+	var current := room_snapshot(room_id)
+	if current.is_empty() or current.size() != state.size(): return false
+	for identity: String in current:
+		if not state.has(identity) or state[identity] is not bool: return false
+	var now_on := false
+	for fixture in get_tree().get_nodes_in_group("light_fixtures"):
+		if state.has(str(fixture.name)):
+			now_on = state[str(fixture.name)]
+			fixture.set_powered(now_on)
+	room_toggled.emit(room_id, now_on)
+	return true
+
+
 func toggle_room(room_id: String) -> bool:
 	if room_id == "" or not _room_fixtures.has(room_id):
 		return false

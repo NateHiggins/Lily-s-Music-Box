@@ -3,9 +3,16 @@ extends Node3D
 ## First-person carrier for the no-screen Vantry service set.  The instrument
 ## renders in an isolated held-object pass, while its lamp publishes a camera-
 ## space transform to the real-world light owned by PlayerController.
+## The owner now requests an eye-adjacent emitter for close inspection.
 
-const CARRY_POS := Vector3(0.190, -0.205, -0.410)
-const CARRY_ROT := Vector3(-18.0, -12.0, 5.0)
+const CARRY_POS := Vector3(0.145, -0.055, -0.330)
+const CARRY_ROT := Vector3(-3.0, -4.0, 2.0)
+const EYE_LIGHT_ORIGIN := Vector3(0.018, -0.018, -0.035)
+var reading := false
+var reading_distance := .305
+const READING_NEAR := .260
+const READING_FAR := .390
+var _read_blend := 0.0
 const REF_ASPECT := 16.0 / 9.0
 
 var device: ServiceSetProp
@@ -17,6 +24,8 @@ var _player: PlayerController
 var _pass_view: SubViewport
 var _pass_cam: Camera3D
 var _pass_src: Camera3D
+var _presentation_layer: CanvasLayer
+var _capture_hidden := false
 var _life := 0.0
 var _bob := 0.0
 var _sway := Vector2.ZERO
@@ -33,7 +42,23 @@ func setup(player: PlayerController, camera: Camera3D,
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
 	_build_overlay_pass(camera)
+	player.set_physical_display_enabled(true)
+	if player.telegram_hud != null:
+		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
+			print_telegram_card(card))
 	set_process(true)
+
+
+## Review preference for this carrier's lifetime. Keep the live lamp, radio
+## and printer running while removing only their held-object presentation.
+func set_capture_hidden(hidden: bool) -> void:
+	_capture_hidden = hidden
+	if _presentation_layer:
+		_presentation_layer.visible = not hidden
+
+
+func is_capture_hidden() -> bool:
+	return _capture_hidden
 
 
 func set_lamp_enabled(on: bool) -> void:
@@ -84,8 +109,8 @@ func radio_is_powered() -> bool:
 	return device != null and device.radio_powered
 
 
-func print_telegram_card(title: String) -> bool:
-	return device != null and device.print_telegram_card(title)
+func print_telegram_card(message: Variant) -> bool:
+	return device != null and device.print_telegram_card(message)
 
 
 ## Proof-only turntable poses. Production always leaves this at zero.
@@ -121,7 +146,7 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	environment.ambient_light_color = Color("4a3528")
 	# The 28-R's black lacquer and phenolic need enough broad reflection to
 	# separate plates before the two photographic keys describe their edges.
-	environment.ambient_light_energy = 3.20
+	environment.ambient_light_energy = 0.80
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	var world_environment := WorldEnvironment.new()
 	world_environment.environment = environment
@@ -138,30 +163,43 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 
 	var key := OmniLight3D.new()
 	key.light_color = Color("ffd3a1")
-	key.light_energy = 16.0
+	key.light_energy = 0.35
 	key.omni_range = 1.1
 	key.shadow_enabled = false
 	key.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	key.layers = key.light_cull_mask
 	key.position = Vector3(-0.18, 0.22, -0.06)
 	_pass_view.add_child(key)
 	var rim := OmniLight3D.new()
 	rim.light_color = Color("8191a0")
-	rim.light_energy = 8.0
+	rim.light_energy = 0.12
 	rim.omni_range = 0.9
 	rim.shadow_enabled = false
 	rim.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	rim.layers = rim.light_cull_mask
 	rim.position = Vector3(0.24, -0.12, -0.02)
 	_pass_view.add_child(rim)
+	var softbox := DirectionalLight3D.new()
+	softbox.name = "InstrumentBroadReflection"
+	softbox.light_color = Color("fff2db")
+	softbox.light_energy = 0.55
+	softbox.rotation_degrees = Vector3(-18,-22,0)
+	softbox.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+	softbox.layers = softbox.light_cull_mask
+	softbox.shadow_enabled = false
+	_pass_view.add_child(softbox)
 
-	var layer := CanvasLayer.new()
-	layer.layer = 8
-	add_child(layer)
+	_presentation_layer = CanvasLayer.new()
+	_presentation_layer.name = "ServiceSetPresentation"
+	_presentation_layer.layer = 8
+	_presentation_layer.visible = not _capture_hidden
+	add_child(_presentation_layer)
 	var rect := TextureRect.new()
 	rect.texture = _pass_view.get_texture()
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(rect)
+	_presentation_layer.add_child(rect)
 	get_viewport().size_changed.connect(_resize_pass)
 
 
@@ -179,9 +217,20 @@ func _aspect_shift() -> float:
 	return (size.x / size.y) / REF_ASPECT
 
 
+func adjust_reading_distance(amount: float) -> void:
+	reading_distance=clampf(reading_distance+amount,READING_NEAR,READING_FAR)
+	device.teletype.set_focus_position(inverse_lerp(READING_FAR,READING_NEAR,reading_distance))
+
 func _process(delta: float) -> void:
 	if device == null:
 		return
+	var hint := _player._prompt.text if is_instance_valid(_player) else ""
+	var notebook := get_tree().get_first_node_in_group("caretaker_notebook")
+	if notebook!=null:
+		var care_hint: String = notebook.action_hint()
+		if not care_hint.is_empty(): hint += "\n"+care_hint
+	device.teletype.set_action_hint(hint)
+	device.teletype.set_controls(device.radio_powered,device.lamp_enabled,device.order_open or device.incoming_call)
 	_life += delta
 	var speed := Vector3(_player.velocity.x, 0.0,
 			_player.velocity.z).length() if _player else 0.0
@@ -195,13 +244,15 @@ func _process(delta: float) -> void:
 
 	var pose := CARRY_POS
 	pose.x *= _aspect_shift()
-	var rotation := CARRY_ROT
+	_read_blend=move_toward(_read_blend,1.0 if reading else 0.0,delta*3.0)
+	pose=pose.lerp(Vector3(0,-.015,-reading_distance),smoothstep(0.0,1.0,_read_blend))
+	var rotation := CARRY_ROT.lerp(Vector3.ZERO,_read_blend)
 	var scale := Vector3.ONE
 	if _proof_pose > 0:
 		pose = Vector3(0, -0.01, -0.43)
 		rotation = Vector3(0, 180.0 if _proof_pose == 1 else 0.0, 0)
 		scale = Vector3.ONE * 1.05
-	else:
+	elif not reading:
 		var stride := 0.0018 + speed * 0.0023
 		pose += Vector3(sin(_bob * 1.6) * stride,
 				sin(_bob * 3.2) * stride * 0.75,
@@ -213,7 +264,41 @@ func _process(delta: float) -> void:
 	device.rotation_degrees = rotation
 	device.scale = scale
 
-	var aim := Basis.from_euler(device.rotation)
-	beam_xform = Transform3D(aim, device.position + aim * ServiceSetProp.LAMP_AT)
+	beam_xform = Transform3D(Basis.IDENTITY, EYE_LIGHT_ORIGIN)
 	beam_valid = true
-	beam_aim = Vector2(rotation.y - CARRY_ROT.y, rotation.x - CARRY_ROT.x)
+	beam_aim = Vector2.ZERO
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_echo(): return
+	if _player == null or _player.call_locked or _player.mouse_released or get_tree().paused:
+		return
+	if not _player.camera.is_current(): return
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if reading and event is InputEventMouseButton and event.pressed:
+		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+			adjust_reading_distance(-.012 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .012)
+			get_viewport().set_input_as_handled()
+			return
+	if reading and event.is_action_pressed("teletype_closer"):
+		adjust_reading_distance(-.012)
+		get_viewport().set_input_as_handled()
+		return
+	if reading and event.is_action_pressed("teletype_farther"):
+		adjust_reading_distance(.012)
+		get_viewport().set_input_as_handled()
+		return
+	if reading and event.is_action_pressed("teletype_service"):
+		device.teletype.toggle_service_cover()
+		get_viewport().set_input_as_handled()
+		return
+	if event.is_action_pressed("teletype_read"):
+		reading=not reading
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("teletype_next"):
+		if event is InputEventKey and event.shift_pressed: device.teletype.browse_report(1)
+		else: device.teletype.turn_page(1)
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("teletype_previous"):
+		if event is InputEventKey and event.shift_pressed: device.teletype.browse_report(-1)
+		else: device.teletype.turn_page(-1)
+		get_viewport().set_input_as_handled()

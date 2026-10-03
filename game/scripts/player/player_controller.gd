@@ -42,6 +42,7 @@ var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var telegram_hud: TelegramHud
+var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
 var noclip := false
 var crouched := false
@@ -230,6 +231,7 @@ func _build_hud() -> void:
 	flashlight.light_projector = null
 	var layer := CanvasLayer.new()
 	layer.layer = 7
+	_interaction_hud=layer
 	add_child(layer)
 	var dot := ColorRect.new()
 	dot.size = Vector2(4, 4)
@@ -260,6 +262,10 @@ func _build_hud() -> void:
 	pause_services.name = "PauseServices"
 	add_child(pause_services)
 	pause_services.call("bind_player", self)
+
+func set_physical_display_enabled(enabled: bool) -> void:
+	if _interaction_hud: _interaction_hud.visible=not enabled
+	if telegram_hud: telegram_hud.set_physical_output(enabled)
 
 
 ## Orient a reconstructed player toward an authored world-space return subject.
@@ -302,11 +308,25 @@ func _update_prompt() -> void:
 					"Select next floor", _current_prompt_family())
 			_prompt_panel.visible = true
 			return
+		if hit.collider.has_meta("cabin_floor"):
+			_prompt.text = format_interaction_prompt(
+					"Ride to " + str(hit.collider.get_meta("cabin_floor")), _current_prompt_family())
+			_prompt_panel.visible = true
+			return
+		if hit.collider.has_meta("cabin_alarm"):
+			_prompt.text = format_interaction_prompt("Ring elevator alarm", _current_prompt_family())
+			_prompt_panel.visible = true
+			return
 	var node: Node = hit.collider
 	while node:
 		if node.has_method("interact_prompt"):
 			_prompt.text = format_interaction_prompt(
 					node.interact_prompt(), _current_prompt_family())
+			if node.has_method("key_prompt"):
+				var key_words := str(node.call("key_prompt"))
+				if not key_words.is_empty():
+					var carrier := "[K]" if _current_prompt_family()==&"keyboard" else "[D-PAD UP]" if _current_prompt_family()==&"controller" else "[KEY]"
+					_prompt.text += "\n"+carrier+"  "+key_words
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
@@ -348,7 +368,9 @@ func _process(_delta: float) -> void:
 			apply_look_rate(stick_look, _delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
-	if Input.is_action_just_pressed("interact") \
+	if Input.is_action_just_pressed("door_key") and not call_locked:
+		use_key_interaction()
+	elif Input.is_action_just_pressed("interact") \
 			and (not call_locked or is_instance_valid(seated_interaction)):
 		use_primary_interaction()
 	# These are physical switches in the hand, not modal UI. They remain usable
@@ -420,13 +442,9 @@ func _carry_service_light(delta: float) -> void:
 	if _hand == null:
 		return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
-	# THE BEAM LEAVES THE SERVICE SET'S LAMP. The carrier publishes its
-	# pose in camera space every frame — its modeled lens position and
-	# direction down the carried object's own -Z — so the light
-	# goes wherever the hand has turned it, breathing and stride
-	# included. It used to be a spotlight at a fixed offset pointing
-	# level, with its own invented sway, beside a phone that was pitched
-	# somewhere else entirely and had no lamp modelled on it at all.
+	# Owner-requested close-work origin: the carrier publishes an eye-adjacent
+	# optical pose so a wall near the camera cannot swallow the torch emitter.
+	# The same real light remains authoritative for shadows and voxel injection.
 	var hold: Transform3D
 	if carried_device and carried_device.get("beam_valid"):
 		hold = camera.transform * carried_device.beam_xform
@@ -966,6 +984,24 @@ func use_primary_interaction() -> void:
 		_try_interact()
 
 
+func use_key_interaction() -> void:
+	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): return
+	var query := PhysicsRayQueryParameters3D.create(camera.global_position,
+			camera.global_position-camera.global_basis.z*2.1)
+	query.collide_with_areas = true
+	query.exclude = [get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	var owner: Node = hit.get("collider")
+	while owner:
+		if owner.has_method("interact_key"):
+			var result: Variant = owner.call("interact_key",self)
+			_present_interaction_telegram(owner,result)
+			world_modified.emit(owner.global_position if owner is Node3D else global_position,owner.name)
+			return
+		if owner.has_method("interact"): return
+		owner = owner.get_parent()
+
+
 ## Traffic supplies a world-space carry vector. Keep look and partial steering
 ## alive throughout: this is a wet-pavement stumble, not a stun or cutscene.
 func stagger(push: Vector3) -> bool:
@@ -1148,8 +1184,7 @@ func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 	if carried_device == null \
 			or not carried_device.has_method("print_telegram_card"):
 		return
-	if not bool(carried_device.call("print_telegram_card",
-			str(card.get("title", "FIELD COPY")))):
+	if not bool(carried_device.call("radio_is_powered")):
 		return
 	telegram_hud.present(card)
 

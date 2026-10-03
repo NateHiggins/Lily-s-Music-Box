@@ -1,0 +1,2238 @@
+{
+  "source_native_sha256": "29f80a73da51f9f117ddf264f18820fc97367284d817ceba603c8c278c487f2a",
+  "evidence_class": "INERT",
+  "source_plan": {
+    "evidence_class": "INERT",
+    "method": "Source-derived rear-wing frame. Preserves existing shell, apertures, basement storage and wet stack; modeled construction only, without capacity or whole-shell acceptance.",
+    "beams": [
+      {
+        "id": "West",
+        "rect": [
+          -15.93,
+          5.930000000000001,
+          -15.58,
+          11.93
+        ],
+        "axis": 2
+      },
+      {
+        "id": "North",
+        "rect": [
+          -15.93,
+          11.58,
+          -9.97,
+          11.93
+        ],
+        "axis": 0
+      },
+      {
+        "id": "East",
+        "rect": [
+          -10.32,
+          7.85,
+          -9.97,
+          11.93
+        ],
+        "axis": 2
+      },
+      {
+        "id": "Step",
+        "rect": [
+          -10.25,
+          7.779999999999999,
+          -8.67,
+          8.129999999999999
+        ],
+        "axis": 0
+      },
+      {
+        "id": "HallEast",
+        "rect": [
+          -9.02,
+          5.93,
+          -8.67,
+          8.129999999999999
+        ],
+        "axis": 2
+      },
+      {
+        "id": "BathNorth",
+        "rect": [
+          -8.92,
+          5.58,
+          -6.400000214576721,
+          5.930000000000001
+        ],
+        "axis": 0
+      },
+      {
+        "id": "BedroomCross",
+        "rect": [
+          -15.93,
+          8.924999999999999,
+          -9.97,
+          9.275
+        ],
+        "axis": 0
+      }
+    ],
+    "columns": [
+      {
+        "id": "WestSouth",
+        "center": [
+          -15.755,
+          0.0,
+          6.3
+        ],
+        "base_owner": "external"
+      },
+      {
+        "id": "WestMiddle",
+        "center": [
+          -15.755,
+          0.0,
+          9.1
+        ],
+        "base_owner": "external"
+      },
+      {
+        "id": "WestNorth",
+        "center": [
+          -15.755,
+          0.0,
+          11.755
+        ],
+        "base_owner": "external"
+      },
+      {
+        "id": "BedroomMiddle",
+        "center": [
+          -12.95,
+          0.0,
+          9.1
+        ],
+        "base_owner": "external"
+      },
+      {
+        "id": "EastNorth",
+        "center": [
+          -10.145,
+          0.0,
+          11.755
+        ],
+        "base_owner": "external"
+      },
+      {
+        "id": "EastMiddle",
+        "center": [
+          -10.145,
+          0.0,
+          9.1
+        ],
+        "base_owner": "storage_edge"
+      },
+      {
+        "id": "EastSouth",
+        "center": [
+          -10.145,
+          0.0,
+          7.955
+        ],
+        "base_owner": "storage_edge"
+      },
+      {
+        "id": "Step",
+        "center": [
+          -8.845,
+          0.0,
+          7.955
+        ],
+        "base_owner": "storage_ceiling"
+      },
+      {
+        "id": "Bath",
+        "center": [
+          -6.575,
+          0.0,
+          5.755
+        ],
+        "base_owner": "storage_ceiling"
+      }
+    ],
+    "components": [
+      {
+        "family": "Steel",
+        "id": "West_Upper",
+        "bounds": [
+          -15.93,
+          2.965,
+          5.93,
+          -15.58,
+          3.0,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "West_Lower",
+        "bounds": [
+          -15.93,
+          2.55,
+          5.93,
+          -15.58,
+          2.585,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "West_Web",
+        "bounds": [
+          -15.763,
+          2.585,
+          5.93,
+          -15.747,
+          2.965,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "North_Upper",
+        "bounds": [
+          -15.93,
+          2.965,
+          11.58,
+          -9.97,
+          3.0,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "North_Lower",
+        "bounds": [
+          -15.93,
+          2.55,
+          11.58,
+          -9.97,
+          2.585,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "North_Web",
+        "bounds": [
+          -15.93,
+          2.585,
+          11.747,
+          -9.97,
+          2.965,
+          11.763
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "East_Upper",
+        "bounds": [
+          -10.32,
+          2.965,
+          7.85,
+          -9.97,
+          3.0,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "East_Lower",
+        "bounds": [
+          -10.32,
+          2.55,
+          7.85,
+          -9.97,
+          2.585,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "East_Web",
+        "bounds": [
+          -10.153,
+          2.585,
+          7.85,
+          -10.137,
+          2.965,
+          11.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Upper",
+        "bounds": [
+          -10.25,
+          2.965,
+          7.78,
+          -8.67,
+          3.0,
+          8.13
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Lower",
+        "bounds": [
+          -10.25,
+          2.55,
+          7.78,
+          -8.67,
+          2.585,
+          8.13
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Web",
+        "bounds": [
+          -10.25,
+          2.585,
+          7.947,
+          -8.67,
+          2.965,
+          7.963
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "HallEast_Upper",
+        "bounds": [
+          -9.02,
+          2.965,
+          5.93,
+          -8.67,
+          3.0,
+          8.13
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "HallEast_Lower",
+        "bounds": [
+          -9.02,
+          2.55,
+          5.93,
+          -8.67,
+          2.585,
+          8.13
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "HallEast_Web",
+        "bounds": [
+          -8.853,
+          2.585,
+          5.93,
+          -8.837,
+          2.965,
+          8.13
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BathNorth_Upper",
+        "bounds": [
+          -8.92,
+          2.965,
+          5.58,
+          -6.4,
+          3.0,
+          5.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BathNorth_Lower",
+        "bounds": [
+          -8.92,
+          2.55,
+          5.58,
+          -6.4,
+          2.585,
+          5.93
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BathNorth_Web",
+        "bounds": [
+          -8.92,
+          2.585,
+          5.747,
+          -6.4,
+          2.965,
+          5.763
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BathHall_JunctionWeb",
+        "bounds": [
+          -8.853,
+          2.585,
+          5.755,
+          -8.837,
+          2.965,
+          5.946
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomCross_Upper",
+        "bounds": [
+          -15.93,
+          2.965,
+          8.925,
+          -9.97,
+          3.0,
+          9.275
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomCross_Lower",
+        "bounds": [
+          -15.93,
+          2.55,
+          8.925,
+          -9.97,
+          2.585,
+          9.275
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomCross_Web",
+        "bounds": [
+          -15.93,
+          2.585,
+          9.092,
+          -9.97,
+          2.965,
+          9.108
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Base",
+        "bounds": [
+          -15.885,
+          0.0,
+          6.17,
+          -15.625,
+          0.02,
+          6.43
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Cap",
+        "bounds": [
+          -15.885,
+          2.53,
+          6.17,
+          -15.625,
+          2.55,
+          6.43
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_WestFlange",
+        "bounds": [
+          -15.845,
+          0.02,
+          6.21,
+          -15.825,
+          2.53,
+          6.39
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_EastFlange",
+        "bounds": [
+          -15.685,
+          0.02,
+          6.21,
+          -15.665,
+          2.53,
+          6.39
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Web",
+        "bounds": [
+          -15.825,
+          0.02,
+          6.292,
+          -15.685,
+          2.53,
+          6.308
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Washer0",
+        "bounds": [
+          -15.8775,
+          0.02,
+          6.1775,
+          -15.8525,
+          0.023,
+          6.2025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_AnchorHead0",
+        "bounds": [
+          -15.874,
+          0.023,
+          6.181,
+          -15.856,
+          0.035,
+          6.199
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Washer1",
+        "bounds": [
+          -15.8775,
+          0.02,
+          6.3975,
+          -15.8525,
+          0.023,
+          6.4225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_AnchorHead1",
+        "bounds": [
+          -15.874,
+          0.023,
+          6.401,
+          -15.856,
+          0.035,
+          6.419
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Washer2",
+        "bounds": [
+          -15.6575,
+          0.02,
+          6.1775,
+          -15.6325,
+          0.023,
+          6.2025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_AnchorHead2",
+        "bounds": [
+          -15.654,
+          0.023,
+          6.181,
+          -15.636,
+          0.035,
+          6.199
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_Washer3",
+        "bounds": [
+          -15.6575,
+          0.02,
+          6.3975,
+          -15.6325,
+          0.023,
+          6.4225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestSouth_AnchorHead3",
+        "bounds": [
+          -15.654,
+          0.023,
+          6.401,
+          -15.636,
+          0.035,
+          6.419
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestSouth_Pedestal",
+        "bounds": [
+          -15.93,
+          -3.4,
+          6.125,
+          -15.58,
+          0.0,
+          6.475
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestSouth_Pad0",
+        "bounds": [
+          -16.105,
+          -3.8,
+          6.105,
+          -15.405,
+          -3.4,
+          6.65
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Base",
+        "bounds": [
+          -15.885,
+          0.0,
+          8.97,
+          -15.625,
+          0.02,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Cap",
+        "bounds": [
+          -15.885,
+          2.53,
+          8.97,
+          -15.625,
+          2.55,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_WestFlange",
+        "bounds": [
+          -15.845,
+          0.02,
+          9.01,
+          -15.825,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_EastFlange",
+        "bounds": [
+          -15.685,
+          0.02,
+          9.01,
+          -15.665,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Web",
+        "bounds": [
+          -15.825,
+          0.02,
+          9.092,
+          -15.685,
+          2.53,
+          9.108
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Washer0",
+        "bounds": [
+          -15.8775,
+          0.02,
+          8.9775,
+          -15.8525,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_AnchorHead0",
+        "bounds": [
+          -15.874,
+          0.023,
+          8.981,
+          -15.856,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Washer1",
+        "bounds": [
+          -15.8775,
+          0.02,
+          9.1975,
+          -15.8525,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_AnchorHead1",
+        "bounds": [
+          -15.874,
+          0.023,
+          9.201,
+          -15.856,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Washer2",
+        "bounds": [
+          -15.6575,
+          0.02,
+          8.9775,
+          -15.6325,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_AnchorHead2",
+        "bounds": [
+          -15.654,
+          0.023,
+          8.981,
+          -15.636,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_Washer3",
+        "bounds": [
+          -15.6575,
+          0.02,
+          9.1975,
+          -15.6325,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestMiddle_AnchorHead3",
+        "bounds": [
+          -15.654,
+          0.023,
+          9.201,
+          -15.636,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestMiddle_Pedestal",
+        "bounds": [
+          -15.93,
+          -3.4,
+          8.925,
+          -15.58,
+          0.0,
+          9.275
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestMiddle_Pad0",
+        "bounds": [
+          -16.105,
+          -3.8,
+          8.75,
+          -15.405,
+          -3.4,
+          9.45
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Base",
+        "bounds": [
+          -15.885,
+          0.0,
+          11.625,
+          -15.625,
+          0.02,
+          11.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Cap",
+        "bounds": [
+          -15.885,
+          2.53,
+          11.625,
+          -15.625,
+          2.55,
+          11.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_WestFlange",
+        "bounds": [
+          -15.845,
+          0.02,
+          11.665,
+          -15.825,
+          2.53,
+          11.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_EastFlange",
+        "bounds": [
+          -15.685,
+          0.02,
+          11.665,
+          -15.665,
+          2.53,
+          11.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Web",
+        "bounds": [
+          -15.825,
+          0.02,
+          11.747,
+          -15.685,
+          2.53,
+          11.763
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Washer0",
+        "bounds": [
+          -15.8775,
+          0.02,
+          11.6325,
+          -15.8525,
+          0.023,
+          11.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_AnchorHead0",
+        "bounds": [
+          -15.874,
+          0.023,
+          11.636,
+          -15.856,
+          0.035,
+          11.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Washer1",
+        "bounds": [
+          -15.8775,
+          0.02,
+          11.8525,
+          -15.8525,
+          0.023,
+          11.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_AnchorHead1",
+        "bounds": [
+          -15.874,
+          0.023,
+          11.856,
+          -15.856,
+          0.035,
+          11.874
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Washer2",
+        "bounds": [
+          -15.6575,
+          0.02,
+          11.6325,
+          -15.6325,
+          0.023,
+          11.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_AnchorHead2",
+        "bounds": [
+          -15.654,
+          0.023,
+          11.636,
+          -15.636,
+          0.035,
+          11.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_Washer3",
+        "bounds": [
+          -15.6575,
+          0.02,
+          11.8525,
+          -15.6325,
+          0.023,
+          11.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "WestNorth_AnchorHead3",
+        "bounds": [
+          -15.654,
+          0.023,
+          11.856,
+          -15.636,
+          0.035,
+          11.874
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestNorth_Pedestal",
+        "bounds": [
+          -15.93,
+          -3.4,
+          11.58,
+          -15.58,
+          0.0,
+          11.93
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "WestNorth_Pad0",
+        "bounds": [
+          -16.105,
+          -3.8,
+          11.405,
+          -15.405,
+          -3.4,
+          12.105
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Base",
+        "bounds": [
+          -13.08,
+          0.0,
+          8.97,
+          -12.82,
+          0.02,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Cap",
+        "bounds": [
+          -13.08,
+          2.53,
+          8.97,
+          -12.82,
+          2.55,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_WestFlange",
+        "bounds": [
+          -13.04,
+          0.02,
+          9.01,
+          -13.02,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_EastFlange",
+        "bounds": [
+          -12.88,
+          0.02,
+          9.01,
+          -12.86,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Web",
+        "bounds": [
+          -13.02,
+          0.02,
+          9.092,
+          -12.88,
+          2.53,
+          9.108
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Washer0",
+        "bounds": [
+          -13.0725,
+          0.02,
+          8.9775,
+          -13.0475,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_AnchorHead0",
+        "bounds": [
+          -13.069,
+          0.023,
+          8.981,
+          -13.051,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Washer1",
+        "bounds": [
+          -13.0725,
+          0.02,
+          9.1975,
+          -13.0475,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_AnchorHead1",
+        "bounds": [
+          -13.069,
+          0.023,
+          9.201,
+          -13.051,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Washer2",
+        "bounds": [
+          -12.8525,
+          0.02,
+          8.9775,
+          -12.8275,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_AnchorHead2",
+        "bounds": [
+          -12.849,
+          0.023,
+          8.981,
+          -12.831,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_Washer3",
+        "bounds": [
+          -12.8525,
+          0.02,
+          9.1975,
+          -12.8275,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "BedroomMiddle_AnchorHead3",
+        "bounds": [
+          -12.849,
+          0.023,
+          9.201,
+          -12.831,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "BedroomMiddle_Pedestal",
+        "bounds": [
+          -13.125,
+          -3.4,
+          8.925,
+          -12.775,
+          0.0,
+          9.275
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "BedroomMiddle_Pad0",
+        "bounds": [
+          -13.3,
+          -3.8,
+          8.75,
+          -12.6,
+          -3.4,
+          9.45
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Base",
+        "bounds": [
+          -10.275,
+          0.0,
+          11.625,
+          -10.015,
+          0.02,
+          11.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Cap",
+        "bounds": [
+          -10.275,
+          2.53,
+          11.625,
+          -10.015,
+          2.55,
+          11.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_WestFlange",
+        "bounds": [
+          -10.235,
+          0.02,
+          11.665,
+          -10.215,
+          2.53,
+          11.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_EastFlange",
+        "bounds": [
+          -10.075,
+          0.02,
+          11.665,
+          -10.055,
+          2.53,
+          11.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Web",
+        "bounds": [
+          -10.215,
+          0.02,
+          11.747,
+          -10.075,
+          2.53,
+          11.763
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Washer0",
+        "bounds": [
+          -10.2675,
+          0.02,
+          11.6325,
+          -10.2425,
+          0.023,
+          11.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_AnchorHead0",
+        "bounds": [
+          -10.264,
+          0.023,
+          11.636,
+          -10.246,
+          0.035,
+          11.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Washer1",
+        "bounds": [
+          -10.2675,
+          0.02,
+          11.8525,
+          -10.2425,
+          0.023,
+          11.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_AnchorHead1",
+        "bounds": [
+          -10.264,
+          0.023,
+          11.856,
+          -10.246,
+          0.035,
+          11.874
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Washer2",
+        "bounds": [
+          -10.0475,
+          0.02,
+          11.6325,
+          -10.0225,
+          0.023,
+          11.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_AnchorHead2",
+        "bounds": [
+          -10.044,
+          0.023,
+          11.636,
+          -10.026,
+          0.035,
+          11.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_Washer3",
+        "bounds": [
+          -10.0475,
+          0.02,
+          11.8525,
+          -10.0225,
+          0.023,
+          11.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastNorth_AnchorHead3",
+        "bounds": [
+          -10.044,
+          0.023,
+          11.856,
+          -10.026,
+          0.035,
+          11.874
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "EastNorth_Pedestal",
+        "bounds": [
+          -10.32,
+          -3.4,
+          11.58,
+          -9.97,
+          0.0,
+          11.93
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "EastNorth_Pad0",
+        "bounds": [
+          -10.495,
+          -3.8,
+          11.405,
+          -9.795,
+          -3.4,
+          12.105
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Base",
+        "bounds": [
+          -10.275,
+          0.0,
+          8.97,
+          -10.015,
+          0.02,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Cap",
+        "bounds": [
+          -10.275,
+          2.53,
+          8.97,
+          -10.015,
+          2.55,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_WestFlange",
+        "bounds": [
+          -10.235,
+          0.02,
+          9.01,
+          -10.215,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_EastFlange",
+        "bounds": [
+          -10.075,
+          0.02,
+          9.01,
+          -10.055,
+          2.53,
+          9.19
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Web",
+        "bounds": [
+          -10.215,
+          0.02,
+          9.092,
+          -10.075,
+          2.53,
+          9.108
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Washer0",
+        "bounds": [
+          -10.2675,
+          0.02,
+          8.9775,
+          -10.2425,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_AnchorHead0",
+        "bounds": [
+          -10.264,
+          0.023,
+          8.981,
+          -10.246,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Washer1",
+        "bounds": [
+          -10.2675,
+          0.02,
+          9.1975,
+          -10.2425,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_AnchorHead1",
+        "bounds": [
+          -10.264,
+          0.023,
+          9.201,
+          -10.246,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Washer2",
+        "bounds": [
+          -10.0475,
+          0.02,
+          8.9775,
+          -10.0225,
+          0.023,
+          9.0025
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_AnchorHead2",
+        "bounds": [
+          -10.044,
+          0.023,
+          8.981,
+          -10.026,
+          0.035,
+          8.999
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_Washer3",
+        "bounds": [
+          -10.0475,
+          0.02,
+          9.1975,
+          -10.0225,
+          0.023,
+          9.2225
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastMiddle_AnchorHead3",
+        "bounds": [
+          -10.044,
+          0.023,
+          9.201,
+          -10.026,
+          0.035,
+          9.219
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "EastMiddle_StorageEdge",
+        "bounds": [
+          -10.28,
+          -0.2,
+          8.97,
+          -10,
+          0.0,
+          9.23
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Base",
+        "bounds": [
+          -10.275,
+          0.0,
+          7.825,
+          -10.015,
+          0.02,
+          8.085
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Cap",
+        "bounds": [
+          -10.275,
+          2.53,
+          7.825,
+          -10.015,
+          2.55,
+          8.085
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_WestFlange",
+        "bounds": [
+          -10.235,
+          0.02,
+          7.865,
+          -10.215,
+          2.53,
+          8.045
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_EastFlange",
+        "bounds": [
+          -10.075,
+          0.02,
+          7.865,
+          -10.055,
+          2.53,
+          8.045
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Web",
+        "bounds": [
+          -10.215,
+          0.02,
+          7.947,
+          -10.075,
+          2.53,
+          7.963
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Washer0",
+        "bounds": [
+          -10.2675,
+          0.02,
+          7.8325,
+          -10.2425,
+          0.023,
+          7.8575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_AnchorHead0",
+        "bounds": [
+          -10.264,
+          0.023,
+          7.836,
+          -10.246,
+          0.035,
+          7.854
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Washer1",
+        "bounds": [
+          -10.2675,
+          0.02,
+          8.0525,
+          -10.2425,
+          0.023,
+          8.0775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_AnchorHead1",
+        "bounds": [
+          -10.264,
+          0.023,
+          8.056,
+          -10.246,
+          0.035,
+          8.074
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Washer2",
+        "bounds": [
+          -10.0475,
+          0.02,
+          7.8325,
+          -10.0225,
+          0.023,
+          7.8575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_AnchorHead2",
+        "bounds": [
+          -10.044,
+          0.023,
+          7.836,
+          -10.026,
+          0.035,
+          7.854
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_Washer3",
+        "bounds": [
+          -10.0475,
+          0.02,
+          8.0525,
+          -10.0225,
+          0.023,
+          8.0775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "EastSouth_AnchorHead3",
+        "bounds": [
+          -10.044,
+          0.023,
+          8.056,
+          -10.026,
+          0.035,
+          8.074
+        ]
+      },
+      {
+        "family": "Concrete",
+        "id": "EastSouth_StorageEdge",
+        "bounds": [
+          -10.28,
+          -0.2,
+          7.825,
+          -10,
+          0.0,
+          8.085
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Base",
+        "bounds": [
+          -8.975,
+          0.0,
+          7.825,
+          -8.715,
+          0.02,
+          8.085
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Cap",
+        "bounds": [
+          -8.975,
+          2.53,
+          7.825,
+          -8.715,
+          2.55,
+          8.085
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_WestFlange",
+        "bounds": [
+          -8.935,
+          0.02,
+          7.865,
+          -8.915,
+          2.53,
+          8.045
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_EastFlange",
+        "bounds": [
+          -8.775,
+          0.02,
+          7.865,
+          -8.755,
+          2.53,
+          8.045
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Web",
+        "bounds": [
+          -8.915,
+          0.02,
+          7.947,
+          -8.775,
+          2.53,
+          7.963
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Washer0",
+        "bounds": [
+          -8.9675,
+          0.02,
+          7.8325,
+          -8.9425,
+          0.023,
+          7.8575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_AnchorHead0",
+        "bounds": [
+          -8.964,
+          0.023,
+          7.836,
+          -8.946,
+          0.035,
+          7.854
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Washer1",
+        "bounds": [
+          -8.9675,
+          0.02,
+          8.0525,
+          -8.9425,
+          0.023,
+          8.0775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_AnchorHead1",
+        "bounds": [
+          -8.964,
+          0.023,
+          8.056,
+          -8.946,
+          0.035,
+          8.074
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Washer2",
+        "bounds": [
+          -8.7475,
+          0.02,
+          7.8325,
+          -8.7225,
+          0.023,
+          7.8575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_AnchorHead2",
+        "bounds": [
+          -8.744,
+          0.023,
+          7.836,
+          -8.726,
+          0.035,
+          7.854
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_Washer3",
+        "bounds": [
+          -8.7475,
+          0.02,
+          8.0525,
+          -8.7225,
+          0.023,
+          8.0775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Step_AnchorHead3",
+        "bounds": [
+          -8.744,
+          0.023,
+          8.056,
+          -8.726,
+          0.035,
+          8.074
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Base",
+        "bounds": [
+          -6.705,
+          0.0,
+          5.625,
+          -6.445,
+          0.02,
+          5.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Cap",
+        "bounds": [
+          -6.705,
+          2.53,
+          5.625,
+          -6.445,
+          2.55,
+          5.885
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_WestFlange",
+        "bounds": [
+          -6.665,
+          0.02,
+          5.665,
+          -6.645,
+          2.53,
+          5.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_EastFlange",
+        "bounds": [
+          -6.505,
+          0.02,
+          5.665,
+          -6.485,
+          2.53,
+          5.845
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Web",
+        "bounds": [
+          -6.645,
+          0.02,
+          5.747,
+          -6.505,
+          2.53,
+          5.763
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Washer0",
+        "bounds": [
+          -6.6975,
+          0.02,
+          5.6325,
+          -6.6725,
+          0.023,
+          5.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_AnchorHead0",
+        "bounds": [
+          -6.694,
+          0.023,
+          5.636,
+          -6.676,
+          0.035,
+          5.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Washer1",
+        "bounds": [
+          -6.6975,
+          0.02,
+          5.8525,
+          -6.6725,
+          0.023,
+          5.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_AnchorHead1",
+        "bounds": [
+          -6.694,
+          0.023,
+          5.856,
+          -6.676,
+          0.035,
+          5.874
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Washer2",
+        "bounds": [
+          -6.4775,
+          0.02,
+          5.6325,
+          -6.4525,
+          0.023,
+          5.6575
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_AnchorHead2",
+        "bounds": [
+          -6.474,
+          0.023,
+          5.636,
+          -6.456,
+          0.035,
+          5.654
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_Washer3",
+        "bounds": [
+          -6.4775,
+          0.02,
+          5.8525,
+          -6.4525,
+          0.023,
+          5.8775
+        ]
+      },
+      {
+        "family": "Steel",
+        "id": "Bath_AnchorHead3",
+        "bounds": [
+          -6.474,
+          0.023,
+          5.856,
+          -6.456,
+          0.035,
+          5.874
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "id": "Steel_N4_P0_P1",
+      "family": "Steel",
+      "bounds": [
+        -15.930000305175781,
+        0.0,
+        5.929999828338623,
+        -15.579999923706055,
+        3.0,
+        8.0
+      ],
+      "native_triangles": 795,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N4_P0_P2",
+      "family": "Steel",
+      "bounds": [
+        -15.930000305175781,
+        0.0,
+        8.0,
+        -12.0,
+        3.0,
+        11.930000305175781
+      ],
+      "native_triangles": 2489,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N3_P0_P1",
+      "family": "Steel",
+      "bounds": [
+        -10.319999694824219,
+        0.0,
+        5.579999923706055,
+        -8.0,
+        3.0,
+        8.0
+      ],
+      "native_triangles": 1406,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N3_P0_P2",
+      "family": "Steel",
+      "bounds": [
+        -12.0,
+        0.0,
+        8.0,
+        -8.670000076293945,
+        3.0,
+        11.930000305175781
+      ],
+      "native_triangles": 2638,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N2_P0_P1",
+      "family": "Steel",
+      "bounds": [
+        -8.0,
+        0.0,
+        5.579999923706055,
+        -6.400000095367432,
+        3.0,
+        5.929999828338623
+      ],
+      "native_triangles": 790,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N5_N1_P1",
+      "family": "Concrete",
+      "bounds": [
+        -16.104999542236328,
+        -3.799999952316284,
+        6.105000019073486,
+        -16.0,
+        -3.4000000953674316,
+        6.650000095367432
+      ],
+      "native_triangles": 15,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N5_N1_P2",
+      "family": "Concrete",
+      "bounds": [
+        -16.104999542236328,
+        -3.799999952316284,
+        8.75,
+        -16.0,
+        -3.4000000953674316,
+        12.0
+      ],
+      "native_triangles": 29,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N5_N1_P3",
+      "family": "Concrete",
+      "bounds": [
+        -16.104999542236328,
+        -3.799999952316284,
+        12.0,
+        -16.0,
+        -3.4000000953674316,
+        12.104999542236328
+      ],
+      "native_triangles": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N4_N1_P1",
+      "family": "Concrete",
+      "bounds": [
+        -16.0,
+        -3.799999952316284,
+        6.105000019073486,
+        -15.404999732971191,
+        0.0,
+        6.650000095367432
+      ],
+      "native_triangles": 31,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N4_N1_P2",
+      "family": "Concrete",
+      "bounds": [
+        -16.0,
+        -3.799999952316284,
+        8.75,
+        -12.600000381469727,
+        0.0,
+        12.0
+      ],
+      "native_triangles": 95,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N4_N1_P3",
+      "family": "Concrete",
+      "bounds": [
+        -16.0,
+        -3.799999952316284,
+        12.0,
+        -15.404999732971191,
+        -3.4000000953674316,
+        12.104999542236328
+      ],
+      "native_triangles": 14,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N4_P0_P1",
+      "family": "Concrete",
+      "bounds": [
+        -15.930000305175781,
+        0.0,
+        6.125,
+        -15.579999923706055,
+        0.0,
+        6.474999904632568
+      ],
+      "native_triangles": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N4_P0_P2",
+      "family": "Concrete",
+      "bounds": [
+        -15.930000305175781,
+        0.0,
+        8.925000190734863,
+        -12.774999618530273,
+        0.0,
+        11.930000305175781
+      ],
+      "native_triangles": 6,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N3_N1_P1",
+      "family": "Concrete",
+      "bounds": [
+        -10.279999732971191,
+        -0.20000000298023224,
+        7.824999809265137,
+        -10.0,
+        0.0,
+        8.0
+      ],
+      "native_triangles": 11,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N3_N1_P2",
+      "family": "Concrete",
+      "bounds": [
+        -10.494999885559082,
+        -3.799999952316284,
+        8.0,
+        -9.795000076293945,
+        0.0,
+        12.0
+      ],
+      "native_triangles": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N3_N1_P3",
+      "family": "Concrete",
+      "bounds": [
+        -10.494999885559082,
+        -3.799999952316284,
+        12.0,
+        -9.795000076293945,
+        -3.4000000953674316,
+        12.104999542236328
+      ],
+      "native_triangles": 16,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N3_P0_P1",
+      "family": "Concrete",
+      "bounds": [
+        -10.279999732971191,
+        0.0,
+        7.824999809265137,
+        -10.0,
+        0.0,
+        8.0
+      ],
+      "native_triangles": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Concrete_N3_P0_P2",
+      "family": "Concrete",
+      "bounds": [
+        -10.319999694824219,
+        0.0,
+        8.0,
+        -9.970000267028809,
+        0.0,
+        11.930000305175781
+      ],
+      "native_triangles": 7,
+      "internal_caps": false
+    }
+  ],
+  "grid_union_quads": 20826,
+  "native_triangles": 8414,
+  "native_area_before_clip_m2": 120.42901494538535,
+  "native_area_after_clip_m2": 120.42901494538516,
+  "native_area_after_partition_cleanup_m2": 120.42901495069356,
+  "source_layout_sha256_lf": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+  "source_masonry_sha256": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41"
+}

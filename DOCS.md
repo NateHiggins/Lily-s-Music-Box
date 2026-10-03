@@ -35,8 +35,95 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Source-owned public light court, fitted stairs/supports, pitched skylight and bounded roof weathering | `art/blender/light_court.md` |
+| Fitted roof-wall base flashings, retained door apertures and single-owner deck/wall contacts | `art/blender/roof_base_flashings.md` |
+| October 1 composed city/bar batch, bound verification and next service connections | `design/V2_CITY_COMPOSITION_HANDOFF_2026-10-01.md` and `design/V2_CITY_PRODUCTION_MAP_2026-10-01.md` |
+| Retained bar restroom clearance, working sink input and pool inspection fit | `art/blender/bar_service_access.md` |
+| Supported bodega receiving room, fitted delivery leaf and sales-aisle route | `art/blender/bodega_receiving.md` |
+| Resident original keys, permission at Keys Cut and saved hinged-door locks | `art/blender/resident_keys.md` |
+| Fitted front public slab, retained room/shop/shed floor ownership and paving validation | `art/blender/front_pavement.md` |
+| Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |
+| Operating boiler-well window, fitted hardware, physical panes and household setting | `art/blender/boiler_window.md` |
+| Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
+| Sloped service-bulkhead cover, open gutter outlet and fitted external rainleader | `art/blender/roof_service_weathering.md` |
+| All eleven arcade thresholds, source parked leaves and closed-hours survey | `art/blender/arcade_thresholds.md` |
+| Existing ventilation branch hangers, ceiling contact and mapped steel fittings | `art/blender/duct_supports.md` |
+| Radiator wall-tie seating, slotted plates and retained service mechanisms | `art/blender/radiator_wall_ties.md` |
+| Hollow ventilation sheets, seam airways and fitted fan slab/curb throats | `art/blender/ventilation_throats.md` |
+| Ventilation storey slab ports, shared sleeve linings and upper branch clearance | `art/blender/ventilation_slab_ports.md` |
+| Ventilation wall/chase/masonry ports, fitted steel linings and full-bore inspection | `art/blender/ventilation_fabric_ports.md` |
+| Independent bodega lighting intake, supported conduit and fitted wall sleeves | `art/blender/bodega_power.md` |
+| V2 city architecture/infrastructure continuation by location and transition | `design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md` |
+| Blender exterior masonry, deeper reveals and narrow light-slot preservation | `art/blender/exterior_masonry.md` |
+| September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |
+| Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
+| All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |
+| Rear service door, receiving approach and continuous street-connected alley | `art/blender/service_alley.md` |
+| Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |
+| Boiler steam header, exposed equalizer, discharge and fitted supports | `art/blender/boiler_pipework.md` |
+| Retained steam inlet wall/chase sleeves, fitted plates and opened internal tee | `art/blender/boiler_inlet.md` |
+| Source-bound one-pipe distribution, structural ports and open support/access construction | `art/blender/heating_distribution.md` |
+| Roof slab-edge support, retained parapet bearing and open shell-readiness findings | `art/blender/roof_edge_support.md` |
+| Roof bulkhead upper closures, retained ceiling faces and physical wall contacts | `art/blender/roof_bulkhead_caps.md` |
+| Source-derived foundation stems, basement footings and retained occupied volumes | `art/blender/orison_foundations.md` |
+| Uncovered ceiling upper closures and single-owner floor, landing and alley interfaces | `art/blender/ceiling_top_closures.md` |
+| Fitted frame beneath the shifted ground stair-core wall, retained basement landings and west passage | `art/blender/ground_core_transfer.md` |
+| Fitted first-upper A rear-wing beams, posts, storage seats and independent external footings | `art/blender/rear_wing_a_support.md` |
+| Fitted first-upper C rear-wing beams, posts, retained basement roof seats and external footings | `art/blender/rear_wing_c_support.md` |
+| First-upper hall brackets, fitted beam seats and retained watch-wall toe ledger | `art/blender/first_upper_hall_seats.md` |
+| Repeated upper-core wall transfers and fitted C west toe against its retained inner wall | `art/blender/upper_wall_seats.md` |
+| Remaining F03–F05 wall transfers, connected T frames and retained wet-stack/light-slot boundaries | `art/blender/remaining_upper_transfers.md` |
+| Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
+| Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
+| Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
+| Lobby waiting benches and fixed parcel shelving | `art/blender/public_furnishings.md` |
+| Basement stair foundation and Blender coal pile | `art/blender/basement_fabrication.md` |
+| Blender common-room reading table, chairs, bookcases and walking clearance | `art/blender/reading_furniture.md` |
+| Blender boiler breeching, open gores, collar seating and bend collision | `art/blender/breeching.md` |
+| Blender boiler casing, recessed firebox/ash pit, grate and matching fixed collision | `art/blender/boiler_body.md` |
+| Boiler firing/ash door outward swing and matching moving plate collision | `art/blender/boiler_door_swing.md` |
+| Blender room millwork, wainscot, door casings, service frames and brass lift reveals | `art/blender/millwork_profile.md` |
+| Blender lift call plates, seated wall mounting and mechanical button caps | `art/blender/lift_call_plate.md` |
+| Blender lift handrails, wall-mounted supports and fasteners | `art/blender/lift_handrails.md` |
+| Fitted Blender cab panels, control clearances and rear enamel field | `art/blender/lift_joinery.md` |
+| Fitted Blender lift ceiling lamp, opal bowl and retaining hardware | `art/blender/lift_ceiling_lamp.md` |
+| Blender passive bathroom grilles, folded louvers and plenum seating | `art/blender/vent_register.md` |
+| Blender shared roof ventilators, motor housings and live rotor/shutter pivots | `art/blender/roof_ventilator.md` |
+| Blender bonded chimney masonry, mortar joints and open stone coping | `art/blender/chimney_crown.md` |
+| Blender roof tank, timber staves, binding hardware and retained maintenance | `art/blender/house_tank.md` |
+| Blender roof coping, mitered corners, weather slopes and drip grooves | `art/blender/roof_coping.md` |
+| Architecture batch handoff, validation locations and remaining work | `design/V2_ARCHITECTURE_HANDOFF_2026-09-27.md` |
+| Blender V2 mortise knobs, fitted backplates and clear lock stiles | `art/blender/door_knob_set.md` |
+| Blender butt hinges, fixed/moving halves and opposite-swing axis alignment | `art/blender/door_butt_hinge.md` |
+| Complete Blender V2 window frames, sash fields and projecting sills | `art/blender/window_joinery.md` |
+| Blender lift mirror surround and shared live reflection | `art/blender/lift_mirror.md` |
+| Blender lift floor dial, ceiling mounts and height-driven needle | `art/blender/lift_indicator.md` |
+| Blender cab control board, collars and working button presentation | `art/blender/lift_cab_controls.md` |
+| Blender sliding lift leaves, clear vision apertures and retained shaft barriers | `art/blender/lift_panels.md` |
+| Articulated Blender car gate, fixed-thickness links and landing-door separation | `art/blender/lift_gate.md` |
+| Blender enamel floor signs, mounting spacers and readable runtime lettering | `art/blender/wayfinding_plate.md` |
+| Blender stair rails, tread stringers and landing support geometry | `art/blender/stair_ironwork.md` |
+| Editable Blender light switches, moving toggles and preserved V2 circuit ownership | `art/blender/light_switch.md` |
+| How to test all sixteen critters and live encroachment in Mina's actual V2 apartment | `game/docs/mina_debug_infestation.md` |
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |
+| Household inspection, preventative care, tips and low-pressure rent | `game/docs/caretaking_and_economy.md` and `design/ORISON_V2_CARE_ECONOMY_PROGRESS_2026-09-26.md` |
+| Floor plates in both V2 stair cores and lamp-readable lettering | `design/ORISON_V2_WAYFINDING_PROGRESS_2026-09-26.md` |
+| Connected boiler flue, roof chimney and saved water-column service | `design/ORISON_V2_BOILER_FLUE_PROGRESS_2026-09-26.md` |
+| Wider sixteen-metre service light and physical lamp aim toward nearby controls | `design/ORISON_V2_LAMP_COVERAGE_PROGRESS_2026-09-26.md` |
+| Grounded V2 boiler, clear firing aisle, physical door/damper controls and water-column route | `design/ORISON_V2_BOILER_ACCESS_PROGRESS_2026-09-26.md` |
+| Continuous V2 opening-shift regression, natural dream onset and conversation field-copy readability | `design/ORISON_V2_CONTINUOUS_SHIFT_PROGRESS_2026-09-26.md` |
+| Completed V2 fuse and roof-tank repairs across saves and building reconstruction | `design/ORISON_V2_SERVICE_SAVE_PROGRESS_2026-09-26.md` |
+| V2 lift ropes, deflectors, counterweight, guide channels and guarded roof penetrations | `design/ORISON_V2_LIFT_SUSPENSION_PROGRESS_2026-09-26.md` |
+| V2 four physical ventilation stacks, bathroom branches and geographic motor ownership | `design/ORISON_V2_SHARED_DUCTWORK_PROGRESS_2026-09-26.md` |
+| V2 street coal cover, gravity delivery chute and raised basement aperture | `design/ORISON_V2_COAL_DELIVERY_PROGRESS_2026-09-26.md` |
+| Guarded roof lift machinery driven by the existing passenger car | `design/ORISON_V2_LIFT_DRIVE_PROGRESS_2026-09-26.md` |
+| Basement electrical, workshop, coal, storage and lower service-stair construction | `design/ORISON_V2_BASEMENT_PROGRESS_2026-09-26.md` |
+| Occupied-home radiators, brighter service light and zoo optical-source ownership | `design/ORISON_V2_HEATING_AND_PRIMARY_LIGHT_PROGRESS_2026-09-25.md` |
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
+| V2 remaining homes, passenger lift, shared roof ventilation and scoped route checks | `design/ORISON_V2_HOMES_AND_LIFT_PROGRESS_2026-09-25.md` |
+| Spatial-only evidence for the six added homes and staff restroom | `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` |
+| The landed V2 roof-access shell, Mina's door passages, and remaining architecture/lighting work | `design/ORISON_V2_ROOF_AND_RESIDENT_PROGRESS_2026-09-25.md` |
+| The V2 roof water tank, production maintenance approach and scoped validation | `design/ORISON_V2_ROOF_PLANT_PROGRESS_2026-09-25.md` |
 | What is true about this world | `design/ORISON_BIBLE.md` |
 | How to work in this repository: git in a shared tree, the Godot lane, what counts as proof | `AGENTS.md` (Claude reads it through `CLAUDE.md`) |
 | How this game was built with AI engineers, and how to run the same process on a new game from a one-line prompt: roles, documents, gates, receipts, pipelines, third-party sources, the hard-won rules | `docs/AI_GAME_DEVELOPMENT_MANUAL.md` *(living reference manual, INERT)* |

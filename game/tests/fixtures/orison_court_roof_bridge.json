@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "platform": {
+    "id": "ROOF_PUBLIC_LANDING_E",
+    "level": "ROOF",
+    "rect": [
+      4.5,
+      -1.9,
+      5.4,
+      1.65
+    ],
+    "class": "core"
+  },
+  "columns": [
+    {
+      "id": "RoofCourtBridgePost_-2.06",
+      "base": [
+        4.625,
+        16.0,
+        -2.06
+      ],
+      "top": [
+        4.625,
+        18.8,
+        -2.06
+      ],
+      "floor_owner": "F06_PUBLIC_LANDING_S"
+    },
+    {
+      "id": "RoofCourtBridgePost_1.82",
+      "base": [
+        4.625,
+        16.0,
+        1.82
+      ],
+      "top": [
+        4.625,
+        18.8,
+        1.82
+      ],
+      "floor_owner": "F06_PUBLIC_LANDING_N"
+    }
+  ],
+  "beam_x": 4.625,
+  "beam_z": [
+    -2.12,
+    1.88
+  ],
+  "beam_top": 19.0,
+  "note": "Source-fitted geometric load path only. No engineering capacity or requirement acceptance."
+}

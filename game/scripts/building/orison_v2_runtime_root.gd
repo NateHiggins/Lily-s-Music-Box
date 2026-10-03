@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
 
@@ -58,6 +59,7 @@ var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
 var passage_region: OrisonV2PassageRegion
+var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var shop_simulation: Node
 var day_night_director: DayNightDirector
@@ -66,6 +68,9 @@ var touch: TouchControls
 var shots: ShotCapture
 var warehouse: PropWarehouse
 var view_override: Camera3D
+var building_debug: BuildingDebug
+var mina_infestation: Node3D
+var _infestation_revision := 0
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
@@ -118,12 +123,15 @@ func _ready() -> void:
 		push_error("ORISON V2 RUNTIME: front-door world connection refused")
 		return
 	_blockout.transform = _connection.interior_transform
-	_blockout.space_geometry_exclusions.assign([_connection.excluded_space])
+	_blockout.space_geometry_exclusions.assign([_connection.excluded_space, "F01_REAR_APRON"])
 	add_child(_blockout)
 	if not _blockout.failures.is_empty():
 		startup_failed = true
 		return
 	layout = _blockout.layout
+	var service_alley := preload("res://scripts/building/orison_v2_service_alley.gd").new()
+	service_alley.name = "ServiceAlley"
+	_blockout.add_child(service_alley)
 	for level: Dictionary in layout.get("levels", []):
 		floor_nodes[str(level.id)] = _blockout
 	adapter = Adapter.new(_blockout)
@@ -134,7 +142,17 @@ func _ready() -> void:
 	var cues := CUES.new()
 	cues.show_bed_context = false
 	cues.show_terminal_context = false
+	cues.show_floor_context = false
+	cues.show_portal_masses = false
+	cues.show_route_bands = false
 	_blockout.add_child(cues)
+	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
+	wayfinding.name = "Wayfinding"
+	_blockout.add_child(wayfinding)
+	if not wayfinding.mount(_blockout.layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: incomplete stair wayfinding")
+		return
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
 			"F04_B_MONITOR_01", "F03_B_RADIATOR_01"]):
@@ -144,6 +162,21 @@ func _ready() -> void:
 	_compose_authorities()
 	if startup_failed:
 		return
+	elevator = preload("res://scripts/building/orison_v2_elevator.gd").new().mount(adapter, layout)
+	if elevator == null:
+		startup_failed = true
+		push_error("V2 passenger lift could not be composed")
+		return
+	var lift_drive := preload("res://scripts/building/orison_v2_lift_drive.gd").new()
+	if not lift_drive.configure(elevator as OrisonElevator) or not adapter.mount_consumer("ROOF_LIFT_DRIVE",lift_drive):
+		lift_drive.free()
+		startup_failed = true
+		push_error("V2 guarded lift drive could not be composed")
+		return
+	if not preload("res://scripts/building/orison_v2_ventilation.gd").new().mount(adapter,layout):
+		startup_failed = true
+		push_error("V2 shared ventilation could not be composed")
+		return
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)
@@ -152,6 +185,7 @@ func _ready() -> void:
 		push_error("V2 lamp optical state could not be restored")
 		return
 	_compose_debug_controls()
+	get_node("CaretakerNotebook").debug = building_debug
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
@@ -172,6 +206,9 @@ func _compose_authorities() -> void:
 	_compose_vantry()
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
+	var tank_ballcock := RoofTankBallcockProp.new()
+	tank_ballcock.prop_type = "tank_ballcock"
+	_mount("ROOF_TANK_BALLCOCK", tank_ballcock)
 	_compose_service_round_props()
 	if startup_failed: return
 	if not DomesticDoors.new().mount(adapter, layout):
@@ -186,6 +223,38 @@ func _compose_authorities() -> void:
 	if not fittings.mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
+		return
+	var completion := preload("res://scripts/building/orison_v2_completion_interiors.gd").new()
+	if not completion.mount(adapter,layout,self):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: remaining interiors refused: %s" % [completion.errors])
+		return
+	preload("res://scripts/building/orison_v2_reading_furniture.gd").mount(adapter,layout)
+	preload("res://scripts/building/orison_v2_public_furnishings.gd").mount(adapter,layout)
+	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
+	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_exterior_masonry.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_edge_support.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_bulkhead_caps.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_service_weathering.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_light_court_structure.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_light_court_skylight.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_court_roof_bridge.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_public_weathering.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_base_flashings.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_foundations.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_ceiling_top_closures.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_ground_core_transfer.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_rear_wing_a_support.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_rear_wing_c_support.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_first_upper_hall_seats.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_upper_wall_seats.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_remaining_upper_transfers.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_house_tank.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_roof_coping.gd").mount(_blockout)
+	if not preload("res://scripts/building/orison_v2_basement.gd").new().mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: basement services refused")
 		return
 	if not _compose_hot_water():
 		return
@@ -212,6 +281,7 @@ func _compose_authorities() -> void:
 		return
 	light_rig = LightRig.new()
 	light_rig.name = "LightRig"
+	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
 	get_node("WakingAtmosphere").add_child(light_rig)
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()
@@ -362,6 +432,22 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return
+	var economy := preload("res://scripts/game/caretaker_economy.gd").new()
+	economy.name = "CaretakerEconomy"
+	add_child(economy)
+	var care := preload("res://scripts/building/orison_v2_caretaking.gd").new()
+	care.name = "Caretaking"
+	add_child(care)
+	if not economy.setup(work_orders) or not care.setup(_blockout,economy):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
+		return
+	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
+	notebook.name = "CaretakerNotebook"
+	notebook.player = player
+	notebook.care = care
+	notebook.economy = economy
+	add_child(notebook)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
@@ -374,6 +460,9 @@ func _compose_debug_controls() -> void:
 	touch.name = "TouchControls"
 	add_child(touch)
 	touch.look_delta.connect(player.apply_look)
+	touch.enable_care_actions()
+	touch.care_action_requested.connect(func(action: StringName):
+		if get_node("CaretakerNotebook").request_action(action): touch._release_all())
 	player.touch_input = touch.enabled
 	shots = ShotCapture.new()
 	shots.name = "ShotCapture"
@@ -386,6 +475,7 @@ func _compose_debug_controls() -> void:
 	warehouse.build(preload("res://scripts/building/building_root.gd").PROP_SCRIPTS)
 	safety_net.exempt_zones.append(warehouse.hall_aabb())
 	var panel := BuildingDebug.new()
+	building_debug = panel
 	panel.setup(self)
 	var layer := CanvasLayer.new()
 	layer.name = "BuildingDebugLayer"
@@ -394,6 +484,26 @@ func _compose_debug_controls() -> void:
 	add_child(layer)
 	layer.add_child(panel)
 	shots.chrome = layer
+	call_deferred("reset_mina_infestation")
+
+func clear_mina_infestation() -> void:
+	_infestation_revision += 1
+	if is_instance_valid(mina_infestation):
+		mina_infestation.free()
+	mina_infestation = null
+
+func reset_mina_infestation() -> void:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG: return
+	clear_mina_infestation()
+	var revision := _infestation_revision
+	# Wait for V2 collision bodies to be registered before choosing contacts.
+	await get_tree().physics_frame
+	if not is_inside_tree() or revision != _infestation_revision: return
+	mina_infestation = preload("res://scripts/debug/mina_apartment_infestation.gd").new()
+	mina_infestation.name = "MinaDebugInfestation"
+	add_child(mina_infestation)
+	if not mina_infestation.setup(self):
+		push_error("Mina debug infestation: %s" % [mina_infestation.errors])
 
 
 ## V2 destinations are in its composed world frame. V1 plan coordinates are
@@ -430,6 +540,29 @@ func _compose_exterior() -> bool:
 	add_child(exterior_cell)
 	if exterior_cell.startup_failed:
 		return false
+	var front_pavement:=preload("res://scripts/building/orison_v2_front_pavement.gd").new()
+	front_pavement.name="FrontPavement"
+	_blockout.add_child(front_pavement)
+	var ground:=preload("res://scripts/building/orison_v2_ground.gd").new()
+	ground.name="Ground"
+	_blockout.add_child(ground)
+	var city_foundations:=preload("res://scripts/building/orison_v2_city_foundations.gd").new()
+	city_foundations.name="CityFoundations"
+	_blockout.add_child(city_foundations)
+	var receiving := preload("res://scripts/building/orison_v2_bodega_receiving.gd").new()
+	receiving.name = "BodegaReceiving"
+	if not receiving.configure(exterior_cell):
+		receiving.free()
+		return false
+	add_child(receiving)
+	if receiving.startup_failed: return false
+	var bodega_power:=preload("res://scripts/building/orison_v2_bodega_power.gd").new()
+	bodega_power.name="BodegaPower"
+	if not bodega_power.configure(exterior_cell):
+		bodega_power.free()
+		return false
+	add_child(bodega_power)
+	if bodega_power.startup_failed:return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	add_child(street_boundaries)
@@ -444,6 +577,14 @@ func _compose_exterior() -> bool:
 		return false
 	if not passage_region.enable_residency(player, _blockout, layout):
 		return false
+	bar_region = BarRegion.new()
+	bar_region.name = "Harukiya"
+	add_child(bar_region)
+	if bar_region.startup_failed:
+		return false
+	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
+	city_shells.name = "CityShells"
+	add_child(city_shells)
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:
@@ -550,8 +691,31 @@ func _compose_service_round_props() -> void:
 		return
 	heat_balance = heating.balance
 	var boiler := BoilerProp.new()
+	boiler.external_pipework = true
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)
+	# The semantic anchor names the inspection height. BoilerProp's origin
+	# is its feet; ground the physical plant on the authored basement floor.
+	boiler.position.y = float(_blockout.level_y["B1"])
+	var boiler_stance := adapter.resolve("B1_BOILER_CONTROL_STANCE") as Node3D
+	if boiler_stance == null:
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: missing boiler control stance")
+		return
+	var boiler_facing := boiler_stance.global_position
+	boiler_facing.y = boiler.global_position.y
+	boiler.look_at(boiler_facing)
+	_retire_blockout_fixture("B1_BOILER_BODY_MASS")
+	_retire_blockout_fixture("B1_WATER_COLUMN_MASS")
+	var flue := preload("res://scripts/building/orison_v2_boiler_flue.gd").new()
+	flue.name = "BoilerFlue"
+	adapter.root.add_child(flue)
+	if not flue.mount(boiler,_blockout.layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: boiler flue connection refused")
+		return
+	_retire_blockout_fixture("B1_BREECHING_MASS")
+	preload("res://scripts/building/orison_v2_boiler_pipework.gd").mount(adapter.root)
 	watch_station_network = WatchStationNetwork.new()
 	watch_station_network.name = "WatchStationNetwork"
 	add_child(watch_station_network)
@@ -589,7 +753,7 @@ func _compose_hot_water() -> bool:
 	boiler_tend.name = "BoilerTend"
 	add_child(boiler_tend)
 	# One plant supplies both hot water and all 23 authored heating demands.
-	# Unbuilt rooms retain logical demand; six migrated radiators expose controls.
+	# All eighteen occupied homes expose controls; sealed rooms retain demand.
 	boiler_tend.configure(plant, heat_balance, taps)
 	return true
 
@@ -638,6 +802,8 @@ func shutdown_for_tests() -> void:
 	if is_instance_valid(shop_simulation):
 		shop_simulation.shutdown()
 	if is_instance_valid(exterior_cell):
+		if is_instance_valid(bar_region):
+			bar_region.shutdown()
 		if is_instance_valid(passage_region):
 			passage_region.shutdown()
 		exterior_cell.shutdown_for_tests()

@@ -1,0 +1,6987 @@
+{
+  "evidence_class": "INERT",
+  "bindings": {
+    "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
+    "game/data/orison_v2/exterior/street_frame.json": "8e1a4bfd28e3542f2f5d64025a9ec512a778b0ef1a89ec0cc88b14e773adda42",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/data/orison_ground/retained_grade_source.json": "c438d78fc35b6cd77b510742083d469068453d1734153ae9c73ff3f3ee58a1c9",
+    "art/data/city_foundations/source_plan.json": "4eaa054622646ba0b150a0466123050545a5a77f4170a427117223cf4566d955"
+  },
+  "profiles": [
+    {
+      "id": "site_back_e_base0",
+      "native_bounds": [
+        -31.0,
+        0.0,
+        16.244998931884766,
+        -12.0,
+        6.199999809265137,
+        22.645000457763672
+      ],
+      "underside": [
+        -30.992000579833984,
+        16.253000259399414,
+        -12.008000373840332,
+        22.636999130249023
+      ],
+      "underside_faces": [
+        [
+          [
+            -12.008000373840332,
+            0.0,
+            22.636999130249023
+          ],
+          [
+            -30.992000579833984,
+            0.0,
+            22.636999130249023
+          ],
+          [
+            -30.992000579833984,
+            0.0,
+            16.253000259399414
+          ],
+          [
+            -12.008000373840332,
+            0.0,
+            16.253000259399414
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 54
+    },
+    {
+      "id": "site_back_w_base0",
+      "native_bounds": [
+        12.0,
+        0.0,
+        16.244998931884766,
+        30.0,
+        5.599999904632568,
+        22.645000457763672
+      ],
+      "underside": [
+        12.008000373840332,
+        16.253000259399414,
+        29.992000579833984,
+        22.636999130249023
+      ],
+      "underside_faces": [
+        [
+          [
+            29.992000579833984,
+            0.0,
+            22.636999130249023
+          ],
+          [
+            12.008000373840332,
+            0.0,
+            22.636999130249023
+          ],
+          [
+            12.008000373840332,
+            0.0,
+            16.253000259399414
+          ],
+          [
+            29.992000579833984,
+            0.0,
+            16.253000259399414
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 54
+    },
+    {
+      "id": "site_nbr_w_base0",
+      "native_bounds": [
+        18.399999618530273,
+        0.0,
+        -13.854999542236328,
+        22.80000114440918,
+        6.800000190734863,
+        10.145000457763672
+      ],
+      "underside": [
+        18.408000946044922,
+        -13.846999168395996,
+        22.79199981689453,
+        10.13700008392334
+      ],
+      "underside_faces": [
+        [
+          [
+            22.79199981689453,
+            0.0,
+            10.13700008392334
+          ],
+          [
+            18.408000946044922,
+            0.0,
+            10.13700008392334
+          ],
+          [
+            18.408000946044922,
+            0.0,
+            -13.846999168395996
+          ],
+          [
+            22.79199981689453,
+            0.0,
+            -13.846999168395996
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 92
+    },
+    {
+      "id": "site_ne1_base0",
+      "native_bounds": [
+        -34.380001068115234,
+        0.0,
+        -16.05500030517578,
+        -25.779998779296875,
+        6.199999809265137,
+        9.645000457763672
+      ],
+      "underside": [
+        -34.37200164794922,
+        -16.047000885009766,
+        -25.788000106811523,
+        9.63700008392334
+      ],
+      "underside_faces": [
+        [
+          [
+            -25.788000106811523,
+            0.0,
+            9.63700008392334
+          ],
+          [
+            -34.37200164794922,
+            0.0,
+            9.63700008392334
+          ],
+          [
+            -34.37200164794922,
+            0.0,
+            -16.047000885009766
+          ],
+          [
+            -25.788000106811523,
+            0.0,
+            -16.047000885009766
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 84
+    },
+    {
+      "id": "site_ne2_base0",
+      "native_bounds": [
+        -42.57999801635742,
+        0.0,
+        -16.05500030517578,
+        -34.97999954223633,
+        7.400000095367432,
+        7.144999980926514
+      ],
+      "underside": [
+        -42.571998596191406,
+        -16.046998977661133,
+        -34.987998962402344,
+        7.137000560760498
+      ],
+      "underside_faces": [
+        [
+          [
+            -34.987998962402344,
+            0.0,
+            7.137000560760498
+          ],
+          [
+            -42.571998596191406,
+            0.0,
+            7.137000560760498
+          ],
+          [
+            -42.571998596191406,
+            0.0,
+            -16.046998977661133
+          ],
+          [
+            -34.987998962402344,
+            0.0,
+            -16.046998977661133
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 77
+    },
+    {
+      "id": "site_nw1_base0",
+      "native_bounds": [
+        23.399999618530273,
+        0.0,
+        -16.05500030517578,
+        30.600000381469727,
+        7.400000095367432,
+        9.145000457763672
+      ],
+      "underside": [
+        23.408000946044922,
+        -16.047000885009766,
+        30.591999053955078,
+        9.13700008392334
+      ],
+      "underside_faces": [
+        [
+          [
+            30.591999053955078,
+            0.0,
+            9.13700008392334
+          ],
+          [
+            23.408000946044922,
+            0.0,
+            9.13700008392334
+          ],
+          [
+            23.408000946044922,
+            0.0,
+            -16.047000885009766
+          ],
+          [
+            30.591999053955078,
+            0.0,
+            -16.047000885009766
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 84
+    },
+    {
+      "id": "site_nw2_base0",
+      "native_bounds": [
+        31.200000762939453,
+        0.0,
+        -16.05500030517578,
+        39.20000076293945,
+        6.199999809265137,
+        7.644999980926514
+      ],
+      "underside": [
+        31.20800018310547,
+        -16.046998977661133,
+        39.19200134277344,
+        7.637000560760498
+      ],
+      "underside_faces": [
+        [
+          [
+            39.19200134277344,
+            0.0,
+            7.637000560760498
+          ],
+          [
+            31.20800018310547,
+            0.0,
+            7.637000560760498
+          ],
+          [
+            31.20800018310547,
+            0.0,
+            -16.046998977661133
+          ],
+          [
+            39.19200134277344,
+            0.0,
+            -16.046998977661133
+          ]
+        ]
+      ],
+      "classification": "actual_planar_native_underside",
+      "runtime_shared_contact_quads_omitted": 77
+    }
+  ],
+  "components": [
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -30.992000579833984,
+        -0.2,
+        16.253000259399414,
+        -12.008000373840332,
+        0,
+        22.636999130249023
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -30.992000579833984,
+        -3.4000000000000004,
+        16.253000259399414,
+        -12.008000373840332,
+        -0.2,
+        16.603000259399415
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -30.992000579833984,
+        -3.4000000000000004,
+        22.286999130249022,
+        -12.008000373840332,
+        -0.2,
+        22.636999130249023
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -30.992000579833984,
+        -3.4000000000000004,
+        16.603000259399415,
+        -30.642000579833983,
+        -0.2,
+        22.286999130249022
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -12.358000373840332,
+        -3.4000000000000004,
+        16.603000259399415,
+        -12.008000373840332,
+        -0.2,
+        22.286999130249022
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -31.167000579833985,
+        -3.8000000000000003,
+        16.078000259399413,
+        -11.833000373840331,
+        -3.4000000000000004,
+        16.778000259399413
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -31.167000579833985,
+        -3.8000000000000003,
+        22.111999130249025,
+        -11.833000373840331,
+        -3.4000000000000004,
+        22.811999130249024
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -31.167000579833985,
+        -3.8000000000000003,
+        16.778000259399413,
+        -30.467000579833986,
+        -3.4000000000000004,
+        22.111999130249025
+      ]
+    },
+    {
+      "owner": "site_back_e_base0",
+      "id": "site_back_e_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -12.53300037384033,
+        -3.8000000000000003,
+        16.778000259399413,
+        -11.833000373840331,
+        -3.4000000000000004,
+        22.111999130249025
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        12.008000373840332,
+        -0.2,
+        16.253000259399414,
+        29.992000579833984,
+        0,
+        22.636999130249023
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        12.008000373840332,
+        -3.4000000000000004,
+        16.253000259399414,
+        29.992000579833984,
+        -0.2,
+        16.603000259399415
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        12.008000373840332,
+        -3.4000000000000004,
+        22.286999130249022,
+        29.992000579833984,
+        -0.2,
+        22.636999130249023
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        12.008000373840332,
+        -3.4000000000000004,
+        16.603000259399415,
+        12.358000373840332,
+        -0.2,
+        22.286999130249022
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        29.642000579833983,
+        -3.4000000000000004,
+        16.603000259399415,
+        29.992000579833984,
+        -0.2,
+        22.286999130249022
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        11.833000373840331,
+        -3.8000000000000003,
+        16.078000259399413,
+        30.167000579833985,
+        -3.4000000000000004,
+        16.778000259399413
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        11.833000373840331,
+        -3.8000000000000003,
+        22.111999130249025,
+        30.167000579833985,
+        -3.4000000000000004,
+        22.811999130249024
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        11.833000373840331,
+        -3.8000000000000003,
+        16.778000259399413,
+        12.53300037384033,
+        -3.4000000000000004,
+        22.111999130249025
+      ]
+    },
+    {
+      "owner": "site_back_w_base0",
+      "id": "site_back_w_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        29.467000579833986,
+        -3.8000000000000003,
+        16.778000259399413,
+        30.167000579833985,
+        -3.4000000000000004,
+        22.111999130249025
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        20.299999237060547,
+        -0.2,
+        -13.846999168395996,
+        22.79199981689453,
+        0,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/ContactCourse_Piece01",
+      "kind": "authored_union_component",
+      "bounds": [
+        20.0,
+        -0.2,
+        -13.846999168395996,
+        20.299999237060547,
+        -0.16,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/ContactCourse_Piece02",
+      "kind": "authored_union_component",
+      "bounds": [
+        20.0,
+        -0.16,
+        -11.649999618530273,
+        20.299999237060547,
+        0,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/ContactCourse_Piece03",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.408000946044922,
+        -0.2,
+        -13.846999168395996,
+        20.0,
+        -0.16,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/ContactCourse_Piece04",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.408000946044922,
+        -0.16,
+        -11.649999618530273,
+        20.0,
+        0,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.408000946044922,
+        -3.4000000000000004,
+        -13.846999168395996,
+        22.79199981689453,
+        -0.2,
+        -13.496999168395996
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.408000946044922,
+        -3.4000000000000004,
+        9.78700008392334,
+        22.79199981689453,
+        -0.2,
+        10.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.408000946044922,
+        -3.4000000000000004,
+        -13.496999168395996,
+        18.758000946044923,
+        -0.2,
+        9.78700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        22.44199981689453,
+        -3.4000000000000004,
+        -13.496999168395996,
+        22.79199981689453,
+        -0.2,
+        9.78700008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.23300094604492,
+        -3.8000000000000003,
+        -14.021999168395997,
+        22.966999816894532,
+        -3.4000000000000004,
+        -13.321999168395998
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.23300094604492,
+        -3.8000000000000003,
+        9.612000083923341,
+        22.966999816894532,
+        -3.4000000000000004,
+        10.31200008392334
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        18.23300094604492,
+        -3.8000000000000003,
+        -13.321999168395998,
+        18.93300094604492,
+        -3.4000000000000004,
+        9.612000083923341
+      ]
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "id": "site_nbr_w_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        22.266999816894533,
+        -3.8000000000000003,
+        -13.321999168395998,
+        22.966999816894532,
+        -3.4000000000000004,
+        9.612000083923341
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.37200164794922,
+        -0.2,
+        -16.047000885009766,
+        -25.788000106811523,
+        0,
+        9.63700008392334
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.37200164794922,
+        -3.4000000000000004,
+        -16.047000885009766,
+        -25.788000106811523,
+        -0.2,
+        -15.697000885009766
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.37200164794922,
+        -3.4000000000000004,
+        9.28700008392334,
+        -25.788000106811523,
+        -0.2,
+        9.63700008392334
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.37200164794922,
+        -3.4000000000000004,
+        -15.697000885009766,
+        -34.02200164794922,
+        -0.2,
+        9.28700008392334
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -26.138000106811525,
+        -3.4000000000000004,
+        -15.697000885009766,
+        -25.788000106811523,
+        -0.2,
+        9.28700008392334
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.547001647949216,
+        -3.8000000000000003,
+        -16.222000885009766,
+        -25.613000106811523,
+        -3.4000000000000004,
+        -15.522000885009767
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.547001647949216,
+        -3.8000000000000003,
+        9.112000083923341,
+        -25.613000106811523,
+        -3.4000000000000004,
+        9.81200008392334
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -34.547001647949216,
+        -3.8000000000000003,
+        -15.522000885009767,
+        -33.84700164794921,
+        -3.4000000000000004,
+        9.112000083923341
+      ]
+    },
+    {
+      "owner": "site_ne1_base0",
+      "id": "site_ne1_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -26.313000106811522,
+        -3.8000000000000003,
+        -15.522000885009767,
+        -25.613000106811523,
+        -3.4000000000000004,
+        9.112000083923341
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.571998596191406,
+        -0.2,
+        -16.046998977661133,
+        -34.987998962402344,
+        0,
+        7.137000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.571998596191406,
+        -3.4000000000000004,
+        -16.046998977661133,
+        -34.987998962402344,
+        -0.2,
+        -15.696998977661133
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.571998596191406,
+        -3.4000000000000004,
+        6.787000560760498,
+        -34.987998962402344,
+        -0.2,
+        7.137000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.571998596191406,
+        -3.4000000000000004,
+        -15.696998977661133,
+        -42.221998596191405,
+        -0.2,
+        6.787000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -35.337998962402345,
+        -3.4000000000000004,
+        -15.696998977661133,
+        -34.987998962402344,
+        -0.2,
+        6.787000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.7469985961914,
+        -3.8000000000000003,
+        -16.221998977661134,
+        -34.81299896240235,
+        -3.4000000000000004,
+        -15.521998977661134
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.7469985961914,
+        -3.8000000000000003,
+        6.612000560760498,
+        -34.81299896240235,
+        -3.4000000000000004,
+        7.312000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -42.7469985961914,
+        -3.8000000000000003,
+        -15.521998977661134,
+        -42.0469985961914,
+        -3.4000000000000004,
+        6.612000560760498
+      ]
+    },
+    {
+      "owner": "site_ne2_base0",
+      "id": "site_ne2_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        -35.51299896240235,
+        -3.8000000000000003,
+        -15.521998977661134,
+        -34.81299896240235,
+        -3.4000000000000004,
+        6.612000560760498
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.408000946044922,
+        -0.2,
+        -16.047000885009766,
+        30.591999053955078,
+        0,
+        9.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.408000946044922,
+        -3.4000000000000004,
+        -16.047000885009766,
+        30.591999053955078,
+        -0.2,
+        -15.697000885009766
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.408000946044922,
+        -3.4000000000000004,
+        8.78700008392334,
+        30.591999053955078,
+        -0.2,
+        9.13700008392334
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.408000946044922,
+        -3.4000000000000004,
+        -15.697000885009766,
+        23.758000946044923,
+        -0.2,
+        8.78700008392334
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        30.241999053955077,
+        -3.4000000000000004,
+        -15.697000885009766,
+        30.591999053955078,
+        -0.2,
+        8.78700008392334
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.23300094604492,
+        -3.8000000000000003,
+        -16.222000885009766,
+        30.76699905395508,
+        -3.4000000000000004,
+        -15.522000885009767
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.23300094604492,
+        -3.8000000000000003,
+        8.612000083923341,
+        30.76699905395508,
+        -3.4000000000000004,
+        9.31200008392334
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        23.23300094604492,
+        -3.8000000000000003,
+        -15.522000885009767,
+        23.93300094604492,
+        -3.4000000000000004,
+        8.612000083923341
+      ]
+    },
+    {
+      "owner": "site_nw1_base0",
+      "id": "site_nw1_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        30.06699905395508,
+        -3.8000000000000003,
+        -15.522000885009767,
+        30.76699905395508,
+        -3.4000000000000004,
+        8.612000083923341
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/ContactCourse_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.20800018310547,
+        -0.2,
+        -16.046998977661133,
+        39.19200134277344,
+        0,
+        7.637000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Stem_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.20800018310547,
+        -3.4000000000000004,
+        -16.046998977661133,
+        39.19200134277344,
+        -0.2,
+        -15.696998977661133
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Stem_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.20800018310547,
+        -3.4000000000000004,
+        7.287000560760498,
+        39.19200134277344,
+        -0.2,
+        7.637000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Stem_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.20800018310547,
+        -3.4000000000000004,
+        -15.696998977661133,
+        31.55800018310547,
+        -0.2,
+        7.287000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Stem_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        38.842001342773436,
+        -3.4000000000000004,
+        -15.696998977661133,
+        39.19200134277344,
+        -0.2,
+        7.287000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Footing_North_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.033000183105468,
+        -3.8000000000000003,
+        -16.221998977661134,
+        39.367001342773435,
+        -3.4000000000000004,
+        -15.521998977661134
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Footing_South_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.033000183105468,
+        -3.8000000000000003,
+        7.112000560760498,
+        39.367001342773435,
+        -3.4000000000000004,
+        7.812000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Footing_West_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        31.033000183105468,
+        -3.8000000000000003,
+        -15.521998977661134,
+        31.733000183105467,
+        -3.4000000000000004,
+        7.112000560760498
+      ]
+    },
+    {
+      "owner": "site_nw2_base0",
+      "id": "site_nw2_base0/Footing_East_Piece00",
+      "kind": "authored_union_component",
+      "bounds": [
+        38.66700134277343,
+        -3.8000000000000003,
+        -15.521998977661134,
+        39.367001342773435,
+        -3.4000000000000004,
+        7.112000560760498
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "site_back_e_base0_Foundation_-8_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -31.1670006,
+        -3.8,
+        16.0780003,
+        -28,
+        0,
+        20
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-8_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -31.1670006,
+        -3.8,
+        20,
+        -28,
+        0,
+        22.8119991
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-7_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        16.0780003,
+        -24,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-7_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        20,
+        -24,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-6_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -24,
+        -3.8,
+        16.0780003,
+        -20,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-6_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -24,
+        -3.8,
+        20,
+        -20,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-5_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -20,
+        -3.8,
+        16.0780003,
+        -16,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-5_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -20,
+        -3.8,
+        20,
+        -16,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-4_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -16,
+        -3.8,
+        16.0780003,
+        -12,
+        0,
+        20
+      ],
+      "quads": 51,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-4_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -16,
+        -3.8,
+        20,
+        -12,
+        0,
+        22.8119991
+      ],
+      "quads": 51,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-3_4",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -12,
+        -3.8,
+        16.0780003,
+        -11.8330004,
+        -3.4,
+        20
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_e_base0_Foundation_-3_5",
+      "owner": "site_back_e_base0",
+      "bounds": [
+        -12,
+        -3.8,
+        20,
+        -11.8330004,
+        -3.4,
+        22.8119991
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_2_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        11.8330004,
+        -3.8,
+        16.0780003,
+        12,
+        -3.4,
+        20
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_2_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        11.8330004,
+        -3.8,
+        20,
+        12,
+        -3.4,
+        22.8119991
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_3_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        12,
+        -3.8,
+        16.0780003,
+        16,
+        0,
+        20
+      ],
+      "quads": 51,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_3_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        12,
+        -3.8,
+        20,
+        16,
+        0,
+        22.8119991
+      ],
+      "quads": 51,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_4_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        16,
+        -3.8,
+        16.0780003,
+        20,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_4_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        16,
+        -3.8,
+        20,
+        20,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_5_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        20,
+        -3.8,
+        16.0780003,
+        24,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_5_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        20,
+        -3.8,
+        20,
+        24,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_6_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        24,
+        -3.8,
+        16.0780003,
+        28,
+        0,
+        20
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_6_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        24,
+        -3.8,
+        20,
+        28,
+        0,
+        22.8119991
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_7_4",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        28,
+        -3.8,
+        16.0780003,
+        30.1670006,
+        0,
+        20
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_back_w_base0_Foundation_7_5",
+      "owner": "site_back_w_base0",
+      "bounds": [
+        28,
+        -3.8,
+        20,
+        30.1670006,
+        0,
+        22.8119991
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_-4",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        -14.0219992,
+        20.0,
+        -0.16,
+        -12
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_-3",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        -12,
+        20.0,
+        0,
+        -8
+      ],
+      "quads": 25,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_-2",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        -8,
+        20.0,
+        0,
+        -4
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_-1",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        -4,
+        20.0,
+        0,
+        0
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_0",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        0,
+        20.0,
+        0,
+        4
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_1",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        4,
+        20.0,
+        0,
+        8
+      ],
+      "quads": 13,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_4_2",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        18.2330009,
+        -3.8,
+        8,
+        20.0,
+        0,
+        10.3120001
+      ],
+      "quads": 61,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_-4",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        -14.0219992,
+        22.9669998,
+        0,
+        -12
+      ],
+      "quads": 73,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_-3",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        -12,
+        22.9669998,
+        0,
+        -8
+      ],
+      "quads": 28,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_-2",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        -8,
+        22.9669998,
+        0,
+        -4
+      ],
+      "quads": 14,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_-1",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        -4,
+        22.9669998,
+        0,
+        0
+      ],
+      "quads": 14,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_0",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        0,
+        22.9669998,
+        0,
+        4
+      ],
+      "quads": 14,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_1",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        4,
+        22.9669998,
+        0,
+        8
+      ],
+      "quads": 14,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nbr_w_base0_Foundation_5_2",
+      "owner": "site_nbr_w_base0",
+      "bounds": [
+        20.0,
+        -3.8,
+        8,
+        22.9669998,
+        0,
+        10.3120001
+      ],
+      "quads": 74,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_-5",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        -16.2220009,
+        -32,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_-4",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        -16,
+        -32,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_-3",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        -12,
+        -32,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_-2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        -8,
+        -32,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_-1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        -4,
+        -32,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_0",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        0,
+        -32,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        4,
+        -32,
+        0,
+        8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-9_2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -34.5470016,
+        -3.8,
+        8,
+        -32,
+        0,
+        9.8120001
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_-5",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -3.8,
+        -16.2220009,
+        -28,
+        0,
+        -16
+      ],
+      "quads": 6,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_-4",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -3.8,
+        -16,
+        -28,
+        -0.2,
+        -12
+      ],
+      "quads": 7,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_-3",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -0.2,
+        -12,
+        -28,
+        -0.2,
+        -8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_-2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -0.2,
+        -8,
+        -28,
+        -0.2,
+        -4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_-1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -0.2,
+        -4,
+        -28,
+        -0.2,
+        0
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_0",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -0.2,
+        0,
+        -28,
+        -0.2,
+        4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -0.2,
+        4,
+        -28,
+        -0.2,
+        8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-8_2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -32,
+        -3.8,
+        8,
+        -28,
+        0,
+        9.8120001
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_-5",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        -16.2220009,
+        -25.6130001,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_-4",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        -16,
+        -25.6130001,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_-3",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        -12,
+        -25.6130001,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_-2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        -8,
+        -25.6130001,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_-1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        -4,
+        -25.6130001,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_0",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        0,
+        -25.6130001,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_1",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        4,
+        -25.6130001,
+        0,
+        8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne1_base0_Foundation_-7_2",
+      "owner": "site_ne1_base0",
+      "bounds": [
+        -28,
+        -3.8,
+        8,
+        -25.6130001,
+        0,
+        9.8120001
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_-5",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        -16.221999,
+        -40,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_-4",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        -16,
+        -40,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_-3",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        -12,
+        -40,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_-2",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        -8,
+        -40,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_-1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        -4,
+        -40,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_0",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        0,
+        -40,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-11_1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -42.7469986,
+        -3.8,
+        4,
+        -40,
+        0,
+        7.3120006
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_-5",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -3.8,
+        -16.221999,
+        -36,
+        0,
+        -16
+      ],
+      "quads": 6,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_-4",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -3.8,
+        -16,
+        -36,
+        -0.2,
+        -12
+      ],
+      "quads": 7,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_-3",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -0.2,
+        -12,
+        -36,
+        -0.2,
+        -8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_-2",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -0.2,
+        -8,
+        -36,
+        -0.2,
+        -4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_-1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -0.2,
+        -4,
+        -36,
+        -0.2,
+        0
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_0",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -0.2,
+        0,
+        -36,
+        -0.2,
+        4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-10_1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -40,
+        -3.8,
+        4,
+        -36,
+        0,
+        7.3120006
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_-5",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        -16.221999,
+        -34.812999,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_-4",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        -16,
+        -34.812999,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_-3",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        -12,
+        -34.812999,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_-2",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        -8,
+        -34.812999,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_-1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        -4,
+        -34.812999,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_0",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        0,
+        -34.812999,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_ne2_base0_Foundation_-9_1",
+      "owner": "site_ne2_base0",
+      "bounds": [
+        -36,
+        -3.8,
+        4,
+        -34.812999,
+        0,
+        7.3120006
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_-5",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        -16.2220009,
+        24,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_-4",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        -16,
+        24,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_-3",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        -12,
+        24,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_-2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        -8,
+        24,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_-1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        -4,
+        24,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_0",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        0,
+        24,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        4,
+        24,
+        0,
+        8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_5_2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        23.2330009,
+        -3.8,
+        8,
+        24,
+        0,
+        9.3120001
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_-5",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -3.8,
+        -16.2220009,
+        28,
+        0,
+        -16
+      ],
+      "quads": 6,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_-4",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -3.8,
+        -16,
+        28,
+        -0.2,
+        -12
+      ],
+      "quads": 7,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_-3",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -0.2,
+        -12,
+        28,
+        -0.2,
+        -8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_-2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -0.2,
+        -8,
+        28,
+        -0.2,
+        -4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_-1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -0.2,
+        -4,
+        28,
+        -0.2,
+        0
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_0",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -0.2,
+        0,
+        28,
+        -0.2,
+        4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -0.2,
+        4,
+        28,
+        -0.2,
+        8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_6_2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        24,
+        -3.8,
+        8,
+        28,
+        0,
+        9.3120001
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_-5",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        -16.2220009,
+        30.7669991,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_-4",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        -16,
+        30.7669991,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_-3",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        -12,
+        30.7669991,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_-2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        -8,
+        30.7669991,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_-1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        -4,
+        30.7669991,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_0",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        0,
+        30.7669991,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_1",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        4,
+        30.7669991,
+        0,
+        8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw1_base0_Foundation_7_2",
+      "owner": "site_nw1_base0",
+      "bounds": [
+        28,
+        -3.8,
+        8,
+        30.7669991,
+        0,
+        9.3120001
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_-5",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        -16.221999,
+        32,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_-4",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        -16,
+        32,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_-3",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        -12,
+        32,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_-2",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        -8,
+        32,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_-1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        -4,
+        32,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_0",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        0,
+        32,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_7_1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        31.0330002,
+        -3.8,
+        4,
+        32,
+        0,
+        7.8120006
+      ],
+      "quads": 55,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_-5",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -3.8,
+        -16.221999,
+        36,
+        0,
+        -16
+      ],
+      "quads": 6,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_-4",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -3.8,
+        -16,
+        36,
+        -0.2,
+        -12
+      ],
+      "quads": 7,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_-3",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -0.2,
+        -12,
+        36,
+        -0.2,
+        -8
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_-2",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -0.2,
+        -8,
+        36,
+        -0.2,
+        -4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_-1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -0.2,
+        -4,
+        36,
+        -0.2,
+        0
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_0",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -0.2,
+        0,
+        36,
+        -0.2,
+        4
+      ],
+      "quads": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_8_1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        32,
+        -3.8,
+        4,
+        36,
+        0,
+        7.8120006
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_-5",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        -16.221999,
+        39.3670013,
+        0,
+        -16
+      ],
+      "quads": 27,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_-4",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        -16,
+        39.3670013,
+        0,
+        -12
+      ],
+      "quads": 36,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_-3",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        -12,
+        39.3670013,
+        0,
+        -8
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_-2",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        -8,
+        39.3670013,
+        0,
+        -4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_-1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        -4,
+        39.3670013,
+        0,
+        0
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_0",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        0,
+        39.3670013,
+        0,
+        4
+      ],
+      "quads": 12,
+      "internal_caps": false
+    },
+    {
+      "id": "site_nw2_base0_Foundation_9_1",
+      "owner": "site_nw2_base0",
+      "bounds": [
+        36,
+        -3.8,
+        4,
+        39.3670013,
+        0,
+        7.8120006
+      ],
+      "quads": 55,
+      "internal_caps": false
+    }
+  ],
+  "closed_volumes": [
+    {
+      "owner": "site_back_e_base0",
+      "volume_m3": 93.30919968017959,
+      "grid_volume_m3": 93.30916459101574,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_back_w_base0",
+      "volume_m3": 89.23239849670513,
+      "grid_volume_m3": 89.2323648168458,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_nbr_w_base0",
+      "volume_m3": 97.83452503997941,
+      "grid_volume_m3": 97.83448477000515,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_ne1_base0",
+      "volume_m3": 138.08462270993817,
+      "grid_volume_m3": 138.08470780817925,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_ne2_base0",
+      "volume_m3": 119.35567975428913,
+      "grid_volume_m3": 119.35588648402127,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_nw1_base0",
+      "volume_m3": 124.85480578153951,
+      "grid_volume_m3": 124.85476047724592,
+      "nonmanifold_edges": 0
+    },
+    {
+      "owner": "site_nw2_base0",
+      "volume_m3": 124.52892976456289,
+      "grid_volume_m3": 124.52901791071785,
+      "nonmanifold_edges": 0
+    }
+  ],
+  "retained_intersections_resolved": [
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_277",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_278",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_279",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_280",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_281",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_282",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_283",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_284",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_285",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_287",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_288",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_289",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_290",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_291",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_292",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_293",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_294",
+      "classification": "authored_union_component"
+    },
+    {
+      "added": "site_nbr_w_base0/ContactCourse",
+      "retained_owner": "FrontPavement",
+      "retained_id": "RetainedSlabCell_295",
+      "classification": "authored_union_component"
+    }
+  ],
+  "retained_support_volumes": [
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_000",
+      "bounds": [
+        -25.5,
+        -0.16,
+        -16.604999542236328,
+        -24.0,
+        0,
+        -16.264999389648438
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_001",
+      "bounds": [
+        -25.5,
+        -0.16,
+        -16.264999389648438,
+        -24.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_002",
+      "bounds": [
+        -25.5,
+        -0.16,
+        -16.0,
+        -24.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_003",
+      "bounds": [
+        -25.5,
+        -0.16,
+        -13.774999618530273,
+        -24.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_004",
+      "bounds": [
+        -24.0,
+        -0.16,
+        -16.604999542236328,
+        -22.5,
+        0,
+        -16.264999389648438
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_005",
+      "bounds": [
+        -24.0,
+        -0.16,
+        -16.264999389648438,
+        -22.5,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_006",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -16.604999542236328,
+        -20.854999542236328,
+        0,
+        -16.264999389648438
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_007",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -16.264999389648438,
+        -20.854999542236328,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_008",
+      "bounds": [
+        -20.854999542236328,
+        -0.16,
+        -16.604999542236328,
+        -20.799999237060547,
+        0,
+        -16.264999389648438
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_009",
+      "bounds": [
+        -20.854999542236328,
+        -0.16,
+        -16.264999389648438,
+        -20.799999237060547,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_010",
+      "bounds": [
+        -20.799999237060547,
+        -0.16,
+        -16.264999389648438,
+        -20.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_011",
+      "bounds": [
+        -24.0,
+        -0.16,
+        -16.0,
+        -22.5,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_012",
+      "bounds": [
+        -24.0,
+        -0.16,
+        -13.774999618530273,
+        -22.5,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_013",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -16.0,
+        -20.854999542236328,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_014",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -13.774999618530273,
+        -20.854999542236328,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_015",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -13.350000381469727,
+        -20.854999542236328,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_016",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -12.630000114440918,
+        -20.854999542236328,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_017",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -12.420000076293945,
+        -20.854999542236328,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_018",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -12.350000381469727,
+        -20.854999542236328,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_019",
+      "bounds": [
+        -20.854999542236328,
+        -0.16,
+        -16.0,
+        -20.799999237060547,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_020",
+      "bounds": [
+        -20.799999237060547,
+        -0.16,
+        -16.0,
+        -20.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_021",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -12.0,
+        -20.854999542236328,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_022",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -11.930000305175781,
+        -20.854999542236328,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_023",
+      "bounds": [
+        -22.5,
+        -0.16,
+        -11.720000267028809,
+        -20.854999542236328,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_024",
+      "bounds": [
+        -20.0,
+        -0.16,
+        -16.264999389648438,
+        -16.454999923706055,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_025",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -16.264999389648438,
+        -16.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_026",
+      "bounds": [
+        -20.0,
+        -0.16,
+        -16.0,
+        -16.454999923706055,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_027",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -16.0,
+        -16.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_028",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -13.774999618530273,
+        -16.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_029",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -13.350000381469727,
+        -16.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_030",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -12.630000114440918,
+        -16.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_031",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -12.420000076293945,
+        -16.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_032",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -12.350000381469727,
+        -16.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_033",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -12.0,
+        -16.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_034",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -11.930000305175781,
+        -16.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_035",
+      "bounds": [
+        -16.454999923706055,
+        -0.16,
+        -11.720000267028809,
+        -16.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_036",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -16.264999389648438,
+        -15.930000305175781,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_037",
+      "bounds": [
+        -15.930000305175781,
+        -0.16,
+        -16.264999389648438,
+        -15.720000267028809,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_038",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -16.264999389648438,
+        -15.649999618530273,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_039",
+      "bounds": [
+        -15.649999618530273,
+        -0.16,
+        -16.264999389648438,
+        -14.25,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_040",
+      "bounds": [
+        -14.25,
+        -0.16,
+        -16.264999389648438,
+        -12.75,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_041",
+      "bounds": [
+        -12.75,
+        -0.16,
+        -16.264999389648438,
+        -12.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_042",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -16.0,
+        -15.930000305175781,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_043",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -13.774999618530273,
+        -15.930000305175781,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_044",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -13.350000381469727,
+        -15.930000305175781,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_045",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -12.630000114440918,
+        -15.930000305175781,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_046",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -12.420000076293945,
+        -15.930000305175781,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_047",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -12.350000381469727,
+        -15.930000305175781,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_048",
+      "bounds": [
+        -15.930000305175781,
+        -0.16,
+        -16.0,
+        -15.720000267028809,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_049",
+      "bounds": [
+        -15.930000305175781,
+        -0.16,
+        -13.774999618530273,
+        -15.720000267028809,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_050",
+      "bounds": [
+        -15.930000305175781,
+        -0.16,
+        -13.350000381469727,
+        -15.720000267028809,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_051",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -16.0,
+        -15.649999618530273,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_052",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -13.774999618530273,
+        -15.649999618530273,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_053",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -13.350000381469727,
+        -15.649999618530273,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_054",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -12.350000381469727,
+        -5.329999923706055,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_055",
+      "bounds": [
+        -15.649999618530273,
+        -0.16,
+        -16.0,
+        -14.25,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_056",
+      "bounds": [
+        -15.649999618530273,
+        -0.16,
+        -13.774999618530273,
+        -14.25,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_057",
+      "bounds": [
+        -15.649999618530273,
+        -0.16,
+        -13.350000381469727,
+        -14.25,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_058",
+      "bounds": [
+        -14.25,
+        -0.16,
+        -16.0,
+        -12.75,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_059",
+      "bounds": [
+        -14.25,
+        -0.16,
+        -13.774999618530273,
+        -12.75,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_060",
+      "bounds": [
+        -14.25,
+        -0.16,
+        -13.350000381469727,
+        -12.75,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_061",
+      "bounds": [
+        -14.25,
+        -0.16,
+        -12.420000076293945,
+        -12.75,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_062",
+      "bounds": [
+        -12.75,
+        -0.16,
+        -16.0,
+        -12.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_063",
+      "bounds": [
+        -12.75,
+        -0.16,
+        -13.774999618530273,
+        -12.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_064",
+      "bounds": [
+        -12.75,
+        -0.16,
+        -13.350000381469727,
+        -12.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_065",
+      "bounds": [
+        -12.75,
+        -0.16,
+        -12.420000076293945,
+        -12.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_066",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -12.0,
+        -15.930000305175781,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_067",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -11.930000305175781,
+        -15.930000305175781,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_068",
+      "bounds": [
+        -16.0,
+        -0.16,
+        -11.720000267028809,
+        -15.930000305175781,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_069",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -12.0,
+        -15.649999618530273,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_070",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -11.930000305175781,
+        -15.649999618530273,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_071",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -11.720000267028809,
+        -15.649999618530273,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_072",
+      "bounds": [
+        -12.0,
+        -0.16,
+        -16.264999389648438,
+        -11.300000190734863,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_073",
+      "bounds": [
+        -11.300000190734863,
+        -0.16,
+        -16.264999389648438,
+        -10.449999809265137,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_074",
+      "bounds": [
+        -10.449999809265137,
+        -0.16,
+        -16.264999389648438,
+        -8.949999809265137,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_075",
+      "bounds": [
+        -8.949999809265137,
+        -0.16,
+        -16.264999389648438,
+        -8.199999809265137,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_076",
+      "bounds": [
+        -8.199999809265137,
+        -0.16,
+        -16.264999389648438,
+        -8.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_077",
+      "bounds": [
+        -12.0,
+        -0.16,
+        -16.0,
+        -11.300000190734863,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_078",
+      "bounds": [
+        -12.0,
+        -0.16,
+        -13.774999618530273,
+        -11.300000190734863,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_079",
+      "bounds": [
+        -12.0,
+        -0.16,
+        -13.350000381469727,
+        -11.300000190734863,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_080",
+      "bounds": [
+        -12.0,
+        -0.16,
+        -12.420000076293945,
+        -11.300000190734863,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_081",
+      "bounds": [
+        -11.300000190734863,
+        -0.16,
+        -16.0,
+        -10.449999809265137,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_082",
+      "bounds": [
+        -11.300000190734863,
+        -0.16,
+        -13.774999618530273,
+        -10.449999809265137,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_083",
+      "bounds": [
+        -11.300000190734863,
+        -0.16,
+        -13.350000381469727,
+        -10.449999809265137,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_084",
+      "bounds": [
+        -11.300000190734863,
+        -0.16,
+        -12.420000076293945,
+        -10.449999809265137,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_085",
+      "bounds": [
+        -10.449999809265137,
+        -0.16,
+        -16.0,
+        -8.949999809265137,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_086",
+      "bounds": [
+        -10.449999809265137,
+        -0.16,
+        -13.774999618530273,
+        -8.949999809265137,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_087",
+      "bounds": [
+        -10.449999809265137,
+        -0.16,
+        -13.350000381469727,
+        -8.949999809265137,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_088",
+      "bounds": [
+        -10.449999809265137,
+        -0.16,
+        -12.420000076293945,
+        -8.949999809265137,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_089",
+      "bounds": [
+        -8.949999809265137,
+        -0.16,
+        -16.0,
+        -8.199999809265137,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_090",
+      "bounds": [
+        -8.949999809265137,
+        -0.16,
+        -13.774999618530273,
+        -8.199999809265137,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_091",
+      "bounds": [
+        -8.949999809265137,
+        -0.16,
+        -13.350000381469727,
+        -8.199999809265137,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_092",
+      "bounds": [
+        -8.949999809265137,
+        -0.16,
+        -12.420000076293945,
+        -8.199999809265137,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_093",
+      "bounds": [
+        -8.199999809265137,
+        -0.16,
+        -16.0,
+        -8.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_094",
+      "bounds": [
+        -8.199999809265137,
+        -0.16,
+        -13.774999618530273,
+        -8.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_095",
+      "bounds": [
+        -8.199999809265137,
+        -0.16,
+        -13.350000381469727,
+        -8.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_096",
+      "bounds": [
+        -8.199999809265137,
+        -0.16,
+        -12.420000076293945,
+        -8.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_097",
+      "bounds": [
+        -8.0,
+        -0.16,
+        -16.264999389648438,
+        -5.400000095367432,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_098",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -16.264999389648438,
+        -5.329999923706055,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_099",
+      "bounds": [
+        -5.329999923706055,
+        -0.16,
+        -16.264999389648438,
+        -5.119999885559082,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_100",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -16.264999389648438,
+        -4.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_101",
+      "bounds": [
+        -8.0,
+        -0.16,
+        -16.0,
+        -5.400000095367432,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_102",
+      "bounds": [
+        -8.0,
+        -0.16,
+        -13.774999618530273,
+        -5.400000095367432,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_103",
+      "bounds": [
+        -8.0,
+        -0.16,
+        -13.350000381469727,
+        -5.400000095367432,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_104",
+      "bounds": [
+        -15.649999618530273,
+        -0.16,
+        -12.420000076293945,
+        -14.25,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_105",
+      "bounds": [
+        9.5,
+        -0.16,
+        -12.420000076293945,
+        10.350000381469727,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_106",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -16.0,
+        -5.329999923706055,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_107",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -13.774999618530273,
+        -5.329999923706055,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_108",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -13.350000381469727,
+        -5.329999923706055,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_109",
+      "bounds": [
+        -15.720000267028809,
+        -0.16,
+        -12.350000381469727,
+        -15.649999618530273,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_110",
+      "bounds": [
+        -5.329999923706055,
+        -0.16,
+        -16.0,
+        -5.119999885559082,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_111",
+      "bounds": [
+        -5.329999923706055,
+        -0.16,
+        -13.774999618530273,
+        -5.119999885559082,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_112",
+      "bounds": [
+        -5.329999923706055,
+        -0.16,
+        -13.350000381469727,
+        -5.119999885559082,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_113",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -16.0,
+        -4.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_114",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -13.774999618530273,
+        -4.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_115",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -13.350000381469727,
+        -4.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_116",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -12.630000114440918,
+        -4.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_117",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -12.420000076293945,
+        -4.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_118",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -12.350000381469727,
+        -4.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_119",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -12.0,
+        -5.329999923706055,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_120",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -11.930000305175781,
+        -5.329999923706055,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_121",
+      "bounds": [
+        -5.400000095367432,
+        -0.16,
+        -11.720000267028809,
+        -5.329999923706055,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_122",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -12.0,
+        -4.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_123",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -11.930000305175781,
+        -4.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_124",
+      "bounds": [
+        -5.119999885559082,
+        -0.16,
+        -11.720000267028809,
+        -4.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_125",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -16.264999389648438,
+        -2.680000066757202,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_126",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -16.264999389648438,
+        -2.4000000953674316,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_127",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -16.264999389648438,
+        -0.550000011920929,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_128",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -16.264999389648438,
+        0.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_129",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -16.0,
+        -2.680000066757202,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_130",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -13.774999618530273,
+        -2.680000066757202,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_131",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -13.350000381469727,
+        -2.680000066757202,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_132",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -12.630000114440918,
+        -2.680000066757202,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_133",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -12.420000076293945,
+        -2.680000066757202,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_134",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -12.350000381469727,
+        -2.680000066757202,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_135",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -16.0,
+        -2.4000000953674316,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_136",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -13.774999618530273,
+        -2.4000000953674316,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_137",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -13.350000381469727,
+        -2.4000000953674316,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_138",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -12.630000114440918,
+        -2.4000000953674316,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_139",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -12.420000076293945,
+        -2.4000000953674316,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_140",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -12.350000381469727,
+        -2.4000000953674316,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_141",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -16.0,
+        -0.550000011920929,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_142",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -13.774999618530273,
+        -0.550000011920929,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_143",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -13.350000381469727,
+        -0.550000011920929,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_144",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -12.630000114440918,
+        -0.550000011920929,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_145",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -12.420000076293945,
+        -0.550000011920929,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_146",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -12.350000381469727,
+        -0.550000011920929,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_147",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -16.0,
+        0.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_148",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -13.774999618530273,
+        0.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_149",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -13.350000381469727,
+        0.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_150",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -12.630000114440918,
+        0.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_151",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -12.420000076293945,
+        0.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_152",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -12.350000381469727,
+        0.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_153",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -12.0,
+        -2.680000066757202,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_154",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -11.930000305175781,
+        -2.680000066757202,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_155",
+      "bounds": [
+        -4.0,
+        -0.16,
+        -11.720000267028809,
+        -2.680000066757202,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_156",
+      "bounds": [
+        -2.680000066757202,
+        -0.16,
+        -12.0,
+        -2.4000000953674316,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_157",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -12.0,
+        -0.550000011920929,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_158",
+      "bounds": [
+        -2.4000000953674316,
+        -0.16,
+        -11.720000267028809,
+        -0.550000011920929,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_159",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -12.0,
+        0.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_160",
+      "bounds": [
+        -0.550000011920929,
+        -0.16,
+        -11.720000267028809,
+        0.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_161",
+      "bounds": [
+        0.0,
+        -0.16,
+        -16.264999389648438,
+        0.550000011920929,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_162",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -16.264999389648438,
+        2.4000000953674316,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_163",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -16.264999389648438,
+        2.680000066757202,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_164",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -16.264999389648438,
+        4.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_165",
+      "bounds": [
+        0.0,
+        -0.16,
+        -16.0,
+        0.550000011920929,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_166",
+      "bounds": [
+        0.0,
+        -0.16,
+        -13.774999618530273,
+        0.550000011920929,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_167",
+      "bounds": [
+        0.0,
+        -0.16,
+        -13.350000381469727,
+        0.550000011920929,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_168",
+      "bounds": [
+        0.0,
+        -0.16,
+        -12.630000114440918,
+        0.550000011920929,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_169",
+      "bounds": [
+        0.0,
+        -0.16,
+        -12.420000076293945,
+        0.550000011920929,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_170",
+      "bounds": [
+        0.0,
+        -0.16,
+        -12.350000381469727,
+        0.550000011920929,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_171",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -16.0,
+        2.4000000953674316,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_172",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -13.774999618530273,
+        2.4000000953674316,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_173",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -13.350000381469727,
+        2.4000000953674316,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_174",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -12.630000114440918,
+        2.4000000953674316,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_175",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -12.420000076293945,
+        2.4000000953674316,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_176",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -12.350000381469727,
+        2.4000000953674316,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_177",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -16.0,
+        2.680000066757202,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_178",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -13.774999618530273,
+        2.680000066757202,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_179",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -13.350000381469727,
+        2.680000066757202,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_180",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -12.630000114440918,
+        2.680000066757202,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_181",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -12.420000076293945,
+        2.680000066757202,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_182",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -12.350000381469727,
+        2.680000066757202,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_183",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -16.0,
+        4.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_184",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -13.774999618530273,
+        4.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_185",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -13.350000381469727,
+        4.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_186",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -12.630000114440918,
+        4.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_187",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -12.420000076293945,
+        4.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_188",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -12.350000381469727,
+        4.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_189",
+      "bounds": [
+        0.0,
+        -0.16,
+        -12.0,
+        0.550000011920929,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_190",
+      "bounds": [
+        0.0,
+        -0.16,
+        -11.720000267028809,
+        0.550000011920929,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_191",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -12.0,
+        2.4000000953674316,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_192",
+      "bounds": [
+        0.550000011920929,
+        -0.16,
+        -11.720000267028809,
+        2.4000000953674316,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_193",
+      "bounds": [
+        2.4000000953674316,
+        -0.16,
+        -12.0,
+        2.680000066757202,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_194",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -12.0,
+        4.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_195",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -11.930000305175781,
+        4.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_196",
+      "bounds": [
+        2.680000066757202,
+        -0.16,
+        -11.720000267028809,
+        4.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_197",
+      "bounds": [
+        4.0,
+        -0.16,
+        -16.264999389648438,
+        8.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_198",
+      "bounds": [
+        4.0,
+        -0.16,
+        -16.0,
+        8.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_199",
+      "bounds": [
+        4.0,
+        -0.16,
+        -13.774999618530273,
+        8.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_200",
+      "bounds": [
+        4.0,
+        -0.16,
+        -13.350000381469727,
+        8.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_201",
+      "bounds": [
+        4.0,
+        -0.16,
+        -12.630000114440918,
+        8.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_202",
+      "bounds": [
+        4.0,
+        -0.16,
+        -12.420000076293945,
+        8.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_203",
+      "bounds": [
+        4.0,
+        -0.16,
+        -12.350000381469727,
+        8.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_204",
+      "bounds": [
+        4.0,
+        -0.16,
+        -12.0,
+        8.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_205",
+      "bounds": [
+        4.0,
+        -0.16,
+        -11.930000305175781,
+        8.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_206",
+      "bounds": [
+        4.0,
+        -0.16,
+        -11.720000267028809,
+        8.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_207",
+      "bounds": [
+        8.0,
+        -0.16,
+        -16.264999389648438,
+        9.220000267028809,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_208",
+      "bounds": [
+        9.220000267028809,
+        -0.16,
+        -16.264999389648438,
+        9.430000305175781,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_209",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -16.264999389648438,
+        9.5,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_210",
+      "bounds": [
+        9.5,
+        -0.16,
+        -16.264999389648438,
+        10.350000381469727,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_211",
+      "bounds": [
+        10.350000381469727,
+        -0.16,
+        -16.264999389648438,
+        11.850000381469727,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_212",
+      "bounds": [
+        11.850000381469727,
+        -0.16,
+        -16.264999389648438,
+        12.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_213",
+      "bounds": [
+        8.0,
+        -0.16,
+        -16.0,
+        9.220000267028809,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_214",
+      "bounds": [
+        8.0,
+        -0.16,
+        -13.774999618530273,
+        9.220000267028809,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_215",
+      "bounds": [
+        8.0,
+        -0.16,
+        -13.350000381469727,
+        9.220000267028809,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_216",
+      "bounds": [
+        8.0,
+        -0.16,
+        -12.630000114440918,
+        9.220000267028809,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_217",
+      "bounds": [
+        8.0,
+        -0.16,
+        -12.420000076293945,
+        9.220000267028809,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_218",
+      "bounds": [
+        8.0,
+        -0.16,
+        -12.350000381469727,
+        9.220000267028809,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_219",
+      "bounds": [
+        9.220000267028809,
+        -0.16,
+        -16.0,
+        9.430000305175781,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_220",
+      "bounds": [
+        9.220000267028809,
+        -0.16,
+        -13.774999618530273,
+        9.430000305175781,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_221",
+      "bounds": [
+        9.220000267028809,
+        -0.16,
+        -13.350000381469727,
+        9.430000305175781,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_222",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -16.0,
+        9.5,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_223",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -13.774999618530273,
+        9.5,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_224",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -13.350000381469727,
+        9.5,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_225",
+      "bounds": [
+        12.800000190734863,
+        -0.16,
+        -12.420000076293945,
+        15.649999618530273,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_226",
+      "bounds": [
+        9.5,
+        -0.16,
+        -16.0,
+        10.350000381469727,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_227",
+      "bounds": [
+        9.5,
+        -0.16,
+        -13.774999618530273,
+        10.350000381469727,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_228",
+      "bounds": [
+        9.5,
+        -0.16,
+        -13.350000381469727,
+        10.350000381469727,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_229",
+      "bounds": [
+        -8.0,
+        -0.16,
+        -12.420000076293945,
+        -5.400000095367432,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_230",
+      "bounds": [
+        10.350000381469727,
+        -0.16,
+        -16.0,
+        11.850000381469727,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_231",
+      "bounds": [
+        10.350000381469727,
+        -0.16,
+        -13.774999618530273,
+        11.850000381469727,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_232",
+      "bounds": [
+        10.350000381469727,
+        -0.16,
+        -13.350000381469727,
+        11.850000381469727,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_233",
+      "bounds": [
+        10.350000381469727,
+        -0.16,
+        -12.420000076293945,
+        11.850000381469727,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_234",
+      "bounds": [
+        11.850000381469727,
+        -0.16,
+        -16.0,
+        12.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_235",
+      "bounds": [
+        11.850000381469727,
+        -0.16,
+        -13.774999618530273,
+        12.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_236",
+      "bounds": [
+        11.850000381469727,
+        -0.16,
+        -13.350000381469727,
+        12.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_237",
+      "bounds": [
+        11.850000381469727,
+        -0.16,
+        -12.420000076293945,
+        12.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_238",
+      "bounds": [
+        8.0,
+        -0.16,
+        -12.0,
+        9.220000267028809,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_239",
+      "bounds": [
+        8.0,
+        -0.16,
+        -11.930000305175781,
+        9.220000267028809,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_240",
+      "bounds": [
+        8.0,
+        -0.16,
+        -11.720000267028809,
+        9.220000267028809,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_241",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -12.0,
+        9.5,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_242",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -11.930000305175781,
+        9.5,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_243",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -11.720000267028809,
+        9.5,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_244",
+      "bounds": [
+        12.0,
+        -0.16,
+        -16.264999389648438,
+        12.800000190734863,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_245",
+      "bounds": [
+        12.800000190734863,
+        -0.16,
+        -16.264999389648438,
+        15.649999618530273,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_246",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -16.264999389648438,
+        15.720000267028809,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_247",
+      "bounds": [
+        15.720000267028809,
+        -0.16,
+        -16.264999389648438,
+        15.930000305175781,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_248",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -16.264999389648438,
+        16.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_249",
+      "bounds": [
+        12.0,
+        -0.16,
+        -16.0,
+        12.800000190734863,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_250",
+      "bounds": [
+        12.0,
+        -0.16,
+        -13.774999618530273,
+        12.800000190734863,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_251",
+      "bounds": [
+        12.0,
+        -0.16,
+        -13.350000381469727,
+        12.800000190734863,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_252",
+      "bounds": [
+        12.0,
+        -0.16,
+        -12.420000076293945,
+        12.800000190734863,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_253",
+      "bounds": [
+        12.800000190734863,
+        -0.16,
+        -16.0,
+        15.649999618530273,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_254",
+      "bounds": [
+        12.800000190734863,
+        -0.16,
+        -13.774999618530273,
+        15.649999618530273,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_255",
+      "bounds": [
+        12.800000190734863,
+        -0.16,
+        -13.350000381469727,
+        15.649999618530273,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_256",
+      "bounds": [
+        9.430000305175781,
+        -0.16,
+        -12.350000381469727,
+        9.5,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_257",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -12.350000381469727,
+        15.720000267028809,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_258",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -16.0,
+        15.720000267028809,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_259",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -13.774999618530273,
+        15.720000267028809,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_260",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -13.350000381469727,
+        15.720000267028809,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_261",
+      "bounds": [
+        15.720000267028809,
+        -0.16,
+        -16.0,
+        15.930000305175781,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_262",
+      "bounds": [
+        15.720000267028809,
+        -0.16,
+        -13.774999618530273,
+        15.930000305175781,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_263",
+      "bounds": [
+        15.720000267028809,
+        -0.16,
+        -13.350000381469727,
+        15.930000305175781,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_264",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -16.0,
+        16.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_265",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -13.774999618530273,
+        16.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_266",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -13.350000381469727,
+        16.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_267",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -12.630000114440918,
+        16.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_268",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -12.420000076293945,
+        16.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_269",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -12.350000381469727,
+        16.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_270",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -12.0,
+        15.720000267028809,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_271",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -11.930000305175781,
+        15.720000267028809,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_272",
+      "bounds": [
+        15.649999618530273,
+        -0.16,
+        -11.720000267028809,
+        15.720000267028809,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_273",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -12.0,
+        16.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_274",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -11.930000305175781,
+        16.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_275",
+      "bounds": [
+        15.930000305175781,
+        -0.16,
+        -11.720000267028809,
+        16.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_276",
+      "bounds": [
+        16.0,
+        -0.16,
+        -16.264999389648438,
+        20.0,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_277",
+      "bounds": [
+        16.0,
+        -0.16,
+        -16.0,
+        20.0,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_278",
+      "bounds": [
+        16.0,
+        -0.16,
+        -13.774999618530273,
+        20.0,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_279",
+      "bounds": [
+        16.0,
+        -0.16,
+        -13.350000381469727,
+        20.0,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_280",
+      "bounds": [
+        16.0,
+        -0.16,
+        -12.630000114440918,
+        20.0,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_281",
+      "bounds": [
+        16.0,
+        -0.16,
+        -12.420000076293945,
+        20.0,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_282",
+      "bounds": [
+        16.0,
+        -0.16,
+        -12.350000381469727,
+        20.0,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_283",
+      "bounds": [
+        16.0,
+        -0.16,
+        -12.0,
+        20.0,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_284",
+      "bounds": [
+        16.0,
+        -0.16,
+        -11.930000305175781,
+        20.0,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_285",
+      "bounds": [
+        16.0,
+        -0.16,
+        -11.720000267028809,
+        20.0,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_286",
+      "bounds": [
+        20.0,
+        -0.16,
+        -16.264999389648438,
+        20.299999237060547,
+        0,
+        -16.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_287",
+      "bounds": [
+        20.0,
+        -0.16,
+        -16.0,
+        20.299999237060547,
+        0,
+        -13.774999618530273
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_288",
+      "bounds": [
+        20.0,
+        -0.16,
+        -13.774999618530273,
+        20.299999237060547,
+        0,
+        -13.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_289",
+      "bounds": [
+        20.0,
+        -0.16,
+        -13.350000381469727,
+        20.299999237060547,
+        0,
+        -12.630000114440918
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_290",
+      "bounds": [
+        20.0,
+        -0.16,
+        -12.630000114440918,
+        20.299999237060547,
+        0,
+        -12.420000076293945
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_291",
+      "bounds": [
+        20.0,
+        -0.16,
+        -12.420000076293945,
+        20.299999237060547,
+        0,
+        -12.350000381469727
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_292",
+      "bounds": [
+        20.0,
+        -0.16,
+        -12.350000381469727,
+        20.299999237060547,
+        0,
+        -12.0
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_293",
+      "bounds": [
+        20.0,
+        -0.16,
+        -12.0,
+        20.299999237060547,
+        0,
+        -11.930000305175781
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_294",
+      "bounds": [
+        20.0,
+        -0.16,
+        -11.930000305175781,
+        20.299999237060547,
+        0,
+        -11.720000267028809
+      ],
+      "kind": "authored_union_component"
+    },
+    {
+      "owner": "FrontPavement",
+      "id": "RetainedSlabCell_295",
+      "bounds": [
+        20.0,
+        -0.16,
+        -11.720000267028809,
+        20.299999237060547,
+        0,
+        -11.649999618530273
+      ],
+      "kind": "authored_union_component"
+    }
+  ],
+  "native_faces": 2538,
+  "source_native_sha256": "42b45a35b6b36778ef0a1713be49bd3be800ae76a1f875e913a903a9cc1d9e3a",
+  "note": "Seven registered closed source masses fitted to a contact course, perimeter stems and footings. Retained sidewalk contacts keep their original owner. Geometric fit only; no soil, reinforcement or load-capacity verdict."
+}

@@ -22,7 +22,26 @@ func _ready() -> void:
 			"accepted H-plan identity is stable")
 	var program_errors: Array[String] = ProgramContract.validate(layout)
 	_check(program_errors.is_empty(), "current source programme closes: " + str(program_errors))
+	# A missing axis previously threw during wall construction, leaving the
+	# runtime reporting ready with entire room partitions absent.
+	for bad_axis in ["", "y"]:
+		var malformed := preload("res://scripts/building/orison_v2_blockout.gd").new()
+		malformed.layout = layout.duplicate(true)
+		malformed.layout.openings[0].erase("axis")
+		if not bad_axis.is_empty(): malformed.layout.openings[0].axis = bad_axis
+		malformed._validate_layout()
+		_check(malformed.failures.has("invalid opening axis: " + str(layout.openings[0].id)),
+				"missing/invalid opening axis fails before construction: " + bad_axis)
+		malformed.free()
 	# Independent mutations prove deleted obligations and broken links are refused.
+	for bad_sill in [-.1, 3.1]:
+		var malformed := preload("res://scripts/building/orison_v2_blockout.gd").new()
+		malformed.layout = layout.duplicate(true)
+		malformed.layout.openings[0].sill = bad_sill
+		malformed._validate_layout()
+		_check(malformed.failures.has("invalid opening sill: " + str(layout.openings[0].id)),
+				"out-of-storey opening sill fails before construction: " + str(bad_sill))
+		malformed.free()
 	var missing_room: Dictionary = layout.duplicate(true)
 	missing_room.spaces = missing_room.spaces.filter(func(r: Dictionary) -> bool:
 		return str(r.id) != "F06_C_BED1")
@@ -115,6 +134,9 @@ func _ready() -> void:
 		add_child(root)
 		await get_tree().process_frame
 		_check(root.failures.is_empty(), "schema validation passes")
+		if not root.failures.is_empty():
+			_finish()
+			return
 		for group: String in ["spaces", "doors", "windows", "envelopes", "fixtures",
 				"platforms", "lift_landings", "stairs", "risers", "anchors"]:
 			for record: Dictionary in layout[group]:

@@ -1,63 +1,45 @@
 # Mina Vale Character Pipeline
 
-**Mina's model is the Meshy `Grey_Elegance` export — owner-designated FINAL
-on 2026-08-13.** Bowler, glasses, gloves, white blouse under a grey suit
-dress, satchel, T-strap heels. She is the standard for how a
-new-generation character enters the game; the previous procedurally
-generated Mina (teal cardigan, mustard shirt) is deleted, and
-`tools/generate_mina_character.py` survives only as the base generator for
-the generated resident cast (see `resident_character_cast.md`).
+Evidence class: **INERT**
 
-## Her model
+Mina uses the owner-supplied **Meshy_AI_Gray_Resolve_biped** model and twenty-animation batch, replacing Grey Elegance and its donor library on 2026-10-03. Her exported proportions are retained: approximately 1.65 m tall, with a 28-bone rig and 1K textures. Her slate suit, walking skirt, bowler and mature face are the new production appearance.
 
-Built by `art/blender/scripts/convert_dump_characters.py` from
-`art/blender/meshy/Meshy_AI_Grey_Elegance_biped/` per the committed mapping
-in `game/data/resident_hero_models.json`:
+## Rebuild
 
-- `assets/characters/mina_vale/mina_vale.gltf` — the hero model, 14.7k
-  tris, 1K graded texture, **motion-free by contract**;
-- her mapping entry carries `keep_emission: true` (owner instruction): she
-  keeps her self-illumination where every other figure receives scene
-  light. The converter and `art/tools/strip_character_emissive.py` both
-  honour the flag; the doubled-specular fix still applies to her.
+Extract the owner's zip into the ignored **art/blender/meshy/Meshy_AI_Gray_Resolve_biped/** directory. The committed **art/data/mina_resolve/clip_manifest.json** records each exact filename, its SHA-256, the corresponding English commissioning prompt and playback type. The owner supplied the Meshy action-list screenshot; UUID order, durations and four rendered poses per custom file confirmed the mapping.
 
-## Her animation
+Run Blender 5.2 with factory settings and **art/blender/scripts/ingest_mina_resolve.py**, then **art/blender/scripts/render_mina_resolve.py**. The old **bake_model_moves.py -- mina_vale** command delegates to this ingester for Gray Resolve, so it cannot restore the retired shared set.
 
-Her rig is a newer Meshy generation than the 2026-08-02 cast — different
-joint spacing AND bone axes — so the runtime graft's verbatim track copy
-can never be correct on her. Instead she carries a personal library:
+Outputs:
 
-- `assets/characters/mina_vale/mina_vale_moves.glb` — the full 48-clip
-  shared set (Evelyn's role clips + the gesture library) baked onto her
-  own skeleton by `art/blender/scripts/bake_model_moves.py`, plus her
-  model's own raw Walking clip as `mina_vale_Walk` (the `_resolve_clip`
-  suffix wins role lookups, so her gait stays personal);
-- `ResidentMovesLibrary.apply` prefers a `<model>_moves.glb` sitting
-  beside any model over the shared libraries;
-- `AnimatedResident` grafts the library when a model ships without an
-  AnimationPlayer, so the hero pipeline and the old generated cast run
-  through one code path.
+- **art/blender/mina_resolve.blend**: packed textures, skinned mesh and exactly twenty editable actions. NLA tracks are muted in the saved source; choose an action to review it.
+- **game/assets/characters/mina_vale/mina_vale.gltf** and its buffer/textures: motion-free hero, forty-thousand-triangle budget.
+- **game/assets/characters/mina_vale/mina_vale_moves.glb**: only this model's twenty clips, on its own skeleton. No old donor motions or procedural idle remain.
+- **mina_vale_preview.png** and **game/assets/npcs/mina_vale.png**: renders of the new figure, including the sprite fallback.
+- **art/data/mina_resolve/bake_report.json**: actual export lengths and measured geometry. Requested prompt durations remain separate from the FBX's native durations.
 
-Rebake after any model change:
+Her existing **keep_emission** mapping ruling is retained. Metallic bodies and doubled specular are corrected by the same material convention as the cast. Imported scale tracks do not override the skeleton.
 
-    "/c/Program Files/Blender Foundation/Blender 5.2/blender" -b -P \
-        art/blender/scripts/bake_model_moves.py -- mina_vale
+## First batch
 
-## The cast follows her (2026-08-14 repopulation)
+The archive contains eighteen custom actions: calm idle, ordinary walk, hurried walk, turn around, stair ascent, push door, pull door, measured speech, strained explanation, recognition, stair descent, quiet thanks, begin walking, stop walking, close door, lock door, lift waiting and tired idle. Meshy's stock Walking and Running exports make twenty total. Their Rigify bone names are mapped to the new hero skeleton; the folded upper-body bind is aligned to her own calm pose before transferring their motion.
 
-Mina's pipeline is now the whole cast's: every mapped resident was
-re-converted from its raw dump source (`resident_hero_models.json`,
-board-settled) and carries a personal `<slug>_moves.glb` — the shared
-set baked onto its own rig, plus its own raw Walking clip as
-`<slug>_Walk`. The generated `_rigged.glb/.blend` placeholders are
-retired (this file's owner ruling set the precedent). Evelyn keeps her
-merge hero untouched: she is the bake's convention reference, and
-rebuilding her would move the ground every bake stands on.
+This is the actual delivered batch, which differs from the initial critical-twenty commissioning sheet. Unlocking, sitting, rising, writing captions, air annotation and anxious pacing were not supplied. They are not synthesized by borrowing retired clips. Turn, lift waiting and stock locomotion remain available for explicit role requests and review; her current timetable travels by stairs.
 
-## Behaviour
+## Behavior
 
-`AnimatedResident` plays idle normally. During an active or reopened
-Caption Crisis, Mina performs a restrained pacing loop inside the authored
-clear area of apartment 2A and crossfades to the walking clip.
-Stabilization returns her to her canonical position and idle.
-`MinaCharacterTest.tscn` drives exactly this against her production model.
+**MinaAnimationBehavior** owns playback independently of navigation. **AnimatedResident** installs it automatically for Mina; the V1 routine preserves its one-shot classifications too. Ordinary and hurried gaits match route speed. The late bodega run becomes hurried after 23:40. Walk starts and stops transition to their corresponding loop or idle. Authored route-edge slopes select stair motion without switching on every flat tread. Nighttime standing uses the supplied tired idle.
+
+The bake strips horizontal hip travel and grounds the actual skinned shoes on the actor's floor. This prevents exported travel or stair rise from moving her through collision or adding a second vertical climb. Loop tails blend to their opening poses. Navigation retains all floor, capsule and door-leaf clearance checks.
+
+The V2 route cues push/pull according to the door's real swing, waits for the reach beat before asking **DoorProp** to open, and holds navigation through the gesture. Closing uses the same real owner and sweep checks. A lock gesture follows a close that actually relocks; it does not grant access or change key permissions. Hand placement is still the supplied animation, without a finger rig or handle IK; precise handle contact needs a later calibration pass.
+
+Dialogue nodes use measured speech by default. Existing **strained** and **recognition** roles play once and return to speech; stationary route calls cannot overwrite them. Conversation completion returns to idle, with quiet thanks after the earned silence/integration or resolved exchange. Body clips do not introduce face or lip-sync animation; the supplied FBXs have no facial control rig.
+
+## Verification
+
+Import twice through the repository's serial Godot lane. **MinaCharacterTest** checks twenty clips, loop/one-shot types, stair selection, case-role arbitration and the existing pacing behavior. **MinaPoseReview** renders four phases of every installed clip and the rest pose. The composed V2 mail, domestic, laundry, bodega, return, residue and off-map suites exercise the production actor and physical routes; the scoped door-safety suite also retains its mesh-free fixture.
+
+The cast's other personal motion libraries retain their existing pipeline; see **resident_character_cast.md**.
+
+The first-batch review gallery is **art/renders/mina_resolve_20261003/**. Its four contact sheets show four Godot poses per clip, and its domestic captures show the replacement in the actual V2 rooms with the handheld hidden. The gallery README records checked behavior and the remaining contact/cloth calibration limits.

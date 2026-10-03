@@ -5,6 +5,14 @@ var errors: Array[String] = []
 
 func mount(adapter: Variant, parent: Node3D) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	return mount_source(adapter, parent, source)
+
+func mount_completion(adapter: Variant, parent: Node3D) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	if source is not Dictionary or source.get("lighting") is not Dictionary: return false
+	return mount_source(adapter, parent, source.lighting)
+
+func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 	if not validate(source, adapter):
 		return false
 	var circuits: Dictionary = {}
@@ -20,9 +28,11 @@ func mount(adapter: Variant, parent: Node3D) -> bool:
 			if not circuits.has(record.room):
 				circuits[record.room] = []
 			circuits[record.room].append(str(record.id))
-	var switches := SwitchSystem.new()
-	switches.name = "V2RoomSwitches"
-	parent.add_child(switches)
+	var switches := parent.get_node_or_null("V2RoomSwitches") as SwitchSystem
+	if switches == null:
+		switches = SwitchSystem.new()
+		switches.name = "V2RoomSwitches"
+		parent.add_child(switches)
 	for room: String in circuits:
 		var identities: Array[String] = []
 		identities.assign(circuits[room])
@@ -31,6 +41,10 @@ func mount(adapter: Variant, parent: Node3D) -> bool:
 	for record: Dictionary in source.switches:
 		var plate := Plate.new()
 		plate.system = switches
+		var room := str(record.room)
+		var floor_number := room.get_slice("_",0).trim_prefix("F").to_int()
+		var dwelling := room.get_slice("_",1)
+		plate.unit = str(floor_number)+dwelling if floor_number in range(1,7) and dwelling in ["A","B","C","D"] else room
 		plate.set_meta("room_id", str(record.room))
 		plate.set_meta("bathroom_switch", str(record.room).ends_with("_BATH"))
 		var shape := BoxShape3D.new()
@@ -39,23 +53,10 @@ func mount(adapter: Variant, parent: Node3D) -> bool:
 		collision.shape = shape
 		collision.position.z = -0.045
 		plate.add_child(collision)
-		var mesh := BoxMesh.new()
-		mesh.size = Vector3(0.12, 0.18, 0.024)
-		var visual := MeshInstance3D.new()
-		visual.mesh = mesh
-		visual.position.z = -0.02
-		visual.material_override = MatLib.get_mat("bakelite")
-		plate.add_child(visual)
-		var toggle := MeshInstance3D.new()
-		var lever := BoxMesh.new()
-		lever.size = Vector3(0.025, 0.055, 0.027)
-		toggle.mesh = lever
-		toggle.position.z = -0.044
-		toggle.material_override = MatLib.get_mat("porcelain")
-		plate.add_child(toggle)
 		if not adapter.mount_consumer(str(record.id), plate):
 			plate.free()
 			return false
+		plate.mount_model()
 	return true
 
 func validate(source: Variant, adapter: Variant) -> bool:

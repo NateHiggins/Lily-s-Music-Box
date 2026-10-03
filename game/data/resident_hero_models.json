@@ -6,9 +6,9 @@
    "why": "board 03: navy scrubs, badge, the night nurse"
   },
   "mina_vale": {
-   "source": "Meshy_AI_Grey_Elegance_biped",
+   "source": "Meshy_AI_Gray_Resolve_biped",
    "keep_emission": true,
-   "why": "owner-designated FINAL model 2026-08-13, replacing the board-derived Futuristic_Field_Engi pick. keep_emission is deliberate and unique to her: the owner instructed that her self-illumination NOT be stripped, so she reads self-lit where every other figure receives scene light."
+   "why": "Owner replacement 2026-10-03: Gray Resolve mesh and first twenty supplied animations. Prior keep_emission ruling retained. Ingest with art/blender/scripts/ingest_mina_resolve.py; do not graft the retired donor set."
   },
   "lena_ortiz": {
    "source": "Meshy_AI_Frontier_Warrior_biped",
@@ -74,7 +74,7 @@
  "variants": {
   "transient_guest_b": {
    "source": "Meshy_AI_Field_Operator_biped",
-   "why": "board 04 shows the transients as a PAIR — this is the bomber-jacket half, held for the guest-variant pass"
+   "why": "board 04 shows the transients as a PAIR \u00e2\u20ac\u201d this is the bomber-jacket half, held for the guest-variant pass"
   }
  },
  "creatures": {

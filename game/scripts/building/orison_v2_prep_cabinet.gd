@@ -6,6 +6,7 @@ const DURATION := .28
 signal open_state_changed(open: bool)
 var unit := ""
 var opened := false
+var track_clean := true
 var _slide: AnimatableBody3D
 var _motion: Tween
 
@@ -63,7 +64,7 @@ func interact(_actor: Node = null) -> Dictionary:
 	opened = not opened
 	if _motion != null and _motion.is_valid(): _motion.kill()
 	_motion = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	_motion.tween_property(_slide, "position:x", TRAVEL if opened else 0.0, DURATION) \
+	_motion.tween_property(_slide, "position:x", TRAVEL if opened else 0.0, DURATION if track_clean else DURATION*2.0) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	open_state_changed.emit(opened)
 	return {"action":"kitchen_cabinet", "unit":unit, "open":opened}

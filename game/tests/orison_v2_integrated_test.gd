@@ -227,15 +227,15 @@ func _save_reconstruct_check() -> bool:
 func _integrated_waypoints() -> Array[Vector3]:
 	var points: Array[Vector3] = [
 		Vector3(0.0, 0.0, -11.0), Vector3(0.0, 0.0, -8.0),
-		Vector3(0.0, 0.0, -5.0), Vector3(2.3, 0.0, -3.0)]
+		Vector3(0.0, 0.0, -5.0), Vector3(1.925, 0.0, -3.0)]
 	_append_storey(points, 0.0)
 	points.append_array([Vector3(-1.5, 3.2, 0.0), Vector3(-4.6, 3.2, 0.0),
 		Vector3(-6.45, 3.2, 0.0), Vector3(-9.2, 3.2, 1.4),
 		Vector3(-6.45, 3.2, 0.0), Vector3(-4.6, 3.2, 0.0),
 		Vector3(-1.5, 3.2, 0.0), Vector3(1.4, 3.2, -2.5),
-		Vector3(2.3, 3.2, -3.0)])
+		Vector3(1.925, 3.2, -3.0)])
 	_append_storey(points, 3.2)
-	points.append_array([Vector3(1.4, 6.4, -2.5), Vector3(2.3, 6.4, -3.0)])
+	points.append_array([Vector3(1.4, 6.4, -2.5), Vector3(1.925, 6.4, -3.0)])
 	_append_storey(points, 6.4)
 	points.append_array([Vector3(-1.5, 9.6, 0.0), Vector3(-4.6, 9.6, 0.0),
 		Vector3(-6.45, 9.6, -0.55), Vector3(-9.9, 9.6, 1.25),
@@ -245,12 +245,12 @@ func _integrated_waypoints() -> Array[Vector3]:
 
 func _append_storey(points: Array[Vector3], base_y: float) -> void:
 	for i in 10:
-		points.append(Vector3(2.3, base_y + 0.16 * float(i + 1), -3.1 + 0.285 * (i + 0.5)))
-	points.append(Vector3(2.3, base_y + 1.6, 1.25))
-	points.append(Vector3(3.8, base_y + 1.6, 1.25))
+		points.append(Vector3(1.925, base_y + 0.16 * float(i + 1), -3.1 + 0.285 * (i + 0.5)))
+	points.append(Vector3(1.925, base_y + 1.6, 1.25))
+	points.append(Vector3(3.975, base_y + 1.6, 1.25))
 	for i in 10:
-		points.append(Vector3(3.8, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
-	points.append(Vector3(3.8, base_y + 3.2, -3.45))
+		points.append(Vector3(3.975, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
+	points.append(Vector3(3.975, base_y + 3.2, -3.45))
 	points.append(Vector3(1.4, base_y + 3.2, -3.45))
 	points.append(Vector3(1.4, base_y + 3.2, -2.5))
 

@@ -109,6 +109,12 @@ func _run() -> void:
 	for controller in zoo.controllers:
 		_check("the native Blender specimen batch is available", controller.blender_visuals != null)
 	await _capture("zoo_on_foot")
+	var optical := building.get_node_or_null("LampAtmosphere")
+	if optical != null and optical.field != null:
+		_check("zoo key and inspection lamp retain the exhibit layer",
+				zoo.inspection_key.light_cull_mask & DreamEcologyWarehouse.EXHIBIT_LAYER != 0
+				and zoo.lamp.light_cull_mask & DreamEcologyWarehouse.EXHIBIT_LAYER != 0)
+		_check("walking uses the player's shared optical source", optical.scene_shadow.lamp == player.flashlight)
 
 	var net: SafetyNet = building.safety_net
 	_check("the hall is a legitimate place to stand",
@@ -159,7 +165,32 @@ func _run() -> void:
 						zoo.overview_station.global_position) > 1.0)
 		zoo.focus_organelle()
 		await _capture("zoo_organelle_inspector")
+		if optical != null and optical.field != null:
+			_check("inspection uses the visible lamp for voxel radiance and scene shadows",
+					optical.field.ready and optical.field.failed.is_empty()
+					and optical.field.pose.is_equal_approx(zoo.lamp.global_transform)
+					and is_equal_approx(optical.field.energy,zoo.lamp.light_energy)
+					and optical.scene_shadow.lamp == zoo.lamp)
+			zoo.set_lamp_enabled(false)
+			await _capture("zoo_inspection_lamp_off")
+			_check("inspection lamp off clears the optical field without changing carried switch",
+					not optical.field.enabled and optical.field.energy == 0
+					and not optical.volume.visible and player.lamp_is_enabled() == lamp_before_inspection)
+			zoo.set_lamp_enabled(true)
 		zoo.focus_hero()
+		# Arrival takes several seconds. A three-frame capture of an existing
+		# node was previously accepted even while its skin was still discarded.
+		var emergence_deadline := Time.get_ticks_msec()+12000
+		while zoo.hero.grow < 1.0 and Time.get_ticks_msec()<emergence_deadline:
+			await get_tree().process_frame
+		_check("accepted hero completes its live emergence", zoo.hero.grow >= 1.0)
+		var hero_facts: Dictionary = zoo.hero.census()
+		_check("emerged hero retains all accepted skinned meshes", hero_facts.meshes == 109 and hero_facts.skinned == 109 and hero_facts.skeleton)
+		_check("inspector explains the live hero state", zoo._status.text.begins_with("Hero: "))
+		var tip := zoo.camera.unproject_position(zoo.hero.tip_world())
+		var view := get_viewport().get_visible_rect().size
+		_check("hero tip is framed beside the controls", not zoo.camera.is_position_behind(zoo.hero.tip_world()) and tip.x > 376 and tip.x < view.x and tip.y > 0 and tip.y < view.y)
+		print("[ZOO HERO] ",JSON.stringify(zoo.hero.census()))
 		await _capture("zoo_hero_inspector")
 		zoo.focus_species(3)
 		await _capture("zoo_blender_tardigrade")
@@ -235,6 +266,10 @@ func _run() -> void:
 				carried_overlay != null and carried_overlay.visible
 				and player.lamp_is_enabled() == lamp_before_inspection)
 		await _capture("zoo_return_to_building")
+		if optical != null and optical.field != null:
+			_check("return restores the carried voxel lamp and shadow source",
+					optical.scene_shadow.lamp == player.flashlight
+					and optical.field.pose.is_equal_approx(player.flashlight.global_transform))
 	_finish()
 
 func _carrier_overlay(player: PlayerController) -> CanvasLayer:

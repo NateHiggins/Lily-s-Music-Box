@@ -9,13 +9,17 @@ const UNIT_4B := Color(0.72, 0.38, 0.16)
 const WARM := Color(1.0, 0.72, 0.38)
 var show_bed_context := true
 var show_terminal_context := true
+var show_floor_context := true
+var show_portal_masses := true
+var show_route_bands := true
 
 func _ready() -> void:
 	_portal(Vector3(0, 0, -11.65), 0.0, 1.1, 2.13, PUBLIC, "PUBLIC ENTRANCE")
 	_portal(Vector3(-5.6, 3.2, 0), PI * 0.5, 0.91, 2.13, UNIT_2A, "2A")
 	_portal(Vector3(-5.6, 9.6, 0), PI * 0.5, 0.91, 2.13, UNIT_4B, "4B")
-	_floor_plate(Vector3(-1.25, 3.2, -3.30), "F02", PUBLIC)
-	_floor_plate(Vector3(-1.25, 9.6, -3.30), "F04", PUBLIC)
+	if show_floor_context:
+		_floor_plate(Vector3(-1.25, 3.2, -3.30), "F02", PUBLIC)
+		_floor_plate(Vector3(-1.25, 9.6, -3.30), "F04", PUBLIC)
 	# Repeated light pools expose the first flight, turn, return flight and arrival.
 	for base_y in [0.0, 3.2, 6.4]:
 		_light(Vector3(2.3, base_y + 1.25, -1.7), PUBLIC, 4.8, 2.0)
@@ -43,9 +47,10 @@ func _portal(at: Vector3, yaw: float, width: float, height: float,
 	portal.position = at
 	portal.rotation.y = yaw
 	add_child(portal)
-	_box(portal, Vector3(0.09, height, 0.12), Vector3(-width * 0.5 - 0.045, height * 0.5, 0), color)
-	_box(portal, Vector3(0.09, height, 0.12), Vector3(width * 0.5 + 0.045, height * 0.5, 0), color)
-	_box(portal, Vector3(width + 0.18, 0.16, 0.16), Vector3(0, height + 0.08, 0), color)
+	if show_portal_masses:
+		_box(portal, Vector3(0.09, height, 0.12), Vector3(-width * 0.5 - 0.045, height * 0.5, 0), color)
+		_box(portal, Vector3(0.09, height, 0.12), Vector3(width * 0.5 + 0.045, height * 0.5, 0), color)
+		_box(portal, Vector3(width + 0.18, 0.16, 0.16), Vector3(0, height + 0.08, 0), color)
 	var plate := Label3D.new()
 	plate.text = words
 	plate.font_size = 64
@@ -86,6 +91,7 @@ func _bed_mass() -> void:
 	_box(bed, Vector3(0.16, 1.0, 1.35), Vector3(-0.92, 0.5, 0), Color(0.23, 0.28, 0.34))
 
 func _band(at: Vector3, size: Vector3, color: Color) -> void:
+	if not show_route_bands: return
 	_box(self, size, at, color)
 
 func _box(parent: Node3D, size: Vector3, at: Vector3, color: Color) -> void:

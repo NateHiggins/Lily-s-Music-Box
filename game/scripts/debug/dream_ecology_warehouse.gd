@@ -16,6 +16,7 @@ const HALL_CENTER_Z := (HALL_MIN_Z + HALL_MAX_Z) * 0.5
 const ORGANELLE_WALL := Vector3(-5.1,1.7,-11.8)
 const BENCH_Y := 0.85
 const EXHIBIT_LAYER := 1 << 19
+const LAMP_ENERGY := preload("res://scripts/lamp/lamp_gameplay_profile.gd").INSPECTION_ENERGY
 signal inspection_changed(is_active: bool)
 const NOTES := [
 	"One animal on both sides of a thin panel.",
@@ -115,6 +116,7 @@ var _dragging := false
 func setup(player: Node3D = null) -> void:
 	if initialized or GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG: return
 	initialized = true
+	add_to_group("lamp_inspection_source")
 	_player = player
 	name = "DreamEcologyWarehouse"
 	placeholders = Zoo.placeholders()
@@ -166,7 +168,7 @@ func _build_room() -> void:
 	lamp.position = Vector3(0,0,1.0)
 	lamp.spot_range = 8.0
 	lamp.spot_angle = 24.0
-	lamp.light_energy = 2.2
+	lamp.light_energy = LAMP_ENERGY
 	lamp.light_color = Color(1.0,0.82,0.55)
 	lamp.shadow_enabled = true
 	lamp.light_cull_mask = EXHIBIT_LAYER
@@ -363,7 +365,7 @@ func set_blender_review_mode(mode: int) -> void:
 
 func set_lamp_enabled(value: bool) -> void:
 	lamp_enabled = value
-	if lamp != null: lamp.light_energy = 2.2 if value else 0.0
+	if lamp != null: lamp.light_energy = LAMP_ENERGY if value else 0.0
 	if _lamp_button != null: _lamp_button.text = "Lamp: ON" if value else "Lamp: OFF"
 
 func lamp_pose() -> Dictionary:
@@ -542,7 +544,12 @@ func _process(_delta: float) -> void:
 	if _title != null:
 		if selected_exhibit in ["organelle","hero"]:
 			_title.text = "HERO & ORGANELLE WALL"
-			_status.text = "Live hero, six palp forms, branches/cilia and living wall. Crystal listener joins this bay.\nRecovered Blender source restored.\nPulse: staged debug stimulus · no new species"
+			var hero_state := "Arriving" if hero == null else hero.state_name().capitalize()
+			if hero != null and hero.state == DreamHeroTentacle.State.MEMBRANE_BULGE:
+				hero_state = "Arriving — membrane swelling"
+			elif hero != null and hero.state == DreamHeroTentacle.State.ABSENT:
+				hero_state = "Between appearances"
+			_status.text = "Hero: %s\nLive hero, six palp forms, branches/cilia and living wall. Crystal listener joins this bay.\nPulse: staged debug stimulus · no new species" % hero_state
 		elif not selected_exhibit.is_empty():
 			var entry := placeholder_for(selected_exhibit)
 			_title.text = str(entry.get("label","Reserved bay")).to_upper()

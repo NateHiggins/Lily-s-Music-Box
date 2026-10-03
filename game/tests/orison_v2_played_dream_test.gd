@@ -1,6 +1,20 @@
 extends "res://tests/orison_v2_earned_dream_boundary_test.gd"
 ## Starts with the genuinely earned request. Only ordinary movement drives
 ## the Dream: no manual outcome, pursuit step, teleport or clock override.
+func manual_onset_clock() -> bool:
+	return false
+
+func enter_earned_dream() -> bool:
+	var entries: Array[String] = []
+	shell.sleep_pressure.sleep_entry_requested.connect(func(case_id: String, _form: String):
+		entries.append(case_id))
+	var started := Time.get_ticks_msec()
+	while shell.world_kind() == "waking" and Time.get_ticks_msec() - started < 15000:
+		await get_tree().process_frame
+	return check(not shell.sleep_pressure.manual_clock and shell.world_kind() == "dream"
+			and entries == [MinaCaseGameplay.CASE_ID],
+			"normal protected sleep onset enters the earned Dream exactly once")
+
 func complete_dream() -> bool:
 	var dream := shell.active_world as DreamMazeRoot
 	if not check(dream != null and dream.autonomous and dream.rooms != null,

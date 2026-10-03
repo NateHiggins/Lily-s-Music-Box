@@ -20,14 +20,17 @@ func _ready() -> void:
 	_check(old_mass != null and not old_mass.visible and old_use != null \
 			and not old_use.visible,
 			"placeholder mass and display envelope retire under real composition")
-	var bounds := _visual_bounds(radiator)
+	# The connected V2 building rotates 180 degrees into the street frame.
+	# These source dimensions belong to the building, not world X/Z.
+	var frame := world.adapter.root as Node3D
+	var bounds := _visual_bounds(radiator,frame)
 	_check(absf(bounds.position.y - 3.2) <= 0.025,
 			"cast feet contact the F02 floor")
 	_check(bounds.end.x < 15.60 and bounds.end.x > 15.46,
 			"assembly stands off the exterior wall without floating")
 	var castings := radiator.find_child("SharedCastSections", true,
 			false) as MultiMeshInstance3D
-	var body_bounds := castings.global_transform * castings.get_aabb()
+	var body_bounds := frame.global_transform.affine_inverse() * castings.global_transform * castings.get_aabb()
 	_check(body_bounds.position.z > -3.55 and body_bounds.end.z < -2.56,
 			"body clears the F02_B_MAIN window opening")
 	_check(bounds.size.y <= 0.86 and bounds.size.x <= 0.38
@@ -108,7 +111,7 @@ func _ready() -> void:
 	get_tree().quit(failures)
 
 
-func _visual_bounds(root: Node3D) -> AABB:
+func _visual_bounds(root: Node3D, frame: Node3D) -> AABB:
 	var result := AABB()
 	var initialized := false
 	for node: Node in root.find_children("*", "MeshInstance3D", true, false):
@@ -116,12 +119,12 @@ func _visual_bounds(root: Node3D) -> AABB:
 		if mesh_node.mesh == null or not mesh_node.is_visible_in_tree():
 			continue
 		var local := mesh_node.mesh.get_aabb()
-		var global := mesh_node.global_transform * local
+		var global := frame.global_transform.affine_inverse() * mesh_node.global_transform * local
 		result = global if not initialized else result.merge(global)
 		initialized = true
 	for node: Node in root.find_children("*", "MultiMeshInstance3D", true, false):
 		var mm := node as MultiMeshInstance3D
-		var global := mm.global_transform * mm.get_aabb()
+		var global := frame.global_transform.affine_inverse() * mm.global_transform * mm.get_aabb()
 		result = global if not initialized else result.merge(global)
 		initialized = true
 	return result

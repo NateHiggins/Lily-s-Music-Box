@@ -6,6 +6,7 @@ const Snapshot := preload("res://scripts/lamp/lamp_optical_snapshot.gd")
 var state := State.new()
 var player: PlayerController
 var output: Dictionary = {}
+var cone_scale := 1.0
 
 func setup(owner_player: PlayerController) -> bool:
 	player = owner_player
@@ -34,7 +35,7 @@ func apply_output() -> void:
 	player.flashlight.visible = float(output.intensity) > .001
 	player.flashlight.light_energy = player._lamp_base_energy * float(output.intensity)
 	player.flashlight.light_color = output.color
-	player.flashlight.spot_angle = float(output.cone_angle_deg)
+	player.flashlight.spot_angle = float(output.cone_angle_deg) * cone_scale
 	player.flashlight.light_projector = null
 	if is_instance_valid(player.carried_device) and player.carried_device.has_method("set_lamp_optical_output"):
 		player.carried_device.set_lamp_optical_output(output.color,float(output.filament_emission))

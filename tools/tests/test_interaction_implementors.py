@@ -318,12 +318,15 @@ class ProductionSmokeTests(unittest.TestCase):
         summary = self.report["summary"]
         # Four V2 hosts extend the frozen contract: cabinet, inherited
         # receiver, collision-only water body, and valve-cap action.
-        self.assertEqual(summary["discovered"], 90)
+        # The fitted boiler hopper adds one named control through PropControlArea.
+        self.assertEqual(summary["discovered"], 92)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 19, "interact_prompt": 71})
+                         {"control_prompt": 20, "interact_prompt": 72})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 87})
+                         {"adapter": 1, "debug-only": 2, "production": 89})
         actual = {i["file"]: i for i in self.report["implementors"]}
+        self.assertEqual(actual["props/key_copy_counter.gd"]["action_method"], "interact")
+        self.assertEqual(actual["props/key_copy_counter.gd"]["action_source"], "props/key_copy_counter.gd")
         for kind in ("prep_cabinet", "radio_prop", "water_controls", "water_valve"):
             rel = "building/orison_v2_" + kind + ".gd"
             self.assertIn(rel, actual)

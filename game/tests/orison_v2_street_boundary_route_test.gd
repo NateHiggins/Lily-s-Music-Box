@@ -4,7 +4,7 @@ func _init() -> void:
 	route_label = "V2 STREET BOUNDARY ROUTE"
 
 func _route() -> void:
-	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
+	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
 	for point in [Vector3(0,0,3), Vector3(-10,0,3), Vector3(-19.2,0,3)]:
@@ -32,7 +32,7 @@ func _route() -> void:
 		failures.append("dogleg occludes direct street view")
 	for point in [Vector3(24,0,0),Vector3(24,0,3),Vector3(21.5,0,3),Vector3(19.5,0,3),Vector3(14,0,3),Vector3(0,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(2.3,0,-6.5)]:
+	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
 		if not await _walk(point): return
 
 func _shot(identity: String, target: Vector3) -> void:

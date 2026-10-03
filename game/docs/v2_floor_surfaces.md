@@ -1,0 +1,63 @@
+# V2 floor and ceiling surface ownership
+
+Production storeys share a 200 mm slab: the ceiling box of the lower room and
+floor box of the upper room occupy the same vertical interval. Rendering all
+six faces of both boxes made ceiling plaster appear at the upper walking
+surface, competing with the flooring as the camera moved.
+
+The blockout builder now partitions rendering by face. Floors and platforms
+retain their top and edge faces; ceilings retain only their downward face.
+BoxMesh UVs, normals and tangents are preserved in the derived ArrayMesh.
+The original full BoxShape3D floor collision, positions and dimensions remain
+unchanged. Standalone review blockouts retain the original box representation.
+
+OrisonV2FloorSurfaceTest checks the actual composed floor/ceiling triangles and
+raycasts each retained floor body at its authored walking height. Individually
+identified furnishings above the probe point are excluded from that floor-only
+query. Windowed captures cover occupied rooms on three successive storeys.
+The existing vertical route exercises production movement and stairs separately.
+
+## Occupied-room millwork
+
+Production private and public rooms now receive 140 mm skirting with a raised
+cap, a picture rail at 2.18 m, and three shallow cornice steps. These reuse the
+existing catalogue trim material and the established Orison millwork dimensions.
+Service rooms, wet rooms, open shells and the graybox remain unchanged; rooms
+without ceilings omit the cornice.
+
+The strips derive from the shell's already-cut solid wall pieces, including
+window sills and door heads. Each stays within its source piece's horizontal
+and vertical bounds, so it cannot bridge an aperture. They project at most
+54 mm into the room, use butt corners and add no collision. Each room submits
+one MultiMesh instead of a node/draw per strip. Shared-wall omissions remain
+owned by the existing shell; this pass does not invent another wall or add
+trim to a neighbor's unowned face.
+
+The floor suite also checks every strip against its actual wall source,
+limits projection, verifies collision-free batching, and captures both floor
+and upper-wall views on three occupied storeys. This is an architectural
+finish pass, not a claim that all V2 interiors or maintenance activities are
+complete.
+
+Public enclosed rooms additionally receive dark-timber wainscot: recessed
+backing from the skirting cap to 1.32 m, a 40 mm dado cap, and raised frames
+divided into bays no wider than roughly 720 mm. The existing `wood_dark`
+catalogue material supplies the finish. Window sills clip the backing and
+frames; doorway apertures remain open. Rails and stiles meet without overlapping
+front faces. Narrow remnants omit stiles rather than piling frames together.
+This adds one further MultiMesh draw in each of the sixteen eligible public
+rooms, including the lobby, vestibule, reading room and apartment approaches.
+Stair voids and open landings retain their existing finishes.
+
+The production surface suite checks panel bounds and coplanar frame overlap,
+and captures every affected public room. The vertical route covers actual
+player travel through the narrow east hall and stair connections.
+
+## Open stair volumes
+
+Spaces explicitly marked `no_ceiling` continue their wall outlines to the next
+floor elevation. Stopping at the ordinary three-metre ceiling height left a
+200 mm opening between stacked core walls. This closes the wall band without
+adding a ceiling across the stairs or changing slab face ownership. The alley
+route suite checks twelve former openings on the service-core exterior; the
+vertical route checks the actual stair circulation.

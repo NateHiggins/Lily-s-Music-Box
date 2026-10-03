@@ -401,7 +401,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 41, "23 lower and 18 upper wall intervals have build coverage")
+	check(count == 53, "41 developed-home and 12 completion-interior wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -842,7 +842,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	if target != null:
 		target.set_supply_open(false,0)
 		check(is_zero_approx(float(balance.result_for(target.graph_node_id).heat)), "closed radiator receives no steam")
-		check(float(balance.result_for("F06_C_RADIATOR_01").heat) > neighbor_before, "unbuilt household retains its share of released steam")
+		check(float(balance.result_for("F06_C_RADIATOR_01").heat) > neighbor_before, "other household retains its share of released steam")
 		check(is_equal_approx(total,balance.total_delivered_heat()), "closing one valve does not manufacture steam")
 		target.set_supply_open(true,0)
 	var dry_adapter := SurfaceSourceAdapter.new()
@@ -882,7 +882,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
 			radiator.set_supply_open(false)
 			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
-	check(count == 12, "complete developed-home heating category")
+	check(count == 18, "complete eighteen-household heating category")
 	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
 	var water := boiler.water_level
 	boiler.set_water_level(0)
@@ -918,17 +918,31 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 		if detail == null: continue
 		refs.append(weakref(detail))
 		check(detail.transform.is_equal_approx(Transform3D.IDENTITY), "bath contact remains support-local")
-		var visuals := detail.get_children()
-		check(visuals.size() == record.surfaces.size(), "bath has only its material batches")
+		var visuals := detail.find_children("*", "MeshInstance3D", true, false)
+		if record.has("model"):
+			check(detail.get_child_count() == 1 and not visuals.is_empty(), "bath has one shared Blender assembly")
+			check(detail.find_children("*", "CollisionObject3D", true, false).is_empty()
+					and detail.find_children("*", "Light3D", true, false).is_empty(), "Blender dressing adds no collision or light owner")
+		else:
+			check(visuals.size() == record.surfaces.size(), "bath has only its material batches")
 		for i in visuals.size():
 			var visual := visuals[i] as MeshInstance3D
 			check(visual != null, "bath detail adds no interaction, light or collision owner")
 			if visual == null: continue
-			check(visual.mesh != null and visual.material_override != null, "bath material is bound")
+			check(visual.mesh != null and visual.get_active_material(0) != null, "bath material is bound")
 			if shared.has(record.kind):
 				check(visual.mesh == shared[record.kind][i].mesh, "same bath geometry shares mesh resources across homes")
 		if not shared.has(record.kind): shared[record.kind] = visuals
 	check(loader.validate(source, dry), "complete bath roster accepts real supports")
+	for record: Dictionary in source.props:
+		if not record.has("model"): continue
+		var bad_model := source.duplicate(true)
+		var index: int = source.props.find(record)
+		bad_model.props[index].model = "res://missing_bath_fixture.glb"
+		check(not loader.validate(bad_model,dry), "unknown Blender dressing model rejected")
+		var bad_bounds := source.duplicate(true)
+		bad_bounds.props[index].bounds[1][1] = bad_bounds.props[index].bounds[0][1] + .01
+		check(not loader.validate(bad_bounds,dry), "Blender vertices must remain inside declared bounds")
 	var integer_origin := source.duplicate(true)
 	for record: Dictionary in integer_origin.props:
 		record.position = [0, 0, 0]

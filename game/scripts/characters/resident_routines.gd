@@ -551,8 +551,9 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	if anim:
 		for clip_name in anim.get_animation_list():
 			var clip := anim.get_animation(clip_name)
-			if clip:
+			if clip and slug != "mina_vale":
 				clip.loop_mode = Animation.LOOP_LINEAR
+		if slug == "mina_vale": MinaAnimationBehavior.configure(anim)
 		var idle := _resolve_clip(anim, "idle")
 		if idle != "" and anim.has_animation(idle):
 			anim.play(idle)
@@ -567,6 +568,10 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 ## A resident's own baked clip beats the shared retargeted one: gaits stay
 ## personal while the borrowed library fills every other role.
 func _resolve_clip(anim: AnimationPlayer, role: String) -> String:
+	if anim.has_animation("mina_idle_calm"):
+		return {"idle":"mina_idle_calm", "pace":"mina_walk", "busy":"mina_idle_tired",
+				"settle":"mina_idle_calm", "reach":"mina_idle_calm", "look_up":"mina_lift_wait",
+				"glance":"mina_idle_calm", "fret":"mina_idle_tired", "wait":"mina_idle_calm"}.get(role, "")
 	var suffix: String = {"idle": "_Idle", "pace": "_Walk"}.get(role, "")
 	if suffix != "":
 		for clip_name in anim.get_animation_list():
@@ -613,6 +618,9 @@ func _haunt_point(slug: String) -> Vector3:
 
 
 func _play(actor: Dictionary, role: String) -> void:
+	if actor.slug == "mina_vale" and actor.node is AnimatedResident:
+		actor.node._set_walking(role == "pace")
+		return
 	var anim: AnimationPlayer = actor.anim
 	if anim == null:
 		return
@@ -699,13 +707,12 @@ func _step(actor: Dictionary, delta: float) -> void:
 					return
 				# An evening at home is mostly pottering, sometimes the
 				# television, occasionally an errand out of the flat. A
-				# locked front door keeps the evening indoors: the opening
-				# lockdown seals every unit but the player's, and a resident
-				# does not walk through their own locked door.
+				# tenant's own original key permits their normal errands.
 				var unit := _unit_of(actor)
 				var locked_in: bool = actor.home_door != null \
 						and is_instance_valid(actor.home_door) \
-						and actor.home_door.leaf_state == "locked"
+						and actor.home_door.leaf_state == "locked" \
+						and not DoorKeyring.resident_has_key(_slug_of(actor.node),actor.home_door)
 				var temper := temper_of(str(actor.slug))
 				var tv_chance: float = float(temper.tv)
 				var roll := _rng.randf()
@@ -1004,7 +1011,7 @@ func _manage_home_door(actor: Dictionary, returning: bool) -> bool:
 		var passed := node.global_position.distance_to(actor.home) < 0.48 \
 				if returning else at_leaf > 1.60
 		if passed:
-			door.npc_set_open(false)
+			door.npc_set_open(false,_slug_of(actor.node))
 			# open flips only when the owner accepts closing (or was already
 			# closing/closed). Do not wait for that animation behind the NPC.
 			if not door.open:
@@ -1013,7 +1020,7 @@ func _manage_home_door(actor: Dictionary, returning: bool) -> bool:
 	if cycle in [0, 1] and at_leaf < 1.45:
 		# Requests refused by a lock or an existing closing motion are retried.
 		# Cycle 1 rechecks too: a player may close a previously opened leaf.
-		door.npc_set_open(true)
+		door.npc_set_open(true,_slug_of(actor.node))
 		if not door.is_ready_for_passage():
 			return false
 		actor.door_cycle = 1

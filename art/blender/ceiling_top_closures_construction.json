@@ -1,0 +1,1295 @@
+{
+  "evidence_class": "INERT",
+  "source": {
+    "evidence_class": "INERT",
+    "method": "Remaining actual runtime ceiling owners minus their source ports and coincident upper floors/platforms. Street/apron omissions and completed roof bulkheads are excluded. Retained native service-alley fields also own their entire pavement envelopes. Native/physical acceptance remains separate.",
+    "records": [
+      {
+        "space": "B1_LAUNDRY",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            -5.4,
+            0.55,
+            -2.2,
+            3.85
+          ]
+        ],
+        "area_m2": 10.56,
+        "subtracted_upper_owners": [
+          "F01_WATCH",
+          "F01_MAIL_TELEPHONE",
+          "F01_PACKAGE",
+          "F01_COMMON_B"
+        ]
+      },
+      {
+        "space": "B1_BOILER_ROOM",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            13.2,
+            0.3,
+            13.27,
+            4.0
+          ],
+          [
+            9.5,
+            -4.2,
+            11.5,
+            -3.85
+          ],
+          [
+            9.5,
+            -1.15,
+            11.5,
+            0.3
+          ],
+          [
+            13.27,
+            0.3,
+            15.65,
+            0.37
+          ]
+        ],
+        "area_m2": 4.025600000000002,
+        "subtracted_upper_owners": [
+          "ServiceAlley/PavingFoundation.001",
+          "F01_D_VESTIBULE",
+          "F01_D_MAIN",
+          "F01_D_KITCHEN",
+          "F01_D_PRIVATE_HALL",
+          "F01_SERVICE_LANDING"
+        ]
+      },
+      {
+        "space": "F01_VESTIBULE",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -2.4,
+            -11.65,
+            2.4,
+            -9.25
+          ]
+        ],
+        "area_m2": 11.520000000000001,
+        "subtracted_upper_owners": []
+      },
+      {
+        "space": "F01_LOBBY",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -2.2,
+            -9.25,
+            5.4,
+            -3.85
+          ],
+          [
+            -5.4,
+            -9.25,
+            -2.2,
+            -7.3
+          ]
+        ],
+        "area_m2": 47.28000000000001,
+        "subtracted_upper_owners": [
+          "F02_SOUTHWEST_HALL"
+        ]
+      },
+      {
+        "space": "F01_MAIL_TELEPHONE",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -7.55,
+            -3.85,
+            -5.6,
+            -1.35
+          ]
+        ],
+        "area_m2": 4.875,
+        "subtracted_upper_owners": [
+          "F02_WEST_HALL",
+          "F02_A_VESTIBULE",
+          "F02_A_MAIN",
+          "F02_SOUTHWEST_HALL"
+        ]
+      },
+      {
+        "space": "F01_PACKAGE",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -5.95,
+            1.35,
+            -5.6,
+            4.25
+          ],
+          [
+            -7.55,
+            1.35,
+            -5.95,
+            3.1
+          ],
+          [
+            -5.6,
+            0.6,
+            -5.4,
+            3.85
+          ]
+        ],
+        "area_m2": 4.464999999999998,
+        "subtracted_upper_owners": [
+          "F02_WEST_HALL",
+          "F02_A_VESTIBULE",
+          "F02_A_MAIN",
+          "F02_A_PRIVATE_HALL",
+          "F02_A_BATH",
+          "F02_C_STUDIO"
+        ]
+      },
+      {
+        "space": "F01_CORE_TO_SERVICE",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            5.4,
+            -1.0,
+            8.3,
+            1.0
+          ]
+        ],
+        "area_m2": 5.800000000000001,
+        "subtracted_upper_owners": []
+      },
+      {
+        "space": "F02_B_KITCHEN",
+        "level": "F02",
+        "top_y": 6.4,
+        "rectangles": [
+          [
+            9.5,
+            -5.25,
+            11.5,
+            -4.2
+          ]
+        ],
+        "area_m2": 2.0999999999999996,
+        "subtracted_upper_owners": [
+          "F03_B_MAIN",
+          "F03_B_KITCHEN",
+          "F03_B_ALCOVE"
+        ]
+      },
+      {
+        "space": "F04_B_VESTIBULE",
+        "level": "F04",
+        "top_y": 12.799999999999999,
+        "rectangles": [
+          [
+            -6.5,
+            0.6,
+            -5.6,
+            1.65
+          ]
+        ],
+        "area_m2": 0.9450000000000002,
+        "subtracted_upper_owners": [
+          "F05_WEST_HALL",
+          "F05_A_VESTIBULE",
+          "F05_B_VESTIBULE"
+        ]
+      },
+      {
+        "space": "F04_B_MAIN",
+        "level": "F04",
+        "top_y": 12.799999999999999,
+        "rectangles": [
+          [
+            -9.3,
+            -0.6,
+            -8.3,
+            0.6
+          ],
+          [
+            -15.65,
+            -0.6,
+            -9.3,
+            0.6
+          ]
+        ],
+        "area_m2": 8.819999999999999,
+        "subtracted_upper_owners": [
+          "F05_WEST_HALL",
+          "F05_A_MAIN",
+          "F05_A_VESTIBULE",
+          "F05_B_MAIN",
+          "F05_B_VESTIBULE",
+          "F05_B_BATH"
+        ]
+      },
+      {
+        "space": "F04_B_BATH",
+        "level": "F04",
+        "top_y": 12.799999999999999,
+        "rectangles": [
+          [
+            -6.5,
+            3.45,
+            -6.275,
+            6.05
+          ],
+          [
+            -6.075,
+            3.45,
+            -5.95,
+            6.05
+          ],
+          [
+            -6.275,
+            3.45,
+            -6.075,
+            3.55
+          ],
+          [
+            -6.275,
+            3.75,
+            -6.075,
+            5.7
+          ],
+          [
+            -6.275,
+            5.9,
+            -6.075,
+            6.05
+          ]
+        ],
+        "area_m2": 1.3499999999999992,
+        "subtracted_upper_owners": [
+          "F05_B_BATH"
+        ]
+      },
+      {
+        "space": "F04_B_CLOSET",
+        "level": "F04",
+        "top_y": 12.799999999999999,
+        "rectangles": [
+          [
+            -6.5,
+            6.05,
+            -5.95,
+            8.25
+          ]
+        ],
+        "area_m2": 1.2099999999999997,
+        "subtracted_upper_owners": [
+          "F05_B_BATH",
+          "F05_B_KITCHEN"
+        ]
+      },
+      {
+        "space": "F03_A_PRIVATE_HALL",
+        "level": "F03",
+        "top_y": 9.6,
+        "rectangles": [
+          [
+            -9.05,
+            6.05,
+            -8.95,
+            6.35
+          ]
+        ],
+        "area_m2": 0.03000000000000041,
+        "subtracted_upper_owners": [
+          "F04_B_MAIN",
+          "F04_B_PRIVATE_HALL",
+          "F04_B_ALCOVE_APPROACH",
+          "F04_B_BATH"
+        ]
+      },
+      {
+        "space": "F03_A_BATH",
+        "level": "F03",
+        "top_y": 9.6,
+        "rectangles": [
+          [
+            -7.55,
+            3.1,
+            -6.275,
+            3.45
+          ],
+          [
+            -6.075,
+            3.1,
+            -5.95,
+            3.45
+          ],
+          [
+            -6.275,
+            3.1,
+            -6.075,
+            3.45
+          ]
+        ],
+        "area_m2": 0.56,
+        "subtracted_upper_owners": [
+          "F04_B_MAIN",
+          "F04_B_BATH",
+          "F04_B_BATH",
+          "F04_B_BATH",
+          "F04_B_BATH"
+        ]
+      },
+      {
+        "space": "F03_A_BED",
+        "level": "F03",
+        "top_y": 9.6,
+        "rectangles": [
+          [
+            -10.55,
+            8.25,
+            -10.25,
+            11.65
+          ]
+        ],
+        "area_m2": 1.0200000000000025,
+        "subtracted_upper_owners": [
+          "F04_B_KITCHEN",
+          "F04_B_PRIVATE_HALL",
+          "F04_B_ALCOVE_APPROACH",
+          "F04_B_ALCOVE"
+        ]
+      },
+      {
+        "space": "F01_A_PRIVATE_HALL",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -5.6,
+            -9.65,
+            -5.4,
+            -7.3
+          ]
+        ],
+        "area_m2": 0.4699999999999984,
+        "subtracted_upper_owners": [
+          "F02_SOUTHWEST_HALL",
+          "F02_D_RESTRICTED",
+          "F02_D_RESTRICTED",
+          "F02_D_RESTRICTED"
+        ]
+      },
+      {
+        "space": "F01_A_BATH",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            -5.6,
+            -12.35,
+            -5.4,
+            -9.65
+          ]
+        ],
+        "area_m2": 0.5399999999999979,
+        "subtracted_upper_owners": [
+          "F02_D_RESTRICTED",
+          "F02_D_RESTRICTED",
+          "F02_D_RESTRICTED"
+        ]
+      },
+      {
+        "space": "F04_SOUTHWEST_HALL",
+        "level": "F04",
+        "top_y": 12.799999999999999,
+        "rectangles": [
+          [
+            -5.6,
+            -7.3,
+            -2.2,
+            -0.6
+          ]
+        ],
+        "area_m2": 22.779999999999998,
+        "subtracted_upper_owners": []
+      },
+      {
+        "space": "F01_STAFF_RESTROOM",
+        "level": "F01",
+        "top_y": 3.2,
+        "rectangles": [
+          [
+            5.4,
+            -8.3,
+            8.3,
+            -4.6
+          ]
+        ],
+        "area_m2": 10.730000000000004,
+        "subtracted_upper_owners": []
+      },
+      {
+        "space": "B1_ELECTRICAL",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            5.4,
+            -4.6,
+            8.3,
+            -2.0
+          ]
+        ],
+        "area_m2": 7.54,
+        "subtracted_upper_owners": [
+          "F01_SERVICE_HALL",
+          "F01_STAFF_RESTROOM"
+        ]
+      },
+      {
+        "space": "B1_MAINTENANCE_SHOP",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            5.4,
+            1.0,
+            8.3,
+            5.8
+          ]
+        ],
+        "area_m2": 13.920000000000002,
+        "subtracted_upper_owners": [
+          "F01_CORE_TO_SERVICE",
+          "F01_SERVICE_HALL"
+        ]
+      },
+      {
+        "space": "B1_RESIDENT_STORAGE",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            -10,
+            5.65,
+            -9.2,
+            9.5
+          ],
+          [
+            -5.4,
+            3.85,
+            5.4,
+            9.5
+          ],
+          [
+            -9.2,
+            4.25,
+            -5.4,
+            9.5
+          ]
+        ],
+        "area_m2": 84.05000000000001,
+        "subtracted_upper_owners": [
+          "F01_PACKAGE",
+          "F01_COMMON_B"
+        ]
+      },
+      {
+        "space": "B1_ELECTRICAL_RECESS",
+        "level": "B1",
+        "top_y": -1.6653345369377348e-16,
+        "rectangles": [
+          [
+            6.5,
+            -2,
+            8.3,
+            -1
+          ]
+        ],
+        "area_m2": 1.8000000000000007,
+        "subtracted_upper_owners": []
+      }
+    ]
+  },
+  "source_layout_sha256_lf": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+  "source_alley_sha256": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9",
+  "parts": [
+    {
+      "id": "B1_LAUNDRY_Top_00_00_00",
+      "space": "B1_LAUNDRY",
+      "bounds": [
+        -5.4,
+        -0.2,
+        0.55,
+        -2.2,
+        -0.0,
+        3.8499999999999996
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_BOILER_ROOM_Top_00_00_00",
+      "space": "B1_BOILER_ROOM",
+      "bounds": [
+        13.2,
+        -0.2,
+        0.3,
+        13.27,
+        -0.0,
+        4.0
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_BOILER_ROOM_Top_01_00_00",
+      "space": "B1_BOILER_ROOM",
+      "bounds": [
+        9.5,
+        -0.2,
+        -4.2,
+        11.5,
+        -0.0,
+        -3.85
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_BOILER_ROOM_Top_02_00_00",
+      "space": "B1_BOILER_ROOM",
+      "bounds": [
+        9.5,
+        -0.2,
+        -1.15,
+        11.5,
+        -0.0,
+        0.30000000000000004
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_BOILER_ROOM_Top_03_00_00",
+      "space": "B1_BOILER_ROOM",
+      "bounds": [
+        13.27,
+        -0.2,
+        0.3,
+        15.65,
+        -0.0,
+        0.37
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_ELECTRICAL_Top_00_00_00",
+      "space": "B1_ELECTRICAL",
+      "bounds": [
+        5.4,
+        -0.2,
+        -4.6,
+        8.3,
+        -0.0,
+        -2.0
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_Top_00_00_00",
+      "space": "B1_MAINTENANCE_SHOP",
+      "bounds": [
+        5.4,
+        -0.2,
+        1.0,
+        8.3,
+        -0.0,
+        3.4
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_Top_00_00_01",
+      "space": "B1_MAINTENANCE_SHOP",
+      "bounds": [
+        5.4,
+        -0.2,
+        3.4,
+        8.3,
+        -0.0,
+        5.8
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_00_00_00",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -10.0,
+        -0.2,
+        5.65,
+        -9.2,
+        -0.0,
+        9.5
+      ],
+      "quads": 6,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_00_00",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -5.4,
+        -0.2,
+        3.85,
+        -1.8000000000000003,
+        -0.0,
+        6.675000000000001
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_00_01",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -5.4,
+        -0.2,
+        6.675000000000001,
+        -1.8000000000000003,
+        -0.0,
+        9.5
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_01_00",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -1.8000000000000003,
+        -0.2,
+        3.85,
+        1.7999999999999998,
+        -0.0,
+        6.675000000000001
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_01_01",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -1.8000000000000003,
+        -0.2,
+        6.675000000000001,
+        1.7999999999999998,
+        -0.0,
+        9.5
+      ],
+      "quads": 5,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_02_00",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        1.7999999999999998,
+        -0.2,
+        3.85,
+        5.400000000000002,
+        -0.0,
+        6.675000000000001
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_01_02_01",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        1.7999999999999998,
+        -0.2,
+        6.675000000000001,
+        5.400000000000002,
+        -0.0,
+        9.5
+      ],
+      "quads": 7,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_02_00_00",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -9.2,
+        -0.2,
+        4.25,
+        -5.4,
+        -0.0,
+        6.875
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_Top_02_00_01",
+      "space": "B1_RESIDENT_STORAGE",
+      "bounds": [
+        -9.2,
+        -0.2,
+        6.875,
+        -5.4,
+        -0.0,
+        9.5
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "B1_ELECTRICAL_RECESS_Top_00_00_00",
+      "space": "B1_ELECTRICAL_RECESS",
+      "bounds": [
+        6.5,
+        -0.2,
+        -2.0,
+        8.3,
+        -0.0,
+        -1.0
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_VESTIBULE_Top_00_00_00",
+      "space": "F01_VESTIBULE",
+      "bounds": [
+        -2.4,
+        3.0,
+        -11.65,
+        0.0,
+        3.2,
+        -9.25
+      ],
+      "quads": 7,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_VESTIBULE_Top_00_01_00",
+      "space": "F01_VESTIBULE",
+      "bounds": [
+        0.0,
+        3.0,
+        -11.65,
+        2.4,
+        3.2,
+        -9.25
+      ],
+      "quads": 8,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_LOBBY_Top_00_00_00",
+      "space": "F01_LOBBY",
+      "bounds": [
+        -2.2,
+        3.0,
+        -9.25,
+        1.6,
+        3.2,
+        -6.55
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_LOBBY_Top_00_00_01",
+      "space": "F01_LOBBY",
+      "bounds": [
+        -2.2,
+        3.0,
+        -6.55,
+        1.6,
+        3.2,
+        -3.8499999999999996
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_LOBBY_Top_00_01_00",
+      "space": "F01_LOBBY",
+      "bounds": [
+        1.6,
+        3.0,
+        -9.25,
+        5.4,
+        3.2,
+        -6.55
+      ],
+      "quads": 5,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_LOBBY_Top_00_01_01",
+      "space": "F01_LOBBY",
+      "bounds": [
+        1.6,
+        3.0,
+        -6.55,
+        5.4,
+        3.2,
+        -3.8499999999999996
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_LOBBY_Top_01_00_00",
+      "space": "F01_LOBBY",
+      "bounds": [
+        -5.4,
+        3.0,
+        -9.25,
+        -2.2,
+        3.2,
+        -7.3
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_MAIL_TELEPHONE_Top_00_00_00",
+      "space": "F01_MAIL_TELEPHONE",
+      "bounds": [
+        -7.55,
+        3.0,
+        -3.85,
+        -5.6,
+        3.2,
+        -1.35
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_PACKAGE_Top_00_00_00",
+      "space": "F01_PACKAGE",
+      "bounds": [
+        -5.95,
+        3.0,
+        1.35,
+        -5.6,
+        3.2,
+        4.25
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_PACKAGE_Top_01_00_00",
+      "space": "F01_PACKAGE",
+      "bounds": [
+        -7.55,
+        3.0,
+        1.35,
+        -5.95,
+        3.2,
+        3.1
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_PACKAGE_Top_02_00_00",
+      "space": "F01_PACKAGE",
+      "bounds": [
+        -5.6,
+        3.0,
+        0.6,
+        -5.4,
+        3.2,
+        3.85
+      ],
+      "quads": 6,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_CORE_TO_SERVICE_Top_00_00_00",
+      "space": "F01_CORE_TO_SERVICE",
+      "bounds": [
+        5.4,
+        3.0,
+        -1.0,
+        8.3,
+        3.2,
+        1.0
+      ],
+      "quads": 10,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_Top_00_00_00",
+      "space": "F01_A_PRIVATE_HALL",
+      "bounds": [
+        -5.6,
+        3.0,
+        -9.65,
+        -5.4,
+        3.2,
+        -7.3
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_A_BATH_Top_00_00_00",
+      "space": "F01_A_BATH",
+      "bounds": [
+        -5.6,
+        3.0,
+        -12.35,
+        -5.4,
+        3.2,
+        -9.65
+      ],
+      "quads": 7,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_Top_00_00_00",
+      "space": "F01_STAFF_RESTROOM",
+      "bounds": [
+        5.4,
+        3.0,
+        -8.3,
+        8.3,
+        3.2,
+        -4.6
+      ],
+      "quads": 5,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F02_B_KITCHEN_Top_00_00_00",
+      "space": "F02_B_KITCHEN",
+      "bounds": [
+        9.5,
+        6.2,
+        -5.25,
+        11.5,
+        6.4,
+        -4.2
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_Top_00_00_00",
+      "space": "F03_A_PRIVATE_HALL",
+      "bounds": [
+        -9.05,
+        9.4,
+        6.05,
+        -8.95,
+        9.6,
+        6.35
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F03_A_BATH_Top_00_00_00",
+      "space": "F03_A_BATH",
+      "bounds": [
+        -7.55,
+        9.4,
+        3.1,
+        -6.275,
+        9.6,
+        3.45
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F03_A_BATH_Top_01_00_00",
+      "space": "F03_A_BATH",
+      "bounds": [
+        -6.075,
+        9.4,
+        3.1,
+        -5.95,
+        9.6,
+        3.45
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F03_A_BATH_Top_02_00_00",
+      "space": "F03_A_BATH",
+      "bounds": [
+        -6.275,
+        9.4,
+        3.1,
+        -6.075,
+        9.6,
+        3.45
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F03_A_BED_Top_00_00_00",
+      "space": "F03_A_BED",
+      "bounds": [
+        -10.55,
+        9.4,
+        8.25,
+        -10.25,
+        9.6,
+        11.65
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_VESTIBULE_Top_00_00_00",
+      "space": "F04_B_VESTIBULE",
+      "bounds": [
+        -6.5,
+        12.600000000000001,
+        0.6,
+        -5.6,
+        12.8,
+        1.65
+      ],
+      "quads": 8,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_MAIN_Top_00_00_00",
+      "space": "F04_B_MAIN",
+      "bounds": [
+        -9.3,
+        12.600000000000001,
+        -0.6,
+        -8.3,
+        12.8,
+        0.6
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_MAIN_Top_01_00_00",
+      "space": "F04_B_MAIN",
+      "bounds": [
+        -15.65,
+        12.600000000000001,
+        -0.6,
+        -12.475000000000001,
+        12.8,
+        0.6
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_MAIN_Top_01_01_00",
+      "space": "F04_B_MAIN",
+      "bounds": [
+        -12.475000000000001,
+        12.600000000000001,
+        -0.6,
+        -9.3,
+        12.8,
+        0.6
+      ],
+      "quads": 1,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_BATH_Top_00_00_00",
+      "space": "F04_B_BATH",
+      "bounds": [
+        -6.5,
+        12.600000000000001,
+        3.45,
+        -6.275,
+        12.8,
+        6.05
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_BATH_Top_01_00_00",
+      "space": "F04_B_BATH",
+      "bounds": [
+        -6.075,
+        12.600000000000001,
+        3.45,
+        -5.95,
+        12.8,
+        6.05
+      ],
+      "quads": 12,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_BATH_Top_02_00_00",
+      "space": "F04_B_BATH",
+      "bounds": [
+        -6.275,
+        12.600000000000001,
+        3.45,
+        -6.075,
+        12.8,
+        3.55
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_BATH_Top_03_00_00",
+      "space": "F04_B_BATH",
+      "bounds": [
+        -6.275,
+        12.600000000000001,
+        3.75,
+        -6.075,
+        12.8,
+        5.7
+      ],
+      "quads": 3,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_BATH_Top_04_00_00",
+      "space": "F04_B_BATH",
+      "bounds": [
+        -6.275,
+        12.600000000000001,
+        5.9,
+        -6.075,
+        12.8,
+        6.05
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_B_CLOSET_Top_00_00_00",
+      "space": "F04_B_CLOSET",
+      "bounds": [
+        -6.5,
+        12.600000000000001,
+        6.05,
+        -5.95,
+        12.8,
+        8.25
+      ],
+      "quads": 8,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_Top_00_00_00",
+      "space": "F04_SOUTHWEST_HALL",
+      "bounds": [
+        -5.6,
+        12.600000000000001,
+        -7.3,
+        -2.2,
+        12.8,
+        -3.9499999999999997
+      ],
+      "quads": 4,
+      "internal_caps": false,
+      "duplicate_underside": false
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_Top_00_00_01",
+      "space": "F04_SOUTHWEST_HALL",
+      "bounds": [
+        -5.6,
+        12.600000000000001,
+        -3.9499999999999997,
+        -2.2,
+        12.8,
+        -0.5999999999999996
+      ],
+      "quads": 2,
+      "internal_caps": false,
+      "duplicate_underside": false
+    }
+  ],
+  "triangles": 374,
+  "ownership": "Only uncovered upper faces and true exterior edges; retained ceiling undersides and upper walking slabs remain."
+}

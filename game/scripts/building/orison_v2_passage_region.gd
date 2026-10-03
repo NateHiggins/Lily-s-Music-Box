@@ -74,6 +74,7 @@ func _ready() -> void:
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
+	if not _mount_key_counter(): return
 	add_to_group("orison_v2_passage_region")
 	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
 
@@ -171,6 +172,26 @@ func _mount_counters() -> void:
 			_fail("counter mount refused: " + identity)
 			return
 		_counter_ids.append(identity)
+
+
+func _mount_key_counter() -> bool:
+	var matches: Array[Dictionary] = []
+	for floor: Dictionary in source_layout.floors:
+		if floor.id != "F01": continue
+		for item: Dictionary in floor.furniture:
+			if item.id == "storm_shop_keys_cut_counter_top": matches.append(item)
+	if matches.size()!=1:
+		_fail("ambiguous Keys Cut counter source")
+		return false
+	var source: Dictionary = matches[0]
+	var rect: Array = source.rect
+	var counter := preload("res://scripts/props/key_copy_counter.gd").new()
+	counter.name = "AuthorizedKeyCopies"
+	counter.hours = finish.hours_director
+	counter.size = Vector3(float(rect[2])-float(rect[0]),.30,float(rect[3])-float(rect[1]))
+	counter.position = GameBoot.b2g([(float(rect[0])+float(rect[2]))*.5,(float(rect[1])+float(rect[3]))*.5,float(source.z0)+float(source.h)+.15])
+	_actors.add_child(counter)
+	return true
 
 func shutdown() -> void:
 	if is_instance_valid(residency):

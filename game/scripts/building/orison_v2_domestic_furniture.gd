@@ -1,6 +1,7 @@
 extends RefCounted
 ## Individual source-derived assemblies. Adapter owns placement and teardown.
 const PATH := "res://data/orison_v2/domestic_furniture.json"
+const BEDDING := preload("res://assets/props/bedding.glb")
 const WaterCloset := preload("res://scripts/building/orison_v2_water_closet.gd")
 const Wardrobe := preload("res://scripts/building/orison_v2_wardrobe.gd")
 const PrepCabinet := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
@@ -11,6 +12,9 @@ var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	return mount_source(adapter, source)
+
+func mount_source(adapter: Variant, source: Variant) -> bool:
 	if not validate(source, adapter):
 		return false
 	for record: Dictionary in source.furniture:
@@ -18,6 +22,7 @@ func mount(adapter: Variant) -> bool:
 		if record.kind == "toilet":
 			body = WaterCloset.new()
 			body.call("setup", {"id": record.id, "asm": "toilet"})
+			body.set("model_path", str(record.model))
 		elif record.kind == "wardrobe":
 			body = Wardrobe.new()
 			body.call("setup", record.mechanism)
@@ -27,17 +32,19 @@ func mount(adapter: Variant) -> bool:
 		else:
 			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
-			for box: Array in record.get("collision_boxes", [record.bounds]):
-				var collision := CollisionShape3D.new()
-				var shape := BoxShape3D.new()
-				var low := _vector(box[0])
-				var high := _vector(box[1])
-				shape.size = high - low
-				collision.shape = shape
-				collision.position = (high + low) * 0.5
-				body.add_child(collision)
+			if record.kind != "bed":
+				for box: Array in record.get("collision_boxes", [record.bounds]):
+					var collision := CollisionShape3D.new()
+					var shape := BoxShape3D.new()
+					var low := _vector(box[0])
+					var high := _vector(box[1])
+					shape.size = high - low
+					collision.shape = shape
+					collision.position = (high + low) * 0.5
+					body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
-		_add_surfaces(body, record.surfaces)
+		if record.kind == "bed": _add_bed(body,record)
+		elif record.kind != "toilet": _add_surfaces(body, record.surfaces)
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
@@ -82,6 +89,12 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		for axis in range(3):
 			if bounds[1][axis] <= bounds[0][axis]:
 				errors.append("inverted furniture bounds")
+		if record.kind == "bed":
+			var size := _vector(bounds[1])-_vector(bounds[0])
+			var supported := false
+			for expected in [Vector3(1.35,.99,2.6),Vector3(1.4,.99,2.05),Vector3(1.5,.99,2.05)]:
+				if size.is_equal_approx(expected) and _vector(bounds[0]).is_equal_approx(Vector3(-expected.x*.5,0,-expected.z*.5)):supported=true
+			if not supported:errors.append("bed bounds require a rebuilt Blender variant")
 		if record.kind == "prep_cabinet" and (not _vector(bounds[0]).is_equal_approx(Vector3(-.415,0,-.29)) \
 				or not _vector(bounds[1]).is_equal_approx(Vector3(.415,.9,.245))):
 			errors.append("preparation cabinet bounds do not cover its fixed mechanism")
@@ -104,10 +117,36 @@ func validate(source: Variant, adapter: Variant) -> bool:
 							or box[0][axis] < bounds[0][axis] \
 							or box[1][axis] > bounds[1][axis]:
 						errors.append("furniture collision box exceeds its bounds")
-		_validate_surfaces(record.get("surfaces"))
+		if record.kind == "toilet":
+			if record.get("model") != WaterCloset.MODEL or record.has("surfaces"):
+				errors.append("water closet must use its Blender assembly")
+		else:
+			_validate_surfaces(record.get("surfaces"))
 	if seen.is_empty():
 		errors.append("empty furniture source")
 	return errors.is_empty()
+
+func _bed_variant(record: Dictionary) -> String:
+	var low := _vector(record.bounds[0])
+	var high := _vector(record.bounds[1])
+	return "Bed_%d_%d" % [roundi((high.x-low.x)*100),roundi((high.z-low.z)*100)]
+
+func _add_bed(body: StaticBody3D, record: Dictionary) -> void:
+	var library := BEDDING.instantiate()
+	var model := library.get_node(_bed_variant(record)).duplicate() as Node3D
+	body.add_child(model);library.free()
+	var wood := "oak_quartered"
+	var blanket := "fabric_warm"
+	for surface: Dictionary in record.surfaces:
+		if surface.material in ["oak_quartered","wood_dark"]:wood=surface.material
+		if str(surface.material).begins_with("fabric_"):blanket=surface.material
+	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		var role := str(mesh.name).trim_prefix(str(model.name)+"_")
+		mesh.material_override=_material(wood if role=="Frame" else (blanket if role=="Blanket" else "linen"))
+		var collision := CollisionShape3D.new()
+		collision.shape=mesh.mesh.create_trimesh_shape()
+		collision.transform=model.transform*mesh.transform
+		body.add_child(collision)
 
 func _add_surfaces(body: Node3D, surfaces: Array) -> void:
 	for surface: Dictionary in surfaces:

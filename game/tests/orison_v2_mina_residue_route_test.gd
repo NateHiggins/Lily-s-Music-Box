@@ -6,7 +6,7 @@ func _init() -> void:
 func _prepare_player_start() -> void:
 	# This separate saved-wake fixture starts at the core; unlike the golden
 	# route it does not replay the arrival and first-shift opening.
-	player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))
+	player.global_position = world.adapter.root.to_global(Vector3(1.925, 0.02, -3.5))
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:
@@ -40,7 +40,9 @@ func _route() -> void:
 	world.mina_gameplay.bind_wake(world.core_loop)
 	_require(RealityState.waking_residue(MinaCaptionManifestation.RESIDUE_ID)==snapshot,"door interaction leaves the factual record unchanged")
 
-	for point in [Vector3(-12,3.2,4.42),Vector3(-12,3.2,3.7),Vector3(-12,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,-1.5),Vector3(-11.8,3.2,-1.5)]:
+	# Return to Mina's authored clear desk stance. The old viewing point sat
+	# inside the coffee table; its approach also cut through a dining chair.
+	for point in [Vector3(-12,3.2,4.42),Vector3(-12,3.2,3.7),Vector3(-12,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,.75)]:
 		if not await _walk(point): return
 	var subjects: Array[Node3D] = [world.adapter.resolve("2A_sofa"),world.adapter.resolve("F02_A_CaptionDesk"),world.adapter.resolve("F02_A_MAIN_WINDOW_W_S"),world.mina_routine.actor]
 	var state := RealityState.case_state(MinaCaptionManifestation.CASE_ID)

@@ -33,7 +33,11 @@ func _ready() -> void:
 		var expected: Array[String] = []
 		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 				"res://data/orison_v2/domestic_fittings.json"))
-		for fitting: Dictionary in data.fittings:
+		var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+				"res://data/orison_v2/completion_interiors.json"))
+		# The remaining homes and staff restroom share this same plant owner.
+		# Exercise their valves too before asserting supply temperature.
+		for fitting: Dictionary in data.fittings+completion.fittings:
 			if fitting.kind in ["sink", "shower"]: expected.append(fitting.id)
 		check(owner.taps.size() == expected.size(), "every mounted water fitting bound once")
 		for identity in expected:

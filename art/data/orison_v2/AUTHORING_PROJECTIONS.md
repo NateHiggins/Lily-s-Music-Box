@@ -37,6 +37,36 @@ and drift/mutation refusal. The runtime modules continue to validate and consume
 the same runtime geometry, mechanisms, transforms, ownership, doors and circuits.
 Historical receipts and captures are unchanged.
 
+The roof uses `roof_source.json` and `tools/build_v2_roof.py` (with a matching
+`--check` mode). Its semantic spaces, landing slabs, doors, parapets and approach
+anchors project into `game/data/orison_v2_blockout.json`. The two new flights
+inherit the installed primary/service stair dimensions; only the F06 core
+ceilings are opened below them. This additive generator preserves all other
+floor records. The same source now owns the raised timber tank, supports,
+bindings, overflow butt and service anchor. V2 mounts the existing
+RoofTankBallcockProp at that anchor; its mechanism and maintenance activity
+remain production-owned. The guarded lift drive anchor also belongs to this
+source; build_lift_drive.py authors its Blender model and the existing lift
+car drives its sheave.
+
+`vertical_services_source.json` and `tools/build_v2_vertical_services.py` own
+the passenger-shaft slab cuts, shaft construction, relocated watch doorway and
+roof-fan/register anchors. `completion_interiors_source.json` and
+`tools/build_v2_completion_interiors.py` own the remaining homes, southwest
+halls and staff restroom. Both support `--check` and update only their named
+layout records, preserving other owners and record order. The latter also
+emits `game/data/orison_v2/completion_interiors.json`; existing furniture
+templates and production fitting, door and lighting owners consume it.
+Its ventilation graph now assigns all 23 passive registers explicitly to four
+physical stacks. The vertical-services source still owns their positions and
+the roof terminals. The runtime builds overhead branches and vertical risers
+from those anchors; the existing roof motors own cycles, sound and inspection.
+
+The two generators do not retire omitted identities automatically. When
+changing ownership or retiring a shipped identity, provide an explicit
+migration rather than silently deleting other owners' records. Projection
+freshness and construction are not runtime evidence.
+
 The older `design/astra/work/*/build.py` packets record earlier build steps.
 Some still write the former runtime locations and are not current authoring
 entrypoints. Replay those packets in their historical checkout. Before adapting

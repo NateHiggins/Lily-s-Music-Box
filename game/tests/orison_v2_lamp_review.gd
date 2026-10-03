@@ -88,8 +88,18 @@ func _run() -> void:
 			"field consumes actual controller stability and delivered energy")
 	_check(air.material.get_shader_parameter("lamp_radiance") == air.field.radiance,
 			"participating-air material samples the shared field texture")
-	_check(air.particle_material.get_shader_parameter("lamp_radiance") == air.field.radiance
-			and air.field._materials.size() == 3, "air, dust and bedside glass share one optical field")
+	# The completed household roster adds glass receivers. Check every actual
+	# material owner instead of retaining the first-slice count of three.
+	var expected_materials := {air.material:true,air.particle_material:true}
+	for record: Array in air.receivers.receivers.values(): expected_materials[record[1]] = true
+	for surface: ShaderMaterial in air.receivers.surface_materials: expected_materials[surface] = true
+	var shared: bool = not air.receivers.receivers.is_empty() and air.field._materials.size() == expected_materials.size()
+	for receiver: ShaderMaterial in expected_materials:
+		shared = shared and air.field._materials.has(receiver) \
+				and receiver.get_shader_parameter("lamp_radiance") == air.field.radiance \
+				and int(receiver.get_meta("_lamp_optical_field_owner",0)) == air.field.get_instance_id()
+	_check(shared,"air, dust and all installed glass share exactly one optical field")
+	expected_materials.clear() # Do not retain materials across the teardown test.
 	_check(air.particles.amount == 48 and not air.particles.local_coords
 			and air.particles.visible and air.particles.emitting,
 			"bounded world-space dust participates while lamp is on")

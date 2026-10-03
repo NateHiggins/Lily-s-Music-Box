@@ -13,7 +13,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders, "shared world authorities"): return
 	if not _require(world.shop_service.stock_record("carbon_transmitter_capsule").get("shop_id") == "hardware_paint",
 			"shared service loads the actual authored hardware stock"): return
-	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
+	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
 	var outbound: Dictionary = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA")
@@ -44,7 +44,7 @@ func _route() -> void:
 			"bodega cannot supply the hardware shop's part or mutate shared inventory"): return
 	for record: Dictionary in returning.nodes:
 		if not await _walk_world(record.placement.position): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(2.3, 0, -6.5)]:
+	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
 		if not await _walk(point): return
 	_require(world.work_orders.job_state(job) == job_before, "interior return retains the same job owner and facts")
 
@@ -55,10 +55,19 @@ func _open_apartment_door(identity: String) -> bool:
 	var opening := world.adapter.resolve(identity) as Node3D
 	var door := opening.get_node_or_null(identity + "_Leaf") as DoorProp if opening != null else null
 	if not _require(door != null, "physical apartment door exists: " + identity): return false
+	if not await _wait_for_door(door): return false
 	if door.open: return true
 	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity + "_open"): return false
-	await get_tree().create_timer(.6).timeout
-	return _require(door.open, "apartment door opens through player input: " + identity)
+	if not await _wait_for_door(door): return false
+	return _require(door.is_ready_for_passage(), "apartment door opens through player input: " + identity)
+
+func _wait_for_door(door: DoorProp) -> bool:
+	# Residents use the same leaf. Observe its real tween rather than assume
+	# it was stationary on arrival or that an opening always takes .6 seconds.
+	for frame in 180:
+		await get_tree().physics_frame
+		if not door._moving: return true
+	return _require(false, "door motion did not settle: " + str(door.name))
 
 func _require(ok: bool, label: String) -> bool:
 	print("CONNECTED EXTERIOR CHECK: ", label, " = ", ok)

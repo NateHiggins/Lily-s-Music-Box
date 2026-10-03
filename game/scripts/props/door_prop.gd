@@ -16,10 +16,15 @@ var swing_out := false
 var door_kind := "apartment_interior"
 var unit := ""
 var finish_variant := 0
+var knob_mesh: Mesh # optional fabricated presentation; V1 retains primitive hardware
+var hinge_meshes: Dictionary = {} # optional fixed/moving halves for both hinge faces
 
 const HINGE_SETBACK := 0.026
 
 var open := false
+# Transient accepted-motion identity. A route's pending close must not take
+# ownership back after somebody else has operated this leaf.
+var motion_revision := 0
 var _hinge_offset := 0.0
 var _body: AnimatableBody3D
 var _fixed: Node3D
@@ -27,6 +32,8 @@ var _fixed: Node3D
 var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
 var _moving := false
+var _relock_after_close := false
+var _key_turning := false
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -52,6 +59,7 @@ func warehouse_rotation_y() -> float:
 
 
 func _ready() -> void:
+	leaf_state = DoorKeyring.initial_state(self, leaf_state)
 	if door_kind == "apartment_entry" and unit != "":
 		add_to_group("apartment_doors")
 	_build_leaf()
@@ -118,6 +126,8 @@ func _build_domestic(is_entry: bool) -> void:
 	var paint := MatLib.get_mat("trim", tint, 0.85)
 	var shadow := MatLib.get_mat("trim", tint.darkened(0.18), 0.85)
 	var brass := MatLib.get_mat("brass_dull", Color(0.82, 0.74, 0.55))
+	# Fabricated escutcheons need a clear lock stile instead of sitting on moulding.
+	var stile := .16 if knob_mesh!=null else .095
 	_box(_body, Vector3(width - 0.02, height - 0.02, 0.044),
 			Vector3(width * 0.5, height * 0.5, 0), paint)
 	# Recesses are shallow dark beds surrounded by physical rails. From a
@@ -127,13 +137,13 @@ func _build_domestic(is_entry: bool) -> void:
 		for field in [[0.18, 0.84], [0.98, height - 0.16]]:
 			var cy: float = (field[0] + field[1]) * 0.5
 			var fh: float = field[1] - field[0]
-			_box(_body, Vector3(width - 0.24, fh, 0.006),
+			_box(_body, Vector3(width-2*stile-.045 if knob_mesh!=null else width-.24, fh, 0.006),
 					Vector3(width * 0.5, cy, face * 0.025), shadow)
-			for x in [0.095, width - 0.095]:
+			for x in [stile, width - stile]:
 				_box(_body, Vector3(0.045, fh + 0.045, 0.018),
 						Vector3(x, cy, face * 0.031), paint)
 			for y in [field[0] - 0.022, field[1] + 0.022]:
-				_box(_body, Vector3(width - 0.15, 0.045, 0.018),
+				_box(_body, Vector3(width-2*stile+.045 if knob_mesh!=null else width-.15, 0.045, 0.018),
 						Vector3(width * 0.5, y, face * 0.031), paint)
 	_build_knob_set(brass)
 	if is_entry:
@@ -181,9 +191,10 @@ func _build_service() -> void:
 	for y in [0.16, height - 0.16]:
 		_box(_body, Vector3(width - 0.10, 0.065, 0.018),
 				Vector3(width * 0.5, y, -0.035), iron)
-	var brace := _box(_body, Vector3(width * 0.92, 0.065, 0.018),
-			Vector3(width * 0.5, height * 0.51, -0.035), iron)
-	brace.rotation.z = atan2(height - 0.40, width - 0.12) - PI * 0.5
+	var brace_span := Vector2(width-.20,height-.32)
+	var brace := _box(_body, Vector3(brace_span.length() if knob_mesh!=null else width*.92, 0.065, 0.018),
+			Vector3(width*.5,height*.5 if knob_mesh!=null else height*.51,-.035),iron)
+	brace.rotation.z=brace_span.angle() if knob_mesh!=null else atan2(height-.40,width-.12)-PI*.5
 	_build_knob_set(MatLib.get_mat("brass_dull", Color(0.64, 0.58, 0.43)))
 
 
@@ -227,6 +238,16 @@ func _build_cabinet() -> void:
 
 
 func _build_knob_set(material: StandardMaterial3D) -> void:
+	if knob_mesh!=null:
+		var half_depth := .026 if door_kind in ["service","exterior_service"] else .022
+		for face in [-1.0,1.0]:
+			var part := MeshInstance3D.new()
+			part.mesh=knob_mesh
+			part.material_override=material
+			part.position=Vector3(width-.085,1.0,face*half_depth)
+			part.rotation.y=PI if face<0 else 0
+			_body.add_child(part)
+		return
 	for face in [-1.0, 1.0]:
 		var z: float = float(face) * 0.038
 		_box(_body, Vector3(0.055, 0.17, 0.010),
@@ -246,37 +267,106 @@ func _build_fixed_hardware() -> void:
 	# half away whenever it opened.
 	_box(_fixed, Vector3(width + 0.045, 0.004, 0.14),
 			Vector3(width * 0.5, 0.002, 0), metal)
+	if not hinge_meshes.is_empty():
+		var face := "Front" if _hinge_offset>0 else "Back"
+		for y in [.26,height*.5,height-.26]:
+			for moving in [false,true]:
+				var part := MeshInstance3D.new()
+				part.mesh=hinge_meshes[("Moving" if moving else "Fixed")+face]
+				part.material_override=metal
+				# The body batch receives apply_hinge_setback once after merging.
+				# Subtract it here so the moving barrels finish on the body axis.
+				part.position=Vector3(0,y,-_hinge_offset)
+				(_body if moving else _fixed).add_child(part)
+		return
 	for y in [0.26, height * 0.5, height - 0.26]:
 		_cyl(_fixed, 0.010, 0.105, Vector3(0, y, -HINGE_SETBACK),
 				metal, 0, 8)
 
 
 func interact_prompt() -> String:
+	# interact() refuses another command until this physical leaf settles.
+	# Do not offer an action on the carried paper that cannot be accepted.
+	if _moving:
+		return ""
 	if leaf_state == "locked":
 		return "[E]  Locked"
 	return "[E]  Close door" if open else "[E]  Open door"
 
 
+func key_prompt() -> String:
+	if _moving or _key_turning: return ""
+	if open: return "Close door to use the lock"
+	if not DoorKeyring.player_has_key(self): return "Needs key for " + DoorKeyring.unit_for(self)
+	return "Unlock door" if leaf_state == "locked" else "Lock door"
+
+
+func interact_key(_player: Node) -> Dictionary:
+	if _moving or _key_turning or open or RealityState.save_write_blocked or not DoorKeyring.player_has_key(self): return {}
+	var locked := leaf_state != "locked"
+	leaf_state = "locked" if locked else "closed"
+	_relock_after_close = false
+	motion_revision += 1
+	_play_latch()
+	_turn_key(_player)
+	DoorKeyring.remember_lock(self, locked)
+	return {"title":"DOOR KEY", "body":"Door locked." if locked else "Door unlocked.", "stamp":"KEY RING"}
+
+
 func interact(_player: Node) -> void:
-	if _moving:
+	if _moving or (_key_turning and _player != null):
 		return
 	if leaf_state == "locked":
 		_rattle()
 		return
 	_moving = true
 	open = not open
+	motion_revision += 1
 	_play_move()
-	var swept := -100.0 if swing_out else 100.0
 	var tween := create_tween()
 	tween.tween_property(_body, "rotation:y",
-			deg_to_rad(swept) if open else 0.0, 0.5).set_trans(Tween.TRANS_SINE)
+			motion_target_angle(open), 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
 
 
-func npc_set_open(want_open: bool) -> void:
-	if leaf_state == "locked" or _moving or open == want_open:
+## The leaf owner supplies the angle to callers checking its proposed sweep.
+func motion_target_angle(want_open: bool) -> float:
+	return deg_to_rad(-100.0 if swing_out else 100.0) if want_open else 0.0
+
+
+func npc_set_open(want_open: bool, resident_id := "") -> void:
+	if _moving or _key_turning or open == want_open:
 		return
+	if leaf_state == "locked":
+		if not want_open or not DoorKeyring.resident_has_key(resident_id, self): return
+		leaf_state = "closed"
+		_relock_after_close = true
+		_play_latch()
+		var holder: Node
+		for candidate in get_tree().get_nodes_in_group("resident_placeholders"):
+			if str(candidate.get("resident_id")) == resident_id: holder = candidate; break
+		_turn_key(holder)
 	interact(null)
+
+
+func _turn_key(holder: Node) -> void:
+	_key_turning = true
+	var key := preload("res://assets/props/resident_key.glb").instantiate() as Node3D
+	var face := signf(to_local(holder.global_position).z) if holder is Node3D else 1.0
+	if is_zero_approx(face): face = 1.0
+	key.position = Vector3(width-.085,.89,_hinge_offset+face*.050)
+	if door_kind == "cabinet" or height < 1.2:
+		key.position = Vector3(width-.055,height*.53,_hinge_offset+face*.05)
+	key.basis = Basis(Vector3.UP,face*PI*.5)*Basis(Vector3.RIGHT,PI*.5)
+	for mesh: MeshInstance3D in key.find_children("*","MeshInstance3D",true,false):
+		mesh.material_override = MatLib.get_mat("brass_dull")
+	_body.add_child(key)
+	var turn := create_tween()
+	turn.tween_property(key,"rotation:x",key.rotation.x+PI*.5,.22)
+	turn.tween_interval(.12)
+	turn.tween_callback(func():
+		key.queue_free()
+		_key_turning = false)
 
 
 ## An NPC may cross only after this owner's real opening motion has settled.
@@ -289,6 +379,9 @@ func _settled() -> void:
 	_moving = false
 	if not open:
 		_play_latch()
+		if _relock_after_close:
+			leaf_state = "locked"
+			_relock_after_close = false
 
 
 func _rattle() -> void:

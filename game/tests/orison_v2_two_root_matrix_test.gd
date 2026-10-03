@@ -74,8 +74,23 @@ func _ready() -> void:
 	_check(str(wake.get("id", "")) == "F04_B_BED", "v2 wake uses explicit bedside semantic stance")
 	_check(_one(world, "WorkOrders") and _one(world, "CallInterface") and _one(world, "ChirpHunt"),
 			"no duplicate gameplay authorities")
+	# The adapter restores its own mouths. The independently resident bar keeps
+	# its registered mouths until world teardown, checked against saved_nodes below.
+	var expected_after_adapter := AcousticGraphData.nodes.duplicate(true)
+	var adapter_originals: Dictionary = world.adapter._acoustic_originals.duplicate(true)
+	var originals_match := not adapter_originals.is_empty()
+	for identity: String in adapter_originals:
+		originals_match = originals_match and saved_nodes.has(identity) \
+				and adapter_originals[identity] == saved_nodes.get(identity)
+		expected_after_adapter[identity] = saved_nodes.get(identity)
+	_check(originals_match, "adapter retains pre-mount originals for every owned mouth")
+	var separate_bar_owners := not world.bar_region._acoustic_originals.is_empty()
+	for identity: String in world.bar_region._acoustic_originals:
+		separate_bar_owners = separate_bar_owners and not adapter_originals.has(identity)
+	_check(separate_bar_owners, "resident bar retains separate acoustic ownership")
 	var forced: bool = world.adapter.install_acoustic_overrides(["F04_B_MONITOR_01", "MISSING"])
-	_check(not forced and AcousticGraphData.nodes == saved_nodes, "forced adapter failure restores global state")
+	_check(not forced and AcousticGraphData.nodes == expected_after_adapter,
+			"forced adapter failure restores owned mouths and preserves other active owners")
 	world.shutdown_for_tests()
 	remove_child(world)
 	world.free()

@@ -7,12 +7,17 @@ const ACTIONS := {
 	"move_left": KEY_A, "move_right": KEY_D,
 	"run": KEY_SHIFT, "crouch": KEY_C, "jump": KEY_SPACE,
 	"interact": KEY_E, "shot_capture": KEY_F,
+	"capture_device_toggle": KEY_H,
+	"door_key": KEY_K,
 	"lamp_toggle": KEY_L, "radio_toggle": KEY_R,
 	"music_player": KEY_M,
 	"pause_services": KEY_ESCAPE,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
+	"teletype_read": KEY_T, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
+	"teletype_closer": KEY_EQUAL, "teletype_farther": KEY_MINUS, "teletype_service": KEY_Y,
+	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }
 
 ## Shoulder switches remain reachable while both thumbs steer and look. They
@@ -20,6 +25,7 @@ const ACTIONS := {
 ## branches on input device.
 const JOYPAD_ACTIONS := {
 	"interact": JOY_BUTTON_A,
+	"door_key": JOY_BUTTON_DPAD_UP,
 	"jump": JOY_BUTTON_Y,
 	"crouch": JOY_BUTTON_LEFT_STICK,
 	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,
@@ -28,6 +34,8 @@ const JOYPAD_ACTIONS := {
 	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
 	"activity_commit": JOY_BUTTON_A,
 	"pause_services": JOY_BUTTON_START,
+	"inspect_care": JOY_BUTTON_RIGHT_STICK,
+	"pocket_ledger": JOY_BUTTON_BACK,
 }
 
 const JOYPAD_AXES := {

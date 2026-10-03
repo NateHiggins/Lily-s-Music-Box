@@ -18,6 +18,7 @@ extends CanvasLayer
 ## holding run has to work, and that is three fingers.
 
 signal look_delta(rel: Vector2)
+signal care_action_requested(action: StringName)
 
 const STICK_RADIUS := 0.11      # of the smaller screen dimension
 const STICK_DEAD := 0.14        # fraction of radius ignored
@@ -28,6 +29,7 @@ const BUTTON_R := 0.052         # of the smaller screen dimension
 const STICK_ZONE := 0.42
 
 var enabled := false
+var care_actions_enabled := false
 
 var _screen := Vector2(1280, 720)
 var _unit := 720.0
@@ -40,6 +42,7 @@ var _look_last := Vector2.ZERO
 ##          "toggle": bool, "finger": int, "on": bool}
 var _buttons: Array = []
 var _panel: Control
+var _held_actions: Dictionary = {}
 
 
 func _ready() -> void:
@@ -68,7 +71,15 @@ func toggle() -> void:
 	set_enabled(not enabled)
 
 
+func enable_care_actions() -> void:
+	# Only worlds with the household-care owner expose these buttons.
+	care_actions_enabled = true
+	_layout()
+
+
 func _layout() -> void:
+	# Old screen-space contacts cannot survive a resize or button rebuild.
+	_release_all()
 	_screen = Vector2(get_viewport().get_visible_rect().size)
 	_unit = minf(_screen.x, _screen.y)
 	_panel.size = _screen
@@ -90,7 +101,11 @@ func _layout() -> void:
 		_button("CROUCH", "crouch", Vector2(right - gap, bottom - gap), false),
 		_button("LAMP", "lamp_toggle", Vector2(right, bottom - gap * 2.0), false),
 		_button("RADIO", "radio_toggle", Vector2(right - gap, bottom - gap * 2.0), false),
+		_button("KEY", "door_key", Vector2(right - gap * 2.0, bottom - gap * 2.0), false),
 	]
+	if care_actions_enabled:
+		_buttons.append(_button("CARE", "inspect_care", Vector2(right, bottom - gap * 3.0), false))
+		_buttons.append(_button("POCKET", "pocket_ledger", Vector2(right - gap, bottom - gap * 3.0), false))
 	_panel.queue_redraw()
 
 
@@ -124,17 +139,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _press(finger: int, at: Vector2) -> void:
 	for b in _buttons:
 		if at.distance_to(b["centre"]) <= b["radius"] * 1.25:
+			if b["action"] in ["inspect_care", "pocket_ledger"]:
+				# These are modal requests, not held movement actions. The owner
+				# checks reach and pointer custody before it accepts the request.
+				care_action_requested.emit(StringName(b["action"]))
+				return
 			b["finger"] = finger
 			if b["toggle"]:
 				b["on"] = not b["on"]
 				# Toggles latch the action down: holding RUN with a thumb
 				# on a phone is not something anyone wants to do.
 				if b["on"]:
-					Input.action_press(b["action"])
+					_press_action(b["action"])
 				else:
-					Input.action_release(b["action"])
+					_release_action(b["action"])
 			else:
-				Input.action_press(b["action"])
+				_press_action(b["action"])
 			_panel.queue_redraw()
 			return
 	if at.x < _screen.x * STICK_ZONE and _stick_finger == -1:
@@ -166,7 +186,7 @@ func _release(finger: int) -> void:
 		if b["finger"] == finger:
 			b["finger"] = -1
 			if not b["toggle"]:
-				Input.action_release(b["action"])
+				_release_action(b["action"])
 			_panel.queue_redraw()
 			return
 	if finger == _stick_finger:
@@ -194,24 +214,46 @@ func _apply_stick_vector(v: Vector2) -> void:
 
 func _set_axis(positive: String, negative: String, amount: float) -> void:
 	if amount > 0.0:
-		Input.action_release(negative)
-		Input.action_press(positive, amount)
+		_release_action(negative)
+		_press_action(positive, amount)
 	elif amount < 0.0:
-		Input.action_release(positive)
-		Input.action_press(negative, -amount)
+		_release_action(positive)
+		_press_action(negative, -amount)
 	else:
-		Input.action_release(positive)
-		Input.action_release(negative)
+		_release_action(positive)
+		_release_action(negative)
+
+
+func _press_action(action: StringName, strength := 1.0) -> void:
+	_held_actions[action] = true
+	Input.action_press(action, strength)
+
+
+func _release_action(action: StringName) -> void:
+	# Resizing/retiring an idle HUD must not release somebody else's inputs.
+	if not _held_actions.has(action): return
+	Input.action_release(action)
+	_held_actions.erase(action)
 
 
 func _release_all() -> void:
-	_apply_stick_vector(Vector2.ZERO)
+	for action: StringName in _held_actions.keys():
+		_release_action(action)
 	for b in _buttons:
 		b["finger"] = -1
-		if not b["toggle"] or not b["on"]:
-			Input.action_release(b["action"])
+		b["on"] = false
 	_stick_finger = -1
 	_look_finger = -1
+	if is_instance_valid(_panel): _panel.queue_redraw()
+
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT]:
+		_release_all()
+
+
+func _exit_tree() -> void:
+	_release_all()
 
 
 func _draw_panel() -> void:

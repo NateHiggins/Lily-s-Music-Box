@@ -1,0 +1,201 @@
+extends Node
+var failures: Array[String]=[]
+func _ready() -> void: call_deferred("_run")
+func check(ok: bool, message: String) -> void:
+	if not ok: failures.append(message); push_error(message)
+func _world_scene() -> PackedScene:
+	return preload("res://scenes/building/orison_v2_runtime.tscn")
+func _run() -> void:
+	RealityState.persistence_enabled=false
+	RealityState.reset_campaign_for_tests()
+	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
+	var world := _world_scene().instantiate()
+	add_child(world)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if world.player==null:
+		check(false,"production world must initialize before surface inspection")
+		world.free()
+		get_tree().quit(1)
+		return
+	world.player.set_physics_process(false)
+	for child in world.adapter.root.get_children():
+		if child is OrisonV2ReadabilityCues:
+			check(not child.show_route_bands,"production disables raised graybox route strips")
+			for cue in child.get_children():
+				check(not cue is MeshInstance3D,"finished floors have no residual development-band meshes")
+	for child in world.player.carried_device.get_children():
+		if child is CanvasLayer: child.hide()
+	var floors := 0
+	var ceilings := 0
+	var probes := 0
+	var panel_rooms := 0
+	var trim_rooms := 0
+	var trim_pieces := 0
+	for record: Dictionary in world.layout.spaces:
+		var room: Node=world.adapter.resolve(str(record.id))
+		if room==null: continue
+		for batch_name in ["HistoricMillwork", "PublicWainscot", "PublicWainscotFrames"]:
+			var trim := room.get_node_or_null(batch_name) as MultiMeshInstance3D
+			if trim != null:
+				trim_rooms += 1
+				if batch_name=="PublicWainscot":
+					check(record.get("class", "")=="public", "wainscot belongs only to public rooms")
+					panel_rooms+=1
+				check(trim.get_child_count()==0,"millwork adds no collision or per-strip nodes")
+				if batch_name!="PublicWainscot":
+					check(trim.multimesh.mesh is ArrayMesh and trim.multimesh.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size()>8,"trim uses the imported profiled section")
+				if batch_name=="PublicWainscotFrames":
+					check(room.has_node("PublicWainscot"),"molded frames retain their recessed backing")
+				check(trim.material_override!=null,"room material authority remains bound")
+				var sources: PackedStringArray=trim.get_meta("wall_sources")
+				check(sources.size()==trim.multimesh.instance_count,"each trim strip retains its solid wall owner")
+				for index in trim.multimesh.instance_count:
+					var wall := room.get_node(sources[index]) as MeshInstance3D
+					var transform := trim.multimesh.get_instance_transform(index)
+					var bounds: AABB = transform*trim.multimesh.mesh.get_aabb()
+					var extent := bounds.size*.5
+					var solid: Vector3=wall.mesh.size*.5
+					var offset := bounds.get_center()-wall.position
+					var along_x := str(wall.name).begins_with("WallNorth") or str(wall.name).begins_with("WallSouth")
+					check(absf(offset.y)+extent.y<=solid.y+.0001,"trim stays within solid wall height")
+					check(absf(offset.x if along_x else offset.z)+(extent.x if along_x else extent.z)<=(solid.x if along_x else solid.z)+.0001,"trim never bridges a cut aperture")
+					var projection: float=extent.z*2 if along_x else extent.x*2
+					check(projection<=.0541,"shallow millwork respects maximum projection")
+					if batch_name!="PublicWainscot":
+						check(transform.basis.z.normalized().dot(offset)>0,"Blender frame face points into the room on every wall")
+					trim_pieces+=1
+					if batch_name!="PublicWainscotFrames": continue
+					# Recessed backing may overlap a frame in volume, but exposed
+					# fronts must not overlap on the same plane and strobe.
+					for previous in index:
+						if sources[previous]!=sources[index]: continue
+						var other := trim.multimesh.get_instance_transform(previous)
+						var other_bounds: AABB = other*trim.multimesh.mesh.get_aabb()
+						var half := other_bounds.size*.5
+						if absf((half.z if along_x else half.x)-projection*.5)>.0001: continue
+						var delta := (other.origin-transform.origin).abs()
+						var along_overlap: float=(half.x+extent.x-delta.x) if along_x else (half.z+extent.z-delta.z)
+						check(along_overlap<.0001 or half.y+extent.y-delta.y<.0001,"public frame fronts do not overlap coplanarly")
+		for part in ["Floor","Ceiling"]:
+			var surface := room.get_node_or_null(part) as MeshInstance3D
+			if surface==null: continue
+			var arrays: Array=surface.mesh.surface_get_arrays(0)
+			var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+			var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+			var up := 0; var down := 0
+			for i in range(0,indices.size(),3):
+				if normals[indices[i]].y>.9: up+=1
+				if normals[indices[i]].y<-.9: down+=1
+			if part=="Floor":
+				floors+=1
+				check(up==2 and down==0,str(record.id)+" floor owns top only")
+				var body := surface.get_node("Collision") as StaticBody3D
+				var shape := body.get_node_or_null("CollisionShape3D") as CollisionShape3D
+				if shape==null:
+					for child in body.get_children():
+						if child is CollisionShape3D: shape=child
+				check(shape!=null and shape.shape is BoxShape3D,str(record.id)+" retains full collision slab")
+				var at := surface.global_position+Vector3.UP*float(world.layout.dimensions.slab_thickness)*.5
+				var query := PhysicsRayQueryParameters3D.create(at+Vector3.UP*.025,at-Vector3.UP*.025,1)
+				var excluded: Array[RID]=[]
+				var hit: Dictionary={}
+				# Furniture/rugs may cover the room centre. Probe the retained slab,
+				# excluding only individually identified intervening collision bodies.
+				for attempt in range(20):
+					hit=world.get_world_3d().direct_space_state.intersect_ray(query)
+					if hit.is_empty() or hit.collider==body: break
+					excluded.append(hit.rid); query.exclude=excluded
+				check(not hit.is_empty() and hit.collider==body and absf(hit.position.y-at.y)<.003,str(record.id)+" actual floor collision at authored height")
+				probes+=1
+			else:
+				ceilings+=1
+				check(up==0 and down==2 and indices.size()==6,str(record.id)+" ceiling owns underside only")
+	check(floors>100 and ceilings>100,"audit covers the composed building")
+	check(trim_rooms>20 and trim_pieces>200,"millwork covers occupied architecture")
+	check(panel_rooms>=10,"public halls and arrival rooms receive wainscot")
+	for record: Dictionary in world.layout.spaces:
+		if record.get("class", "")!="public" or record.get("open_shell", false): continue
+		var r: Array=record.rect
+		var y: float=world.adapter.root.level_y[record.level]
+		var centre := Vector3((r[0]+r[2])*.5,y,(r[1]+r[3])*.5)
+		world.player.global_position=world.adapter.root.to_global(centre+Vector3.UP*.05)
+		world.player.camera.make_current()
+		world.player.face_world_point(world.adapter.root.to_global(Vector3(r[0]+.2,y+1.05,r[3]-.2)))
+		await shot(str(record.id)+"_wainscot")
+	var captures := 0
+	var captured_levels: Array[String]=[]
+	for record: Dictionary in world.layout.spaces:
+		if record.get("class","")!="private" or record.level not in ["F02","F03","F04"]: continue
+		if str(record.level) in captured_levels or not str(record.id).ends_with("_MAIN"): continue
+		var r: Array=record.rect
+		var y: float=world.adapter.root.level_y[record.level]
+		var center := Vector3((r[0]+r[2])*.5,y,(r[1]+r[3])*.5)
+		world.player.global_position=world.adapter.root.to_global(Vector3(center.x,y+.05,r[1]+.65))
+		world.player.camera.make_current()
+		world.player.face_world_point(world.adapter.root.to_global(center))
+		await shot(str(record.id))
+		world.player.face_world_point(world.adapter.root.to_global(center+Vector3.UP*2.3))
+		await shot(str(record.id)+"_millwork")
+		captures+=1
+		captured_levels.append(str(record.level))
+		if captures==3: break
+	for detail_batch in ["HistoricMillwork", "PublicWainscotFrames"]:
+		# Inspect imported baseboard and upper panel rails, independently of
+		# the production-lamp room captures above. Choose by geometry, not room id.
+		var detail_captured := false
+		for record: Dictionary in world.layout.spaces:
+			var room := world.adapter.resolve(str(record.id)) as Node3D
+			if room==null: continue
+			var trim := room.get_node_or_null(detail_batch) as MultiMeshInstance3D
+			if trim==null: continue
+			var captured := false
+			for index in trim.multimesh.instance_count:
+				var placement := trim.multimesh.get_instance_transform(index)
+				var dimensions := placement.basis.get_scale()
+				if detail_batch=="HistoricMillwork" and (dimensions.x<1.5 or dimensions.y<.1): continue
+				if detail_batch=="PublicWainscotFrames":
+					var floor_y: float = world.adapter.root.level_y[record.level]
+					if dimensions.x<1.5 or absf(placement.basis.x.y)>.01 or absf(placement.origin.y-floor_y-1.255)>.01: continue
+				var at := room.to_global(placement.origin)
+				var eye := at+room.global_basis*placement.basis.z.normalized()*.7+Vector3.UP*.16
+				var clear := true
+				for offset in [-.25,0.0,.25]:
+					var target: Vector3 = at+room.global_basis*placement.basis.x.normalized()*offset
+					var ray := PhysicsRayQueryParameters3D.create(eye,target,1,[world.player.get_rid()])
+					ray.hit_from_inside = true
+					if not world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(): clear=false
+				if not clear: continue
+				world.player.set_lamp_enabled(false)
+				var camera := Camera3D.new()
+				world.add_child(camera)
+				camera.global_position = eye
+				camera.look_at(at)
+				camera.make_current()
+				var fill := OmniLight3D.new()
+				world.add_child(fill)
+				fill.global_position = camera.global_position+Vector3.UP*.15
+				fill.light_energy = .4
+				fill.omni_range = 3
+				await shot("beaded_profile_detail" if detail_batch=="HistoricMillwork" else "wainscot_frame_detail")
+				fill.queue_free()
+				camera.queue_free()
+				captured = true
+				detail_captured = true
+				break
+			if captured: break
+		check(detail_captured,"a clear actual-wall profile detail station exists")
+	print("FLOOR OWNERSHIP: floors=%d ceilings=%d collision_probes=%d failures=%d" % [floors,ceilings,probes,failures.size()])
+	print("MILLWORK: batches=%d strips=%d public_wainscot_rooms=%d failures=%d" % [trim_rooms,trim_pieces,panel_rooms,failures.size()])
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+func shot(label: String) -> void:
+	if DisplayServer.get_name()=="headless": return
+	var directory := OS.get_environment("SHOT_DIR")
+	if directory.is_empty(): return
+	DirAccess.make_dir_recursive_absolute(directory)
+	await get_tree().create_timer(.25).timeout
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
+
+

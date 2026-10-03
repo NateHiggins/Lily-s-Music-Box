@@ -1,5 +1,7 @@
 class_name OrisonElevator
 extends Node3D
+signal landing_button_pressed(level: String)
+signal cabin_button_pressed(control: String)
 ## The unreliable elevator, now with hardware: a kinematic cabin, real
 ## center-parting landing doors at every stop (closed doors are the shaft
 ## interlock — you cannot walk into an empty well), and brass call plates
@@ -36,6 +38,20 @@ var _cabin: AnimatableBody3D
 var _bell: AudioStreamPlayer3D
 var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
+var _landing_frames: Dictionary = {} # level -> direct stationary visual references
+var _landing_controls: Dictionary = {} # level -> existing plate, cap and interaction area
+var _panel_visuals: Dictionary = {} # moving body -> existing skin, glazing and kick
+var _cab_handrails: Array[MeshInstance3D] = [] # original visual-only grips and supports
+var _cab_rail_visual: Node3D # optional V2 fabricated presentation
+var _cab_mirror_parts: Array[MeshInstance3D] = []
+var _cab_mirror: Node3D # V2 live reflection surface owner
+var _cab_panel_visuals: Array[MeshInstance3D] = []
+var _cab_wall_finish: Material
+var _cab_joinery: Node3D
+var _indicator_parts: Dictionary = {} # presentation references, car height owns needle
+var _indicator_visual: Node3D
+var _needle_sweep_sign := 1.0 # presentation orientation; V1 retains its original face
+var _cabin_controls: Dictionary = {"buttons":{},"areas":{}} # direct visual/input references
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -45,6 +61,8 @@ var _cabin_lamps: Dictionary = {}  # level -> cab button material
 var _gate: Node3D
 var _needle: Node3D
 var _dome: StandardMaterial3D
+var _cab_lamp_parts: Array[MeshInstance3D] = []
+var _cab_lamp_visual: Node3D
 var _sleep_half_width := 0.0
 var _sleep_rear_z := 0.0
 
@@ -121,6 +139,7 @@ func _brass() -> StandardMaterial3D:
 func _build_landing(level: String, door_w: float) -> void:
 	var y: float = stops[level]
 	var jamb := door_w / 2.0
+	var frames: Array[MeshInstance3D] = []
 	# frame: brass jambs and header lining the wall reveal, a hair proud
 	# of both faces so the opening reads as cased rather than cut
 	for sx in [-1.0, 1.0]:
@@ -132,6 +151,7 @@ func _build_landing(level: String, door_w: float) -> void:
 		j.position = Vector3(sx * (jamb + 0.03), y + (PANEL_H + 0.10) / 2,
 				FRONT_Z)
 		add_child(j)
+		frames.append(j)
 	var hdr := MeshInstance3D.new()
 	var hm := BoxMesh.new()
 	hm.size = Vector3(door_w + 0.18, 0.10, WALL_T + 0.02)
@@ -139,6 +159,7 @@ func _build_landing(level: String, door_w: float) -> void:
 	hdr.material_override = _brass()
 	hdr.position = Vector3(0, y + PANEL_H + 0.13, FRONT_Z)
 	add_child(hdr)
+	_landing_frames[level] = {"west":frames[0],"east":frames[1],"head":hdr}
 	# the two panels ride just inside the shaft face
 	var pair := {"t": 0.0}
 	for side in ["w", "e"]:
@@ -177,6 +198,7 @@ func _build_landing(level: String, door_w: float) -> void:
 		kick.material_override = _steel(true)
 		kick.position = Vector3(0, -PANEL_H / 2 + 0.08, 0)
 		body.add_child(kick)
+		_panel_visuals[body] = {"skin":vis,"glass":win,"kick":kick}
 		body.position = _panel_pos(sx, y, 0.0)
 		pair[side] = body
 	_doors[level] = pair
@@ -218,6 +240,7 @@ func _build_landing(level: String, door_w: float) -> void:
 			FRONT_Z + WALL_T / 2.0 + 0.03)
 	area.set_meta("call_level", level)
 	add_child(area)
+	_landing_controls[level] = {"plate":plate,"button":btn,"area":area}
 
 
 func _panel_pos(sx: float, y: float, open_t: float) -> Vector3:
@@ -336,6 +359,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	# with a nice dado in it. A passenger car of this class has a
 	# painted field above the rail.
 	var field := _finish("enamel", Color(0.88, 0.84, 0.74), 0.42)
+	_cab_wall_finish=field
 
 	# Inner faces of the five boxes: the panelling sits proud of these.
 	var wx := cw / 2.0 - 0.025          # west/east inner face
@@ -358,9 +382,9 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 		# two raised panels per side, with a stile between them
 		for pi in 2:
 			var cz := -0.36 + pi * 0.72 + 0.03
-			_cab_box(Vector3(pr, 0.60, 0.60), Vector3(x, 0.60, cz), oak)
-			_cab_box(Vector3(pr + 0.018, 0.52, 0.52),
-					Vector3(x, 0.60, cz), oak)
+			_cab_panel_visuals.append(_cab_box(Vector3(pr, 0.60, 0.60), Vector3(x, 0.60, cz), oak))
+			_cab_panel_visuals.append(_cab_box(Vector3(pr + 0.018, 0.52, 0.52),
+					Vector3(x, 0.60, cz), oak))
 		_cab_box(Vector3(pr + 0.020, 0.06, cd - 0.06),
 				Vector3(x, 0.97, 0.03), oak)          # chair rail
 		_cab_box(Vector3(pr, 1.05, cd - 0.06),
@@ -372,9 +396,9 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 			Vector3(0, 0.19, rz + pr * 0.5), oak)
 	for pi in 2:
 		var px := -0.34 + pi * 0.68
-		_cab_box(Vector3(0.58, 0.60, pr), Vector3(px, 0.60, rz + pr * 0.5), oak)
-		_cab_box(Vector3(0.50, 0.52, pr + 0.018),
-				Vector3(px, 0.60, rz + pr * 0.5), oak)
+		_cab_panel_visuals.append(_cab_box(Vector3(0.58, 0.60, pr), Vector3(px, 0.60, rz + pr * 0.5), oak))
+		_cab_panel_visuals.append(_cab_box(Vector3(0.50, 0.52, pr + 0.018),
+				Vector3(px, 0.60, rz + pr * 0.5), oak))
 	_cab_box(Vector3(cw - 0.06, 0.06, pr + 0.020),
 			Vector3(0, 0.97, rz + pr * 0.5), oak)
 	_cab_box(Vector3(cw - 0.06, 0.09, pr + 0.024),
@@ -387,22 +411,22 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	silver.roughness = 0.18
 	silver.rim_enabled = true
 	silver.rim = 0.35
-	_cab_box(Vector3(1.06, 0.86, pr), Vector3(0, 1.52, rz + pr * 0.5), oak)
-	_cab_box(Vector3(0.96, 0.76, pr + 0.008),
-			Vector3(0, 1.52, rz + pr * 0.6), silver)
+	_cab_mirror_parts.append(_cab_box(Vector3(1.06, 0.86, pr), Vector3(0, 1.52, rz + pr * 0.5), oak))
+	_cab_mirror_parts.append(_cab_box(Vector3(0.96, 0.76, pr + 0.008),
+			Vector3(0, 1.52, rz + pr * 0.6), silver))
 
 	# --- handrail on three sides -----------------------------------
 	var hy := 0.92
 	var off := pr + 0.055
 	for sx in [-1.0, 1.0]:
 		var hx: float = sx * (wx - off)
-		_cab_tube(Vector3(hx, hy, rz + 0.10), Vector3(hx, hy, fz - 0.16),
-				0.021, brass)
+		_cab_handrails.append(_cab_tube(Vector3(hx, hy, rz + 0.10), Vector3(hx, hy, fz - 0.16),
+				0.021, brass))
 		for bz in [rz + 0.14, fz - 0.20]:
-			_cab_tube(Vector3(sx * wx, hy, bz), Vector3(hx, hy, bz),
-					0.011, brass)
-	_cab_tube(Vector3(-wx + 0.10, hy, rz + off),
-			Vector3(wx - 0.10, hy, rz + off), 0.021, brass)
+			_cab_handrails.append(_cab_tube(Vector3(sx * wx, hy, bz), Vector3(hx, hy, bz),
+					0.011, brass))
+	_cab_handrails.append(_cab_tube(Vector3(-wx + 0.10, hy, rz + off),
+			Vector3(wx - 0.10, hy, rz + off), 0.021, brass))
 
 	# --- coved ceiling and the opal dome ---------------------------
 	for sx in [-1.0, 1.0]:
@@ -428,12 +452,13 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	dome.material_override = _dome
 	dome.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_cabin.add_child(dome)
+	_cab_lamp_parts.append(dome)
 	for i in 16:                       # brass retaining ring
 		var a0 := TAU * i / 16.0
 		var a1 := TAU * (i + 1) / 16.0
-		_cab_tube(Vector3(cos(a0) * 0.24, 2.225, 0.02 + sin(a0) * 0.24),
+		_cab_lamp_parts.append(_cab_tube(Vector3(cos(a0) * 0.24, 2.225, 0.02 + sin(a0) * 0.24),
 				Vector3(cos(a1) * 0.24, 2.225, 0.02 + sin(a1) * 0.24),
-				0.012, brass)
+				0.012, brass))
 
 	# --- the collapsible gate --------------------------------------
 	# A scissor gate compresses toward its jamb, so the whole lattice
@@ -495,6 +520,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 			Color(0.14, 0.12, 0.11), 0.28)
 	nd.position = Vector3(0, 0.068, 0)
 	_needle.add_child(nd)
+	_indicator_parts={"face":dial,"bezel":bez,"needle":nd,"labels":[]}
 	# The stops, engraved around the arc the needle sweeps, at exactly
 	# the angles _drive_cab_hardware will put the needle at. A dial with
 	# no numerals on it is a clock with no face: you can see that
@@ -503,10 +529,10 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 	for i in marks:
 		var th := deg_to_rad(lerpf(72.0, -72.0, float(i) / (marks - 1))) \
 				if marks > 1 else 0.0
-		_plate_quad(PLATE_LEGEND.get(stop_order[i], stop_order[i]),
+		_indicator_parts.labels.append(_plate_quad(PLATE_LEGEND.get(stop_order[i], stop_order[i]),
 				Vector3(-sin(th) * 0.133, 2.16 + cos(th) * 0.133,
 						fz - 0.112),
-				Vector2(0.040, 0.040), Vector3(0, 180, 0))
+				Vector2(0.040, 0.040), Vector3(0, 180, 0)))
 
 	# --- certificate of inspection, because every car carries one ---
 	_cab_box(Vector3(pr + 0.010, 0.30, 0.22),
@@ -520,6 +546,7 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 func interact_area(area: Area3D) -> void:
 	if area.has_meta("call_level"):
 		var level: String = area.get_meta("call_level")
+		landing_button_pressed.emit(level)
 		if state == S.IDLE and level == current:
 			# car is here: reopen if someone closed on you
 			if _doors[current]["t"] < 1.0:
@@ -527,6 +554,7 @@ func interact_area(area: Area3D) -> void:
 			return
 		travel_to(level)
 	elif area.has_meta("cabin_floor"):
+		cabin_button_pressed.emit(String(area.get_meta("cabin_floor")))
 		# One button per stop. The panel used to be a single plate that
 		# advanced to the next floor, so reaching B1 from F06 meant riding
 		# every landing in between — a lift you cannot direct is furniture.
@@ -534,6 +562,7 @@ func interact_area(area: Area3D) -> void:
 			return
 		travel_to(String(area.get_meta("cabin_floor")))
 	elif area.has_meta("cabin_alarm"):
+		cabin_button_pressed.emit("alarm")
 		# It rings the car's own bell and nothing else. In a building
 		# where nobody answers the telephone, an alarm that summoned help
 		# would be the least believable thing in it.
@@ -706,7 +735,7 @@ func _drive_cab_hardware() -> void:
 				0.0, 1.0)
 		# bottom of the building at the left horn of the dial, top at the
 		# right, so the needle sweeps the way the car climbs
-		_needle.rotation.z = deg_to_rad(lerpf(72.0, -72.0, f))
+		_needle.rotation.z = deg_to_rad(lerpf(72.0, -72.0, f))*_needle_sweep_sign
 
 
 ## Cabin control panel: a brass plate carrying one pressable button per
@@ -729,6 +758,7 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	plate.material_override = _brass()
 	plate.position = Vector3(cw / 2 - 0.051, 1.22, cd / 2 - 0.22)
 	_cabin.add_child(plate)
+	_cabin_controls.plate = plate
 	# top of the plate is the top of the building: B1 sits at the bottom
 	for i in range(n):
 		var level: String = stop_order[i]
@@ -766,6 +796,8 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 		hit.position = Vector3(cw / 2 - 0.090, y, cd / 2 - 0.20)
 		hit.set_meta("cabin_floor", level)
 		_cabin.add_child(hit)
+		_cabin_controls.buttons[level] = b
+		_cabin_controls.areas[level] = hit
 	# Below the floor buttons, the two controls every car of this class
 	# carries and no self-service car is legal without: a red stop and an
 	# alarm. Neither is wired to a destination - the stop halts nothing
@@ -786,6 +818,7 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	stop_btn.position = Vector3(cw / 2 - 0.069, base, cd / 2 - 0.22)
 	stop_btn.material_override = stop_mat
 	_cabin.add_child(stop_btn)
+	_cabin_controls.stop = stop_btn
 	var alarm := MeshInstance3D.new()
 	var ac := CylinderMesh.new()
 	ac.top_radius = 0.017
@@ -806,6 +839,8 @@ func _add_cabin_panel(cw: float, cd: float) -> void:
 	ahit.position = Vector3(cw / 2 - 0.090, base - 0.075, cd / 2 - 0.20)
 	ahit.set_meta("cabin_alarm", true)
 	_cabin.add_child(ahit)
+	_cabin_controls.buttons["alarm"] = alarm
+	_cabin_controls.areas["alarm"] = ahit
 
 
 ## Level names as the brass atlas spells them: the plates were cut for

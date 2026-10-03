@@ -18,6 +18,13 @@ and Bible §VIII.5.j.*
 | Interact | `E` | `interact` | uses the first authored world mechanism under the 2.1 m eye ray; while seated it operates the remembered seat instead of trying to reacquire a ray behind the player; after a non-modal object response, a powered set advances a service-wire field slip |
 | Work lamp | `L` | `lamp_toggle` / `LAMP` | moves the guarded two-state lever, changes the real SpotLight3D, beam plates and rear `LAMP` jewel together |
 | Radio power | `R` | `radio_toggle` / `RADIO` | pushes the aerial home or pulls it out and changes the rear `NET` jewel |
+| Capture visibility | `H` | `capture_device_toggle` | hides or restores the carried instrument and its paper while the lamp, radio and printer keep running |
+| Screenshot | `F` | `shot_capture` | captures the current view and records its pose in `art/renders/insitu` |
+
+The capture visibility preference lasts for the current building instance and
+starts visible in a new one. It also works with the pointer released. The
+Debug Building capture section exposes the same toggle. Hidden paper retains
+incoming reports and printing progress; press H again to read it.
 
 Controller shoulders feed those same actions: left shoulder operates the lamp
 and right shoulder operates the radio/aerial. N3 proves keyboard, controller and
@@ -45,16 +52,44 @@ recompute the aggregate. It owns no order copy and calls no lifecycle method.
 
 ## The field-slip printer
 
-The owner-approved later modification is a brass platen in the crown, beside
-the aerial. It advances a small textured paper ticket after an authoritative E
-interaction. `ServiceSetCarrier.print_telegram_card()` delegates only the feed
-motion and returns false when the radio is off; `PlayerController` then withholds
-the enlarged HUD copy. The interacted object has already run in either case.
+The carried TYPE 28-R now has a Blender-built mechanical teletype attachment.
+The complete supplied field report (title, body and condition) prints in ink on
+persistent paper. Long reports wrap into pages without dropping their tail.
+The type carriage traverses, hammer strikes, platen turns and ribbon spools
+advance with the printing; tick and feed sounds accompany the mechanism.
 
-The physical slip contains only a serial and truncated object heading at carried
-resolution. `TelegramHud` presents the full observation. Neither surface is a
-screen, and neither may call back into the object or WorkOrders. Typography,
-layout, texture and copy boundaries are in `game/docs/telegram_style.md`.
+**T** raises/lowers the set for reading; **[ / ]** feed previous/next pages.
+**Shift + [ / ]** recalls previous/next reports from the last 24 received this
+session. Recalled pages appear immediately, including with radio power off;
+reading an old copy does not receive another message or repeat its gameplay.
+The normal carry pose keeps the paper and feed assembly visible at the right.
+Reading does not seize the mouse or pause the world.
+While raised, the mouse wheel or **+ / -** adjusts the physical reading distance.
+**Y** opens/closes the hinged service cover to inspect the moving transmission.
+The carried set replaces the ordinary HUD: no aiming dot, floating interaction
+slip or enlarged telegram overlay. Interaction cues appear on the paper footer.
+Pause, debug, protected conversations and authored activity controls remain available.
+Modal interactions retain
+input priority. These are remappable actions; dedicated touch controls remain
+future work. The latest paper remains visible when the radio is switched off;
+printing pauses and new reception is refused. Page turning resumes with power.
+
+`TelegramHud.card_presented` feeds the physical printer, so full service-wire
+cards share the same copy. TelegramHud retains message delivery and conversation
+coordination, but its screen presentation is disabled when the physical carrier is attached. Direct `print_telegram_card` callers can supply either a full dictionary
+or a legacy title string. This is a physical output device, not a new AI service,
+case owner or source of invented observations. The report file is session-only;
+no new campaign save field is added. New reception selects the newest report.
+
+The authored Blender source and reproducible builder are
+`art/models/service_teletype/service_teletype.blend` and
+`art/tools/build_service_teletype.py`. Lettering remains runtime Label3D ink.
+
+The real torch emitter is now 18 mm right, 18 mm down and 35 mm forward of the
+camera, facing along the view axis, for useful light against nearby surfaces.
+The optical field and shadows still observe the same PlayerController light.
+The held object has its own close carry pose; the optical origin intentionally
+no longer follows the forward-most decorative lens (owner request, 2026-09-26).
 
 ## Production ownership
 
@@ -86,7 +121,7 @@ swap is:
 
 | Old responsibility / consumer | Decision | Production state |
 |---|---|---|
-| beam pose, lag and separate held-object pass in `phone_carrier.gd` | migrate | rewritten in `service_set_carrier.gd`; beam origin is the modeled lamp lens |
+| beam pose, lag and separate held-object pass in `phone_carrier.gd` | migrate | rewritten in `service_set_carrier.gd`; beam origin is eye-adjacent for close work |
 | spotlight and beam plates in `player_controller.gd` | retain behind neutral seam | `set_lamp_enabled`, `toggle_lamp`, `lamp_is_enabled`; variable is `carried_device`, not PhoneCarrier |
 | cold LED color | replace | warm tungsten `(1.0, 0.80, 0.56)` |
 | Phone3D screen, QWERTY, trackpad, camera/viewfinder/gallery | rehome or archive | source remains; no production instance |
@@ -118,6 +153,9 @@ the support interface through the same release path.
 
 ## Proof
 
+- `CaptureDeviceToggleTest.tscn`: real H input in V1 and V2, auto-repeat,
+  released pointer and focused text entry, unchanged lamp settings and pose,
+  hidden report delivery/printing, and visible/hidden/restored review frames.
 - `ServiceSetTest.tscn`: production scene; no PhoneCarrier/Phone3D instance,
   no screen viewport in the prop, lamp/radio/ORDER transitions, 18/18 cold-box
   areas, powered/off field-slip behavior, shared non-modal telegram, a real 4B
@@ -132,3 +170,22 @@ the support interface through the same release path.
 Proof renders and exact commands are in
 `art/renders/service_set_q4/README.md` and
 `art/renders/telegram_style_i3/README.md`.
+
+## Fabrication and expansion seams (2026-09-26)
+
+The Blender attachment wraps the retained 28-R core in folded japanned steel,
+rolled brass flanges, captive slotted screws and a ribbed dry-cell grip. Original
+deterministic UV albedo, roughness and normal maps are packed into the blend
+and GLB; no reference-image bytes or baked lettering are included.
+
+Independent pivots own the carriage, hammer, platen, ribbon spools, four feed
+gears, radio/lamp levers, reading wheel and hinged service cover. The three
+physical jewels mirror existing ORDER, NET and LAMP authorities. They create
+no battery, quest or task state. Lettering is runtime Label3D.
+
+CameraAccessoryMount, FilmCassetteMount and ServiceProbeMount are named physical
+attachment seams. ProbeSocket and AudioSocket are capped fittings. These prepare
+for future accessories; photography, probe readings, recording, paper depletion,
+ink replacement and instrument breakdowns are not implemented by this model.
+Current reports, maintenance observations and pocket-ledger cards use the same
+printer. This is not a promise to implement every possible future function.

@@ -1,0 +1,199 @@
+{
+  "evidence_class": "INERT",
+  "authority": [
+    "art/data/orison_v2/roof_source.json",
+    "game/data/orison_v2_blockout.json:dimensions"
+  ],
+  "parts": [
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_00_00",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        -2.27,
+        22.2,
+        -3.92,
+        1.6,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_00_01",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        -2.27,
+        22.2,
+        0.0,
+        1.6,
+        22.4,
+        3.92
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt0",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        1.6,
+        22.2,
+        -3.92,
+        2.45,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt1",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        3.45,
+        22.2,
+        -3.92,
+        5.470000000000001,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt2",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        2.45,
+        22.2,
+        -3.92,
+        3.45,
+        22.4,
+        -1.9
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt3",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        2.45,
+        22.2,
+        -0.25,
+        3.45,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_01",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        1.6,
+        22.2,
+        0.0,
+        5.470000000000001,
+        22.4,
+        3.92
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_00",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        0.22999999999999998,
+        13.27,
+        22.4,
+        3.576666666666666
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_01",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        3.576666666666666,
+        13.27,
+        22.4,
+        6.923333333333332
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_02",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        6.923333333333332,
+        13.27,
+        22.4,
+        10.27
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "records": {
+    "wall_service_openings": [
+      {"id": "HEAT_BOILER_WEST_INLET_CLEAR", "space": "B1_BOILER_ROOM", "side": "west", "bounds": [9.43, -0.65, -0.65, 9.57, -0.45, -0.45]},
+      {"id": "HEAT_APPROACH_NORTH_INLET_CLEAR", "space": "B1_BOILER_APPROACH", "side": "north", "bounds": [8.575, -0.65, 0.13, 8.775, -0.45, 0.27]}
+    ],
+    "riser_openings": [
+      {"id": "HEAT_STEAM_RECEIVER_CLEAR", "riser": "HEAT_STACK", "bounds": [8.575, -0.65, 0.3, 8.775, -0.45, 0.625]}
+    ]
+  },
+  "sleeves": [
+    {"id": "BoilerWest", "owner": "B1_BOILER_ROOM", "axis": 0, "bounds": [9.43, -0.65, -0.65, 9.57, -0.45, -0.45], "faces": [9.43, 9.57]},
+    {"id": "ApproachNorth", "owner": "B1_BOILER_APPROACH", "axis": 2, "bounds": [8.575, -0.65, 0.13, 8.775, -0.45, 0.27], "faces": [0.13, 0.27]},
+    {"id": "HeatReceiver", "owner": "HEAT_STACK", "axis": 2, "bounds": [8.575, -0.65, 0.3, 8.775, -0.45, 0.38], "faces": [0.3]}
+  ],
+  "sheet_thickness_m": 0.002,
+  "plate_thickness_m": 0.004,
+  "plate_half_width_m": 0.124,
+  "plate_bore_radius_m": 0.085,
+  "fastener_offset_m": 0.109
+}

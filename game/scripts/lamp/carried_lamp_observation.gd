@@ -20,14 +20,18 @@ var range_m := 7.5
 var _previous := 0.0
 
 func observe_player(player: PlayerController, delta: float) -> void:
-	global_transform = player.flashlight.global_transform
-	range_m = player.flashlight.spot_range
-	state.switched_on = player.lamp_is_enabled()
-	state.intensity = player.flashlight.light_energy if state.switched_on else 0.0
-	state.intensity_rate = (state.intensity-_previous)/maxf(delta,.00001)
-	_previous = state.intensity
-	state.color = player.flashlight.light_color
-	state.angle = player.flashlight.spot_angle
+	observe_light(player.flashlight, player.lamp_is_enabled(), delta)
 	if is_instance_valid(player.lamp_presentation):
 		state.stability = float(player.lamp_presentation.output.temporal_stability)
 		state.intensity_rate = player.lamp_presentation.state.intensity_rate * player._lamp_base_energy
+
+func observe_light(light: SpotLight3D, enabled: bool, delta: float) -> void:
+	global_transform = light.global_transform
+	range_m = light.spot_range
+	state.switched_on = enabled
+	state.intensity = light.light_energy if enabled else 0.0
+	state.intensity_rate = (state.intensity-_previous)/maxf(delta,.00001)
+	_previous = state.intensity
+	state.color = light.light_color
+	state.angle = light.spot_angle
+	state.stability = 1.0

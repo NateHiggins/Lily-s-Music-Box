@@ -152,8 +152,6 @@
         {"id":"back_wall_left","size_m":[2.325,3.2,0.16],"position_m":[-1.0375,1.6,-10.56],"yaw_degrees":0,"material_id":"cream_tile","collision":true,"visible":true,"presentation_role":"environment"},
         {"id":"back_wall_right","size_m":[1.025,3.2,0.16],"position_m":[1.6875,1.6,-10.56],"yaw_degrees":0,"material_id":"cream_tile","collision":true,"visible":true,"presentation_role":"environment"},
         {"id":"back_opening_head","size_m":[1.05,0.95,0.16],"position_m":[0.65,2.725,-10.56],"yaw_degrees":0,"material_id":"bodega_enamel","collision":true,"visible":true,"presentation_role":"environment"},
-        {"id":"back_opening_reveal","size_m":[0.93,2.18,0.035],"position_m":[0.65,1.09,-10.66],"yaw_degrees":0,"material_id":"dark_recess","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"back_room_floor_hint","size_m":[0.9,0.04,1.1],"position_m":[0.65,0.005,-10.95],"yaw_degrees":0,"material_id":"terrazzo","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"ceiling_practical_front","size_m":[1.25,0.08,0.2],"position_m":[0,2.94,-2],"yaw_degrees":0,"material_id":"warm_practical","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"ceiling_practical_middle","size_m":[1.25,0.08,0.2],"position_m":[0,2.94,-5.35],"yaw_degrees":0,"material_id":"warm_practical","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"ceiling_practical_back","size_m":[1.25,0.08,0.2],"position_m":[0,2.94,-8.7],"yaw_degrees":0,"material_id":"warm_practical","collision":false,"visible":true,"presentation_role":"environment"},
@@ -212,9 +210,6 @@
         {"id":"delivery_crate_right","size_m":[0.62,0.58,0.58],"position_m":[1.45,0.29,-9.73],"yaw_degrees":0,"material_id":"crate_wood","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"delivery_handcart_base","size_m":[0.58,0.12,0.92],"position_m":[-0.76,0.28,-9.34],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"delivery_handcart_back","size_m":[0.58,1.05,0.08],"position_m":[-0.76,0.75,-9.76],"yaw_degrees":0,"material_id":"iron","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"delivery_recess_glow","size_m":[0.78,1.82,0.025],"position_m":[0.65,1.05,-10.69],"yaw_degrees":0,"material_id":"window_amber","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"back_opening_left_trim","size_m":[0.1,2.25,0.18],"position_m":[0.13,1.12,-10.48],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"},
-        {"id":"back_opening_right_trim","size_m":[0.1,2.25,0.18],"position_m":[1.17,1.12,-10.48],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"front_practical_shade","size_m":[1.45,0.1,0.38],"position_m":[0,2.86,-2],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"middle_practical_shade","size_m":[1.45,0.1,0.38],"position_m":[0,2.86,-5.35],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"},
         {"id":"back_practical_shade","size_m":[1.45,0.1,0.38],"position_m":[0,2.86,-8.7],"yaw_degrees":0,"material_id":"aged_green","collision":false,"visible":true,"presentation_role":"environment"}
@@ -231,10 +226,11 @@
         {"id":"storefront_spill","position_m":[0,2.3,0.85],"color_rgb":[1,0.72,0.42],"energy":1.55,"range_m":5.5,"shadows":true},
         {"id":"counter_practical","position_m":[-1.15,2.1,-2.1],"color_rgb":[1,0.73,0.45],"energy":0.75,"range_m":3.4,"shadows":false},
         {"id":"cooler_practical","position_m":[1.2,1.35,-8.05],"color_rgb":[0.58,0.74,0.72],"energy":0.6,"range_m":2.8,"shadows":false},
-        {"id":"delivery_alcove","position_m":[0.65,2.05,-10.1],"color_rgb":[1,0.61,0.32],"energy":0.78,"range_m":3.2,"shadows":false}
+        {"id":"delivery_alcove","position_m":[0.65,2.64,-11.43],"color_rgb":[1,0.61,0.32],"energy":0.78,"range_m":3.2,"shadows":false}
       ],
       "doors": [
-        {"surface_id":"threshold","offset_uvn_m":[-0.475,0,-0.035],"local_yaw_degrees":0,"width_m":0.95,"height_m":2.1,"leaf_state":"closed","swing_out":false,"door_kind":"storefront","finish_variant":0}
+        {"surface_id":"threshold","offset_uvn_m":[-0.475,0,-0.035],"local_yaw_degrees":0,"width_m":0.95,"height_m":2.1,"leaf_state":"closed","swing_out":false,"door_kind":"storefront","finish_variant":0},
+        {"surface_id":"back_room_threshold","offset_uvn_m":[-0.475,0,0],"local_yaw_degrees":0,"width_m":0.95,"height_m":2.1,"leaf_state":"closed","swing_out":true,"door_kind":"service","finish_variant":1}
       ],
       "functional_props": [
         {"kind":"bodega_signage","surface_id":"threshold","offset_uvn_m":[0,2.62,0.08],"local_yaw_degrees":0,"prop_type":"bodega_signage"}

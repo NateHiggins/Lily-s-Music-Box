@@ -457,6 +457,15 @@ func _light_note(copy: String) -> void:
 
 func _build_go() -> void:
 	var box := _section("GO — teleports", Color(0.75, 0.8, 0.85))
+	if root.has_method("reset_mina_infestation"):
+		_button(box, "Mina infestation — visit", func():
+			if is_instance_valid(root.mina_infestation):
+				_go_to_building_position(root.mina_infestation.stand)
+				root.player.face_world_point(root.mina_infestation.target))
+		var infestation_row := HBoxContainer.new()
+		box.add_child(infestation_row)
+		_button(infestation_row, "Reset infestation", func(): root.reset_mina_infestation())
+		_button(infestation_row, "Clear infestation", func(): root.clear_mina_infestation())
 	var grid := GridContainer.new()
 	grid.columns = 4
 	box.add_child(grid)
@@ -858,9 +867,15 @@ func _build_capture() -> void:
 	_button(box, "Screenshot  (F)", func():
 		if root and root.shots:
 			root.shots.capture())
+	var device_toggle := _button(box, "Hide handheld device  (H)", func():
+		if root and root.shots:
+			root.shots.toggle_device_visibility())
+	device_toggle.tooltip_text = "Hide or restore the device and paper for review; the lamp stays active."
 	box.add_child(status)
 	_shot_status = status
 	if root and root.shots:
+		root.shots.device_visibility_changed.connect(func(hidden: bool):
+			device_toggle.text = ("Show" if hidden else "Hide") + " handheld device  (H)")
 		root.shots.captured.connect(func(stem, aim):
 			status.text = "%s.png · %s" % [stem, aim])
 
@@ -870,7 +885,8 @@ func _build_keys() -> void:
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
 			+ "L / left shoulder: lamp · R / right shoulder: radio\n" \
-			+ "F screenshot · V noclip · F2 intro · F3 distort · F4 chaos\n" \
+			+ "F screenshot · H hide/show device · V noclip\n" \
+			+ "F2 intro · F3 distort · F4 chaos\n" \
 			+ "` (backtick) releases or recaptures the mouse in play\n" \
 			+ "F1 controls + pointer · F1 / Esc return to play\n" \
 			+ "Esc in play: pause · wheel scrolls these controls"
@@ -961,6 +977,13 @@ func _set_menu_open(value: bool) -> void:
 				return
 		Input.mouse_mode = _prior_mouse
 
+
+func defer_mouse_restore(mode: int) -> bool:
+	# A physical inspection can close while F1 still owns the pointer. Its
+	# original mode becomes our eventual return mode; keep controls clickable.
+	if not _owns_pointer: return false
+	_prior_mouse = mode
+	return true
 
 func _exit_tree() -> void:
 	if _ecology_active and is_instance_valid(root) and is_instance_valid(root.warehouse):

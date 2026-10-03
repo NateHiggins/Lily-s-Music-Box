@@ -17,7 +17,7 @@
       "id": "REGION_SHOPS",
       "kind": "shops",
       "lineage_id": "shopfronts",
-      "boundary": [[16.455,-8.495],[20.855,-8.495],[20.855,2.205],[16.455,2.205]]
+      "boundary": [[16.455,-10.575],[20.855,-10.575],[20.855,2.205],[16.455,2.205]]
     }
   ],
   "surface_templates": [
@@ -81,7 +81,7 @@
       "id": "TEMPLATE_BODEGA_CELL_V1",
       "kind": "shop",
       "lineage_id": "shopfronts",
-      "boundary_xz_m": [-2.2,-10.62,2.2,0.08],
+      "boundary_xz_m": [-2.2,-12.70,2.2,0.08],
       "surfaces": [
         {
           "id": "floor",
@@ -113,11 +113,20 @@
         {
           "id": "back_room_threshold",
           "kind": "threshold",
-          "point_m": [0.65,0.0,-7.35],
-          "u_axis": [1.0,0.0,0.0],
+          "point_m": [0.65,0.0,-10.56],
+          "u_axis": [-1.0,0.0,0.0],
           "v_axis": [0.0,1.0,0.0],
           "normal": [0.0,0.0,-1.0],
           "size_m": [1.05,2.25]
+        },
+        {
+          "id": "receiving_floor",
+          "kind": "walkable",
+          "point_m": [0,0,-11.54],
+          "u_axis": [1,0,0],
+          "v_axis": [0,0,1],
+          "normal": [0,1,0],
+          "size_m": [4.4,2.0]
         }
       ],
       "placements": [
@@ -183,6 +192,48 @@
           "surface_id": "floor",
           "offset_uvn_m": [0.25,1.85,0.04],
           "facing_local": [0.0,0.0,-1.0]
+        },
+        {
+          "id": "delivery_aisle_entry",
+          "purpose": "supported receiving route through the existing sales aisle",
+          "surface_id": "floor",
+          "offset_uvn_m": [0,1.27,0.04],
+          "facing_local": [0,0,-1]
+        },
+        {
+          "id": "delivery_aisle_center",
+          "purpose": "supported receiving route through the existing sales aisle",
+          "surface_id": "floor",
+          "offset_uvn_m": [0,-0.55,0.04],
+          "facing_local": [0,0,-1]
+        },
+        {
+          "id": "delivery_aisle_end",
+          "purpose": "supported receiving route through the existing sales aisle",
+          "surface_id": "floor",
+          "offset_uvn_m": [0,-1.93,0.04],
+          "facing_local": [0,0,-1]
+        },
+        {
+          "id": "delivery_turn",
+          "purpose": "turn past the retained cooler toward deliveries",
+          "surface_id": "floor",
+          "offset_uvn_m": [0.5,-4.03,0.04],
+          "facing_local": [0,0,-1]
+        },
+        {
+          "id": "receiving_before",
+          "purpose": "receiving leaf approach from the sales floor",
+          "surface_id": "back_room_threshold",
+          "offset_uvn_m": [0,0.04,-0.8],
+          "facing_local": [0,0,-1]
+        },
+        {
+          "id": "receiving_arrival",
+          "purpose": "supported room arrival and door stance",
+          "surface_id": "receiving_floor",
+          "offset_uvn_m": [0.65,-0.11,0.04],
+          "facing_local": [0,0,1]
         }
       ]
     }
@@ -226,6 +277,17 @@
       "exterior_placement_id": "exterior_stance",
       "interior_placement_id": "interior_arrival",
       "interactive_leaf_id": "SHOP_BODEGA_STOREFRONT_LEAF"
+    },
+    {
+      "id": "THRESHOLD_SHOP_BODEGA_RECEIVING",
+      "shop_id": "SHOP_BODEGA",
+      "region_id": "REGION_SHOPS",
+      "lineage_id": "shopfronts",
+      "owner_instance_id": "SHOP_BODEGA",
+      "owner_surface_id": "back_room_threshold",
+      "exterior_placement_id": "receiving_before",
+      "interior_placement_id": "receiving_arrival",
+      "interactive_leaf_id": "SHOP_BODEGA_RECEIVING_LEAF"
     }
   ],
   "routes": [

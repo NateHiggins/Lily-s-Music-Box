@@ -1,0 +1,440 @@
+{
+  "evidence_class": "INERT",
+  "status": "animation commissioning brief",
+  "resident": "mina_vale",
+  "source_art": "mina_vale_apose_front_v2.png",
+  "animations": [
+    {
+      "id": "mina_idle_calm",
+      "group": "Presence and movement",
+      "description": "Stands precisely, breathing softly with her hands at rest.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_idle_listening",
+      "group": "Presence and movement",
+      "description": "Holds still and makes small eye movements while listening.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_idle_tired",
+      "group": "Presence and movement",
+      "description": "Shifts her weight and lets her shoulders sag briefly.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_idle_released",
+      "group": "Presence and movement",
+      "description": "Stands with relaxed shoulders and unguarded hands.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_walk",
+      "group": "Presence and movement",
+      "description": "Walks with measured steps, a level head and restrained arm swing.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_walk_hurried",
+      "group": "Presence and movement",
+      "description": "Takes quick, short steps while trying to remain composed.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_walk_start",
+      "group": "Presence and movement",
+      "description": "Shifts forward and takes the first deliberate walking step.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_walk_stop",
+      "group": "Presence and movement",
+      "description": "Shortens her final step and settles neatly into stillness.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_turn_left",
+      "group": "Presence and movement",
+      "description": "Turns ninety degrees left using two small planted steps.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_turn_right",
+      "group": "Presence and movement",
+      "description": "Turns ninety degrees right using two small planted steps.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_step_back",
+      "group": "Presence and movement",
+      "description": "Takes one cautious backward step without looking away.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_sidestep_left",
+      "group": "Presence and movement",
+      "description": "Moves one step left to give someone room.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_sidestep_right",
+      "group": "Presence and movement",
+      "description": "Moves one step right to give someone room.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_stairs_up",
+      "group": "Presence and movement",
+      "description": "Climbs stairs carefully, lifting her shoes clear of each tread.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_stairs_down",
+      "group": "Presence and movement",
+      "description": "Descends stairs with controlled steps and a slight downward glance.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_lift_wait",
+      "group": "Presence and movement",
+      "description": "Waits beside a lift, checks the indicator and settles again.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_lift_enter",
+      "group": "Presence and movement",
+      "description": "Steps across the lift threshold and turns to face the doors.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_lift_exit",
+      "group": "Presence and movement",
+      "description": "Leaves the lift and pauses to choose her direction.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_unlock",
+      "group": "Doors and arrivals",
+      "description": "Places her key in the lock, turns it and withdraws it.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_push_open",
+      "group": "Doors and arrivals",
+      "description": "Presses the door open and follows it through.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_pull_open",
+      "group": "Doors and arrivals",
+      "description": "Pulls the door toward herself and steps clear of its swing.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_hold",
+      "group": "Doors and arrivals",
+      "description": "Holds an open door while watching for the other person.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_door_close",
+      "group": "Doors and arrivals",
+      "description": "Draws the door shut and checks that the latch catches.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_lock",
+      "group": "Doors and arrivals",
+      "description": "Turns the key in a closed door and tests the handle.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_door_knock",
+      "group": "Doors and arrivals",
+      "description": "Knocks twice, lowers her hand and waits.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_threshold_greeting",
+      "group": "Doors and arrivals",
+      "description": "Opens her posture slightly to acknowledge a visitor.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_listen_attentive",
+      "group": "Conversation",
+      "description": "Looks at the speaker, tilting her head very slightly.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_listen_skeptical",
+      "group": "Conversation",
+      "description": "Narrows her eyes and holds a thought before answering.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_talk_measured",
+      "group": "Conversation",
+      "description": "Speaks with small, controlled hand movements and steady eye contact.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_talk_insistent",
+      "group": "Conversation",
+      "description": "Leans forward slightly and underlines a point with one hand.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_agree",
+      "group": "Conversation",
+      "description": "Gives one small, considered nod.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_disagree",
+      "group": "Conversation",
+      "description": "Shakes her head once and returns to direct eye contact.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_explain",
+      "group": "Conversation",
+      "description": "Separates an idea into two careful, open-handed gestures.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_correct_record",
+      "group": "Conversation",
+      "description": "Raises one finger, corrects a detail and lowers it.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_deflect_question",
+      "group": "Conversation",
+      "description": "Looks aside briefly and closes her hands to end the subject.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_warm_smile",
+      "group": "Conversation",
+      "description": "Lets a small, reluctant smile reach her eyes before it fades.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_glance_room",
+      "group": "Mina's habits",
+      "description": "Checks the edge of the room and quickly looks back.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_adjust_spectacles",
+      "group": "Mina's habits",
+      "description": "Nudges her spectacles into exact alignment.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_check_pencil",
+      "group": "Mina's habits",
+      "description": "Touches the pencil behind her ear to confirm it is there.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_straighten_cuff",
+      "group": "Mina's habits",
+      "description": "Pulls one cuff straight and smooths its repaired seam.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_annotate_air",
+      "group": "Mina's habits",
+      "description": "Traces a short invisible caption with two precise finger movements.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_suppress_annotation",
+      "group": "Mina's habits",
+      "description": "Begins to caption something, catches herself and lowers her hand.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_four_seconds_blank",
+      "group": "Mina's habits",
+      "description": "Remains motionless for four seconds, fighting the urge to fill the silence.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_release_breath",
+      "group": "Mina's habits",
+      "description": "Breathes out slowly and lets her shoulders soften.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_sit_down",
+      "group": "Desk and paper",
+      "description": "Checks the chair, sits carefully and arranges her skirt.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_seated_idle",
+      "group": "Desk and paper",
+      "description": "Sits upright with small breathing and eye movements.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_write_caption",
+      "group": "Desk and paper",
+      "description": "Writes a short line, pauses and resumes with precise pencil strokes.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_proofread",
+      "group": "Desk and paper",
+      "description": "Reads across a page while tracking a line with one finger.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_turn_page",
+      "group": "Desk and paper",
+      "description": "Lifts a page corner and turns it without disturbing the stack.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_erase_note",
+      "group": "Desk and paper",
+      "description": "Erases a small passage and brushes the crumbs aside.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_square_papers",
+      "group": "Desk and paper",
+      "description": "Taps a stack of papers into a perfectly aligned rectangle.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_stand_up",
+      "group": "Desk and paper",
+      "description": "Pushes away from the desk and rises without hurrying.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_pick_up_low",
+      "group": "Daily life",
+      "description": "Bends through the hips and knees to lift a small low object.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_put_down_low",
+      "group": "Daily life",
+      "description": "Lowers an object carefully and releases it before straightening.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_carry_laundry_walk",
+      "group": "Daily life",
+      "description": "Walks holding a laundry basket close to her body.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_fold_garment",
+      "group": "Daily life",
+      "description": "Flattens a garment and folds its edges into a neat rectangle.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_read_letter",
+      "group": "Daily life",
+      "description": "Unfolds a letter, reads it and holds it a moment longer.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_remove_hat",
+      "group": "Daily life",
+      "description": "Lifts off her hat and lowers it carefully to her side.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_put_on_hat",
+      "group": "Daily life",
+      "description": "Places her hat on her head and levels the brim.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_lie_down",
+      "group": "Daily life",
+      "description": "Sits on the bed, turns and lowers herself onto the pillow.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_strained",
+      "group": "Case performance and vulnerability",
+      "description": "Starts to answer, tightens her hands and loses the sentence.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_recognition",
+      "group": "Case performance and vulnerability",
+      "description": "Becomes still as a new understanding reaches her face.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_accept_silence",
+      "group": "Case performance and vulnerability",
+      "description": "Meets the other person's eyes and allows the pause to remain blank.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_quiet_thanks",
+      "group": "Case performance and vulnerability",
+      "description": "Offers a small nod and an open hand, without a practiced speech.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_pace_anxious",
+      "group": "Case performance and vulnerability",
+      "description": "Takes three quick steps, checks herself and turns back.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_startle",
+      "group": "Case performance and vulnerability",
+      "description": "Flinches once and searches for the source of the interruption.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_defensive_recoil",
+      "group": "Case performance and vulnerability",
+      "description": "Draws back slightly and protects the papers against her body.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_words_fail",
+      "group": "Case performance and vulnerability",
+      "description": "Parts her lips to speak, stops and looks for another beginning.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_contained_tears",
+      "group": "Case performance and vulnerability",
+      "description": "Keeps facing the listener while blinking back tears.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_recover_composure",
+      "group": "Case performance and vulnerability",
+      "description": "Swallows, straightens a cuff and steadies her breathing.",
+      "playback": "once"
+    },
+    {
+      "id": "mina_sleep",
+      "group": "Case performance and vulnerability",
+      "description": "Sleeps with slow breathing and occasional small natural movements.",
+      "playback": "loop"
+    },
+    {
+      "id": "mina_wake_and_rise",
+      "group": "Case performance and vulnerability",
+      "description": "Wakes, gathers herself and swings her feet to the floor.",
+      "playback": "once"
+    }
+  ]
+}

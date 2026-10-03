@@ -349,6 +349,15 @@ def bake_sources(target):
 
 
 def main():
+    # Mina's owner replaced the donor bake with a finite supplied FBX batch.
+    # Keep this historical command safe: never restore the retired 48 clips.
+    if SLUG == "mina_vale":
+        with open(MAPPING, encoding="utf-8") as fh:
+            mina_source = json.load(fh)["residents"][SLUG]["source"]
+        if mina_source == "Meshy_AI_Gray_Resolve_biped":
+            import runpy
+            runpy.run_path(os.path.join(ROOT, "art", "blender", "scripts", "ingest_mina_resolve.py"), run_name="__main__")
+            return
     bpy.ops.wm.read_factory_settings(use_empty=True)
     target_objects = import_scene(TARGET)
     target = armature_of(target_objects)

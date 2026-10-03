@@ -1,0 +1,1794 @@
+{
+  "source_native_sha256": "786fcac6a66f72e2b98650b6d3e7344dd30d6c41f2fc923d50c70b82de4820ba",
+  "evidence_class": "INERT",
+  "source_plan": {
+    "evidence_class": "INERT",
+    "method": "Source-derived repeated upper-core wall transfers and a fitted C west toe ledger against its actual retained inner partition. Construction contacts only; joint capacity, remaining upper supports, exterior grade, weather closure and whole-shell readiness remain open.",
+    "beams": [
+      {
+        "id": "F03_CoreWest",
+        "rect": [
+          -2.55,
+          0.8999999728798866,
+          -2.200000047683716,
+          3.5499999555945396
+        ],
+        "top": 6.2,
+        "low": 5.9,
+        "axis": 2
+      },
+      {
+        "id": "F05_CoreWest",
+        "rect": [
+          -2.55,
+          0.8999999728798866,
+          -2.200000047683716,
+          3.5499999555945396
+        ],
+        "top": 12.600000000000001,
+        "low": 12.3,
+        "axis": 2
+      }
+    ],
+    "seats": [
+      {
+        "id": "F03_CoreWest_south",
+        "source": "F02_WEST_HALL_north_ConstructionBound",
+        "face_axis": 2,
+        "face": 0.8799999728798866,
+        "normal": [
+          0,
+          0,
+          1
+        ],
+        "center": [
+          -2.375000023841858,
+          5.800000000000001,
+          0.8799999728798866
+        ],
+        "rect": [
+          -2.55,
+          5.6000000000000005,
+          -2.200000047683716,
+          6.165
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north",
+        "source": "F02_C_STUDIO_south_ConstructionBound",
+        "face_axis": 2,
+        "face": 3.5699999555945396,
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "center": [
+          -2.375000023841858,
+          5.800000000000001,
+          3.5699999555945396
+        ],
+        "rect": [
+          -2.55,
+          5.6000000000000005,
+          -2.200000047683716,
+          6.165
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south",
+        "source": "F04_WEST_HALL_north_ConstructionBound",
+        "face_axis": 2,
+        "face": 0.8799999728798866,
+        "normal": [
+          0,
+          0,
+          1
+        ],
+        "center": [
+          -2.375000023841858,
+          12.200000000000001,
+          0.8799999728798866
+        ],
+        "rect": [
+          -2.55,
+          12.0,
+          -2.200000047683716,
+          12.565000000000001
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north",
+        "source": "F04_C_STUDIO_south_ConstructionBound",
+        "face_axis": 2,
+        "face": 3.5699999555945396,
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "center": [
+          -2.375000023841858,
+          12.200000000000001,
+          3.5699999555945396
+        ],
+        "rect": [
+          -2.55,
+          12.0,
+          -2.200000047683716,
+          12.565000000000001
+        ]
+      },
+      {
+        "id": "CWestToe",
+        "source": "F04_C_MAIN/WallWest",
+        "face_axis": 0,
+        "face": -5.67,
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "center": [
+          -5.67,
+          12.450000000000001,
+          7.29999988079071
+        ],
+        "rect": [
+          12.3,
+          6.35,
+          12.580000000000002,
+          8.249999761581421
+        ]
+      }
+    ],
+    "components": [
+      {
+        "id": "F03_CoreWest_Upper",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          6.17,
+          0.9,
+          -2.2,
+          6.2,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_Lower",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          5.9,
+          0.9,
+          -2.2,
+          5.93,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_Web",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.383,
+          5.93,
+          0.9,
+          -2.367,
+          6.17,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_WallPlate",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          5.6,
+          0.88,
+          -2.2,
+          6.165,
+          0.9
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Seat",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          5.88,
+          0.88,
+          -2.2,
+          5.9,
+          1.18
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Rib0",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.509,
+            5.635000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.509,
+            5.882000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.509,
+            5.882000000000001,
+            1.1549999728798865
+          ],
+          [
+            -2.501,
+            5.635000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.501,
+            5.882000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.501,
+            5.882000000000001,
+            1.1549999728798865
+          ]
+        ],
+        "bounds": [
+          -2.509,
+          5.635,
+          0.898,
+          -2.501,
+          5.882,
+          1.155
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Rib1",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.249,
+            5.635000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.249,
+            5.882000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.249,
+            5.882000000000001,
+            1.1549999728798865
+          ],
+          [
+            -2.241,
+            5.635000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.241,
+            5.882000000000001,
+            0.8979999728798866
+          ],
+          [
+            -2.241,
+            5.882000000000001,
+            1.1549999728798865
+          ]
+        ],
+        "bounds": [
+          -2.249,
+          5.635,
+          0.898,
+          -2.241,
+          5.882,
+          1.155
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          5.6475,
+          0.9,
+          -2.5175,
+          5.6725,
+          0.903
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          5.651,
+          0.903,
+          -2.521,
+          5.669,
+          0.915
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          6.0875,
+          0.9,
+          -2.5175,
+          6.1125,
+          0.903
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          6.091,
+          0.903,
+          -2.521,
+          6.109,
+          0.915
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          5.6475,
+          0.9,
+          -2.2075,
+          5.6725,
+          0.903
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          5.651,
+          0.903,
+          -2.211,
+          5.669,
+          0.915
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          6.0875,
+          0.9,
+          -2.2075,
+          6.1125,
+          0.903
+        ]
+      },
+      {
+        "id": "F03_CoreWest_south_Anchor3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          6.091,
+          0.903,
+          -2.211,
+          6.109,
+          0.915
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_WallPlate",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          5.6,
+          3.55,
+          -2.2,
+          6.165,
+          3.57
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Seat",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          5.88,
+          3.27,
+          -2.2,
+          5.9,
+          3.57
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Rib0",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.509,
+            5.635000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.509,
+            5.882000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.509,
+            5.882000000000001,
+            3.2949999555945397
+          ],
+          [
+            -2.501,
+            5.635000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.501,
+            5.882000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.501,
+            5.882000000000001,
+            3.2949999555945397
+          ]
+        ],
+        "bounds": [
+          -2.509,
+          5.635,
+          3.295,
+          -2.501,
+          5.882,
+          3.552
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Rib1",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.249,
+            5.635000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.249,
+            5.882000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.249,
+            5.882000000000001,
+            3.2949999555945397
+          ],
+          [
+            -2.241,
+            5.635000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.241,
+            5.882000000000001,
+            3.55199995559454
+          ],
+          [
+            -2.241,
+            5.882000000000001,
+            3.2949999555945397
+          ]
+        ],
+        "bounds": [
+          -2.249,
+          5.635,
+          3.295,
+          -2.241,
+          5.882,
+          3.552
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          5.6475,
+          3.547,
+          -2.5175,
+          5.6725,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          5.651,
+          3.535,
+          -2.521,
+          5.669,
+          3.547
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          6.0875,
+          3.547,
+          -2.5175,
+          6.1125,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          6.091,
+          3.535,
+          -2.521,
+          6.109,
+          3.547
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          5.6475,
+          3.547,
+          -2.2075,
+          5.6725,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          5.651,
+          3.535,
+          -2.211,
+          5.669,
+          3.547
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          6.0875,
+          3.547,
+          -2.2075,
+          6.1125,
+          3.55
+        ]
+      },
+      {
+        "id": "F03_CoreWest_north_Anchor3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          6.091,
+          3.535,
+          -2.211,
+          6.109,
+          3.547
+        ]
+      },
+      {
+        "id": "F05_CoreWest_Upper",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.57,
+          0.9,
+          -2.2,
+          12.6,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_Lower",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.3,
+          0.9,
+          -2.2,
+          12.33,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_Web",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.383,
+          12.33,
+          0.9,
+          -2.367,
+          12.57,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_WallPlate",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.0,
+          0.88,
+          -2.2,
+          12.565,
+          0.9
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Seat",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.28,
+          0.88,
+          -2.2,
+          12.3,
+          1.18
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Rib0",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.509,
+            12.035,
+            0.8979999728798866
+          ],
+          [
+            -2.509,
+            12.282,
+            0.8979999728798866
+          ],
+          [
+            -2.509,
+            12.282,
+            1.1549999728798865
+          ],
+          [
+            -2.501,
+            12.035,
+            0.8979999728798866
+          ],
+          [
+            -2.501,
+            12.282,
+            0.8979999728798866
+          ],
+          [
+            -2.501,
+            12.282,
+            1.1549999728798865
+          ]
+        ],
+        "bounds": [
+          -2.509,
+          12.035,
+          0.898,
+          -2.501,
+          12.282,
+          1.155
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Rib1",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.249,
+            12.035,
+            0.8979999728798866
+          ],
+          [
+            -2.249,
+            12.282,
+            0.8979999728798866
+          ],
+          [
+            -2.249,
+            12.282,
+            1.1549999728798865
+          ],
+          [
+            -2.241,
+            12.035,
+            0.8979999728798866
+          ],
+          [
+            -2.241,
+            12.282,
+            0.8979999728798866
+          ],
+          [
+            -2.241,
+            12.282,
+            1.1549999728798865
+          ]
+        ],
+        "bounds": [
+          -2.249,
+          12.035,
+          0.898,
+          -2.241,
+          12.282,
+          1.155
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          12.0475,
+          0.9,
+          -2.5175,
+          12.0725,
+          0.903
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          12.051,
+          0.903,
+          -2.521,
+          12.069,
+          0.915
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          12.4875,
+          0.9,
+          -2.5175,
+          12.5125,
+          0.903
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          12.491,
+          0.903,
+          -2.521,
+          12.509,
+          0.915
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          12.0475,
+          0.9,
+          -2.2075,
+          12.0725,
+          0.903
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          12.051,
+          0.903,
+          -2.211,
+          12.069,
+          0.915
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          12.4875,
+          0.9,
+          -2.2075,
+          12.5125,
+          0.903
+        ]
+      },
+      {
+        "id": "F05_CoreWest_south_Anchor3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          12.491,
+          0.903,
+          -2.211,
+          12.509,
+          0.915
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_WallPlate",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.0,
+          3.55,
+          -2.2,
+          12.565,
+          3.57
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Seat",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.55,
+          12.28,
+          3.27,
+          -2.2,
+          12.3,
+          3.57
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Rib0",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.509,
+            12.035,
+            3.55199995559454
+          ],
+          [
+            -2.509,
+            12.282,
+            3.55199995559454
+          ],
+          [
+            -2.509,
+            12.282,
+            3.2949999555945397
+          ],
+          [
+            -2.501,
+            12.035,
+            3.55199995559454
+          ],
+          [
+            -2.501,
+            12.282,
+            3.55199995559454
+          ],
+          [
+            -2.501,
+            12.282,
+            3.2949999555945397
+          ]
+        ],
+        "bounds": [
+          -2.509,
+          12.035,
+          3.295,
+          -2.501,
+          12.282,
+          3.552
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Rib1",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -2.249,
+            12.035,
+            3.55199995559454
+          ],
+          [
+            -2.249,
+            12.282,
+            3.55199995559454
+          ],
+          [
+            -2.249,
+            12.282,
+            3.2949999555945397
+          ],
+          [
+            -2.241,
+            12.035,
+            3.55199995559454
+          ],
+          [
+            -2.241,
+            12.282,
+            3.55199995559454
+          ],
+          [
+            -2.241,
+            12.282,
+            3.2949999555945397
+          ]
+        ],
+        "bounds": [
+          -2.249,
+          12.035,
+          3.295,
+          -2.241,
+          12.282,
+          3.552
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          12.0475,
+          3.547,
+          -2.5175,
+          12.0725,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          12.051,
+          3.535,
+          -2.521,
+          12.069,
+          3.547
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.5425,
+          12.4875,
+          3.547,
+          -2.5175,
+          12.5125,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.539,
+          12.491,
+          3.535,
+          -2.521,
+          12.509,
+          3.547
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          12.0475,
+          3.547,
+          -2.2075,
+          12.0725,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          12.051,
+          3.535,
+          -2.211,
+          12.069,
+          3.547
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.2325,
+          12.4875,
+          3.547,
+          -2.2075,
+          12.5125,
+          3.55
+        ]
+      },
+      {
+        "id": "F05_CoreWest_north_Anchor3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -2.229,
+          12.491,
+          3.535,
+          -2.211,
+          12.509,
+          3.547
+        ]
+      },
+      {
+        "id": "CWestToe_Seat",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.88,
+          12.58,
+          6.35,
+          -5.67,
+          12.6,
+          8.25
+        ]
+      },
+      {
+        "id": "CWestToe_WallPlate",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.69,
+          12.3,
+          6.35,
+          -5.67,
+          12.58,
+          8.25
+        ]
+      },
+      {
+        "id": "CWestToe_Rib0",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -5.688,
+            12.315000000000001,
+            6.466
+          ],
+          [
+            -5.688,
+            12.582,
+            6.466
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            6.466
+          ],
+          [
+            -5.688,
+            12.315000000000001,
+            6.473999999999999
+          ],
+          [
+            -5.688,
+            12.582,
+            6.473999999999999
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            6.473999999999999
+          ]
+        ],
+        "bounds": [
+          -5.875,
+          12.315,
+          6.466,
+          -5.688,
+          12.582,
+          6.474
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          6.4375,
+          -5.69,
+          12.3725,
+          6.4625
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          6.441,
+          -5.693,
+          12.369,
+          6.459
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          6.4775,
+          -5.69,
+          12.3725,
+          6.5025
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          6.481,
+          -5.693,
+          12.369,
+          6.499
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          6.4375,
+          -5.69,
+          12.5325,
+          6.4625
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          6.441,
+          -5.693,
+          12.529,
+          6.459
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          6.4775,
+          -5.69,
+          12.5325,
+          6.5025
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor0_3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          6.481,
+          -5.693,
+          12.529,
+          6.499
+        ]
+      },
+      {
+        "id": "CWestToe_Rib1",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -5.688,
+            12.315000000000001,
+            7.019333253860474
+          ],
+          [
+            -5.688,
+            12.582,
+            7.019333253860474
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            7.019333253860474
+          ],
+          [
+            -5.688,
+            12.315000000000001,
+            7.027333253860473
+          ],
+          [
+            -5.688,
+            12.582,
+            7.027333253860473
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            7.027333253860473
+          ]
+        ],
+        "bounds": [
+          -5.875,
+          12.315,
+          7.01933,
+          -5.688,
+          12.582,
+          7.02733
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          6.99083,
+          -5.69,
+          12.3725,
+          7.01583
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          6.99433,
+          -5.693,
+          12.369,
+          7.01233
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          7.03083,
+          -5.69,
+          12.3725,
+          7.05583
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          7.03433,
+          -5.693,
+          12.369,
+          7.05233
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          6.99083,
+          -5.69,
+          12.5325,
+          7.01583
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          6.99433,
+          -5.693,
+          12.529,
+          7.01233
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          7.03083,
+          -5.69,
+          12.5325,
+          7.05583
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor1_3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          7.03433,
+          -5.693,
+          12.529,
+          7.05233
+        ]
+      },
+      {
+        "id": "CWestToe_Rib2",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -5.688,
+            12.315000000000001,
+            7.572666507720948
+          ],
+          [
+            -5.688,
+            12.582,
+            7.572666507720948
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            7.572666507720948
+          ],
+          [
+            -5.688,
+            12.315000000000001,
+            7.580666507720947
+          ],
+          [
+            -5.688,
+            12.582,
+            7.580666507720947
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            7.580666507720947
+          ]
+        ],
+        "bounds": [
+          -5.875,
+          12.315,
+          7.57267,
+          -5.688,
+          12.582,
+          7.58067
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          7.54417,
+          -5.69,
+          12.3725,
+          7.56917
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          7.54767,
+          -5.693,
+          12.369,
+          7.56567
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          7.58417,
+          -5.69,
+          12.3725,
+          7.60917
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          7.58767,
+          -5.693,
+          12.369,
+          7.60567
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          7.54417,
+          -5.69,
+          12.5325,
+          7.56917
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          7.54767,
+          -5.693,
+          12.529,
+          7.56567
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          7.58417,
+          -5.69,
+          12.5325,
+          7.60917
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor2_3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          7.58767,
+          -5.693,
+          12.529,
+          7.60567
+        ]
+      },
+      {
+        "id": "CWestToe_Rib3",
+        "family": "Steel",
+        "type": "triangular_prism",
+        "vertices": [
+          [
+            -5.688,
+            12.315000000000001,
+            8.125999761581422
+          ],
+          [
+            -5.688,
+            12.582,
+            8.125999761581422
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            8.125999761581422
+          ],
+          [
+            -5.688,
+            12.315000000000001,
+            8.133999761581421
+          ],
+          [
+            -5.688,
+            12.582,
+            8.133999761581421
+          ],
+          [
+            -5.875000092089176,
+            12.582,
+            8.133999761581421
+          ]
+        ],
+        "bounds": [
+          -5.875,
+          12.315,
+          8.126,
+          -5.688,
+          12.582,
+          8.134
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_0_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          8.0975,
+          -5.69,
+          12.3725,
+          8.1225
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_0_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          8.101,
+          -5.693,
+          12.369,
+          8.119
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_1_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.3475,
+          8.1375,
+          -5.69,
+          12.3725,
+          8.1625
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_1_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.351,
+          8.141,
+          -5.693,
+          12.369,
+          8.159
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_2_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          8.0975,
+          -5.69,
+          12.5325,
+          8.1225
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_2_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          8.101,
+          -5.693,
+          12.529,
+          8.119
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_3_Washer",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.693,
+          12.5075,
+          8.1375,
+          -5.69,
+          12.5325,
+          8.1625
+        ]
+      },
+      {
+        "id": "CWestToe_Anchor3_3_Head",
+        "family": "Steel",
+        "type": "box",
+        "bounds": [
+          -5.705,
+          12.511,
+          8.141,
+          -5.693,
+          12.529,
+          8.159
+        ]
+      }
+    ],
+    "source_layout_sha256_lf": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4"
+  },
+  "parts": [
+    {
+      "id": "Steel_N2_P3_P1",
+      "family": "Steel",
+      "bounds": [
+        -5.880000114440918,
+        12.300000190734863,
+        6.349999904632568,
+        -5.670000076293945,
+        12.600000381469727,
+        8.0
+      ],
+      "native_triangles": 1683,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N2_P3_P2",
+      "family": "Steel",
+      "bounds": [
+        -5.880000114440918,
+        12.300000190734863,
+        8.0,
+        -5.670000076293945,
+        12.600000381469727,
+        8.25
+      ],
+      "native_triangles": 603,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N1_P1_P0",
+      "family": "Steel",
+      "bounds": [
+        -2.549999952316284,
+        5.599999904632568,
+        0.8799999952316284,
+        -2.200000047683716,
+        6.199999809265137,
+        3.569999933242798
+      ],
+      "native_triangles": 1400,
+      "internal_caps": false
+    },
+    {
+      "id": "Steel_N1_P3_P0",
+      "family": "Steel",
+      "bounds": [
+        -2.549999952316284,
+        12.0,
+        0.8799999952316284,
+        -2.200000047683716,
+        12.600000381469727,
+        3.569999933242798
+      ],
+      "native_triangles": 1430,
+      "internal_caps": false
+    }
+  ],
+  "grid_union_quads": 4628,
+  "native_triangles": 5116,
+  "native_area_before_clip_m2": 14.79574403196719,
+  "native_area_after_clip_m2": 14.79574403196719,
+  "native_area_after_partition_cleanup_m2": 14.795744034165834,
+  "source_layout_sha256_lf": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4",
+  "source_masonry_sha256": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41"
+}

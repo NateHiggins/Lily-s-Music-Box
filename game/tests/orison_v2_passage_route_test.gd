@@ -13,7 +13,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders
 			and not world.shop_service.stock_record("carbon_transmitter_capsule").is_empty(),
 			"hardware stock uses initialized shared authorities"): return
-	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
+	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
 	var outward := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),
@@ -36,8 +36,8 @@ func _route() -> void:
 	await get_tree().create_timer(0.6).timeout
 	if not _require(door.open, "hardware door opens through ordinary input"): return
 	if not await _walk_world(Vector3(10.8, 0, door_center.z)): return
-	# The inward leaf occupies the narrow customer aisle while open. Step
-	# beyond its sweep and close it using the real panel before turning north.
+	# Step through the source opening and close the leaf using its real
+	# panel before turning north along the fitted customer counter aisle.
 	if not await _walk_world(Vector3(9.7, 0, door_center.z)): return
 	if not await _use(door, door._body.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door_close"): return
 	await get_tree().create_timer(0.6).timeout
@@ -68,7 +68,7 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(2.3, 0, -6.5)]:
+	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
 		if not await _walk(point): return
 	_require(var_to_bytes(RealityState.data.maintenance_items) == saved_items,
 			"return indoors retains the physically acquired part")

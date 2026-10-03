@@ -23,7 +23,7 @@ func _route() -> void:
 	var stance: Vector3 = world.adapter.root.to_local(clock.global_position)
 	stance.y = 0
 	stance.z -= 1.1
-	for point in [Vector3(2.3,0,-6.5),Vector3(0,0,-6.5),Vector3(stance.x,0,-6.5)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-6.5),Vector3(stance.x,0,-6.5)]:
 		if not await _walk(point): return
 	if not await _walk(stance): return
 	if not await _use(clock,clock.global_position+Vector3.UP*.2,"earned_second_visit_clock"): return
@@ -34,7 +34,7 @@ func _route() -> void:
 	_require(world.mina_gameplay.letter.enabled,"second visit leaves Mina's physical letter")
 	# Return through the same lobby/core portal. A diagonal from the watch
 	# clock to the stair crosses the solid wall between the two openings.
-	for point in [Vector3(stance.x,0,-6.5),Vector3(2.3,0,-6.5),Vector3(2.3,0,-3.5)]:
+	for point in [Vector3(stance.x,0,-6.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	if not await _enter_2a(): return
 	if not await _walk(Vector3(-10.5,3.2,2.5)): return

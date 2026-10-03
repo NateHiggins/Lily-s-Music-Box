@@ -1,0 +1,421 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "opening": {
+    "id": "ROOF_PUBLIC_COURT_SKYLIGHT",
+    "space": "ROOF_PUBLIC_CORE",
+    "surface": "Ceiling",
+    "rect": [
+      2.45,
+      -1.9,
+      3.45,
+      -0.25
+    ]
+  },
+  "caps": [
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_00_00",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        -2.27,
+        22.2,
+        -3.92,
+        1.6,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_00_01",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        -2.27,
+        22.2,
+        0.0,
+        1.6,
+        22.4,
+        3.92
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt0",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        1.6,
+        22.2,
+        -3.92,
+        2.45,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt1",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        3.45,
+        22.2,
+        -3.92,
+        5.470000000000001,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt2",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        2.45,
+        22.2,
+        -3.92,
+        3.45,
+        22.4,
+        -1.9
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_00_AroundCourt3",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        2.45,
+        22.2,
+        -0.25,
+        3.45,
+        22.4,
+        0.0
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_PUBLIC_CORE_Cap_01_01",
+      "space": "ROOF_PUBLIC_CORE",
+      "bounds": [
+        1.6,
+        22.2,
+        0.0,
+        5.470000000000001,
+        22.4,
+        3.92
+      ],
+      "original_underside": [
+        -2.2,
+        -3.85,
+        5.4,
+        3.85
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_00",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        0.22999999999999998,
+        13.27,
+        22.4,
+        3.576666666666666
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_01",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        3.576666666666666,
+        13.27,
+        22.4,
+        6.923333333333332
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    },
+    {
+      "id": "ROOF_SERVICE_CORE_Cap_00_02",
+      "space": "ROOF_SERVICE_CORE",
+      "bounds": [
+        9.43,
+        22.2,
+        6.923333333333332,
+        13.27,
+        22.4,
+        10.27
+      ],
+      "original_underside": [
+        9.5,
+        0.3,
+        13.2,
+        10.2
+      ],
+      "internal_caps": false
+    }
+  ],
+  "curbs": [
+    {
+      "id": "CourtSkylightCurb_South",
+      "rect": [
+        2.37,
+        -1.98,
+        3.53,
+        -1.9
+      ],
+      "seat_y": 22.4,
+      "top": 22.68
+    },
+    {
+      "id": "CourtSkylightCurb_North",
+      "rect": [
+        2.37,
+        -0.25,
+        3.53,
+        -0.17
+      ],
+      "seat_y": 22.4,
+      "top": 22.68
+    },
+    {
+      "id": "CourtSkylightCurb_West",
+      "rect": [
+        2.37,
+        -1.9,
+        2.45,
+        -0.25
+      ],
+      "seat_y": 22.4,
+      "top": 22.68
+    },
+    {
+      "id": "CourtSkylightCurb_East",
+      "rect": [
+        3.45,
+        -1.9,
+        3.53,
+        -0.25
+      ],
+      "seat_y": 22.4,
+      "top": 22.68
+    }
+  ],
+  "curb_caps": [
+    {
+      "id": "CourtSkylightCurbCap_South",
+      "rect": [
+        2.3600000000000003,
+        -1.99,
+        3.5399999999999996,
+        -1.9
+      ],
+      "seat_y": 22.68,
+      "top": 22.7
+    },
+    {
+      "id": "CourtSkylightCurbCap_North",
+      "rect": [
+        2.3600000000000003,
+        -0.25,
+        3.5399999999999996,
+        -0.16
+      ],
+      "seat_y": 22.68,
+      "top": 22.7
+    },
+    {
+      "id": "CourtSkylightCurbCap_West",
+      "rect": [
+        2.3600000000000003,
+        -1.9,
+        2.45,
+        -0.25
+      ],
+      "seat_y": 22.68,
+      "top": 22.7
+    },
+    {
+      "id": "CourtSkylightCurbCap_East",
+      "rect": [
+        3.45,
+        -1.9,
+        3.5399999999999996,
+        -0.25
+      ],
+      "seat_y": 22.68,
+      "top": 22.7
+    }
+  ],
+  "grooves": [
+    [
+      "South",
+      [
+        2.35,
+        -1.9812,
+        3.55,
+        -1.9776
+      ]
+    ],
+    [
+      "North",
+      [
+        2.35,
+        -0.17240000000000003,
+        3.55,
+        -0.1688
+      ]
+    ],
+    [
+      "West",
+      [
+        2.3688000000000002,
+        -2.0,
+        2.3724000000000003,
+        -0.15000000000000002
+      ]
+    ],
+    [
+      "East",
+      [
+        3.5275999999999996,
+        -2.0,
+        3.5311999999999997,
+        -0.15000000000000002
+      ]
+    ]
+  ],
+  "panes": [
+    {
+      "id": "CourtSkylightGlass_West0",
+      "side": "West",
+      "thickness": 0.006,
+      "rect": [
+        2.425,
+        -1.928,
+        2.939,
+        -1.3753333333333333
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    },
+    {
+      "id": "CourtSkylightGlass_West1",
+      "side": "West",
+      "thickness": 0.006,
+      "rect": [
+        2.425,
+        -1.3513333333333333,
+        2.939,
+        -0.7986666666666666
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    },
+    {
+      "id": "CourtSkylightGlass_West2",
+      "side": "West",
+      "thickness": 0.006,
+      "rect": [
+        2.425,
+        -0.7746666666666666,
+        2.939,
+        -0.222
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    },
+    {
+      "id": "CourtSkylightGlass_East0",
+      "side": "East",
+      "thickness": 0.006,
+      "rect": [
+        2.961,
+        -1.928,
+        3.475,
+        -1.3753333333333333
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    },
+    {
+      "id": "CourtSkylightGlass_East1",
+      "side": "East",
+      "thickness": 0.006,
+      "rect": [
+        2.961,
+        -1.3513333333333333,
+        3.475,
+        -0.7986666666666666
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    },
+    {
+      "id": "CourtSkylightGlass_East2",
+      "side": "East",
+      "thickness": 0.006,
+      "rect": [
+        2.961,
+        -0.7746666666666666,
+        3.475,
+        -0.222
+      ],
+      "centre_plane_eave_y": 22.759999999999998,
+      "ridge_y": 23.159999999999997
+    }
+  ],
+  "cap_top": 22.4,
+  "curb_top": 22.7,
+  "ridge": 23.16,
+  "note": "Source-fitted skylight with real cap grooves; downstream main roof drainage remains unfinished."
+}

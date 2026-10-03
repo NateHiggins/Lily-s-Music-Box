@@ -1,0 +1,129 @@
+extends RefCounted
+const Fan := preload("res://scripts/building/orison_v2_roof_fan.gd")
+const DATA := "res://data/orison_v2/completion_interiors.json"
+const VARIANTS := {"A":"west_weathered","B":"north_belt","C":"south_repainted","D":"east_oxidised"}
+const DUCT_WIDTH := .18
+const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
+const FabricatedDucts := preload("res://assets/props/ventilation_ducts.glb")
+const Sleeves := preload("res://scripts/building/orison_v2_ventilation_sleeves.gd")
+const FabricLining := preload("res://assets/props/ventilation_fabric_lining.glb")
+
+func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
+	if parsed is not Dictionary: return false
+	var graph: Dictionary = parsed.get("ventilation",{})
+	var roof_drop := float(graph.get("roof_branch_drop_m",0))
+	if roof_drop<.29 or roof_drop>.5: return false
+	var stacks := {}
+	var registers := {}
+	var actual := {}
+	for record: Dictionary in layout.anchors:
+		if str(record.id).ends_with("_VENT_REGISTER"): actual[str(record.id)] = true
+	for record: Dictionary in graph.get("stacks",[]):
+		var id := str(record.get("id",""))
+		if not VARIANTS.has(id) or stacks.has(id) or record.get("riser",[]).size()!=2: return false
+		if record.get("branch_axis","") not in ["xz","zx"]: return false
+		stacks[id] = record
+		registers[id] = []
+	if stacks.size()!=4: return false
+	for record: Dictionary in graph.get("registers",[]):
+		var id := str(record.get("anchor",""))
+		var stack := str(record.get("stack",""))
+		if not actual.has(id) or not registers.has(stack): return false
+		actual.erase(id)
+		var anchor := adapter.resolve(id) as Node3D
+		if anchor==null: return false
+		registers[stack].append(anchor)
+	if not actual.is_empty(): return false
+	for stack: String in registers:
+		if registers[stack].is_empty(): return false
+		if adapter.resolve("ROOF_VENT_FAN_"+stack)==null: return false
+	# Validate the entire assignment before attaching geometry or sound owners.
+	var ducts := Node3D.new()
+	ducts.name = "VentilationDucts"
+	adapter.root.add_child(ducts)
+	var supports := Supports.new()
+	supports.configure(adapter.root, layout)
+	var fabricated := FabricatedDucts.instantiate()
+	var lining := FabricLining.instantiate()
+	for stack: String in registers:
+		var fan := Fan.new()
+		fan.riser = "V-"+stack
+		fan.fan_variant = VARIANTS[stack]
+		fan.prop_type = "exhaust_fan"
+		if not adapter.mount_consumer("ROOF_VENT_FAN_"+stack,fan):
+			fan.free()
+			return false
+		var anchors: Array[Node3D] = []
+		anchors.assign(registers[stack])
+		fan.bind_registers(anchors)
+		supports.begin_stack()
+		_build_stack(ducts,stack,stacks[stack],anchors,fan,supports,float(layout.dimensions.clear_height),fabricated,roof_drop)
+		_draw(ducts.get_node("Stack_"+stack),"FabricLining",lining.get_node(stack+"_FabricLining"),"metal")
+	fabricated.free()
+	lining.free()
+	Sleeves.mount(ducts,layout,stacks)
+	return true
+
+func _build_stack(root: Node3D, id: String, spec: Dictionary, anchors: Array[Node3D], fan: Node3D, supports: RefCounted, clear_height: float, fabricated: Node3D, roof_drop: float) -> void:
+	var stack := StaticBody3D.new()
+	stack.name = "Stack_"+id
+	root.add_child(stack)
+	var roof := root.to_local(fan.global_position)
+	var top := Vector3(float(spec.riser[0]),roof.y-roof_drop,float(spec.riser[1]))
+	var lowest := top.y
+	var roster: Array[String] = []
+	for anchor: Node3D in anchors:
+		roster.append(str(anchor.name))
+		_build_register(anchor)
+		var grille := root.to_local(anchor.global_position)
+		var start := grille+Vector3.UP*.09
+		lowest = minf(lowest,start.y)
+		var end := Vector3(top.x,start.y,top.z)
+		var corner := Vector3(end.x,start.y,start.z) if str(spec.branch_axis)=="xz" else Vector3(start.x,start.y,end.z)
+		_piece(stack,grille+Vector3.UP*.045,Vector3(.36,.09,.34))
+		_segment(stack,start,corner)
+		_segment(stack,corner,end)
+		var ceiling_y := grille.y - 2.6 + clear_height
+		supports.append_branch(start,corner,ceiling_y)
+		supports.append_branch(corner,end,ceiling_y)
+	stack.set_meta("registers",roster)
+	_segment(stack,Vector3(top.x,lowest,top.z),top)
+	var roof_corner := Vector3(roof.x,top.y,top.z)
+	var roof_end := Vector3(roof.x,top.y,roof.z)
+	_segment(stack,top,roof_corner)
+	_segment(stack,roof_corner,roof_end)
+	_segment(stack,roof_end,roof+Vector3.UP*.08)
+	_draw(stack,"SheetMetal",fabricated.get_node(id+"_metal"),"metal")
+	_draw(stack,"SeamBands",fabricated.get_node(id+"_cast_iron"),"cast_iron")
+	supports.draw(stack)
+
+func _segment(body: StaticBody3D, a: Vector3, b: Vector3) -> void:
+	var delta := (b-a).abs()
+	if delta.length()<.001: return
+	var axis := delta.max_axis_index()
+	var size := Vector3.ONE*DUCT_WIDTH
+	size[axis] = delta[axis]+DUCT_WIDTH
+	_piece(body,(a+b)*.5,size)
+
+func _piece(body: StaticBody3D, at: Vector3, size: Vector3) -> void:
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = size
+	collision.shape = shape
+	collision.position = at
+	body.add_child(collision)
+
+func _draw(parent: Node3D, label: String, source: MeshInstance3D, material: String) -> void:
+	var draw := MeshInstance3D.new()
+	draw.name = label
+	draw.mesh = source.mesh
+	draw.material_override = MatLib.get_mat(material)
+	parent.add_child(draw)
+
+func _build_register(anchor: Node3D) -> void:
+	# Passive grille only; the roof motor and existing plenum remain authorities.
+	var model := (preload("res://assets/props/vent_register.glb") as PackedScene).instantiate()
+	(model.find_child("Grille",true,false) as MeshInstance3D).material_override=MatLib.get_mat("trim")
+	(model.find_child("Fasteners",true,false) as MeshInstance3D).material_override=MatLib.get_mat("metal")
+	anchor.add_child(model)

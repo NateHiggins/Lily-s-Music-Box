@@ -50,6 +50,7 @@ var _record_height := 0.6
 var _record_count := 0
 var _case_wood := "wood_dark"
 var _refilling := false
+var _flush_stroke_completed := false
 var _lever: Node3D
 var _water: AudioStreamPlayer3D
 var _flush_tween: Tween
@@ -460,6 +461,7 @@ func interact(_player: Node = null) -> Dictionary:
 		return service_wire_card()
 
 	_refilling = true
+	_flush_stroke_completed = false
 	_water.pitch_scale = randf_range(0.96, 1.03)
 	_water.play()
 	if _flush_tween and _flush_tween.is_valid():
@@ -467,9 +469,10 @@ func interact(_player: Node = null) -> Dictionary:
 	_flush_tween = create_tween()
 	_flush_tween.tween_property(_lever, "rotation:z", deg_to_rad(-34.0), 0.08) \
 			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_flush_tween.tween_callback(_record_handle_stroke)
 	_flush_tween.tween_property(_lever, "rotation:z", 0.0, 0.24) \
 			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	_flush_tween.tween_interval(2.1)
+	_flush_tween.tween_interval(_refill_duration())
 	_flush_tween.tween_callback(_finish_refill)
 	return service_wire_card()
 
@@ -660,6 +663,16 @@ func service_wire_card() -> Dictionary:
 		"cistern_state": "REFILLING" if _refilling else "FULL",
 		"flush_state": "RUNNING" if _refilling else "READY",
 	})
+
+
+func _refill_duration() -> float:
+	return 2.1
+
+
+func _record_handle_stroke() -> void:
+	# Record the reached endpoint in the mechanism, not by hoping a UI frame
+	# samples the brief throw before the return tween has already finished.
+	_flush_stroke_completed = absf(_lever.rotation.z)>=deg_to_rad(33.0)
 
 
 func _finish_refill() -> void:

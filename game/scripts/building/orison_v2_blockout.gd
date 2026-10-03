@@ -16,6 +16,7 @@ var architectural_materials := preload("res://scripts/building/orison_v2_archite
 var layout: Dictionary = {}
 var level_y: Dictionary = {}
 var materials: Dictionary = {}
+var fabricated_fixtures: Dictionary = {}
 var failures: Array[String] = []
 const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
 ## Matches the tolerance the committed suite already used for overlaps.
@@ -89,7 +90,7 @@ func _validate_layout() -> void:
 	for table in ["spaces", "doors", "openings", "windows", "envelopes", "fixtures", "platforms",
 			"lift_landings",
 			"anchors", "capsule_stations", "stairs", "risers", "route_edges",
-			"service_connections"]:
+			"service_connections", "slab_openings", "riser_openings", "wall_service_openings", "masonry_service_openings"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -102,6 +103,21 @@ func _validate_layout() -> void:
 			failures.append("invalid apartment unit for space level: " + str(space.get("id", "?")))
 		if not _valid_rect(space.get("rect", [])):
 			failures.append("invalid space rect: " + str(space.get("id", "?")))
+	for opening: Dictionary in layout.get("slab_openings", []):
+		if opening.get("surface","") not in ["Floor","Ceiling"] or not _valid_rect(opening.get("rect",[])):
+			failures.append("invalid slab opening: " + str(opening.get("id","?")))
+	for table: String in ["wall_service_openings","masonry_service_openings"]:
+		for opening: Dictionary in layout.get(table,[]):
+			if not _valid_service_bounds(opening.get("bounds",[])):
+				failures.append("invalid service volume: "+str(opening.get("id","?")))
+			if table=="wall_service_openings" and opening.get("side","") not in ["north","south","west","east"]:
+				failures.append("invalid service wall side: "+str(opening.get("id","?")))
+			if table=="masonry_service_openings" and opening.get("owner","")!="ExteriorMasonry":
+				failures.append("invalid exterior-leaf service owner: "+str(opening.get("id","?")))
+	for opening: Dictionary in layout.get("riser_openings", []):
+		var bounds: Array=opening.get("bounds",[])
+		if bounds.size()!=6 or bounds[0]>=bounds[3] or bounds[1]>=bounds[4] or bounds[2]>=bounds[5]:
+			failures.append("invalid riser opening: "+str(opening.get("id","?")))
 	for riser: Dictionary in layout.get("risers", []):
 		if not _valid_rect(riser.get("rect", [])):
 			failures.append("invalid riser rect: " + str(riser.get("id", "?")))
@@ -131,11 +147,37 @@ func _validate_layout() -> void:
 ## the build continued, printed its success census, joined the selector
 ## group and exited 0 with the stair simply absent.
 func _validate_references(ids: Dictionary) -> void:
+	for opening: Dictionary in layout.get("wall_service_openings",[]):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("space","")),"spaces","service wall owner")
+		var room:=_space_by_id(str(opening.get("space","")))
+		if room.is_empty() or not _valid_service_bounds(opening.get("bounds",[])) or opening.get("side","") not in ["north","south","west","east"]: continue
+		var owned:=_service_wall_bounds(room,str(opening.side))
+		if not owned.grow(.00001).encloses(_service_box(opening.bounds)):
+			failures.append("service wall opening exceeds its owner: "+str(opening.id))
+	for opening: Dictionary in layout.get("riser_openings", []):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("riser","")),"risers","riser owner")
+		for riser: Dictionary in layout.risers:
+			if str(riser.id)!=str(opening.get("riser","")) or opening.get("bounds",[]).size()!=6: continue
+			var cut: Array=opening.bounds
+			if cut[0]<riser.rect[0] or cut[2]<riser.rect[1] or cut[3]>riser.rect[2] or cut[5]>riser.rect[3] or cut[1]<riser.from_y or cut[4]>riser.to_y:
+				failures.append("riser opening exceeds its owner: "+str(opening.id))
+	for opening: Dictionary in layout.get("slab_openings", []):
+		_require_record(ids,str(opening.get("id","?")),str(opening.get("space","")),"spaces","slab owner")
+		for space: Dictionary in layout.spaces:
+			if str(space.id)!=str(opening.get("space","")) or not _valid_rect(opening.get("rect",[])): continue
+			var cut: Array=opening.rect
+			if cut[0]<space.rect[0] or cut[1]<space.rect[1] or cut[2]>space.rect[2] or cut[3]>space.rect[3]:
+				failures.append("slab opening exceeds its owner: "+str(opening.id))
 	for door: Dictionary in layout.get("doors", []):
 		for target: Variant in door.get("connects", []):
 			_require_record(ids, str(door.get("id", "?")), str(target),
 					"spaces", "door connects")
 	for opening: Dictionary in layout.get("openings", []):
+		if opening.get("axis", "") not in ["x", "z"]:
+			failures.append("invalid opening axis: " + str(opening.get("id", "?")))
+		var sill := float(opening.get("sill", 0.0))
+		if not is_finite(sill) or sill < 0.0 or sill + float(opening.get("height", 0.0)) > float(layout.dimensions.clear_height):
+			failures.append("invalid opening sill: " + str(opening.get("id", "?")))
 		for target: Variant in opening.get("connects", []):
 			_require_record(ids, str(opening.get("id", "?")), str(target),
 					"spaces", "opening connects")
@@ -432,6 +474,11 @@ func _build_spaces() -> void:
 	var dims: Dictionary = layout.dimensions
 	var clear_h := float(dims.clear_height)
 	var slab_t := float(dims.slab_thickness)
+	var soffits:=preload("res://scripts/building/orison_v2_platform_soffits.gd")
+	var floor_owners: Array[Dictionary]=soffits.ceiling_owners(layout,level_y,space_geometry_exclusions,show_ceilings)
+	# Platforms retain their already accepted underside ownership. Room slabs
+	# fill only exposed gaps, and earlier room slabs own overlapping footprints.
+	for platform: Dictionary in layout.get("platforms",[]):floor_owners.append_array(soffits.floor_owners(platform,layout,level_y))
 	for space: Dictionary in layout.spaces:
 		var rect: Array = space.rect
 		var y := float(level_y[space.level])
@@ -445,13 +492,17 @@ func _build_spaces() -> void:
 			parent.set_meta("geometry_owned_by_exterior", true)
 			continue
 		if not bool(space.get("no_floor", false)):
-			_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
-					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
+			_build_slab(parent, "Floor", rect, y - slab_t * .5, slab_t, cls, true)
+			if production_materials:
+				soffits.append(parent.get_node("Floor"),space,layout,level_y,floor_owners,architectural_materials.material_for("Ceiling",cls),true)
+				floor_owners.append_array(soffits.floor_owners(space,layout,level_y))
 		if show_ceilings and not bool(space.get("no_ceiling", false)):
-			_box(parent, "Ceiling", _rect_center(rect, y + clear_h + slab_t * 0.5),
-					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, false)
+			_build_slab(parent, "Ceiling", rect, y + clear_h + slab_t * .5, slab_t, cls, false)
 		if not bool(space.get("open_shell", false)):
-			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls,
+			# Open stair volumes have no ceiling slab to close the 200 mm
+			# storey band. Their walls must continue to the next walking level.
+			var wall_h := float(dims.floor_to_floor) if bool(space.get("no_ceiling", false)) else clear_h
+			_build_space_outline(parent, str(space.id), rect, y, wall_h, cls,
 					space.get("wall_sides", ["south", "north", "west", "east"]))
 			for index in space.get("wall_extensions", []).size():
 				var extension: Dictionary = space.wall_extensions[index]
@@ -459,8 +510,53 @@ func _build_spaces() -> void:
 				var edge := _wall_edge(rect, side)
 				_wall_with_openings(parent, str(space.id), side.capitalize() + "Extension%02d" % index,
 						"z" if side in ["west","east"] else "x", edge.x,
-						float(extension.start), float(extension.end), y, clear_h,
+						float(extension.start), float(extension.end), y, wall_h,
 						float(layout.dimensions.partition_wall), cls)
+		if production_materials:
+			preload("res://scripts/building/orison_v2_millwork.gd").build(parent, space,
+					y, clear_h, float(dims.partition_wall),
+					architectural_materials.material_for("FrameTrim", cls),
+					architectural_materials.material_for("Leaf", cls), layout.doors,
+					preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space))
+
+## A single slab render/collision owner retains the original stable node path.
+## Only explicit, owner-bounded service apertures change its physical surface.
+func _build_slab(parent: Node3D, label: String, rect: Array, y: float, thickness: float, cls: String, collision: bool) -> void:
+	var bounds:=AABB(Vector3(rect[0],y-thickness*.5,rect[1]),Vector3(_rect_w(rect),thickness,_rect_d(rect)))
+	var pieces: Array[AABB]=[bounds]
+	for opening: Dictionary in layout.get("slab_openings",[]):
+		if str(opening.space)!=str(parent.name) or str(opening.surface)!=label: continue
+		var cut: Array=opening.rect
+		var aperture:=AABB(Vector3(cut[0],bounds.position.y-.001,cut[1]),Vector3(cut[2]-cut[0],thickness+.002,cut[3]-cut[1]))
+		var remaining: Array[AABB]=[]
+		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,aperture))
+		pieces=remaining
+	if pieces.size()==1 and pieces[0]==bounds:
+		_box(parent,label,bounds.get_center(),bounds.size,cls,collision)
+		return
+	var draw:=MeshInstance3D.new()
+	draw.name=label
+	var surface:=SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var body:=StaticBody3D.new() if collision else null
+	if body!=null: body.name="Collision"
+	for piece: AABB in pieces:
+		var box:=BoxMesh.new()
+		box.size=piece.size
+		var mesh: Mesh=_slab_faces(box,label=="Floor") if production_materials else box
+		surface.append_from(mesh,0,Transform3D(Basis.IDENTITY,piece.get_center()))
+		if body!=null:
+			var shape_node:=CollisionShape3D.new()
+			var shape:=BoxShape3D.new()
+			shape.size=piece.size
+			shape_node.shape=shape
+			shape_node.position=piece.get_center()
+			body.add_child(shape_node)
+	draw.mesh=surface.commit()
+	draw.material_override=architectural_materials.material_for(label,cls) if production_materials else materials.get(cls)
+	if production_materials: draw.set_meta("v2_material_key",architectural_materials.key_for(label,cls))
+	parent.add_child(draw)
+	if body!=null: draw.add_child(body)
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String, sides: Array) -> void:
@@ -507,7 +603,7 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 		var fixed_value := float(opening.center[1] if axis == "x" else opening.center[0])
 		if is_equal_approx(fixed_value, fixed):
 			openings.append({"center": float(opening.center[0] if axis == "x" else opening.center[1]),
-					"width": float(opening.width), "height": float(opening.height), "sill": 0.0})
+					"width": float(opening.width), "height": float(opening.height), "sill": float(opening.get("sill", 0.0))})
 	for window: Dictionary in layout.get("windows", []):
 		if str(window.space) != space_id or str(window.axis) != axis:
 			continue
@@ -654,12 +750,56 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		start: float, finish: float, y: float, height: float, thickness: float,
 		cls: String) -> void:
 	var center := (start + finish) * 0.5
-	if axis == "x":
-		_box(parent, node_name, Vector3(center, y + height * 0.5, fixed),
-				Vector3(finish - start, height, thickness), cls, true)
-	else:
-		_box(parent, node_name, Vector3(fixed, y + height * 0.5, center),
-				Vector3(thickness, height, finish - start), cls, true)
+	var at:=Vector3(center,y+height*.5,fixed) if axis=="x" else Vector3(fixed,y+height*.5,center)
+	var size:=Vector3(finish-start,height,thickness) if axis=="x" else Vector3(thickness,height,finish-start)
+	var bounds:=AABB(at-size*.5,size)
+	var pieces: Array[AABB]=[bounds]
+	for opening: Dictionary in layout.get("wall_service_openings",[]):
+		if str(opening.space)!=str(parent.name) or not node_name.begins_with("Wall"+str(opening.side).capitalize()): continue
+		var remaining: Array[AABB]=[]
+		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,_service_box(opening.bounds)))
+		pieces=remaining
+	var draw:=_box(parent,node_name,at,size,cls,true)
+	if pieces.size()==1 and pieces[0]==bounds: return
+	var body:=draw.get_node("Collision") as StaticBody3D
+	for shape: CollisionShape3D in body.get_children(): shape.free()
+	if pieces.is_empty():
+		draw.visible=false
+		return
+	var surface:=SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for piece: AABB in pieces:
+		var box:=BoxMesh.new()
+		box.size=piece.size
+		var local:=piece.get_center()-at
+		surface.append_from(box,0,Transform3D(Basis.IDENTITY,local))
+		var shape:=CollisionShape3D.new()
+		var box_shape:=BoxShape3D.new()
+		box_shape.size=piece.size
+		shape.shape=box_shape
+		shape.position=local
+		body.add_child(shape)
+	draw.mesh=surface.commit()
+
+static func _valid_service_bounds(bounds: Variant) -> bool:
+	if bounds is not Array or bounds.size()!=6: return false
+	for value: Variant in bounds:
+		if typeof(value) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(value)): return false
+	return bounds[0]<bounds[3] and bounds[1]<bounds[4] and bounds[2]<bounds[5]
+
+static func _service_box(bounds: Array) -> AABB:
+	return AABB(Vector3(bounds[0],bounds[1],bounds[2]),Vector3(bounds[3]-bounds[0],bounds[4]-bounds[1],bounds[5]-bounds[2]))
+
+func _service_wall_bounds(room: Dictionary,side: String) -> AABB:
+	var r: Array=room.rect
+	var y: float=level_y[str(room.level)]
+	var height: float=layout.dimensions.floor_to_floor if room.get("no_ceiling",false) else layout.dimensions.clear_height
+	var half: float=layout.dimensions.partition_wall*.5
+	if side in ["south","north"]:
+		var z: float=r[1] if side=="south" else r[3]
+		return AABB(Vector3(r[0],y,z-half),Vector3(r[2]-r[0],height,half*2))
+	var x: float=r[0] if side=="west" else r[2]
+	return AABB(Vector3(x-half,y,r[1]),Vector3(half*2,height,r[3]-r[1]))
 
 func _build_doors() -> void:
 	for door: Dictionary in layout.doors:
@@ -739,15 +879,25 @@ func _build_fixtures() -> void:
 				str(fixture.get("class", "unresolved")),
 				bool(fixture.get("collision", true)))
 		node.set_meta("purpose", str(fixture.get("purpose", "")))
+		var family := str(fixture.get("fabrication",""))
+		if not family.is_empty():
+			node.set_meta("fabrication_part",str(fixture.get("fabrication_part","")))
+			node.set_meta("fabrication_floor_y",float(level_y[fixture.level]))
+			if not fabricated_fixtures.has(family): fabricated_fixtures[family]=[]
+			fabricated_fixtures[family].append(node)
 
 func _build_platforms() -> void:
 	var slab_t := float(layout.dimensions.slab_thickness)
+	var soffits:=preload("res://scripts/building/orison_v2_platform_soffits.gd")
+	var ceiling_owners: Array[Dictionary]=soffits.ceiling_owners(layout,level_y,space_geometry_exclusions,show_ceilings)
 	for platform: Dictionary in layout.get("platforms", []):
 		var rect: Array = platform.rect
 		var y := float(level_y[platform.level])
-		_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
+		var draw:=_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
 				Vector3(_rect_w(rect), slab_t, _rect_d(rect)),
-				str(platform.get("class", "core")), true)
+				str(platform.get("class", "core")), true, "Floor")
+		if production_materials:
+			soffits.append(draw,platform,layout,level_y,ceiling_owners,architectural_materials.material_for("Ceiling",str(platform.get("class","core"))))
 
 func _build_lift_landings() -> void:
 	for landing: Dictionary in layout.get("lift_landings", []):
@@ -799,9 +949,10 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		_box(parent, "FlightA_Step%02d" % i,
 				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
-		_box(parent, "FlightA_Guard%02d" % i,
+		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+		guard_a.visible = not production_materials
 	_ramp_collision(parent, "FlightATraversalRamp",
 			Vector3(x0 + width * 0.5, base_y + half_rise * 0.5,
 					z0 + run * 0.5), width, run, half_rise, -1.0)
@@ -813,10 +964,11 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise - 0.1,
 					z0 + run + (landing_depth + turn_clearance) * 0.5),
 			Vector3(width * 2.0 + gap, 0.2, landing_depth + turn_clearance), "core", true)
-	_box(parent, "HalfLandingGuard",
+	var landing_guard := _box(parent, "HalfLandingGuard",
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise + guard_h * 0.5,
 					z0 + run + landing_depth + turn_clearance - 0.025),
 			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
+	landing_guard.visible = not production_materials
 	var x_b := x0 + width + gap
 	var north_start := z0 + run + landing_depth
 	for i in count:
@@ -825,13 +977,18 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		_box(parent, "FlightB_Step%02d" % i,
 				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
-		_box(parent, "FlightB_Guard%02d" % i,
+		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+		guard_b.visible = not production_materials
 	_ramp_collision(parent, "FlightBTraversalRamp",
 			Vector3(x_b + width * 0.5, base_y + half_rise + half_rise * 0.5,
 					north_start - run * 0.5), width, run, half_rise, 1.0)
+	if production_materials:
+		var ironwork := preload("res://scripts/building/orison_v2_stair_ironwork.gd").new()
+		if not ironwork.mount(parent,stair,base_y):
+			failures.append("unsupported ironwork dimensions: "+str(stair.id))
 
 func _ramp_collision(parent: Node3D, node_name: String, at: Vector3,
 		width: float, run: float, rise: float, direction: float) -> void:
@@ -851,9 +1008,84 @@ func _build_risers() -> void:
 		var rect: Array = riser.rect
 		var y0 := float(riser.from_y)
 		var y1 := float(riser.to_y)
+		var bounds := AABB(Vector3(rect[0],y0,rect[1]),Vector3(_rect_w(rect),y1-y0,_rect_d(rect)))
+		var pieces: Array[AABB]=[bounds]
+		for opening: Dictionary in layout.get("riser_openings",[]):
+			if str(opening.riser)!=str(riser.id): continue
+			var at: Array=opening.bounds
+			var cut:=AABB(Vector3(at[0],at[1],at[2]),Vector3(at[3]-at[0],at[4]-at[1],at[5]-at[2]))
+			var remaining: Array[AABB]=[]
+			for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,cut))
+			pieces=remaining
+		for window: Dictionary in layout.windows:
+			if not _window_meets_riser(window,riser): continue
+			var along_x := str(window.axis)=="x"
+			var low := float(level_y[window.level])+float(window.sill)
+			var cut := AABB(Vector3(float(window.center[0])-float(window.width)*.5,low,bounds.position.z),Vector3(float(window.width),float(window.height),bounds.size.z)) if along_x else AABB(Vector3(bounds.position.x,low,float(window.center[1])-float(window.width)*.5),Vector3(bounds.size.x,float(window.height),float(window.width)))
+			var remaining: Array[AABB]=[]
+			for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,cut))
+			pieces=remaining
+		if pieces.size()!=1 or pieces[0]!=bounds:
+			var parent := Node3D.new()
+			parent.name=str(riser.id)
+			add_child(parent)
+			for i in pieces.size():
+				_box(parent,"RevealSection%d" % i,pieces[i].get_center(),pieces[i].size,str(riser.get("class","service")),bool(riser.get("solid",true)))
+			continue
 		_box(self, str(riser.id), _rect_center(rect, (y0 + y1) * 0.5),
 				Vector3(_rect_w(rect), y1 - y0, _rect_d(rect)),
 				str(riser.get("class", "service")), bool(riser.get("solid", true)))
+
+## Shaft/court windows must pass through the adjacent service chase as well
+## as the room wall. Retain solid chase volume everywhere outside the aperture.
+func _window_meets_riser(window: Dictionary,riser: Dictionary) -> bool:
+	if not bool(riser.get("solid",true)): return false
+	var rect: Array=riser.rect
+	var along_x := str(window.axis)=="x"
+	var fixed := float(window.center[1 if along_x else 0])
+	var start := float(rect[1 if along_x else 0])
+	var finish := float(rect[3 if along_x else 2])
+	if fixed<start-.001 or fixed>finish+.001: return false
+	var along := float(window.center[0 if along_x else 1])
+	if along+float(window.width)*.5<=float(rect[0 if along_x else 1]) or along-float(window.width)*.5>=float(rect[2 if along_x else 3]): return false
+	var low := float(level_y[window.level])+float(window.sill)
+	return low<float(riser.to_y) and low+float(window.height)>float(riser.from_y)
+
+func window_reveal_span(window: Dictionary) -> Vector2:
+	var along_x := str(window.axis)=="x"
+	var fixed := float(window.center[1 if along_x else 0])
+	var half := float(layout.dimensions.partition_wall)*.5
+	var span := Vector2(fixed-half,fixed+half)
+	span=preload("res://scripts/generated/v2_exterior_masonry.gd").WINDOW_SPANS.get(str(window.id),span)
+	for riser: Dictionary in layout.risers:
+		if _window_meets_riser(window,riser):
+			span.x=minf(span.x,float(riser.rect[1 if along_x else 0]))
+			span.y=maxf(span.y,float(riser.rect[3 if along_x else 2]))
+	return span
+
+static func _subtract_box(box: AABB,cut: AABB) -> Array[AABB]:
+	if not box.intersects(cut): return [box]
+	var overlap := box.intersection(cut)
+	var result: Array[AABB]=[]
+	var middle := box
+	# Vector3 stores single-precision coordinates. Decimal owner boundaries
+	# can otherwise leave sub-micrometre closing plates across a real opening.
+	# Ten micrometres is below any authored construction detail; never emit
+	# these numerical slivers as either visible boxes or collision shapes.
+	const CONSTRUCTION_EPS := .00001
+	for axis in 3:
+		if overlap.position[axis]-middle.position[axis]>CONSTRUCTION_EPS:
+			var low := middle
+			low.size[axis]=overlap.position[axis]-middle.position[axis]
+			result.append(low)
+		if middle.end[axis]-overlap.end[axis]>CONSTRUCTION_EPS:
+			var high := middle
+			high.position[axis]=overlap.end[axis]
+			high.size[axis]=middle.end[axis]-overlap.end[axis]
+			result.append(high)
+		middle.position[axis]=overlap.position[axis]
+		middle.size[axis]=overlap.size[axis]
+	return result
 
 func _build_anchors() -> void:
 	for anchor: Dictionary in layout.anchors:
@@ -870,13 +1102,18 @@ func _build_anchors() -> void:
 					"interaction" if str(anchor.kind) == "interaction" else "clearance", false)
 
 func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
-		material_key: String, collision: bool) -> MeshInstance3D:
+		material_key: String, collision: bool, slab_part: String = "") -> MeshInstance3D:
 	var mesh_node := MeshInstance3D.new()
 	mesh_node.name = node_name
 	var mesh := BoxMesh.new()
 	mesh.size = size
 	mesh.material = materials.get(material_key, materials.get("unresolved"))
 	mesh_node.mesh = mesh
+	# Adjacent storeys share slab volume, but never a render face. A full
+	# lower ceiling box put its top exactly on the next floor's walking plane.
+	var part := slab_part if not slab_part.is_empty() else node_name
+	if production_materials and part in ["Floor","Ceiling"]:
+		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
 	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
 		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
 		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))
@@ -892,6 +1129,23 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 		body.add_child(shape_node)
 		mesh_node.add_child(body)
 	return mesh_node
+
+## Keep BoxMesh UVs, normals and tangents; change only face ownership. Physics
+## remains the original full BoxShape3D. Review-only blockouts retain their boxes.
+func _slab_faces(box: BoxMesh, floor_surface: bool) -> ArrayMesh:
+	var arrays := box.surface_get_arrays(0)
+	var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+	var original: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+	var indices := PackedInt32Array()
+	for start in range(0,original.size(),3):
+		var underside := normals[original[start]].y < -.9
+		if underside==floor_surface: continue
+		for offset in range(3): indices.append(original[start+offset])
+	arrays[Mesh.ARRAY_INDEX]=indices
+	var result := ArrayMesh.new()
+	result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	result.surface_set_material(0,box.material)
+	return result
 
 func _rect_center(rect: Array, y: float) -> Vector3:
 	return Vector3((float(rect[0]) + float(rect[2])) * 0.5, y,

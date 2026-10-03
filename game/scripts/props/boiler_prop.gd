@@ -24,6 +24,9 @@ const PAPER := Color(0.82, 0.76, 0.62)
 const FIREBRICK := Color(0.39, 0.19, 0.12)
 const WATER := Color(0.28, 0.48, 0.52, 0.72)
 
+## V2 supplies fabricated pipework; legacy compositions retain local fittings.
+var external_pipework := false
+
 var pressure := 0.48
 var water_level := 0.62
 var firebed := 0.78
@@ -85,7 +88,6 @@ func _build_visual() -> void:
 	_build_smoke_hood()
 	_build_service_plate()
 	_build_doors()
-	_build_collision()
 
 	retexture(self, [
 		[IRON, "cast_iron", Color(0.34, 0.33, 0.31), 0.72],
@@ -103,22 +105,25 @@ func _build_visual() -> void:
 	# plant is one mesh per finish; each tended assembly is merged internally
 	# but remains outside the carcass so its transform survives.
 	merge_static(_carcass)
+	_build_collision()
 	merge_static(_fire_door)
 	merge_static(_ash_door)
 	merge_static(_draft_damper)
 	merge_static(_gauge_needle)
+	_door_collision(_fire_door, Vector3(0.66, 0.43, 0.055))
+	_door_collision(_ash_door, Vector3(0.58, 0.26, 0.05))
 	_fire_material = (_firebed_mesh.material_override as StandardMaterial3D).duplicate()
 	_firebed_mesh.material_override = _fire_material
 
-	_service_area("FireDoorReach", Vector3(0, 1.03, -0.72),
-			Vector3(0.80, 0.62, 0.46))
-	_service_area("AshDoorReach", Vector3(0, 0.43, -0.70),
-			Vector3(0.72, 0.40, 0.42))
+	_control_area("FireDoorReach", "fire_door", Vector3(0, 1.04, -0.68),
+			Vector3(0.66, 0.43, 0.16))
+	_control_area("AshDoorReach", "ash_door", Vector3(0, 0.43, -0.68),
+			Vector3(0.58, 0.26, 0.16))
 	_control_area("WaterGlassReach", "water_column",
 			Vector3(0.54, 1.05, -0.55),
 			Vector3(0.30, 0.62, 0.30))
-	_service_area("DraftReach", Vector3(-0.49, 1.28, -0.57),
-			Vector3(0.30, 0.42, 0.30))
+	_control_area("DraftReach", "draft", _draft_damper.position,
+			Vector3(0.30, 0.30, 0.20))
 
 	_thud = make_emitter("thud", -15.0)
 	_thud.max_distance = 45.0
@@ -133,43 +138,21 @@ func _build_visual() -> void:
 
 
 func _build_hearth_and_sections() -> void:
-	_box(_carcass, Vector3(W + 0.28, 0.10, D + 0.40),
-			Vector3(0, 0.05, -0.10), Color(0.42, 0.40, 0.37))
-	_box(_carcass, Vector3(W, 0.22, D), Vector3(0, 0.21, 0), IRON)
-	# Five joined sections make the silhouette read as bolted heating plant,
-	# not a domestic tank. Narrow seams remain as honest assembly shadows.
-	for i in 5:
-		var x := -0.46 + float(i) * 0.23
-		_box(_carcass, Vector3(0.205, 1.28, D),
-				Vector3(x, 0.94, 0), IRON)
-		for y in [0.41, 1.48]:
-			var boss := _cyl(_carcass, 0.045, 0.045, 0.225,
-					Vector3(x, y, -D * 0.50 - 0.015), IRON_EDGE)
-			boss.rotation_degrees.z = 90.0
-	# Patched canvas/asbestos lagging covers the hot block, held by straps.
-	_box(_carcass, Vector3(W + 0.065, 1.12, D + 0.065),
-			Vector3(0, 1.00, 0), JACKET)
-	for y in [0.56, 0.94, 1.32]:
-		_box(_carcass, Vector3(W + 0.09, 0.035, D + 0.09),
-				Vector3(0, y, 0), STEEL)
-	# A torn inspection patch exposes the dark fibrous edge underneath.
-	_box(_carcass, Vector3(0.22, 0.22, 0.012),
-			Vector3(-0.45, 0.78, -D * 0.5 - 0.040), SOOT)
-	# Soot belongs above the firing opening and fades before the gauge side.
-	_box(_carcass, Vector3(0.50, 0.22, 0.008),
-			Vector3(0.06, 1.37, -D * 0.5 - 0.047), SOOT)
-	# Firebrick throat and grate bars exist behind the opening; an open door
-	# reveals a place coal can actually be put rather than another black card.
-	_box(_carcass, Vector3(0.58, 0.42, 0.06),
-			Vector3(0, 1.03, -D * 0.5 - 0.008), FIREBRICK)
-	for i in 7:
-		var gx := -0.24 + float(i) * 0.08
-		var bar := _cyl(_carcass, 0.012, 0.012, 0.34,
-				Vector3(gx, 0.86, -D * 0.5 - 0.055), IRON_EDGE)
-		bar.rotation_degrees.x = 90.0
-	# Kept outside the static carcass because its emission follows the firebed.
-	_firebed_mesh = _box(self, Vector3(0.46, 0.07, 0.24),
-			Vector3(0, 0.91, -0.34), SOOT)
+	var body := (preload("res://assets/props/boiler_body.glb") as PackedScene).instantiate()
+	body.name = "FittedBoilerBody"
+	_carcass.add_child(body)
+	# These are fabrication roles, not new catalogue material keys. Retexture
+	# below maps them through the same established finishes as the old body.
+	var colors := {"Iron":IRON,"Jacket":JACKET,"Steel":STEEL,"Soot":SOOT,
+		"Lining":FIREBRICK,"Hearth":Color(0.42,0.40,0.37),"LiveCoal":SOOT}
+	for part: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+		var material := StandardMaterial3D.new()
+		material.albedo_color=colors[str(part.name)]
+		part.material_override=material
+		if part.name == "LiveCoal":
+			# Baked boiler-local vertices; independent of fixed-plant batching.
+			part.reparent(self)
+			_firebed_mesh=part
 
 
 func _build_doors() -> void:
@@ -211,6 +194,11 @@ func _build_doors() -> void:
 
 
 func _build_water_column() -> void:
+	var mounts := preload("res://assets/props/boiler_instruments.glb").instantiate()
+	mounts.name="InstrumentMounts"
+	_carcass.add_child(mounts)
+	for mesh: MeshInstance3D in mounts.find_children("*","MeshInstance3D",true,false):
+		mesh.material_override=_pmat(BRASS if mesh.name=="Brass" else (STEEL if mesh.name=="Steel" else IRON))
 	# Glass tube, separate top and bottom cocks, and a blow-down tail. The
 	# water level is a real moving object because judging it is the activity.
 	var glass_mat := StandardMaterial3D.new()
@@ -225,7 +213,8 @@ func _build_water_column() -> void:
 		_cyl(_carcass, 0.035, 0.035, 0.075,
 				Vector3(0.50, y, -D * 0.5 - 0.075), BRASS)
 		var cock_root := Node3D.new()
-		cock_root.position = Vector3(0.50, y, -D * 0.5 - 0.075)
+		# The spindle projects forward: a closed handle must clear the glass.
+		cock_root.position = Vector3(0.50, y, -D * 0.5 - 0.125)
 		add_child(cock_root)
 		var cock := _cyl(cock_root, 0.010, 0.010, 0.12,
 				Vector3(0.06, 0.0, 0.0), BRASS)
@@ -271,7 +260,7 @@ func _build_pressure_gauge() -> void:
 	needle.position.y = 0.030
 	# The pointer and its hub turn as one blackened-steel movement. A brass hub
 	# too small to read at service distance cost a whole additional mesh batch.
-	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, IRON)
+	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, IRON).rotation_degrees.x = 90.0
 
 
 func _build_header_and_return() -> void:
@@ -283,22 +272,27 @@ func _build_header_and_return() -> void:
 	var takeoff := _cyl(_carcass, 0.078, 0.078, 0.40,
 			Vector3(0.05, 1.84, 0.02), STEEL)
 	takeoff.position.y = 1.82
-	# Equalizer and low return form a visible Hartford-style loop at the left.
-	_cyl(_carcass, 0.038, 0.038, 0.72,
-			Vector3(-0.49, 0.54, 0.28), STEEL)
-	var return_leg := _cyl(_carcass, 0.038, 0.038, 0.48,
-			Vector3(-0.26, 0.18, 0.28), STEEL)
-	return_leg.rotation_degrees.z = 90.0
-	_cyl(_carcass, 0.055, 0.055, 0.09,
-			Vector3(-0.49, 0.77, 0.28), BRASS)
+	if not external_pipework:
+		# Equalizer and low return form a visible Hartford-style loop at the left.
+		_cyl(_carcass, 0.038, 0.038, 0.72,
+				Vector3(-0.49, 0.54, 0.28), STEEL)
+		var return_leg := _cyl(_carcass, 0.038, 0.038, 0.48,
+				Vector3(-0.26, 0.18, 0.28), STEEL)
+		return_leg.rotation_degrees.z = 90.0
+		_cyl(_carcass, 0.055, 0.055, 0.09,
+				Vector3(-0.49, 0.77, 0.28), BRASS)
 	# Safety valve is vertical, with a discharge elbow aimed away from the
 	# person reading the water glass.
 	_cyl(_carcass, 0.042, 0.052, 0.13,
 			Vector3(-0.30, 1.68, -0.10), BRASS)
-	var relief := _cyl(_carcass, 0.022, 0.022, 0.34,
-			Vector3(-0.30, 1.88, -0.10), STEEL)
-	relief.rotation_degrees.z = -18.0
+	if not external_pipework:
+		var relief := _cyl(_carcass, 0.022, 0.022, 0.34,
+				Vector3(-0.30, 1.88, -0.10), STEEL)
+		relief.rotation_degrees.z = -18.0
 
+
+func smoke_outlet() -> Vector3:
+	return to_global(Vector3(0,1.84,D*.5+.47))
 
 func _build_smoke_hood() -> void:
 	_box(_carcass, Vector3(0.68, 0.30, 0.32),
@@ -337,13 +331,29 @@ func _build_service_plate() -> void:
 func _build_collision() -> void:
 	var body := StaticBody3D.new()
 	body.name = "BoilerCollision"
+	# The former broad box filled both open throats. Fixed collision now
+	# follows the finished static plant, including the cavity walls and grate.
+	# The separately moving leaves keep their hinge-owned plate colliders.
+	for part: MeshInstance3D in _carcass.find_children("*","MeshInstance3D",true,false):
+		var shape := CollisionShape3D.new()
+		shape.shape=part.mesh.create_trimesh_shape()
+		shape.transform=part.transform
+		body.add_child(shape)
+	add_child(body)
+
+
+func _door_collision(hinge: Node3D, size: Vector3) -> void:
+	# The outward leaf occupies the service aisle as it turns. Keep its solid
+	# plate on the same pivot as the mesh; the fixed plant envelope stays put.
+	var body := StaticBody3D.new()
+	body.name = "LeafCollision"
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(W + 0.16, BARREL_TOP, D + 0.24)
+	box.size = size
 	shape.shape = box
-	shape.position = Vector3(0, BARREL_TOP * 0.5, 0)
+	shape.position.x = size.x * 0.5
 	body.add_child(shape)
-	add_child(body)
+	hinge.add_child(body)
 
 
 func _start_normal_function() -> void:
@@ -368,14 +378,22 @@ func interact_area(area: Area3D) -> void:
 
 
 func control_prompt(control_id: String) -> String:
-	return ("[E]  Prove the boiler water column" if control_id == "water_column"
-			else interact_prompt())
+	match control_id:
+		"water_column": return "[E]  Prove the boiler water column"
+		"fire_door": return interact_prompt()
+		"ash_door": return "%s ash door" % ("Close" if _ash_open else "Open")
+		"draft": return "Adjust boiler draft — %d%% open" % roundi(draft * 100.0)
+	return ""
 
 
-func interact_control(control_id: String, player: Node) -> bool:
-	if control_id == "water_column":
-		return _begin_water_column_service(player)
-	return false
+func interact_control(control_id: String, player: Node) -> Variant:
+	match control_id:
+		"water_column": return _begin_water_column_service(player)
+		"fire_door": set_fire_door_open(not _fire_open)
+		"ash_door": set_ash_door_open(not _ash_open)
+		"draft": set_draft(wrapf(draft + 0.2, 0.15, 1.01))
+		_: return false
+	return service_wire_card()
 
 
 func _begin_water_column_service(player: Node) -> bool:
@@ -469,16 +487,18 @@ func _column_level_y(value: float) -> float:
 
 
 func set_fire_door_open(open: bool, seconds := 0.55) -> void:
+	# Both leaves extend +X from their hinge; +Y rotation swings toward the
+	# front (-Z), away from the firebox rather than through the hot casing.
 	_fire_open = open
 	if _fire_tween and _fire_tween.is_valid():
 		_fire_tween.kill()
 	if seconds <= 0.0:
-		_fire_door.rotation.y = deg_to_rad(-95.0 if open else 0.0)
+		_fire_door.rotation.y = deg_to_rad(95.0 if open else 0.0)
 	else:
 		_fire_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
 				Tween.EASE_IN_OUT)
 		_fire_tween.tween_property(_fire_door, "rotation:y",
-				deg_to_rad(-95.0 if open else 0.0), seconds)
+				deg_to_rad(95.0 if open else 0.0), seconds)
 	boiler_state_changed.emit(get_boiler_state())
 
 
@@ -487,12 +507,12 @@ func set_ash_door_open(open: bool, seconds := 0.45) -> void:
 	if _ash_tween and _ash_tween.is_valid():
 		_ash_tween.kill()
 	if seconds <= 0.0:
-		_ash_door.rotation.y = deg_to_rad(-82.0 if open else 0.0)
+		_ash_door.rotation.y = deg_to_rad(82.0 if open else 0.0)
 	else:
 		_ash_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(
 				Tween.EASE_IN_OUT)
 		_ash_tween.tween_property(_ash_door, "rotation:y",
-				deg_to_rad(-82.0 if open else 0.0), seconds)
+				deg_to_rad(82.0 if open else 0.0), seconds)
 	boiler_state_changed.emit(get_boiler_state())
 
 

@@ -22,6 +22,7 @@ func warehouse_variants() -> Array[Dictionary]:
 
 func _ready() -> void:
 	name = "F01_DOOR_06"
+	leaf_state = DoorKeyring.initial_state(self, leaf_state)
 	add_to_group("building_entry")
 	_build_materials()
 	_build_frame_and_transom()
