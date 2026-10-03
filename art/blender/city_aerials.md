@@ -41,14 +41,22 @@ This remains a static fabrication model rather than structural-capacity proof.
 
 ## Maps and precision
 
-Existing catalogue **metal**, **bronze**, **brass** and **ceramic** maps reach
+Existing catalogue **metal**, **bronze**, **brass** and **porcelain_fixture** maps reach
 the native source and local runtime material duplicates. Relative map paths,
 catalogue tile dimensions, visual locks and shared MatLib projection remain.
 The local draws use metre UV charts and full-precision imported positions.
 No bitmap, global light or material catalogue is changed in this geometry batch.
 Coarse bronze patina and galvanized-metal texture remain open review findings.
 
-The native chart selects an actual triangle edge. Its authoring check simulates
+The downlead terminals now use the existing **porcelain_fixture** finish after
+two native trial renders. The former **ceramic** key is a hexagonal bath-floor
+map with 2.5 mm relief, unsuitable on a small electrical insulator. The local
+reassignment preserves all terminal geometry, source attachments and the wet
+floor material. No new key, bitmap or visual lock is introduced. Source/native
+inspection and the installed aerial suite must verify the regenerated export.
+
+The shared **fabrication_uvs.py** uses common surface axes and catalogue texture
+phase; microscopic joints use a checked local chart when necessary. It simulates
 the float32 UV round trip, including Blender's 1-V export conversion. A chart
 whose very small height collapses selects another actual edge while preserving
 one texture metre per model metre. Standard tangents derive from its native

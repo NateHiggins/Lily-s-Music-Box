@@ -211,7 +211,7 @@ for identity in groups:
  row=rows['downlead'];high=point(row['p0']);nominal=point(row['p1']);base,n,owner=roof_seat(identity,nominal,high,plan['plate_thickness']+plan['terminal_height']-.0021)
  footprint=square_plate(row['id']+'_Plate',base,n,flat);start=base+n*(plan['plate_thickness']-.0001)
  terminal_top=start+n*plan['terminal_height'];radius=plan['terminal_radius'];height=plan['terminal_height']
- loft(row['id']+'_CeramicTerminal',start,terminal_top,[(0,radius),(.02,radius),(.03,radius*.7),(.04,radius),(.055,radius),(.065,radius*.7),(.075,radius),(.09,radius),(.10,radius*.7),(height,radius*.7)],flat,key='ceramic')
+ loft(row['id']+'_CeramicTerminal',start,terminal_top,[(0,radius),(.02,radius),(.03,radius*.7),(.04,radius),(.055,radius),(.065,radius*.7),(.075,radius),(.09,radius),(.10,radius*.7),(height,radius*.7)],flat,key='porcelain_fixture')
  low=terminal_top-n*.002;length=(high-low).length
  assert length>.1,row['id']
  loft(row['id'],low,high,[(0,row['r']*1.7),(.04,row['r']*1.7),(.04,row['r']),(length,row['r'])],flat)
