@@ -42,6 +42,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted front public slab, retained room/shop/shed floor ownership and paving validation | `art/blender/front_pavement.md` |
 | Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |
 | Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
+| Sloped service-bulkhead cover, open gutter outlet and fitted external rainleader | `art/blender/roof_service_weathering.md` |
 | All eleven arcade thresholds, source parked leaves and closed-hours survey | `art/blender/arcade_thresholds.md` |
 | Existing ventilation branch hangers, ceiling contact and mapped steel fittings | `art/blender/duct_supports.md` |
 | Radiator wall-tie seating, slotted plates and retained service mechanisms | `art/blender/radiator_wall_ties.md` |

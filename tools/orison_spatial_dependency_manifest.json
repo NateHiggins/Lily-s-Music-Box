@@ -190540,6 +190540,36 @@
    "rationale": "Reviewed repeated east maintenance-route camera at (14,1.524,10.8) aimed at (8.5,0,11) in the retained rear alley. Observation only; independent normal-controller suites verify traversal.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "ff251890f706185e",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_roof_service_weathering.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name)+\"Collision\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -142,3 +142,18 @@ downstream street-main connection, roof/light-slot/weather readiness, operating
 boiler glazing and independent bar/bodega/arcade services. Heating cutouts remain
 parked until those shell prerequisites are met. No owner decision is currently
 needed for this bounded batch; continue the wider architecture/infrastructure task.
+
+## Published foundation candidate
+
+Published and pushed **656f7c7c2d0daf52351bc52067d398dfc5e2042a** includes
+the geometry batch **294c586** and UTF-8 index repair. The official result at
+**tmp/city-foundations/verified/verification.json** contains twelve completed
+zero-exit runs, including both imports and ten source-bound suites. Its full
+47-gate comparison has zero regressions, NEW unread zero, no requirement changes,
+protected 17/17 and V2 default/explicit V1 rollback. The full reconstruction
+matrix passes 44 checks; the resident-key schema-2 contract passes 84 waypoints
+and 55 checks. All 106 official candidate frames are directly reviewed.
+**tmp/city-foundations/656f7c7-clean-board.json** is the next genuine clean
+baseline; **candidate-verification-summary.json** records source attribution.
+The exact owner capture bytes and absence of shots 024–028 remain preserved.
+Whole-shell, weather, downstream drains and infrastructure remain open.

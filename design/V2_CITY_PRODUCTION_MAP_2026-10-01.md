@@ -885,3 +885,26 @@ northwest separation is inspection-only; normal-controller route proof comes
 from the separate playable alley/street/basement/receiving suites. Heating
 cutouts remain paused pending ground, structure and weather readiness.
 Independent bar/bodega/arcade service ownership remains the accepted decision.
+
+## October 3 service-roof weather continuation
+
+Foundation/terrain candidate **656f7c7c2d0daf52351bc52067d398dfc5e2042a** is
+verified and pushed: complete 47 gates, zero regressions, NEW unread zero,
+protected 17/17, ten bound suites, full 44-check reconstruction matrix and
+84-waypoint/55-check resident-key contract. All 106 official views are reviewed.
+The clean baseline is **tmp/city-foundations/656f7c7-clean-board.json**.
+
+**art/blender/roof_service_weathering.md** owns the bounded service-bulkhead
+weather construction and transition record. A source-derived sloped cover seats
+on the retained cap, drains to an open supported gutter and external leader,
+then ends 25 mm above the unfinished east main-roof deck. Existing roof doors,
+stairs, tank mechanisms and controls retain their owners. Mapping preparation
+and scoped physical fit do not close whole-roof drainage or weather readiness.
+
+Actual public-core discovery confirms a missing Bible-required lobby-to-skylight
+court, a 300 mm stair eye and a closed roof cap. The working assumption is to
+fit the usable court within the existing V2 public core. That repair still needs
+source-owned stairs/landings, supports, fitted glazing and walking/sightline
+proof. Heating apertures stay parked. Main roof drainage, courtyard outlets,
+street-main connection and independent bar/bodega/arcade services remain open;
+the wider six-bucket architecture and infrastructure task continues.

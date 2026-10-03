@@ -7485,6 +7485,9 @@
     "game/scripts/building/orison_v2_roof_fan.gd": [
       "res://assets/props/roof_ventilator.glb"
     ],
+    "game/scripts/building/orison_v2_roof_service_weathering.gd": [
+      "res://assets/props/roof_service_weathering.glb"
+    ],
     "game/scripts/building/orison_v2_service_alley.gd": [
       "res://assets/props/alley_groundworks.glb",
       "res://assets/props/service_alley.glb"
@@ -7569,6 +7572,7 @@
     "art/blender/scripts/build_roof_bulkhead_caps.py",
     "art/blender/scripts/build_roof_coping.py",
     "art/blender/scripts/build_roof_edge_support.py",
+    "art/blender/scripts/build_roof_service_weathering.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_service_alley.py",
     "art/blender/scripts/build_stair_ironwork.py",

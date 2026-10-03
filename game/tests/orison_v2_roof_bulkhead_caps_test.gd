@@ -12,6 +12,12 @@ func _run() -> void:
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var root: Node3D=world.adapter.root;var owner: Node3D=root.get_node("RoofBulkheadCaps")
 	var native:=PackedVector3Array();var cap_bodies: Array[RID]=[world.player.get_rid()]
+	# The fitted weather cover now owns the first exterior service contact.
+	# Exclude only its bodies when inspecting the original cap interface datum;
+	# its independent suite tests first-contact physics without these exclusions.
+	var weather_bodies: Array[RID]=[world.player.get_rid()]
+	for body: CollisionObject3D in root.get_node("RoofServiceWeathering").find_children("*","CollisionObject3D",true,false):weather_bodies.append(body.get_rid())
+	cap_bodies.append_array(weather_bodies.slice(1))
 	var parts:=0;var triangles:=0;var footprints: Array[AABB]=[]
 	for draw: MeshInstance3D in owner.find_children("*","MeshInstance3D",true,false):
 		parts+=1;triangles+=draw.mesh.get_faces().size()/3
@@ -51,12 +57,12 @@ func _run() -> void:
 				check(is_finite(native_distance) and absf(native_distance-.05)<.00002,"actual native closure reaches the authored slab top")
 				var old_distance:=_mesh_distance(original,ray,Vector3.DOWN)
 				check(not is_finite(old_distance) or absf(old_distance-.05)>.1,"original ceiling alone reproduces the absent upper slab face")
-				var query:=PhysicsRayQueryParameters3D.create(root.to_global(ray),root.to_global(point-Vector3.UP*.3),1,[world.player.get_rid()])
+				var query:=PhysicsRayQueryParameters3D.create(root.to_global(ray),root.to_global(point-Vector3.UP*.3),1,weather_bodies)
 				var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
-				check(not hit.is_empty() and hit.collider.get_parent()==owner and root.to_local(hit.position).distance_to(point)<.00002,"upper closure is the first matching physical surface")
+				check(not hit.is_empty() and hit.collider.get_parent()==owner and root.to_local(hit.position).distance_to(point)<.00002,"original upper closure matches its physical interface beneath the weather cover")
 				contacts+=1
 				query.exclude=cap_bodies;hit=world.get_world_3d().direct_space_state.intersect_ray(query)
-				check(hit.is_empty() or absf(root.to_local(hit.position).y-point.y)>.1,"excluding only the new cap reproduces the physical upper closure gap")
+				check(hit.is_empty() or absf(root.to_local(hit.position).y-point.y)>.1,"excluding cap and its weather cover reproduces the original physical upper closure gap")
 				before_missing+=1
 				var under:=Vector3(point.x,y-.05,point.z)
 				var retained_distance:=_mesh_distance(original,under,Vector3.UP)
