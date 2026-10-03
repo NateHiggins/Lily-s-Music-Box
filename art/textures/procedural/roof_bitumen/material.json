@@ -1,0 +1,20 @@
+{
+  "material": "roof_bitumen",
+  "generator": "art/tools/build_roof_bitumen.py",
+  "source": "Deterministic periodic procedural grain; no photographs, AI plate or lettering.",
+  "seed": 19281110,
+  "meters_per_tile": 1.0,
+  "relief_mm": 0.6,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "19b9e24bb67c7b494806ac445f961515915998d3c4841db9b3c4874e4227ddd7",
+    "roughness": "1dea72e00110ba4a2aa7ea8469b827d19d060b8af49018bfcd247a73671c80b4",
+    "height": "b09743e397a6e3a6445a7e6512818de4f34b5681857c9b7ca53eb3eb07124aa8",
+    "normal": "ebc5c3411201d5ecc337fbc3571f4d36f626427c166d51167556765af1ad7f7b"
+  }
+}

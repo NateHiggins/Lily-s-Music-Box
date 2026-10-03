@@ -8,6 +8,7 @@ const SETS := {
 	'subway_tile': ["T_ai_materials_subway_tile_albedo.png", "T_ai_materials_subway_tile_rough.png", "T_ai_materials_subway_tile_normal.png", 0.67, 0],
 	'concrete': ["T_ai_materials_concrete_albedo.png", "T_ai_materials_concrete_rough.png", "T_ai_materials_concrete_normal.png", 2.8, 0],
 	'asphalt': ["T_ai_materials_asphalt_albedo.png", "T_ai_materials_asphalt_rough.png", "T_ai_materials_asphalt_normal.png", 2.5, 0],
+	'roof_bitumen': ["T_ai_materials_roof_bitumen_albedo.png", "T_ai_materials_roof_bitumen_rough.png", "T_ai_materials_roof_bitumen_normal.png", 1, 0],
 	'terrazzo': ["T_ai_materials_terrazzo_albedo.png", "T_ai_materials_terrazzo_rough.png", "T_ai_materials_terrazzo_normal.png", 4, 0],
 	'stair': ["T_ai_materials_stair_albedo.png", "T_ai_materials_stair_rough.png", "T_ai_materials_stair_normal.png", 1.2, 0],
 	'brick': ["T_ai_materials_brick_albedo.png", "T_ai_materials_brick_rough.png", "T_ai_materials_brick_normal.png", 1.5, 0],

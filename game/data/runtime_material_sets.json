@@ -588,6 +588,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "roof_bitumen": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "procedural/roof_bitumen",
+      "files": [
+        "T_ai_materials_roof_bitumen_albedo.png",
+        "T_ai_materials_roof_bitumen_rough.png",
+        "T_ai_materials_roof_bitumen_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "rubber_aged": {
       "alpha": false,
       "canonical_meters_per_tile": 0.26,

@@ -26,6 +26,11 @@
 # already stale extracts of an image set the current glb no longer carries.
 # Derived, not source — the glb is the deliverable.
 game/assets/vehicles/*_T_*.png
+# Godot's loose extracts of images embedded in the native roof export.
+# Production MatLib loads the separately catalogued runtime maps.
+game/assets/props/roof_membrane_albedo.png
+game/assets/props/roof_membrane_normal.png
+game/assets/props/roof_membrane_roughness.png
 
 *.blend1
 __pycache__/

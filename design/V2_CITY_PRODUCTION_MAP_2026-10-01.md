@@ -993,3 +993,26 @@ These INERT observations neither promote requirements nor establish shell or
 ventilation capacity acceptance. Heating cutouts remain parked. Main-roof
 field/falls/outlets, courtyard and street-main drainage, farther city weather
 fit, independent shop services and final surface polish remain open.
+
+## October 3 roof field finish
+
+**art/blender/roof_membrane.md** records the bounded continuation from published
+**8c61f06**. The seven retained roof fields receive a four-millimetre finish within
+the original slab envelope, keeping the **19.2 m** walking datum, original physical
+floor owners, doors, flashing contacts, equipment and four fan apertures. The
+saved native source contains **882** closed pieces over **655.89 square metres**;
+the installed export has **73** bounded partitions and **1,764** triangles.
+
+The new **roof_bitumen** catalogue key supplies deterministic separately authored
+albedo, roughness, height and tangent-normal sources at one metre per tile.
+Runtime uses the three catalogued maps and linear vertex-colour bond shading.
+Same-camera production captures and reopened-source renders support the scoped
+finish review; the installed inspection passes **10,627** checks, including
+**882** exact backing-floor contacts. Publication proof belongs to
+**tmp/roof-field/verified/verification.json**, comparing the complete clean
+**tmp/boiler-window/8c61f06-clean-board.json** against all 47 gates and retained
+production routes. No completeness promotion is requested.
+
+The flat datum remains: coordinated main-roof falls/outlets, downstream property
+drainage, court/street-main closure, independent shop services and broader city
+geometry/material acceptance remain open. Heating cutouts stay parked.

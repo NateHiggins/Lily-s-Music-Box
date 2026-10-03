@@ -212,3 +212,13 @@ art/data/boiler_window/source_plan.json -text
 art/blender/boiler_window_construction.json -text
 game/tests/fixtures/orison_boiler_window.json -text
 game/assets/props/boiler_window.glb.import -text
+art/blender/roof_membrane.blend binary
+art/data/roof_membrane/source_plan.json -text
+art/blender/roof_membrane_construction.json -text
+game/tests/fixtures/orison_roof_membrane.json -text
+game/assets/props/roof_membrane.glb.import -text
+art/textures/procedural/roof_bitumen/material.json -text
+art/data/runtime_material_sets.json -text
+game/data/runtime_material_sets.json -text
+game/scripts/generated/material_sets.gd -text
+game/assets/building/textures/T_ai_materials_roof_bitumen_*.png.import -text
