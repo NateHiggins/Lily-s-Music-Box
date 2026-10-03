@@ -95,12 +95,18 @@ func _capture_domestic(routine: Node3D, destination: String) -> void:
 	var camera := Camera3D.new()
 	add_child(camera)
 	camera.global_position = routine.graph.get_point_position(routine.identities[station]) + Vector3.UP * 1.4
+	if destination == "unit:bedroom":
+		camera.global_position = routine.actor.global_position + routine.world.adapter.root.global_basis * Vector3(-1.8, 1.4, .7)
 	camera.look_at(routine.actor.global_position + Vector3.UP)
 	camera.make_current()
+	var carrier = routine.world.service_set_carrier
+	var was_hidden: bool = carrier.is_capture_hidden()
+	carrier.set_capture_hidden(true)
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	DirAccess.make_dir_recursive_absolute(directory)
 	get_viewport().get_texture().get_image().save_png(directory.path_join(destination.replace(":", "_") + ".png"))
+	carrier.set_capture_hidden(was_hidden)
 	camera.queue_free()
 
 func _travel(routine: Node3D, expected: String) -> void:

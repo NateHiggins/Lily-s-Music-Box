@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "source_directory": "Meshy_AI_Gray_Resolve_biped",
+  "archive_sha256": "d2697433a9d1b409805e676b3d72f81291fb5c1367d201e35c4bdea4e3f990af",
+  "batch": 1,
+  "limit": 20,
+  "mapping_basis": "Owner Meshy action-list screenshot and four rendered samples per custom FBX; UUID creation order and durations cross-checked.",
+  "animations": [
+    {
+      "clip": "mina_idle_calm",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a1018d-750d-735e-8de9-65e7146d77c5_withSkin.fbx",
+      "sha256": "8c5c3fa6a7d39d8d6e7979c37d00cf8a38901965c13569a4788a744b8619d989",
+      "loop": true,
+      "prompt": "Mina stands upright with feet hip-width apart, knees soft and hands relaxed beside her skirt. Over six seconds, a quiet breath lifts her ribs; her weight shifts a little toward one foot, then returns evenly. She blinks once and checks the room with a tiny eye movement, keeping her head nearly still. Finish in the exact opening pose for a seamless loop. Keep her manner precise, tired and contained.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_walk",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a1018f-5491-70e8-8dfb-ce9ab53f3029_withSkin.fbx",
+      "sha256": "45484e6c77080f2b9a2d49ebb3d5126d48c0cf9d2ecd19cfd4034fe139f61a78",
+      "loop": true,
+      "prompt": "Mina walks ahead in a measured four-step cycle, chin level and shoulders held neatly. Each foot lands heel first, rolls through the sole and leaves from the toe; knees bend softly without bouncing. Her arms swing close to her sides, with opposing shoulder turns. Keep the skirt clear of her knees and the shoes level with the floor. Make an in-place loop with consistent stride and soft hip movement.",
+      "requested_seconds": 4
+    },
+    {
+      "clip": "mina_walk_hurried",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a10193-a563-734c-81e3-c18b9ca72dd1_withSkin.fbx",
+      "sha256": "f2f2e45d02f0f499a51676afaa0b87168930855e2bc66983be546d55b1c72cfc",
+      "loop": true,
+      "prompt": "Mina takes six quick, short walking steps while trying to stay composed. Her torso leans only slightly forward; shoulders stay controlled and elbows bend a little more than in her ordinary walk. Feet lift cleanly, roll heel to toe and never break into a run. Her eyes flick ahead as if checking the next doorway. End on the same foot phase as the opening. Use an in-place loop with no sideways drift.",
+      "requested_seconds": 3
+    },
+    {
+      "clip": "mina_turn_around",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a10195-9c0d-732e-9d47-adc07ece3b7a_withSkin.fbx",
+      "sha256": "d73026f52da698f4706d630c17993956bf992214085f8c653be61f4e9f178a8a",
+      "loop": false,
+      "prompt": "From a neutral standing pose, Mina looks over her right shoulder, transfers weight to her left foot and turns clockwise through 180 degrees using three steps. Her hips follow the gaze, while the shoulders lag, then align. Keep both shoes on the floor except during each step; never twist a planted knee. Her arms remain low and clear of the skirt. Settle facing the opposite direction in a calm idle.",
+      "requested_seconds": 3
+    },
+    {
+      "clip": "mina_stairs_up",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a10196-db6b-7082-b919-fb2fcbf2f59d_withSkin.fbx",
+      "sha256": "4317a6667182dafb4fce7b2e156e2bd717861d9c1ac2c35739b063c5b7c18ada",
+      "loop": true,
+      "prompt": "Mina climbs four ordinary stair treads with deliberate steps. Lift each knee just enough for the shoe to clear the next riser, place the whole sole on the higher tread and transfer weight before raising the trailing foot. Lean the torso slightly uphill without hunching. Arms make balancing swings; her gaze stays a few steps ahead. Keep pelvis height smooth and finish at a repeatable walking phase.",
+      "requested_seconds": 4
+    },
+    {
+      "clip": "mina_door_push_open",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a10199-b0e2-72fe-a3d9-7030ae452b44_withSkin.fbx",
+      "sha256": "5856ab23a0f79c1be26c5247de21964b41dd5617e11bfdce1cd9be6e54c42b5a",
+      "loop": false,
+      "prompt": "Mina stands arm's length from a closed door and reaches her right hand to its handle. She turns the handle, shifts weight onto the forward foot and pushes the leaf away with a controlled extension of the elbow. Take two steps through the opening while the hand follows the handle. Release it only after her body clears the threshold. Lower her arm and settle upright, without colliding with the leaf.",
+      "requested_seconds": 5
+    },
+    {
+      "clip": "mina_door_pull_open",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a1019b-b252-77ad-b3c2-8c05e9fada23_withSkin.fbx",
+      "sha256": "6ce1f7f3b8e308e77c3b320827a6d08ad00705f9d266602eb7a6e9d26a35812b",
+      "loop": false,
+      "prompt": "Mina reaches for a closed door handle with her right hand, turns it and pulls the leaf toward herself. She takes one backward step, then a sideways step to clear its swing. Her elbow bends easily as the handle approaches; the torso turns gently without losing balance. Once the opening is clear, she releases the handle and steps past. Return her arms to rest and finish upright beyond the threshold.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_talk_measured",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101a1-dc44-7426-addb-abbaa58b0dae_withSkin.fbx",
+      "sha256": "9265c77b90a2a6c7ec9d2c1f0df4be32e84b9f5b2b3adbf3a381447678ac0788",
+      "loop": true,
+      "prompt": "Mina speaks to a person facing her with a level head and steady eye contact. Her right hand rises to waist height, makes two open-palm gestures and lowers again; the left hand stays close to her body. Add subtle brow and mouth movement, with a pause between thoughts. Keep shoulders contained and feet planted. Finish with both hands at rest so the gesture can loop beneath separately timed dialogue.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_strained",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101a2-d6d5-72ce-97e4-f8f5af894838_withSkin.fbx",
+      "sha256": "23dea57d337bb2a3e15160587f7f569028dba0956c43ad09ae8df94b90813185",
+      "loop": false,
+      "prompt": "Mina starts to explain something, raising one hand as if choosing a precise word. Her fingers tighten, her brow draws inward and her mouth closes before the sentence can finish. She looks down for a moment, takes a breath and gently presses the thumb into the opposite palm. Her shoulders rise only a little. Let the hand drift low and end with her facing the listener, still trying to stay composed.",
+      "requested_seconds": 7
+    },
+    {
+      "clip": "mina_recognition",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101a4-03a3-7668-9ef1-dc9e20a74105_withSkin.fbx",
+      "sha256": "8dfc51a29f89ae5e274091d42ed44de57d8b9675be9722c53dc10b00b6107ab8",
+      "loop": false,
+      "prompt": "Mina listens with a guarded expression, then becomes still as a new understanding reaches her. Her eyes focus directly, the brow relaxes and her lips part slightly without speaking. A breath releases; the shoulders soften and her hands uncurl at her sides. Lift the chin a fraction, as if seeing the other person clearly for the first time. Finish in a quiet, open stance without a wide smile or nod.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_stairs_down",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101a9-ccb0-7521-b2ca-f1320a28e986_withSkin.fbx",
+      "sha256": "ea684862595134d554ae6676c730f36cc4a0628b4f6543fe27ecf0e35f352263",
+      "loop": true,
+      "prompt": "Mina descends four stair treads at a slow pace. Her eyes look down, then return ahead. Reach her leading foot to the lower tread, touch the forefoot first and lower weight through a bent supporting knee before bringing the trailing foot down. Keep the torso upright, shoulders quiet and arms slightly away from the body for balance. Avoid jumping or rigid legs. Finish at a repeatable stepping phase.",
+      "requested_seconds": 4
+    },
+    {
+      "clip": "mina_quiet_thanks",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101ab-4464-7277-9b96-626d434e9840_withSkin.fbx",
+      "sha256": "7192b485fd6caea4157579f1e784514d01d1e18c81b86a00ed4f2ced4c0deb48",
+      "loop": false,
+      "prompt": "Mina looks directly at the person before her and takes one steady breath. Her guarded posture loosens; one hand opens at waist height, palm angled gently upward. She gives one slow nod, lets a slight smile reach her eyes and lowers the hand again. Keep the expression brief and sincere, with no flourish, bow or exaggerated happiness. Finish standing comfortably, holding the connection for a moment.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_walk_start",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101c1-b555-7569-ac66-e2f35355903d_withSkin.fbx",
+      "sha256": "cda97adfc7a2463395105f9dd128a1be3e2cf22fe2aba527d69d6f5852a9783f",
+      "loop": false,
+      "prompt": "Mina begins standing with her feet beneath her hips and both arms at rest. She looks toward her destination, shifts her weight onto the right foot and eases her torso forward. Lift the left heel, take one measured step and roll through the sole as the right leg follows. Introduce an opposing arm swing without raising the shoulders. End midway into her normal walking cycle, ready to blend smoothly.",
+      "requested_seconds": 3
+    },
+    {
+      "clip": "mina_walk_stop",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101c2-ce40-7036-9093-9ed2b5f30eb5_withSkin.fbx",
+      "sha256": "ac38f9fc95e062612d05f34bac0148bd7dbfc1dcba313b2af9aec863b988f5ac",
+      "loop": false,
+      "prompt": "Mina begins midway through her ordinary walk. She spots her stopping point, shortens the next stride and places her leading heel beneath her body. Bend knees slightly to absorb the remaining momentum, then bring the trailing foot alongside without scraping the floor. Her arms complete their swing and settle beside her skirt. Raise the torso gently and finish balanced, looking ahead in a calm idle.",
+      "requested_seconds": 3
+    },
+    {
+      "clip": "mina_door_close",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101c4-1568-75ef-b572-606df0122648_withSkin.fbx",
+      "sha256": "aca6160244d2551b9feb46859d365b056184a10d4740e63aacbbad92c62d9e93",
+      "loop": false,
+      "prompt": "Mina stands beside an open door and reaches her right hand to its handle. She takes a step away from the hinge, draws the leaf toward the frame and lets her elbow bend as it approaches. Slow the final few inches so the door closes quietly. Keep her palm on the handle for a brief latch check, then release it. Lower her arm, return the stepping foot and finish facing the closed door with soft knees.",
+      "requested_seconds": 5
+    },
+    {
+      "clip": "mina_door_lock",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101c5-0bfe-747c-8aa7-8880a4bc853c_withSkin.fbx",
+      "sha256": "dfe0bff606bd2038c936db8977c5c8869de0da052277622939072e776ce1fee7",
+      "loop": false,
+      "prompt": "Facing a closed door, Mina takes a key from her jacket pocket with her right hand. She leans slightly toward the lock, inserts the key and turns her wrist until the bolt seats. Pause under gentle pressure, then reverse enough to withdraw the key. Her left hand tests the handle once without opening the door. Return the key to its pocket, straighten and lower both hands into a settled standing pose.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_lift_wait",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101cc-7496-749c-bbc9-7b8370e48fd7_withSkin.fbx",
+      "sha256": "ecd9d6454b13c78af7da496d4f919ad902b7640f734f04785bc05dbfe42782f0",
+      "loop": true,
+      "prompt": "Mina waits one step from the lift doors, feet close together and hands resting at her sides. She lifts her eyes toward the indicator, raises her chin slightly and pauses to check it. Let one heel relax without leaving the floor as she transfers her weight, then bring her gaze back to the doors. Add one quiet breath and a blink. Restore the opening head angle and weight balance for a seamless loop.",
+      "requested_seconds": 6
+    },
+    {
+      "clip": "mina_idle_tired",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_01a101cf-b1a5-71ed-a695-2814c99c14a4_withSkin.fbx",
+      "sha256": "63a746df846a0eabc70d9535f66949cba2b7af8924769cae9fa0f59a1e16cc79",
+      "loop": true,
+      "prompt": "Mina stands with neatly placed feet and hands loose beside her skirt. As she exhales, her shoulders drop slightly and her head dips a fraction. Shift her weight slowly onto the left leg, soften the right knee and hold for two seconds. She blinks, draws a quiet breath and lifts her head, recovering her posture without snapping upright. Return the weight evenly over both feet to close a gentle loop.",
+      "requested_seconds": 8
+    },
+    {
+      "clip": "mina_run_builtin",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_Running_withSkin.fbx",
+      "sha256": "190c458f6ebb0bf7f79665559e5d829f7c97d4f0b1a70e7df34796004e156950",
+      "loop": true,
+      "prompt": "Meshy supplied stock running.",
+      "requested_seconds": null
+    },
+    {
+      "clip": "mina_walk_builtin",
+      "source": "Meshy_AI_Gray_Resolve_biped_Animation_Walking_withSkin.fbx",
+      "sha256": "4df38a988c25160d3165801fe167492e20f593c7016434030684d02e3cfbb185",
+      "loop": true,
+      "prompt": "Meshy supplied stock walking.",
+      "requested_seconds": null
+    }
+  ]
+}

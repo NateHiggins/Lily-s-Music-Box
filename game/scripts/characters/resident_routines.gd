@@ -551,8 +551,9 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 	if anim:
 		for clip_name in anim.get_animation_list():
 			var clip := anim.get_animation(clip_name)
-			if clip:
+			if clip and slug != "mina_vale":
 				clip.loop_mode = Animation.LOOP_LINEAR
+		if slug == "mina_vale": MinaAnimationBehavior.configure(anim)
 		var idle := _resolve_clip(anim, "idle")
 		if idle != "" and anim.has_animation(idle):
 			anim.play(idle)
@@ -567,6 +568,10 @@ func _upgrade(node: Node3D, slug: String) -> bool:
 ## A resident's own baked clip beats the shared retargeted one: gaits stay
 ## personal while the borrowed library fills every other role.
 func _resolve_clip(anim: AnimationPlayer, role: String) -> String:
+	if anim.has_animation("mina_idle_calm"):
+		return {"idle":"mina_idle_calm", "pace":"mina_walk", "busy":"mina_idle_tired",
+				"settle":"mina_idle_calm", "reach":"mina_idle_calm", "look_up":"mina_lift_wait",
+				"glance":"mina_idle_calm", "fret":"mina_idle_tired", "wait":"mina_idle_calm"}.get(role, "")
 	var suffix: String = {"idle": "_Idle", "pace": "_Walk"}.get(role, "")
 	if suffix != "":
 		for clip_name in anim.get_animation_list():
@@ -613,6 +618,9 @@ func _haunt_point(slug: String) -> Vector3:
 
 
 func _play(actor: Dictionary, role: String) -> void:
+	if actor.slug == "mina_vale" and actor.node is AnimatedResident:
+		actor.node._set_walking(role == "pace")
+		return
 	var anim: AnimationPlayer = actor.anim
 	if anim == null:
 		return

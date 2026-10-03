@@ -27,10 +27,44 @@ func _ready() -> void:
 func _run() -> void:
 	await _context(Vector3.ZERO, 0.0, false)
 	await _context(Vector3(12, 6, -19), .73, true)
+	await _animated_close_override()
 	# The mixer retires stopped decoders asynchronously after scene destruction.
 	await get_tree().create_timer(.25).timeout
 	print("V2 MINA DOOR SAFETY: %d checks; %d failures" % [checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _animated_close_override() -> void:
+	var frame := Node3D.new()
+	add_child(frame)
+	var routine := Routine.new()
+	frame.add_child(routine)
+	routine.set_physics_process(false)
+	var mina := AnimatedResident.new()
+	mina.setup("Mina Vale", "mina_vale", "2A", "res://assets/characters/mina_vale/mina_vale.gltf")
+	mina.externally_driven = true
+	frame.add_child(mina)
+	mina.position = Vector3(.455, 0, -2)
+	routine.actor = mina
+	var door := DoorProp.new()
+	frame.add_child(door)
+	await get_tree().physics_frame
+	door.npc_set_open(true, "mina_vale")
+	await get_tree().create_timer(.6).timeout
+	routine._door_passages[door] = {"side":1.0,"opened":true,"revision":door.motion_revision,"gesture":true}
+	routine._close_passed_doors()
+	_check("production animation owns a pending close gesture", mina.mina_animation.route_busy and routine._closing_door == door)
+	# Accepted player changes supersede the request while the reach is pending.
+	door.interact(null)
+	await get_tree().create_timer(.6).timeout
+	door.interact(null)
+	routine._close_passed_doors()
+	routine._close_passed_doors()
+	_check("later opening cancels the production body's stale close", door.open and not mina.mina_animation.route_busy and routine._closing_door == null and routine._door_passages.is_empty())
+	mina.mina_animation.finish_conversation(true)
+	mina.mina_animation.update(2.0)
+	_check("thanks cannot cue a stale door contact", not mina.mina_animation.action_contact_ready())
+	frame.queue_free()
+	await get_tree().physics_frame
 
 func _context(origin: Vector3, yaw: float, outward: bool) -> void:
 	var viewport := SubViewport.new()

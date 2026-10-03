@@ -22,6 +22,10 @@ var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
+var _closing_door: DoorProp
+var _closing_phase := ""
+var _closing_revision := -1
+var route_speed := 1.05
 
 static func valid_source_header(source: Variant) -> bool:
 	if source is not Dictionary:
@@ -95,10 +99,17 @@ func _select_destination() -> void:
 			world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
 	destination = str(block.get("place","unit"))
 	desired_id = int(identities.get(places.get(destination,""),-1))
+	route_speed = 1.42 if destination == "bodega" and world.campaign_clock.minute_of_day() >= 1420 else 1.05
+	if actor and actor.mina_animation:
+		var minute: float = world.campaign_clock.minute_of_day()
+		actor.mina_animation.set_idle_context(minute < 360 or minute >= 1380)
 
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
 	_close_passed_doors()
+	if actor.mina_animation.conversation_active or is_instance_valid(_closing_door):
+		actor._set_walking(false)
+		return
 	_sample -= delta
 	if _sample <= 0:
 		_sample = .5
@@ -136,10 +147,13 @@ func _physics_process(delta: float) -> void:
 		path.remove_at(0)
 		if planned_id != desired_id: path.clear()
 		return
-	if not _route_doors_ready(delta * 1.05):
+	if not _route_doors_ready(delta * route_speed):
 		actor._set_walking(false)
 		return
-	var next := at + flat.limit_length(delta*1.05)
+	if actor.mina_animation.route_busy:
+		actor._set_walking(false)
+		return
+	var next := at + flat.limit_length(delta*route_speed)
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
 	var floor_hit := space.intersect_ray(ray)
@@ -165,7 +179,10 @@ func _physics_process(delta: float) -> void:
 	actor.global_position = next
 	travelled_metres += at.distance_to(next)
 	blocked_seconds = 0
-	actor._set_walking(true)
+	# Use the authored edge slope, rather than a single tread sample, so a
+	# flat tread doesn't alternate ordinary and stair clips every frame.
+	var edge := target - graph.get_point_position(current_id)
+	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01), route_speed)
 	if flat.length_squared() > .00001:
 		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(flat.x,flat.z),minf(1,delta*7))
 
@@ -201,21 +218,57 @@ func _route_doors_ready(step: float) -> bool:
 		if not near: continue
 		if not _door_passages.has(door):
 			if not _route_crosses_door(door): continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": -1}
+			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": -1, "gesture": false}
 		var passage: Dictionary = _door_passages[door]
 		# A crossed door belongs to the close queue, not the next approach.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
 		if not door.is_ready_for_passage():
 			if not door.open and not door._moving \
 					and _door_motion_clear(door, true):
-				door.npc_set_open(true,actor.resident_id)
-				passage.opened = door.open
-				passage.revision = door.motion_revision
+				if actor.mina_animation == null:
+					door.npc_set_open(true,actor.resident_id)
+					passage.opened = door.open
+					passage.revision = door.motion_revision
+					ready = false
+					continue
+				if door.leaf_state == "locked" and not DoorKeyring.resident_has_key(actor.resident_id, door):
+					ready = false
+					continue
+				# Approach within reach while the capsule still clears the closed
+				# leaf. The gesture cues the owner's real opening at its reach beat.
+				var pushing := sin(door.motion_target_angle(true)) * float(passage.side) > 0
+				var reach := .85 if pushing else door.width + .5
+				if absf(door.to_local(actor.global_position).z) > reach: continue
+				if not actor.mina_animation.route_busy:
+					passage.gesture = actor.mina_animation.route_action("push" if pushing else "pull")
+					if passage.gesture: _face_door(door)
+				elif bool(passage.gesture) and actor.mina_animation.action_contact_ready():
+					door.npc_set_open(true,actor.resident_id)
+					passage.opened = door.open
+					passage.revision = door.motion_revision
 			blocked_reason = "waiting for door: " + str(door.name)
 			ready = false
 	return ready
 
 func _close_passed_doors() -> void:
+	if is_instance_valid(_closing_door):
+		if actor.mina_animation.conversation_active or _closing_door.motion_revision != _closing_revision:
+			actor.mina_animation.cancel_route_action()
+			_closing_door = null
+			return
+		if _closing_phase == "close" and _closing_door.open \
+				and actor.mina_animation.action_contact_ready() and _door_motion_clear(_closing_door, false):
+			_closing_door.npc_set_open(false,actor.resident_id)
+			if not _closing_door.open:
+				_closing_revision = _closing_door.motion_revision
+				_door_passages.erase(_closing_door)
+		if not actor.mina_animation.route_busy:
+			if _closing_phase == "close" and not _closing_door.open and _closing_door.leaf_state == "locked":
+				actor.mina_animation.route_action("lock")
+				_closing_phase = "lock"
+			else:
+				_closing_door = null
+		return
 	for door: DoorProp in _door_passages.keys():
 		if not is_instance_valid(door):
 			_door_passages.erase(door)
@@ -233,8 +286,21 @@ func _close_passed_doors() -> void:
 		if not bool(passage.opened):
 			_door_passages.erase(door)
 		elif not door._moving and _door_motion_clear(door, false):
-			door.npc_set_open(false,actor.resident_id)
-			if not door.open: _door_passages.erase(door)
+			if actor.mina_animation == null:
+				door.npc_set_open(false,actor.resident_id)
+				if not door.open: _door_passages.erase(door)
+			elif actor.mina_animation.route_action("close"):
+				_closing_door = door
+				_closing_phase = "close"
+				_closing_revision = door.motion_revision
+				_face_door(door)
+				return
+
+func _face_door(door: DoorProp) -> void:
+	var toward := door.to_global(Vector3(door.width * .75, 0, 0)) - actor.global_position
+	if Vector2(toward.x, toward.z).length_squared() < .001: return
+	var yaw := actor.global_rotation.y + wrapf(atan2(toward.x, toward.z) - actor.global_rotation.y, -PI, PI)
+	actor.create_tween().tween_property(actor, "global_rotation:y", yaw, .3)
 
 ## Conservative swept-box clearance for people, including the player. This
 ## never excludes the leaf from movement queries or modifies its collision.

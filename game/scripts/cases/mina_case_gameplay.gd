@@ -9,6 +9,7 @@ const CASE_ID := "mina_caption_crisis"
 const JOB_ID := "vantry_chirp_2a"
 const DIALOGUE_TREE_PATH := "res://data/case01_dialogue.json"
 const VOICE_DIR := "res://assets/audio/voice/"
+var _animation_thanks := false
 const EVIDENCE := [
 	{"id": "caption_cards", "name": "Caption Cards",
 	 "at": [-11.55, -4.55, 4.25], "fact": "CARDS",
@@ -144,7 +145,11 @@ func _build_dialogue() -> void:
 	dialogue.tree_ended.connect(func():
 		var actor := _mina_actor()
 		if actor:
-			actor.play_case_role("idle"))
+			if actor.mina_animation:
+				actor.mina_animation.finish_conversation(_animation_thanks)
+			else:
+				actor.play_case_role("idle")
+		_animation_thanks = false)
 	# Voice takes play from Mina's living room; subtitles are the panel
 	# itself, sourced from the same JSON, so text and voice cannot drift.
 	_voice = AudioStreamPlayer3D.new()
@@ -156,13 +161,13 @@ func _build_dialogue() -> void:
 
 func _on_dialogue_node(node_id: String) -> void:
 	_play_voice_line(node_id)
+	_animation_thanks = node_id in ["rt_earned", "int_beat", "res_open"]
 	# Deeper layers borrow her body: the tree names the animation role, the
 	# actor plays it if the clip has shipped from the prompt sheet.
 	var node: Dictionary = dialogue_tree.get("nodes", {}).get(node_id, {})
-	if node.has("role"):
-		var actor := _mina_actor()
-		if actor:
-			actor.play_case_role(str(node.role))
+	var actor := _mina_actor()
+	if actor:
+		actor.play_case_role(str(node.get("role", "talk")))
 
 
 func _mina_actor() -> AnimatedResident:

@@ -1,7 +1,7 @@
 class_name AnimatedResident
 extends Node3D
-## Rigged resident actor. Mina uses a short, route-safe pacing behavior during
-## active manifestations so both baked IK clips are exercised in game.
+## Rigged resident actor. Mina's supplied batch has its own playback owner;
+## isolated manifestations retain the short, contained pacing behavior.
 
 var display_name := ""
 var resident_id := ""
@@ -20,6 +20,7 @@ var externally_driven := false
 var preferred_idle := ""
 var preferred_walk := ""
 var face_interacting_player := false
+var mina_animation: MinaAnimationBehavior
 
 
 func setup(character_name: String, character_id: String,
@@ -51,6 +52,14 @@ func _ready() -> void:
 	if _animation_player == null:
 		ResidentMovesLibrary.apply(_model)
 		_animation_player = _find_animation_player(_model)
+	if resident_id == "mina_vale":
+		var behavior := preload("res://scripts/characters/mina_animation_behavior.gd").new()
+		if behavior.install(_animation_player):
+			mina_animation = behavior
+			preferred_idle = "mina_idle_calm"
+			preferred_walk = "mina_walk"
+		else:
+			push_error("Mina Gray Resolve batch is incomplete")
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
@@ -134,8 +143,11 @@ func _build_nameplate() -> void:
 
 
 func _process(delta: float) -> void:
+	if mina_animation:
+		mina_animation.update(delta)
 	if externally_driven:
 		return
+	if mina_animation and (mina_animation.conversation_active or mina_animation.route_busy): return
 	var case_id := RealityCases.case_for_resident(resident_id)
 	var state: Dictionary = RealityState.case_state(case_id)
 	var active: bool = state.get("stage", "unseen") in ["active", "reopened"]
@@ -159,10 +171,22 @@ func _process(delta: float) -> void:
 
 
 func _set_walking(on: bool) -> void:
+	if mina_animation:
+		_walking = on
+		mina_animation.set_motion(on)
+		return
 	if _walking == on:
 		return
 	_walking = on
 	_play_named("walk" if on else "idle")
+
+
+func set_route_motion(on: bool, slope: float, metres_per_second: float) -> void:
+	if mina_animation:
+		_walking = on
+		mina_animation.set_motion(on, slope, metres_per_second)
+	else:
+		_set_walking(on)
 
 
 ## Case beats may borrow the actor: the dialogue tree asks for roles like
@@ -170,6 +194,8 @@ func _set_walking(on: bool) -> void:
 ## the named clip hasn't shipped, so cases can request roles ahead of the
 ## animation set arriving from the prompt sheet.
 func play_case_role(fragment: String) -> bool:
+	if mina_animation:
+		return mina_animation.speak(fragment)
 	if _animation_player == null:
 		return false
 	for animation_name in _animation_player.get_animation_list():
@@ -180,6 +206,10 @@ func play_case_role(fragment: String) -> bool:
 
 
 func _play_named(fragment: String) -> void:
+	if mina_animation:
+		if fragment == "walk": mina_animation.set_motion(true)
+		elif fragment == "idle": mina_animation.set_motion(false)
+		return
 	if _animation_player == null:
 		return
 	var preferred := preferred_idle if fragment == "idle" else preferred_walk if fragment == "walk" else ""
