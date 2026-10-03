@@ -282,7 +282,7 @@ The visions are promises. The packet lists each with what makes it true, and the
 
 Source of truth: **oracle/packet.py**, **oracle/builder.py**, **content/builder_prompt.md**.
 
-The packet is a folder: the game description, the design profile as data, the reading, the builder's prompt, the transcript, and a copy of the process manual when one is found beside the program. The game description carries the repository's document-class header so that it can be committed as a brief without being mistaken for proof.
+The packet is a folder: the game description, the design profile as data, the reading, the builder's prompt, the transcript, and a copy of the process manual (its operating core and its reference files) when one is found beside the program. The game description carries the repository's document-class header so that it can be committed as a brief without being mistaken for proof.
 
 A build is never started unless the player asks. When they do, a builder (Codex, Claude Code or any command) is started in a fresh project directory containing the packet, with the builder's prompt on its standard input.
 

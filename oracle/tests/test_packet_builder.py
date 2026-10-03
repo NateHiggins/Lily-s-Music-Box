@@ -102,11 +102,19 @@ class PacketTests(unittest.TestCase):
     def test_manual_is_copied_when_one_is_given(self):
         manual = self.tmp / "manual.md"
         manual.write_text("# manual\n", encoding="utf-8")
+        reference = self.tmp / "manual"
+        reference.mkdir()
+        (reference / "REF_PROCESS.md").write_text("## section 5.8\n", encoding="utf-8")
+        (reference / "check_manual.py").write_text("print(1)\n", encoding="utf-8")
         out = self.tmp / "with_manual"
         packet = write_packet(self.r, self.night["model"], self.night["session"], self.night["synthesis"],
                               out_dir=str(out), manual=str(manual))
         self.assertTrue((packet / MANUAL_NAME).is_file())
-        self.assertIn("section 5.8", (packet / "BUILDER_PROMPT.md").read_text(encoding="utf-8"))
+        # The reference files travel with the core; only documents are copied.
+        self.assertEqual(sorted(p.name for p in (packet / "manual").iterdir()), ["REF_PROCESS.md"])
+        prompt = (packet / "BUILDER_PROMPT.md").read_text(encoding="utf-8")
+        self.assertIn("section 5.8", prompt)
+        self.assertIn("Read it in full", prompt)
         self.night["session"].packet_dir = str(self.packet)
 
     def test_developer_view_shows_what_the_house_knew(self):

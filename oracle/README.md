@@ -64,9 +64,9 @@ When the night ends the packet is written, by default under the data directory:
 | **prophecy.md** | what you were told |
 | **BUILDER_PROMPT.md** | the instruction to give an AI engineer |
 | **transcript.md** | the night itself |
-| **AI_GAME_DEVELOPMENT_MANUAL.md** | a copy of the process manual, when one is found beside the program |
+| **AI_GAME_DEVELOPMENT_MANUAL.md**, **manual/** | a copy of the process manual's operating core and of its reference files, when they are found beside the program |
 
-To feed the manual: put the **oracle_packet** folder in an empty directory and give **BUILDER_PROMPT.md** to your AI engineer. The builder follows section 5.8 of the manual, which treats the packet as the creator's prompt and the visions as acceptance criteria.
+To feed the manual: put the **oracle_packet** folder in an empty directory and give **BUILDER_PROMPT.md** to your AI engineer. The builder reads the manual's operating core in full and follows its section 5.8 (in **manual/REF_PROCESS.md**), which treats the packet as the creator's prompt and the visions as acceptance criteria.
 
 ## Have it built
 

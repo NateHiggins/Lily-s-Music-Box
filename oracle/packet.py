@@ -6,7 +6,8 @@
       prophecy.md           what the player was told (the visions are promises)
       BUILDER_PROMPT.md     the instruction to give an AI engineer, ready to paste
       transcript.md         the night itself (local; it is the player's own words)
-      AI_GAME_DEVELOPMENT_MANUAL.md   a copy of the process manual, when one is found
+      AI_GAME_DEVELOPMENT_MANUAL.md   a copy of the process manual's core, when one is found
+      manual/                         its reference files, opened by section
 
 `GAME_DESCRIPTION.md` is the "simple English prompt" the manual asks for, grown
 up: it replaces a one-line pitch with a design derived from play.
@@ -26,6 +27,7 @@ from .session import Session, packets_dir
 from .synthesis import build_profile
 
 MANUAL_NAME = "AI_GAME_DEVELOPMENT_MANUAL.md"
+REFERENCE_DIR = "manual"          # the manual's reference files, in a folder beside its core
 
 
 def find_manual(explicit: str | None = None) -> Path | None:
@@ -112,8 +114,9 @@ def game_description(registry: Registry, session: Session, synthesis: dict) -> s
             _bullets(imp["scope"]["constraints"]), "",
             "## How to build from this", "",
             "Give `BUILDER_PROMPT.md` to the AI engineer, in a directory that contains this `oracle_packet/` "
-            "folder. If the process manual is present, the builder follows its section 5.8, which treats this "
-            "packet as the creator's prompt and the visions as acceptance criteria.", ""]
+            "folder. If the process manual is present, the builder reads its operating core in full and "
+            "follows its section 5.8, which treats this packet as the creator's prompt and the visions as "
+            "acceptance criteria.", ""]
     return "\n".join(out)
 
 
@@ -131,9 +134,11 @@ def prophecy_markdown(synthesis: dict) -> str:
 def builder_prompt(registry: Registry, synthesis: dict, manual_present: bool) -> str:
     imp = registry.implications
     if manual_present:
-        manual_line = (f"`oracle_packet/{MANUAL_NAME}`: the process manual. Follow section 5.8 (the oracle "
-                       "front door), then the day-zero protocol of section 5 scaled down as section 24 "
-                       "describes for a small game. Its templates are in section 21.")
+        manual_line = (f"`oracle_packet/{MANUAL_NAME}`: the operating core of the process manual. Read it in "
+                       "full; it is short. Then follow section 5.8 (the oracle front door), which is in "
+                       f"`oracle_packet/{REFERENCE_DIR}/REF_PROCESS.md` when the reference was copied with the "
+                       "core. Open the other reference files only when the core sends you to a section; "
+                       "templates are in section 21.")
     else:
         manual_line = ("The AI game development manual, if you have been given one: follow its section on "
                        "starting from an oracle packet. If you have not, work in this order: write a one-page "
@@ -175,5 +180,11 @@ def write_packet(registry: Registry, model: PlayerModel, session: Session, synth
         (packet / name).write_text(text, encoding="utf-8", newline="\n")
     if manual_path is not None:
         shutil.copyfile(manual_path, packet / MANUAL_NAME)
+        # The core is read in full; its reference files are opened by section and travel with it.
+        reference = manual_path.parent / REFERENCE_DIR
+        if reference.is_dir():
+            (packet / REFERENCE_DIR).mkdir(exist_ok=True)
+            for item in sorted(reference.glob("*.md")):
+                shutil.copyfile(item, packet / REFERENCE_DIR / item.name)
     session.packet_dir = str(packet)
     return packet
