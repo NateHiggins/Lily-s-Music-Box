@@ -191450,7 +191450,7 @@
    "symbols": ["_run"],
    "lines": [105],
    "count": 1,
-   "context": ["var window_mount:=world.adapter.resolve(\"B1_BOILER_AIR_E\")"],
+   "context": ["var window_mount: Node=world.adapter.resolve(\"B1_BOILER_AIR_E\")"],
    "gameplay_binding": false,
    "authority": ["TEST_CONTRACT"],
    "spatial": [],

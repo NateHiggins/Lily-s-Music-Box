@@ -78,7 +78,7 @@ Branch / HEAD / origin/main / merge-base: canonical **main**, named-path
 candidate over **ec25d42d57559f2f61c027f91506c1fbe410af3e**. Exact publication
 identity and cleanliness belong to the bound report. The complete clean
 baseline is **tmp/bodega-frontage/ec25d42-clean-board.json**. Final publication
-proof belongs to **tmp/city-masts/published-verified/verification.json**, with the
+proof belongs to **tmp/city-masts/publish-final/verification.json**, with the
 unchanged runtime's ten-suite run at **final-verified/verification.json**. Protected 17/17,
 default V2 and explicit V1 rollback are enforced by the verifier. This INERT
 record does not promote the completeness ledger. Reader NEW unread and gate
@@ -104,6 +104,9 @@ The spatial manifest adds exactly one individually reviewed test dependency
 for existing **B1_BOILER_AIR_E**, resolved to the current blockout. Audit rules,
 classifications, unrelated records and tolerances are unchanged. The verifier
 flags this named manifest addition for review.
+The first semantic-lookup follow-up failed to load because the test needed an
+explicit Node type. Its wrapper reached the ceiling without a suite verdict;
+it is preserved as a failed attempt, not passing runtime evidence.
 
 Changes outside asset/runtime/test paths: two precision import sidecars, hash
 attributes, three exact derived-image ignore entries and document indices.

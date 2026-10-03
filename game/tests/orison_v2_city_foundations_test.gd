@@ -102,7 +102,7 @@ func _run() -> void:
 	var air_ray:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(16.6,-1.3,3.2)),root.to_global(Vector3(15.5,-1.3,3.2)),1,[world.player.get_rid()])
 	var air_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	print("POST PAVEMENT AIR THROAT: owner=",str(world.get_path_to(air_hit.collider)) if not air_hit.is_empty() else "empty")
-	var window_mount:=world.adapter.resolve("B1_BOILER_AIR_E")
+	var window_mount: Node=world.adapter.resolve("B1_BOILER_AIR_E")
 	check(window_mount!=null,"actual boiler-window mount resolves uniquely through the semantic adapter")
 	if window_mount==null:
 		world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(1);return
