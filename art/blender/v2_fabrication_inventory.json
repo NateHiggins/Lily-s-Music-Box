@@ -7409,6 +7409,9 @@
     "game/scripts/building/orison_v2_foundations.gd": [
       "res://assets/props/orison_foundations.glb"
     ],
+    "game/scripts/building/orison_v2_front_pavement.gd": [
+      "res://assets/props/front_pavement.glb"
+    ],
     "game/scripts/building/orison_v2_ground_core_transfer.gd": [
       "res://assets/props/ground_core_transfer.glb"
     ],
@@ -7528,6 +7531,7 @@
     "art/blender/scripts/build_duct_hanger.py",
     "art/blender/scripts/build_exterior_masonry.py",
     "art/blender/scripts/build_first_upper_hall_seats.py",
+    "art/blender/scripts/build_front_pavement.py",
     "art/blender/scripts/build_gesture_library.py",
     "art/blender/scripts/build_ground_core_transfer.py",
     "art/blender/scripts/build_house_tank.py",
@@ -7609,6 +7613,7 @@
       "street": {
         "geometry": "game/data/orison_v2/exterior/exterior_geometry.json",
         "boundaries": "game/scripts/building/orison_v2_street_boundaries.gd",
+        "front_pavement": "art/blender/scripts/build_front_pavement.py",
         "rear_alley": "art/blender/scripts/build_service_alley.py"
       },
       "bar": {

@@ -61,6 +61,7 @@ def city_index(root):
                 hours='game/scripts/building/passage_hours_director.gd'),
             'street': dict(geometry='game/data/orison_v2/exterior/exterior_geometry.json',
                 boundaries='game/scripts/building/orison_v2_street_boundaries.gd',
+                front_pavement='art/blender/scripts/build_front_pavement.py',
                 rear_alley='art/blender/scripts/build_service_alley.py'),
             'bar': dict(active=bar_active,
                 shell='game/assets/building/floor_01_cells/shop_bar.gltf',

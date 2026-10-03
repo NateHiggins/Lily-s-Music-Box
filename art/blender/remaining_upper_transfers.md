@@ -130,4 +130,19 @@ regressions, reader NEW zero, spatial drift zero and no requirement changes.
 Clean committed candidate comparison against genuine clean **a44bf6f** remains
 required before publication.
 
-BLOCKED pending clean committed candidate verification; work continues.
+## Published verification
+
+Published **97faa90eacfad8f2ea51d0145f2b699ba7f9d854** passes the complete
+47-gate comparison against genuine clean **a44bf6f**, with zero regressions,
+no requirement changes, protected paths 17/17 and default V2/explicit V1
+rollback checks retained. Twenty-six source-bound windowed wrapper suites and both
+imports complete. The new native suite repeats all 667 checks; affected A/4B
+routes repeat 28/32 waypoints, and the public/service circuit repeats 79.
+All seven candidate native, nine A, 22 4B and thirteen retained basement
+captures are inspected; the previously qualified route/finish limits remain.
+
+Full verification is **tmp/remaining-upper-transfers/verified/verification.json**;
+the next genuine clean baseline is
+**tmp/remaining-upper-transfers/97faa90-clean-board.json**. The support repairs
+are published. Exterior ground/subgrade, drainage, weather closure, city
+fabric and the wider infrastructure work continue before heating cuts.

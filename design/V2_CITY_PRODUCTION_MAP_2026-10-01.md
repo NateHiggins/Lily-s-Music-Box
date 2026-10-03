@@ -29,7 +29,7 @@ cells. A source reference alone is not a successful walk or a quality verdict.
 | Orison | **orison_v2_blockout.json**, **orison_v2_blockout.gd**; installed exterior masonry, window joinery, door casings and roof generators. **world_connection.json** retires the stand-alone street template's duplicate Orison facade and raised entry step only in the composed root. | **orison_v2_runtime_root.gd** composes existing simulation/maintenance, schedules, persistence and service equipment. Prior masonry, stairs, boiler, alley and roof fabrication remain. Exterior composition inspected; room/detail coverage remains in the existing fabrication queue. |
 | Bodega | **exterior_geometry.json**, **regions.json**, **orison_v2_exterior_cell.gd** own the current shop shell, storefront, display geometry and moving leaves. **build_bodega_receiving.py**, **bodega_receiving.blend/glb** and **orison_v2_bodega_receiving.gd** own the fitted fixed receiving floor/walls/ceiling/bench and collision. The old **shop_bodega.gltf** is dormant. | Existing bucket registry and **orison_v2_shop_simulation.gd** own stock, staffing, hours and condition. Storefront and sales aisle inspected. Flat shelf/stock masses are intentional current simplification. The fitted Blender receiving room and one semantic delivery leaf now pass a 30-waypoint sales-aisle round trip; storefront detail and physical utility distribution remain open. |
 | Vantry Arcade | **orison_v2_passage_region.gd** mounts gateway plus twelve cells: passage and eleven shops. Passage geometry is the admitted V2 derivative; eleven shop assets remain retained cell exports. Imported collision, source marker doors and hours grilles retain their owners. | **passage_finish_pass.gd**, **passage_hours_director.gd**, shared **MaintenanceShopService** and **orison_v2_passage_residency.gd**. Portal and both nave directions inspected; actual hardware purchase and reload route retained as regression coverage. Individual shop/service and closed-hours walks remain open. |
-| Street | Exterior cell owns the north pavement, curb and road. Extracted **passage_gateway.gltf** owns the opposite gateway/kiosk ground and retained transit approach. **orison_v2_street_boundaries.gd** owns route limits; **service_alley.glb** owns the rear/service paving up to the existing pavement. | Existing street traffic, light budget and shop presentation; no second city simulator. The street template's duplicate facade/window/cornice boxes are removed in composition. Kiosk rails and arcade piers require the actual public approach, as used by the bar route. Drainage slopes and all transit edges need further close review. |
+| Street | Fitted **front_pavement.blend/glb** owns the north public slab and matching collision in the Orison front-door frame; exterior cell retains curb, road and registered bodega floor. Extracted **passage_gateway.gltf** owns the opposite gateway/kiosk ground and retained transit approach. **orison_v2_street_boundaries.gd** owns route limits and shed floor; **service_alley.glb** owns rear/service paving. | Existing street traffic, light budget and shop presentation retain their owners. The original rectangular public slab is removed only from V2 composition; fitted paving excludes current rooms, masonry, bodega, shed and curb volumes. Kiosk rails and arcade piers require the actual public approach. Broader subgrade, drainage slopes, paving joints and transit edges remain open. |
 | Harukiya bar | **orison_v2_bar_region.gd** mounts registered **shop_bar.gltf**, whose shell, floor, ceiling, sanitary partition, stair, backbar, retained furniture and static collision are unchanged. Source marker doors are the moving owners. | Exact **CELL_SHOP_BAR** roster: 29 markers, including 18 lights and three doors; existing Harukiya hours, nine interaction sockets and two ArcadeRow receivers. Acoustic fixture mouths register to world coordinates and restore on teardown. Public entry and restroom/sink return walked successfully. Seat fit, other apparatus reach and service continuity still require focused review. |
 | Cityscape | **build_city_shells.py** derives 335 authored box solids from immutable generated city records. Editable **city_shells.blend**, exported **city_shells.glb**, and **orison_v2_city_shells.gd** own 84 building/material mesh and collision partitions. Source ground/shop interiors are omitted. | Geometry-only neighbors, backs, cornices, roofs and distant closures. No new live controls, modern services or simulation. Two north neighbors register to the current bodega/alley; southern bar/arcade geometry retains its authored frame. Oblique, street-wall, roof and overhead views inspected. Rear courtyards and more boundary sightlines remain uninspected. |
 
@@ -58,7 +58,7 @@ from **regions.json**. Do not substitute one frame's coordinates for another.
 |---|---|---|
 | Orison vestibule / street exterior | **F01_DOOR_06**, 1.10 m by 2.13 m, authored left hinge/outward hand. Floor datum 0; V2 wall envelope and fitted casing own the opening. Street template threshold surface is a 1.4 m by 2.5 m mounting frame, not a replacement opening. | Interior slab and exterior pavement meet at the registered threshold. One physical V2 leaf. Duplicate exterior facade, synthetic windows and raised step removed. Arcade prefetch starts at the vestibule; bar/city geometry stays resident. No new service crossing is invented. |
 | Orison service hall / service alley | **F01_REAR_SERVICE_DOOR**, 0.91 m by 2.13 m, left hinge/outward hand, local center **(8.9,9.25)**. Existing hall and alley share datum 0. | DomesticDoors owns the moving leaf; accepted Blender alley owns exterior walls/paving/collision. The west neighbor's nearest face is world X **-18.40 m**, beyond the alley wall/pier at **-18.32 m**. Door/alley regression suite must still pass with neighbors installed. |
-| Bodega / pavement | Threshold frame 1.2 m by 2.5 m; instance center world X **18.655 m**. Current shop floor and threshold stay in the exterior resolver's frame. Physical storefront leaf parameters remain in **exterior_geometry.json**. | Exterior cell owns both shop and north pavement, including existing colliders/counter. Source east neighbor shifts **+1.255 m** to the registered bodega. The original public leaf and datum remain unchanged; the internal receiving connection has its own owner below. |
+| Bodega / pavement | Threshold frame 1.2 m by 2.5 m; instance center world X **18.655 m**. Current shop floor and threshold stay in the exterior resolver's frame. Physical storefront leaf parameters remain in **exterior_geometry.json**. | Exterior cell owns the shop floor/collider/counter; fitted front paving owns only the public slab outside retained shop volumes. Source east neighbor shifts **+1.255 m** to the registered bodega. The original public leaf and zero datum remain unchanged; the internal receiving connection has its own owner below. Broader below-floor support and drainage remain open. |
 | Bodega sales aisle / receiving room | Corrected rear-facing semantic frame local **(0.65,0,-10.56)**; original clear opening **1.05 m** by **2.25 m**, 0.16 m wall. One **0.95 m** by **2.10 m** east-hinged service leaf swings into the room through existing DoorProp input. Both floor datums zero. | Existing ExteriorCell owns the opening/leaf and shared shop/counter state; the fitted Blender room owns the contiguous 2.00 m extension, foundation, walls, ceiling and bench/collision. Jambs stay outside the opening. Existing delivery practical relocates onto a physical support with unchanged energy/range. Semantic placements walk through the existing sales aisle, close/reopen inside and return: 30 waypoints, zero failures. Room stays resident with bodega; no external rear approach is invented. |
 | Arcade gateway / passage and eleven shops | Source marker openings, door dimensions, lintels and grilles remain authoritative in **building_layout.json** and cell exports. One imported frame; nave datum 0. | Imported cells own floor/collision; passage actors own doors and hours grilles. Shared hardware counter retains actual stock/inventory. Residency unload/reload occurs at the Orison core/vestibule, retaining physical actors. Separate shop-by-shop and closed-grille route work remains. |
 | Street / bar lobby / bar basement | Source shaft X **4.30..5.90 m**, 1.60 m clear, street lobby top **0.02 m**. Fifteen **0.175 m** risers with **0.27 m** treads reach the **-2.80 m** room through the bottom landing. Street leaf 0.90 m; red leaf 0.90 m at source hinge **(4.15,-33.95,-2.8)**, outward hand. | Original imported slab, 0.30 m wall/threshold strip and collision remain. Use the west lane past the umbrella stand, then continue beyond the lobby crate before the descent stance. Red-door notch admits the capsule without crossing the 0.18 m lounge lip. No interstage teleport. Bar actor acoustic mouths register with the same city transform. |
@@ -716,3 +716,45 @@ has 47 gates, zero regressions, reader NEW zero, spatial drift zero and no chang
 requirements. Clean committed candidate verification against genuine clean
 **a44bf6f** remains required. External ground/subgrade, drainage, weather closure
 and shared service routes remain the next prerequisites; heating cuts stay parked.
+
+## Remaining-transfer publication
+
+Published **97faa90eacfad8f2ea51d0145f2b699ba7f9d854** completes the clean
+47-gate comparison against genuine clean **a44bf6f**: zero regressions,
+no requirement changes, protected paths 17/17 and retained V2/V1 selector
+behavior. Twenty-six source-bound windowed wrapper suites and both imports complete,
+including 667 native remaining-transfer checks, the affected A/4B routes
+(28/32 waypoints), retained basement clearance and the 79-waypoint stair circuit.
+All seven new candidate native views, nine A, 22 4B and thirteen retained
+basement captures are reviewed with the existing fine-appearance limits.
+Verification is **tmp/remaining-upper-transfers/verified/verification.json**;
+**tmp/remaining-upper-transfers/97faa90-clean-board.json** is the next clean
+baseline. The wider shell/infrastructure task remains open; heating cutouts
+stay parked while exterior ground, drainage and weather closure are resolved.
+
+## Fitted front public-floor ownership
+
+**art/blender/front_pavement.md** records the registered public slab replacement:
+37 bounded native draws, 1,656 triangles, 160 mm thickness and the retained
+zero top datum. The composed original **pavement_slab** is removed; current
+room, masonry, bodega, shed and curb volumes retain their separate owners.
+The five original 700 mm room-floor overlaps are reproduced geometrically,
+then resolved in the installed mesh/collision with all fifteen frozen room
+stations preserved. Two existing shower trays remain qualified foregrounds.
+The saved closed native union has zero nonmanifold edges and positive volume.
+
+Installed fitting inspection passes 911 checks with 592 actual new-surface
+contacts and strict metre-UV derivatives. All five player-height frames and
+the actual production-native overview are reviewed. Matched stationary visible/
+hidden viewport observations add four to 31 draws and 116 to 892 primitives;
+they establish geometry cost only. Broader street/courtyard subgrade, drainage,
+boiler airwell, city-plinth joins, weather closure and finished paving joints
+remain open. The flat courtyard trial is uninstalled and requires fresh owner
+discovery against this fitted paving. Heating cutouts stay parked.
+
+The complete precommit board has 47 gates with zero regressions, reader NEW
+zero, spatial drift zero and no requirements changed against genuine clean
+**97faa90**. Ten production wrapper suites plus the separate 25-waypoint alley
+route preserve street, shed, bodega, subway, bar, arcade and resident-key
+behavior. Only five individually reviewed room identities are registered.
+Clean committed candidate comparison remains required before publication.

@@ -190228,6 +190228,154 @@
    "rationale": "Reviewed one initial F03 public-hall placement at (-4.65,6.42,0). Every subsequent affected-room waypoint uses ordinary player input and collision; update the fixture if its canonical hall moves.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "356e21f257606497",
+   "kind": "id_reference",
+   "token": "F01_A_STUDY",
+   "file": "game/tests/orison_v2_front_pavement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_D_BED\",\"F01_D_BATH\",\"F01_A_BATH\",\"F01_A_BED\",\"F01_A_STUDY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Individually reviewed retained F01_A_STUDY floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "76a8e6e90ab7cb60",
+   "kind": "id_reference",
+   "token": "F01_A_BED",
+   "file": "game/tests/orison_v2_front_pavement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_D_BED\",\"F01_D_BATH\",\"F01_A_BATH\",\"F01_A_BED\",\"F01_A_STUDY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Individually reviewed retained F01_A_BED floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a3c2185a9c29d5dc",
+   "kind": "id_reference",
+   "token": "F01_D_BED",
+   "file": "game/tests/orison_v2_front_pavement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_D_BED\",\"F01_D_BATH\",\"F01_A_BATH\",\"F01_A_BED\",\"F01_A_STUDY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Individually reviewed retained F01_D_BED floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b7929a2ba80f06a2",
+   "kind": "id_reference",
+   "token": "F01_D_BATH",
+   "file": "game/tests/orison_v2_front_pavement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_D_BED\",\"F01_D_BATH\",\"F01_A_BATH\",\"F01_A_BED\",\"F01_A_STUDY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Individually reviewed retained F01_D_BATH floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d637d7e43a12be3a",
+   "kind": "id_reference",
+   "token": "F01_A_BATH",
+   "file": "game/tests/orison_v2_front_pavement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_D_BED\",\"F01_D_BATH\",\"F01_A_BATH\",\"F01_A_BED\",\"F01_A_STUDY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Individually reviewed retained F01_A_BATH floor identity: source-fitted paving excludes its actual volume; the installed inspection preserves all three original room stations and qualifies the retained shower foreground where present. Regenerate the fixture when this authored room moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
   }
  ]
 }

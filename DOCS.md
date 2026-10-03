@@ -39,6 +39,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Retained bar restroom clearance, working sink input and pool inspection fit | `art/blender/bar_service_access.md` |
 | Supported bodega receiving room, fitted delivery leaf and sales-aisle route | `art/blender/bodega_receiving.md` |
 | Resident original keys, permission at Keys Cut and saved hinged-door locks | `art/blender/resident_keys.md` |
+| Fitted front public slab, retained room/shop/shed floor ownership and paving validation | `art/blender/front_pavement.md` |
 | All eleven arcade thresholds, source parked leaves and closed-hours survey | `art/blender/arcade_thresholds.md` |
 | Existing ventilation branch hangers, ceiling contact and mapped steel fittings | `art/blender/duct_supports.md` |
 | Radiator wall-tie seating, slotted plates and retained service mechanisms | `art/blender/radiator_wall_ties.md` |
