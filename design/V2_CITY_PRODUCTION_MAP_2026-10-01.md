@@ -1,4 +1,4 @@
-# V2 composed city production map — October 1
+# V2 composed city production map â€” October 1
 
 Evidence class: **INERT**
 
@@ -78,13 +78,13 @@ continuous physical network. Preserve the existing simulations while completing
 the visual source/distribution/endpoint trace. Cross-location extensions need
 their own source-grounded geometry and route checks.
 
-| System | Existing source → distribution → endpoints | Physical work still to inspect/finish |
+| System | Existing source â†’ distribution â†’ endpoints | Physical work still to inspect/finish |
 |---|---|---|
-| Heating and return | Boiler/BoilerTend → fitted header/equalizer and **HEAT_STACK** → **heating.json**, HeatBalance and installed one-pipe radiators. October 2: three bounded inlet crossings receive steel sleeves and five bolted plates; the internal equalizer tee is opened while retaining the installed outer pipework. All eighteen original floor feeds contact their actual slabs; six floating wall ties are fitted with fixed slotted plates. | **art/blender/boiler_inlet.md** records the source-entry construction, geometry invariance and scoped checks. Endpoint fit remains in **art/blender/radiator_wall_ties.md**. Physical risers and pitched routes to the eighteen actual feeds, supports, expansion/joints and access remain open; the first-floor west feed needs a supported under-floor route beyond the excavated basement. Bar/bodega/arcade heat must follow their independent building sources rather than a fictitious shared live loop. |
-| Water | Roof tank/ballcock and existing water/hot-water owners → **WEST_WET_STACK**, domestic fittings/completion data → apartment, laundry and sanitary fixture controls. | Inspect supply/return branch joins, valve clearance and floor penetrations; bar WC sink input and reach now pass; physical supply/drain joins still need tracing. No speculative municipal tie-in. |
-| Drainage | Existing wet-stack reservation and fixture traps → shaft and basement routes. | Full drain/vent continuity, fall, cleanouts, sleeves and street outlet geometry are not verified by this batch. |
-| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters → hollow Blender sheets/seams, fitted wall/chase/outer-leaf linings and four roof curbs; exposed-branch trapezes seat on existing ducts/ceilings. Separate boiler breeching → **B1_BOILER_FLUE** and chimney. | **art/blender/ventilation_throats.md** scopes the 23 imported airway ports and terminal fan apertures. **art/blender/ventilation_slab_ports.md** records 27 slab ports and 15 sleeves. **art/blender/ventilation_fabric_ports.md** adds 67 room-wall, 15 chase and 26 outer-leaf opening volumes, four steel lining draws and full-bore/fixture checks. Support/access review and independent bar/shop exhaust construction remain open. |
-| Power/conduit | Existing basement electrical/service equipment and **ELECTRICAL_SERVICE_RISER** → existing fixture/switch and lamp owners. The independent bodega property-side intake and supported lighting branch serve its three existing shop fittings and receiving practical. | **art/blender/bodega_power.md** records the wall sleeves, support/connector checks and scoped candidate binding. The external concealed service continuation, other apparatus feeds and bar/arcade routes remain open; mounted lighting and hours behavior alone do not establish electrical fabrication completion. |
+| Heating and return | Boiler/BoilerTend â†’ fitted header/equalizer and **HEAT_STACK** â†’ **heating.json**, HeatBalance and installed one-pipe radiators. October 2: three bounded inlet crossings receive steel sleeves and five bolted plates; the internal equalizer tee is opened while retaining the installed outer pipework. All eighteen original floor feeds contact their actual slabs; six floating wall ties are fitted with fixed slotted plates. | **art/blender/boiler_inlet.md** records the source-entry construction, geometry invariance and scoped checks. Endpoint fit remains in **art/blender/radiator_wall_ties.md**. Physical risers and pitched routes to the eighteen actual feeds, supports, expansion/joints and access remain open; the first-floor west feed needs a supported under-floor route beyond the excavated basement. Bar/bodega/arcade heat must follow their independent building sources rather than a fictitious shared live loop. |
+| Water | Roof tank/ballcock and existing water/hot-water owners â†’ **WEST_WET_STACK**, domestic fittings/completion data â†’ apartment, laundry and sanitary fixture controls. | Inspect supply/return branch joins, valve clearance and floor penetrations; bar WC sink input and reach now pass; physical supply/drain joins still need tracing. No speculative municipal tie-in. |
+| Drainage | Existing wet-stack reservation and fixture traps â†’ shaft and basement routes. | Full drain/vent continuity, fall, cleanouts, sleeves and street outlet geometry are not verified by this batch. |
+| Ventilation/exhaust/flue | Four completion-interior ventilation stacks/register rosters â†’ hollow Blender sheets/seams, fitted wall/chase/outer-leaf linings and four roof curbs; exposed-branch trapezes seat on existing ducts/ceilings. Separate boiler breeching â†’ **B1_BOILER_FLUE** and chimney. | **art/blender/ventilation_throats.md** scopes the 23 imported airway ports and terminal fan apertures. **art/blender/ventilation_slab_ports.md** records 27 slab ports and 15 sleeves. **art/blender/ventilation_fabric_ports.md** adds 67 room-wall, 15 chase and 26 outer-leaf opening volumes, four steel lining draws and full-bore/fixture checks. Support/access review and independent bar/shop exhaust construction remain open. |
+| Power/conduit | Existing basement electrical/service equipment and **ELECTRICAL_SERVICE_RISER** â†’ existing fixture/switch and lamp owners. The independent bodega property-side intake and supported lighting branch serve its three existing shop fittings and receiving practical. | **art/blender/bodega_power.md** records the wall sleeves, support/connector checks and scoped candidate binding. The external concealed service continuation, other apparatus feeds and bar/arcade routes remain open; mounted lighting and hours behavior alone do not establish electrical fabrication completion. |
 | Lift equipment | Existing passenger/service shafts, landings, OrisonElevator, Blender roof drive and suspension. | Retain accepted mechanisms; inspect bearings, support/guard clearances, roof closures and landings. No new control authority. |
 | Communications/deliveries | Existing switchboard, telephone network, **TELEPHONE_MESSAGE_RISER**, AcousticGraphData and service-set owners; accepted service alley, coal route and passage handcarts. | Verify penetrations, mounts, cable runs and physical delivery endpoints; bodega receiving access now passes through the storefront/sales aisle; external delivery and bar service/storage connections remain unauthored or uninspected. |
 
@@ -105,12 +105,12 @@ and the bar's first approach camera lies near kiosk rails. These limitations
 are retained in discovery, not counted as clear installation acceptance.
 Successful bar route frames are in **tmp/city-architecture/bar-route-5**.
 
-Geometry-node discovery changed **11,007 → 11,401**. Startup samples were
-**19.04 → 19.97 s**. Representative all-pass draw counters: front
-**37,848 → 38,719**, bar approach **5,426 → 7,908**, alley
-**17,841 → 18,570**, overhead **26,180 → 30,979**. Process samples vary strongly
-with view and residency: front **139 → 127 ms**, bar **101 → 149 ms**, alley
-**178 → 177 ms**, overhead **311 → 342 ms**. These single-frame, multipass
+Geometry-node discovery changed **11,007 â†’ 11,401**. Startup samples were
+**19.04 â†’ 19.97 s**. Representative all-pass draw counters: front
+**37,848 â†’ 38,719**, bar approach **5,426 â†’ 7,908**, alley
+**17,841 â†’ 18,570**, overhead **26,180 â†’ 30,979**. Process samples vary strongly
+with view and residency: front **139 â†’ 127 ms**, bar **101 â†’ 149 ms**, alley
+**178 â†’ 177 ms**, overhead **311 â†’ 342 ms**. These single-frame, multipass
 observations are not stable FPS measurements or a performance acceptance claim.
 The additional city asset is approximately **1.72 MB**, partitioned for culling.
 
@@ -862,3 +862,26 @@ The clean complete baseline remains **tmp/front-pavement/118d770-clean-board.jso
 the final named-path candidate result belongs to
 **tmp/shell-readiness/groundworks-verified/verification.json** after verification.
 The six location phases and shared infrastructure register remain unfinished.
+
+## October 3 published groundworks and neighboring bedding
+
+Groundworks **4e6c498fb6fdcb9c3b8bb305f99c14bb274ccde4** is verified and pushed;
+47 gates have no regressions, all original 48 ground stations are preserved,
+105 actual candidate views are reviewed, and a separate full 44-check two-root
+matrix passes. **art/blender/groundworks.md** records qualifications and receipts.
+
+The neighboring foundation batch is in **art/blender/city_foundations.md**.
+The farther northwest row follows the existing **-3.20 m** near-neighbor
+registration, removing actual native overlap. Seven closed native city undersides
+retain their original top contact/collision ownership; new below-grade contact
+courses, stems and footings fit around the retained public slab. Ground expands
+to local X **-44..39.5**, Z **-16.605..24**, using fresh canonical construction
+components. All old 899 classified masks and 48 original test stations remain.
+This finite envelope excludes farther-row/full-site closure claims.
+
+Mapping is prepared and scoped native/production terrain checks pass. Full raw
+architecture, infrastructure and final surface polish stay open. The narrow
+northwest separation is inspection-only; normal-controller route proof comes
+from the separate playable alley/street/basement/receiving suites. Heating
+cutouts remain paused pending ground, structure and weather readiness.
+Independent bar/bodega/arcade service ownership remains the accepted decision.

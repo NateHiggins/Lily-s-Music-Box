@@ -1,10 +1,10 @@
 {
   "evidence_class": "INERT",
   "region": [
-    -25.78,
+    -44,
     -16.605,
-    20.3,
-    16.245
+    39.5,
+    24
   ],
   "soil_bottom": -4.0,
   "asphalt_y": [
@@ -11702,19 +11702,6 @@
   ],
   "occupation_reservations": [
     {
-      "owner": "OutsidePublicRegion/east_neighbor",
-      "bounds": [
-        18.4,
-        -4.0,
-        -11.65,
-        20.3,
-        0,
-        16.245
-      ],
-      "kind": "outside_this_bounded_ground_batch",
-      "note": "The courtyard stops at the registered eastern neighbor; the front subgrade continues to the existing public slab edge."
-    },
-    {
       "owner": "B1_LAUNDRY",
       "bounds": [
         -10.0,
@@ -12269,19 +12256,6 @@
     }
   ],
   "surface_exclusions": [
-    {
-      "owner": "OutsidePublicRegion/east_neighbor",
-      "bounds": [
-        18.4,
-        -4.0,
-        -11.65,
-        20.3,
-        0,
-        16.245
-      ],
-      "kind": "outside_this_bounded_ground_batch",
-      "note": "The courtyard stops at the registered eastern neighbor; the front subgrade continues to the existing public slab edge."
-    },
     {
       "owner": "ExteriorMasonry",
       "id": "F01_VESTIBULE_south_ConstructionBound",
@@ -19415,7 +19389,7 @@
     "game/assets/props/exterior_masonry.glb": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41",
     "game/assets/props/service_alley.glb": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9",
     "game/assets/props/front_pavement.glb": "1c49a6f3d5a8018d08e956d257f72926d69ca1faf7a678080787bfe4a891c481",
-    "art/blender/city_shells.blend": "52e06418d2a82dda0d5bacf754e45f37b51c2f7afcc5a35f97cd4a06cefb6ffd",
+    "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
     "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/street_frame.json": "8e1a4bfd28e3542f2f5d64025a9ec512a778b0ef1a89ec0cc88b14e773adda42",
@@ -19424,7 +19398,7 @@
     "game/scripts/building/orison_v2_bodega_receiving.gd": "d39b3c954ff14e71571672f6cfc5f64b6f15b20949803d16a97507c597173171",
     "game/scripts/building/orison_v2_street_boundaries.gd": "b4248a5ba606bd938832f5c16a29fb157d986b1c011231352ca9c8360dcf43f0"
   },
-  "method": "Bounded ground construction derived from retained geometry, actual occupied rooms and service reservations. The existing original courtyard asphalt datum is retained. Flat residual court drainage, neighbor plinths, broader street subgrade and weather closure are separate work.",
+  "method": "Classified retained Orison geometry and occupied rooms, expanded to seven registered neighboring masses. Fresh native city foundation components and underside projections are added by build_orison_ground.py. Residual court drainage, farther city/street subgrade and weather closure remain open.",
   "open": [
     "Courtyard drainage slopes and downstream street main",
     "Boiler window operating glazing",
@@ -19437,5 +19411,10 @@
     "discovery_sha256": "0667992eaeb34c1b8108d2f44141ec164bb669151712ea9306036e55b1c31b73",
     "native_map_sha256": "17b2cb1769dfa887c8810b05f6e21aaf755f7244ce0a340ff2b3bc7b868a97c8",
     "update_rule": "Reconcile this geometry-authoring map against changed bound owners before rebuilding. Generator refuses stale source bindings; current production tests keep all 48 original stations fixed."
+  },
+  "city_registration_reconciliation": {
+    "evidence_class": "INERT",
+    "previous_native_sha256": "52e06418d2a82dda0d5bacf754e45f37b51c2f7afcc5a35f97cd4a06cefb6ffd",
+    "method": "All 899 retained geometric masks are unchanged and contain no city mass. The northwest row now shares the accepted near-neighbor registration. Remove only the prior bounded-batch neighbor exclusion; fresh exact native city undersides and fitted foundations are supplied separately by their builder."
   }
 }

@@ -7,6 +7,7 @@ accepted service alley and construction-shed route. Each building/material is a 
 from pathlib import Path
 import json
 import re
+import hashlib
 import bpy
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -30,6 +31,10 @@ east_offset = float(pavement['point_m'][0])+float(instance['offset_uvn_m'][0])-1
 alley_outer = spaces['F01_D_MAIN']['rect'][2]+2.35+.24+.08
 west_offset = -alley_outer-.08-(-15.2)
 offsets = {'site_nbr_e': east_offset, 'site_nbr_w': west_offset}
+# The same authored northwest row must follow its near mass's service-alley
+# registration. Moving only site_nbr_w left 2.6 metres of positive overlap.
+northwest = [r for r in records if re.match(r'^site_nw\d+_',r['id'])]
+offsets.update({re.match(r'^(site_nw\d+)_',r['id']).group(1):west_offset for r in northwest})
 # The admitted street includes the construction-shed corridor. The old
 # northeast mass starts inside that enlarged route; register its whole row
 # beyond the current street extent, including its projecting cornices.
@@ -78,6 +83,7 @@ for row in records:
             v = obj.matrix_world @ obj.data.vertices[obj.data.loops[loop].vertex_index].co
             uv.data[loop].uv = (v[axes[0]],v[axes[1]])
     groups.setdefault((group,key),[]).append(obj)
+bpy.context.preferences.filepaths.save_version = 0
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/city_shells.blend'))
 for (group,key),objects in groups.items():
     bpy.ops.object.select_all(action='DESELECT')
@@ -90,3 +96,12 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/city_shells.glb'),
     export_format='GLB',export_yup=True,export_apply=True,export_tangents=True)
 print('CITY SHELLS',len(records),'authored solids;',len(groups),'building/material batches;',offsets)
+
+def source_hash(path):
+    raw=path.read_bytes() if path.suffix in ['.blend','.glb'] else path.read_text(encoding='utf-8').replace('\r\n','\n').encode()
+    return hashlib.sha256(raw).hexdigest()
+report={'evidence_class':'INERT','offsets':offsets,'source_solids':len(records),'runtime_batches':len(groups),
+        'source_native_sha256':source_hash(ROOT/'art/blender/city_shells.blend'),
+        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json']},
+        'note':'Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority.'}
+(ROOT/'art/blender/city_shells_registration.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

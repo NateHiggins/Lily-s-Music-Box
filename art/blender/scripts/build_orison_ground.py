@@ -13,6 +13,14 @@ root = next(path for path in Path(__file__).resolve().parents if (path/'game/pro
 base = root / 'art/blender'
 work = root/'tmp/orison-ground'; work.mkdir(parents=True,exist_ok=True)
 plan = json.loads((root/'art/data/orison_ground/retained_grade_source.json').read_text(encoding='utf-8'))
+foundation_path=base/'city_foundations_construction.json'
+foundation=json.loads(foundation_path.read_text(encoding='utf-8'))
+plan['retained_solids'].extend(foundation['components'])
+plan['bindings'].update(foundation['bindings'])
+plan['bindings']['art/blender/city_foundations_construction.json']=hashlib.sha256(foundation_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+for profile in foundation['profiles']:
+    x0,z0,x1,z1=profile['underside']
+    plan['surface_exclusions'].append({'owner':profile['id'],'kind':'actual_planar_native_underside_projection','bounds':[x0,plan['soil_bottom'],z0,x1,0,z1]})
 reservations_path=base/'alley_groundworks_reservations.json'
 reservations=json.loads(reservations_path.read_text(encoding='utf-8'))
 plan['occupation_reservations'].extend(reservations['reservations'])
@@ -84,6 +92,7 @@ groups = collections.defaultdict(list)
 complete_faces = []
 face_owners = []
 buried = 0
+site_base_omitted = 0
 for axis in range(3):
     for direction in [-1, 1]:
         neighbor = np.zeros(size, dtype=bool)
@@ -105,6 +114,11 @@ for axis in range(3):
             complete_faces.append(points)
             face_owners.append((int(ix), int(iy), int(iz)))
             if native_neighbor[ix, iy, iz]: buried += 1; continue
+            # Preserve the closed editable source bottom. Runtime omits only
+            # the buried underside below every occupied Orison space.
+            # The finite site boundary remains an explicit open city task.
+            if axis == 1 and direction == -1 and abs(y0-low)<1e-8:
+                site_base_omitted += 1; continue
             key = (math.floor((x0 + x1) / 8), math.floor((z0 + z1) / 8))
             family = 'asphalt' if asphalt[ix, iy, iz] else 'soil'
             groups[(key, family)].append(points)
@@ -272,11 +286,11 @@ bpy.ops.export_scene.gltf(filepath=str(asset), export_format='GLB', export_yup=T
                           export_tangents=True, use_selection=True)
 assert ExportUVHandedness.count == len(parts)
 metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
-            'closed_union_non_manifold_edges': non_manifold, 'buried_quads_omitted': buried,
+            'closed_union_non_manifold_edges': non_manifold, 'buried_quads_omitted': buried, 'site_base_quads_omitted': site_base_omitted,
             'source_edge_contacts_split': len(bad_edges), 'source_vertex_fans_split': split_fans,
             'native_faces': sum(row['native_faces'] for row in reports),
             'source_native_sha256': hashlib.sha256(asset.read_bytes()).hexdigest(),
-            'note': 'Installed bounded subgrade and original-datum courtyard surface. Drainage, operating glazing, city plinths and weather findings remain open; no whole-shell acceptance.'}
+            'note': 'Installed bounded subgrade and original-datum courtyard surface. Drainage, operating glazing, broader city closure and weather findings remain open; no whole-shell acceptance.'}
 (base / 'orison_ground_construction.json').write_text(json.dumps(metadata, indent=2) + '\n',encoding='utf-8',newline='\n')
 print('COURTYARD GRADE TRIAL:', len(parts), 'bounded material parts;', metadata['native_faces'],
       'coalesced native faces;', buried, 'buried interface quads omitted; production ground construction.', flush=True)

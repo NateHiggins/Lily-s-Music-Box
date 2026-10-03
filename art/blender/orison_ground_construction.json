@@ -3,10 +3,10 @@
   "source_plan": {
     "evidence_class": "INERT",
     "region": [
-      -25.78,
+      -44,
       -16.605,
-      20.3,
-      16.245
+      39.5,
+      24
     ],
     "soil_bottom": -4.0,
     "asphalt_y": [
@@ -11700,22 +11700,880 @@
           -8.65
         ],
         "kind": "actual_axis_aligned_box"
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -30.992000579833984,
+          -0.2,
+          16.253000259399414,
+          -12.008000373840332,
+          0,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -30.992000579833984,
+          -3.4000000000000004,
+          16.253000259399414,
+          -12.008000373840332,
+          -0.2,
+          16.603000259399415
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -30.992000579833984,
+          -3.4000000000000004,
+          22.286999130249022,
+          -12.008000373840332,
+          -0.2,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -30.992000579833984,
+          -3.4000000000000004,
+          16.603000259399415,
+          -30.642000579833983,
+          -0.2,
+          22.286999130249022
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -12.358000373840332,
+          -3.4000000000000004,
+          16.603000259399415,
+          -12.008000373840332,
+          -0.2,
+          22.286999130249022
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -31.167000579833985,
+          -3.8000000000000003,
+          16.078000259399413,
+          -11.833000373840331,
+          -3.4000000000000004,
+          16.778000259399413
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -31.167000579833985,
+          -3.8000000000000003,
+          22.111999130249025,
+          -11.833000373840331,
+          -3.4000000000000004,
+          22.811999130249024
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -31.167000579833985,
+          -3.8000000000000003,
+          16.778000259399413,
+          -30.467000579833986,
+          -3.4000000000000004,
+          22.111999130249025
+        ]
+      },
+      {
+        "owner": "site_back_e_base0",
+        "id": "site_back_e_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -12.53300037384033,
+          -3.8000000000000003,
+          16.778000259399413,
+          -11.833000373840331,
+          -3.4000000000000004,
+          22.111999130249025
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          12.008000373840332,
+          -0.2,
+          16.253000259399414,
+          29.992000579833984,
+          0,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          12.008000373840332,
+          -3.4000000000000004,
+          16.253000259399414,
+          29.992000579833984,
+          -0.2,
+          16.603000259399415
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          12.008000373840332,
+          -3.4000000000000004,
+          22.286999130249022,
+          29.992000579833984,
+          -0.2,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          12.008000373840332,
+          -3.4000000000000004,
+          16.603000259399415,
+          12.358000373840332,
+          -0.2,
+          22.286999130249022
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          29.642000579833983,
+          -3.4000000000000004,
+          16.603000259399415,
+          29.992000579833984,
+          -0.2,
+          22.286999130249022
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          11.833000373840331,
+          -3.8000000000000003,
+          16.078000259399413,
+          30.167000579833985,
+          -3.4000000000000004,
+          16.778000259399413
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          11.833000373840331,
+          -3.8000000000000003,
+          22.111999130249025,
+          30.167000579833985,
+          -3.4000000000000004,
+          22.811999130249024
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          11.833000373840331,
+          -3.8000000000000003,
+          16.778000259399413,
+          12.53300037384033,
+          -3.4000000000000004,
+          22.111999130249025
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "id": "site_back_w_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          29.467000579833986,
+          -3.8000000000000003,
+          16.778000259399413,
+          30.167000579833985,
+          -3.4000000000000004,
+          22.111999130249025
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          20.299999237060547,
+          -0.2,
+          -13.846999168395996,
+          22.79199981689453,
+          0,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/ContactCourse_Piece01",
+        "kind": "authored_union_component",
+        "bounds": [
+          20.0,
+          -0.2,
+          -13.846999168395996,
+          20.299999237060547,
+          -0.16,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/ContactCourse_Piece02",
+        "kind": "authored_union_component",
+        "bounds": [
+          20.0,
+          -0.16,
+          -11.649999618530273,
+          20.299999237060547,
+          0,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/ContactCourse_Piece03",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.408000946044922,
+          -0.2,
+          -13.846999168395996,
+          20.0,
+          -0.16,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/ContactCourse_Piece04",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.408000946044922,
+          -0.16,
+          -11.649999618530273,
+          20.0,
+          0,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.408000946044922,
+          -3.4000000000000004,
+          -13.846999168395996,
+          22.79199981689453,
+          -0.2,
+          -13.496999168395996
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.408000946044922,
+          -3.4000000000000004,
+          9.78700008392334,
+          22.79199981689453,
+          -0.2,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.408000946044922,
+          -3.4000000000000004,
+          -13.496999168395996,
+          18.758000946044923,
+          -0.2,
+          9.78700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          22.44199981689453,
+          -3.4000000000000004,
+          -13.496999168395996,
+          22.79199981689453,
+          -0.2,
+          9.78700008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.23300094604492,
+          -3.8000000000000003,
+          -14.021999168395997,
+          22.966999816894532,
+          -3.4000000000000004,
+          -13.321999168395998
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.23300094604492,
+          -3.8000000000000003,
+          9.612000083923341,
+          22.966999816894532,
+          -3.4000000000000004,
+          10.31200008392334
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          18.23300094604492,
+          -3.8000000000000003,
+          -13.321999168395998,
+          18.93300094604492,
+          -3.4000000000000004,
+          9.612000083923341
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "id": "site_nbr_w_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          22.266999816894533,
+          -3.8000000000000003,
+          -13.321999168395998,
+          22.966999816894532,
+          -3.4000000000000004,
+          9.612000083923341
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.37200164794922,
+          -0.2,
+          -16.047000885009766,
+          -25.788000106811523,
+          0,
+          9.63700008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.37200164794922,
+          -3.4000000000000004,
+          -16.047000885009766,
+          -25.788000106811523,
+          -0.2,
+          -15.697000885009766
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.37200164794922,
+          -3.4000000000000004,
+          9.28700008392334,
+          -25.788000106811523,
+          -0.2,
+          9.63700008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.37200164794922,
+          -3.4000000000000004,
+          -15.697000885009766,
+          -34.02200164794922,
+          -0.2,
+          9.28700008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -26.138000106811525,
+          -3.4000000000000004,
+          -15.697000885009766,
+          -25.788000106811523,
+          -0.2,
+          9.28700008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.547001647949216,
+          -3.8000000000000003,
+          -16.222000885009766,
+          -25.613000106811523,
+          -3.4000000000000004,
+          -15.522000885009767
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.547001647949216,
+          -3.8000000000000003,
+          9.112000083923341,
+          -25.613000106811523,
+          -3.4000000000000004,
+          9.81200008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -34.547001647949216,
+          -3.8000000000000003,
+          -15.522000885009767,
+          -33.84700164794921,
+          -3.4000000000000004,
+          9.112000083923341
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "id": "site_ne1_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -26.313000106811522,
+          -3.8000000000000003,
+          -15.522000885009767,
+          -25.613000106811523,
+          -3.4000000000000004,
+          9.112000083923341
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.571998596191406,
+          -0.2,
+          -16.046998977661133,
+          -34.987998962402344,
+          0,
+          7.137000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.571998596191406,
+          -3.4000000000000004,
+          -16.046998977661133,
+          -34.987998962402344,
+          -0.2,
+          -15.696998977661133
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.571998596191406,
+          -3.4000000000000004,
+          6.787000560760498,
+          -34.987998962402344,
+          -0.2,
+          7.137000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.571998596191406,
+          -3.4000000000000004,
+          -15.696998977661133,
+          -42.221998596191405,
+          -0.2,
+          6.787000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -35.337998962402345,
+          -3.4000000000000004,
+          -15.696998977661133,
+          -34.987998962402344,
+          -0.2,
+          6.787000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.7469985961914,
+          -3.8000000000000003,
+          -16.221998977661134,
+          -34.81299896240235,
+          -3.4000000000000004,
+          -15.521998977661134
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.7469985961914,
+          -3.8000000000000003,
+          6.612000560760498,
+          -34.81299896240235,
+          -3.4000000000000004,
+          7.312000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -42.7469985961914,
+          -3.8000000000000003,
+          -15.521998977661134,
+          -42.0469985961914,
+          -3.4000000000000004,
+          6.612000560760498
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "id": "site_ne2_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          -35.51299896240235,
+          -3.8000000000000003,
+          -15.521998977661134,
+          -34.81299896240235,
+          -3.4000000000000004,
+          6.612000560760498
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.408000946044922,
+          -0.2,
+          -16.047000885009766,
+          30.591999053955078,
+          0,
+          9.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.408000946044922,
+          -3.4000000000000004,
+          -16.047000885009766,
+          30.591999053955078,
+          -0.2,
+          -15.697000885009766
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.408000946044922,
+          -3.4000000000000004,
+          8.78700008392334,
+          30.591999053955078,
+          -0.2,
+          9.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.408000946044922,
+          -3.4000000000000004,
+          -15.697000885009766,
+          23.758000946044923,
+          -0.2,
+          8.78700008392334
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          30.241999053955077,
+          -3.4000000000000004,
+          -15.697000885009766,
+          30.591999053955078,
+          -0.2,
+          8.78700008392334
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.23300094604492,
+          -3.8000000000000003,
+          -16.222000885009766,
+          30.76699905395508,
+          -3.4000000000000004,
+          -15.522000885009767
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.23300094604492,
+          -3.8000000000000003,
+          8.612000083923341,
+          30.76699905395508,
+          -3.4000000000000004,
+          9.31200008392334
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          23.23300094604492,
+          -3.8000000000000003,
+          -15.522000885009767,
+          23.93300094604492,
+          -3.4000000000000004,
+          8.612000083923341
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "id": "site_nw1_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          30.06699905395508,
+          -3.8000000000000003,
+          -15.522000885009767,
+          30.76699905395508,
+          -3.4000000000000004,
+          8.612000083923341
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/ContactCourse_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.20800018310547,
+          -0.2,
+          -16.046998977661133,
+          39.19200134277344,
+          0,
+          7.637000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Stem_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.20800018310547,
+          -3.4000000000000004,
+          -16.046998977661133,
+          39.19200134277344,
+          -0.2,
+          -15.696998977661133
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Stem_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.20800018310547,
+          -3.4000000000000004,
+          7.287000560760498,
+          39.19200134277344,
+          -0.2,
+          7.637000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Stem_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.20800018310547,
+          -3.4000000000000004,
+          -15.696998977661133,
+          31.55800018310547,
+          -0.2,
+          7.287000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Stem_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          38.842001342773436,
+          -3.4000000000000004,
+          -15.696998977661133,
+          39.19200134277344,
+          -0.2,
+          7.287000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Footing_North_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.033000183105468,
+          -3.8000000000000003,
+          -16.221998977661134,
+          39.367001342773435,
+          -3.4000000000000004,
+          -15.521998977661134
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Footing_South_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.033000183105468,
+          -3.8000000000000003,
+          7.112000560760498,
+          39.367001342773435,
+          -3.4000000000000004,
+          7.812000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Footing_West_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          31.033000183105468,
+          -3.8000000000000003,
+          -15.521998977661134,
+          31.733000183105467,
+          -3.4000000000000004,
+          7.112000560760498
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "id": "site_nw2_base0/Footing_East_Piece00",
+        "kind": "authored_union_component",
+        "bounds": [
+          38.66700134277343,
+          -3.8000000000000003,
+          -15.521998977661134,
+          39.367001342773435,
+          -3.4000000000000004,
+          7.112000560760498
+        ]
       }
     ],
     "occupation_reservations": [
-      {
-        "owner": "OutsidePublicRegion/east_neighbor",
-        "bounds": [
-          18.4,
-          -4.0,
-          -11.65,
-          20.3,
-          0,
-          16.245
-        ],
-        "kind": "outside_this_bounded_ground_batch",
-        "note": "The courtyard stops at the registered eastern neighbor; the front subgrade continues to the existing public slab edge."
-      },
       {
         "owner": "B1_LAUNDRY",
         "bounds": [
@@ -12654,19 +13512,6 @@
       }
     ],
     "surface_exclusions": [
-      {
-        "owner": "OutsidePublicRegion/east_neighbor",
-        "bounds": [
-          18.4,
-          -4.0,
-          -11.65,
-          20.3,
-          0,
-          16.245
-        ],
-        "kind": "outside_this_bounded_ground_batch",
-        "note": "The courtyard stops at the registered eastern neighbor; the front subgrade continues to the existing public slab edge."
-      },
       {
         "owner": "ExteriorMasonry",
         "id": "F01_VESTIBULE_south_ConstructionBound",
@@ -19784,6 +20629,90 @@
         "kind": "retained_paving_envelope"
       },
       {
+        "owner": "site_back_e_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          -30.992000579833984,
+          -4.0,
+          16.253000259399414,
+          -12.008000373840332,
+          0,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_back_w_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          12.008000373840332,
+          -4.0,
+          16.253000259399414,
+          29.992000579833984,
+          0,
+          22.636999130249023
+        ]
+      },
+      {
+        "owner": "site_nbr_w_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          18.408000946044922,
+          -4.0,
+          -13.846999168395996,
+          22.79199981689453,
+          0,
+          10.13700008392334
+        ]
+      },
+      {
+        "owner": "site_ne1_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          -34.37200164794922,
+          -4.0,
+          -16.047000885009766,
+          -25.788000106811523,
+          0,
+          9.63700008392334
+        ]
+      },
+      {
+        "owner": "site_ne2_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          -42.571998596191406,
+          -4.0,
+          -16.046998977661133,
+          -34.987998962402344,
+          0,
+          7.137000560760498
+        ]
+      },
+      {
+        "owner": "site_nw1_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          23.408000946044922,
+          -4.0,
+          -16.047000885009766,
+          30.591999053955078,
+          0,
+          9.13700008392334
+        ]
+      },
+      {
+        "owner": "site_nw2_base0",
+        "kind": "actual_planar_native_underside_projection",
+        "bounds": [
+          31.20800018310547,
+          -4.0,
+          -16.046998977661133,
+          39.19200134277344,
+          0,
+          7.637000560760498
+        ]
+      },
+      {
         "owner": "BoilerWell/ConstructionAndAir",
         "bounds": [
           15.915,
@@ -19813,7 +20742,7 @@
       "game/assets/props/exterior_masonry.glb": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41",
       "game/assets/props/service_alley.glb": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9",
       "game/assets/props/front_pavement.glb": "1c49a6f3d5a8018d08e956d257f72926d69ca1faf7a678080787bfe4a891c481",
-      "art/blender/city_shells.blend": "52e06418d2a82dda0d5bacf754e45f37b51c2f7afcc5a35f97cd4a06cefb6ffd",
+      "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
       "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
       "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
       "game/data/orison_v2/exterior/street_frame.json": "8e1a4bfd28e3542f2f5d64025a9ec512a778b0ef1a89ec0cc88b14e773adda42",
@@ -19821,12 +20750,15 @@
       "game/scripts/building/orison_v2_basement.gd": "b2f4feba04365286a3aaffffdb26b18bd8c9085b9b88ba4c8454642c894ecada",
       "game/scripts/building/orison_v2_bodega_receiving.gd": "d39b3c954ff14e71571672f6cfc5f64b6f15b20949803d16a97507c597173171",
       "game/scripts/building/orison_v2_street_boundaries.gd": "b4248a5ba606bd938832f5c16a29fb157d986b1c011231352ca9c8360dcf43f0",
+      "art/data/orison_ground/retained_grade_source.json": "8cc07f1a2a9ec5a7f240f3b659673136da1868d3b92605b585a37d378cd28193",
+      "art/data/city_foundations/source_plan.json": "4eaa054622646ba0b150a0466123050545a5a77f4170a427117223cf4566d955",
+      "art/blender/city_foundations_construction.json": "e3c2afbb645fed90f3527702ad81e02ffc4fac49651e6938c18cfd2df8a32507",
       "art/blender/alley_groundworks.blend": "eb1279f3f43df3ca38bc891d0789e3d8da21d6de27159b1ebb09887d1fb00b5c",
       "game/assets/props/alley_groundworks.glb": "c69d2d8a8097a2124785632e4495d0dc118c7228ca4a703201781d609dbe0ea4",
       "art/blender/alley_groundworks_construction.json": "b266b18fce022afbf8d799261370223ad704e82cb3bc44cff6c12a8967ce2cbe",
       "art/blender/alley_groundworks_reservations.json": "590ae20f728720bb2749550b7e49527c1e49fa1111e6dd3a860df9835af826ca"
     },
-    "method": "Bounded ground construction derived from retained geometry, actual occupied rooms and service reservations. The existing original courtyard asphalt datum is retained. Flat residual court drainage, neighbor plinths, broader street subgrade and weather closure are separate work.",
+    "method": "Classified retained Orison geometry and occupied rooms, expanded to seven registered neighboring masses. Fresh native city foundation components and underside projections are added by build_orison_ground.py. Residual court drainage, farther city/street subgrade and weather closure remain open.",
     "open": [
       "Courtyard drainage slopes and downstream street main",
       "Boiler window operating glazing",
@@ -19839,107 +20771,112 @@
       "discovery_sha256": "0667992eaeb34c1b8108d2f44141ec164bb669151712ea9306036e55b1c31b73",
       "native_map_sha256": "17b2cb1769dfa887c8810b05f6e21aaf755f7244ce0a340ff2b3bc7b868a97c8",
       "update_rule": "Reconcile this geometry-authoring map against changed bound owners before rebuilding. Generator refuses stale source bindings; current production tests keep all 48 original stations fixed."
+    },
+    "city_registration_reconciliation": {
+      "evidence_class": "INERT",
+      "previous_native_sha256": "52e06418d2a82dda0d5bacf754e45f37b51c2f7afcc5a35f97cd4a06cefb6ffd",
+      "method": "All 899 retained geometric masks are unchanged and contain no city mass. The northwest row now shares the accepted near-neighbor registration. Remove only the prior bounded-batch neighbor exclusion; fresh exact native city undersides and fitted foundations are supplied separately by their builder."
     }
   },
   "parts": [
     {
-      "id": "Court_asphalt_N7_N5",
+      "id": "Court_asphalt_N11_N5",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         -16.605,
-        -25.5,
+        -40,
         -0.02,
         -16
       ],
-      "source_quads": 47,
-      "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N7_N5",
-      "material": "soil",
-      "bounds": [
-        -25.78,
-        -4.0,
-        -16.605,
-        -24,
-        -0.16,
-        -16
-      ],
-      "source_quads": 536,
+      "source_quads": 132,
       "native_faces": 4,
       "internal_caps": false
     },
     {
-      "id": "Court_asphalt_N7_N4",
+      "id": "Court_soil_N11_N5",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        -16.605,
+        -40,
+        -0.3,
+        -16
+      ],
+      "source_quads": 1050,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_N4",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         -16,
-        -25.5,
+        -42.572,
         -0.02,
         -12
       ],
-      "source_quads": 204,
+      "source_quads": 299,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N7_N4",
+      "id": "Court_soil_N11_N4",
       "material": "soil",
       "bounds": [
-        -25.78,
+        -44,
         -4.0,
         -16,
-        -24,
+        -44,
         -0.3,
         -12
       ],
-      "source_quads": 1819,
-      "native_faces": 2,
+      "source_quads": 2415,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
-      "id": "Court_asphalt_N7_N3",
+      "id": "Court_asphalt_N11_N3",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         -12,
-        -24,
+        -42.572,
         -0.02,
         -8
       ],
-      "source_quads": 502,
-      "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N7_N3",
-      "material": "soil",
-      "bounds": [
-        -25.78,
-        -4.0,
-        -12,
-        -24,
-        -0.3,
-        -8
-      ],
-      "source_quads": 4387,
+      "source_quads": 533,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_asphalt_N7_N2",
+      "id": "Court_soil_N11_N3",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        -12,
+        -44,
+        -0.3,
+        -8
+      ],
+      "source_quads": 4305,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_N2",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         -8,
-        -24,
+        -42.572,
         -0.02,
         -4
       ],
@@ -19948,28 +20885,28 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N7_N2",
+      "id": "Court_soil_N11_N2",
       "material": "soil",
       "bounds": [
-        -25.78,
+        -44,
         -4.0,
         -8,
-        -24,
+        -44,
         -0.3,
         -4
       ],
-      "source_quads": 3531,
-      "native_faces": 2,
+      "source_quads": 3465,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
-      "id": "Court_asphalt_N7_N1",
+      "id": "Court_asphalt_N11_N1",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         -4,
-        -24,
+        -42.572,
         -0.02,
         0
       ],
@@ -19978,28 +20915,28 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N7_N1",
+      "id": "Court_soil_N11_N1",
       "material": "soil",
       "bounds": [
-        -25.78,
+        -44,
         -4.0,
         -4,
-        -24,
+        -44,
         -0.3,
         0
       ],
-      "source_quads": 8667,
-      "native_faces": 2,
+      "source_quads": 8505,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
-      "id": "Court_asphalt_N7_P0",
+      "id": "Court_asphalt_N11_P0",
       "material": "asphalt",
       "bounds": [
-        -25.78,
+        -44,
         -0.3,
         0,
-        -24,
+        -42.572,
         -0.02,
         4
       ],
@@ -20008,77 +20945,722 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N7_P0",
+      "id": "Court_soil_N11_P0",
       "material": "soil",
       "bounds": [
-        -25.78,
+        -44,
         -4.0,
         0,
-        -24,
+        -44,
         -0.3,
         4
       ],
-      "source_quads": 11556,
+      "source_quads": 11340,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_P1",
+      "material": "asphalt",
+      "bounds": [
+        -44,
+        -0.3,
+        4,
+        -40,
+        -0.02,
+        8
+      ],
+      "source_quads": 1094,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N11_P1",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        4,
+        -44,
+        -0.3,
+        8
+      ],
+      "source_quads": 8400,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_P2",
+      "material": "asphalt",
+      "bounds": [
+        -44,
+        -0.3,
+        8,
+        -40,
+        -0.02,
+        12
+      ],
+      "source_quads": 832,
       "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N11_P2",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        8,
+        -44,
+        -0.3,
+        12
+      ],
+      "source_quads": 5460,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_P3",
+      "material": "asphalt",
+      "bounds": [
+        -44,
+        -0.3,
+        12,
+        -40,
+        -0.02,
+        16
+      ],
+      "source_quads": 352,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N11_P3",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        12,
+        -44,
+        -0.3,
+        16
+      ],
+      "source_quads": 2310,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_P4",
+      "material": "asphalt",
+      "bounds": [
+        -44,
+        -0.3,
+        16,
+        -40,
+        -0.02,
+        20
+      ],
+      "source_quads": 80,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N11_P4",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        16,
+        -44,
+        -0.3,
+        20
+      ],
+      "source_quads": 525,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N11_P5",
+      "material": "asphalt",
+      "bounds": [
+        -44,
+        -0.3,
+        20,
+        -40,
+        -0.02,
+        24
+      ],
+      "source_quads": 135,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N11_P5",
+      "material": "soil",
+      "bounds": [
+        -44,
+        -4.0,
+        20,
+        -40,
+        -0.3,
+        24
+      ],
+      "source_quads": 1050,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_N5",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.3,
+        -16.605,
+        -36,
+        -0.02,
+        -16.047
+      ],
+      "source_quads": 15,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N10_N5",
+      "material": "soil",
+      "bounds": [
+        -40,
+        -4.0,
+        -16.605,
+        -36,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_P1",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.02,
+        7.137,
+        -36,
+        -0.02,
+        8
+      ],
+      "source_quads": 18,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_P2",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.02,
+        8,
+        -36,
+        -0.02,
+        12
+      ],
+      "source_quads": 52,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_P3",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.02,
+        12,
+        -36,
+        -0.02,
+        16
+      ],
+      "source_quads": 22,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_P4",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.02,
+        16,
+        -36,
+        -0.02,
+        20
+      ],
+      "source_quads": 5,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N10_P5",
+      "material": "asphalt",
+      "bounds": [
+        -40,
+        -0.3,
+        20,
+        -36,
+        -0.02,
+        24
+      ],
+      "source_quads": 16,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N10_P5",
+      "material": "soil",
+      "bounds": [
+        -40,
+        -4.0,
+        24,
+        -36,
+        -0.3,
+        24
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_N5",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.3,
+        -16.605,
+        -32,
+        -0.02,
+        -16
+      ],
+      "source_quads": 138,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N9_N5",
+      "material": "soil",
+      "bounds": [
+        -36,
+        -4.0,
+        -16.605,
+        -32,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 945,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_N4",
+      "material": "asphalt",
+      "bounds": [
+        -34.988,
+        -0.02,
+        -16,
+        -34.372,
+        -0.02,
+        -12
+      ],
+      "source_quads": 69,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_N3",
+      "material": "asphalt",
+      "bounds": [
+        -34.988,
+        -0.02,
+        -12,
+        -34.372,
+        -0.02,
+        -8
+      ],
+      "source_quads": 123,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_N2",
+      "material": "asphalt",
+      "bounds": [
+        -34.988,
+        -0.02,
+        -8,
+        -34.372,
+        -0.02,
+        -4
+      ],
+      "source_quads": 99,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_N1",
+      "material": "asphalt",
+      "bounds": [
+        -34.988,
+        -0.02,
+        -4,
+        -34.372,
+        -0.02,
+        0
+      ],
+      "source_quads": 243,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P0",
+      "material": "asphalt",
+      "bounds": [
+        -34.988,
+        -0.02,
+        0,
+        -34.372,
+        -0.02,
+        4
+      ],
+      "source_quads": 324,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P1",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.02,
+        4,
+        -34.372,
+        -0.02,
+        8
+      ],
+      "source_quads": 294,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P2",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.02,
+        8,
+        -32,
+        -0.02,
+        12
+      ],
+      "source_quads": 369,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P3",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.02,
+        12,
+        -32,
+        -0.02,
+        16
+      ],
+      "source_quads": 198,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P4",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.02,
+        16,
+        -32,
+        -0.02,
+        20
+      ],
+      "source_quads": 45,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N9_P5",
+      "material": "asphalt",
+      "bounds": [
+        -36,
+        -0.3,
+        20,
+        -32,
+        -0.02,
+        24
+      ],
+      "source_quads": 144,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N9_P5",
+      "material": "soil",
+      "bounds": [
+        -36,
+        -4.0,
+        24,
+        -32,
+        -0.3,
+        24
+      ],
+      "source_quads": 945,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N8_N5",
+      "material": "asphalt",
+      "bounds": [
+        -32,
+        -0.3,
+        -16.605,
+        -28,
+        -0.02,
+        -16.047
+      ],
+      "source_quads": 75,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N8_N5",
+      "material": "soil",
+      "bounds": [
+        -32,
+        -4.0,
+        -16.605,
+        -28,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 525,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N8_P2",
+      "material": "asphalt",
+      "bounds": [
+        -32,
+        -0.02,
+        9.637,
+        -28,
+        -0.02,
+        12
+      ],
+      "source_quads": 95,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N8_P3",
+      "material": "asphalt",
+      "bounds": [
+        -32,
+        -0.02,
+        12,
+        -28,
+        -0.02,
+        16
+      ],
+      "source_quads": 110,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N8_P4",
+      "material": "asphalt",
+      "bounds": [
+        -32,
+        -0.02,
+        16,
+        -28,
+        -0.02,
+        20
+      ],
+      "source_quads": 16,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N8_P5",
+      "material": "asphalt",
+      "bounds": [
+        -32,
+        -0.3,
+        20,
+        -28,
+        -0.02,
+        24
+      ],
+      "source_quads": 71,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N8_P5",
+      "material": "soil",
+      "bounds": [
+        -32,
+        -4.0,
+        24,
+        -28,
+        -0.3,
+        24
+      ],
+      "source_quads": 525,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_N5",
+      "material": "asphalt",
+      "bounds": [
+        -28,
+        -0.3,
+        -16.605,
+        -25.5,
+        -0.02,
+        -16
+      ],
+      "source_quads": 77,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N7_N5",
+      "material": "soil",
+      "bounds": [
+        -28,
+        -4.0,
+        -16.605,
+        -24,
+        -0.16,
+        -16.605
+      ],
+      "source_quads": 635,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_N4",
+      "material": "asphalt",
+      "bounds": [
+        -25.788,
+        -0.02,
+        -16,
+        -25.5,
+        -0.02,
+        -12
+      ],
+      "source_quads": 46,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_N3",
+      "material": "asphalt",
+      "bounds": [
+        -25.788,
+        -0.02,
+        -12,
+        -24,
+        -0.02,
+        -8
+      ],
+      "source_quads": 92,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_N2",
+      "material": "asphalt",
+      "bounds": [
+        -25.788,
+        -0.02,
+        -8,
+        -24,
+        -0.02,
+        -4
+      ],
+      "source_quads": 99,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_N1",
+      "material": "asphalt",
+      "bounds": [
+        -25.788,
+        -0.02,
+        -4,
+        -24,
+        -0.02,
+        0
+      ],
+      "source_quads": 243,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N7_P0",
+      "material": "asphalt",
+      "bounds": [
+        -25.788,
+        -0.02,
+        0,
+        -24,
+        -0.02,
+        4
+      ],
+      "source_quads": 324,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
       "id": "Court_asphalt_N7_P1",
       "material": "asphalt",
       "bounds": [
-        -25.78,
-        -0.3,
+        -25.788,
+        -0.02,
         4,
         -24,
         -0.02,
         8
       ],
-      "source_quads": 936,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N7_P1",
-      "material": "soil",
-      "bounds": [
-        -25.78,
-        -4.0,
-        4,
-        -24,
-        -0.3,
-        8
-      ],
-      "source_quads": 7704,
-      "native_faces": 2,
+      "source_quads": 240,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
       "id": "Court_asphalt_N7_P2",
       "material": "asphalt",
       "bounds": [
-        -25.78,
-        -0.3,
+        -28,
+        -0.02,
         8,
         -24,
         -0.02,
         12
       ],
-      "source_quads": 520,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N7_P2",
-      "material": "soil",
-      "bounds": [
-        -25.78,
-        -4.0,
-        8,
-        -24,
-        -0.3,
-        12
-      ],
-      "source_quads": 4280,
+      "source_quads": 213,
       "native_faces": 2,
       "internal_caps": false
     },
@@ -20086,60 +21668,60 @@
       "id": "Court_asphalt_N7_P3",
       "material": "asphalt",
       "bounds": [
-        -25.78,
-        -0.3,
+        -28,
+        -0.02,
         12,
         -24,
         -0.02,
         16
       ],
-      "source_quads": 286,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N7_P3",
-      "material": "soil",
-      "bounds": [
-        -25.78,
-        -4.0,
-        12,
-        -24,
-        -0.3,
-        16
-      ],
-      "source_quads": 2354,
-      "native_faces": 2,
+      "source_quads": 132,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
       "id": "Court_asphalt_N7_P4",
       "material": "asphalt",
       "bounds": [
-        -25.78,
-        -0.3,
+        -28,
+        -0.02,
         16,
         -24,
         -0.02,
-        16.245
+        16.253
       ],
-      "source_quads": 35,
-      "native_faces": 3,
+      "source_quads": 12,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N7_P4",
+      "id": "Court_asphalt_N7_P5",
+      "material": "asphalt",
+      "bounds": [
+        -28,
+        -0.3,
+        22.637,
+        -24,
+        -0.02,
+        24
+      ],
+      "source_quads": 78,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N7_P5",
       "material": "soil",
       "bounds": [
-        -25.78,
+        -28,
         -4.0,
-        16,
+        24,
         -24,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 317,
-      "native_faces": 3,
+      "source_quads": 630,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20151,24 +21733,9 @@
         -16.605,
         -20,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 791,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N6_N4",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        -16,
-        -20,
-        -4.0,
-        -12
-      ],
-      "source_quads": 119,
+      "source_quads": 770,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20188,21 +21755,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N6_N3",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        -12,
-        -20,
-        -4.0,
-        -8
-      ],
-      "source_quads": 287,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N6_N2",
       "material": "asphalt",
       "bounds": [
@@ -20214,21 +21766,6 @@
         -4
       ],
       "source_quads": 66,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N6_N2",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        -8,
-        -20,
-        -4.0,
-        -4
-      ],
-      "source_quads": 231,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20251,15 +21788,15 @@
       "id": "Court_soil_N6_N1",
       "material": "soil",
       "bounds": [
-        -24,
-        -4.0,
-        -4,
+        -20.855,
+        -0.3,
+        -1.235,
         -20,
         -0.3,
-        0
+        -1.075
       ],
-      "source_quads": 587,
-      "native_faces": 2,
+      "source_quads": 20,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20278,21 +21815,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N6_P0",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        0,
-        -20,
-        -4.0,
-        4
-      ],
-      "source_quads": 756,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N6_P1",
       "material": "asphalt",
       "bounds": [
@@ -20303,22 +21825,7 @@
         -0.02,
         8
       ],
-      "source_quads": 504,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N6_P1",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        4,
-        -20,
-        -4.0,
-        8
-      ],
-      "source_quads": 504,
+      "source_quads": 560,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20333,22 +21840,7 @@
         -0.02,
         12
       ],
-      "source_quads": 280,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N6_P2",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        8,
-        -20,
-        -4.0,
-        12
-      ],
-      "source_quads": 280,
+      "source_quads": 364,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20368,48 +21860,48 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N6_P3",
-      "material": "soil",
-      "bounds": [
-        -24,
-        -4.0,
-        12,
-        -20,
-        -4.0,
-        16
-      ],
-      "source_quads": 154,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N6_P4",
       "material": "asphalt",
       "bounds": [
         -24,
-        -0.3,
+        -0.02,
         16,
         -20,
         -0.02,
-        16.245
+        16.253
       ],
-      "source_quads": 84,
+      "source_quads": 14,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N6_P5",
+      "material": "asphalt",
+      "bounds": [
+        -24,
+        -0.3,
+        22.637,
+        -20,
+        -0.02,
+        24
+      ],
+      "source_quads": 91,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N6_P4",
+      "id": "Court_soil_N6_P5",
       "material": "soil",
       "bounds": [
         -24,
         -4.0,
-        16,
+        24,
         -20,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 742,
-      "native_faces": 2,
+      "source_quads": 735,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20421,24 +21913,9 @@
         -16.605,
         -16,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 452,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N5_N4",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        -16,
-        -16,
-        -4.0,
-        -12
-      ],
-      "source_quads": 68,
+      "source_quads": 440,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20458,21 +21935,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N5_N3",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        -12,
-        -16,
-        -4.0,
-        -8
-      ],
-      "source_quads": 164,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N5_N2",
       "material": "asphalt",
       "bounds": [
@@ -20484,21 +21946,6 @@
         -4
       ],
       "source_quads": 66,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N5_N2",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        -8,
-        -16,
-        -4.0,
-        -4
-      ],
-      "source_quads": 132,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20522,14 +21969,14 @@
       "material": "soil",
       "bounds": [
         -20,
-        -4.0,
-        -4,
-        -16,
         -0.3,
-        0
+        -1.235,
+        -16.455,
+        -0.3,
+        -1.075
       ],
-      "source_quads": 332,
-      "native_faces": 2,
+      "source_quads": 8,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20548,21 +21995,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N5_P0",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        0,
-        -16,
-        -4.0,
-        4
-      ],
-      "source_quads": 432,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N5_P1",
       "material": "asphalt",
       "bounds": [
@@ -20573,22 +22005,7 @@
         -0.02,
         8
       ],
-      "source_quads": 288,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N5_P1",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        4,
-        -16,
-        -4.0,
-        8
-      ],
-      "source_quads": 288,
+      "source_quads": 320,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20603,22 +22020,7 @@
         -0.02,
         12
       ],
-      "source_quads": 160,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N5_P2",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        8,
-        -16,
-        -4.0,
-        12
-      ],
-      "source_quads": 160,
+      "source_quads": 208,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20638,48 +22040,48 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N5_P3",
-      "material": "soil",
-      "bounds": [
-        -20,
-        -4.0,
-        12,
-        -16,
-        -4.0,
-        16
-      ],
-      "source_quads": 88,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N5_P4",
       "material": "asphalt",
       "bounds": [
         -20,
-        -0.3,
+        -0.02,
         16,
         -16,
         -0.02,
-        16.245
+        16.253
       ],
-      "source_quads": 48,
+      "source_quads": 8,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N5_P5",
+      "material": "asphalt",
+      "bounds": [
+        -20,
+        -0.3,
+        22.637,
+        -16,
+        -0.02,
+        24
+      ],
+      "source_quads": 52,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N5_P4",
+      "id": "Court_soil_N5_P5",
       "material": "soil",
       "bounds": [
         -20,
         -4.0,
-        16,
+        24,
         -16,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 424,
-      "native_faces": 2,
+      "source_quads": 420,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20691,24 +22093,9 @@
         -16.605,
         -12,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 1469,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N4_N4",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        -16,
-        -12,
-        -4.0,
-        -12
-      ],
-      "source_quads": 221,
+      "source_quads": 1760,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20728,21 +22115,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N4_N3",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        -12,
-        -12,
-        -4.0,
-        -8
-      ],
-      "source_quads": 533,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N4_N2",
       "material": "asphalt",
       "bounds": [
@@ -20755,21 +22127,6 @@
       ],
       "source_quads": 66,
       "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N4_N2",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        -8,
-        -12,
-        -4.0,
-        -4
-      ],
-      "source_quads": 429,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20788,21 +22145,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N4_N1",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        -4,
-        -12,
-        -4.0,
-        0
-      ],
-      "source_quads": 1053,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N4_P0",
       "material": "asphalt",
       "bounds": [
@@ -20818,21 +22160,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N4_P0",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        0,
-        -12,
-        -4.0,
-        4
-      ],
-      "source_quads": 1404,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N4_P1",
       "material": "asphalt",
       "bounds": [
@@ -20843,23 +22170,8 @@
         -0.02,
         8
       ],
-      "source_quads": 498,
+      "source_quads": 731,
       "native_faces": 7,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N4_P1",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        4,
-        -12,
-        -4.0,
-        8
-      ],
-      "source_quads": 936,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20873,23 +22185,8 @@
         -0.02,
         12
       ],
-      "source_quads": 474,
+      "source_quads": 778,
       "native_faces": 8,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N4_P2",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        8,
-        -12,
-        -4.0,
-        12
-      ],
-      "source_quads": 520,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20903,22 +22200,7 @@
         -0.02,
         16
       ],
-      "source_quads": 286,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N4_P3",
-      "material": "soil",
-      "bounds": [
-        -16,
-        -4.0,
-        12,
-        -12,
-        -4.0,
-        16
-      ],
-      "source_quads": 286,
+      "source_quads": 352,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -20927,29 +22209,44 @@
       "material": "asphalt",
       "bounds": [
         -16,
-        -0.3,
+        -0.02,
         16,
         -12,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 156,
+      "source_quads": 35,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N4_P4",
+      "id": "Court_asphalt_N4_P5",
+      "material": "asphalt",
+      "bounds": [
+        -16,
+        -0.3,
+        20,
+        -12,
+        -0.02,
+        24
+      ],
+      "source_quads": 211,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_N4_P5",
       "material": "soil",
       "bounds": [
         -16,
         -4.0,
-        16,
+        24,
         -12,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 1378,
-      "native_faces": 2,
+      "source_quads": 1680,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -20961,84 +22258,9 @@
         -16.605,
         -8,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 4068,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_N4",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        -16,
-        -8,
-        -4.0,
-        -12
-      ],
-      "source_quads": 612,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_N3",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        -12,
-        -8,
-        -4.0,
-        -8
-      ],
-      "source_quads": 1476,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_N2",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        -8,
-        -8,
-        -4.0,
-        -4
-      ],
-      "source_quads": 1188,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_N1",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        -4,
-        -8,
-        -4.0,
-        0
-      ],
-      "source_quads": 2916,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_P0",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        0,
-        -8,
-        -4.0,
-        4
-      ],
-      "source_quads": 3888,
+      "source_quads": 4070,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21053,23 +22275,8 @@
         -0.02,
         8
       ],
-      "source_quads": 311,
+      "source_quads": 426,
       "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_P1",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        4,
-        -8,
-        -4.0,
-        8
-      ],
-      "source_quads": 2592,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21083,23 +22290,8 @@
         -0.02,
         12
       ],
-      "source_quads": 824,
+      "source_quads": 1142,
       "native_faces": 8,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_P2",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        8,
-        -8,
-        -4.0,
-        12
-      ],
-      "source_quads": 1440,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21113,22 +22305,7 @@
         -0.02,
         16
       ],
-      "source_quads": 792,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N3_P3",
-      "material": "soil",
-      "bounds": [
-        -12,
-        -4.0,
-        12,
-        -8,
-        -4.0,
-        16
-      ],
-      "source_quads": 792,
+      "source_quads": 814,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21137,29 +22314,44 @@
       "material": "asphalt",
       "bounds": [
         -12,
-        -0.3,
+        -0.02,
         16,
         -8,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 432,
+      "source_quads": 185,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N3_P5",
+      "material": "asphalt",
+      "bounds": [
+        -12,
+        -0.3,
+        20,
+        -8,
+        -0.02,
+        24
+      ],
+      "source_quads": 592,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N3_P4",
+      "id": "Court_soil_N3_P5",
       "material": "soil",
       "bounds": [
         -12,
         -4.0,
-        16,
+        24,
         -8,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 3816,
-      "native_faces": 2,
+      "source_quads": 3885,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21171,24 +22363,9 @@
         -16.605,
         -4,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 3955,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N2_N4",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        -16,
-        -4,
-        -4.0,
-        -12
-      ],
-      "source_quads": 595,
+      "source_quads": 3850,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21208,78 +22385,33 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N2_N3",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        -12,
-        -4,
-        -4.0,
-        -8
-      ],
-      "source_quads": 1435,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N2_N2",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        -8,
-        -4,
-        -4.0,
-        -4
-      ],
-      "source_quads": 1155,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N2_N1",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        -4,
-        -4,
-        -4.0,
-        0
-      ],
-      "source_quads": 2835,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_soil_N2_P0",
       "material": "soil",
       "bounds": [
-        -8,
+        -6.4,
         -4.0,
-        0,
-        -4,
+        3.1,
+        -5.95,
         -3.4,
         4
       ],
-      "source_quads": 3864,
-      "native_faces": 6,
+      "source_quads": 228,
+      "native_faces": 3,
       "internal_caps": false
     },
     {
       "id": "Court_soil_N2_P1",
       "material": "soil",
       "bounds": [
-        -8,
+        -6.4,
         -4.0,
         4,
-        -4,
+        -5.95,
         -3.4,
-        8
+        6.35
       ],
-      "source_quads": 2632,
-      "native_faces": 6,
+      "source_quads": 312,
+      "native_faces": 3,
       "internal_caps": false
     },
     {
@@ -21293,23 +22425,8 @@
         -0.02,
         12
       ],
-      "source_quads": 618,
+      "source_quads": 828,
       "native_faces": 4,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N2_P2",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        8,
-        -4,
-        -4.0,
-        12
-      ],
-      "source_quads": 1400,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21328,48 +22445,48 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N2_P3",
-      "material": "soil",
-      "bounds": [
-        -8,
-        -4.0,
-        12,
-        -4,
-        -4.0,
-        16
-      ],
-      "source_quads": 770,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N2_P4",
       "material": "asphalt",
       "bounds": [
         -8,
-        -0.3,
+        -0.02,
         16,
         -4,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 420,
+      "source_quads": 175,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N2_P5",
+      "material": "asphalt",
+      "bounds": [
+        -8,
+        -0.3,
+        20,
+        -4,
+        -0.02,
+        24
+      ],
+      "source_quads": 560,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N2_P4",
+      "id": "Court_soil_N2_P5",
       "material": "soil",
       "bounds": [
         -8,
         -4.0,
-        16,
+        24,
         -4,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 3710,
-      "native_faces": 2,
+      "source_quads": 3675,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21381,24 +22498,9 @@
         -16.605,
         0,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 10283,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N1_N4",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        -16,
-        0,
-        -4.0,
-        -12
-      ],
-      "source_quads": 1547,
+      "source_quads": 10010,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21418,78 +22520,18 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N1_N3",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        -12,
-        0,
-        -4.0,
-        -8
-      ],
-      "source_quads": 3731,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N1_N2",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        -8,
-        0,
-        -4.0,
-        -4
-      ],
-      "source_quads": 3003,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_soil_N1_N1",
       "material": "soil",
       "bounds": [
-        -4,
+        -1.2,
         -4.0,
-        -4,
+        -2.8,
         0,
         -3.6,
-        0
+        -0.3
       ],
-      "source_quads": 5639,
-      "native_faces": 6,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N1_P0",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        0,
-        0,
-        -4.0,
-        4
-      ],
-      "source_quads": 9828,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N1_P1",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        4,
-        0,
-        -4.0,
-        8
-      ],
-      "source_quads": 6552,
-      "native_faces": 1,
+      "source_quads": 252,
+      "native_faces": 3,
       "internal_caps": false
     },
     {
@@ -21503,23 +22545,8 @@
         -0.02,
         12
       ],
-      "source_quads": 1614,
+      "source_quads": 2160,
       "native_faces": 4,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_N1_P2",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        8,
-        0,
-        -4.0,
-        12
-      ],
-      "source_quads": 3640,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21538,48 +22565,48 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N1_P3",
-      "material": "soil",
-      "bounds": [
-        -4,
-        -4.0,
-        12,
-        0,
-        -4.0,
-        16
-      ],
-      "source_quads": 2002,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_N1_P4",
       "material": "asphalt",
       "bounds": [
         -4,
-        -0.3,
+        -0.02,
         16,
         0,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 1092,
+      "source_quads": 455,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_N1_P5",
+      "material": "asphalt",
+      "bounds": [
+        -4,
+        -0.3,
+        20,
+        0,
+        -0.02,
+        24
+      ],
+      "source_quads": 1456,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_N1_P4",
+      "id": "Court_soil_N1_P5",
       "material": "soil",
       "bounds": [
         -4,
         -4.0,
-        16,
+        24,
         0,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 9646,
-      "native_faces": 2,
+      "source_quads": 9555,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21591,24 +22618,9 @@
         -16.605,
         4,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 5424,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P0_N4",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        -16,
-        4,
-        -4.0,
-        -12
-      ],
-      "source_quads": 816,
+      "source_quads": 5280,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21628,78 +22640,18 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P0_N3",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        -12,
-        4,
-        -4.0,
-        -8
-      ],
-      "source_quads": 1968,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P0_N2",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        -8,
-        4,
-        -4.0,
-        -4
-      ],
-      "source_quads": 1584,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_soil_P0_N1",
       "material": "soil",
       "bounds": [
         0,
         -4.0,
-        -4,
-        4,
+        -2.8,
+        1.2,
         -3.6,
-        0
+        -0.3
       ],
-      "source_quads": 2968,
-      "native_faces": 6,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P0_P0",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        0,
-        4,
-        -4.0,
-        4
-      ],
-      "source_quads": 5184,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P0_P1",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        4,
-        4,
-        -4.0,
-        8
-      ],
-      "source_quads": 3456,
-      "native_faces": 1,
+      "source_quads": 196,
+      "native_faces": 3,
       "internal_caps": false
     },
     {
@@ -21713,23 +22665,8 @@
         -0.02,
         12
       ],
-      "source_quads": 842,
+      "source_quads": 1130,
       "native_faces": 4,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P0_P2",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        8,
-        4,
-        -4.0,
-        12
-      ],
-      "source_quads": 1920,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21748,48 +22685,48 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P0_P3",
-      "material": "soil",
-      "bounds": [
-        0,
-        -4.0,
-        12,
-        4,
-        -4.0,
-        16
-      ],
-      "source_quads": 1056,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_P0_P4",
       "material": "asphalt",
       "bounds": [
         0,
-        -0.3,
+        -0.02,
         16,
         4,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 576,
+      "source_quads": 240,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P0_P5",
+      "material": "asphalt",
+      "bounds": [
+        0,
+        -0.3,
+        20,
+        4,
+        -0.02,
+        24
+      ],
+      "source_quads": 768,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P0_P4",
+      "id": "Court_soil_P0_P5",
       "material": "soil",
       "bounds": [
         0,
         -4.0,
-        16,
+        24,
         4,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 5088,
-      "native_faces": 2,
+      "source_quads": 5040,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21801,24 +22738,9 @@
         -16.605,
         8,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 5763,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P1_N4",
-      "material": "soil",
-      "bounds": [
-        4,
-        -4.0,
-        -16,
-        8,
-        -4.0,
-        -12
-      ],
-      "source_quads": 867,
+      "source_quads": 5610,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21835,36 +22757,6 @@
       ],
       "source_quads": 1251,
       "native_faces": 6,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P1_N3",
-      "material": "soil",
-      "bounds": [
-        4,
-        -4.0,
-        -12,
-        8,
-        -4.0,
-        -8
-      ],
-      "source_quads": 2091,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P1_N2",
-      "material": "soil",
-      "bounds": [
-        4,
-        -4.0,
-        -8,
-        8,
-        -4.0,
-        -4
-      ],
-      "source_quads": 1683,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21886,29 +22778,14 @@
       "id": "Court_soil_P1_N1",
       "material": "soil",
       "bounds": [
-        4,
-        -4.0,
-        -4,
-        8,
+        5.4,
+        -3.2,
+        -1.72,
+        5.4,
         -0.3,
-        0
+        -1.28
       ],
-      "source_quads": 5031,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P1_P0",
-      "material": "soil",
-      "bounds": [
-        4,
-        -4.0,
-        0,
-        8,
-        -4.0,
-        4
-      ],
-      "source_quads": 5508,
+      "source_quads": 900,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -21923,23 +22800,8 @@
         -0.02,
         8
       ],
-      "source_quads": 1461,
+      "source_quads": 1765,
       "native_faces": 4,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P1_P1",
-      "material": "soil",
-      "bounds": [
-        4,
-        -4.0,
-        4,
-        8,
-        -4.0,
-        8
-      ],
-      "source_quads": 3672,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -21953,7 +22815,7 @@
         -0.02,
         12
       ],
-      "source_quads": 1561,
+      "source_quads": 2019,
       "native_faces": 16,
       "internal_caps": false
     },
@@ -21961,15 +22823,15 @@
       "id": "Court_soil_P1_P2",
       "material": "soil",
       "bounds": [
-        4,
-        -4.0,
-        8,
-        8,
+        7.48,
         -0.1,
-        12
+        9.19,
+        7.88,
+        -0.1,
+        9.55
       ],
-      "source_quads": 2085,
-      "native_faces": 3,
+      "source_quads": 51,
+      "native_faces": 2,
       "internal_caps": false
     },
     {
@@ -21991,15 +22853,15 @@
       "id": "Court_soil_P1_P3",
       "material": "soil",
       "bounds": [
-        4,
-        -4.0,
-        12,
-        8,
+        7.48,
         -0.1,
-        16
+        12.07,
+        7.86,
+        -0.1,
+        14.82
       ],
-      "source_quads": 1158,
-      "native_faces": 5,
+      "source_quads": 36,
+      "native_faces": 4,
       "internal_caps": false
     },
     {
@@ -22007,29 +22869,44 @@
       "material": "asphalt",
       "bounds": [
         4,
-        -0.3,
+        -0.02,
         16,
         8,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 612,
+      "source_quads": 255,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P1_P5",
+      "material": "asphalt",
+      "bounds": [
+        4,
+        -0.3,
+        20,
+        8,
+        -0.02,
+        24
+      ],
+      "source_quads": 816,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P1_P4",
+      "id": "Court_soil_P1_P5",
       "material": "soil",
       "bounds": [
         4,
         -4.0,
-        16,
+        24,
         8,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 5406,
-      "native_faces": 2,
+      "source_quads": 5355,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22041,24 +22918,9 @@
         -16.605,
         12,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 5763,
-      "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P2_N4",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        -16,
-        12,
-        -4.0,
-        -12
-      ],
-      "source_quads": 867,
+      "source_quads": 5720,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -22078,63 +22940,18 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P2_N3",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        -12,
-        12,
-        -4.0,
-        -8
-      ],
-      "source_quads": 2091,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P2_N2",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        -8,
-        12,
-        -4.0,
-        -4
-      ],
-      "source_quads": 1683,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P2_N1",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        -4,
-        12,
-        -4.0,
-        0
-      ],
-      "source_quads": 4131,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_soil_P2_P0",
       "material": "soil",
       "bounds": [
-        8,
+        8.45,
         -4.0,
-        0,
-        12,
+        0.3,
+        11.0,
         -3.4,
-        4
+        1.6
       ],
-      "source_quads": 5525,
-      "native_faces": 26,
+      "source_quads": 726,
+      "native_faces": 16,
       "internal_caps": false
     },
     {
@@ -22148,23 +22965,8 @@
         -0.02,
         8
       ],
-      "source_quads": 78,
+      "source_quads": 94,
       "native_faces": 2,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P2_P1",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        4,
-        12,
-        -4.0,
-        8
-      ],
-      "source_quads": 3672,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22178,23 +22980,8 @@
         -0.02,
         9.25
       ],
-      "source_quads": 34,
+      "source_quads": 42,
       "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P2_P2",
-      "material": "soil",
-      "bounds": [
-        8,
-        -4.0,
-        8,
-        12,
-        -4.0,
-        12
-      ],
-      "source_quads": 2040,
-      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22208,7 +22995,7 @@
         -0.02,
         16
       ],
-      "source_quads": 175,
+      "source_quads": 178,
       "native_faces": 6,
       "internal_caps": false
     },
@@ -22216,15 +23003,15 @@
       "id": "Court_soil_P2_P3",
       "material": "soil",
       "bounds": [
-        8,
-        -4.0,
-        12,
-        12,
+        10.38,
         -0.1,
-        16
+        14.74,
+        10.74,
+        -0.1,
+        14.82
       ],
-      "source_quads": 1128,
-      "native_faces": 2,
+      "source_quads": 6,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22232,29 +23019,44 @@
       "material": "asphalt",
       "bounds": [
         8,
-        -0.3,
+        -0.02,
         16,
         12,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 612,
+      "source_quads": 260,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P2_P5",
+      "material": "asphalt",
+      "bounds": [
+        8,
+        -0.3,
+        20,
+        12,
+        -0.02,
+        24
+      ],
+      "source_quads": 832,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P2_P4",
+      "id": "Court_soil_P2_P5",
       "material": "soil",
       "bounds": [
         8,
         -4.0,
-        16,
+        24,
         12,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 5406,
-      "native_faces": 2,
+      "source_quads": 5460,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22266,25 +23068,25 @@
         -16.605,
         16,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 2938,
-      "native_faces": 2,
+      "source_quads": 3190,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P3_N4",
       "material": "soil",
       "bounds": [
-        12,
-        -4.0,
-        -16,
-        16,
+        13.85,
+        -1.45,
+        -12.35,
+        14.55,
         -0.45,
-        -12
+        -12.35
       ],
-      "source_quads": 463,
-      "native_faces": 2,
+      "source_quads": 21,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22299,21 +23101,6 @@
         -8
       ],
       "source_quads": 36,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P3_N3",
-      "material": "soil",
-      "bounds": [
-        12,
-        -4.0,
-        -12,
-        16,
-        -4.0,
-        -8
-      ],
-      "source_quads": 1066,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -22333,21 +23120,6 @@
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P3_N2",
-      "material": "soil",
-      "bounds": [
-        12,
-        -4.0,
-        -8,
-        16,
-        -4.0,
-        -4
-      ],
-      "source_quads": 858,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
       "id": "Court_asphalt_P3_N1",
       "material": "asphalt",
       "bounds": [
@@ -22359,21 +23131,6 @@
         0
       ],
       "source_quads": 81,
-      "native_faces": 1,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P3_N1",
-      "material": "soil",
-      "bounds": [
-        12,
-        -4.0,
-        -4,
-        16,
-        -4.0,
-        0
-      ],
-      "source_quads": 2106,
       "native_faces": 1,
       "internal_caps": false
     },
@@ -22396,45 +23153,30 @@
       "id": "Court_soil_P3_P0",
       "material": "soil",
       "bounds": [
-        12,
+        15.05,
         -4.0,
-        0,
+        1.8,
         16,
         -0.3,
         4
       ],
-      "source_quads": 2915,
-      "native_faces": 12,
+      "source_quads": 121,
+      "native_faces": 8,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P3_P1",
       "material": "soil",
       "bounds": [
-        12,
-        -4.0,
+        15.93,
+        -2.45,
         4,
         16,
         -0.3,
-        8
+        4.08
       ],
-      "source_quads": 1918,
-      "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P3_P2",
-      "material": "soil",
-      "bounds": [
-        12,
-        -4.0,
-        8,
-        16,
-        -4.0,
-        12
-      ],
-      "source_quads": 1040,
-      "native_faces": 1,
+      "source_quads": 46,
+      "native_faces": 2,
       "internal_caps": false
     },
     {
@@ -22448,7 +23190,7 @@
         -0.02,
         16
       ],
-      "source_quads": 104,
+      "source_quads": 113,
       "native_faces": 6,
       "internal_caps": false
     },
@@ -22456,15 +23198,15 @@
       "id": "Court_soil_P3_P3",
       "material": "soil",
       "bounds": [
-        12,
-        -4.0,
-        12,
-        16,
+        13.38,
         -0.1,
-        16
+        14.74,
+        13.74,
+        -0.1,
+        14.82
       ],
-      "source_quads": 582,
-      "native_faces": 2,
+      "source_quads": 10,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22472,29 +23214,44 @@
       "material": "asphalt",
       "bounds": [
         12,
-        -0.3,
+        -0.02,
         16,
         16,
         -0.02,
-        16.245
+        20
       ],
-      "source_quads": 312,
+      "source_quads": 61,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P3_P4",
+      "id": "Court_asphalt_P3_P5",
+      "material": "asphalt",
+      "bounds": [
+        12,
+        -0.3,
+        20,
+        16,
+        -0.02,
+        24
+      ],
+      "source_quads": 380,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P3_P5",
       "material": "soil",
       "bounds": [
         12,
         -4.0,
-        16,
+        24,
         16,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 2756,
-      "native_faces": 2,
+      "source_quads": 3045,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
@@ -22508,23 +23265,23 @@
         -0.16,
         -16
       ],
-      "source_quads": 2289,
-      "native_faces": 21,
+      "source_quads": 2702,
+      "native_faces": 20,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P4_N4",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        17.56,
+        -2.99093,
         -16,
-        20,
+        17.94,
         -2.416,
         -12
       ],
-      "source_quads": 2970,
-      "native_faces": 47,
+      "source_quads": 3171,
+      "native_faces": 46,
       "internal_caps": false
     },
     {
@@ -22532,29 +23289,29 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         -11.65,
-        18.4,
+        18.408,
         -0.02,
         -8
       ],
-      "source_quads": 504,
-      "native_faces": 10,
+      "source_quads": 108,
+      "native_faces": 9,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P4_N3",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        17.56,
+        -2.97592,
         -12,
-        20,
+        18.32,
         -0.1,
         -8
       ],
-      "source_quads": 9586,
-      "native_faces": 67,
+      "source_quads": 4953,
+      "native_faces": 63,
       "internal_caps": false
     },
     {
@@ -22562,29 +23319,29 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         -8,
-        18.4,
+        18.408,
         -0.02,
         -4
       ],
-      "source_quads": 455,
-      "native_faces": 7,
+      "source_quads": 92,
+      "native_faces": 6,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P4_N2",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        17.56,
+        -2.95343,
         -8,
-        18.4,
+        18.32,
         -0.1,
         -4
       ],
-      "source_quads": 8113,
-      "native_faces": 55,
+      "source_quads": 4054,
+      "native_faces": 53,
       "internal_caps": false
     },
     {
@@ -22592,29 +23349,29 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         -4,
-        18.4,
+        18.408,
         -0.02,
         0
       ],
-      "source_quads": 1091,
-      "native_faces": 7,
+      "source_quads": 200,
+      "native_faces": 6,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P4_N1",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        17.56,
+        -2.93093,
         -4,
-        18.4,
+        18.32,
         -0.1,
         0
       ],
-      "source_quads": 17205,
-      "native_faces": 49,
+      "source_quads": 7242,
+      "native_faces": 47,
       "internal_caps": false
     },
     {
@@ -22622,14 +23379,14 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         0,
-        18.4,
+        18.408,
         -0.02,
         4
       ],
-      "source_quads": 1489,
-      "native_faces": 12,
+      "source_quads": 301,
+      "native_faces": 11,
       "internal_caps": false
     },
     {
@@ -22637,14 +23394,14 @@
       "material": "soil",
       "bounds": [
         16,
-        -4.0,
+        -2.91593,
         0,
-        18.4,
+        18.32,
         -0.1,
         4
       ],
-      "source_quads": 25531,
-      "native_faces": 73,
+      "source_quads": 12332,
+      "native_faces": 71,
       "internal_caps": false
     },
     {
@@ -22652,14 +23409,14 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         4,
-        18.4,
+        18.408,
         -0.02,
         8
       ],
-      "source_quads": 965,
-      "native_faces": 7,
+      "source_quads": 189,
+      "native_faces": 6,
       "internal_caps": false
     },
     {
@@ -22667,14 +23424,14 @@
       "material": "soil",
       "bounds": [
         16,
-        -4.0,
+        -2.89342,
         4,
-        18.4,
+        18.32,
         -0.1,
         8
       ],
-      "source_quads": 16402,
-      "native_faces": 63,
+      "source_quads": 8172,
+      "native_faces": 61,
       "internal_caps": false
     },
     {
@@ -22682,13 +23439,13 @@
       "material": "asphalt",
       "bounds": [
         18.24,
-        -0.3,
+        -0.1,
         8,
-        18.4,
+        20,
         -0.02,
         12
       ],
-      "source_quads": 564,
+      "source_quads": 190,
       "native_faces": 7,
       "internal_caps": false
     },
@@ -22696,15 +23453,15 @@
       "id": "Court_soil_P4_P2",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        17.56,
+        -2.87093,
         8,
-        18.4,
+        18.32,
         -0.1,
         12
       ],
-      "source_quads": 8738,
-      "native_faces": 49,
+      "source_quads": 4696,
+      "native_faces": 47,
       "internal_caps": false
     },
     {
@@ -22712,29 +23469,29 @@
       "material": "asphalt",
       "bounds": [
         16,
-        -0.3,
+        -0.1,
         12,
-        18.4,
+        20,
         -0.02,
         16
       ],
-      "source_quads": 418,
-      "native_faces": 21,
+      "source_quads": 248,
+      "native_faces": 20,
       "internal_caps": false
     },
     {
       "id": "Court_soil_P4_P3",
       "material": "soil",
       "bounds": [
-        16,
-        -4.0,
+        16.38,
+        -2.85593,
         12,
-        18.4,
+        18.32,
         -0.1,
-        16
+        14.82
       ],
-      "source_quads": 4682,
-      "native_faces": 53,
+      "source_quads": 1977,
+      "native_faces": 51,
       "internal_caps": false
     },
     {
@@ -22742,28 +23499,58 @@
       "material": "asphalt",
       "bounds": [
         16,
-        -0.3,
-        16,
-        18.4,
         -0.02,
-        16.245
+        16,
+        20,
+        -0.02,
+        16.253
       ],
-      "source_quads": 227,
-      "native_faces": 3,
+      "source_quads": 44,
+      "native_faces": 1,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P4_P4",
+      "id": "Court_asphalt_P4_P5",
+      "material": "asphalt",
+      "bounds": [
+        16,
+        -0.3,
+        22.637,
+        20,
+        -0.02,
+        24
+      ],
+      "source_quads": 286,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P4_P5",
       "material": "soil",
       "bounds": [
         16,
         -4.0,
-        16,
-        18.4,
+        24,
+        20,
         -0.3,
-        16.245
+        24
       ],
-      "source_quads": 2013,
+      "source_quads": 2310,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_N5",
+      "material": "asphalt",
+      "bounds": [
+        20.3,
+        -0.3,
+        -16.605,
+        24,
+        -0.02,
+        -16
+      ],
+      "source_quads": 141,
       "native_faces": 3,
       "internal_caps": false
     },
@@ -22774,50 +23561,936 @@
         20,
         -4.0,
         -16.605,
-        20.3,
+        24,
         -0.16,
-        -16
+        -16.605
       ],
-      "source_quads": 443,
-      "native_faces": 3,
-      "internal_caps": false
-    },
-    {
-      "id": "Court_soil_P5_N4",
-      "material": "soil",
-      "bounds": [
-        20,
-        -4.0,
-        -16,
-        20.3,
-        -0.16,
-        -12
-      ],
-      "source_quads": 1887,
+      "source_quads": 1055,
       "native_faces": 2,
       "internal_caps": false
     },
     {
-      "id": "Court_soil_P5_N3",
+      "id": "Court_asphalt_P5_N4",
+      "material": "asphalt",
+      "bounds": [
+        20.3,
+        -0.02,
+        -16,
+        23.408,
+        -0.02,
+        -12
+      ],
+      "source_quads": 87,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_N3",
+      "material": "asphalt",
+      "bounds": [
+        22.792,
+        -0.02,
+        -12,
+        23.408,
+        -0.02,
+        -8
+      ],
+      "source_quads": 123,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_N2",
+      "material": "asphalt",
+      "bounds": [
+        22.792,
+        -0.02,
+        -8,
+        23.408,
+        -0.02,
+        -4
+      ],
+      "source_quads": 99,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_N1",
+      "material": "asphalt",
+      "bounds": [
+        22.792,
+        -0.02,
+        -4,
+        23.408,
+        -0.02,
+        0
+      ],
+      "source_quads": 243,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P0",
+      "material": "asphalt",
+      "bounds": [
+        22.792,
+        -0.02,
+        0,
+        23.408,
+        -0.02,
+        4
+      ],
+      "source_quads": 324,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P1",
+      "material": "asphalt",
+      "bounds": [
+        22.792,
+        -0.02,
+        4,
+        23.408,
+        -0.02,
+        8
+      ],
+      "source_quads": 240,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P2",
+      "material": "asphalt",
+      "bounds": [
+        20,
+        -0.02,
+        8,
+        24,
+        -0.02,
+        12
+      ],
+      "source_quads": 318,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P3",
+      "material": "asphalt",
+      "bounds": [
+        20,
+        -0.02,
+        12,
+        24,
+        -0.02,
+        16
+      ],
+      "source_quads": 220,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P4",
+      "material": "asphalt",
+      "bounds": [
+        20,
+        -0.02,
+        16,
+        24,
+        -0.02,
+        16.253
+      ],
+      "source_quads": 20,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P5_P5",
+      "material": "asphalt",
+      "bounds": [
+        20,
+        -0.3,
+        22.637,
+        24,
+        -0.02,
+        24
+      ],
+      "source_quads": 130,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P5_P5",
       "material": "soil",
       "bounds": [
         20,
         -4.0,
-        -12,
-        20.3,
-        -0.16,
-        -11.65
+        24,
+        24,
+        -0.3,
+        24
       ],
-      "source_quads": 665,
+      "source_quads": 1050,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P6_N5",
+      "material": "asphalt",
+      "bounds": [
+        24,
+        -0.3,
+        -16.605,
+        28,
+        -0.02,
+        -16.047
+      ],
+      "source_quads": 15,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P6_N5",
+      "material": "soil",
+      "bounds": [
+        24,
+        -4.0,
+        -16.605,
+        28,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P6_P2",
+      "material": "asphalt",
+      "bounds": [
+        24,
+        -0.02,
+        9.137,
+        28,
+        -0.02,
+        12
+      ],
+      "source_quads": 38,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P6_P3",
+      "material": "asphalt",
+      "bounds": [
+        24,
+        -0.02,
+        12,
+        28,
+        -0.02,
+        16
+      ],
+      "source_quads": 22,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P6_P4",
+      "material": "asphalt",
+      "bounds": [
+        24,
+        -0.02,
+        16,
+        28,
+        -0.02,
+        16.253
+      ],
+      "source_quads": 2,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P6_P5",
+      "material": "asphalt",
+      "bounds": [
+        24,
+        -0.3,
+        22.637,
+        28,
+        -0.02,
+        24
+      ],
+      "source_quads": 13,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P6_P5",
+      "material": "soil",
+      "bounds": [
+        24,
+        -4.0,
+        24,
+        28,
+        -0.3,
+        24
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_N5",
+      "material": "asphalt",
+      "bounds": [
+        28,
+        -0.3,
+        -16.605,
+        32,
+        -0.02,
+        -16
+      ],
+      "source_quads": 198,
       "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P7_N5",
+      "material": "soil",
+      "bounds": [
+        28,
+        -4.0,
+        -16.605,
+        32,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 1365,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_N4",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        -16,
+        31.208,
+        -0.02,
+        -12
+      ],
+      "source_quads": 69,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_N3",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        -12,
+        31.208,
+        -0.02,
+        -8
+      ],
+      "source_quads": 123,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_N2",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        -8,
+        31.208,
+        -0.02,
+        -4
+      ],
+      "source_quads": 99,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_N1",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        -4,
+        31.208,
+        -0.02,
+        0
+      ],
+      "source_quads": 243,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P0",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        0,
+        31.208,
+        -0.02,
+        4
+      ],
+      "source_quads": 324,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P1",
+      "material": "asphalt",
+      "bounds": [
+        30.592,
+        -0.02,
+        4,
+        32,
+        -0.02,
+        8
+      ],
+      "source_quads": 261,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P2",
+      "material": "asphalt",
+      "bounds": [
+        28,
+        -0.02,
+        8,
+        32,
+        -0.02,
+        12
+      ],
+      "source_quads": 578,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P3",
+      "material": "asphalt",
+      "bounds": [
+        28,
+        -0.02,
+        12,
+        32,
+        -0.02,
+        16
+      ],
+      "source_quads": 286,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P4",
+      "material": "asphalt",
+      "bounds": [
+        28,
+        -0.02,
+        16,
+        32,
+        -0.02,
+        20
+      ],
+      "source_quads": 56,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P7_P5",
+      "material": "asphalt",
+      "bounds": [
+        28,
+        -0.3,
+        20,
+        32,
+        -0.02,
+        24
+      ],
+      "source_quads": 199,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P7_P5",
+      "material": "soil",
+      "bounds": [
+        28,
+        -4.0,
+        24,
+        32,
+        -0.3,
+        24
+      ],
+      "source_quads": 1365,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_N5",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.3,
+        -16.605,
+        36,
+        -0.02,
+        -16.047
+      ],
+      "source_quads": 15,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P8_N5",
+      "material": "soil",
+      "bounds": [
+        32,
+        -4.0,
+        -16.605,
+        36,
+        -0.3,
+        -16.605
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_P1",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.02,
+        7.637,
+        36,
+        -0.02,
+        8
+      ],
+      "source_quads": 7,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_P2",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.02,
+        8,
+        36,
+        -0.02,
+        12
+      ],
+      "source_quads": 52,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_P3",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.02,
+        12,
+        36,
+        -0.02,
+        16
+      ],
+      "source_quads": 22,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_P4",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.02,
+        16,
+        36,
+        -0.02,
+        20
+      ],
+      "source_quads": 5,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P8_P5",
+      "material": "asphalt",
+      "bounds": [
+        32,
+        -0.3,
+        20,
+        36,
+        -0.02,
+        24
+      ],
+      "source_quads": 16,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P8_P5",
+      "material": "soil",
+      "bounds": [
+        32,
+        -4.0,
+        24,
+        36,
+        -0.3,
+        24
+      ],
+      "source_quads": 105,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_N5",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        -16.605,
+        39.5,
+        -0.02,
+        -16
+      ],
+      "source_quads": 132,
+      "native_faces": 4,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_N5",
+      "material": "soil",
+      "bounds": [
+        36,
+        -4.0,
+        -16.605,
+        39.5,
+        -0.3,
+        -16
+      ],
+      "source_quads": 1050,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_N4",
+      "material": "asphalt",
+      "bounds": [
+        39.192,
+        -0.3,
+        -16,
+        39.5,
+        -0.02,
+        -12
+      ],
+      "source_quads": 299,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_N4",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        -16,
+        39.5,
+        -0.3,
+        -12
+      ],
+      "source_quads": 2415,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_N3",
+      "material": "asphalt",
+      "bounds": [
+        39.192,
+        -0.3,
+        -12,
+        39.5,
+        -0.02,
+        -8
+      ],
+      "source_quads": 533,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_N3",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        -12,
+        39.5,
+        -0.3,
+        -8
+      ],
+      "source_quads": 4305,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_N2",
+      "material": "asphalt",
+      "bounds": [
+        39.192,
+        -0.3,
+        -8,
+        39.5,
+        -0.02,
+        -4
+      ],
+      "source_quads": 429,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_N2",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        -8,
+        39.5,
+        -0.3,
+        -4
+      ],
+      "source_quads": 3465,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_N1",
+      "material": "asphalt",
+      "bounds": [
+        39.192,
+        -0.3,
+        -4,
+        39.5,
+        -0.02,
+        0
+      ],
+      "source_quads": 1053,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_N1",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        -4,
+        39.5,
+        -0.3,
+        0
+      ],
+      "source_quads": 8505,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P0",
+      "material": "asphalt",
+      "bounds": [
+        39.192,
+        -0.3,
+        0,
+        39.5,
+        -0.02,
+        4
+      ],
+      "source_quads": 1404,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P0",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        0,
+        39.5,
+        -0.3,
+        4
+      ],
+      "source_quads": 11340,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P1",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        4,
+        39.5,
+        -0.02,
+        8
+      ],
+      "source_quads": 1061,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P1",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        4,
+        39.5,
+        -0.3,
+        8
+      ],
+      "source_quads": 8400,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P2",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        8,
+        39.5,
+        -0.02,
+        12
+      ],
+      "source_quads": 832,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P2",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        8,
+        39.5,
+        -0.3,
+        12
+      ],
+      "source_quads": 5460,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P3",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        12,
+        39.5,
+        -0.02,
+        16
+      ],
+      "source_quads": 352,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P3",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        12,
+        39.5,
+        -0.3,
+        16
+      ],
+      "source_quads": 2310,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P4",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        16,
+        39.5,
+        -0.02,
+        20
+      ],
+      "source_quads": 80,
+      "native_faces": 2,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P4",
+      "material": "soil",
+      "bounds": [
+        39.5,
+        -4.0,
+        16,
+        39.5,
+        -0.3,
+        20
+      ],
+      "source_quads": 525,
+      "native_faces": 1,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_asphalt_P9_P5",
+      "material": "asphalt",
+      "bounds": [
+        36,
+        -0.3,
+        20,
+        39.5,
+        -0.02,
+        24
+      ],
+      "source_quads": 135,
+      "native_faces": 3,
+      "internal_caps": false
+    },
+    {
+      "id": "Court_soil_P9_P5",
+      "material": "soil",
+      "bounds": [
+        36,
+        -4.0,
+        20,
+        39.5,
+        -0.3,
+        24
+      ],
+      "source_quads": 1050,
+      "native_faces": 2,
       "internal_caps": false
     }
   ],
   "closed_union_non_manifold_edges": 0,
-  "buried_quads_omitted": 552726,
+  "buried_quads_omitted": 1513477,
+  "site_base_quads_omitted": 199673,
   "source_edge_contacts_split": 54,
   "source_vertex_fans_split": 72,
-  "native_faces": 982,
-  "source_native_sha256": "c5ff72b7c607eb4105c4f74f828691e78705c7516eeb07ec434106336f83e7cc",
-  "note": "Installed bounded subgrade and original-datum courtyard surface. Drainage, operating glazing, city plinths and weather findings remain open; no whole-shell acceptance."
+  "native_faces": 991,
+  "source_native_sha256": "ccf7d7ac459e364c171a09e04cd4eed51c4f18f5ccfe5abfb8e1e83f17c5366e",
+  "note": "Installed bounded subgrade and original-datum courtyard surface. Drainage, operating glazing, broader city closure and weather findings remain open; no whole-shell acceptance."
 }

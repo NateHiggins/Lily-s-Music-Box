@@ -190508,6 +190508,38 @@
    "rationale": "Reviewed east maintenance-route camera station at (14,1.524,10.8) targeting (8.5,0,11), inside the retained rear alley. Camera observation only; normal traversal comes from the separate inherited route.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "48811c585f5e0f1d",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_city_foundations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    112,
+    112
+   ],
+   "count": 2,
+   "context": [
+    "[\"east_maint_route\",Vector3(14,1.524,10.8),Vector3(8.5,0,11)],"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed repeated east maintenance-route camera at (14,1.524,10.8) aimed at (8.5,0,11) in the retained rear alley. Observation only; independent normal-controller suites verify traversal.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

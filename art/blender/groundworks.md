@@ -154,3 +154,19 @@ and terrain joins, roof/weather/light-slot readiness and the remaining independe
 bodega/arcade/bar utility routes. Raw architecture and infrastructure across the
 six location buckets remain unfinished. No owner decision is needed for this
 bounded construction batch; continue the dependency queues after verification.
+
+## Published outcome and neighboring follow-up
+
+Groundworks **4e6c498fb6fdcb9c3b8bb305f99c14bb274ccde4** is verified and pushed.
+Its complete 47-gate comparison reports no regressions or requirement changes,
+protected 17/17 and preserved selector rollback. All 105 actual candidate captures
+are directly reviewed, with foreground/stair-view limitations retained. The
+separate source-bound full two-root matrix receipt passes all 44 reconstruction
+checks; the verifier's OpenShiftSaveMatrix suite covers 17 different checks.
+Exact results are in **groundworks-verified/verification.json** and
+**groundworks-two-root-matrix.log.receipt.json** under **tmp/shell-readiness/**.
+
+The next **city_foundations.md** batch expands the bounded ground around seven
+actual city undersides and reconciles only the obsolete near-neighbor exclusion.
+The 48 original stations remain frozen. Alley/well/collector geometry and controls
+are retained; farther city closure and full shell readiness remain open.

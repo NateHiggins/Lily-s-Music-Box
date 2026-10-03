@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "offsets": {
+    "site_nbr_e": 1.2550000000000026,
+    "site_nbr_w": -3.1999999999999957,
+    "site_nw1": -3.1999999999999957,
+    "site_nw2": -3.1999999999999957,
+    "site_nw3": -3.1999999999999957,
+    "site_nw4": -3.1999999999999957,
+    "site_ne1": 5.579999999999998,
+    "site_ne2": 5.579999999999998,
+    "site_ne3": 5.579999999999998,
+    "site_ne4": 5.579999999999998
+  },
+  "source_solids": 335,
+  "runtime_batches": 84,
+  "source_native_sha256": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
+  "bindings": {
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "game/data/orison_v2_blockout.json": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4",
+    "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09"
+  },
+  "note": "Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority."
+}
