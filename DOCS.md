@@ -39,6 +39,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
 | What is true about this world | `design/ORISON_BIBLE.md` |
 | How to work in this repository: git in a shared tree, the Godot lane, what counts as proof | `AGENTS.md` (Claude reads it through `CLAUDE.md`) |
+| How this game was built with AI engineers, and how to run the same process on a new game from a one-line prompt: roles, documents, gates, receipts, pipelines, third-party sources, the hard-won rules | `docs/AI_GAME_DEVELOPMENT_MANUAL.md` *(living reference manual, INERT)* |
+| How to get the prompt for a new game from half an hour of play instead of a sentence: the text adventure that reads how someone plays and writes the game description the manual builds from | `oracle/README.md` to run it (`python -m oracle`), then `oracle/DESIGN.md` for how it works and what was verified *(the oracle front door, manual section 5.8; INERT)* |
 | Whether a change made anything worse, and whether a branch is mergeable | `tools/PIPELINE_TOOLS.md`: gate board, run receipts, candidate verifier |
 | Where the v2 rebuild stands and what the ledger will accept as evidence | `python tools/audit_orison_v2_completeness.py`, `design/ORISON_V2_COMPLETENESS_LEDGER_GUIDE.md`, then the newest management record: `design/REPO_HOUSEKEEPING_2026-09-19.md` |
 | Which standing ruling a brief or review cites as RUL-nnn | `design/RULINGS.json` *(an index with sources; the Bible and the cited source win)* |
