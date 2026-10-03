@@ -152,7 +152,7 @@ The one document that outranks everything except a later owner ruling. Its first
 
 **Gates that do not rot [M]** (§9.2). A baseline is a ratchet, not permission. Identify findings by meaning, never by line number. Ban the shape, not the vocabulary. A gate that exits 0 without its PASS line is an error. A false blocker is a tooling defect. On a new project a gate starts clean, in the commit of the code it governs.
 
-**The board has a time budget [C2]:** about a minute, each row's time printed, whole-tree scans cached by file hash. Scar: 49 seconds became 421 in five days, at four board runs per change. Keep every run's full output. A flake is not noise until its cause is known: P2's one flaky test was the runner able to kill a stranger's process tree.
+**The board has a time budget [C2]:** about a minute, each row's time printed, whole-tree scans cached by file hash. Scar: 49 seconds became 421 within a week, at four board runs per change. Keep every run's full output. A flake is not noise until its cause is known: P2's one flaky test was the runner able to kill a stranger's process tree.
 
 **Pair every structural audit with a measured one [M]** (§9.4). P1's lighting audit passed for months while rooms shipped black. P2's end screen would have drawn in a quarter of the doubled canvas while every suite passed.
 
