@@ -41,3 +41,11 @@ against neighboring trim bounds and confirms public panel backing below each
 sill. It reproduced 180 overlaps before the correction. Focused captures,
 floor-surface, door-casing and title regression receipts for this follow-up
 live under **tmp/window-trim**.
+
+## Operating boiler opening follow-up
+
+The bounded **boiler_window.md** construction replaces only **B1_BOILER_AIR_E**
+with an editable inward hopper and physical glass. The remaining 71 generic
+assemblies retain this source; their existing aperture and wall-face checks
+continue unchanged. The dedicated boiler suite checks the new fit, actual
+closed/open configuration, ordinary input and durable household setting.

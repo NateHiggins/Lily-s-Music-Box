@@ -41,7 +41,13 @@ func _route() -> void:
 	var probe:=Vector3(16.6,-1.3,3.2)
 	var window_ray:=PhysicsRayQueryParameters3D.create(root.to_global(probe),root.to_global(Vector3(15.5,-1.3,3.2)),1,[player.get_rid()])
 	var throat: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(window_ray)
-	if not throat.is_empty():failures.append("boiler-window throat obstructed by "+str(root.get_path_to(throat.collider)))
+	var window: Node3D=root.get_node("B1_BOILER_AIR_E/OperatingWindow")
+	if throat.is_empty() or not window.is_ancestor_of(throat.collider):failures.append("closed operating boiler window has no fitted physical pane")
+	var fitted: Array[RID]=window_ray.exclude
+	for body: CollisionObject3D in window.find_children("*","CollisionObject3D",true,false):fitted.append(body.get_rid())
+	window_ray.exclude=fitted
+	throat=world.get_world_3d().direct_space_state.intersect_ray(window_ray)
+	if not throat.is_empty():failures.append("original boiler-window throat obstructed beneath fitted window by "+str(root.get_path_to(throat.collider)))
 	# Open catch bores and well floor are measured on the actual imported faces.
 	for z: float in [-10.45,2.0,12.9,3.2]:
 		var start:=Vector3(17.75,-.2 if z!=3.2 else -2.1,z)

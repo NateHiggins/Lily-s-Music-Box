@@ -24,6 +24,10 @@ func _run() -> void:
 	var trim_checks := 0
 	for record: Dictionary in root.layout.windows:
 		var opening := root.get_node(str(record.id)) as Node3D
+		if str(record.id)=="B1_BOILER_AIR_E":
+			check(opening.get_node_or_null("OperatingWindow")!=null and not opening.get_node("Glazing").visible,"boiler opening has its dedicated operating source")
+			check(opening.get_node_or_null("FittedWindowJoinery")==null,"boiler sash has no duplicate generic frame")
+			continue
 		var frame := opening.get_node("FittedWindowJoinery") as MeshInstance3D
 		check(frame.mesh is ArrayMesh,"complete Blender joinery installed "+str(record.id))
 		check(opening.get_node("Glazing").visible,"original glazing retained")
@@ -92,7 +96,7 @@ func _run() -> void:
 			await shot("window_"+key)
 			captured[key]=true
 		count+=1
-	check(count==72 and contacts==288,"all windows and both wall faces covered")
+	check(count==71 and contacts==284,"all 71 retained generic windows and both wall faces covered; operating boiler window has a dedicated suite")
 	check(trim_checks>0,"actual neighboring trim was checked")
 	print("WINDOW JOINERY: openings=%d wall_contacts=%d failures=%d" % [count,contacts,failures.size()])
 	print("WINDOW TRIM: adjacent_strips=%d failures=%d" % [trim_checks,failures.size()])

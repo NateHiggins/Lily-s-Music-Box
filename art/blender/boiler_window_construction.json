@@ -1,0 +1,134 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "opening_id": "B1_BOILER_AIR_E",
+  "centre": [
+    15.754999999999999,
+    -1.3000000000000003,
+    3.2
+  ],
+  "reveal_span": [
+    15.58,
+    15.93
+  ],
+  "width": 1.2,
+  "height": 1.0,
+  "sheet_thickness": 0.002,
+  "maximum_angle_degrees": 35.0,
+  "hinge_local": [
+    0.0,
+    -0.44,
+    -0.13
+  ],
+  "stay_length": 0.27,
+  "stay_anchor_yz": [
+    -0.37,
+    -0.168
+  ],
+  "stay_sash_yz": [
+    0.55,
+    0.0
+  ],
+  "closed_native_pieces": 71,
+  "parts": 16,
+  "triangles": 2128,
+  "panes": [
+    [
+      -0.506,
+      0.034,
+      0.01,
+      -0.178,
+      0.431,
+      0.014
+    ],
+    [
+      -0.506,
+      0.449,
+      0.01,
+      -0.178,
+      0.846,
+      0.014
+    ],
+    [
+      -0.16,
+      0.034,
+      0.01,
+      0.16,
+      0.431,
+      0.014
+    ],
+    [
+      -0.16,
+      0.449,
+      0.01,
+      0.16,
+      0.846,
+      0.014
+    ],
+    [
+      0.178,
+      0.034,
+      0.01,
+      0.506,
+      0.431,
+      0.014
+    ],
+    [
+      0.178,
+      0.449,
+      0.01,
+      0.506,
+      0.846,
+      0.014
+    ]
+  ],
+  "flange_fixings": [
+    [
+      -0.611,
+      -0.28,
+      -0.186
+    ],
+    [
+      -0.611,
+      0.28,
+      -0.186
+    ],
+    [
+      0.611,
+      -0.28,
+      -0.186
+    ],
+    [
+      0.611,
+      0.28,
+      -0.186
+    ],
+    [
+      -0.35,
+      -0.511,
+      -0.186
+    ],
+    [
+      -0.35,
+      0.511,
+      -0.186
+    ],
+    [
+      0.35,
+      -0.511,
+      -0.186
+    ],
+    [
+      0.35,
+      0.511,
+      -0.186
+    ]
+  ],
+  "source_bindings": {
+    "art/data/boiler_window/source_plan.json": "96229f93ae9240074eb729b60f0d92cb160fbd8aecee6b760ea351ced34ef927",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "game/scripts/generated/v2_exterior_masonry.gd": "42a4b03da8b3fa176c9f693fe87f5881c13203a0cc797a58178a0fd9de9cfc89"
+  },
+  "asset_sha256": "792356cf9e8fcbcb381b5a466760d856bf32c2c2a9c95c4dba1d019d7ec3cb71",
+  "open_work": "Whole-building weather sealing, drainage capacity and combustion-air performance. The geometric air opening is not a rated ventilation system."
+}

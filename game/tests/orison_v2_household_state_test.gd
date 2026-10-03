@@ -37,7 +37,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 185, "182 household controls and three completed service results")
+	check(defaults.records.size() == 186, "183 household controls including the boiler window and three completed service results")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -52,7 +52,7 @@ func exercise() -> void:
 		switches.toggle_room(room)
 	for identity: String in defaults.records:
 		var record: Dictionary = defaults.records[identity]
-		var prop: Node = world.adapter.resolve(identity)
+		var prop: Node = owner._subjects[identity]
 		match record.kind:
 			"fuse_service", "tank_service", "boiler_service":
 				var before_service: Dictionary = prop.call("maintenance_snapshot")
@@ -77,6 +77,7 @@ func exercise() -> void:
 			"light": prop.call("set_powered", not record.value)
 			"radiator": prop.call("set_supply_position", .35, 0.0)
 			"prep": prop.call("interact", world.player)
+			"window": prop.call("interact_handle", world.player)
 			"mirror": prop.call("set_door_open", true)
 			"books":
 				prop.get("sorter").touch(0)
@@ -106,7 +107,9 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 185 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 186 settings restore onto new physical owners")
+	var window: Node3D = owner._subjects["B1_BOILER_AIR_E"]
+	check(window.opened and not window.moving and is_equal_approx(window.angle_degrees,35.0), "saved open window reconstructs its fitted physical sash and stay position")
 	var fuse := world.adapter.resolve("B1_FUSE_PANEL") as FusePanelProp
 	var tank := world.adapter.resolve("ROOF_TANK_BALLCOCK") as RoofTankBallcockProp
 	check(fuse.panel_safe and fuse.protects_conductor() and fuse.load_proved, "reload reconstructs the correct fuse and proved load")
@@ -131,7 +134,7 @@ func exercise() -> void:
 	for unit: String in ["1A","1D","2C","3D","4C","4D"]:
 		added_circuits["F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"] = true
 	for identity: String in wanted.records:
-		if added_circuits.has(identity) or wanted.records[identity].kind in ["books", "fuse_service", "tank_service", "boiler_service"] or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
+		if added_circuits.has(identity) or wanted.records[identity].kind in ["books", "fuse_service", "tank_service", "boiler_service", "window"] or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
 	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")

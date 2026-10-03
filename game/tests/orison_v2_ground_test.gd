@@ -73,7 +73,13 @@ func _run() -> void:
 	var air_ray:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(16.6,-1.3,3.2)),root.to_global(Vector3(15.5,-1.3,3.2)),1,[world.player.get_rid()])
 	var air_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	print("POST PAVEMENT AIR THROAT: owner=",str(world.get_path_to(air_hit.collider)) if not air_hit.is_empty() else "empty")
-	check(air_hit.is_empty(),"ground subgrade preserves the existing open collision throat of the boiler window")
+	var window: Node3D=root.get_node("B1_BOILER_AIR_E/OperatingWindow")
+	check(not air_hit.is_empty() and window.is_ancestor_of(air_hit.collider),"new closed operating window owns its physical barrier")
+	var fitted: Array[RID]=air_ray.exclude
+	for body: CollisionObject3D in window.find_children("*","CollisionObject3D",true,false):fitted.append(body.get_rid())
+	air_ray.exclude=fitted
+	air_hit=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
+	check(air_hit.is_empty(),"excluding only the fitted window preserves the original ground/window air reservation")
 	var camera: Camera3D=world.player.camera;camera.make_current();camera.fov=65
 	var observations: Array=[]
 	for view: Array in [["west_grade",Vector3(-17.3,1.524,8.5),Vector3(-15.8,0,8.5)],

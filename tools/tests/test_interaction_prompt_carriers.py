@@ -332,7 +332,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # Four classified V2 files add five methods: the cabinet's
         # moving panel delegates a second prompt to its mechanism owner.
         # Keys Cut adds one carrier-free prompt, paired with its own action.
-        self.assertEqual(summary["prompt_methods"], 92)
+        # The operating boiler window adds one carrier-free named control.
+        self.assertEqual(summary["prompt_methods"], 93)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)

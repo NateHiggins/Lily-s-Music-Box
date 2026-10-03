@@ -43,6 +43,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Resident original keys, permission at Keys Cut and saved hinged-door locks | `art/blender/resident_keys.md` |
 | Fitted front public slab, retained room/shop/shed floor ownership and paving validation | `art/blender/front_pavement.md` |
 | Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |
+| Operating boiler-well window, fitted hardware, physical panes and household setting | `art/blender/boiler_window.md` |
 | Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
 | Sloped service-bulkhead cover, open gutter outlet and fitted external rainleader | `art/blender/roof_service_weathering.md` |
 | All eleven arcade thresholds, source parked leaves and closed-hours survey | `art/blender/arcade_thresholds.md` |

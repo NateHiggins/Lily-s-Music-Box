@@ -191166,6 +191166,279 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "8cdbdede1e74321c",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/scripts/building/orison_v2_household_state.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "bind"
+   ],
+   "lines": [
+    45
+   ],
+   "count": 1,
+   "context": [
+    "_kinds[\"B1_BOILER_AIR_E\"]=\"window\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b424af40df42e4b3",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/scripts/building/orison_v2_window_joinery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id)==\"B1_BOILER_AIR_E\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d07718fed4c787a9",
+   "kind": "node_path",
+   "token": "B1_BOILER_AIR_E/OperatingWindow",
+   "file": "game/tests/orison_v2_alley_groundworks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    44
+   ],
+   "count": 1,
+   "context": [
+    "var window: Node3D=root.get_node(\"B1_BOILER_AIR_E/OperatingWindow\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "73578cf30aa4ea17",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/tests/orison_v2_boiler_window_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_diagnostic_views"
+   ],
+   "lines": [
+    140
+   ],
+   "count": 1,
+   "context": [
+    "if str(entry.id)==\"B1_BOILER_AIR_E\":record=entry;break"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9f308827b83e985f",
+   "kind": "node_path",
+   "token": "B1_BOILER_AIR_E/OperatingWindow",
+   "file": "game/tests/orison_v2_boiler_window_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "window=world.adapter.root.get_node(\"B1_BOILER_AIR_E/OperatingWindow\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bf256a6ccf470deb",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_boiler_window_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    27,
+    27,
+    27,
+    34,
+    34,
+    34,
+    39,
+    39
+   ],
+   "count": 8,
+   "context": [
+    "for point: Vector3 in [Vector3(10.6,-3.2,-.4),Vector3(10.6,-3.2,2.4),Vector3(14.45,-3.2,2.4),Vector3(14.45,-3.2,3.2)]:",
+    "for point: Vector3 in [Vector3(14.45,-3.2,2.5),Vector3(14.45,-3.2,3.5),Vector3(14.45,-3.2,3.2)]:",
+    "for point: Vector3 in [Vector3(14.45,-3.2,2.4),Vector3(10.6,-3.2,2.4),Vector3(10.6,-3.2,-.4),Vector3(8.3,-3.2,-.4)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "42fcf0040b135f4f",
+   "kind": "node_path",
+   "token": "B1_BOILER_AIR_E/OperatingWindow",
+   "file": "game/tests/orison_v2_ground_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "var window: Node3D=root.get_node(\"B1_BOILER_AIR_E/OperatingWindow\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d7e1ed045224a339",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/tests/orison_v2_household_state_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    111
+   ],
+   "count": 1,
+   "context": [
+    "var window: Node3D = owner._subjects[\"B1_BOILER_AIR_E\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5f97b76c9034b8ba",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/tests/orison_v2_window_joinery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id)==\"B1_BOILER_AIR_E\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

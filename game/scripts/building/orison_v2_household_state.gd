@@ -42,6 +42,7 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
 	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
 	_kinds.merge(SERVICE_KINDS)
+	_kinds["B1_BOILER_AIR_E"]="window"
 	_service_library = MaintenanceActivityLibrary.load_default()
 	if not _service_library.is_valid():
 		errors.append("invalid maintenance restoration profiles")
@@ -49,13 +50,14 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	for identity: String in _kinds:
 		var prop: Node = adapter.resolve(identity)
 		var kind: String = _kinds[identity]
+		if kind=="window" and prop!=null:prop=prop.get_node_or_null("OperatingWindow")
 		if (kind == "light" and not prop is LightFixtureProp) \
 				or (kind == "fuse_service" and not prop is FusePanelProp) \
 				or (kind == "tank_service" and not prop is RoofTankBallcockProp) \
 				or (kind == "boiler_service" and not prop is BoilerProp) \
 				or (kind == "radiator" and not prop is RadiatorProp) \
 				or (kind == "books" and (not prop is BookshelfProp or not prop.has_method("restore_order"))) \
-				or (kind in ["prep", "mirror"] and (prop == null or not prop.has_method("restore_open_state"))):
+				or (kind in ["prep", "mirror", "window"] and (prop == null or not prop.has_method("restore_open_state"))):
 			errors.append("missing household control: " + identity)
 			return false
 		_subjects[identity] = prop
@@ -79,7 +81,7 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 			_connect(_subjects[identity], "maintenance_completed", _on_service_completed.bind(identity))
 		elif _kinds[identity] == "radiator":
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
-		elif _kinds[identity] in ["prep", "mirror"]:
+		elif _kinds[identity] in ["prep", "mirror", "window"]:
 			_connect(_subjects[identity], "open_state_changed", _on_cabinet_changed)
 		elif _kinds[identity] == "books":
 			_connect(_subjects[identity], "order_changed", _commit_change)
@@ -141,7 +143,7 @@ func snapshot() -> Dictionary:
 			"fuse_service", "tank_service", "boiler_service": setting = _service_completed[identity]
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.get("supply_position")
-			"prep": setting = prop.get("opened")
+			"prep", "window": setting = prop.get("opened")
 			"mirror": setting = prop.call("is_door_open")
 			"books": setting = prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}

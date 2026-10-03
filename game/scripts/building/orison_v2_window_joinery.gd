@@ -33,6 +33,9 @@ static func clearance_boxes(root: Node3D,room: Dictionary) -> Array[AABB]:
 static func mount(root: Node3D) -> void:
 	for record: Dictionary in root.layout.windows:
 		var opening := root.get_node(str(record.id)) as Node3D
+		if str(record.id)=="B1_BOILER_AIR_E":
+			preload("res://scripts/building/orison_v2_boiler_window.gd").mount(root,record)
+			continue
 		var jamb := opening.get_node("JambA") as MeshInstance3D
 		var frame := MeshInstance3D.new()
 		frame.name="FittedWindowJoinery"

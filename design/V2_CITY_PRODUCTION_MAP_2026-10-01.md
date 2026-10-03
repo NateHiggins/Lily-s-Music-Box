@@ -967,3 +967,29 @@ protected 17/17, selector rollback and the roof/stair/lock/launch regressions.
 These INERT construction observations do not promote ledger requirements or
 establish full shell readiness. Heating cutouts remain parked; broader
 architecture, infrastructure and material work remains in the location queues.
+
+## October 3 operating boiler-well window
+
+**art/blender/boiler_window.md** records the bounded shell continuation from
+published **9f652f2**. The existing 1.2 by 1.0 metre opening and 350 mm masonry
+reveal now receive a folded liner, six-pane inward sash, sill/drip, eight flange
+fixings, two hinges, turning cam and two articulated stays. No wall, slab,
+well/grate or utility cut is added. Native construction has 71 closed pieces;
+16 runtime partitions contain 2,128 triangles and matching physical surfaces.
+
+The original semantic window owns the new assembly; the other 71 generic
+windows retain their source. Ordinary room-side handle input operates the sash
+and latch. The existing household save owner adds one boolean control, with
+closed legacy default and physical reconstruction. Existing keys, doors,
+maintenance results, resident schedules, shop supply ownership and Dream
+boundaries remain. Bar, bodega and arcade keep independent building services.
+
+The complete clean baseline is **tmp/roof-base-flashings/9f652f2-clean-board.json**.
+Scoped saved-native, installed fit/input/walking and household round-trip proof
+is bound by **tmp/boiler-window/verified/verification.json** after candidate
+verification. Original ground/alley air reservations retain separate tests
+beneath the new fitted glass; 48 original ground stations remain frozen.
+These INERT observations neither promote requirements nor establish shell or
+ventilation capacity acceptance. Heating cutouts remain parked. Main-roof
+field/falls/outlets, courtyard and street-main drainage, farther city weather
+fit, independent shop services and final surface polish remain open.
