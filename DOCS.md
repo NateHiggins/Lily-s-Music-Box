@@ -47,6 +47,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |
 | Operating boiler-well window, fitted hardware, physical panes and household setting | `art/blender/boiler_window.md` |
 | Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
+| Source-owned rooftop masts, supported guy anchors and exact city bearing checks | `art/blender/city_masts.md` |
 | Sloped service-bulkhead cover, open gutter outlet and fitted external rainleader | `art/blender/roof_service_weathering.md` |
 | All eleven arcade thresholds, source parked leaves and closed-hours survey | `art/blender/arcade_thresholds.md` |
 | Existing ventilation branch hangers, ceiling contact and mapped steel fittings | `art/blender/duct_supports.md` |

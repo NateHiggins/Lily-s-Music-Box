@@ -1,0 +1,16 @@
+{
+  "schema": "orison.city-masts.v1",
+  "classification": "ADAPTATION",
+  "roles": ["mast", "guy0", "guy1", "guy2"],
+  "segments": 16,
+  "plate_width": 0.16,
+  "plate_thickness": 0.012,
+  "eye_height": 0.06,
+  "mast_collar_height": 0.05,
+  "bolt_radius": 0.008,
+  "bolt_height": 0.008,
+  "maximum_segment_length": 4.0,
+  "anchor_snap_margin": 0.01,
+  "runtime_key": "metal",
+  "open_work": "Other authored aerials and rooftop tank parts remain separate batches. This restores supported original masts and guys with no new control, occupied building, service penetration or simulation. Broader city weather and material acceptance remain open."
+}

@@ -20,3 +20,4 @@ func _ready() -> void:
 		collision.transform = mesh.transform
 		body.add_child(collision)
 		model.add_child(body)
+	preload("res://scripts/building/orison_v2_city_masts.gd").mount(self)
