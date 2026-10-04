@@ -22,26 +22,10 @@ def is_city_shell(identity):
 
 records = [r for r in floor['furniture'] if is_city_shell(r['id']) and 'rect' in r
            and not r['id'].endswith('_beacon')]
-# The existing bodega instance is the east neighbor's registration authority.
-instance = next(r for r in regions['instances'] if r['semantic_identity']=='SHOP_BODEGA')
-street = next(t for t in regions['surface_templates'] if t['id']=='TEMPLATE_STREET_SEGMENT_V1')
-pavement = next(s for s in street['surfaces'] if s['id']=='pavement')
-east_offset = float(pavement['point_m'][0])+float(instance['offset_uvn_m'][0])-17.4
-# Service-alley boundary: accepted source outer wall plus its projecting pier.
-alley_outer = spaces['F01_D_MAIN']['rect'][2]+2.35+.24+.08
-west_offset = -alley_outer-.08-(-15.2)
-offsets = {'site_nbr_e': east_offset, 'site_nbr_w': west_offset}
-# The same authored northwest row must follow its near mass's service-alley
-# registration. Moving only site_nbr_w left 2.6 metres of positive overlap.
-northwest = [r for r in records if re.match(r'^site_nw\d+_',r['id'])]
-offsets.update({re.match(r'^(site_nw\d+)_',r['id']).group(1):west_offset for r in northwest})
-# The admitted street includes the construction-shed corridor. The old
-# northeast mass starts inside that enlarged route; register its whole row
-# beyond the current street extent, including its projecting cornices.
-northeast = [r for r in records if re.match(r'^site_ne\d+_',r['id'])]
-street_region = next(r for r in regions['regions'] if r['id']=='REGION_STREET')
-northeast_offset = max(p[0] for p in street_region['boundary'])+.08-min(r['rect'][0] for r in northeast)
-offsets.update({re.match(r'^(site_ne\d+)_',r['id']).group(1):northeast_offset for r in northeast})
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from city_registration import derive_city_offsets
+offsets=derive_city_offsets(layout,v2,regions)
 runtime_keys = {'common_brick':'brick', 'brick_patched':'brick', 'face_brick':'brick',
                 'limestone':'concrete', 'concrete':'concrete', 'bronze':'bronze',
                 'soot':'soot', 'metal':'metal', 'brass_mesh':'brass_mesh', 'lacquer_red':'metal'}
@@ -102,6 +86,6 @@ def source_hash(path):
     return hashlib.sha256(raw).hexdigest()
 report={'evidence_class':'INERT','offsets':offsets,'source_solids':len(records),'runtime_batches':len(groups),
         'source_native_sha256':source_hash(ROOT/'art/blender/city_shells.blend'),
-        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json']},
+        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),Path(__file__).with_name('city_registration.py')]},
         'note':'Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority.'}
 (ROOT/'art/blender/city_shells_registration.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

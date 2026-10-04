@@ -13,8 +13,15 @@ root = next(path for path in Path(__file__).resolve().parents if (path/'game/pro
 base = root / 'art/blender'
 work = root/'tmp/orison-ground'; work.mkdir(parents=True,exist_ok=True)
 plan = json.loads((root/'art/data/orison_ground/retained_grade_source.json').read_text(encoding='utf-8'))
+sets_path=root/'game/data/runtime_material_sets.json'
+sets=json.loads(sets_path.read_text(encoding='utf-8'))['materials']
+plan['bindings']['game/data/runtime_material_sets.json']=hashlib.sha256(sets_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+plan['bindings']['art/blender/scripts/build_orison_ground.py']=hashlib.sha256(Path(__file__).read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 foundation_path=base/'city_foundations_construction.json'
 foundation=json.loads(foundation_path.read_text(encoding='utf-8'))
+if 'grade_envelope' in foundation:
+    current=plan['region'];extent=foundation['grade_envelope']
+    plan['region']=[min(current[0],extent[0]),min(current[1],extent[1]),max(current[2],extent[2]),max(current[3],extent[3])]
 plan['retained_solids'].extend(foundation['components'])
 plan['bindings'].update(foundation['bindings'])
 plan['bindings']['art/blender/city_foundations_construction.json']=hashlib.sha256(foundation_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
@@ -31,8 +38,13 @@ for relative, expected in plan['bindings'].items():
     path = root / relative
     raw = path.read_bytes() if path.suffix in ['.blend','.glb'] else path.read_text(encoding='utf-8').replace('\r\n', '\n').encode()
     assert hashlib.sha256(raw).hexdigest() == expected, relative
-a, b, c, d = plan['region']
-low = plan['soil_bottom']; asphalt_low, top = plan['asphalt_y']
+def native_coordinate(value):
+    # Blender stores mesh coordinates as float32. Use their actual represented
+    # planes in the cell proof, rather than compare rounded double coordinates
+    # with a separately quantized saved mesh over a much larger site.
+    return float(np.float32(round(value,5)))
+a, b, c, d = [native_coordinate(value) for value in plan['region']]
+low = native_coordinate(plan['soil_bottom']); asphalt_low, top = [native_coordinate(value) for value in plan['asphalt_y']]
 masks = plan['retained_solids'] + plan['occupation_reservations']
 limits = [(a, c), (low, top), (b, d)]
 coordinates = []
@@ -42,7 +54,7 @@ for axis, (start, end) in enumerate(limits):
     else: values.update(4 * index for index in range(math.ceil(start / 4), math.ceil(end / 4)) if start < 4 * index < end)
     for row in masks + plan['surface_exclusions']:
         bounds = row['bounds']
-        values.update(round(value, 5) for value in [bounds[axis], bounds[axis + 3]] if start < value < end)
+        values.update(native_coordinate(value) for value in [bounds[axis], bounds[axis + 3]] if start < native_coordinate(value) < end)
     coordinates.append(sorted(values))
 xs, ys, zs = coordinates
 indexes = [{value: index for index, value in enumerate(values)} for values in coordinates]
@@ -54,7 +66,7 @@ retained = np.zeros(size, dtype=bool)
 def slices(bounds):
     result = []
     for axis, (start, end) in enumerate(limits):
-        lo = max(start, round(bounds[axis], 5)); hi = min(end, round(bounds[axis + 3], 5))
+        lo = max(start, native_coordinate(bounds[axis])); hi = min(end, native_coordinate(bounds[axis + 3]))
         if hi <= lo: return None
         result.append(slice(indexes[axis][lo], indexes[axis][hi]))
     return tuple(result)
@@ -70,8 +82,8 @@ asphalt = np.zeros(size, dtype=bool)
 asphalt[:, indexes[1][asphalt_low]:, :] = True
 for row in plan['surface_exclusions']:
     bounds = row['bounds']
-    lo_x = max(a, round(bounds[0], 5)); hi_x = min(c, round(bounds[3], 5))
-    lo_z = max(b, round(bounds[2], 5)); hi_z = min(d, round(bounds[5], 5))
+    lo_x = max(a, native_coordinate(bounds[0])); hi_x = min(c, native_coordinate(bounds[3]))
+    lo_z = max(b, native_coordinate(bounds[2])); hi_z = min(d, native_coordinate(bounds[5]))
     if hi_x <= lo_x or hi_z <= lo_z: continue
     asphalt[indexes[0][lo_x]:indexes[0][hi_x], :, indexes[2][lo_z]:indexes[2][hi_z]] = False
 asphalt &= solid
@@ -257,13 +269,16 @@ for ((ix, iz), family), faces in sorted(groups.items()):
     mesh.from_pydata(vertices, [], [tuple(range(index, index + 4)) for index in range(0, len(vertices), 4)])
     mesh.update()
     uv = mesh.uv_layers.new(name='Metres'); uv.active_render = True
+    tile=float(sets[family]['meters_per_tile'])
     for face in mesh.polygons:
         assert face.area > 1e-12
         drop = max(range(3), key=lambda axis: abs(face.normal[axis]))
         u, v = ((1,2),(0,2),(0,1))[drop]
         for loop in face.loop_indices:
             point = mesh.vertices[mesh.loops[loop].vertex_index].co
-            uv.data[loop].uv = (point[u], 1 + point[v])
+            # Reduce only the whole-tile global origin. Adjacent partitions
+            # retain the same texture phase without large, imprecise UVs.
+            uv.data[loop].uv = (point[u]+origin[u]%tile, 1+point[v]+origin[v]%tile)
     mesh.materials.append(materials[family])
     obj = bpy.data.objects.new(name, mesh); obj.location = origin
     bpy.context.scene.collection.objects.link(obj); parts.append(obj)
@@ -286,6 +301,8 @@ bpy.ops.export_scene.gltf(filepath=str(asset), export_format='GLB', export_yup=T
                           export_tangents=True, use_selection=True)
 assert ExportUVHandedness.count == len(parts)
 metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
+            'cell_coordinate_encoding':'Float32 represented native planes, after the existing five-decimal source rounding.',
+            'surface_phase':'Registered global metre axes, with each local origin reduced by whole catalogue tiles only.',
             'closed_union_non_manifold_edges': non_manifold, 'buried_quads_omitted': buried, 'site_base_quads_omitted': site_base_omitted,
             'source_edge_contacts_split': len(bad_edges), 'source_vertex_fans_split': split_fans,
             'native_faces': sum(row['native_faces'] for row in reports),

@@ -48,6 +48,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Bounded Orison subgrade, graded alley, boiler well and construction-stage drain collector | `art/blender/groundworks.md` |
 | Operating boiler-well window, fitted hardware, physical panes and household setting | `art/blender/boiler_window.md` |
 | Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
+| All ground-level city bases, southwest assembly separation and finite distant grade | `art/blender/city_grade.md` |
 | Source-owned rooftop masts, supported guy anchors and exact city bearing checks | `art/blender/city_masts.md` |
 | Original roof aerial frames, curved collectors and supported downlead terminals | `art/blender/city_aerials.md` |
 | Original red mast-head beacon housings | `art/blender/city_beacons.md` |

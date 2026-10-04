@@ -1,4 +1,4 @@
-"""INERT source-fitted foundations for seven closed neighboring city masses.
+"""INERT source-fitted foundations for authored ground-level city masses.
 
 The closed city masses remain intentional distant
 closures. Contact geometry is not a soil, reinforcement or load-capacity finding.
@@ -15,10 +15,13 @@ source=work/'city_shells.blend'
 roster_path=root/'art/data/city_foundations/source_plan.json'
 roster=json.loads(roster_path.read_text(encoding='utf-8'))
 ids=set(roster['native_base_ids'])
+assert len(ids)==len(roster['native_base_ids'])
 frame_path=root/'game/data/orison_v2/exterior/street_frame.json'
 layout_path=root/'game/data/orison_v2_blockout.json'
 frame=json.loads(frame_path.read_text(encoding='utf-8'))
 layout=json.loads(layout_path.read_text(encoding='utf-8'))
+sets_path=root/'game/data/runtime_material_sets.json'
+tile=float(json.loads(sets_path.read_text(encoding='utf-8'))['materials']['concrete']['meters_per_tile'])
 front=next(d for d in layout['doors'] if d['id']=='F01_DOOR_06')['center'][1]
 delta=front+float(frame['source_threshold_z'])
 with bpy.data.libraries.load(str(source),link=False) as (available,loaded):
@@ -172,7 +175,7 @@ for row in profiles:
         for polygon in mesh.polygons:
             drop=max(range(3),key=lambda i:abs(polygon.normal[i]));u,v=((1,2),(0,2),(0,1))[drop]
             for loop in polygon.loop_indices:
-                p=mesh.vertices[mesh.loops[loop].vertex_index].co;uv.data[loop].uv=(p[u],1+p[v])
+                p=mesh.vertices[mesh.loops[loop].vertex_index].co;uv.data[loop].uv=(p[u]+origin[u]%tile,1+p[v]+origin[v]%tile)
         mesh.materials.append(material)
         obj=bpy.data.objects.new(name,mesh);obj.location=origin;bpy.context.scene.collection.objects.link(obj);parts.append(obj)
         assert max(hi[i]-lo[i] for i in range(3))<=4.000001
@@ -192,11 +195,20 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=root/'game/assets/props/city_foundations.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',export_yup=True,export_tangents=True,use_selection=True)
 assert ExportUVHandedness.count==len(parts)
-bindings={str(p.relative_to(root)).replace('\\','/'):hashlib.sha256(p.read_bytes() if p.suffix in ['.blend','.glb'] else p.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest() for p in [source,frame_path,layout_path,retained_path,roster_path]}
+bindings={str(p.relative_to(root)).replace('\\','/'):hashlib.sha256(p.read_bytes() if p.suffix in ['.blend','.glb'] else p.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest() for p in [source,frame_path,layout_path,retained_path,roster_path,sets_path,Path(__file__)]}
+margin=float(roster.get('grade_margin_m',0))
+grid=float(roster.get('grade_grid_m',4))
+assert margin>=0 and grid>0
+# The grade limit follows actual saved face coordinates and the fitted footing
+# width. It is a finite backdrop fit, not an invented road or utility network.
+envelope=[grid*math.floor((min(p['underside'][i] for p in profiles)-outer*.5-margin)/grid) for i in [0,1]]
+envelope.extend(grid*math.ceil((max(p['underside'][i] for p in profiles)+outer*.5+margin)/grid) for i in [2,3])
 out={'evidence_class':'INERT','bindings':bindings,'profiles':profiles,'components':components,'parts':reports,'closed_volumes':closed_volumes,
+     'grade_envelope':envelope,
+     'surface_phase':'Registered global metre axes, with each local origin reduced by whole catalogue concrete tiles only.',
      'retained_intersections_resolved':retained_intersections,'retained_support_volumes':[m for m in cut_masks if m.get('owner')=='FrontPavement'],
      'native_faces':sum(r['quads'] for r in reports),'source_native_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
-     'note':'Seven registered closed source masses fitted to a contact course, perimeter stems and footings. Retained sidewalk contacts keep their original owner. Geometric fit only; no soil, reinforcement or load-capacity verdict.'}
+     'note':'Registered ground-level source masses fitted to a contact course, perimeter stems and footings. Raised storefront masses retain their existing lower owners. Retained sidewalk contacts keep their original owner. Geometric fit only; no soil, reinforcement or load-capacity verdict.'}
 (work/'city_foundations_construction.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('INERT CITY FOUNDATION TRIAL:',len(profiles),'native underside profiles;',len(components),'nonoverlapping components;',len(parts),'parts;',out['native_faces']*2,'triangles',flush=True)
 

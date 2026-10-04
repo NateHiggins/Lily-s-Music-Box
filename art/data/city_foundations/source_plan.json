@@ -3,11 +3,29 @@
   "native_base_ids": [
     "site_back_e_base0",
     "site_back_w_base0",
+    "site_far_e_base0",
+    "site_far_n_base0",
+    "site_far_ne_base0",
+    "site_far_nw_base0",
+    "site_far_s_base0",
+    "site_far_se_base0",
+    "site_far_sw_base0",
+    "site_far_w_base0",
     "site_nbr_w_base0",
     "site_ne1_base0",
     "site_ne2_base0",
+    "site_ne3_base0",
+    "site_ne4_base0",
     "site_nw1_base0",
-    "site_nw2_base0"
+    "site_nw2_base0",
+    "site_nw3_base0",
+    "site_nw4_base0",
+    "site_se2_base0",
+    "site_se3_base0",
+    "site_sw2_base0",
+    "site_sw3_base0"
   ],
-  "method": "Extract each exact saved four-vertex planar underside in the existing registered Orison frame. Derive construction dimensions from retained slab thickness, outer-wall width and basement datum. This adapts intentional closed inaccessible masses; geotechnical and structural capacity are unestablished."
+  "method": "Extract all 23 exact saved ground-level planar undersides in the existing registered Orison frame. Derive construction dimensions from retained slab thickness, outer-wall width and basement datum. Raised storefront bases retain their existing owners. Extend finite grade two metres beyond fitted footings and round outward to the existing four metre partition grid. This is geometric fit, not an established street network, geotechnical or structural capacity.",
+  "grade_margin_m": 2.0,
+  "grade_grid_m": 4.0
 }

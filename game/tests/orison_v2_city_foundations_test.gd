@@ -17,6 +17,7 @@ func _run() -> void:
 	var city: Node3D=world.get_node("CityShells")
 	var new_foundations:=root.get_node("CityFoundations") as Node3D
 	var foundation_report: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_foundations_construction.json"))
+	check(foundation_report.profiles.size()==23,"all ground-level saved city undersides are fitted; raised storefront masses retain their lower owners")
 	var foundation_bodies: Array[RID]=[]
 	var retained_contact_bodies: Array[RID]=[]
 	for body: CollisionObject3D in city.find_children("*","CollisionObject3D",true,false):retained_contact_bodies.append(body.get_rid())
@@ -55,6 +56,17 @@ func _run() -> void:
 		parts+=1;triangles+=draw.mesh.get_faces().size()/3
 		_check_planar_mapping(draw.mesh,true)
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
+		if str(draw.name).contains("asphalt"):
+			for surface in draw.mesh.get_surface_count():
+				var arrays: Array=draw.mesh.surface_get_arrays(surface)
+				var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+				var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+				var uvs: PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
+				for index in vertices.size():
+					if normals[index].y<.999:continue
+					var p: Vector3=pose*vertices[index]
+					var difference:=Vector2(fposmod(uvs[index].x-p.x,2.5),fposmod(uvs[index].y-p.z,2.5))
+					check(minf(difference.x,2.5-difference.x)<.00003 and minf(difference.y,2.5-difference.y)<.00003,"adjacent asphalt partitions share the actual registered texture phase")
 		var bounds: AABB=pose*draw.mesh.get_aabb()
 		check(maxf(bounds.size.x,maxf(bounds.size.y,bounds.size.z))<=4.00001,"ground has bounded material parts")
 		native.append_array(pose*draw.mesh.get_faces())
@@ -99,6 +111,12 @@ func _run() -> void:
 			if same:reproduced+=1
 			results.append({"post":post.post,"point":p,"retained_components":containing,"terrain_y":root.to_local(hit.position).y if not hit.is_empty() else null,"original_reproduced":same})
 	check(contacts==46 and embedded==2 and reproduced==48,"all 48 original stations have explicit terrain or retained-volume ownership")
+	for at: Vector3 in [Vector3(70,.05,24),Vector3(-68,.05,22),Vector3(0,.05,-65),Vector3(-70,.05,-30),Vector3(50,.05,-60),Vector3(106,.05,22)]:
+		var query:=PhysicsRayQueryParameters3D.create(root.to_global(at),root.to_global(at-Vector3.UP*.15),1,[world.player.get_rid()])
+		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
+		check(not hit.is_empty() and new_bodies.has(hit.collider.get_rid()) and absf(root.to_local(hit.position).y+.02)<.00003,"distant unoccupied surface station meets actual native grade: "+str(at))
+		var distance:=_mesh_distance(native,at,Vector3.DOWN)
+		check(is_finite(distance) and absf(distance-.07)<.00003,"distant rendered face and physical surface agree: "+str(at))
 	var air_ray:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(16.6,-1.3,3.2)),root.to_global(Vector3(15.5,-1.3,3.2)),1,[world.player.get_rid()])
 	var air_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(air_ray)
 	print("POST PAVEMENT AIR THROAT: owner=",str(world.get_path_to(air_hit.collider)) if not air_hit.is_empty() else "empty")

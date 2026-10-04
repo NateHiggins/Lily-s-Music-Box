@@ -1188,7 +1188,7 @@
         34.480000000000004
       ],
       "r": 0.032,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_spread1",
@@ -1210,7 +1210,7 @@
         34.480000000000004
       ],
       "r": 0.032,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_flattop",
@@ -1232,7 +1232,7 @@
         34.43
       ],
       "r": 0.014,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_downlead",
@@ -1254,7 +1254,7 @@
         32.18
       ],
       "r": 0.012,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_dishpost",
@@ -1276,7 +1276,7 @@
         33.82069709451981
       ],
       "r": 0.048,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_dish",
@@ -1298,7 +1298,7 @@
         33.82069709451981
       ],
       "r": 0.7355300948940952,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_feed",
@@ -1320,7 +1320,7 @@
         33.82069709451981
       ],
       "r": 0.05,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_w_spread0",
@@ -3820,12 +3820,12 @@
       "id": "site_far_sw_spread0",
       "group": "site_far_sw",
       "high": [
-        -84.9000015258789,
+        -89.7300033569336,
         -47.57441711425781,
         34.47999954223633
       ],
       "low": [
-        -84.9000015258789,
+        -89.7300033569336,
         -47.57441711425781,
         31.272897720336914
       ]
@@ -3834,12 +3834,12 @@
       "id": "site_far_sw_spread1",
       "group": "site_far_sw",
       "high": [
-        -57.099998474121094,
+        -61.93000030517578,
         -47.57441711425781,
         34.47999954223633
       ],
       "low": [
-        -57.099998474121094,
+        -61.93000030517578,
         -47.57441711425781,
         31.272897720336914
       ]
@@ -3848,12 +3848,12 @@
       "id": "site_far_sw_flattop",
       "group": "site_far_sw",
       "high": [
-        -84.9000015258789,
+        -89.7300033569336,
         -47.57441711425781,
         34.43000030517578
       ],
       "low": [
-        -57.099998474121094,
+        -61.93000030517578,
         -47.57441711425781,
         34.43000030517578
       ]
@@ -3862,12 +3862,12 @@
       "id": "site_far_sw_downlead",
       "group": "site_far_sw",
       "high": [
-        -71.0,
+        -75.83000183105469,
         -47.57441711425781,
         34.43000030517578
       ],
       "low": [
-        -71.0,
+        -75.83000183105469,
         -47.57441711425781,
         31.3898983001709
       ]
@@ -3876,12 +3876,12 @@
       "id": "site_far_sw_dishpost",
       "group": "site_far_sw",
       "high": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         33.399131774902344
       ],
       "low": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         31.272897720336914
       ]
@@ -4963,7 +4963,7 @@
       "id": "site_far_sw_dish",
       "assembly": "site_far_sw__Dish",
       "center": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         33.82069778442383
       ],
@@ -4976,7 +4976,7 @@
       "depth": 0.21999903315465785,
       "sheet_thickness": 0.004,
       "post_joint": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         33.399131774902344
       ],
@@ -5992,126 +5992,126 @@
       "triangles": 296
     },
     {
-      "name": "site_far_sw__Dish__-19_-15_8__bronze_sheet",
+      "name": "site_far_sw__Dish__-20_-15_8__bronze_sheet",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "bronze_sheet",
       "triangles": 124
     },
     {
-      "name": "site_far_sw__Dish__-19_-15_8__brass",
+      "name": "site_far_sw__Dish__-20_-15_8__brass",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "brass",
       "triangles": 290
     },
     {
-      "name": "site_far_sw__Dish__-19_-14_7__galvanized_roof",
+      "name": "site_far_sw__Dish__-20_-14_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "galvanized_roof",
       "triangles": 393
     },
     {
-      "name": "site_far_sw__Dish__-19_-14_8__galvanized_roof",
+      "name": "site_far_sw__Dish__-20_-14_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "galvanized_roof",
       "triangles": 617
     },
     {
-      "name": "site_far_sw__Dish__-19_-14_8__bronze_sheet",
+      "name": "site_far_sw__Dish__-20_-14_8__bronze_sheet",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "bronze_sheet",
       "triangles": 3096
     },
     {
-      "name": "site_far_sw__Dish__-19_-14_8__brass",
+      "name": "site_far_sw__Dish__-20_-14_8__brass",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Dish",
       "key": "brass",
       "triangles": 180
     },
     {
-      "name": "site_far_sw__FlatTop__-22_-12_7__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-23_-12_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 380
     },
     {
-      "name": "site_far_sw__FlatTop__-22_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-23_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 296
     },
     {
-      "name": "site_far_sw__FlatTop__-21_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-22_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 200
+    },
+    {
+      "name": "site_far_sw__FlatTop__-21_-12_8__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__FlatTop",
+      "key": "galvanized_roof",
+      "triangles": 192
     },
     {
       "name": "site_far_sw__FlatTop__-20_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
-      "triangles": 192
-    },
-    {
-      "name": "site_far_sw__FlatTop__-19_-12_8__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__FlatTop",
-      "key": "galvanized_roof",
       "triangles": 208
     },
     {
-      "name": "site_far_sw__FlatTop__-18_-12_7__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-19_-12_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 386
     },
     {
-      "name": "site_far_sw__FlatTop__-18_-12_7__porcelain_fixture",
+      "name": "site_far_sw__FlatTop__-19_-12_7__porcelain_fixture",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "porcelain_fixture",
       "triangles": 642
     },
     {
-      "name": "site_far_sw__FlatTop__-18_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-19_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 398
     },
     {
-      "name": "site_far_sw__FlatTop__-17_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-18_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 192
     },
     {
-      "name": "site_far_sw__FlatTop__-16_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-17_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 200
     },
     {
-      "name": "site_far_sw__FlatTop__-15_-12_7__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-16_-12_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
       "triangles": 380
     },
     {
-      "name": "site_far_sw__FlatTop__-15_-12_8__galvanized_roof",
+      "name": "site_far_sw__FlatTop__-16_-12_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__FlatTop",
       "key": "galvanized_roof",
@@ -8497,7 +8497,7 @@
       "assembly": "site_far_sw__FlatTop",
       "owner": "site_far_sw_c2",
       "point": [
-        -84.9000015258789,
+        -89.7300033569336,
         -47.57441711425781,
         31.259998321533203
       ],
@@ -8509,28 +8509,28 @@
       "role": "post_base",
       "footprint": [
         [
-          -84.9800033569336,
+          -89.81000518798828,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -84.81999969482422,
+          -89.6500015258789,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -84.81999969482422,
+          -89.6500015258789,
           -47.494415283203125,
           31.259998321533203
         ],
         [
-          -84.9800033569336,
+          -89.81000518798828,
           -47.494415283203125,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -84.9000015258789,
+        -89.7300033569336,
         -47.57441711425781,
         31.8799991607666
       ]
@@ -8541,7 +8541,7 @@
       "assembly": "site_far_sw__FlatTop",
       "owner": "site_far_sw_c2",
       "point": [
-        -57.099998474121094,
+        -61.93000030517578,
         -47.57441711425781,
         31.259998321533203
       ],
@@ -8553,28 +8553,28 @@
       "role": "post_base",
       "footprint": [
         [
-          -57.18000030517578,
+          -62.01000213623047,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -57.019996643066406,
+          -61.849998474121094,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -57.019996643066406,
+          -61.849998474121094,
           -47.494415283203125,
           31.259998321533203
         ],
         [
-          -57.18000030517578,
+          -62.01000213623047,
           -47.494415283203125,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -57.099998474121094,
+        -61.93000030517578,
         -47.57441711425781,
         31.8799991607666
       ]
@@ -8585,7 +8585,7 @@
       "assembly": "site_far_sw__FlatTop",
       "owner": "site_far_sw_c2",
       "point": [
-        -71.0,
+        -75.83000183105469,
         -47.57441711425781,
         31.259998321533203
       ],
@@ -8597,33 +8597,33 @@
       "role": "downlead_terminal",
       "footprint": [
         [
-          -71.08000183105469,
+          -75.91000366210938,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -70.91999816894531,
+          -75.75,
           -47.6544189453125,
           31.259998321533203
         ],
         [
-          -70.91999816894531,
+          -75.75,
           -47.494415283203125,
           31.259998321533203
         ],
         [
-          -71.08000183105469,
+          -75.91000366210938,
           -47.494415283203125,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -71.0,
+        -75.83000183105469,
         -47.57441711425781,
         32.18000030517578
       ],
       "fitted_endpoint": [
-        -71.0,
+        -75.83000183105469,
         -47.57441711425781,
         31.3898983001709
       ]
@@ -8634,7 +8634,7 @@
       "assembly": "site_far_sw__Dish",
       "owner": "site_far_sw_c2",
       "point": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         31.259998321533203
       ],
@@ -8646,28 +8646,28 @@
       "role": "post_base",
       "footprint": [
         [
-          -73.15176391601562,
+          -77.98176574707031,
           -55.73716354370117,
           31.259998321533203
         ],
         [
-          -72.99176025390625,
+          -77.82176208496094,
           -55.73716354370117,
           31.259998321533203
         ],
         [
-          -72.99176025390625,
+          -77.82176208496094,
           -55.5771598815918,
           31.259998321533203
         ],
         [
-          -73.15176391601562,
+          -77.98176574707031,
           -55.5771598815918,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -73.07176208496094,
+        -77.90176391601562,
         -55.657161712646484,
         31.8799991607666
       ]
@@ -10956,11 +10956,12 @@
       "site_ne1": 5.579999999999998,
       "site_ne2": 5.579999999999998,
       "site_ne3": 5.579999999999998,
-      "site_ne4": 5.579999999999998
+      "site_ne4": 5.579999999999998,
+      "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": true
+    "historical_blockout_binding_stale": false
   },
-  "asset_sha256": "8a743c13775b30fcc0c33e8665ba5ed6ac1c116e249f333d8e9710663daeab58",
+  "asset_sha256": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0",
   "source_bindings": {
     "art/tools/build_galvanized_roof.py": "711b0e12b4a2a375999536d613f6ac2c81e9c6504fe771a9cf47ac995dd16413",
     "art/textures/procedural/galvanized_roof/material.json": "193e6a006be30ecc47491856972a1e32b1dc1ebff81d521922638e7b0659cb17",
@@ -10976,11 +10977,12 @@
     "art/textures/procedural/bronze_sheet/normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
     "art/data/city_aerials/source_plan.json": "0b71958face4ca9220669ed38e2c327098bc0b67136ce1ac9641e3893644beb1",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/city_shells_registration.json": "3f2526192bd9c713855a428080421707264adc35be531003840e7fe88c39093b",
-    "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
+    "art/blender/city_shells_registration.json": "4d509e6de0a55ac7ed29da7cd1f0f350f3bf9cfcbbc36fb2f874551ab6ff0df5",
+    "art/blender/city_shells.blend": "4fd36ba5ab8d4e8c45cde2da1edb5afe7444f0c9ad79ec371007459fa718c3a7",
     "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-    "art/blender/scripts/build_city_aerials.py": "06388c0f06b493defc6aba9b944e5ade0b83c8b0f641e14f073d1e529d89a654",
+    "art/blender/scripts/build_city_aerials.py": "50664328fa371d47dbf43d3012b538d94f5a0ca8e988866d5fddba09dc9c6677",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "game/data/runtime_material_sets.json": "099001a19f27c21d1affd064c4ad46a228a153614592f2ab204143311091eb9b"
   },
   "open_work": "Source-authored static signal collectors only. Original actor/control/utility authority remains. Neighboring tanks and beacon housings remain separate batches. Whole-city weather closure and broader material acceptance remain open. Heating cutouts remain parked."

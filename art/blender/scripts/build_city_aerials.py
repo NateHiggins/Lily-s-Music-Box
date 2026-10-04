@@ -29,19 +29,9 @@ for path,value in registration['bindings'].items():
 # consumed registration value from the current authority; do not silently reuse
 # an old whole-file binding. Actual saved bounds are checked below as well.
 v2=json.loads(v2_path.read_text());regions=json.loads((ROOT/'game/data/orison_v2/exterior/regions.json').read_text())
-spaces={r['id']:r for r in v2['spaces']}
-instance=next(r for r in regions['instances'] if r['semantic_identity']=='SHOP_BODEGA')
-street=next(t for t in regions['surface_templates'] if t['id']=='TEMPLATE_STREET_SEGMENT_V1')
-pavement=next(s for s in street['surfaces'] if s['id']=='pavement')
-east=float(pavement['point_m'][0])+float(instance['offset_uvn_m'][0])-17.4
-west=-(spaces['F01_D_MAIN']['rect'][2]+2.35+.24+.08)-.08-(-15.2)
+from city_registration import derive_city_offsets
 source_rows=next(row for row in layout['floors'] if row['id']=='F01')['furniture']
-ne=[r for r in source_rows if re.match(r'^site_ne\d+_',r['id']) and 'rect' in r and not r['id'].endswith('_beacon')]
-region=next(r for r in regions['regions'] if r['id']=='REGION_STREET')
-northeast=max(p[0] for p in region['boundary'])+.08-min(r['rect'][0] for r in ne)
-derived={'site_nbr_e':east,'site_nbr_w':west}
-derived.update({re.match(r'^(site_nw\d+)_',r['id']).group(1):west for r in source_rows if re.match(r'^site_nw\d+_',r['id'])})
-derived.update({re.match(r'^(site_ne\d+)_',r['id']).group(1):northeast for r in ne})
+derived=derive_city_offsets(layout,v2,regions)
 assert set(derived)==set(registration['offsets'])
 assert all(abs(derived[k]-registration['offsets'][k])<1e-9 for k in derived)
 floor=next(row for row in layout['floors'] if row['id']=='F01')
@@ -370,6 +360,6 @@ finish_bindings.extend([ROOT/'art/tools/build_galvanized_roof.py',ROOT/'art/text
 finish_bindings.extend(ROOT/'art/textures/procedural/galvanized_roof'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
 finish_bindings.extend([ROOT/'art/tools/build_bronze_sheet.py',ROOT/'art/textures/procedural/bronze_sheet/material.json'])
 finish_bindings.extend(ROOT/'art/textures/procedural/bronze_sheet'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in finish_bindings+[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in finish_bindings+[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),Path(__file__).with_name('city_registration.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
 for path in ['art/blender/city_aerials_construction.json','game/tests/fixtures/orison_city_aerials.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY AERIALS',len(records),'original components;',len(groups),'roofs;',report['closed_source_stocks'],'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'actual support contacts;',len(assemblies),'connected fabricated assemblies')

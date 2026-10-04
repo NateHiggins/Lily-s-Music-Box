@@ -24,19 +24,9 @@ for path,value in registration['bindings'].items():
 # consumed registration value from the current authority; do not silently reuse
 # an old whole-file binding. Actual saved bounds are checked below as well.
 v2=json.loads(v2_path.read_text());regions=json.loads((ROOT/'game/data/orison_v2/exterior/regions.json').read_text())
-spaces={r['id']:r for r in v2['spaces']}
-instance=next(r for r in regions['instances'] if r['semantic_identity']=='SHOP_BODEGA')
-street=next(t for t in regions['surface_templates'] if t['id']=='TEMPLATE_STREET_SEGMENT_V1')
-pavement=next(s for s in street['surfaces'] if s['id']=='pavement')
-east=float(pavement['point_m'][0])+float(instance['offset_uvn_m'][0])-17.4
-west=-(spaces['F01_D_MAIN']['rect'][2]+2.35+.24+.08)-.08-(-15.2)
+from city_registration import derive_city_offsets
 source_rows=next(row for row in layout['floors'] if row['id']=='F01')['furniture']
-ne=[r for r in source_rows if re.match(r'^site_ne\d+_',r['id']) and 'rect' in r and not r['id'].endswith('_beacon')]
-region=next(r for r in regions['regions'] if r['id']=='REGION_STREET')
-northeast=max(p[0] for p in region['boundary'])+.08-min(r['rect'][0] for r in ne)
-derived={'site_nbr_e':east,'site_nbr_w':west}
-derived.update({re.match(r'^(site_nw\d+)_',r['id']).group(1):west for r in source_rows if re.match(r'^site_nw\d+_',r['id'])})
-derived.update({re.match(r'^(site_ne\d+)_',r['id']).group(1):northeast for r in ne})
+derived=derive_city_offsets(layout,v2,regions)
 assert set(derived)==set(registration['offsets'])
 assert all(abs(derived[k]-registration['offsets'][k])<1e-9 for k in derived)
 floor=next(row for row in layout['floors'] if row['id']=='F01')
@@ -229,7 +219,7 @@ asset=ROOT/'game/assets/props/city_shells.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='NONE')
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
 
-bindings=[plan_path,layout_path,registration_path,native_path,v2_path,ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'game/data/runtime_material_sets.json']
+bindings=[plan_path,layout_path,registration_path,native_path,v2_path,ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',Path(__file__).with_name('city_registration.py'),ROOT/'game/data/runtime_material_sets.json']
 for key in plan['runtime_keys']:
  bindings.extend(ROOT/'game/assets/building/textures'/name for name in sets[key]['files'])
 corners=[]

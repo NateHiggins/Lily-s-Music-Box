@@ -1100,7 +1100,7 @@
         34.260000000000005
       ],
       "r": 0.055,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wleg-11",
@@ -1122,7 +1122,7 @@
         34.260000000000005
       ],
       "r": 0.055,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wleg1-1",
@@ -1144,7 +1144,7 @@
         34.260000000000005
       ],
       "r": 0.055,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wleg11",
@@ -1166,7 +1166,7 @@
         34.260000000000005
       ],
       "r": 0.055,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wtank",
@@ -1188,7 +1188,7 @@
         36.78312900202269
       ],
       "r": 1.441788001155822,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wband",
@@ -1210,7 +1210,7 @@
         35.26925160080908
       ],
       "r": 1.471788001155822,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_sw_wcone",
@@ -1232,7 +1232,7 @@
         37.21566540236944
       ],
       "r": 1.0380873608321917,
-      "registration_offset_x": 0
+      "registration_offset_x": -4.830000000000005
     },
     {
       "id": "site_far_w_wleg-1-1",
@@ -2240,15 +2240,15 @@
     "site_back_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        16.864400977740107,
-        -14.895791963569721
+        16.86440097774027,
+        -14.895791963569675
       ],
       "cavity_vertices_checked": 1337
     },
     "site_far_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.428315514550027,
+        11.428315514550013,
         -9.928880348143114
       ],
       "cavity_vertices_checked": 1341
@@ -2256,96 +2256,96 @@
     "site_far_n__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        18.956234797101704,
-        -16.899669185692996
+        18.95623479710167,
+        -16.899669185693
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_ne__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.341797805979018,
-        -8.01716562073857
+        9.341797805979006,
+        -8.017165620738563
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_nw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.50280292964927,
-        -15.546956568294414
+        17.50280292964909,
+        -15.546956568294393
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_s__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        20.411227411543273,
-        -18.256378192741987
+        20.411227411543397,
+        -18.256378192742023
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_se__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -10.072168902623956,
-        11.58420421763725
+        -10.07216890262396,
+        11.584204217637257
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_sw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.826698868648812,
-        -15.848181469925237
+        17.826698905899182,
+        -15.848181475650708
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_w__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        13.798003269744902,
-        -12.11264202101023
+        13.798003269744871,
+        -12.112642021010247
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.731940944840812,
-        -8.373698011485878
+        -8.373698011485876,
+        9.731940944840796
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne4__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        21.267303477237547,
-        -19.033564707520092
+        -19.033564707520075,
+        21.267303477237544
       ],
       "cavity_vertices_checked": 1341
     },
     "site_nw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -9.027990617108582,
-        10.4466563087475
+        10.446656308747514,
+        -9.027990617108609
       ],
       "cavity_vertices_checked": 1341
     },
     "site_se2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.478838365365158,
-        -9.15999835044097
+        10.478838365365185,
+        -9.159998350440997
       ],
       "cavity_vertices_checked": 1339
     },
     "site_sw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -15.652358327329,
-        17.616155792953624
+        17.616155792953716,
+        -15.652358327329
       ],
       "cavity_vertices_checked": 1339
     }
@@ -2444,7 +2444,7 @@
     },
     "site_far_sw": {
       "original_center_registered": [
-        -67.33467102050781,
+        -72.1646728515625,
         -51.621673583984375,
         34.2599983215332
       ],
@@ -3323,12 +3323,12 @@
       "id": "site_far_sw_wleg-1-1",
       "group": "site_far_sw",
       "high": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         34.2599983215332
       ],
       "low": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         31.272897720336914
       ]
@@ -3337,12 +3337,12 @@
       "id": "site_far_sw_wleg-11",
       "group": "site_far_sw",
       "high": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         34.2599983215332
       ],
       "low": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         31.272897720336914
       ]
@@ -3351,12 +3351,12 @@
       "id": "site_far_sw_wleg1-1",
       "group": "site_far_sw",
       "high": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         34.2599983215332
       ],
       "low": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         31.272897720336914
       ]
@@ -3365,12 +3365,12 @@
       "id": "site_far_sw_wleg11",
       "group": "site_far_sw",
       "high": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         34.2599983215332
       ],
       "low": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         31.272897720336914
       ]
@@ -3379,12 +3379,12 @@
       "id": "site_far_sw_Diagonal01",
       "group": "site_far_sw",
       "high": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         34.179996490478516
       ],
       "low": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         31.471899032592773
       ]
@@ -3393,12 +3393,12 @@
       "id": "site_far_sw_Diagonal23",
       "group": "site_far_sw",
       "high": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         34.179996490478516
       ],
       "low": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         31.471899032592773
       ]
@@ -3407,12 +3407,12 @@
       "id": "site_far_sw_Diagonal02",
       "group": "site_far_sw",
       "high": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         34.179996490478516
       ],
       "low": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         31.471899032592773
       ]
@@ -3421,12 +3421,12 @@
       "id": "site_far_sw_Diagonal13",
       "group": "site_far_sw",
       "high": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         34.179996490478516
       ],
       "low": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         31.471899032592773
       ]
@@ -4284,17 +4284,17 @@
       "id": "site_far_sw_wtank",
       "assembly": "site_far_sw__Tank",
       "center": [
-        -67.33467102050781,
+        -72.1646728515625,
         -51.621673583984375,
         35.52156448364258
       ],
       "bottom": [
-        -67.33467102050781,
+        -72.1646728515625,
         -51.621673583984375,
         34.2599983215332
       ],
       "top": [
-        -67.33467102050781,
+        -72.1646728515625,
         -51.621673583984375,
         36.78313064575195
       ],
@@ -4969,144 +4969,144 @@
       "triangles": 1615
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_7__galvanized_roof",
+      "name": "site_far_sw__Tank__-19_-14_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
       "triangles": 732
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_8__galvanized_roof",
+      "name": "site_far_sw__Tank__-19_-14_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
-      "triangles": 804
+      "triangles": 1196
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_8__tank_staves",
+      "name": "site_far_sw__Tank__-19_-14_8__tank_staves",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "tank_staves",
-      "triangles": 623
+      "triangles": 1084
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_9__galvanized_roof",
+      "name": "site_far_sw__Tank__-19_-14_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
-      "triangles": 833
+      "triangles": 1481
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_9__tank_staves",
+      "name": "site_far_sw__Tank__-19_-14_9__tank_staves",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "tank_staves",
-      "triangles": 443
+      "triangles": 761
     },
     {
-      "name": "site_far_sw__Tank__-18_-13_7__galvanized_roof",
+      "name": "site_far_sw__Tank__-19_-13_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
       "triangles": 568
     },
     {
+      "name": "site_far_sw__Tank__-19_-13_8__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 1472
+    },
+    {
+      "name": "site_far_sw__Tank__-19_-13_8__tank_staves",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "tank_staves",
+      "triangles": 1675
+    },
+    {
+      "name": "site_far_sw__Tank__-19_-13_9__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 2919
+    },
+    {
+      "name": "site_far_sw__Tank__-19_-13_9__tank_staves",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "tank_staves",
+      "triangles": 1048
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-14_7__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 568
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-14_8__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 1112
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-14_8__tank_staves",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "tank_staves",
+      "triangles": 888
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-14_9__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 1199
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-14_9__tank_staves",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "tank_staves",
+      "triangles": 651
+    },
+    {
+      "name": "site_far_sw__Tank__-18_-13_7__galvanized_roof",
+      "group": "site_far_sw",
+      "assembly": "site_far_sw__Tank",
+      "key": "galvanized_roof",
+      "triangles": 404
+    },
+    {
       "name": "site_far_sw__Tank__-18_-13_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
-      "triangles": 1072
+      "triangles": 1380
     },
     {
       "name": "site_far_sw__Tank__-18_-13_8__tank_staves",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "tank_staves",
-      "triangles": 1104
+      "triangles": 1465
     },
     {
       "name": "site_far_sw__Tank__-18_-13_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "galvanized_roof",
-      "triangles": 1431
+      "triangles": 1949
     },
     {
       "name": "site_far_sw__Tank__-18_-13_9__tank_staves",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
       "key": "tank_staves",
-      "triangles": 732
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-14_7__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 728
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-14_8__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 1352
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-14_8__tank_staves",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "tank_staves",
-      "triangles": 1395
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-14_9__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 1936
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-14_9__tank_staves",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "tank_staves",
-      "triangles": 967
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-13_7__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 564
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-13_8__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 1620
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-13_8__tank_staves",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "tank_staves",
-      "triangles": 1870
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-13_9__galvanized_roof",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "galvanized_roof",
-      "triangles": 3158
-    },
-    {
-      "name": "site_far_sw__Tank__-17_-13_9__tank_staves",
-      "group": "site_far_sw",
-      "assembly": "site_far_sw__Tank",
-      "key": "tank_staves",
-      "triangles": 1246
+      "triangles": 928
     },
     {
       "name": "site_far_w__Tank__-23_-3_9__galvanized_roof",
@@ -5648,7 +5648,7 @@
       "triangles": 290
     }
   ],
-  "triangles": 288772,
+  "triangles": 289074,
   "precision_chart_fallbacks": 5,
   "contacts": [
     {
@@ -7169,7 +7169,7 @@
       "assembly": "site_far_sw__Tank",
       "owner": "site_far_sw_c2",
       "point": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         31.259998321533203
       ],
@@ -7181,38 +7181,38 @@
       "role": "post_base",
       "footprint": [
         [
-          -68.36741638183594,
+          -73.19741821289062,
           -52.6544189453125,
           31.259998321533203
         ],
         [
-          -68.14741516113281,
+          -72.9774169921875,
           -52.6544189453125,
           31.259998321533203
         ],
         [
-          -68.14741516113281,
+          -72.9774169921875,
           -52.434417724609375,
           31.259998321533203
         ],
         [
-          -68.36741638183594,
+          -73.19741821289062,
           -52.434417724609375,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -68.25741547199576,
+        -73.08741547199577,
         -52.54441920603264,
         31.26
       ],
       "original_upper_attachment": [
-        -68.25741547199576,
+        -73.08741547199577,
         -52.54441920603264,
         34.260000000000005
       ],
       "fitted_upper_attachment": [
-        -68.25741577148438,
+        -73.08741760253906,
         -52.54441833496094,
         34.2599983215332
       ]
@@ -7223,7 +7223,7 @@
       "assembly": "site_far_sw__Tank",
       "owner": "site_far_sw_c2",
       "point": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         31.259998321533203
       ],
@@ -7235,38 +7235,38 @@
       "role": "post_base",
       "footprint": [
         [
-          -68.36741638183594,
+          -73.19741821289062,
           -50.808929443359375,
           31.259998321533203
         ],
         [
-          -68.14741516113281,
+          -72.9774169921875,
           -50.808929443359375,
           31.259998321533203
         ],
         [
-          -68.14741516113281,
+          -72.9774169921875,
           -50.58892822265625,
           31.259998321533203
         ],
         [
-          -68.36741638183594,
+          -73.19741821289062,
           -50.58892822265625,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -68.25741547199576,
+        -73.08741547199577,
         -50.698930564553194,
         31.26
       ],
       "original_upper_attachment": [
-        -68.25741547199576,
+        -73.08741547199577,
         -50.698930564553194,
         34.260000000000005
       ],
       "fitted_upper_attachment": [
-        -68.25741577148438,
+        -73.08741760253906,
         -50.69892883300781,
         34.2599983215332
       ]
@@ -7277,7 +7277,7 @@
       "assembly": "site_far_sw__Tank",
       "owner": "site_far_sw_c2",
       "point": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         31.259998321533203
       ],
@@ -7289,38 +7289,38 @@
       "role": "post_base",
       "footprint": [
         [
-          -66.52192687988281,
+          -71.3519287109375,
           -52.6544189453125,
           31.259998321533203
         ],
         [
-          -66.30192565917969,
+          -71.13192749023438,
           -52.6544189453125,
           31.259998321533203
         ],
         [
-          -66.30192565917969,
+          -71.13192749023438,
           -52.434417724609375,
           31.259998321533203
         ],
         [
-          -66.52192687988281,
+          -71.3519287109375,
           -52.434417724609375,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -66.41192683051631,
+        -71.24192683051632,
         -52.54441920603264,
         31.26
       ],
       "original_upper_attachment": [
-        -66.41192683051631,
+        -71.24192683051632,
         -52.54441920603264,
         34.260000000000005
       ],
       "fitted_upper_attachment": [
-        -66.41192626953125,
+        -71.24192810058594,
         -52.54441833496094,
         34.2599983215332
       ]
@@ -7331,7 +7331,7 @@
       "assembly": "site_far_sw__Tank",
       "owner": "site_far_sw_c2",
       "point": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         31.259998321533203
       ],
@@ -7343,38 +7343,38 @@
       "role": "post_base",
       "footprint": [
         [
-          -66.52192687988281,
+          -71.3519287109375,
           -50.808929443359375,
           31.259998321533203
         ],
         [
-          -66.30192565917969,
+          -71.13192749023438,
           -50.808929443359375,
           31.259998321533203
         ],
         [
-          -66.30192565917969,
+          -71.13192749023438,
           -50.58892822265625,
           31.259998321533203
         ],
         [
-          -66.52192687988281,
+          -71.3519287109375,
           -50.58892822265625,
           31.259998321533203
         ]
       ],
       "nominal_endpoint": [
-        -66.41192683051631,
+        -71.24192683051632,
         -50.698930564553194,
         31.26
       ],
       "original_upper_attachment": [
-        -66.41192683051631,
+        -71.24192683051632,
         -50.698930564553194,
         34.260000000000005
       ],
       "fitted_upper_attachment": [
-        -66.41192626953125,
+        -71.24192810058594,
         -50.69892883300781,
         34.2599983215332
       ]
@@ -8689,24 +8689,26 @@
       "site_ne1": 5.579999999999998,
       "site_ne2": 5.579999999999998,
       "site_ne3": 5.579999999999998,
-      "site_ne4": 5.579999999999998
+      "site_ne4": 5.579999999999998,
+      "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": true
+    "historical_blockout_binding_stale": false
   },
-  "asset_sha256": "0c3c00818ebee928b2d58652765463f8adc01964d11b9eaed79a55b683679d9e",
+  "asset_sha256": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36",
   "source_bindings": {
     "art/data/city_tanks/source_plan.json": "b1e59102311beee79ff2b6b73085623dd50e4d10050a5dbd5bbbec248a418a30",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/city_shells_registration.json": "3f2526192bd9c713855a428080421707264adc35be531003840e7fe88c39093b",
-    "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
+    "art/blender/city_shells_registration.json": "4d509e6de0a55ac7ed29da7cd1f0f350f3bf9cfcbbc36fb2f874551ab6ff0df5",
+    "art/blender/city_shells.blend": "4fd36ba5ab8d4e8c45cde2da1edb5afe7444f0c9ad79ec371007459fa718c3a7",
     "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-    "art/blender/scripts/build_city_tanks.py": "c705bc8825cb33a1205a29ac8cbede5528bc9de214266657c0d338de637fe950",
+    "art/blender/scripts/build_city_tanks.py": "c4eaaf9dcf5712b627ebb49d1f05bffbd5e20ff45c5fed43a4c4cc61ebe586ba",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "game/data/runtime_material_sets.json": "099001a19f27c21d1affd064c4ad46a228a153614592f2ab204143311091eb9b",
     "art/tools/build_tank_staves.py": "8667b8eb11768f7a7f605b8298fcc988fcdf4f7486482997877715888555e3c5",
     "art/textures/procedural/tank_staves/material.json": "2805d241bff5c43de380d87533f40e90a0b1fd0eab4d2395fa52ab66939767d6",
-    "art/blender/city_masts.blend": "05edbc86719ed8c76eb4d0435e7a60d6477908433eafbb871e507d51c4737ae5",
-    "art/blender/city_aerials.blend": "e8aee2ab0dd129eb45f2bb44597743fae69bdc76bbc9ebe0bfa967257b05b072",
+    "art/blender/city_masts.blend": "45653dadc0441ffb86d0a84d96a229701cf7dc7b70d5b0e2862a4618b25ad19e",
+    "art/blender/city_aerials.blend": "a8bd85b356464e9915736915385c5c4d5b3bef7e16968b8138e235579f0e97e1",
     "art/textures/procedural/tank_staves/albedo.png": "1b7939b22a61b51b015ea061a655c293e6ff035f6ba395a39173bd8e8d6cc8bf",
     "art/textures/procedural/tank_staves/roughness.png": "35c4bf990aeac4f41297dabc40f553770a1ccc1d75445cc63b345d8f3dce4fde",
     "art/textures/procedural/tank_staves/height.png": "ecccd957681d9f3d392c88bdcae9cbc7d6758621d5e99847022a67bf50f40108",
