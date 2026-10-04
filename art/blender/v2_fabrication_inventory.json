@@ -7367,6 +7367,19 @@
         }
       ]
     },
+    "game/data/orison_v2/shop_seating.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        },
+        {
+          "id": "shop_luncheonette"
+        },
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
     "game/data/orison_v2/upper_floor_programs.json": {
       "programs": [
         {
@@ -7680,6 +7693,7 @@
     "art/blender/scripts/build_roof_service_weathering.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_service_alley.py",
+    "art/blender/scripts/build_shop_seating.py",
     "art/blender/scripts/build_stair_ironwork.py",
     "art/blender/scripts/build_traffic_vehicle.py",
     "art/blender/scripts/build_upper_wall_seats.py",
@@ -7727,6 +7741,9 @@
         ],
         "gateway": "tools/build_v2_passage_gateway.py",
         "residency": "game/scripts/building/orison_v2_passage_residency.gd",
+        "seating": "game/scripts/building/orison_v2_shop_seating.gd",
+        "seating_native": "art/blender/shop_seating.blend",
+        "seating_source": "art/data/shop_seating/source_plan.json",
         "hours": "game/scripts/building/passage_hours_director.gd"
       },
       "street": {

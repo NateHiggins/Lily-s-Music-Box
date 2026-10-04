@@ -3,6 +3,7 @@ extends "res://tests/orison_v2_floor_surface_test.gd"
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928,11,10,20*60)
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world := _world_scene().instantiate() as OrisonV2RuntimeRoot
 	add_child(world)
@@ -38,13 +39,12 @@ func _run() -> void:
 			for at in [first,last]:
 				# Retain a gameplay view, then expose the room in a paired survey
 				# view without changing its real lamp or any production settings.
-				for layer in world.player.carried_device.get_children():
-					if layer is CanvasLayer: layer.visible=index==0
+				world.service_set_carrier.set_capture_hidden(index==1)
 				world.player.global_position=world.adapter.root.to_global(at)
 				world.player.velocity=Vector3.ZERO
 				var target := center
 				if Vector2(at.x-center.x,at.z-center.z).length()<.25: target.z+=.7
-				world.player.camera.look_at(world.adapter.root.to_global(target))
+				world.player.face_world_point(world.adapter.root.to_global(target))
 				await get_tree().physics_frame
 				await get_tree().create_timer(.65).timeout
 				var label := str(record.id)+"_"+str(index)

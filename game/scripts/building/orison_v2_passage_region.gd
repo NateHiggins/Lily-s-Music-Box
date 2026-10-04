@@ -7,6 +7,7 @@ extends Node3D
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const Finish := preload("res://scripts/building/passage_finish_pass.gd")
 const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
+const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
 const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 	"shop_keys_cut", "shop_hardware_paint", "shop_funeral_parlour",
 	"shop_photo_supplies", "shop_radio_service", "shop_pawnbroker",
@@ -63,6 +64,10 @@ func _ready() -> void:
 		if not _mount_scene(identity, cell_path(identity)):
 			return
 	surface_pass = Surface.new()
+	for identity: String in CELLS:
+		if not Seating.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native seating fit refused: "+identity)
+			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()
 	_actors.name = "PassageActors"

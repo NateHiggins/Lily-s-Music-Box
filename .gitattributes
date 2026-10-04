@@ -270,3 +270,11 @@ art/blender/city_closure_construction.json -text
 art/blender/scripts/build_city_closure.py -text
 art/data/city_closure/source_plan.json -text
 game/tests/fixtures/orison_city_closure.json -text
+
+art/blender/shop_seating.blend binary
+art/blender/shop_seating_construction.json -text
+art/blender/scripts/build_shop_seating.py -text
+art/data/shop_seating/source_plan.json -text
+game/data/orison_v2/shop_seating.json -text
+game/tests/fixtures/orison_shop_seating.json -text
+game/assets/props/shop_seating.glb.import -text

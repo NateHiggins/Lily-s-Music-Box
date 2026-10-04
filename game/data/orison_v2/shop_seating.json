@@ -1,0 +1,1138 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/shop_seating.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_funeral_parlour",
+      "parts": [
+        {
+          "name": "site_rear_funeral_parlour_chapel_pew0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "site_rear_funeral_parlour_chapel_pew1__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair0_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair0_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair0_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair0_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair1_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair1_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair1_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair1_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair2_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair2_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair2_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair2_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair3_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair3_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair3_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_funeral_parlour_chair3_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        }
+      ],
+      "replace": [
+        {
+          "id": "site_rear_funeral_parlour_chapel_pew0",
+          "key": "wood_dark",
+          "low": [
+            1.5299999999999998,
+            0.42,
+            62.230000000000004
+          ],
+          "high": [
+            3.2299999999999995,
+            0.5,
+            62.650000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_rear_funeral_parlour_chapel_pewback0",
+          "key": "wood_dark",
+          "low": [
+            1.5299999999999998,
+            0.5,
+            62.230000000000004
+          ],
+          "high": [
+            3.2299999999999995,
+            0.98,
+            62.290000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_rear_funeral_parlour_chapel_pew1",
+          "key": "wood_dark",
+          "low": [
+            1.5299999999999998,
+            0.42,
+            60.43
+          ],
+          "high": [
+            3.2299999999999995,
+            0.5,
+            60.85
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "site_rear_funeral_parlour_chapel_pewback1",
+          "key": "wood_dark",
+          "low": [
+            1.5299999999999998,
+            0.5,
+            60.43
+          ],
+          "high": [
+            3.2299999999999995,
+            0.98,
+            60.49
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair0_0",
+          "key": "wood_dark",
+          "low": [
+            6.09,
+            0.05,
+            60.14
+          ],
+          "high": [
+            6.51,
+            0.49,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb0_0",
+          "key": "wood_dark",
+          "low": [
+            6.4399999999999995,
+            0.49,
+            60.14
+          ],
+          "high": [
+            6.51,
+            0.97,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair0_1",
+          "key": "wood_dark",
+          "low": [
+            6.09,
+            0.05,
+            61.04
+          ],
+          "high": [
+            6.51,
+            0.49,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb0_1",
+          "key": "wood_dark",
+          "low": [
+            6.4399999999999995,
+            0.49,
+            61.04
+          ],
+          "high": [
+            6.51,
+            0.97,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair0_2",
+          "key": "wood_dark",
+          "low": [
+            6.09,
+            0.05,
+            61.94
+          ],
+          "high": [
+            6.51,
+            0.49,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb0_2",
+          "key": "wood_dark",
+          "low": [
+            6.4399999999999995,
+            0.49,
+            61.94
+          ],
+          "high": [
+            6.51,
+            0.97,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair0_3",
+          "key": "wood_dark",
+          "low": [
+            6.09,
+            0.05,
+            62.84
+          ],
+          "high": [
+            6.51,
+            0.49,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb0_3",
+          "key": "wood_dark",
+          "low": [
+            6.4399999999999995,
+            0.49,
+            62.84
+          ],
+          "high": [
+            6.51,
+            0.97,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair1_0",
+          "key": "wood_dark",
+          "low": [
+            6.87,
+            0.05,
+            60.14
+          ],
+          "high": [
+            7.29,
+            0.49,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb1_0",
+          "key": "wood_dark",
+          "low": [
+            7.220000000000001,
+            0.49,
+            60.14
+          ],
+          "high": [
+            7.29,
+            0.97,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair1_1",
+          "key": "wood_dark",
+          "low": [
+            6.87,
+            0.05,
+            61.04
+          ],
+          "high": [
+            7.29,
+            0.49,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb1_1",
+          "key": "wood_dark",
+          "low": [
+            7.220000000000001,
+            0.49,
+            61.04
+          ],
+          "high": [
+            7.29,
+            0.97,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair1_2",
+          "key": "wood_dark",
+          "low": [
+            6.87,
+            0.05,
+            61.94
+          ],
+          "high": [
+            7.29,
+            0.49,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb1_2",
+          "key": "wood_dark",
+          "low": [
+            7.220000000000001,
+            0.49,
+            61.94
+          ],
+          "high": [
+            7.29,
+            0.97,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair1_3",
+          "key": "wood_dark",
+          "low": [
+            6.87,
+            0.05,
+            62.84
+          ],
+          "high": [
+            7.29,
+            0.49,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb1_3",
+          "key": "wood_dark",
+          "low": [
+            7.220000000000001,
+            0.49,
+            62.84
+          ],
+          "high": [
+            7.29,
+            0.97,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair2_0",
+          "key": "wood_dark",
+          "low": [
+            7.65,
+            0.05,
+            60.14
+          ],
+          "high": [
+            8.07,
+            0.49,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb2_0",
+          "key": "wood_dark",
+          "low": [
+            8.0,
+            0.49,
+            60.14
+          ],
+          "high": [
+            8.07,
+            0.97,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair2_1",
+          "key": "wood_dark",
+          "low": [
+            7.65,
+            0.05,
+            61.04
+          ],
+          "high": [
+            8.07,
+            0.49,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb2_1",
+          "key": "wood_dark",
+          "low": [
+            8.0,
+            0.49,
+            61.04
+          ],
+          "high": [
+            8.07,
+            0.97,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair2_2",
+          "key": "wood_dark",
+          "low": [
+            7.65,
+            0.05,
+            61.94
+          ],
+          "high": [
+            8.07,
+            0.49,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb2_2",
+          "key": "wood_dark",
+          "low": [
+            8.0,
+            0.49,
+            61.94
+          ],
+          "high": [
+            8.07,
+            0.97,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair2_3",
+          "key": "wood_dark",
+          "low": [
+            7.65,
+            0.05,
+            62.84
+          ],
+          "high": [
+            8.07,
+            0.49,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb2_3",
+          "key": "wood_dark",
+          "low": [
+            8.0,
+            0.49,
+            62.84
+          ],
+          "high": [
+            8.07,
+            0.97,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair3_0",
+          "key": "wood_dark",
+          "low": [
+            8.43,
+            0.05,
+            60.14
+          ],
+          "high": [
+            8.85,
+            0.49,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb3_0",
+          "key": "wood_dark",
+          "low": [
+            8.78,
+            0.49,
+            60.14
+          ],
+          "high": [
+            8.85,
+            0.97,
+            60.56
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair3_1",
+          "key": "wood_dark",
+          "low": [
+            8.43,
+            0.05,
+            61.04
+          ],
+          "high": [
+            8.85,
+            0.49,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb3_1",
+          "key": "wood_dark",
+          "low": [
+            8.78,
+            0.49,
+            61.04
+          ],
+          "high": [
+            8.85,
+            0.97,
+            61.46
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair3_2",
+          "key": "wood_dark",
+          "low": [
+            8.43,
+            0.05,
+            61.94
+          ],
+          "high": [
+            8.85,
+            0.49,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb3_2",
+          "key": "wood_dark",
+          "low": [
+            8.78,
+            0.49,
+            61.94
+          ],
+          "high": [
+            8.85,
+            0.97,
+            62.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chair3_3",
+          "key": "wood_dark",
+          "low": [
+            8.43,
+            0.05,
+            62.84
+          ],
+          "high": [
+            8.85,
+            0.49,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_chairb3_3",
+          "key": "wood_dark",
+          "low": [
+            8.78,
+            0.49,
+            62.84
+          ],
+          "high": [
+            8.85,
+            0.97,
+            63.260000000000005
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_stool0__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool0__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool1__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool1__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool2__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool2__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool3__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool3__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool4__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool4__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool5__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool5__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool6__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool6__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_luncheonette_stool7__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_stool7__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_stool0",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            43.50999999999999
+          ],
+          "high": [
+            18.53,
+            0.71,
+            43.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool0_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            43.47999999999999
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            43.879999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool1",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            43.1442857142857
+          ],
+          "high": [
+            18.53,
+            0.71,
+            43.484285714285704
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool1_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            43.11428571428571
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            43.514285714285705
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool2",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            42.778571428571425
+          ],
+          "high": [
+            18.53,
+            0.71,
+            43.11857142857143
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool2_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            42.748571428571424
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            43.14857142857142
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool3",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            42.412857142857135
+          ],
+          "high": [
+            18.53,
+            0.71,
+            42.75285714285714
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool3_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            42.382857142857134
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            42.78285714285714
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool4",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            42.04714285714285
+          ],
+          "high": [
+            18.53,
+            0.71,
+            42.387142857142855
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool4_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            42.01714285714286
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            42.41714285714285
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool5",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            41.68142857142857
+          ],
+          "high": [
+            18.53,
+            0.71,
+            42.02142857142857
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool5_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            41.65142857142857
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            42.051428571428566
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool6",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            41.31571428571428
+          ],
+          "high": [
+            18.53,
+            0.71,
+            41.65571428571428
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool6_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            41.28571428571428
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            41.68571428571428
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool7",
+          "key": "chrome",
+          "low": [
+            18.19,
+            0.01,
+            40.949999999999996
+          ],
+          "high": [
+            18.53,
+            0.71,
+            41.29
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_stool7_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            18.16,
+            0.75,
+            40.92
+          ],
+          "high": [
+            18.56,
+            0.8200000000000001,
+            41.31999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_stool0__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_otis___son_stool0__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_otis___son_stool1__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_otis___son_stool1__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_otis___son_stool2__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_otis___son_stool2__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_otis___son_stool3__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_otis___son_stool3__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_stool0",
+          "key": "chrome",
+          "low": [
+            19.35,
+            0.01,
+            45.5
+          ],
+          "high": [
+            19.65,
+            0.6900000000000001,
+            45.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool0_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            19.33,
+            0.69,
+            45.459999999999994
+          ],
+          "high": [
+            19.67,
+            0.76,
+            45.839999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool1",
+          "key": "chrome",
+          "low": [
+            19.97,
+            0.01,
+            45.5
+          ],
+          "high": [
+            20.27,
+            0.6900000000000001,
+            45.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool1_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            19.95,
+            0.69,
+            45.459999999999994
+          ],
+          "high": [
+            20.29,
+            0.76,
+            45.839999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool2",
+          "key": "chrome",
+          "low": [
+            20.59,
+            0.01,
+            45.5
+          ],
+          "high": [
+            20.89,
+            0.6900000000000001,
+            45.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool2_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            20.57,
+            0.69,
+            45.459999999999994
+          ],
+          "high": [
+            20.91,
+            0.76,
+            45.839999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool3",
+          "key": "chrome",
+          "low": [
+            21.21,
+            0.01,
+            45.5
+          ],
+          "high": [
+            21.509999999999998,
+            0.6900000000000001,
+            45.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_stool3_top",
+          "key": "vinyl_oxblood",
+          "low": [
+            21.19,
+            0.69,
+            45.459999999999994
+          ],
+          "high": [
+            21.53,
+            0.76,
+            45.839999999999996
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
