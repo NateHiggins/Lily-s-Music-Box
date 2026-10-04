@@ -105,7 +105,7 @@ for key in plan['runtime_keys']:
    mat.node_tree.links.new(tex.outputs['Color'],normal.inputs['Color']);mat.node_tree.links.new(normal.outputs[0],node.inputs[target])
   else:mat.node_tree.links.new(tex.outputs['Color'],node.inputs[target])
 pieces=collections.defaultdict(list);contacts=[];source_records=[];inventory=[];spans=[];tank_inventory=[];assemblies={}
-def create(name,vertices,faces,identity,key="metal"):
+def create(name,vertices,faces,identity,key="galvanized_roof"):
  origin=Vector(tuple(round(sum(p[i] for p in vertices)/len(vertices),3) for i in range(3)))
  mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(float(p[i])-float(origin[i]) for i in range(3)) for p in vertices],[],faces);mesh.update()
  bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
@@ -116,7 +116,7 @@ def create(name,vertices,faces,identity,key="metal"):
  for face in mesh.polygons:face.material_index=plan['runtime_keys'].index(key)
  pieces[identity].append(obj)
  return obj
-def loft(name,a,b,profile,identity,segments=None,key="metal"):
+def loft(name,a,b,profile,identity,segments=None,key="galvanized_roof"):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();length=(b-a).length
  seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0))
  u=(seed-axis*seed.dot(axis)).normalized();v=axis.cross(u);count=segments or plan['segments']
@@ -261,11 +261,11 @@ def closed_tank_boundary_check(bm,label):
  boundary_checks[label]={'surface_components':len(shells),'signed_boundary_volumes_m3':[s[0] for s in shells],'cavity_vertices_checked':len(inner[0][1]) if inner else 0}
  return [s[0] for s in shells]
 
-def box(name,low,high,identity,key='metal'):
+def box(name,low,high,identity,key='galvanized_roof'):
  points=[Vector((x,y,z)) for z in [low.z,high.z] for x,y in [(low.x,low.y),(high.x,low.y),(high.x,high.y),(low.x,high.y)]]
  return create(name,points,[(3,2,1,0),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)],identity,key)
 
-def annulus(name,center,z,height,outer,inner,identity,key='metal'):
+def annulus(name,center,z,height,outer,inner,identity,key='galvanized_roof'):
  N=plan['wall_segments'];points=[Vector((center.x+r*math.cos((i+.37)*math.tau/N),center.y+r*math.sin((i+.37)*math.tau/N),at)) for at in [z,z+height] for r in [outer,inner] for i in range(N)];faces=[]
  for i in range(N):
   j=(i+1)%N;faces.extend([(i,j,2*N+j,2*N+i),(N+j,N+i,3*N+i,3*N+j),(2*N+i,2*N+j,3*N+j,3*N+i),(j,i,N+i,N+j)])
@@ -455,6 +455,10 @@ bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
 bindings=[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',ROOT/'art/tools/build_tank_staves.py',ROOT/'art/textures/procedural/tank_staves/material.json',ROOT/'art/blender/city_masts.blend',ROOT/'art/blender/city_aerials.blend']
 bindings.extend(ROOT/'art/textures/procedural/tank_staves'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
+finish_bindings=[]
+finish_bindings.extend([ROOT/'art/tools/build_galvanized_roof.py',ROOT/'art/textures/procedural/galvanized_roof/material.json'])
+finish_bindings.extend(ROOT/'art/textures/procedural/galvanized_roof'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
+bindings.extend(finish_bindings)
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'sealed_cavity_checks':boundary_checks,'fitted_placements':placements,'clear_spans':spans,'tanks':tank_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for path in ['art/blender/city_tanks_construction.json','game/tests/fixtures/orison_city_tanks.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY TANKS',len(records),'original components;',len(groups),'roofs;',report['closed_source_stocks'],'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'actual support contacts;',len(assemblies),'connected fabricated assemblies')

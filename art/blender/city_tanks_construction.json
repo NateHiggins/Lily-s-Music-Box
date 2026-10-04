@@ -2240,112 +2240,112 @@
     "site_back_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        16.864400977740175,
-        -14.895791963569689
+        16.864400977740107,
+        -14.895791963569721
       ],
       "cavity_vertices_checked": 1337
     },
     "site_far_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.428315514550016,
-        -9.928880348143084
+        11.428315514550027,
+        -9.928880348143114
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_n__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        18.956234797101818,
-        -16.899669185693018
+        18.956234797101704,
+        -16.899669185692996
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_ne__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.341797805979045,
-        -8.017165620738572
+        9.341797805979018,
+        -8.01716562073857
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_nw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.502802929649157,
-        -15.546956568294437
+        17.50280292964927,
+        -15.546956568294414
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_s__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -18.25637819274201,
-        20.411227411543347
+        20.411227411543273,
+        -18.256378192741987
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_se__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.584204217637252,
-        -10.072168902623996
+        -10.072168902623956,
+        11.58420421763725
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_sw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.82669886864889,
-        -15.84818146992525
+        17.826698868648812,
+        -15.848181469925237
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_w__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        13.79800326974491,
-        -12.112642021010233
+        13.798003269744902,
+        -12.11264202101023
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.731940944840774,
-        -8.373698011485887
+        9.731940944840812,
+        -8.373698011485878
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne4__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        21.26730347723743,
-        -19.033564707520075
+        21.267303477237547,
+        -19.033564707520092
       ],
       "cavity_vertices_checked": 1341
     },
     "site_nw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.446656308747494,
-        -9.027990617108587
+        -9.027990617108582,
+        10.4466563087475
       ],
       "cavity_vertices_checked": 1341
     },
     "site_se2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -9.159998350441015,
-        10.478838365365267
+        10.478838365365158,
+        -9.15999835044097
       ],
       "cavity_vertices_checked": 1339
     },
     "site_sw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.61615579295352,
-        -15.652358327329015
+        -15.652358327329,
+        17.616155792953624
       ],
       "cavity_vertices_checked": 1339
     }
@@ -4458,17 +4458,17 @@
   ],
   "parts": [
     {
-      "name": "site_back_e__Tank__5_4_4__metal",
+      "name": "site_back_e__Tank__5_4_4__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 341
     },
     {
-      "name": "site_back_e__Tank__5_4_5__metal",
+      "name": "site_back_e__Tank__5_4_5__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 884
     },
     {
@@ -4479,10 +4479,10 @@
       "triangles": 995
     },
     {
-      "name": "site_back_e__Tank__5_4_6__metal",
+      "name": "site_back_e__Tank__5_4_6__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1409
     },
     {
@@ -4493,17 +4493,17 @@
       "triangles": 745
     },
     {
-      "name": "site_back_e__Tank__5_5_4__metal",
+      "name": "site_back_e__Tank__5_5_4__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 223
     },
     {
-      "name": "site_back_e__Tank__5_5_5__metal",
+      "name": "site_back_e__Tank__5_5_5__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 402
     },
     {
@@ -4514,10 +4514,10 @@
       "triangles": 271
     },
     {
-      "name": "site_back_e__Tank__5_5_6__metal",
+      "name": "site_back_e__Tank__5_5_6__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 413
     },
     {
@@ -4528,17 +4528,17 @@
       "triangles": 207
     },
     {
-      "name": "site_back_e__Tank__6_4_4__metal",
+      "name": "site_back_e__Tank__6_4_4__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1135
     },
     {
-      "name": "site_back_e__Tank__6_4_5__metal",
+      "name": "site_back_e__Tank__6_4_5__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2169
     },
     {
@@ -4549,10 +4549,10 @@
       "triangles": 2149
     },
     {
-      "name": "site_back_e__Tank__6_4_6__metal",
+      "name": "site_back_e__Tank__6_4_6__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3455
     },
     {
@@ -4563,17 +4563,17 @@
       "triangles": 1498
     },
     {
-      "name": "site_back_e__Tank__6_5_4__metal",
+      "name": "site_back_e__Tank__6_5_4__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 787
     },
     {
-      "name": "site_back_e__Tank__6_5_5__metal",
+      "name": "site_back_e__Tank__6_5_5__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1555
     },
     {
@@ -4584,10 +4584,10 @@
       "triangles": 1293
     },
     {
-      "name": "site_back_e__Tank__6_5_6__metal",
+      "name": "site_back_e__Tank__6_5_6__galvanized_roof",
       "group": "site_back_e",
       "assembly": "site_back_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1787
     },
     {
@@ -4598,10 +4598,10 @@
       "triangles": 946
     },
     {
-      "name": "site_far_e__Tank__22_-2_11__metal",
+      "name": "site_far_e__Tank__22_-2_11__galvanized_roof",
       "group": "site_far_e",
       "assembly": "site_far_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1818
     },
     {
@@ -4612,17 +4612,17 @@
       "triangles": 1070
     },
     {
-      "name": "site_far_e__Tank__23_-2_10__metal",
+      "name": "site_far_e__Tank__23_-2_10__galvanized_roof",
       "group": "site_far_e",
       "assembly": "site_far_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2272
     },
     {
-      "name": "site_far_e__Tank__23_-2_11__metal",
+      "name": "site_far_e__Tank__23_-2_11__galvanized_roof",
       "group": "site_far_e",
       "assembly": "site_far_e__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 8738
     },
     {
@@ -4633,10 +4633,10 @@
       "triangles": 4202
     },
     {
-      "name": "site_far_n__Tank__-2_11_11__metal",
+      "name": "site_far_n__Tank__-2_11_11__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 222
     },
     {
@@ -4647,10 +4647,10 @@
       "triangles": 586
     },
     {
-      "name": "site_far_n__Tank__-2_11_12__metal",
+      "name": "site_far_n__Tank__-2_11_12__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1230
     },
     {
@@ -4661,10 +4661,10 @@
       "triangles": 656
     },
     {
-      "name": "site_far_n__Tank__-1_10_11__metal",
+      "name": "site_far_n__Tank__-1_10_11__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 242
     },
     {
@@ -4675,10 +4675,10 @@
       "triangles": 608
     },
     {
-      "name": "site_far_n__Tank__-1_10_12__metal",
+      "name": "site_far_n__Tank__-1_10_12__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1336
     },
     {
@@ -4689,10 +4689,10 @@
       "triangles": 720
     },
     {
-      "name": "site_far_n__Tank__-1_11_11__metal",
+      "name": "site_far_n__Tank__-1_11_11__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3352
     },
     {
@@ -4703,10 +4703,10 @@
       "triangles": 2626
     },
     {
-      "name": "site_far_n__Tank__-1_11_12__metal",
+      "name": "site_far_n__Tank__-1_11_12__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 5338
     },
     {
@@ -4717,17 +4717,17 @@
       "triangles": 2848
     },
     {
-      "name": "site_far_ne__Tank__15_10_8__metal",
+      "name": "site_far_ne__Tank__15_10_8__galvanized_roof",
       "group": "site_far_ne",
       "assembly": "site_far_ne__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1300
     },
     {
-      "name": "site_far_ne__Tank__15_10_9__metal",
+      "name": "site_far_ne__Tank__15_10_9__galvanized_roof",
       "group": "site_far_ne",
       "assembly": "site_far_ne__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 4853
     },
     {
@@ -4738,17 +4738,17 @@
       "triangles": 2640
     },
     {
-      "name": "site_far_ne__Tank__16_10_8__metal",
+      "name": "site_far_ne__Tank__16_10_8__galvanized_roof",
       "group": "site_far_ne",
       "assembly": "site_far_ne__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1292
     },
     {
-      "name": "site_far_ne__Tank__16_10_9__metal",
+      "name": "site_far_ne__Tank__16_10_9__galvanized_roof",
       "group": "site_far_ne",
       "assembly": "site_far_ne__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 6087
     },
     {
@@ -4759,17 +4759,17 @@
       "triangles": 2818
     },
     {
-      "name": "site_far_nw__Tank__-20_10_9__metal",
+      "name": "site_far_nw__Tank__-20_10_9__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1300
     },
     {
-      "name": "site_far_nw__Tank__-20_10_10__metal",
+      "name": "site_far_nw__Tank__-20_10_10__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 5029
     },
     {
@@ -4780,24 +4780,24 @@
       "triangles": 2750
     },
     {
-      "name": "site_far_nw__Tank__-20_10_11__metal",
+      "name": "site_far_nw__Tank__-20_10_11__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1133
     },
     {
-      "name": "site_far_nw__Tank__-19_10_9__metal",
+      "name": "site_far_nw__Tank__-19_10_9__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1292
     },
     {
-      "name": "site_far_nw__Tank__-19_10_10__metal",
+      "name": "site_far_nw__Tank__-19_10_10__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 5296
     },
     {
@@ -4808,17 +4808,17 @@
       "triangles": 2718
     },
     {
-      "name": "site_far_nw__Tank__-19_10_11__metal",
+      "name": "site_far_nw__Tank__-19_10_11__galvanized_roof",
       "group": "site_far_nw",
       "assembly": "site_far_nw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 848
     },
     {
-      "name": "site_far_s__Tank__1_-23_11__metal",
+      "name": "site_far_s__Tank__1_-23_11__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1020
     },
     {
@@ -4829,10 +4829,10 @@
       "triangles": 659
     },
     {
-      "name": "site_far_s__Tank__1_-23_12__metal",
+      "name": "site_far_s__Tank__1_-23_12__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2941
     },
     {
@@ -4843,10 +4843,10 @@
       "triangles": 1720
     },
     {
-      "name": "site_far_s__Tank__1_-22_11__metal",
+      "name": "site_far_s__Tank__1_-22_11__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 814
     },
     {
@@ -4857,10 +4857,10 @@
       "triangles": 188
     },
     {
-      "name": "site_far_s__Tank__1_-22_12__metal",
+      "name": "site_far_s__Tank__1_-22_12__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1101
     },
     {
@@ -4871,10 +4871,10 @@
       "triangles": 629
     },
     {
-      "name": "site_far_s__Tank__2_-23_11__metal",
+      "name": "site_far_s__Tank__2_-23_11__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1020
     },
     {
@@ -4885,10 +4885,10 @@
       "triangles": 739
     },
     {
-      "name": "site_far_s__Tank__2_-23_12__metal",
+      "name": "site_far_s__Tank__2_-23_12__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 4070
     },
     {
@@ -4899,10 +4899,10 @@
       "triangles": 1980
     },
     {
-      "name": "site_far_s__Tank__2_-22_11__metal",
+      "name": "site_far_s__Tank__2_-22_11__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 814
     },
     {
@@ -4913,10 +4913,10 @@
       "triangles": 268
     },
     {
-      "name": "site_far_s__Tank__2_-22_12__metal",
+      "name": "site_far_s__Tank__2_-22_12__galvanized_roof",
       "group": "site_far_s",
       "assembly": "site_far_s__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1538
     },
     {
@@ -4927,17 +4927,17 @@
       "triangles": 889
     },
     {
-      "name": "site_far_se__Tank__18_-15_7__metal",
+      "name": "site_far_se__Tank__18_-15_7__galvanized_roof",
       "group": "site_far_se",
       "assembly": "site_far_se__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1344
     },
     {
-      "name": "site_far_se__Tank__18_-15_8__metal",
+      "name": "site_far_se__Tank__18_-15_8__galvanized_roof",
       "group": "site_far_se",
       "assembly": "site_far_se__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 7581
     },
     {
@@ -4948,17 +4948,17 @@
       "triangles": 3659
     },
     {
-      "name": "site_far_se__Tank__18_-14_7__metal",
+      "name": "site_far_se__Tank__18_-14_7__galvanized_roof",
       "group": "site_far_se",
       "assembly": "site_far_se__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 996
     },
     {
-      "name": "site_far_se__Tank__18_-14_8__metal",
+      "name": "site_far_se__Tank__18_-14_8__galvanized_roof",
       "group": "site_far_se",
       "assembly": "site_far_se__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3765
     },
     {
@@ -4969,17 +4969,17 @@
       "triangles": 1615
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_7__metal",
+      "name": "site_far_sw__Tank__-18_-14_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 732
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_8__metal",
+      "name": "site_far_sw__Tank__-18_-14_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 804
     },
     {
@@ -4990,10 +4990,10 @@
       "triangles": 623
     },
     {
-      "name": "site_far_sw__Tank__-18_-14_9__metal",
+      "name": "site_far_sw__Tank__-18_-14_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 833
     },
     {
@@ -5004,17 +5004,17 @@
       "triangles": 443
     },
     {
-      "name": "site_far_sw__Tank__-18_-13_7__metal",
+      "name": "site_far_sw__Tank__-18_-13_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 568
     },
     {
-      "name": "site_far_sw__Tank__-18_-13_8__metal",
+      "name": "site_far_sw__Tank__-18_-13_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1072
     },
     {
@@ -5025,10 +5025,10 @@
       "triangles": 1104
     },
     {
-      "name": "site_far_sw__Tank__-18_-13_9__metal",
+      "name": "site_far_sw__Tank__-18_-13_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1431
     },
     {
@@ -5039,17 +5039,17 @@
       "triangles": 732
     },
     {
-      "name": "site_far_sw__Tank__-17_-14_7__metal",
+      "name": "site_far_sw__Tank__-17_-14_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 728
     },
     {
-      "name": "site_far_sw__Tank__-17_-14_8__metal",
+      "name": "site_far_sw__Tank__-17_-14_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1352
     },
     {
@@ -5060,10 +5060,10 @@
       "triangles": 1395
     },
     {
-      "name": "site_far_sw__Tank__-17_-14_9__metal",
+      "name": "site_far_sw__Tank__-17_-14_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1936
     },
     {
@@ -5074,17 +5074,17 @@
       "triangles": 967
     },
     {
-      "name": "site_far_sw__Tank__-17_-13_7__metal",
+      "name": "site_far_sw__Tank__-17_-13_7__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 564
     },
     {
-      "name": "site_far_sw__Tank__-17_-13_8__metal",
+      "name": "site_far_sw__Tank__-17_-13_8__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1620
     },
     {
@@ -5095,10 +5095,10 @@
       "triangles": 1870
     },
     {
-      "name": "site_far_sw__Tank__-17_-13_9__metal",
+      "name": "site_far_sw__Tank__-17_-13_9__galvanized_roof",
       "group": "site_far_sw",
       "assembly": "site_far_sw__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3158
     },
     {
@@ -5109,10 +5109,10 @@
       "triangles": 1246
     },
     {
-      "name": "site_far_w__Tank__-23_-3_9__metal",
+      "name": "site_far_w__Tank__-23_-3_9__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2012
     },
     {
@@ -5123,10 +5123,10 @@
       "triangles": 1908
     },
     {
-      "name": "site_far_w__Tank__-23_-3_10__metal",
+      "name": "site_far_w__Tank__-23_-3_10__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 4243
     },
     {
@@ -5137,10 +5137,10 @@
       "triangles": 2011
     },
     {
-      "name": "site_far_w__Tank__-23_-2_9__metal",
+      "name": "site_far_w__Tank__-23_-2_9__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 82
     },
     {
@@ -5151,10 +5151,10 @@
       "triangles": 109
     },
     {
-      "name": "site_far_w__Tank__-23_-2_10__metal",
+      "name": "site_far_w__Tank__-23_-2_10__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 469
     },
     {
@@ -5165,10 +5165,10 @@
       "triangles": 178
     },
     {
-      "name": "site_far_w__Tank__-22_-3_9__metal",
+      "name": "site_far_w__Tank__-22_-3_9__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1994
     },
     {
@@ -5179,10 +5179,10 @@
       "triangles": 1851
     },
     {
-      "name": "site_far_w__Tank__-22_-3_10__metal",
+      "name": "site_far_w__Tank__-22_-3_10__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3472
     },
     {
@@ -5193,10 +5193,10 @@
       "triangles": 1941
     },
     {
-      "name": "site_far_w__Tank__-22_-2_9__metal",
+      "name": "site_far_w__Tank__-22_-2_9__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 64
     },
     {
@@ -5207,10 +5207,10 @@
       "triangles": 78
     },
     {
-      "name": "site_far_w__Tank__-22_-2_10__metal",
+      "name": "site_far_w__Tank__-22_-2_10__galvanized_roof",
       "group": "site_far_w",
       "assembly": "site_far_w__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 358
     },
     {
@@ -5221,17 +5221,17 @@
       "triangles": 130
     },
     {
-      "name": "site_ne2__Tank__9_-2_5__metal",
+      "name": "site_ne2__Tank__9_-2_5__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 732
     },
     {
-      "name": "site_ne2__Tank__9_-2_6__metal",
+      "name": "site_ne2__Tank__9_-2_6__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2553
     },
     {
@@ -5242,17 +5242,17 @@
       "triangles": 1419
     },
     {
-      "name": "site_ne2__Tank__9_-1_5__metal",
+      "name": "site_ne2__Tank__9_-1_5__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 728
     },
     {
-      "name": "site_ne2__Tank__9_-1_6__metal",
+      "name": "site_ne2__Tank__9_-1_6__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2544
     },
     {
@@ -5263,17 +5263,17 @@
       "triangles": 1301
     },
     {
-      "name": "site_ne2__Tank__10_-2_5__metal",
+      "name": "site_ne2__Tank__10_-2_5__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 728
     },
     {
-      "name": "site_ne2__Tank__10_-2_6__metal",
+      "name": "site_ne2__Tank__10_-2_6__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3937
     },
     {
@@ -5284,17 +5284,17 @@
       "triangles": 1713
     },
     {
-      "name": "site_ne2__Tank__10_-1_5__metal",
+      "name": "site_ne2__Tank__10_-1_5__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 724
     },
     {
-      "name": "site_ne2__Tank__10_-1_6__metal",
+      "name": "site_ne2__Tank__10_-1_6__galvanized_roof",
       "group": "site_ne2",
       "assembly": "site_ne2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3216
     },
     {
@@ -5305,17 +5305,17 @@
       "triangles": 1591
     },
     {
-      "name": "site_ne4__Tank__15_-3_4__metal",
+      "name": "site_ne4__Tank__15_-3_4__galvanized_roof",
       "group": "site_ne4",
       "assembly": "site_ne4__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1404
     },
     {
-      "name": "site_ne4__Tank__15_-3_5__metal",
+      "name": "site_ne4__Tank__15_-3_5__galvanized_roof",
       "group": "site_ne4",
       "assembly": "site_ne4__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 7384
     },
     {
@@ -5326,24 +5326,24 @@
       "triangles": 3608
     },
     {
-      "name": "site_ne4__Tank__15_-3_6__metal",
+      "name": "site_ne4__Tank__15_-3_6__galvanized_roof",
       "group": "site_ne4",
       "assembly": "site_ne4__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1304
     },
     {
-      "name": "site_ne4__Tank__15_-2_4__metal",
+      "name": "site_ne4__Tank__15_-2_4__galvanized_roof",
       "group": "site_ne4",
       "assembly": "site_ne4__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1036
     },
     {
-      "name": "site_ne4__Tank__15_-2_5__metal",
+      "name": "site_ne4__Tank__15_-2_5__galvanized_roof",
       "group": "site_ne4",
       "assembly": "site_ne4__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3775
     },
     {
@@ -5354,10 +5354,10 @@
       "triangles": 1679
     },
     {
-      "name": "site_nw3__Tank__-12_-2_5__metal",
+      "name": "site_nw3__Tank__-12_-2_5__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 320
     },
     {
@@ -5368,10 +5368,10 @@
       "triangles": 316
     },
     {
-      "name": "site_nw3__Tank__-12_-2_6__metal",
+      "name": "site_nw3__Tank__-12_-2_6__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 720
     },
     {
@@ -5382,17 +5382,17 @@
       "triangles": 275
     },
     {
-      "name": "site_nw3__Tank__-11_-2_4__metal",
+      "name": "site_nw3__Tank__-11_-2_4__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1300
     },
     {
-      "name": "site_nw3__Tank__-11_-2_5__metal",
+      "name": "site_nw3__Tank__-11_-2_5__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2761
     },
     {
@@ -5403,10 +5403,10 @@
       "triangles": 2800
     },
     {
-      "name": "site_nw3__Tank__-11_-2_6__metal",
+      "name": "site_nw3__Tank__-11_-2_6__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 4121
     },
     {
@@ -5417,17 +5417,17 @@
       "triangles": 2092
     },
     {
-      "name": "site_nw3__Tank__-11_-1_4__metal",
+      "name": "site_nw3__Tank__-11_-1_4__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 972
     },
     {
-      "name": "site_nw3__Tank__-11_-1_5__metal",
+      "name": "site_nw3__Tank__-11_-1_5__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1926
     },
     {
@@ -5438,10 +5438,10 @@
       "triangles": 1513
     },
     {
-      "name": "site_nw3__Tank__-11_-1_6__metal",
+      "name": "site_nw3__Tank__-11_-1_6__galvanized_roof",
       "group": "site_nw3",
       "assembly": "site_nw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2093
     },
     {
@@ -5452,10 +5452,10 @@
       "triangles": 1129
     },
     {
-      "name": "site_se2__Tank__9_-9_5__metal",
+      "name": "site_se2__Tank__9_-9_5__galvanized_roof",
       "group": "site_se2",
       "assembly": "site_se2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2050
     },
     {
@@ -5466,10 +5466,10 @@
       "triangles": 1962
     },
     {
-      "name": "site_se2__Tank__9_-9_6__metal",
+      "name": "site_se2__Tank__9_-9_6__galvanized_roof",
       "group": "site_se2",
       "assembly": "site_se2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3642
     },
     {
@@ -5480,10 +5480,10 @@
       "triangles": 2076
     },
     {
-      "name": "site_se2__Tank__10_-9_5__metal",
+      "name": "site_se2__Tank__10_-9_5__galvanized_roof",
       "group": "site_se2",
       "assembly": "site_se2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2044
     },
     {
@@ -5494,10 +5494,10 @@
       "triangles": 1940
     },
     {
-      "name": "site_se2__Tank__10_-9_6__metal",
+      "name": "site_se2__Tank__10_-9_6__galvanized_roof",
       "group": "site_se2",
       "assembly": "site_se2__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3582
     },
     {
@@ -5508,17 +5508,17 @@
       "triangles": 2056
     },
     {
-      "name": "site_sw3__Tank__-14_-10_4__metal",
+      "name": "site_sw3__Tank__-14_-10_4__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1317
     },
     {
-      "name": "site_sw3__Tank__-14_-10_5__metal",
+      "name": "site_sw3__Tank__-14_-10_5__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2039
     },
     {
@@ -5529,10 +5529,10 @@
       "triangles": 2074
     },
     {
-      "name": "site_sw3__Tank__-14_-10_6__metal",
+      "name": "site_sw3__Tank__-14_-10_6__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 3336
     },
     {
@@ -5543,17 +5543,17 @@
       "triangles": 1407
     },
     {
-      "name": "site_sw3__Tank__-14_-9_4__metal",
+      "name": "site_sw3__Tank__-14_-9_4__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 27
     },
     {
-      "name": "site_sw3__Tank__-14_-9_5__metal",
+      "name": "site_sw3__Tank__-14_-9_5__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 440
     },
     {
@@ -5564,10 +5564,10 @@
       "triangles": 733
     },
     {
-      "name": "site_sw3__Tank__-14_-9_6__metal",
+      "name": "site_sw3__Tank__-14_-9_6__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1050
     },
     {
@@ -5578,17 +5578,17 @@
       "triangles": 549
     },
     {
-      "name": "site_sw3__Tank__-13_-10_4__metal",
+      "name": "site_sw3__Tank__-13_-10_4__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 989
     },
     {
-      "name": "site_sw3__Tank__-13_-10_5__metal",
+      "name": "site_sw3__Tank__-13_-10_5__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 1843
     },
     {
@@ -5599,10 +5599,10 @@
       "triangles": 1719
     },
     {
-      "name": "site_sw3__Tank__-13_-10_6__metal",
+      "name": "site_sw3__Tank__-13_-10_6__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 2213
     },
     {
@@ -5613,17 +5613,17 @@
       "triangles": 1148
     },
     {
-      "name": "site_sw3__Tank__-13_-9_4__metal",
+      "name": "site_sw3__Tank__-13_-9_4__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 27
     },
     {
-      "name": "site_sw3__Tank__-13_-9_5__metal",
+      "name": "site_sw3__Tank__-13_-9_5__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 244
     },
     {
@@ -5634,10 +5634,10 @@
       "triangles": 382
     },
     {
-      "name": "site_sw3__Tank__-13_-9_6__metal",
+      "name": "site_sw3__Tank__-13_-9_6__galvanized_roof",
       "group": "site_sw3",
       "assembly": "site_sw3__Tank",
-      "key": "metal",
+      "key": "galvanized_roof",
       "triangles": 567
     },
     {
@@ -8693,24 +8693,30 @@
     },
     "historical_blockout_binding_stale": true
   },
-  "asset_sha256": "6aa341f018cf9a6da55f8f55b769cefecf07db96a53da75e48bf178281509a6a",
+  "asset_sha256": "0c3c00818ebee928b2d58652765463f8adc01964d11b9eaed79a55b683679d9e",
   "source_bindings": {
-    "art/data/city_tanks/source_plan.json": "185badb9f6ad1899293180b2b503bf041f7f9f6b67a55abf641a182d4313b1b3",
+    "art/data/city_tanks/source_plan.json": "b1e59102311beee79ff2b6b73085623dd50e4d10050a5dbd5bbbec248a418a30",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/city_shells_registration.json": "3f2526192bd9c713855a428080421707264adc35be531003840e7fe88c39093b",
     "art/blender/city_shells.blend": "49cfeb154af75651f1df0fef3866d662ed1fa46845551c88a87bf9c89b200f68",
     "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-    "art/blender/scripts/build_city_tanks.py": "fc415c100b8645ec85ea3a55489bd259295bdedb370c6e3d71ae43180ab3da97",
+    "art/blender/scripts/build_city_tanks.py": "c705bc8825cb33a1205a29ac8cbede5528bc9de214266657c0d338de637fe950",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "a5aa790c61d4c979f8aa0d0a7d6aa7797d50022df4b5fd449455acc81cd3c013",
+    "game/data/runtime_material_sets.json": "cc21685e81310ca6d5d3f448a5ef0c4b5d304e55dc8e451d58709d0b6def14c3",
     "art/tools/build_tank_staves.py": "8667b8eb11768f7a7f605b8298fcc988fcdf4f7486482997877715888555e3c5",
     "art/textures/procedural/tank_staves/material.json": "2805d241bff5c43de380d87533f40e90a0b1fd0eab4d2395fa52ab66939767d6",
-    "art/blender/city_masts.blend": "340ffc3439650f2fcff7e092564dc6539044f5f4baba7fbaa179a28d38a703ab",
-    "art/blender/city_aerials.blend": "ed2d845d5950493950240ada382d18efbf79f2314bf6dc47adda0253fd29b39f",
+    "art/blender/city_masts.blend": "05edbc86719ed8c76eb4d0435e7a60d6477908433eafbb871e507d51c4737ae5",
+    "art/blender/city_aerials.blend": "e8aee2ab0dd129eb45f2bb44597743fae69bdc76bbc9ebe0bfa967257b05b072",
     "art/textures/procedural/tank_staves/albedo.png": "1b7939b22a61b51b015ea061a655c293e6ff035f6ba395a39173bd8e8d6cc8bf",
     "art/textures/procedural/tank_staves/roughness.png": "35c4bf990aeac4f41297dabc40f553770a1ccc1d75445cc63b345d8f3dce4fde",
     "art/textures/procedural/tank_staves/height.png": "ecccd957681d9f3d392c88bdcae9cbc7d6758621d5e99847022a67bf50f40108",
-    "art/textures/procedural/tank_staves/normal.png": "1859f5b69a4150d0c32b75459dfaef7714d7f9bfdf56c837c533e9f8dbb468c0"
+    "art/textures/procedural/tank_staves/normal.png": "1859f5b69a4150d0c32b75459dfaef7714d7f9bfdf56c837c533e9f8dbb468c0",
+    "art/tools/build_galvanized_roof.py": "711b0e12b4a2a375999536d613f6ac2c81e9c6504fe771a9cf47ac995dd16413",
+    "art/textures/procedural/galvanized_roof/material.json": "193e6a006be30ecc47491856972a1e32b1dc1ebff81d521922638e7b0659cb17",
+    "art/textures/procedural/galvanized_roof/albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
+    "art/textures/procedural/galvanized_roof/roughness.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
+    "art/textures/procedural/galvanized_roof/height.png": "e075b701b00fd083b9bc1c1c903e106cfb0052779644b0ffa2f0182b9dc3bd85",
+    "art/textures/procedural/galvanized_roof/normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf"
   },
   "open_work": "Original passive tanks only. Retain original body radii/heights, relative upper leg positions and cap apex heights. Record fitted on-roof assembly translations that clear existing hardware, and the fitted cover overhang against the undersized original cone proxy. No added supply, liquid simulation, occupied spaces or controls. Original Orison house tank remains separate. Beacon housings, weather joints, city drainage and broad textures remain open; heating cuts parked."
 }

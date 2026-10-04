@@ -25,3 +25,4 @@ func _ready() -> void:
 	preload("res://scripts/building/orison_v2_city_masts.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_aerials.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_tanks.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_beacons.gd").mount(self)

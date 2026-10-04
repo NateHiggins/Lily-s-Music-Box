@@ -21,7 +21,7 @@ native_path=ROOT/'art/blender/city_shells.blend'
 v2_path=ROOT/'game/data/orison_v2_blockout.json'
 plan=json.loads(plan_path.read_text());layout=json.loads(layout_path.read_text())
 registration=json.loads(registration_path.read_text())
-def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb'] else path.read_bytes()).hexdigest()
+def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
  if path!='game/data/orison_v2_blockout.json':assert digest(ROOT/path)==value,path
@@ -105,7 +105,7 @@ for key in plan['runtime_keys']:
    mat.node_tree.links.new(tex.outputs['Color'],normal.inputs['Color']);mat.node_tree.links.new(normal.outputs[0],node.inputs[target])
   else:mat.node_tree.links.new(tex.outputs['Color'],node.inputs[target])
 pieces=collections.defaultdict(list);contacts=[];source_records=[];inventory=[];spans=[];dish_inventory=[];assemblies={}
-def create(name,vertices,faces,identity,key="metal"):
+def create(name,vertices,faces,identity,key="galvanized_roof"):
  origin=Vector(tuple(round(sum(p[i] for p in vertices)/len(vertices),3) for i in range(3)))
  mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(float(p[i])-float(origin[i]) for i in range(3)) for p in vertices],[],faces);mesh.update()
  bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
@@ -116,7 +116,7 @@ def create(name,vertices,faces,identity,key="metal"):
  for face in mesh.polygons:face.material_index=plan['runtime_keys'].index(key)
  pieces[identity].append(obj)
  return obj
-def loft(name,a,b,profile,identity,segments=None,key="metal"):
+def loft(name,a,b,profile,identity,segments=None,key="galvanized_roof"):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();length=(b-a).length
  seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0))
  u=(seed-axis*seed.dot(axis)).normalized();v=axis.cross(u);count=segments or plan['segments']
@@ -195,7 +195,7 @@ def parabolic_sheet(name,center,axis,depth,radius,assembly):
   faces.extend(tuple(reversed(f)) if back else f for f in side)
  rim=1+(rings-1)*count
  for i in range(count):faces.append((rim+i,rim+(i+1)%count,rim+(i+1)%count+stride,rim+i+stride))
- return create(name,points,faces,assembly,'bronze')
+ return create(name,points,faces,assembly,'bronze_sheet')
 
 for identity in groups:
  rows={r['id'].rsplit('_',1)[-1]:r for r in records if group(r['id'])==identity};shift=derived.get(identity,0)
@@ -365,6 +365,11 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=ROOT/'game/assets/props/city_aerials.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True)
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in [plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
+finish_bindings=[]
+finish_bindings.extend([ROOT/'art/tools/build_galvanized_roof.py',ROOT/'art/textures/procedural/galvanized_roof/material.json'])
+finish_bindings.extend(ROOT/'art/textures/procedural/galvanized_roof'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
+finish_bindings.extend([ROOT/'art/tools/build_bronze_sheet.py',ROOT/'art/textures/procedural/bronze_sheet/material.json'])
+finish_bindings.extend(ROOT/'art/textures/procedural/bronze_sheet'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_assemblies':len(assemblies),'assemblies':assemblies,'clear_spans':spans,'dishes':dish_inventory,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in finish_bindings+[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
 for path in ['art/blender/city_aerials_construction.json','game/tests/fixtures/orison_city_aerials.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY AERIALS',len(records),'original components;',len(groups),'roofs;',report['closed_source_stocks'],'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'actual support contacts;',len(assemblies),'connected fabricated assemblies')

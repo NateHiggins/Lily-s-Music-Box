@@ -21,6 +21,7 @@ func _run() -> void:
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null and not material.uv1_triplanar,"all original aerials receive existing catalogue maps with native metre charts")
 		check(material!=MatLib.get_mat(key) and MatLib.get_mat(key).uv1_triplanar,"each local native chart preserves its shared catalogue projection")
+		check(material.albedo_texture==MatLib.get_mat(key).albedo_texture and material.roughness_texture==MatLib.get_mat(key).roughness_texture and material.normal_texture==MatLib.get_mat(key).normal_texture,"installed local finish uses all three exact catalogue maps")
 		check(draw.get_node("AerialCollision/Surface").shape is ConcavePolygonShape3D,"visible aerial partition has native triangle collision")
 		var shape: CollisionShape3D=draw.get_node("AerialCollision/Surface")
 		var physical_mesh:=shape.shape as ConcavePolygonShape3D
@@ -61,6 +62,9 @@ func _run() -> void:
 		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
 		check(hit.is_empty(),"installed aerial span clears original city solids")
 		span_checks+=1
+	var tank_exclusions: Array[RID]=[]
+	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
+		if not city.get_node("RooftopTanks").is_ancestor_of(body):tank_exclusions.append(body.get_rid())
 	for dish: Dictionary in fixture.dishes:
 		var center:=city.to_global(Vector3(dish.center[0],dish.center[2],-dish.center[1]))
 		var axis:=city.global_basis*Vector3(dish.axis[0],dish.axis[2],-dish.axis[1])
@@ -68,7 +72,17 @@ func _run() -> void:
 		world.player.face_world_point(center);world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(str(dish.id)+"_front")
 		if str(dish.id) in ["site_nw1_dish","site_nbr_s2_dish","site_far_n_dish"]:
-			world.player.global_position=center-axis*3.+Vector3.UP*.4-Vector3.UP*world.player.STANDING_EYE
+			var rear:=center-axis*3.+Vector3.UP*.4
+			var target:=center-Vector3.UP*.35
+			var side:=axis.cross(Vector3.UP).normalized()
+			var clear:=false
+			for offset: float in [0.,1.,-1.,2.,-2.,3.,-3.,4.,-4.]:
+				var candidate:=rear+side*offset
+				var ray:=PhysicsRayQueryParameters3D.create(target,candidate,1,tank_exclusions)
+				if world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():
+					rear=candidate;clear=true;break
+			check(clear,"rear inspection camera has actual line of sight clear of fitted neighbouring tanks")
+			world.player.global_position=rear-Vector3.UP*world.player.STANDING_EYE
 			world.player.face_world_point(center-Vector3.UP*.35)
 			await _settled_optics();await shot(str(dish.id)+"_rear")
 	for contact: Dictionary in fixture.contacts:

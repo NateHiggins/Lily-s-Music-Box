@@ -1,0 +1,20 @@
+{
+  "material": "beacon_lacquer",
+  "generator": "art/tools/build_beacon_lacquer.py",
+  "source": "Deterministic periodic metal-housing lacquer; original source red hue, no photographs, wood-exposing chips, lettering or baked illumination.",
+  "seed": 19281113,
+  "meters_per_tile": 0.5,
+  "relief_mm": 0.03,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "e3e7742f615f9b29363cbbfc21ac8bc551924b7890a11e8e73feaf82ef9ffc00",
+    "roughness": "50b56c701fdefbe89e2c0ae64b844317146688824bfcac0a9b4f11b5e179dfb3",
+    "height": "028d197864fae0176bec11f10f3187f19a0807331009538eceb458f08130e3d9",
+    "normal": "836b8091f49b56c887eb8c6b8026eeadbdda84858a0e5ddc7c353752c414798b"
+  }
+}

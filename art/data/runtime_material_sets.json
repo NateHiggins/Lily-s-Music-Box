@@ -56,6 +56,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "beacon_lacquer": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "procedural/beacon_lacquer",
+      "files": [
+        "T_ai_materials_beacon_lacquer_albedo.png",
+        "T_ai_materials_beacon_lacquer_rough.png",
+        "T_ai_materials_beacon_lacquer_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "book_brown": {
       "alpha": false,
       "canonical_meters_per_tile": 0.32,
@@ -218,6 +232,20 @@
         "T_ai_materials_bronze_albedo.png",
         "T_ai_materials_bronze_rough.png",
         "T_ai_materials_bronze_normal.png"
+      ],
+      "metallic": 0.75,
+      "meters_per_tile": 0.6,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "bronze_sheet": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "procedural/bronze_sheet",
+      "files": [
+        "T_ai_materials_bronze_sheet_albedo.png",
+        "T_ai_materials_bronze_sheet_rough.png",
+        "T_ai_materials_bronze_sheet_normal.png"
       ],
       "metallic": 0.75,
       "meters_per_tile": 0.6,
@@ -390,6 +418,20 @@
       "metallic": 0.0,
       "meters_per_tile": 0.7,
       "roughness_multiplier": 0.78,
+      "visual_lock": false
+    },
+    "galvanized_roof": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.9,
+      "catalog_mapping": "procedural/galvanized_roof",
+      "files": [
+        "T_ai_materials_galvanized_roof_albedo.png",
+        "T_ai_materials_galvanized_roof_rough.png",
+        "T_ai_materials_galvanized_roof_normal.png"
+      ],
+      "metallic": 0.9,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
       "visual_lock": false
     },
     "indicator_enamel": {

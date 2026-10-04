@@ -49,6 +49,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | Registered neighboring foundations, retained-slab fit and expanded terrain joins | `art/blender/city_foundations.md` |
 | Source-owned rooftop masts, supported guy anchors and exact city bearing checks | `art/blender/city_masts.md` |
 | Original roof aerial frames, curved collectors and supported downlead terminals | `art/blender/city_aerials.md` |
+| Original red mast-head beacon housings | `art/blender/city_beacons.md` |
+| Calibrated local bronze, galvanized roof hardware and red lacquer | `art/blender/city_hardware_finishes.md` |
 | Original neighbouring roof tanks, fitted hardware clearance and calibrated stave finish | `art/blender/city_tanks.md` |
 | Common surface charts for fixed city roof hardware, with exact unchanged-geometry comparison | `art/blender/city_hardware_uvs.md` |
 | Sloped service-bulkhead cover, open gutter outlet and fitted external rainleader | `art/blender/roof_service_weathering.md` |

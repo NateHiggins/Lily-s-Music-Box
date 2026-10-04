@@ -4,7 +4,7 @@ extends RefCounted
 static func mount(city: Node3D) -> Node3D:
 	var model: Node3D=(preload("res://assets/props/city_masts.glb") as PackedScene).instantiate()
 	model.name="RooftopMasts";city.add_child(model)
-	var material:=MatLib.get_mat("metal").duplicate() as StandardMaterial3D
+	var material:=MatLib.get_mat("galvanized_roof").duplicate() as StandardMaterial3D
 	material.uv1_triplanar=false
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		draw.material_override=material

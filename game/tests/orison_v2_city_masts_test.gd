@@ -17,8 +17,10 @@ func _run() -> void:
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		parts+=1;triangles+=draw.mesh.get_faces().size()/3
 		_check_cap_mapping(draw.mesh,true)
+		var key:=str(draw.name).split("__")[-1]
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null and not material.uv1_triplanar,"all original aerials receive existing metal maps with native metre charts")
+		check(material.albedo_texture==MatLib.get_mat(key).albedo_texture and material.roughness_texture==MatLib.get_mat(key).roughness_texture and material.normal_texture==MatLib.get_mat(key).normal_texture,"installed local finish uses all three exact catalogue maps")
 		check(draw.get_node("MastCollision/Surface").shape is ConcavePolygonShape3D,"visible aerial partition has native triangle collision")
 		var shape: CollisionShape3D=draw.get_node("MastCollision/Surface")
 		var physical_mesh:=shape.shape as ConcavePolygonShape3D

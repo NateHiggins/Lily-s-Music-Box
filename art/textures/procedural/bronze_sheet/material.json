@@ -1,0 +1,20 @@
+{
+  "material": "bronze_sheet",
+  "generator": "art/tools/build_bronze_sheet.py",
+  "source": "Periodic formed bronze sheet with restrained local oxide; no large crust, lettering, photographs or baked light.",
+  "seed": 19281114,
+  "meters_per_tile": 0.6,
+  "relief_mm": 0.06,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "roughness": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "height": "90609408b9ce511024879d91fa992bc6693f80b4538d432bd6e5d8fb95a94505",
+    "normal": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d"
+  }
+}

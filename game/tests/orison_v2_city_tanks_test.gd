@@ -21,6 +21,7 @@ func _run() -> void:
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null and not material.uv1_triplanar,"all original tanks receive existing catalogue maps with native metre charts")
 		check(material!=MatLib.get_mat(key) and MatLib.get_mat(key).uv1_triplanar,"each local native chart preserves its shared catalogue projection")
+		check(material.albedo_texture==MatLib.get_mat(key).albedo_texture and material.roughness_texture==MatLib.get_mat(key).roughness_texture and material.normal_texture==MatLib.get_mat(key).normal_texture,"installed local finish uses all three exact catalogue maps")
 		check(draw.get_node("TankCollision/Surface").shape is ConcavePolygonShape3D,"visible tank partition has native triangle collision")
 		var shape: CollisionShape3D=draw.get_node("TankCollision/Surface")
 		var physical_mesh:=shape.shape as ConcavePolygonShape3D

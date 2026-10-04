@@ -1,0 +1,20 @@
+{
+  "material": "galvanized_roof",
+  "generator": "art/tools/build_galvanized_roof.py",
+  "source": "Periodic galvanized roof hardware with fine zinc variation; no oversized weather crust, lettering, photographs or baked light.",
+  "seed": 19281115,
+  "meters_per_tile": 0.9,
+  "relief_mm": 0.05,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
+    "roughness": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
+    "height": "e075b701b00fd083b9bc1c1c903e106cfb0052779644b0ffa2f0182b9dc3bd85",
+    "normal": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf"
+  }
+}

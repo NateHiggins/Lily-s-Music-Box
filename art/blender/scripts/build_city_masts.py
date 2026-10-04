@@ -21,7 +21,7 @@ native_path=ROOT/'art/blender/city_shells.blend'
 v2_path=ROOT/'game/data/orison_v2_blockout.json'
 plan=json.loads(plan_path.read_text());layout=json.loads(layout_path.read_text())
 registration=json.loads(registration_path.read_text())
-def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb'] else path.read_bytes()).hexdigest()
+def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
  if path!='game/data/orison_v2_blockout.json':assert digest(ROOT/path)==value,path
@@ -314,6 +314,9 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=ROOT/'game/assets/props/city_masts.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True)
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_trees':len(groups),'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in [plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
+finish_bindings=[]
+finish_bindings.extend([ROOT/'art/tools/build_galvanized_roof.py',ROOT/'art/textures/procedural/galvanized_roof/material.json'])
+finish_bindings.extend(ROOT/'art/textures/procedural/galvanized_roof'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':source_records,'original_record_count':len(records),'groups':groups,'closed_source_stocks':sum(len(v) for v in pieces.values()),'closed_fabricated_trees':len(groups),'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'contacts':contacts,'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in finish_bindings+[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json']},'open_work':plan['open_work']}
 for path in ['art/blender/city_masts_construction.json','game/tests/fixtures/orison_city_masts.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY MASTS',len(records),'original components;',len(groups),'roofs;',report['closed_source_stocks'],'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'actual support contacts')
