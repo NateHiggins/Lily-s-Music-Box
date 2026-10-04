@@ -93,6 +93,16 @@ Ledger before/after: **7 / 8 / 127 / 42 / 151 / 153**, requirements changed: **n
 The reader gate admits zero new unread fields. The spatial audit reports zero
 new failing/reported dependencies, target loss, class changes or unresolved saves.
 All other static/tools gates are compared against the complete clean base board.
+The canonical comparison at
+**tmp/roof-drain-discovery/verified-windowed-ui/verification.json** names
+**c7b6f01cc670f2708b086816869df76fa0e14ebc** as a merge candidate: all 47 gates
+have zero regressions, protected 17/17 remain unchanged and the selector is V2.
+The existing connected-world interaction contract completed through a real
+window and the long runner: **42,260 checks**, **zero failures**, **448.76 s**.
+All roof, service-alley, surface-UV, resident-key, Mina-routine and two-root-matrix
+runs from the preceding canonical verification remain separately recorded under
+**tmp/roof-drain-discovery/verified/godot**. Its headless prompt failure remains
+visible; the long-windowed run supplies the correct mouse-capture environment.
 Main's known ledger incompleteness and pre-existing M11C1 protected-floor-hash
 tool-test failure remain baseline findings; this batch does not redefine them.
 
