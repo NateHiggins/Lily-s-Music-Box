@@ -196227,6 +196227,66 @@
    "rationale": "Installed pool test checks original chalk and inspection positions in the retained bar frame; no ledger promotion.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d1130fc28566a186",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_bar_fixture_mounts.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_retail_bar_fixture_mount_\"+identity"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use. Reviewed fixture-mount namespace in the retained independent bar: generated native material partitions are classified by the existing retail surface pass, while original light and save identities remain separate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e4b62293af49b8f6",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_bar_fixture_mounts_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "var source: Array=bar.source_layout.floors.filter(func(row):return row.id==\"F01\")[0].furniture.filter(func(row):return row.id==retained.rod.id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. Reviewed test lookup of the original F01 source furniture: the two already-connected table rods are compared against their retained records, without relocating source authority.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   }
  ]
 }

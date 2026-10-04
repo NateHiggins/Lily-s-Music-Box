@@ -336,3 +336,14 @@ art/data/orison_ground/bar_reservations.json -text
 art/textures/procedural/billiard_resin/material.json -text
 game/assets/building/textures/T_ai_materials_billiard_resin_*.png binary
 game/assets/building/textures/T_ai_materials_billiard_resin_*.png.import -text
+
+art/blender/bar_fixture_mounts.blend binary
+art/blender/scripts/build_bar_fixture_mounts.py -text
+art/blender/scripts/inspect_bar_fixture_mounts.py -text
+art/blender/bar_fixture_mounts_construction.json -text
+art/data/bar_fixture_mounts/source_plan.json -text
+game/data/orison_v2/bar_fixture_mounts.json -text
+game/tests/fixtures/orison_bar_fixture_mounts.json -text
+game/assets/props/bar_fixture_mounts.glb.import -text
+
+game/assets/building/floor_01_cells/shop_bar.gltf.import -text

@@ -55,6 +55,10 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native pool table does not fit its retained source boundaries")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_fixture_mounts.gd").mount_cell(geometry):
+		geometry.free()
+		_fail("native fixture mounts are missing or have invalid catalogue charts")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
@@ -147,7 +151,10 @@ func _mount_marker(marker: Dictionary) -> bool:
 		return false
 	prop.name = str(marker.id)
 	prop.position = GameBoot.b2g(marker.pos)
-	prop.rotation.y = deg_to_rad(float(marker.get("yaw_deg", 0)) * (1 if prop is TapProp else -1))
+	# The sconce's back plate is local -Z. Positive source yaw seats it
+	# toward the original east/west wall and lets its globe face the room.
+	var yaw_sign:=1 if prop is TapProp or kind=="sconce_globe" else -1
+	prop.rotation.y = deg_to_rad(float(marker.get("yaw_deg", 0)) * yaw_sign)
 	if prop is FunctionalProp and AcousticGraphData.nodes.has(marker.id):
 		prop.graph_node_id = str(marker.id)
 		_acoustic_originals[str(marker.id)] = AcousticGraphData.nodes[marker.id].duplicate(true)

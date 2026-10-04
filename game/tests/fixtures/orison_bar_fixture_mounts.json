@@ -1,0 +1,2572 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_markers": [
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_DARTS",
+      "unit": "SITE",
+      "pos": [
+        -11.08,
+        -33.0,
+        -0.2899999999999998
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 2.6,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.2,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_LOBBY",
+      "unit": "SITE",
+      "pos": [
+        4.875,
+        -29.3,
+        2.3
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.5,
+      "energy": 0.46,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_WELL",
+      "unit": "SITE",
+      "pos": [
+        -2.6,
+        -33.4,
+        1.6
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.4,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAIR",
+      "unit": "SITE",
+      "pos": [
+        5.3,
+        -32.6,
+        0.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.5,
+      "energy": 0.46,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BAR_LT_CAN0",
+      "unit": "SITE",
+      "pos": [
+        -3.2,
+        -29.7,
+        -1.06
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.0,
+      "energy": 0.7,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BAR_LT_CAN1",
+      "unit": "SITE",
+      "pos": [
+        -0.25,
+        -29.7,
+        -1.06
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.0,
+      "energy": 0.7,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_POOL",
+      "unit": "SITE",
+      "pos": [
+        -7.4,
+        -31.25,
+        -0.6
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.66,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB0",
+      "unit": "SITE",
+      "pos": [
+        -8.2,
+        -35.3,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB1",
+      "unit": "SITE",
+      "pos": [
+        -5.2,
+        -35.3,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB2",
+      "unit": "SITE",
+      "pos": [
+        -1.2,
+        -34.9,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAGE0",
+      "unit": "SITE",
+      "pos": [
+        -1.9,
+        -36.55,
+        -0.95
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.6,
+      "navigation": true,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAGE1",
+      "unit": "SITE",
+      "pos": [
+        0.5,
+        -36.55,
+        -0.95
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.6,
+      "navigation": true,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK0",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -36.6,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK1",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -33.2,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK2",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -32.05,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_WEST0",
+      "unit": "SITE",
+      "pos": [
+        -11.34,
+        -35.4,
+        -1.3
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_WEST1",
+      "unit": "SITE",
+      "pos": [
+        -11.34,
+        -31.3,
+        -1.3
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_WC",
+      "unit": "SITE",
+      "pos": [
+        -10.62,
+        -37.1,
+        -0.44999999999999973
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 2.5,
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    }
+  ],
+  "retained_rods": [
+    {
+      "marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_TAB1",
+        "unit": "SITE",
+        "pos": [
+          -5.2,
+          -35.3,
+          -0.62
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.52,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      },
+      "rod": {
+        "id": "retail_bar_tabrod1",
+        "asm": "pipe",
+        "at": [
+          -5.2,
+          -35.3
+        ],
+        "yaw": 0,
+        "mat": "metal",
+        "p0": [
+          -5.2,
+          -35.3,
+          2.5199999999999996
+        ],
+        "p1": [
+          -5.2,
+          -35.3,
+          -0.62
+        ],
+        "r": 0.016
+      }
+    },
+    {
+      "marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_TAB2",
+        "unit": "SITE",
+        "pos": [
+          -1.2,
+          -34.9,
+          -0.62
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.52,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      },
+      "rod": {
+        "id": "retail_bar_tabrod2",
+        "asm": "pipe",
+        "at": [
+          -1.2,
+          -34.9
+        ],
+        "yaw": 0,
+        "mat": "metal",
+        "p0": [
+          -1.2,
+          -34.9,
+          2.5199999999999996
+        ],
+        "p1": [
+          -1.2,
+          -34.9,
+          -0.62
+        ],
+        "r": 0.016
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "F01_BAR_LT_DARTS_Stem",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.3864417615373928e-05
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_LowerCollar",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_UpperCollar",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_BearingPlate",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_Fixing0",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_Fixing1",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_Fixing2",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_DARTS_Fixing3",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_Stem",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.6163494560214603e-05
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_LowerCollar",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050256804609925e-06
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_UpperCollar",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.54117275823373e-06
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_BearingPlate",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_Fixing0",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_Fixing1",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_Fixing2",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY_Fixing3",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_WELL_InlineFlex",
+      "assembly": "F01_BAR_LT_WELL",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 4.919622114236184e-06
+    },
+    {
+      "name": "F01_BAR_LT_WELL_LowerStrainRelief",
+      "assembly": "F01_BAR_LT_WELL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 6.26137601090238e-06
+    },
+    {
+      "name": "F01_BAR_LT_WELL_UpperStrainRelief",
+      "assembly": "F01_BAR_LT_WELL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.944830489157322e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_Stem",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00022183068184598284
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_LowerCollar",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_UpperCollar",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.54117275823373e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_BearingPlate",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_Fixing0",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_Fixing1",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_Fixing2",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAIR_Fixing3",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_Stem",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.272146494600682e-05
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_LowerCollar",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_UpperCollar",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541077975861102e-06
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_BearingPlate",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_Fixing0",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_Fixing1",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_Fixing2",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN0_Fixing3",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_Stem",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.272146494600682e-05
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_LowerCollar",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_UpperCollar",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541077975861102e-06
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_BearingPlate",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_Fixing0",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_Fixing1",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_Fixing2",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_CAN1_Fixing3",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795244546693e-08
+    },
+    {
+      "name": "F01_BAR_LT_POOL_Stem",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.626750340067e-05
+    },
+    {
+      "name": "F01_BAR_LT_POOL_LowerCollar",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_POOL_UpperCollar",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_POOL_BearingPlate",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_POOL_Fixing0",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_POOL_Fixing1",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_POOL_Fixing2",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_POOL_Fixing3",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_Stem",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.024296045580984e-05
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_LowerCollar",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_UpperCollar",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_BearingPlate",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_Fixing0",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_Fixing1",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_Fixing2",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_TAB0_Fixing3",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_Stem",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.765888428270647e-05
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_LowerCollar",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_UpperCollar",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_BearingPlate",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_Fixing0",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_Fixing1",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_Fixing2",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0_Fixing3",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_Stem",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.765888428270647e-05
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_LowerCollar",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_UpperCollar",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_BearingPlate",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_Fixing0",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_Fixing1",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_Fixing2",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1_Fixing3",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_Stem",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.851534792578968e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_LowerCollar",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050256804609762e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_UpperCollar",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541172827059056e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_BearingPlate",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.226867633055871e-05
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_Fixing0",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_Fixing1",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_Fixing2",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK0_Fixing3",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_Stem",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.851534792578968e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_LowerCollar",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050256804609762e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_UpperCollar",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541172827059056e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_BearingPlate",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.226867633055871e-05
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_Fixing0",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_Fixing1",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_Fixing2",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK1_Fixing3",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_Stem",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.851534792578968e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_LowerCollar",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050256804609762e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_UpperCollar",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541172827059056e-06
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_BearingPlate",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.226867633055871e-05
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_Fixing0",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_Fixing1",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_Fixing2",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_DECK2_Fixing3",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385795184055345e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_OffsetRiser",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00021030187252076175
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_RiserFoot",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_RiserHead",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.3647007629215968e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_Stem",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.3753410404324302e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_LowerCollar",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050150251884172e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_UpperCollar",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541172689408015e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_BearingPlate",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.226867633055871e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_Fixing0",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_Fixing1",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_Fixing2",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST0_Fixing3",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_OffsetRiser",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00021030187252076175
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_RiserFoot",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_RiserHead",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.3647007629215968e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_Stem",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.3753410404324302e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_LowerCollar",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050150251884172e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_UpperCollar",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541172689408015e-06
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_BearingPlate",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.226867633055871e-05
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_Fixing0",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_Fixing1",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_Fixing2",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WEST1_Fixing3",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.386461743505831e-08
+    },
+    {
+      "name": "F01_BAR_LT_WC_Stem",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "rubber_aged",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.175398695839921e-05
+    },
+    {
+      "name": "F01_BAR_LT_WC_LowerCollar",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "F01_BAR_LT_WC_UpperCollar",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "F01_BAR_LT_WC_BearingPlate",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "F01_BAR_LT_WC_Fixing0",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_WC_Fixing1",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_WC_Fixing2",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "F01_BAR_LT_WC_Fixing3",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay0_Stem",
+      "assembly": "CanopyStay0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.229203449773359e-05
+    },
+    {
+      "name": "CanopyStay0_LowerCollar",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "CanopyStay0_UpperCollar",
+      "assembly": "CanopyStay0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "CanopyStay0_BearingPlate",
+      "assembly": "CanopyStay0",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "CanopyStay0_Fixing0",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay0_Fixing1",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay0_Fixing2",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay0_Fixing3",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay1_Stem",
+      "assembly": "CanopyStay1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.229203449773359e-05
+    },
+    {
+      "name": "CanopyStay1_LowerCollar",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "CanopyStay1_UpperCollar",
+      "assembly": "CanopyStay1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "CanopyStay1_BearingPlate",
+      "assembly": "CanopyStay1",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "CanopyStay1_Fixing0",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay1_Fixing1",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay1_Fixing2",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay1_Fixing3",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay2_Stem",
+      "assembly": "CanopyStay2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.229203449773359e-05
+    },
+    {
+      "name": "CanopyStay2_LowerCollar",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "CanopyStay2_UpperCollar",
+      "assembly": "CanopyStay2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "CanopyStay2_BearingPlate",
+      "assembly": "CanopyStay2",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "CanopyStay2_Fixing0",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay2_Fixing1",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay2_Fixing2",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay2_Fixing3",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay3_Stem",
+      "assembly": "CanopyStay3",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.229203449773359e-05
+    },
+    {
+      "name": "CanopyStay3_LowerCollar",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.050310119687374e-06
+    },
+    {
+      "name": "CanopyStay3_UpperCollar",
+      "assembly": "CanopyStay3",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 9.541113519250837e-06
+    },
+    {
+      "name": "CanopyStay3_BearingPlate",
+      "assembly": "CanopyStay3",
+      "key": "iron_blackened",
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.2268676328478095e-05
+    },
+    {
+      "name": "CanopyStay3_Fixing0",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay3_Fixing1",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay3_Fixing2",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    },
+    {
+      "name": "CanopyStay3_Fixing3",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "nonmanifold_edges": 0,
+      "volume_m3": 8.385753592142435e-08
+    }
+  ],
+  "parts": [
+    {
+      "name": "CanopyStay0__brass_dull",
+      "assembly": "CanopyStay0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "CanopyStay0__iron_blackened",
+      "assembly": "CanopyStay0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "CanopyStay1__brass_dull",
+      "assembly": "CanopyStay1",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "CanopyStay1__iron_blackened",
+      "assembly": "CanopyStay1",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "CanopyStay2__brass_dull",
+      "assembly": "CanopyStay2",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "CanopyStay2__iron_blackened",
+      "assembly": "CanopyStay2",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "CanopyStay3__brass_dull",
+      "assembly": "CanopyStay3",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "CanopyStay3__iron_blackened",
+      "assembly": "CanopyStay3",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_CAN0__brass_dull",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_CAN0__iron_blackened",
+      "assembly": "F01_BAR_LT_CAN0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_CAN1__brass_dull",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_CAN1__iron_blackened",
+      "assembly": "F01_BAR_LT_CAN1",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_DARTS__brass_dull",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_DARTS__iron_blackened",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_DARTS__rubber_aged",
+      "assembly": "F01_BAR_LT_DARTS",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_DECK0__brass_dull",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_DECK0__iron_blackened",
+      "assembly": "F01_BAR_LT_DECK0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_DECK1__brass_dull",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_DECK1__iron_blackened",
+      "assembly": "F01_BAR_LT_DECK1",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_DECK2__brass_dull",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_DECK2__iron_blackened",
+      "assembly": "F01_BAR_LT_DECK2",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY__brass_dull",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY__iron_blackened",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_LOBBY__rubber_aged",
+      "assembly": "F01_BAR_LT_LOBBY",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_POOL__brass_dull",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_POOL__iron_blackened",
+      "assembly": "F01_BAR_LT_POOL",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0__brass_dull",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0__iron_blackened",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_STAGE0__rubber_aged",
+      "assembly": "F01_BAR_LT_STAGE0",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1__brass_dull",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1__iron_blackened",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_STAGE1__rubber_aged",
+      "assembly": "F01_BAR_LT_STAGE1",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_STAIR__brass_dull",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_STAIR__iron_blackened",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_STAIR__rubber_aged",
+      "assembly": "F01_BAR_LT_STAIR",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_TAB0__brass_dull",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_TAB0__iron_blackened",
+      "assembly": "F01_BAR_LT_TAB0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 228
+    },
+    {
+      "name": "F01_BAR_LT_WC__brass_dull",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 460
+    },
+    {
+      "name": "F01_BAR_LT_WC__iron_blackened",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 136
+    },
+    {
+      "name": "F01_BAR_LT_WC__rubber_aged",
+      "assembly": "F01_BAR_LT_WC",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_WELL__brass_dull",
+      "assembly": "F01_BAR_LT_WELL",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 184
+    },
+    {
+      "name": "F01_BAR_LT_WELL__rubber_aged",
+      "assembly": "F01_BAR_LT_WELL",
+      "key": "rubber_aged",
+      "tile": 0.26,
+      "triangles": 92
+    },
+    {
+      "name": "F01_BAR_LT_WEST0__brass_dull",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 552
+    },
+    {
+      "name": "F01_BAR_LT_WEST0__iron_blackened",
+      "assembly": "F01_BAR_LT_WEST0",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 412
+    },
+    {
+      "name": "F01_BAR_LT_WEST1__brass_dull",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 552
+    },
+    {
+      "name": "F01_BAR_LT_WEST1__iron_blackened",
+      "assembly": "F01_BAR_LT_WEST1",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "triangles": 412
+    }
+  ],
+  "triangles": 13900,
+  "contacts": [
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "fixture_endpoint": [
+        -11.079999923706055,
+        -0.28999999165534973,
+        33.0
+      ],
+      "bearing": [
+        -11.079999923706055,
+        -0.15000000596046448,
+        33.0
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.13999998569488525,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "F01_BAR_LT_LOBBY",
+      "fixture_endpoint": [
+        4.875,
+        2.299999952316284,
+        29.299999237060547
+      ],
+      "bearing": [
+        4.875,
+        2.549999952316284,
+        29.299999237060547
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.25,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col"
+    },
+    {
+      "id": "F01_BAR_LT_WELL",
+      "fixture_endpoint": [
+        -2.5999999046325684,
+        1.600000023841858,
+        33.400001525878906
+      ],
+      "bearing": [
+        -2.5999999046325684,
+        1.659999966621399,
+        33.400001525878906
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.059999942779541016,
+      "owner": "F01_OWN_SHOP_BAR_furnish_rubber_aged",
+      "inline_source": {
+        "id": "retail_bar_well_flex",
+        "asm": "pipe",
+        "at": [
+          -2.6,
+          -33.4
+        ],
+        "yaw": 0,
+        "mat": "rubber_aged",
+        "p0": [
+          -2.6,
+          -33.4,
+          2.5199999999999996
+        ],
+        "p1": [
+          -2.6,
+          -33.4,
+          1.66
+        ],
+        "r": 0.01
+      },
+      "bearing_radius_m": 0.006
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "fixture_endpoint": [
+        5.300000190734863,
+        0.550000011920929,
+        32.599998474121094
+      ],
+      "bearing": [
+        5.300000190734863,
+        2.549999952316284,
+        32.599998474121094
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 2.0,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col"
+    },
+    {
+      "id": "F01_BAR_LT_CAN0",
+      "fixture_endpoint": [
+        -3.200000047683716,
+        -1.059999942779541,
+        29.700000762939453
+      ],
+      "bearing": [
+        -3.200000047683716,
+        -0.9800000190734863,
+        29.700000762939453
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.07999992370605469,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col"
+    },
+    {
+      "id": "F01_BAR_LT_CAN1",
+      "fixture_endpoint": [
+        -0.25,
+        -1.059999942779541,
+        29.700000762939453
+      ],
+      "bearing": [
+        -0.25,
+        -0.9800000190734863,
+        29.700000762939453
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.07999992370605469,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col"
+    },
+    {
+      "id": "F01_BAR_LT_POOL",
+      "fixture_endpoint": [
+        -7.400000095367432,
+        -0.6000000238418579,
+        31.25
+      ],
+      "bearing": [
+        -7.400000095367432,
+        -0.1499999761581421,
+        31.25
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.4500000476837158,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "F01_BAR_LT_TAB0",
+      "fixture_endpoint": [
+        -8.199999809265137,
+        -0.6200000047683716,
+        35.29999923706055
+      ],
+      "bearing": [
+        -8.199999809265137,
+        -0.1499999761581421,
+        35.29999923706055
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.4700000286102295,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "fixture_endpoint": [
+        -1.899999976158142,
+        -0.949999988079071,
+        36.54999923706055
+      ],
+      "bearing": [
+        -1.899999976158142,
+        -0.15000009536743164,
+        36.54999923706055
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.7999998927116394,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "fixture_endpoint": [
+        0.5,
+        -0.949999988079071,
+        36.54999923706055
+      ],
+      "bearing": [
+        0.5,
+        -0.15000009536743164,
+        36.54999923706055
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.7999998927116394,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "F01_BAR_LT_DECK0",
+      "fixture_endpoint": [
+        3.944499969482422,
+        -1.2999999523162842,
+        36.599998474121094
+      ],
+      "bearing": [
+        4.0,
+        -1.2999999523162842,
+        36.599998474121094
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        1.8369701465288538e-16
+      ],
+      "gap": 0.055500030517578125,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col"
+    },
+    {
+      "id": "F01_BAR_LT_DECK1",
+      "fixture_endpoint": [
+        3.944499969482422,
+        -1.2999999523162842,
+        33.20000076293945
+      ],
+      "bearing": [
+        4.0,
+        -1.2999999523162842,
+        33.20000076293945
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        1.8369701465288538e-16
+      ],
+      "gap": 0.055500030517578125,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col"
+    },
+    {
+      "id": "F01_BAR_LT_DECK2",
+      "fixture_endpoint": [
+        3.944499969482422,
+        -1.2999999523162842,
+        32.04999923706055
+      ],
+      "bearing": [
+        4.0,
+        -1.2999999523162842,
+        32.04999923706055
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        1.8369701465288538e-16
+      ],
+      "gap": 0.055500030517578125,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col"
+    },
+    {
+      "id": "F01_BAR_LT_WEST0",
+      "fixture_endpoint": [
+        -11.364500045776367,
+        -0.23000000417232513,
+        35.400001525878906
+      ],
+      "bearing": [
+        -11.5,
+        -0.23000000417232513,
+        35.400001525878906
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        -6.123234262925839e-17
+      ],
+      "gap": 0.1354999542236328,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+      "original_fixture_endpoint": [
+        -11.364500045776367,
+        -1.2999999523162842,
+        35.400001525878906
+      ],
+      "free_offset_riser": [
+        [
+          -11.364500045776367,
+          -1.2999999523162842,
+          35.400001525878906
+        ],
+        [
+          -11.364500045776367,
+          -0.23000000417232513,
+          35.400001525878906
+        ]
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST1",
+      "fixture_endpoint": [
+        -11.364500045776367,
+        -0.23000000417232513,
+        31.299999237060547
+      ],
+      "bearing": [
+        -11.5,
+        -0.23000000417232513,
+        31.299999237060547
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        -6.123234262925839e-17
+      ],
+      "gap": 0.1354999542236328,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+      "original_fixture_endpoint": [
+        -11.364500045776367,
+        -1.2999999523162842,
+        31.299999237060547
+      ],
+      "free_offset_riser": [
+        [
+          -11.364500045776367,
+          -1.2999999523162842,
+          31.299999237060547
+        ],
+        [
+          -11.364500045776367,
+          -0.23000000417232513,
+          31.299999237060547
+        ]
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WC",
+      "fixture_endpoint": [
+        -10.619999885559082,
+        -0.44999998807907104,
+        37.099998474121094
+      ],
+      "bearing": [
+        -10.619999885559082,
+        -0.15000000596046448,
+        37.099998474121094
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.29999998211860657,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "CanopyStay0",
+      "fixture_endpoint": [
+        -5.050000190734863,
+        -0.5799999833106995,
+        30.25
+      ],
+      "bearing": [
+        -5.050000190734863,
+        -0.15000000596046448,
+        30.25
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.429999977350235,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "CanopyStay1",
+      "fixture_endpoint": [
+        -5.050000190734863,
+        -0.5799999833106995,
+        29.649999618530273
+      ],
+      "bearing": [
+        -5.050000190734863,
+        -0.15000000596046448,
+        29.649999618530273
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.429999977350235,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "CanopyStay2",
+      "fixture_endpoint": [
+        1.25,
+        -0.5799999833106995,
+        30.25
+      ],
+      "bearing": [
+        1.25,
+        -0.15000000596046448,
+        30.25
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.429999977350235,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    },
+    {
+      "id": "CanopyStay3",
+      "fixture_endpoint": [
+        1.25,
+        -0.5799999833106995,
+        29.649999618530273
+      ],
+      "bearing": [
+        1.25,
+        -0.15000000596046448,
+        29.649999618530273
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "gap": 0.429999977350235,
+      "owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col"
+    }
+  ],
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/bar_fixture_mounts.glb",
+    "parts": [
+      {
+        "name": "CanopyStay0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "CanopyStay0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "CanopyStay1__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "CanopyStay1__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "CanopyStay2__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "CanopyStay2__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "CanopyStay3__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "CanopyStay3__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_CAN0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_CAN0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_CAN1__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_CAN1__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_DARTS__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_DARTS__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_DARTS__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_DECK0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_DECK0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_DECK1__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_DECK1__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_DECK2__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_DECK2__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_LOBBY__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_LOBBY__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_LOBBY__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_POOL__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_POOL__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_STAGE0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_STAGE0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_STAGE0__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_STAGE1__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_STAGE1__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_STAGE1__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_STAIR__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_STAIR__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_STAIR__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_TAB0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_TAB0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_WC__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_WC__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_WC__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_WELL__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_WELL__rubber_aged",
+        "key": "rubber_aged",
+        "tile": 0.26
+      },
+      {
+        "name": "F01_BAR_LT_WEST0__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_WEST0__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      },
+      {
+        "name": "F01_BAR_LT_WEST1__brass_dull",
+        "key": "brass_dull",
+        "tile": 0.5
+      },
+      {
+        "name": "F01_BAR_LT_WEST1__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4
+      }
+    ]
+  },
+  "precision_chart_fallbacks": 0,
+  "native_sha256": "39c1fdd99f4a5ab44a49e5accbc244dee122a2bfe952e900eb628f62ef36259c",
+  "asset_sha256": "fb2423cd1194a9fa75c4dc37e9dc228269a10eecc8cf4a75414da599b41b7820",
+  "source_bindings": {
+    "art/data/bar_fixture_mounts/source_plan.json": "d3827329012a40ea7d97b5ce201a6ace25344bf02a6dc54a932ee566ea466386",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_bar_fixture_mounts.py": "644d42e2aac165b4a6e01dade5523223afae8e2264e772fbf5c6b1a4787f6a5c",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/data/material_catalog.json": "68c0b5481f91dd30c1df5b0149301e69a9c128de45700c0c4d527ff8b68ac949",
+    "game/data/runtime_material_sets.json": "7dcebba827322252b43ddae6dfdc6b0b5e11576f6ca44da0b37368ba9e2bb62f",
+    "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+    "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+    "game/scripts/props/light_fixture_prop.gd": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
+    "game/assets/props/bar_fixture_mounts.glb.import": "588058658b0b3275f27e4c3db9a430c23e145bf747883db776d2935faab4f226",
+    "game/assets/building/floor_01_cells/shop_bar.gltf.import": "d65705bf9da299e254d2d27383a287a687e1a9234b2900b31e6128f1d91e2701",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b"
+  },
+  "open_work": [
+    "Original ceiling pipes and their service endpoints remain under retained ownership; complete their supports separately.",
+    "Overlapping original gallery pictures need a separate source-bound layout fit.",
+    "Independent electrical intake, supply capacity and remaining bar services are not established by these mounts.",
+    "Existing fixture bodies retain their light and interaction authority; wider fixture fabrication and surface review remain open."
+  ]
+}

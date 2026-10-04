@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_floor": "F01",
+  "marker_prefix": "F01_BAR_LT_",
+  "source_cell": "shop_bar",
+  "runtime_keys": ["iron_blackened", "brass_dull", "rubber_aged"],
+  "bearing_plate_m": 0.09,
+  "bearing_plate_thickness_m": 0.004,
+  "stem_radius_m": 0.008,
+  "flex_radius_m": 0.006,
+  "west_clear_wall_height_m": -0.23,
+  "sconce_rear_face_m": 0.0245,
+  "retained_rods": ["retail_bar_tabrod1", "retail_bar_tabrod2"],
+  "inline_flex": "retail_bar_well_flex",
+  "canopy": "retail_bar_canopy",
+  "canopy_stay_inset_m": 0.2,
+  "fit_tolerance_m": 0.00003,
+  "intent": "Fit the original fixture anchors to their actual retained fabric. Keep all eighteen source marker positions, light settings, controls and acoustic owners. Correct only the five sconce orientations to face the room. Carry the two west brackets above gallery and scoreboard decorations; preserve those objects. Join the existing well flex inline without treating its small end as a ceiling plate.",
+  "open_work": [
+    "Original ceiling pipes and their service endpoints remain under retained ownership; complete their supports separately.",
+    "Overlapping original gallery pictures need a separate source-bound layout fit.",
+    "Independent electrical intake, supply capacity and remaining bar services are not established by these mounts.",
+    "Existing fixture bodies retain their light and interaction authority; wider fixture fabrication and surface review remain open."
+  ]
+}
