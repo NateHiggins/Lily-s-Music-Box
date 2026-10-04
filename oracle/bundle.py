@@ -29,7 +29,7 @@ from oracle.cli import main
 if __name__ == "__main__":
     sys.exit(main())
 '''
-SKIP_DIRS = {"tests", "__pycache__", KIT_DIR}
+SKIP_DIRS = {"tests", "__pycache__", KIT_DIR, "app"}       # app: the phone build, which is not this program
 KEEP_SUFFIXES = {".py", ".json", ".md"}
 SKIP_FILES = {"README.md", "DESIGN.md"}          # documents about the program, not parts of it
 

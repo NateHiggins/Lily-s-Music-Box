@@ -2,7 +2,7 @@
 
 Evidence class: **INERT** (a design document for the oracle; it proves nothing about the Orison build)
 
-Status: version 0.2.0, 2026-10-03. Version 0.1.0, written the same day, narrated through a model by default, wrote a folder of files and could start a builder itself; this version is a standalone program whose one product is a prompt (section 8). This document and the files in **oracle/content/** are edited together: the content files carry the data, this file says what the data means. Section numbers here are cited by the source field in the meta block of each content file, so do not renumber them.
+Status: version 0.2.0, 2026-10-03. Version 0.1.0, written the same day, narrated through a model by default, wrote a folder of files and could start a builder itself; this version is a standalone program whose one product is a prompt (section 8). On 2026-10-04 a phone version was added beside it (section 14); the program itself did not change. This document and the files in **oracle/content/** are edited together: the content files carry the data, this file says what the data means. Section numbers here are cited by the source field in the meta block of each content file, so do not renumber them.
 
 ## 1. What this is
 
@@ -360,7 +360,7 @@ The night is told from the authored rooms unless a model is asked for. Nothing l
 
 All of it on 2026-10-03, on one Windows 11 machine.
 
-- **Tests.** 132 tests in **oracle/tests/** pass on Python 3.12.10 and on 3.11.9 (`python -m unittest discover -s oracle/tests -t .`). They cover the Beta arithmetic against known values; the confidence caps; same-scene discounting; contested evidence; explicit against behavioral weight; re-weighting of ambiguous observations; the profile as a pure function of the log; content validity and coverage; the keyword matcher; a whole night from the page; hard caps; the house choosing at a threshold; the hint card (section 5.4, each of its rules); how acts are written down (section 5.5); save and resume; the model-narrator path with a scripted stand-in; stream filtering at four chunk sizes; the rule draft for five personas; uncertainty with no evidence; validation, repair and fallback of model answers; the prompt (every part in order, every fact once, every vector field with its basis, every vision pointing at the paragraph that fulfils it, the grant's fields and its reserved list, the scope held and the three fixed lines, weaker evidence never required, every unknown listed, one event one echo, evidence told about the player and never to the builder, a player's typed words quoted and inert, nothing about the person, no file of this program's named, the same night giving the same text, a night with no evidence saying so); where the prompt is kept, that a later copy leaves the kept one alone, and that forgetting takes a whole id; the project folder (the manual copied with its checker, nothing replaced, a core without its reference said to be alone); the clipboard code against stand-in tools; the end of a night in order; what a night that keeps nothing is and is not told; that no model is called unless asked for; one-line errors where a file cannot be written; the developer view and its escaping; the command line; terminal wrapping; and the program as one file and as a folder copied elsewhere, each run as a real process from a directory that holds nothing of the source, including a whole night played through the single file.
+- **Tests.** 154 tests in **oracle/tests/** pass on Python 3.12.10; on 3.11.9, 150 pass and the four that compare the phone app's engine are skipped (`python -m unittest discover -s oracle/tests -t .`). The 22 that belong to the phone app are described in section 14.5. The rest cover the Beta arithmetic against known values; the confidence caps; same-scene discounting; contested evidence; explicit against behavioral weight; re-weighting of ambiguous observations; the profile as a pure function of the log; content validity and coverage; the keyword matcher; a whole night from the page; hard caps; the house choosing at a threshold; the hint card (section 5.4, each of its rules); how acts are written down (section 5.5); save and resume; the model-narrator path with a scripted stand-in; stream filtering at four chunk sizes; the rule draft for five personas; uncertainty with no evidence; validation, repair and fallback of model answers; the prompt (every part in order, every fact once, every vector field with its basis, every vision pointing at the paragraph that fulfils it, the grant's fields and its reserved list, the scope held and the three fixed lines, weaker evidence never required, every unknown listed, one event one echo, evidence told about the player and never to the builder, a player's typed words quoted and inert, nothing about the person, no file of this program's named, the same night giving the same text, a night with no evidence saying so); where the prompt is kept, that a later copy leaves the kept one alone, and that forgetting takes a whole id; the project folder (the manual copied with its checker, nothing replaced, a core without its reference said to be alone); the clipboard code against stand-in tools; the end of a night in order; what a night that keeps nothing is and is not told; that no model is called unless asked for; one-line errors where a file cannot be written; the developer view and its escaping; the command line; terminal wrapping; and the program as one file and as a folder copied elsewhere, each run as a real process from a directory that holds nothing of the source, including a whole night played through the single file.
 - **Breakages.** Sixteen deliberate breakages, each applied in memory with nothing else changed, turned the tests that guard them red. Two did not at first: a test borrowed the constant it was meant to check, and was rewritten to state it.
 - **Two independent readings.** A reviewer with no part in writing the code found ten defects by running it, among them a hint word that selected another option, requests for help that acted, a partial id that erased other nights' prompts, false promises to a night that keeps nothing, and a test that waited on the keyboard when run from a terminal. All ten are fixed and tested. Two more agents, one after the other, each read a prompt with the manual as a builder would (section 8); their findings changed the prompt and the manual together. The changes made after the second reading have not themselves been read by a third.
 - **Fuzzed nights.** 400 nights of random free text, hint words, option keywords and hostile lines (markup, template marks, 300-character lines, non-ASCII) all reached a well-formed prompt with no exception.
@@ -378,4 +378,63 @@ Not verified: an AI coder building a game from a prompt (the far side of the who
 - A working title is the name of a card the player earned, so many nights share one. It is a handle, and the manual has the builder propose a real name.
 - With a model narrating through the Codex command line a turn takes about twenty-five seconds and does not stream; `--length short` is the remedy.
 - The evidence strengths, the confidence caps and the selector's weights were set by judgment and by the simulated personas, not fitted to people. They are constants at the top of **model.py** and **probes.py**.
+- The phone app (section 14) plays the authored rooms only, keeps its nights apart from the terminal program's, and has not been run on a phone.
 - The personas are caricatures chosen to differ. They show that the pipeline separates distinct ways of playing; they do not show that it reads a real player correctly. Only people playing it, and saying whether the reading was right, can show that.
+
+## 14. The phone app
+
+**oracle/app/** is the same game with a touch screen on it: one page (**web/**), and a small Android app that carries the page (**android/**). `python -m oracle.app.build` makes both. None of it is part of the program: the single-file build leaves it out, and nothing in sections 1 to 13 depends on it.
+
+An Android package that carried a Python runtime would be tens of megabytes and would need a build chain downloaded to make it. The page is about 390 KB and the package about 135 KB, and both are made with tools the development machine already had. The price is a second engine. Section 14.1 is how that price is paid.
+
+### 14.1 The second engine
+
+**web/engine.js** is a port of the authored-rooms path: the player model, the selector, the house as authored, the turn loop, the rule synthesis, the prompt and the boundary. It has no model narrator. The authored content is not copied into it: **build.py** exports what the Python loader has already validated, leaving out only the notes that a narrating model would read, so both engines read the same rooms.
+
+The port is held to the original night for night. The tests record nights played through the Python engine (every line typed, every word said in reply, the evidence, the design, the reading, the prompt), replay the same lines through the JavaScript engine in Node, and require them to agree: words exactly, numbers to one part in a thousand million. That only works if chance and arithmetic are the same, so the port rebuilds what Python does underneath: the Mersenne Twister, seeded from a string the way CPython seeds it (through SHA-512); `random`, `randrange`, `choice`, `choices`, `shuffle` and `uniform` drawn in CPython's order; rounding to a number of places with ties to even; CPython's gamma function, for the incomplete beta function; word boundaries and whitespace as Python's regular expressions see them; slicing by code point. One difference survived all of that and showed in one night of 350: since Python 3.12, `sum()` adds floats with compensation, and a confidence that sat on a threshold fell the other way. The port now sums the same way, and the comparison is skipped on older Pythons, where Python differs from itself.
+
+The same replay puts each night down and picks it up again every fourth turn, the way the phone does: the whole session is written out as JSON, read back, and a new engine made over it.
+
+### 14.2 The screen types for you
+
+The screen does only what a typist at the terminal could do: it sends lines of text to the engine and shows what comes back. That keeps a night played by touch the same night, giving the same evidence.
+
+- A way onward is a button, and pressing it sends that way's own name.
+- The deck is a button, and pressing it sends the word hint. The hint card (section 5.4) then appears as a card, and its words become buttons. They stay for the rest of that room, as they would stay on a terminal's screen: never more words than the deck showed, and never a word whose moment has passed.
+- The pockets button sends the word inventory. Between rooms it only shows what is carried and sends nothing, because there a line that names no way counts toward the house choosing for the player.
+- Everything else is typed, in the player's own words, as before.
+
+What the screen adds is presentation: a pip for each room of the night, a card that takes a face shown as a card, the reading as a spread turned one card at a time, and a pause before the reading (the player sits when ready, so the last of the house's words can be read first).
+
+The end of the night is the prompt, exactly as the terminal writes it, with a button that copies it and, in the Android app, one that hands it to another app. The phone does not have the manual, so the two steps printed beside the prompt say where it goes.
+
+### 14.3 What is kept, and what cannot leave
+
+The page keeps three things in the browser's own storage for that page: the night in progress (rewritten after every turn), the last reading with its prompt, and the text size. The menu's **Forget** erases the first two. Where a browser refuses storage, the page says so on its first screen and keeps the night only while it stays open. A night kept by the app is not in **~/.blank-deck**, and the terminal program does not know of it.
+
+Nothing is sent anywhere, and three things hold that:
+
+- the page has no network code, and a test reads its sources for any;
+- the page as a file carries a content policy that allows no connection of any kind;
+- the Android app declares no permissions. Without the network permission the system gives an app no network. The build reads the finished package back and refuses it if it asks for anything, and a test does the same.
+
+The app is also excluded from cloud backup and from phone-to-phone transfer, so what it keeps stays on the phone it was typed on. The one way text leaves is the player pressing the button that hands the prompt to another app.
+
+### 14.4 The package
+
+**build.py** makes the package with the Android SDK's own tools and a Java kit, in this order: compile and link the resources (aapt2), compile the one Java class (javac), convert it (d8), add it to the package, align (zipalign), sign (apksigner). There is no Gradle and nothing is downloaded. Then it reads the package back with the same tools and refuses it unless the signature verifies, it asks for no permissions, the page inside is byte for byte the page that was built, its resource table is stored uncompressed (Android 11 and later refuse otherwise), and it names itself as intended.
+
+The Java class is a window around the page. It gives the page the two things a page cannot do for itself on a phone (put text on the clipboard, hand text to another app) and the back key. The app needs Android 8.0, which lets the launcher icon be drawn as vectors with no image files.
+
+The signing key is made on the building machine the first time and kept in the data directory, so that a later build installs over an earlier one; the version number of a package counts minutes on the clock for the same reason. It is a debug key with the conventional password, which protects nothing: it is right for one's own phone. A key for anything else is named with `--keystore`, and its password is read from the environment, never asked for and never written down.
+
+### 14.5 What was verified, and what was not
+
+On 2026-10-04, on the same machine as section 12.
+
+- **The engine.** 80 recorded nights are compared in the test suite on every run (20 persona nights and 60 fuzzed ones: 2,407 turns and 565 put-downs). A larger run of 1,600 nights (500 persona nights and 1,100 fuzzed ones: 46,724 turns and 11,071 put-downs) found no difference in any word, observation, state, design field, reading or prompt.
+- **The page.** One whole night was played through in a desktop browser at a phone's width, the taps made by script and each screen looked at: the first screen, the hint card and its words, the ways, a card taking a face, the menu and the text size, stepping outside and returning, sitting for the reading, every card turned, and the prompt. The copy button was not pressed, because that would have written to the owner's clipboard.
+- **The package.** Built, and read back: its manifest, the classes in its code, its signature (schemes 2 and 3), no permissions. The launcher icon was drawn from its vector source and looked at, at four sizes and under both mask shapes.
+- **The tests.** 22 tests cover the comparison, the page (whole, reaching for nothing, carrying the program's rooms, unchanged by a checkout's line endings, every part its script reaches for present), the search for the tools against a folder that only looks like an SDK, and the package itself. Seventeen deliberate breakages, each made in a copy, turned the tests that guard them red; one did not at first (a style rule that was checked too loosely) and the test was tightened.
+
+Not verified: the app on a phone. This machine has no emulator and no phone was attached, so nothing above says how it behaves there: whether the storage persists as expected, how the keyboard sits against the page, the copy and share buttons, the back key, or how it looks on a real screen. The page has been run in one browser engine only.

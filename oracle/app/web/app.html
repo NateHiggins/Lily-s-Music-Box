@@ -1,0 +1,123 @@
+<main id="app">
+
+  <!-- The counter: where a night starts -->
+  <section id="start" class="screen">
+    <div class="start-inner">
+      <div class="fan" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <h1 class="title">The Blank Deck</h1>
+      <p class="lede">A narrow shop you have never noticed. A dry voice hands you a deck of blank cards and an errand: carry them up through the house, and bring them back with faces.</p>
+      <p class="lede quiet">At the top, you are told what you will play. The last card is for whoever builds it.</p>
+
+      <div id="resumeBox" class="resume" hidden>
+        <p>The house has kept your place.</p>
+        <button id="resumeBtn" class="btn solid" type="button">Return to the house</button>
+      </div>
+      <div id="lastBox" class="resume" hidden>
+        <p id="lastLabel">Your last reading is kept.</p>
+        <button id="lastBtn" class="btn" type="button">See its prompt again</button>
+      </div>
+
+      <fieldset class="lengths">
+        <legend>How long a night</legend>
+        <label><input type="radio" name="length" id="lengthShort" value="short"><span><b>Short</b> about 15 minutes</span></label>
+        <label><input type="radio" name="length" id="lengthStandard" value="standard" checked><span><b>Standard</b> about 25</span></label>
+        <label><input type="radio" name="length" id="lengthLong" value="long"><span><b>Long</b> about 35</span></label>
+      </fieldset>
+      <button id="beginBtn" class="btn solid wide" type="button">Take the deck</button>
+
+      <p class="kept" id="keptNote"></p>
+      <button id="rulesBtn" class="link" type="button">Text size, and forgetting what is kept</button>
+    </div>
+  </section>
+
+  <!-- The house -->
+  <section id="play" class="screen" hidden>
+    <header class="bar">
+      <span class="bar-title">The Blank Deck</span>
+      <span id="pips" class="pips" role="img" aria-label=""></span>
+      <button id="menuBtn" class="icon-btn" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+    </header>
+    <div id="log" class="log" aria-live="polite"></div>
+    <div class="hand">
+      <div id="ways" class="ways" hidden></div>
+      <div id="chips" class="chips" hidden></div>
+      <div class="tools" id="tools">
+        <button id="deckBtn" class="tool" type="button" title="Ask the deck for a hint">
+          <span class="deck-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Deck</span><b id="deckCount" hidden></b>
+        </button>
+        <button id="pocketsBtn" class="tool" type="button" title="See what you are carrying">Pockets</button>
+        <span class="tool-hint" id="toolHint">Say what you do, in your own words.</span>
+      </div>
+      <button id="sitBtn" class="btn solid wide" type="button" hidden>Sit for the reading</button>
+      <form id="say" class="say" autocomplete="off">
+        <input id="line" type="text" inputmode="text" enterkeyhint="send" maxlength="300" aria-label="What you do" placeholder="What do you do?">
+        <button id="sendBtn" class="send" type="submit" aria-label="Do it"><span aria-hidden="true">&#x2192;</span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- The Reading Room -->
+  <section id="reading" class="screen" hidden>
+    <div class="reading-inner">
+      <p id="laying" class="house"></p>
+      <p id="address" class="proprietor"></p>
+      <ul id="recollections" class="recollections"></ul>
+      <div id="spread" class="spread"></div>
+      <button id="turnBtn" class="btn solid wide" type="button">Turn the first card</button>
+      <p id="pronouncement" class="pronouncement" hidden></p>
+      <p id="lastCard" class="house" hidden></p>
+      <p id="handoff" class="proprietor" hidden></p>
+      <button id="toPromptBtn" class="btn solid wide" type="button" hidden>The card for your builder</button>
+    </div>
+  </section>
+
+  <!-- The last card: the prompt -->
+  <section id="prompt" class="screen" hidden>
+    <div class="prompt-inner">
+      <p class="eyebrow">The last card</p>
+      <h2 id="gameTitle" class="game-title"></h2>
+      <p id="promptMeta" class="quiet"></p>
+      <div class="actions">
+        <button id="copyBtn" class="btn solid" type="button">Copy the prompt</button>
+        <button id="shareBtn" class="btn" type="button" hidden>Share it</button>
+      </div>
+      <p id="copyStatus" class="status" role="status"></p>
+      <ol class="steps">
+        <li>Give an empty folder THE AI STUDIO MANUAL: <code>AI_GAME_DEVELOPMENT_MANUAL.md</code> and the <code>manual/</code> folder beside it.</li>
+        <li>Open your AI coder in that folder and paste this prompt. It will tell you, first, what game it means to build.</li>
+      </ol>
+      <label class="prompt-label" for="promptText">The prompt, exactly as written</label>
+      <textarea id="promptText" class="prompt-text" readonly spellcheck="false"></textarea>
+      <div class="actions end">
+        <button id="againBtn" class="btn" type="button">Play another night</button>
+        <button id="backToReadingBtn" class="btn" type="button">See the reading again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- The menu -->
+  <div id="menu" class="sheet" hidden>
+    <div class="sheet-inner" role="dialog" aria-label="Menu">
+      <h3>The house rules</h3>
+      <p class="quiet" id="menuKept"></p>
+      <div class="sheet-row">
+        <span>Text size</span>
+        <span class="sizes">
+          <button id="sizeSmall" class="chip-btn" type="button">Small</button>
+          <button id="sizeMedium" class="chip-btn" type="button">Medium</button>
+          <button id="sizeLarge" class="chip-btn" type="button">Large</button>
+        </span>
+      </div>
+      <button id="leaveBtn" class="btn wide" type="button">Step outside (the house keeps your place)</button>
+      <button id="forgetBtn" class="btn wide danger" type="button">Forget everything kept here</button>
+      <div id="forgetConfirm" class="confirm" hidden>
+        <p>Every night and every prompt kept here will be erased. This cannot be undone.</p>
+        <button id="forgetYes" class="btn danger" type="button">Erase it all</button>
+        <button id="forgetNo" class="btn" type="button">Keep it</button>
+      </div>
+      <button id="closeMenuBtn" class="btn solid wide" type="button">Close</button>
+    </div>
+  </div>
+
+  <p id="broken" class="broken" hidden></p>
+</main>

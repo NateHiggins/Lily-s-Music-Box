@@ -8,6 +8,8 @@ You carry a deck of blank cards up through a strange house. At the top, the card
 
 It is a standalone program. It needs Python and nothing else: no model, no account, no network. Nothing you type leaves your computer. It was developed on Python 3.12 and its tests also pass on 3.11; it is written to run on 3.9 or later, which has not been run.
 
+There is also a version for a phone: an Android app, and the same game as a single page. See **On a phone** below.
+
 ## Play
 
 From the repository root:
@@ -76,6 +78,31 @@ python blank_deck.pyz
 
 Every command on this page works the same way with `python blank_deck.pyz` in place of `python -m oracle`. A copied **oracle** folder also runs on its own: `python path/to/oracle`.
 
+## On a phone
+
+```bash
+python -m oracle.app.build
+```
+
+writes two files into **build/**:
+
+| File | What it is |
+|---|---|
+| **blank_deck.apk** | the game as an Android app, about 135 KB, for Android 8.0 or later. It asks the phone for no permissions, so it has no network at all |
+| **blank_deck.html** | the same game as one page, about 390 KB, for any current browser on any device |
+
+It is the same game with a touch screen on it: the same rooms, the same reading, and the same prompt at the end, with a button that copies it and, in the app, one that hands it to another app. The ways onward are buttons. The deck is a button that asks for a hint. Everything else you still say in your own words. A night is kept on the phone after every turn; the menu's **Forget** erases what is kept there.
+
+To put the app on a phone, copy **blank_deck.apk** to it and open it there: the phone asks once whether to allow an install from that source. Or, with the phone connected and USB debugging on:
+
+```bash
+adb install -r build/blank_deck.apk
+```
+
+The package is made with the Android SDK's own tools and a Java kit. There is no Gradle and nothing is downloaded; where the tools are missing, the command still writes the page and says what it did not find. The package is signed with a key made on this machine and kept under **~/.blank-deck/android**, so a later build installs over an earlier one. That key suits your own phone and not a store: `--keystore FILE` signs with another, and reads its password from the environment variable **BLANK_DECK_KEYSTORE_PASSWORD**.
+
+The engine in the page is a second implementation, in JavaScript. The tests hold it to the first: they play the same nights through both and require the same words, the same evidence and the same prompt. The package has been built and read back with the SDK's tools, and the page has been played through in a desktop browser at a phone's width. Neither has been run on a phone: the machine that built them has no emulator, and no phone was attached.
+
 ## What the house knew
 
 ```bash
@@ -133,7 +160,7 @@ plays five caricatured ways of playing through whole nights and prints the game 
 python -m unittest discover -s oracle/tests -t .
 ```
 
-runs the 132 tests. No model is called, the clipboard is not touched, and the only thing launched is this program itself.
+runs the 154 tests. No model is called and the clipboard is not touched. They launch this program itself; Node, to replay nights through the phone app's engine; and the Android SDK's tools, to build the package and read it back. The tests that need Node, the SDK or Python 3.12 are skipped where those are missing, and say so.
 
 ```bash
 python -m oracle doctor
@@ -154,6 +181,7 @@ checks the content and says what this computer has: the clipboard tool, where th
 | **synthesis.py** | from profile to design and reading |
 | **prompt.py** | the prompt, where it is kept, and the project folder |
 | **clipboard.py**, **bundle.py** | the clipboard, and the single-file build |
+| **app/** | the phone version: the page (**web/**), the Android shell around it (**android/**), and **build.py**, which makes both |
 | **narrator.py**, **backends.py** | the optional model narrator |
 | **devview.py** | the developer view |
 | **guard.py** | the boundary |

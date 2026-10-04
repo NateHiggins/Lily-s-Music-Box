@@ -804,6 +804,7 @@ class StandaloneTests(unittest.TestCase):
                        "oracle/manual_kit/manual/REF_PROCESS.md", f"oracle/manual_kit/manual/{CHECKER}"):
             self.assertIn(needed, names)
         self.assertFalse([n for n in names if "/tests/" in n or "__pycache__" in n or n.endswith("scratch.txt")])
+        self.assertFalse([n for n in names if n.startswith("oracle/app/")])       # the phone build stays behind
         self.assertEqual(self.info["bytes"], self.info["path"].stat().st_size)
         self.assertEqual(self.info["reference"], 1)
 
