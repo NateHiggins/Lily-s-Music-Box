@@ -241,3 +241,11 @@ game/assets/props/city_aerials.glb.import -text
 art/blender/scripts/build_city_aerials.py -text
 art/blender/scripts/fabrication_uvs.py -text
 art/blender/scripts/build_city_masts.py -text
+art/blender/city_tanks.blend binary
+art/data/city_tanks/source_plan.json -text
+art/blender/city_tanks_construction.json -text
+game/tests/fixtures/orison_city_tanks.json -text
+game/assets/props/city_tanks.glb.import -text
+art/blender/scripts/build_city_tanks.py -text
+art/tools/build_tank_staves.py -text
+art/textures/procedural/tank_staves/material.json -text

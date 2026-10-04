@@ -24,3 +24,4 @@ func _ready() -> void:
 		model.add_child(body)
 	preload("res://scripts/building/orison_v2_city_masts.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_aerials.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_tanks.gd").mount(self)

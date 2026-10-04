@@ -1,0 +1,21 @@
+{
+  "material": "tank_staves",
+  "generator": "art/tools/build_tank_staves.py",
+  "source": "Deterministic periodic straight fibre; no photographs, AI plate, lettering or baked illumination.",
+  "seed": 19281112,
+  "meters_per_tile": 1.0,
+  "relief_mm": 0.1,
+  "long_grain_axis": "U",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "1b7939b22a61b51b015ea061a655c293e6ff035f6ba395a39173bd8e8d6cc8bf",
+    "roughness": "35c4bf990aeac4f41297dabc40f553770a1ccc1d75445cc63b345d8f3dce4fde",
+    "height": "ecccd957681d9f3d392c88bdcae9cbc7d6758621d5e99847022a67bf50f40108",
+    "normal": "1859f5b69a4150d0c32b75459dfaef7714d7f9bfdf56c837c533e9f8dbb468c0"
+  }
+}

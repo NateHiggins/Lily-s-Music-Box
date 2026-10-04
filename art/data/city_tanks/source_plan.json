@@ -1,0 +1,35 @@
+{
+  "schema": "orison.city-tanks.v1",
+  "classification": "ADAPTATION",
+  "roles": [
+    "wtank",
+    "wcone",
+    "wband",
+    "wleg-1-1",
+    "wleg-11",
+    "wleg1-1",
+    "wleg11"
+  ],
+  "original_record_count": 98,
+  "segments": 32,
+  "wall_segments": 128,
+  "staves": 64,
+  "stave_samples": 4,
+  "wall_thickness": 0.06,
+  "joint_groove_depth": 0.002,
+  "bottom_thickness": 0.06,
+  "cap_overhang": 0.08,
+  "cap_sheet_thickness": 0.004,
+  "plate_width": 0.22,
+  "plate_thickness": 0.012,
+  "bolt_radius": 0.008,
+  "bolt_height": 0.008,
+  "post_collar_height": 0.05,
+  "anchor_snap_margin": 0.01,
+  "maximum_segment_length": 4.0,
+  "runtime_keys": [
+    "metal",
+    "tank_staves"
+  ],
+  "open_work": "Original passive tanks only. Retain original body radii/heights, relative upper leg positions and cap apex heights. Record fitted on-roof assembly translations that clear existing hardware, and the fitted cover overhang against the undersized original cone proxy. No added supply, liquid simulation, occupied spaces or controls. Original Orison house tank remains separate. Beacon housings, weather joints, city drainage and broad textures remain open; heating cuts parked."
+}
