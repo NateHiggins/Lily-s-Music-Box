@@ -119,15 +119,17 @@ def sha256_value(value: Any) -> str:
     return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
 
 
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
+def sha256_file(path: Path, *, normalize_lf: bool = True) -> str:
+    """Bind text independently of checkout line endings (RUL-010).
+
+    Historical sidecars omit sha256_encoding and retain their raw-byte
+    contract. This explicit legacy mode does not accept a different hash.
+    """
     try:
-        with path.open("rb") as handle:
-            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-                digest.update(chunk)
+        data = path.read_bytes()
     except OSError as exc:
         raise SourceOwnershipError(f"cannot read {path}: {exc}") from exc
-    return digest.hexdigest()
+    return hashlib.sha256(data.replace(b"\r\n", b"\n") if normalize_lf else data).hexdigest()
 
 
 def source_record_sha256(collection: str, record: Mapping[str, Any]) -> str:
@@ -269,6 +271,8 @@ def _validate_header(sidecar: Mapping[str, Any], layout: Mapping[str, Any]) -> N
     layout_digest = binding.get("sha256")
     if not isinstance(layout_digest, str) or not _SHA256_RE.fullmatch(layout_digest):
         raise SourceOwnershipError("source_layout sha256 is malformed")
+    if binding.get("sha256_encoding", "raw_bytes") not in ("raw_bytes", "lf_normalized"):
+        raise SourceOwnershipError("source_layout sha256_encoding is unknown")
 
 
 def _validate_rulings(
@@ -462,7 +466,10 @@ def load_source_catalog(
     if not isinstance(binding, Mapping):
         raise SourceOwnershipError("source_layout binding must be an object")
     expected_digest = binding.get("sha256")
-    actual_digest = sha256_file(layout_path)
+    encoding = binding.get("sha256_encoding", "raw_bytes")
+    if encoding not in ("raw_bytes", "lf_normalized"):
+        raise SourceOwnershipError("source_layout sha256_encoding is unknown")
+    actual_digest = sha256_file(layout_path, normalize_lf=encoding == "lf_normalized")
     if expected_digest != actual_digest:
         raise SourceOwnershipError(
             "protected layout byte hash does not match source ownership sidecar: "

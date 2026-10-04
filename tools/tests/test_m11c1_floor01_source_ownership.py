@@ -23,7 +23,7 @@ from m11c1_floor01_owner_first import source_ownership as ownership  # noqa: E40
 LAYOUT_PATH = REPO_ROOT / ownership.DEFAULT_LAYOUT
 SIDECAR_PATH = REPO_ROOT / ownership.DEFAULT_SIDECAR
 PROTECTED_LAYOUT_SHA256 = (
-    "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
 )
 
 
@@ -239,6 +239,32 @@ class RealCatalogTests(unittest.TestCase):
         catalog = ownership.load_source_ownership(LAYOUT_PATH, SIDECAR_PATH)
         self.assertIsInstance(catalog, dict)
         self.assertEqual(catalog, self.resolved)
+
+    def test_checkout_line_endings_keep_identities_and_content_drift_is_refused(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "layout.json"
+            data = LAYOUT_PATH.read_bytes().replace(b"\r\n", b"\n")
+            for encoded in (data, data.replace(b"\n", b"\r\n")):
+                path.write_bytes(encoded)
+                self.assertEqual(ownership.sha256_file(path), PROTECTED_LAYOUT_SHA256)
+                self.assertEqual(ownership.load_source_catalog(path, SIDECAR_PATH), self.resolved)
+            path.write_bytes(data.replace(b'"F01"', b'"FXX"', 1))
+            with self.assertRaisesRegex(ownership.SourceOwnershipError, "byte hash"):
+                ownership.load_source_catalog(path, SIDECAR_PATH)
+
+    def test_legacy_raw_hash_sidecar_remains_strict(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); path = root / "layout.json"; sidecar = root / "owners.json"
+            data = LAYOUT_PATH.read_bytes().replace(b"\r\n", b"\n")
+            path.write_bytes(data.replace(b"\n", b"\r\n"))
+            old = copy.deepcopy(self.sidecar)
+            del old["source_layout"]["sha256_encoding"]
+            old["source_layout"]["sha256"] = ownership.sha256_file(path, normalize_lf=False)
+            sidecar.write_text(json.dumps(old), encoding="utf-8")
+            self.assertEqual(ownership.load_source_catalog(path, sidecar), self.resolved)
+            path.write_bytes(data)
+            with self.assertRaisesRegex(ownership.SourceOwnershipError, "byte hash"):
+                ownership.load_source_catalog(path, sidecar)
 
     def test_author_tool_refuses_to_remap_existing_durable_ids(self):
         changed_layout = copy.deepcopy(self.layout)

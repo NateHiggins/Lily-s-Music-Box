@@ -264,6 +264,7 @@ def build_sidecar(
         "source_layout": {
             "path": contract.DEFAULT_LAYOUT.as_posix(),
             "sha256": protected_layout_sha256,
+            "sha256_encoding": "lf_normalized",
             "floor_recordset_sha256": contract.floor_recordset_sha256(layout),
         },
         "source_collections": list(contract.SOURCE_COLLECTIONS),
