@@ -42,6 +42,12 @@ duplicates enable these charts without modifying shared projection or lighting.
 Stone remains provisionally mapped to concrete; the original bronze roof/parapet
 designation remains source-owned. Neither is a broad material acceptance claim.
 
+The runtime assigns every material explicitly from the shared catalogue. Native
+PBR materials stay in Blender; the portable export omits their unused embedded
+material/map copies. The asset falls from 12,069,664 to 1,876,832 bytes while every
+expanded position, normal, UV, tangent and node pose remains exactly identical.
+This payload reduction is not a frame-rate claim.
+
 ## Inspection and reproducibility
 
 Rebuild with the saved original native and **scripts/build_city_closure.py**.
@@ -78,8 +84,7 @@ All 47 gates compare with **tmp/city-beacons/379b467-clean-board.json**; zero NE
 unread fields and no new spatial failure remain required. Native/chart/contact
 counts are stated above; suite verdicts come only from completed bound receipts.
 
-Changes outside the asset/runtime/test boundary: hash attributes, exact derived
-embedded-image ignores, source-work inventory and documentation. Catalogue maps,
+Changes outside the asset/runtime/test boundary: hash attributes, exact legacy derived-image ignores, source-work inventory and documentation. Catalogue maps,
 fifteen visual locks, historical protected systems and owner captures remain.
 
 Open findings: coordinated main-roof falls/outlets and downstream drainage,

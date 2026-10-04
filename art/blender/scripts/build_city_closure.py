@@ -226,7 +226,7 @@ class ExportUVHandedness:
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=ROOT/'game/assets/props/city_shells.glb'
-bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True)
+bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='NONE')
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
 
 bindings=[plan_path,layout_path,registration_path,native_path,v2_path,ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'game/data/runtime_material_sets.json']
