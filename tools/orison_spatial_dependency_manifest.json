@@ -195936,6 +195936,297 @@
    "rationale": "Test-only filter of existing shop markers, with no literal missing identity or evidence promotion.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "a44816cde52aee5c",
+   "kind": "id_reference",
+   "token": "retail_bar_ball0",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b8a4cbcdad6f5496",
+   "kind": "id_reference",
+   "token": "retail_bar_ball1",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "78e9bb726884aac5",
+   "kind": "id_reference",
+   "token": "retail_bar_ball2",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8775f36f70e0da84",
+   "kind": "id_reference",
+   "token": "retail_bar_ball3",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cef952f33233cc7f",
+   "kind": "id_reference",
+   "token": "retail_bar_ball4",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0e2c887599c25b29",
+   "kind": "id_reference",
+   "token": "retail_bar_pool_body",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9b555dfeec89297d",
+   "kind": "id_reference",
+   "token": "retail_bar_pool_felt",
+   "file": "game/data/orison_v2/bar_pool.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained Harukiya pool source; native fitter refuses any source identity, material or envelope change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5ea867241e48358f",
+   "kind": "id_reference",
+   "token": "F01_BAR_POOL",
+   "file": "game/tests/orison_v2_bar_pool_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    68
+   ],
+   "count": 1,
+   "context": [
+    "var chalk: PointBallProp=bar.actors.get_node(\"F01_BAR_POOL\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Installed pool test checks original chalk and inspection positions in the retained bar frame; no ledger promotion.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "926dc802e2a68e72",
+   "kind": "node_path",
+   "token": "F01_BAR_POOL",
+   "file": "game/tests/orison_v2_bar_pool_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    68
+   ],
+   "count": 1,
+   "context": [
+    "var chalk: PointBallProp=bar.actors.get_node(\"F01_BAR_POOL\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Installed pool test checks original chalk and inspection positions in the retained bar frame; no ledger promotion.",
+   "resolved_target": "F01/marker",
+   "target_exists": null
+  },
+  {
+   "key": "ffd335b72080f78a",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_bar_pool_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    69,
+    70
+   ],
+   "count": 2,
+   "context": [
+    "check(chalk!=null and chalk.position.distance_to(Vector3(-6.52,-2.02,30.70))<.000001,\"original chalk owner and source position remain\")",
+    "check(bar.actors.get_node(\"BAR_POOL_TABLE\").position.distance_to(Vector3(-7.4,-1.95,31.25))<.000001,\"retained pool inspection volume remains fitted\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "DISTANCE_THRESHOLD",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Installed pool test checks original chalk and inspection positions in the retained bar frame; no ledger promotion.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

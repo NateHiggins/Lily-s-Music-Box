@@ -70,6 +70,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original shop chairs, chapel benches and soda-counter stools | `art/blender/shop_seating.md` |
 | Wrapped hand-laundry parcels, hung shirts, supported rail and ironing furniture | `art/blender/laundry_fittings.md` |
 | Open laundry tubs, opposed-roll wringer, flat irons and supported drying racks | `art/blender/laundry_apparatus.md` |
+| Fitted Harukiya pool frame, six open pockets and five original balls | `art/blender/bar_pool.md` |
 | All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |
 | Rear service door, receiving approach and continuous street-connected alley | `art/blender/service_alley.md` |
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |

@@ -51,6 +51,10 @@ func _ready() -> void:
 		return
 	var geometry := scene.instantiate() as Node3D
 	geometry.name = "RetainedBarGeometry"
+	if not preload("res://scripts/building/orison_v2_bar_pool.gd").mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native pool table does not fit its retained source boundaries")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
@@ -92,6 +96,9 @@ func _ready() -> void:
 	var rect: Array = pool.rect
 	actors.get_node("BAR_POOL_TABLE").position = GameBoot.b2g([
 		(rect[0] + rect[2]) * .5, (rect[1] + rect[3]) * .5, float(pool.z0) + .85])
+	if not preload("res://scripts/building/orison_v2_bar_pool.gd").fit_inspection(actors.get_node("BAR_POOL_TABLE")):
+		_fail("native pool inspection target is missing or invalid")
+		return
 	floor_copy.furniture = floor_copy.furniture.filter(func(f): return str(f.id).begins_with("retail_bar"))
 	var bar_layout := {"floors": [floor_copy]}
 	var arcade := ArcadeRow.new()

@@ -4,6 +4,8 @@ import json
 import math
 import collections
 import hashlib
+import os
+import subprocess
 import bpy
 import bmesh
 import numpy as np
@@ -17,6 +19,8 @@ sets_path=root/'game/data/runtime_material_sets.json'
 sets=json.loads(sets_path.read_text(encoding='utf-8'))['materials']
 plan['bindings']['game/data/runtime_material_sets.json']=hashlib.sha256(sets_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 plan['bindings']['art/blender/scripts/build_orison_ground.py']=hashlib.sha256(Path(__file__).read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+packing_tool=root/'art/tools/repack_blend.cjs'
+plan['bindings']['art/tools/repack_blend.cjs']=hashlib.sha256(packing_tool.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 foundation_path=base/'city_foundations_construction.json'
 foundation=json.loads(foundation_path.read_text(encoding='utf-8'))
 if 'grade_envelope' in foundation:
@@ -34,9 +38,15 @@ plan['occupation_reservations'].extend(reservations['reservations'])
 plan['surface_exclusions'].append(next(r for r in reservations['reservations'] if r['owner']=='BoilerWell/ConstructionAndAir'))
 plan['bindings'].update(reservations['bindings'])
 plan['bindings']['art/blender/alley_groundworks_reservations.json']=hashlib.sha256(reservations_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+bar_path=root/'art/data/orison_ground/bar_reservations.json'
+bar=json.loads(bar_path.read_text(encoding='utf-8'))
+plan['retained_solids'].extend(bar['retained_solids'])
+plan['occupation_reservations'].extend(bar['reservations'])
+plan['bindings'].update(bar['bindings'])
+plan['bindings']['art/data/orison_ground/bar_reservations.json']=hashlib.sha256(bar_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 for relative, expected in plan['bindings'].items():
     path = root / relative
-    raw = path.read_bytes() if path.suffix in ['.blend','.glb'] else path.read_text(encoding='utf-8').replace('\r\n', '\n').encode()
+    raw = path.read_bytes() if path.suffix in ['.blend','.glb','.bin'] else path.read_text(encoding='utf-8').replace('\r\n', '\n').encode()
     assert hashlib.sha256(raw).hexdigest() == expected, relative
 def native_coordinate(value):
     # Blender stores mesh coordinates as float32. Use their actual represented
@@ -287,6 +297,13 @@ for ((ix, iz), family), faces in sorted(groups.items()):
                     'internal_caps': False})
 out = base / 'orison_ground.blend'
 bpy.ops.wm.save_as_mainfile(filepath=str(out), compress=True)
+packed=work/'orison-ground-zstd19.blend';packing_report=work/'orison-ground-packing.json'
+assert packed.resolve().is_relative_to(root.resolve())
+packed.unlink(missing_ok=True)
+subprocess.run([os.environ.get('BLEND_ZSTD_NODE','node'),str(packing_tool),str(out),str(packed),str(packing_report)],check=True)
+storage=json.loads(packing_report.read_text())
+assert storage['decoded_bytes_identical'] and storage['target_bytes']<100*1024*1024
+os.replace(packed,out)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in parts: obj.select_set(True)
 bpy.context.view_layer.objects.active = parts[0]
@@ -301,6 +318,7 @@ bpy.ops.export_scene.gltf(filepath=str(asset), export_format='GLB', export_yup=T
                           export_tangents=True, use_selection=True)
 assert ExportUVHandedness.count == len(parts)
 metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
+            'native_storage':{'format':'seekable_zstd','level':storage['zstd_level'],'decoded_sha256':storage['decoded_sha256'],'decoded_bytes':storage['decoded_bytes'],'frames':storage['frames']},
             'cell_coordinate_encoding':'Float32 represented native planes, after the existing five-decimal source rounding.',
             'surface_phase':'Registered global metre axes, with each local origin reduced by whole catalogue tiles only.',
             'closed_union_non_manifold_edges': non_manifold, 'buried_quads_omitted': buried, 'site_base_quads_omitted': site_base_omitted,

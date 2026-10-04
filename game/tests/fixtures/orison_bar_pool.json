@@ -1,0 +1,1249 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "retail_bar_pool_body",
+      "rect": [
+        -8.4,
+        -31.9,
+        -6.4,
+        -30.6
+      ],
+      "z0": -2.8,
+      "h": 0.78,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_pool_felt",
+      "rect": [
+        -8.28,
+        -31.78,
+        -6.52,
+        -30.72
+      ],
+      "z0": -2.0199999999999996,
+      "h": 0.04,
+      "mat": "felt_violet"
+    },
+    {
+      "id": "retail_bar_ball0",
+      "rect": [
+        -7.65,
+        -31.4,
+        -7.590000000000001,
+        -31.34
+      ],
+      "z0": -1.98,
+      "h": 0.055,
+      "mat": "enamel"
+    },
+    {
+      "id": "retail_bar_ball1",
+      "rect": [
+        -7.3,
+        -31.1,
+        -7.24,
+        -31.040000000000003
+      ],
+      "z0": -1.98,
+      "h": 0.055,
+      "mat": "terracotta"
+    },
+    {
+      "id": "retail_bar_ball2",
+      "rect": [
+        -7.0,
+        -31.45,
+        -6.94,
+        -31.39
+      ],
+      "z0": -1.98,
+      "h": 0.055,
+      "mat": "brass"
+    },
+    {
+      "id": "retail_bar_ball3",
+      "rect": [
+        -6.7,
+        -31.0,
+        -6.640000000000001,
+        -30.94
+      ],
+      "z0": -1.98,
+      "h": 0.055,
+      "mat": "fabric_green"
+    },
+    {
+      "id": "retail_bar_ball4",
+      "rect": [
+        -7.45,
+        -30.85,
+        -7.390000000000001,
+        -30.790000000000003
+      ],
+      "z0": -1.98,
+      "h": 0.055,
+      "mat": "bakelite"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "retail_bar_pool_body",
+      "kind": "table",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    },
+    {
+      "id": "retail_bar_ball0",
+      "kind": "ball",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    },
+    {
+      "id": "retail_bar_ball1",
+      "kind": "ball",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    },
+    {
+      "id": "retail_bar_ball2",
+      "kind": "ball",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    },
+    {
+      "id": "retail_bar_ball3",
+      "kind": "ball",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    },
+    {
+      "id": "retail_bar_ball4",
+      "kind": "ball",
+      "cell": "shop_bar",
+      "floor": {
+        "id": "retail_bar_floor",
+        "rect": [
+          -11.8,
+          -38.199999999999996,
+          4.0,
+          -28.65
+        ],
+        "z0": -2.87,
+        "h": 0.07,
+        "mat": "quarry_tile"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "retail_bar_pool_body_Foot0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.0014548767020731634
+    },
+    {
+      "name": "retail_bar_pool_body_Leg0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.013388513581710212
+    },
+    {
+      "name": "retail_bar_pool_body_LegCap0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.003063008397729439
+    },
+    {
+      "name": "retail_bar_pool_body_Foot1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.0014548767020731634
+    },
+    {
+      "name": "retail_bar_pool_body_Leg1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.013388559540709347
+    },
+    {
+      "name": "retail_bar_pool_body_LegCap1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.0030630017784442423
+    },
+    {
+      "name": "retail_bar_pool_body_Foot2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.0014548767020731634
+    },
+    {
+      "name": "retail_bar_pool_body_Leg2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.013388513574807545
+    },
+    {
+      "name": "retail_bar_pool_body_LegCap2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.003063008396352102
+    },
+    {
+      "name": "retail_bar_pool_body_Foot3",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.0014548767020731634
+    },
+    {
+      "name": "retail_bar_pool_body_Leg3",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.013388559536680732
+    },
+    {
+      "name": "retail_bar_pool_body_LegCap3",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.003063001780053905
+    },
+    {
+      "name": "retail_bar_pool_body_Apron0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.015792286236253956
+    },
+    {
+      "name": "retail_bar_pool_body_Apron1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.015792286220795444
+    },
+    {
+      "name": "retail_bar_pool_body_Apron2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.009355565839468102
+    },
+    {
+      "name": "retail_bar_pool_body_Apron3",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.009355474886137007
+    },
+    {
+      "name": "retail_bar_pool_body_BedBearer0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.003230010913814809
+    },
+    {
+      "name": "retail_bar_pool_body_BedBearer1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.002805831829578037
+    },
+    {
+      "name": "retail_bar_pool_body_BedBearer2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.003230039519725371
+    },
+    {
+      "name": "retail_bar_pool_body_Bed",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.058640413787838686
+    },
+    {
+      "name": "retail_bar_pool_body_Baize",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0036251046687867843
+    },
+    {
+      "name": "retail_bar_pool_body_Rail0",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.015852326235432188
+    },
+    {
+      "name": "retail_bar_pool_body_Rail1",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.015852326235457237
+    },
+    {
+      "name": "retail_bar_pool_body_Rail2",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.00837316139559328
+    },
+    {
+      "name": "retail_bar_pool_body_Rail3",
+      "assembly": "retail_bar_pool_body",
+      "key": "wood_dark",
+      "volume_m3": 0.008373161395369713
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion0_Section0",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0007253764417973726
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion0_Section1",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.000725376875845005
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion1_Section0",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0007253764287781899
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion1_Section1",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0007253768758450052
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion2",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0008631074049695009
+    },
+    {
+      "name": "retail_bar_pool_body_Cushion3",
+      "assembly": "retail_bar_pool_body",
+      "key": "felt_violet",
+      "volume_m3": 0.0008631214761260845
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018716236608399574
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron0",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992953181053511e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap0_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788908068992157e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap0_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790494686808451e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap0_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788920021982835e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap0_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789938954048294e-07
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018715952501640375
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron1",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992970421233283e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap1_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788927964892764e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap1_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790514331354858e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap1_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap1_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789958272189131e-07
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018716047027677858
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron2",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992970421233283e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap2_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap2_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790514331354858e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap2_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap2_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789958272189131e-07
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018716236624679496
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron3",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992953181053511e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap3_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788908068992157e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap3_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789938954048294e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap3_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788920021982835e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap3_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790494686808451e-07
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket4",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018715952497729493
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron4",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992970421233283e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap4_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788927964892764e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap4_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789958272189131e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap4_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap4_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790514331354858e-07
+    },
+    {
+      "name": "retail_bar_pool_body_Pocket5",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 0.00018716047034180738
+    },
+    {
+      "name": "retail_bar_pool_body_PocketIron5",
+      "assembly": "retail_bar_pool_body",
+      "key": "cast_iron",
+      "volume_m3": 9.992970421233283e-06
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap5_0",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap5_1",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.789958272189131e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap5_2",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.788965862728676e-07
+    },
+    {
+      "name": "retail_bar_pool_body_PocketStrap5_3",
+      "assembly": "retail_bar_pool_body",
+      "key": "pocket_canvas",
+      "volume_m3": 6.790514331354858e-07
+    },
+    {
+      "name": "retail_bar_ball0_Ball",
+      "assembly": "retail_bar_ball0",
+      "key": "enamel",
+      "volume_m3": 8.676446299167808e-05
+    },
+    {
+      "name": "retail_bar_ball1_Ball",
+      "assembly": "retail_bar_ball1",
+      "key": "terracotta",
+      "volume_m3": 8.676446299167808e-05
+    },
+    {
+      "name": "retail_bar_ball2_Ball",
+      "assembly": "retail_bar_ball2",
+      "key": "brass",
+      "volume_m3": 8.676446299167808e-05
+    },
+    {
+      "name": "retail_bar_ball3_Ball",
+      "assembly": "retail_bar_ball3",
+      "key": "fabric_green",
+      "volume_m3": 8.676446299167808e-05
+    },
+    {
+      "name": "retail_bar_ball4_Ball",
+      "assembly": "retail_bar_ball4",
+      "key": "bakelite",
+      "volume_m3": 8.676446299167808e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "retail_bar_pool_body",
+      "owner": "retail_bar_floor",
+      "point": [
+        -8.18,
+        -2.8,
+        31.68
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pool foot on retained bar floor"
+    },
+    {
+      "assembly": "retail_bar_pool_body",
+      "owner": "retail_bar_floor",
+      "point": [
+        -6.62,
+        -2.8,
+        31.68
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pool foot on retained bar floor"
+    },
+    {
+      "assembly": "retail_bar_pool_body",
+      "owner": "retail_bar_floor",
+      "point": [
+        -8.18,
+        -2.8,
+        30.82
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pool foot on retained bar floor"
+    },
+    {
+      "assembly": "retail_bar_pool_body",
+      "owner": "retail_bar_floor",
+      "point": [
+        -6.62,
+        -2.8,
+        30.82
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pool foot on retained bar floor"
+    },
+    {
+      "assembly": "retail_bar_ball0",
+      "owner": "retail_bar_pool_body",
+      "point": [
+        -7.620000000000001,
+        -2.0549999999999997,
+        31.369999999999997
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original ball seated on fitted baize"
+    },
+    {
+      "assembly": "retail_bar_ball1",
+      "owner": "retail_bar_pool_body",
+      "point": [
+        -7.27,
+        -2.0549999999999997,
+        31.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original ball seated on fitted baize"
+    },
+    {
+      "assembly": "retail_bar_ball2",
+      "owner": "retail_bar_pool_body",
+      "point": [
+        -6.970000000000001,
+        -2.0549999999999997,
+        31.42
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original ball seated on fitted baize"
+    },
+    {
+      "assembly": "retail_bar_ball3",
+      "owner": "retail_bar_pool_body",
+      "point": [
+        -6.67,
+        -2.0549999999999997,
+        30.97
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original ball seated on fitted baize"
+    },
+    {
+      "assembly": "retail_bar_ball4",
+      "owner": "retail_bar_pool_body",
+      "point": [
+        -7.42,
+        -2.0549999999999997,
+        30.82
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original ball seated on fitted baize"
+    }
+  ],
+  "parts": [
+    {
+      "name": "retail_bar_pool_body__cast_iron",
+      "assembly": "retail_bar_pool_body",
+      "cell": "shop_bar",
+      "key": "cast_iron",
+      "triangles": 9216
+    },
+    {
+      "name": "retail_bar_pool_body__felt_violet",
+      "assembly": "retail_bar_pool_body",
+      "cell": "shop_bar",
+      "key": "felt_violet",
+      "triangles": 1564
+    },
+    {
+      "name": "retail_bar_pool_body__pocket_canvas",
+      "assembly": "retail_bar_pool_body",
+      "cell": "shop_bar",
+      "key": "pocket_canvas",
+      "triangles": 9096
+    },
+    {
+      "name": "retail_bar_pool_body__wood_dark",
+      "assembly": "retail_bar_pool_body",
+      "cell": "shop_bar",
+      "key": "wood_dark",
+      "triangles": 7868
+    },
+    {
+      "name": "retail_bar_ball0__enamel",
+      "assembly": "retail_bar_ball0",
+      "cell": "shop_bar",
+      "key": "enamel",
+      "triangles": 3968
+    },
+    {
+      "name": "retail_bar_ball1__terracotta",
+      "assembly": "retail_bar_ball1",
+      "cell": "shop_bar",
+      "key": "terracotta",
+      "triangles": 3968
+    },
+    {
+      "name": "retail_bar_ball2__brass",
+      "assembly": "retail_bar_ball2",
+      "cell": "shop_bar",
+      "key": "brass",
+      "triangles": 3968
+    },
+    {
+      "name": "retail_bar_ball3__fabric_green",
+      "assembly": "retail_bar_ball3",
+      "cell": "shop_bar",
+      "key": "fabric_green",
+      "triangles": 3968
+    },
+    {
+      "name": "retail_bar_ball4__bakelite",
+      "assembly": "retail_bar_ball4",
+      "cell": "shop_bar",
+      "key": "bakelite",
+      "triangles": 3968
+    }
+  ],
+  "triangles": 47584,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/bar_pool.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_bar",
+        "parts": [
+          {
+            "name": "retail_bar_pool_body__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "retail_bar_pool_body__felt_violet",
+            "key": "felt_violet",
+            "tile": 0.9
+          },
+          {
+            "name": "retail_bar_pool_body__pocket_canvas",
+            "key": "pocket_canvas",
+            "tile": 0.6,
+            "tint": [
+              0.42,
+              0.3,
+              0.18,
+              1.0
+            ],
+            "catalog_key": "linen"
+          },
+          {
+            "name": "retail_bar_pool_body__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.6
+          },
+          {
+            "name": "retail_bar_ball0__enamel",
+            "key": "enamel",
+            "tile": 0.18,
+            "tint": [
+              0.93,
+              0.9,
+              0.82,
+              1.0
+            ],
+            "catalog_key": "billiard_resin"
+          },
+          {
+            "name": "retail_bar_ball1__terracotta",
+            "key": "terracotta",
+            "tile": 0.18,
+            "tint": [
+              0.7,
+              0.16,
+              0.055,
+              1.0
+            ],
+            "catalog_key": "billiard_resin"
+          },
+          {
+            "name": "retail_bar_ball2__brass",
+            "key": "brass",
+            "tile": 0.18,
+            "tint": [
+              0.91,
+              0.62,
+              0.09,
+              1.0
+            ],
+            "catalog_key": "billiard_resin"
+          },
+          {
+            "name": "retail_bar_ball3__fabric_green",
+            "key": "fabric_green",
+            "tile": 0.18,
+            "tint": [
+              0.27,
+              0.5,
+              0.16,
+              1.0
+            ],
+            "catalog_key": "billiard_resin"
+          },
+          {
+            "name": "retail_bar_ball4__bakelite",
+            "key": "bakelite",
+            "tile": 0.18,
+            "tint": [
+              0.24,
+              0.13,
+              0.075,
+              1.0
+            ],
+            "catalog_key": "billiard_resin"
+          }
+        ],
+        "replace": [
+          {
+            "id": "retail_bar_pool_body",
+            "key": "wood_dark",
+            "low": [
+              -8.4,
+              -2.8,
+              30.6
+            ],
+            "high": [
+              -6.4,
+              -2.0199999999999996,
+              31.9
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_pool_felt",
+            "key": "felt_violet",
+            "low": [
+              -8.28,
+              -2.0199999999999996,
+              30.72
+            ],
+            "high": [
+              -6.52,
+              -1.9799999999999995,
+              31.78
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_ball0",
+            "key": "enamel",
+            "low": [
+              -7.65,
+              -1.98,
+              31.34
+            ],
+            "high": [
+              -7.590000000000001,
+              -1.925,
+              31.4
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_ball1",
+            "key": "terracotta",
+            "low": [
+              -7.3,
+              -1.98,
+              31.040000000000003
+            ],
+            "high": [
+              -7.24,
+              -1.925,
+              31.1
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_ball2",
+            "key": "brass",
+            "low": [
+              -7.0,
+              -1.98,
+              31.39
+            ],
+            "high": [
+              -6.94,
+              -1.925,
+              31.45
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_ball3",
+            "key": "fabric_green",
+            "low": [
+              -6.7,
+              -1.98,
+              30.94
+            ],
+            "high": [
+              -6.640000000000001,
+              -1.925,
+              31.0
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "retail_bar_ball4",
+            "key": "bakelite",
+            "low": [
+              -7.45,
+              -1.98,
+              30.790000000000003
+            ],
+            "high": [
+              -7.390000000000001,
+              -1.925,
+              30.85
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ],
+    "inspection": {
+      "center": [
+        -7.4,
+        -2.053,
+        31.25
+      ],
+      "size": [
+        0.8799999999999999,
+        0.004,
+        0.5300000000000011
+      ]
+    }
+  },
+  "asset_sha256": "d83d46cbd7175149157ef7214af95cf24d1c526b7adb10bd3e3dae4f3bda785f",
+  "source_bindings": {
+    "art/data/bar_pool/source_plan.json": "0fbf62a13c927e9672449813cb007b673432f7ddb5fdfa54452558a6d5f8a9cf",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_bar_pool.py": "4f1a3c2912cfdf4cc64e37b92928e178169dd128be71d9b15fc8e006a668b75d",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "7dcebba827322252b43ddae6dfdc6b0b5e11576f6ca44da0b37368ba9e2bb62f",
+    "game/scripts/generated/material_sets.gd": "5a1a661d7b604f32cb8f4fee983ee9c42aced6a6a2eb6f0eb27ead61d8a8d1a4",
+    "game/assets/props/bar_pool.glb.import": "f14a8b53aa8c0a7a34aebccc408ad1efe01bdb91682c792f0570d44d286f79eb",
+    "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
+    "art/textures/ai_materials/felt_violet_b/material.json": "e68dd5ae87f774482b3a5f882392d5112776768877b0b4c4010b41bbb7c7021a",
+    "art/textures/procedural/billiard_resin/material.json": "aec8ab42ba7d8f79393146da78057bfc725dccfb472a898ab1d320735f2cd453",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_ai_materials_felt_violet_b_albedo.png": "b06a0256dcc8b425a46a8827523c700334f2089ad7ccf34f98894fda35d69553",
+    "game/assets/building/textures/T_ai_materials_felt_violet_b_rough.png": "491e961f2007bd6d3702b28d0ce1bc84b0463849c9c2bf118f7196220790c4ea",
+    "game/assets/building/textures/T_ai_materials_felt_violet_b_normal.png": "e8fb511d1b46a9874bf5f1901498d40f0797310914b2c46606216ab6ba5461a5",
+    "game/assets/building/textures/T_ai_materials_billiard_resin_albedo.png": "b90d02d9104cfb45e881a1ab98a856756ec054947b1bd1a28ed9c584ef52d80e",
+    "game/assets/building/textures/T_ai_materials_billiard_resin_rough.png": "551f1d4dbf1024a73559749f5b154e2174fb2009ef18cbb6f1beae1388206d2d",
+    "game/assets/building/textures/T_ai_materials_billiard_resin_normal.png": "8f58532dbb8c2a65b941aa4e87dad2da9b18be242b4818673f1d609b4f708ff5",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+    "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f"
+  },
+  "fit": {
+    "bed_recess_m": 0.035,
+    "cloth_thickness_m": 0.002,
+    "pocket_radius_m": 0.058,
+    "pocket_inset_m": 0.04,
+    "pocket_depth_m": 0.18,
+    "leg_inset_m": 0.22,
+    "leg_width_m": 0.145,
+    "bed_thickness_m": 0.028
+  },
+  "period_form_source": "https://patents.google.com/patent/US1154865A/en",
+  "playing_top": -2.0549999999999997,
+  "pockets": [
+    {
+      "id": 0,
+      "mouth": [
+        -8.24,
+        -2.0549999999999997,
+        31.740000000000002
+      ],
+      "inner_bottom": [
+        -8.24,
+        -2.235,
+        31.740000000000002
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    },
+    {
+      "id": 1,
+      "mouth": [
+        -7.3999999999999995,
+        -2.0549999999999997,
+        31.740000000000002
+      ],
+      "inner_bottom": [
+        -7.3999999999999995,
+        -2.235,
+        31.740000000000002
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    },
+    {
+      "id": 2,
+      "mouth": [
+        -6.56,
+        -2.0549999999999997,
+        31.740000000000002
+      ],
+      "inner_bottom": [
+        -6.56,
+        -2.235,
+        31.740000000000002
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    },
+    {
+      "id": 3,
+      "mouth": [
+        -8.24,
+        -2.0549999999999997,
+        30.759999999999998
+      ],
+      "inner_bottom": [
+        -8.24,
+        -2.235,
+        30.759999999999998
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    },
+    {
+      "id": 4,
+      "mouth": [
+        -7.3999999999999995,
+        -2.0549999999999997,
+        30.759999999999998
+      ],
+      "inner_bottom": [
+        -7.3999999999999995,
+        -2.235,
+        30.759999999999998
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    },
+    {
+      "id": 5,
+      "mouth": [
+        -6.56,
+        -2.0549999999999997,
+        30.759999999999998
+      ],
+      "inner_bottom": [
+        -6.56,
+        -2.235,
+        30.759999999999998
+      ],
+      "radius_m": 0.058,
+      "floor_open_until": -2.235
+    }
+  ],
+  "ball_centers": [
+    {
+      "id": "retail_bar_ball0",
+      "center": [
+        -7.620000000000001,
+        -2.0275,
+        31.369999999999997
+      ],
+      "radius_m": 0.0275,
+      "original_z0": -1.98,
+      "fitted_z0": -2.0549999999999997
+    },
+    {
+      "id": "retail_bar_ball1",
+      "center": [
+        -7.27,
+        -2.0275,
+        31.07
+      ],
+      "radius_m": 0.0275,
+      "original_z0": -1.98,
+      "fitted_z0": -2.0549999999999997
+    },
+    {
+      "id": "retail_bar_ball2",
+      "center": [
+        -6.970000000000001,
+        -2.0275,
+        31.42
+      ],
+      "radius_m": 0.0275,
+      "original_z0": -1.98,
+      "fitted_z0": -2.0549999999999997
+    },
+    {
+      "id": "retail_bar_ball3",
+      "center": [
+        -6.67,
+        -2.0275,
+        30.97
+      ],
+      "radius_m": 0.0275,
+      "original_z0": -1.98,
+      "fitted_z0": -2.0549999999999997
+    },
+    {
+      "id": "retail_bar_ball4",
+      "center": [
+        -7.42,
+        -2.0275,
+        30.82
+      ],
+      "radius_m": 0.0275,
+      "original_z0": -1.98,
+      "fitted_z0": -2.0549999999999997
+    }
+  ],
+  "open_work": [
+    "Retained cue remains under its original imported owner.",
+    "Point Ball stays the original chalk and panel owner; no physical ball simulation is introduced.",
+    "Broader bar services, storage and surface review remain open."
+  ]
+}

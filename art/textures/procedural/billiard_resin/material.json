@@ -1,0 +1,20 @@
+{
+  "material": "billiard_resin",
+  "generator": "art/tools/build_billiard_resin.py",
+  "source": "Code-authored neutral polished finish; individual source balls retain their distinct colour through instance tint.",
+  "seed": 19281117,
+  "meters_per_tile": 0.18,
+  "relief_mm": 0.008,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "b90d02d9104cfb45e881a1ab98a856756ec054947b1bd1a28ed9c584ef52d80e",
+    "roughness": "551f1d4dbf1024a73559749f5b154e2174fb2009ef18cbb6f1beae1388206d2d",
+    "height": "ce1a511b0d583321a4cce527fb6c78c0b5860e5a480d1272150503344fc6e7b5",
+    "normal": "8f58532dbb8c2a65b941aa4e87dad2da9b18be242b4818673f1d609b4f708ff5"
+  }
+}

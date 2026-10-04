@@ -1,0 +1,119 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 7,
+  "runtime_keys": [
+    "wood_dark",
+    "felt_violet",
+    "enamel",
+    "terracotta",
+    "brass",
+    "fabric_green",
+    "bakelite",
+    "pocket_canvas",
+    "cast_iron"
+  ],
+  "catalog_variants": {
+    "pocket_canvas": "linen",
+    "cast_iron": "iron_blackened",
+    "enamel": "billiard_resin",
+    "terracotta": "billiard_resin",
+    "brass": "billiard_resin",
+    "fabric_green": "billiard_resin",
+    "bakelite": "billiard_resin"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "table",
+      "sources": [
+        "retail_bar_pool_body",
+        "retail_bar_pool_felt"
+      ]
+    },
+    {
+      "kind": "ball",
+      "sources": [
+        "retail_bar_ball0"
+      ]
+    },
+    {
+      "kind": "ball",
+      "sources": [
+        "retail_bar_ball1"
+      ]
+    },
+    {
+      "kind": "ball",
+      "sources": [
+        "retail_bar_ball2"
+      ]
+    },
+    {
+      "kind": "ball",
+      "sources": [
+        "retail_bar_ball3"
+      ]
+    },
+    {
+      "kind": "ball",
+      "sources": [
+        "retail_bar_ball4"
+      ]
+    }
+  ],
+  "open_work": [
+    "Retained cue remains under its original imported owner.",
+    "Point Ball stays the original chalk and panel owner; no physical ball simulation is introduced.",
+    "Broader bar services, storage and surface review remain open."
+  ],
+  "period_form_source": "https://patents.google.com/patent/US1154865A/en",
+  "fit": {
+    "bed_recess_m": 0.035,
+    "cloth_thickness_m": 0.002,
+    "pocket_radius_m": 0.058,
+    "pocket_inset_m": 0.04,
+    "pocket_depth_m": 0.18,
+    "leg_inset_m": 0.22,
+    "leg_width_m": 0.145,
+    "bed_thickness_m": 0.028
+  },
+  "material_tints": {
+    "enamel": [
+      0.93,
+      0.9,
+      0.82,
+      1.0
+    ],
+    "terracotta": [
+      0.7,
+      0.16,
+      0.055,
+      1.0
+    ],
+    "brass": [
+      0.91,
+      0.62,
+      0.09,
+      1.0
+    ],
+    "fabric_green": [
+      0.27,
+      0.5,
+      0.16,
+      1.0
+    ],
+    "bakelite": [
+      0.24,
+      0.13,
+      0.075,
+      1.0
+    ],
+    "pocket_canvas": [
+      0.42,
+      0.3,
+      0.18,
+      1.0
+    ]
+  }
+}

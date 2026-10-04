@@ -319,3 +319,20 @@ art/tools/generate_runtime_materials.py -text
 art/textures/ai_materials/zinc_liner/material.json -text
 art/textures/ai_materials/rubber_aged/material.json -text
 art/textures/ai_materials/metal_b/material.json -text
+
+art/blender/bar_pool.blend binary
+art/blender/scripts/build_bar_pool.py -text
+art/blender/scripts/inspect_bar_pool.py -text
+art/blender/bar_pool_construction.json -text
+art/data/bar_pool/source_plan.json -text
+game/data/orison_v2/bar_pool.json -text
+game/tests/fixtures/orison_bar_pool.json -text
+game/assets/props/bar_pool.glb.import -text
+art/tools/build_billiard_resin.py -text
+art/tools/export_bar_ground_reservations.py -text
+art/tools/repack_blend.cjs -text
+art/blender/scripts/inspect_orison_ground.py -text
+art/data/orison_ground/bar_reservations.json -text
+art/textures/procedural/billiard_resin/material.json -text
+game/assets/building/textures/T_ai_materials_billiard_resin_*.png binary
+game/assets/building/textures/T_ai_materials_billiard_resin_*.png.import -text

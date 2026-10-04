@@ -70,6 +70,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "billiard_resin": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.18,
+      "catalog_mapping": "procedural/billiard_resin",
+      "files": [
+        "T_ai_materials_billiard_resin_albedo.png",
+        "T_ai_materials_billiard_resin_rough.png",
+        "T_ai_materials_billiard_resin_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.18,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "book_brown": {
       "alpha": false,
       "canonical_meters_per_tile": 0.32,

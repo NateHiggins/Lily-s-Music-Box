@@ -10,12 +10,15 @@ static func mount_laundry(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_laundry_apparatus(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/laundry_apparatus.json","LaundryApparatus","F01_retail_laundry_apparatus_","laundry_apparatus_part")
 
-static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String) -> bool:
+static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
+
+static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "") -> bool:
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
 	var matches: Array=[]
 	for row: Dictionary in data.cells:
-		if str(row.id)==str(cell.name):matches.append(row)
+		if str(row.id)==(str(cell.name) if cell_identity.is_empty() else cell_identity):matches.append(row)
 	if matches.is_empty():return true
 	if matches.size()!=1 or cell.has_node(model_name):return false
 	var record: Dictionary=matches[0]
@@ -68,12 +71,17 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	for part: Dictionary in record.parts:
 		if parts.has(str(part.name)) or float(part.tile)<=0.:model.free();return false
 		if not materials.has(str(part.key)) and (not part.has("catalog_key") or not MatLib.SETS.has(str(part.catalog_key))):model.free();return false
+		if part.has("tint"):
+			if part.tint is not Array or part.tint.size()!=4:model.free();return false
+			for component: Variant in part.tint:
+				if (component is not float and component is not int) or not is_finite(float(component)) or float(component)<0. or float(component)>1.:model.free();return false
+			if float(part.tint[3])!=1.:model.free();return false
 		parts[str(part.name)]=part
 	var mounted: Dictionary={};var local_materials: Dictionary={}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		if not parts.has(str(draw.name)):draw.free();continue
 		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
-		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)
+		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))
 		if not local_materials.has(material_slot):
 			var mat: StandardMaterial3D
 			if part.has("catalog_key"):
@@ -82,6 +90,9 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 				if absf(float(MatLib.SETS[catalog_key][3])-float(part.tile))>.000001:model.free();return false
 				mat=MatLib.get_mat(catalog_key).duplicate() as StandardMaterial3D
 			else:mat=materials[key].duplicate() as StandardMaterial3D
+			if part.has("tint"):
+				var tint: Array=part.tint
+				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
 			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
 			local_materials[material_slot]=mat
 		draw.mesh.surface_set_material(0,local_materials[material_slot])

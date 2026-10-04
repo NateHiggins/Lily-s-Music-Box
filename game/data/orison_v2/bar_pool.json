@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/bar_pool.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_bar",
+      "parts": [
+        {
+          "name": "retail_bar_pool_body__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "retail_bar_pool_body__felt_violet",
+          "key": "felt_violet",
+          "tile": 0.9
+        },
+        {
+          "name": "retail_bar_pool_body__pocket_canvas",
+          "key": "pocket_canvas",
+          "tile": 0.6,
+          "tint": [
+            0.42,
+            0.3,
+            0.18,
+            1.0
+          ],
+          "catalog_key": "linen"
+        },
+        {
+          "name": "retail_bar_pool_body__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "retail_bar_ball0__enamel",
+          "key": "enamel",
+          "tile": 0.18,
+          "tint": [
+            0.93,
+            0.9,
+            0.82,
+            1.0
+          ],
+          "catalog_key": "billiard_resin"
+        },
+        {
+          "name": "retail_bar_ball1__terracotta",
+          "key": "terracotta",
+          "tile": 0.18,
+          "tint": [
+            0.7,
+            0.16,
+            0.055,
+            1.0
+          ],
+          "catalog_key": "billiard_resin"
+        },
+        {
+          "name": "retail_bar_ball2__brass",
+          "key": "brass",
+          "tile": 0.18,
+          "tint": [
+            0.91,
+            0.62,
+            0.09,
+            1.0
+          ],
+          "catalog_key": "billiard_resin"
+        },
+        {
+          "name": "retail_bar_ball3__fabric_green",
+          "key": "fabric_green",
+          "tile": 0.18,
+          "tint": [
+            0.27,
+            0.5,
+            0.16,
+            1.0
+          ],
+          "catalog_key": "billiard_resin"
+        },
+        {
+          "name": "retail_bar_ball4__bakelite",
+          "key": "bakelite",
+          "tile": 0.18,
+          "tint": [
+            0.24,
+            0.13,
+            0.075,
+            1.0
+          ],
+          "catalog_key": "billiard_resin"
+        }
+      ],
+      "replace": [
+        {
+          "id": "retail_bar_pool_body",
+          "key": "wood_dark",
+          "low": [
+            -8.4,
+            -2.8,
+            30.6
+          ],
+          "high": [
+            -6.4,
+            -2.0199999999999996,
+            31.9
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_pool_felt",
+          "key": "felt_violet",
+          "low": [
+            -8.28,
+            -2.0199999999999996,
+            30.72
+          ],
+          "high": [
+            -6.52,
+            -1.9799999999999995,
+            31.78
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_ball0",
+          "key": "enamel",
+          "low": [
+            -7.65,
+            -1.98,
+            31.34
+          ],
+          "high": [
+            -7.590000000000001,
+            -1.925,
+            31.4
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_ball1",
+          "key": "terracotta",
+          "low": [
+            -7.3,
+            -1.98,
+            31.040000000000003
+          ],
+          "high": [
+            -7.24,
+            -1.925,
+            31.1
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_ball2",
+          "key": "brass",
+          "low": [
+            -7.0,
+            -1.98,
+            31.39
+          ],
+          "high": [
+            -6.94,
+            -1.925,
+            31.45
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_ball3",
+          "key": "fabric_green",
+          "low": [
+            -6.7,
+            -1.98,
+            30.94
+          ],
+          "high": [
+            -6.640000000000001,
+            -1.925,
+            31.0
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_ball4",
+          "key": "bakelite",
+          "low": [
+            -7.45,
+            -1.98,
+            30.790000000000003
+          ],
+          "high": [
+            -7.390000000000001,
+            -1.925,
+            30.85
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ],
+  "inspection": {
+    "center": [
+      -7.4,
+      -2.053,
+      31.25
+    ],
+    "size": [
+      0.8799999999999999,
+      0.004,
+      0.5300000000000011
+    ]
+  }
+}
