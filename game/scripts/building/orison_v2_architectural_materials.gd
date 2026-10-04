@@ -2,6 +2,7 @@ extends RefCounted
 ## Physical materials for the semantic geometry. The review palette is kept
 ## by the standalone blockout; the playable root explicitly enables this.
 var cache: Dictionary = {}
+var calibrated_stair: StandardMaterial3D
 
 func key_for(part: String, room_class: String) -> String:
 	if part.begins_with("B1_COAL_HEAP_"): return "soot"
@@ -41,4 +42,13 @@ func material_for(part: String, room_class: String) -> Material:
 		if entry.key == family:
 			recipe = entry.recipe
 			break
-	return SurfacePass.surface_for(MatLib.get_mat(key),recipe,key+":"+family,cache)
+	var base := MatLib.get_mat(key)
+	if key == "stair":
+		# A semantic material needs the same catalogue identity as an imported
+		# M_stair surface, otherwise its authored height map is never bound.
+		# Keep the named copy stable without changing MatLib's shared resource.
+		if calibrated_stair == null:
+			calibrated_stair = base.duplicate() as StandardMaterial3D
+			calibrated_stair.resource_name = "M_stair"
+		base = calibrated_stair
+	return SurfacePass.surface_for(base,recipe,key+":"+family,cache)

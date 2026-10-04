@@ -120,6 +120,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Articulated Blender car gate, fixed-thickness links and landing-door separation | `art/blender/lift_gate.md` |
 | Blender enamel floor signs, mounting spacers and readable runtime lettering | `art/blender/wayfinding_plate.md` |
 | Blender stair rails, tread stringers and landing support geometry | `art/blender/stair_ironwork.md` |
+| Honed stair marble, independent physical microrelief and real semantic shader binding | `art/blender/stair_honed.md` |
 | Editable Blender light switches, moving toggles and preserved V2 circuit ownership | `art/blender/light_switch.md` |
 | How to test all sixteen critters and live encroachment in Mina's actual V2 apartment | `game/docs/mina_debug_infestation.md` |
 | Which checkout to use and where retired worktrees were preserved | `design/WORKTREE_CONSOLIDATION_2026-09-21.md` |

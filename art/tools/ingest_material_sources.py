@@ -61,7 +61,9 @@ SLOTS = {
     # a true 5.7 cm face = 2.7 m coverage, measured not assumed.
     "floor_oak_worn": (["floor_oak"], 2.7, 0.55, 0.25, 3.5),
     "terrazzo_lobby": (["terrazzo"], 4.0, 0.38, 0.18, 2.0),
-    "stair_marble_worn": (["stair"], 1.2, 0.45, 0.20, 3.0),
+    # Honed slab pigment is independent of the microscopic surface profile.
+    # The former plate remains in ai_sources as historical source art.
+    "stair_marble_honed": (["stair"], 1.2, 0.448, 0.016, 0.16),
     "wainscot_beadboard": (["wainscot"], 0.72, 0.58, 0.15, 5.0),
     "trim_painted_layers": (["trim", "baluster"], 1.1, 0.52, 0.18, 3.5),
     "ceramic_hex_bath": (["ceramic"], 0.65, 0.42, 0.22, 4.5),
@@ -275,6 +277,14 @@ GODOT_STAGE = ("brass_bright", "brass_dull", "bronze", "car_paint",
                "sign_board", "chochin", "awning_vinyl")
 GODOT_TEX = os.path.join(ROOT, "game", "assets", "building", "textures")
 
+# These existing catalog families also need direct staging. Keep them outside
+# GODOT_STAGE, whose fixed prop finishes intentionally suppress family variants.
+GODOT_FAMILY_STAGE = ("stair", "stair_b", "stair_c")
+INDEPENDENT_SURFACES = {
+    "stair": {"model": "honed_microrelief_v1", "relief_mm": 0.16,
+              "seed": 19281130, "mean_rgb": [202.954, 201.437, 198.633]},
+}
+
 # Positioned wear plates are generated assets, not tileable source photos.
 # They still pass through GODOT_STAGE: that list is the reproducible contract
 # for every material a GDScript prop names. `fx_grease` keeps the RGBA plate
@@ -409,6 +419,11 @@ def anchor_color(albedo, key):
     # were left at the generator's darker mean.  Cycling that family per
     # storey made the building change exposure at every landing.
     base_key = re.sub(r"_[bcd]$", "", key)
+    if base_key in INDEPENDENT_SURFACES:
+        # Preserve the measured delivered stone value while removing baked
+        # wear bands. Float64 accumulation avoids a megapixel float32 mean bias.
+        target = np.asarray(INDEPENDENT_SURFACES[base_key]["mean_rgb"]) / 255.0
+        return np.clip(albedo + target - albedo.mean((0, 1), dtype=np.float64), 0, 1)
     hexa = COLOR_ANCHORS.get(key, COLOR_ANCHORS.get(base_key))
     if not hexa:
         return albedo
@@ -531,6 +546,31 @@ def _fit(img: Image.Image, kind: str) -> Image.Image:
     return img.resize((cap, cap), Image.LANCZOS)
 
 
+def independent_surface_maps(key: str, metres: float, size: int, rough_base: float):
+    """Periodic physical microrelief; mineral vein pigment carries no trench."""
+    base = re.sub(r"_[bcd]$", "", key)
+    recipe = INDEPENDENT_SURFACES[base]
+    rng = np.random.default_rng(recipe["seed"] ^ zlib.crc32(key.encode()))
+    frequency = np.fft.fftfreq(size)
+    fx, fy = np.meshgrid(frequency, frequency)
+
+    def field(cutoff):
+        value = np.fft.ifft2(np.fft.fft2(rng.standard_normal((size, size))) *
+                            np.exp(-((fx / cutoff)**2 + (fy / cutoff)**2))).real
+        return (value - value.mean()) / value.std()
+
+    grain, micro = field(.14), field(.35)
+    height = .5 + grain * .055 + micro * .045
+    low, high = np.percentile(height, [1, 99])
+    height = np.clip((height - low) / (high - low), 0, 1)
+    dx = (np.roll(height, -1, 1) - np.roll(height, 1, 1)) * recipe["relief_mm"] * .001 * size / (2 * metres)
+    dy = (np.roll(height, -1, 0) - np.roll(height, 1, 0)) * recipe["relief_mm"] * .001 * size / (2 * metres)
+    normal = np.stack((-dx, dy, np.ones_like(height)), axis=-1)
+    normal /= np.linalg.norm(normal, axis=-1)[..., None]
+    rough = np.clip(rough_base + grain * .008 + micro * .008, .05, 1)
+    return height, normal * .5 + .5, rough
+
+
 def write_set(key: str, albedo: np.ndarray, metres: float,
               rough_base: float, rough_span: float,
               normal_strength: float, source_name: str) -> None:
@@ -550,6 +590,10 @@ def write_set(key: str, albedo: np.ndarray, metres: float,
                        nz / norm * 0.5 + 0.5), axis=-1)
     rough = np.clip(rough_base + (0.5 - height) * rough_span * 2.0,
                     0.05, 1.0)
+    physical = INDEPENDENT_SURFACES.get(re.sub(r"_[bcd]$", "", key))
+    if physical:
+        height, normal, rough = independent_surface_maps(
+            key, metres, min(albedo.shape[0], SHIP_PX["height"]), rough_base)
     _fit(Image.fromarray((np.clip(albedo, 0, 1) * 255).astype(np.uint8),
                          "RGB"), "albedo").save(
         os.path.join(out_dir, "albedo.png"), optimize=True)
@@ -564,14 +608,18 @@ def write_set(key: str, albedo: np.ndarray, metres: float,
         os.path.join(out_dir, "normal.png"), optimize=True)
     with open(os.path.join(out_dir, "material.json"), "w",
               encoding="utf-8") as fh:
-        json.dump({
+        metadata = {
             "material": key,
             "source": "art/textures/ai_sources/%s.png" % source_name,
             "generator": "ingest_material_sources.py",
             "meters_per_tile": metres,
             "maps": {"albedo": "albedo.png", "roughness": "roughness.png",
                      "height": "height.png", "normal": "normal.png"},
-        }, fh, indent=2)
+        }
+        if physical:
+            metadata["source"] = "art/textures/ai_sources/stair_marble_honed.png"
+            metadata.update(height_model=physical["model"], relief_mm=physical["relief_mm"])
+        json.dump(metadata, fh, indent=2)
 
 
 
@@ -611,6 +659,7 @@ GRID_SLOTS = {
 }
 # mirror of build_orison's ROTATABLE: no direction, quarter turns legal
 ROT_OK = {"concrete_cellar", "plaster_aged", "plaster_stained",
+          "stair_marble_honed",
           "terrazzo_lobby", "asphalt_street", "wet_asphalt",
           "soil_potting", "charred_surface"}
 # keys that stay single: the elevator set (referenced by GDScript props
@@ -812,6 +861,10 @@ def _slot_fingerprint(slot, cands):
         "anchors": [[k, COLOR_ANCHORS.get(k), ANCHOR_STRENGTH]
                     for k in _slot_keys(slot, len(cands))],
     }
+    physical = {key: INDEPENDENT_SURFACES[key] for key in SLOTS[slot][0]
+                if key in INDEPENDENT_SURFACES}
+    if physical:
+        recipe["independent_surfaces"] = physical
     return "%08x" % (zlib.crc32(json.dumps(
         recipe, sort_keys=True, separators=(",", ":")).encode()) & 0xffffffff)
 
@@ -862,7 +915,7 @@ def _audit(groups, mapping):
         for key in _slot_keys(slot, len(cands)):
             if mapping.get(key) != "ai_materials/%s" % key:
                 errors.append("mapping missing/stale: %s" % key)
-    for key in GODOT_STAGE:
+    for key in GODOT_STAGE + GODOT_FAMILY_STAGE:
         for suffix in ("albedo", "rough", "normal"):
             path = os.path.join(GODOT_TEX,
                                 "T_ai_materials_%s_%s.png" % (key, suffix))
@@ -988,7 +1041,7 @@ def main() -> None:
     state["pipeline"] = PIPELINE_VERSION
     _write_json_atomic(STATE, state, sort_keys=True)
     stage_keys = []
-    for key in GODOT_STAGE:
+    for key in GODOT_STAGE + GODOT_FAMILY_STAGE:
         mapped = str(mapping.get(key, ""))
         source_key = (os.path.basename(mapped) if mapped.startswith(
                       "ai_materials/") else key)

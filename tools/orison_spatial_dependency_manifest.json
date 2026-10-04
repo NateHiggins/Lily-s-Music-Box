@@ -196517,6 +196517,62 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. Reviewed immutable F01 ceiling-stock membership: only forty-eight original faces receive metre charts and a local finish; original geometry, anchors and collision owner survive.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "ab59da25fea32bcf",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/height/stair.png",
+   "file": "game/tests/honed_stair_material_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d3f3adf144ebea59",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/honed_stair_material_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
