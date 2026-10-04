@@ -1,8 +1,7 @@
-"""Source-fitted graded paving, open catches and grated boiler well.
+"""Source-owned Orison roof/drainage construction.
 
-Retained masonry, coping, lamps and runtime state are unchanged. The exported
-trial replaces only paving/iron in the existing V2 alley module. External drain completion,
-boiler-window ventilation and weather acceptance remain separate checks.
+Retained gameplay authorities remain; geometry and material validation are
+independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
 import collections
@@ -89,6 +88,10 @@ for obj in paving:
                                max(p.x for p in ps),max(p.z for p in ps),-min(p.y for p in ps)]
 cuts=[('BoilerWell',[inner_x,-.5,z0-.14,outer,.10,z1+.14])]
 cuts += [('Catch_%d'%i,[drain_x-.151,-.5,z-.258,drain_x+.151,.10,z+.258]) for i,z in enumerate(drain_z)]
+receiver=json.loads((root/'art/blender/roof_drainage_reservations.json').read_bytes())
+for row in receiver['grade_ports']:
+    if row['provider']=='ServiceAlley':
+        a,b,c,d=row['rect'];cuts.append((row['id']+'_RoofReceiver',[a,-.5,b,c,.1,d]))
 cut_owners=[]
 for name,bounds in cuts:
     cutter=box(name+'_CUT',bounds,'concrete')
@@ -189,7 +192,7 @@ for x in [inner_x,drain_x,outer]:
 for z in [z0,z1]:
     iron_at_grade('WellEndBearing',[inner_x,z-.015,outer,z+.015],-.095,-.035)
 
-collector_recipe_path=Path(__file__).with_name('alley_drain_collector_recipe.py')
+collector_recipe_path=root/'art/blender/scripts/alley_drain_collector_recipe.py'
 recipe_spec=importlib.util.spec_from_file_location('alley_drain_collector_recipe',collector_recipe_path)
 recipe_module=importlib.util.module_from_spec(recipe_spec);recipe_spec.loader.exec_module(recipe_module)
 public_front=json.loads((root/'art/blender/front_pavement_construction.json').read_text(encoding='utf-8'))['envelope'][1]
@@ -275,7 +278,8 @@ for (key,ix,iy),triangles in sorted(groups.items()):
     obj=bpy.data.objects.new(name,mesh);obj.location=origin
     bpy.context.scene.collection.objects.link(obj);parts.append(obj)
     reports.append({'id':name,'material':key,'triangles':len(mesh.polygons)})
-path=base/'alley_groundworks.blend'
+path=root/'art/blender/alley_groundworks.blend'
+bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(path),compress=True)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in parts:obj.select_set(True)
@@ -319,7 +323,11 @@ metadata={'evidence_class':'INERT','parts':reports,'closed_source_pieces':proof,
           'asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
           'open':['Downstream street-main connection at the bolted property blank','Boiler air-window operating geometry','Joint-scale runoff and weather joins'],
           'note':'Fitted production construction, replacing only the original alley paving and iron owners. No new simulation or drainage-capacity verdict.'}
-(base/'alley_groundworks_construction.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8',newline='\n')
+metadata['bindings'].update({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [root/'art/blender/roof_drainage_reservations.json',Path(__file__)]})
+(root/'art/blender/alley_groundworks_construction.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('INERT ALLEY GROUNDWORKS:',len(proof),'closed source pieces;',len(parts),'bounded parts;',sum(p['triangles'] for p in reports),'triangles',flush=True)
 
 (root/'game/tests/fixtures/orison_alley_groundworks_construction.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8',newline='\n')
+
+(root/'game/tests/fixtures/orison_alley_groundworks_construction.json').write_bytes((root/'art/blender/alley_groundworks_construction.json').read_bytes())
+print('SOURCE PROVIDER BUILD; INDEPENDENT VALIDATION REQUIRED')

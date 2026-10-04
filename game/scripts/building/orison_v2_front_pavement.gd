@@ -14,5 +14,8 @@ func _ready() -> void:
 		body.name="PavementCollision"
 		draw.add_child(body)
 		var collision:=CollisionShape3D.new()
-		collision.shape=draw.mesh.create_trimesh_shape()
+		collision.shape=_native_shape(draw.mesh)
 		body.add_child(collision)
+
+func _native_shape(mesh: Mesh) -> ConcavePolygonShape3D:
+	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(mesh));return shape

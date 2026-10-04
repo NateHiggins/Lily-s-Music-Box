@@ -1,47 +1,9 @@
 {
-  "cap_outer_rect": [
-    -2.27,
-    -3.92,
-    5.470000000000001,
-    3.92
-  ],
-  "retained_cap_top": 22.4,
-  "bearing_toe": 0.003,
-  "sheet_thickness": 0.0012,
-  "roof_fall": 0.01,
-  "gutter_x": 5.525,
-  "gutter_z": [
-    -3.92,
-    3.92
-  ],
-  "gutter_radius": 0.05,
-  "gutter_wall": 0.0012,
-  "gutter_fall": 0.005,
-  "gutter_low_y": 22.345,
-  "outlet_z": 3.73,
-  "leader_bore_radius": 0.0381,
-  "seam_recipe": {
-    "x": [
-      -1.6746153846153846,
-      -1.0792307692307692,
-      -0.48384615384615404,
-      0.11153846153846159,
-      0.706923076923077,
-      1.302307692307692,
-      1.8976923076923078,
-      2.493076923076923,
-      3.0884615384615386,
-      3.683846153846154,
-      4.27923076923077,
-      4.8746153846153835
-    ],
-    "half_width": 0.003,
-    "extra_height": 0
-  },
-  "leader_wall_plates": [
-    19.8,
-    21.0,
-    22.032999999999998
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "authority": [
+    "art/data/orison_v2/roof_source.json:ROOF_PUBLIC_CORE",
+    "game/data/orison_v2_blockout.json:dimensions"
   ],
   "curb_outer_rect": [
     2.37,
@@ -56,6 +18,7 @@
     -0.14
   ],
   "cricket_rise": 0.028,
+  "flashing_top": 22.682,
   "cricket_facets": [
     {
       "id": "SouthFiller",
@@ -138,11 +101,3132 @@
       ]
     }
   ],
-  "flashing_top": 22.682,
-  "parts": 8,
-  "native_triangles": 6188,
+  "source_bindings": {
+    "game\\data\\orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art\\data\\orison_v2\\roof_source.json": "e1cbfa59244c0c3eb9ee5323db15282ee7618eafc55782003713440005b414d9",
+    "art\\data\\roof_public_weather\\source_plan.json": "bf2bef973ceae259c5b52cd810c8c1f658ecad52bf78add2d84d73be73b54965",
+    "art\\data\\runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "art/blender/roof_weather_retained_gutters.blend": "203bc1a5e542f37fe2cf2ed85b1622fc36695ab283185ffae347ff201a4be975",
+    "art/blender/roof_drainage_falls_construction.json": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+    "art/blender/scripts/roof_weather_retained_gutter.py": "cea6b6692f7b4490771a6e7dddd2669ee0f1fdbf6adda66180911617a5e77814",
+    "art/blender/scripts/build_roof_public_weathering.py": "c1806b510817ca8c99bccd566c8985862ff000bb8e50fdc6421c7304718bfa84"
+  },
+  "cap_outer_rect": [
+    -2.27,
+    -3.92,
+    5.470000000000001,
+    3.92
+  ],
+  "retained_cap_top": 22.4,
+  "bearing_toe": 0.003,
+  "sheet_thickness": 0.0012,
+  "roof_fall": 0.01,
+  "gutter_x": 5.525,
+  "gutter_z": [
+    -3.92,
+    3.92
+  ],
+  "gutter_radius": 0.05,
+  "gutter_wall": 0.0012,
+  "gutter_fall": 0.005,
+  "gutter_low_y": 22.345,
+  "outlet_z": 3.73,
+  "leader_bore_radius": 0.0381,
   "leader_y": [
-    19.224999999999998,
+    19.3689,
     22.333
+  ],
+  "parts": 8,
+  "native_triangles": 6410,
+  "sheets": [
+    {
+      "id": "PublicRoofBearing_0_0_AroundCourt0",
+      "key": "concrete",
+      "rect": [
+        -2.27,
+        -3.92,
+        1.6,
+        0.0
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_0_1_AroundCourt0",
+      "key": "concrete",
+      "rect": [
+        -2.27,
+        0.0,
+        1.6,
+        3.92
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt0",
+      "key": "concrete",
+      "rect": [
+        1.6,
+        -3.92,
+        2.0700000000000003,
+        0.0
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt1",
+      "key": "concrete",
+      "rect": [
+        2.0700000000000003,
+        -3.92,
+        2.37,
+        -2.01
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt2",
+      "key": "concrete",
+      "rect": [
+        2.0700000000000003,
+        -0.14,
+        2.37,
+        0.0
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt3",
+      "key": "concrete",
+      "rect": [
+        3.53,
+        -3.92,
+        5.470000000000001,
+        0.0
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt4",
+      "key": "concrete",
+      "rect": [
+        2.37,
+        -3.92,
+        3.53,
+        -1.98
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_0_AroundCourt5",
+      "key": "concrete",
+      "rect": [
+        2.37,
+        -0.17,
+        3.53,
+        0.0
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofBearing_1_1_AroundCourt0",
+      "key": "concrete",
+      "rect": [
+        1.6,
+        0.0,
+        5.470000000000001,
+        3.92
+      ],
+      "role": "tapered bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofSheet_00_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        -3.92,
+        -1.6776153846153845,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        -2.8,
+        -1.6776153846153845,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        -1.6800000000000002,
+        -1.6776153846153845,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        -0.56,
+        -1.6776153846153845,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        0.5599999999999996,
+        -1.6776153846153845,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        1.6800000000000006,
+        -1.6776153846153845,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_00_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -2.27,
+        2.8,
+        -1.6776153846153845,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        -3.92,
+        -1.082230769230769,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        -3.92,
+        -1.6716153846153847,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        -2.8,
+        -1.082230769230769,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        -2.8,
+        -1.6716153846153847,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        -1.6800000000000002,
+        -1.082230769230769,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        -1.6800000000000002,
+        -1.6716153846153847,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        -0.56,
+        -1.082230769230769,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        -0.56,
+        -1.6716153846153847,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        0.5599999999999996,
+        -1.082230769230769,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        0.5599999999999996,
+        -1.6716153846153847,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        1.6800000000000006,
+        -1.082230769230769,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        1.6800000000000006,
+        -1.6716153846153847,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_01_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6716153846153847,
+        2.8,
+        -1.082230769230769,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_01_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.6776153846153845,
+        2.8,
+        -1.6716153846153847,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        -3.92,
+        -0.48684615384615404,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        -3.92,
+        -1.0762307692307693,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        -2.8,
+        -0.48684615384615404,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        -2.8,
+        -1.0762307692307693,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        -1.6800000000000002,
+        -0.48684615384615404,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        -1.6800000000000002,
+        -1.0762307692307693,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        -0.56,
+        -0.48684615384615404,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        -0.56,
+        -1.0762307692307693,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        0.5599999999999996,
+        -0.48684615384615404,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        0.5599999999999996,
+        -1.0762307692307693,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        1.6800000000000006,
+        -0.48684615384615404,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        1.6800000000000006,
+        -1.0762307692307693,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_02_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.0762307692307693,
+        2.8,
+        -0.48684615384615404,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_02_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -1.082230769230769,
+        2.8,
+        -1.0762307692307693,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        -3.92,
+        0.10853846153846158,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        -3.92,
+        -0.48084615384615403,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        -2.8,
+        0.10853846153846158,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        -2.8,
+        -0.48084615384615403,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        -1.6800000000000002,
+        0.10853846153846158,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        -1.6800000000000002,
+        -0.48084615384615403,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        -0.56,
+        0.10853846153846158,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        -0.56,
+        -0.48084615384615403,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        0.5599999999999996,
+        0.10853846153846158,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        0.5599999999999996,
+        -0.48084615384615403,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        1.6800000000000006,
+        0.10853846153846158,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        1.6800000000000006,
+        -0.48084615384615403,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_03_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48084615384615403,
+        2.8,
+        0.10853846153846158,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_03_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        -0.48684615384615404,
+        2.8,
+        -0.48084615384615403,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        -3.92,
+        0.703923076923077,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        -3.92,
+        0.11453846153846159,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        -2.8,
+        0.703923076923077,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        -2.8,
+        0.11453846153846159,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        -1.6800000000000002,
+        0.703923076923077,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        -1.6800000000000002,
+        0.11453846153846159,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        -0.56,
+        0.703923076923077,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        -0.56,
+        0.11453846153846159,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        0.5599999999999996,
+        0.703923076923077,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        0.5599999999999996,
+        0.11453846153846159,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        1.6800000000000006,
+        0.703923076923077,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        1.6800000000000006,
+        0.11453846153846159,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_04_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.11453846153846159,
+        2.8,
+        0.703923076923077,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_04_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.10853846153846158,
+        2.8,
+        0.11453846153846159,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        -3.92,
+        1.299307692307692,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        -3.92,
+        0.709923076923077,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        -2.8,
+        1.299307692307692,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        -2.8,
+        0.709923076923077,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        -1.6800000000000002,
+        1.299307692307692,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        -1.6800000000000002,
+        0.709923076923077,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        -0.56,
+        1.299307692307692,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        -0.56,
+        0.709923076923077,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        0.5599999999999996,
+        1.299307692307692,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        0.5599999999999996,
+        0.709923076923077,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        1.6800000000000006,
+        1.299307692307692,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        1.6800000000000006,
+        0.709923076923077,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_05_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.709923076923077,
+        2.8,
+        1.299307692307692,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_05_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        0.703923076923077,
+        2.8,
+        0.709923076923077,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        -3.92,
+        1.894692307692308,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        -3.92,
+        1.3053076923076918,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        -2.8,
+        1.894692307692308,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        -2.8,
+        1.3053076923076918,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        -1.6800000000000002,
+        1.894692307692308,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        -1.6800000000000002,
+        1.3053076923076918,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        -0.56,
+        1.894692307692308,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        -0.56,
+        1.3053076923076918,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        0.5599999999999996,
+        1.894692307692308,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        0.5599999999999996,
+        1.3053076923076918,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        1.6800000000000006,
+        1.894692307692308,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        1.6800000000000006,
+        1.3053076923076918,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_06_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.3053076923076918,
+        2.8,
+        1.894692307692308,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_06_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.299307692307692,
+        2.8,
+        1.3053076923076918,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        -3.92,
+        2.490076923076923,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        -3.92,
+        1.9006923076923077,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        -2.8,
+        2.0700000000000003,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_01_AroundCourt1",
+      "key": "galvanized_roof",
+      "rect": [
+        2.0700000000000003,
+        -2.8,
+        2.37,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_01_AroundCourt2",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -2.8,
+        2.490076923076923,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        -2.8,
+        1.9006923076923077,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        -1.6800000000000002,
+        2.0700000000000003,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        -1.6800000000000002,
+        1.9006923076923077,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        -0.56,
+        2.0700000000000003,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_03_AroundCourt1",
+      "key": "galvanized_roof",
+      "rect": [
+        2.0700000000000003,
+        -0.14,
+        2.37,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_03_AroundCourt2",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -0.14,
+        2.490076923076923,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        -0.56,
+        1.9006923076923077,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        0.5599999999999996,
+        2.490076923076923,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        0.5599999999999996,
+        1.9006923076923077,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        1.6800000000000006,
+        2.490076923076923,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        1.6800000000000006,
+        1.9006923076923077,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_07_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.9006923076923077,
+        2.8,
+        2.490076923076923,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_07_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        1.894692307692308,
+        2.8,
+        1.9006923076923077,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        -3.92,
+        3.0854615384615385,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        -3.92,
+        2.4960769230769233,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        -2.8,
+        3.0854615384615385,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        -2.8,
+        2.4960769230769233,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        -0.14,
+        3.0854615384615385,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        -0.14,
+        2.4960769230769233,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        0.5599999999999996,
+        3.0854615384615385,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        0.5599999999999996,
+        2.4960769230769233,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        1.6800000000000006,
+        3.0854615384615385,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        1.6800000000000006,
+        2.4960769230769233,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_08_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.4960769230769233,
+        2.8,
+        3.0854615384615385,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_08_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.490076923076923,
+        2.8,
+        2.4960769230769233,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        -3.92,
+        3.680846153846154,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        -3.92,
+        3.0914615384615387,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.5599999999999996,
+        -2.8,
+        3.680846153846154,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_01_AroundCourt1",
+      "key": "galvanized_roof",
+      "rect": [
+        3.53,
+        -2.8,
+        3.5599999999999996,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_01_AroundCourt2",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        -2.8,
+        3.53,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        -2.8,
+        3.0914615384615387,
+        -2.01
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.5599999999999996,
+        -1.6800000000000002,
+        3.680846153846154,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.5599999999999996,
+        -0.56,
+        3.680846153846154,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_03_AroundCourt1",
+      "key": "galvanized_roof",
+      "rect": [
+        3.53,
+        -0.14,
+        3.5599999999999996,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_03_AroundCourt2",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        -0.14,
+        3.53,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        -0.14,
+        3.0914615384615387,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        0.5599999999999996,
+        3.680846153846154,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        0.5599999999999996,
+        3.0914615384615387,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        1.6800000000000006,
+        3.680846153846154,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        1.6800000000000006,
+        3.0914615384615387,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_09_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0914615384615387,
+        2.8,
+        3.680846153846154,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_09_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.0854615384615385,
+        2.8,
+        3.0914615384615387,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        -3.92,
+        4.27623076923077,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        -3.92,
+        3.686846153846154,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        -2.8,
+        4.27623076923077,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        -2.8,
+        3.686846153846154,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        -1.6800000000000002,
+        4.27623076923077,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        -1.6800000000000002,
+        3.686846153846154,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        -0.56,
+        4.27623076923077,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        -0.56,
+        3.686846153846154,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        0.5599999999999996,
+        4.27623076923077,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        0.5599999999999996,
+        3.686846153846154,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        1.6800000000000006,
+        4.27623076923077,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        1.6800000000000006,
+        3.686846153846154,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_10_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.686846153846154,
+        2.8,
+        4.27623076923077,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_10_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.680846153846154,
+        2.8,
+        3.686846153846154,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        -3.92,
+        4.871615384615383,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        -3.92,
+        4.28223076923077,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        -2.8,
+        4.871615384615383,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        -2.8,
+        4.28223076923077,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        -1.6800000000000002,
+        4.871615384615383,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        -1.6800000000000002,
+        4.28223076923077,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        -0.56,
+        4.871615384615383,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        -0.56,
+        4.28223076923077,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        0.5599999999999996,
+        4.871615384615383,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        0.5599999999999996,
+        4.28223076923077,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        1.6800000000000006,
+        4.871615384615383,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        1.6800000000000006,
+        4.28223076923077,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_11_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.28223076923077,
+        2.8,
+        4.871615384615383,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_11_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.27623076923077,
+        2.8,
+        4.28223076923077,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        -3.92,
+        5.470000000000001,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_00_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        -3.92,
+        4.877615384615384,
+        -2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        -2.8,
+        5.470000000000001,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_01_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        -2.8,
+        4.877615384615384,
+        -1.6800000000000002
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        -1.6800000000000002,
+        5.470000000000001,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_02_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        -1.6800000000000002,
+        4.877615384615384,
+        -0.56
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        -0.56,
+        5.470000000000001,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_03_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        -0.56,
+        4.877615384615384,
+        0.5599999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        0.5599999999999996,
+        5.470000000000001,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_04_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        0.5599999999999996,
+        4.877615384615384,
+        1.6800000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        1.6800000000000006,
+        5.470000000000001,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_05_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        1.6800000000000006,
+        4.877615384615384,
+        2.8
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSheet_12_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.877615384615384,
+        2.8,
+        5.470000000000001,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofSeam_12_06_AroundCourt0",
+      "key": "galvanized_roof",
+      "rect": [
+        4.871615384615383,
+        2.8,
+        4.877615384615384,
+        3.919999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketBearing_SouthFiller",
+      "key": "concrete",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -2.01
+        ],
+        [
+          2.37,
+          -2.01
+        ],
+        [
+          2.0700000000000003,
+          -1.075
+        ]
+      ],
+      "role": "cricket bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofCricketSheet_SouthFiller0_1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -2.01
+        ],
+        [
+          2.3400000000000003,
+          -2.01
+        ],
+        [
+          2.3400000000000003,
+          -1.9165000000000003
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketSheet_SouthFiller0_2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -2.01
+        ],
+        [
+          2.3400000000000003,
+          -1.9165000000000003
+        ],
+        [
+          2.0700000000000003,
+          -1.075
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketBearing_SouthCricket",
+      "key": "concrete",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.37,
+          -2.01
+        ],
+        [
+          2.37,
+          -1.075
+        ]
+      ],
+      "role": "cricket bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofCricketSheet_SouthCricket0_1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.075
+        ],
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.3400000000000003,
+          -1.9165000000000003
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketBearing_NorthCricket",
+      "key": "concrete",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.37,
+          -1.075
+        ],
+        [
+          2.37,
+          -0.14
+        ]
+      ],
+      "role": "cricket bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofCricketSheet_NorthCricket0_1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -0.23349999999999946
+        ],
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.3400000000000003,
+          -1.075
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketBearing_NorthFiller",
+      "key": "concrete",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.37,
+          -0.14
+        ],
+        [
+          2.0700000000000003,
+          -0.14
+        ]
+      ],
+      "role": "cricket bearing",
+      "omit_retained_bottom": true
+    },
+    {
+      "id": "PublicRoofCricketSheet_NorthFiller0_1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.3400000000000003,
+          -0.23349999999999949
+        ],
+        [
+          2.3400000000000003,
+          -0.14
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCricketSheet_NorthFiller0_2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.0700000000000003,
+          -1.075
+        ],
+        [
+          2.3400000000000003,
+          -0.14
+        ],
+        [
+          2.0700000000000003,
+          -0.14
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_South0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -2.01,
+        3.5599999999999996,
+        -1.98
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_South_SouthFiller1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.98
+        ],
+        [
+          2.3400000000000003,
+          -2.01
+        ],
+        [
+          2.37,
+          -2.01
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_South_SouthFiller2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.98
+        ],
+        [
+          2.37,
+          -2.01
+        ],
+        [
+          2.360374331550802,
+          -1.98
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_South_SouthCricket1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.360374331550802,
+          -1.98
+        ],
+        [
+          2.37,
+          -2.01
+        ],
+        [
+          2.37,
+          -1.98
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_North0",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -0.17,
+        3.5599999999999996,
+        -0.14
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_North_NorthCricket1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.360374331550802,
+          -0.17
+        ],
+        [
+          2.37,
+          -0.17000000000000004
+        ],
+        [
+          2.37,
+          -0.14
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_North_NorthFiller1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -0.17
+        ],
+        [
+          2.360374331550802,
+          -0.17
+        ],
+        [
+          2.37,
+          -0.14
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_North_NorthFiller2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -0.17
+        ],
+        [
+          2.37,
+          -0.14
+        ],
+        [
+          2.3400000000000003,
+          -0.14
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_East0",
+      "key": "galvanized_roof",
+      "rect": [
+        3.53,
+        -1.98,
+        3.5599999999999996,
+        -0.17
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_SouthFiller1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.98
+        ],
+        [
+          2.360374331550802,
+          -1.98
+        ],
+        [
+          2.3400000000000003,
+          -1.9165000000000003
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_SouthCricket1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.075
+        ],
+        [
+          2.3400000000000003,
+          -1.9165000000000003
+        ],
+        [
+          2.360374331550802,
+          -1.98
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_SouthCricket2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.075
+        ],
+        [
+          2.360374331550802,
+          -1.98
+        ],
+        [
+          2.37,
+          -1.98
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_SouthCricket3",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -1.075
+        ],
+        [
+          2.37,
+          -1.98
+        ],
+        [
+          2.37,
+          -1.075
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_NorthCricket1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.360374331550802,
+          -0.17
+        ],
+        [
+          2.3400000000000003,
+          -0.23349999999999946
+        ],
+        [
+          2.3400000000000003,
+          -1.075
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_NorthCricket2",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.360374331550802,
+          -0.17
+        ],
+        [
+          2.3400000000000003,
+          -1.075
+        ],
+        [
+          2.37,
+          -1.075
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_NorthCricket3",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.360374331550802,
+          -0.17
+        ],
+        [
+          2.37,
+          -1.075
+        ],
+        [
+          2.37,
+          -0.17000000000000004
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbApron_West_NorthFiller1",
+      "key": "galvanized_roof",
+      "polygon": [
+        [
+          2.3400000000000003,
+          -0.17
+        ],
+        [
+          2.3400000000000003,
+          -0.23349999999999949
+        ],
+        [
+          2.360374331550802,
+          -0.17
+        ]
+      ],
+      "role": "cricket sheet",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbUpstand_South",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -1.9812,
+        3.53,
+        -1.98
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbUpstand_North",
+      "key": "galvanized_roof",
+      "rect": [
+        2.37,
+        -0.17,
+        3.53,
+        -0.1688
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbUpstand_East",
+      "key": "galvanized_roof",
+      "rect": [
+        3.53,
+        -1.98,
+        3.5311999999999997,
+        -0.17
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbUpstand_West_South",
+      "key": "galvanized_roof",
+      "rect": [
+        2.3688000000000002,
+        -1.98,
+        2.37,
+        -1.075
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofCurbUpstand_West_North",
+      "key": "galvanized_roof",
+      "rect": [
+        2.3688000000000002,
+        -1.075,
+        2.37,
+        -0.17
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofDrainApron",
+      "key": "galvanized_roof",
+      "rect": [
+        5.452000000000001,
+        -3.92,
+        5.533,
+        3.92
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallPlate_0",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        3.695,
+        5.472,
+        3.765
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallTongue_0",
+      "key": "galvanized_roof",
+      "rect": [
+        5.470000000000001,
+        3.718,
+        5.4857000000000005,
+        3.742
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallPlate_1",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        3.695,
+        5.472,
+        3.765
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallTongue_1",
+      "key": "galvanized_roof",
+      "rect": [
+        5.470000000000001,
+        3.718,
+        5.4857000000000005,
+        3.742
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallPlate_2",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        3.695,
+        5.472,
+        3.765
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofLeaderWallTongue_2",
+      "key": "galvanized_roof",
+      "rect": [
+        5.470000000000001,
+        3.718,
+        5.4857000000000005,
+        3.742
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_00",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        -3.932,
+        5.537,
+        -3.908
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_01",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        -2.812,
+        5.537,
+        -2.788
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_02",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        -1.6920000000000002,
+        5.537,
+        -1.6680000000000001
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_03",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        -0.5720000000000001,
+        5.537,
+        -0.548
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_04",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        0.5479999999999996,
+        5.537,
+        0.5719999999999996
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_05",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        1.6680000000000006,
+        5.537,
+        1.6920000000000006
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_06",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        2.788,
+        5.537,
+        2.812
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    },
+    {
+      "id": "PublicRoofGutterBracket_07",
+      "key": "galvanized_roof",
+      "rect": [
+        5.468000000000001,
+        3.907999999999999,
+        5.537,
+        3.931999999999999
+      ],
+      "role": "sheet roof",
+      "omit_retained_bottom": false
+    }
+  ],
+  "seam_recipe": {
+    "x": [
+      -1.6746153846153846,
+      -1.0792307692307692,
+      -0.48384615384615404,
+      0.11153846153846159,
+      0.706923076923077,
+      1.302307692307692,
+      1.8976923076923078,
+      2.493076923076923,
+      3.0884615384615386,
+      3.683846153846154,
+      4.27923076923077,
+      4.8746153846153835
+    ],
+    "half_width": 0.003,
+    "extra_height": 0
+  },
+  "leader_wall_plates": [
+    19.8,
+    21.0,
+    22.032999999999998
+  ],
+  "open_work": "Downstream main roof field drainage and property connection; final weather materials.",
+  "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
+  "field_y": 19.3427,
+  "foot_y": 19.3439,
+  "leader_toe_y": 19.3689,
+  "retained_plate_datum": 19.2,
+  "native_sha256": "c6336ec83850cc4e9377533b5ba3f6c45f5f867b9cbaf43cb3c2f0558635ef00",
+  "asset_sha256": "69207288d64ccb4117de511f684b1b8558f89d067390c47c60486fd6bded1fff",
+  "runtime_parts": [
+    {
+      "name": "PublicRoofRuntime_00_concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "PublicRoofRuntime_01_concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "PublicRoofRuntime_02_concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "PublicRoofRuntime_03_concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "PublicRoofRuntime_04_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "PublicRoofRuntime_05_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "PublicRoofRuntime_06_galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "PublicRoofRuntime_07_galvanized_roof",
+      "material": "galvanized_roof"
+    }
   ]
 }

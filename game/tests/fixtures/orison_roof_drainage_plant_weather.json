@@ -1,0 +1,1174 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
+  "native_sha256": "9db13bf07e5e375607934d335007e5ac6e0533689deeeffed802c03183da0e3a",
+  "asset_sha256": "064808b9c7b701a0c577b04d51586b8946519da21de6fc0bef611743db468019",
+  "source_bindings": {
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/house_tank.blend": "a392275a884fe2e74fb6aa00286dc71e78b58a190756ee178cbbda1b888a85ed",
+    "art/blender/roof_drainage_falls_construction.json": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+    "art/blender/scripts/build_roof_drainage_plant_weather.py": "e43703da906427a395605377458225053a3bb91b7a7abd519c9e19198f54917c",
+    "art/blender/scripts/roof_drainage_field.py": "ac4cd59fba7a472421af76ebc112ab6d683151d5fc2a3676d727764453f4430e"
+  },
+  "closed_stocks": [
+    {
+      "name": "ROOF_VENT_FAN_A__CurbExtension",
+      "owner": "ROOF_VENT_FAN_A",
+      "material": "concrete",
+      "volume_m3": 0.07027704792793645,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__DuctExtension",
+      "owner": "ROOF_VENT_FAN_A",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00020919559593159988,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__WeatherBoot",
+      "owner": "ROOF_VENT_FAN_A",
+      "material": "galvanized_roof",
+      "volume_m3": 0.000870519130439549,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__TerminalSeal",
+      "owner": "ROOF_VENT_FAN_A",
+      "material": "rubber_aged",
+      "volume_m3": 1.73053278753283e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__TerminalBand",
+      "owner": "ROOF_VENT_FAN_A",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00012750770531813832,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__CurbExtension",
+      "owner": "ROOF_VENT_FAN_B",
+      "material": "concrete",
+      "volume_m3": 0.030450224186594918,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__DuctExtension",
+      "owner": "ROOF_VENT_FAN_B",
+      "material": "galvanized_roof",
+      "volume_m3": 9.064200877500594e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__WeatherBoot",
+      "owner": "ROOF_VENT_FAN_B",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0008704932689341105,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__TerminalSeal",
+      "owner": "ROOF_VENT_FAN_B",
+      "material": "rubber_aged",
+      "volume_m3": 1.730532787532792e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__TerminalBand",
+      "owner": "ROOF_VENT_FAN_B",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00012750770531813876,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__CurbExtension",
+      "owner": "ROOF_VENT_FAN_C",
+      "material": "concrete",
+      "volume_m3": 0.07506017634079898,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__DuctExtension",
+      "owner": "ROOF_VENT_FAN_C",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00022340995070202832,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__WeatherBoot",
+      "owner": "ROOF_VENT_FAN_C",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0008727272880179544,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__TerminalSeal",
+      "owner": "ROOF_VENT_FAN_C",
+      "material": "rubber_aged",
+      "volume_m3": 1.7308766247645796e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__TerminalBand",
+      "owner": "ROOF_VENT_FAN_C",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00012749250592544292,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__CurbExtension",
+      "owner": "ROOF_VENT_FAN_D",
+      "material": "concrete",
+      "volume_m3": 0.042218461076755344,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__DuctExtension",
+      "owner": "ROOF_VENT_FAN_D",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00012567527151969267,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__WeatherBoot",
+      "owner": "ROOF_VENT_FAN_D",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0008607402596624338,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__TerminalSeal",
+      "owner": "ROOF_VENT_FAN_D",
+      "material": "rubber_aged",
+      "volume_m3": 1.7308490758066513e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__TerminalBand",
+      "owner": "ROOF_VENT_FAN_D",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00012749660936673887,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_0__WeatherBoot",
+      "owner": "ROOF_TANK_LEG_0",
+      "material": "galvanized_roof",
+      "volume_m3": 0.00026966868996360045,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_0__TerminalSeal",
+      "owner": "ROOF_TANK_LEG_0",
+      "material": "rubber_aged",
+      "volume_m3": 5.2460103457056055e-06,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_0__TerminalBand",
+      "owner": "ROOF_TANK_LEG_0",
+      "material": "galvanized_roof",
+      "volume_m3": 1.76938569543955e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_1__WeatherBoot",
+      "owner": "ROOF_TANK_LEG_1",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0002696744670951819,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_1__TerminalSeal",
+      "owner": "ROOF_TANK_LEG_1",
+      "material": "rubber_aged",
+      "volume_m3": 5.247057416698036e-06,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_1__TerminalBand",
+      "owner": "ROOF_TANK_LEG_1",
+      "material": "galvanized_roof",
+      "volume_m3": 1.7697282561589283e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_2__WeatherBoot",
+      "owner": "ROOF_TANK_LEG_2",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0002696680781710243,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_2__TerminalSeal",
+      "owner": "ROOF_TANK_LEG_2",
+      "material": "rubber_aged",
+      "volume_m3": 5.2460103457056055e-06,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_2__TerminalBand",
+      "owner": "ROOF_TANK_LEG_2",
+      "material": "galvanized_roof",
+      "volume_m3": 1.769723235633261e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_3__WeatherBoot",
+      "owner": "ROOF_TANK_LEG_3",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0002696739108016927,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_3__TerminalSeal",
+      "owner": "ROOF_TANK_LEG_3",
+      "material": "rubber_aged",
+      "volume_m3": 5.2490593462732604e-06,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_TANK_LEG_3__TerminalBand",
+      "owner": "ROOF_TANK_LEG_3",
+      "material": "galvanized_roof",
+      "volume_m3": 1.7697282561589283e-05,
+      "native_closed": true
+    }
+  ],
+  "parts": [
+    {
+      "name": "ROOF_TANK_LEG_0__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_TANK_LEG_0__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_TANK_LEG_1__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_TANK_LEG_1__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_TANK_LEG_2__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_TANK_LEG_2__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_TANK_LEG_3__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_TANK_LEG_3__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_VENT_FAN_A__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_VENT_FAN_B__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_VENT_FAN_C__rubber_aged",
+      "material": "rubber_aged"
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__concrete",
+      "material": "concrete"
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__galvanized_roof",
+      "material": "galvanized_roof"
+    },
+    {
+      "name": "ROOF_VENT_FAN_D__rubber_aged",
+      "material": "rubber_aged"
+    }
+  ],
+  "fan_curbs": [
+    {
+      "id": "ROOF_VENT_FAN_A",
+      "center": [
+        -6.175,
+        19.2,
+        4.375
+      ],
+      "yaw": 0,
+      "machine_offset_y": 0.14690000000000222,
+      "highest_field_y": 19.3149,
+      "weather_terminal_y": 19.4949,
+      "minimum_exposed_upstand_m": 0.17999999999999972,
+      "pedestal_stock": "ROOF_VENT_FAN_A__CurbExtension",
+      "duct_stock": "ROOF_VENT_FAN_A__DuctExtension",
+      "curb_bore": 0.2,
+      "duct_outer": 0.18,
+      "duct_inner": 0.176,
+      "retained_anchor_y": 19.2,
+      "retained_machine_local_geometry": true
+    },
+    {
+      "id": "ROOF_VENT_FAN_B",
+      "center": [
+        -6.8,
+        19.2,
+        -11.2
+      ],
+      "yaw": 3.141592653589793,
+      "machine_offset_y": 0.06364999999999907,
+      "highest_field_y": 19.23165,
+      "weather_terminal_y": 19.411649999999998,
+      "minimum_exposed_upstand_m": 0.17999999999999972,
+      "pedestal_stock": "ROOF_VENT_FAN_B__CurbExtension",
+      "duct_stock": "ROOF_VENT_FAN_B__DuctExtension",
+      "curb_bore": 0.2,
+      "duct_outer": 0.18,
+      "duct_inner": 0.176,
+      "retained_anchor_y": 19.2,
+      "retained_machine_local_geometry": true
+    },
+    {
+      "id": "ROOF_VENT_FAN_C",
+      "center": [
+        -6.175,
+        19.2,
+        5.8
+      ],
+      "yaw": 3.141592653589793,
+      "machine_offset_y": 0.1569000000000038,
+      "highest_field_y": 19.324900000000003,
+      "weather_terminal_y": 19.504900000000003,
+      "minimum_exposed_upstand_m": 0.17999999999999972,
+      "pedestal_stock": "ROOF_VENT_FAN_C__CurbExtension",
+      "duct_stock": "ROOF_VENT_FAN_C__DuctExtension",
+      "curb_bore": 0.2,
+      "duct_outer": 0.18,
+      "duct_inner": 0.176,
+      "retained_anchor_y": 19.2,
+      "retained_machine_local_geometry": true
+    },
+    {
+      "id": "ROOF_VENT_FAN_D",
+      "center": [
+        14.7,
+        19.2,
+        -10.85
+      ],
+      "yaw": 3.141592653589793,
+      "machine_offset_y": 0.08825000000000213,
+      "highest_field_y": 19.25625,
+      "weather_terminal_y": 19.43625,
+      "minimum_exposed_upstand_m": 0.17999999999999972,
+      "pedestal_stock": "ROOF_VENT_FAN_D__CurbExtension",
+      "duct_stock": "ROOF_VENT_FAN_D__DuctExtension",
+      "curb_bore": 0.2,
+      "duct_outer": 0.18,
+      "duct_inner": 0.176,
+      "retained_anchor_y": 19.2,
+      "retained_machine_local_geometry": true
+    }
+  ],
+  "tank_boots": [
+    {
+      "id": "ROOF_TANK_LEG_0",
+      "source_stock": "SupportColumn",
+      "outline": [
+        [
+          -9.75999927520752,
+          -6.554999828338623
+        ],
+        [
+          -9.758535385131836,
+          -6.558535575866699
+        ],
+        [
+          -9.754999160766602,
+          -6.559999942779541
+        ],
+        [
+          -9.545000076293945,
+          -6.559999942779541
+        ],
+        [
+          -9.541463851928711,
+          -6.558535575866699
+        ],
+        [
+          -9.539999961853027,
+          -6.554999828338623
+        ],
+        [
+          -9.539999961853027,
+          -6.34499979019165
+        ],
+        [
+          -9.541463851928711,
+          -6.341464042663574
+        ],
+        [
+          -9.545000076293945,
+          -6.339999675750732
+        ],
+        [
+          -9.754999160766602,
+          -6.339999675750732
+        ],
+        [
+          -9.758535385131836,
+          -6.341464042663574
+        ],
+        [
+          -9.75999927520752,
+          -6.34499979019165
+        ]
+      ],
+      "native_section_y": 0.8,
+      "highest_field_y": 19.28265000362396,
+      "weather_terminal_y": 19.46265000362396,
+      "minimum_exposed_upstand_m": 0.18,
+      "original_bearing_y": 19.2,
+      "weather_wall_stand_off_m": 0.01,
+      "lower_column_rivet_clearance_m": 0.002,
+      "roof_reservation": "original 220 mm physical post box; native beveled corners are inside the sealed boot"
+    },
+    {
+      "id": "ROOF_TANK_LEG_1",
+      "source_stock": "SupportColumn.001",
+      "outline": [
+        [
+          -7.660000324249268,
+          -6.554999828338623
+        ],
+        [
+          -7.658535957336426,
+          -6.558535575866699
+        ],
+        [
+          -7.65500020980835,
+          -6.559999942779541
+        ],
+        [
+          -7.445000171661377,
+          -6.559999942779541
+        ],
+        [
+          -7.441464424133301,
+          -6.558535575866699
+        ],
+        [
+          -7.440000057220459,
+          -6.554999828338623
+        ],
+        [
+          -7.440000057220459,
+          -6.34499979019165
+        ],
+        [
+          -7.441464424133301,
+          -6.341464042663574
+        ],
+        [
+          -7.445000171661377,
+          -6.339999675750732
+        ],
+        [
+          -7.65500020980835,
+          -6.339999675750732
+        ],
+        [
+          -7.658535957336426,
+          -6.341464042663574
+        ],
+        [
+          -7.660000324249268,
+          -6.34499979019165
+        ]
+      ],
+      "native_section_y": 0.8,
+      "highest_field_y": 19.276650006484985,
+      "weather_terminal_y": 19.456650006484985,
+      "minimum_exposed_upstand_m": 0.18,
+      "original_bearing_y": 19.2,
+      "weather_wall_stand_off_m": 0.01,
+      "lower_column_rivet_clearance_m": 0.002,
+      "roof_reservation": "original 220 mm physical post box; native beveled corners are inside the sealed boot"
+    },
+    {
+      "id": "ROOF_TANK_LEG_2",
+      "source_stock": "SupportColumn.002",
+      "outline": [
+        [
+          -9.75999927520752,
+          -5.054999828338623
+        ],
+        [
+          -9.758535385131836,
+          -5.058535575866699
+        ],
+        [
+          -9.754999160766602,
+          -5.059999942779541
+        ],
+        [
+          -9.545000076293945,
+          -5.059999942779541
+        ],
+        [
+          -9.541463851928711,
+          -5.058535575866699
+        ],
+        [
+          -9.539999961853027,
+          -5.054999828338623
+        ],
+        [
+          -9.539999961853027,
+          -4.84499979019165
+        ],
+        [
+          -9.541463851928711,
+          -4.841464042663574
+        ],
+        [
+          -9.545000076293945,
+          -4.839999675750732
+        ],
+        [
+          -9.754999160766602,
+          -4.839999675750732
+        ],
+        [
+          -9.758535385131836,
+          -4.841464042663574
+        ],
+        [
+          -9.75999927520752,
+          -4.84499979019165
+        ]
+      ],
+      "native_section_y": 0.8,
+      "highest_field_y": 19.29765000362396,
+      "weather_terminal_y": 19.47765000362396,
+      "minimum_exposed_upstand_m": 0.18,
+      "original_bearing_y": 19.2,
+      "weather_wall_stand_off_m": 0.01,
+      "lower_column_rivet_clearance_m": 0.002,
+      "roof_reservation": "original 220 mm physical post box; native beveled corners are inside the sealed boot"
+    },
+    {
+      "id": "ROOF_TANK_LEG_3",
+      "source_stock": "SupportColumn.003",
+      "outline": [
+        [
+          -7.660000324249268,
+          -5.054999828338623
+        ],
+        [
+          -7.658535957336426,
+          -5.058535575866699
+        ],
+        [
+          -7.65500020980835,
+          -5.059999942779541
+        ],
+        [
+          -7.445000171661377,
+          -5.059999942779541
+        ],
+        [
+          -7.441464424133301,
+          -5.058535575866699
+        ],
+        [
+          -7.440000057220459,
+          -5.054999828338623
+        ],
+        [
+          -7.440000057220459,
+          -4.84499979019165
+        ],
+        [
+          -7.441464424133301,
+          -4.841464042663574
+        ],
+        [
+          -7.445000171661377,
+          -4.839999675750732
+        ],
+        [
+          -7.65500020980835,
+          -4.839999675750732
+        ],
+        [
+          -7.658535957336426,
+          -4.841464042663574
+        ],
+        [
+          -7.660000324249268,
+          -4.84499979019165
+        ]
+      ],
+      "native_section_y": 0.8,
+      "highest_field_y": 19.291650006484986,
+      "weather_terminal_y": 19.471650006484985,
+      "minimum_exposed_upstand_m": 0.18,
+      "original_bearing_y": 19.2,
+      "weather_wall_stand_off_m": 0.01,
+      "lower_column_rivet_clearance_m": 0.002,
+      "roof_reservation": "original 220 mm physical post box; native beveled corners are inside the sealed boot"
+    }
+  ],
+  "field_feet": [
+    {
+      "owner": "ROOF_VENT_FAN_A",
+      "point": [
+        -6.575,
+        19.30595,
+        3.9749999999999996
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_A",
+      "point": [
+        -5.7749999999999995,
+        19.313950000000002,
+        3.9749999999999996
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_A",
+      "point": [
+        -5.7749999999999995,
+        19.311450000000004,
+        4.775
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_A",
+      "point": [
+        -6.575,
+        19.303449999999998,
+        4.775
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_B",
+      "point": [
+        -7.2,
+        19.219450000000002,
+        -11.599999999999998
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_B",
+      "point": [
+        -6.3999999999999995,
+        19.22345,
+        -11.599999999999998
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_B",
+      "point": [
+        -6.3999999999999995,
+        19.231450000000002,
+        -10.8
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_B",
+      "point": [
+        -7.2,
+        19.22745,
+        -10.8
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_C",
+      "point": [
+        -6.575,
+        19.3097,
+        5.3999999999999995
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_C",
+      "point": [
+        -5.7749999999999995,
+        19.317700000000002,
+        5.3999999999999995
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_C",
+      "point": [
+        -5.7749999999999995,
+        19.325700000000005,
+        6.2
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_C",
+      "point": [
+        -6.575,
+        19.317700000000002,
+        6.2
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_D",
+      "point": [
+        14.3,
+        19.253950000000003,
+        -11.249999999999998
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_D",
+      "point": [
+        15.099999999999998,
+        19.252950000000002,
+        -11.249999999999998
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_D",
+      "point": [
+        15.099999999999998,
+        19.244950000000003,
+        -10.450000000000001
+      ]
+    },
+    {
+      "owner": "ROOF_VENT_FAN_D",
+      "point": [
+        14.3,
+        19.252950000000002,
+        -10.450000000000001
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.799999275207519,
+        19.27782047737181,
+        -6.562952987611657
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.789152699273425,
+        19.277666964758023,
+        -6.589150824924789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.7629537223894,
+        19.277820463348316,
+        -6.599999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.537045514671147,
+        19.280079545425494,
+        -6.599999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.510846537787122,
+        19.280450026372883,
+        -6.589150824924789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.499999961853028,
+        19.280820470505354,
+        -6.562952987611657
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.499999961853028,
+        19.283079534072282,
+        -6.337046630918617
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.510846537787122,
+        19.283233046686075,
+        -6.3108487936054845
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.537045514671147,
+        19.283079548095785,
+        -6.299999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.7629537223894,
+        19.2808204660186,
+        -6.299999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.789152699273425,
+        19.28044998507121,
+        -6.3108487936054845
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_0",
+      "point": [
+        -9.799999275207519,
+        19.28007954093874,
+        -6.337046630918617
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.700000324249268,
+        19.274820449431576,
+        -6.562955381091484
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.689151206478524,
+        19.274450003814696,
+        -6.589150825008797
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.662955762561211,
+        19.274079558197815,
+        -6.599999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.437044618908516,
+        19.271820446761293,
+        -6.599999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.410849174991203,
+        19.271666983499827,
+        -6.589150825008797
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.400000057220459,
+        19.271820446761293,
+        -6.562955381091484
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.400000057220459,
+        19.27407955819782,
+        -6.337044237438789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.410849174991203,
+        19.2744500038147,
+        -6.310848793521476
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.437044618908516,
+        19.27482044943158,
+        -6.299999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.662955762561211,
+        19.277079560868106,
+        -6.299999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.689151206478524,
+        19.277233024129572,
+        -6.310848793521476
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_1",
+      "point": [
+        -7.700000324249268,
+        19.277079560868106,
+        -6.337044237438789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.799999275207519,
+        19.292820477371812,
+        -5.062952987611657
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.789152699273425,
+        19.29266696475802,
+        -5.089150824924789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.7629537223894,
+        19.292820463348313,
+        -5.099999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.537045514671147,
+        19.29507954542549,
+        -5.099999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.510846537787122,
+        19.29545002637288,
+        -5.089150824924789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.499999961853028,
+        19.295820470505355,
+        -5.062952987611657
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.499999961853028,
+        19.298079534072283,
+        -4.837046630918617
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.510846537787122,
+        19.298233046686075,
+        -4.8108487936054845
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.537045514671147,
+        19.298079548095785,
+        -4.799999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.7629537223894,
+        19.295820466018597,
+        -4.799999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.789152699273425,
+        19.29544998507121,
+        -4.8108487936054845
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_2",
+      "point": [
+        -9.799999275207519,
+        19.295079540938737,
+        -4.837046630918617
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.700000324249268,
+        19.289820449431577,
+        -5.062955381091484
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.689151206478524,
+        19.289450003814697,
+        -5.089150825008797
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.662955762561211,
+        19.289079558197816,
+        -5.099999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.437044618908516,
+        19.286820446761293,
+        -5.099999942779541
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.410849174991203,
+        19.286666983499828,
+        -5.089150825008797
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.400000057220459,
+        19.286820446761293,
+        -5.062955381091484
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.400000057220459,
+        19.28907955819782,
+        -4.837044237438789
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.410849174991203,
+        19.2894500038147,
+        -4.810848793521476
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.437044618908516,
+        19.28982044943158,
+        -4.799999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.662955762561211,
+        19.292079560868107,
+        -4.799999675750732
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.689151206478524,
+        19.292233024129573,
+        -4.810848793521476
+      ]
+    },
+    {
+      "owner": "ROOF_TANK_LEG_3",
+      "point": [
+        -7.700000324249268,
+        19.292079560868107,
+        -4.837044237438789
+      ]
+    }
+  ],
+  "open_work": [
+    "reopen native and inspect true sheet contacts/bore/supports",
+    "original moving machines, controls and register audio",
+    "full composed roof route",
+    "door pans, ground receivers and production installation"
+  ]
+}

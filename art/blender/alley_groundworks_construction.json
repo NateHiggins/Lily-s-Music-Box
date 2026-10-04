@@ -64,22 +64,22 @@
     {
       "id": "Groundworks_concrete_1_-4",
       "material": "concrete",
-      "triangles": 200
+      "triangles": 201
     },
     {
       "id": "Groundworks_concrete_1_-3",
       "material": "concrete",
-      "triangles": 210
+      "triangles": 212
     },
     {
       "id": "Groundworks_concrete_2_-4",
       "material": "concrete",
-      "triangles": 994
+      "triangles": 998
     },
     {
       "id": "Groundworks_concrete_2_-3",
       "material": "concrete",
-      "triangles": 794
+      "triangles": 838
     },
     {
       "id": "Groundworks_concrete_3_-4",
@@ -89,7 +89,7 @@
     {
       "id": "Groundworks_concrete_3_-3",
       "material": "concrete",
-      "triangles": 1552
+      "triangles": 1554
     },
     {
       "id": "Groundworks_concrete_3_-2",
@@ -99,32 +99,32 @@
     {
       "id": "Groundworks_concrete_3_-1",
       "material": "concrete",
-      "triangles": 1246
+      "triangles": 1249
     },
     {
       "id": "Groundworks_concrete_3_0",
       "material": "concrete",
-      "triangles": 244
+      "triangles": 276
     },
     {
       "id": "Groundworks_concrete_3_1",
       "material": "concrete",
-      "triangles": 264
+      "triangles": 297
     },
     {
       "id": "Groundworks_concrete_3_2",
       "material": "concrete",
-      "triangles": 268
+      "triangles": 274
     },
     {
       "id": "Groundworks_concrete_4_-4",
       "material": "concrete",
-      "triangles": 1147
+      "triangles": 1211
     },
     {
       "id": "Groundworks_concrete_4_-3",
       "material": "concrete",
-      "triangles": 1183
+      "triangles": 1186
     },
     {
       "id": "Groundworks_concrete_4_-2",
@@ -134,22 +134,22 @@
     {
       "id": "Groundworks_concrete_4_-1",
       "material": "concrete",
-      "triangles": 1485
+      "triangles": 1491
     },
     {
       "id": "Groundworks_concrete_4_0",
       "material": "concrete",
-      "triangles": 991
+      "triangles": 1021
     },
     {
       "id": "Groundworks_concrete_4_1",
       "material": "concrete",
-      "triangles": 1064
+      "triangles": 1093
     },
     {
       "id": "Groundworks_concrete_4_2",
       "material": "concrete",
-      "triangles": 1469
+      "triangles": 1472
     },
     {
       "id": "Groundworks_concrete_4_3",
@@ -226,7 +226,7 @@
     {
       "id": "PavingFoundation",
       "nonmanifold_edges": 0,
-      "volume_m3": 7.227793227477148
+      "volume_m3": 7.179562196629968
     },
     {
       "id": "PavingSlab",
@@ -246,7 +246,7 @@
     {
       "id": "PavingSlab.003",
       "nonmanifold_edges": 0,
-      "volume_m3": 0.04955815039980577
+      "volume_m3": 0.04595815725608259
     },
     {
       "id": "PavingSlab.004",
@@ -281,7 +281,7 @@
     {
       "id": "PavingSlab.010",
       "nonmanifold_edges": 0,
-      "volume_m3": 0.04955814520510228
+      "volume_m3": 0.04595815417840482
     },
     {
       "id": "PavingSlab.011",
@@ -521,7 +521,7 @@
     {
       "id": "PavingFoundation.002",
       "nonmanifold_edges": 0,
-      "volume_m3": 11.074429947393092
+      "volume_m3": 11.004190907326153
     },
     {
       "id": "PavingSlab.058",
@@ -566,7 +566,7 @@
     {
       "id": "PavingSlab.066",
       "nonmanifold_edges": 0,
-      "volume_m3": 0.0476748672833372
+      "volume_m3": 0.0440748847759076
     },
     {
       "id": "PavingSlab.067",
@@ -701,7 +701,7 @@
     {
       "id": "PavingSlab.093",
       "nonmanifold_edges": 0,
-      "volume_m3": 0.041441616312238964
+      "volume_m3": 0.03404560636271905
     },
     {
       "id": "PavingFoundation.003",
@@ -1605,6 +1605,38 @@
     {
       "cut": "Catch_2",
       "retained_source": "PavingSlab.093"
+    },
+    {
+      "cut": "E_S_RoofReceiver",
+      "retained_source": "PavingFoundation"
+    },
+    {
+      "cut": "E_S_RoofReceiver",
+      "retained_source": "PavingSlab.003"
+    },
+    {
+      "cut": "E_M_RoofReceiver",
+      "retained_source": "PavingFoundation"
+    },
+    {
+      "cut": "E_M_RoofReceiver",
+      "retained_source": "PavingSlab.010"
+    },
+    {
+      "cut": "N_E_RoofReceiver",
+      "retained_source": "PavingFoundation.002"
+    },
+    {
+      "cut": "N_E_RoofReceiver",
+      "retained_source": "PavingSlab.066"
+    },
+    {
+      "cut": "EAST_CLEANOUT_RoofReceiver",
+      "retained_source": "PavingFoundation.002"
+    },
+    {
+      "cut": "EAST_CLEANOUT_RoofReceiver",
+      "retained_source": "PavingSlab.093"
     }
   ],
   "fully_removed_sources": [
@@ -1922,9 +1954,11 @@
   "grade_recipe": "east V crossfall .005 and nearest catch longitudinal .002 with -.001 datum; blend to rear .0008 crossfall from Z7.8 to9.32",
   "bindings": {
     "art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688",
-    "game/data/orison_v2_blockout.json": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4"
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
+    "art/blender/scripts/build_alley_groundworks.py": "844ebedda44ad73ce56ff8122f0426c4cbc590374589f9ddc6b1ca741c646f82"
   },
-  "asset_sha256": "c69d2d8a8097a2124785632e4495d0dc118c7228ca4a703201781d609dbe0ea4",
+  "asset_sha256": "4186dff05f604e3a574b77b4044578ee331369626a3ffcf6cc8e21bd192d7e38",
   "open": [
     "Downstream street-main connection at the bolted property blank",
     "Boiler air-window operating geometry",

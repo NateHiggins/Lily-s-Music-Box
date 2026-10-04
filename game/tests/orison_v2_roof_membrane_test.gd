@@ -17,6 +17,14 @@ func _run() -> void:
 	var root: Node3D=world.adapter.root
 	var model: Node3D=root.get_node("RoofMembrane")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_roof_membrane.json"))
+	var structural_datum:=0.0
+	var owners: Dictionary={}
+	for part: Dictionary in fixture.parts:owners[str(part.owner)]=true
+	var owner_levels: Dictionary={}
+	for space_record: Dictionary in root.layout.spaces:
+		if owners.has(str(space_record.id)):owner_levels[str(space_record.level)]=true
+	check(owner_levels.size()==1,"source finish owners share one structural level")
+	if owner_levels.size()==1:structural_datum=float(root.level_y[str(owner_levels.keys()[0])])
 	for path: String in fixture.source_bindings:
 		var runtime_path: String=path.replace("game/","res://")
 		if not path.begins_with("game/"):continue
@@ -24,7 +32,7 @@ func _run() -> void:
 	check(FileAccess.get_sha256("res://assets/props/roof_membrane.glb")==fixture.asset_sha256,"fitted roof binds the actual installed mesh")
 	var retained: Dictionary={}
 	var floor_ids: Dictionary={}
-	for identity: String in fixture.owners:
+	for identity: String in owners:
 		var floor: MeshInstance3D=root.get_node(identity+"/Floor")
 		if floor.mesh==null:
 			check(false,"retained floor sides remain present")
@@ -42,8 +50,12 @@ func _run() -> void:
 		if not floor_ids.has(body.get_rid()):substrate_exclusions.append(body.get_rid())
 	var native:=PackedVector3Array()
 	var parts:=0;var triangles:=0
+	# Godot stores imported vertex albedo in RGBA8. The glTF's normalized
+	# uint16 value is truncated when packed into that 8-bit representation.
+	var imported_bond:=floorf(float(fixture.recipe.bond_tint)*255.)/255.
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		parts+=1;triangles+=draw.mesh.get_faces().size()/3
+		var faces: PackedVector3Array=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh)
+		parts+=1;triangles+=faces.size()/3
 		_check_cap_mapping(draw.mesh,true)
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null,"three real catalogue maps reach the finish")
@@ -52,13 +64,20 @@ func _run() -> void:
 		for surface in draw.mesh.get_surface_count():
 			var colours: PackedColorArray=draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_COLOR]
 			check(not colours.is_empty(),"authored bond shading survives the native export")
+			var valid_colours:=true
 			for colour: Color in colours:
-				check(absf(colour.r-colour.g)<.00001 and absf(colour.g-colour.b)<.00001 and (absf(colour.r-1.)<.00001 or absf(colour.r-float(fixture.bond_tint))<.00001),"field and bond retain their authored shading factors")
+				valid_colours=valid_colours and absf(colour.r-colour.g)<.00001 and absf(colour.g-colour.b)<.00001 and (absf(colour.r-1.)<.00001 or absf(colour.r-imported_bond)<.00001)
+			check(valid_colours,"every field and bond vertex retains its authored factor at the imported RGBA8 precision")
 		var bounds: AABB=draw.transform*draw.mesh.get_aabb()
 		check(maxf(bounds.size.x,bounds.size.z)<=4.00001,"finish partitions retain bounded culling")
-		for point: Vector3 in draw.transform*draw.mesh.get_faces():
-			check(absf(point.y-float(fixture.datum))<.00002,"actual finish retains the published walking and flashing datum")
-		native.append_array(draw.transform*draw.mesh.get_faces())
+		var actual: PackedVector3Array=draw.transform*faces
+		var positive_falls:=true
+		for triangle in range(0,actual.size(),3):
+			var normal: Vector3=(actual[triangle+1]-actual[triangle]).cross(actual[triangle+2]-actual[triangle]).normalized()
+			positive_falls=positive_falls and absf(normal.y)>.999 and Vector2(normal.x,normal.z).length()/absf(normal.y)>.0099
+			for offset in 3:positive_falls=positive_falls and actual[triangle+offset].y>=structural_datum+.00998
+		check(positive_falls,"every imported finish triangle retains positive physical fall above the full structural slab")
+		native.append_array(actual)
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"actual part and triangle counts bind the source inventory")
 	check(MatLib.get_mat("roof_bitumen").uv1_triplanar,"shared catalogue projection remains unchanged")
 	var space: PhysicsDirectSpaceState3D=world.get_world_3d().direct_space_state
@@ -69,9 +88,10 @@ func _run() -> void:
 		var hit: Dictionary=space.intersect_ray(query)
 		check(not hit.is_empty() and hit.collider==root.get_node(str(station.owner)+"/Floor/Collision") and root.to_local(hit.position).distance_to(at)<.00003,"original physical floor exactly backs fitted finish")
 		contacts+=1
-	for opening: Dictionary in fixture.apertures:
+	for opening: Dictionary in root.layout.slab_openings:
+		if opening.surface!="Floor" or not owners.has(str(opening.space)):continue
 		var rect: Array=opening.rect
-		var at:=Vector3((rect[0]+rect[2])*.5,float(fixture.datum),(rect[1]+rect[3])*.5)
+		var at:=Vector3((rect[0]+rect[2])*.5,structural_datum,(rect[1]+rect[3])*.5)
 		check(_mesh_distance(native,at+Vector3.UP*.02,Vector3.DOWN)==INF,"actual finish does not cover the retained fan aperture")
 		var query:=PhysicsRayQueryParameters3D.create(root.to_global(at+Vector3.UP*.02),root.to_global(at-Vector3.UP*.21),1,substrate_exclusions)
 		check(space.intersect_ray(query).is_empty(),"original physical fan throat stays open")

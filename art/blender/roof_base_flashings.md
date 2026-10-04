@@ -2,6 +2,20 @@
 
 Evidence class: **INERT**
 
+## Current fitted field, 2026-10-04
+
+The installed recipe now follows the physical roof falls, door curbs and eight
+scupper apertures. It uses the catalogued **galvanized_roof** and **enamel**
+families on explicit native metre charts. The current source contains **470**
+closed stocks; runtime has **57** partitions and **5,972** triangles. Current
+fit, ownership, rebuilding and inspection details are in **roof_drainage.md**.
+The focused installed suite passes **854** checks. Both old rainleader toes
+sit 25 mm above their actual fitted feet; the underside still belongs to the
+original floor body's fitted field. The construction and receipts below record
+the earlier flat-field batch and its superseded dimensions/counts.
+
+## Historical flat-field batch
+
 This **ADAPTATION** batch fits folded metal at the two retained roof bulkheads
 and the inner parapet faces. It creates no wall, slab or service aperture.
 The original structural source, doors, deck, cap, stairs and gameplay keep

@@ -1,0 +1,471 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
+  "ports": [
+    {
+      "id": "W_S",
+      "side": "west",
+      "inner_point": [
+        -15.525,
+        19.21,
+        -7.5
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        -16.15,
+        19.20375,
+        -7.5
+      ],
+      "wall_owner": "ROOF_PARAPET_WEST",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "W_M",
+      "side": "west",
+      "inner_point": [
+        -15.525,
+        19.21,
+        0.5
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        -16.15,
+        19.20375,
+        0.5
+      ],
+      "wall_owner": "ROOF_PARAPET_WEST",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "W_N",
+      "side": "west",
+      "inner_point": [
+        -15.525,
+        19.21,
+        4.5
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        -16.15,
+        19.20375,
+        4.5
+      ],
+      "wall_owner": "ROOF_PARAPET_WEST",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "E_S",
+      "side": "east",
+      "inner_point": [
+        15.525,
+        19.21,
+        -7.5
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        16.15,
+        19.20375,
+        -7.5
+      ],
+      "wall_owner": "ROOF_PARAPET_EAST",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "E_M",
+      "side": "east",
+      "inner_point": [
+        15.525,
+        19.21,
+        -0.5
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "tangent": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        16.15,
+        19.20375,
+        -0.5
+      ],
+      "wall_owner": "ROOF_PARAPET_EAST",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "S_W",
+      "side": "south",
+      "inner_point": [
+        -7.0,
+        19.21,
+        -12.225
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "tangent": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        -7.0,
+        19.20375,
+        -12.85
+      ],
+      "wall_owner": "ROOF_PARAPET_SOUTH",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "S_E",
+      "side": "south",
+      "inner_point": [
+        11.0,
+        19.21,
+        -12.225
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "tangent": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        11.0,
+        19.20375,
+        -12.85
+      ],
+      "wall_owner": "ROOF_PARAPET_SOUTH",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    },
+    {
+      "id": "N_E",
+      "side": "north",
+      "inner_point": [
+        11.0,
+        19.21,
+        11.525
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tangent": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "clear_width": 0.24,
+      "clear_height": 0.12,
+      "sheet_thickness": 0.0012,
+      "outfall": 0.01,
+      "channel_length": 0.625,
+      "bed_length": 0.405,
+      "outer_lip": [
+        11.0,
+        19.20375,
+        12.15
+      ],
+      "wall_owner": "ROOF_PARAPET_NORTH",
+      "notch_width": 0.2424,
+      "notch_floor_y": 19.2,
+      "notch_top_y": 19.330000000000002,
+      "open_work": "Fitted perimeter flashing, receiver hopper, supported leader and downstream property connection."
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "Scupper_W_S__Channel",
+      "volume_m3": 0.0003617877513306671,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_W_S__Bed",
+      "volume_m3": 0.0006650136694881475,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_W_M__Channel",
+      "volume_m3": 0.0003617585823612046,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_W_M__Bed",
+      "volume_m3": 0.0006650132606816723,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_W_N__Channel",
+      "volume_m3": 0.0003617877513306671,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_W_N__Bed",
+      "volume_m3": 0.0006650136694881475,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_E_S__Channel",
+      "volume_m3": 0.0003617877513306671,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_E_S__Bed",
+      "volume_m3": 0.0006650136694881478,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_E_M__Channel",
+      "volume_m3": 0.0003617585823612046,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_E_M__Bed",
+      "volume_m3": 0.0006650132606816723,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_S_W__Channel",
+      "volume_m3": 0.00036178775133066665,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_S_W__Bed",
+      "volume_m3": 0.0006650121035489344,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_S_E__Channel",
+      "volume_m3": 0.00036171551073493815,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_S_E__Bed",
+      "volume_m3": 0.0006650094871936533,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_N_E__Channel",
+      "volume_m3": 0.0003617155107349386,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "Scupper_N_E__Bed",
+      "volume_m3": 0.0006650110531267057,
+      "nonmanifold_edges": 0
+    },
+    {
+      "name": "ROOF_PARAPET_SOUTH__NotchedWall",
+      "volume_m3": 8.591732199046929,
+      "nonmanifold_edges": 0,
+      "source_fixture": {
+        "id": "ROOF_PARAPET_SOUTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          0.55,
+          -12.35
+        ],
+        "size": [
+          31.3,
+          1.1,
+          0.25
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      }
+    },
+    {
+      "name": "ROOF_PARAPET_NORTH__NotchedWall",
+      "volume_m3": 8.599610168376914,
+      "nonmanifold_edges": 0,
+      "source_fixture": {
+        "id": "ROOF_PARAPET_NORTH",
+        "level": "ROOF",
+        "position": [
+          0,
+          0.55,
+          11.65
+        ],
+        "size": [
+          31.3,
+          1.1,
+          0.25
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      }
+    },
+    {
+      "name": "ROOF_PARAPET_WEST__NotchedWall",
+      "volume_m3": 6.5763571392430835,
+      "nonmanifold_edges": 0,
+      "source_fixture": {
+        "id": "ROOF_PARAPET_WEST",
+        "level": "ROOF",
+        "position": [
+          -15.65,
+          0.55,
+          -0.35
+        ],
+        "size": [
+          0.25,
+          1.1,
+          24
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      }
+    },
+    {
+      "name": "ROOF_PARAPET_EAST__NotchedWall",
+      "volume_m3": 6.584235107604499,
+      "nonmanifold_edges": 0,
+      "source_fixture": {
+        "id": "ROOF_PARAPET_EAST",
+        "level": "ROOF",
+        "position": [
+          15.65,
+          0.55,
+          -0.35
+        ],
+        "size": [
+          0.25,
+          1.1,
+          24
+        ],
+        "class": "service",
+        "collision": true,
+        "purpose": "continuous guarded roof edge"
+      }
+    }
+  ],
+  "native_sha256": "bafc74c19437942981b1af683f0e84d47fd7c3c5ea3cbcd8139c4a220db950a4",
+  "asset_sha256": "5e6800fa80e7dc7c36e8187a5cf8d1ec99bf255724a748de0535d1cb87c61b4c",
+  "source_bindings": {
+    "art/data/orison_roof_drainage/roof_grade.json": "fd640d489e7bbafce700e962f89dd566894e084a1e1c133a97d3126a16ef6e09",
+    "art/data/orison_v2/roof_source.json": "e1cbfa59244c0c3eb9ee5323db15282ee7618eafc55782003713440005b414d9",
+    "art/blender/scripts/build_roof_drainage_ports.py": "dd9c14326f62df8a43a2bd30d3257fc81a57be3541ee0d44fece3843efad63e9"
+  },
+  "open_work": [
+    "source-fitted flashing holes and weather laps",
+    "hopper, leader and bearing fixtures",
+    "complete downstream route and ground receiver",
+    "production wall and floor ownership",
+    "all production roof regressions and material acceptance"
+  ]
+}

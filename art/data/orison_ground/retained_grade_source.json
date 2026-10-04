@@ -19407,14 +19407,14 @@
     "art/blender/orison_foundations_construction.json": "9a950dacc18f0a035e68e2ce13020ac1fb293e064d174c5ee00c6d773beb20c3",
     "art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688",
     "art/blender/bodega_receiving.blend": "4aa88f3747a48767252508afbbb4d61ca847c525603226aefc31b93e27453401",
-    "art/blender/front_pavement.blend": "2f306148550cccd59b72ae859689c12ce053bed5bc7bafaa5c3669f21aa2624b",
-    "art/blender/front_pavement_construction.json": "57f776b4e7b6b3f86d309d5ae2a19308ab4ca6e9b415041a817fa6bc72583d83",
+    "art/blender/front_pavement.blend": "6dae77b94e0046e4f27f6039b2e4212743cbbd8005f4ab515be7041ca706e040",
+    "art/blender/front_pavement_construction.json": "b5580b3b7d28500411233e95bcbd44eb92813535a2df5f082d6d7bbb8c042be9",
     "game/scripts/generated/v2_exterior_masonry.gd": "42a4b03da8b3fa176c9f693fe87f5881c13203a0cc797a58178a0fd9de9cfc89",
     "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "game/assets/props/exterior_masonry.glb": "063c548ec17e08cdebe3f72800928f9c0fd7e3d04815b50193b646126eeaac41",
     "game/assets/props/service_alley.glb": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9",
-    "game/assets/props/front_pavement.glb": "1c49a6f3d5a8018d08e956d257f72926d69ca1faf7a678080787bfe4a891c481",
+    "game/assets/props/front_pavement.glb": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d",
     "art/blender/city_shells.blend": "4fd36ba5ab8d4e8c45cde2da1edb5afe7444f0c9ad79ec371007459fa718c3a7",
     "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
@@ -19473,5 +19473,15 @@
       }
     ],
     "method": "Thirty-one actual identity-basis collision boxes match the authored platforms and stair dimensions. Thirty masks move and one court slab is added; every before/after volume is inside the unchanged B1 public-core reservation. The same containment applies to the six moved surface exclusions and new slab exclusion. No transfer-mesh bounding box enters the soil subtraction. Exact oriented export triangles, normals, UVs and tangents of the four bound foundation/support dependencies are preserved after replay."
+  },
+  "roof_drainage_reconciliation": {
+    "evidence_class": "INERT",
+    "method": "Only front-paving bindings changed after two source-owned receiver cuts. All original paving masks, envelope, grade and the classified ground mask map remain unchanged; the ground builder adds separate qualified roof-drainage reservations.",
+    "retained_paving_masks_sha256": "51ab4e3caf2e10944cb19a46f55c7cdc0ca9dcab41b35b132101cf215ab3be26",
+    "retained_ground_masks_sha256": "31528531d60e7e33aacc7e81e8d9cf14c6fce029d88e3cce6a1570d3ff50ce2b",
+    "source_receiver_ports": [
+      "RoofCollector/S_W/GradeBed",
+      "RoofCollector/S_E/GradeBed"
+    ]
   }
 }

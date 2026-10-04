@@ -12,4 +12,7 @@ func _ready() -> void:
 		draw.material_override=asphalt if str(draw.name).contains("asphalt") else soil
 		var body:=StaticBody3D.new();body.name="GroundCollision";draw.add_child(body)
 		var collision:=CollisionShape3D.new()
-		collision.shape=draw.mesh.create_trimesh_shape();body.add_child(collision)
+		collision.shape=_native_shape(draw.mesh);body.add_child(collision)
+
+func _native_shape(mesh: Mesh) -> ConcavePolygonShape3D:
+	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(mesh));return shape

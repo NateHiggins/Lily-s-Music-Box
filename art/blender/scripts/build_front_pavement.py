@@ -1,7 +1,7 @@
-"""Editable street paving fitted to current V2 room, masonry and exterior owners.
+"""Source-owned Orison roof/drainage construction.
 
-The existing public top datum and street frame stay authoritative. This fixes
-slab ownership only; drainage grades and downstream services are separate work.
+Retained gameplay authorities remain; geometry and material validation are
+independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
 import json
@@ -84,6 +84,9 @@ for obj in loaded.collections[0].objects:
     masks.append({'owner': 'ExteriorMasonry/'+obj.name,
                   'bounds': [bounds[0], bounds[2], bounds[3], bounds[5]],
                   'kind': 'authored_original_box'})
+receiver=json.loads((root/'art/blender/roof_drainage_reservations.json').read_bytes())
+for row in receiver['grade_ports']:
+    if row['provider']=='FrontPavement':masks.append({'owner':row['owner'],'bounds':row['rect'],'kind':'source_bound_receiver_port'})
 a,b,c,d = envelope
 masks = [row for row in masks if row['bounds'][2]>a and row['bounds'][0]<c
          and row['bounds'][3]>b and row['bounds'][1]<d]
@@ -179,7 +182,8 @@ for (ix,iz),faces in sorted(groups.items()):
     obj=bpy.data.objects.new(name,mesh);obj.location=origin;bpy.context.scene.collection.objects.link(obj);parts.append(obj)
     records.append({'id':name,'bounds':bounds,'quads':len(faces)})
 bpy.context.preferences.filepaths.save_version=0
-bpy.ops.wm.save_as_mainfile(filepath=str(base/'front_pavement.blend'),compress=True)
+bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(root/'art/blender/front_pavement.blend'),compress=True)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in parts:obj.select_set(True)
 bpy.context.view_layer.objects.active=parts[0]
@@ -206,5 +210,9 @@ for relative in ['game/data/orison_v2_blockout.json', 'game/data/orison_v2/exter
     path=root/relative
     payload=path.read_text().replace('\r\n','\n').encode() if path.suffix=='.json' else path.read_bytes()
     report['source_bindings'][relative]=hashlib.sha256(payload).hexdigest()
-(base/'front_pavement_construction.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
+report['source_bindings'].update({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [root/'art/blender/roof_drainage_reservations.json',Path(__file__)]})
+(root/'art/blender/front_pavement_construction.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('FITTED FRONT PAVEMENT CONSTRUCTION:',len(parts),'parts;',len(all_faces)*2,'triangles;',len(masks),'retained masks;',volume,'m3')
+
+(root/'game/tests/fixtures/orison_front_pavement_construction.json').write_bytes((root/'art/blender/front_pavement_construction.json').read_bytes())
+print('SOURCE PROVIDER BUILD; INDEPENDENT VALIDATION REQUIRED')

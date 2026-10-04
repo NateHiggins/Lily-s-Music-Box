@@ -2,6 +2,20 @@
 
 Evidence class: **INERT**
 
+## Current falling field, 2026-10-04
+
+The visible finish now follows the source-owned physical falls above the full
+original structural slab. Its **570** closed stocks cover **635.3191 m2** in
+**73** bounded partitions and **23,348** triangles, including the original
+fan/post reservations and fitted door interfaces. The installed suite passes
+**1,641** checks and **570** exact backing contacts. Native metre derivatives,
+maps and linear bond shading remain; the test measures shading at Godot's
+actual RGBA8 packing precision. See **roof_drainage.md** for current source
+ownership, rebuilding and limits. The text below records the earlier flat
+material layer and its superseded area, contacts and triangle counts.
+
+## Historical flat-field finish
+
 Classification: **ADAPTATION**. This is a fitted material layer within the
 published flat roof slab, not a drainage or weather-capacity acceptance.
 The broader architecture and material task continues; heating cuts stay parked.

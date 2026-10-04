@@ -1,6 +1,6 @@
 extends RefCounted
-## A fitted finish within the retained roof slab envelope. The original Floor
-## collision remains the sole physical owner of the flush finished top.
+## One rolled finish over the fitted falling field. The retained Floor body
+## owns the original structural slab and the added native walking envelope.
 static func mount(root: Node3D) -> Node3D:
 	var model: Node3D=(preload("res://assets/props/roof_membrane.glb") as PackedScene).instantiate()
 	model.name="RoofMembrane"

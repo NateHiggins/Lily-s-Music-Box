@@ -1,0 +1,338 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
+  "trunks": [
+    {
+      "id": "WEST_SOUTH_PROPERTY",
+      "path": [
+        [
+          -16.28,
+          -2.6,
+          5.0
+        ],
+        [
+          -16.28,
+          -2.6904,
+          -13.08
+        ],
+        [
+          17.3,
+          -2.8583,
+          -13.08
+        ],
+        [
+          17.3,
+          -2.8759249999999996,
+          -16.605
+        ]
+      ],
+      "bore_radius": 0.1524,
+      "outer_radius": 0.1683,
+      "fall": 0.005
+    },
+    {
+      "id": "EAST",
+      "path": [
+        [
+          17.3,
+          -2.7228999999999997,
+          14.0
+        ],
+        [
+          17.3,
+          -2.8583,
+          -13.08
+        ]
+      ],
+      "bore_radius": 0.1524,
+      "outer_radius": 0.1683,
+      "fall": 0.005
+    }
+  ],
+  "branches": [
+    {
+      "id": "W_S",
+      "axis": [
+        [
+          -16.1,
+          0.23,
+          -7.5
+        ],
+        [
+          -16.1,
+          -2.4825000000000004,
+          -7.5
+        ],
+        [
+          -16.28,
+          -2.6625,
+          -7.5
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "W_M",
+      "axis": [
+        [
+          -16.1,
+          0.23,
+          0.5
+        ],
+        [
+          -16.1,
+          -2.4425000000000003,
+          0.5
+        ],
+        [
+          -16.28,
+          -2.6225,
+          0.5
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "W_N",
+      "axis": [
+        [
+          -16.1,
+          0.23,
+          4.5
+        ],
+        [
+          -16.1,
+          -2.4225000000000003,
+          4.5
+        ],
+        [
+          -16.28,
+          -2.6025,
+          4.5
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "E_S",
+      "axis": [
+        [
+          16.1,
+          0.23,
+          -7.5
+        ],
+        [
+          16.1,
+          -2.6401999999999997,
+          -7.5
+        ],
+        [
+          17.12,
+          -2.6504,
+          -7.5
+        ],
+        [
+          17.3,
+          -2.8304,
+          -7.5
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "E_M",
+      "axis": [
+        [
+          16.1,
+          0.23,
+          -0.5
+        ],
+        [
+          16.1,
+          -2.6051999999999995,
+          -0.5
+        ],
+        [
+          17.12,
+          -2.6153999999999997,
+          -0.5
+        ],
+        [
+          17.3,
+          -2.7954,
+          -0.5
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "S_W",
+      "axis": [
+        [
+          -7.0,
+          0.23,
+          -12.799999999999999
+        ],
+        [
+          -7.0,
+          -2.456799999999999,
+          -12.799999999999999
+        ],
+        [
+          -7.0,
+          -2.7368,
+          -13.08
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "S_E",
+      "axis": [
+        [
+          11.0,
+          0.23,
+          -12.799999999999999
+        ],
+        [
+          11.0,
+          -2.546799999999999,
+          -12.799999999999999
+        ],
+        [
+          11.0,
+          -2.8268,
+          -13.08
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    },
+    {
+      "id": "N_E",
+      "axis": [
+        [
+          11.0,
+          0.23,
+          10.65
+        ],
+        [
+          11.0,
+          -2.4931999999999994,
+          10.65
+        ],
+        [
+          11.0,
+          -2.4966999999999993,
+          11.0
+        ],
+        [
+          17.12,
+          -2.5578999999999996,
+          11.0
+        ],
+        [
+          17.3,
+          -2.7379,
+          11.0
+        ]
+      ],
+      "bore_radius": 0.0762,
+      "outer_radius": 0.0889,
+      "leader_toe_y": 0.3,
+      "socket_y": [
+        0.23,
+        0.39
+      ],
+      "socket_outer_radius": 0.105,
+      "socket_inner_radius": 0.0804,
+      "grade_contact_open_work": "Read actual retained native paving/ground height before authoring the collar and concrete seat."
+    }
+  ],
+  "downstream": {
+    "point": [
+      17.3,
+      -2.8759249999999996,
+      -16.605
+    ],
+    "owner": "RoofDrainPropertyBlank",
+    "state": "bolted construction-stage blank at actual retained front property line",
+    "street_main": "Undefined in current sources; this study claims no live downstream drainage or capacity."
+  },
+  "source_bindings": {
+    "art/blender/roof_drainage_leaders_construction.json": "d22882bef8c3734a35c494ef2308818fd67d60c9e323f43c5562ddf986d2e110",
+    "art/data/orison_roof_drainage/source_plan.json": "3f6394169019a06f6859958069e0f9bb79670cf62ab0881e8623c583653270c5",
+    "art/blender/scripts/prepare_roof_drainage_receivers.py": "d6db0d016a407db19ffe53be4b87fc1cce7478b2f23c0b9193499e907ef1f7d0"
+  },
+  "open_work": [
+    "actual retained collider/neighbor/plant clearance",
+    "ground and paving source-owned ports",
+    "closed collector walls, branches, bells and bearing beds",
+    "actual source soil reservations",
+    "property blank and access inspection",
+    "production route and accepted textures"
+  ]
+}

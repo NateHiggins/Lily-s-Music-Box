@@ -1,4 +1,8 @@
-"""Editable bounded subgrade fitted to retained owners; whole-shell readiness is open."""
+"""Source-owned Orison roof/drainage construction.
+
+Retained gameplay authorities remain; geometry and material validation are
+independent of this source recipe. No drainage capacity acceptance.
+"""
 from pathlib import Path
 import json
 import math
@@ -18,7 +22,7 @@ plan = json.loads((root/'art/data/orison_ground/retained_grade_source.json').rea
 sets_path=root/'game/data/runtime_material_sets.json'
 sets=json.loads(sets_path.read_text(encoding='utf-8'))['materials']
 plan['bindings']['game/data/runtime_material_sets.json']=hashlib.sha256(sets_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
-plan['bindings']['art/blender/scripts/build_orison_ground.py']=hashlib.sha256(Path(__file__).read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+plan['bindings']['art/blender/scripts/build_orison_ground.py']=hashlib.sha256((root/'art/blender/scripts/build_orison_ground.py').read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
 packing_tool=root/'art/tools/repack_blend.cjs'
 plan['bindings']['art/tools/repack_blend.cjs']=hashlib.sha256(packing_tool.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 foundation_path=base/'city_foundations_construction.json'
@@ -44,6 +48,14 @@ plan['retained_solids'].extend(bar['retained_solids'])
 plan['occupation_reservations'].extend(bar['reservations'])
 plan['bindings'].update(bar['bindings'])
 plan['bindings']['art/data/orison_ground/bar_reservations.json']=hashlib.sha256(bar_path.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest()
+receiver_path=root/'art/blender/roof_drainage_reservations.json'
+receiver=json.loads(receiver_path.read_bytes())
+plan['occupation_reservations'].extend(receiver['reservations'])
+plan['bindings'].update(receiver['bindings'])
+plan['bindings'][receiver_path.relative_to(root).as_posix()]=hashlib.sha256(receiver_path.read_bytes()).hexdigest()
+plan['bindings'][Path(__file__).relative_to(root).as_posix()]=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+union_helper=root/'art/blender/scripts/ground_closed_union.py'
+plan['bindings'][union_helper.relative_to(root).as_posix()]=hashlib.sha256(union_helper.read_bytes()).hexdigest()
 for relative, expected in plan['bindings'].items():
     path = root / relative
     raw = path.read_bytes() if path.suffix in ['.blend','.glb','.bin'] else path.read_text(encoding='utf-8').replace('\r\n', '\n').encode()
@@ -145,72 +157,6 @@ for axis in range(3):
             family = 'asphalt' if asphalt[ix, iy, iz] else 'soil'
             groups[(key, family)].append(points)
 
-vertices = [(p[0], -p[2], p[1]) for face in complete_faces for p in face]
-mesh = bpy.data.meshes.new('OrisonGroundClosedUnion')
-mesh.from_pydata(vertices, [], [tuple(range(index, index + 4)) for index in range(0, len(vertices), 4)])
-bm = bmesh.new(); bm.from_mesh(mesh)
-source_face = bm.faces.layers.int.new('SourceFace')
-for index, face in enumerate(bm.faces): face[source_face] = index
-bmesh.ops.remove_doubles(bm, verts=list(bm.verts), dist=1e-7)
-non_manifold = sum(not edge.is_manifold for edge in bm.edges)
-print('COURTYARD CLOSED UNION:', len(complete_faces), 'quads;', non_manifold, 'non-manifold edges', flush=True)
-for edge in [edge for edge in bm.edges if not edge.is_manifold][:40]:
-    print('UNION EDGE DIAGNOSTIC:', [[float(value) for value in vertex.co] for vertex in edge.verts],
-          'incident faces', len(edge.link_faces), flush=True)
-# Source differences can meet only on an edge. Keep every coordinate and face,
-# but split the coincident surface fans instead of welding four faces onto one
-# topological edge. No source volume, clearance or contact plane is altered.
-bad_edges = [edge for edge in bm.edges if not edge.is_manifold]
-assert all(len(edge.link_faces) == 4 for edge in bad_edges)
-affected_vertices = set(vertex for edge in bad_edges for vertex in edge.verts)
-replacements = {}; affected_faces = set()
-split_fans = 0
-for vertex in affected_vertices:
-    faces = list(vertex.link_faces)
-    parent = {face[source_face]: face[source_face] for face in faces}
-    def find(index):
-        while parent[index] != index:
-            parent[index] = parent[parent[index]]; index = parent[index]
-        return index
-    def join(first, second):
-        parent[find(first)] = find(second)
-    for edge in vertex.link_edges:
-        linked = list(edge.link_faces)
-        if len(linked) == 2:
-            join(linked[0][source_face], linked[1][source_face])
-        else:
-            assert len(linked) == 4
-            owners = collections.defaultdict(list)
-            for face in linked: owners[face_owners[face[source_face]]].append(face)
-            assert len(owners) == 2 and all(len(pair) == 2 for pair in owners.values())
-            for pair in owners.values(): join(pair[0][source_face], pair[1][source_face])
-    fans = collections.defaultdict(list)
-    for face in faces: fans[find(face[source_face])].append(face)
-    for index, fan in enumerate(fans.values()):
-        target = vertex if index == 0 else bm.verts.new(vertex.co.copy())
-        if index: split_fans += 1
-        for face in fan:
-            replacements[(vertex, face[source_face])] = target
-            affected_faces.add(face)
-templates = [(face[source_face], [replacements.get((vertex, face[source_face]), vertex)
-              for vertex in face.verts]) for face in affected_faces]
-for face in affected_faces: bm.faces.remove(face)
-for index, vertices in templates: bm.faces.new(vertices)[source_face] = index
-unused_edges = [edge for edge in bm.edges if not edge.link_faces]
-if unused_edges: bmesh.ops.delete(bm, geom=unused_edges, context='EDGES')
-unused_vertices = [vertex for vertex in bm.verts if not vertex.link_faces]
-if unused_vertices: bmesh.ops.delete(bm, geom=unused_vertices, context='VERTS')
-non_manifold = sum(not edge.is_manifold for edge in bm.edges)
-print('COURTYARD SOURCE FANS:', len(bad_edges), 'zero-area shared edges;', split_fans,
-      'separated vertex fans;', non_manifold, 'non-manifold edges after repair', flush=True)
-assert non_manifold == 0
-assert len(bm.faces) == len(complete_faces)
-bm.normal_update()
-native_area = sum(face.calc_area() for face in bm.faces)
-print('COURTYARD EDITABLE CLOSED UNION:', len(bm.faces), 'source faces; coordinate-preserving manifold proof', flush=True)
-bm.to_mesh(mesh); bm.free()
-obj = bpy.data.objects.new('OrisonGroundClosedUnion', mesh); source_collection.objects.link(obj)
-
 def merge_planar_rectangles(faces):
     planes = collections.defaultdict(list)
     for points in faces:
@@ -263,6 +209,15 @@ def merge_planar_rectangles(faces):
     assert abs(sum(area(face) for face in faces) - sum(area(face) for face in result)) < 1e-7
     return result
 
+source_rectangles=merge_planar_rectangles(complete_faces)
+expected_volume=sum(float(np.einsum('i,k,ik->',np.diff(xs),np.diff(zs),solid[:,iy,:],dtype=np.float64))*float(ys[iy+1]-ys[iy]) for iy in range(size[1]))
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from ground_closed_union import build_closed_ground
+mesh,native_area,edge_contacts,split_fans=build_closed_ground(source_rectangles,source_collection,expected_volume)
+non_manifold=0;bad_edges=[None]*edge_contacts
+print('COURTYARD CLOSED SOURCE:',len(complete_faces),'original cell faces;',len(source_rectangles),'exact conforming rectangles',flush=True)
+
 parts = []; reports = []
 for ((ix, iz), family), faces in sorted(groups.items()):
     source_face_count = len(faces)
@@ -295,7 +250,8 @@ for ((ix, iz), family), faces in sorted(groups.items()):
     reports.append({'id': name, 'material': family, 'bounds': lo + hi,
                     'source_quads': source_face_count, 'native_faces': len(mesh.polygons),
                     'internal_caps': False})
-out = base / 'orison_ground.blend'
+out = root/'art/blender/orison_ground.blend'
+bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(out), compress=True)
 packed=work/'orison-ground-zstd19.blend';packing_report=work/'orison-ground-packing.json'
 assert packed.resolve().is_relative_to(root.resolve())
@@ -313,7 +269,7 @@ class ExportUVHandedness:
         if attribute == 'TANGENT': data['data'][:, 3] *= -1; type(self).count += 1
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension = ExportUVHandedness
-asset = root / 'game/assets/props/orison_ground.glb'
+asset = root/'game/assets/props/orison_ground.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset), export_format='GLB', export_yup=True,
                           export_tangents=True, use_selection=True)
 assert ExportUVHandedness.count == len(parts)
@@ -326,8 +282,11 @@ metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
             'native_faces': sum(row['native_faces'] for row in reports),
             'source_native_sha256': hashlib.sha256(asset.read_bytes()).hexdigest(),
             'note': 'Installed bounded subgrade and original-datum courtyard surface. Drainage, operating glazing, broader city closure and weather findings remain open; no whole-shell acceptance.'}
-(base / 'orison_ground_construction.json').write_text(json.dumps(metadata, indent=2) + '\n',encoding='utf-8',newline='\n')
+(root/'art/blender/orison_ground_construction.json').write_text(json.dumps(metadata, indent=2) + '\n',encoding='utf-8',newline='\n')
 print('COURTYARD GRADE TRIAL:', len(parts), 'bounded material parts;', metadata['native_faces'],
       'coalesced native faces;', buried, 'buried interface quads omitted; production ground construction.', flush=True)
 
 (root/'game/tests/fixtures/orison_ground_construction.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8',newline='\n')
+
+(root/'game/tests/fixtures/orison_ground_construction.json').write_bytes((root/'art/blender/orison_ground_construction.json').read_bytes())
+print('SOURCE PROVIDER BUILD; INDEPENDENT VALIDATION REQUIRED')

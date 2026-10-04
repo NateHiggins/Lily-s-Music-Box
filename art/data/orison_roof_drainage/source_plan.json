@@ -1,0 +1,112 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION AUTHORING PLAN",
+  "outlets": [
+    {
+      "id": "W_S",
+      "point": [
+        -15.525,
+        -7.5
+      ],
+      "side": "west"
+    },
+    {
+      "id": "W_M",
+      "point": [
+        -15.525,
+        0.5
+      ],
+      "side": "west"
+    },
+    {
+      "id": "W_N",
+      "point": [
+        -15.525,
+        4.5
+      ],
+      "side": "west"
+    },
+    {
+      "id": "E_S",
+      "point": [
+        15.525,
+        -7.5
+      ],
+      "side": "east"
+    },
+    {
+      "id": "E_M",
+      "point": [
+        15.525,
+        -0.5
+      ],
+      "side": "east"
+    },
+    {
+      "id": "S_W",
+      "point": [
+        -7.0,
+        -12.225
+      ],
+      "side": "south"
+    },
+    {
+      "id": "S_E",
+      "point": [
+        11.0,
+        -12.225
+      ],
+      "side": "south"
+    },
+    {
+      "id": "N_E",
+      "point": [
+        11.0,
+        11.525
+      ],
+      "side": "north",
+      "wall_bearing_plane": 10.48,
+      "support_condition": "Long triangular stand-offs must bear on actual recessed masonry. No invented full-height outer wall."
+    }
+  ],
+  "facade_bearings": {
+    "W_S": {
+      "wall_coordinate": 15.93,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "W_M": {
+      "wall_coordinate": 15.93,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "W_N": {
+      "wall_coordinate": 15.93,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "E_S": {
+      "wall_coordinate": 15.93,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "E_M": {
+      "wall_coordinate": 15.93,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "S_W": {
+      "wall_coordinate": 12.63,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "S_E": {
+      "wall_coordinate": 12.63,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    },
+    "N_E": {
+      "wall_coordinate": 10.48,
+      "owner": "ExteriorMasonry/MasonryCollision"
+    }
+  },
+  "notes": [
+    "Retain the 200 mm structural slab and original roof, door, fan, tank and maintenance owners.",
+    "Independent roof collector terminates at a bolted property blank. Street-main supply and capacity remain undefined.",
+    "Facade bearing coordinates are fitted native masonry datums; actual current contacts must be checked independently."
+  ],
+  "front_property_z": -16.605
+}

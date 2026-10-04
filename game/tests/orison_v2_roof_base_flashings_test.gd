@@ -24,9 +24,11 @@ func _run() -> void:
 	var triangles:=0
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		parts+=1
-		triangles+=draw.mesh.get_faces().size()/3
+		var actual_faces: PackedVector3Array=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh)
+		triangles+=actual_faces.size()/3
 		var key: String=draw.get_meta("material_key")
-		check(MatLib.SETS.has(key) and draw.material_override==MatLib.get_mat(key),"existing mapped weather material")
+		var material:=draw.material_override as StandardMaterial3D
+		check(MatLib.SETS.has(key) and material!=null and not material.uv1_triplanar and material.albedo_texture==(MatLib.get_mat(key) as StandardMaterial3D).albedo_texture,"existing mapped weather material uses its actual local metre chart")
 		_check_mapping(draw.mesh,true)
 		# Preserve imported local precision without subtracting distant city
 		# translations before measuring the thin sheet and its corner joints.
@@ -37,7 +39,7 @@ func _run() -> void:
 			parent=parent.get_parent()
 		var bounds: AABB=pose*draw.mesh.get_aabb()
 		check(maxf(maxf(bounds.size.x,bounds.size.y),bounds.size.z)<4.00001,"bounded native partition")
-		native.append_array(pose*draw.mesh.get_faces())
+		native.append_array(pose*actual_faces)
 	check(parts==int(fixture.parts) and triangles==int(fixture.triangles),"installed native draw and triangle counts")
 	var space: PhysicsDirectSpaceState3D=world.get_world_3d().direct_space_state
 	for station: Dictionary in fixture.stations:
@@ -55,7 +57,7 @@ func _run() -> void:
 		check(not hit.is_empty() and hit.collider.get_parent()==model and root.to_local(hit.position).distance_to(foot)<.00005,"actual roof foot matches native top")
 		query.exclude=bodies
 		hit=space.intersect_ray(query)
-		check(not hit.is_empty() and absf(root.to_local(hit.position).y-float(fixture.roof_datum))<.00005,"roof foot rests on original supported deck")
+		check(not hit.is_empty() and absf(root.to_local(hit.position).y-(foot.y-float(fixture.sheet_thickness)))<.00005,"roof foot rests on the original floor body's fitted field")
 	for edge: Array in fixture.miter_edges:
 		for vertex: Array in edge:
 			var at:=_v(vertex)
@@ -70,7 +72,7 @@ func _run() -> void:
 	for record: Dictionary in root.layout.doors:
 		if record.id not in ["ROOF_PUBLIC_DOOR","ROOF_SERVICE_DOOR"]:continue
 		for offset: float in [-.49,0.,.49]:
-			var at:=Vector3(float(record.center[0]),float(fixture.roof_datum)+.08,float(record.center[1])+offset*float(record.width))
+			var at:=Vector3(float(record.center[0]),root.get_node(str(record.id)).position.y+.08,float(record.center[1])+offset*float(record.width))
 			check(_mesh_distance(native,at-Vector3.RIGHT*.5,Vector3.RIGHT)>1.,"weather strips preserve the full retained doorway")
 	var observations: Array[Dictionary]=[]
 	for view: Array in [["public_base",Vector3(-3.8,20.61,-1.3),Vector3(-2.27,19.3,-1.3)],

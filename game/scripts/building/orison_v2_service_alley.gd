@@ -30,7 +30,7 @@ func _ready() -> void:
 	for draw: MeshInstance3D in groundworks.find_children("*","MeshInstance3D",true,false):
 		draw.material_override=iron if str(draw.name).contains("cast_iron") else concrete
 		var body:=StaticBody3D.new();body.name="GroundworksCollision";draw.add_child(body)
-		var collision:=CollisionShape3D.new();collision.shape=draw.mesh.create_trimesh_shape();body.add_child(collision)
+		var collision:=CollisionShape3D.new();collision.shape=_native_shape(draw.mesh);body.add_child(collision)
 	for at: Vector3 in [Vector3(17.8,2.34,-9),Vector3(17.8,2.34,2),Vector3(17.8,2.34,12.5),Vector3(8,2.34,11)]:
 		var lamp := LightFixtureProp.new()
 		lamp.prop_type = "cage_bulb"
@@ -40,3 +40,6 @@ func _ready() -> void:
 		lamp.navigation_light = true
 		lamp.standby_scale = .35
 		add_child(lamp)
+
+func _native_shape(mesh: Mesh) -> ConcavePolygonShape3D:
+	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(mesh));return shape

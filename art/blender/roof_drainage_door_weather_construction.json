@@ -1,0 +1,288 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
+  "native_sha256": "3f9f809339ed783945850cfcd1653fa036e675beb85f0d8efcfcbb2e215aa4a7",
+  "asset_sha256": "7ba4b76f71a36d54b6aedc2846f645044854d03675741c3afa9fa17cd2cf4e4f",
+  "source_bindings": {
+    "art/blender/roof_drainage_falls_construction.json": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+    "art/blender/scripts/build_roof_drainage_plant_weather.py": "e43703da906427a395605377458225053a3bb91b7a7abd519c9e19198f54917c",
+    "art/blender/scripts/build_roof_drainage_door_weather.py": "229fe7328c45104376ccdc697efabdf88f2a1a8b4e13ae2eadea44cbc8a8f945"
+  },
+  "closed_stocks": [
+    {
+      "name": "ROOF_PUBLIC_DOOR__ThresholdCap",
+      "owner": "ROOF_PUBLIC_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 0.0030797765159786576,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__Pan_West",
+      "owner": "ROOF_PUBLIC_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 7.13321751071812e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__Pan_South",
+      "owner": "ROOF_PUBLIC_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 1.631453604640363e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__Pan_North",
+      "owner": "ROOF_PUBLIC_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 1.9681805565336903e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__BottomBlade",
+      "owner": "ROOF_PUBLIC_DOOR__Moving",
+      "material": "rubber_aged",
+      "volume_m3": 6.480001577138993e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__FixedRainLip",
+      "owner": "ROOF_PUBLIC_DOOR__Fixed",
+      "material": "galvanized_roof",
+      "volume_m3": 8.424000881005107e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__ThresholdCap",
+      "owner": "ROOF_SERVICE_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 0.003079779853596556,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__Pan_West",
+      "owner": "ROOF_SERVICE_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 7.559879953797255e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__Pan_South",
+      "owner": "ROOF_SERVICE_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 2.17712148577076e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__Pan_North",
+      "owner": "ROOF_SERVICE_DOOR",
+      "material": "galvanized_roof",
+      "volume_m3": 2.0087680396774393e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__BottomBlade",
+      "owner": "ROOF_SERVICE_DOOR__Moving",
+      "material": "rubber_aged",
+      "volume_m3": 6.480001577138993e-05,
+      "native_closed": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__FixedRainLip",
+      "owner": "ROOF_SERVICE_DOOR__Fixed",
+      "material": "galvanized_roof",
+      "volume_m3": 8.424000881005107e-05,
+      "native_closed": true
+    }
+  ],
+  "parts": [
+    {
+      "name": "ROOF_PUBLIC_DOOR__galvanized_roof",
+      "owner": "ROOF_PUBLIC_DOOR",
+      "material": "galvanized_roof",
+      "moving": false,
+      "fixed_leaf_local": false
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__Fixed__galvanized_roof",
+      "owner": "ROOF_PUBLIC_DOOR__Fixed",
+      "material": "galvanized_roof",
+      "moving": false,
+      "fixed_leaf_local": true
+    },
+    {
+      "name": "ROOF_PUBLIC_DOOR__Moving__rubber_aged",
+      "owner": "ROOF_PUBLIC_DOOR__Moving",
+      "material": "rubber_aged",
+      "moving": true,
+      "fixed_leaf_local": false
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__galvanized_roof",
+      "owner": "ROOF_SERVICE_DOOR",
+      "material": "galvanized_roof",
+      "moving": false,
+      "fixed_leaf_local": false
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__Fixed__galvanized_roof",
+      "owner": "ROOF_SERVICE_DOOR__Fixed",
+      "material": "galvanized_roof",
+      "moving": false,
+      "fixed_leaf_local": true
+    },
+    {
+      "name": "ROOF_SERVICE_DOOR__Moving__rubber_aged",
+      "owner": "ROOF_SERVICE_DOOR__Moving",
+      "material": "rubber_aged",
+      "moving": true,
+      "fixed_leaf_local": false
+    }
+  ],
+  "door_pans": [
+    {
+      "id": "ROOF_PUBLIC_DOOR",
+      "source_record": {
+        "id": "ROOF_PUBLIC_DOOR",
+        "level": "ROOF",
+        "center": [
+          -2.2,
+          0
+        ],
+        "width": 1.1,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "out onto roof deck",
+        "connects": [
+          "ROOF_PUBLIC_CORE",
+          "ROOF_DECK_WEST"
+        ]
+      },
+      "curb_top_y": 19.35855,
+      "curb_rect": [
+        -2.5500000000000003,
+        -0.55,
+        -1.85,
+        0.55
+      ],
+      "fitted_leaf_normal_offset_m": -0.07,
+      "original_cap_stock_replaced": "ROOF_PUBLIC_DOOR__CurbCap",
+      "cap_stock": "ROOF_PUBLIC_DOOR__ThresholdCap",
+      "weather_pan_end_x": -2.27,
+      "pan_foot_width_m": 0.04,
+      "minimum_bottom_seal_y": 0.004,
+      "bottom_seal_z": [
+        -0.021,
+        -0.019
+      ],
+      "original_leaf_bottom_y": 0.01,
+      "moving_owner": "ROOF_PUBLIC_DOOR__Moving",
+      "fixed_owner": "ROOF_PUBLIC_DOOR__Fixed",
+      "moving_parts_are_leaf_local": true
+    },
+    {
+      "id": "ROOF_SERVICE_DOOR",
+      "source_record": {
+        "id": "ROOF_SERVICE_DOOR",
+        "level": "ROOF",
+        "center": [
+          9.5,
+          3
+        ],
+        "width": 1.1,
+        "height": 2.13,
+        "yaw": 1.5707963267948966,
+        "hinge": "left",
+        "swing": "out onto roof deck",
+        "connects": [
+          "ROOF_SERVICE_CORE",
+          "ROOF_DECK_MIDDLE"
+        ]
+      },
+      "curb_top_y": 19.32495,
+      "curb_rect": [
+        9.15,
+        2.45,
+        9.85,
+        3.55
+      ],
+      "fitted_leaf_normal_offset_m": -0.07,
+      "original_cap_stock_replaced": "ROOF_SERVICE_DOOR__CurbCap",
+      "cap_stock": "ROOF_SERVICE_DOOR__ThresholdCap",
+      "weather_pan_end_x": 9.43,
+      "pan_foot_width_m": 0.04,
+      "minimum_bottom_seal_y": 0.004,
+      "bottom_seal_z": [
+        -0.021,
+        -0.019
+      ],
+      "original_leaf_bottom_y": 0.01,
+      "moving_owner": "ROOF_SERVICE_DOOR__Moving",
+      "fixed_owner": "ROOF_SERVICE_DOOR__Fixed",
+      "moving_parts_are_leaf_local": true
+    }
+  ],
+  "field_feet": [
+    {
+      "id": "ROOF_PUBLIC_DOOR",
+      "side": "West",
+      "point": [
+        -2.575000047683716,
+        19.345699999523166,
+        0.0
+      ]
+    },
+    {
+      "id": "ROOF_PUBLIC_DOOR",
+      "side": "South",
+      "point": [
+        -2.4099998474121094,
+        19.353100001406673,
+        -0.574999988079071
+      ]
+    },
+    {
+      "id": "ROOF_PUBLIC_DOOR",
+      "side": "North",
+      "point": [
+        -2.4099998474121094,
+        19.343100001406672,
+        0.574999988079071
+      ]
+    },
+    {
+      "id": "ROOF_SERVICE_DOOR",
+      "side": "West",
+      "point": [
+        9.125,
+        19.310200000000005,
+        3.0
+      ]
+    },
+    {
+      "id": "ROOF_SERVICE_DOOR",
+      "side": "South",
+      "point": [
+        9.289999961853027,
+        19.302799999904636,
+        2.424999952316284
+      ]
+    },
+    {
+      "id": "ROOF_SERVICE_DOOR",
+      "side": "North",
+      "point": [
+        9.289999961853027,
+        19.307799999904635,
+        3.575000047683716
+      ]
+    }
+  ],
+  "open_work": [
+    "native exact miter and field contacts",
+    "imported UV and actual leaf/saddle fitting",
+    "full movement to original leaf-owner target and normal roof route",
+    "weather/reservoir downstream and production installation"
+  ]
+}

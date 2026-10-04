@@ -12,6 +12,18 @@ func _prepare_player_start() -> void:
 	player.global_position = world.adapter.root.to_global(Vector3(1.925, 16.02, -3.5))
 	player.velocity = Vector3.ZERO
 
+func _walk(target: Vector3) -> bool:
+	if target.y>19.15 and target.y<19.25:
+		var root: Node3D=world.adapter.root
+		var query:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(target.x,19.7,target.z)),root.to_global(Vector3(target.x,19.,target.z)),1,[player.get_rid()])
+		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
+		var valid_floor:=not hit.is_empty() and "/Floor/Collision" in str(root.get_path_to(hit.collider))
+		for platform: Dictionary in world.layout.platforms:
+			if absf(float(root.level_y[str(platform.level)])-target.y)<.001 and not hit.is_empty() and hit.collider==root.get_node(str(platform.id)+"/Collision"):valid_floor=true
+		if not _require(valid_floor,"retained route has its actual fitted floor at "+str(target)):return false
+		target.y=root.to_local(hit.position).y
+	return await super._walk(target)
+
 func _route() -> void:
 	for point in [Vector3(1.925,17.6,1.3), Vector3(3.975,17.6,1.3),
 			Vector3(3.975,19.2,-3.4), Vector3(5.0,19.2,-3.4),

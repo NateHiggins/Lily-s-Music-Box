@@ -177,6 +177,11 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("V2 shared ventilation could not be composed")
 		return
+	var roof_drainage:=preload("res://scripts/building/orison_v2_roof_drainage.gd").new()
+	if not roof_drainage.mount(self):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: roof drainage refused: %s" % [roof_drainage.errors])
+		return
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)

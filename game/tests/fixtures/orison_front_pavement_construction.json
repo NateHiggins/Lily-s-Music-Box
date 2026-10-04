@@ -330,6 +330,26 @@
         -12.349999770522118
       ],
       "kind": "authored_original_box"
+    },
+    {
+      "owner": "RoofCollector/S_W/GradeBed",
+      "bounds": [
+        -7.150000095367432,
+        -12.949999809265137,
+        -6.849999904632568,
+        -12.649999618530273
+      ],
+      "kind": "source_bound_receiver_port"
+    },
+    {
+      "owner": "RoofCollector/S_E/GradeBed",
+      "bounds": [
+        10.850000381469727,
+        -12.949999809265137,
+        11.149999618530273,
+        -12.649999618530273
+      ],
+      "kind": "source_bound_receiver_port"
     }
   ],
   "parts": [
@@ -379,7 +399,7 @@
         0.0,
         -12
       ],
-      "quads": 32
+      "quads": 40
     },
     {
       "id": "Pavement_N6_N3",
@@ -415,7 +435,7 @@
         0.0,
         -12
       ],
-      "quads": 20
+      "quads": 26
     },
     {
       "id": "Pavement_N5_N3",
@@ -451,7 +471,7 @@
         0.0,
         -12
       ],
-      "quads": 68
+      "quads": 92
     },
     {
       "id": "Pavement_N4_N3",
@@ -487,7 +507,7 @@
         0.0,
         -12.35
       ],
-      "quads": 55
+      "quads": 75
     },
     {
       "id": "Pavement_N2_N5",
@@ -499,7 +519,7 @@
         0.0,
         -16
       ],
-      "quads": 12
+      "quads": 18
     },
     {
       "id": "Pavement_N2_N4",
@@ -511,7 +531,7 @@
         0.0,
         -12
       ],
-      "quads": 46
+      "quads": 94
     },
     {
       "id": "Pavement_N2_N3",
@@ -547,7 +567,7 @@
         0.0,
         -12
       ],
-      "quads": 48
+      "quads": 64
     },
     {
       "id": "Pavement_N1_N3",
@@ -583,7 +603,7 @@
         0.0,
         -12
       ],
-      "quads": 48
+      "quads": 64
     },
     {
       "id": "Pavement_P0_N3",
@@ -619,7 +639,7 @@
         0.0,
         -12
       ],
-      "quads": 12
+      "quads": 16
     },
     {
       "id": "Pavement_P1_N3",
@@ -643,7 +663,7 @@
         0.0,
         -16
       ],
-      "quads": 18
+      "quads": 24
     },
     {
       "id": "Pavement_P2_N4",
@@ -655,7 +675,7 @@
         0.0,
         -12
       ],
-      "quads": 68
+      "quads": 124
     },
     {
       "id": "Pavement_P2_N3",
@@ -691,7 +711,7 @@
         0.0,
         -12
       ],
-      "quads": 57
+      "quads": 77
     },
     {
       "id": "Pavement_P3_N3",
@@ -727,7 +747,7 @@
         0.0,
         -12
       ],
-      "quads": 12
+      "quads": 16
     },
     {
       "id": "Pavement_P4_N3",
@@ -763,7 +783,7 @@
         0.0,
         -12
       ],
-      "quads": 18
+      "quads": 24
     },
     {
       "id": "Pavement_P5_N3",
@@ -778,20 +798,22 @@
       "quads": 10
     }
   ],
-  "volume_m3": 29.04393082747179,
+  "volume_m3": 29.015130837270807,
   "closed_source_non_manifold_edges": 0,
   "zero_area_edge_contacts_split": 4,
   "vertex_fans_split": 8,
-  "asset_sha256": "1c49a6f3d5a8018d08e956d257f72926d69ca1faf7a678080787bfe4a891c481",
+  "asset_sha256": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d",
   "source_native_sha256": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c",
   "note": "Current public-slab ownership construction. Existing rooms, shop and shed floors, curb and exterior masonry retain their own volumes. Public top datum stays zero. Drainage grade and finished joints remain open.",
   "schema": "orison.v2.front-pavement-construction.v1",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "f4b82fe2566280c78cf246f936eba4aa35069ed6560fa8d27c966ba857ad80c4",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
     "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
     "game/data/orison_v2/world_connection.json": "dc5c822ed19d68c6aeb749f0d07eb5ef38533402f16add94106b6b5270925226",
-    "art/blender/exterior_masonry.blend": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c"
+    "art/blender/exterior_masonry.blend": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c",
+    "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
+    "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   }
 }

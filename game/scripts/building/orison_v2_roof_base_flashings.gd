@@ -4,16 +4,23 @@ static func mount(root: Node3D) -> Node3D:
 	var model: Node3D=(preload("res://assets/props/roof_base_flashings.glb") as PackedScene).instantiate()
 	model.name="RoofBaseFlashings"
 	root.add_child(model)
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_roof_base_flashings.json"))
+	var keys: Dictionary={}
+	for part: Dictionary in fixture.runtime_parts:keys[str(part.name)]=str(part.material)
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		var key: String=draw.mesh.surface_get_material(0).resource_name
+		var key: String=str(keys.get(str(draw.name),"missing"))
 		assert(MatLib.SETS.has(key),"Unknown roof base material: "+key)
 		draw.set_meta("material_key",key)
-		draw.material_override=MatLib.get_mat(key)
+		var material:=MatLib.get_mat(key).duplicate() as StandardMaterial3D
+		material.uv1_triplanar=false;draw.material_override=material
 		var body:=StaticBody3D.new()
 		body.name=str(draw.name)+"Collision"
 		body.transform=model.global_transform.affine_inverse()*draw.global_transform
 		var shape:=CollisionShape3D.new()
-		shape.shape=draw.mesh.create_trimesh_shape()
+		shape.shape=_shape(draw.mesh)
 		body.add_child(shape)
 		model.add_child(body)
 	return model
+
+static func _shape(mesh: Mesh) -> ConcavePolygonShape3D:
+	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(mesh));return shape

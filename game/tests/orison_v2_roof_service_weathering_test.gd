@@ -18,15 +18,16 @@ func _run() -> void:
 	var native:=PackedVector3Array();var triangles:=0;var parts:=0;var weather_bodies: Array[RID]=[world.player.get_rid()]
 	for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):weather_bodies.append(body.get_rid())
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		parts+=1;triangles+=draw.mesh.get_faces().size()/3
+		parts+=1;triangles+=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh).size()/3
 		var key: String=draw.get_meta("material_key")
-		check(MatLib.SETS.has(key) and draw.material_override==MatLib.get_mat(key),"weather assembly uses an actual existing mapped material key")
+		var material:=draw.material_override as StandardMaterial3D
+		check(MatLib.SETS.has(key) and material!=null and not material.uv1_triplanar and material.albedo_texture==(MatLib.get_mat(key) as StandardMaterial3D).albedo_texture,"weather assembly uses the actual catalogue maps on its local metre charts")
 		_check_mapping(draw.mesh,true)
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		var bound: AABB=pose*draw.mesh.get_aabb()
 		check(maxf(maxf(bound.size.x,bound.size.y),bound.size.z)<4.00001,"weather assembly export uses bounded partitions")
-		native.append_array(pose*draw.mesh.get_faces())
-	check(parts==6 and triangles==4546,"production weather assembly retains the inspected six partitions and open fitted outlet")
+		native.append_array(pose*preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh))
+	check(FileAccess.get_sha256("res://assets/props/roof_service_weathering.glb")==manifest.asset_sha256 and parts==int(manifest.parts) and triangles==int(manifest.native_triangles),"production weather binds the inspected native inventory and open fitted outlet")
 	var top_contacts:=0;var bearings:=0;var original_contacts:=0
 	for ux: float in [.1,.5,.9]:
 		for uz: float in [.1,.5,.9]:
@@ -58,12 +59,12 @@ func _run() -> void:
 	check(not is_finite(_mesh_distance(native,fluid,Vector3.DOWN)),"native gutter floor drains into the continuous open leader")
 	var outlet_query:=PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,root.level_y.ROOF-.01,fluid.z)),1,[world.player.get_rid()])
 	var outlet_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(outlet_query)
-	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("RoofBaseFlashings/") and absf(root.to_local(outlet_hit.position).y-root.level_y.ROOF-.0012)<.00005,"real open outlet discharges onto the fitted base flashing foot")
+	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("RoofBaseFlashings/") and absf(root.to_local(outlet_hit.position).y-float(manifest.foot_y))<.00005,"real open outlet discharges onto the fitted base flashing foot")
 	var outlet_exclude: Array[RID]=[world.player.get_rid()]
 	for body: CollisionObject3D in root.get_node("RoofBaseFlashings").find_children("*","CollisionObject3D",true,false):outlet_exclude.append(body.get_rid())
 	outlet_query.exclude=outlet_exclude
 	outlet_hit=world.get_world_3d().direct_space_state.intersect_ray(outlet_query)
-	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("ROOF_DECK_EAST/Floor") and absf(root.to_local(outlet_hit.position).y-root.level_y.ROOF)<.00005,"flashing foot retains the original unfinished main roof field below")
+	check(not outlet_hit.is_empty() and str(root.get_path_to(outlet_hit.collider)).begins_with("ROOF_DECK_EAST/Floor") and absf(root.to_local(outlet_hit.position).y-float(manifest.field_y))<.00005,"flashing foot rests on the fitted field of the original floor body")
 	for z_fraction: float in [.2,.5,.8]:
 		var z:=lerpf(manifest.gutter_z[0],manifest.outlet_z,z_fraction)
 		var centre_y: float=manifest.gutter_low_y+manifest.gutter_fall*absf(z-manifest.outlet_z)

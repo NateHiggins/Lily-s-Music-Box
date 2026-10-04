@@ -1,8 +1,7 @@
-"""Fit folded base weather fittings to retained roof walls without new cuts.
+"""Source-owned Orison roof/drainage construction.
 
-The original slabs, parapets, bulkheads and doors retain ownership. Native
-construction pieces are closed; runtime omits shared ends and fabric contacts.
-Main roof falls, drainage and the field membrane remain separate open work.
+Retained gameplay authorities remain; geometry and material validation are
+independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
 import hashlib
@@ -13,7 +12,33 @@ import bmesh
 import numpy as np
 from mathutils import Vector
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = next(path for path in Path(__file__).resolve().parents if (path/'game/project.godot').is_file())
+OUT=ROOT/'art/blender';OUT.mkdir(parents=True,exist_ok=True)
+field=json.loads((ROOT/'art/blender/roof_drainage_falls_construction.json').read_bytes())
+ports=json.loads((ROOT/'art/blender/roof_drainage_ports_construction.json').read_bytes())['ports']
+field_points=np.array(field['points'],dtype=np.float64)
+field_faces=np.array(field['triangles_by_vertex'],dtype=np.int32)
+field_triangles=field_points[field_faces][:,:,[0,2]]
+field_planes=np.array([np.linalg.solve(np.c_[field_points[t][:,[0,2]],np.ones(3)],field_points[t][:,1]) for t in field_faces])
+field_buckets={};edge_owners={}
+for i,tri in enumerate(field_triangles):
+    lo=tri.min(axis=0)-.00002;hi=tri.max(axis=0)+.00002
+    for ix in range(math.floor(lo[0]/.5),math.floor(hi[0]/.5)+1):
+        for iz in range(math.floor(lo[1]/.5),math.floor(hi[1]/.5)+1):field_buckets.setdefault((ix,iz),[]).append(i)
+    for a,b in zip(tri,np.roll(tri,-1,axis=0)):
+        key=tuple(sorted((tuple(a),tuple(b))));edge_owners.setdefault(key,[]).append(i)
+# Split at physical drainage creases, rather than every coplanar sampling
+# edge. Repeated cuts of the same plane create sub-micrometre dust faces in
+# float32 native meshes and carry no change to the fitted underside.
+field_edges={key:tuple(np.array(point) for point in key) for key,owners in edge_owners.items()
+             if len(owners)==2 and np.max(np.abs(field_planes[owners[0]]-field_planes[owners[1]]))>1e-6}
+def roof_height(x,z):
+    at=np.array([x,z]);candidates=field_buckets.get((math.floor(x/.5),math.floor(z/.5)),[])
+    for index in candidates:
+        t=field_triangles[index];a=t[1]-t[0];b=t[2]-t[0];q=at-t[0];det=a[0]*b[1]-a[1]*b[0]
+        u=(q[0]*b[1]-q[1]*b[0])/det;v=(a[0]*q[1]-a[1]*q[0])/det
+        if u>=-.00015 and v>=-.00015 and u+v<=1.00015:return float(field_planes[index]@np.array([x,z,1.]))
+    raise AssertionError(('No physical roof under fitted flashing',x,z))
 plan_path = ROOT/'art/data/roof_base_flashings/source_plan.json'
 roof_path = ROOT/'art/data/orison_v2/roof_source.json'
 layout_path = ROOT/'game/data/orison_v2_blockout.json'
@@ -25,33 +50,57 @@ Y = roof['levels'][0]['y']
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version = 0
 materials = {}
-for key, color in [('metal',(.30,.32,.32,1)),('enamel',(.36,.34,.30,1))]:
+for key, color in [('galvanized_roof',(.30,.32,.32,1)),('enamel',(.36,.34,.30,1))]:
     mat=bpy.data.materials.new(key);mat.diffuse_color=color;mat.use_nodes=True
     mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=color
-    mat.node_tree.nodes['Principled BSDF'].inputs['Metallic'].default_value=.6 if key=='metal' else 0
+    mat.node_tree.nodes['Principled BSDF'].inputs['Metallic'].default_value=.9 if key=='galvanized_roof' else 0
     mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.5
     materials[key]=mat
 
 def blender(p): return Vector((p[0],-p[2],p[1]))
 
-closed=[]; groups={}; stations=[]; joints=[]
+closed=[]; closed_checks=[]; groups={}; stations=[]; joints=[]
 def piece(name, vertices, faces, key, group, omit=()):
     origin=sum((blender(v) for v in vertices),Vector())/len(vertices)
     local=[blender(v)-origin for v in vertices]
     mesh=bpy.data.meshes.new(name);mesh.from_pydata(local,[],faces);mesh.update()
     bm=bmesh.new();bm.from_mesh(mesh)
+    source_face=bm.faces.layers.int.new('SourceFace')
+    for index,face in enumerate(bm.faces):face[source_face]=index
+    # Split every folded stock at the actual roof triangle edges before
+    # warping it. Its underside then stays in the same affine roof planes,
+    # including drainage divides and mitered corners.
+    footprint=np.array([[v[0],v[2]] for v in vertices]);lo=footprint.min(axis=0)-.00001;hi=footprint.max(axis=0)+.00001
+    used=set()
+    for a,b in field_edges.values():
+        if np.any(np.maximum(a,b)<lo) or np.any(np.minimum(a,b)>hi):continue
+        delta=b-a;normal=np.array([delta[1],-delta[0]]);normal/=np.linalg.norm(normal)
+        if normal[0]<-1e-10 or (abs(normal[0])<1e-10 and normal[1]<0):normal=-normal
+        constant=float(normal@a);identity=tuple(round(v,7) for v in [*normal,constant])
+        if identity in used:continue
+        used.add(identity)
+        values=[normal@np.array(p)-constant for p in [[lo[0],lo[1]],[hi[0],lo[1]],[hi[0],hi[1]],[lo[0],hi[1]]]]
+        if min(values)>0 or max(values)<0:continue
+        plane_co=Vector((a[0],-a[1],float(origin.z)))-origin;plane_no=Vector((normal[0],-normal[1],0.))
+        bmesh.ops.bisect_plane(bm,geom=list(bm.verts)+list(bm.edges)+list(bm.faces),dist=.0000001,plane_co=plane_co,plane_no=plane_no,clear_inner=False,clear_outer=False)
+    for vertex in bm.verts:
+        absolute=origin+vertex.co;vertex.co.z+=roof_height(float(absolute.x),float(-absolute.y))-Y
     bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
     assert all(e.is_manifold for e in bm.edges),name
     assert bm.calc_volume(signed=True)>1e-12,name
+    volume=bm.calc_volume(signed=True)
+    assert all(face[source_face] in range(len(faces)) for face in bm.faces)
     bm.to_mesh(mesh);bm.free()
     obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
     obj.location=origin;mesh.materials.append(materials[key]);obj.hide_render=True;obj.hide_set(True)
     closed.append(obj)
+    closed_checks.append({'name':name,'volume_m3':volume,'nonmanifold_edges':0})
     target=groups.setdefault((group,key),[])
     # Keep the closed native counterpart. Runtime omits shared retained-fabric
     # contacts and paired ends; each exposed surface has exactly one owner.
+    source_indices=mesh.attributes['SourceFace']
     for face in mesh.polygons:
-        if face.index not in omit:
+        if source_indices.data[face.index].value not in omit:
             target.append([origin + mesh.vertices[i].co for i in face.vertices])
 
 def extrusion(name, rings, key, group, omit=()):
@@ -75,6 +124,16 @@ def perimeter(identity,rect,interior=False,door=None):
             centre=door['center'][1]-start[1]
             clearance=door['width']/2+plan['door_clearance']
             intervals=[(0.,centre-clearance,True,False),(centre+clearance,length,False,True)]
+        if identity=='ROOF_PARAPET':
+            for port in [p for p in ports if p['side']==side.lower()]:
+                centre=(Vector(port['inner_point'])-Vector((start[0],0,start[1]))).dot(tangent)
+                opening=port['notch_width']/2
+                revised=[]
+                for lo,hi,cs,ce in intervals:
+                    if hi<=centre-opening or lo>=centre+opening:revised.append((lo,hi,cs,ce));continue
+                    if lo<centre-opening:revised.append((lo,centre-opening,cs,False))
+                    if hi>centre+opening:revised.append((centre+opening,hi,False,ce))
+                intervals=revised
         for lo,hi,corner_start,corner_end in intervals:
             runs.append(dict(owner=identity,side=side,origin=[start[0],Y,start[1]],
                              tangent=list(tangent),normal=list(normal),length=length,
@@ -109,7 +168,7 @@ for run_number,run in enumerate(runs):
         omit=[2,9]
         if index>0 or start_corner:omit.append(0)
         if index<count-1 or end_corner:omit.append(1)
-        extrusion('FoldedStrip_'+group,rings,'metal',group,omit)
+        extrusion('FoldedStrip_'+group,rings,'galvanized_roof',group,omit)
         stations.append({'owner':run['owner'],'side':run['side'],
                          'wall_point':at((first+last)/2,0,.10),
                          'normal':list(normal),'foot_point':at((first+last)/2,.04,thickness)})
@@ -127,7 +186,7 @@ for run_number,run in enumerate(runs):
                 for u in [u0,u1]:
                     rings.append([at(centre+ds,u,.115+dy) for ds,dy in
                                   [(-size/2,-size/2),(size/2,-size/2),(size/2,size/2),(-size/2,size/2)]])
-                key='enamel' if run_number==0 and index==0 and bolt==0 else 'metal'
+                key='enamel' if run_number==0 and index==0 and bolt==0 else 'galvanized_roof'
                 extrusion(f'{label}_{group}_{bolt}',rings,key,group)
 
 parts=[];triangles=0
@@ -153,7 +212,8 @@ for (group,key),polygons in sorted(groups.items()):
     bounds=[max(v.co[i] for v in mesh.vertices)-min(v.co[i] for v in mesh.vertices) for i in range(3)]
     assert max(bounds)<4.,(obj.name,bounds)
 
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/roof_base_flashings.blend'))
+bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'roof_base_flashings.blend'),compress=True)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in parts:obj.select_set(True)
 class ExportUVHandedness:
@@ -168,12 +228,25 @@ class ExportUVHandedness:
             data['data']=result
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/roof_base_flashings.glb'),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
+bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/roof_base_flashings.glb'),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':len(parts),'triangles':triangles,
           'closed_native_pieces':len(closed),'sheet_thickness':thickness,'roof_datum':Y,
           'stations':stations,'miter_edges':joints,'door_clearance':plan['door_clearance'],
           'source_bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [plan_path,roof_path,layout_path]},
           'open_work':plan['open_work']}
-for path in [ROOT/'art/blender/roof_base_flashings_construction.json',ROOT/'game/tests/fixtures/orison_roof_base_flashings.json']:
+manifest['status']='SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED'
+manifest['runtime_parts']=[{'name':obj.name,'material':obj.data.materials[0].name} for obj in parts]
+manifest['field_sha256']=hashlib.sha256((ROOT/'art/blender/roof_drainage_falls_construction.json').read_bytes()).hexdigest()
+manifest['closed_stocks']=closed_checks
+manifest['closed_stock_names']=[o.name for o in closed]
+manifest['native_sha256']=hashlib.sha256((OUT/'roof_base_flashings.blend').read_bytes()).hexdigest()
+manifest['asset_sha256']=hashlib.sha256((ROOT/'game/assets/props/roof_base_flashings.glb').read_bytes()).hexdigest()
+for station in manifest['stations']:
+    for key in ['wall_point','foot_point']:
+        p=station[key];p[1]+=roof_height(p[0],p[2])-Y
+manifest['miter_edges']=[[[p[0],p[1]+roof_height(p[0],p[2])-Y,p[2]] for p in joint] for joint in manifest['miter_edges']]
+for path in [OUT/'roof_base_flashings_construction.json']:
     path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('ROOF BASE FLASHINGS',len(parts),'parts',triangles,'triangles;',len(closed),'closed native pieces')
+
+(ROOT/'game/tests/fixtures/orison_roof_base_flashings.json').write_bytes((OUT/'roof_base_flashings_construction.json').read_bytes())

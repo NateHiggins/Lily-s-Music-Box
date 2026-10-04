@@ -16,15 +16,16 @@ func _route() -> void:
 	var parts:=0;var triangles:=0
 	for body: StaticBody3D in model.find_children("*","StaticBody3D",true,false):bodies.append(body.get_rid())
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		parts+=1;triangles+=draw.mesh.get_faces().size()/3
+		parts+=1;triangles+=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh).size()/3
 		var key: String=draw.get_meta("material_key")
-		_require(draw.material_override==MatLib.get_mat(key),"public roof uses actual mapped material "+key)
+		var material:=draw.material_override as StandardMaterial3D
+		_require(material!=null and not material.uv1_triplanar and material.albedo_texture==(MatLib.get_mat(key) as StandardMaterial3D).albedo_texture,"public roof uses actual catalogue maps on local metre charts: "+key)
 		_check_planar_mapping(draw.mesh,true)
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		var bound: AABB=pose*draw.mesh.get_aabb()
 		_require(maxf(maxf(bound.size.x,bound.size.y),bound.size.z)<4.00001,"public weather uses bounded native partitions")
-		weather_native.append_array(pose*draw.mesh.get_faces())
-	_require(parts==int(fixture.parts) and triangles==int(fixture.native_triangles),"public weather matches native build inventory")
+		weather_native.append_array(pose*preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh))
+	_require(FileAccess.get_sha256("res://assets/props/roof_public_weathering.glb")==fixture.asset_sha256 and parts==int(fixture.parts) and triangles==int(fixture.native_triangles),"public weather binds the actual native export and complete inventory")
 	var roof_contacts:=0;var valley_contacts:=0;var grooves:=0
 	for x: float in [-1.8,0,1.8,2.95,4.4,5.3]:
 		for z: float in [-3.5,-2.5,-1.65,-.8,.3,2.7,3.5]:
@@ -85,11 +86,11 @@ func _route() -> void:
 	var native_outlet:=_weather_hit(fluid,Vector3(fluid.x,fixture.leader_y[0]-.01,fluid.z))
 	_require(native_outlet.is_empty(),"actual gutter and leader have an unplugged throat")
 	var outlet:=space.intersect_ray(PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,19.19,fluid.z)),1,[player.get_rid()]))
-	_require(not outlet.is_empty() and "RoofBaseFlashings/" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-19.2012)<.00005,"actual open outlet reaches the fitted base flashing foot")
+	_require(not outlet.is_empty() and "RoofBaseFlashings/" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-float(fixture.foot_y))<.00005,"actual open outlet reaches the fitted base flashing foot")
 	var outlet_exclude: Array[RID]=[player.get_rid()]
 	for body: CollisionObject3D in root.get_node("RoofBaseFlashings").find_children("*","CollisionObject3D",true,false):outlet_exclude.append(body.get_rid())
 	outlet=space.intersect_ray(PhysicsRayQueryParameters3D.create(root.to_global(fluid),root.to_global(Vector3(fluid.x,19.19,fluid.z)),1,outlet_exclude))
-	_require(not outlet.is_empty() and "ROOF_DECK_MIDDLE/Floor" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-19.2)<.00005,"flashing foot retains the original unfinished main roof field below")
+	_require(not outlet.is_empty() and "ROOF_DECK_MIDDLE/Floor" in str(outlet.collider.get_path()) and absf(root.to_local(outlet.position).y-float(fixture.field_y))<.00005,"flashing foot rests on the fitted field of the original floor body")
 	for direction: Vector3 in [Vector3.RIGHT,Vector3.LEFT,Vector3.FORWARD,Vector3.BACK]:
 		var at:=Vector3(fixture.gutter_x,21.,fixture.outlet_z)
 		var hit:=_weather_hit(at,at+direction*.05)

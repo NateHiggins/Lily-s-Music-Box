@@ -2,6 +2,19 @@
 
 Evidence class: **INERT**
 
+## Current fitted toe, 2026-10-04
+
+The upper cover, gutter outlet and original wall supports remain geometrically
+unchanged. The leader toe now ends at **19.2739 m**, 25 mm above the fitted
+flashing at **19.2489 m**; the original floor body's physical field backs it at
+**19.2477 m**. Current runtime has **6** partitions and **4,752** native
+triangles. The editable builder trims its gutter from the immutable retained
+native snapshot so rebuilding cannot progressively trim away its outlet.
+Current assembly details are in **roof_drainage.md**. The text below records
+the earlier flat-deck toe and its superseded counts and contact heights.
+
+## Historical flat-deck installation
+
 The actual production roof discovery found a flat concrete cap on
 **ROOF_SERVICE_CORE**, with no weather finish or runoff route. This bounded
 assembly adds a tapered bearing, galvanized sheet cover, folded perimeter

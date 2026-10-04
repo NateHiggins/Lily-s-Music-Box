@@ -1,8 +1,7 @@
-"""Native public-roof weather assembly: public-bulkhead sheet roof, gutter and external leader.
+"""Source-owned Orison roof/drainage construction.
 
-Derives the retained cap and wall contacts from production source dimensions.
-The leader terminates above the unfinished main roof drainage field. No live
-water simulation, performance or weather-completeness assertion is introduced.
+Retained gameplay authorities remain; geometry and material validation are
+independent of this source recipe. No drainage capacity acceptance.
 """
 from pathlib import Path
 import hashlib
@@ -38,16 +37,39 @@ gutter_radius=plan['gutter_radius'];gutter_wall=plan['gutter_wall'];gutter_fall=
 leader_inner=plan['leader_bore_radius'];leader_wall=plan['leader_wall'];leader_outer=leader_inner+leader_wall
 gutter_x=x1+plan['gutter_wall_offset'];outlet_z=z1-plan['outlet_end_offset']
 gutter_low=cap_top-plan['gutter_low_offset']
+field=json.loads((ROOT/'art/blender/roof_drainage_falls_construction.json').read_bytes())
+ports=json.loads((ROOT/'art/blender/roof_drainage_ports_construction.json').read_bytes())['ports']
+field_points=np.array(field['points'],dtype=np.float64)
+field_faces=np.array(field['triangles_by_vertex'],dtype=np.int32)
+field_triangles=field_points[field_faces][:,:,[0,2]]
+field_planes=np.array([np.linalg.solve(np.c_[field_points[t][:,[0,2]],np.ones(3)],field_points[t][:,1]) for t in field_faces])
+field_buckets={};field_edges={}
+for i,tri in enumerate(field_triangles):
+    lo=tri.min(axis=0)-.00002;hi=tri.max(axis=0)+.00002
+    for ix in range(math.floor(lo[0]/.5),math.floor(hi[0]/.5)+1):
+        for iz in range(math.floor(lo[1]/.5),math.floor(hi[1]/.5)+1):field_buckets.setdefault((ix,iz),[]).append(i)
+    for a,b in zip(tri,np.roll(tri,-1,axis=0)):
+        key=tuple(sorted((tuple(a),tuple(b))));field_edges[key]=(a,b)
+def roof_height(x,z):
+    at=np.array([x,z]);candidates=field_buckets.get((math.floor(x/.5),math.floor(z/.5)),[])
+    for index in candidates:
+        t=field_triangles[index];a=t[1]-t[0];b=t[2]-t[0];q=at-t[0];det=a[0]*b[1]-a[1]*b[0]
+        u=(q[0]*b[1]-q[1]*b[0])/det;v=(a[0]*q[1]-a[1]*q[0])/det
+        if u>=-.00015 and v>=-.00015 and u+v<=1.00015:return float(field_planes[index]@np.array([x,z,1.]))
+    raise AssertionError(('No physical roof under fitted flashing',x,z))
+
 roof_deck_y=y
+fitted_field_y=roof_height(gutter_x,outlet_z)
+fitted_foot_y=fitted_field_y+.0012
 parts=[];records=[];closed=[]
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.context.preferences.filepaths.save_version=0
 materials={}
-for key,color in [('metal',(.30,.32,.32,1)),('concrete',(.36,.35,.32,1))]:
+for key,color in [('galvanized_roof',(.30,.32,.32,1)),('concrete',(.36,.35,.32,1))]:
     mat=bpy.data.materials.new(key);mat.diffuse_color=color;mat.use_nodes=True
     shader=mat.node_tree.nodes['Principled BSDF'];shader.inputs['Base Color'].default_value=color
-    shader.inputs['Metallic'].default_value=.65 if key=='metal' else 0
-    shader.inputs['Roughness'].default_value=.48 if key=='metal' else .85
+    shader.inputs['Metallic'].default_value=.65 if key=='galvanized_roof' else 0
+    shader.inputs['Roughness'].default_value=.48 if key=='galvanized_roof' else .85
     materials[key]=mat
 
 def point(p):return Vector((p[0],-p[2],p[1]))
@@ -134,10 +156,10 @@ for ix in range(sx):
         # make a raised transverse dam across the roof fall.
         panel_a=a+seam if ix>0 else a
         panel_c=c-seam if ix<sx-1 else c
-        rectangular_prism('PublicRoofSheet_%02d_%02d'%(ix,iz),[panel_a,b,panel_c,d],roof_y,lambda x,z:roof_y(x,z)+sheet,'metal')
+        rectangular_prism('PublicRoofSheet_%02d_%02d'%(ix,iz),[panel_a,b,panel_c,d],roof_y,lambda x,z:roof_y(x,z)+sheet,'galvanized_roof')
         if ix>0:
             rectangular_prism('PublicRoofSeam_%02d_%02d'%(ix,iz),[a-seam,b,a+seam,d],roof_y,
-                              lambda x,z:roof_y(x,z)+sheet,'metal')
+                              lambda x,z:roof_y(x,z)+sheet,'galvanized_roof')
 
 # Four triangular facets fill the clipped upstream rectangle. The two raised
 # facets divert water to the two diagonal valleys; the valleys fall toward the
@@ -199,7 +221,7 @@ for label,polygon,raised in [('SouthFiller',[ws,es,wm],False),('SouthCricket',[w
         for j in range(1,len(skin)-1):
             points=[skin[0],skin[j],skin[j+1]]
             area=abs(float(np.linalg.det(np.asarray([np.asarray(points[1])-points[0],np.asarray(points[2])-points[0]]))))*.5
-            if area>1e-10:triangular_prism('PublicRoofCricketSheet_'+label+str(k)+'_'+str(j),points,surface,lambda x,z:surface(x,z)+sheet,'metal')
+            if area>1e-10:triangular_prism('PublicRoofCricketSheet_'+label+str(k)+'_'+str(j),points,surface,lambda x,z:surface(x,z)+sheet,'galvanized_roof')
 
 def profile_sweep(name,profile,stations,key,closed_ends=True):
     # profile: (X,Y) cross-section; station supplies Z and vertical shift.
@@ -219,7 +241,7 @@ for side,x in [('West',x0),('East',x1)]:
              (x+.025,top+.0168),(x,top+.0168),(x,cap_top-.15)]
     for i in range(nz):
         a=z0+(z1-z0)*i/nz;b=z0+(z1-z0)*(i+1)/nz
-        profile_sweep('PublicRoofWestReturn_%d'%i,profile,[(a,0),(b,0)],'metal')
+        profile_sweep('PublicRoofWestReturn_%d'%i,profile,[(a,0),(b,0)],'galvanized_roof')
 for side,z in [('South',z0),('North',z1)]:
     # A closed sheet strip follows the X fall while covering the actual cap face.
     for i in range(sx):
@@ -233,7 +255,7 @@ for side,z in [('South',z0),('North',z1)]:
                          (x,top+.0168,z),(x,cap_top-.15,z)]
         n=6;faces=[tuple(reversed(range(n))),tuple(range(n,n*2))]
         faces += [(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
-        mesh_object('PublicRoof%sReturn_%d'%(side,i),vertices,faces,'metal')
+        mesh_object('PublicRoof%sReturn_%d'%(side,i),vertices,faces,'galvanized_roof')
 
 # A thin folded boot follows the actual roof and cricket facets, then rises
 # against the outer curb face into a real recess beneath the projecting cap.
@@ -242,27 +264,27 @@ for side,z in [('South',z0),('North',z1)]:
 top=plan['flashing_top']
 for side,rect in apron_rectangles:
     for k,region in enumerate(subtract_rect(rect,cricket)):
-        rectangular_prism('PublicRoofCurbApron_'+side+str(k),region,roof_y,lambda x,z:roof_y(x,z)+sheet,'metal')
+        rectangular_prism('PublicRoofCurbApron_'+side+str(k),region,roof_y,lambda x,z:roof_y(x,z)+sheet,'galvanized_roof')
     for label,polygon,surface in facets:
         clipped=clip_polygon(polygon,rect)
         for j in range(1,len(clipped)-1):
             points=[clipped[0],clipped[j],clipped[j+1]]
             area=abs(float(np.linalg.det(np.asarray([np.asarray(points[1])-points[0],np.asarray(points[2])-points[0]]))))*.5
             if area<1e-10:continue
-            triangular_prism('PublicRoofCurbApron_'+side+'_'+label+str(j),points,surface,lambda x,z:surface(x,z)+sheet,'metal')
+            triangular_prism('PublicRoofCurbApron_'+side+'_'+label+str(j),points,surface,lambda x,z:surface(x,z)+sheet,'galvanized_roof')
 for side,rect in [('South',[curb[0],curb[1]-sheet,curb[2],curb[1]]),
     ('North',[curb[0],curb[3],curb[2],curb[3]+sheet]),
     ('East',[curb[2],curb[1],curb[2]+sheet,curb[3]])]:
-    rectangular_prism('PublicRoofCurbUpstand_'+side,rect,lambda x,z:roof_y(x,z)+sheet,constant(top),'metal')
+    rectangular_prism('PublicRoofCurbUpstand_'+side,rect,lambda x,z:roof_y(x,z)+sheet,constant(top),'galvanized_roof')
 for label,za,zb in [('South',curb[1],mid),('North',mid,curb[3])]:
     surface=next(row[2] for row in facets if row[0]==label+'Cricket')
     rectangular_prism('PublicRoofCurbUpstand_West_'+label,[curb[0]-sheet,za,curb[0],zb],
-        lambda x,z:surface(curb[0],z)+sheet,constant(top),'metal')
+        lambda x,z:surface(curb[0],z)+sheet,constant(top),'galvanized_roof')
 
 # Eastern eave projects over the gutter's western lip. No flat cap seals its bore.
 rectangular_prism('PublicRoofDrainApron',[x1-.018,z0,gutter_x+.008,z1],
                   lambda x,z:roof_y(x1,0)-.006*(x-x1),
-                  lambda x,z:roof_y(x1,0)-.006*(x-x1)+sheet,'metal')
+                  lambda x,z:roof_y(x1,0)-.006*(x-x1)+sheet,'galvanized_roof')
 
 def gutter_centre(z):return gutter_low+gutter_fall*abs(outlet_z-z)
 profile=[]
@@ -272,7 +294,7 @@ for inner in [False,True]:
     for i in indices:
         angle=math.pi*i/24
         profile.append((gutter_x+radius*math.cos(angle),-radius*math.sin(angle)))
-gutter=profile_sweep('PublicRoofGutterClosedConstruction',profile,[(z0,gutter_centre(z0)),(outlet_z,gutter_centre(outlet_z)),(z1,gutter_centre(z1))],'metal')
+gutter=profile_sweep('PublicRoofGutterClosedConstruction',profile,[(z0,gutter_centre(z0)),(outlet_z,gutter_centre(outlet_z)),(z1,gutter_centre(z1))],'galvanized_roof')
 
 def cylinder(name,a,b,radius,key):
     a,b=point(a),point(b);axis=(b-a).normalized()
@@ -294,18 +316,18 @@ def unite(obj,tool):
     bpy.ops.object.modifier_apply(modifier=modifier.name)
     parts.remove(tool);bpy.data.objects.remove(tool,do_unlink=True)
 
-hole=cylinder('GutterOutletAir',(gutter_x,cap_top-.15,outlet_z),(gutter_x,cap_top+.08,outlet_z),leader_inner,'metal')
+hole=cylinder('GutterOutletAir',(gutter_x,cap_top-.15,outlet_z),(gutter_x,cap_top+.08,outlet_z),leader_inner,'galvanized_roof')
 difference(gutter,hole)
 # Closed end wall plates prevent water leaving at the two gutter ends.
 for side,z in [('South',z0),('North',z1)]:
     profile_sweep('PublicRoofGutter'+side+'End',[(gutter_x,0)]+[(gutter_x+gutter_radius*math.cos(math.pi*i/24),-gutter_radius*math.sin(math.pi*i/24)) for i in range(25)],
-                  [(z,gutter_centre(z)),(z+(.0012 if side=='North' else -.0012),gutter_centre(z))],'metal')
+                  [(z,gutter_centre(z)),(z+(.0012 if side=='North' else -.0012),gutter_centre(z))],'galvanized_roof')
 
 # Soldered sheet-metal leader; annular ends preserve its open lumen.
 leader_top=gutter_centre(outlet_z)-.012
-leader_bottom=roof_deck_y+plan['leader_deck_clearance']
-outer=cylinder('PublicRoofLeader',(gutter_x,leader_bottom,outlet_z),(gutter_x,leader_top,outlet_z),leader_outer,'metal')
-air=cylinder('LeaderAir',(gutter_x,leader_bottom-.005,outlet_z),(gutter_x,leader_top+.005,outlet_z),leader_inner,'metal')
+leader_bottom=fitted_foot_y+plan['leader_deck_clearance']
+outer=cylinder('PublicRoofLeader',(gutter_x,leader_bottom,outlet_z),(gutter_x,leader_top,outlet_z),leader_outer,'galvanized_roof')
+air=cylinder('LeaderAir',(gutter_x,leader_bottom-.005,outlet_z),(gutter_x,leader_top+.005,outlet_z),leader_inner,'galvanized_roof')
 difference(outer,air)
 # Trim the leader crown to the actual inner gutter bowl. A flat annular rim
 # projecting into that bowl would form an unintended 36 mm standpipe dam.
@@ -313,21 +335,21 @@ inner_radius=gutter_radius-gutter_wall
 water_profile=[(gutter_x-inner_radius,.2),(gutter_x+inner_radius,.2)]
 water_profile += [(gutter_x+inner_radius*math.cos(math.pi*i/24),-inner_radius*math.sin(math.pi*i/24)) for i in range(25)]
 water=profile_sweep('GutterContinuousWaterSpace',water_profile,
-                    [(z0-.001,gutter_centre(z0-.001)),(outlet_z,gutter_centre(outlet_z)),(z1+.001,gutter_centre(z1+.001))],'metal')
+                    [(z0-.001,gutter_centre(z0-.001)),(outlet_z,gutter_centre(outlet_z)),(z1+.001,gutter_centre(z1+.001))],'galvanized_roof')
 difference(outer,water)
 unite(gutter,outer)
 
 # Flat wall plates and rigid straps actually bridge the wall/leader gap.
 for i,height in enumerate([roof_deck_y+.6,roof_deck_y+1.8,leader_top-.3]):
-    rectangular_prism('PublicRoofLeaderWallPlate_%d'%i,[x1-.002,outlet_z-.035,x1+.002,outlet_z+.035],constant(height-.055),constant(height+.055),'metal')
-    rectangular_prism('PublicRoofLeaderWallTongue_%d'%i,[x1,outlet_z-.012,gutter_x-leader_outer,outlet_z+.012],constant(height-.003),constant(height+.003),'metal')
-    strap_outer=cylinder('PublicRoofLeaderStrap_%d'%i,(gutter_x,height-.012,outlet_z),(gutter_x,height+.012,outlet_z),leader_outer+.002,'metal')
-    strap_air=cylinder('LeaderStrapAir_%d'%i,(gutter_x,height-.018,outlet_z),(gutter_x,height+.018,outlet_z),leader_outer,'metal')
+    rectangular_prism('PublicRoofLeaderWallPlate_%d'%i,[x1-.002,outlet_z-.035,x1+.002,outlet_z+.035],constant(height-.055),constant(height+.055),'galvanized_roof')
+    rectangular_prism('PublicRoofLeaderWallTongue_%d'%i,[x1,outlet_z-.012,gutter_x-leader_outer,outlet_z+.012],constant(height-.003),constant(height+.003),'galvanized_roof')
+    strap_outer=cylinder('PublicRoofLeaderStrap_%d'%i,(gutter_x,height-.012,outlet_z),(gutter_x,height+.012,outlet_z),leader_outer+.002,'galvanized_roof')
+    strap_air=cylinder('LeaderStrapAir_%d'%i,(gutter_x,height-.018,outlet_z),(gutter_x,height+.018,outlet_z),leader_outer,'galvanized_roof')
     difference(strap_outer,strap_air)
 for i in range(math.ceil((z1-z0)/1.2)+1):
     z=z0+(z1-z0)*i/math.ceil((z1-z0)/1.2)
     h=gutter_centre(z)-gutter_radius
-    rectangular_prism('PublicRoofGutterBracket_%02d'%i,[x1-.002,z-.012,gutter_x+.012,z+.012],constant(h-.006),constant(h),'metal')
+    rectangular_prism('PublicRoofGutterBracket_%02d'%i,[x1-.002,z-.012,gutter_x+.012,z+.012],constant(h-.006),constant(h),'galvanized_roof')
 
 # Recompute exact orthonormal UVs after booleans and validate editable sheets.
 triangles=0
@@ -368,6 +390,8 @@ for obj in parts:
 # culling boundaries. No closed caps are introduced at those boundaries.
 runtime_sets_path=ROOT/'art/data/runtime_material_sets.json'
 runtime_sets=json.loads(runtime_sets_path.read_text(encoding='utf-8'))['materials']
+import runpy
+runpy.run_path(str(ROOT/'art/blender/scripts/roof_weather_retained_gutter.py'))['retain_gutter'](ROOT,'public',gutter,leader_bottom,materials)
 native_parts=parts.copy();groups={}
 grid_start=[min(v.co[axis] for obj in native_parts for v in obj.data.vertices)-.0001 for axis in range(3)]
 for obj in native_parts:
@@ -412,6 +436,7 @@ for index,((key,cell),faces) in enumerate(sorted(groups.items())):
             uv.data[loop].uv=(float(np.dot(p,u))-offset_u,float(np.dot(p,v))-offset_v)
 triangles=sum(len(obj.data.polygons) for obj in parts)
 
+bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'roof_public_weathering.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for obj in parts:obj.select_set(True)
@@ -433,7 +458,7 @@ class ExportUVHandedness:
             data['data']=result;type(self).partitions+=1
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-bpy.ops.export_scene.gltf(filepath=str(MODEL),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
+bpy.ops.export_scene.gltf(filepath=str(MODEL),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_materials='PLACEHOLDER')
 assert ExportUVHandedness.partitions==len(parts)
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','authority':[
     'art/data/orison_v2/roof_source.json:ROOF_PUBLIC_CORE','game/data/orison_v2_blockout.json:dimensions'],
@@ -450,7 +475,11 @@ manifest={'evidence_class':'INERT','classification':'ADAPTATION','authority':[
 (OUT/'roof_public_weathering_construction.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
 fixture_keys=['cap_outer_rect','retained_cap_top','bearing_toe','sheet_thickness','roof_fall','gutter_x','gutter_z','gutter_radius','gutter_wall','gutter_fall','gutter_low_y','outlet_z','leader_bore_radius','seam_recipe','leader_wall_plates']
 fixture_keys += ['curb_outer_rect','cricket_rect','cricket_rise','cricket_facets','flashing_top','parts','native_triangles','leader_y']
-fixture={key:manifest[key] for key in fixture_keys}
+manifest.update({'status':'SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED','field_y':fitted_field_y,'foot_y':fitted_foot_y,'leader_toe_y':leader_bottom,'retained_plate_datum':roof_deck_y,'native_sha256':hashlib.sha256((OUT/'roof_public_weathering.blend').read_bytes()).hexdigest(),'asset_sha256':hashlib.sha256(MODEL.read_bytes()).hexdigest(),'runtime_parts':[{'name':obj.name,'material':obj.data.materials[0].name} for obj in parts]})
+manifest['source_bindings'].update({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() if p.suffix=='.blend' else hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [ROOT/'art/blender/roof_weather_retained_gutters.blend',ROOT/'art/blender/roof_drainage_falls_construction.json',ROOT/'art/blender/scripts/roof_weather_retained_gutter.py',Path(__file__)]})
+fixture=manifest
 fixture_path=ROOT/'game/tests/fixtures/orison_roof_public_weathering.json'
 fixture_path.write_text(json.dumps(fixture,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('ROOF SERVICE WEATHERING',len(parts),'parts',triangles,'triangles; field discharge unresolved')
+
+(OUT/'roof_public_weathering_construction.json').write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')

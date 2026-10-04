@@ -7,13 +7,13 @@ import numpy as np
 from mathutils import Vector
 
 root = next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
-base = root / 'tmp/pool-fabrication/ground-native';base.mkdir(parents=True,exist_ok=True)
+base = root / 'tmp/roof-drainage-review/ground-native';base.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(root / 'art/blender/orison_ground.blend'))
 cells = np.load(root / 'tmp/orison-ground/orison-ground-cells.npz')
 solid = cells['solid']
 dimensions = [np.diff(cells[key]) for key in ['xs', 'ys', 'zs']]
-expected = float(np.sum(solid * dimensions[0][:, None, None]
-                        * dimensions[1][None, :, None] * dimensions[2][None, None, :]))
+expected = sum(float(np.einsum('i,k,ik->',dimensions[0],dimensions[2],solid[:,index,:],dtype=np.float64))*float(depth)
+               for index,depth in enumerate(dimensions[1]))
 source = bpy.data.objects['OrisonGroundClosedUnion']
 bm = bmesh.new(); bm.from_mesh(source.data)
 non_manifold = sum(not edge.is_manifold for edge in bm.edges)
@@ -22,15 +22,14 @@ bmesh_volume = bm.calc_volume(signed=True)
 # proof must use those same represented planes, at the unchanged absolute bound.
 vertices=np.empty(len(source.data.vertices)*3,dtype=np.float64)
 source.data.vertices.foreach_get('co',vertices);vertices=vertices.reshape((-1,3))
-indices=np.empty(len(source.data.loops),dtype=np.int32)
-source.data.loops.foreach_get('vertex_index',indices)
-assert all(face.loop_total==4 for face in source.data.polygons)
-indices=indices.reshape((-1,4));center=(vertices.min(axis=0)+vertices.max(axis=0))*.5
+source.data.calc_loop_triangles()
+indices=np.empty(len(source.data.loop_triangles)*3,dtype=np.int32)
+source.data.loop_triangles.foreach_get('vertices',indices)
+indices=indices.reshape((-1,3));center=(vertices.min(axis=0)+vertices.max(axis=0))*.5
 native_volume=0.
 for start in range(0,len(indices),100000):
     points=vertices[indices[start:start+100000]]-center
-    for second,third in [(1,2),(2,3)]:
-        native_volume+=float(np.sum(np.einsum('ij,ij->i',points[:,0],np.cross(points[:,second],points[:,third]))))/6
+    native_volume+=float(np.sum(np.einsum('ij,ij->i',points[:,0],np.cross(points[:,1],points[:,2]))))/6
 print('NATIVE VOLUME DIAGNOSTIC:',native_volume,'Blender accumulated',bmesh_volume,'grid',expected,'difference',expected-native_volume,flush=True)
 assert non_manifold == 0
 assert native_volume > 0 and abs(expected - native_volume) < .001
