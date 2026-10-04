@@ -8,13 +8,13 @@ Status: second edition, 2026-10-03, replacing the first edition of 2026-09-26, w
 
 ## A1. How to use this manual
 
-- You are the engineering team. The human is the **owner**: taste, fiction, scope, money, public claims. You plan, build, verify and report, and ask only what the owner alone can answer. You are handed this file and a prompt: one sentence, or an oracle packet (A4).
+- You are the engineering team. The human is the **owner**: taste, fiction, scope, money, public claims. You plan, build, verify and report, and ask only what the owner alone can answer. You are handed this file and a prompt: one sentence, or an oracle prompt (A4).
 - **Read this file in full on day zero, and do not condense it.** Scar: P2 worked from a hand-made short edition that had turned an event trigger into a calendar date; the audit it scheduled never ran.
 - **Never read the reference front to back.** Open one section when a chapter here, or a failing instrument, sends you there. Section numbers (§) are permanent; projects cite them in code.
 
 | File, under `manual/` beside this one | Sections | Open it when |
 |---|---|---|
-| **REF_PROCESS.md** | §2, §3, §5, §6, §7, §17, §20, §29, §30 | you need the covenant's anatomy, the IP audit, an oracle packet, a scope audit, tester builds, a design panel, a second agent, the worked example |
+| **REF_PROCESS.md** | §2, §3, §5, §6, §7, §17, §20, §29, §30 | you need the covenant's anatomy, the IP audit, an oracle prompt, a scope audit, tester builds, a design panel, a second agent, the worked example |
 | **REF_EVIDENCE.md** | §8, §9 | you are building or debugging an instrument, a receipt, a capture or a gate |
 | **REF_MACHINE.md** | §4, §10, §28 | git trouble, the engine lane, engine facts and traps, rendering, an engine hold |
 | **REF_CONTENT.md** | §11 to §16, §18 | architecture, simulation and bots, data, art, generators, audio, rights |
@@ -70,7 +70,7 @@ Day zero is one commit, made before the engine opens. P2 took seven hours, twelv
 1. **Quarantine marks before the first commit [C2].** Scan every handed document, the prompt included, for third-party names and marks. Decide with the owner whether to commit each as it is or redact it first, and say that changing your mind later means rewriting history (§4.3). No commit message, branch or filename ever holds the prompt or a mark. Scar: P2 rewrote every commit on day zero. A commit is not a draft.
 2. **Quote the prompt verbatim in one file, with its SHA-256**, and use the hash everywhere else.
 3. **Read it as N decisions [M]** (§5.1). For each fragment: the decision it encodes, what is already implied (proceed), what is genuinely open (a default, or a question). Where it names a genre, default every feel decision the genre has a convention for to that convention, and report "genre convention, default applied". Scar: P2 defaulted diagonal movement to the physically correct speed; the owner wanted the genre's; eleven files changed.
-4. **If the prompt is an oracle packet**, §5.8 says what changes: its visions are acceptance criteria, its negative constraints are laws, its scope is fixed, and there may be no one to ask.
+4. **If the prompt is an oracle prompt** (a long message written by a program from a night of play), §5.8 says what changes: it is already split into decisions, its visions are acceptance criteria, its laws go into the covenant verbatim, and it carries a scoped grant.
 5. **Measure what exists before proposing anything [M].** One table: OS; engine version, with the path and SHA-256 of both binaries; Python; DCC and image tools; GPU and display; git settings; assets, fonts, music and design text the owner already owns, with licences. Label every line FACT (with path), INFERENCE, EXTERNAL (with as-of date) or OWNER RULING REQUIRED. Measure bytes and line endings with Python, not shell tools (§4.4).
 6. **Ask the machine questions.** Which other projects on this machine run an engine (A13)? How is the repository backed up off the machine? Where will generated files be saved (add its ignore rule now)?
 7. **Write the covenant thin** (A5). Pin only what the first milestone's scripts will read: tick rate, world units and grid, the input record, who is authoritative. Every other number stays in the brief as "to pin when its milestone opens", or goes into data marked provisional. Scar: P2 pinned network numbers no code ever read and argued two disputes over them.
@@ -202,7 +202,7 @@ For any real-time game [C2, predicted by P1]: **one authoritative fixed-step sim
 - **The commit body is the task checkpoint** (§21.5): what changed and what did not; suites and counts; breakages tried and red; receipts that bind; what is unproven. Write one checkpoint document per milestone.
 - **Verify by rendering, never by reading code [M]** (§8.6): the production scene, the real camera, pinned clock and seed, one declared state change per comparison. Where captures are deterministic, prove once that two are byte-identical; a frame hash is then a complete control. Otherwise publish the noise floor beside every delta: two identical P1 renders differed on 86 percent of pixels. A feature that cannot be perceived in the canonical captures does not yet count.
 - **The solo loop [C2].** Every change runs the board and, when it touches the game, the engine battery, and commits their receipts. **An instrument nobody runs is not a gate:** P2's fresh-checkout verifier ran only on its own proofs. It grades a candidate with the base's instruments, so no change can unprotect a path, drop a suite or lower a count (§9.9). Run it when a change touches an instrument or the suite declaration; when a branch lands; at every milestone close; when you resume after a compaction or a stop; when an owner direction opens a new sequence; and every 25 commits. The pickup names the last verified commit. The session that wrote the work cannot be its grader; a reviewer sub-agent given only the committed tree can.
-- **Player data never enters evidence.** Nothing about a person who plays enters a log, receipt, capture, fixture or commit. Captures and suites use bots and scripted players, and the launcher a person plays with writes no log.
+- **Player data never enters evidence.** Nothing about a person who plays enters a log, receipt, capture, fixture or commit. Captures and suites use bots and scripted players, and the launcher a person plays with writes no log. The one account of someone's play that is filed is an oracle prompt, as the owner's own prompt (§5.8).
 
 ## A11. Content: data, art, audio, rights
 

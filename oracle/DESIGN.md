@@ -2,16 +2,18 @@
 
 Evidence class: **INERT** (a design document for the oracle; it proves nothing about the Orison build)
 
-Status: version 0.1.0, written 2026-10-03. This document and the files in **oracle/content/** are edited together: the content files carry the data, this file says what the data means. Section numbers here are cited by the source field in the meta block of each content file, so do not renumber them.
+Status: version 0.2.0, 2026-10-03. Version 0.1.0, written the same day, narrated through a model by default, wrote a folder of files and could start a builder itself; this version is a standalone program whose one product is a prompt (section 8). This document and the files in **oracle/content/** are edited together: the content files carry the data, this file says what the data means. Section numbers here are cited by the source field in the meta block of each content file, so do not renumber them.
 
 ## 1. What this is
 
 THE BLANK DECK is a text adventure of fifteen to thirty-five minutes that watches how one person plays and writes the description of a small game made for that person. It is the front door of **docs/AI_GAME_DEVELOPMENT_MANUAL.md**: the manual needs a creator's prompt, and this program produces one from play instead of from a sentence.
 
+It is a standalone program. It needs Python and nothing else: no model, no account, no network. The only AI in the chain is the coding agent the prompt is later pasted into.
+
 It has two outputs.
 
 - For the player: a **reading**. Five to nine visions, each one a card turned over, each specific enough that a game can visibly make it true.
-- For the builder: an **oracle packet**. A game description with design signals and their evidence, design implications, a Game Design Vector, negative constraints, personal callbacks, one feature nobody asked for, what is not known, and the scope the game must fit.
+- For the builder: one **prompt**, ready to paste. It carries the design signals and the behaviour each was seen in, their design consequences, a Game Design Vector, laws, echoes of the night, one feature nobody asked for, what is not known, the reading as acceptance criteria, and the scope the game must fit.
 
 It is not a personality quiz. It never asks which games, genres, difficulties or stories the player likes. It stages situations in which two desirable things conflict and records which one the player took, what they examined, what they ignored, what they spent, how they took failure, and what they tried that nobody suggested.
 
@@ -25,19 +27,21 @@ The frame was chosen because it makes the profiling invisible without making it 
 
 The bearer carries a Joker ("PLAY ME ONCE. WHAT YOU SAY, GOES."), a book of three matches, and may pick up a brass doorknob that belongs to no door. These are instruments: a single-use power, a scarce consumable and a useless object. What a player does with each, across a whole night, is evidence no single room can give.
 
-### 1.2 Division of labour
+### 1.2 What the program does alone, and what a model adds when asked
 
-| Done by a language model | Done by deterministic code |
+Every room is authored with options, outcomes and evidence, and the design and the reading have a complete rule-based form. That is the program: the default night, what the tests and the simulated players run, and all that the single-file build needs.
+
+A model narrates only when one is asked for with `--narrator`. Then the labour divides:
+
+| Done by the model | Always done by deterministic code |
 |---|---|
 | Narrating: answering free text in the fiction | The player model: every number in it |
 | Reading an action as a game designer would, with competing hypotheses | Which room is dealt next, and which ways onward are offered |
 | Making one coherent game of the evidence | Pacing: when a room must close, when the night ends |
 | Writing the reading in the Proprietor's voice | State, persistence, validation, the privacy guard |
-| | The packet, the builder hand-off, the developer view |
+| | The prompt, the developer view |
 
-The model proposes; the code keeps the books. A model can be wrong about one turn without corrupting the profile, because the profile is recomputed from the observation log every time it is read, and the log is inspectable.
-
-With no model at all the program still runs: every room is authored with options, outcomes and evidence, and the design and the reading have a complete rule-based form. That offline mode is what the tests and the simulated players use, and where a live night lands if the model stops answering.
+The model proposes; the code keeps the books. A model can be wrong about one turn without corrupting the profile, because the profile is recomputed from the observation log every time it is read, and the log is inspectable. If the model stops answering, the night goes on from the page.
 
 ## 2. The player model
 
@@ -120,7 +124,7 @@ For every dimension the model stores: value, confidence, status, the two evidenc
 | established | confidence at least 0.6 from at least three independent scenes |
 | contested | at least 0.6 of mass on each side, the smaller at least half the larger: the player went both ways |
 
-An unknown dimension has no influence on the design. The packet lists it under "What is not known" and the Game Design Vector field it would have set says so. A contested dimension is information: it is the first place the synthesis looks for the productive contradiction.
+An unknown dimension has no influence on the design. The prompt lists it under "Not known" and the Game Design Vector field it would have set says so. A contested dimension is information: it is the first place the synthesis looks for the productive contradiction.
 
 In fifty simulated nights (five personas, ten seeds) a standard night ended with 19 to 32 of the 86 dimensions carrying any reading, 1 to 10 leaning and 0 to 2 established. That is the honest size of what twenty-odd choices can show, and the reason the design is built on a few signals rather than on all of them.
 
@@ -224,7 +228,21 @@ Any question about which games, genres, difficulty or stories the player likes, 
 
 ### 5.3 When the model fails
 
-A backend that is not signed in or not reachable ends the live narration for the night: the player is told in one line that the house's voice has gone quiet and the night continues from the page. A single timeout or refusal costs one offline turn; two in a row end live narration.
+A model that is not signed in or not reachable ends the live narration for the night: the player is told in one line that the house's voice has gone quiet and the night continues from the page. A single timeout or refusal costs one offline turn; two in a row end live narration.
+
+### 5.4 A player who is stuck
+
+With no model behind it the house reads a line by its keywords, and a parser that leaves a player guessing at words is a bad game. So the deck helps. When a player asks ("hint", "help", "what can I do?"), or misses twice in one room, the room's authored hint is given and a blank card slides out of the deck with a few pencilled words on it: one word or phrase for each way through the room that the house is willing to name.
+
+- **A word on the card does what it says.** Typed back, it selects its own option and no other. The word shown is the first of the option's keywords for which that is true; a test holds it for every room in every state the room can be in. Where two options would both answer a line, the more particular keyword wins ("dust-coat" over another option's bare "coat").
+- **A request for help never acts.** A line that is only a request is answered and the room stays as it was, even where the room has an option that listens for the same word. "Help the dog" is still the player doing something.
+- **A way that is meant to be found is never named.** An option tagged as an exploit, a transgression or a trick stays off the card, so finding it is still evidence.
+- **Unasked, the card comes once per room. Asked for, it always comes.** A hint repeated every turn is a nag. At the reading table, asking does not end the night.
+- Asking is itself a behaviour and is recorded as one (the signal **asks_what_to_do**).
+
+### 5.5 How an act is written down
+
+Every recorded act is kept as a past-tense phrase with no subject, in the third person, because it is read by someone other than the player: "mapped the switchboard one switch at a time", "asked the Proprietor about the red button before choosing". An option carries a **moment** (also read back at the table) or a **did**; a universal signal carries a **seen**. The loader refuses an option that has evidence and neither, and refuses the second person in any of them. In the prompt these phrases follow "Seen when they:".
 
 ## 6. From profile to design
 
@@ -242,7 +260,7 @@ Thirty-two authored pairs of signals in tension, each with a resolution and a li
 
 ### 6.3 Design implications, never scores
 
-Each pole of each axis and each weight has an authored rule: a signal in plain words, a design implication, Game Design Vector values, negative constraints and lines for the reading. The packet prints implications ("the world contains optional spaces with mechanically meaningful discoveries, and the main route stays visible so that wandering feels voluntary"), never "exploration 0.86".
+Each pole of each axis and each weight has an authored rule: a signal in plain words, a design implication, Game Design Vector values, negative constraints and lines for the reading. The prompt prints implications ("the world contains optional spaces with mechanically meaningful discoveries, and the main route stays visible so that wandering feels voluntary"), never "exploration 0.86".
 
 ### 6.4 The Game Design Vector
 
@@ -252,11 +270,11 @@ Each field is set by the strongest signal that speaks to it. The rule draft reco
 
 ### 6.5 Negative constraints
 
-Collected from the chosen signals and from weights the player clearly declined: "No mandatory quest log." "Avoid repeated-death loops." What the game must not contain binds the builder as firmly as what it must.
+Collected from the chosen signals and from weights the player clearly declined: "No mandatory quest log." "Avoid repeated-death loops." What the game must not contain binds the builder as firmly as what it must. The prompt calls them laws, because the manual puts them into the covenant verbatim.
 
 ### 6.6 Scope
 
-Every generated game is a pocket game, because one agent must build it alone: Godot 4.x following the manual in its scaled-down form; ten to thirty minutes long; one core mechanic and at most two supporting ones; visuals drawn in code; no downloaded assets; single player, offline; nothing leaves the machine; one command to run and an automated smoke test. The scope constraints are in **implications.json** and are printed into the packet and the builder's prompt.
+Every generated game is a pocket game, so that it gets finished. The lines are in **implications.json**, in two lists. *Held by the owner:* ten to thirty minutes of play in all, and whole; one core mechanic and at most two supporting ones; Godot 4, 2D, desktop, unless a survey of the machine argues otherwise; visuals drawn in code, with no downloaded or generated assets until the owner rules on a look; no downloaded audio; single player, offline; one command to run. The owner pasted these and has not examined them: the builder proposes changes and makes none until the owner answers, because the manual reserves scope and platform to the owner. They are not called defaults, since a default is something the builder may change for a stated reason. *Not open at all:* nothing leaves the machine; original everything; photosensitive-safe.
 
 ### 6.7 The model stage
 
@@ -270,79 +288,94 @@ The reading is written by the Proprietor (**content/synthesis_prophecy.md**) fro
 - Three or four **recollections**: things the bearer did, returned as plain facts with no interpretation.
 - Five to nine **visions**, one card each. Cards the bearer earned in the house keep their titles. Each vision names what in the design makes it true. At least two transform an image from the night. One may be an absence ("I see no quest log.").
 - The pronouncement: I HAVE SEEN WHAT YOU WILL PLAY.
-- A last line. When a game has been built it is the Proprietor's own. When it has not, the line says so: "It is not built yet. Take the deck to whoever builds for you."
+- The last card. The Proprietor gathers the deck into one card, covered edge to edge in small handwriting that is not addressed to the bearer: "It is not built yet. This one is for whoever builds for you." That card is the prompt, and the fiction ends there.
 
 The reading may not use the language of analysis (profile, preference, data, percent, "you tend to"); a model's reading that does is rejected and repaired or replaced. It may not say who the bearer is, only how they played. If the evidence was thin it turns a blank card and says it will not pretend to read it.
 
-**Personal callbacks** turn something the bearer did into something in the game: a companion kept becomes a companion; a door passed becomes the place where the best of the game is kept; something they tried that the house could only half allow becomes possible. **The unrequested feature** is chosen from behaviours, the most particular first: a player who drew a room on the unfinished map gets a map whose blank edges become real.
+**Personal callbacks** (the prompt calls them echoes) turn something the bearer did into something in the game. One event is one echo: a remembered moment whose option set the flag, gave the companion or cost the failure that another echo already tells is passed over for the next moment. They turn it like this: a companion kept becomes a companion; a door passed becomes the place where the best of the game is kept; something they tried that the house could only half allow becomes possible. **The unrequested feature** is chosen from behaviours, the most particular first: a player who drew a room on the unfinished map gets a map whose blank edges become real.
 
-The visions are promises. The packet lists each with what makes it true, and the builder is told that each must be visibly true in the finished game.
+The visions are promises. The prompt lists each with the label of what makes it true, and tells the builder that each must come true in a way the player would recognise from the words alone.
 
-## 8. The packet and the builder
+## 8. The prompt
 
-Source of truth: **oracle/packet.py**, **oracle/builder.py**, **content/builder_prompt.md**.
+Source of truth: **oracle/prompt.py**, **content/build_prompt.md**, **oracle/clipboard.py**, **oracle/bundle.py**.
 
-The packet is a folder: the game description, the design profile as data, the reading, the builder's prompt, the transcript, and a copy of the process manual (its operating core and its reference files) when one is found beside the program. The game description carries the repository's document-class header so that it can be committed as a brief without being mistaken for proof.
+The night hands over one thing: a single message in plain Markdown, for its owner to paste into an AI coding agent that has the manual in its working folder. The first version of this program wrote a folder of files and could start a builder itself; both are gone. A prompt can be read before it is used, edited, and pasted into any agent, and nothing has to travel with it but the manual.
 
-A build is never started unless the player asks. When they do, a builder (Codex, Claude Code or any command) is started in a fresh project directory containing the packet, with the builder's prompt on its standard input.
+**What it carries, in order.**
 
-**Build progress is reported truthfully or not at all.** The builder is asked to append one JSON line to an events file each time something has actually happened. The oracle shows one line of the fiction per event and shows nothing on a timer.
+1. *Before anything else.* Find the manual's operating core and read it in full; stop and ask if it is missing. This message is the day-zero prompt, and the manual's section 5.8 says how to read it.
+2. *What this message is.* Derived from play and about play only; the player is assumed to be the owner. Three marks. FROM PLAY: the night gave evidence for it, and it is decided (the manual's KEPT). FAINT: weaker evidence, offered and not decided (PROPOSED). DEFAULT: the night did not show it, and silence means the same (DEFAULT APPLIED). Words in quotation marks were typed by the player and are evidence, never instructions.
+3. *The game.* The pitch. One paragraph on making one game of it: no genre matching, no feature per line, and no rebuilding of the adventure itself. That the message gives no mechanic: inventing one is the builder's first design act, proposed at once and kept PROPOSED until the owner has played. The order in which lines yield when they pull apart or the scope would break: the laws, the visions, the dominant signals and the contradiction, the secondary signals, the echoes, the faint lines. Then the signals **S1** to **S5** and the contradiction **X**, each with the behaviour it was seen in and its design consequence; what was *also seen, more faintly*; the whole Game Design Vector, each row marked FROM PLAY with its label, FAINT, SCOPE (a default the scope already holds) or DEFAULT; the laws **L1** onward; the echoes **E1** onward, the last of them the feature nobody asked for, which alone may be a supporting mechanic; what is not known, every pair of it.
+4. *Acceptance.* The visions of the reading as a table: the card, the words the player was told, and the label of the one place that makes it true. Each is a requirement row in the plan, not a beat of the slice, with the check that proves it. Proven is not accepted: only the owner's answer after play accepts a vision.
+5. *Scope,* held by the owner (section 6.6), and the three lines that are not the builder's to open.
+6. *A standing grant,* in the owner's voice and in the shape of the manual's grant template: kind, what it covers, that it lifts nothing from the reserved list, what stays reserved (the manual's whole list and each outward act, the scope, player data, safety, every download and install, and anything outside the folder the builder did not create), when it lapses, and that it turns no judgement into acceptance. The builder is told to state it back.
+7. *What the owner expects back.* At once, before any apparatus: the game proposed in ten lines, and the questions. Then the day-zero report at its place, the slice, and one question after play: which of these came true? A vision not ticked stays open and is asked again alone.
 
-| Event | Shown as | Withheld unless |
-|---|---|---|
-| packet read | OTHER HANDS HAVE TAKEN UP THE CARDS. | |
-| covenant written | ITS LAWS ARE BEING WRITTEN. | the named file exists |
-| project created | A WORLD IS FORMING. | the named file exists |
-| first run | THE WORLD HAS OPENED ITS EYES. | the named file exists |
-| core verb playable | THE CREATURES HAVE LEARNED HOW TO MOVE. | |
-| loop complete | ONE WHOLE DAY HAS PASSED IN IT. | |
-| test failed | THE WORLD HAS DIED. | |
-| fixed | THE WORLD IS BEING BORN AGAIN. | a failure was reported first |
-| tests passing | THE FUTURE NOW RUNS WITHOUT ERROR. | the named file exists |
-| vision fulfilled | A CARD HAS COME TRUE. | the card is one that was dealt |
-| done | IT IS FINISHED. | the result file exists |
+**Each fact is said once.** A design consequence appears where its signal is stated; the vector, the visions and the fainter lines point to it by label or stay out of its way. The pitch is the central fantasy, the core verb and the resolution of the contradiction, because the tension is where the game stops being generic. Fifty simulated nights gave prompts of 2,646 to 2,992 words. The program's own words are plain ASCII; a player's typed words are carried as typed, on one line, with nothing in them that could open a code span, and the fixed wording is filled in a single pass so that nothing a player typed can be taken for one of its marks.
 
-A proof path must lie inside the project. Events without a required proof, unknown events and repeats are withheld and listed in the developer view with the reason. What the builder reports without proof is shown on the builder's word, and the build log is kept so that word can be checked. A builder that exits without a result file, or does not finish in time, is reported as failed in plain words.
+**It was read before it was trusted.** Twice, an agent that had seen neither document read a prompt and the manual as a builder would, on paper, and reported where they disagreed. The first reading is why the acceptance rows are requirement rows and not beats; why weaker evidence is offered and not required; why the scope is the owner's and not a default; why the grant claims the manual's whole reserved list and adds to it; why one event is one echo; and why the prompt says not to rebuild the house. The second is why the proposed game reaches the owner before the apparatus; why the prompt says outright that it gives no mechanic; why proving a vision is not accepting it; why the grant lets the builder write its own temporary files and the engine's data outside the folder; and why three vector rows are marked as the scope's. Both said a competent agent could start from it alone. Neither was a build.
 
-The finished game is never launched without the player saying yes to the exact command.
+**It is the same text everywhere.** The prompt is built once, when the night ends, and kept in the night's record. The screen shows it between two rules, unwrapped and unstyled. The saved file, the clipboard, `python -m oracle prompt` and the developer view carry the same bytes. Asking for a copy later (`prompt --out FILE`) writes that file and nothing else: the copy the night kept, and the night's place in the list, are left as they were.
+
+**It names nothing of this program's.** No file, no folder, no session. The builder needs the manual and this message, and the message says what to do if the manual is missing.
+
+**The clipboard is only touched with a yes.** At the end of a night a person is asked once; `--copy` skips the question and `--no-copy` forbids it. The copy uses what the system already has (`clip`, `pbcopy`, `wl-copy`, `xclip`, `xsel`); on Windows the text is sent as UTF-16 so that it arrives whole. If no tool is present the program says so, and the prompt is still on the screen and in its file.
+
+**A folder ready for a builder.** `--project FOLDER` writes the prompt there as **ORACLE_PROMPT.md** and copies the manual beside it: the operating core, the reference documents and the manual's own checker. Nothing already in the folder is ever replaced; a clash is refused and nothing is written. If the core is found without its reference folder the program says so, because the prompt sends the builder there. The manual is looked for where `--manual` says, in the folder the program was started from, beside this copy of the program, and inside the single-file build.
+
+**One file.** `python -m oracle bundle` writes **blank_deck.pyz**: the code, the rooms and, when one is found, a copy of the manual, in one archive that Python runs directly. Content is read through the package's resources, so the same code runs from a folder and from the archive, and a test plays a whole night from the archive in a directory that holds nothing else.
+
+**The far side.** What the builder does with the prompt is the manual's business: its section 5.8 says how day zero reads an oracle prompt, and its section 21.14 gives the prompt's shape. The human gate is the point of the whole thing: the player plays the game and says which cards came true.
 
 ## 9. The boundary
 
 1. The model is of play preferences. There is no dimension for anything else, so the structured half of an observation cannot leave the boundary.
 2. Free text written by a model can. Every such string is checked: text that makes a claim about the player's health, diagnosis, intelligence, sexuality, politics, religion, age, gender, ethnicity or disability is replaced by a placeholder and the event is logged. The dimension evidence beside it is kept. Ordinary words in fiction ("the old man at the toll") pass; the same words as a claim about the player do not.
 3. A design or a reading that makes such a claim is rejected.
-4. Uncertainty is kept. The packet says what is not known.
-5. Persistence is explicit. Before the first prompt the game says that it remembers, where, how to erase it, and whether what the player types is sent to a model service. `python -m oracle forget` erases a night or all of them; `--no-save` keeps nothing but the packet.
-6. Nothing is sent anywhere except to the narrator backend the player chose, under their own account with it.
+4. Uncertainty is kept. The prompt says what is not known, and marks every field the night did not decide.
+5. Persistence is explicit. Before the first prompt the game says that it remembers, where, how to erase it, and whether what the player types is sent to a model service. `python -m oracle forget` erases a night or all of them, its prompt with it; `--no-save` keeps nothing at all.
+6. Nothing is sent anywhere. The one exception is a night narrated by a model the player asked for by name: then what they type goes to that service, under their own account with it, and the game says so first.
+7. The prompt leaves the computer only when its owner pastes it somewhere. It can be read first: it is plain text, it describes how someone played and nothing else about them, and it tells the builder to add nothing.
 
 ## 10. The developer view
 
-`python -m oracle dev` writes one self-contained HTML file: every observation with its readings and how later evidence moved their shares; every dimension with value, confidence, status and evidence both ways; how the profile moved turn by turn; which room was dealt after each chamber, with the candidates and their score parts; the open ambiguities; the signals ranked; the design, the Game Design Vector with the source of each field; the reading; the exact prompts sent to the models and to the builder; the build events shown and withheld; guard events; the backend log; the transcript. `--dev` during play prints the house's reasoning after each turn.
+`python -m oracle dev` writes one self-contained HTML file: every observation with its readings and how later evidence moved their shares; every dimension with value, confidence, status and evidence both ways; how the profile moved turn by turn; which room was dealt after each chamber, with the candidates and their score parts; the open ambiguities; the signals ranked; the design, the Game Design Vector with the source of each field; the reading; the exact prompt handed over; any prompts sent to a narrating model; guard events; the narrator log; the transcript. `--dev` during play prints the house's reasoning after each turn. `python -m oracle profile` prints the same profile as data.
 
-## 11. Backends
+## 11. Narrators
 
-| Backend | How | Tested here |
+The night is told from the authored rooms unless a model is asked for. Nothing looks for a model, and nothing is sent anywhere, unless `--narrator` names one or says `auto`.
+
+| Narrator | How | Tested here |
 |---|---|---|
+| offline, the default | the authored rooms | yes: the tests, fifty simulated nights, and whole nights played through the single-file build |
 | anthropic | the Anthropic API through the official SDK; streaming; cached system prompt; effort low for turns and high for the design; server-side refusal fallback | not run: the SDK and credentials are not on the development machine |
 | claude | the Claude Code command line in print mode with tools disabled | reaches the binary; its login on the development machine had expired, so no narration was produced through it |
-| codex | the Codex command line, read-only sandbox, reasoning effort low for turns | yes: a live night (below) |
+| codex | the Codex command line, read-only sandbox, reasoning effort low for turns | yes: one short live night with version 0.1.0 (below); not run again since |
 | command | any program that reads a prompt and writes text | by the tests, with a scripted stand-in |
-| offline | the authored rooms | yes: the tests and fifty simulated nights |
 
-`auto` tries the installed backends in that order with one short request and uses the first that answers.
+`auto` tries the installed models in that order with one short request and uses the first that answers.
 
 ## 12. What was verified, and how
 
-- **Tests.** 81 tests in **oracle/tests/** pass (`python -m unittest discover -s oracle/tests -t .`). They cover the Beta arithmetic against known values; the confidence caps; same-scene discounting; contested evidence; explicit against behavioral weight; re-weighting of ambiguous observations; the profile as a pure function of the log; content validity and coverage; the offline matcher; a whole offline night; hard caps; the house choosing at a threshold; save and resume; the live narrator path with a scripted stand-in (state, evidence, cards, thresholds, unreadable notes, a failed backend, the guard); stream filtering at four chunk sizes; the rule draft for five personas; uncertainty with no evidence; validation, repair and fallback of model answers; the packet; the developer view and its escaping; the event reader's judgments; a build run against a fake builder; time-out of a builder; the command line; and terminal wrapping of streamed text.
-- **Simulated players.** Five personas played ten seeded nights each. Across the 100 pairs of different personas on the same seed, between 8 and 24 of the 31 Game Design Vector fields differed, and no two personas shared the same three dominant signals.
-- **A live night.** One very short night (the counter, one room, the Reading Room) was narrated by Codex on 2026-10-03: seven turns took 21.8 to 29.1 seconds each; the notes parsed on every turn; an invented action (drawing a fifth switch in chalk) was honoured and recorded; the design and the reading were both written by the model and passed validation without repair, in 219.5 seconds together.
+All of it on 2026-10-03, on one Windows 11 machine.
 
-Not verified: the Anthropic API backend and the Claude command-line backend producing narration; a real builder completing a game from a packet (only the hand-off and the event reader are tested, against a fake builder); a full-length night with a human player.
+- **Tests.** 132 tests in **oracle/tests/** pass on Python 3.12.10 and on 3.11.9 (`python -m unittest discover -s oracle/tests -t .`). They cover the Beta arithmetic against known values; the confidence caps; same-scene discounting; contested evidence; explicit against behavioral weight; re-weighting of ambiguous observations; the profile as a pure function of the log; content validity and coverage; the keyword matcher; a whole night from the page; hard caps; the house choosing at a threshold; the hint card (section 5.4, each of its rules); how acts are written down (section 5.5); save and resume; the model-narrator path with a scripted stand-in; stream filtering at four chunk sizes; the rule draft for five personas; uncertainty with no evidence; validation, repair and fallback of model answers; the prompt (every part in order, every fact once, every vector field with its basis, every vision pointing at the paragraph that fulfils it, the grant's fields and its reserved list, the scope held and the three fixed lines, weaker evidence never required, every unknown listed, one event one echo, evidence told about the player and never to the builder, a player's typed words quoted and inert, nothing about the person, no file of this program's named, the same night giving the same text, a night with no evidence saying so); where the prompt is kept, that a later copy leaves the kept one alone, and that forgetting takes a whole id; the project folder (the manual copied with its checker, nothing replaced, a core without its reference said to be alone); the clipboard code against stand-in tools; the end of a night in order; what a night that keeps nothing is and is not told; that no model is called unless asked for; one-line errors where a file cannot be written; the developer view and its escaping; the command line; terminal wrapping; and the program as one file and as a folder copied elsewhere, each run as a real process from a directory that holds nothing of the source, including a whole night played through the single file.
+- **Breakages.** Sixteen deliberate breakages, each applied in memory with nothing else changed, turned the tests that guard them red. Two did not at first: a test borrowed the constant it was meant to check, and was rewritten to state it.
+- **Two independent readings.** A reviewer with no part in writing the code found ten defects by running it, among them a hint word that selected another option, requests for help that acted, a partial id that erased other nights' prompts, false promises to a night that keeps nothing, and a test that waited on the keyboard when run from a terminal. All ten are fixed and tested. Two more agents, one after the other, each read a prompt with the manual as a builder would (section 8); their findings changed the prompt and the manual together. The changes made after the second reading have not themselves been read by a third.
+- **Fuzzed nights.** 400 nights of random free text, hint words, option keywords and hostile lines (markup, template marks, 300-character lines, non-ASCII) all reached a well-formed prompt with no exception.
+- **Simulated players.** Five personas played ten seeded nights each. Across the 100 pairs of different personas on the same seed, between 8 and 24 of the 31 Game Design Vector fields differed (median 17), and no pair shared its three dominant signals. A productive contradiction was found in 45 of the 50 nights. The prompts ran from 2,646 to 2,992 words.
+- **The clipboard, once, by mistake.** A check meant to run against a private clipboard wrote its test string to the development machine's real one instead. The string arrived exactly, non-ASCII characters and line endings included, so the Windows path is confirmed; and the lesson is recorded here so that nobody tests it that way again. The tests use stand-in tools only.
+- **A live night with a model.** With version 0.1.0, one very short night was narrated by Codex: seven turns took 21.8 to 29.1 seconds each; the notes parsed on every turn; the design and the reading were both written by the model and passed validation without repair. That path has not been run since the rewrite.
+
+Not verified: an AI coder building a game from a prompt (the far side of the whole chain); a full-length night with a human player; the Anthropic API narrator and the Claude command-line narrator producing narration; the clipboard on macOS or Linux; any Python older than 3.11 (the code avoids what 3.10 added, and a test holds one such case, but 3.9 and 3.10 have not been run).
 
 ## 13. Known limits
 
 - A night gives twenty to thirty-five observations. Most dimensions end unknown. The design rests on a handful of leaning signals, and says so.
-- Offline, free text is matched against authored options by keyword. It cannot improvise and it reads only what the authors anticipated.
-- Through the Codex command line a turn takes about twenty-five seconds and does not stream. A standard night is then closer to thirty-five minutes than to twenty-five; `--length short` is the remedy.
+- From the page, free text is matched against authored options by keyword. The house cannot improvise and reads only what its authors anticipated; the hint card (section 5.4) keeps that from becoming a guessing game, and a line it cannot place is still recorded as something the player expected to be able to do.
+- The design is assembled by rules. It is evidence, consequences and constraints, with one tension named; making one coherent game of it is the builder's first design act, and the prompt says so.
+- A working title is the name of a card the player earned, so many nights share one. It is a handle, and the manual has the builder propose a real name.
+- With a model narrating through the Codex command line a turn takes about twenty-five seconds and does not stream; `--length short` is the remedy.
 - The evidence strengths, the confidence caps and the selector's weights were set by judgment and by the simulated personas, not fitted to people. They are constants at the top of **model.py** and **probes.py**.
 - The personas are caricatures chosen to differ. They show that the pipeline separates distinct ways of playing; they do not show that it reads a real player correctly. Only people playing it, and saying whether the reading was right, can show that.

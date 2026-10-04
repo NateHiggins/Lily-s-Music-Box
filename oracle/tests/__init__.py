@@ -3,7 +3,8 @@
     python -m unittest discover -s oracle/tests -t .
 
 Every test keeps its files in a temporary ORACLE_HOME; nothing touches the
-player's own data directory, no model is called and nothing is launched.
+player's own data directory or clipboard, no model is called, and the only
+thing launched is this program itself.
 """
 
 import os

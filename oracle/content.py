@@ -10,11 +10,19 @@ ignored observation in the middle of someone's night.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
-from pathlib import Path
+from importlib import resources
 
-CONTENT_DIR = Path(__file__).resolve().parent / "content"
+
+def content_root():
+    """The authored content, wherever this copy of the program lives: a folder on disk,
+    or the inside of the single-file build."""
+    return resources.files(__package__) / "content"
+
+
 SCHEMA_VERSION = 1
+_SECOND_PERSON = re.compile(r"\b(you|your|yours|yourself)\b", re.IGNORECASE)
 STRENGTHS = ("weak", "moderate", "strong")
 SEED_FILES = ("seeds_core.json", "seeds_more.json", "seeds_last.json")
 
@@ -60,6 +68,11 @@ class Registry:
     def gdv_field_ids(self) -> list[str]:
         return [f["id"] for f in self.implications["gdv_fields"]]
 
+    def scope_lines(self) -> list[str]:
+        """Every scope line: the ones the owner holds and may change, then the ones not open at all."""
+        scope = self.implications["scope"]
+        return list(scope["constraints"]) + list(scope["fixed"])
+
     def axis_ids(self) -> list[str]:
         return [d.id for d in self.dims.values() if d.family == "axis"]
 
@@ -94,11 +107,11 @@ class Registry:
 
 
 def _load_json(name: str) -> dict:
-    path = CONTENT_DIR / name
+    path = content_root() / name
+    if not path.is_file():
+        raise ContentError(f"content file missing: {name}")
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError as exc:
-        raise ContentError(f"content file missing: {path}") from exc
     except json.JSONDecodeError as exc:
         raise ContentError(f"{name}: not valid JSON: {exc}") from exc
     if data.get("schema_version") != SCHEMA_VERSION:
@@ -207,6 +220,13 @@ def _load_seeds(dims: dict[str, Dim]) -> dict[str, dict]:
                 if set(when) - {"flag", "not_flag"}:
                     raise ContentError(f"{owhere}: when accepts flag / not_flag only")
                 _check_triples(owhere, opt.get("obs", []), dims)
+                if opt.get("obs") and not (opt.get("moment") or opt.get("did")):
+                    raise ContentError(f"{owhere}: an option with evidence needs a moment or a did: what the "
+                                       f"act was, in the third person and the past tense")
+                for key in ("moment", "did"):
+                    if _SECOND_PERSON.search(opt.get(key) or ""):
+                        raise ContentError(f"{owhere}: {key} is evidence read by someone else; write it in the "
+                                           f"third person (they, their), not the second")
                 card = opt.get("card")
                 if card is not None and not (card.get("title") and card.get("image")):
                     raise ContentError(f"{owhere}: a card needs a title and an image")
@@ -241,6 +261,9 @@ def _load_signals(dims: dict[str, Dim]) -> dict[str, dict]:
         _check_triples(f"signals.json:{sig['id']}", sig["obs"], dims)
         if sig.get("strength", "weak") not in STRENGTHS:
             raise ContentError(f"signals.json:{sig['id']}: unknown strength")
+        if not sig.get("seen") or _SECOND_PERSON.search(sig["seen"]):
+            raise ContentError(f"signals.json:{sig['id']}: needs seen, the act as a past-tense phrase in the "
+                               f"third person")
         signals[sig["id"]] = sig
     return signals
 
@@ -248,6 +271,10 @@ def _load_signals(dims: dict[str, Dim]) -> dict[str, dict]:
 def _load_implications(dims: dict[str, Dim], weight_desc: dict[str, str]) -> dict:
     data = _load_json("implications.json")
     fields = {f["id"] for f in data["gdv_fields"]}
+    scope = data.get("scope") or {}
+    if not all(scope.get(key) for key in ("summary", "constraints", "fixed_summary", "fixed")):
+        raise ContentError("implications.json: scope needs summary, constraints (held by the owner), "
+                           "fixed_summary and fixed (not open at all)")
 
     def check_rule(where: str, rule: dict) -> None:
         for key in rule.get("gdv", {}):
@@ -335,8 +362,8 @@ def _load_reading(dims: dict[str, Dim], signals: dict[str, dict]) -> dict:
     for key, lines in data.get("weight_visions", {}).items():
         if key not in dims or dims[key].bipolar or not lines:
             raise ContentError(f"reading.json: weight_visions on unknown weight {key!r}")
-    if not data.get("addresses") or not data.get("handoff_line"):
-        raise ContentError("reading.json: addresses and handoff_line are required")
+    if not data.get("addresses") or not data.get("handoff_line") or not data.get("last_card"):
+        raise ContentError("reading.json: addresses, last_card and handoff_line are required")
     return data
 
 
@@ -357,10 +384,10 @@ def load_registry(force: bool = False) -> Registry:
         implications=_load_implications(dims, weight_desc),
     )
     registry.reading = _load_reading(dims, registry.signals)
-    for name in ("setting", "narrator_system", "synthesis_design", "synthesis_prophecy", "builder_prompt"):
-        path = CONTENT_DIR / f"{name}.md"
+    for name in ("setting", "narrator_system", "synthesis_design", "synthesis_prophecy", "build_prompt"):
+        path = content_root() / f"{name}.md"
         if not path.is_file():
-            raise ContentError(f"content file missing: {path}")
+            raise ContentError(f"content file missing: {name}.md")
         registry.texts[name] = path.read_text(encoding="utf-8")
     _CACHE = registry
     return registry

@@ -3,9 +3,8 @@
 One self-contained HTML file, written on request and never shown during play.
 It contains the observations, every dimension with its confidence and evidence
 both ways, how the profile moved turn by turn, which room was dealt after each
-chamber and why, the design that came out, the reading, the exact prompts sent
-to the models and to the builder, the build events that were shown and the ones
-that were withheld, and the transcript.
+chamber and why, the design that came out, the reading, the exact prompt the
+night handed over, any prompts sent to a narrating model, and the transcript.
 """
 
 from __future__ import annotations
@@ -250,31 +249,15 @@ def render(registry: Registry, session: Session) -> str:
         if not syn.get("prompts"):
             add("<p class='mut small'>No model was used for the design or the reading; they were made by the rules.</p>")
 
-    # ---- build
-    add("<h2>The build</h2>")
-    build = session.build
-    if session.packet_dir:
-        add(f"<p class='small'>Packet: {e(session.packet_dir)}</p>")
-        prompt_path = Path(session.packet_dir) / "BUILDER_PROMPT.md"
-        if prompt_path.is_file():
-            add(_pre("Exact prompt for the builder (BUILDER_PROMPT.md)", prompt_path.read_text(encoding="utf-8")))
-    if not build:
-        add("<p class='mut'>No build was run from this session.</p>")
+    # ---- the prompt
+    add("<h2>The prompt</h2>")
+    if session.prompt:
+        where = f" Saved at {e(session.prompt_path)}." if session.prompt_path else ""
+        add(f"<p class='small'>{len(session.prompt.split()):,} words.{where} This is the whole of what the "
+            f"night hands to a builder.</p>")
+        add(_pre("Exact prompt handed over", session.prompt))
     else:
-        add(f"<p>Status: <b>{e(build.get('status'))}</b> &middot; exit code {e(build.get('returncode'))} &middot; "
-            f"project: {e(build.get('project'))} &middot; "
-            f"{int(((build.get('finished') or 0) - (build.get('started') or 0)) / 60)} minutes</p>")
-        add(f"<p class='small'>Command: {e(' '.join(build.get('command', [])))}</p>")
-        add("<h3>Events shown to the player</h3>" + _list(
-            f"{ev['line']}  ({json.dumps(ev['event'])})" for ev in build.get("events_shown", [])))
-        add("<h3>Events withheld</h3>" + _list(
-            f"{json.dumps(ev.get('event', ev.get('raw')))}: {ev['why']}" for ev in build.get("events_withheld", [])))
-        if build.get("result"):
-            add(_pre("BUILD_RESULT.json", json.dumps(build["result"], indent=2)))
-        log = Path(build.get("log", ""))
-        if log.is_file():
-            text = log.read_text(encoding="utf-8", errors="replace")
-            add(_pre(f"Build log (last 20,000 characters of {len(text):,})", text[-20000:]))
+        add("<p class='mut'>This night has not reached the reading, so no prompt has been written.</p>")
 
     # ---- guard, backend, transcript
     add("<h2>Guard and backend</h2>")
@@ -301,5 +284,5 @@ def write_devview(registry: Registry, session: Session, out_path: str | None = N
     else:
         path = data_dir() / "devview" / f"{session.id}.html"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(render(registry, session), encoding="utf-8", newline="\n")
+    path.write_bytes(render(registry, session).encode("utf-8"))
     return path

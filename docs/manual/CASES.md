@@ -143,7 +143,7 @@ So the method is not presented as finished.
 
 - **P1, as read on 2026-09-26:** no runtime-contract receipt had yet been produced by any test; no human had completed the run card and no tester had a build; retired backup scripts still contradicted the staging rule; runners and the lane broker were Windows-only shell scripts; no CI and no installed hooks; the reader-gate baseline was a frozen count, half of it the gate's own blind spot; a 10,516-line level toolchain had no caller; two precedence ladders coexisted; the terms in force for every generative service were unrecorded; owner decisions open since early August remained unruled.
 - **P2, as read on 2026-10-03:** two owner rows never closed; the generated art's look never ruled, so the game drew placeholders; no licence sentence; the scope audit never run; the ordered labyrinth built but not wired; the verifier never run on a real candidate; nearly half the design documents missing from the map; an unexplained board transient; the cross-project lane race; engine evidence deferred under the hold, including a branch of fifteen unproven commits; network numbers pinned with nothing reading them; receipts cited by closed rows now stale; the battery not stopping after a failed import.
-- **This manual:** the base suite script in §21.10 has not been run in the form printed; the breakage manifest, the owner's short run card, the provenance record and the lessons register are proposed and unexercised; no builder has completed a game from an oracle packet; tester builds, cohorts and release were planned on P1 and exercised on neither project; nothing here has been tried on a game that is not real-time.
+- **This manual:** the base suite script in §21.10 has not been run in the form printed; the breakage manifest, the owner's short run card, the provenance record and the lessons register are proposed and unexercised; no AI coder has built a game from an oracle prompt; tester builds, cohorts and release were planned on P1 and exercised on neither project; nothing here has been tried on a game that is not real-time.
 
 ## §26 How this manual was derived
 
@@ -165,7 +165,7 @@ So the method is not presented as finished.
 | §3, §3.1, §3.3, §3.4, §3.5 Documents | core A6; §3.5 replaced by one specification per system (§21.17) |
 | §3.2 Evidence-class header; §3.6 Directions; §3.7 Briefs | §3.2; §3.6 and core A3; §3.7 |
 | §4 Shared tree; §4.1 Lane; §4.2 Machine setup | core A13; §4, §4.1, §4.2; new §4.3 (history rewrite), §4.4 (tool traps) |
-| §5 to §5.7 Day zero | core A4; §5.1 and §5.6 kept as reference; new §5.8 (oracle packet) |
+| §5 to §5.7 Day zero | core A4; §5.1 and §5.6 kept as reference; new §5.8 (oracle prompt) |
 | §6 to §6.7 The covenant | core A5; §6 |
 | §7.1 to §7.5 Slice and planning | core A9, A3 |
 | §7.6 to §7.10 | §7.6 to §7.10 |

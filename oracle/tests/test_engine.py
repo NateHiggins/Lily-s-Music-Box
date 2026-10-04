@@ -72,6 +72,97 @@ class MatcherTests(unittest.TestCase):
         self.assertEqual(short_way(self.r.skins["brass"]), "the brass hatch")
 
 
+class HintTests(unittest.TestCase):
+    """The house needs no model, so it must never leave a player guessing at words."""
+
+    def last(self, ui):
+        return [text for kind, text in ui.out if kind == "narrate"][-1]
+
+    def test_asking_brings_the_ways_on_and_is_itself_evidence(self):
+        engine, s, ui, r = new_engine()
+        engine.turn("what can I do?")
+        said = self.last(ui)
+        self.assertIn("Pencilled on it", said)
+        self.assertIn("INNER DOOR / LEDGER / ASK / DOORKNOB / BELL / LEAVE / LOOK", said)
+        self.assertIn(r.opener()["hint"], said)
+        # The deck names what the house offers, never what is there to be found.
+        self.assertNotIn("SHUFFLE", said)
+        self.assertNotIn("PRIVATE", said)
+        asked = [o for o in engine.model.observations if o.signal == "asks_what_to_do"]
+        self.assertEqual(len(asked), 1)
+        self.assertEqual(s.phase, "chamber")
+        engine.turn("ledger")                                   # a word from the card is understood
+        self.assertEqual([t.get("option") for t in s.transcript if t["role"] == "house"][-1], "read_ledger")
+
+    def room(self, seed_id, seed=3):
+        """An engine standing in one named room."""
+        engine, s, ui, r = new_engine(seed=seed)
+        engine._start_scene(seed_id, None, r.seeds[seed_id]["intro"])
+        s.phase = "reading" if r.seeds[seed_id].get("role") == "finale" else "chamber"
+        return engine, s, ui, r
+
+    def taken(self, s):
+        return [t.get("option") for t in s.transcript if t["role"] == "house"][-1]
+
+    def test_a_request_for_help_never_acts(self):
+        # In each of these rooms the request used to be heard as one of the room's own options.
+        for seed_id, line in (("stray", "help"), ("joke_room", "hint"), ("lever", "what can I do?"),
+                              ("stray", "help me please"), ("counter", "can I have a hint?"),
+                              ("switches", "I am stuck"), ("vendor", "what are my options")):
+            engine, s, ui, r = self.room(seed_id)
+            engine.turn(line)
+            self.assertIsNone(self.taken(s), f"{seed_id}: {line!r} was taken as an action")
+            self.assertEqual(s.phase, "chamber", seed_id)
+            self.assertIsNone(s.world.companion, seed_id)
+            self.assertIn("Pencilled on it", self.last(ui), seed_id)
+            self.assertEqual([o.signal for o in engine.model.observations], ["asks_what_to_do"], seed_id)
+        # But a line that only contains the word is still the player doing something.
+        engine, s, ui, r = self.room("stray")
+        engine.turn("help the dog out from under the coat-stand")
+        self.assertEqual(self.taken(s), "free")
+        self.assertEqual(s.world.companion["name"], "the paper dog")
+
+    def test_asking_at_the_reading_table_does_not_end_the_night(self):
+        engine, s, ui, r = self.room("reading_room")
+        engine.turn("hint")
+        self.assertEqual(s.phase, "reading")                    # the words on the card can still be used
+        self.assertIn("JOKER / ASK / GIVE / NO", self.last(ui))
+        engine.turn("ask")
+        self.assertEqual(self.taken(s), "ask")
+
+    def test_the_more_particular_word_wins(self):
+        engine, s, ui, r = self.room("costume")
+        engine.turn("dust-coat")
+        self.assertEqual(self.taken(s), "dustcoat")
+        self.assertEqual(s.world.flags["wearing"], "dust-coat")
+        engine, s, ui, r = self.room("spectacle")
+        engine.turn("go down the hatch")
+        engine.turn("show")
+        self.assertEqual(self.taken(s), "show_after")           # the show is different for knowing the works
+
+    def test_evidence_is_recorded_in_words_fit_for_someone_else(self):
+        engine, s, ui, r = self.room("counter")
+        engine.turn("look around")
+        engine.turn("go through the inner door")
+        acts = [o.action for o in engine.model.observations]
+        self.assertEqual(acts, ["looked the shop over before leaving it",
+                                "pocketed the deck and went straight on through the inner door"])
+        engine, s, ui, r = self.room("switches")
+        engine.turn("wait")                                     # no option: a universal signal
+        self.assertEqual(engine.model.observations[-1].action, "waited, on purpose, to see what would happen")
+
+    def test_help_comes_once_unasked_and_does_not_nag(self):
+        engine, s, ui, r = new_engine()
+        engine.turn("florb the wibble")
+        self.assertNotIn("Pencilled on it", self.last(ui))
+        engine.turn("florb it again")
+        self.assertIn("Pencilled on it", self.last(ui))
+        engine.turn("florb it a third time")
+        self.assertNotIn("Pencilled on it", self.last(ui))
+        engine.turn("hint")                                     # but asking always works
+        self.assertIn("Pencilled on it", self.last(ui))
+
+
 class OfflineNightTests(unittest.TestCase):
     def test_a_whole_night_reaches_the_reading(self):
         engine, s, ui, r = new_engine()

@@ -11,6 +11,8 @@
       "unrequested": "features the player never asked for that follow from a behaviour; the first whose condition holds is used, so the most particular behaviours come first",
       "facts": "plain recollections used when the night produced fewer than three remembered moments",
       "addresses": "what the Proprietor says as the deck is squared, when no model writes the reading",
+      "last_card": "narration after the pronouncement: the deck becomes the one card that is the build prompt",
+      "handoff_line": "the Proprietor's last words, spoken over that card; the prompt itself follows, outside the fiction",
       "weight_visions": "the Proprietor's line for a weight whose design rule in implications.json has none",
       "when": "conditions: always; companion (bool); attempted (bool); joker (kept|played|spent); inventory (substring); thread (bool); threads (minimum count, open or resolved); flag (name); failures (minimum); signal (universal signal id seen at least once); moment (bool); matches_min; matches_max"
     }
@@ -74,7 +76,7 @@
   },
   "callbacks": [
     {"id": "attempted", "card": "The Thing the House Could Not Do", "when": {"attempted": true},
-     "from": "tried something the house could only half allow: {attempted}",
+     "from": "tried something the house could only half allow: \"{attempted}\"",
      "becomes": "what the house could only half allow is fully possible in the game, and the game is built so that it matters",
      "vision": "You asked the house for something it could not quite do. There will be a place where it can."},
     {"id": "companion", "card": "The Small Companion", "when": {"companion": true},
@@ -229,5 +231,6 @@
     "card": "The Empty Place",
     "text": "I see {absence}"
   },
-  "handoff_line": "It is not built yet. Take the deck to whoever builds for you. Then go and find out whether I was right."
+  "last_card": "The Proprietor gathers the cards into one, the way water gathers, and turns it face up on the baize. It is covered from edge to edge in small exact handwriting, and none of it is addressed to you.",
+  "handoff_line": "It is not built yet. This one is for whoever builds for you: they will not know the house, and they will know what this says. Take it to them. Then go and find out whether I was right."
 }

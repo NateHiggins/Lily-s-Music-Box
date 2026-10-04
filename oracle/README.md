@@ -2,91 +2,79 @@
 
 Evidence class: **INERT** (how to run the oracle; it proves nothing about the Orison build)
 
-A short text adventure that watches how you play and writes the description of a small game made for you. It is the front door of the process manual, **docs/AI_GAME_DEVELOPMENT_MANUAL.md**: the manual needs a creator's prompt, and this produces one from play instead of from a sentence.
+A short text adventure that watches how you play and ends by handing you a prompt: one message to paste into an AI coding agent, which then builds a small game made for you by following the process manual, **docs/AI_GAME_DEVELOPMENT_MANUAL.md**.
 
-You carry a deck of blank cards up through a strange house. At the top, the cards have faces. Then the Proprietor tells you what you will play, and a packet is written for whoever builds it.
+You carry a deck of blank cards up through a strange house. At the top, the cards have faces. The Proprietor tells you what you will play, and the last card is for whoever builds it.
 
-No dependencies beyond Python itself (developed and tested on Python 3.12). Run every command from the repository root.
+It is a standalone program. It needs Python and nothing else: no model, no account, no network. Nothing you type leaves your computer. It was developed on Python 3.12 and its tests also pass on 3.11; it is written to run on 3.9 or later, which has not been run.
 
 ## Play
+
+From the repository root:
 
 ```bash
 python -m oracle
 ```
 
-Type what you do, in your own words. There is no list of commands. Type **quit** to leave; the house keeps your place.
+Type what you do, in your own words. There is no list of commands. If the house does not follow you, ask it for a hint: the deck will show you a few words the room understands. Type **quit** to leave; the house keeps your place.
 
 ```bash
 python -m oracle resume
 ```
 
-Useful switches:
-
 | Switch | Effect |
 |---|---|
-| `--length short` | four rooms instead of six; `long` is eight |
-| `--backend offline` | no model: the authored rooms, played from the page |
-| `--backend codex` | narrate with a named backend (see below) |
+| `--length short` | four rooms instead of six, about 15 minutes; `long` is eight |
 | `--fast` | no typewriter effect and no pauses |
-| `--dev` | print the house's reasoning after every turn |
-| `--out DIR` | write the packet to a place you choose |
-| `--no-save` | keep nothing on disk except the packet |
+| `--copy`, `--no-copy` | copy the prompt to the clipboard without being asked, or never |
+| `--out FILE` | also save the prompt to a file you choose |
+| `--project FOLDER` | also make a folder ready for a builder (below) |
+| `--no-save` | keep nothing on this computer: the prompt is then shown once, so copy it or name a file with `--out` |
 | `--seed N` | make the dealing of rooms reproducible |
-
-## Who narrates
-
-| Backend | What it needs |
-|---|---|
-| `anthropic` | `pip install anthropic` and **ANTHROPIC_API_KEY** in the environment. Model **claude-opus-5-5** unless `--model` says otherwise. |
-| `claude` | the Claude Code command line, signed in (`claude` on the path, or the copy the desktop app installs) |
-| `codex` | the Codex command line, signed in |
-| `command` | `--backend-cmd "your program"`: anything that reads a prompt on standard input and writes text |
-| `offline` | nothing |
-
-The default, `auto`, sends one short request to each installed backend in that order and uses the first that answers. If none does, the night is played offline: the same house, with authored answers instead of improvised ones.
-
-```bash
-python -m oracle doctor --probe
-```
-
-shows what is installed and which backends actually answer.
-
-With any backend except offline, what you type is sent to that service to be answered, under your own account with it. The game says which before the first prompt.
+| `--dev` | print the house's reasoning after every turn |
 
 ## What you get
 
-When the night ends the packet is written, by default under the data directory:
+When the night ends you are told what you will play, and then, outside the fiction, the program shows one message between two lines. That message is the prompt. It is the same text in all four places:
 
-| File | What it is |
+| Where | How |
 |---|---|
-| **GAME_DESCRIPTION.md** | the design: signals with their evidence, design implications, the Game Design Vector, negative constraints, personal callbacks, the feature nobody asked for, what is not known, and the visions as promises |
-| **design_profile.json** | the same as data, with the evidence behind every value |
-| **prophecy.md** | what you were told |
-| **BUILDER_PROMPT.md** | the instruction to give an AI engineer |
-| **transcript.md** | the night itself |
-| **AI_GAME_DEVELOPMENT_MANUAL.md**, **manual/** | a copy of the process manual's operating core and of its reference files, when they are found beside the program |
+| On the screen | printed exactly, between the two rules |
+| On the clipboard | you are asked once; say yes and it is ready to paste |
+| In a file | under the data directory; the path is printed |
+| Again, later | `python -m oracle prompt` prints it; add `--copy` or `--out FILE` |
 
-To feed the manual: put the **oracle_packet** folder in an empty directory and give **BUILDER_PROMPT.md** to your AI engineer. The builder reads the manual's operating core in full and follows its section 5.8 (in **manual/REF_PROCESS.md**), which treats the packet as the creator's prompt and the visions as acceptance criteria.
+It is about 2,800 words of plain text. It carries what the design stands on and the behaviour each signal was seen in, the Game Design Vector, the laws, the echoes of your night, what is not known, the reading as acceptance criteria, the scope, and a scoped grant. Read it before you use it. It is yours to edit: edit the copy you are about to paste, because the program keeps and re-prints the original.
 
-## Have it built
+## Have the game built
 
-Nothing is built unless you ask.
+The prompt works with the manual. An AI coder needs both.
+
+1. Make a folder for the game and put the manual in it. This does both, and saves the prompt there as **ORACLE_PROMPT.md**:
 
 ```bash
-python -m oracle build --builder codex
+python -m oracle prompt --project path/to/new-game
 ```
 
-or add `--build codex` to the play command to go straight from the reading to the build. Builders:
+2. Open your AI coder in that folder and paste the prompt. (Or tell it: read ORACLE_PROMPT.md and do what it says.)
 
-| Builder | What it is allowed to do |
-|---|---|
-| `codex` | Codex, sandboxed to write only inside the project directory |
-| `claude` | Claude Code, allowed to edit files and run commands in the project directory |
-| `command` | `--builder-cmd "your program {project}"`: whatever you give it |
+The prompt tells the coder to read the manual's operating core in full, to treat the message as the day-zero prompt, and where the manual explains how (section 5.8, in **manual/REF_PROCESS.md**). It asks the coder to tell you, before anything else, what game it means to build: the prompt gives the signals and the constraints, and the coder invents the mechanic. It carries a standing grant in your voice: leave to do reversible work inside that folder without waiting for you, and to use its own judgement where the night gave evidence or left a field open. Everything the manual reserves to you stays yours, and so do the scope, every download and install, and anything outside the folder. Delete that section before pasting if you would rather be asked. If the coder cannot find the manual, the prompt tells it to stop and ask you.
 
-The project is made under the data directory unless `--project DIR` says otherwise. While the builder works, a line in capitals appears each time the builder reports that something has actually happened, and only then: nothing is shown on a timer. Where an event names a proof file, the line is withheld unless the file exists. The build log is kept beside the project. The finished game is launched only if you say yes to the exact command.
+This program does not start a coder and does not build anything. No AI coder has yet built a game from one of these prompts: that end of the chain is untested.
 
-A real build takes a builder a long time and has not been run from this program yet: the hand-off and the progress reader are tested against a stand-in builder only.
+## One file
+
+```bash
+python -m oracle bundle
+```
+
+writes **blank_deck.pyz**: the whole program, every room, and a copy of the manual, in one file of about 285 KB. Copy it anywhere Python is installed and run it:
+
+```bash
+python blank_deck.pyz
+```
+
+Every command on this page works the same way with `python blank_deck.pyz` in place of `python -m oracle`. A copied **oracle** folder also runs on its own: `python path/to/oracle`.
 
 ## What the house knew
 
@@ -94,13 +82,19 @@ A real build takes a builder a long time and has not been run from this program 
 python -m oracle dev --open
 ```
 
-writes one HTML file with every observation, every dimension with its confidence and the evidence both ways, how the profile moved turn by turn, why each room was dealt, the design, the reading, the exact prompts sent, and the build events shown and withheld.
+writes one HTML file with every observation, every dimension with its confidence and the evidence both ways, how the profile moved turn by turn, why each room was dealt, the design, the reading and the exact prompt.
+
+```bash
+python -m oracle profile
+```
+
+prints the same profile as data.
 
 ## What is kept, and erasing it
 
 The game models play preferences only. It does not infer anything about you as a person, and text that tries to is removed.
 
-Each night is one file under **~/.blank-deck** (or the directory named by **ORACLE_HOME**), with its packet, developer view and any game beside it.
+Each night is one file under **~/.blank-deck** (or the directory named by **ORACLE_HOME**), with its prompt and developer view beside it.
 
 ```bash
 python -m oracle list
@@ -110,7 +104,22 @@ python -m oracle list
 python -m oracle forget
 ```
 
-`forget` with a night's id erases that night; with none, every night. Packets and games you sent elsewhere with `--out` or `--project` are yours and are not touched.
+`forget` with a night's id erases that night; with none, every night. A prompt or a project folder you sent elsewhere with `--out` or `--project` is yours and is not touched.
+
+## A model as narrator (optional)
+
+The authored rooms are the game. If you would rather have a model improvise the narration and read your free text, name one; nothing looks for a model unless you do.
+
+| `--narrator` | What it needs |
+|---|---|
+| `offline` | nothing. This is the default |
+| `anthropic` | `pip install anthropic` and **ANTHROPIC_API_KEY** in the environment. Model **claude-opus-5-5** unless `--model` says otherwise |
+| `claude` | the Claude Code command line, signed in |
+| `codex` | the Codex command line, signed in |
+| `command` | `--narrator-cmd "your program"`: anything that reads a prompt on standard input and writes text |
+| `auto` | the first of those that answers one short request, else offline |
+
+With a model narrating, what you type is sent to that service to be answered, under your own account with it; the game says which before the first prompt. A turn through a command-line model can take twenty seconds or more.
 
 ## Simulated players and tests
 
@@ -118,27 +127,34 @@ python -m oracle forget
 python -m oracle simulate
 ```
 
-plays five caricatured ways of playing through offline nights and prints the game each would be given, and how many design fields differ between them.
+plays five caricatured ways of playing through whole nights and prints the game each would be given, and how many design fields differ between them. Add `--out DIR` to write each one's prompt.
 
 ```bash
 python -m unittest discover -s oracle/tests -t .
 ```
 
-runs the 81 tests. No model is called and nothing is launched.
+runs the 132 tests. No model is called, the clipboard is not touched, and the only thing launched is this program itself.
+
+```bash
+python -m oracle doctor
+```
+
+checks the content and says what this computer has: the clipboard tool, where the manual was found, how this copy is run.
 
 ## Where things are
 
 | Path | What |
 |---|---|
-| **DESIGN.md** | how it works and why: the model, the rooms, the selector, the synthesis, the boundary, and what was verified |
-| **content/** | everything authored: dimensions, rooms, thresholds, signals, design rules, the reading, the prompts |
+| **DESIGN.md** | how it works and why: the model, the rooms, the selector, the synthesis, the prompt, the boundary, and what was verified |
+| **content/** | everything authored: dimensions, rooms, thresholds, signals, design rules, the reading, the fixed wording of the prompt |
 | **model.py** | the player model |
 | **probes.py** | which room and which ways onward are dealt next |
 | **engine.py** | the turn loop |
-| **narrator.py**, **offline.py** | the house with and without a model |
-| **backends.py** | the four ways to reach a model |
+| **offline.py** | the house as authored: matching a line to a room's options, and the hint card for a player who is stuck |
 | **synthesis.py** | from profile to design and reading |
-| **packet.py**, **builder.py** | the hand-off |
+| **prompt.py** | the prompt, where it is kept, and the project folder |
+| **clipboard.py**, **bundle.py** | the clipboard, and the single-file build |
+| **narrator.py**, **backends.py** | the optional model narrator |
 | **devview.py** | the developer view |
 | **guard.py** | the boundary |
 | **simulate.py** | the simulated players |

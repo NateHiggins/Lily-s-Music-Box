@@ -26,6 +26,9 @@ CARD_LINES = (
 )
 
 LAST_STAIR = "A last narrow stair goes up from here, to a door with lamplight under it. You climb."
+HIDDEN_TAGS = {"exploit", "transgress", "trick"}
+# Words that may surround a bare request for help without making it anything else.
+FILLER = {"me", "please", "a", "an", "any", "some", "i", "am", "im", "i'm", "need", "want", "give", "more"}
 NOT_ENOUGH_MATCHES = ("You count your matches, twice. Not enough for that. The house does not give credit. "
                       "It waits to see what you will do instead.")
 JOKER_ANYWHERE = ("You lay the Joker down and say what you want. For the length of one breath the house is "
@@ -116,6 +119,10 @@ def _describe(seed: dict, option: dict, outcome: str) -> str:
     return f"at {seed['title']}: {option['id'].replace('_', ' ')}"
 
 
+def _with(narration: str, extra: str) -> str:
+    return narration + "\n\n" + extra if extra else narration
+
+
 def _when_ok(option: dict, flags: dict) -> bool:
     when = option.get("when") or {}
     if "flag" in when and not flags.get(when["flag"]):
@@ -127,6 +134,33 @@ def _when_ok(option: dict, flags: dict) -> bool:
 
 def available_options(seed: dict, flags: dict) -> list[dict]:
     return [o for o in seed["options"] if _when_ok(o, flags)]
+
+
+def hint_words(seed: dict, flags: dict) -> list[str]:
+    """One word or phrase for each way through the room that the house is willing to name.
+    A way that is meant to be found (the exploit, the forbidden thing, the trick) is never
+    named: finding it is the point, and is evidence."""
+    words: list[str] = []
+    for option in available_options(seed, flags):
+        if HIDDEN_TAGS & set(option.get("tags", [])):
+            continue
+        candidates = ([option["word"]] if option.get("word") else []) + list(option["match"])
+        # The word on the card must do what it says: typed back, it has to select this option
+        # and no other. The first of the option's own words that does is the one shown.
+        word = next((w for w in candidates if match_option(seed, flags, w)[0] is option), None)
+        if word and word not in words:
+            words.append(word)
+    return words
+
+
+def pencilled(seed: dict, flags: dict) -> str:
+    """The deck itself helps a bearer who is stuck or who asks. It is the one thing that is
+    in every room."""
+    words = hint_words(seed, flags)
+    if not words:
+        return ""
+    return ("A blank card has worked a little way out of the deck. Pencilled on it, and fading as you "
+            "read: " + " / ".join(word.upper() for word in words) + ".")
 
 
 def match_option(seed: dict, flags: dict, text: str) -> tuple[dict | None, float]:
@@ -144,7 +178,8 @@ def match_option(seed: dict, flags: dict, text: str) -> tuple[dict | None, float
         for keyword in option["match"]:
             if _contains(low, keyword):
                 kw = keyword.lower()
-                score += 0.6 if kw in GENERIC else 1.0 + 0.5 * kw.count(" ")
+                # A longer keyword says more: "dust-coat" must beat another option's bare "coat".
+                score += 0.6 if kw in GENERIC else 1.0 + 0.5 * kw.count(" ") + 0.02 * len(kw)
         if score > best_score:
             best, best_score = option, score
     return best, best_score
@@ -191,12 +226,16 @@ class OfflineNarrator:
         scene, world = session.scene, session.world
         seed = self.registry.seeds[scene["seed"]]
         flags = scene["flags"]
-        option, score = match_option(seed, flags, text)
+        asked = self.asks_for_help(text)
+        # A request for help never acts: it is answered, and the room stays as it was.
+        option, score = (None, 0.0) if asked else match_option(seed, flags, text)
         if option is not None and score < 1.0 and self._plain_signal(text) is not None:
             option = None            # only a generic word matched; the line is really a universal one
         result: TurnResult
 
-        if option is None and _contains(text.lower(), "joker") and world.joker == "kept" and not finale:
+        if asked:
+            result = self._unmatched(seed, scene, text, world, asked=True)
+        elif option is None and _contains(text.lower(), "joker") and world.joker == "kept" and not finale:
             result = TurnResult(
                 narration=JOKER_ANYWHERE, status="resolved", option="joker_anywhere",
                 state={"joker": "played"},
@@ -215,7 +254,7 @@ class OfflineNarrator:
         else:
             result = self._unmatched(seed, scene, text, world)
 
-        if finale and option is None and result.option is None:
+        if finale and option is None and result.option is None and not asked:
             result.status = "resolved"       # at the reading table anything at all is the last free act
         if result.status != "resolved":
             if must_close:
@@ -241,7 +280,7 @@ class OfflineNarrator:
             counters[option["counter"]] = n + 1
         else:
             outcome = option["outcome"]
-        action = option.get("moment") or _describe(seed, option, outcome)
+        action = option.get("moment") or option.get("did") or _describe(seed, option, outcome)
         observations = []
         if option.get("obs"):
             observations.append({
@@ -267,26 +306,64 @@ class OfflineNarrator:
                 return signal
         return None
 
-    def _unmatched(self, seed: dict, scene: dict, text: str, world=None) -> TurnResult:
+    def _detected(self, low: str) -> dict | None:
+        """The universal signal a line most plainly is: the one named by the longest phrase,
+        so that "what can I do?" is a request for a hint and not merely a question."""
+        best, best_len = None, 0
+        for signal in self.registry.signals.values():
+            if not signal["obs"]:
+                continue
+            for keyword in signal.get("detect", []):
+                if len(keyword) > best_len and _contains(low, keyword):
+                    best, best_len = signal, len(keyword)
+        return best
+
+    def asks_for_help(self, text: str) -> bool:
+        """Is this line a request for help and nothing else? "help", "a hint please", "what can I
+        do?" are. "help the dog" is something the player is doing, and is not."""
+        low = " ".join(text.lower().replace("?", " ").replace("!", " ").replace(".", " ").replace(",", " ").split())
+        if not low:
+            return False
+        words = low.split()
+        if "hint" in words or "hints" in words:
+            return True                  # the opening tells the player to ask for one, in any words
+        bare = " ".join(word for word in words if word not in FILLER)
+        for keyword in self.registry.signals["asks_what_to_do"].get("detect", []):
+            if " " in keyword:
+                if _contains(low, keyword):
+                    return True
+            elif bare == keyword:
+                return True
+        return False
+
+    def _unmatched(self, seed: dict, scene: dict, text: str, world=None, asked: bool = False) -> TurnResult:
         low = text.lower()
         scene["unmatched"] = scene.get("unmatched", 0) + 1
-        for signal in self.registry.signals.values():
-            if any(_contains(low, kw) for kw in signal.get("detect", [])) and signal["obs"]:
-                narration = signal.get("generic_outcome") or seed["fallback"]
-                if signal["id"] == "checks_inventory" and world is not None:
-                    narration = f"You take stock. You are carrying: {world.carrying()}."
-                elif scene["unmatched"] >= 2:
-                    narration += " " + seed["hint"]
-                return TurnResult(
-                    narration=narration, option=None,
-                    observations=[{"action": signal["desc"], "kind": signal.get("kind", "behavioral"),
-                                   "strength": signal.get("strength", "weak"), "context": seed["title"],
-                                   "signal": signal["id"],
-                                   "hypotheses": [{"dim": d, "dir": direction, "share": share}
-                                                  for d, direction, share in signal["obs"]]}])
+        signal = self.registry.signals["asks_what_to_do"] if asked else self._detected(low)
+        asked = asked or (signal is not None and signal["id"] == "asks_what_to_do")
+        # Help comes when it is asked for, and once, unasked, to a bearer who has missed twice.
+        # After that the room only waits: a hint repeated every turn is a nag.
+        help_now = asked or (scene["unmatched"] >= 2 and not scene.get("helped"))
+        if help_now:
+            scene["helped"] = True
+        if signal is not None:
+            narration = signal.get("generic_outcome") or seed["fallback"]
+            if signal["id"] == "checks_inventory" and world is not None:
+                narration = f"You take stock. You are carrying: {world.carrying()}."
+            elif help_now:
+                narration += " " + seed["hint"]
+            if help_now:
+                narration = _with(narration, pencilled(seed, scene["flags"]))
+            return TurnResult(
+                narration=narration, option=None,
+                observations=[{"action": signal.get("seen") or signal["desc"], "kind": signal.get("kind", "behavioral"),
+                               "strength": signal.get("strength", "weak"), "context": seed["title"],
+                               "signal": signal["id"],
+                               "hypotheses": [{"dim": d, "dir": direction, "share": share}
+                                              for d, direction, share in signal["obs"]]}])
         narration = seed["fallback"]
-        if scene["unmatched"] >= 2:
-            narration += " " + seed["hint"]
+        if help_now:
+            narration = _with(narration + " " + seed["hint"], pencilled(seed, scene["flags"]))
         result = TurnResult(narration=narration, option=None)
         if len(text.split()) >= 3:
             novel = self.registry.signals["novel_command"]

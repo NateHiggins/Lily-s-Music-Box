@@ -5,13 +5,13 @@
     "authored": "hand-authored 2026-10-03; edit this file and DESIGN.md together",
     "kind": "hand-transcription",
     "schema": {
-      "gdv_fields": "the Game Design Vector: field id, label, and the default written when no evidence speaks to it",
+      "gdv_fields": "the Game Design Vector: field id, label, and the default written when no evidence speaks to it; scope marks a default that repeats a scope line, which the owner holds",
       "axis_rules": "per bipolar axis, per pole: the design signal, the design consequence, GDV field values, negative constraints and prophecy lines",
       "weight_rules": "per weight: what high attraction implies, and the constraint implied by a clear aversion",
       "contradictions": "pairs of signals in tension and the design that resolves them productively; a and b are dimension ids with + or -",
       "fantasies": "central-fantasy sentences keyed by the leading reward weight",
       "core_verbs": "core verb phrases keyed by the leading solve, conflict or reward weight",
-      "scope": "constraints that hold for every generated game because one agent must be able to build it alone"
+      "scope": "the pocket-game lines written into every build prompt: summary is the line above them, constraints are held by the owner and may be changed by the owner, fixed are not open at all"
     }
   },
   "gdv_fields": [
@@ -29,18 +29,18 @@
     {"id": "mechanical_complexity", "label": "Mechanical complexity", "default": "low to moderate: three or four verbs"},
     {"id": "systemic_interaction", "label": "Systemic interaction level", "default": "moderate"},
     {"id": "pacing", "label": "Pacing", "default": "moderate, with at least one quiet beat and one intense beat"},
-    {"id": "session_length", "label": "Expected session length", "default": "10 to 20 minutes for a complete playthrough"},
+    {"id": "session_length", "label": "Expected session length", "default": "10 to 30 minutes of play in all", "scope": true},
     {"id": "narrative_density", "label": "Narrative density", "default": "light"},
     {"id": "narrative_delivery", "label": "Narrative delivery method", "default": "environmental: objects and places, no cutscenes"},
     {"id": "npc_density", "label": "NPC density", "default": "few"},
-    {"id": "social_structure", "label": "Social structure", "default": "single player, no social systems"},
+    {"id": "social_structure", "label": "Social structure", "default": "single player, no social systems", "scope": true},
     {"id": "randomness", "label": "Amount of randomness", "default": "low: authored situations"},
     {"id": "permanence", "label": "Degree of permanence", "default": "moderate: choices persist within a playthrough"},
     {"id": "reward_schedule", "label": "Reward schedule", "default": "a small reward every minute or two"},
     {"id": "collectibles", "label": "Collectibles", "default": "none unless evidence asks for them"},
     {"id": "customization", "label": "Customization", "default": "none unless evidence asks for it"},
     {"id": "audiovisual_mood", "label": "Audiovisual mood", "default": "unknown: builder's choice within the scope constraints"},
-    {"id": "camera_perspective", "label": "Camera perspective", "default": "2D, whichever view serves the core verb"},
+    {"id": "camera_perspective", "label": "Camera perspective", "default": "2D, whichever view serves the core verb", "scope": true},
     {"id": "control_complexity", "label": "Control complexity", "default": "simple: move plus one or two actions"},
     {"id": "interface_density", "label": "Interface density", "default": "sparse"},
     {"id": "hidden_information", "label": "Degree of hidden information", "default": "moderate"},
@@ -57,7 +57,7 @@
       "pos": {"signal": "sets their own goals and resists being told",
         "implication": "Provide tools and a place, not a to-do list. Objectives exist as things in the world the player may adopt, ignore or replace, and the game notices and rewards goals the player set for themselves.",
         "gdv": {"progression_structure": "player-chosen goals in an open structure; authored goals are offers, not orders", "explicit_instruction": "minimal: no quest log"},
-        "negative": ["No mandatory quest log.", "Do not block progress on following an instruction."],
+        "negative": ["No mandatory quest log.", "Do not make progress depend on obeying an instruction."],
         "visions": ["I see no quest log.", "You will be told where to go. You will go somewhere else, and find the game was waiting there."]}
     },
     "discovery_mastery": {
@@ -238,7 +238,7 @@
         "implication": "Show the numbers: odds, counts, meters and stated rules the player can calculate with.",
         "gdv": {"interface_density": "informative: counters, odds and meters are visible"},
         "negative": ["Do not hide the values the player needs to plan with."],
-        "visions": ["I see numbers hidden beneath beautiful things."]}
+        "visions": ["I see numbers written plainly on beautiful things, and you counting on them."]}
     },
     "social": {
       "neg": {"signal": "prefers the world to themselves",
@@ -452,15 +452,20 @@
     "reward.cooperation": "carry and tend"
   },
   "scope": {
-    "summary": "One autonomous agent must be able to build, test and finish this game alone, so every generated game is a pocket game.",
+    "summary": "A pocket game, so that it gets finished. I have not examined these lines. They hold until I change them: tell me in your first report which you would change, and why.",
     "constraints": [
-      "Engine: Godot 4.x, following docs/AI_GAME_DEVELOPMENT_MANUAL.md in its scaled-down form.",
-      "Size: a complete game playable start to finish in 10 to 30 minutes; one core mechanic, at most two supporting ones.",
-      "Art: no external or downloaded assets. Visuals are drawn in code (shapes, lines, palettes, shaders, particles) or built from engine primitives. Text uses the engine default font.",
-      "Audio: none required. If present, synthesized in code. No downloaded audio.",
-      "Players: single player, offline, one input device (keyboard, with mouse if the core verb needs it).",
-      "Nothing leaves the machine: no network calls, accounts, telemetry, purchases or publishing.",
-      "It must run from a fresh checkout with one documented command and include an automated smoke test."
+      "Size: a whole game, not a first chapter: 10 to 30 minutes of play in all. One core mechanic and at most two supporting ones.",
+      "Engine and platform: Godot 4, 2D, desktop, unless a survey of the machine it is built on argues otherwise.",
+      "Art: drawn in code (shapes, lines, palettes, shaders, particles) or built from engine primitives, with the engine's default font. No downloaded or generated assets unless the owner rules on a look.",
+      "Audio: none, or synthesised in code. No downloaded audio.",
+      "Players: one, offline, keyboard (and mouse if the core verb needs it).",
+      "One documented command starts the game from a fresh checkout."
+    ],
+    "fixed_summary": "Three lines are not yours to open:",
+    "fixed": [
+      "The game itself never reaches out: no network calls, telemetry, accounts or purchases.",
+      "Original everything: names, characters, art, sound and text. Genre conventions are free to use; existing works are not.",
+      "Photosensitive-safe by default."
     ]
   },
   "cards": {

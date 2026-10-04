@@ -1,9 +1,9 @@
 """One night in the house: world state, session state, and persistence.
 
 Everything a session knows is one JSON file under the data directory
-(`~/.blank-deck` unless ORACLE_HOME says otherwise). Nothing else is written
-anywhere unless the player asks for a packet or a build in another place.
-`forget` removes it. Saves are atomic: a crash leaves the previous file.
+(`~/.blank-deck` unless ORACLE_HOME says otherwise), with the prompt the night
+ended in beside it. Nothing else is written anywhere unless the player names a
+place. `forget` removes it. Saves are atomic: a crash leaves the previous file.
 """
 
 from __future__ import annotations
@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import random
+import re
 import shutil
 import time
 from dataclasses import asdict, dataclass, field
@@ -32,12 +33,13 @@ def sessions_dir() -> Path:
     return data_dir() / "sessions"
 
 
-def packets_dir() -> Path:
-    return data_dir() / "packets"
+def prompts_dir() -> Path:
+    return data_dir() / "prompts"
 
 
-def games_dir() -> Path:
-    return data_dir() / "games"
+# Folders written by the first version of this program, which made a packet and could start a
+# builder. Nothing writes them now; `forget` still clears them.
+LEGACY_DIRS = ("packets", "games")
 
 
 @dataclass
@@ -96,8 +98,8 @@ class Session:
     guard_events: list[dict] = field(default_factory=list)
     backend_log: list[dict] = field(default_factory=list)
     synthesis: dict | None = None
-    packet_dir: str | None = None
-    build: dict | None = None
+    prompt: str | None = None           # the build prompt the night ended in, exactly as handed over
+    prompt_path: str | None = None      # where it was saved, if it was
 
     # ---- construction ------------------------------------------------
     @staticmethod
@@ -166,7 +168,8 @@ def list_sessions() -> list[dict]:
         out.append({"id": data.get("id", path.stem), "phase": data.get("phase", "?"),
                     "turn": data.get("turn", 0), "updated": data.get("updated", 0.0),
                     "backend": (data.get("config") or {}).get("backend_used", ""),
-                    "packet_dir": data.get("packet_dir")})
+                    "title": ((data.get("synthesis") or {}).get("design") or {}).get("working_title", ""),
+                    "prompt_path": data.get("prompt_path")})
     return sorted(out, key=lambda s: s["updated"], reverse=True)
 
 
@@ -179,18 +182,23 @@ def latest_session(unfinished_only: bool = False) -> str | None:
 
 def forget(session_id: str | None = None) -> list[str]:
     """Erase one night, or every night, from the data directory. Returns what was removed.
-    Packets or games written to a place the player chose with --out or --project are
-    theirs and are not touched."""
+    A prompt or a project folder written to a place the player chose with --out or
+    --project is theirs and is not touched."""
     removed: list[str] = []
     devview = data_dir() / "devview"
+    legacy = [data_dir() / name for name in LEGACY_DIRS]
     if session_id is None:
-        for sub in (sessions_dir(), packets_dir(), games_dir(), devview):
+        for sub in (sessions_dir(), prompts_dir(), devview, *legacy):
             if sub.is_dir():
                 shutil.rmtree(sub)
                 removed.append(str(sub))
         return removed
-    for target in (sessions_dir() / f"{session_id}.json", packets_dir() / session_id,
-                   games_dir() / session_id, devview / f"{session_id}.html"):
+    if not re.fullmatch(r"\d{8}-\d{6}-\d{4}", session_id):
+        return removed                  # not a night's id: a partial one must never match other nights' files
+    targets = [sessions_dir() / f"{session_id}.json", devview / f"{session_id}.html"]
+    targets += sorted(prompts_dir().glob(f"{session_id}-*.md")) if prompts_dir().is_dir() else []
+    targets += [base / session_id for base in legacy]
+    for target in targets:
         if target.is_dir():
             shutil.rmtree(target)
             removed.append(str(target))

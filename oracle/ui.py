@@ -27,6 +27,7 @@ class Console:
             except (AttributeError, ValueError):
                 pass
         self.tty = sys.stdout.isatty()
+        self.interactive = self.tty and sys.stdin.isatty()     # a person is at the keyboard
         self.color = self.tty and not plain and not os.environ.get("NO_COLOR")
         if self.color and os.name == "nt":
             os.system("")                       # switches the Windows console to ANSI mode
@@ -94,6 +95,15 @@ class Console:
     def plain(self, text: str) -> None:
         self._write(text + "\n")
 
+    def raw(self, text: str) -> None:
+        """Text that must reach the screen exactly as it is: never wrapped, styled or typed
+        out, so that what is selected and copied is what was written."""
+        self._write(text if text.endswith("\n") else text + "\n")
+
+    def rule(self, label: str = "") -> None:
+        line = f"---- {label} " if label else ""
+        self._write("\n" + self._style(line + "-" * max(4, self.width - len(line)), DIM) + "\n")
+
     def dev(self, text: str) -> None:
         if self.dev_enabled:
             for line in text.splitlines():
@@ -111,11 +121,22 @@ class Console:
             self._write("\n")
             raise
 
-    def confirm(self, prompt: str) -> bool:
+    def confirm(self, prompt: str, default: bool = False) -> bool:
+        """A yes or no. Enter alone gives the default; anything unreadable gives no."""
         try:
-            return input(self._style(prompt, BOLD)).strip().lower() in ("y", "yes")
+            answer = input(self._style(prompt, BOLD)).strip().lower()
         except (EOFError, KeyboardInterrupt):
             return False
+        if not answer:
+            return default
+        return answer in ("y", "yes")
+
+    def hold(self, prompt: str = "Press Enter to close. ") -> None:
+        """Keep a window that belongs to this program open until its reader is done."""
+        try:
+            input(self._style(prompt, DIM))
+        except (EOFError, KeyboardInterrupt):
+            pass
 
     # ---- streaming ---------------------------------------------------
     def stream_begin(self) -> None:
@@ -212,10 +233,11 @@ class _Spinner:
 class ScriptedConsole:
     """A console for tests and simulations: inputs come from a list, output is kept."""
 
-    tty, color, fast = False, False, True
+    tty, color, fast, interactive = False, False, True, False
 
-    def __init__(self, inputs=None, dev: bool = False, echo: bool = False):
+    def __init__(self, inputs=None, dev: bool = False, echo: bool = False, confirms=None):
         self.inputs = list(inputs or [])
+        self.confirms = list(confirms or [])        # answers to yes-or-no questions, in order; then no
         self.out: list[tuple[str, str]] = []
         self.dev_enabled, self.echo = dev, echo
         self.width = 78
@@ -232,8 +254,14 @@ class ScriptedConsole:
     def banner(self, text): self._add("banner", text)
     def note(self, text): self._add("note", text)
     def plain(self, text): self._add("plain", text)
+    def raw(self, text): self._add("raw", text)
+    def rule(self, label=""): self._add("rule", label)
     def pause(self, seconds): pass
-    def confirm(self, prompt): return False
+    def hold(self, prompt=""): pass
+
+    def confirm(self, prompt, default=False):
+        self._add("confirm", prompt)
+        return self.confirms.pop(0) if self.confirms else False
 
     def dev(self, text):
         if self.dev_enabled:

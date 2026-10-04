@@ -99,6 +99,40 @@ def holds(when: dict, ctx: dict) -> bool:
     return True
 
 
+def _same_event(when: dict, effects: dict) -> bool:
+    """Is an echo keyed on `when` about the thing these option effects did?"""
+    if "flag" in when and when["flag"] in (effects.get("flags") or {}):
+        return True
+    if when.get("companion") and effects.get("companion"):
+        return True
+    if "joker" in when and effects.get("joker") == when["joker"]:
+        return True
+    if "inventory" in when and any(str(when["inventory"]).lower() in str(item).lower()
+                                   for item in effects.get("inventory_add") or []):
+        return True
+    if "failures" in when and effects.get("failures"):
+        return True
+    if when.get("thread") and effects.get("threads_add"):
+        return True
+    return False
+
+
+def fresh_moment(registry: Registry, world, told: list[dict]) -> str | None:
+    """The first remembered moment that no echo already chosen is about.
+
+    An authored moment comes from an option, and an option's effects are what the other
+    echoes are keyed on. A moment whose option set the flag (or gave the companion, or cost
+    the failure) that another echo already tells is the same event, and is not told twice.
+    A moment a model wrote has no option behind it and is always fresh."""
+    effects_of = {option["moment"]: option.get("effects") or {}
+                  for seed in registry.seeds.values() for option in seed["options"] if option.get("moment")}
+    for moment in world.moments:
+        effects = effects_of.get(moment["text"])
+        if effects is None or not any(_same_event(when, effects) for when in told):
+            return moment["text"]
+    return None
+
+
 def fill(text: str, ctx: dict) -> str:
     for key in ("companion", "attempted", "thread", "wearing", "moment"):
         text = text.replace("{" + key + "}", str(ctx.get(key, "")))
@@ -337,17 +371,26 @@ def build_draft(registry: Registry, model: PlayerModel, session: Session) -> dic
 
     # ---- what the night gives back
     callbacks = []
+    told: list[dict] = []                       # the conditions of the echoes already chosen
     for cb in reading["callbacks"]:
-        if holds(cb["when"], ctx) and len(callbacks) < 4:
-            callbacks.append({"id": cb["id"], "card": cb["card"], "from": fill(cb["from"], ctx),
-                              "becomes": fill(cb["becomes"], ctx), "vision": fill(cb["vision"], ctx)})
+        if not holds(cb["when"], ctx) or len(callbacks) >= 4:
+            continue
+        local = ctx
+        if "{moment}" in cb["from"]:
+            fresh = fresh_moment(registry, w, told)
+            if fresh is None:
+                continue                        # every remembered moment is already an echo
+            local = dict(ctx, moment=fresh)
+        told.append(cb["when"])
+        callbacks.append({"id": cb["id"], "card": cb["card"], "from": fill(cb["from"], local),
+                          "becomes": fill(cb["becomes"], local), "vision": fill(cb["vision"], local)})
     unrequested = next(u for u in reading["unrequested"] if holds(u["when"], ctx))
 
     unknown_axes = sorted((st for st in model.compute().values()
                            if st.status == "unknown" and registry.dims[st.id].family == "axis"),
                           key=lambda s: registry.dims[s.id].importance, reverse=True)
     unknowns = [f"Whether this player wants {registry.dims[st.id].neg} or {registry.dims[st.id].pos} "
-                f"({st.id}) was not observed. Nothing in the design depends on it." for st in unknown_axes[:7]]
+                f"({st.id}) was not observed. Nothing in the design depends on it." for st in unknown_axes]
     if mood is None:
         unknowns.append("Visual and tonal taste was barely observed: the look of the game is the builder's "
                         "choice within the scope constraints.")
@@ -369,7 +412,9 @@ def build_draft(registry: Registry, model: PlayerModel, session: Session) -> dic
     fantasy_text = gdv["central_fantasy"] if fantasy else "a small strange place that answers to how you play"
     verb_text = gdv["core_verb"] if verb else "act and see what answers"
     pitch = f"A pocket game about {fantasy_text}. You {verb_text}."
-    if dominant:
+    if contradiction and not contradiction["id"].startswith("contested_"):
+        pitch += " " + contradiction["resolution"]      # the tension is where the game stops being generic
+    elif dominant:
         pitch += " " + _first_sentence(dominant[0].rule["implication"])
 
     design = {
@@ -661,14 +706,14 @@ def _ask(backend: Backend, session: Session, purpose: str, prompt: str, validate
 
 
 def synthesize(registry: Registry, model: PlayerModel, session: Session, backend: Backend | None, ui) -> dict:
-    """Run both stages and return everything the packet and the reading need."""
+    """Run both stages and return everything the prompt and the reading need."""
     draft = build_draft(registry, model, session)
     result = {"design": draft["design"], "prophecy": draft["prophecy"], "draft": draft,
               "source": {"design": "rules", "prophecy": "rules"}, "problems": {}, "prompts": {}}
     if backend is None:
         return result
     imp = registry.implications
-    scope = "\n".join(f"- {c}" for c in imp["scope"]["constraints"])
+    scope = "\n".join(f"- {c}" for c in registry.scope_lines())
     fields = ",\n".join(f'    "{f["id"]}": "<{f["label"].lower()}>"' for f in imp["gdv_fields"])
     design_prompt = (registry.texts["synthesis_design"]
                      .replace("{{SCOPE}}", scope)
@@ -779,6 +824,6 @@ def build_profile(registry: Registry, model: PlayerModel, session: Session, synt
         "negative_constraints": design["negative_constraints"],
         "personal_callbacks": design["personal_callbacks"],
         "unrequested_feature": design["unrequested_feature"],
-        "scope_constraints": registry.implications["scope"]["constraints"],
+        "scope_constraints": registry.scope_lines(),
         "prophecy": prophecy,
     }

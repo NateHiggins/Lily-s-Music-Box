@@ -355,30 +355,29 @@ Deferred until a second authority can rule (§2.2). Ran on P1.
   "summary": "<one sentence>", "source": "<in-tree path> | owner item N", "scope": ["<tag>"], "supersedes": [] }
 ```
 
-## §21.14 The oracle packet and the build result
+## §21.14 The oracle prompt
 
-Written by the oracle (§5.8). The hand-off is tested against a stand-in builder only.
+Written by the oracle and pasted by the owner (§5.8). Not run: no builder has built from one. Retired with the oracle's first version: the packet folder, the progress-events file and the build-result file.
 
 ```text
-# <working title>
-Evidence class: **INERT** (an oracle packet: a design brief derived from play)
-## The prompt                     > Build me **<title>**: <pitch>
-## What the design stands on      3 dominant, 2 secondary, 1 productive contradiction; each: the signal,
-                                  the behaviour it was seen in, the design consequence
-## Design implications            sentences an engineer can act on; never scores
-## Game Design Vector             31 rows: field, value, the signal that set it (or "default")
-## Negative constraints           laws
-## Personal callbacks             from <what the player did>, becomes <what it is in the game>
-## The feature nobody asked for   the feature, and the behaviour it follows from
-## What is not known              each unknown, and that nothing in the design depends on it
-## The prophecy                   card, what the player was told, what makes it true
-## Scope constraints
-```
-
-```json
-{ "status": "ok | failed", "title": "<final title>", "play_command": ["<executable>", "<arg>"],
-  "summary": "<two sentences>", "visions": [{"card": "<card>", "fulfilled_by": "<what makes it true>"}],
-  "defaults_applied": ["<each choice made where the brief was silent>"], "known_gaps": ["<anything promised and not there>"] }
+# Build me a game: <working title>
+You are my engineering team. I am the owner. Build the game described below, in this folder, by the method in <the manual>.
+## 1. Before anything else      find the manual's core and read it in full; if it is missing, stop and ask
+## 2. What this message is       derived from play; FROM PLAY is decided (KEPT), FAINT is offered (PROPOSED),
+                                 DEFAULT is open (DEFAULT APPLIED)
+## 3. The game                   > Build me **<title>**: <pitch>; no mechanic is given; the order in which lines yield
+### What it stands on            S1 to S5 (3 dominant, 2 secondary) and X, the productive contradiction; each: the
+                                 signal, the behaviour it was seen in, the design consequence
+### Also seen, more faintly      FAINT: weaker evidence, optional, and it yields
+### Game Design Vector           31 rows: field, value, basis (FROM PLAY with its label, FAINT, SCOPE or DEFAULT)
+### Laws                         L1 onward: what the game must never do
+### Echoes of the night          E1 onward: what the player did, and what it becomes; the last is the feature nobody asked for
+### Not known                    what the night did not show
+## 4. Acceptance: the reading    the visions: card, the words the player was told, the label of what makes it true
+## 5. Scope (mine to change)     the pocket-game lines, held by the owner; three lines not the builder's to open
+## 6. My standing grant          the §21.16 fields: kind, covers, lifts nothing, stays reserved, lapses
+## 7. What I expect back         at once, the game proposed in ten lines and the questions; the day-zero report;
+                                 the slice; one question after play
 ```
 
 ## §21.15 The question form
