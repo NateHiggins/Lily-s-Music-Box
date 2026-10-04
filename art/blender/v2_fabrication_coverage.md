@@ -6,7 +6,7 @@ This is an implementation work index, not acceptance evidence. Regenerate
 **v2_fabrication_inventory.json** with **tools/inventory_v2_fabrication.py**.
 The index names all 200 semantic spaces, 111 doors, 87 openings, 72 windows,
 74 envelopes, 85 fixtures, 67 platforms, 12 lift landings, 14 stairs and seven
-risers, plus fifteen installed-data files and building-script asset references.
+risers, plus sixteen installed-data files and building-script asset references.
 Discovery does not classify a hidden reservation as an unfinished visible prop.
 The production root, its exterior/passage composition and rendered inspection
 remain necessary to establish what the player actually sees.
@@ -55,8 +55,9 @@ has yet been demonstrated; none is silently marked complete.
 | Coal delivery, electrical room, workshop, storage | V2 basement / coal delivery / existing apparatus | Stepped coal boxes replaced with an angular Blender heap; delivery route and nine contacts pass. Preserve delivery state and service/storage access; inspect supports and storage construction in detail. |
 | Public reading room | build_reading_furniture.py / existing room and door owners | Empty shell furnished with a six-place table, chairs and two bookcases. Nine actual contacts and 25 walking waypoints pass; shared reading activities remain unimplemented. |
 | Public rooms, laundry, watch/mail/package spaces | Production prop owners and completion interiors | Existing mechanisms remain. Lobby benches and parcel shelves fabricated; four surface contacts, solid-intersection check and 29 waypoints pass. Other controls/service installations still need focused review. |
+| Model Laundry parcels, shirts and ironing furniture | build_laundry_fittings.py / retained shop owners | Forty wrapped parcels, nine shirts and hangers, supported rail and ironing table/pads fitted from 53 source stocks. Native joins and 57 supporting contacts inspected; tubs, mangle, irons, airers and rear-workshop fittings remain open. |
 | Apartment fixed wet fittings | bath_lavatory / bath_water_closet / bathroom_details | Reuse existing Blender fittings; check all installed variants and close-range controls. |
-| Apartment furniture and built-ins | domestic_furniture_source and installed surfaces | Existing source-derived surfaces are not automatically placeholders. All fourteen bed coverings/pillows now use three Blender variants and matching collision; 56 contacts and visible inspection captures pass. Other furniture kinds, hardware, pivots and UVs still require detail review. |
+| Apartment furniture and built-ins | domestic_furniture_source and installed surfaces | Existing source-derived surfaces are not automatically placeholders. All 22 installed beds, including eight completion templates, use three Blender variants and matching collision; 88 contacts and clear installed views inspected. Other furniture kinds, hardware, pivots and UVs still require detail review. |
 | Household radiators and accessories | heating/accessory source and mechanism owners | Preserve one-pipe steam and service semantics; inspect support, union and vent geometry. |
 | Room lights and switches | lighting data / light_switch Blender generator | Retain completed switches; fixture bodies and mounting clearance need complete sweep. |
 | Street, entry, passage, shop installations | exterior cell / passage composition | Rear service alley fabricated and joined to the existing sidewalk, with an operating rear door. Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |

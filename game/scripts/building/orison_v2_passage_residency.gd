@@ -179,6 +179,9 @@ func _stage_one() -> void:
 		if not region.Seating.mount_cell(cell,region.source_layout):
 			_fail("native seating reload fit refused: "+identity)
 			return
+		if not region.Laundry.mount_cell(cell,region.source_layout):
+			_fail("native laundry reload fit refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

@@ -3,15 +3,22 @@ extends "res://tests/orison_v2_space_sweep.gd"
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928,11,10,20*60)
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world := _world_scene().instantiate() as OrisonV2RuntimeRoot
 	add_child(world)
 	await get_tree().create_timer(.5).timeout
 	world.player.set_physics_process(false)
 	world.player.set_lamp_enabled(true)
-	for layer in world.player.carried_device.get_children():
-		if layer is CanvasLayer:layer.hide()
+	world.service_set_carrier.set_capture_hidden(true)
+	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
+	var templates: Dictionary={}
+	for row: Dictionary in source.furniture:templates[row.id]=row
+	var completion: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	for row: Dictionary in completion.furniture:
+		if templates[row.template].kind!="bed":continue
+		var copy: Dictionary=templates[row.template].duplicate(true);copy.id=row.id;source.furniture.append(copy)
 	var beds := 0
 	var contacts := 0
 	var unique_meshes := {}
@@ -53,7 +60,7 @@ func _run() -> void:
 			for z in [.4,-.1]:stations.append(Vector3(x,.03,z))
 		for z in [-length*.5-.7,length*.5+.7]:stations.append(Vector3(0,.03,z))
 		for station in stations:
-			if captured:continue
+			if captured and not str(record.id).contains("C_"):continue
 			var at := body.to_global(station)
 			var feet: Vector3=world.adapter.root.to_local(at)
 			if not _clear_station(world,feet):continue
@@ -62,11 +69,11 @@ func _run() -> void:
 			world.player.global_position=at
 			world.player.face_world_point(body.to_global(Vector3(0,.45,0)))
 			await get_tree().create_timer(.4).timeout
-			await shot(str(record.id)+"_bedding")
+			await shot(str(record.id)+"_bedding_"+str(stations.find(station)))
 			captured=true
 		check(captured,"a clear installed bed inspection stance exists: "+str(record.id))
 		beds+=1
-	check(beds==14,"all fourteen installed beds reviewed")
+	check(beds==22,"all original and completion-template installed beds inspected")
 	check(unique_meshes.size()==12,"three shared variants with four material batches each")
 	print("BEDDING: beds=%d contacts=%d shared_meshes=%d failures=%d" % [beds,contacts,unique_meshes.size(),failures.size()])
 	world.shutdown_for_tests();world.free()

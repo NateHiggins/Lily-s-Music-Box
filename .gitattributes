@@ -278,3 +278,20 @@ art/data/shop_seating/source_plan.json -text
 game/data/orison_v2/shop_seating.json -text
 game/tests/fixtures/orison_shop_seating.json -text
 game/assets/props/shop_seating.glb.import -text
+
+art/blender/laundry_fittings.blend binary
+art/blender/laundry_fittings_construction.json -text
+art/blender/scripts/build_laundry_fittings.py -text
+art/data/laundry_fittings/source_plan.json -text
+game/data/orison_v2/laundry_fittings.json -text
+game/tests/fixtures/orison_laundry_fittings.json -text
+game/assets/props/laundry_fittings.glb.import -text
+art/data/building_layout.json -text
+art/textures/ai_materials/linen/material.json -text
+art/textures/ai_materials/paper_b/material.json -text
+art/textures/ai_materials/chrome_b/material.json -text
+art/textures/ai_materials/timber_b/material.json -text
+game/assets/building/textures/T_library_furniture_linen_*.png binary
+game/assets/building/textures/T_ai_materials_paper_b_*.png binary
+game/assets/building/textures/T_ai_materials_chrome_b_*.png binary
+game/assets/building/textures/T_ai_materials_timber_b_*.png binary

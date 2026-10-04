@@ -193688,6 +193688,1550 @@
    "rationale": "Test-only prefix filter for existing source-owned marker records; not a literal missing source identity. No runtime or acceptance promotion.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "beee42b471314ac2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_iron_pad",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "26da2311da726059",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_iron_table",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a27a5738417ec503",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "94bd5accb602feba",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "48e668e011acfe29",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3ea327c2444b8430",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "04c18de36dfafdec",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d5f9b89ca1bbafdf",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a5c79d3073861dd9",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c7947a8d33e3191d",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel0_7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ae912be66308e60f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4ab82d78b6f464a6",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9e22de3ed164ace0",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6bfb69a91f57d8e1",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1cde4efdb9e33046",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f3051f5a174c6ec9",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6e1ab77cacc23a20",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0eca0d15e906cded",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel1_7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "64f757fbbaee9e83",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "63f3e5055991095d",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e3310c596aee7174",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "81042e77f5932939",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5d823b8bb8e6b5fe",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1608cd6354c3a2e3",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b65b42524c9a5f21",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c68d2e788e10fbc8",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel2_7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "56ede98e1c2cc0c5",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "048679a6cfb6e9be",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3711479027a549c5",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "93d39efbf3b1cc5d",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a94abf2f2a5db116",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cde4b9344b680bcb",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5cff18c9c506bbc1",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "252c25af79aa8869",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel3_7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "eb19ed495bd9b5c4",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "26db6fc6289dc0c2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fb0262ea7311db73",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ac67655f9f49c320",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "603d81278f5ed507",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fa606b46774b061f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1d53296d182d3702",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cae6e50aa832f691",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel4_7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "01196f917bf7a20f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_rail",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3c5142991f923198",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt0",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "906b2f0f52750af9",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt1",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "372d488198fdeee2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt2",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ef77212683908596",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt3",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ba6fdaea3cd83cb4",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt4",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6d34bffc37484006",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt5",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "25da24dfcdd51f06",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt6",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ac7801ef83535ca2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt7",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "dcea29a5ec33866e",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_shirt8",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c824fe5742fc795e",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_sleeve_board",
+   "file": "game/data/orison_v2/laundry_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Exact retained F01 laundry stock; source-boundary fit refuses any identity, material or rectangle change.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ab5c59f8e6196833",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_laundry_views"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "var floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return row.id==\"F01\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ebb8bd60a5c0cf89",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_IN",
+   "file": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_laundry_views"
+   ],
+   "lines": [
+    66
+   ],
+   "count": 1,
+   "context": [
+    "if str(source.id).begins_with(\"SITE_SHOP_IN\") and str(source.id).ends_with(str(record.id).trim_prefix(\"shop_\").to_upper().replace(\"OTIS_SON\",\"OTIS___SON\")):mark"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Test-only prefix filter for existing shop markers; not a missing literal identity. No acceptance or runtime promotion.",
+   "resolved_target": null,
+   "target_exists": false
   }
  ]
 }

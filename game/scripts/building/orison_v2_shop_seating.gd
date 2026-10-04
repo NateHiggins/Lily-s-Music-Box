@@ -2,13 +2,19 @@ extends RefCounted
 ## Native furniture replaces only identified source box boundaries. The
 ## imported shop, its other triangles and its physical actors remain owners.
 static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
-	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/shop_seating.json"))
+	return mount_records(cell,layout,"res://data/orison_v2/shop_seating.json","ShopSeating","F01_retail_seating_","seating_part")
+
+static func mount_laundry(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/laundry_fittings.json","LaundryFittings","F01_retail_laundry_","laundry_part")
+
+static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String) -> bool:
+	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
 	var matches: Array=[]
 	for row: Dictionary in data.cells:
 		if str(row.id)==str(cell.name):matches.append(row)
 	if matches.is_empty():return true
-	if matches.size()!=1 or cell.has_node("ShopSeating"):return false
+	if matches.size()!=1 or cell.has_node(model_name):return false
 	var record: Dictionary=matches[0]
 	var source_rows: Dictionary={}
 	for floor: Dictionary in layout.floors:
@@ -47,7 +53,7 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	if packed==null:return false
 	var model:=packed.instantiate() as Node3D
 	if model==null:return false
-	model.name="ShopSeating"
+	model.name=model_name
 	var parts: Dictionary={}
 	for part: Dictionary in record.parts:
 		if parts.has(str(part.name)) or not materials.has(str(part.key)) or float(part.tile)<=0.:model.free();return false
@@ -56,14 +62,21 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		if not parts.has(str(draw.name)):draw.free();continue
 		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
-		if not local_materials.has(key):
-			var mat:=materials[key].duplicate() as StandardMaterial3D
+		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)
+		if not local_materials.has(material_slot):
+			var mat: StandardMaterial3D
+			if part.has("catalog_key"):
+				var catalog_key:=str(part.catalog_key)
+				if not MatLib.SETS.has(catalog_key):model.free();return false
+				if absf(float(MatLib.SETS[catalog_key][3])-float(part.tile))>.000001:model.free();return false
+				mat=MatLib.get_mat(catalog_key).duplicate() as StandardMaterial3D
+			else:mat=materials[key].duplicate() as StandardMaterial3D
 			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
-			local_materials[key]=mat
-		draw.mesh.surface_set_material(0,local_materials[key])
+			local_materials[material_slot]=mat
+		draw.mesh.surface_set_material(0,local_materials[material_slot])
 		# Name retains SurfacePass's retail class and therefore its state owner.
-		draw.set_meta("seating_part",str(draw.name));draw.set_meta("material_key",key)
-		draw.name="F01_retail_seating_"+str(draw.name)
+		draw.set_meta(part_meta,str(draw.name));draw.set_meta("material_key",key)
+		draw.name=draw_prefix+str(draw.name)
 		draw.create_trimesh_collision();mounted[str(part.name)]=true
 	if mounted.size()!=parts.size():model.free();return false
 	# Validate collision ownership before altering any imported draw.

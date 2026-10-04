@@ -67,6 +67,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |
 | Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
 | Original shop chairs, chapel benches and soda-counter stools | `art/blender/shop_seating.md` |
+| Wrapped hand-laundry parcels, hung shirts, supported rail and ironing furniture | `art/blender/laundry_fittings.md` |
 | All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |
 | Rear service door, receiving approach and continuous street-connected alley | `art/blender/service_alley.md` |
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |

@@ -6581,6 +6581,13 @@
         }
       ]
     },
+    "game/data/orison_v2/laundry_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_model_laundry"
+        }
+      ]
+    },
     "game/data/orison_v2/light_court_guards.json": {
       "guards": [
         {
@@ -7660,6 +7667,7 @@
     "art/blender/scripts/build_gesture_library.py",
     "art/blender/scripts/build_ground_core_transfer.py",
     "art/blender/scripts/build_house_tank.py",
+    "art/blender/scripts/build_laundry_fittings.py",
     "art/blender/scripts/build_lift_cab_controls.py",
     "art/blender/scripts/build_lift_call_plate.py",
     "art/blender/scripts/build_lift_ceiling_lamp.py",
@@ -7744,6 +7752,9 @@
         "seating": "game/scripts/building/orison_v2_shop_seating.gd",
         "seating_native": "art/blender/shop_seating.blend",
         "seating_source": "art/data/shop_seating/source_plan.json",
+        "laundry_fittings": "game/scripts/building/orison_v2_laundry_fittings.gd",
+        "laundry_native": "art/blender/laundry_fittings.blend",
+        "laundry_source": "art/data/laundry_fittings/source_plan.json",
         "hours": "game/scripts/building/passage_hours_director.gd"
       },
       "street": {
