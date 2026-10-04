@@ -168,7 +168,10 @@ func _run() -> void:
 		if not world.startup_failed:
 			await _verify_study_switch_sweep(world)
 			await _verify_3b_switches(world)
-		if iteration == 0 and not OS.get_environment("SHOT_DIR").is_empty() and not world.startup_failed:
+		# The runners also provide a receipt directory in headless mode.
+		# There is no frame_post_draw there; retain captures on real windows.
+		if iteration == 0 and DisplayServer.get_name() != "headless" \
+				and not OS.get_environment("SHOT_DIR").is_empty() and not world.startup_failed:
 			await _capture_3b(world)
 		world.shutdown_for_tests()
 		remove_child(world)
