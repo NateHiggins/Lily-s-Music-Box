@@ -47,6 +47,9 @@ group_uniforms projection;
 uniform int uv_mode : hint_range(0, 1) = 0;
 // Triplanar: texture repeats per metre (= 1 / metres_per_tile).
 uniform float uv_scale = 1.0;
+// StandardMaterial UV transforms must survive the layered mesh-UV path.
+uniform vec2 mesh_uv_scale = vec2(1.0);
+uniform vec2 mesh_uv_offset = vec2(0.0);
 uniform float triplanar_sharpness = 4.0;
 // Metres of world per texture tile for the HEIGHT calibration (mesh UV mode:
 // the set's metres_per_tile as baked; triplanar: 1 / uv_scale).
@@ -572,7 +575,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 			? dream_corruption_fbm3(v_world * 9.0 + 1.0) : 0.5;
 
 	// ---- projection + height tier --------------------------------------
-	vec2 uv = mesh_uv;
+	vec2 uv = mesh_uv * mesh_uv_scale + mesh_uv_offset;
 	vec2 ddx = dFdx(uv);
 	vec2 ddy = dFdy(uv);
 	vec3 tri_p = vec3(0.0);

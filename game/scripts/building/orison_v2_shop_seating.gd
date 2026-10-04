@@ -7,6 +7,9 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_laundry(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/laundry_fittings.json","LaundryFittings","F01_retail_laundry_","laundry_part")
 
+static func mount_laundry_apparatus(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/laundry_apparatus.json","LaundryApparatus","F01_retail_laundry_apparatus_","laundry_apparatus_part")
+
 static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String) -> bool:
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
@@ -31,14 +34,21 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
 		var boxes: Array[Dictionary]=[]
 		for box: Dictionary in record.replace:
-			if str(draw.name).ends_with("_"+str(box.key)):boxes.append(box)
+			if str(draw.name).trim_suffix("-col").ends_with("_"+str(box.key)):boxes.append(box)
 		if boxes.is_empty():continue
 		# Shipping cells quantize positions to their imported AABB. Account for
 		# one encoded step while still requiring one outward source boundary.
 		var extent:=draw.mesh.get_aabb().size
 		var encoded_tolerance:=tolerance+maxf(maxf(extent.x,extent.y),extent.z)/65535.
+		var before:=0
+		for box: Dictionary in boxes:before+=int(counts[str(box.id)])
 		var result:=_without_boxes(draw,boxes,encoded_tolerance,counts)
 		if result==null:return false
+		var after:=0
+		for box: Dictionary in boxes:after+=int(counts[str(box.id)])
+		# A source can contain colliding and decorative draws with the same
+		# material key. Only the draw that owns a removed boundary is fitted.
+		if before==after:continue
 		replacements[draw]=result;originals[draw]=draw.mesh
 		for box: Dictionary in boxes:
 			if draw.mesh.get_surface_count()!=1:return false
@@ -56,7 +66,8 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	model.name=model_name
 	var parts: Dictionary={}
 	for part: Dictionary in record.parts:
-		if parts.has(str(part.name)) or not materials.has(str(part.key)) or float(part.tile)<=0.:model.free();return false
+		if parts.has(str(part.name)) or float(part.tile)<=0.:model.free();return false
+		if not materials.has(str(part.key)) and (not part.has("catalog_key") or not MatLib.SETS.has(str(part.catalog_key))):model.free();return false
 		parts[str(part.name)]=part
 	var mounted: Dictionary={};var local_materials: Dictionary={}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):

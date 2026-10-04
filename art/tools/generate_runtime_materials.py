@@ -60,6 +60,7 @@ RUNTIME_POLICY = {
     "bronze": {}, "bronze_sheet": {}, "galvanized_roof": {}, "beacon_lacquer": {}, "car_paint": {}, "oak_quartered": {},
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
     "brass_mesh": {}, "indicator_enamel": {},
+    "iron_blackened": {},
 }
 
 # These are compatibility locks, not a second silent material catalog. They

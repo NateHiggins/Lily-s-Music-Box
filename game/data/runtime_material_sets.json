@@ -448,6 +448,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "iron_blackened": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/iron_blackened",
+      "files": [
+        "T_ai_materials_iron_blackened_albedo.png",
+        "T_ai_materials_iron_blackened_rough.png",
+        "T_ai_materials_iron_blackened_normal.png"
+      ],
+      "metallic": 0.55,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "linen": {
       "alpha": false,
       "canonical_meters_per_tile": 0.5,

@@ -1,0 +1,95 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 23,
+  "runtime_keys": [
+    "zinc_liner",
+    "metal",
+    "timber",
+    "rubber_aged",
+    "cast_iron",
+    "linen"
+  ],
+  "catalog_variants": {
+    "linen": "linen",
+    "cast_iron": "iron_blackened"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "tub",
+      "sources": [
+        "storm_shop_model_laundry_tub0",
+        "storm_shop_model_laundry_tub0_rim"
+      ]
+    },
+    {
+      "kind": "tub",
+      "sources": [
+        "storm_shop_model_laundry_tub1",
+        "storm_shop_model_laundry_tub1_rim"
+      ]
+    },
+    {
+      "kind": "mangle",
+      "sources": [
+        "storm_shop_model_laundry_mangle_frame",
+        "storm_shop_model_laundry_mangle_roll0",
+        "storm_shop_model_laundry_mangle_roll1",
+        "storm_shop_model_laundry_mangle_crank"
+      ]
+    },
+    {
+      "kind": "heater",
+      "sources": [
+        "storm_shop_model_laundry_gas_ring"
+      ]
+    },
+    {
+      "kind": "iron",
+      "sources": [
+        "storm_shop_model_laundry_sad_iron0"
+      ]
+    },
+    {
+      "kind": "iron",
+      "sources": [
+        "storm_shop_model_laundry_sad_iron1"
+      ]
+    },
+    {
+      "kind": "iron",
+      "sources": [
+        "storm_shop_model_laundry_sad_iron2"
+      ]
+    },
+    {
+      "kind": "iron",
+      "sources": [
+        "storm_shop_model_laundry_sad_iron3"
+      ]
+    },
+    {
+      "kind": "airer",
+      "sources": [
+        "storm_shop_model_laundry_airer0_0",
+        "storm_shop_model_laundry_airer0_1",
+        "storm_shop_model_laundry_airer0_2",
+        "storm_shop_model_laundry_airer0_3",
+        "storm_shop_model_laundry_airer0_4"
+      ]
+    },
+    {
+      "kind": "airer",
+      "sources": [
+        "storm_shop_model_laundry_airer1_0",
+        "storm_shop_model_laundry_airer1_1",
+        "storm_shop_model_laundry_airer1_2",
+        "storm_shop_model_laundry_airer1_3",
+        "storm_shop_model_laundry_airer1_4"
+      ]
+    }
+  ],
+  "method": "Two open wash basins on supported stands, an opposed-roller hand wringer, passive iron heating stand, four solid flat irons, and two fixed-height pulley racks. The wringer roller centers are stacked at 0.965 and 1.105 metres rather than the authored separated side-by-side boxes; the yoke reaches 1.288 metres. Source identities/counts and hidden original envelopes are retained; nonvisual owners remain unchanged. Existing source shipping materials and catalogued linen are retained.",
+  "open_work": "Live water, gas, airer hoist controls and independent building service connections remain open. No operational machinery or structural capacity is claimed; rear laundry workshop and other shop apparatus remain to review."
+}

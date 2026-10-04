@@ -296,3 +296,22 @@ game/assets/building/textures/T_library_furniture_linen_*.png binary
 game/assets/building/textures/T_ai_materials_paper_b_*.png binary
 game/assets/building/textures/T_ai_materials_chrome_b_*.png binary
 game/assets/building/textures/T_ai_materials_timber_b_*.png binary
+
+art/blender/laundry_apparatus.blend binary
+art/blender/scripts/build_laundry_apparatus.py -text
+art/blender/scripts/inspect_laundry_apparatus.py -text
+art/blender/laundry_apparatus_construction.json -text
+art/data/laundry_apparatus/source_plan.json -text
+game/data/orison_v2/laundry_apparatus.json -text
+game/tests/fixtures/orison_laundry_apparatus.json -text
+game/assets/props/laundry_apparatus.glb.import -text
+art/tools/build_iron_blackened.py -text
+art/textures/procedural/iron_blackened/material.json -text
+game/assets/building/textures/T_ai_materials_iron_blackened_*.png binary
+game/assets/building/textures/T_ai_materials_iron_blackened_*.png.import -text
+art/data/material_catalog.json -text
+art/textures/catalog_mapping.json -text
+art/tools/generate_runtime_materials.py -text
+art/textures/ai_materials/zinc_liner/material.json -text
+art/textures/ai_materials/rubber_aged/material.json -text
+art/textures/ai_materials/metal_b/material.json -text

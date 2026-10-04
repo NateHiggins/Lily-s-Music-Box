@@ -1,0 +1,20 @@
+{
+  "material": "iron_blackened",
+  "generator": "art/tools/build_iron_blackened.py",
+  "source": "Code-authored periodic casting grain and black oxide; no paint or photographic pixels.",
+  "seed": 19281116,
+  "meters_per_tile": 0.4,
+  "relief_mm": 0.08,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "roughness": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "height": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "normal": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65"
+  }
+}
