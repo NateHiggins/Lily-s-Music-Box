@@ -20,3 +20,10 @@ Focused tests verify both LF and CRLF checkouts resolve the same catalog,
 a content edit fails the full descriptor hash, and the legacy raw contract
 still refuses a line-ending change. This is a tooling correction, not a
 geometry change or a completeness promotion.
+
+**tools/m11c1_floor01_owner_first/migrate_hash_encoding.py** verifies the
+previous Git sidecar differs only in the allowed encoding/hash fields. It
+updates only the asset manifest's ownership input digest and the registry's
+digest of that manifest. Every mesh, texture, lineage record, physical actor
+and other manifest field is retained. The production registry is re-tested
+after these metadata pins change.
