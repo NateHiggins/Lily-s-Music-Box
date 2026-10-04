@@ -81,6 +81,8 @@ has yet been demonstrated; none is silently marked complete.
 | Carried radiophone, teletype and lamp | existing service-set owners | Preserve accepted assembly, physical HUD, pointer and debug behavior; no redesign authorized by the inventory. |
 | Dream zoo, hero, organelles, sixteen critters | accepted zoo and Blender critter sources | Intentional preservation boundary. Keep accepted assets, behaviors and declared placeholders; regression checks remain required. |
 
+The four original Harukiya ceiling pipes now have fitted split collars, bolted joints and ceiling bearings; see **bar_pipe_supports.md**. Their endpoints and utility function remain source-owned and open to service review.
+
 ## Materials and mapping
 
 Production V2 architecture uses **orison_v2_architectural_materials.gd**:

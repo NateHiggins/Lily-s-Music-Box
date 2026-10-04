@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_floor": "F01",
+  "source_cell": "shop_bar",
+  "pipe_ids": [
+    "retail_bar_pipe0",
+    "retail_bar_pipe1",
+    "retail_bar_pipe2",
+    "retail_bar_pipe3"
+  ],
+  "runtime_keys": [
+    "iron_blackened",
+    "brass_dull"
+  ],
+  "stations_x": [
+    -10.4,
+    -7.4,
+    -4.4,
+    -1.4,
+    1.6,
+    3.5
+  ],
+  "band_width_m": 0.024,
+  "band_thickness_m": 0.003,
+  "split_clearance_m": 0.0005,
+  "ear_inner_offset_m": 0.0568,
+  "ear_outer_offset_m": 0.082,
+  "ear_thickness_m": 0.003,
+  "bolt_offset_m": 0.07,
+  "bearing_plate_m": 0.09,
+  "bearing_plate_thickness_m": 0.004,
+  "stem_radius_m": 0.006,
+  "fit_tolerance_m": 3e-05,
+  "intent": "Fit split collars to the actual ten-sided original pipe faces and carry each collar to its actual retained ceiling. Preserve four pipe records, endpoints, material and all original bar authorities.",
+  "open_work": [
+    "Existing pipe endpoints and utility function remain under original source ownership; this fit establishes supports without inventing a new network or its capacity.",
+    "Independent supply routes, gallery overlap, broader fixed apparatus and material acceptance remain open."
+  ],
+  "station_overrides": {
+    "retail_bar_pipe0": [
+      -9.5,
+      -7.4,
+      -4.4,
+      -1.4,
+      1.6,
+      3.5
+    ]
+  },
+  "station_reason": "Pipe0 first station shifts from -10.4 to -9.5 to clear the retained WC lintel and wall, with all other pipe stations preserved."
+}

@@ -59,6 +59,10 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native fixture mounts are missing or have invalid catalogue charts")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_pipe_supports.gd").mount_cell(geometry):
+		geometry.free()
+		_fail("native pipe supports are missing or have invalid catalogue charts")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})

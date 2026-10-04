@@ -347,3 +347,12 @@ game/tests/fixtures/orison_bar_fixture_mounts.json -text
 game/assets/props/bar_fixture_mounts.glb.import -text
 
 game/assets/building/floor_01_cells/shop_bar.gltf.import -text
+
+art/blender/bar_pipe_supports.blend binary
+art/blender/scripts/build_bar_pipe_supports.py -text
+art/blender/scripts/inspect_bar_pipe_supports.py -text
+art/blender/bar_pipe_supports_construction.json -text
+art/data/bar_pipe_supports/source_plan.json -text
+game/data/orison_v2/bar_pipe_supports.json -text
+game/tests/fixtures/orison_bar_pipe_supports.json -text
+game/assets/props/bar_pipe_supports.glb.import -text
