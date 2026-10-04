@@ -1,0 +1,20 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_floor": "F01",
+  "source_cell": "shop_bar",
+  "source_ids": [
+    "retail_bar_ceil0",
+    "retail_bar_ceil1",
+    "retail_bar_ceil2",
+    "retail_bar_ceil3"
+  ],
+  "source_owner": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+  "catalog_key": "smoked_plaster",
+  "tolerance_m": 2e-05,
+  "intent": "Replace only the optical finish and metre charts of four original ceiling stocks; retain every original triangle, normal, shared datum, source record, fixture bearing and collision owner.",
+  "open_work": [
+    "Original pipe endpoints, utility function, gallery overlap, remaining apparatus and independent services.",
+    "Roof falls/outlets, remaining architectural closure and broad material-family acceptance."
+  ]
+}

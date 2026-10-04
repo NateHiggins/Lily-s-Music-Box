@@ -73,6 +73,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted Harukiya pool frame, six open pockets and five original balls | `art/blender/bar_pool.md` |
 | Source-fitted Harukiya light mounts, inward sconces and canopy stays | `art/blender/bar_fixture_mounts.md` |
 | Source-fitted Harukiya ceiling-pipe split collars, bolts and bearing plates | `art/blender/bar_pipe_supports.md` |
+| Local smoke-film ceiling finish with exact original faces and physical ownership | `art/blender/bar_ceiling_finish.md` |
 | All 200 production room overviews, capture method and concrete follow-ups | `art/blender/v2_space_sweep.md` |
 | Rear service door, receiving approach and continuous street-connected alley | `art/blender/service_alley.md` |
 | Boiler instrument mounts, guards and moving-handle clearance | `art/blender/boiler_instruments.md` |

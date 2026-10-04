@@ -1,0 +1,20 @@
+{
+  "material": "smoked_plaster",
+  "generator": "art/tools/build_smoked_plaster.py",
+  "source": "Code-authored fine plaster relief under a heavy optical smoke film. No photographic pixels, baked illumination, lettering or invented paint chips.",
+  "seed": 19281119,
+  "meters_per_tile": 1.8,
+  "relief_mm": 0.22,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "3d5e97ef41e8417e4c3406c61435d29ebc9e6fcdd12d6055f17e16689036eab5",
+    "roughness": "04f6e1a1161a83686a470eca3292a9df0715918fd5e49b001e5a651b5b14e613",
+    "height": "5efe0a2c5b82e2ed8176127b9368581f1ea7c57797d26489db70b6c28ea168d1",
+    "normal": "c573b7dcf7a3c3dd1de41bcbcba9f6e497ede308c9ba3c2c4977af7fc3016d0e"
+  }
+}

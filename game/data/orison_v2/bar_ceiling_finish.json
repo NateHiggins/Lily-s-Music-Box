@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/bar_ceiling_finish.glb",
+  "source_floor": "F01",
+  "owner_name": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+  "tolerance": 2e-05,
+  "replace": [
+    {
+      "id": "retail_bar_ceil0",
+      "key": "soot",
+      "low": [
+        -11.800000190734863,
+        -0.15000000596046448,
+        35.900001525878906
+      ],
+      "high": [
+        4.0,
+        0.2800000011920929,
+        38.20000076293945
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "retail_bar_ceil1",
+      "key": "soot",
+      "low": [
+        -11.800000190734863,
+        -0.15000000596046448,
+        28.649999618530273
+      ],
+      "high": [
+        4.0,
+        0.2800000011920929,
+        31.0
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "retail_bar_ceil2",
+      "key": "soot",
+      "low": [
+        -11.800000190734863,
+        -0.15000000596046448,
+        31.0
+      ],
+      "high": [
+        -5.599999904632568,
+        0.2800000011920929,
+        35.900001525878906
+      ],
+      "expected_triangles": 12
+    },
+    {
+      "id": "retail_bar_ceil3",
+      "key": "soot",
+      "low": [
+        0.6000000238418579,
+        -0.15000000596046448,
+        31.0
+      ],
+      "high": [
+        4.0,
+        0.2800000011920929,
+        35.900001525878906
+      ],
+      "expected_triangles": 12
+    }
+  ],
+  "part": {
+    "name": "bar_smoked_ceiling__smoked_plaster",
+    "key": "smoked_plaster",
+    "tile": 1.8
+  }
+}

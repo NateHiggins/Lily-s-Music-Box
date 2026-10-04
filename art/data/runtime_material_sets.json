@@ -700,6 +700,20 @@
       "roughness_multiplier": 0.62,
       "visual_lock": false
     },
+    "smoked_plaster": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.8,
+      "catalog_mapping": "procedural/smoked_plaster",
+      "files": [
+        "T_ai_materials_smoked_plaster_albedo.png",
+        "T_ai_materials_smoked_plaster_rough.png",
+        "T_ai_materials_smoked_plaster_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "soil": {
       "alpha": false,
       "canonical_meters_per_tile": 0.35,

@@ -64,4 +64,5 @@ const SETS := {
 	'indicator_enamel': ["T_ai_materials_indicator_enamel_albedo.png", "T_ai_materials_indicator_enamel_rough.png", "T_ai_materials_indicator_enamel_normal.png", 0.5, 0],
 	'iron_blackened': ["T_ai_materials_iron_blackened_albedo.png", "T_ai_materials_iron_blackened_rough.png", "T_ai_materials_iron_blackened_normal.png", 0.4, 0.55],
 	'billiard_resin': ["T_ai_materials_billiard_resin_albedo.png", "T_ai_materials_billiard_resin_rough.png", "T_ai_materials_billiard_resin_normal.png", 0.18, 0],
+	'smoked_plaster': ["T_ai_materials_smoked_plaster_albedo.png", "T_ai_materials_smoked_plaster_rough.png", "T_ai_materials_smoked_plaster_normal.png", 1.8, 0],
 }

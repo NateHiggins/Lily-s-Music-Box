@@ -103,6 +103,8 @@ glass, cloth/leather, paper, coal/soot, water, exterior paving/roofing, vegetati
 and supported Dream surface families. Validate representative installations
 under the production lamp before applying changes throughout the building.
 
+The four original Harukiya ceiling stocks use a local **smoked_plaster** finish with fine physical substrate relief and optical smoke staining. Their 48 original faces, normals and physical owner remain; **bar_ceiling_finish.md** records the bounded repair. Shared soot, all fifteen visual locks and broader material acceptance remain separate.
+
 ## Evidence and continuation
 
 Door receipts and inspected captures: **tmp/boiler-doors**; verified candidate
