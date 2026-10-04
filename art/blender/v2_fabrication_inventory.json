@@ -7408,6 +7408,9 @@
       "res://assets/props/bath_paper_holder.glb",
       "res://assets/props/bath_towel.glb"
     ],
+    "game/scripts/building/orison_v2_bodega_frontage.gd": [
+      "res://assets/props/bodega_frontage.glb"
+    ],
     "game/scripts/building/orison_v2_bodega_power.gd": [
       "res://assets/props/bodega_power.glb"
     ],
@@ -7422,6 +7425,9 @@
       "res://assets/props/boiler_inlet.glb",
       "res://assets/props/boiler_pipework.glb"
     ],
+    "game/scripts/building/orison_v2_boiler_window.gd": [
+      "res://assets/props/boiler_window.glb"
+    ],
     "game/scripts/building/orison_v2_cab_controls.gd": [
       "res://assets/props/lift_cab_controls.glb",
       "res://assets/props/lift_call_plate.glb"
@@ -7429,11 +7435,23 @@
     "game/scripts/building/orison_v2_ceiling_top_closures.gd": [
       "res://assets/props/ceiling_top_closures.glb"
     ],
+    "game/scripts/building/orison_v2_city_aerials.gd": [
+      "res://assets/props/city_aerials.glb"
+    ],
+    "game/scripts/building/orison_v2_city_beacons.gd": [
+      "res://assets/props/city_beacons.glb"
+    ],
     "game/scripts/building/orison_v2_city_foundations.gd": [
       "res://assets/props/city_foundations.glb"
     ],
+    "game/scripts/building/orison_v2_city_masts.gd": [
+      "res://assets/props/city_masts.glb"
+    ],
     "game/scripts/building/orison_v2_city_shells.gd": [
       "res://assets/props/city_shells.glb"
+    ],
+    "game/scripts/building/orison_v2_city_tanks.gd": [
+      "res://assets/props/city_tanks.glb"
     ],
     "game/scripts/building/orison_v2_coal_delivery.gd": [
       "res://assets/building/v2_coal_delivery.glb",
@@ -7538,6 +7556,9 @@
     "game/scripts/building/orison_v2_remaining_upper_transfers.gd": [
       "res://assets/props/remaining_upper_transfers.glb"
     ],
+    "game/scripts/building/orison_v2_roof_base_flashings.gd": [
+      "res://assets/props/roof_base_flashings.glb"
+    ],
     "game/scripts/building/orison_v2_roof_bulkhead_caps.gd": [
       "res://assets/props/roof_bulkhead_caps.glb"
     ],
@@ -7549,6 +7570,9 @@
     ],
     "game/scripts/building/orison_v2_roof_fan.gd": [
       "res://assets/props/roof_ventilator.glb"
+    ],
+    "game/scripts/building/orison_v2_roof_membrane.gd": [
+      "res://assets/props/roof_membrane.glb"
     ],
     "game/scripts/building/orison_v2_roof_public_weathering.gd": [
       "res://assets/props/roof_public_weathering.glb"
@@ -7591,17 +7615,24 @@
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
     "art/blender/scripts/build_bedding.py",
+    "art/blender/scripts/build_bodega_frontage.py",
     "art/blender/scripts/build_bodega_power.py",
     "art/blender/scripts/build_bodega_receiving.py",
     "art/blender/scripts/build_boiler_body.py",
     "art/blender/scripts/build_boiler_inlet.py",
     "art/blender/scripts/build_boiler_instruments.py",
     "art/blender/scripts/build_boiler_pipework.py",
+    "art/blender/scripts/build_boiler_window.py",
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_ceiling_top_closures.py",
     "art/blender/scripts/build_chimney_crown.py",
+    "art/blender/scripts/build_city_aerials.py",
+    "art/blender/scripts/build_city_beacons.py",
+    "art/blender/scripts/build_city_closure.py",
     "art/blender/scripts/build_city_foundations.py",
+    "art/blender/scripts/build_city_masts.py",
     "art/blender/scripts/build_city_shells.py",
+    "art/blender/scripts/build_city_tanks.py",
     "art/blender/scripts/build_coal_delivery.py",
     "art/blender/scripts/build_coal_heap.py",
     "art/blender/scripts/build_court_roof_bridge.py",
@@ -7640,9 +7671,11 @@
     "art/blender/scripts/build_rear_wing_c_support.py",
     "art/blender/scripts/build_remaining_upper_transfers.py",
     "art/blender/scripts/build_resident_key.py",
+    "art/blender/scripts/build_roof_base_flashings.py",
     "art/blender/scripts/build_roof_bulkhead_caps.py",
     "art/blender/scripts/build_roof_coping.py",
     "art/blender/scripts/build_roof_edge_support.py",
+    "art/blender/scripts/build_roof_membrane.py",
     "art/blender/scripts/build_roof_public_weathering.py",
     "art/blender/scripts/build_roof_service_weathering.py",
     "art/blender/scripts/build_roof_ventilator.py",
@@ -7715,6 +7748,10 @@
       },
       "cityscape": {
         "shell": "art/blender/scripts/build_city_shells.py",
+        "closure": "art/blender/scripts/build_city_closure.py",
+        "retained_native": "art/blender/city_shells.blend",
+        "closed_native": "art/blender/city_closure.blend",
+        "closure_source": "art/data/city_closure/source_plan.json",
         "source": "art/data/building_layout.json",
         "composition": "game/scripts/building/orison_v2_city_shells.gd",
         "omitted": "old ground, active shop interiors, unsupported antenna fragments"

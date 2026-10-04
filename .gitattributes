@@ -264,3 +264,9 @@ art/blender/city_beacons.blend binary
 game/assets/building/textures/T_ai_materials_beacon_lacquer_*.png.import -text
 game/assets/building/textures/T_ai_materials_bronze_sheet_*.png.import -text
 game/assets/building/textures/T_ai_materials_galvanized_roof_*.png.import -text
+
+art/blender/city_closure.blend binary
+art/blender/city_closure_construction.json -text
+art/blender/scripts/build_city_closure.py -text
+art/data/city_closure/source_plan.json -text
+game/tests/fixtures/orison_city_closure.json -text

@@ -1,0 +1,90 @@
+{
+  "schema": "orison.city-closure.v1",
+  "classification": "ADAPTATION",
+  "original_record_count": 335,
+  "source_parapet_stocks": 100,
+  "joined_parapets": 25,
+  "runtime_batches": 84,
+  "runtime_keys": [
+    "brick",
+    "concrete",
+    "bronze_sheet",
+    "soot",
+    "galvanized_roof",
+    "brass_mesh"
+  ],
+  "source_material_keys": {
+    "common_brick": "brick",
+    "brick_patched": "brick",
+    "face_brick": "brick",
+    "limestone": "concrete",
+    "concrete": "concrete",
+    "bronze": "bronze_sheet",
+    "soot": "soot",
+    "metal": "galvanized_roof",
+    "brass_mesh": "brass_mesh",
+    "lacquer_red": "galvanized_roof"
+  },
+  "capture_offsets_godot": {
+    "corner": [
+      1.3,
+      0.8,
+      -1.5
+    ]
+  },
+  "skyline_views_godot": [
+    {
+      "id": "west_roof",
+      "at": [
+        14,
+        19.2,
+        -7.5
+      ],
+      "target": [
+        26.4,
+        26,
+        -8
+      ]
+    },
+    {
+      "id": "north_roof",
+      "at": [
+        0,
+        19.2,
+        10.5
+      ],
+      "target": [
+        15,
+        30,
+        20
+      ]
+    },
+    {
+      "id": "east_roof",
+      "at": [
+        -14,
+        19.2,
+        -7.5
+      ],
+      "target": [
+        -26.5,
+        30,
+        -8
+      ]
+    },
+    {
+      "id": "street_skyline",
+      "at": [
+        -6,
+        0,
+        -13.8
+      ],
+      "target": [
+        28,
+        22,
+        -2
+      ]
+    }
+  ],
+  "open_work": "Original city boundary masses only. Join original parapet corner overlaps without moving source envelopes, occupied spaces, services, roof attachments or active controls. Main roof drainage, weather capacity, broader room/city finishes and street/courtyard closure remain open."
+}
