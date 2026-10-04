@@ -63,6 +63,7 @@ verbatim; the wrapper never grants runtime proof.
 python tools/verify_candidate.py <sha|branch> [--base origin/main]
     [--suite res://tests/X.tscn ...] [--long-suite res://tests/Y.tscn ...]
     [--windowed-suite res://tests/Z.tscn ...]
+    [--windowed-long-suite res://tests/W.tscn ...]
     [--report reports/<task>.json] [--no-godot] [--keep]
     [--in-place --baseline-board <clean-merge-base-board.json>]
     [--accept-regression "blockers.FIRST_SLICE_TECHNICAL"]
@@ -72,6 +73,10 @@ Suites whose contract involves the pointer, mouse capture, the pause menu
 or screenshots must be passed as `--windowed-suite`: headless Godot cannot
 capture a mouse, so `Input.mouse_mode` stays VISIBLE however the suite sets
 it and those checks fail for the harness's reason, not the code's.
+For a suite that also legitimately exceeds 180 seconds, such as the
+connected world's two complete room-switch passes, use
+`--windowed-long-suite`. It retains the same lane and receipt contract and
+uses the long runner's 1,500-second ceiling.
 
 Checks, in order: fresh checkout clean under the machine's autocrlf; this
 tree's gate board in candidate and merge-base, compared; changed gate files

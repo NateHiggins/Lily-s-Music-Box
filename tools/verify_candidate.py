@@ -242,7 +242,8 @@ def run_runner(runner: str, project: Path, log: Path, scene: str, extra_import: 
 
 
 def godot_phase(cand_root: Path, out: Path, suites: list[str], long_suites: list[str],
-                lane_wait_s: int, windowed_suites: list[str] | None = None) -> list[dict]:
+                lane_wait_s: int, windowed_suites: list[str] | None = None,
+                windowed_long_suites: list[str] | None = None) -> list[dict]:
     import run_receipt  # noqa: E402
     logs = out / "godot"
     logs.mkdir(parents=True, exist_ok=True)
@@ -265,6 +266,10 @@ def godot_phase(cand_root: Path, out: Path, suites: list[str], long_suites: list
         name = re.sub(r"[^A-Za-z0-9_]+", "_", scene.split("/")[-1])
         runs.append(run_runner("serial", project, logs / f"{name}_windowed.log", scene, False,
                                lane_wait_s, 180, windowed=True))
+    for scene in windowed_long_suites or []:
+        name = re.sub(r"[^A-Za-z0-9_]+", "_", scene.split("/")[-1])
+        runs.append(run_runner("long", project, logs / f"{name}_windowed.log", scene, False,
+                               lane_wait_s, 1500, windowed=True))
     for run in runs[2:]:
         if run["receipt"]:
             code, problems = run_receipt.verify(Path(run["receipt"]), cand_root)
@@ -384,6 +389,8 @@ def main(argv=None) -> int:
     parser.add_argument("--windowed-suite", action="append", default=[],
                         help="res:// scene that needs a real window (mouse capture, "
                              "pointer or screenshot contracts); runs with -Windowed and a ShotDir")
+    parser.add_argument("--windowed-long-suite", action="append", default=[],
+                        help="res:// scene requiring both a real window and the long runner")
     parser.add_argument("--no-godot", action="store_true")
     parser.add_argument("--lane-wait", type=int, default=30, help="minutes to wait on a busy lane")
     parser.add_argument("--work-dir", default="C:/ov")
@@ -466,7 +473,8 @@ def main(argv=None) -> int:
         }
         if not args.no_godot:
             result["godot"] = godot_phase(cand_root, out, args.suite, args.long_suite,
-                                          args.lane_wait * 60, args.windowed_suite)
+                                          args.lane_wait * 60, args.windowed_suite,
+                                          args.windowed_long_suite)
         if args.report:
             raw = git_bytes("show", f"{cand}:{args.report}")
             if raw is None:

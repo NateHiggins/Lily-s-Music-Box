@@ -100,6 +100,25 @@ class GatePathTests(unittest.TestCase):
             self.assertFalse(vc.GATE_PATH_RE.match(path), path)
 
 
+class GodotRunnerSelectionTests(unittest.TestCase):
+    def test_long_windowed_contract_keeps_renderer_and_long_ceiling(self):
+        def launched(runner, project, log, scene, importing, wait, ceiling, windowed=False):
+            return {"scene": scene, "exit": 0, "receipt": None}
+
+        with tempfile.TemporaryDirectory() as directory, \
+                patch.object(vc, "run_runner", side_effect=launched) as run:
+            vc.godot_phase(Path(directory), Path(directory) / "out", [],
+                           ["res://tests/Physics.tscn"], 60,
+                           ["res://tests/ShortUi.tscn"], ["res://tests/LongUi.tscn"])
+            self.assertEqual(run.call_count, 5)  # Two imports and three suite contracts.
+            physics, short_ui, long_ui = run.call_args_list[2:]
+            self.assertEqual((physics.args[0], physics.args[6], physics.kwargs), ("long", 1500, {}))
+            self.assertEqual((short_ui.args[0], short_ui.args[6], short_ui.kwargs),
+                             ("serial", 180, {"windowed": True}))
+            self.assertEqual((long_ui.args[0], long_ui.args[3], long_ui.args[6], long_ui.kwargs),
+                             ("long", "res://tests/LongUi.tscn", 1500, {"windowed": True}))
+
+
 class RepoChecks(unittest.TestCase):
     """Read-only checks against this repository's history."""
 
