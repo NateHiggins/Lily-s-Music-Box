@@ -50,7 +50,8 @@ WALL_SOURCES = os.path.join(TEX_ROOT, "wall_sources")
 # Per BASE key; family variants (_b/_c/_d) inherit.
 RELIEF_MM = {
     "face_brick": 10.0, "common_brick": 9.0, "brick": 9.0, "brick_patched": 9.0,
-    "concrete": 3.0, "slab": 3.0, "limestone": 4.0, "subway_tile": 3.0,
+    "concrete": INDEPENDENT_SURFACES["concrete"]["relief_mm"],
+    "slab": INDEPENDENT_SURFACES["slab"]["relief_mm"], "limestone": 4.0, "subway_tile": 3.0,
     "ceramic": 2.5, "terrazzo": 0.6,
     "stair": INDEPENDENT_SURFACES["stair"]["relief_mm"], "landing": 2.0,
     "floor_oak": 1.5, "wainscot": 6.0, "tin_ceiling": 6.0, "cast_iron": 2.0,

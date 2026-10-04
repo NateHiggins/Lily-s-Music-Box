@@ -90,7 +90,9 @@ The Python **test_honed_stone_maps** suite checks pigment independence, physical
 normal scale and byte-preserving height shipping. Wrapper receipts and this
 note remain INERT and confer no completeness-ledger promotion.
 
-The independent plaster and concrete studies remain scratch alternatives.
-Their present appearance is too flat to replace production finishes. An
+The independent plaster study remains a scratch alternative. Its present
+appearance is too flat to replace production finishes. A later concrete
+plate was refined, reviewed and delivered as described in
+**art/blender/concrete_trowelled.md**. An
 unrelated old face-brick-family height plate was observed to differ from a full
 shipper regeneration; it remains untouched pending a separate material review.

@@ -68,7 +68,7 @@ SLOTS = {
     "trim_painted_layers": (["trim", "baluster"], 1.1, 0.52, 0.18, 3.5),
     "ceramic_hex_bath": (["ceramic"], 0.65, 0.42, 0.22, 4.5),
     "subway_tile_aged": (["subway_tile"], 0.67, 0.28, 0.20, 4.5),
-    "concrete_cellar": (["concrete", "slab"], 2.8, 0.86, 0.08, 3.0),
+    "concrete_trowelled": (["concrete", "slab"], 2.8, 0.86, 0.04, 0.8),
     # Materials that carried real geometry on a flat colour until now.
     # Vertex counts are from the audit across all eight floors, which is
     # what decided the order they were worth generating in.
@@ -279,10 +279,17 @@ GODOT_TEX = os.path.join(ROOT, "game", "assets", "building", "textures")
 
 # These existing catalog families also need direct staging. Keep them outside
 # GODOT_STAGE, whose fixed prop finishes intentionally suppress family variants.
-GODOT_FAMILY_STAGE = ("stair", "stair_b", "stair_c")
+GODOT_FAMILY_STAGE = ("stair", "stair_b", "stair_c") + tuple(
+    key + suffix for key in ("concrete", "slab") for suffix in ("", "_b", "_c", "_d"))
 INDEPENDENT_SURFACES = {
     "stair": {"model": "honed_microrelief_v1", "relief_mm": 0.16,
               "seed": 19281130, "mean_rgb": [202.954, 201.437, 198.633]},
+    "concrete": {"model": "trowelled_microrelief_v1", "relief_mm": 0.8,
+                 "source": "concrete_trowelled", "seed": 19281129,
+                 "mean_rgb": [146.496, 142.671, 135.422]},
+    "slab": {"model": "trowelled_microrelief_v1", "relief_mm": 0.8,
+             "source": "concrete_trowelled", "seed": 19281129,
+             "mean_rgb": [146.496, 142.671, 135.422]},
 }
 
 # Positioned wear plates are generated assets, not tileable source photos.
@@ -560,15 +567,21 @@ def independent_surface_maps(key: str, metres: float, size: int, rough_base: flo
         return (value - value.mean()) / value.std()
 
     grain, micro = field(.14), field(.35)
-    height = .5 + grain * .055 + micro * .045
+    if recipe["model"] == "trowelled_microrelief_v1":
+        tool = field(.014)
+        pores = np.maximum(micro - 2.7, 0)
+        height = .5 + grain * .055 + micro * .03 - pores * .12 + tool * .025
+        rough = rough_base + grain * .013 + micro * .008 + pores * .014
+    else:
+        height = .5 + grain * .055 + micro * .045
+        rough = rough_base + grain * .008 + micro * .008
     low, high = np.percentile(height, [1, 99])
     height = np.clip((height - low) / (high - low), 0, 1)
     dx = (np.roll(height, -1, 1) - np.roll(height, 1, 1)) * recipe["relief_mm"] * .001 * size / (2 * metres)
     dy = (np.roll(height, -1, 0) - np.roll(height, 1, 0)) * recipe["relief_mm"] * .001 * size / (2 * metres)
     normal = np.stack((-dx, dy, np.ones_like(height)), axis=-1)
     normal /= np.linalg.norm(normal, axis=-1)[..., None]
-    rough = np.clip(rough_base + grain * .008 + micro * .008, .05, 1)
-    return height, normal * .5 + .5, rough
+    return height, normal * .5 + .5, np.clip(rough, .05, 1)
 
 
 def write_set(key: str, albedo: np.ndarray, metres: float,
@@ -617,7 +630,7 @@ def write_set(key: str, albedo: np.ndarray, metres: float,
                      "height": "height.png", "normal": "normal.png"},
         }
         if physical:
-            metadata["source"] = "art/textures/ai_sources/stair_marble_honed.png"
+            metadata["source"] = "art/textures/ai_sources/%s.png" % physical.get("source", "stair_marble_honed")
             metadata.update(height_model=physical["model"], relief_mm=physical["relief_mm"])
         json.dump(metadata, fh, indent=2)
 
@@ -658,7 +671,7 @@ GRID_SLOTS = {
     "hoarding_posters",
 }
 # mirror of build_orison's ROTATABLE: no direction, quarter turns legal
-ROT_OK = {"concrete_cellar", "plaster_aged", "plaster_stained",
+ROT_OK = {"concrete_trowelled", "plaster_aged", "plaster_stained",
           "stair_marble_honed",
           "terrazzo_lobby", "asphalt_street", "wet_asphalt",
           "soil_potting", "charred_surface"}
@@ -666,12 +679,15 @@ ROT_OK = {"concrete_cellar", "plaster_aged", "plaster_stained",
 # at one fixed look) and hue-rotated rug companions (derived, not shot)
 NO_VARIANTS = set(GODOT_STAGE) | {"rug_cool", "rug_green"}
 MAX_FAMILY = 4
+# The retained concrete/slab catalogue already has four members. Their quiet
+# mineral field can use all four quarter-turn phases of one honest source.
+FULL_FAMILY_PLATES = {"concrete_trowelled"}
 
 # A broad value change in one of these albedos is not patina.  It is baked
 # illumination, and world projection repeats it as a bright square every tile.
 # Patterned masonry and tile are deliberately absent: their legitimate module
 # would fail a flat-surface test and teach the next person to disable the test.
-FLAT_ARCH_SLOTS = {"concrete_cellar", "plaster_aged", "plaster_stained"}
+FLAT_ARCH_SLOTS = {"concrete_trowelled", "plaster_aged", "plaster_stained"}
 # D5 (TASKS): the flat-surface range is RELATIVE to the set's mean luminance.
 # An absolute 0.020 was 2.9 % of plaster at 0.70 and 13 % of a dark floor at
 # 0.15 - perceptually backwards - and it refused the shipping cellar concrete
@@ -728,6 +744,10 @@ def _blur(a, radius):
     return np.asarray(img, dtype=np.float32) / 255.0
 
 
+def _family_variants(slot, candidate_count):
+    return min(MAX_FAMILY - 1, 3 if candidate_count > 1 or slot in FULL_FAMILY_PLATES else 2)
+
+
 def synthesize_family(slot, key, candidates):
     """candidates: list of float albedo arrays (square, tileable, same
     slot). Returns list of (suffix, albedo) for _b onward."""
@@ -736,7 +756,7 @@ def synthesize_family(slot, key, candidates):
     size = base.shape[0]
     grid = slot in GRID_SLOTS
     out = []
-    want = min(MAX_FAMILY - 1, 3 if n > 1 else 2)
+    want = _family_variants(slot, n)
     for i in range(want):
         rng = _vrng(key, i + 1)
         if grid or n == 1:
@@ -745,7 +765,7 @@ def synthesize_family(slot, key, candidates):
                 # A single honest plate can still break landmark alignment by
                 # turning.  It cannot honestly become another plate by having
                 # a five-cell exposure field multiplied over it.
-                v = np.rot90(v, 2 if i == 0 else 1).copy()
+                v = np.rot90(v, (2, 1, 3)[i]).copy()
             elif i % 2 == 1:
                 # Half turn is legal for a module and preserves its spacing.
                 v = v[::-1, ::-1].copy()
@@ -822,7 +842,7 @@ def _collect_sources():
 def _slot_keys(slot, candidate_count):
     keys = list(SLOTS[slot][0])
     if slot not in COMPOSITION:
-        variants = min(MAX_FAMILY - 1, 3 if candidate_count > 1 else 2)
+        variants = _family_variants(slot, candidate_count)
         for key in SLOTS[slot][0]:
             if key not in NO_VARIANTS:
                 keys.extend(key + "_" + "bcd"[i] for i in range(variants))

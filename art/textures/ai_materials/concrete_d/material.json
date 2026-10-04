@@ -1,6 +1,6 @@
 {
   "material": "concrete_d",
-  "source": "art/textures/ai_sources/concrete_cellar_d.png",
+  "source": "art/textures/ai_sources/concrete_trowelled.png",
   "generator": "ingest_material_sources.py",
   "meters_per_tile": 2.8,
   "maps": {
@@ -9,5 +9,6 @@
     "height": "height.png",
     "normal": "normal.png"
   },
-  "relief_mm": 3.0
+  "height_model": "trowelled_microrelief_v1",
+  "relief_mm": 0.8
 }

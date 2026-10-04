@@ -196573,6 +196573,34 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "74bb036b8f6022f7",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/height/concrete.png",
+   "file": "game/tests/honed_stair_material_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
