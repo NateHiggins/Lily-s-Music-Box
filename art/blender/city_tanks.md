@@ -83,7 +83,7 @@ hoop tessellation; a mistaken one-boundary test for the correctly sealed cavity;
 and original-placement hardware intersections. The fitted cover skirt trial
 removed its oversized raised lip. No tolerance is relaxed or triangle skipped.
 
-Open work: 25 source beacon housings, city weather/contact joints, main-roof
+Open work: 17 source beacon housings, city weather/contact joints, main-roof
 falls/outlets and drainage, courtyard/street closure and independent shop service
 routes; broader textures, including collector bronze and public stairs/sheet metal.
 Heating cuts stay parked. Owner captures and Mina's own mesh/first twenty clips
