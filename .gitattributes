@@ -406,5 +406,14 @@ art/blender/scripts/inspect_roof_drainage_plant_weather.py -text
 art/blender/scripts/inspect_roof_drainage_door_weather.py -text
 art/blender/scripts/inspect_roof_drainage_receivers.py -text
 art/blender/scripts/inspect_roof_drainage_provider_fits.py -text
+art/data/bar_gallery/** -text
+art/blender/bar_gallery.blend binary
+art/blender/bar_gallery_inventory.json -text
+art/blender/scripts/prepare_bar_gallery.py -text
+art/blender/scripts/build_bar_gallery.py -text
+art/blender/scripts/inspect_bar_gallery.py -text
+game/assets/props/bar_gallery.glb binary
+game/assets/props/bar_gallery.glb.import -text
+game/tests/fixtures/orison_bar_gallery.json -text
 art/blender/scripts/inspect_roof_drainage_retained_clearance.py -text
 art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py -text

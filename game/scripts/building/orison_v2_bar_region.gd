@@ -67,6 +67,10 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native ceiling finish differs from its retained source faces")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_gallery.gd").mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native gallery does not match its retained source frames and shared picture law")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
@@ -97,6 +101,9 @@ func _ready() -> void:
 	for child in actors.get_children():
 		if child is Node3D and child not in before and child != hands:
 			child.position = child.global_position
+	if not preload("res://scripts/building/orison_v2_bar_gallery.gd").fit_inspections(geometry,actors):
+		_fail("native gallery lost an original picture inspection target")
+		return
 	var floor_copy: Dictionary = source_layout.floors.filter(func(f): return f.id == "F01")[0].duplicate(true)
 	# The retained helper predates the pool table's move to the west bay.
 	# Fit its inspection volume to the actual authored body, keeping its text.

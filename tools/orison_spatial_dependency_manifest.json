@@ -196601,6 +196601,946 @@
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "02c64044bd622888",
+   "kind": "id_reference",
+   "token": "retail_bar_gal21_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "049933ffb36e8471",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_n",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133,
+    141
+   ],
+   "count": 2,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall",
+    "for id: String in [\"retail_bar_wall_w\",\"retail_bar_wall_n\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0c40f3a31fc15b7b",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    129
+   ],
+   "count": 1,
+   "context": [
+    "var floors: Array=layout.get(\"floors\",[]).filter(func(row):return str(row.id)==\"F01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1901e53678ae4fa6",
+   "kind": "id_reference",
+   "token": "retail_bar_gal11_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1a1f53630f3ed90f",
+   "kind": "id_reference",
+   "token": "retail_bar_gal12_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[0]/id",
+    "/pictures[0]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "378d44ae2e91443b",
+   "kind": "id_reference",
+   "token": "retail_bar_gal9_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id",
+    "/inspectors[1]/picture"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4368cdd18fd6f853",
+   "kind": "id_reference",
+   "token": "retail_bar_gal8_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "595239fb38fb8247",
+   "kind": "id_reference",
+   "token": "retail_bar_gal3_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id",
+    "/inspectors[2]/picture"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "677f5bb3a19363c9",
+   "kind": "id_reference",
+   "token": "retail_bar_gal16_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[2]/id",
+    "/pictures[2]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "755bbb3aa31a2b48",
+   "kind": "id_reference",
+   "token": "retail_bar_gal14_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "78ed51074d0776d0",
+   "kind": "id_reference",
+   "token": "retail_bar_gal18_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9167b08ed6db0551",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_retail_bar_gallery_\"+str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "931548c03332a6eb",
+   "kind": "id_reference",
+   "token": "retail_bar_gal6_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9d32d46a9f3bf92b",
+   "kind": "id_reference",
+   "token": "retail_bar_gal13_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9d903aad883a529e",
+   "kind": "id_reference",
+   "token": "retail_bar_gal20_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a90b584a5d4a7fa1",
+   "kind": "id_reference",
+   "token": "retail_bar_gal19_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "af3499a532945e27",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_w",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133,
+    141
+   ],
+   "count": 2,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall",
+    "for id: String in [\"retail_bar_wall_w\",\"retail_bar_wall_n\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b139a3dc9ccc428a",
+   "kind": "id_reference",
+   "token": "retail_bar_wc_wall_n_w",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bca7e9d9e3a3c47d",
+   "kind": "id_reference",
+   "token": "retail_bar_gal4_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c3cf5165af9817f4",
+   "kind": "id_reference",
+   "token": "retail_bar_gal7_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c8e02a49af64de53",
+   "kind": "id_reference",
+   "token": "retail_bar_gal1_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[1]/id",
+    "/pictures[1]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ce5826dd67cd0b27",
+   "kind": "id_reference",
+   "token": "retail_bar_gal0_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cec0afb1abdb3e27",
+   "kind": "id_reference",
+   "token": "retail_bar_floor",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d8cecacfe87d0c5c",
+   "kind": "id_reference",
+   "token": "retail_bar_gal17_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "da4e95b2af654765",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_s",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "df59d9ee12a22626",
+   "kind": "id_reference",
+   "token": "retail_bar_gal10_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e7049cc88bb23aba",
+   "kind": "id_reference",
+   "token": "retail_bar_gal15_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "eeaca8c462d0a0e7",
+   "kind": "id_reference",
+   "token": "retail_bar_wc_wall_e",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f523024588a7303e",
+   "kind": "id_reference",
+   "token": "retail_bar_dado_w",
+   "file": "game/scripts/building/orison_v2_bar_gallery.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "context"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"retail_bar_floor\",\"retail_bar_wall_w\",\"retail_bar_wall_n\",\"retail_bar_wall_s\",\"retail_bar_dado_w\",\"retail_bar_wc_wall_e\",\"retail_bar_wc_wall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fc6ab2c2a6eec0e3",
+   "kind": "id_reference",
+   "token": "retail_bar_gal2_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fed9714b7b67ce93",
+   "kind": "id_reference",
+   "token": "retail_bar_gal5_art",
+   "file": "game/data/orison_v2/bar_gallery.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/pictures[*]/id",
+    "/pictures[*]/source/id",
+    "/inspectors[0]/picture"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

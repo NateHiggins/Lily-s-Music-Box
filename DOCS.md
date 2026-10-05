@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Source-fitted bar gallery, original atlas, seated picture attachments and retained observations | `art/blender/bar_gallery.md` |
 | Quiet trowelled concrete/slab maps, physical height calibration and retained city geometry | `art/blender/concrete_trowelled.md` |
 | Source-owned public light court, fitted stairs/supports, pitched skylight and bounded roof weathering | `art/blender/light_court.md` |
 | Fitted roof-wall base flashings, retained door apertures and single-owner deck/wall contacts | `art/blender/roof_base_flashings.md` |
