@@ -535,3 +535,14 @@ game/scripts/building/orison_v2_news_fittings.gd -text
 game/tests/orison_v2_news_fittings_test.gd -text
 game/assets/props/news_fittings.glb.import -text
 art/renders/orison_v2/news_fittings_20261005/** -text
+
+art/data/hardware_drawers/** -text
+art/blender/scripts/build_hardware_drawers.py -text
+art/blender/scripts/inspect_hardware_drawers.py -text
+art/blender/hardware_drawers_construction.json -text
+game/data/orison_v2/hardware_drawers.json -text
+game/tests/fixtures/orison_hardware_drawers.json -text
+game/scripts/building/orison_v2_hardware_drawers.gd -text
+game/tests/orison_v2_hardware_drawers_test.gd -text
+game/assets/props/hardware_drawers.glb.import -text
+art/renders/orison_v2/hardware_drawers_20261005/** -text
