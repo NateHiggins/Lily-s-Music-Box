@@ -533,6 +533,7 @@ Evidence class: **INERT**
 
 - `art/data/building_layout.json` sha256 `f4815741dd37ab14...`
 - `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json` sha256 `544bb75d35a73c4f...`
+- `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
 - `art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json` sha256 `f0c1cb99fd4d1f59...`
 - `art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json` sha256 `e8f73826954a48f2...`
 - `art/renders/orison_v2/m08e_spatial_owners_checkpoint_02/scene_capture_receipt.json` sha256 `2807d068dcdd577b...`
@@ -572,4 +573,5 @@ Evidence class: **INERT**
 - `design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md` sha256 `83cff9b36fd379d2...`
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
+- `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
 - `tools/orison_spatial_dependency_manifest.json` sha256 `ef935110bcd55b66...`
