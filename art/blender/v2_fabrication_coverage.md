@@ -16,8 +16,8 @@ The all-space overview now has 400 captures across all 200 spaces. See
 obstructed landing views and remaining detail/route work. This is a coverage
 advance, not acceptance of every installation. A separate 100-station city survey now has 100 images and seven inspected
 contact sheets; discovery limits and specific route/detail work remain. Several arcade
-apparatus and stock groups still use primitive boxes. Keys Cut and Shoe Rebuilding
-now have source-owned native fittings; their rear stores, services and the
+apparatus and stock groups still use primitive boxes. Keys Cut, Shoe Rebuilding
+and News/Cigars now have source-owned native fittings; their rear stores, services and the
 remaining retail trades remain open in the fabrication queue.
 
 The focused production run also writes **production_geometry_inventory.json**
@@ -42,6 +42,7 @@ has yet been demonstrated; none is silently marked complete.
 |---|---|---|
 | Original shop seating | build_shop_seating / sixty immutable source boxes / existing shipping maps | Thirty fitted chairs, benches and pedestal stools; 416 closed stocks, 42 draws, 55,200 triangles and 420 floor samples. Paired native/production review in shop_seating.md. Other counters, apparatus, cloth and broad finishes remain open. |
 | Shoe Rebuilding machinery and stock | build_cobbler_fittings / 49 immutable source records / existing shipping and catalogue maps | Eleven assemblies, 408 closed stocks, 46 partitions and 117,708 triangles; twenty-two hollow shoes, supported finisher/sewing frames, fitted rear approach and locally finished dust cover. Native and production detail in cobbler_fittings.md. Rear-store access, live machinery and utility continuity remain open. |
+| News/Cigars stock and transaction furniture | build_news_fittings / 38 immutable source records / existing shipping and catalogue maps | Thirteen assemblies, 215 closed stocks, 37 partitions and 41,656 triangles; folded papers, hollow jars/bowls, glazed stock, open service frame, actual paper punches and a seated proprietor stool. Explicit local container optics and fitted ledger/punchboard/pipe-display extents; original references remain. Rear-store operation, continuous access and utility continuity remain open. |
 | Harukiya pool table | build_bar_pool / seven original source boxes / retained chalk and cue owners | Fitted leg/apron frame, recessed violet bed, six open pocket bags and five spherical balls; scoped native, collision, finish and ordinary chalk-input checks in bar_pool.md. Broader bar services and final surfaces remain open. |
 | Harukiya original light mounts and canopy | build_bar_fixture_mounts / eighteen original markers / actual retained fabric | Sixteen fitted fixture connections and four canopy stays; 161 closed stocks, 46 partitions, 13,900 triangles, native/production contact and ordinary-height review in bar_fixture_mounts.md. Gallery overlap is addressed by the separate source-fitted gallery; independent services and broad finishes remain open. |
 | Harukiya original gallery | prepare_bar_gallery / WallArtLaw / build_bar_gallery / twenty-two retained sources | Twenty-two fitted works on their original walls, corrected north image winding, 242 closed construction stocks, four partitions and 9,944 triangles. Actual wall/backing contact and original observation reach are inspected in bar_gallery.md. Atlas/content mismatch, independent services and broad finishes remain open. |

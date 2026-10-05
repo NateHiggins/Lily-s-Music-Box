@@ -524,3 +524,14 @@ game/tests/orison_v2_cobbler_fittings_test.gd -text
 game/assets/props/cobbler_fittings.glb.import -text
 
 art/renders/orison_v2/cobbler_fittings_20261005/** -text
+
+art/data/news_fittings/** -text
+art/blender/scripts/build_news_fittings.py -text
+art/blender/scripts/inspect_news_fittings.py -text
+art/blender/news_fittings_construction.json -text
+game/data/orison_v2/news_fittings.json -text
+game/tests/fixtures/orison_news_fittings.json -text
+game/scripts/building/orison_v2_news_fittings.gd -text
+game/tests/orison_v2_news_fittings_test.gd -text
+game/assets/props/news_fittings.glb.import -text
+art/renders/orison_v2/news_fittings_20261005/** -text

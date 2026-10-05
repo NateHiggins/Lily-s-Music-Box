@@ -16,6 +16,9 @@ static func mount_locksmith(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_cobbler(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/cobbler_fittings.json","CobblerFittings","F01_retail_cobbler_","cobbler_part")
 
+static func mount_news(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/news_fittings.json","NewsFittings","F01_retail_news_","news_part")
+
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 
@@ -65,7 +68,10 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		for box: Dictionary in boxes:
 			if draw.mesh.get_surface_count()!=1:return false
 			var original:=draw.mesh.surface_get_material(0) as StandardMaterial3D
-			if original==null or original.albedo_texture==null or original.roughness_texture==null or original.normal_texture==null:return false
+			if original==null or original.roughness_texture==null or original.normal_texture==null:return false
+			# Source drawn glass deliberately carries literal color/alpha and
+			# two maps. Preserve that authored optical owner without adding albedo.
+			if original.albedo_texture==null and (str(box.key)!="glassish" or original.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or original.albedo_color.a<=0. or original.albedo_color.a>=1.):return false
 			materials[str(box.key)]=original
 	for box: Dictionary in record.replace:
 		if counts[str(box.id)]!=int(box.expected_triangles):
@@ -85,12 +91,13 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			for component: Variant in part.tint:
 				if (component is not float and component is not int) or not is_finite(float(component)) or float(component)<0. or float(component)>1.:model.free();return false
 			if float(part.tint[3])!=1.:model.free();return false
+		if part.has("plain_alpha") and (part.plain_alpha is not bool or str(part.key)!="glassish" or part.has("catalog_key")):model.free();return false
 		parts[str(part.name)]=part
 	var mounted: Dictionary={};var local_materials: Dictionary={}
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		if not parts.has(str(draw.name)):draw.free();continue
 		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
-		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))
+		var material_slot:=key+"|"+str(part.get("catalog_key",""))+"|"+str(part.tile)+"|"+JSON.stringify(part.get("tint",[]))+"|"+str(part.get("plain_alpha",false))
 		if not local_materials.has(material_slot):
 			var mat: StandardMaterial3D
 			if part.has("catalog_key"):
@@ -102,6 +109,7 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 			if part.has("tint"):
 				var tint: Array=part.tint
 				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
+			if part.get("plain_alpha",false):mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 			mat.uv1_triplanar=false;mat.uv1_scale=Vector3.ONE/float(part.tile)
 			local_materials[material_slot]=mat
 		draw.mesh.surface_set_material(0,local_materials[material_slot])

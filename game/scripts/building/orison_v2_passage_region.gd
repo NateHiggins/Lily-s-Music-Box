@@ -11,6 +11,7 @@ const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
 const Laundry := preload("res://scripts/building/orison_v2_laundry_fittings.gd")
 const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_apparatus.gd")
 const CobblerFittings := preload("res://scripts/building/orison_v2_cobbler_fittings.gd")
+const NewsFittings := preload("res://scripts/building/orison_v2_news_fittings.gd")
 const LocksmithFittings := preload("res://scripts/building/orison_v2_locksmith_fittings.gd")
 const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 	"shop_keys_cut", "shop_hardware_paint", "shop_funeral_parlour",
@@ -83,6 +84,9 @@ func _ready() -> void:
 			return
 		if not CobblerFittings.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native cobbler fit refused: "+identity)
+			return
+		if not NewsFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native news fit refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

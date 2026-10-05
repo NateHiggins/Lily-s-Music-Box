@@ -1,0 +1,161 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 38,
+  "runtime_keys": [
+    "wood_dark",
+    "timber",
+    "paper",
+    "countertop",
+    "glassish",
+    "bakelite_black",
+    "cast_iron",
+    "tobacco",
+    "candy",
+    "soot"
+  ],
+  "catalog_variants": {
+    "cast_iron": "iron_blackened",
+    "soot": "smoked_plaster"
+  },
+  "material_aliases": {
+    "tobacco": "paper",
+    "candy": "paper"
+  },
+  "material_tints": {
+    "tobacco": [
+      0.28,
+      0.11,
+      0.04,
+      1
+    ],
+    "candy": [
+      0.95,
+      0.38,
+      0.24,
+      1
+    ],
+    "soot": [
+      1,
+      0.82,
+      0.65,
+      1
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_news_cigars_counter",
+        "storm_shop_news_cigars_counter_top",
+        "storm_shop_news_cigars_cash_drawer",
+        "storm_shop_news_cigars_racing_form",
+        "storm_shop_news_cigars_ledger"
+      ]
+    },
+    {
+      "kind": "paper_rack",
+      "sources": [
+        "storm_shop_news_cigars_rack0",
+        "storm_shop_news_cigars_rack1",
+        "storm_shop_news_cigars_rack2",
+        "storm_shop_news_cigars_rack3",
+        "storm_shop_news_cigars_paper0",
+        "storm_shop_news_cigars_paper1",
+        "storm_shop_news_cigars_paper2",
+        "storm_shop_news_cigars_paper3",
+        "storm_shop_news_cigars_paper4",
+        "storm_shop_news_cigars_paper5",
+        "storm_shop_news_cigars_paper6",
+        "storm_shop_news_cigars_paper7"
+      ]
+    },
+    {
+      "kind": "service_hatch",
+      "sources": [
+        "storm_shop_news_cigars_service_hatch",
+        "storm_shop_news_cigars_service_shelf"
+      ]
+    },
+    {
+      "kind": "cigar_case",
+      "sources": [
+        "storm_shop_news_cigars_cigars"
+      ]
+    },
+    {
+      "kind": "rear_shelves",
+      "sources": [
+        "storm_shop_news_cigars_shelf0",
+        "storm_shop_news_cigars_shelf1",
+        "storm_shop_news_cigars_shelf2",
+        "storm_shop_news_cigars_shelf3",
+        "storm_shop_news_cigars_shelf4"
+      ]
+    },
+    {
+      "kind": "candy_jar",
+      "sources": [
+        "storm_shop_news_cigars_candy_jar0"
+      ]
+    },
+    {
+      "kind": "candy_jar",
+      "sources": [
+        "storm_shop_news_cigars_candy_jar1"
+      ]
+    },
+    {
+      "kind": "candy_jar",
+      "sources": [
+        "storm_shop_news_cigars_candy_jar2"
+      ]
+    },
+    {
+      "kind": "candy_jar",
+      "sources": [
+        "storm_shop_news_cigars_candy_jar3"
+      ]
+    },
+    {
+      "kind": "pipe_rack",
+      "sources": [
+        "storm_shop_news_cigars_pipe_rack",
+        "storm_shop_news_cigars_pipe0",
+        "storm_shop_news_cigars_pipe1",
+        "storm_shop_news_cigars_pipe2",
+        "storm_shop_news_cigars_pipe3",
+        "storm_shop_news_cigars_pipe4"
+      ]
+    },
+    {
+      "kind": "punchboard",
+      "sources": [
+        "storm_shop_news_cigars_punchboard"
+      ]
+    },
+    {
+      "kind": "proprietor_stool",
+      "sources": [
+        "storm_shop_news_cigars_stool"
+      ]
+    },
+    {
+      "kind": "worn_cover",
+      "sources": [
+        "storm_shop_news_cigars_chair_hollow"
+      ]
+    }
+  ],
+  "open_work": [
+    "Retained source rear leaf operation and continuous access have separate authority.",
+    "Independent utility continuity and capacity remain open.",
+    "Original functional cabinet and shop/door/key/save authority remain under their existing owners.",
+    "Cigar and wrapped-sweet counts are visual fabrication, not sellable inventory.",
+    "Fitted ledger width/position and punchboard width/position clear overlapping source jars without changing source references.",
+    "Container glass retains original color/alpha/maps with a local plain-alpha adaptation; original source windows retain their depth-prepass owner.",
+    "Worn cover retains its upper datum with a two-millimetre floor seat beneath it; stool seat height and source references remain.",
+    "The pipe display shifts 2.4 metres toward the front in the clear wall bay; its original arm-height datum and hidden source poses remain."
+  ]
+}
