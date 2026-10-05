@@ -64,9 +64,10 @@ func _open_first_shift() -> bool:
 			"route begins at the untouched production arrival"): return false
 	if not _require(_begin_first_shift(),
 			"production first-shift owner commits the arrival"): return false
+	if not await _enter_front_entrance(): return false
 	# The caretaker desk occupies the watch room's south frontage. Enter the
 	# working side through its authored core doorway, preserving the desk body.
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),
+	for point in [Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),
 			Vector3(1.925,0,-3.5),Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),
 			Vector3(-2,0,-1.5),Vector3(-2,0,-2.2)]:
 		if not await _walk(point): return false

@@ -198890,6 +198890,39 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "e163f2da7fe77d4a",
+   "kind": "vector3_coordinate",
+   "token": "_enter_front_entrance",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_enter_front_entrance"
+   ],
+   "lines": [
+    130,
+    132
+   ],
+   "count": 2,
+   "context": [
+    "if not await _walk(Vector3(0,0,-13.15)):return false",
+    "return await _walk(Vector3(0,0,-10.2))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

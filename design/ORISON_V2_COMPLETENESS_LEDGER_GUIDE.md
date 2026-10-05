@@ -4,9 +4,17 @@ Evidence class: **INERT - TOOL GUIDE**
 
 **Tool:** `tools/audit_orison_v2_completeness.py` (read-only, standard
 library, no Godot/Blender/Git). **Tests:**
-`tools/tests/test_orison_v2_completeness.py` (42, fixture-backed).
+`tools/tests/test_orison_v2_completeness.py` (107, fixture-backed).
 **Companion report:**
 `design/ORISON_V2_FULL_REBUILD_COMPLETENESS_AUDIT_2026-08-28.md`.
+
+The current generated snapshot (refreshed 2026-10-05) lives in
+**design/orison_v2_completeness_reports/ORISON_V2_COMPLETENESS_LEDGER.json**
+and its Markdown companion. It records 240 requirements and 151
+production-cutover blockers. These reports are INERT: publishing a
+refresh grants no new spatial, runtime or human proof. The fitted front
+façade's inspection captures and wrapper receipts grant no ledger promotion;
+the parked heating distribution has not been installed.
 
 The ledger exists to make one confusion impossible: **"the accepted route
 works" is not "the complete building has been rebuilt."** It compares the

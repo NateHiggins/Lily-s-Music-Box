@@ -27,8 +27,10 @@ step is omitted so the existing continuous public pavement remains the sole
 floor owner at the threshold. These are geometric fit decisions, not a
 structural-capacity calculation.
 
-The saved native contains **416 positive closed construction stocks** and
-**59 bounded draws / 8,424 triangles**. Fixed and moving assemblies have
+The saved native contains **418 positive closed construction stocks** and
+**59 bounded draws / 8,480 triangles**. The centre muntin meets the rails
+without overlapping their faces; the panel mouldings seat into the panels.
+Fixed and moving assemblies have
 separate branch roots. Four-metre partitions use metre charts and checked
 tangent derivatives. Existing catalogue albedo, normal and roughness maps
 remain; iron and oak receive scoped tints. No new texture, material key or
@@ -61,7 +63,7 @@ standing views use the production lights and player lamp. The separate
 **OrisonV2FrontEntryRouteTest** uses the live controller to contact the closed
 leaf, operate it from both sides, cross the threshold, lock it, test denial,
 save and reconstruct the world, unlock it and return. Street-route tests now
-operate the front door before departing through it.
+operate the front door on arrival and before departing through it.
 
 Scoped captures, native inspection and wrapper **suite_run** receipts are
 under **tmp/v2-facade**. They are inspection evidence and do not promote the

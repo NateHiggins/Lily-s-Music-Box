@@ -2366,7 +2366,8 @@ def render_findings(payload: dict, emit) -> None:
 
 
 def render_markdown(payload: dict) -> str:
-    out = ["# Orison v2 completeness ledger", ""]
+    out = ["# Orison v2 completeness ledger", "",
+           "Evidence class: **INERT**", ""]
     summary = payload["summary"]
     out.append("| Metric | Value |")
     out.append("| --- | --- |")

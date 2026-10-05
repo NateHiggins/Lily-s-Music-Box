@@ -99,12 +99,13 @@ box('SteppedOakHead','oak_quartered',[-w/2-.17,height+.12,0],[w/2+.17,height+.19
 branch='EntryLeaf';th=.032
 for a,b in [(0,.12),(w-.12,w)]:box('LeafStile','oak_quartered',[a,.01,-th],[b,height-.01,th],branch)
 for a,b in [(.01,.17),(.70,.80),(1.22,1.30),(1.92,height-.01)]:box('LeafRail','oak_quartered',[.12,a,-th],[w-.12,b,th],branch,grain=0)
-box('LeafMuntin','oak_quartered',[w/2-.035,.17,-th],[w/2+.035,1.92,th],branch)
+for a,b in [(.17,.70),(.80,1.22),(1.30,1.92)]:
+    box('LeafMuntin','oak_quartered',[w/2-.035,a,-th],[w/2+.035,b,th],branch)
 for a,b in [(.12,w/2-.035),(w/2+.035,w-.12)]:
     for c,d in [(.17,.70),(.80,1.22)]:
         box('RaisedLeafPanel','oak_quartered',[a,c,-.024],[b,d,.024],branch)
         for face in [-1,1]:
-            z=face*.037
+            z=face*.029
             for x in [a+.012,b-.012]:box('PanelBolection','oak_quartered',[x-.009,c,z-.008],[x+.009,d,z+.008],branch)
             for y in [c+.012,d-.012]:box('PanelBolection','oak_quartered',[a+.021,y-.009,z-.008],[b-.021,y+.009,z+.008],branch,grain=0)
     box('WiredPane','glass',[a,1.30,-.006],[b,1.92,.006],branch)

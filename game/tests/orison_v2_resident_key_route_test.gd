@@ -48,7 +48,8 @@ func _init() -> void:
 
 func _route() -> void:
 	_track_world()
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
+	if not await _enter_front_entrance(): return
+	for point in [Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	if not await _enter_2a(): return
 	for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:
