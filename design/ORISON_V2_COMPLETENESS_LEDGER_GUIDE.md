@@ -15,9 +15,11 @@ production-cutover blockers. These reports are INERT: publishing a
 refresh grants no new spatial, runtime or human proof. The fitted front
 façade's inspection captures and wrapper receipts grant no ledger promotion;
 the parked heating distribution has not been installed.
-The snapshot includes the test-written **front_facade_20261005** resident-key
+The snapshot includes the test-written **front_facade_air_20261005** resident-key
 runtime contract as scoped provenance. It establishes no whole-building or
-human acceptance claim and changes no requirement status.
+human acceptance claim and changes no requirement status. The earlier
+**front_facade_20261005** contract remains historical; its stale runtime-input
+binding is reported rather than rewritten.
 
 The ledger exists to make one confusion impossible: **"the accepted route
 works" is not "the complete building has been rebuilt."** It compares the

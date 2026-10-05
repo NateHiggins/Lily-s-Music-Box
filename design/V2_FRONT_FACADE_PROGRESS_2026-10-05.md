@@ -111,6 +111,8 @@ The reservation lease fixes real saved-world reconstruction without clearing oth
 Wider material/light finish review and full V2 acceptance remain open. The distant standing view exposes a broad amber optical haze over the entrance wall; close approach views show the joinery clearly, but the wide-view light response needs a further finish pass. Heating distribution cuts and supports are still uninstalled; the parked source progress is preserved under **tmp/heat-distribution/parked-work** and **tmp/v2-envelope/parked-source-progress**. Shop-service completion, the eleven authored golden beats, whole-building acceptance and V1 retirement are not established by these runs.
 No owner decision is required for this scoped publication. The owner-shot record **art/renders/insitu/shots.md** remains unchanged.
 
+The subsequent [air-finish report](V2_FRONT_FACADE_AIR_FINISH_2026-10-05.md) records the controlled density improvement, the fresh key contract and the remaining camera-settling/roof lighting findings. This report retains its original verified source and historical contract.
+
 ## Retained review packet
 
 [Street approach](../art/renders/orison_v2/front_facade_20261005/approach.png), [neon blade](../art/renders/orison_v2/front_facade_20261005/blade.png), and [test-written resident-key contract](../art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json).
