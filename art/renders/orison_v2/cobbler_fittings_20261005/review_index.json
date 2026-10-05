@@ -1,0 +1,761 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "e483eb902bb8b139c138f61c7dbce578d0dedcee",
+  "base": "719df8fcf9f3ff87bafbfa82630ddfde3b3dd756",
+  "verification": "MERGE-CANDIDATE e483eb902bb8b139c138f61c7dbce578d0dedcee",
+  "source_records": 49,
+  "assemblies": 11,
+  "closed_stocks": 408,
+  "material_partitions": 46,
+  "triangles": 117708,
+  "source_supports": 37,
+  "removed_original_triangles": 588,
+  "native_views": 22,
+  "production_views": 10,
+  "direct_review": "All 22 final native views and ten final production views reviewed through contact sheets; floor finish and shoe detail also inspected at full size. Production window-cabinet framing shares its sightline with the counter; saved native views independently show the cabinet.",
+  "runtime_contract": "Exact test-written schema-2 receipt; only executed resident permission/key copy/save/denial/reconstruction scope.",
+  "limits": [
+    "No human or whole-V2 acceptance.",
+    "Passive machinery; no utility continuity or capacity proof.",
+    "Two standing capsules do not prove a continuous rear route or operation of the retained source service leaf.",
+    "Remaining arcade stock and rear-store access remain open.",
+    "Suite wrappers and photographs do not promote runtime requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "f4116ede94c5262f3d03cd2658d2d060e9f27151e09d620edb738c0a64969469",
+      "sha256": "f4116ede94c5262f3d03cd2658d2d060e9f27151e09d620edb738c0a64969469",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "7ba02f7b00368b5ebf5d41d40098a97805346c0448b182b59669ee179e713334",
+      "sha256": "7ba02f7b00368b5ebf5d41d40098a97805346c0448b182b59669ee179e713334",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/verification.json",
+      "source_sha256": "b07ac96abce1fca21499b238e166a3ad30bfc0b05331ec500f9b56e5375314b6",
+      "sha256": "b07ac96abce1fca21499b238e166a3ad30bfc0b05331ec500f9b56e5375314b6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_verification.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/verification.json",
+      "source_sha256": "011a7c68ad3237e600af77ed9c8f4c153fa203b72b0a861496b488f997e23cb8",
+      "sha256": "011a7c68ad3237e600af77ed9c8f4c153fa203b72b0a861496b488f997e23cb8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/719df8fc-clean-board.json",
+      "source_sha256": "4aae0f90797c2468ee9f545826ecdea60093f3e6b699b5ba41fcbbe2a9970877",
+      "sha256": "4aae0f90797c2468ee9f545826ecdea60093f3e6b699b5ba41fcbbe2a9970877",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_baseline_board.json",
+      "source": "tmp/v2-finish-review/4c353a8d-clean-board.json",
+      "source_sha256": "e7edd6d9602ac8412047fc649abee546a8597856c58045c08aab78f021598c5e",
+      "sha256": "e7edd6d9602ac8412047fc649abee546a8597856c58045c08aab78f021598c5e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/cobbler-native/inspection.json",
+      "source_sha256": "b45e4971ef7e739159f69586d571a6d70900caa7625ea25b90dbf5439315df2c",
+      "sha256": "b45e4971ef7e739159f69586d571a6d70900caa7625ea25b90dbf5439315df2c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/cobbler_fittings_construction.json",
+      "source_sha256": "8a3ce4f50046db8bba799696a31ef2c558249920af93dd172772053f1a8bf33f",
+      "sha256": "8a3ce4f50046db8bba799696a31ef2c558249920af93dd172772053f1a8bf33f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_reexport_comparison.json",
+      "source": "tmp/v2-finish-review/cobbler-dust-export-comparison.json",
+      "source_sha256": "653619532e5fe261cd9aaa35b030472d901cc11804d31f05ccc634fd3c86e0d9",
+      "sha256": "653619532e5fe261cd9aaa35b030472d901cc11804d31f05ccc634fd3c86e0d9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "d20926a4d21f070523cecd0fa21b72797b6c2777e8dcdaec6bb351ae9a9b306d",
+      "sha256": "d20926a4d21f070523cecd0fa21b72797b6c2777e8dcdaec6bb351ae9a9b306d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/views.json",
+      "source_sha256": "be0a24ee31b83efafb796fe4ca330b3539f9da1c4ee1d302decec2bc6b0fbb41",
+      "sha256": "be0a24ee31b83efafb796fe4ca330b3539f9da1c4ee1d302decec2bc6b0fbb41",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_bench_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_bench_front.png",
+      "source_sha256": "609db45df64ef7105f55f9b77da2dae968816ad23bb113704334307528326128",
+      "sha256": "53864634d16009f5d3e226b07e61a8a2004a50df27e78f19ad4c6a3755232dfd",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_bench_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_bench_rear.png",
+      "source_sha256": "fa9f93b153ff4a87dd0239476f5b206637918b1aa47601e3f54b1589160f5590",
+      "sha256": "f52d7639cbc7856677a0ce7753f3e506f5b65f75c55fac0bde917d1f1b50c6db",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_counter_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_counter_front.png",
+      "source_sha256": "93a2fe2fc141359de30159d67089980732aa04c61a435bdfbf459c5e20347a67",
+      "sha256": "b662f6b95df4298379c11179c11f40f48e6735beb541afb53ad912b4647ba176",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_counter_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_counter_rear.png",
+      "source_sha256": "98c97f9e659a5b7acefb7a5d2ead1630a2f326fd4f152f57b4dadefedcbf193e",
+      "sha256": "df9e1d7ad1e02d24aa2ee2f767c30cd2c4e789385a2e842a33c8bfa4f48f9b99",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_dust_felt_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_dust_felt_front.png",
+      "source_sha256": "6a89a9e6a4c8c49029343ee7a965c74c035a4f55a519b8c129f00ca76886abce",
+      "sha256": "739ca0d62970dc50ebd98720200164b79c83cc2e3c7f071927babbf0b622949d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_dust_felt_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_dust_felt_rear.png",
+      "source_sha256": "5d25ed1bcf2758519e1f6d8cda3e5f5c7490b0b5f0e9e8ddb6effb0f5c99c299",
+      "sha256": "32843ac3f99e4e1bea6a2df31481d0f3cae6b3483e1411e9f4ea697f441167c1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_finisher_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_finisher_front.png",
+      "source_sha256": "211288771b1b64fc760cdbf86306687949c1675fd3960274c0b14b96179083cd",
+      "sha256": "3804cfc5c1c7a4e823d8a66b6d0e98139e8f527f6d98e5f068b42fbc39849455",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_finisher_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_finisher_rear.png",
+      "source_sha256": "acc11f07d855949e5ed3c787d9d98eb9efde4e6552ef945d2ce9f85b6ae8edba",
+      "sha256": "e65238e79b7eb61f69c6e95f29b1a8819a56f10dbe6fc527581315b2892a1923",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_last_rack_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_last_rack_front.png",
+      "source_sha256": "e3a9ccef984b93feeabe8880a9f4c6a6e47626aea3e02acbeea3b956949cf9a4",
+      "sha256": "2af92f9ebf2dfb7ed20623fde7fe45d685cd8711194497f1633acf5c8b524b80",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_last_rack_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_last_rack_rear.png",
+      "source_sha256": "f831d549681a3f2616a1219a457ddf1976de3d82aee254144a5c06729b7633fa",
+      "sha256": "0cc167daf1f3a921a8b001cefc415e3131dc706fcbb21064a18c0e775cb33d27",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_outsole_stand_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_outsole_stand_front.png",
+      "source_sha256": "a177250d89dee87da1c7dd5a11c63141d140c4afc89ae117ce522d58397f74cc",
+      "sha256": "d111029bae473811447fe9e1d467771dede231e19f9be688f7440ac06d23e56e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_outsole_stand_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_outsole_stand_rear.png",
+      "source_sha256": "6d1e1a8039a67f633e5f9090e6af39e35aff3e29e47f414d516e218585157dd8",
+      "sha256": "4f6f5f1cb66415918c31c8c6d640c6c91530a15315f1a30f021c9de33b806433",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_patcher_treadle_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_patcher_treadle_front.png",
+      "source_sha256": "95002dfecd9ed86224d2193ab2bcb61ff8e05e757117a86528522ab9ff13f7ca",
+      "sha256": "8e70f3707aa09e083d033ffcdf1af0f48df93cde15b5e61347cb242df7369ea0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_patcher_treadle_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_patcher_treadle_rear.png",
+      "source_sha256": "5d2c503b7e0bb3b9b04c278383275f71c8460d6d25c2e39e1e6e684d656888d3",
+      "sha256": "77baaa89157ac7337bcb30a332a098de0d4b8ae4161d8e2249c293fd0a39c1c5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_rack0_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_rack0_front.png",
+      "source_sha256": "88edb972f4d02486088cbc133f8f46e3fb7b0cc5fd65266fdeb63d76d517f6f9",
+      "sha256": "7f50f50b5695ecbbc57d8947d44c64821068b54685332b0151b032117a15b55a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_rack0_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_rack0_rear.png",
+      "source_sha256": "034661de89938fdf17538c693a677782fae857b561c80ff52eefe3c1f42ab771",
+      "sha256": "eabad0d342588c32abed38671f9c2ae024d7933d3dad8207f7a1e3df77bbc708",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_sole_stack_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_sole_stack_front.png",
+      "source_sha256": "a4162b059f87b61e4638fc6ae249a36185754709effe1553a4127e39b5e72b79",
+      "sha256": "9986e5fe7ffa73b90831be5395cd443858e2ff2a046abd8ffa5797d62abbec1e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_sole_stack_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_sole_stack_rear.png",
+      "source_sha256": "ef988f04f2aa6f67507199d1806eaf478cb9aa204b721cbdbfdf1aa2805536cf",
+      "sha256": "1d8a8c66e82bbcb3f880087f097a1523c314e79acdbd651e1ea3f5065ffdb1c3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_waiting_seat_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_waiting_seat_front.png",
+      "source_sha256": "49b2645ef305f5fb149ae6ad268410170e14550627521eee5fd317a731c8630e",
+      "sha256": "e89435c41786396d02db4d5975692c30f892a22feaae86d87e66cc5f67bf0d1a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_waiting_seat_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_waiting_seat_rear.png",
+      "source_sha256": "8118404b9447511c7fdb8166085300c588bf722328b043072b39af2d3c4618cd",
+      "sha256": "eacebc465bc740f3f57425d08baae1fcc3fc299ea4c207a7a56521268c70f6d6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_window_plinth_front.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_window_plinth_front.png",
+      "source_sha256": "639a2fae55d893080df202733a266fe00ed0ba8756a323e0d4ffe8bb832feba2",
+      "sha256": "81521cf424b843516255ef7945b51441599a94422d28a917bb5e1e674ec9d47f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_shoe_rebuilding_window_plinth_rear.jpg",
+      "source": "tmp/v2-finish-review/cobbler-native/storm_shop_shoe_rebuilding_window_plinth_rear.png",
+      "source_sha256": "9070da6d22dc7e70ea33b3db8aab4408da9303a200e276d702fe4e23f91a64b7",
+      "sha256": "b6d833796c2f3cd5e29100e0d6de4edaf3214c851033f9b83c5c2e07b2f05436",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/bench.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/bench.png",
+      "source_sha256": "5359ff7a5ae3872156c76e51210536ab292c528b9bbe9ed64d61daa1833f6328",
+      "sha256": "3cee6cba68f2e1529924a55717722b2bc3bfb4d4cbe0ed2c5a36508f9dc8c976",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/counter.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/counter.png",
+      "source_sha256": "cf710be65ca43b4864abc0e927f82a71122eaf1e424b9ee94f5291e13e074d2c",
+      "sha256": "8e07048d634ad6d0e64c4c4cb54899ee2063dffc7e60cc65d8a5527089cff7dc",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/finisher.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/finisher.png",
+      "source_sha256": "dc21b5030f5bf2503bb45139026dc20fe05436815f36ce4ee481f3151e5fae5e",
+      "sha256": "55c5f10868e3f266d5ab451728a3f9ad13156c498571cfe7b78dfe3dc92dd6d2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/floor_dust.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/floor_dust.png",
+      "source_sha256": "7a78b288001b625c975f44ac012b97c688ebce78d76cb6961c2444cf4b1daf0f",
+      "sha256": "6f881fc496a555f50662797c7f8d6a27d255ce999b4194a5331ddb4cdb207773",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/last_rack.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/last_rack.png",
+      "source_sha256": "cb8b899de8c925ea5355514480e3c971b4d3326ba68ea27234eab74e93fa3db8",
+      "sha256": "8054302f3317fb1342424baa4c6e3631ada5d28646d2986c626f103d238fb2d5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/rear_door.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/rear_door.png",
+      "source_sha256": "10d2cfc1867e8da6e327c11ae33e9e2e299becba5bc5ef7ebb6886d349cac802",
+      "sha256": "e9fd6a9c91cceb2e77ba7e25a2bca09f84781990394354073371be18b63ef29d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/sewing.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/sewing.png",
+      "source_sha256": "d0fdd9d71576c0d6f62c5121f28d1fa3b81edb3977097c7f19279db089d2e247",
+      "sha256": "11186c15c438fde232b6153535ad85f0724dc42b8fbcd0b597ffab4e329b207e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/shoe_rack.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/shoe_rack.png",
+      "source_sha256": "f8b1a07b18833e83b00fa8e8492a5d92e672fe4ac51873ad327fd59f0ba02175",
+      "sha256": "74efb9d46e3ed29364d7ec850f6e348f980b8e015b1f956d944d3280827860cb",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/waiting_seat.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/waiting_seat.png",
+      "source_sha256": "9406c7deba8d129b7bf5dcbb76cefb84023fd97f71742e7dfd685b9a15898912",
+      "sha256": "ec9ec168080a4384a717599e1088230446d63314e1261f079c4ef84821da1346",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/window_cabinet.jpg",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed_shots/window_cabinet.png",
+      "source_sha256": "4aebae2f98867ad0ab8c616b05c4ea62f5c86770bebf05893283813ab8ac8756",
+      "sha256": "79a488fa1569bf37334da51f421e4549d53c229deef6716cd1638fe8843c2fc6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheets/01.jpg",
+      "sha256": "622b38e4961d8db090dada228ef65b8e01d46ac12c9eeb1c21a826b642303fc8",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "native_sheets/02.jpg",
+      "sha256": "1ad30074b98a0a4ab354b1e7cc46c44dd94d39f1bc8505051a55692d5f995ed7",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "native_sheets/03.jpg",
+      "sha256": "62c40a30a638c9b0821938666ad409a6f8e26061a457de076fc1472ae9bd7007",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheets/01.jpg",
+      "sha256": "b2c74645d2fc2056b62c5b20d7b0f1e6b85875d4f25850cf2bbfe00b506c9249",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheets/02.jpg",
+      "sha256": "7b6565421d5cf601493fd7a4203c6f1fd87ef92d16f7c6e9157c4da1d2916e80",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "eff10f8929b36876ce9755bb21ef3f82e538780edcef04a77c92fd4fa73c9855",
+      "sha256": "eff10f8929b36876ce9755bb21ef3f82e538780edcef04a77c92fd4fa73c9855",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "40e02d4f7a40fcc46749c0b5c0ff5db91e91b1dd921a52c3478ccdfe5a769596",
+      "sha256": "40e02d4f7a40fcc46749c0b5c0ff5db91e91b1dd921a52c3478ccdfe5a769596",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source_sha256": "6d79b09023f95a42976dbc6582bdb23fb6be1981bea74420a2eb6448c97f92b7",
+      "sha256": "6d79b09023f95a42976dbc6582bdb23fb6be1981bea74420a2eb6448c97f92b7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "d5ac07b6ad9aeb29b97a15639f513c3424bf3f73c1ad531514aa42b11ea5064a",
+      "sha256": "d5ac07b6ad9aeb29b97a15639f513c3424bf3f73c1ad531514aa42b11ea5064a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "b6aeab2ec013bbada6fd67b800529ab4cfd9f289e67922855dd3ad10d924a75f",
+      "sha256": "b6aeab2ec013bbada6fd67b800529ab4cfd9f289e67922855dd3ad10d924a75f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "231564a03dbaf30e3f8fcbc0c6914fa64adf4491ac4d12e41fa9f9aa65e4263c",
+      "sha256": "231564a03dbaf30e3f8fcbc0c6914fa64adf4491ac4d12e41fa9f9aa65e4263c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "c7693769a5fb7feec1eef8486e1cffca38cf7db6d83915887c799c33d961f2ea",
+      "sha256": "c7693769a5fb7feec1eef8486e1cffca38cf7db6d83915887c799c33d961f2ea",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "5a35beebd2e640dd8a68756f7524b58959cb21d519752ca77c1ef9971a65ea03",
+      "sha256": "5a35beebd2e640dd8a68756f7524b58959cb21d519752ca77c1ef9971a65ea03",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "df6bea5e1711ebb005fbaaaa5c06fabb9d44aac30cd2879cb7b2b46061ea73c8",
+      "sha256": "df6bea5e1711ebb005fbaaaa5c06fabb9d44aac30cd2879cb7b2b46061ea73c8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "5c4e39250902b9d6830787dbb34573007f76a6377e9d39295c8b84b590d0f9d0",
+      "sha256": "5c4e39250902b9d6830787dbb34573007f76a6377e9d39295c8b84b590d0f9d0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "1f842665b23e82dc564e77d3bd2077b6d9dd8db6ba9c3e44d8ba8e8c48cdf870",
+      "sha256": "1f842665b23e82dc564e77d3bd2077b6d9dd8db6ba9c3e44d8ba8e8c48cdf870",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "c51588bf68b464fab93cd5e2ec4a6fd951c2fabe2affb2b4285592cebdcdfd91",
+      "sha256": "c51588bf68b464fab93cd5e2ec4a6fd951c2fabe2affb2b4285592cebdcdfd91",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "4c0fd48978d5efbceb64e497624eac94d232c01b673965bd429f26eaafb54b09",
+      "sha256": "4c0fd48978d5efbceb64e497624eac94d232c01b673965bd429f26eaafb54b09",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "3fc2f7036d29c4ebe08bc36ba8729ed683ad26f5c284a64e39ee535cd79dfa87",
+      "sha256": "3fc2f7036d29c4ebe08bc36ba8729ed683ad26f5c284a64e39ee535cd79dfa87",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "72657db8b4c5abbf58b7b8fd1f47cacadf829e80ef08b9a1178f454b5adde31b",
+      "sha256": "72657db8b4c5abbf58b7b8fd1f47cacadf829e80ef08b9a1178f454b5adde31b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/import1.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/import1.log",
+      "source_sha256": "c0707713b4cd963326a77bbe116c91747170aae34af7cfdd7edabb1f34140d1c",
+      "sha256": "c0707713b4cd963326a77bbe116c91747170aae34af7cfdd7edabb1f34140d1c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/import1.log.receipt.json",
+      "source_sha256": "735635bf5063795b3818b18faac11b1ef982dea9a182f8028de32e6e74c80523",
+      "sha256": "735635bf5063795b3818b18faac11b1ef982dea9a182f8028de32e6e74c80523",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/import2.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/import2.log.receipt.json",
+      "source_sha256": "b0657ca65b1aaf1dc23decf503aea93864a5a22c84389ae67fd6a2997ab07145",
+      "sha256": "b0657ca65b1aaf1dc23decf503aea93864a5a22c84389ae67fd6a2997ab07145",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source_sha256": "bb4212c1cc0bf449eea9f9bbd1d08afa19bf596c298d52a82d45011aa698a8de",
+      "sha256": "bb4212c1cc0bf449eea9f9bbd1d08afa19bf596c298d52a82d45011aa698a8de",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "b63572d463c9fda7a16f528a5adf9ddd42134c4926ff682413fcbee56266f6ad",
+      "sha256": "b63572d463c9fda7a16f528a5adf9ddd42134c4926ff682413fcbee56266f6ad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "d09d476c0a9e782ff7f4845de1f93bf63e7d9869cf1d32b2f61f8394008c3389",
+      "sha256": "d09d476c0a9e782ff7f4845de1f93bf63e7d9869cf1d32b2f61f8394008c3389",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9c8a9ebfc75936a9d6940ac1672e674640b231acef587f882b6e988b52520413",
+      "sha256": "9c8a9ebfc75936a9d6940ac1672e674640b231acef587f882b6e988b52520413",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "a0b9a1494f740e92a9410f20475ce69e447666c8d43cd8bcf3101144a3daeabd",
+      "sha256": "a0b9a1494f740e92a9410f20475ce69e447666c8d43cd8bcf3101144a3daeabd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "8b69f71dd58bc6ed119cbb1f3b1ae9d31ff32a9af2bae19f5bfc255506014bcc",
+      "sha256": "8b69f71dd58bc6ed119cbb1f3b1ae9d31ff32a9af2bae19f5bfc255506014bcc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "5fb52d8499fa9a8e70df247cebe3e0f7e0aabc9228476a1b3cb922b36036b3c4",
+      "sha256": "5fb52d8499fa9a8e70df247cebe3e0f7e0aabc9228476a1b3cb922b36036b3c4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "90b24847d94b0cd63e21d7b7ff20294d667733a5b0015253ccf9cfdaaa8ba92c",
+      "sha256": "90b24847d94b0cd63e21d7b7ff20294d667733a5b0015253ccf9cfdaaa8ba92c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "6c8879b67afa8953fa0e8c1250121b2f2097560b6d4481be35b0d189901dd429",
+      "sha256": "6c8879b67afa8953fa0e8c1250121b2f2097560b6d4481be35b0d189901dd429",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "89629d3869af849739c83d7eb71e2ea13d11385ed9c5518c18e197e16da6ce97",
+      "sha256": "89629d3869af849739c83d7eb71e2ea13d11385ed9c5518c18e197e16da6ce97",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "069218b6455d6ac723a127a88f1e3aca797d551b9e848e388e91624a4cefde69",
+      "sha256": "069218b6455d6ac723a127a88f1e3aca797d551b9e848e388e91624a4cefde69",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "f395e3ff82ff22632ff3c5b007530e610c2090a41d2700d41fdac1f2991096d7",
+      "sha256": "f395e3ff82ff22632ff3c5b007530e610c2090a41d2700d41fdac1f2991096d7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "before_dust_runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "791b60f72272bccb59f14dbd5fd3260241f3eb84a6b3d53197f7205837ad72a4",
+      "sha256": "791b60f72272bccb59f14dbd5fd3260241f3eb84a6b3d53197f7205837ad72a4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-build.log",
+      "source": "tmp/v2-finish-review/cobbler-build.log",
+      "source_sha256": "398aa463095099998db66aa7fa64dd08892c945d5bc40a61c2188b89bfe7973f",
+      "sha256": "398aa463095099998db66aa7fa64dd08892c945d5bc40a61c2188b89bfe7973f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-native.log",
+      "source": "tmp/v2-finish-review/cobbler-native.log",
+      "source_sha256": "5444ede7db45d1d373894698e00edd37d32791b39fbdca18a7b996e284c0695c",
+      "sha256": "5444ede7db45d1d373894698e00edd37d32791b39fbdca18a7b996e284c0695c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-initial.log",
+      "source": "tmp/v2-finish-review/cobbler-initial.log",
+      "source_sha256": "9477f2dbe5d46ee84374b6506f1ba00c1acd2acb44bdc4d6a75976e4dd229465",
+      "sha256": "9477f2dbe5d46ee84374b6506f1ba00c1acd2acb44bdc4d6a75976e4dd229465",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-initial.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-initial.log.receipt.json",
+      "source_sha256": "a94a006a351f1221364ba9797dd0bc1de20869b2d9b5bdb2bbb34f392aad35d4",
+      "sha256": "a94a006a351f1221364ba9797dd0bc1de20869b2d9b5bdb2bbb34f392aad35d4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-collar-diagnostic.log",
+      "source": "tmp/v2-finish-review/cobbler-collar-diagnostic.log",
+      "source_sha256": "2bc06244fbe7655e55adca5d05e30a8fe995d70495116460167ef1bab7cad8e3",
+      "sha256": "2bc06244fbe7655e55adca5d05e30a8fe995d70495116460167ef1bab7cad8e3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-collar-diagnostic.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-collar-diagnostic.log.receipt.json",
+      "source_sha256": "0da73aa620a1f86f6ffe8814b658016af50aeadc6489b9461da0e84aece98796",
+      "sha256": "0da73aa620a1f86f6ffe8814b658016af50aeadc6489b9461da0e84aece98796",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-collar-native-probe.log",
+      "source": "tmp/v2-finish-review/cobbler-collar-native-probe.log",
+      "source_sha256": "898e56e72e8c51d1879c34e5c7f50c61c50e98efe2c1cc15032e1ea70dd91431",
+      "sha256": "898e56e72e8c51d1879c34e5c7f50c61c50e98efe2c1cc15032e1ea70dd91431",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-build-seated.log",
+      "source": "tmp/v2-finish-review/cobbler-build-seated.log",
+      "source_sha256": "7edc5e2602daadd6a2f9addd50949d8b6f6c18454a50ab5d72cfdd9360039d90",
+      "sha256": "7edc5e2602daadd6a2f9addd50949d8b6f6c18454a50ab5d72cfdd9360039d90",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-native-seated.log",
+      "source": "tmp/v2-finish-review/cobbler-native-seated.log",
+      "source_sha256": "c9e24e087cddcf6f9b693a66934658865f16791c0c680007fc8b1011f34923a8",
+      "sha256": "c9e24e087cddcf6f9b693a66934658865f16791c0c680007fc8b1011f34923a8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-seated.log",
+      "source": "tmp/v2-finish-review/cobbler-seated.log",
+      "source_sha256": "6f490560595f91e06766e2190bf152ba5ea0d6a438f5dfebb8391903018f39da",
+      "sha256": "6f490560595f91e06766e2190bf152ba5ea0d6a438f5dfebb8391903018f39da",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-seated.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-seated.log.receipt.json",
+      "source_sha256": "b3856ddf0e7aea93315c32952f09bbf466e6efd71468dcb4e906910a7a8dde61",
+      "sha256": "b3856ddf0e7aea93315c32952f09bbf466e6efd71468dcb4e906910a7a8dde61",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-build-final.log",
+      "source": "tmp/v2-finish-review/cobbler-build-final.log",
+      "source_sha256": "437217ccecc39e3594a569e6a1d0710b189341b468b7512ed7808e452da6b8d3",
+      "sha256": "437217ccecc39e3594a569e6a1d0710b189341b468b7512ed7808e452da6b8d3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-native-final.log",
+      "source": "tmp/v2-finish-review/cobbler-native-final.log",
+      "source_sha256": "5fed6053bf5787772153b519b9840f954a9b32ab7983b8e8b24b6776931b7440",
+      "sha256": "5fed6053bf5787772153b519b9840f954a9b32ab7983b8e8b24b6776931b7440",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-build-fine-dust.log",
+      "source": "tmp/v2-finish-review/cobbler-build-fine-dust.log",
+      "source_sha256": "05162ae6c49ab2ed846b64693a9c0cf1fe70be2e3efb0c3cedd16fab07b2218f",
+      "sha256": "05162ae6c49ab2ed846b64693a9c0cf1fe70be2e3efb0c3cedd16fab07b2218f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-native-fine-dust.log",
+      "source": "tmp/v2-finish-review/cobbler-native-fine-dust.log",
+      "source_sha256": "7d876e6f3942f8cbab5684663833adaf0f8bfe057c8d72546a92a58301405aba",
+      "sha256": "7d876e6f3942f8cbab5684663833adaf0f8bfe057c8d72546a92a58301405aba",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-fine-dust.log",
+      "source": "tmp/v2-finish-review/cobbler-fine-dust.log",
+      "source_sha256": "63f0bddc958d24e60948774436783672bf8bd39ad59343f87ee458963f0be731",
+      "sha256": "63f0bddc958d24e60948774436783672bf8bd39ad59343f87ee458963f0be731",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-fine-dust.log.receipt.json",
+      "source": "tmp/v2-finish-review/cobbler-fine-dust.log.receipt.json",
+      "source_sha256": "45a3adb5449abb1027d04757ee9a1b7743097761208413288735eca0a70c1d4d",
+      "sha256": "45a3adb5449abb1027d04757ee9a1b7743097761208413288735eca0a70c1d4d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-dust-reader.log",
+      "source": "tmp/v2-finish-review/cobbler-dust-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/cobbler-dust-spatial.log",
+      "source": "tmp/v2-finish-review/cobbler-dust-spatial.log",
+      "source_sha256": "510001e6da09b1235c2dbaffa1c3134f482e25dc983fc2021d8f737651b4cd5e",
+      "sha256": "510001e6da09b1235c2dbaffa1c3134f482e25dc983fc2021d8f737651b4cd5e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/cobbler-ledger-refresh.log",
+      "source_sha256": "e835de53e980340575d35ccb55ecea51630cd7ca02143053b957e022c00c9b2e",
+      "sha256": "e835de53e980340575d35ccb55ecea51630cd7ca02143053b957e022c00c9b2e",
+      "copy": "byte-identical"
+    }
+  ]
+}

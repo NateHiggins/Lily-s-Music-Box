@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 45.29,
+  "exit_code": 1,
+  "finished_utc": "2026-10-05T20:23:49Z",
+  "started_utc": "2026-10-05T20:23:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/cobbler-initial.log.stderr",
+  "stderr_sha256": "102612e3831e4bb8eb06d2d54a0e135c1893b48ce6eae9f9c2c798e13862206f",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/cobbler-initial.log",
+  "stdout_sha256": "9477f2dbe5d46ee84374b6506f1ba00c1acd2acb44bdc4d6a75976e4dd229465"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2CobblerFittingsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/cobbler-initial",
+ "source": {
+  "dirty_paths": 278,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/cobbler_fittings.blend",
+   "?? art/blender/cobbler_fittings_construction.json",
+   "?? art/blender/scripts/build_cobbler_fittings.py",
+   "?? art/blender/scripts/inspect_cobbler_fittings.py",
+   "?? art/data/cobbler_fittings/",
+   "?? game/assets/props/cobbler_fittings.glb",
+   "?? game/data/orison_v2/cobbler_fittings.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid"
+  ],
+  "repository_head": "4c353a8d3e61ebfe783216900702e2219a15f533",
+  "repository_tree": "f4d560b694997f011b04164a7d7bceb8607f3aac",
+  "runtime_inputs_sha256": "320e242b5fb2408796c53de89990525fe5ad6d844d82246bad88362fc49695d8",
+  "test_path": "game/tests/orison_v2_cobbler_fittings_test.gd",
+  "test_sha256": "9e1af4ccb08d73c5238f04417d8146665fb6cae2858841ab98a1422c52f64311"
+ },
+ "windowed": true
+}

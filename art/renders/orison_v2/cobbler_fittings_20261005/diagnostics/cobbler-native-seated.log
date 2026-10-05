@@ -1,0 +1,27 @@
+00:01.406  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\cobbler_fittings.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_cobbler_fittings.py:43: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:06.344  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_window_plinth_front.png'
+00:10.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_window_plinth_rear.png'
+00:14.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_bench_front.png'
+00:18.969  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_bench_rear.png'
+00:25.094  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_finisher_front.png'
+00:31.203  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_finisher_rear.png'
+00:35.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_rack0_front.png'
+00:40.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_rack0_rear.png'
+00:44.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_counter_front.png'
+00:49.063  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_counter_rear.png'
+00:53.688  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_outsole_stand_front.png'
+00:58.313  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_outsole_stand_rear.png'
+01:03.234  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_patcher_treadle_front.png'
+01:08.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_patcher_treadle_rear.png'
+01:12.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_last_rack_front.png'
+01:17.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_last_rack_rear.png'
+01:23.797  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_sole_stack_front.png'
+01:30.234  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_sole_stack_rear.png'
+01:34.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_waiting_seat_front.png'
+01:38.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\cobbler-native\storm_shop_shoe_rebuilding_waiting_seat_rear.png'
+COBBLER NATIVE QA 343 closed connected stocks; 10 joined assemblies; 20 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
