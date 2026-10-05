@@ -73,18 +73,20 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 					if str(spec.id)==str(row.material_id):tint=spec.albedo_rgba
 				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
 			draw.material_override=mat
-	# Seat the existing words on the actual lower display fascia. The original
-	# oversized, double-sided label floated above the counter and read backwards
+	# Seat the existing words on the front of the actual upper display rail.
+	# Its original trim would hide words mounted on the recessed fascia.
+	# The original oversized, double-sided label floated above the counter
+	# and read backwards
 	# through its glass. Source text/semantic identity stay with this same node.
 	owner.set_meta("retained_counter_lettering",{"text":lettering.text,"transform":lettering.transform})
 	lettering.text=lettering.text.replace("Â·","·")
-	var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_front_panel")
+	var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_upper_rail")
 	var panel_bounds: AABB=panel.transform*panel.mesh.get_aabb()
 	var font:=ThemeDB.fallback_font
 	var measured:=font.get_string_size(lettering.text,HORIZONTAL_ALIGNMENT_CENTER,-1,100)
 	lettering.font=font;lettering.font_size=100
-	lettering.pixel_size=minf((panel_bounds.size.x-.1)/maxf(measured.x,1.),.09/maxf(measured.y,1.))
-	lettering.position=Vector3(panel_bounds.get_center().x,(panel_bounds.position.y+.37)*.5,panel_bounds.end.z+.0015)
+	lettering.pixel_size=minf((panel_bounds.size.x-.1)/maxf(measured.x,1.),panel_bounds.size.y*.7/maxf(measured.y,1.))
+	lettering.position=Vector3(panel_bounds.get_center().x,panel_bounds.get_center().y,panel_bounds.end.z+.0015)
 	lettering.rotation=Vector3.ZERO;lettering.double_sided=false;lettering.outline_size=1
 	lettering.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	lettering.vertical_alignment=VERTICAL_ALIGNMENT_CENTER

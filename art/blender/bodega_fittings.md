@@ -15,7 +15,7 @@ Shade shells leave bulbs visible below the retained ceiling plates. These
 adaptations preserve source-node transforms rather than moving authored anchors.
 Thin mounting pans and two short standoffs per practical meet the original
 screwed conduit drops. The actual imported contact test keeps its original
-one-millimetre tolerance. Existing counter words fit its lower display fascia
+one-millimetre tolerance. Existing counter words fit its exposed upper display rail
 as a single-sided Label3D, preserving the semantic owner and normalizing the
 inherited middle-dot encoding.
 

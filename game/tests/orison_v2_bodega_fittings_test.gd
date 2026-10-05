@@ -46,11 +46,12 @@ func _run() -> void:
 		if str(label.get_meta("authored_record_id",""))=="counter_lettering":lettering=label
 	check(lettering!=null and not lettering.double_sided,"original counter lettering has one readable face")
 	if lettering!=null:
-		var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_front_panel")
+		var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_upper_rail")
+		var bounds: AABB=panel.transform*panel.mesh.get_aabb()
 		var contact:=_mesh_distance(panel.transform*panel.mesh.get_faces(),lettering.position,Vector3.FORWARD)
-		check(is_finite(contact) and absf(contact-.0015)<.0001,"actual imported fascia supports the original words")
+		check(is_finite(contact) and absf(contact-.0015)<.0001,"actual display rail supports the original words")
 		var measured:=lettering.font.get_string_size(lettering.text,HORIZONTAL_ALIGNMENT_CENTER,-1,lettering.font_size)*lettering.pixel_size
-		check(measured.x<=1.201 and measured.y<=.0901 and lettering.position.y-measured.y*.5>=.24 and lettering.position.y+measured.y*.5<=.37,"physical text fits the lower display fascia")
+		check(measured.x<=bounds.size.x-.099 and measured.y<=bounds.size.y*.7+.0001 and lettering.position.y-measured.y*.5>=bounds.position.y and lettering.position.y+measured.y*.5<=bounds.end.y,"physical text fits the actual display rail")
 	for adjustment: Dictionary in fixture.adaptations:
 		var identity:=str(adjustment.id)
 		var draw:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,identity)
