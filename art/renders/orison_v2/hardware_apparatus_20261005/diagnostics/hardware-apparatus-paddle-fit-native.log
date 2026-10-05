@@ -1,0 +1,13 @@
+00:01.406  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\hardware_apparatus.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_hardware_apparatus.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:06.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_scale_base_front.png'
+00:10.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_scale_base_rear.png'
+00:15.562  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_paint_shaker_front.png'
+00:20.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_paint_shaker_rear.png'
+00:24.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_paddle_front.png'
+00:27.687  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-apparatus-native\storm_shop_hardware_paint_paddle_rear.png'
+HARDWARE APPARATUS NATIVE QA 53 closed connected stocks; 3 joined assemblies; 6 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

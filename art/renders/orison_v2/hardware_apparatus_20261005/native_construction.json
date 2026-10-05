@@ -1,0 +1,774 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_hardware_paint_scale_base",
+      "rect": [
+        5.92,
+        -57.040000000000006,
+        6.38,
+        -56.36
+      ],
+      "z0": 0.05,
+      "h": 0.52,
+      "mat": "cast_iron",
+      "batch": "shop_hardware_paint",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_hardware_paint_scale_beam",
+      "rect": [
+        6.07,
+        -57.160000000000004,
+        6.18,
+        -56.24
+      ],
+      "z0": 0.74,
+      "h": 0.07,
+      "mat": "brass_dull",
+      "batch": "shop_hardware_paint",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_hardware_paint_paint_shaker",
+      "rect": [
+        5.92,
+        -58.02,
+        6.62,
+        -57.32000000000001
+      ],
+      "z0": 0.05,
+      "h": 1.08,
+      "mat": "cast_iron",
+      "batch": "shop_hardware_paint",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_hardware_paint_paddle",
+      "rect": [
+        6.68,
+        -57.82000000000001,
+        6.76,
+        -57.480000000000004
+      ],
+      "z0": 0.1,
+      "h": 1.12,
+      "mat": "timber",
+      "batch": "shop_hardware_paint",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_hardware_paint_scale_base",
+      "kind": "beam_scale",
+      "cell": "shop_hardware_paint",
+      "floor": {
+        "id": "storm_shop_hardware_paint_floor",
+        "rect": [
+          4.5,
+          -59.3,
+          11.0,
+          -54.1
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_hardware_paint",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_hardware_paint_paint_shaker",
+      "kind": "paint_shaker",
+      "cell": "shop_hardware_paint",
+      "floor": {
+        "id": "storm_shop_hardware_paint_floor",
+        "rect": [
+          4.5,
+          -59.3,
+          11.0,
+          -54.1
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_hardware_paint",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_hardware_paint_paddle",
+      "kind": "mixing_paddle",
+      "cell": "shop_hardware_paint",
+      "floor": {
+        "id": "storm_shop_hardware_paint_floor",
+        "rect": [
+          4.5,
+          -59.3,
+          11.0,
+          -54.1
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_hardware_paint",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_hardware_paint_scale_base_Foot5.965-56.98500000000001",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00034114159608734907
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_Foot5.965-56.415",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00034114159608734907
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_Foot6.335-56.98500000000001",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00034114159608734907
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_Foot6.335-56.415",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00034114159608734907
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_CastBed",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.018803758472052477
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_Pedestal",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.0023973031270748887
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PedestalCollar0.14",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00040065381299011365
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PedestalCollar0.68",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.0001955534834865297
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PedestalCollar0.735",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "cast_iron",
+      "volume_m3": 0.00028900311090586904
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_BrassBeam",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 0.002559621109605089
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_BeamPivot",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 0.00011164548907310196
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_OpenPan0",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 0.000557607952413348
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger00",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.053341639798611e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger01",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.0532983294260956e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger02",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.053304463964629e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_OpenPan1",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 0.0005576092842174607
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger10",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.053341639798611e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger11",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.0532983294260956e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base_PanHanger12",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "key": "brass_dull",
+      "volume_m3": 1.053304463964629e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Foot5.965-57.975",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003914264783221442
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Foot5.965-57.36500000000001",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003914264783221442
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Foot6.575-57.975",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003914264783221442
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Foot6.575-57.36500000000001",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003914264783221442
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_BasePlate",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.02427782439122201
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Upright5.965-57.975",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0006644831914172266
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Upright5.965-57.40500000000001",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0006644831914172266
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Upright6.553-57.975",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0006644831914172266
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Upright6.553-57.40500000000001",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0006644831914172266
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_Crown",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.02357315788307798
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampSideAnchor5.9750.355",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003430234309504636
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampSideAnchor6.5660.355",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0003430234309504636
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampRing0.355",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.000590159570962204
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_RingTie0.355-1",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 6.180188477254364e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_RingTie0.3551",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 6.405747825597581e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampSideAnchor5.9750.805",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00034302300191431926
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampSideAnchor6.5660.805",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00034302300191431926
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampRing0.805",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0005901599897428314
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_RingTie0.805-1",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 6.180190190516058e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_RingTie0.8051",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 6.405749601388468e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampGuide0",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00011976763746087847
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampGuide1",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00011976763746087847
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampGuide2",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00011976763746087844
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampGuide3",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00011976763746087844
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_PressurePlate",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0015985858023368359
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_PressureScrew",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "brass_dull",
+      "volume_m3": 0.0001924246296568363
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ScrewCrossbar",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "brass_dull",
+      "volume_m3": 3.4086289879076484e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_DriveHousing",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.005691620796571512
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_MotorSeat",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.002694060169621343
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_DriveSpindle",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "brass_dull",
+      "volume_m3": 0.0001855942605100949
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_EccentricPlate",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0007330316070565395
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_ClampDrive",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "brass_dull",
+      "volume_m3": 4.2404127913417606e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker_BottomDriveBar",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "key": "cast_iron",
+      "volume_m3": 0.00014886572822277874
+    },
+    {
+      "name": "storm_shop_hardware_paint_paddle_WorkedPaddle",
+      "assembly": "storm_shop_hardware_paint_paddle",
+      "key": "timber",
+      "volume_m3": 0.0013001918495406687
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        5.965,
+        0.009999999999999995,
+        56.98500000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "scale floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        5.965,
+        0.009999999999999995,
+        56.415
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "scale floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        6.335,
+        0.009999999999999995,
+        56.98500000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "scale floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        6.335,
+        0.009999999999999995,
+        56.415
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "scale floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        5.965,
+        0.009999999999999995,
+        57.975
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shaker floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        5.965,
+        0.009999999999999995,
+        57.36500000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shaker floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        6.575,
+        0.009999999999999995,
+        57.975
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shaker floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        6.575,
+        0.009999999999999995,
+        57.36500000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shaker floor bearing"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paddle",
+      "owner": "storm_shop_hardware_paint_floor",
+      "point": [
+        6.70483,
+        0.009999999999999995,
+        57.93000000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "paddle floor seat"
+    },
+    {
+      "assembly": "storm_shop_hardware_paint_paddle",
+      "owner": "storm_shop_hardware_paint_paint_shaker",
+      "point": [
+        6.6,
+        1.1,
+        57.93000000000001
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "label": "paddle on shaker crown"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_hardware_paint_scale_base__brass_dull",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "cell": "shop_hardware_paint",
+      "key": "brass_dull",
+      "triangles": 2656
+    },
+    {
+      "name": "storm_shop_hardware_paint_scale_base__cast_iron",
+      "assembly": "storm_shop_hardware_paint_scale_base",
+      "cell": "shop_hardware_paint",
+      "key": "cast_iron",
+      "triangles": 1692
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker__brass_dull",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "cell": "shop_hardware_paint",
+      "key": "brass_dull",
+      "triangles": 752
+    },
+    {
+      "name": "storm_shop_hardware_paint_paint_shaker__cast_iron",
+      "assembly": "storm_shop_hardware_paint_paint_shaker",
+      "cell": "shop_hardware_paint",
+      "key": "cast_iron",
+      "triangles": 8148
+    },
+    {
+      "name": "storm_shop_hardware_paint_paddle__timber",
+      "assembly": "storm_shop_hardware_paint_paddle",
+      "cell": "shop_hardware_paint",
+      "key": "timber",
+      "triangles": 32
+    }
+  ],
+  "triangles": 13280,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/hardware_apparatus.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_hardware_paint",
+        "parts": [
+          {
+            "name": "storm_shop_hardware_paint_scale_base__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_hardware_paint_scale_base__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_hardware_paint_paint_shaker__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_hardware_paint_paint_shaker__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_hardware_paint_paddle__timber",
+            "key": "timber",
+            "tile": 1.0
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_hardware_paint_scale_base",
+            "key": "cast_iron",
+            "low": [
+              5.92,
+              0.05,
+              56.36
+            ],
+            "high": [
+              6.38,
+              0.5700000000000001,
+              57.040000000000006
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_hardware_paint_scale_beam",
+            "key": "brass_dull",
+            "low": [
+              6.07,
+              0.74,
+              56.24
+            ],
+            "high": [
+              6.18,
+              0.81,
+              57.160000000000004
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_hardware_paint_paint_shaker",
+            "key": "cast_iron",
+            "low": [
+              5.92,
+              0.05,
+              57.32000000000001
+            ],
+            "high": [
+              6.62,
+              1.1300000000000001,
+              58.02
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_hardware_paint_paddle",
+            "key": "timber",
+            "low": [
+              6.68,
+              0.1,
+              57.480000000000004
+            ],
+            "high": [
+              6.76,
+              1.2200000000000002,
+              57.82000000000001
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "7d31f486a6c456e944a49bfbcdb72c43f735cc0638a524f0aa27c7166e112f5b",
+  "source_bindings": {
+    "art/data/hardware_apparatus/source_plan.json": "44671bc4ad0b0b6cc805c1a36682df1d79fe1e3251234767169a3b69a4150996",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_hardware_apparatus.py": "4bf2f92dc968a20a728514da4e04e4a75af3b1ae68678fe4eed77b065faefc19",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/hardware_apparatus.glb.import": "e06a4e3fbe26c74338e234134ed9a4f50b797fada71ae50d53d36b511cccce1a",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/timber_b/material.json": "4955fb7b973f0077dc5c8813b2831b7431521ae9b2ca2bce57dc4bb67d196eb6",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_ai_materials_timber_b_albedo.png": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+    "game/assets/building/textures/T_ai_materials_timber_b_rough.png": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+    "game/assets/building/textures/T_ai_materials_timber_b_normal.png": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_hardware_paint.gltf": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
+    "game/assets/building/floor_01_cells/shop_hardware_paint.bin": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
+    "art/blender/scripts/inspect_hardware_apparatus.py": "17bcf0b9c37a979c8aa0f8212e5478ad10219b6499cdd2e9d2b71b809925d054"
+  },
+  "open_work": [
+    "Passive fabricated beam balance and empty shaker clamp preserve source identities and existing gameplay; weighing, agitation and power capacity remain open.",
+    "The paddle bears on the actual floor and against the fitted shaker crown; original hidden references retain their poses.",
+    "Local apparatus brass uses the existing aged-brass catalogue set; source references and other brass stock retain their original material.",
+    "Independent utility continuity, remaining stock/racks/ladder and continuous shop/rear access remain open."
+  ]
+}

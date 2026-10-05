@@ -1,0 +1,23 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_hardware_apparatus.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "hardware_apparatus.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+18:55:44 | INFO: Starting glTF 2.0 export
+18:55:44 | INFO: Extracting primitive: storm_shop_hardware_paint_paddle__timber
+18:55:44 | INFO: Primitives created: 1
+18:55:44 | INFO: Extracting primitive: storm_shop_hardware_paint_paint_shaker__brass_dull
+18:55:44 | INFO: Primitives created: 1
+18:55:44 | INFO: Extracting primitive: storm_shop_hardware_paint_paint_shaker__cast_iron
+18:55:44 | INFO: Primitives created: 1
+18:55:44 | INFO: Extracting primitive: storm_shop_hardware_paint_scale_base__brass_dull
+18:55:44 | INFO: Primitives created: 1
+18:55:44 | INFO: Extracting primitive: storm_shop_hardware_paint_scale_base__cast_iron
+18:55:44 | INFO: Primitives created: 1
+18:55:44 | INFO: Finished glTF 2.0 export in 0.028998851776123047 s
+
+HARDWARE APPARATUS 4 original records; 3 assemblies; 53 closed stocks; 5 parts; 13280 triangles; 10 foot contacts
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

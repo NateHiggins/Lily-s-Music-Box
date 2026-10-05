@@ -1,0 +1,472 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "a12dcb500ea47eb71e6ea9d5d0017339d8207e4c",
+  "base": "958b4a74b79d78938d91dc24ad1ad707e897d47c",
+  "verification": "MERGE-CANDIDATE a12dcb500ea47eb71e6ea9d5d0017339d8207e4c",
+  "source_records": 4,
+  "assemblies": 3,
+  "closed_stocks": 53,
+  "material_partitions": 5,
+  "triangles": 13280,
+  "source_supports": 10,
+  "removed_original_triangles": 48,
+  "native_views": 6,
+  "production_views": 5,
+  "direct_review": "All six final native and five final clean production views inspected. Actual balance pans, empty shaker cage and exposed, floor/crown-supported paddle have standing-capsule observations. Two physically passing but obstructed/cramped paddle views remain diagnostics.",
+  "runtime_contract": "Exact test-written schema-2 receipt; executed resident permission/key-copy/save/denial/reconstruction scope only.",
+  "limits": [
+    "No human or whole-V2 acceptance.",
+    "Passive apparatus only; weighing, agitation and live power remain open.",
+    "Remaining stock/racks/ladder, purchasing, continuous shop/rear access and independent utility continuity/capacity keep their separate owners.",
+    "Suite wrappers and photographs grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/verification.json",
+      "source_sha256": "432686c5cc1559bdc4e3d3a22eb824354757f18f4828d7f3a1bc276b4906b68d",
+      "sha256": "432686c5cc1559bdc4e3d3a22eb824354757f18f4828d7f3a1bc276b4906b68d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/958b4a74-clean-board.json",
+      "source_sha256": "85efec6c55e09d01b1c4d209c3a69d770de1b3fef871d72e927059ff4f9827f1",
+      "sha256": "85efec6c55e09d01b1c4d209c3a69d770de1b3fef871d72e927059ff4f9827f1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/inspection.json",
+      "source_sha256": "93b2a0cc254e877a15ddbe19f48406dc7436c3f1fc1de340f4725d987148974a",
+      "sha256": "93b2a0cc254e877a15ddbe19f48406dc7436c3f1fc1de340f4725d987148974a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/hardware_apparatus_construction.json",
+      "source_sha256": "58f07011db80530511004bb9ae223358813eeac1ae80a4743db53579c323de10",
+      "sha256": "58f07011db80530511004bb9ae223358813eeac1ae80a4743db53579c323de10",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "83e3771b7c6fd81f0c632ddb2436601848c020ac05d2eb75115759c8b1e299c2",
+      "sha256": "83e3771b7c6fd81f0c632ddb2436601848c020ac05d2eb75115759c8b1e299c2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/views.json",
+      "source_sha256": "f3c9fdd48c2d1ba86e5944e3f7514cffabc47dd2faa42c4c77dfd05061a3992f",
+      "sha256": "f3c9fdd48c2d1ba86e5944e3f7514cffabc47dd2faa42c4c77dfd05061a3992f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "9f2132f0d7d2ff46d0ca8998ca0ce135a2c2559e18e877bd2f6818302be4d6d5",
+      "sha256": "9f2132f0d7d2ff46d0ca8998ca0ce135a2c2559e18e877bd2f6818302be4d6d5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "98997f5dabe9d512b71d0e567a2df1563bdf823afd403ba164cff7ced00b8be3",
+      "sha256": "98997f5dabe9d512b71d0e567a2df1563bdf823afd403ba164cff7ced00b8be3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_paddle_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_paddle_front.png",
+      "source_sha256": "ec010615b24f7f05e31a54d2f15e0fe0f135c885350b45bd362d75b6ec87342b",
+      "sha256": "d635306ab883df2b3239de2f623401882f728f521c6b65b7029e75136a760966",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_paddle_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_paddle_rear.png",
+      "source_sha256": "b1b7ed98133b752614342385aa029e05c8395e16e72cb4442555483c655002fd",
+      "sha256": "60ae77b99bc13d06970724a6fa4117f81ec6d5cfcceb99e963e3877cc775f72a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_paint_shaker_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_paint_shaker_front.png",
+      "source_sha256": "36db9691c504deb071b5fa1b7f7d0a0678942818762b470c76c3bd1b2a8303d5",
+      "sha256": "4769c145f29f8c1281964adadb45bcb68e9a9f48ec7f428a764002514f6e9143",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_paint_shaker_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_paint_shaker_rear.png",
+      "source_sha256": "08ce82a121165c10733e41b656cd44782f7398c23cd9d8a7a63cf8f655c39848",
+      "sha256": "b5ac824ef5b4ce5d470ce74ef3def978f52ac0a81e00043913d5ca950d6515f3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_scale_base_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_scale_base_front.png",
+      "source_sha256": "d06b2d90f41ccc5ecb047a82c35b805f47d98093efc0c214808b33673ca0760e",
+      "sha256": "e0d76661f21b519cf6116e59e923dfb575e9598d221f12822bbe4fd95ccb394a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_scale_base_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-native/storm_shop_hardware_paint_scale_base_rear.png",
+      "source_sha256": "fc3124b410a8f503394155ec2d6af0d5e926cda7eed3d38a0a0a527e42be43e4",
+      "sha256": "5397f5306cc4d427862f4ca38bad29a25c1a030bf46976b9a0c491fb46da7e86",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/beam_scale.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/beam_scale.png",
+      "source_sha256": "260b3a2160bf73921950d68bc6f2d6de25d9f8b3fd32d7e4aee429aa913d0777",
+      "sha256": "bda3f29ea9c02d4c89fd761cce0ceb976c0e99c9364da9e8edff2e5caf8d7705",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/empty_clamp.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/empty_clamp.png",
+      "source_sha256": "28c86e7029b3433b601f8c952730339015c5788d4ed5825816a15b548bc5b01b",
+      "sha256": "dcd0b50eff66749bbdbbf5e924ddb214cebab6f016ae6f48ce99330f33448923",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/mixing_paddle.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/mixing_paddle.png",
+      "source_sha256": "2d3d2dd3efcbc676ea330e7336d29ee7f3262d2a58d6328992a805372ff758a6",
+      "sha256": "3e614381ee4d059d88e6ecea48a9efed3bf096a57efc806b0c3f3d5198eec6f0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/paint_shaker.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/paint_shaker.png",
+      "source_sha256": "12620bd24a5418e4dcf34d8422329de096e0a9d500a8b9e207091daa2b6ded63",
+      "sha256": "58952e092fb4595b32c46929a9f2d523801aac4dc7d6b3c407307f195401111c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/scale_pan.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed_shots/scale_pan.png",
+      "source_sha256": "2ccca70da44ad7b1a6860cda1ca09d654da60cd3598bd2284dadebf074a6e492",
+      "sha256": "1382d63f650cb23f2444f0954d8e5e29d5c7092da96ea4e4892cbc33d6eefb38",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_paddle_fit/obstructed_paddle.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-production/mixing_paddle.png",
+      "source_sha256": "689eca8ef093d6e646d3a2ac12d2ee2c38eb2b7640920874ba882e33c27bb63b",
+      "sha256": "b0f4bbece3c3f13f741ec97562ae02de810c29e6ad1cbb74d69593aaa09cd871",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_paddle_fit/cramped_paddle.jpg",
+      "source": "tmp/v2-finish-review/hardware-apparatus-view-fit/mixing_paddle.png",
+      "source_sha256": "359c83bec45e0ed54a90c81935c6b0a76ac4cc71a22d5ddb5a859c378ea760ef",
+      "sha256": "953294053662a042c1ff4e957fb8104c958a9854631115747d1d90b0d22dc79d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "60272e9ef303d8a52025db392c55d257d23bbee3af64fa7d3f401cfbb5d92ace",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "629cf8cd1fc282ee707b9f64cebc57b00e279cb0a801e3f3424648d4f141164d",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "dfd1dba0d731db2946791343d294594efdb597e35d55af33dedb6648ac1abf9f",
+      "sha256": "dfd1dba0d731db2946791343d294594efdb597e35d55af33dedb6648ac1abf9f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "cfed7666e6734092a6c7ff015566e1eeea948cdf6b4944cfd15fd92cbae3be9e",
+      "sha256": "cfed7666e6734092a6c7ff015566e1eeea948cdf6b4944cfd15fd92cbae3be9e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareApparatusTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed.log",
+      "source_sha256": "8018fba9798f3889c1f4ae25f26e13efe33d5f772ee350c549683976dd72a510",
+      "sha256": "8018fba9798f3889c1f4ae25f26e13efe33d5f772ee350c549683976dd72a510",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareApparatusTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "b5db109c42bbf6347470751e85aaca0ac627edebb2ab7d83c8658f114f0b25b1",
+      "sha256": "b5db109c42bbf6347470751e85aaca0ac627edebb2ab7d83c8658f114f0b25b1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareDrawersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareDrawersTest_tscn_windowed.log",
+      "source_sha256": "46e063c39dfb59c75ffa90a9cd235a4cadb8e5e28d4c77d5d0ca087fe79f9838",
+      "sha256": "46e063c39dfb59c75ffa90a9cd235a4cadb8e5e28d4c77d5d0ca087fe79f9838",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareDrawersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2HardwareDrawersTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "694d69ccd1d26ed9455b01ced9c8733e4334d5a9872db30f10e5fff66b4055b7",
+      "sha256": "694d69ccd1d26ed9455b01ced9c8733e4334d5a9872db30f10e5fff66b4055b7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source_sha256": "ff2919345f0faf3b5ac78ac3d3b973355156b0a198c1ae0c5fccd0a5a4c89fb5",
+      "sha256": "ff2919345f0faf3b5ac78ac3d3b973355156b0a198c1ae0c5fccd0a5a4c89fb5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "3624ea4797176bbd4025dd213af3ee7178d781189eac8f50378243e33f083696",
+      "sha256": "3624ea4797176bbd4025dd213af3ee7178d781189eac8f50378243e33f083696",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source_sha256": "deb9f7330dcc10e4a9830125391305e05f78ea5818ce7c93981aae7a40d6916e",
+      "sha256": "deb9f7330dcc10e4a9830125391305e05f78ea5818ce7c93981aae7a40d6916e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "941b12f51b28836c4f1e252c6bb5dc9f69f30b0161d68ed3fd0161debe775cf4",
+      "sha256": "941b12f51b28836c4f1e252c6bb5dc9f69f30b0161d68ed3fd0161debe775cf4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "3e03040d7df48e3b1b8e208dc6019b38399c9c4d4f670be2dadb1cfe231eff55",
+      "sha256": "3e03040d7df48e3b1b8e208dc6019b38399c9c4d4f670be2dadb1cfe231eff55",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9fa6c6a12cd480d31443dea54aa8139670742afd038f1bb51858fc2810cb00e4",
+      "sha256": "9fa6c6a12cd480d31443dea54aa8139670742afd038f1bb51858fc2810cb00e4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "c7b8b31293411f2eeb121ef6473e56b2310dcd032c6ef632b421f45a28cf1975",
+      "sha256": "c7b8b31293411f2eeb121ef6473e56b2310dcd032c6ef632b421f45a28cf1975",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "0b310cd6a22180418e3c7d6faaac59f4439b3a8a8b27af940d84bc8cf1f45860",
+      "sha256": "0b310cd6a22180418e3c7d6faaac59f4439b3a8a8b27af940d84bc8cf1f45860",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "80358e095a1ec3f27ab450c916c532c987a113fdd7c9c253d5608b7017edb3a1",
+      "sha256": "80358e095a1ec3f27ab450c916c532c987a113fdd7c9c253d5608b7017edb3a1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "0b5d8f7f0c73078c5018c275db167c6953b9037ef84e61b95d44829801a8d8df",
+      "sha256": "0b5d8f7f0c73078c5018c275db167c6953b9037ef84e61b95d44829801a8d8df",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "c564f2f17dd8e063df3ecb6bc0ac0c0f37ae02ef3dd8dbebcca15693f13ef7d9",
+      "sha256": "c564f2f17dd8e063df3ecb6bc0ac0c0f37ae02ef3dd8dbebcca15693f13ef7d9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "2b801c7f64cdf50be8d2bc743a9f1fad13c9db90ae67e8956164aa202a19faea",
+      "sha256": "2b801c7f64cdf50be8d2bc743a9f1fad13c9db90ae67e8956164aa202a19faea",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "28ed7d029e5ef559e33b89b9f758ecf626fb46641269430844a6dd9528bb102a",
+      "sha256": "28ed7d029e5ef559e33b89b9f758ecf626fb46641269430844a6dd9528bb102a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "556c209c77a3e16a4c5bfd21f4188eb575c34eda966c1ede5fce35ea290f6966",
+      "sha256": "556c209c77a3e16a4c5bfd21f4188eb575c34eda966c1ede5fce35ea290f6966",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ff2313a984a17e9f8fb9bf2f6480945d2ef7d647ae7d770734827c6565243a9d",
+      "sha256": "ff2313a984a17e9f8fb9bf2f6480945d2ef7d647ae7d770734827c6565243a9d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-brass-build.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-brass-build.log",
+      "source_sha256": "1e77a86cc20c567d0dc716175d59ee7b314a3a1fb706476d5a0a429bcc3147ff",
+      "sha256": "1e77a86cc20c567d0dc716175d59ee7b314a3a1fb706476d5a0a429bcc3147ff",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-brass-native.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-brass-native.log",
+      "source_sha256": "13b256dbbb96c49b74c24d1054cf8b9261a0d32d2f1e2923fd13ffd2809651aa",
+      "sha256": "13b256dbbb96c49b74c24d1054cf8b9261a0d32d2f1e2923fd13ffd2809651aa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-canonical-build.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-canonical-build.log",
+      "source_sha256": "f328b0c372bc0144ea450cf14ffef6b27f560affdedc9d2240439027be87912f",
+      "sha256": "f328b0c372bc0144ea450cf14ffef6b27f560affdedc9d2240439027be87912f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-canonical-native.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-canonical-native.log",
+      "source_sha256": "7f440307813579b1f86d8584b2641383768e0f5366b680a17bad2a1696f1aa9e",
+      "sha256": "7f440307813579b1f86d8584b2641383768e0f5366b680a17bad2a1696f1aa9e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-production.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-production.log",
+      "source_sha256": "754e2d09bb7487611da50adcbbfef8b003e29e533096cd61d938df63c502272a",
+      "sha256": "754e2d09bb7487611da50adcbbfef8b003e29e533096cd61d938df63c502272a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-production.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-production.log.receipt.json",
+      "source_sha256": "77748be246a2661853f76600108cb0813182031d2335a55e02d404dcc192fb14",
+      "sha256": "77748be246a2661853f76600108cb0813182031d2335a55e02d404dcc192fb14",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-view-fit.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-view-fit.log",
+      "source_sha256": "cf14a6c43c63afb49f6e4b113374014f0ad89ee6f2e3caa08840a0b67cbca887",
+      "sha256": "cf14a6c43c63afb49f6e4b113374014f0ad89ee6f2e3caa08840a0b67cbca887",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-view-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-view-fit.log.receipt.json",
+      "source_sha256": "471a92cf2bb019b00bda511c5435243d85c65d0ed8898626b1824bb2ee9b7e4f",
+      "sha256": "471a92cf2bb019b00bda511c5435243d85c65d0ed8898626b1824bb2ee9b7e4f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-paddle-fit-build.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-paddle-fit-build.log",
+      "source_sha256": "17901b4a56bcfaec77cbce672bf4d7f6d7b3c41aa930a2e2367a942761acd4df",
+      "sha256": "17901b4a56bcfaec77cbce672bf4d7f6d7b3c41aa930a2e2367a942761acd4df",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-paddle-fit-native.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-paddle-fit-native.log",
+      "source_sha256": "b5f722a5e9b5e7905938ac0469ea9f7bf65e6d9506636439d6fe5175099b1a5c",
+      "sha256": "b5f722a5e9b5e7905938ac0469ea9f7bf65e6d9506636439d6fe5175099b1a5c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-paddle-fit.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-paddle-fit.log",
+      "source_sha256": "704405fdc0debfc78f19bb02b4b13abe0cd106ab3960205e661d2c256dee8c8f",
+      "sha256": "704405fdc0debfc78f19bb02b4b13abe0cd106ab3960205e661d2c256dee8c8f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-paddle-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-apparatus-paddle-fit.log.receipt.json",
+      "source_sha256": "ca7dbfb9cee9fa78b1013b75e76afa0dfc31ba74b5bbd0394afc4dfed694d1bf",
+      "sha256": "ca7dbfb9cee9fa78b1013b75e76afa0dfc31ba74b5bbd0394afc4dfed694d1bf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-reader.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-apparatus-spatial.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-spatial.log",
+      "source_sha256": "84bee67f4786bbde519d4f79cff485b28cea9b281bdfd7b09424ddea9574e75d",
+      "sha256": "84bee67f4786bbde519d4f79cff485b28cea9b281bdfd7b09424ddea9574e75d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/hardware-apparatus-ledger-refresh.log",
+      "source_sha256": "a4e8c1fe55baae352c5c6cd9df74a8726efa479bd35988a43bfa3331c9f68aab",
+      "sha256": "a4e8c1fe55baae352c5c6cd9df74a8726efa479bd35988a43bfa3331c9f68aab",
+      "copy": "byte-identical"
+    }
+  ]
+}
