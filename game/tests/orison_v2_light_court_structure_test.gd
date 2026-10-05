@@ -13,7 +13,8 @@ func _route() -> void:
 	_require(draws.size() == 44, "fourteen guarded edges and separate transfer meshes mounted")
 	for draw: MeshInstance3D in draws:
 		var key := str(draw.mesh.surface_get_material(0).resource_name)
-		_require(key in ["metal", "cast_iron", "wood_dark"] and draw.material_override == MatLib.get_mat(key), "mapped material on " + str(draw.name))
+		var finish := "iron_blackened" if key=="cast_iron" else key
+		_require(key in ["metal", "cast_iron", "wood_dark"] and draw.material_override == MatLib.get_mat(finish), "mapped material on " + str(draw.name))
 		_check_planar_mapping(draw.mesh, true)
 	var space := world.get_world_3d().direct_space_state
 	var transfer_rids: Array[RID] = [player.get_rid()]

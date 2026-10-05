@@ -20,7 +20,8 @@ func mount(parent: Node3D, stair: Dictionary, base_y: float) -> bool:
 	for part: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		for surface in part.mesh.get_surface_count():
 			var source := part.mesh.surface_get_material(surface)
-			part.set_surface_override_material(surface,MatLib.get_mat(source.resource_name))
+			var key: String=source.resource_name
+			part.set_surface_override_material(surface,MatLib.get_mat("iron_blackened" if key=="cast_iron" else key))
 	_mount_guards(parent,model.position,stair)
 	return true
 

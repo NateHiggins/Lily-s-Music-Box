@@ -16,11 +16,31 @@ remains authoritative for deep service-chase windows. Frames and glazing move
 together. Door casings follow the installed depth; the outward rear service
 leaf pivots at the exterior face. Door behavior remains with its existing owner.
 
-The 561,588-byte export contains 7,992 triangles and two material surfaces using the existing runtime **brick** key,
+The fitted export contains 9,480 triangles, 790 closed native stocks and two material surfaces using the existing runtime **brick** key,
 with a restrained secondary tint. It has an active metre-based planar UV set;
 production materials use their existing physical triplanar scale. Each visible
 triangle assembly supplies its collision. This is structural fabrication with
 existing materials, not the completed city facade or final material pass.
+
+## Retained slab fit — 2026-10-05
+
+Production room captures exposed brick underside triangles competing with the
+retained ceilings at upper-storey setbacks. The generator now subtracts each
+actual semantic ceiling volume, including its existing ports, before applying
+the unchanged masonry service openings. Seventy-eight stock/slab interfaces
+lose **6.05646 m³** of duplicate masonry. Wall bodies start at the slab top
+where the lower occupied footprint supplies the slab; exposed exterior slab
+bands retain their original extents. Aperture spans and the generated reveal
+table remain unchanged.
+
+**exterior_masonry_slab_fit.json** records source-bound ceiling volumes and
+actual stock names/bounds. **scripts/inspect_exterior_masonry.py** reopens the
+saved native file, checks every positive closed stock and its slab separation,
+and renders temporary retained-ceiling context. An optional **--before** native
+file enables a bidirectional occupied-cell comparison: the final masonry must
+equal the former masonry minus the retained ceilings. Production verification
+also clips every imported masonry underside against the actual ceiling
+triangles, rather than accepting the source bounds as proof.
 
 Eight production-camera views cover the front, both front obliques, side alley,
 service core, rear entry and two elevated inspections. The focused test checks

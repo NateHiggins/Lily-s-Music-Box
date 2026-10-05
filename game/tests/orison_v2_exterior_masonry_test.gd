@@ -8,6 +8,7 @@ func _run() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var masonry: Node3D=world.adapter.root.get_node("ExteriorMasonry")
+	_check_ceiling_interfaces(world,masonry)
 	var contacts := 0
 	for mesh: MeshInstance3D in masonry.find_children("*","MeshInstance3D",true,false):
 		for surface in mesh.mesh.get_surface_count():
@@ -49,4 +50,40 @@ func _run() -> void:
 		await shot(view[0])
 	print("EXTERIOR MASONRY: failures=%d" % failures.size())
 	world.shutdown_for_tests();world.free();get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check_ceiling_interfaces(world: OrisonV2RuntimeRoot,masonry: Node3D) -> void:
+	var planes: Dictionary={}
+	var root: Node3D=world.adapter.root
+	for record: Dictionary in world.layout.spaces:
+		var room:=world.adapter.resolve(str(record.id)) as Node3D
+		var ceiling:=room.get_node_or_null("Ceiling") as MeshInstance3D
+		if ceiling==null:continue
+		var pose:=root.global_transform.affine_inverse()*ceiling.global_transform
+		var faces: PackedVector3Array=pose*ceiling.mesh.get_faces()
+		for i in range(0,faces.size(),3):
+			var a:=faces[i];var b:=faces[i+1];var c:=faces[i+2]
+			if (c-a).cross(b-a).normalized().y>-.9:continue
+			var key:=roundi(a.y*100000)
+			if not planes.has(key):planes[key]=[]
+			planes[key].append({"id":record.id,"polygon":PackedVector2Array([Vector2(a.x,a.z),Vector2(b.x,b.z),Vector2(c.x,c.z)])})
+	var undersides:=0;var conflicts:=[]
+	for draw: MeshInstance3D in masonry.find_children("*","MeshInstance3D",true,false):
+		var pose:=root.global_transform.affine_inverse()*draw.global_transform
+		var faces: PackedVector3Array=pose*draw.mesh.get_faces()
+		for i in range(0,faces.size(),3):
+			var a:=faces[i];var b:=faces[i+1];var c:=faces[i+2]
+			if (c-a).cross(b-a).normalized().y>-.9:continue
+			undersides+=1
+			var polygon:=PackedVector2Array([Vector2(a.x,a.z),Vector2(b.x,b.z),Vector2(c.x,c.z)])
+			for key: int in [roundi(a.y*100000)-1,roundi(a.y*100000),roundi(a.y*100000)+1]:
+				for owner: Dictionary in planes.get(key,[]):
+					for overlap: PackedVector2Array in Geometry2D.intersect_polygons(polygon,owner.polygon):
+						var area:=0.0
+						for vertex in overlap.size():area+=overlap[vertex].cross(overlap[(vertex+1)%overlap.size()])
+						# Ten square millimetres covers float/clip quantization at
+						# long source boundaries; the former seams cover whole faces.
+						if absf(area)*.5>.00001:conflicts.append([owner.id,i,absf(area)*.5])
+	check(undersides>1000,"all imported masonry undersides inspected against actual ceiling triangles")
+	check(conflicts.is_empty(),"masonry has no competing interior ceiling face: "+str(conflicts))
+	print("MASONRY SLAB INTERFACES: undersides=",undersides," competing_faces=",conflicts.size())
 

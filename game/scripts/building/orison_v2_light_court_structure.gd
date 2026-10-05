@@ -6,7 +6,9 @@ static func mount(root: Node3D) -> void:
 	root.add_child(model)
 	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
 		var key := str(draw.mesh.surface_get_material(0).resource_name)
-		draw.material_override = MatLib.get_mat(key)
+		# The radiator's cast-iron catalogue plate carries cream paint. Exposed
+		# court iron uses the existing blackened finish at its same 0.4 m scale.
+		draw.material_override = MatLib.get_mat("iron_blackened" if key=="cast_iron" else key)
 		if str(draw.name).begins_with("LightCourtTransfer_"):
 			draw.create_trimesh_collision()
 	var construction: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/light_court_guards.json"))

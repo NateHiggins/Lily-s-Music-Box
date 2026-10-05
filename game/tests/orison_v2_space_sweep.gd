@@ -26,7 +26,8 @@ func _run() -> void:
 		for u in [.16,.33,.5,.67,.84]:
 			for v in [.16,.33,.5,.67,.84]:
 				var at := Vector3(lerpf(float(rect[0]),float(rect[2]),u),floor_y+.03,lerpf(float(rect[1]),float(rect[3]),v))
-				if _clear_station(world,at): candidates.append(at)
+				var fitted: Variant=_surface_station(world,at)
+				if fitted!=null: candidates.append(fitted)
 		entry["clear_stations"]=candidates.size()
 		if candidates.is_empty():
 			entry["status"]="no_clear_sampled_station_requires_review"
@@ -60,16 +61,20 @@ func _run() -> void:
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
 
-func _clear_station(world: OrisonV2RuntimeRoot, local: Vector3) -> bool:
+func _surface_station(world: OrisonV2RuntimeRoot, local: Vector3) -> Variant:
 	var root: Node3D = world.adapter.root
+	# The roof's fitted falling field rises above the retained structural
+	# datum. Sample the actual first walking surface before placing a capsule.
+	var ray := PhysicsRayQueryParameters3D.create(root.to_global(local+Vector3.UP*.35),root.to_global(local-Vector3.UP*.12),1,[world.player.get_rid()])
+	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
+	if hit.is_empty() or hit.normal.dot(root.global_basis.y)<=.9: return null
+	var feet: Vector3=root.to_local(hit.position)+Vector3.UP*.03
 	var shape := CapsuleShape3D.new()
 	shape.radius=PlayerController.BODY_RADIUS; shape.height=PlayerController.STANDING_HEIGHT
 	var query := PhysicsShapeQueryParameters3D.new()
 	query.shape=shape; query.collision_mask=1
-	query.transform=Transform3D(root.global_basis,root.to_global(local+Vector3.UP*(PlayerController.STANDING_HEIGHT*.5)))
+	query.transform=Transform3D(root.global_basis,root.to_global(feet+Vector3.UP*(PlayerController.STANDING_HEIGHT*.5)))
 	query.exclude=[world.player.get_rid()]
-	if not world.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return false
-	var ray := PhysicsRayQueryParameters3D.create(root.to_global(local+Vector3.UP*.1),root.to_global(local-Vector3.UP*.12),1,[world.player.get_rid()])
-	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
-	return not hit.is_empty() and hit.normal.dot(root.global_basis.y)>.9
+	if not world.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return null
+	return feet
 

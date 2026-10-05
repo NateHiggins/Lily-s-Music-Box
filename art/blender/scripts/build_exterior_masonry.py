@@ -6,6 +6,7 @@ outer-wall thickness outside it, with the same aperture roster and storeys.
 from pathlib import Path
 import json, math
 import bpy
+import hashlib
 
 ROOT=Path(__file__).resolve().parents[3]
 source=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text(encoding='utf-8'))
@@ -92,6 +93,7 @@ def subtract(rect,hole):
  return result
 
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+bpy.context.preferences.filepaths.save_version=0
 construction=bpy.data.collections.new('PreServiceMasonry')
 bpy.context.scene.collection.children.link(construction)
 construction.hide_render=True
@@ -118,6 +120,23 @@ def subtract_volume(bounds,cut):
         (x,v,c,u,e,f),(x,y,c,u,v,z),(x,y,w,u,v,f)]
  return [p for p in parts if all(p[i+3]-p[i]>1e-6 for i in range(3))]
 
+# At a setback, the next storey's outer leaf can sit inside the larger
+# ceiling slab below. That slab owns its full 200 mm volume and underside;
+# masonry starts at its top rather than emitting a competing brick soffit.
+# Subtract real ceiling ports first so service openings keep their owner.
+ceiling_volumes=[]
+for room in source['spaces']:
+ if room.get('no_ceiling') or room['id'] in ['F01_STREET_APRON','F01_REAR_APRON']:continue
+ rects=[room['rect']]
+ for opening in source.get('slab_openings',[]):
+  if opening['space']==room['id'] and opening['surface']=='Ceiling':
+   cut=opening['rect']
+   rects=[piece for original in rects for piece in subtract(original,(cut[0],cut[1],cut[2],cut[3]))]
+ y=levels[room['level']]+float(source['dimensions']['clear_height'])
+ for a,b,c,d in rects:ceiling_volumes.append(dict(owner=room['id'],bounds=(a,y,b,c,y+slab,d)))
+slab_fits=[]
+stock_bounds=[]
+
 def box(name,at,size,front=False,corner=False):
  bounds=tuple(at[i]-size[i]/2 for i in range(3))+tuple(at[i]+size[i]/2 for i in range(3))
  datum=bpy.data.objects.new(name+'_ConstructionBound',None)
@@ -125,12 +144,18 @@ def box(name,at,size,front=False,corner=False):
  datum.location=(at[0],-at[2],at[1]);datum.scale=(size[0],size[2],size[1])
  construction.objects.link(datum)
  parts=[bounds]
+ for ceiling in ceiling_volumes:
+  before=parts
+  parts=[p for original in parts for p in subtract_volume(original,ceiling['bounds'])]
+  if before!=parts:slab_fits.append(dict(stock=name,ceiling=ceiling['owner'],removed_m3=sum(math.prod(p[i+3]-p[i] for i in range(3)) for p in before)-sum(math.prod(p[i+3]-p[i] for i in range(3)) for p in parts)))
  for opening in source.get('masonry_service_openings',[]):
   assert opening['owner']=='ExteriorMasonry'
   parts=[p for original in parts for p in subtract_volume(original,opening['bounds'])]
  for index,p in enumerate(parts):
   center=tuple((p[i]+p[i+3])/2 for i in range(3));extent=tuple(p[i+3]-p[i] for i in range(3))
-  solid_piece(name if len(parts)==1 and parts[0]==bounds else name+f'_ServiceReveal{index:02d}',center,extent,front,corner)
+  label=name if len(parts)==1 and parts[0]==bounds else name+f'_FittedPiece{index:02d}'
+  obj=solid_piece(label,center,extent,front,corner)
+  stock_bounds.append(dict(name=obj.name,bounds=p))
 
 window_spans={};door_spans={}
 for edge in edges:
@@ -184,6 +209,11 @@ import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/exterior_masonry.glb'),export_format='GLB',export_yup=True,export_apply=True,export_tangents=True,use_selection=True)
 assert ExportUVHandedness.partitions==2
+
+(ROOT/'art/blender/exterior_masonry_slab_fit.json').write_text(json.dumps(dict(
+ evidence_class='INERT',source_sha256_lf=hashlib.sha256((ROOT/'game/data/orison_v2_blockout.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
+ ceiling_volumes=ceiling_volumes,slab_fits=slab_fits,stocks=stock_bounds,
+ removed_m3=sum(row['removed_m3'] for row in slab_fits)),indent=2)+'\n',encoding='utf-8',newline='\n')
 
 def dictionary(name,values):
  lines=[f'const {name} := {{']

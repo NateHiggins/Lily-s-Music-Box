@@ -3,6 +3,7 @@ static var _knob_mesh: Mesh
 static var _hinge_meshes: Dictionary = {}
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
+	"F01_INNER_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": ""},
 	"F01_REAR_SERVICE_DOOR": {"kind": "service", "swing_out": true, "unit": ""},
 	"F01_WATCH_MAIL_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
 	"F01_MAIL_PACKAGE_DOOR": {"kind": "service", "swing_out": false, "unit": ""},

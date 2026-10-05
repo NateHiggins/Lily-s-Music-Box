@@ -199015,6 +199015,96 @@
    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "5a901941d7fe039f",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_INNER_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "df988026e8ce30b0",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    6,
+    47,
+    47
+   ],
+   "count": 3,
+   "context": [
+    "var anchor:=world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D",
+    "if DoorKeyring.identity(door)!=\"F01_INNER_DOOR\" or DoorKeyring.book().locks.get(\"F01_INNER_DOOR\",true):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fba5dfabde313df4",
+   "kind": "node_path",
+   "token": "F01_INNER_DOOR_Leaf",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "var door:=anchor.get_node_or_null(\"F01_INNER_DOOR_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
