@@ -15,11 +15,14 @@ production-cutover blockers. These reports are INERT: publishing a
 refresh grants no new spatial, runtime or human proof. The fitted front
 façade's inspection captures and wrapper receipts grant no ledger promotion;
 the parked heating distribution has not been installed.
-The snapshot includes the test-written **front_facade_air_20261005** resident-key
+The snapshot includes the test-written **front_court_roof_20261005** resident-key
 runtime contract as scoped provenance. It establishes no whole-building or
-human acceptance claim and changes no requirement status. The earlier
-**front_facade_20261005** contract remains historical; its stale runtime-input
-binding is reported rather than rewritten.
+human acceptance claim and changes no requirement status. Its actual source is
+the roof-frame code commit **4979cfde**, whose runtime inputs and key test remain
+unchanged by the later soffit-test correction. The earlier **front_facade_20261005**
+and **front_facade_air_20261005** contracts remain historical; their stale input
+bindings are reported rather than rewritten. Roof-frame renders and the corrected
+soffit wrapper provide inspection evidence, without promoting ledger statuses.
 
 The ledger exists to make one confusion impossible: **"the accepted route
 works" is not "the complete building has been rebuilt."** It compares the
@@ -226,11 +229,11 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
   verbatim. What you must do is use **both** words of a two-word group:
   "coat storage and distribution" is not an entry, because nothing in it
   says privacy. This replaced contiguous-phrase containment, under which
-  `F02_B_VESTIBULE`'s real purpose, "2B privacy, coat storage and
+  **F02_B_VESTIBULE**'s real purpose, "2B privacy, coat storage and
   distribution", failed the phrase "privacy and distribution" over a comma
   and `unit.2B.entry` was reported ABSENT on a built, traversed and
   owner-accepted vestibule.
-- The floor/service program tables (`F01_PROGRAM`, `B1_PROGRAM`,
+- The floor/service program tables (**F01_PROGRAM**, **B1_PROGRAM**,
   `ROOF_PROGRAM`, `FLOOR_CIRCULATION`, via `match_purpose`) deliberately
   still use phrase containment: their keywords are single words or fixed
   compound names — "passenger lift", "primary stair", "service lift" —
@@ -253,7 +256,7 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
 ## Where the canon lives
 
 The requirement tables at the top of the tool (`CANON_FLOORS`,
-`UNIT_FUNCTIONS`, `F01_PROGRAM`, `B1_PROGRAM`, `ROOF_PROGRAM`,
+`UNIT_FUNCTIONS`, **F01_PROGRAM**, **B1_PROGRAM**, `ROOF_PROGRAM`,
 `FLOOR_CIRCULATION`, `SERVICE_SYSTEMS`, `RITUAL_IDENTITIES`,
 `UNIT_PREFIX_EXACT`, `V1_TO_V2_ALIASES`) are the reviewed machine encoding
 of `design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md`, the rebuild

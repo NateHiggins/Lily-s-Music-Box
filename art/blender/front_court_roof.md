@@ -55,3 +55,12 @@ native curb envelopes. The corrected inspection accounts for those exact
 source-owned shapes and checks every imported face within **20 microns**;
 other platforms retain the strict original single-box assertion. No production
 collision or underside-coverage tolerance changes for this test correction.
+
+Final canonical code comparison: **04aaeb37f224cb3e0df54af2d40645377ccbd05c** against the complete clean
+**764c33bd** board, **48** static gates/tools and **zero regressions**. The
+committed corrected soffit test passes **3,012** checks over **67** platforms,
+with no missing or duplicate underside. Production frame, façade, roof route
+and resident-key checks from **4979cfde** retain identical runtime inputs and
+unchanged test hashes. Full result and retained review:
+**design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md**. The exact key contract is
+copied unchanged; no wrapper is promoted to runtime proof.

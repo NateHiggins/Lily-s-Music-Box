@@ -39,6 +39,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |
 | Controlled front-façade air finish, current key contract and remaining roof lighting check | `design/V2_FRONT_FACADE_AIR_FINISH_2026-10-05.md` |
 | Fitted steel beneath the front-court roof and calibrated exterior soffit finish | `art/blender/front_court_roof.md` |
+| Verified front-court roof contacts, strict landing envelopes and current ledger provenance | `design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md` |
 | Source-fitted bar gallery, original atlas, seated picture attachments and retained observations | `art/blender/bar_gallery.md` |
 | Fitted Harukiya curtain folds, cloth-covered fascia and wall-supported rail | `art/blender/bar_stage.md` |
 | Quiet trowelled concrete/slab maps, physical height calibration and retained city geometry | `art/blender/concrete_trowelled.md` |
