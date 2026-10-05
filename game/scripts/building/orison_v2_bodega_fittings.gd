@@ -21,6 +21,12 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 		if row.id=="TEMPLATE_BODEGA_CELL_V1":template=row
 	var records: Dictionary={}
 	for row: Dictionary in template.boxes:records[str(row.id)]=row
+	var lettering: Label3D
+	for label: Label3D in shop.find_children("*","Label3D",true,false):
+		if str(label.get_meta("authored_record_id",""))=="counter_lettering":lettering=label
+	if lettering==null:
+		push_error("Bodega fittings: original counter lettering missing")
+		native.free();owner.free();return null
 	var retained: Dictionary={}
 	for identity: String in FABRICATION.REPLACE_IDS:
 		var row: Dictionary=records[identity]
@@ -67,6 +73,21 @@ static func mount(exterior: OrisonV2ExteriorCell, architecture: RefCounted) -> N
 					if str(spec.id)==str(row.material_id):tint=spec.albedo_rgba
 				mat.albedo_color=Color(tint[0],tint[1],tint[2],tint[3])
 			draw.material_override=mat
+	# Seat the existing words on the actual lower display fascia. The original
+	# oversized, double-sided label floated above the counter and read backwards
+	# through its glass. Source text/semantic identity stay with this same node.
+	owner.set_meta("retained_counter_lettering",{"text":lettering.text,"transform":lettering.transform})
+	lettering.text=lettering.text.replace("Â·","·")
+	var panel:=preload("res://scripts/building/orison_v2_bodega_frontage.gd").authored_mesh(shop,"counter_front_panel")
+	var panel_bounds: AABB=panel.transform*panel.mesh.get_aabb()
+	var font:=ThemeDB.fallback_font
+	var measured:=font.get_string_size(lettering.text,HORIZONTAL_ALIGNMENT_CENTER,-1,100)
+	lettering.font=font;lettering.font_size=100
+	lettering.pixel_size=minf((panel_bounds.size.x-.1)/maxf(measured.x,1.),.09/maxf(measured.y,1.))
+	lettering.position=Vector3(panel_bounds.get_center().x,(panel_bounds.position.y+.37)*.5,panel_bounds.end.z+.0015)
+	lettering.rotation=Vector3.ZERO;lettering.double_sided=false;lettering.outline_size=1
+	lettering.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	lettering.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
 	owner.set_meta("retained",retained)
 	var collision_fabric: Array[Dictionary]=[]
 	for shape: CollisionShape3D in shop.get_node("Collision").get_children():

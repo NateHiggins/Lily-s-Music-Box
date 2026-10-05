@@ -1319,8 +1319,9 @@
         "visible": true,
         "presentation_role": "environment"
       },
-      "stocks": 9,
+      "stocks": 12,
       "materials": [
+        "iron_blackened",
         "milk_glass",
         "porcelain",
         "brass"
@@ -1371,8 +1372,9 @@
         "visible": true,
         "presentation_role": "environment"
       },
-      "stocks": 9,
+      "stocks": 12,
       "materials": [
+        "iron_blackened",
         "milk_glass",
         "porcelain",
         "brass"
@@ -1423,8 +1425,9 @@
         "visible": true,
         "presentation_role": "environment"
       },
-      "stocks": 9,
+      "stocks": 12,
       "materials": [
+        "iron_blackened",
         "milk_glass",
         "porcelain",
         "brass"
@@ -5992,6 +5995,21 @@
       "key": "enamel"
     },
     {
+      "name": "ceiling_practical_front_MountingPan",
+      "assembly": "ceiling_practical_front",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_front_StandOff-0.55",
+      "assembly": "ceiling_practical_front",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_front_StandOff0.55",
+      "assembly": "ceiling_practical_front",
+      "key": "iron_blackened"
+    },
+    {
       "name": "ceiling_practical_front_Bulb0",
       "assembly": "ceiling_practical_front",
       "key": "milk_glass"
@@ -6062,6 +6080,21 @@
       "key": "enamel"
     },
     {
+      "name": "ceiling_practical_middle_MountingPan",
+      "assembly": "ceiling_practical_middle",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_middle_StandOff-0.55",
+      "assembly": "ceiling_practical_middle",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_middle_StandOff0.55",
+      "assembly": "ceiling_practical_middle",
+      "key": "iron_blackened"
+    },
+    {
       "name": "ceiling_practical_middle_Bulb0",
       "assembly": "ceiling_practical_middle",
       "key": "milk_glass"
@@ -6130,6 +6163,21 @@
       "name": "back_practical_shade_End0.719",
       "assembly": "back_practical_shade",
       "key": "enamel"
+    },
+    {
+      "name": "ceiling_practical_back_MountingPan",
+      "assembly": "ceiling_practical_back",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_back_StandOff-0.55",
+      "assembly": "ceiling_practical_back",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "ceiling_practical_back_StandOff0.55",
+      "assembly": "ceiling_practical_back",
+      "key": "iron_blackened"
     },
     {
       "name": "ceiling_practical_back_Bulb0",
@@ -6626,7 +6674,7 @@
       "visual_lock": true
     }
   },
-  "export_tangent_partitions": 89,
-  "native_sha256": "2cbd56e603a6f29722a42c21eeb58070e28269c5148e12339c6b4d8c013f4355",
-  "asset_sha256": "2c893c71e0bc70d608400ab055afc90757f9e6afaf7e89f9b5669d5422cb2652"
+  "export_tangent_partitions": 92,
+  "native_sha256": "d0403e541627fe3f07f3fa248b6fc4d55d1ede08e7033984c396e9ceb41682bf",
+  "asset_sha256": "d4f7fdd0d74b9ee5973f6f970fdf8e17d783df974fb4f27b1d4b63091dc50697"
 }

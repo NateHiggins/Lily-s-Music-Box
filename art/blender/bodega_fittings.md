@@ -13,9 +13,14 @@ Stock bases fit the actual shelf, sill or case shelf. Counter goods sit behind
 the original glass. The static icebox's glow backing sits inside its cavity.
 Shade shells leave bulbs visible below the retained ceiling plates. These
 adaptations preserve source-node transforms rather than moving authored anchors.
+Thin mounting pans and two short standoffs per practical meet the original
+screwed conduit drops. The actual imported contact test keeps its original
+one-millimetre tolerance. Existing counter words fit its lower display fascia
+as a single-sided Label3D, preserving the semantic owner and normalizing the
+inherited middle-dot encoding.
 
-The saved Blender file contains 957 closed positive construction stocks and
-58 installed assemblies, with 145,888 triangles. Every constituent has one
+The saved Blender file contains 966 closed positive construction stocks and
+58 installed assemblies. Every constituent has one
 **Metres** chart, source tint, unit normals and a tangent guide. Export projects
 the guide onto the actual normal and records the matching UV handedness. An
 explicit source-tint guide preserves the saved colours in the exported channel.

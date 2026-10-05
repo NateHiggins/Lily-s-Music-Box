@@ -260,6 +260,13 @@ for stem in ['front','middle','back']:
  for a,b in [(z,z+t),(Z-t,Z)]:box(identity+f'_Skirt{a}',(x,y,a),(X,Y-t,b),identity,'enamel',tint,bevel=.001)
  for a,b in [(x,x+t),(X-t,X)]:box(identity+f'_End{a}',(a,y,z+t),(b,Y-t,Z-t),identity,'enamel',tint,bevel=.001)
  identity='ceiling_practical_'+stem
+ # Retain the original screwed-conduit termination on the upper face. The
+ # visible bulbs sit below the hood; a real pan and two standoffs connect
+ # that new assembly to the existing drop rather than leaving it in air.
+ sx,sy,sz,sX,sY,sZ=bounds(rows[identity])
+ box(identity+'_MountingPan',(sx,sY-.012,sz),(sX,sY,sZ),identity,'iron_blackened',bevel=.001)
+ for xx in [sx+.075,sX-.075]:
+  rod(identity+f'_StandOff{xx}',(xx,Y-.002,(sz+sZ)*.5),(xx,sY-.010,(sz+sZ)*.5),.009,identity,'iron_blackened')
  for index in range(3):
   xx=x+(index+.5)*(X-x)/3;zz=(z+Z)*.5
   lathe(identity+f'_Bulb{index}',(xx,0,zz),[(y+.014,.012),(y+.021,.025),(y+.034,.037),(y+.053,.037),(y+.071,.023),(y+.078,.013)],identity,'milk_glass',n=28)
