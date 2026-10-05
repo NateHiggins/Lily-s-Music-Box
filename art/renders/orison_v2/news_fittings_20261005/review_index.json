@@ -1,0 +1,667 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "82d21cc782b35cef6f5c39cd37f7c02481cc089e",
+  "base": "60eab96ec9a99f99d6b92c1235cfa622fbc6289d",
+  "verification": "MERGE-CANDIDATE 82d21cc782b35cef6f5c39cd37f7c02481cc089e",
+  "source_records": 38,
+  "assemblies": 13,
+  "closed_stocks": 215,
+  "material_partitions": 37,
+  "triangles": 41656,
+  "source_supports": 25,
+  "removed_original_triangles": 456,
+  "native_views": 26,
+  "production_views": 9,
+  "direct_review": "All 26 final native and nine final production views reviewed on contact sheets; final cigar stock, stool and visible pipe display also inspected at full size. Service-frame production observation is oblique and does not prove a public transaction opening through retained glazing.",
+  "runtime_contract": "Exact test-written schema-2 receipt; only executed resident permission/key copy/save/denial/reconstruction scope.",
+  "limits": [
+    "No human or whole-V2 acceptance.",
+    "Functional cabinet, rear leaf and original shop/door/key/save authority retain their owners.",
+    "Continuous rear access, public service opening and independent utility continuity/capacity remain open.",
+    "Suite wrappers and photographs do not promote runtime requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "49b1e38e56d2b7f4d98052606d89adbed0389953db766a7725cc57b467b405bb",
+      "sha256": "49b1e38e56d2b7f4d98052606d89adbed0389953db766a7725cc57b467b405bb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "ce40f6c527b3f36e6cbdddc3b0c60b1facd2644a641ca3fdbddb9b0cf025e16f",
+      "sha256": "ce40f6c527b3f36e6cbdddc3b0c60b1facd2644a641ca3fdbddb9b0cf025e16f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/news-final-verified/verification.json",
+      "source_sha256": "e5623f24aa8bd01eed25d4979178739b95e9c39527e324cf9ccc0148fe0a091a",
+      "sha256": "e5623f24aa8bd01eed25d4979178739b95e9c39527e324cf9ccc0148fe0a091a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/60eab96e-clean-board.json",
+      "source_sha256": "d2fa69f3f788b19e0be9878ea8e907e9f2b4c7fa8a9c7378c4297b95c7ff8cb3",
+      "sha256": "d2fa69f3f788b19e0be9878ea8e907e9f2b4c7fa8a9c7378c4297b95c7ff8cb3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/news-native/inspection.json",
+      "source_sha256": "ee522ee137081128d1ca0fe6dc91124998def83c8e4694933727ed76dbe388e8",
+      "sha256": "ee522ee137081128d1ca0fe6dc91124998def83c8e4694933727ed76dbe388e8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/news_fittings_construction.json",
+      "source_sha256": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+      "sha256": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "183e7d9c3e6729c561b80f36bd4a5d453ab92240189df164e0c6f753550b88e6",
+      "sha256": "183e7d9c3e6729c561b80f36bd4a5d453ab92240189df164e0c6f753550b88e6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/views.json",
+      "source_sha256": "2b49bc8665c4e74710f6b44ebf6e4bd6c6795990ee724932e5c17b5535b2bd5c",
+      "sha256": "2b49bc8665c4e74710f6b44ebf6e4bd6c6795990ee724932e5c17b5535b2bd5c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar0_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar0_front.png",
+      "source_sha256": "0c9acdd4456cee4d0e8f5642a0b953259171f5b2adb338d5d6b8028a5bfd05b0",
+      "sha256": "cee0101cc14104a7009a998240a26a96d895c94c9714cdf9140a5eb19f21e3f4",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar0_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar0_rear.png",
+      "source_sha256": "ba75a02079739b4407aed1ad5fdbdbfc9eaf69789589f166c5bba7884e7c770a",
+      "sha256": "587299a772c1724dff9a56ec11a2e72d5bf4aee65eb3fbca49037865e144ee4a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar1_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar1_front.png",
+      "source_sha256": "1f21e8d35762db768ef50ff517642a6256bf1a9c7862f9ae61e123edfb307cff",
+      "sha256": "aaaeab7e6c49f74f80da11970f1e95b87d616a0a19a1d58aef2eb3c2fcb16777",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar1_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar1_rear.png",
+      "source_sha256": "7c7ae312ac11f395bebbdeb79cb1ea1c42f4216f3667b70f602fe9389b243319",
+      "sha256": "0a56f64397d847191e14e9267e7e0d959a90d81297d2c559cec653a2be1450aa",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar2_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar2_front.png",
+      "source_sha256": "82b790d6ec8bde11d49c672ea61e1a1d6ac81237031d9328865e12212ddd3ea1",
+      "sha256": "ceba464645eb8935fcb1bda2279026a85e505810ba2e79ccfef18f6e3e4d85e2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar2_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar2_rear.png",
+      "source_sha256": "3b1c368a9a91b29030010bdd68fc86132ba7f6660697ecc271474ae184d39971",
+      "sha256": "8a360f0858d00d2d9681055da316c40a89bda2ce4639b1998fde94d39da14105",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar3_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar3_front.png",
+      "source_sha256": "a4f597deeac7e98676e1fa3a92da097b2ce96586fe8f79589979232ac3f4e20a",
+      "sha256": "3e3c584d4147c1cf8ca9ad21f3718389ed351f3ef68794d81cb055fe60c6380b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_candy_jar3_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_candy_jar3_rear.png",
+      "source_sha256": "ed6cfd90e01ab1eb282ba49a51226593c4eb1f23ac57f54bfdf86b5c0f27bf63",
+      "sha256": "0d0dd7b65648b39baabd7487b63093811b7fde40d7ef0c267f2142b50887b519",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_chair_hollow_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_chair_hollow_front.png",
+      "source_sha256": "c2cc469f46fa0ee7a8391748ed3ef76e92f685267a0f2182c71b7eaedf54d024",
+      "sha256": "406e16926699a0ae2a6ac86398af22a232f672ba1656118c2b4b9562db0c2bd1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_chair_hollow_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_chair_hollow_rear.png",
+      "source_sha256": "bc7952d6d3cdf4ac98ec11551ca4d2636ca6232b262734a2caf5337b7c7060c0",
+      "sha256": "ea2ea1894c8422fa189329a5aa91829aee77c8d5a8f22f7051ddcc82a06b2fb0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_cigars_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_cigars_front.png",
+      "source_sha256": "09a3c604fe49452919a1509c7eb68039a2fd12096bd63eaa98b5e7cd2c73d694",
+      "sha256": "e5218c4284c110fe242a97d262ead4c23679500b779fa8c6206e79b00dbc07dc",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_cigars_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_cigars_rear.png",
+      "source_sha256": "4627cb2f91ef5b5f472dd5dbcb6bb6e5c981f09b0e4080323edd9dbc6d5d9856",
+      "sha256": "69d611413bf20e23ee54e5ba0e14fcd91107bf0d8dad00171ade021b227c8113",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_counter_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_counter_front.png",
+      "source_sha256": "f387ff13bc77a24d3867418f14deec3958aa74df3c606ce42f4dc0352394acfe",
+      "sha256": "7708928457d8c57e32466305c47869d44e634bf5acfde7e86d5ba3b5b6cae6ab",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_counter_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_counter_rear.png",
+      "source_sha256": "be51c260b9d0d024dc699e5a7f5b228f4318c3d56e86e12b8ee713bb8ba11439",
+      "sha256": "8cf0b97d88c2c80e461f300e901fa2d2a51ab99552fbdc026ab808c2b60e6c1b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_pipe_rack_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_pipe_rack_front.png",
+      "source_sha256": "ca2e280a842d9ed35ab80d529c2cc5d5ffe3589d8292dbf1dd72c50b7defd3a6",
+      "sha256": "cd9349a5aafb384fd9c027ed962e8af06d7690063489f3c01ba10cb641bf5c8d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_pipe_rack_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_pipe_rack_rear.png",
+      "source_sha256": "77f8971969a4c792024805f3b9b0dd91bdce8906c25fac964d006695da2b30c0",
+      "sha256": "52269464cb2aa6af897214f89cb1ecef52ff22d6f2cc14b3e1dd0b379dba70a1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_punchboard_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_punchboard_front.png",
+      "source_sha256": "f2c31b999b07fd343abf12ab64d9668300b5c14e621dd09e8ed42bfcf40f6f6d",
+      "sha256": "c39c8a441ebd296504dbc9eff6f167e2e7a530b55da696b69cbc791958890ba6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_punchboard_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_punchboard_rear.png",
+      "source_sha256": "cf539246a554d7ece321d46d8c62365c3094d34a60cb6ec7a9948aca0fa586c6",
+      "sha256": "cd359f2e4f2f46659e88a05215d8e176eceeeac600f59a8157b52bdb6ef7b6da",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_rack0_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_rack0_front.png",
+      "source_sha256": "9013e6aa52645e0dd15cad218b08f64e19bec01c63b3c78073f74664b73832cb",
+      "sha256": "842750333ca71c55ef90be43809266fe6d46051e01912a6d057df52b3e4346fb",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_rack0_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_rack0_rear.png",
+      "source_sha256": "ddb9dd5fec83f6b2473f77bebe07a71e812a502d8a7dda4ccbd9ff149ba9a09f",
+      "sha256": "3c32c2e7dea4e2fcb3c6e6427362cb2d8d7343d0b84ca496777ad0fe8e278857",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_service_hatch_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_service_hatch_front.png",
+      "source_sha256": "a6941989b2bc83f5a22c3e76df7321b2a33780b3a6d9b4e8660d5f34d2fedef0",
+      "sha256": "7add8b0edf66d199ad54a28a76ce63d123c3faa93e8ca9fdea9863b204c3dec0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_service_hatch_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_service_hatch_rear.png",
+      "source_sha256": "6b198464adcb24867003521c9afb4b0cedc1b7d15ceb01f4b55691ff2913e5d2",
+      "sha256": "6bc3443f0dd81f4f145d2ef1abf3a61ee62b7efaea253194c318b39f9b974f81",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_shelf0_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_shelf0_front.png",
+      "source_sha256": "415cbccc7a37295f1dc9955d7faaf733735e63517c88049fd28175270945c1d0",
+      "sha256": "21ccf5f898c4719f82a66d624e63044133e73f5bc4d22d06a470a54b29d50ac5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_shelf0_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_shelf0_rear.png",
+      "source_sha256": "5e0b2369acce164533a2b3c9475d09c44c35a126c0bb6bc0c3528b9987f3927b",
+      "sha256": "b8af34e0ef61705bbf2954f96f68d2aee5e33ce3d2a495adff4334fa76eb1052",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_stool_front.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_stool_front.png",
+      "source_sha256": "0b70c928d1f8ff20e0d37326033415d9908b434f77fdb439a1b869f83e72cce2",
+      "sha256": "0186fe3af5e7b2ba9d443d3e74f7adaa7a9b94266c88864084d34701372fc4ea",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_news_cigars_stool_rear.jpg",
+      "source": "tmp/v2-finish-review/news-native/storm_shop_news_cigars_stool_rear.png",
+      "source_sha256": "fd1829af4351271db3022d7d7aa267e54e6ec9990fc1616f1a6a806806b56eb6",
+      "sha256": "a3f47e3460c019aada82b17e8e6afc327ee79262c88f432c6cafdcbddb625def",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/candy_jars.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/candy_jars.png",
+      "source_sha256": "628bac3ba7ab1bfb2f405af1817968d8a537256f96b48981f1d85adc99736150",
+      "sha256": "1423d70b234dca1e2c02bab3daa815d62538f75be7a6981c6482f710dd248522",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/cigar_case.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/cigar_case.png",
+      "source_sha256": "73e3cd2e16068a5eb321cf1558860a9b920b570292c64cb16718fde2b4e773f4",
+      "sha256": "72828db6a7e5aa1e7f0319247a3e45f715018b227001f532dbd100509c3326ea",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/counter.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/counter.png",
+      "source_sha256": "a24e8aa1116f5c3e77e265b3e7d4e67cebfa671e4babcc9733d74d70cd1fb76d",
+      "sha256": "0fe8cd5e90433a5436434bf385c3c34f49eb200bd14488b25332ab909bec476a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/fitted_stool.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/fitted_stool.png",
+      "source_sha256": "4bbed6a88ba78e0d110550e43fa36002c97b2eb9fe1f93b4a2dbbff897a2d79f",
+      "sha256": "acc33471a9505f1ff954d7991ca355a94501ec8062dbf544a861016c9fc3c95b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/paper_rack.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/paper_rack.png",
+      "source_sha256": "90d9e495dfac03a61d1b8e690b45ccba3dc4a3fa2e564221279efddcb73690d1",
+      "sha256": "2020b789d2314bc02a0e694dbf98b53e893d0f53e7bb7883dd6aad505e348a20",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/pipe_rack.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/pipe_rack.png",
+      "source_sha256": "f355f50ddfa0723c053b19d57c4763e5db2630f0e80d78704973e75285ff247c",
+      "sha256": "9b7cbae8f7e86a1e5bd4fe314e00727533736a4063c97974b7cca6fd330c92dd",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/punchboard.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/punchboard.png",
+      "source_sha256": "4f6bc349bc82ee470f380fa3d2d0712bcc2a55d41e5d09c16f85adc419034c2d",
+      "sha256": "7277310fc1c33ac6229a678ea03f725fc3a74ce484ca53fdfc0352837d57f7cd",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/rear_shelves.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/rear_shelves.png",
+      "source_sha256": "ea592241d0edd1eb6fc5d6f12c55481bc51153959321f6391e46b51610e5f6c9",
+      "sha256": "158fa0bf98efeff1b92ebbe4bfa469dce48e949faafc1c959a8157e29cdfdcda",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/service_hatch.jpg",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed_shots/service_hatch.png",
+      "source_sha256": "a3d390aae67f3e1e812e31a2fdf85b6257a05f4c5557924f24353f97c4ba4980",
+      "sha256": "4a8f48610dfc427bb3d95524c506e4e1db2861356a215a4b4fc7f5b5e4100251",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_plain_alpha/cigar_case.jpg",
+      "source": "tmp/v2-finish-review/news-glass-fit/cigar_case.png",
+      "source_sha256": "e1e1ef6b3629b6a6e85a15bdef2863b9c4c104c6611b34e95c16d17ac05e4700",
+      "sha256": "bc9d5a266dddf6e3d28b76be885f281535a1a84aaa54ac224b406a0a83df8654",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_stool/stool.jpg",
+      "source": "tmp/v2-finish-review/news-glass-fit/retained_stool.png",
+      "source_sha256": "c712ddc2bb05507c6e8f0965985fb9a1264cd65361e17e1f8f4c0d41581f8e02",
+      "sha256": "5e1778bdbfd8bce58de9105b097429c856fa2b1d841a9ba3cfa6dc5230088336",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_pipe_fit/pipe_rack.jpg",
+      "source": "tmp/v2-finish-review/news-clear-stock/pipe_rack.png",
+      "source_sha256": "0aba9a68d1034cd9c249b8b53076ddcf096ffd7e2154122fecd8982efcc8cbde",
+      "sha256": "099f001ac11682d6402242d084060c6df596858c71c5e63460dd4f8c599a49d6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheets/01.jpg",
+      "sha256": "34ac11f2eb205e0c4fc98c3283cf5363a4764db538c3481ab24ba7061c04d963",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "native_sheets/02.jpg",
+      "sha256": "20e862209e3e87aba48b3854f96cd86ecf89f987973f38b2bae6431c13efc0a3",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "native_sheets/03.jpg",
+      "sha256": "9092017d3dc5f27a10cae3b1ab9ff4573df41b15c7c96e16de8717c1d1696611",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "native_sheets/04.jpg",
+      "sha256": "e078a12abbe96685e0f226529c262d81b5107420c951906ae7cc72bd3161717f",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheets/01.jpg",
+      "sha256": "a8224bb19d26ae8dd729c820c09da31882d68f4ce271259c7c87da0e933b3ba5",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheets/02.jpg",
+      "sha256": "031b25f9da6ae0533edde403a109aaf87a47625fcc0c1c764523b765cc94bb52",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "7c204826bee6588cf8dcf4b871c67ed0e37913daee7913f6d3fdebf77126c142",
+      "sha256": "7c204826bee6588cf8dcf4b871c67ed0e37913daee7913f6d3fdebf77126c142",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "be8f2804ce5236ddf2ce649eacb70ae1b7b1ccf2190bbdc22be2e70685a0d575",
+      "sha256": "be8f2804ce5236ddf2ce649eacb70ae1b7b1ccf2190bbdc22be2e70685a0d575",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source_sha256": "19c920f329914aa2424f70633c64a208cf6fbb031256b8ff5102f1c39caf78db",
+      "sha256": "19c920f329914aa2424f70633c64a208cf6fbb031256b8ff5102f1c39caf78db",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "cf1df6ba0b0373fe036c4907f1574d17f805526cd041eff63ec846086e14ca75",
+      "sha256": "cf1df6ba0b0373fe036c4907f1574d17f805526cd041eff63ec846086e14ca75",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source_sha256": "a19de60f37a512e92aa0838ac478c9e69c89efd690f9c2c6d980c7259e8ccd86",
+      "sha256": "a19de60f37a512e92aa0838ac478c9e69c89efd690f9c2c6d980c7259e8ccd86",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "73b2d5a63e6ff639b46f6e2e92bb5930250b5704de24510b32ae852483b5dac5",
+      "sha256": "73b2d5a63e6ff639b46f6e2e92bb5930250b5704de24510b32ae852483b5dac5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "e1c34dd7057bbc30c32d8dac1d95b38fa10a3ccd37054b5f5ead4c07045a8a0a",
+      "sha256": "e1c34dd7057bbc30c32d8dac1d95b38fa10a3ccd37054b5f5ead4c07045a8a0a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "988add5c574ed616f9c42896961bc326f6c4f1d820f5bb3b6b1407b9865ca88d",
+      "sha256": "988add5c574ed616f9c42896961bc326f6c4f1d820f5bb3b6b1407b9865ca88d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "484ab4af3f15feda14d4ef82c8f3b46a45c219ce361ad3f8a83d37d217e2f44b",
+      "sha256": "484ab4af3f15feda14d4ef82c8f3b46a45c219ce361ad3f8a83d37d217e2f44b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a346bd44acf14545bf56c01748a88cf0721450fc3c258ac5438fa3c755ef175e",
+      "sha256": "a346bd44acf14545bf56c01748a88cf0721450fc3c258ac5438fa3c755ef175e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "00128c3fb47085d9d08dc4a20e77ca22cdfd6569a8b2c059d3d9d54462e55fbc",
+      "sha256": "00128c3fb47085d9d08dc4a20e77ca22cdfd6569a8b2c059d3d9d54462e55fbc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "420c87ee800b87b168dac4cbb8a77c523fff88f5fc7c2ac2370ee20478a79590",
+      "sha256": "420c87ee800b87b168dac4cbb8a77c523fff88f5fc7c2ac2370ee20478a79590",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "e9f2c19c710cd7fef96a3a4ac2068df033696d512a5fe203752a314525551124",
+      "sha256": "e9f2c19c710cd7fef96a3a4ac2068df033696d512a5fe203752a314525551124",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "d74f1a787c628d6b7d1e449cb46d1c8266f768b0134d70ab5d9c4168f278614f",
+      "sha256": "d74f1a787c628d6b7d1e449cb46d1c8266f768b0134d70ab5d9c4168f278614f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "0393770a3399cb9ab9ceca63893dba5a8229f026dd2f513bcce85b00147a771f",
+      "sha256": "0393770a3399cb9ab9ceca63893dba5a8229f026dd2f513bcce85b00147a771f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "d4e1bda45bd6c2d2cdf12b7cc473f821f97763189066b110e78c7b00f32a444f",
+      "sha256": "d4e1bda45bd6c2d2cdf12b7cc473f821f97763189066b110e78c7b00f32a444f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "41d06f2fc9f3a4d7aacfdbe448af908273f7f199d6c187ebf6ef37a0a42e9094",
+      "sha256": "41d06f2fc9f3a4d7aacfdbe448af908273f7f199d6c187ebf6ef37a0a42e9094",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-native.log",
+      "source": "tmp/v2-finish-review/news-native.log",
+      "source_sha256": "cdf99a7c188224b4017b2d9d6320ff410b7bf07f65ff001df6ee23d4708ea676",
+      "sha256": "cdf99a7c188224b4017b2d9d6320ff410b7bf07f65ff001df6ee23d4708ea676",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-native-clear-stock.log",
+      "source": "tmp/v2-finish-review/news-native-clear-stock.log",
+      "source_sha256": "7d3569421a8ecfd7f0ccbbdd52942cc76b3010534d367f9f00a66005346e7241",
+      "sha256": "7d3569421a8ecfd7f0ccbbdd52942cc76b3010534d367f9f00a66005346e7241",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-initial.log",
+      "source": "tmp/v2-finish-review/news-initial.log",
+      "source_sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-initial.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-initial.log.receipt.json",
+      "source_sha256": "9eec8e6871de4081810536be497dd6b4cdd6cbfc11cc1303df1d695c18aa5ddd",
+      "sha256": "9eec8e6871de4081810536be497dd6b4cdd6cbfc11cc1303df1d695c18aa5ddd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-source-probe.log",
+      "source": "tmp/v2-finish-review/news-source-probe.log",
+      "source_sha256": "179740fcba882a054a96bc70458b9f9c73b992226cd30bf973ca5dac35032843",
+      "sha256": "179740fcba882a054a96bc70458b9f9c73b992226cd30bf973ca5dac35032843",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-source-probe.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-source-probe.log.receipt.json",
+      "source_sha256": "545f24cbf0f999603326d697c80cd6f5717a356f818f75f4a5a8289c19f4bd4c",
+      "sha256": "545f24cbf0f999603326d697c80cd6f5717a356f818f75f4a5a8289c19f4bd4c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-source-probe-fit.log",
+      "source": "tmp/v2-finish-review/news-source-probe-fit.log",
+      "source_sha256": "d910c81fd92b2d4a9a5944a4423ccb9ac7931372bb627627394d6b76773dca9c",
+      "sha256": "d910c81fd92b2d4a9a5944a4423ccb9ac7931372bb627627394d6b76773dca9c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-source-probe-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-source-probe-fit.log.receipt.json",
+      "source_sha256": "9dde7674004e6c006ff413859d2b019305d1e8df2ed2498820bf2ff19d13f51d",
+      "sha256": "9dde7674004e6c006ff413859d2b019305d1e8df2ed2498820bf2ff19d13f51d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-glass-fit.log",
+      "source": "tmp/v2-finish-review/news-glass-fit.log",
+      "source_sha256": "6e837dd9d8d1f458587f1047c6f00293f4979b6c3a6816ac473254738f82f878",
+      "sha256": "6e837dd9d8d1f458587f1047c6f00293f4979b6c3a6816ac473254738f82f878",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-glass-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-glass-fit.log.receipt.json",
+      "source_sha256": "248e8edbc2e13aa4b70b419a05dcf468df4c917f71010895118a880ac6378b81",
+      "sha256": "248e8edbc2e13aa4b70b419a05dcf468df4c917f71010895118a880ac6378b81",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-clear-stock.log",
+      "source": "tmp/v2-finish-review/news-clear-stock.log",
+      "source_sha256": "c01be9c3739f926ef24771dccde49d8612bfc2ed579cd7d0ba23d6061468deda",
+      "sha256": "c01be9c3739f926ef24771dccde49d8612bfc2ed579cd7d0ba23d6061468deda",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-clear-stock.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-clear-stock.log.receipt.json",
+      "source_sha256": "a223054fecdaeb9bb62ae7ea407248f185b0b84f659048b64afc87811dca5a39",
+      "sha256": "a223054fecdaeb9bb62ae7ea407248f185b0b84f659048b64afc87811dca5a39",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-visible-pipes.log",
+      "source": "tmp/v2-finish-review/news-visible-pipes.log",
+      "source_sha256": "ecd779c62043e991878fb7ca6ba6a017898ea55c7d4799c8f6a16cf5c3f64344",
+      "sha256": "ecd779c62043e991878fb7ca6ba6a017898ea55c7d4799c8f6a16cf5c3f64344",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-visible-pipes.log.receipt.json",
+      "source": "tmp/v2-finish-review/news-visible-pipes.log.receipt.json",
+      "source_sha256": "de6565f45770035cd6243da566dff2a6b9542fbac3ae6471e7f73e907712f8bb",
+      "sha256": "de6565f45770035cd6243da566dff2a6b9542fbac3ae6471e7f73e907712f8bb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-build-visible-pipes.log",
+      "source": "tmp/v2-finish-review/news-build-visible-pipes.log",
+      "source_sha256": "a92df3030cab70104bb1abb7811b6cbb64bec8f2a73780c8e25f31a6c86df9fd",
+      "sha256": "a92df3030cab70104bb1abb7811b6cbb64bec8f2a73780c8e25f31a6c86df9fd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-native-visible-pipes.log",
+      "source": "tmp/v2-finish-review/news-native-visible-pipes.log",
+      "source_sha256": "4f30b92ef332e9044d086b177e905e632661decb39a8ec9651b7515ba28d2377",
+      "sha256": "4f30b92ef332e9044d086b177e905e632661decb39a8ec9651b7515ba28d2377",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-final-reader.log",
+      "source": "tmp/v2-finish-review/news-final-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/news-final-spatial.log",
+      "source": "tmp/v2-finish-review/news-final-spatial.log",
+      "source_sha256": "141b27321791faadd11a694ca2c5a562222dcd4ab08e04d80284b4d1da4a1f40",
+      "sha256": "141b27321791faadd11a694ca2c5a562222dcd4ab08e04d80284b4d1da4a1f40",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/news-ledger-refresh.log",
+      "source_sha256": "d8bd78e616f121e51766371f9e213ebc2b79d27e5629bd271f7b169a230c60ab",
+      "sha256": "d8bd78e616f121e51766371f9e213ebc2b79d27e5629bd271f7b169a230c60ab",
+      "copy": "byte-identical"
+    }
+  ]
+}

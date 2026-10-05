@@ -1,0 +1,33 @@
+00:01.375  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\news_fittings.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_news_fittings.py:43: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:06.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_counter_front.png'
+00:10.688  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_counter_rear.png'
+00:15.110  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_rack0_front.png'
+00:19.438  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_rack0_rear.png'
+00:23.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_service_hatch_front.png'
+00:26.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_service_hatch_rear.png'
+00:37.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_cigars_front.png'
+00:48.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_cigars_rear.png'
+00:52.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_shelf0_front.png'
+00:56.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_shelf0_rear.png'
+01:01.500  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar0_front.png'
+01:06.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar0_rear.png'
+01:10.938  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar1_front.png'
+01:15.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar1_rear.png'
+01:20.469  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar2_front.png'
+01:25.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar2_rear.png'
+01:29.938  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar3_front.png'
+01:34.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_candy_jar3_rear.png'
+01:38.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_pipe_rack_front.png'
+01:42.391  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_pipe_rack_rear.png'
+01:46.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_punchboard_front.png'
+01:51.485  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_punchboard_rear.png'
+01:55.969  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_stool_front.png'
+02:00.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_stool_rear.png'
+02:04.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_chair_hollow_front.png'
+02:09.141  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\news-native\storm_shop_news_cigars_chair_hollow_rear.png'
+NEWS NATIVE QA 215 closed connected stocks; 13 joined assemblies; 26 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -212,9 +212,10 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (7):**
+**runtime receipts rejected (8):**
 
 - ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+- ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -555,6 +556,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/m11a_first_exterior_cell_01/scene_capture_receipt.json` sha256 `3c91391ef705607e...`
 - `art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/scene_capture_receipt.json` sha256 `b37cd4d362cc750a...`
 - `art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json` sha256 `472c33b61fc3cc5c...`
+- `art/renders/orison_v2/news_fittings_20261005/runtime_authority_receipt.json` sha256 `49b1e38e56d2b7f4...`
 - `design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md` sha256 `534567ba02295ef7...`
 - `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` sha256 `d4758366076e3309...`
 - `design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md` sha256 `6bbb9e719408adc9...`
@@ -586,4 +588,4 @@ Evidence class: **INERT**
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
 - `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `647c69823f22afe5...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `836c03ab9ffb20f7...`
