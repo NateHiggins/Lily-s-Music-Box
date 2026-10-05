@@ -199104,6 +199104,180 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "b61dba416237715b",
+   "kind": "generated_name",
+   "token": "_build_fixed_hardware",
+   "file": "game/scripts/building/orison_v2_bar_wc_door.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_fixed_hardware"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "\"SwingClear\"+group"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0ba658f34d9d0e80",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_wall_segment"
+   ],
+   "lines": [
+    759
+   ],
+   "count": 1,
+   "context": [
+    "if str(parent.name)==\"B1_BOILER_ROOM\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "db1a1731b3ebd6eb",
+   "kind": "id_reference",
+   "token": "B1_SHOP_STAIR_DOOR",
+   "file": "game/scripts/building/orison_v2_blockout.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_wall_segment"
+   ],
+   "lines": [
+    761
+   ],
+   "count": 1,
+   "context": [
+    "if str(door.id)!=\"B1_SHOP_STAIR_DOOR\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "99f3daa537206283",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_specs"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.level)==\"ROOF\": door.open_stop_degrees=100.0"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dca8974f32ce7405",
+   "kind": "id_reference",
+   "token": "B1_SHOP_STAIR_DOOR",
+   "file": "game/scripts/building/orison_v2_domestic_doors.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_specs"
+   ],
+   "lines": [
+    72
+   ],
+   "count": 1,
+   "context": [
+    "if identity==\"B1_SHOP_STAIR_DOOR\": door.open_stop_degrees=85.0"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "33e1ffb1a70cda9c",
+   "kind": "id_reference",
+   "token": "F01_BAR_WC_DOOR",
+   "file": "game/tests/orison_v2_door_fabric_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var wc: DoorProp=world.bar_region.doors[\"F01_BAR_WC_DOOR\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
   }
  ]
 }

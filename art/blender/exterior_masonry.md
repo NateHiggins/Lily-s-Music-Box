@@ -16,7 +16,7 @@ remains authoritative for deep service-chase windows. Frames and glazing move
 together. Door casings follow the installed depth; the outward rear service
 leaf pivots at the exterior face. Door behavior remains with its existing owner.
 
-The fitted export contains 9,480 triangles, 790 closed native stocks and two material surfaces using the existing runtime **brick** key,
+The fitted export contains 9,540 triangles, 795 closed native stocks and two material surfaces using the existing runtime **brick** key,
 with a restrained secondary tint. It has an active metre-based planar UV set;
 production materials use their existing physical triplanar scale. Each visible
 triangle assembly supplies its collision. This is structural fabrication with
@@ -38,7 +38,7 @@ actual stock names/bounds. **scripts/inspect_exterior_masonry.py** reopens the
 saved native file, checks every positive closed stock and its slab separation,
 and renders temporary retained-ceiling context. An optional **--before** native
 file enables a bidirectional occupied-cell comparison: the final masonry must
-equal the former masonry minus the retained ceilings. Production verification
+equal the former masonry minus the retained ceilings and the recorded rear-door corner clearance. Production verification
 also clips every imported masonry underside against the actual ceiling
 triangles, rather than accepting the source bounds as proof.
 
@@ -55,6 +55,13 @@ triangle winding; a thickened narrow slot blocked one bathroom window; a
 temporary diagnostic script had a type-inference error and timed out. None of
 those runs counts as acceptance. Final receipts must show completed checks.
 
-Remaining architectural work includes unified facade composition, setbacks and
-roof closures, all location transitions, service supports, and full composed
-city inspection. Follow **design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md**.
+The rear service leaf's original aperture overlaps a perpendicular masonry
+return. The final generator subtracts only the clipped quarter-turn leaf and
+hardware envelope from that return and its intersecting stocks. Source aperture,
+hinge, semantic owner and exterior exposed edge remain authoritative. The native
+inspection checks this bounded cut together with the retained slab cuts; the
+production door test samples the actual moving body throughout its motion.
+
+Composed inspection and remaining service/capacity work are tracked in
+**design/V2_CITYSCAPE_CONTINUATION_PROMPT_2026-10-01.md** and the current surface
+finish report; this native fabrication does not establish whole-V2 acceptance.

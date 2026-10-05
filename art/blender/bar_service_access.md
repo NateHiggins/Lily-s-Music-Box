@@ -3,13 +3,16 @@
 Evidence class: **INERT**
 
 The V2 bar keeps its original imported mesh, static collision, 29 source marker
-owners, three doors and 18 fixtures. No Blender geometry or material is replaced
-for this correction. The original 700 mm customer WC opening admits the 660 mm
-player capsule when the existing leaf clears the jamb at 145 degrees. Its usual
-100-degree pose projected enough of the leaf into the opening to stop passage.
+owners, three doors and 18 fixtures. The original 700 mm customer WC opening
+admits the 660 mm player capsule using the current native cranked hinge at a
+90-degree open stop. The earlier 145-degree adapter admitted walking but a
+later full-pose inspection exposed its wall overtravel; that historical route
+receipt does not establish current clearance.
 
-**orison_v2_bar_wc_door.gd** retains DoorProp's input, hinge setback, leaf,
-collision, tween and closed pose, overriding only the WC's open angle. No other
+**orison_v2_bar_wc_door.gd** retains DoorProp's input, leaf, collision, tween
+and closed world pose. The fitted axis moves 80 mm outboard and 40 mm toward
+the opening side; compensating child transforms preserve the original shut
+surfaces. Native fixed/moving hinge halves replace the WC's butt hardware. No other
 bar or building door uses the override. **orison_v2_bar_sink.gd** routes the
 retained sink's generated primary interaction area to TapProp's existing
 hot/mixed/off cycle; the inherited area handler only handled shower curtains.
@@ -19,7 +22,7 @@ The pool inspection volume now fits the source **retail_bar_pool_body** at
 source Godot **(-7.4,-1.95,31.25)**. Its retained helper predated the table's move
 to the west bay; the room, table, gameplay owner and inspection text are unchanged.
 
-**tmp/bar-access/route3.log.receipt.json** records 54 actual walking waypoints,
+The historical **tmp/bar-access/route3.log.receipt.json** records 54 actual walking waypoints,
 zero failures, ordinary input on both doors, all three tap states, actual ray
 closure from the swung leaf and the return to Orison. The route captures were
 inspected directly. Earlier failed discovery/test runs remain available and

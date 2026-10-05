@@ -3521,9 +3521,9 @@
       ]
     },
     {
-      "name": "F01_SERVICE_HALL_north.001",
+      "name": "F01_SERVICE_HALL_north_FittedPiece00",
       "bounds": [
-        9.355,
+        9.363151259959514,
         -0.20000000000000018,
         9.32,
         9.5,
@@ -3532,7 +3532,29 @@
       ]
     },
     {
-      "name": "F01_SERVICE_HALL_north.002",
+      "name": "F01_SERVICE_HALL_north_FittedPiece01",
+      "bounds": [
+        9.355,
+        -0.20000000000000018,
+        9.32,
+        9.363151259959514,
+        0.0,
+        9.530000000000001
+      ]
+    },
+    {
+      "name": "F01_SERVICE_HALL_north_FittedPiece02",
+      "bounds": [
+        9.355,
+        2.13,
+        9.32,
+        9.363151259959514,
+        3.0,
+        9.530000000000001
+      ]
+    },
+    {
+      "name": "F01_SERVICE_HALL_north.001",
       "bounds": [
         8.445,
         -0.2,
@@ -3543,7 +3565,7 @@
       ]
     },
     {
-      "name": "F01_SERVICE_HALL_north.003",
+      "name": "F01_SERVICE_HALL_north.002",
       "bounds": [
         8.445,
         2.13,
@@ -3642,13 +3664,46 @@
       ]
     },
     {
-      "name": "F01_SERVICE_CORE_west",
+      "name": "F01_SERVICE_CORE_west_FittedPiece00",
       "bounds": [
-        9.219999999999999,
+        9.363151259959514,
         -0.20000000000000018,
         9.25,
         9.43,
         3.0,
+        10.2
+      ]
+    },
+    {
+      "name": "F01_SERVICE_CORE_west_FittedPiece01",
+      "bounds": [
+        9.219999999999999,
+        -0.20000000000000018,
+        9.25,
+        9.363151259959514,
+        0.0,
+        10.2
+      ]
+    },
+    {
+      "name": "F01_SERVICE_CORE_west_FittedPiece02",
+      "bounds": [
+        9.219999999999999,
+        2.13,
+        9.25,
+        9.363151259959514,
+        3.0,
+        10.2
+      ]
+    },
+    {
+      "name": "F01_SERVICE_CORE_west_FittedPiece03",
+      "bounds": [
+        9.219999999999999,
+        0.0,
+        9.862862088729933,
+        9.363151259959514,
+        2.13,
         10.2
       ]
     },
@@ -11428,6 +11483,29 @@
         19.000000000000004,
         -0.31999999999999995
       ]
+    }
+  ],
+  "door_clearance_cuts": [
+    {
+      "owner": "F01_REAR_SERVICE_DOOR",
+      "bounds": [
+        9.15,
+        0.0,
+        9.25,
+        9.363151259959514,
+        2.13,
+        9.862862088729933
+      ]
+    }
+  ],
+  "door_corner_fits": [
+    {
+      "stock": "F01_SERVICE_HALL_north",
+      "removed_m3": 0.003646058579890296
+    },
+    {
+      "stock": "F01_SERVICE_CORE_west",
+      "removed_m3": 0.18686911779002424
     }
   ],
   "removed_m3": 6.056459999999997

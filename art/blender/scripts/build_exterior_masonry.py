@@ -136,6 +136,48 @@ for room in source['spaces']:
  for a,b,c,d in rects:ceiling_volumes.append(dict(owner=room['id'],bounds=(a,y,b,c,y+slab,d)))
 slab_fits=[]
 stock_bounds=[]
+door_corner_fits=[]
+door_clearance_cuts=[]
+
+def rear_leaf_corner_cut(bounds):
+ # Fit only the outer return that reaches into the original rear doorway.
+ # The source record owns its aperture, left hinge and outward quarter turn.
+ door=next(row for row in source['doors'] if row['id']=='F01_REAR_SERVICE_DOOR')
+ assert door['yaw']==0 and door['hinge']=='left' and door['swing']=='out'
+ x,z=door['center'];width=door['width'];pivot=(x-width/2,z+.026)
+ def clip(poly,axis,edge,greater):
+  result=[]
+  for a,b in zip(poly,poly[1:]+poly[:1]):
+   aa=(a[axis]>=edge) if greater else (a[axis]<=edge)
+   bb=(b[axis]>=edge) if greater else (b[axis]<=edge)
+   if aa:result.append(a)
+   if aa!=bb:
+    t=(edge-a[axis])/(b[axis]-a[axis])
+    result.append(tuple(a[i]+t*(b[i]-a[i]) for i in range(2)))
+  return result
+ points=[]
+ # 80 mm half-depth conservatively includes the retained knobs and braces.
+ for step in range(361):
+  angle=-math.pi*.5*step/360;co,si=math.cos(angle),math.sin(angle)
+  poly=[(pivot[0]+u*co+v*si,pivot[1]-u*si+v*co)
+        for u,v in [(0,-.08-.026),(width,-.08-.026),(width,.08-.026),(0,.08-.026)]]
+  for axis,edge,greater in [(0,bounds[0],True),(0,bounds[3],False),(1,bounds[2],True),(1,bounds[5],False)]:
+   poly=clip(poly,axis,edge,greater)
+   if not poly:break
+  points.extend(poly)
+ if not points:return None
+ floor=levels[door['level']]
+ return (max(bounds[0],min(p[0] for p in points)-.002),floor,
+         max(bounds[2],min(p[1] for p in points)-.002),
+         min(bounds[3],max(p[0] for p in points)+.002),floor+door['height'],
+         min(bounds[5],max(p[1] for p in points)+.002))
+
+rear_edge=next(edge for edge in edges if edge['room']=='F01_SERVICE_CORE' and edge['side']=='west')
+rear_bounds=(rear_edge['fixed']-inner-reach,levels[rear_edge['level']]-slab,rear_edge['start'],
+             rear_edge['fixed']-inner,levels[rear_edge['level']]+height-slab,rear_edge['end'])
+rear_clearance=rear_leaf_corner_cut(rear_bounds)
+assert rear_clearance is not None
+door_clearance_cuts.append(dict(owner='F01_REAR_SERVICE_DOOR',bounds=rear_clearance))
 
 def box(name,at,size,front=False,corner=False):
  bounds=tuple(at[i]-size[i]/2 for i in range(3))+tuple(at[i]+size[i]/2 for i in range(3))
@@ -151,6 +193,10 @@ def box(name,at,size,front=False,corner=False):
  for opening in source.get('masonry_service_openings',[]):
   assert opening['owner']=='ExteriorMasonry'
   parts=[p for original in parts for p in subtract_volume(original,opening['bounds'])]
+ before=parts
+ parts=[p for original in parts for p in subtract_volume(original,rear_clearance)]
+ removed=sum(math.prod(p[i+3]-p[i] for i in range(3)) for p in before)-sum(math.prod(p[i+3]-p[i] for i in range(3)) for p in parts)
+ if removed>1e-9:door_corner_fits.append(dict(stock=name,removed_m3=removed))
  for index,p in enumerate(parts):
   center=tuple((p[i]+p[i+3])/2 for i in range(3));extent=tuple(p[i+3]-p[i] for i in range(3))
   label=name if len(parts)==1 and parts[0]==bounds else name+f'_FittedPiece{index:02d}'
@@ -213,6 +259,7 @@ assert ExportUVHandedness.partitions==2
 (ROOT/'art/blender/exterior_masonry_slab_fit.json').write_text(json.dumps(dict(
  evidence_class='INERT',source_sha256_lf=hashlib.sha256((ROOT/'game/data/orison_v2_blockout.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
  ceiling_volumes=ceiling_volumes,slab_fits=slab_fits,stocks=stock_bounds,
+ door_clearance_cuts=door_clearance_cuts,door_corner_fits=door_corner_fits,
  removed_m3=sum(row['removed_m3'] for row in slab_fits)),indent=2)+'\n',encoding='utf-8',newline='\n')
 
 def dictionary(name,values):

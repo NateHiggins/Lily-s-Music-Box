@@ -66,8 +66,10 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		var placeholder := anchor.get_node("Hinge")
 		anchor.remove_child(placeholder)
 		placeholder.free()
-		var door: DoorProp = (preload("res://scripts/building/orison_v2_vestibule_door.gd").new()
-				if identity=="F01_INNER_DOOR" else DoorProp.new())
+		var door: OrisonV2FittedDoor = (preload("res://scripts/building/orison_v2_vestibule_door.gd").new()
+				if identity=="F01_INNER_DOOR" else OrisonV2FittedDoor.new())
+		if str(record.level)=="ROOF": door.open_stop_degrees=100.0
+		if identity=="B1_SHOP_STAIR_DOOR": door.open_stop_degrees=85.0
 		door.knob_mesh=_knob_mesh
 		door.hinge_meshes=_hinge_meshes
 		door.name = identity + "_Leaf"

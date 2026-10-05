@@ -84,7 +84,7 @@ func _open_door(identity: String) -> bool:
 	await get_tree().create_timer(.6).timeout
 	var body := door.get_node_or_null("HingedLeaf") as AnimatableBody3D
 	return _require(door.open and body != null
-			and absf(body.rotation.y - deg_to_rad(-100.0 if door.swing_out else 100.0)) < .01,
+			and absf(body.rotation.y - door.motion_target_angle(true)) < .01,
 			"input opens physical leaf to its stop: " + identity)
 
 func _close_door(identity: String) -> bool:

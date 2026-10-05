@@ -65,8 +65,8 @@ func _route() -> void:
 	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
 	if not await _use(wc,wc.to_global(Vector3(wc.width*.5,1.15,0)),"wc_door"):return
 	await get_tree().create_timer(.6).timeout
-	if not _require(wc.open and absf(rad_to_deg(wc._body.rotation.y)-145.0)<.1,
-			"ordinary restroom input clears the retained jamb with a 145-degree opening"):return
+	if not _require(wc.open and absf(rad_to_deg(wc._body.rotation.y)-90.0)<.1,
+			"ordinary restroom input clears the retained jamb with a fitted quarter-turn hinge"):return
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,36.65)):return
 	await _capture("wc_inside",bar.to_global(Vector3(-10.1,-1.9,37.5)))
 	var sink = bar.actors.get_node("F01_BAR_WC_SINK_01")

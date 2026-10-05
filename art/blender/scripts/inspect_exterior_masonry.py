@@ -42,7 +42,7 @@ for obj in bpy.context.scene.objects:
 assert len(actual)==len(fixture['stocks'])
 cells=0
 if before:
-    old=np.asarray(before);new=np.asarray(actual);cuts=np.asarray([r['bounds'] for r in fixture['ceiling_volumes']])
+    old=np.asarray(before);new=np.asarray(actual);cuts=np.asarray([r['bounds'] for r in fixture['ceiling_volumes']]+[r['bounds'] for r in fixture.get('door_clearance_cuts',[])])
     # Partition each real stock at every intersecting old/new/slab boundary.
     # Midpoint occupancy then checks the entire orthogonal volume, including
     # both directions of the equality new = old minus retained ceilings.
@@ -63,7 +63,8 @@ if before:
         assert np.array_equal(present,was&~slab),points[present!=(was&~slab)][:5]
         cells+=len(points)
     removed=float(np.prod(old[:,3:]-old[:,:3],axis=1).sum()-np.prod(new[:,3:]-new[:,:3],axis=1).sum())
-    assert abs(removed-fixture['removed_m3'])<.0001,(removed,fixture['removed_m3'])
+    expected_removed=fixture['removed_m3']+sum(row['removed_m3'] for row in fixture.get('door_corner_fits',[]))
+    assert abs(removed-expected_removed)<.0001,(removed,expected_removed)
 
 # The generated volume table is checked against actual native bounds, not used
 # as a substitute for reopening the asset. The two previously competing lobby
@@ -97,6 +98,7 @@ for name,at,target in [('lobby',(3.67,4.71,1.44),(0,6.55,2.1)),('upper_home',(-8
     scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True)
 (out/'inspection.json').write_text(json.dumps(dict(evidence_class='INERT',closed_positive_stocks=len(actual),
     triangles=triangles,slab_interfaces=len(fixture['slab_fits']),removed_duplicate_volume_m3=fixture['removed_m3'],
+    removed_door_corner_volume_m3=sum(row['removed_m3'] for row in fixture.get('door_corner_fits',[])),
     compared_occupied_cells=cells,previous_native_sha256=hashlib.sha256(Path(options.before).read_bytes()).hexdigest() if options.before else None,
     native_sha256=hashlib.sha256((ROOT/'art/blender/exterior_masonry.blend').read_bytes()).hexdigest(),
     asset_sha256=hashlib.sha256((ROOT/'game/assets/props/exterior_masonry.glb').read_bytes()).hexdigest()),indent=2)+'\n')

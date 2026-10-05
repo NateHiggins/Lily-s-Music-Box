@@ -754,6 +754,38 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 	var size:=Vector3(finish-start,height,thickness) if axis=="x" else Vector3(thickness,height,finish-start)
 	var bounds:=AABB(at-size*.5,size)
 	var pieces: Array[AABB]=[bounds]
+	# This perpendicular corner stock reaches into the already-authored shop
+	# aperture. Fit that existing opening through the touching boiler return.
+	if str(parent.name)=="B1_BOILER_ROOM":
+		for door: Dictionary in layout.doors:
+			if str(door.id)!="B1_SHOP_STAIR_DOOR": continue
+			var yaw:=float(door.yaw)
+			var width:=float(door.width);var head:=float(door.height)
+			var aperture_size:=Vector3(absf(cos(yaw))*width+absf(sin(yaw))*thickness,
+					head,absf(sin(yaw))*width+absf(cos(yaw))*thickness)
+			var aperture_center:=Vector3(float(door.center[0]),float(level_y[str(door.level)])+head*.5,float(door.center[1]))
+			var aperture:=AABB(aperture_center-aperture_size*.5,aperture_size)
+			# Its source-owned outward leaf turns beside this perpendicular
+			# return. Include the retained hardware envelope, through 85 degrees.
+			var yaw_basis:=Basis(Vector3.UP,yaw)
+			var pivot:=Vector3(float(door.center[0]),0,float(door.center[1]))+yaw_basis*Vector3(-width*.5,0,.026)
+			var owner:=PackedVector2Array([Vector2(bounds.position.x,bounds.position.z),Vector2(bounds.end.x,bounds.position.z),Vector2(bounds.end.x,bounds.end.z),Vector2(bounds.position.x,bounds.end.z)])
+			var points: PackedVector2Array=[]
+			for step in range(341):
+				var basis:=Basis(Vector3.UP,yaw-deg_to_rad(float(step)*.25))
+				var footprint: PackedVector2Array=[]
+				for uv: Vector2 in [Vector2(0,-.106),Vector2(width,-.106),Vector2(width,.054),Vector2(0,.054)]:
+					var point:=pivot+basis*Vector3(uv.x,0,uv.y)
+					footprint.append(Vector2(point.x,point.z))
+				for intersection: PackedVector2Array in Geometry2D.intersect_polygons(footprint,owner):points.append_array(intersection)
+			if not points.is_empty():
+				var low:=points[0];var high:=points[0]
+				for point: Vector2 in points:
+					low=low.min(point);high=high.max(point)
+				aperture=aperture.merge(AABB(Vector3(low.x-.002,aperture.position.y,low.y-.002),Vector3(high.x-low.x+.004,head,high.y-low.y+.004)))
+			var remaining: Array[AABB]=[]
+			for piece: AABB in pieces:remaining.append_array(_subtract_box(piece,aperture))
+			pieces=remaining
 	for opening: Dictionary in layout.get("wall_service_openings",[]):
 		if str(opening.space)!=str(parent.name) or not node_name.begins_with("Wall"+str(opening.side).capitalize()): continue
 		var remaining: Array[AABB]=[]
