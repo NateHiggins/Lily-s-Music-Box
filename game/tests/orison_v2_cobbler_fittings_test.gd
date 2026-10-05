@@ -120,7 +120,7 @@ func _cobbler_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var floor: Dictionary=fixture.assemblies[0].floor
 	var r: Array=floor.rect
 	var observations: Array=[]
-	for view: Array in [["finisher",Vector3(7.6,0.03,46.8),Vector3(6.1,1.1,46.4)],["sewing",Vector3(7.2,0.03,48.05),Vector3(5.65,1.1,48)],["shoe_rack",Vector3(6.43,0.03,49.5),Vector3(7.4,1.25,50.05)],["last_rack",Vector3(7.9,0.03,47.8),Vector3(6.4,1,49.4)],["bench",Vector3(7.75,0.03,46.3),Vector3(7.1,1.02,45.1)],["counter",Vector3(8.85,0.03,47),Vector3(9.9,1.18,47.6)],["window_cabinet",Vector3(9.2,0.03,45.8),Vector3(10.5,0.74,46.7)],["rear_door",Vector3(5.7,0.03,49.5),Vector3(5.65,1.1,50.25)],["waiting_seat",Vector3(9.55,0.03,49.5),Vector3(9.2,0.5,50.1)]]:
+	for view: Array in [["floor_dust",Vector3(8.3,.03,46.95),Vector3(7.15,.018,47.3)],["finisher",Vector3(7.6,0.03,46.8),Vector3(6.1,1.1,46.4)],["sewing",Vector3(7.2,0.03,48.05),Vector3(5.65,1.1,48)],["shoe_rack",Vector3(6.43,0.03,49.5),Vector3(7.4,1.25,50.05)],["last_rack",Vector3(7.9,0.03,47.8),Vector3(6.4,1,49.4)],["bench",Vector3(7.75,0.03,46.3),Vector3(7.1,1.02,45.1)],["counter",Vector3(8.85,0.03,47),Vector3(9.9,1.18,47.6)],["window_cabinet",Vector3(9.2,0.03,45.8),Vector3(10.5,0.74,46.7)],["rear_door",Vector3(5.7,0.03,49.5),Vector3(5.65,1.1,50.25)],["waiting_seat",Vector3(9.55,0.03,49.5),Vector3(9.2,0.5,50.1)]]:
 		var preferred: Vector3=view[1];var selected:=preferred;var distance:=INF
 		if not _city_clear_station(world,cell.to_global(preferred)):
 			for u in range(1,25):

@@ -689,6 +689,20 @@
       "mat": "wood_dark",
       "batch": "shop_shoe_rebuilding",
       "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_shoe_rebuilding_dust_felt",
+      "rect": [
+        5.12,
+        -50.2,
+        9.28,
+        -45.0
+      ],
+      "z0": 0.012,
+      "h": 0.006,
+      "mat": "soot",
+      "batch": "shop_shoe_rebuilding",
+      "zone": "PASSAGE"
     }
   ],
   "assemblies": [
@@ -866,6 +880,25 @@
     {
       "id": "storm_shop_shoe_rebuilding_waiting_seat",
       "kind": "waiting_seat",
+      "cell": "shop_shoe_rebuilding",
+      "floor": {
+        "id": "storm_shop_shoe_rebuilding_floor",
+        "rect": [
+          5.0,
+          -50.300000000000004,
+          11.0,
+          -44.9
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_shoe_rebuilding",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_shoe_rebuilding_dust_felt",
+      "kind": "dust_field",
       "cell": "shop_shoe_rebuilding",
       "floor": {
         "id": "storm_shop_shoe_rebuilding_floor",
@@ -1362,7 +1395,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712138759399467
+      "volume_m3": 0.0007712138759429018
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_1_Lace0",
@@ -1398,7 +1431,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712126595358742
+      "volume_m3": 0.0007712126595358743
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_-1_Lace0",
@@ -1434,7 +1467,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712138354281914
+      "volume_m3": 0.0007712138354281916
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Lace0",
@@ -1542,7 +1575,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair3_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712129079558747
+      "volume_m3": 0.0007712129079458469
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair3_-1_Lace0",
@@ -1686,7 +1719,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair5_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712137299705506
+      "volume_m3": 0.0007712137299675951
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair5_-1_Lace0",
@@ -1758,7 +1791,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712136894584754
+      "volume_m3": 0.00077121368945552
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_-1_Lace0",
@@ -1866,7 +1899,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair7_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712133263877417
+      "volume_m3": 0.000771213326377714
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair7_1_Lace0",
@@ -1938,7 +1971,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair8_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.000771213358952528
+      "volume_m3": 0.0007712133589425003
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair8_1_Lace0",
@@ -2082,7 +2115,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair10_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712133870773956
+      "volume_m3": 0.0007712133870803507
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair10_1_Lace0",
@@ -3325,6 +3358,12 @@
       "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
       "key": "wood_dark",
       "volume_m3": 0.0006639612989541915
+    },
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt_Dust",
+      "assembly": "storm_shop_shoe_rebuilding_dust_felt",
+      "key": "soot",
+      "volume_m3": 0.12979199526405055
     }
   ],
   "contacts": [
@@ -4192,9 +4231,23 @@
       "cell": "shop_shoe_rebuilding",
       "key": "wood_dark",
       "triangles": 2068
+    },
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__north",
+      "assembly": "storm_shop_shoe_rebuilding_dust_felt",
+      "cell": "shop_shoe_rebuilding",
+      "key": "soot",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__south",
+      "assembly": "storm_shop_shoe_rebuilding_dust_felt",
+      "cell": "shop_shoe_rebuilding",
+      "key": "soot",
+      "triangles": 10
     }
   ],
-  "triangles": 117688,
+  "triangles": 117708,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -4514,6 +4567,30 @@
             "name": "storm_shop_shoe_rebuilding_waiting_seat__wood_dark",
             "key": "wood_dark",
             "tile": 0.6
+          },
+          {
+            "name": "storm_shop_shoe_rebuilding_dust_felt__soot__north",
+            "key": "soot",
+            "tile": 1.8,
+            "catalog_key": "smoked_plaster",
+            "tint": [
+              1.0,
+              0.82,
+              0.65,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_shoe_rebuilding_dust_felt__soot__south",
+            "key": "soot",
+            "tile": 1.8,
+            "catalog_key": "smoked_plaster",
+            "tint": [
+              1.0,
+              0.82,
+              0.65,
+              1.0
+            ]
           }
         ],
         "replace": [
@@ -5236,16 +5313,31 @@
               50.2
             ],
             "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_shoe_rebuilding_dust_felt",
+            "key": "soot",
+            "low": [
+              5.12,
+              0.012,
+              45.0
+            ],
+            "high": [
+              9.28,
+              0.018000000000000002,
+              50.2
+            ],
+            "expected_triangles": 12
           }
         ]
       }
     ]
   },
-  "asset_sha256": "c19f8ba4451c95a6efbe0fad5c277d70bb04c58ae695c19db25569e78dd05f0d",
+  "asset_sha256": "e1bee76bcb10aba1d88d72e2232f12d5aa44151e848a66ef30eed8f2038b07d7",
   "source_bindings": {
-    "art/data/cobbler_fittings/source_plan.json": "3bf730745fd57876588e9dfe8c848fb8e890069fe6178ea69cbc2976b85082ec",
+    "art/data/cobbler_fittings/source_plan.json": "3d44b78c79140f8fd13cf47f2a3d8dbcd8afbbb9fc58136199056f67ec1e71af",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_cobbler_fittings.py": "077076c0f9a74dd397c9b9043e30344e547e63e770a791d4ca6110ec442c03bb",
+    "art/blender/scripts/build_cobbler_fittings.py": "80bd35783fc2150e1c97516d9ae03fe5669c613a880df379423ad69f2121d851",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -5260,7 +5352,7 @@
     "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
     "art/textures/ai_materials/vinyl_oxblood_b/material.json": "6d7a9898677ab3dcf446956c2415d780e0c3feb9b07a4392331a8c8fed88ef30",
     "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
-    "art/textures/ai_materials/soot_b/material.json": "6f4a381680869b3475128a2083d2c9d1c520c9c794f9b790c98083d1e326fcbb",
+    "art/textures/procedural/smoked_plaster/material.json": "f31ddd634347304968119da2b1dc8e3f13ca3aeea7abc5f5233cb9a8b3ebbe5a",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
@@ -5291,9 +5383,9 @@
     "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
-    "game/assets/building/textures/T_ai_materials_soot_b_albedo.png": "cb5bc82e203c284d2e9d759efdb3ef33e4a545dd9cd475fa9edb3ba50b50c945",
-    "game/assets/building/textures/T_ai_materials_soot_b_rough.png": "88764d617de96951230fe0083d5c81404fc0b3e3286719161dd863d8a7d6c581",
-    "game/assets/building/textures/T_ai_materials_soot_b_normal.png": "6c588de9d7cab4120b8748dea60d22cf82ef3d00b340a02d7fab176ecba3ef50",
+    "game/assets/building/textures/T_ai_materials_smoked_plaster_albedo.png": "3d5e97ef41e8417e4c3406c61435d29ebc9e6fcdd12d6055f17e16689036eab5",
+    "game/assets/building/textures/T_ai_materials_smoked_plaster_rough.png": "04f6e1a1161a83686a470eca3292a9df0715918fd5e49b001e5a651b5b14e613",
+    "game/assets/building/textures/T_ai_materials_smoked_plaster_normal.png": "c573b7dcf7a3c3dd1de41bcbcba9f6e497ede308c9ba3c2c4977af7fc3016d0e",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
     "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
     "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
@@ -5308,7 +5400,7 @@
   },
   "open_work": [
     "Passive machinery: live motion, drive and utilities remain open.",
-    "Rear store, source dust patch and independent service continuity/capacity require separate checks.",
+    "Rear store, independent service continuity/capacity require separate checks.",
     "Human/whole-V2 acceptance and remaining arcade trades remain open."
   ]
 }

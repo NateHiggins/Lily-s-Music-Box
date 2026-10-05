@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "original_records": 48,
+  "original_records": 49,
   "runtime_keys": [
     "wood_dark",
     "plywood",
@@ -19,7 +19,8 @@
   "catalog_variants": {
     "cast_iron": "iron_blackened",
     "rubber_aged": "rubber_aged",
-    "linen": "linen"
+    "linen": "linen",
+    "soot": "smoked_plaster"
   },
   "material_aliases": {
     "shoe_dark": "vinyl_oxblood"
@@ -30,6 +31,12 @@
       0.105,
       0.09,
       1
+    ],
+    "soot": [
+      1.0,
+      0.82,
+      0.65,
+      1.0
     ]
   },
   "trim_tolerance_m": 2e-05,
@@ -131,6 +138,12 @@
       "sources": [
         "storm_shop_shoe_rebuilding_waiting_seat"
       ]
+    },
+    {
+      "kind": "dust_field",
+      "sources": [
+        "storm_shop_shoe_rebuilding_dust_felt"
+      ]
     }
   ],
   "adaptations": [
@@ -141,11 +154,12 @@
     "The finisher is reflected within its existing native envelope so its working wheels/rests face the usable aisle. Source reference poses remain unchanged.",
     "The last rack is fitted 1.55 metres east within the existing shop floor to leave the rear service-door approach clear. The nine original last identities remain.",
     "The original aggregate sole stock becomes two stacked columns of fifty seven-millimetre leather blanks, with small alternating offsets to expose individual cut edges.",
-    "Each hollow upper has its own bounded collision/draw partition, retaining the original pair and shared shelf assembly owners."
+    "Each hollow upper has its own bounded collision/draw partition, retaining the original pair and shared shelf assembly owners.",
+    "The original leather-dust field retains its exact exterior volume and datum, locally replacing the coarse soot map with an existing fine-grain catalogue finish and bounded warm tint. One closed stock splits its outer faces into two bounded draws."
   ],
   "open_work": [
     "Passive machinery: live motion, drive and utilities remain open.",
-    "Rear store, source dust patch and independent service continuity/capacity require separate checks.",
+    "Rear store, independent service continuity/capacity require separate checks.",
     "Human/whole-V2 acceptance and remaining arcade trades remain open."
   ]
 }

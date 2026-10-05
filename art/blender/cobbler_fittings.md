@@ -2,17 +2,17 @@
 
 Evidence class: **INERT**
 
-Classification: **ADAPTATION**. The original shop supplies 48 selected records
-to ten assemblies: display cabinet, bench, finisher, paired-shoe shelves,
+Classification: **ADAPTATION**. The original shop supplies 49 selected records
+to eleven assemblies: display cabinet, bench, finisher, paired-shoe shelves,
 customer counter, outsole machine, treadle patcher, last rack, sole stock and
-waiting seat. Hidden native reference boxes keep every selected original id,
+waiting seat and the leather-dust cover. Hidden native reference boxes keep every selected original id,
 material and pose. The canonical imported cell and its unselected architecture,
-frontage, rear store and leather-dust patch remain under their existing owners.
+frontage and rear store remain under their existing owners.
 
-**build_cobbler_fittings.py** constructs 407 closed stocks, 44 independently
-bounded material partitions and 117,688 triangles. The saved native inspection
+**build_cobbler_fittings.py** constructs 408 closed stocks, 46 independently
+bounded material partitions and 117,708 triangles. The saved native inspection
 checks positive manifold connected stocks, one joined stock graph per assembly,
-current source/texture bindings and twenty front/rear render views. Every
+current source/texture bindings and twenty-two front/rear render views. Every
 selected source box contributes precisely twelve outward replacement faces;
 other packed source attributes and materials remain unchanged.
 
@@ -45,6 +45,14 @@ a bounded local dark tint, replacing their wooden grain. Existing catalogue
 No shared catalogue key changes. Metre UVs and compatible tangents remain local
 to each part; no bitmap lettering or embedded images are exported.
 
+The original leather-dust cover retains its exact rectangle, six-millimetre
+thickness and **0.018 metre** upper datum. Its former cracked surface becomes
+an explicit fine dry-particulate adaptation using existing **smoked_plaster**
+maps and a local warm tint. Two bounded partitions share one closed stock;
+the exterior geometry and all retained floor/cover contacts stay at their
+original coordinates. The native re-export is verified as a complete candidate,
+including the shoe partitions, rather than claiming byte-identical old meshes.
+
 Each hollow upper has its own finite draw/collision partition. Collar probes
 isolate that actual installed upper and use a long finite ray to require its
 inner floor, ownership and upward-facing normal. The earlier short query on
@@ -53,11 +61,11 @@ native rays independently located the correct cavity floor. Collision winding
 and support tolerances remain unchanged. **OrisonV2CobblerFittingsTest** also
 checks 37 actual retained floor/cover contacts, source triangle removal,
 imported UV bases, material maps, two clear 660 mm rear-approach standing
-capsules and nine device-hidden production views. Standing samples do not
+capsules and ten device-hidden production views. Standing samples do not
 prove a continuous rear route or operation of the retained source service leaf.
 
 Startup and streamed reload use the shared exact-boundary fitter. Native
 collision uses installed triangles without a retained native scene cache.
-Rear-store access, source leather-dust surface finish, live machinery, utility
+Rear-store access, live machinery, utility
 continuity/capacity and the remaining arcade trades remain open work. This
 guide and its renders grant no ledger or human acceptance.

@@ -268,6 +268,15 @@ for item in assemblies:
   feet(identity,row['rect'],.49,'wood_dark')
   box(identity+'_Seat',(x0,y0,.48),(x1,y1,.53),identity,'wood_dark',.006)
   for yy in [y0+.04,y1-.06]:box(identity+f'_Rail{yy}',(x0+.045,yy,.25),(x1-.045,yy+.02,.29),identity,'wood_dark')
+ elif kind=='dust_field':
+  # The retained deposit keeps its exact finite stock, source datum and
+  # outside faces. An outer-face split bounds each native draw below 5 m.
+  ys=[y0,(y0+y1)*.5,y1];verts=[(xx,yy,zz) for zz in [z,z+row['h']] for yy in ys for xx in [x0,x1]]
+  faces=[]
+  for j in range(2):
+   a=j*2;faces.extend([(a,a+2,a+3,a+1),(a+6,a+7,a+9,a+8),(a,a+6,a+8,a+2),(a+1,a+3,a+9,a+7)])
+  faces.extend([(0,1,7,6),(4,10,11,5)])
+  solid(identity+'_Dust',verts,faces,identity,'soot')
  else:raise ValueError(kind)
 
 # Fitted arrangement clears retained passage rather than accepting source
@@ -301,13 +310,16 @@ def partition_of(obj,key):
 draws=[];inventory=[];fallbacks=0;total_triangles=0
 for item in assemblies:
  identity=item['id'];keys=sorted({partition_of(obj,key) for obj,key in pieces[identity]});rect=item['body']['rect'];origin=np.array(((rect[0]+rect[2])*.5,(rect[1]+rect[3])*.5,item['body']['z0']))
+ if item['kind']=='dust_field':keys=['soot__north','soot__south']
  for part_key in keys:
   key=part_key.split('__')[0];vertices=[];faces=[]
   for obj,material_key in pieces[identity]:
-   if partition_of(obj,material_key)!=part_key:continue
+   if item['kind']!='dust_field' and partition_of(obj,material_key)!=part_key:continue
    # Sum in doubles before rebasing the assembled draw. World-coordinate
    # float32 addition otherwise collapses tiny bevel faces fifty metres out.
-   offset=len(vertices);vertices.extend(tuple(np.asarray(obj.location,dtype=np.float64)+np.asarray(v.co,dtype=np.float64)) for v in obj.data.vertices);faces.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons)
+   offset=len(vertices);vertices.extend(tuple(np.asarray(obj.location,dtype=np.float64)+np.asarray(v.co,dtype=np.float64)) for v in obj.data.vertices);faces.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons if item['kind']!='dust_field' or ((sum(float(obj.location.y)+float(obj.data.vertices[i].co.y) for i in face.vertices)/len(face.vertices)>=origin[1]) == part_key.endswith('north')))
+  if item['kind']=='dust_field':
+   used=sorted({i for face in faces for i in face});remap={i:j for j,i in enumerate(used)};vertices=[vertices[i] for i in used];faces=[tuple(remap[i] for i in face) for face in faces]
   name=identity+'__'+part_key;mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(np.asarray(p)-origin) for p in vertices],[],faces);mesh.update();mesh.materials.append(materials[key])
   bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
   uv=mesh.uv_layers.new(name='Metres');uv.active_render=True;guides=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER');normals=[None]*len(mesh.loops)
