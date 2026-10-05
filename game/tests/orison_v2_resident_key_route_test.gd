@@ -62,8 +62,7 @@ func _route() -> void:
 	for point in [Vector3(-13.4,3.2,2.5),Vector3(-10.5,3.2,2.5),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return
 	if not await _return_core(): return
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
-		if not await _walk(point): return
+	if not await _leave_front_entrance():return
 	var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),
 		Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,17.3),Vector3(14,0,20),
 		Vector3(14,0,27.5),Vector3(14,0,32)]

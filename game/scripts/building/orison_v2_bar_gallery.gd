@@ -2,6 +2,17 @@ extends RefCounted
 ## Source-bound bar context for the building's single picture-placement law.
 const DATA := "res://data/orison_v2/bar_gallery.json"
 
+class Reservations extends RefCounted:
+	# The gallery leases only the bands it added. Freeing its model releases
+	# these bands, including when a later fit refuses the off-tree cell.
+	var bands: Dictionary = {}
+	func _notification(what: int) -> void:
+		if what != NOTIFICATION_PREDELETE:return
+		for key: String in bands:
+			if not WallArtLaw._reserved.has(key):continue
+			for band: Dictionary in bands[key]:WallArtLaw._reserved[key].erase(band)
+			if WallArtLaw._reserved[key].is_empty():WallArtLaw._reserved.erase(key)
+
 static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(DATA))
 	var ctx:=context(layout)
@@ -69,6 +80,11 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 		var along:=(float(position[0])-float(rroom[0]))/(float(rroom[2])-float(rroom[0])) if north else (float(position[1])-float(rroom[1]))/(float(rroom[3])-float(rroom[1]))
 		var pose:=WallArtLaw.legal_spot(proxy,ctx.room,str(picture.wall),along,height,Callable(),half_width,half_height)
 		if not bool(pose.get("ok",false)) or Vector3(float(pose.x),float(pose.y),float(pose.height)+float(ctx.datum)).distance_to(_v(position))>.000003 or absf(angle_difference(float(pose.yaw),float(picture.yaw)))>.000003:WallArtLaw._reserved=before;model.free();return false
+	var reservations:=Reservations.new()
+	for key: String in WallArtLaw._reserved:
+		var added: Array=WallArtLaw._reserved[key].slice(before.get(key,[]).size())
+		if not added.is_empty():reservations.bands[key]=added.duplicate(true)
+	model.set_meta("picture_reservations",reservations)
 	for key: String in owners:
 		owners[key].hide()
 		for shape: CollisionShape3D in owners[key].find_children("*","CollisionShape3D",true,false):shape.disabled=true

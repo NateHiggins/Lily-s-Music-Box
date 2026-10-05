@@ -2,6 +2,11 @@
 
 Evidence class: **INERT**
 
+The gallery model leases only the wall-art bands it adds. Releasing that
+model removes its own bands, including when a later fit refuses an off-tree
+cell, so a saved-world reconstruction can place the same gallery again.
+Other residents' reserved bands remain owned by their original placers.
+
 Classification: **ADAPTATION**. All twenty-two original **retail_bar_gal**
 records remain unchanged in the layout and immutable imported bar cell. Eleven
 source projection overlaps included the dart scoreboard. New fitted positions

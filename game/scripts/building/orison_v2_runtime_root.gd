@@ -593,6 +593,7 @@ func _compose_exterior() -> bool:
 	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
 	city_shells.name = "CityShells"
 	add_child(city_shells)
+	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:

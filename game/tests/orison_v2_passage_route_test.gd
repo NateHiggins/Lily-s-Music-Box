@@ -13,9 +13,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders
 			and not world.shop_service.stock_record("carbon_transmitter_capsule").is_empty(),
 			"hardware stock uses initialized shared authorities"): return
-	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
-			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
-		if not await _walk(point): return
+	if not await _leave_front_entrance():return
 	var outward := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),
 		Vector3(14, -0.1, 8), Vector3(14, -0.1, 13.6), Vector3(14, 0, 15),
 		Vector3(14, 0, 17.3), Vector3(14, 0, 20), Vector3(14, 0, 27.5),

@@ -4,9 +4,7 @@ func _init() -> void:
 	route_label = "V2 STREET BOUNDARY ROUTE"
 
 func _route() -> void:
-	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5),
-			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
-		if not await _walk(point): return
+	if not await _leave_front_entrance():return
 	for point in [Vector3(0,0,3), Vector3(-10,0,3), Vector3(-19.2,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)): return
 	await _shot("west_timber", Vector3(-20.1,1.2,3))

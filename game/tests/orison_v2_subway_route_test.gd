@@ -4,8 +4,7 @@ func _init() -> void:
 	route_label = "V2 SUBWAY SIDEWALK"
 
 func _route() -> void:
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
-		if not await _walk(point): return
+	if not await _leave_front_entrance():return
 	for point in [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),
 			Vector3(14,-.1,13.6),Vector3(-1,-.1,13.6),Vector3(-1,0,15.3),Vector3(-.65,0,16)]:
 		if not await _walk_world(point): return

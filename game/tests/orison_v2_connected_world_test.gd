@@ -135,7 +135,13 @@ func _run() -> void:
 			_check(world.player.global_position.is_equal_approx(arrival.position), "first shift uses V2 arrival")
 			var ray := PhysicsRayQueryParameters3D.create(Vector3(0, 1.0, 1.0), Vector3(0, 1.0, -1.0))
 			ray.exclude = [world.player.get_rid()]
-			_check(world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(), "front portal ray is unobstructed")
+			var entry: DoorProp=world.adapter.resolve("F01_DOOR_06").get_node("F01_DOOR_06_Leaf")
+			_check(world.get_world_3d().direct_space_state.intersect_ray(ray).get("collider")==entry._body,"closed front portal is owned by the landmark leaf")
+			entry.npc_set_open(true)
+			for frame in 120:
+				await get_tree().physics_frame
+				if not entry._moving:break
+			_check(entry.is_ready_for_passage() and world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"operating landmark clears the front portal")
 			_check(exterior.service_counter("SHOP_BODEGA") != null, "bodega service counter is mounted")
 			var omar_radiator := world.find_child("F03_B_RADIATOR_01", true, false) as RadiatorProp
 			_check(omar_radiator != null and omar_radiator.unit == "3B"

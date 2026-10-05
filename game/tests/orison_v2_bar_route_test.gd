@@ -12,8 +12,7 @@ func _route() -> void:
 	var stair_light := bar.actors.get_node("F01_BAR_LT_STAIR") as LightFixtureProp
 	if not _require(AcousticGraphData.node_pos("F01_BAR_LT_STAIR").distance_to(stair_light.global_position)<.001,
 			"existing acoustic source follows the registered physical fixture"): return
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
-		if not await _walk(point): return
+	if not await _leave_front_entrance():return
 	# Cross east of the retained subway kiosk, then approach behind its rails.
 	var outward := [Vector3(0,0,3),Vector3(7,0,3),Vector3(7,0,4.2),
 		Vector3(7,-.1,8),Vector3(7,-.1,13.6),Vector3(7,0,15),

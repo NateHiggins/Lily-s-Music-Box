@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to know… | Read |
 |---|---|
+| Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Source-fitted bar gallery, original atlas, seated picture attachments and retained observations | `art/blender/bar_gallery.md` |
 | Fitted Harukiya curtain folds, cloth-covered fascia and wall-supported rail | `art/blender/bar_stage.md` |
 | Quiet trowelled concrete/slab maps, physical height calibration and retained city geometry | `art/blender/concrete_trowelled.md` |
