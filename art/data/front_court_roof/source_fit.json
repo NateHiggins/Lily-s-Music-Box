@@ -1,0 +1,49 @@
+{
+  "schema": "orison.front-court-roof.v1",
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "roof_underside": 19.0,
+  "girder_depth": 0.55,
+  "girder_width": 0.3,
+  "web_thickness": 0.016,
+  "flange_thickness": 0.022,
+  "bracket_projection": 0.4,
+  "bracket_width": 0.5,
+  "bracket_height": 0.86,
+  "beams": [
+    {
+      "z": -12.0,
+      "left": -5.32,
+      "right": 9.22,
+      "wall_owners": [
+        "F06_A_BATH",
+        "F06_D_RESTRICTED"
+      ]
+    },
+    {
+      "z": -8.1,
+      "left": -5.32,
+      "right": 8.02,
+      "wall_owners": [
+        "F06_A_PRIVATE_HALL",
+        "F06_SERVICE_HALL_SOUTH"
+      ]
+    },
+    {
+      "z": -4.2,
+      "left": -5.32,
+      "right": 8.02,
+      "wall_owners": [
+        "F06_A_PRIVATE_HALL",
+        "F06_SERVICE_HALL_SOUTH"
+      ]
+    }
+  ],
+  "bindings": {
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "game/scripts/generated/v2_exterior_masonry.gd": "42a4b03da8b3fa176c9f693fe87f5881c13203a0cc797a58178a0fd9de9cfc89",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78"
+  },
+  "limits": "Geometric support/finish fit only; retained roof bounds, thickness, walking surfaces, apertures and collision owners remain. No structural capacity or whole-building acceptance."
+}

@@ -198923,6 +198923,98 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "0d067115f9142d81",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/scripts/building/orison_v2_front_court_roof.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "if not str(space.id).begins_with(\"ROOF_DECK_\"):continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "92b149f58c4fe098",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/tests/orison_v2_front_court_roof_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    59,
+    62
+   ],
+   "count": 2,
+   "context": [
+    "check(not hit.is_empty() and str(hit.collider.get_path()).contains(\"ROOF_DECK_\") and root.to_local(hit.position).distance_to(at)<.00004,\"retained structural sla",
+    "if not str(space.id).begins_with(\"ROOF_DECK_\"):continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0859d373c67068c9",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK_",
+   "file": "game/tests/orison_v2_landing_soffit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    122
+   ],
+   "count": 1,
+   "context": [
+    "var finish_part: String=\"ExteriorSoffit\" if str(space.id).begins_with(\"ROOF_DECK_\") else \"Ceiling\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   }
  ]
 }

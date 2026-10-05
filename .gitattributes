@@ -450,3 +450,16 @@ game/tests/orison_v2_resident_key_route_test.gd -text
 art/renders/orison_v2/front_facade_20261005/** -text
 game/scripts/building/orison_v2_lamp_atmosphere.gd -text
 art/renders/orison_v2/front_facade_air_20261005/** -text
+art/data/front_court_roof/** -text
+art/blender/front_court_roof.blend binary
+art/blender/front_court_roof_inventory.json -text
+art/blender/scripts/prepare_front_court_roof.py -text
+art/blender/scripts/build_front_court_roof.py -text
+art/blender/scripts/inspect_front_court_roof.py -text
+game/assets/props/front_court_roof.glb binary
+game/assets/props/front_court_roof.glb.import -text
+game/tests/fixtures/orison_front_court_roof.json -text
+game/scripts/building/orison_v2_front_court_roof.gd -text
+game/scripts/building/orison_v2_architectural_materials.gd -text
+game/tests/orison_v2_front_court_roof_test.gd -text
+game/tests/orison_v2_landing_soffit_test.gd -text

@@ -20,6 +20,7 @@ func key_for(part: String, room_class: String) -> String:
 		if room_class in ["service", "unresolved"]: return "concrete"
 		return "floor_oak"
 	if part == "Ceiling": return "trim"
+	if part == "ExteriorSoffit": return "concrete"
 	if room_class == "wet": return "subway_tile"
 	if room_class == "service": return "concrete"
 	return "plaster_stained"
@@ -34,7 +35,7 @@ func material_for(part: String, room_class: String) -> Material:
 		return cache[key]
 	var family := "walls"
 	if part == "Floor": family = "floors"
-	elif part == "Ceiling": family = "ceiling"
+	elif part in ["Ceiling", "ExteriorSoffit"]: family = "ceiling"
 	elif key == "stair": family = "stairs"
 	elif key in ["trim", "wood_dark", "metal"]: family = "trim"
 	var recipe: Dictionary = {}

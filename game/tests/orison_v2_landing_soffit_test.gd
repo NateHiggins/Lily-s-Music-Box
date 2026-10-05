@@ -119,7 +119,8 @@ func _run() -> void:
 			if i%3<2:mapped=mapped and absf(vertices[i].distance_to(vertices[i+1])-uv[i].distance_to(uv[i+1]))<.00005
 		check(mapped,"room underside uses metre mapping and an orthogonal tangent basis: "+str(space.id))
 		check(draw.mesh.surface_get_material(0)==root.architectural_materials.material_for("Floor",str(space.get("class","unresolved"))),"room walking surface keeps its material: "+str(space.id))
-		check(draw.mesh.surface_get_material(1)==root.architectural_materials.material_for("Ceiling",str(space.get("class","unresolved"))),"room underside uses the existing ceiling finish: "+str(space.id))
+		var finish_part: String="ExteriorSoffit" if str(space.id).begins_with("ROOF_DECK_") else "Ceiling"
+		check(draw.mesh.surface_get_material(1)==root.architectural_materials.material_for(finish_part,str(space.get("class","unresolved"))),"room underside uses its source-appropriate finish: "+str(space.id))
 		check(draw.get_active_material(1)==draw.mesh.surface_get_material(1),"production rendering keeps the room's separate underside finish: "+str(space.id))
 		var pose:=root.global_transform.affine_inverse()*draw.global_transform
 		for index in range(0,vertices.size(),3):

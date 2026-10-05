@@ -248,6 +248,7 @@ func _compose_authorities() -> void:
 	preload("res://scripts/building/orison_v2_roof_public_weathering.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_roof_base_flashings.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_roof_membrane.gd").mount(_blockout)
+	preload("res://scripts/building/orison_v2_front_court_roof.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_foundations.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_ceiling_top_closures.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_ground_core_transfer.gd").mount(_blockout)
