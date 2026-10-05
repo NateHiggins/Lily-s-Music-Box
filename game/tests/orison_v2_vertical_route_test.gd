@@ -120,8 +120,10 @@ func _walk(local_target: Vector3) -> bool:
 ## Every street round now passes the same closed production landmark leaf.
 ## Use ordinary E input at the last interior stance before walking outside.
 func _leave_front_entrance() -> bool:
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5),Vector3(0,0,-10.2)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.1)]:
 		if not await _walk(point):return false
+	if not await _open_front_entrance("F01_INNER_DOOR"):return false
+	if not await _walk(Vector3(0,0,-10.2)):return false
 	if not await _open_front_entrance():return false
 	return await _walk(Vector3(0,0,-12.2))
 
@@ -129,16 +131,18 @@ func _leave_front_entrance() -> bool:
 func _enter_front_entrance() -> bool:
 	if not await _walk(Vector3(0,0,-13.15)):return false
 	if not await _open_front_entrance():return false
-	return await _walk(Vector3(0,0,-10.2))
+	if not await _walk(Vector3(0,0,-10.2)):return false
+	if not await _open_front_entrance("F01_INNER_DOOR"):return false
+	return await _walk(Vector3(0,0,-8.5))
 
-func _open_front_entrance() -> bool:
-	var anchor:=world.adapter.resolve("F01_DOOR_06") as Node3D
-	var door:=anchor.get_node("F01_DOOR_06_Leaf") as DoorProp
+func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:
+	var anchor:=world.adapter.resolve(identity) as Node3D
+	var door:=anchor.get_node(identity+"_Leaf") as DoorProp
 	if not door.open:
 		player.face_world_point(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)))
 		await get_tree().physics_frame;player.use_primary_interaction()
 		for frame in 120:
 			await get_tree().physics_frame
 			if not door._moving:break
-		if not door.is_ready_for_passage():failures.append("front landmark did not open through player input");return false
+		if not door.is_ready_for_passage():failures.append(identity+" did not open through player input");return false
 	return true

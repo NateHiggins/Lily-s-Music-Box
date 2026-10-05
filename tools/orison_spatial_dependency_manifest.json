@@ -198830,37 +198830,6 @@
    "target_exists": true
   },
   {
-   "key": "5c95c3f67e246a6c",
-   "kind": "node_path",
-   "token": "F01_DOOR_06_Leaf",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_leave_front_entrance"
-   ],
-   "lines": [
-    126
-   ],
-   "count": 1,
-   "context": [
-    "var door:=anchor.get_node(\"F01_DOOR_06_Leaf\") as DoorProp"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "SCENE_NODE_PATH",
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "c7ba91fe5572c709",
    "kind": "vector3_coordinate",
    "token": "_leave_front_entrance",
@@ -199105,6 +199074,36 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "2e46f8dab04f0aef",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/tests/orison_v2_vertical_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_leave_front_entrance",
+    "_enter_front_entrance"
+   ],
+   "lines": [
+    125,
+    135
+   ],
+   "count": 2,
+   "context": [
+    "if not await _open_front_entrance(\"F01_INNER_DOOR\"):return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
