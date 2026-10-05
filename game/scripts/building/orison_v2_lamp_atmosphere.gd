@@ -55,14 +55,16 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	volume = FogVolume.new()
 	volume.name = "CarriedLampAir"
 	volume.shape = RenderingServer.FOG_VOLUME_SHAPE_CONE
-	# Unchanged L1C production bounds, density and shader detail tier.
+	# Retain the L1C bounds and detail. With V2's useful primary-light output,
+	# the old air density formed an opaque amber veil in distant façade views.
+	# Paired renders at identical delivered output keep surface light intact.
 	# Godot's cone axis is local Y, apex at +Y. Rotate that apex toward
 	# lamp +Z so the cone extends forward along lamp -Z. World bounds stay
 	# 3.9 x 3.9 x 6.5 m; the old unrotated cone was perpendicular to the beam.
 	volume.size = Vector3(3.9,6.5,3.9)
 	material = ShaderMaterial.new()
 	material.shader = FOG_SHADER
-	material.set_shader_parameter("density_gain",.034)
+	material.set_shader_parameter("density_gain",.0085)
 	material.set_shader_parameter("detail_octaves",1.0)
 	volume.material = material
 	add_child(volume)

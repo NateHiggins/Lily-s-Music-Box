@@ -73,3 +73,10 @@ Scoped captures, native inspection and wrapper **suite_run** receipts are
 under **tmp/v2-facade**. They are inspection evidence and do not promote the
 completeness ledger. Wider façade finish review, full V2 acceptance and the
 parked heating shell-readiness work remain open.
+
+The wide street view exposed an amber veil from the carried lamp's participating
+air. Frozen-output street and vestibule comparisons isolate the density from
+electrical transients. V2's air density is reduced from **0.034** to **0.0085**;
+the delivered primary light, useful throw, field, particles and beam geometry
+retain their existing owners. This is a presentation adjustment, not new
+architectural or human acceptance evidence.
