@@ -1,0 +1,340 @@
+{
+  "schema": "orison.bar-stage.source-fit.v1",
+  "classification": "ADAPTATION",
+  "source_floor": "F01",
+  "sources": [
+    {
+      "id": "retail_bar_drape0",
+      "rect": [
+        -2.6,
+        -37.620000000000005,
+        -2.3600000000000003,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape1",
+      "rect": [
+        -2.3625000000000003,
+        -37.620000000000005,
+        -2.1225000000000005,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape2",
+      "rect": [
+        -2.125,
+        -37.620000000000005,
+        -1.885,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape3",
+      "rect": [
+        -1.8875000000000002,
+        -37.620000000000005,
+        -1.6475000000000002,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape4",
+      "rect": [
+        -1.6500000000000001,
+        -37.620000000000005,
+        -1.4100000000000001,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape5",
+      "rect": [
+        -1.4125,
+        -37.620000000000005,
+        -1.1725,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape6",
+      "rect": [
+        -1.1750000000000003,
+        -37.620000000000005,
+        -0.9350000000000003,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape7",
+      "rect": [
+        -0.9375000000000002,
+        -37.620000000000005,
+        -0.6975000000000002,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape8",
+      "rect": [
+        -0.7000000000000002,
+        -37.620000000000005,
+        -0.4600000000000002,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape9",
+      "rect": [
+        -0.46250000000000036,
+        -37.620000000000005,
+        -0.22250000000000036,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape10",
+      "rect": [
+        -0.2250000000000001,
+        -37.620000000000005,
+        0.014999999999999902,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape11",
+      "rect": [
+        0.012499999999999734,
+        -37.620000000000005,
+        0.2524999999999997,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape12",
+      "rect": [
+        0.24999999999999956,
+        -37.620000000000005,
+        0.48999999999999955,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape13",
+      "rect": [
+        0.4874999999999998,
+        -37.620000000000005,
+        0.7274999999999998,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape14",
+      "rect": [
+        0.7249999999999996,
+        -37.620000000000005,
+        0.9649999999999996,
+        -37.45
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_drape15",
+      "rect": [
+        0.9624999999999999,
+        -37.620000000000005,
+        1.2025,
+        -37.52
+      ],
+      "z0": -2.8,
+      "h": 2.35,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_pelmet",
+      "rect": [
+        -2.7,
+        -37.64,
+        1.3,
+        -37.4
+      ],
+      "z0": -0.5,
+      "h": 0.26,
+      "mat": "bar_wall_red"
+    }
+  ],
+  "wall": {
+    "id": "retail_bar_wall_s",
+    "rect": [
+      -11.5,
+      -38.199999999999996,
+      4.0,
+      -37.9
+    ],
+    "z0": -2.87,
+    "h": 2.72,
+    "mat": "bar_wall"
+  },
+  "dado": {
+    "id": "retail_bar_dado_s",
+    "rect": [
+      -11.5,
+      -37.9,
+      4.0,
+      -37.839999999999996
+    ],
+    "z0": -2.8,
+    "h": 1.05,
+    "mat": "concrete"
+  },
+  "floor": {
+    "id": "retail_bar_floor",
+    "rect": [
+      -11.8,
+      -38.199999999999996,
+      4.0,
+      -28.65
+    ],
+    "z0": -2.87,
+    "h": 0.07,
+    "mat": "quarry_tile"
+  },
+  "stage": {
+    "id": "retail_bar_stage",
+    "rect": [
+      -2.6,
+      -37.6,
+      1.2,
+      -36.2
+    ],
+    "z0": -2.8,
+    "h": 0.22,
+    "mat": "timber"
+  },
+  "markers": [
+    {
+      "kind": "speaker",
+      "id": "F01_KARAOKE_SPK_0",
+      "unit": "SITE",
+      "pos": [
+        -2.95,
+        -37.3,
+        -1.9
+      ],
+      "yaw_deg": 180,
+      "network": "electrical",
+      "exterior": true
+    },
+    {
+      "kind": "speaker",
+      "id": "F01_KARAOKE_SPK_1",
+      "unit": "SITE",
+      "pos": [
+        1.4500000000000002,
+        -37.3,
+        -1.9
+      ],
+      "yaw_deg": 180,
+      "network": "electrical",
+      "exterior": true
+    },
+    {
+      "kind": "neon_sign",
+      "id": "F01_BAR_STAGE_SIGN",
+      "pos": [
+        -0.7,
+        -37.550000000000004,
+        -0.3799999999999999
+      ],
+      "yaw_deg": 180,
+      "text": "HARUKIYA",
+      "vertical": false,
+      "tint": [
+        1.0,
+        0.86,
+        0.52
+      ],
+      "network": "electrical"
+    }
+  ],
+  "sign_bounds": [
+    [
+      -3.3325,
+      -37.82,
+      -1.4725
+    ],
+    [
+      1.9325,
+      -37.439999,
+      0.1875
+    ]
+  ],
+  "fit": {
+    "front_y": -37.838,
+    "depth_m": 0.039999999999997614,
+    "cloth_thickness_m": 0.002,
+    "floor_clearance_m": 0.01,
+    "rail_radius_m": 0.008,
+    "ring_radius_m": 0.012,
+    "ring_stock_m": 0.002,
+    "cloth_tint": [
+      0.6,
+      0.16,
+      0.2,
+      1.0
+    ]
+  },
+  "bindings": {
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+    "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+    "game/scripts/props/neon_sign_prop.gd": "4e82597de3a6e069278ea00040b202bee00516f8055311b7030f745b91c91ce9",
+    "game/tests/orison_v2_bar_stage_fit.gd": "2d9387c64a2e404799d2adb850b8ed0e0d8b2829615058935e9a5e0ef2ce117c",
+    "art/blender/scripts/prepare_bar_stage.py": "e99acabc7c5883f78a1e787ed5f6d27c189c652fcee1c9999f21c6f0ac4156d4"
+  }
+}

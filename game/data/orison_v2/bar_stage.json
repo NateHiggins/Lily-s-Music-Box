@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/bar_stage.glb",
+  "tolerance": 3e-05,
+  "cells": [
+    {
+      "id": "shop_bar",
+      "replace": [
+        {
+          "id": "retail_bar_drape0",
+          "key": "bar_wall_red",
+          "low": [
+            -2.6,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            -2.3600000000000003,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape1",
+          "key": "bar_wall_red",
+          "low": [
+            -2.3625000000000003,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            -2.1225000000000005,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape2",
+          "key": "bar_wall_red",
+          "low": [
+            -2.125,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            -1.885,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape3",
+          "key": "bar_wall_red",
+          "low": [
+            -1.8875000000000002,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            -1.6475000000000002,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape4",
+          "key": "bar_wall_red",
+          "low": [
+            -1.6500000000000001,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            -1.4100000000000001,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape5",
+          "key": "bar_wall_red",
+          "low": [
+            -1.4125,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            -1.1725,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape6",
+          "key": "bar_wall_red",
+          "low": [
+            -1.1750000000000003,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            -0.9350000000000003,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape7",
+          "key": "bar_wall_red",
+          "low": [
+            -0.9375000000000002,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            -0.6975000000000002,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape8",
+          "key": "bar_wall_red",
+          "low": [
+            -0.7000000000000002,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            -0.4600000000000002,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape9",
+          "key": "bar_wall_red",
+          "low": [
+            -0.46250000000000036,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            -0.22250000000000036,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape10",
+          "key": "bar_wall_red",
+          "low": [
+            -0.2250000000000001,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            0.014999999999999902,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape11",
+          "key": "bar_wall_red",
+          "low": [
+            0.012499999999999734,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            0.2524999999999997,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape12",
+          "key": "bar_wall_red",
+          "low": [
+            0.24999999999999956,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            0.48999999999999955,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape13",
+          "key": "bar_wall_red",
+          "low": [
+            0.4874999999999998,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            0.7274999999999998,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape14",
+          "key": "bar_wall_red",
+          "low": [
+            0.7249999999999996,
+            -2.8,
+            37.45
+          ],
+          "high": [
+            0.9649999999999996,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_drape15",
+          "key": "bar_wall_red",
+          "low": [
+            0.9624999999999999,
+            -2.8,
+            37.52
+          ],
+          "high": [
+            1.2025,
+            -0.44999999999999973,
+            37.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "retail_bar_pelmet",
+          "key": "bar_wall_red",
+          "low": [
+            -2.7,
+            -0.5,
+            37.4
+          ],
+          "high": [
+            1.3,
+            -0.24,
+            37.64
+          ],
+          "expected_triangles": 12
+        }
+      ],
+      "parts": [
+        {
+          "name": "Stage__fabric_warm",
+          "key": "fabric_warm",
+          "catalog_key": "fabric_warm",
+          "tile": 0.7,
+          "tint": [
+            0.6,
+            0.16,
+            0.2,
+            1.0
+          ]
+        },
+        {
+          "name": "Stage__iron_blackened",
+          "key": "iron_blackened",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4
+        },
+        {
+          "name": "Stage__wood_dark",
+          "key": "wood_dark",
+          "catalog_key": "wood_dark",
+          "tile": 1.2
+        }
+      ]
+    }
+  ]
+}

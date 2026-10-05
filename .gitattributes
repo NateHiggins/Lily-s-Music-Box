@@ -417,3 +417,15 @@ game/assets/props/bar_gallery.glb.import -text
 game/tests/fixtures/orison_bar_gallery.json -text
 art/blender/scripts/inspect_roof_drainage_retained_clearance.py -text
 art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py -text
+art/data/bar_stage/** -text
+art/blender/bar_stage.blend binary
+art/blender/bar_stage_inventory.json -text
+art/blender/scripts/prepare_bar_stage.py -text
+art/blender/scripts/build_bar_stage.py -text
+art/blender/scripts/inspect_bar_stage.py -text
+game/assets/props/bar_stage.glb binary
+game/assets/props/bar_stage.glb.import -text
+game/data/orison_v2/bar_stage.json -text
+game/tests/fixtures/orison_bar_stage.json -text
+game/tests/orison_v2_bar_stage_fit.gd -text
+game/scripts/props/neon_sign_prop.gd -text

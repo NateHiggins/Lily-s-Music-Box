@@ -71,6 +71,10 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native gallery does not match its retained source frames and shared picture law")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_stage.gd").mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native stage curtains do not fit their retained source boundaries")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})

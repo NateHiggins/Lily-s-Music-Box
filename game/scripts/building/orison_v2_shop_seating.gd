@@ -13,6 +13,9 @@ static func mount_laundry_apparatus(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 
+static func mount_bar_stage(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/bar_stage.json","BarStage","F01_retail_bar_stage_","bar_stage_part","shop_bar")
+
 static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "") -> bool:
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
