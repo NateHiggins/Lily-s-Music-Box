@@ -34,3 +34,18 @@ walking and collision geometry remain with their production owners.
 Final source revision, rendered comparisons, support checks and remaining
 findings belong in the management report. Broader V2 ledger completion and
 owner acceptance require their own evidence.
+
+The settled entrance comparison holds delivered lamp energy at 4.05554152
+and changes only participating-air density. At **.0085** the beam scatters an
+amber patch over the recessed brick above the awning. **.002** retains subtle
+air and the same surface illumination. The production binding uses **.002**;
+the electrical state, 4.2 rating, cone, dust, shadows and exposure owners stay
+with their existing implementations.
+
+Seven support suites exposed outdated fixture layout/native-export hashes.
+An independent comparison of five historical and current exports found all
+46,920 oriented triangles identical within a one-micrometre coordinate chart.
+The retained support plans and station coordinates are unchanged. Twelve
+fixture files renew 20 hash fields only; tolerances, checks, contact records
+and all other parsed values retain their previous values. The affected suites
+must pass against the current exports before this batch can be verified.

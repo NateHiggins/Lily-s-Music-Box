@@ -64,7 +64,7 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	volume.size = Vector3(3.9,6.5,3.9)
 	material = ShaderMaterial.new()
 	material.shader = FOG_SHADER
-	material.set_shader_parameter("density_gain",.0085)
+	material.set_shader_parameter("density_gain",.002)
 	material.set_shader_parameter("detail_octaves",1.0)
 	volume.material = material
 	add_child(volume)
