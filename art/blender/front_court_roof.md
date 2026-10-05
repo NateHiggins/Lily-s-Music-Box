@@ -47,3 +47,11 @@ Native and live inspection records are under **tmp/v2-facade/roof-frame-native**
 and **tmp/v2-facade/roof-frame-focused-v2**. The existing roof illumination
 failure, larger material review, building acceptance, utility completion and
 V1 retirement remain open.
+
+The first committed comparison passed the frame, façade, roof route and key
+contract, but the older soffit test still assumed one shape per platform body.
+The two published roof-door landings already retain their source boxes plus
+native curb envelopes. The corrected inspection accounts for those exact
+source-owned shapes and checks every imported face within **20 microns**;
+other platforms retain the strict original single-box assertion. No production
+collision or underside-coverage tolerance changes for this test correction.

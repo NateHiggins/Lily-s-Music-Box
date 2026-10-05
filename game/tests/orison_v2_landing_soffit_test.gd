@@ -14,6 +14,7 @@ func _run() -> void:
 	world.player.set_physics_process(false);world.player.set_lamp_enabled(false)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var root: Node3D=world.adapter.root
+	var roof_envelopes:=_roof_platform_envelopes(root)
 	var layout: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2_blockout.json"))
 	var levels: Dictionary={}
 	for level: Dictionary in layout.levels:levels[str(level.id)]=float(level.y)
@@ -54,7 +55,7 @@ func _run() -> void:
 			check(draw.mesh.surface_get_material(1)==root.architectural_materials.material_for("Ceiling",cls),"new underside uses the existing ceiling finish: "+str(platform.id))
 			check(draw.get_active_material(1)==draw.mesh.surface_get_material(1),"production rendering keeps the landing's separate underside finish")
 		var body:=draw.get_node("Collision") as StaticBody3D
-		check(body.get_child_count()==1 and body.get_child(0).shape is BoxShape3D,"retained platform keeps its original single box body")
+		_check_platform_shapes(body,str(platform.id),roof_envelopes.get(str(platform.id),[]))
 		var rect: Array=platform.rect
 		var underside: float=levels[str(platform.level)]-float(layout.dimensions.slab_thickness)
 		var body_shape:=body.get_child(0).shape as BoxShape3D
@@ -151,6 +152,49 @@ func _run() -> void:
 	for failure: String in failures:print("LANDING SOFFIT FAIL: ",failure)
 	world.shutdown_for_tests();world.free();await _retired_audio()
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _roof_platform_envelopes(root: Node3D) -> Dictionary:
+	# The two already-fitted roof-door landings retain their original boxes
+	# and add exact native curb envelopes under the same body owner.
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_roof_drainage_falls.json"))
+	var specs: Dictionary={}
+	for spec: Dictionary in fixture.door_fittings:specs[str(spec.id)]=spec
+	var result: Dictionary={}
+	for draw: MeshInstance3D in root.get_node("RoofFalls").find_children("*","MeshInstance3D",true,false):
+		var identity:=str(draw.name).split("__")[0]
+		var kind:=str(draw.name).split("__")[-1]
+		if kind!="InteriorPhysicalEnvelope":continue
+		check(specs.has(identity),"roof envelope retains its source door identity: "+identity)
+		if not specs.has(identity):continue
+		var owner: String=specs[identity].interior_floor_owner
+		var body:=root.get_node(owner+"/Collision") as StaticBody3D
+		var faces: PackedVector3Array=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh)
+		if not result.has(owner):result[owner]=[]
+		result[owner].append((body.global_transform.affine_inverse()*draw.global_transform)*faces)
+	check(result.size()==2,"both published roof-door landing envelopes are accounted")
+	return result
+
+func _check_platform_shapes(body: StaticBody3D,identity: String,envelopes: Array) -> void:
+	check(body.get_child_count()==1+envelopes.size() and body.get_child(0).shape is BoxShape3D,
+			"original platform box and only its source-bound native envelopes remain: "+identity)
+	var matched: Dictionary={}
+	for index in range(1,body.get_child_count()):
+		var shape_node:=body.get_child(index) as CollisionShape3D
+		check(shape_node!=null and shape_node.shape is ConcavePolygonShape3D,"added landing shape is its native envelope: "+identity)
+		if shape_node==null or not shape_node.shape is ConcavePolygonShape3D:continue
+		var actual: PackedVector3Array=shape_node.transform*(shape_node.shape as ConcavePolygonShape3D).get_faces()
+		var found:=-1
+		for candidate in envelopes.size():
+			if matched.has(candidate):continue
+			var expected: PackedVector3Array=envelopes[candidate]
+			if actual.size()!=expected.size():continue
+			var exact:=true
+			for vertex in actual.size():
+				if actual[vertex].distance_to(expected[vertex])>.00002:exact=false;break
+			if exact:found=candidate;break
+		check(found>=0,"every additional collision face matches its actual imported curb within 20 microns: "+identity)
+		if found>=0:matched[found]=true
+	check(matched.size()==envelopes.size(),"no source landing envelope is missing or duplicated: "+identity)
 
 func _capture_soffits(world: Node3D,root: Node3D) -> void:
 	var camera:=Camera3D.new();world.add_child(camera);camera.make_current();camera.fov=60
