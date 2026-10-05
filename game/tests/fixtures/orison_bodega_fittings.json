@@ -1,0 +1,6632 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_geometry_sha256_lf": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+  "assemblies": [
+    {
+      "id": "aisle_a_goods_low",
+      "source": {
+        "id": "aisle_a_goods_low",
+        "size_m": [
+          0.47,
+          0.25,
+          2.2
+        ],
+        "position_m": [
+          -0.75,
+          0.31,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "tinned_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 144,
+      "materials": [
+        "metal",
+        "paper",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "aisle_a_goods_high",
+      "source": {
+        "id": "aisle_a_goods_high",
+        "size_m": [
+          0.47,
+          0.23,
+          2.18
+        ],
+        "position_m": [
+          -0.75,
+          0.85,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 45,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "aisle_b_goods_low",
+      "source": {
+        "id": "aisle_b_goods_low",
+        "size_m": [
+          0.47,
+          0.24,
+          2.18
+        ],
+        "position_m": [
+          0.75,
+          0.3,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 45,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "aisle_b_goods_high",
+      "source": {
+        "id": "aisle_b_goods_high",
+        "size_m": [
+          0.47,
+          0.25,
+          2.2
+        ],
+        "position_m": [
+          0.75,
+          0.84,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "tinned_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 144,
+      "materials": [
+        "metal",
+        "paper",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "stock_counter_tins",
+      "source": {
+        "id": "stock_counter_tins",
+        "size_m": [
+          1.1,
+          0.18,
+          0.1
+        ],
+        "position_m": [
+          -1.25,
+          0.54,
+          -1.385
+        ],
+        "yaw_degrees": 0,
+        "material_id": "tinned_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 56,
+      "materials": [
+        "metal",
+        "paper",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "stock_counter_packets",
+      "source": {
+        "id": "stock_counter_packets",
+        "size_m": [
+          1.1,
+          0.16,
+          0.1
+        ],
+        "position_m": [
+          -1.25,
+          0.76,
+          -1.385
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 21,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_1_top_01",
+      "source": {
+        "id": "stock_aisle_1_top_01",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          -0.75,
+          1.22,
+          -5.02
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_1_top_02",
+      "source": {
+        "id": "stock_aisle_1_top_02",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          -0.75,
+          1.22,
+          -5.43
+        ],
+        "yaw_degrees": 0,
+        "material_id": "tinned_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 16,
+      "materials": [
+        "metal",
+        "paper",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "stock_aisle_1_top_03",
+      "source": {
+        "id": "stock_aisle_1_top_03",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          -0.75,
+          1.22,
+          -5.84
+        ],
+        "yaw_degrees": 0,
+        "material_id": "produce_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 44,
+      "materials": [
+        "timber",
+        "plant"
+      ]
+    },
+    {
+      "id": "stock_aisle_1_top_04",
+      "source": {
+        "id": "stock_aisle_1_top_04",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          -0.75,
+          1.22,
+          -6.25
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_cream",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_1_top_05",
+      "source": {
+        "id": "stock_aisle_1_top_05",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          -0.75,
+          1.22,
+          -6.66
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paint_blue",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_2_top_01",
+      "source": {
+        "id": "stock_aisle_2_top_01",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          0.75,
+          1.22,
+          -5.02
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_2_top_02",
+      "source": {
+        "id": "stock_aisle_2_top_02",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          0.75,
+          1.22,
+          -5.43
+        ],
+        "yaw_degrees": 0,
+        "material_id": "tinned_goods",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 16,
+      "materials": [
+        "metal",
+        "paper",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "stock_aisle_2_top_03",
+      "source": {
+        "id": "stock_aisle_2_top_03",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          0.75,
+          1.22,
+          -5.84
+        ],
+        "yaw_degrees": 0,
+        "material_id": "produce_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 44,
+      "materials": [
+        "timber",
+        "plant"
+      ]
+    },
+    {
+      "id": "stock_aisle_2_top_04",
+      "source": {
+        "id": "stock_aisle_2_top_04",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          0.75,
+          1.22,
+          -6.25
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_cream",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_aisle_2_top_05",
+      "source": {
+        "id": "stock_aisle_2_top_05",
+        "size_m": [
+          0.38,
+          0.22,
+          0.28
+        ],
+        "position_m": [
+          0.75,
+          1.22,
+          -6.66
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paint_blue",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 9,
+      "materials": [
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_left_window_crates",
+      "source": {
+        "id": "stock_left_window_crates",
+        "size_m": [
+          0.92,
+          0.55,
+          0.42
+        ],
+        "position_m": [
+          -1.3,
+          0.98,
+          -0.33
+        ],
+        "yaw_degrees": 0,
+        "material_id": "crate_wood",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 29,
+      "materials": [
+        "timber",
+        "paper"
+      ]
+    },
+    {
+      "id": "stock_right_window_baskets",
+      "source": {
+        "id": "stock_right_window_baskets",
+        "size_m": [
+          0.92,
+          0.48,
+          0.42
+        ],
+        "position_m": [
+          1.3,
+          0.95,
+          -0.33
+        ],
+        "yaw_degrees": 0,
+        "material_id": "produce_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "stock"
+      },
+      "stocks": 68,
+      "materials": [
+        "timber",
+        "plant"
+      ]
+    },
+    {
+      "id": "left_bulkhead",
+      "source": {
+        "id": "left_bulkhead",
+        "size_m": [
+          1.46,
+          0.76,
+          0.22
+        ],
+        "position_m": [
+          -1.28,
+          0.38,
+          0
+        ],
+        "yaw_degrees": 0,
+        "material_id": "bodega_enamel",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 2,
+      "materials": [
+        "enamel",
+        "oak_quartered"
+      ]
+    },
+    {
+      "id": "right_bulkhead",
+      "source": {
+        "id": "right_bulkhead",
+        "size_m": [
+          1.46,
+          0.76,
+          0.22
+        ],
+        "position_m": [
+          1.28,
+          0.38,
+          0
+        ],
+        "yaw_degrees": 0,
+        "material_id": "bodega_enamel",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 2,
+      "materials": [
+        "enamel",
+        "oak_quartered"
+      ]
+    },
+    {
+      "id": "aisle_a_body",
+      "source": {
+        "id": "aisle_a_body",
+        "size_m": [
+          0.52,
+          1.1,
+          2.45
+        ],
+        "position_m": [
+          -0.75,
+          0.55,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 9,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "aisle_b_body",
+      "source": {
+        "id": "aisle_b_body",
+        "size_m": [
+          0.52,
+          1.1,
+          2.45
+        ],
+        "position_m": [
+          0.75,
+          0.55,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 9,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "aisle_1_shelf_low",
+      "source": {
+        "id": "aisle_1_shelf_low",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          -0.75,
+          0.34,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_1_shelf_middle",
+      "source": {
+        "id": "aisle_1_shelf_middle",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          -0.75,
+          0.67,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_1_shelf_high",
+      "source": {
+        "id": "aisle_1_shelf_high",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          -0.75,
+          1.03,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_1_front_upright_left",
+      "source": {
+        "id": "aisle_1_front_upright_left",
+        "size_m": [
+          0.055,
+          1.2,
+          0.055
+        ],
+        "position_m": [
+          -0.99,
+          0.6,
+          -4.61
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "aisle_1_front_upright_right",
+      "source": {
+        "id": "aisle_1_front_upright_right",
+        "size_m": [
+          0.055,
+          1.2,
+          0.055
+        ],
+        "position_m": [
+          -0.51,
+          0.6,
+          -4.61
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "aisle_2_shelf_low",
+      "source": {
+        "id": "aisle_2_shelf_low",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          0.75,
+          0.34,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_2_shelf_middle",
+      "source": {
+        "id": "aisle_2_shelf_middle",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          0.75,
+          0.67,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_2_shelf_high",
+      "source": {
+        "id": "aisle_2_shelf_high",
+        "size_m": [
+          0.58,
+          0.045,
+          2.4
+        ],
+        "position_m": [
+          0.75,
+          1.03,
+          -5.82
+        ],
+        "yaw_degrees": 0,
+        "material_id": "shelf_steel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "aisle_2_front_upright_left",
+      "source": {
+        "id": "aisle_2_front_upright_left",
+        "size_m": [
+          0.055,
+          1.2,
+          0.055
+        ],
+        "position_m": [
+          0.51,
+          0.6,
+          -4.61
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "aisle_2_front_upright_right",
+      "source": {
+        "id": "aisle_2_front_upright_right",
+        "size_m": [
+          0.055,
+          1.2,
+          0.055
+        ],
+        "position_m": [
+          0.99,
+          0.6,
+          -4.61
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "counter_case",
+      "source": {
+        "id": "counter_case",
+        "size_m": [
+          1.55,
+          0.88,
+          1.15
+        ],
+        "position_m": [
+          -1.25,
+          0.44,
+          -2
+        ],
+        "yaw_degrees": 0,
+        "material_id": "oak_dark",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 8,
+      "materials": [
+        "wood_dark",
+        "oak_quartered"
+      ]
+    },
+    {
+      "id": "counter_front_panel",
+      "source": {
+        "id": "counter_front_panel",
+        "size_m": [
+          1.3,
+          0.48,
+          0.025
+        ],
+        "position_m": [
+          -1.25,
+          0.48,
+          -1.414
+        ],
+        "yaw_degrees": 0,
+        "material_id": "bodega_enamel",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 3,
+      "materials": [
+        "enamel"
+      ]
+    },
+    {
+      "id": "counter_top",
+      "source": {
+        "id": "counter_top",
+        "size_m": [
+          1.66,
+          0.09,
+          1.25
+        ],
+        "position_m": [
+          -1.25,
+          0.925,
+          -2
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "countertop"
+      ]
+    },
+    {
+      "id": "counter_scale_base",
+      "source": {
+        "id": "counter_scale_base",
+        "size_m": [
+          0.34,
+          0.1,
+          0.3
+        ],
+        "position_m": [
+          -0.93,
+          1.01,
+          -1.88
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 2,
+      "materials": [
+        "iron_blackened",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "counter_scale_column",
+      "source": {
+        "id": "counter_scale_column",
+        "size_m": [
+          0.07,
+          0.36,
+          0.07
+        ],
+        "position_m": [
+          -0.93,
+          1.2,
+          -1.88
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "counter_scale_head",
+      "source": {
+        "id": "counter_scale_head",
+        "size_m": [
+          0.28,
+          0.2,
+          0.12
+        ],
+        "position_m": [
+          -0.93,
+          1.38,
+          -1.88
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paper_cream",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 18,
+      "materials": [
+        "iron_blackened",
+        "nickel_plated",
+        "paper"
+      ]
+    },
+    {
+      "id": "delivery_crate_left_lower",
+      "source": {
+        "id": "delivery_crate_left_lower",
+        "size_m": [
+          0.72,
+          0.48,
+          0.7
+        ],
+        "position_m": [
+          -1.35,
+          0.24,
+          -9.62
+        ],
+        "yaw_degrees": 0,
+        "material_id": "crate_wood",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 20,
+      "materials": [
+        "timber"
+      ]
+    },
+    {
+      "id": "delivery_crate_left_upper",
+      "source": {
+        "id": "delivery_crate_left_upper",
+        "size_m": [
+          0.62,
+          0.4,
+          0.62
+        ],
+        "position_m": [
+          -1.34,
+          0.68,
+          -9.63
+        ],
+        "yaw_degrees": 0,
+        "material_id": "crate_wood",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 20,
+      "materials": [
+        "timber"
+      ]
+    },
+    {
+      "id": "delivery_crate_right",
+      "source": {
+        "id": "delivery_crate_right",
+        "size_m": [
+          0.62,
+          0.58,
+          0.58
+        ],
+        "position_m": [
+          1.45,
+          0.29,
+          -9.73
+        ],
+        "yaw_degrees": 0,
+        "material_id": "crate_wood",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 20,
+      "materials": [
+        "timber"
+      ]
+    },
+    {
+      "id": "cooler_body",
+      "source": {
+        "id": "cooler_body",
+        "size_m": [
+          0.7,
+          1.9,
+          1.6
+        ],
+        "position_m": [
+          1.55,
+          0.95,
+          -8.07
+        ],
+        "yaw_degrees": 0,
+        "material_id": "cooler_enamel",
+        "collision": true,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 8,
+      "materials": [
+        "enamel_appliance",
+        "zinc_liner"
+      ]
+    },
+    {
+      "id": "cooler_door_frame",
+      "source": {
+        "id": "cooler_door_frame",
+        "size_m": [
+          0.045,
+          1.7,
+          1.46
+        ],
+        "position_m": [
+          1.165,
+          1.04,
+          -8.07
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 4,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "cooler_inner_glow",
+      "source": {
+        "id": "cooler_inner_glow",
+        "size_m": [
+          0.025,
+          1.42,
+          1.18
+        ],
+        "position_m": [
+          1.145,
+          1.04,
+          -8.07
+        ],
+        "yaw_degrees": 0,
+        "material_id": "icebox_interior",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "enamel_appliance"
+      ]
+    },
+    {
+      "id": "cooler_handle",
+      "source": {
+        "id": "cooler_handle",
+        "size_m": [
+          0.055,
+          0.62,
+          0.055
+        ],
+        "position_m": [
+          1.12,
+          1.08,
+          -7.55
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 3,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "cooler_top_trim",
+      "source": {
+        "id": "cooler_top_trim",
+        "size_m": [
+          0.78,
+          0.1,
+          1.68
+        ],
+        "position_m": [
+          1.55,
+          1.94,
+          -8.07
+        ],
+        "yaw_degrees": 0,
+        "material_id": "limestone",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "enamel_appliance"
+      ]
+    },
+    {
+      "id": "cooler_base_trim",
+      "source": {
+        "id": "cooler_base_trim",
+        "size_m": [
+          0.78,
+          0.12,
+          1.68
+        ],
+        "position_m": [
+          1.55,
+          0.08,
+          -8.07
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "id": "shop_floor_joint_01",
+      "source": {
+        "id": "shop_floor_joint_01",
+        "size_m": [
+          4.02,
+          0.01,
+          0.035
+        ],
+        "position_m": [
+          0,
+          0.011,
+          -2.65
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "rubber_aged"
+      ]
+    },
+    {
+      "id": "shop_floor_joint_02",
+      "source": {
+        "id": "shop_floor_joint_02",
+        "size_m": [
+          4.02,
+          0.01,
+          0.035
+        ],
+        "position_m": [
+          0,
+          0.011,
+          -5.3
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "rubber_aged"
+      ]
+    },
+    {
+      "id": "shop_floor_joint_03",
+      "source": {
+        "id": "shop_floor_joint_03",
+        "size_m": [
+          4.02,
+          0.01,
+          0.035
+        ],
+        "position_m": [
+          0,
+          0.011,
+          -7.95
+        ],
+        "yaw_degrees": 0,
+        "material_id": "paving_joint",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 1,
+      "materials": [
+        "rubber_aged"
+      ]
+    },
+    {
+      "id": "front_practical_shade",
+      "source": {
+        "id": "front_practical_shade",
+        "size_m": [
+          1.45,
+          0.1,
+          0.38
+        ],
+        "position_m": [
+          0,
+          2.86,
+          -2
+        ],
+        "yaw_degrees": 0,
+        "material_id": "aged_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "enamel"
+      ]
+    },
+    {
+      "id": "ceiling_practical_front",
+      "source": {
+        "id": "ceiling_practical_front",
+        "size_m": [
+          1.25,
+          0.08,
+          0.2
+        ],
+        "position_m": [
+          0,
+          2.94,
+          -2
+        ],
+        "yaw_degrees": 0,
+        "material_id": "warm_practical",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 9,
+      "materials": [
+        "milk_glass",
+        "porcelain",
+        "brass"
+      ]
+    },
+    {
+      "id": "middle_practical_shade",
+      "source": {
+        "id": "middle_practical_shade",
+        "size_m": [
+          1.45,
+          0.1,
+          0.38
+        ],
+        "position_m": [
+          0,
+          2.86,
+          -5.35
+        ],
+        "yaw_degrees": 0,
+        "material_id": "aged_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "enamel"
+      ]
+    },
+    {
+      "id": "ceiling_practical_middle",
+      "source": {
+        "id": "ceiling_practical_middle",
+        "size_m": [
+          1.25,
+          0.08,
+          0.2
+        ],
+        "position_m": [
+          0,
+          2.94,
+          -5.35
+        ],
+        "yaw_degrees": 0,
+        "material_id": "warm_practical",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 9,
+      "materials": [
+        "milk_glass",
+        "porcelain",
+        "brass"
+      ]
+    },
+    {
+      "id": "back_practical_shade",
+      "source": {
+        "id": "back_practical_shade",
+        "size_m": [
+          1.45,
+          0.1,
+          0.38
+        ],
+        "position_m": [
+          0,
+          2.86,
+          -8.7
+        ],
+        "yaw_degrees": 0,
+        "material_id": "aged_green",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "enamel"
+      ]
+    },
+    {
+      "id": "ceiling_practical_back",
+      "source": {
+        "id": "ceiling_practical_back",
+        "size_m": [
+          1.25,
+          0.08,
+          0.2
+        ],
+        "position_m": [
+          0,
+          2.94,
+          -8.7
+        ],
+        "yaw_degrees": 0,
+        "material_id": "warm_practical",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 9,
+      "materials": [
+        "milk_glass",
+        "porcelain",
+        "brass"
+      ]
+    },
+    {
+      "id": "delivery_handcart_base",
+      "source": {
+        "id": "delivery_handcart_base",
+        "size_m": [
+          0.58,
+          0.12,
+          0.92
+        ],
+        "position_m": [
+          -0.76,
+          0.28,
+          -9.34
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 14,
+      "materials": [
+        "wood_dark",
+        "iron_blackened",
+        "rubber_aged",
+        "nickel_plated"
+      ]
+    },
+    {
+      "id": "delivery_handcart_back",
+      "source": {
+        "id": "delivery_handcart_back",
+        "size_m": [
+          0.58,
+          1.05,
+          0.08
+        ],
+        "position_m": [
+          -0.76,
+          0.75,
+          -9.76
+        ],
+        "yaw_degrees": 0,
+        "material_id": "iron",
+        "collision": false,
+        "visible": true,
+        "presentation_role": "environment"
+      },
+      "stocks": 5,
+      "materials": [
+        "iron_blackened",
+        "wood_dark"
+      ]
+    }
+  ],
+  "stocks": [
+    {
+      "name": "aisle_a_goods_low_Tin0",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand0",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim0_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim0_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin1",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand1",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim1_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim1_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin2",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand2",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim2_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim2_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin3",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand3",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim3_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim3_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin4",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand4",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim4_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim4_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin5",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand5",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim5_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim5_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin6",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand6",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim6_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim6_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin7",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand7",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim7_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim7_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin8",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand8",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim8_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim8_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin9",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand9",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim9_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim9_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin10",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand10",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim10_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim10_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin11",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand11",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim11_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim11_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin12",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand12",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim12_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim12_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin13",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand13",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim13_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim13_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin14",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand14",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim14_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim14_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin15",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand15",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim15_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim15_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin16",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand16",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim16_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim16_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin17",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand17",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim17_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim17_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin18",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand18",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim18_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim18_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin19",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand19",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim19_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim19_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin20",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand20",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim20_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim20_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin21",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand21",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim21_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim21_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin22",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand22",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim22_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim22_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin23",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand23",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim23_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim23_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin24",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand24",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim24_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim24_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin25",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand25",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim25_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim25_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin26",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand26",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim26_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim26_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin27",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand27",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim27_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim27_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin28",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand28",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim28_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim28_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin29",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand29",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim29_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim29_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin30",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand30",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim30_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim30_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin31",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand31",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim31_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim31_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin32",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand32",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim32_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim32_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin33",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand33",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim33_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim33_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin34",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand34",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim34_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim34_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_Tin35",
+      "assembly": "aisle_a_goods_low",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_a_goods_low_PaperBand35",
+      "assembly": "aisle_a_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim35_0.3650",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_low_RolledRim35_0.5950",
+      "assembly": "aisle_a_goods_low",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet0",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold0",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam0",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet1",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold1",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam1",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet2",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold2",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam2",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet3",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold3",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam3",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet4",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold4",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam4",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet5",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold5",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam5",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet6",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold6",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam6",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet7",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold7",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam7",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet8",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold8",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam8",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet9",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold9",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam9",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet10",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold10",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam10",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet11",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold11",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam11",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet12",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold12",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam12",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet13",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold13",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam13",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_Packet14",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_TopFold14",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_a_goods_high_BackSeam14",
+      "assembly": "aisle_a_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet0",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold0",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam0",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet1",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold1",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam1",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet2",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold2",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam2",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet3",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold3",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam3",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet4",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold4",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam4",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet5",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold5",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam5",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet6",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold6",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam6",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet7",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold7",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam7",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet8",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold8",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam8",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet9",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold9",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam9",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet10",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold10",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam10",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet11",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold11",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam11",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet12",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold12",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam12",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet13",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold13",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam13",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_Packet14",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_TopFold14",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_low_BackSeam14",
+      "assembly": "aisle_b_goods_low",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin0",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand0",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim0_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim0_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin1",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand1",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim1_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim1_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin2",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand2",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim2_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim2_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin3",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand3",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim3_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim3_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin4",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand4",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim4_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim4_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin5",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand5",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim5_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim5_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin6",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand6",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim6_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim6_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin7",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand7",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim7_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim7_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin8",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand8",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim8_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim8_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin9",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand9",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim9_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim9_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin10",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand10",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim10_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim10_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin11",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand11",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim11_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim11_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin12",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand12",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim12_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim12_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin13",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand13",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim13_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim13_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin14",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand14",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim14_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim14_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin15",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand15",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim15_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim15_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin16",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand16",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim16_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim16_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin17",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand17",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim17_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim17_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin18",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand18",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim18_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim18_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin19",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand19",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim19_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim19_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin20",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand20",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim20_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim20_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin21",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand21",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim21_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim21_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin22",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand22",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim22_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim22_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin23",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand23",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim23_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim23_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin24",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand24",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim24_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim24_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin25",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand25",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim25_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim25_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin26",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand26",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim26_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim26_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin27",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand27",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim27_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim27_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin28",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand28",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim28_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim28_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin29",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand29",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim29_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim29_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin30",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand30",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim30_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim30_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin31",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand31",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim31_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim31_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin32",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand32",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim32_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim32_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin33",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand33",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim33_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim33_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin34",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand34",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim34_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim34_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_Tin35",
+      "assembly": "aisle_b_goods_high",
+      "key": "metal"
+    },
+    {
+      "name": "aisle_b_goods_high_PaperBand35",
+      "assembly": "aisle_b_goods_high",
+      "key": "paper"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim35_0.6950",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "aisle_b_goods_high_RolledRim35_0.9250",
+      "assembly": "aisle_b_goods_high",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin0",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand0",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim0_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim0_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin1",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand1",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim1_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim1_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin2",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand2",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim2_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim2_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin3",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand3",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim3_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim3_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin4",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand4",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim4_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim4_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin5",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand5",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim5_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim5_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin6",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand6",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim6_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim6_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin7",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand7",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim7_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim7_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin8",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand8",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim8_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim8_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin9",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand9",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim9_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim9_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin10",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand10",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim10_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim10_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin11",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand11",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim11_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim11_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin12",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand12",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim12_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim12_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_Tin13",
+      "assembly": "stock_counter_tins",
+      "key": "metal"
+    },
+    {
+      "name": "stock_counter_tins_PaperBand13",
+      "assembly": "stock_counter_tins",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim13_0.4475",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_tins_RolledRim13_0.6225",
+      "assembly": "stock_counter_tins",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_counter_packets_Packet0",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold0",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam0",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet1",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold1",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam1",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet2",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold2",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam2",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet3",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold3",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam3",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet4",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold4",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam4",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet5",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold5",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam5",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_Packet6",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_TopFold6",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_counter_packets_BackSeam6",
+      "assembly": "stock_counter_packets",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_Packet0",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_TopFold0",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_BackSeam0",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_Packet1",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_TopFold1",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_BackSeam1",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_Packet2",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_TopFold2",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_01_BackSeam2",
+      "assembly": "stock_aisle_1_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_02_Tin0",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_1_top_02_PaperBand0",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim0_1.0550",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim0_1.2700",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_Tin1",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_1_top_02_PaperBand1",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim1_1.0550",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim1_1.2700",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_Tin2",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_1_top_02_PaperBand2",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim2_1.0550",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim2_1.2700",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_Tin3",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_1_top_02_PaperBand3",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim3_1.0550",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_02_RolledRim3_1.2700",
+      "assembly": "stock_aisle_1_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Base0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Base1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Base2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Base3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Front0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Back0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Left0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Right0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Front1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Back1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Left1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Right1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Front2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Back2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Left2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Right2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Corner-0.926_-5.966",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Corner-0.926_-5.728",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Corner-0.588_-5.966",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_Corner-0.588_-5.728",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageCore0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf0_0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf0_1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf0_2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf0_3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf0_4",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageCore1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf1_0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf1_1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf1_2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf1_3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf1_4",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageCore2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf2_0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf2_1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf2_2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf2_3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf2_4",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageCore3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf3_0",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf3_1",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf3_2",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf3_3",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_03_CabbageLeaf3_4",
+      "assembly": "stock_aisle_1_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_1_top_04_Packet0",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_TopFold0",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_BackSeam0",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_Packet1",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_TopFold1",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_BackSeam1",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_Packet2",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_TopFold2",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_04_BackSeam2",
+      "assembly": "stock_aisle_1_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_Packet0",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_TopFold0",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_BackSeam0",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_Packet1",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_TopFold1",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_BackSeam1",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_Packet2",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_TopFold2",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_1_top_05_BackSeam2",
+      "assembly": "stock_aisle_1_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_Packet0",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_TopFold0",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_BackSeam0",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_Packet1",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_TopFold1",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_BackSeam1",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_Packet2",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_TopFold2",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_01_BackSeam2",
+      "assembly": "stock_aisle_2_top_01",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_02_Tin0",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_2_top_02_PaperBand0",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim0_1.0550",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim0_1.2700",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_Tin1",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_2_top_02_PaperBand1",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim1_1.0550",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim1_1.2700",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_Tin2",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_2_top_02_PaperBand2",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim2_1.0550",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim2_1.2700",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_Tin3",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "metal"
+    },
+    {
+      "name": "stock_aisle_2_top_02_PaperBand3",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim3_1.0550",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_02_RolledRim3_1.2700",
+      "assembly": "stock_aisle_2_top_02",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Base0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Base1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Base2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Base3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Front0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Back0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Left0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Right0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Front1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Back1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Left1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Right1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Front2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Back2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Left2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Right2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Corner0.574_-5.966",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Corner0.574_-5.728",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Corner0.912_-5.966",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_Corner0.912_-5.728",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "timber"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageCore0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf0_0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf0_1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf0_2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf0_3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf0_4",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageCore1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf1_0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf1_1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf1_2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf1_3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf1_4",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageCore2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf2_0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf2_1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf2_2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf2_3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf2_4",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageCore3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf3_0",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf3_1",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf3_2",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf3_3",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_03_CabbageLeaf3_4",
+      "assembly": "stock_aisle_2_top_03",
+      "key": "plant"
+    },
+    {
+      "name": "stock_aisle_2_top_04_Packet0",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_TopFold0",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_BackSeam0",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_Packet1",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_TopFold1",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_BackSeam1",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_Packet2",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_TopFold2",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_04_BackSeam2",
+      "assembly": "stock_aisle_2_top_04",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_Packet0",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_TopFold0",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_BackSeam0",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_Packet1",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_TopFold1",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_BackSeam1",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_Packet2",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_TopFold2",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_aisle_2_top_05_BackSeam2",
+      "assembly": "stock_aisle_2_top_05",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_Base0",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Base1",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Base2",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Base3",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Front0",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Back0",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Left0",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Right0",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Front1",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Back1",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Left1",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Right1",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Front2",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Back2",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Left2",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Right2",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Corner-1.746_-0.526",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Corner-1.746_-0.148",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Corner-0.868_-0.526",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Corner-0.868_-0.148",
+      "assembly": "stock_left_window_crates",
+      "key": "timber"
+    },
+    {
+      "name": "stock_left_window_crates_Packet0",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_TopFold0",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_BackSeam0",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_Packet1",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_TopFold1",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_BackSeam1",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_Packet2",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_TopFold2",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_left_window_crates_BackSeam2",
+      "assembly": "stock_left_window_crates",
+      "key": "paper"
+    },
+    {
+      "name": "stock_right_window_baskets_Base0",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Base1",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Base2",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Base3",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Front0",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Back0",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Left0",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Right0",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Front1",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Back1",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Left1",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Right1",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Front2",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Back2",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Left2",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Right2",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Corner0.854_-0.526",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Corner0.854_-0.148",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Corner1.732_-0.526",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_Corner1.732_-0.148",
+      "assembly": "stock_right_window_baskets",
+      "key": "timber"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf0_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf0_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf0_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf0_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf0_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf1_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf1_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf1_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf1_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf1_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf2_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf2_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf2_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf2_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf2_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf3_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf3_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf3_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf3_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf3_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf4_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf4_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf4_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf4_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf4_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore5",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf5_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf5_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf5_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf5_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf5_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore6",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf6_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf6_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf6_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf6_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf6_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageCore7",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf7_0",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf7_1",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf7_2",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf7_3",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "stock_right_window_baskets_CabbageLeaf7_4",
+      "assembly": "stock_right_window_baskets",
+      "key": "plant"
+    },
+    {
+      "name": "left_bulkhead_Panel",
+      "assembly": "left_bulkhead",
+      "key": "enamel"
+    },
+    {
+      "name": "left_bulkhead_DisplayLedge",
+      "assembly": "left_bulkhead",
+      "key": "oak_quartered"
+    },
+    {
+      "name": "right_bulkhead_Panel",
+      "assembly": "right_bulkhead",
+      "key": "enamel"
+    },
+    {
+      "name": "right_bulkhead_DisplayLedge",
+      "assembly": "right_bulkhead",
+      "key": "oak_quartered"
+    },
+    {
+      "name": "aisle_a_body_RearStile-1.010",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_RearStile-0.517",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-1.010_low",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-0.517_low",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-1.010_middle",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-0.517_middle",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-1.010_high",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_Bearer-0.517_high",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_a_body_BaseTie",
+      "assembly": "aisle_a_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_RearStile0.490",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_RearStile0.983",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.490_low",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.983_low",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.490_middle",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.983_middle",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.490_high",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_Bearer0.983_high",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_b_body_BaseTie",
+      "assembly": "aisle_b_body",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_1_shelf_low_Deck",
+      "assembly": "aisle_1_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_low_Edge-1.04",
+      "assembly": "aisle_1_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_low_Edge-0.462",
+      "assembly": "aisle_1_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_low_End-7.0200000000000005",
+      "assembly": "aisle_1_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_low_End-4.622",
+      "assembly": "aisle_1_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_middle_Deck",
+      "assembly": "aisle_1_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_middle_Edge-1.04",
+      "assembly": "aisle_1_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_middle_Edge-0.462",
+      "assembly": "aisle_1_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_middle_End-7.0200000000000005",
+      "assembly": "aisle_1_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_middle_End-4.622",
+      "assembly": "aisle_1_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_high_Deck",
+      "assembly": "aisle_1_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_high_Edge-1.04",
+      "assembly": "aisle_1_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_high_Edge-0.462",
+      "assembly": "aisle_1_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_high_End-7.0200000000000005",
+      "assembly": "aisle_1_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_shelf_high_End-4.622",
+      "assembly": "aisle_1_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_1_front_upright_left_Post",
+      "assembly": "aisle_1_front_upright_left",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_1_front_upright_right_Post",
+      "assembly": "aisle_1_front_upright_right",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_2_shelf_low_Deck",
+      "assembly": "aisle_2_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_low_Edge0.46",
+      "assembly": "aisle_2_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_low_Edge1.038",
+      "assembly": "aisle_2_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_low_End-7.0200000000000005",
+      "assembly": "aisle_2_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_low_End-4.622",
+      "assembly": "aisle_2_shelf_low",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_middle_Deck",
+      "assembly": "aisle_2_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_middle_Edge0.46",
+      "assembly": "aisle_2_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_middle_Edge1.038",
+      "assembly": "aisle_2_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_middle_End-7.0200000000000005",
+      "assembly": "aisle_2_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_middle_End-4.622",
+      "assembly": "aisle_2_shelf_middle",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_high_Deck",
+      "assembly": "aisle_2_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_high_Edge0.46",
+      "assembly": "aisle_2_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_high_Edge1.038",
+      "assembly": "aisle_2_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_high_End-7.0200000000000005",
+      "assembly": "aisle_2_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_shelf_high_End-4.622",
+      "assembly": "aisle_2_shelf_high",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "aisle_2_front_upright_left_Post",
+      "assembly": "aisle_2_front_upright_left",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "aisle_2_front_upright_right_Post",
+      "assembly": "aisle_2_front_upright_right",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_case_Bottom",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_Left",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_Right",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_Back",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_FrontKick",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_FrontHead",
+      "assembly": "counter_case",
+      "key": "wood_dark"
+    },
+    {
+      "name": "counter_case_DisplayShelf0.445",
+      "assembly": "counter_case",
+      "key": "oak_quartered"
+    },
+    {
+      "name": "counter_case_DisplayShelf0.675",
+      "assembly": "counter_case",
+      "key": "oak_quartered"
+    },
+    {
+      "name": "counter_front_panel_Kick",
+      "assembly": "counter_front_panel",
+      "key": "enamel"
+    },
+    {
+      "name": "counter_front_panel_Stile-1.9",
+      "assembly": "counter_front_panel",
+      "key": "enamel"
+    },
+    {
+      "name": "counter_front_panel_Stile-0.63",
+      "assembly": "counter_front_panel",
+      "key": "enamel"
+    },
+    {
+      "name": "counter_top_Stone",
+      "assembly": "counter_top",
+      "key": "countertop"
+    },
+    {
+      "name": "counter_scale_base_Foot",
+      "assembly": "counter_scale_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_base_Pan",
+      "assembly": "counter_scale_base",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "counter_scale_column_Column",
+      "assembly": "counter_scale_column",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Back",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Rim",
+      "assembly": "counter_scale_head",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "counter_scale_head_Dial",
+      "assembly": "counter_scale_head",
+      "key": "paper"
+    },
+    {
+      "name": "counter_scale_head_Tick0",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick1",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick2",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick3",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick4",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick5",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick6",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick7",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick8",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick9",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick10",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick11",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Tick12",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Needle",
+      "assembly": "counter_scale_head",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "counter_scale_head_Hub",
+      "assembly": "counter_scale_head",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "delivery_crate_left_lower_Base0",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Base1",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Base2",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Base3",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Front0",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Back0",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Left0",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Right0",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Front1",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Back1",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Left1",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Right1",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Front2",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Back2",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Left2",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Right2",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Corner-1.696_-9.956",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Corner-1.696_-9.298",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Corner-1.018_-9.956",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_lower_Corner-1.018_-9.298",
+      "assembly": "delivery_crate_left_lower",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Base0",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Base1",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Base2",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Base3",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Front0",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Back0",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Left0",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Right0",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Front1",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Back1",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Left1",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Right1",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Front2",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Back2",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Left2",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Right2",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Corner-1.636_-9.926",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Corner-1.636_-9.348",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Corner-1.058_-9.926",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_left_upper_Corner-1.058_-9.348",
+      "assembly": "delivery_crate_left_upper",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Base0",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Base1",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Base2",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Base3",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Front0",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Back0",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Left0",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Right0",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Front1",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Back1",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Left1",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Right1",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Front2",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Back2",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Left2",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Right2",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Corner1.154_-10.006",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Corner1.154_-9.468",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Corner1.732_-10.006",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "delivery_crate_right_Corner1.732_-9.468",
+      "assembly": "delivery_crate_right",
+      "key": "timber"
+    },
+    {
+      "name": "cooler_body_Bottom",
+      "assembly": "cooler_body",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_body_Top",
+      "assembly": "cooler_body",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_body_Back",
+      "assembly": "cooler_body",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_body_Left",
+      "assembly": "cooler_body",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_body_Right",
+      "assembly": "cooler_body",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_body_InteriorShelf0.49",
+      "assembly": "cooler_body",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "cooler_body_InteriorShelf1.0",
+      "assembly": "cooler_body",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "cooler_body_InteriorShelf1.5",
+      "assembly": "cooler_body",
+      "key": "zinc_liner"
+    },
+    {
+      "name": "cooler_door_frame_Low",
+      "assembly": "cooler_door_frame",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_door_frame_High",
+      "assembly": "cooler_door_frame",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_door_frame_Left",
+      "assembly": "cooler_door_frame",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_door_frame_Right",
+      "assembly": "cooler_door_frame",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_inner_glow_LinedBack",
+      "assembly": "cooler_inner_glow",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_handle_Grip",
+      "assembly": "cooler_handle",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_handle_Foot0.8200000000000001",
+      "assembly": "cooler_handle",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_handle_Foot1.34",
+      "assembly": "cooler_handle",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "cooler_top_trim_Trim",
+      "assembly": "cooler_top_trim",
+      "key": "enamel_appliance"
+    },
+    {
+      "name": "cooler_base_trim_Trim",
+      "assembly": "cooler_base_trim",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "shop_floor_joint_01_FlushSeal",
+      "assembly": "shop_floor_joint_01",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "shop_floor_joint_02_FlushSeal",
+      "assembly": "shop_floor_joint_02",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "shop_floor_joint_03_FlushSeal",
+      "assembly": "shop_floor_joint_03",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "front_practical_shade_Top",
+      "assembly": "front_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "front_practical_shade_Skirt-2.19",
+      "assembly": "front_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "front_practical_shade_Skirt-1.816",
+      "assembly": "front_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "front_practical_shade_End-0.725",
+      "assembly": "front_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "front_practical_shade_End0.719",
+      "assembly": "front_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "ceiling_practical_front_Bulb0",
+      "assembly": "ceiling_practical_front",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_front_Socket0",
+      "assembly": "ceiling_practical_front",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_front_Contact0",
+      "assembly": "ceiling_practical_front",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_front_Bulb1",
+      "assembly": "ceiling_practical_front",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_front_Socket1",
+      "assembly": "ceiling_practical_front",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_front_Contact1",
+      "assembly": "ceiling_practical_front",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_front_Bulb2",
+      "assembly": "ceiling_practical_front",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_front_Socket2",
+      "assembly": "ceiling_practical_front",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_front_Contact2",
+      "assembly": "ceiling_practical_front",
+      "key": "brass"
+    },
+    {
+      "name": "middle_practical_shade_Top",
+      "assembly": "middle_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "middle_practical_shade_Skirt-5.54",
+      "assembly": "middle_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "middle_practical_shade_Skirt-5.1659999999999995",
+      "assembly": "middle_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "middle_practical_shade_End-0.725",
+      "assembly": "middle_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "middle_practical_shade_End0.719",
+      "assembly": "middle_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "ceiling_practical_middle_Bulb0",
+      "assembly": "ceiling_practical_middle",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_middle_Socket0",
+      "assembly": "ceiling_practical_middle",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_middle_Contact0",
+      "assembly": "ceiling_practical_middle",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_middle_Bulb1",
+      "assembly": "ceiling_practical_middle",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_middle_Socket1",
+      "assembly": "ceiling_practical_middle",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_middle_Contact1",
+      "assembly": "ceiling_practical_middle",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_middle_Bulb2",
+      "assembly": "ceiling_practical_middle",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_middle_Socket2",
+      "assembly": "ceiling_practical_middle",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_middle_Contact2",
+      "assembly": "ceiling_practical_middle",
+      "key": "brass"
+    },
+    {
+      "name": "back_practical_shade_Top",
+      "assembly": "back_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "back_practical_shade_Skirt-8.889999999999999",
+      "assembly": "back_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "back_practical_shade_Skirt-8.516",
+      "assembly": "back_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "back_practical_shade_End-0.725",
+      "assembly": "back_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "back_practical_shade_End0.719",
+      "assembly": "back_practical_shade",
+      "key": "enamel"
+    },
+    {
+      "name": "ceiling_practical_back_Bulb0",
+      "assembly": "ceiling_practical_back",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_back_Socket0",
+      "assembly": "ceiling_practical_back",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_back_Contact0",
+      "assembly": "ceiling_practical_back",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_back_Bulb1",
+      "assembly": "ceiling_practical_back",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_back_Socket1",
+      "assembly": "ceiling_practical_back",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_back_Contact1",
+      "assembly": "ceiling_practical_back",
+      "key": "brass"
+    },
+    {
+      "name": "ceiling_practical_back_Bulb2",
+      "assembly": "ceiling_practical_back",
+      "key": "milk_glass"
+    },
+    {
+      "name": "ceiling_practical_back_Socket2",
+      "assembly": "ceiling_practical_back",
+      "key": "porcelain"
+    },
+    {
+      "name": "ceiling_practical_back_Contact2",
+      "assembly": "ceiling_practical_back",
+      "key": "brass"
+    },
+    {
+      "name": "delivery_handcart_base_Deck0",
+      "assembly": "delivery_handcart_base",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_base_Deck1",
+      "assembly": "delivery_handcart_base",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_base_Deck2",
+      "assembly": "delivery_handcart_base",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_base_Deck3",
+      "assembly": "delivery_handcart_base",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_base_Deck4",
+      "assembly": "delivery_handcart_base",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_base_Runner-1.0150000000000001",
+      "assembly": "delivery_handcart_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_base_Runner-0.525",
+      "assembly": "delivery_handcart_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_base_Axle",
+      "assembly": "delivery_handcart_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_base_AxleBearer-1.0270000000000001",
+      "assembly": "delivery_handcart_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_base_Wheel-1.0270000000000001",
+      "assembly": "delivery_handcart_base",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "delivery_handcart_base_Hub-1.0270000000000001",
+      "assembly": "delivery_handcart_base",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "delivery_handcart_base_AxleBearer-0.49300000000000005",
+      "assembly": "delivery_handcart_base",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_base_Wheel-0.49300000000000005",
+      "assembly": "delivery_handcart_base",
+      "key": "rubber_aged"
+    },
+    {
+      "name": "delivery_handcart_base_Hub-0.49300000000000005",
+      "assembly": "delivery_handcart_base",
+      "key": "nickel_plated"
+    },
+    {
+      "name": "delivery_handcart_back_Upright-1.034",
+      "assembly": "delivery_handcart_back",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_back_Upright-0.48600000000000004",
+      "assembly": "delivery_handcart_back",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_back_Grip",
+      "assembly": "delivery_handcart_back",
+      "key": "iron_blackened"
+    },
+    {
+      "name": "delivery_handcart_back_Strap0.44499999999999995",
+      "assembly": "delivery_handcart_back",
+      "key": "wood_dark"
+    },
+    {
+      "name": "delivery_handcart_back_Strap0.775",
+      "assembly": "delivery_handcart_back",
+      "key": "wood_dark"
+    }
+  ],
+  "adaptations": [
+    {
+      "id": "aisle_a_goods_low",
+      "original_base_y": 0.185,
+      "fitted_base_y": 0.36250000000000004,
+      "support": "source shelf/case/sill",
+      "height_m": 0.25
+    },
+    {
+      "id": "aisle_a_goods_high",
+      "original_base_y": 0.735,
+      "fitted_base_y": 0.6925,
+      "support": "source shelf/case/sill",
+      "height_m": 0.22999999999999998
+    },
+    {
+      "id": "aisle_b_goods_low",
+      "original_base_y": 0.18,
+      "fitted_base_y": 0.36250000000000004,
+      "support": "source shelf/case/sill",
+      "height_m": 0.24
+    },
+    {
+      "id": "aisle_b_goods_high",
+      "original_base_y": 0.715,
+      "fitted_base_y": 0.6925,
+      "support": "source shelf/case/sill",
+      "height_m": 0.25
+    },
+    {
+      "id": "stock_counter_tins",
+      "original_base_y": 0.45000000000000007,
+      "fitted_base_y": 0.445,
+      "support": "source shelf/case/sill",
+      "height_m": 0.17999999999999994
+    },
+    {
+      "id": "stock_counter_packets",
+      "original_base_y": 0.68,
+      "fitted_base_y": 0.675,
+      "support": "source shelf/case/sill",
+      "height_m": 0.15999999999999992
+    },
+    {
+      "id": "stock_aisle_1_top_01",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_1_top_02",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_1_top_03",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_1_top_04",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_1_top_05",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_2_top_01",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_2_top_02",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_2_top_03",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_2_top_04",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_aisle_2_top_05",
+      "original_base_y": 1.1099999999999999,
+      "fitted_base_y": 1.0525,
+      "support": "source shelf/case/sill",
+      "height_m": 0.2200000000000002
+    },
+    {
+      "id": "stock_left_window_crates",
+      "original_base_y": 0.705,
+      "fitted_base_y": 0.76,
+      "support": "source shelf/case/sill",
+      "height_m": 0.5499999999999999
+    },
+    {
+      "id": "stock_right_window_baskets",
+      "original_base_y": 0.71,
+      "fitted_base_y": 0.76,
+      "support": "source shelf/case/sill",
+      "height_m": 0.48
+    }
+  ],
+  "materials": {
+    "metal": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.8,
+      "catalog_mapping": "ai_materials/metal",
+      "files": [
+        "T_library_appliances_galvanized_metal_worn_metal_albedo.png",
+        "T_library_appliances_galvanized_metal_worn_metal_rough.png",
+        "T_library_appliances_galvanized_metal_normal.png"
+      ],
+      "metallic": 0.9,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "paper": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/paper",
+      "files": [
+        "T_library_furniture_aged_paper_albedo.png",
+        "T_library_furniture_aged_paper_rough.png",
+        "T_library_furniture_aged_paper_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "nickel_plated": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.32,
+      "catalog_mapping": "ai_materials/nickel_plated",
+      "files": [
+        "T_ai_materials_nickel_plated_albedo.png",
+        "T_ai_materials_nickel_plated_rough.png",
+        "T_ai_materials_nickel_plated_normal.png"
+      ],
+      "metallic": 0.7,
+      "meters_per_tile": 0.32,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "timber": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "ai_materials/timber",
+      "files": [
+        "T_ai_materials_timber_albedo.png",
+        "T_ai_materials_timber_rough.png",
+        "T_ai_materials_timber_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "plant": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/plant",
+      "files": [
+        "T_library_organic_leaf_surface_albedo.png",
+        "T_library_organic_leaf_surface_rough.png",
+        "T_library_organic_leaf_surface_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "enamel": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/enamel",
+      "files": [
+        "T_library_appliances_aged_enamel_worn_enamel_albedo.png",
+        "T_library_appliances_aged_enamel_worn_enamel_rough.png",
+        "T_library_appliances_aged_enamel_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "oak_quartered": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.9,
+      "catalog_mapping": "ai_materials/oak_quartered",
+      "files": [
+        "T_ai_materials_oak_quartered_albedo.png",
+        "T_ai_materials_oak_quartered_rough.png",
+        "T_ai_materials_oak_quartered_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "iron_blackened": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/iron_blackened",
+      "files": [
+        "T_ai_materials_iron_blackened_albedo.png",
+        "T_ai_materials_iron_blackened_rough.png",
+        "T_ai_materials_iron_blackened_normal.png"
+      ],
+      "metallic": 0.55,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "zinc_liner": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.55,
+      "catalog_mapping": "ai_materials/zinc_liner",
+      "files": [
+        "T_ai_materials_zinc_liner_albedo.png",
+        "T_ai_materials_zinc_liner_rough.png",
+        "T_ai_materials_zinc_liner_normal.png"
+      ],
+      "metallic": 0.12,
+      "meters_per_tile": 0.55,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "wood_dark": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/wood_dark",
+      "files": [
+        "T_library_furniture_walnut_albedo.png",
+        "T_library_furniture_walnut_rough.png",
+        "T_library_furniture_walnut_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "countertop": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/countertop",
+      "files": [
+        "T_ai_materials_countertop_albedo.png",
+        "T_ai_materials_countertop_rough.png",
+        "T_ai_materials_countertop_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "enamel_appliance": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.72,
+      "catalog_mapping": "ai_materials/enamel_appliance",
+      "files": [
+        "T_ai_materials_enamel_appliance_albedo.png",
+        "T_ai_materials_enamel_appliance_rough.png",
+        "T_ai_materials_enamel_appliance_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.72,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "rubber_aged": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.26,
+      "catalog_mapping": "ai_materials/rubber_aged",
+      "files": [
+        "T_ai_materials_rubber_aged_albedo.png",
+        "T_ai_materials_rubber_aged_rough.png",
+        "T_ai_materials_rubber_aged_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.26,
+      "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "milk_glass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.5,
+      "catalog_mapping": "ai_materials/milk_glass",
+      "files": [
+        "T_ai_materials_milk_glass_albedo.png",
+        "T_ai_materials_milk_glass_rough.png",
+        "T_ai_materials_milk_glass_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "porcelain": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/porcelain",
+      "files": [
+        "T_library_furniture_porcelain_albedo.png",
+        "T_library_furniture_porcelain_rough.png",
+        "T_library_furniture_porcelain_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    },
+    "brass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "ai_materials/brass",
+      "files": [
+        "T_library_metals_aged_brass_albedo.png",
+        "T_library_metals_aged_brass_rough.png",
+        "T_library_metals_aged_brass_normal.png"
+      ],
+      "metallic": 0.85,
+      "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": true
+    }
+  },
+  "export_tangent_partitions": 89,
+  "native_sha256": "2cbd56e603a6f29722a42c21eeb58070e28269c5148e12339c6b4d8c013f4355",
+  "asset_sha256": "2c893c71e0bc70d608400ab055afc90757f9e6afaf7e89f9b5669d5422cb2652"
+}

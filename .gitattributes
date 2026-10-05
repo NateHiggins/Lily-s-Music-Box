@@ -487,3 +487,13 @@ game/tests/orison_v2_4b_door_route_test.gd -text
 art/blender/scripts/build_wc_swing_clear_hinge.py -text
 art/blender/scripts/inspect_wc_swing_clear_hinge.py -text
 game/assets/props/wc_swing_clear_hinge.glb.import -text
+art/blender/scripts/build_bodega_fittings.py -text
+art/blender/scripts/inspect_bodega_fittings.py -text
+art/blender/bodega_fittings_construction.json -text
+game/tests/fixtures/orison_bodega_fittings.json -text
+game/scripts/generated/v2_bodega_fittings.gd -text
+game/scripts/building/orison_v2_bodega_fittings.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/tests/orison_v2_bodega_fittings_test.gd -text
+game/assets/props/bodega_fittings.glb.import -text
+game/tests/orison_v2_city_sweep.gd -text

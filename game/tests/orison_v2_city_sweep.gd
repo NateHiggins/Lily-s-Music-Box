@@ -90,7 +90,32 @@ func _city_inspect(world: OrisonV2RuntimeRoot,frame: Node3D,local: Vector3,targe
 		var at:=frame.to_global(local+Vector3(offset.x,0,offset.y))
 		if not _city_clear_station(world,at):continue
 		await _city_capture(world,at,frame.to_global(target),label,bucket,owner);found=true;break
-	if not found:discovery.append({"id":label,"bucket":bucket,"owner":owner,"status":"no_clear_sampled_station_requires_review"})
+	if found:return
+	# Overhead light and stock anchors can stand inside a counter. Find the
+	# nearest physically clear sample on the same authored shop/bar floor,
+	# retaining the requested anchor and the alternative station's provenance.
+	var layout: Dictionary=frame.source_layout
+	var floor: Dictionary=layout.floors.filter(func(row):return row.id=="F01")[0]
+	var closest:=Vector3.INF;var distance:=INF;var floor_owner: String=""
+	for record: Dictionary in floor.furniture:
+		if not str(record.id).ends_with("_floor"):continue
+		var identity:=str(record.get("batch",""))
+		if identity=="shop_otis___son":identity="shop_otis_son"
+		var belongs:=label.begins_with(identity+"_SITE_SHOP_IN") and not identity.is_empty()
+		if bucket=="bar":belongs=str(record.id).begins_with("retail_bar_")
+		if not belongs:continue
+		var rect: Array=record.rect
+		for u in [.16,.33,.5,.67,.84]:
+			for v in [.16,.33,.5,.67,.84]:
+				var point:=GameBoot.b2g([lerpf(rect[0],rect[2],u),lerpf(rect[1],rect[3],v),float(record.z0)+float(record.h)+.03])
+				if point.distance_squared_to(local)>=distance or not _city_clear_station(world,frame.to_global(point)):continue
+				distance=point.distance_squared_to(local);closest=point;floor_owner=str(record.id)
+	if closest.is_finite():
+		await _city_capture(world,frame.to_global(closest),frame.to_global(target),label,bucket,owner)
+		discovery[-1]["station_floor_owner"]=floor_owner
+		discovery[-1]["requested_local_feet"]=[local.x,local.y,local.z]
+		discovery[-1]["sampling"]="nearest clear grid point on the same authored floor family"
+	else:discovery.append({"id":label,"bucket":bucket,"owner":owner,"status":"no_clear_sampled_station_requires_review"})
 
 func _city_capture(world: OrisonV2RuntimeRoot,at: Vector3,target: Vector3,label: String,bucket: String,owner: String) -> void:
 	world.player.global_position=at;world.player.velocity=Vector3.ZERO

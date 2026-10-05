@@ -572,6 +572,8 @@ func _compose_exterior() -> bool:
 		return false
 	add_child(bodega_power)
 	if bodega_power.startup_failed:return false
+	if preload("res://scripts/building/orison_v2_bodega_fittings.gd").mount(exterior_cell,_blockout.architectural_materials)==null:
+		return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	add_child(street_boundaries)
