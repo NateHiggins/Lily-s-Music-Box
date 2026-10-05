@@ -64,6 +64,10 @@ standing views use the production lights and player lamp. The separate
 leaf, operate it from both sides, cross the threshold, lock it, test denial,
 save and reconstruct the world, unlock it and return. Street-route tests now
 operate the front door on arrival and before departing through it.
+The V2 connection applies an authored **1.5 m** arrival standoff from its
+threshold. The older named street placement intersected the closed leaf's
+standing-capsule clearance; this composition adjustment preserves its lateral
+position, height, identity and the untouched-arrival test assertion.
 
 Scoped captures, native inspection and wrapper **suite_run** receipts are
 under **tmp/v2-facade**. They are inspection evidence and do not promote the

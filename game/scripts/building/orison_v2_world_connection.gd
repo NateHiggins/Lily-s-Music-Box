@@ -55,9 +55,11 @@ static func prepare(source: Dictionary, geometry: Dictionary, resolver: Variant,
 	var normal: Vector3 = surface.normal
 	var point: Vector3 = surface.point
 	var arrival_position: Vector3 = arrival.get("position", Vector3.INF)
+	var arrival_standoff := float(config.get("arrival_standoff_m", 0.0))
 	if not threshold.is_finite() or not outward.is_finite() or outward.length_squared() < 0.000001 \
 			or not normal.is_finite() or absf(normal.y) > 0.0001 or not point.is_finite() \
 			or not arrival_position.is_finite() \
+			or not is_finite(arrival_standoff) or arrival_standoff < 0.0 \
 			or float(door.width) <= 0.0 or float(door.width) > float(surface.size_m[0]) \
 			or float(door.height) > float(surface.size_m[1]):
 		return {}
@@ -69,6 +71,12 @@ static func prepare(source: Dictionary, geometry: Dictionary, resolver: Variant,
 	# Arrival faces the building from its named exterior placement.
 	arrival = arrival.duplicate(true)
 	arrival.facing = -normal
+	# The named street placement predates V2's physical outward-opening leaf.
+	# Keep its lateral/height coordinates and identity, but seat the arrival
+	# far enough outside the threshold for the standing capsule and door sweep.
+	var arrival_distance := (arrival_position - point).dot(normal)
+	if arrival_distance < arrival_standoff:
+		arrival.position = arrival_position + normal * (arrival_standoff - arrival_distance)
 	return {"interior_transform": registered, "excluded_space": str(outside.id),
 		"geometry": opened, "arrival": arrival}
 
