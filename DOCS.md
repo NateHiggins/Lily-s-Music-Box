@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Source-owned News/Cigars papers, glazed stock, pipe bowls, counter and seated proprietor stool | `art/blender/news_fittings.md` and `design/V2_NEWS_CIGARS_FITTINGS_2026-10-05.md` |
 | Original Hardware/Paint ordered drawer wall, aisle-facing panels and supported paint bench | `art/blender/hardware_drawers.md` and `design/V2_HARDWARE_DRAWERS_2026-10-05.md` |
 | Original Hardware/Paint passive balance, unloaded shaker and supported mixing paddle | `art/blender/hardware_apparatus.md` and `design/V2_HARDWARE_APPARATUS_2026-10-05.md` |
+| Original Hardware/Paint bins, open coupling stock, window stand and service counter | `art/blender/hardware_stock.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

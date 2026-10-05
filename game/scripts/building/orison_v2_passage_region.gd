@@ -13,6 +13,7 @@ const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_appa
 const CobblerFittings := preload("res://scripts/building/orison_v2_cobbler_fittings.gd")
 const NewsFittings := preload("res://scripts/building/orison_v2_news_fittings.gd")
 const HardwareDrawers := preload("res://scripts/building/orison_v2_hardware_drawers.gd")
+const HardwareStock := preload("res://scripts/building/orison_v2_hardware_stock.gd")
 const HardwareApparatus := preload("res://scripts/building/orison_v2_hardware_apparatus.gd")
 const LocksmithFittings := preload("res://scripts/building/orison_v2_locksmith_fittings.gd")
 const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
@@ -95,6 +96,9 @@ func _ready() -> void:
 			return
 		if not HardwareApparatus.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native hardware apparatus fit refused: "+identity)
+			return
+		if not HardwareStock.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native hardware stock fit refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()
