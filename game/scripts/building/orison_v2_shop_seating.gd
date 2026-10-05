@@ -13,6 +13,9 @@ static func mount_laundry_apparatus(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_locksmith(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/locksmith_fittings.json","LocksmithFittings","F01_retail_locksmith_","locksmith_part")
 
+static func mount_cobbler(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/cobbler_fittings.json","CobblerFittings","F01_retail_cobbler_","cobbler_part")
+
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 

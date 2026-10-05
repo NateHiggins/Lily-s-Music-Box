@@ -1,0 +1,151 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 48,
+  "runtime_keys": [
+    "wood_dark",
+    "plywood",
+    "timber",
+    "cast_iron",
+    "metal",
+    "rubber_aged",
+    "countertop",
+    "paper",
+    "vinyl_oxblood",
+    "shoe_dark",
+    "linen",
+    "soot"
+  ],
+  "catalog_variants": {
+    "cast_iron": "iron_blackened",
+    "rubber_aged": "rubber_aged",
+    "linen": "linen"
+  },
+  "material_aliases": {
+    "shoe_dark": "vinyl_oxblood"
+  },
+  "material_tints": {
+    "shoe_dark": [
+      0.12,
+      0.105,
+      0.09,
+      1
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "window_cabinet",
+      "sources": [
+        "storm_shop_shoe_rebuilding_window_plinth",
+        "storm_shop_shoe_rebuilding_window_back"
+      ]
+    },
+    {
+      "kind": "bench",
+      "sources": [
+        "storm_shop_shoe_rebuilding_bench",
+        "storm_shop_shoe_rebuilding_bench_top"
+      ]
+    },
+    {
+      "kind": "finisher",
+      "sources": [
+        "storm_shop_shoe_rebuilding_finisher",
+        "storm_shop_shoe_rebuilding_finisher_hd",
+        "storm_shop_shoe_rebuilding_finisher_hood",
+        "storm_shop_shoe_rebuilding_finisher_shaft",
+        "storm_shop_shoe_rebuilding_finisher_wheel0",
+        "storm_shop_shoe_rebuilding_finisher_wheel1",
+        "storm_shop_shoe_rebuilding_finisher_wheel2",
+        "storm_shop_shoe_rebuilding_finisher_wheel3"
+      ]
+    },
+    {
+      "kind": "shoe_rack",
+      "sources": [
+        "storm_shop_shoe_rebuilding_rack0",
+        "storm_shop_shoe_rebuilding_rack1",
+        "storm_shop_shoe_rebuilding_rack2",
+        "storm_shop_shoe_rebuilding_rack3",
+        "storm_shop_shoe_rebuilding_rack4",
+        "storm_shop_shoe_rebuilding_shoe0",
+        "storm_shop_shoe_rebuilding_shoe1",
+        "storm_shop_shoe_rebuilding_shoe2",
+        "storm_shop_shoe_rebuilding_shoe3",
+        "storm_shop_shoe_rebuilding_shoe4",
+        "storm_shop_shoe_rebuilding_shoe5",
+        "storm_shop_shoe_rebuilding_shoe6",
+        "storm_shop_shoe_rebuilding_shoe7",
+        "storm_shop_shoe_rebuilding_shoe8",
+        "storm_shop_shoe_rebuilding_shoe9",
+        "storm_shop_shoe_rebuilding_shoe10"
+      ]
+    },
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_shoe_rebuilding_counter",
+        "storm_shop_shoe_rebuilding_counter_top",
+        "storm_shop_shoe_rebuilding_ledger",
+        "storm_shop_shoe_rebuilding_ledger_clean"
+      ]
+    },
+    {
+      "kind": "outsole",
+      "sources": [
+        "storm_shop_shoe_rebuilding_outsole_stand",
+        "storm_shop_shoe_rebuilding_outsole_head"
+      ]
+    },
+    {
+      "kind": "patcher",
+      "sources": [
+        "storm_shop_shoe_rebuilding_patcher_treadle",
+        "storm_shop_shoe_rebuilding_patcher_arm"
+      ]
+    },
+    {
+      "kind": "last_rack",
+      "sources": [
+        "storm_shop_shoe_rebuilding_last_rack",
+        "storm_shop_shoe_rebuilding_last0",
+        "storm_shop_shoe_rebuilding_last1",
+        "storm_shop_shoe_rebuilding_last2",
+        "storm_shop_shoe_rebuilding_last3",
+        "storm_shop_shoe_rebuilding_last4",
+        "storm_shop_shoe_rebuilding_last5",
+        "storm_shop_shoe_rebuilding_last6",
+        "storm_shop_shoe_rebuilding_last7",
+        "storm_shop_shoe_rebuilding_last8"
+      ]
+    },
+    {
+      "kind": "soles",
+      "sources": [
+        "storm_shop_shoe_rebuilding_sole_stack"
+      ]
+    },
+    {
+      "kind": "waiting_seat",
+      "sources": [
+        "storm_shop_shoe_rebuilding_waiting_seat"
+      ]
+    }
+  ],
+  "adaptations": [
+    "Rear shoe shelves and the eleven pair identities are fitted east of x=6.13 to clear the original 5.24..6.08 metre rear service-door opening. Hidden source references keep original poses.",
+    "Two passive sewing machines gain finite supported frames, shafts, treadles and narrow working arms. No animated or utility control authority.",
+    "Shoe uppers use existing oxblood shipping maps; dark pairs receive local dark tint instead of wooden grain.",
+    "The original floor leather-dust patch is retained for separate surface review.",
+    "The finisher is reflected within its existing native envelope so its working wheels/rests face the usable aisle. Source reference poses remain unchanged.",
+    "The last rack is fitted 1.55 metres east within the existing shop floor to leave the rear service-door approach clear. The nine original last identities remain.",
+    "The original aggregate sole stock becomes two stacked columns of fifty seven-millimetre leather blanks, with small alternating offsets to expose individual cut edges.",
+    "Each hollow upper has its own bounded collision/draw partition, retaining the original pair and shared shelf assembly owners."
+  ],
+  "open_work": [
+    "Passive machinery: live motion, drive and utilities remain open.",
+    "Rear store, source dust patch and independent service continuity/capacity require separate checks.",
+    "Human/whole-V2 acceptance and remaining arcade trades remain open."
+  ]
+}

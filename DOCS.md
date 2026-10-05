@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | Current room/city geometry and texture review, fitted door motion and honest ledger refresh | `design/V2_BUILDING_SURFACE_FINISH_2026-10-05.md` and `art/blender/building_surface_finish.md` |
 | Fitted Keys Cut board, passive machinery, supported display and unchanged copying authority | `art/blender/locksmith_fittings.md` and `design/V2_LOCKSMITH_FITTINGS_2026-10-05.md` |
+| Fitted cobbler machines, open paired shoes and clear rear approach | `art/blender/cobbler_fittings.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

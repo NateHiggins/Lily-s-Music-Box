@@ -1,0 +1,1045 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/cobbler_fittings.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_shoe_rebuilding",
+      "parts": [
+        {
+          "name": "storm_shop_shoe_rebuilding_window_plinth__plywood",
+          "key": "plywood",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_window_plinth__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_bench__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_bench__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_finisher__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_finisher__metal",
+          "key": "metal",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_finisher__rubber_aged",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__rubber_aged",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__10_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__10_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__1_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__1_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__2_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__2_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__4_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__4_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__5_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__5_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__7_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__7_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__8_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__shoe_dark__8_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7,
+          "tint": [
+            0.12,
+            0.105,
+            0.09,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__0_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__0_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__3_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__3_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__6_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__6_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__9_-1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_rack0__vinyl_oxblood__9_1",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_counter__countertop",
+          "key": "countertop",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_counter__paper",
+          "key": "paper",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_counter__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_outsole_stand__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_outsole_stand__metal",
+          "key": "metal",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_patcher_treadle__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_patcher_treadle__metal",
+          "key": "metal",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_last_rack__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_last_rack__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_sole_stack__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_sole_stack__vinyl_oxblood",
+          "key": "vinyl_oxblood",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_waiting_seat__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_shoe_rebuilding_window_plinth",
+          "key": "wood_dark",
+          "low": [
+            10.46,
+            0.05,
+            45.08
+          ],
+          "high": [
+            10.82,
+            0.44,
+            48.68000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_window_back",
+          "key": "plywood",
+          "low": [
+            10.42,
+            0.42,
+            45.08
+          ],
+          "high": [
+            10.46,
+            1.5699999999999998,
+            48.68000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_bench",
+          "key": "timber",
+          "low": [
+            5.6,
+            0.05,
+            44.95
+          ],
+          "high": [
+            8.6,
+            0.9700000000000001,
+            45.75
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_bench_top",
+          "key": "wood_dark",
+          "low": [
+            5.55,
+            0.97,
+            44.92
+          ],
+          "high": [
+            8.65,
+            1.03,
+            45.82
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher",
+          "key": "cast_iron",
+          "low": [
+            5.82,
+            0.05,
+            45.85
+          ],
+          "high": [
+            6.46,
+            0.93,
+            47.05
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_hd",
+          "key": "metal",
+          "low": [
+            5.74,
+            0.93,
+            45.78
+          ],
+          "high": [
+            6.54,
+            1.35,
+            47.120000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_hood",
+          "key": "soot",
+          "low": [
+            6.12,
+            1.35,
+            45.78
+          ],
+          "high": [
+            6.5,
+            1.71,
+            47.120000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_shaft",
+          "key": "metal",
+          "low": [
+            5.68,
+            1.07,
+            45.72
+          ],
+          "high": [
+            5.82,
+            1.19,
+            47.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_wheel0",
+          "key": "cast_iron",
+          "low": [
+            5.57,
+            1.0,
+            45.82
+          ],
+          "high": [
+            5.88,
+            1.3,
+            46.0
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_wheel1",
+          "key": "rubber_aged",
+          "low": [
+            5.57,
+            1.0,
+            46.120000000000005
+          ],
+          "high": [
+            5.88,
+            1.3,
+            46.3
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_wheel2",
+          "key": "cast_iron",
+          "low": [
+            5.57,
+            1.0,
+            46.42
+          ],
+          "high": [
+            5.88,
+            1.3,
+            46.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_finisher_wheel3",
+          "key": "rubber_aged",
+          "low": [
+            5.57,
+            1.0,
+            46.72
+          ],
+          "high": [
+            5.88,
+            1.3,
+            46.9
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_rack0",
+          "key": "timber",
+          "low": [
+            5.3,
+            0.42,
+            49.88
+          ],
+          "high": [
+            8.7,
+            0.45999999999999996,
+            50.25
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_rack1",
+          "key": "timber",
+          "low": [
+            5.3,
+            0.78,
+            49.88
+          ],
+          "high": [
+            8.7,
+            0.8200000000000001,
+            50.25
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_rack2",
+          "key": "timber",
+          "low": [
+            5.3,
+            1.14,
+            49.88
+          ],
+          "high": [
+            8.7,
+            1.18,
+            50.25
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_rack3",
+          "key": "timber",
+          "low": [
+            5.3,
+            1.5,
+            49.88
+          ],
+          "high": [
+            8.7,
+            1.54,
+            50.25
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_rack4",
+          "key": "timber",
+          "low": [
+            5.3,
+            1.8599999999999999,
+            49.88
+          ],
+          "high": [
+            8.7,
+            1.9,
+            50.25
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe0",
+          "key": "vinyl_oxblood",
+          "low": [
+            5.55,
+            0.46,
+            49.92
+          ],
+          "high": [
+            5.81,
+            0.5700000000000001,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe1",
+          "key": "wood_dark",
+          "low": [
+            6.17,
+            0.8200000000000001,
+            49.92
+          ],
+          "high": [
+            6.43,
+            0.93,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe2",
+          "key": "wood_dark",
+          "low": [
+            6.79,
+            1.18,
+            49.92
+          ],
+          "high": [
+            7.05,
+            1.29,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe3",
+          "key": "vinyl_oxblood",
+          "low": [
+            7.41,
+            1.54,
+            49.92
+          ],
+          "high": [
+            7.67,
+            1.6500000000000001,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe4",
+          "key": "wood_dark",
+          "low": [
+            8.03,
+            1.9,
+            49.92
+          ],
+          "high": [
+            8.29,
+            2.01,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe5",
+          "key": "wood_dark",
+          "low": [
+            8.65,
+            0.46,
+            49.92
+          ],
+          "high": [
+            8.91,
+            0.5700000000000001,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe6",
+          "key": "vinyl_oxblood",
+          "low": [
+            5.55,
+            0.8200000000000001,
+            49.92
+          ],
+          "high": [
+            5.81,
+            0.93,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe7",
+          "key": "wood_dark",
+          "low": [
+            6.17,
+            1.18,
+            49.92
+          ],
+          "high": [
+            6.43,
+            1.29,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe8",
+          "key": "wood_dark",
+          "low": [
+            6.79,
+            1.54,
+            49.92
+          ],
+          "high": [
+            7.05,
+            1.6500000000000001,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe9",
+          "key": "vinyl_oxblood",
+          "low": [
+            7.41,
+            1.9,
+            49.92
+          ],
+          "high": [
+            7.67,
+            2.01,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_shoe10",
+          "key": "wood_dark",
+          "low": [
+            8.03,
+            0.46,
+            49.92
+          ],
+          "high": [
+            8.29,
+            0.5700000000000001,
+            50.18000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_counter",
+          "key": "wood_dark",
+          "low": [
+            9.55,
+            0.05,
+            45.2
+          ],
+          "high": [
+            10.15,
+            1.07,
+            48.800000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_counter_top",
+          "key": "countertop",
+          "low": [
+            9.5,
+            1.07,
+            45.160000000000004
+          ],
+          "high": [
+            10.2,
+            1.12,
+            48.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_ledger",
+          "key": "paper",
+          "low": [
+            9.68,
+            1.13,
+            47.42
+          ],
+          "high": [
+            10.06,
+            1.18,
+            47.78
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_ledger_clean",
+          "key": "timber",
+          "low": [
+            9.620000000000001,
+            1.121,
+            47.36
+          ],
+          "high": [
+            10.12,
+            1.127,
+            47.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_outsole_stand",
+          "key": "cast_iron",
+          "low": [
+            5.42,
+            0.05,
+            47.08
+          ],
+          "high": [
+            6.0600000000000005,
+            0.8300000000000001,
+            47.660000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_outsole_head",
+          "key": "metal",
+          "low": [
+            5.48,
+            0.86,
+            47.0
+          ],
+          "high": [
+            5.96,
+            1.38,
+            47.78
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_patcher_treadle",
+          "key": "cast_iron",
+          "low": [
+            5.44,
+            0.05,
+            47.95
+          ],
+          "high": [
+            6.02,
+            0.75,
+            48.52
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_patcher_arm",
+          "key": "metal",
+          "low": [
+            5.5,
+            0.82,
+            47.88
+          ],
+          "high": [
+            5.68,
+            1.24,
+            48.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last_rack",
+          "key": "timber",
+          "low": [
+            5.26,
+            0.18,
+            49.2
+          ],
+          "high": [
+            7.55,
+            1.73,
+            49.6
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last0",
+          "key": "cast_iron",
+          "low": [
+            5.38,
+            0.32,
+            49.14
+          ],
+          "high": [
+            5.51,
+            0.45,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last1",
+          "key": "cast_iron",
+          "low": [
+            5.61,
+            0.74,
+            49.14
+          ],
+          "high": [
+            5.74,
+            0.87,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last2",
+          "key": "cast_iron",
+          "low": [
+            5.84,
+            1.16,
+            49.14
+          ],
+          "high": [
+            5.97,
+            1.29,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last3",
+          "key": "cast_iron",
+          "low": [
+            6.07,
+            0.32,
+            49.14
+          ],
+          "high": [
+            6.2,
+            0.45,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last4",
+          "key": "cast_iron",
+          "low": [
+            6.3,
+            0.74,
+            49.14
+          ],
+          "high": [
+            6.43,
+            0.87,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last5",
+          "key": "cast_iron",
+          "low": [
+            6.53,
+            1.16,
+            49.14
+          ],
+          "high": [
+            6.66,
+            1.29,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last6",
+          "key": "cast_iron",
+          "low": [
+            6.76,
+            0.32,
+            49.14
+          ],
+          "high": [
+            6.89,
+            0.45,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last7",
+          "key": "cast_iron",
+          "low": [
+            6.99,
+            0.74,
+            49.14
+          ],
+          "high": [
+            7.12,
+            0.87,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_last8",
+          "key": "cast_iron",
+          "low": [
+            7.22,
+            1.16,
+            49.14
+          ],
+          "high": [
+            7.35,
+            1.29,
+            49.64
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_sole_stack",
+          "key": "vinyl_oxblood",
+          "low": [
+            6.3,
+            0.05,
+            47.8
+          ],
+          "high": [
+            6.74,
+            0.43,
+            48.38
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_waiting_seat",
+          "key": "wood_dark",
+          "low": [
+            8.75,
+            0.05,
+            49.88
+          ],
+          "high": [
+            9.68,
+            0.53,
+            50.2
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
