@@ -64,3 +64,9 @@ and resident-key checks from **4979cfde** retain identical runtime inputs and
 unchanged test hashes. Full result and retained review:
 **design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md**. The exact key contract is
 copied unchanged; no wrapper is promoted to runtime proof.
+
+The subsequent equal-output lamp investigation and waking V2 balance are
+recorded in **design/V2_LAMP_SURFACE_BALANCE_2026-10-05.md**. The original roof
+visibility threshold now passes with matched electrical state. Native roof
+frame, physical contacts, roof finish and geometry remain as inspected above.
+This later presentation check does not grant broader building acceptance.

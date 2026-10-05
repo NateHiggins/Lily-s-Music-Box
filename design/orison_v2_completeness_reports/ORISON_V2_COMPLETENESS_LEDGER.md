@@ -212,8 +212,9 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (3):**
+**runtime receipts rejected (4):**
 
+- ! art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json - schema-2 runtime_contract required; capture-only receipts do not execute runtime contracts
@@ -538,6 +539,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json` sha256 `5e26f5379b290c58...`
 - `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
 - `art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json` sha256 `8e0fad1ed7845bf4...`
+- `art/renders/orison_v2/lamp_surface_balance_20261005/runtime_authority_receipt.json` sha256 `250a66cba7ee590f...`
 - `art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json` sha256 `f0c1cb99fd4d1f59...`
 - `art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json` sha256 `e8f73826954a48f2...`
 - `art/renders/orison_v2/m08e_spatial_owners_checkpoint_02/scene_capture_receipt.json` sha256 `2807d068dcdd577b...`

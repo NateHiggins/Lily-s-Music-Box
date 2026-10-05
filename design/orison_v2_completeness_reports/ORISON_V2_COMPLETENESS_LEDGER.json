@@ -10016,6 +10016,12 @@
   ],
   "rejected_runtime_receipts": [
    {
+    "file": "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10077,10 +10083,11 @@
   "art/renders/orison_v2/m11a_first_exterior_cell_01/scene_capture_receipt.json": "3c91391ef705607e465fbf82df9515cf37443fc3fa02155cdf691a05b02b4555",
   "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/scene_capture_receipt.json": "b37cd4d362cc750a70bb2fadaf78a75c2b7b82c481e34d36ee62569748cc7d0e",
   "art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json": "472c33b61fc3cc5c92837ad5efcba15142d8a80a6aa524505170978f02aa8815",
-  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
   "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json": "5e26f5379b290c589bbbc966b42753a66475eb1c7733d4efd03f3039f4b506ee",
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",
+  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/lamp_surface_balance_20261005/runtime_authority_receipt.json": "250a66cba7ee590ff835e2b43e47011f3f27bb97c76674c7341dbbf501fc9b95",
   "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json": "df1cd431570a3f3c946aac5747f50ce808f04c3bc1b90d54fa514b7ecdf58048"
  }
 }

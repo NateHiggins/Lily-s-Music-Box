@@ -15,14 +15,16 @@ production-cutover blockers. These reports are INERT: publishing a
 refresh grants no new spatial, runtime or human proof. The fitted front
 façade's inspection captures and wrapper receipts grant no ledger promotion;
 the parked heating distribution has not been installed.
-The snapshot includes the test-written **front_court_roof_20261005** resident-key
-runtime contract as scoped provenance. It establishes no whole-building or
-human acceptance claim and changes no requirement status. Its actual source is
-the roof-frame code commit **4979cfde**, whose runtime inputs and key test remain
-unchanged by the later soffit-test correction. The earlier **front_facade_20261005**
-and **front_facade_air_20261005** contracts remain historical; their stale input
-bindings are reported rather than rewritten. Roof-frame renders and the corrected
-soffit wrapper provide inspection evidence, without promoting ledger statuses.
+The snapshot includes the test-written **lamp_surface_balance_20261005**
+resident-key runtime contract as scoped provenance, from code **a8eb8e3d**.
+It establishes no whole-building or human acceptance claim and changes no
+requirement status. The earlier **front_facade_20261005**, **front_facade_air_20261005**
+and **front_court_roof_20261005** contracts remain historical; their stale runtime
+input bindings are reported rather than rewritten. Equal-output lamp comparisons,
+roof/frame captures and suite wrappers provide inspection evidence, without
+promoting ledger statuses. The settled-output comparison now passes the original
+roof visibility and close-surface detail thresholds at the waking V2 rating **4.2**;
+the larger finish and acceptance work remains open.
 
 The ledger exists to make one confusion impossible: **"the accepted route
 works" is not "the complete building has been rebuilt."** It compares the
