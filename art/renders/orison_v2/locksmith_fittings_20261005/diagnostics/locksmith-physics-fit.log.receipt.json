@@ -1,0 +1,69 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.13,
+  "exit_code": null,
+  "finished_utc": "2026-10-05T19:43:03Z",
+  "started_utc": "2026-10-05T19:42:03Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 3,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Identifier \"count\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"sample\" not declared in the current scope.",
+   "ERROR: Failed to load script \"res://tests/orison_v2_locksmith_fittings_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Parse Error: Identifier \"count\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"sample\" not declared in the current scope."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-physics-fit.log.stderr",
+  "stderr_sha256": "145e73e8a36396e65cdb64855576e26552089be98446e679e3403fcd8aea2070",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-physics-fit.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2LocksmithFittingsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-physics-fit-shots",
+ "source": {
+  "dirty_paths": 279,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/locksmith_fittings.blend",
+   "?? art/blender/locksmith_fittings_construction.json",
+   "?? art/blender/scripts/build_locksmith_fittings.py",
+   "?? art/blender/scripts/inspect_locksmith_fittings.py",
+   "?? art/data/locksmith_fittings/",
+   "?? game/assets/props/locksmith_fittings.glb",
+   "?? game/data/orison_v2/locksmith_fittings.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid"
+  ],
+  "repository_head": "9c4456bbba38aae4470ff0bf83561b3cd1a12cca",
+  "repository_tree": "b93d85fa7b01b36d8ebbcbeea850a4defbc8c7df",
+  "runtime_inputs_sha256": "ae7d8ef5c13d4b4219f7d19c298aef454712b1f6d799cefc5d86772c768066ac",
+  "test_path": "game/tests/orison_v2_locksmith_fittings_test.gd",
+  "test_sha256": "8408e8bce712b26f50da2ffe208c03fe608e5086ec7addbb84ecccc75d26bec5"
+ },
+ "windowed": true
+}

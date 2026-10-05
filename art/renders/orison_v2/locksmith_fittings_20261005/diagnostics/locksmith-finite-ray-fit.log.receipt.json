@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 43.0,
+  "exit_code": 1,
+  "finished_utc": "2026-10-05T19:50:51Z",
+  "started_utc": "2026-10-05T19:50:08Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-finite-ray-fit.log.stderr",
+  "stderr_sha256": "0735995f9df93dd9019d3e2894b74ce54c928f0a422a472c138af8ba67926c87",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-finite-ray-fit.log",
+  "stdout_sha256": "4dcf4606d94e1158732811b9acd9645ac3a01d0d5d04163fbf1219821678e967"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2LocksmithFittingsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/locksmith-finite-ray-fit-shots",
+ "source": {
+  "dirty_paths": 279,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/locksmith_fittings.blend",
+   "?? art/blender/locksmith_fittings_construction.json",
+   "?? art/blender/scripts/build_locksmith_fittings.py",
+   "?? art/blender/scripts/inspect_locksmith_fittings.py",
+   "?? art/data/locksmith_fittings/",
+   "?? game/assets/props/locksmith_fittings.glb",
+   "?? game/data/orison_v2/locksmith_fittings.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid"
+  ],
+  "repository_head": "9c4456bbba38aae4470ff0bf83561b3cd1a12cca",
+  "repository_tree": "b93d85fa7b01b36d8ebbcbeea850a4defbc8c7df",
+  "runtime_inputs_sha256": "62bbb4780e75fea938bc01b19f705bb1d05dc72dcf23c50eb014e9d00d656288",
+  "test_path": "game/tests/orison_v2_locksmith_fittings_test.gd",
+  "test_sha256": "a7b7550812fe905bd6d79c9c963341cc3307be11a90c0c017d32572a297baaa1"
+ },
+ "windowed": true
+}

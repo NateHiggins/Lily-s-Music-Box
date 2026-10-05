@@ -1,0 +1,490 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "e9b43aee7dc594c54b6c04b4773b7dac5a51d357",
+  "base": "9c4456bbba38aae4470ff0bf83561b3cd1a12cca",
+  "verification": "MERGE-CANDIDATE e9b43aee7dc594c54b6c04b4773b7dac5a51d357",
+  "source_records": 133,
+  "assemblies": 9,
+  "closed_stocks": 536,
+  "material_partitions": 30,
+  "triangles": 93880,
+  "source_supports": 34,
+  "removed_original_triangles": 1596,
+  "native_views": 18,
+  "production_views": 7,
+  "direct_review": "All eighteen native and seven production views inspected on contact sheets; padlocks additionally inspected at full size.",
+  "runtime_contract": "Exact test-written schema-2 receipt; only executed resident permission/key copy/save/denial/reconstruction scope.",
+  "limits": [
+    "No human or whole-V2 acceptance.",
+    "Passive machinery; no utility continuity or capacity proof.",
+    "Rear store and remaining arcade stock remain open.",
+    "Wrapper suite receipts and captures do not promote runtime requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "d44c859635227a58d6ebf1565f18c3428ea53a5f1b62d2eccac1a404b6825fe3",
+      "sha256": "d44c859635227a58d6ebf1565f18c3428ea53a5f1b62d2eccac1a404b6825fe3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/verification.json",
+      "source_sha256": "26c5963ebee7b8b9294c3362a6e25fc1b6ab9df59e1beb5efca70d2805452392",
+      "sha256": "26c5963ebee7b8b9294c3362a6e25fc1b6ab9df59e1beb5efca70d2805452392",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/9c4456bb-clean-board.json",
+      "source_sha256": "b669dfb337ec80ee32c50a76eef395a408a3d889c2c732e7a807eae2ee88a2c7",
+      "sha256": "b669dfb337ec80ee32c50a76eef395a408a3d889c2c732e7a807eae2ee88a2c7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/locksmith-native/inspection.json",
+      "source_sha256": "7b98f2046bd241886bc700d4c64a7a2bfa2f75d045c4167395bfecbc249d631e",
+      "sha256": "7b98f2046bd241886bc700d4c64a7a2bfa2f75d045c4167395bfecbc249d631e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "07102925c0733795143004b0033c966b68ecf3a3d752481625ff57afc99b5d4b",
+      "sha256": "07102925c0733795143004b0033c966b68ecf3a3d752481625ff57afc99b5d4b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/views.json",
+      "source_sha256": "ec5ea663044a860352c8efa69b6fe50b8fa817d00276930d1de7597021256194",
+      "sha256": "ec5ea663044a860352c8efa69b6fe50b8fa817d00276930d1de7597021256194",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "7a56f18a57369b9cf1de38f7214d732304e89fea4ffa8c254f57754b138e4d14",
+      "sha256": "7a56f18a57369b9cf1de38f7214d732304e89fea4ffa8c254f57754b138e4d14",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_board_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_board_front.png",
+      "source_sha256": "9347d8f5d91490ca948f21141ef0d02aae007d09fd8293ee68d7f6669e3a0359",
+      "sha256": "2cd29a5e633ed311852a57a17271ddbf3bf59f485da1b7d953e5c10ec6bd17ac",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_board_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_board_rear.png",
+      "source_sha256": "5ae08ae5aa22e4403e7d4fd628fdbf267a26ab386805b8faa6629315dd2c0b3e",
+      "sha256": "4a8b72577c4e58e37149c910e29f99870c595dd345c3e7deab460f24eb395181",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_counter_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_counter_front.png",
+      "source_sha256": "0db3786e98f2cf5bb6f09238d6b8f3f34b917f3e9425fe25419a7a63be99ebc5",
+      "sha256": "0bd6ec3bfe837f4688a1aa2e419b0259b6425028a95f017140067f99dfe9f856",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_counter_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_counter_rear.png",
+      "source_sha256": "d9299bf08c01dc1945da770f5b1c19fd4f25919e22f68502161c3612e036494b",
+      "sha256": "06259fc559626e3ec7ed979f0534ba13db26d78aeea77ef7d6d61be858779c1b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_cutter_bench_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_cutter_bench_front.png",
+      "source_sha256": "95b31f7ebef0293fa5f9c4e54005c3113f17ebe7854c2767e99546e92d2c8a57",
+      "sha256": "9d8f70a1cce551f5a2df02c4c1fc77d9747ab279e5b3733bc7bec61d173ac10d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_cutter_bench_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_cutter_bench_rear.png",
+      "source_sha256": "1dc2390aba5b180b88a2f5615457cf274e4f626f18c193b3c234d70146278e57",
+      "sha256": "c2a4364872be712d0d0dd963166f6afc661a658322751ec25344b3070846cb9e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_cutter_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_cutter_front.png",
+      "source_sha256": "79e0463c2453b30099f6749bb28e9cc1bfea7c1676fb2dbf0c88d0a1f900e55d",
+      "sha256": "ee3bf4d24bb229ad9de7071f7fb04b6227d5a63f611d8180ed3a08cd8e722946",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_cutter_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_cutter_rear.png",
+      "source_sha256": "70a573006f1ed8ab7068db210aefa087c386bc001a248fead3418b5b095de947",
+      "sha256": "9fceb31ad9273d17e34659551cbeeedc93063a0d5a887214cef4aa8e92634783",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_lock_cloth_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_lock_cloth_front.png",
+      "source_sha256": "f4df106325948b0f70fdcc549dc165165440b8b1454abc438261862e81591054",
+      "sha256": "8f4bed6ceaca821d2ca8574f672aa73e3dd88c1360e7fff9711879d8af3d3e3b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_lock_cloth_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_lock_cloth_rear.png",
+      "source_sha256": "878125cfa39684cfbc5813b41551ab4aaa21cfa6c31a0cde4a3f4014ef8bae17",
+      "sha256": "be01cf4ea3763fb1bb4a154683ae1a288af8bdacb6cfd65682c03e9e22d8d00c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_padlock_rail_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_padlock_rail_front.png",
+      "source_sha256": "f0ec45bbfd009cbc45237f52448d09aa94b5c409997b093aa6ac15795d504818",
+      "sha256": "d068726b545b1d62ffd1d3cca7cc06a3b2026d1ab742ee08c52fbb74ad9bafbf",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_padlock_rail_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_padlock_rail_rear.png",
+      "source_sha256": "20e5bb9bb7792d04ef140331b3553ddef08e8b54d834e04f3f328061842b6e49",
+      "sha256": "fab70d8b4eb2a59e84beec51743afc613e55462ff0a44faca6383a94855d6804",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_safe_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_safe_front.png",
+      "source_sha256": "674ceefdfe5b2cb7c44b3821d5f421d3a83806c2c6aadd70b42ffbe922a580b7",
+      "sha256": "5ec7ff650fea98c40d8b724fdfa8c0872d76414bfcba2e8cd7e68cedec9f2f9e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_safe_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_safe_rear.png",
+      "source_sha256": "4e42d8b4084729bedc43142367f9c4c451351b26ab433d56ec3ed42c16168c3d",
+      "sha256": "64e2b9d3ae2648e6c1a4c80bf78564e240668e620b3908c6bfde803448746d40",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_step_rail0_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_step_rail0_front.png",
+      "source_sha256": "b43d573342362742e373c9902529db2a2995f9eafceb8846f6d9212f578a4ed7",
+      "sha256": "55f7d467b7670f815e813e70e199cf86a37c17e577cc021191fb87ad437ae13c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_step_rail0_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_step_rail0_rear.png",
+      "source_sha256": "99661b53a74715513f06b5ace1f672de35562a3dbff93f004709b325c0018317",
+      "sha256": "5bf907871268cf26f5fb88d78f41a00d3c84fee4a68acaeeec6af657295b8eb9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_window_plinth_front.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_window_plinth_front.png",
+      "source_sha256": "70e531f412d6ef899bb5f9df3d04ed7df97bd8f2233a02ea623367108a2ee97a",
+      "sha256": "4d3b1211629310ad4417e11e2a53d3343c721e10cba863578191ac4c63c91a63",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_keys_cut_window_plinth_rear.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native/storm_shop_keys_cut_window_plinth_rear.png",
+      "source_sha256": "f34e175dd38dfc634ae7402cb818a88c803b49a1431ed6f0e8f61c77b80f531b",
+      "sha256": "8a197457738dc0cbe224078b3dc55fc38a593db57393e637713b62c6fe219854",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/copy_counter.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/copy_counter.png",
+      "source_sha256": "c862e11b495e25823f46ee79419b91c70b94dfe1a828a5c535f14f4b8d161531",
+      "sha256": "dc9884c11261089fcde56da4b8690a1fc6dd6003b2d3a334fd0dab97cb269147",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/cutter_bench.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/cutter_bench.png",
+      "source_sha256": "870fd6940b0619872e64b463cbd8ad4a0bf304fad4a7598d5a604970f1fb9f99",
+      "sha256": "1de42eef4c4a180711fbcd6560b5cc8acccdaa7bf04b00554d39ada518861f11",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/folded_ladder.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/folded_ladder.png",
+      "source_sha256": "e6cd58287c9df0230d3df9908f9819062ea8ee7f2c02a8abf353207449bf0d9f",
+      "sha256": "89707691b2de640f1ed55d17b98e98764dc80edbc4b21aee427c2b97824db11e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/key_board.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/key_board.png",
+      "source_sha256": "c21c068ed06d9e1e81121837f73ddf09fa5492a56d46899a2401c50750580849",
+      "sha256": "9433bafa7426e544e34661c41b633e5edbf2f6ff2fa5db1871fda670dca6e198",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/loose_locks.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/loose_locks.png",
+      "source_sha256": "61a39884bd2249fac9db0b496423f11cd2cf38f5b02ec25a51bb630e6b7df4d1",
+      "sha256": "dcece2345339a5a1338fe30ee84c9185f96ec83edb2cdb64337da8e035128146",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/safe_and_padlocks.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/safe_and_padlocks.png",
+      "source_sha256": "77fce1b5377049c67e00e3d3e8957108ed968231b96d01c36b06493132f3d727",
+      "sha256": "61cbd073acfe91a2c53c22033fa10227e463d5b3492b0720b1932ac739e1e3c9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/window_cabinet.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed_shots/window_cabinet.png",
+      "source_sha256": "6277dbb3799f9b290166c30d41487ac57fac23913cc3a347800d8b631f87bae8",
+      "sha256": "e4c8aa315dae531095be9d152685edfd0977721d30bf471e2809481f1be15762",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheets/01.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native-sheets/01.jpg",
+      "source_sha256": "8c6a63cef1fd24157f6ac4731168f59acd0dd1cf905fb3440ff1cbf27e2907e3",
+      "sha256": "8c6a63cef1fd24157f6ac4731168f59acd0dd1cf905fb3440ff1cbf27e2907e3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_sheets/02.jpg",
+      "source": "tmp/v2-finish-review/locksmith-native-sheets/02.jpg",
+      "source_sha256": "3a0a220fac3e2eff6952a36950cfe146c1a48f895c5c76d46cf23fb4cc8e8110",
+      "sha256": "3a0a220fac3e2eff6952a36950cfe146c1a48f895c5c76d46cf23fb4cc8e8110",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "source": "tmp/v2-finish-review/locksmith-verified-sheets/01.jpg",
+      "source_sha256": "2c1411924ba8711ecfdb718238e876c187ec509033276f8cdd7ab2b50bb3ea46",
+      "sha256": "2c1411924ba8711ecfdb718238e876c187ec509033276f8cdd7ab2b50bb3ea46",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/locksmith-ledger-refresh.log",
+      "source_sha256": "380889d8cdfea7bcb4466b892a38b4f8f1b8d03f145dc0bed417f60513e75d99",
+      "sha256": "380889d8cdfea7bcb4466b892a38b4f8f1b8d03f145dc0bed417f60513e75d99",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/import1.log",
+      "source_sha256": "44b1ac38f6c59fc07ee074c8f302aac4dfbfe07b9afd290d5420998f98cdaac3",
+      "sha256": "44b1ac38f6c59fc07ee074c8f302aac4dfbfe07b9afd290d5420998f98cdaac3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/import1.log.receipt.json",
+      "source_sha256": "5674301766d14bcd1a3b2841cc728a70aeedc6ceef26d3c882234f5af983a227",
+      "sha256": "5674301766d14bcd1a3b2841cc728a70aeedc6ceef26d3c882234f5af983a227",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/import2.log.receipt.json",
+      "source_sha256": "e54de181fc61421afa218466c99f757fdc5dbbfe9e71ebd15713068c08f6ec79",
+      "sha256": "e54de181fc61421afa218466c99f757fdc5dbbfe9e71ebd15713068c08f6ec79",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "ef985e2f6353841557c088188b684645907695a9944f9af63b7f3a9cf17f661a",
+      "sha256": "ef985e2f6353841557c088188b684645907695a9944f9af63b7f3a9cf17f661a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "fdb674c76c1236f8073079cc386a410f65fa4a353cb4b79b914573d3c1853b8f",
+      "sha256": "fdb674c76c1236f8073079cc386a410f65fa4a353cb4b79b914573d3c1853b8f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "7c51bc57eda3cd81633ff3cfe6e0a54e338771ac01324af13efa66bc8d995ff9",
+      "sha256": "7c51bc57eda3cd81633ff3cfe6e0a54e338771ac01324af13efa66bc8d995ff9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "39e9df5d1b8cbc0643b2f1e1590c4aac401f89ba48575f76fccd78d62a8ea25d",
+      "sha256": "39e9df5d1b8cbc0643b2f1e1590c4aac401f89ba48575f76fccd78d62a8ea25d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "6edc7b3d7d25728edc643e8d1f264894ce6289946f9c65d1bca783c027eecb25",
+      "sha256": "6edc7b3d7d25728edc643e8d1f264894ce6289946f9c65d1bca783c027eecb25",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "33f7af5051921257bf2c8aac1a33a799ea5055cb8e701a3dfec8b24b530e858a",
+      "sha256": "33f7af5051921257bf2c8aac1a33a799ea5055cb8e701a3dfec8b24b530e858a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "07e4ed5576d9140461dcaa50dd8d3b73e710aed099d1acc465639c93e4c1a99b",
+      "sha256": "07e4ed5576d9140461dcaa50dd8d3b73e710aed099d1acc465639c93e4c1a99b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "b04d270e12a5b98e5994f2a73f6d2f03ff286d9811615261d263ca32662a6fdb",
+      "sha256": "b04d270e12a5b98e5994f2a73f6d2f03ff286d9811615261d263ca32662a6fdb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "609e51ee6f4e532698c2f091b6fef59c399b8663a27fbcaa96245e287d82168d",
+      "sha256": "609e51ee6f4e532698c2f091b6fef59c399b8663a27fbcaa96245e287d82168d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a3bca0a1930516d55251dfbf6519428a0c7d595aa0775152006eb5186bfe728d",
+      "sha256": "a3bca0a1930516d55251dfbf6519428a0c7d595aa0775152006eb5186bfe728d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-build-calibrated.log",
+      "source": "tmp/v2-finish-review/locksmith-build-calibrated.log",
+      "source_sha256": "df771e95239faf45bc708d86ba61471d91264eb7af35aa98ce4b7272b2670620",
+      "sha256": "df771e95239faf45bc708d86ba61471d91264eb7af35aa98ce4b7272b2670620",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-native-calibrated.log",
+      "source": "tmp/v2-finish-review/locksmith-native-calibrated.log",
+      "source_sha256": "ccf6ea428829411fc56d7586228ef6a6597cdbb452c12ffff5b5f44fd65281c9",
+      "sha256": "ccf6ea428829411fc56d7586228ef6a6597cdbb452c12ffff5b5f44fd65281c9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/fittings.log",
+      "source": "tmp/v2-finish-review/locksmith-initial/fittings.log",
+      "source_sha256": "e85ae73ca656092e5e6f63e9f89fd6b63ec540dee80bb1ca685b02bfd4d8201b",
+      "sha256": "e85ae73ca656092e5e6f63e9f89fd6b63ec540dee80bb1ca685b02bfd4d8201b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/fittings.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-initial/fittings.log.receipt.json",
+      "source_sha256": "ccc0db494d5d1fc1ffdc5bda9a369569452e23647201c44ab516f403992184ac",
+      "sha256": "ccc0db494d5d1fc1ffdc5bda9a369569452e23647201c44ab516f403992184ac",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-physics-fit.log",
+      "source": "tmp/v2-finish-review/locksmith-physics-fit.log",
+      "source_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-physics-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-physics-fit.log.receipt.json",
+      "source_sha256": "a4290205c018640a8e54bfda9aed0f9fa34f402e300a5e0963f16878dccc620b",
+      "sha256": "a4290205c018640a8e54bfda9aed0f9fa34f402e300a5e0963f16878dccc620b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-physics-synchronized.log",
+      "source": "tmp/v2-finish-review/locksmith-physics-synchronized.log",
+      "source_sha256": "ad46c210ef6ddc6bb9881691643a8f058f2172f268336881da0f77244c1a0ad3",
+      "sha256": "ad46c210ef6ddc6bb9881691643a8f058f2172f268336881da0f77244c1a0ad3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-physics-synchronized.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-physics-synchronized.log.receipt.json",
+      "source_sha256": "abd54cb024d722761761115ed81d5cde091607c4d38dd3c53e2be4cd6cf155b5",
+      "sha256": "abd54cb024d722761761115ed81d5cde091607c4d38dd3c53e2be4cd6cf155b5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-collider-diagnostic.log",
+      "source": "tmp/v2-finish-review/locksmith-collider-diagnostic.log",
+      "source_sha256": "345863819c84fd74e46cf22bc1a5bd7962dfee1149f497624c3cdf202056e685",
+      "sha256": "345863819c84fd74e46cf22bc1a5bd7962dfee1149f497624c3cdf202056e685",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-collider-diagnostic.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-collider-diagnostic.log.receipt.json",
+      "source_sha256": "60318049f2075d94b25235aad63987adb4aec5cfc753e6704e07166883f0f4af",
+      "sha256": "60318049f2075d94b25235aad63987adb4aec5cfc753e6704e07166883f0f4af",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-finite-ray-fit.log",
+      "source": "tmp/v2-finish-review/locksmith-finite-ray-fit.log",
+      "source_sha256": "4dcf4606d94e1158732811b9acd9645ac3a01d0d5d04163fbf1219821678e967",
+      "sha256": "4dcf4606d94e1158732811b9acd9645ac3a01d0d5d04163fbf1219821678e967",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-finite-ray-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-finite-ray-fit.log.receipt.json",
+      "source_sha256": "fdc5fd76403d443b607b5ce70e8b270a5b46cd423873bb9be460186e8b33ff92",
+      "sha256": "fdc5fd76403d443b607b5ce70e8b270a5b46cd423873bb9be460186e8b33ff92",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-key-contact-fit.log",
+      "source": "tmp/v2-finish-review/locksmith-key-contact-fit.log",
+      "source_sha256": "7f2c5e5cfda5f4ac55951f18e74dfdf47ed698530125d097f6a403dd85e98184",
+      "sha256": "7f2c5e5cfda5f4ac55951f18e74dfdf47ed698530125d097f6a403dd85e98184",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/locksmith-key-contact-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/locksmith-key-contact-fit.log.receipt.json",
+      "source_sha256": "3e57a5bb3021acd8d1f844aeb1d1f6c588a0689d2bbf7b4f14e9376f965eafc2",
+      "sha256": "3e57a5bb3021acd8d1f844aeb1d1f6c588a0689d2bbf7b4f14e9376f965eafc2",
+      "copy": "byte-identical"
+    }
+  ]
+}

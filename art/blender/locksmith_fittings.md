@@ -67,3 +67,8 @@ longer finite query checks exact native hit ownership, the 6.133 metre front
 face and its outward normal. Hole samples still require an empty result.
 Rim samples sit away from the annulus sector seam. Collision winding and the
 34 support-contact tolerances are unchanged.
+
+The clean production review and exact receipts are retained in
+**art/renders/orison_v2/locksmith_fittings_20261005/**. The bounded report is
+**design/V2_LOCKSMITH_FITTINGS_2026-10-05.md**; it records the clean 892-check
+fittings result, resident-key contract, passage reload and full static board.

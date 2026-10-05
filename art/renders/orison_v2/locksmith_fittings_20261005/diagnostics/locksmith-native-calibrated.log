@@ -1,0 +1,25 @@
+00:01.265  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\locksmith_fittings.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_locksmith_fittings.py:43: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:06.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_board_front.png'
+00:11.062  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_board_rear.png'
+00:15.546  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_cutter_bench_front.png'
+00:19.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_cutter_bench_rear.png'
+00:26.390  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_cutter_front.png'
+00:33.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_cutter_rear.png'
+00:39.000  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_safe_front.png'
+00:45.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_safe_rear.png'
+00:49.953  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_counter_front.png'
+00:55.046  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_counter_rear.png'
+01:00.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_lock_cloth_front.png'
+01:05.343  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_lock_cloth_rear.png'
+01:09.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_padlock_rail_front.png'
+01:12.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_padlock_rail_rear.png'
+01:16.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_step_rail0_front.png'
+01:20.687  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_step_rail0_rear.png'
+01:26.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_window_plinth_front.png'
+01:32.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\locksmith-native\storm_shop_keys_cut_window_plinth_rear.png'
+LOCKSMITH NATIVE QA 536 closed connected stocks; 9 joined assemblies; 18 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
