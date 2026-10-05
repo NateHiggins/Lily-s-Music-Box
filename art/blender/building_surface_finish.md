@@ -22,6 +22,9 @@ right hinge, northward opening and semantic identity remain authoritative.
 The parked graybox is replaced by the established moving DoorProp body and
 maintenance-key policy. Both approaches are tested through ordinary player
 interaction and grounded passage, including shut collision and lock/unlock.
+Its scoped motion owner stops at 90 degrees: the retained jamb intersects
+the generic overtravel at 96 degrees. All 91 one-degree poses from shut to
+the actual open stop require clear collision; the opening and jamb stay intact.
 
 The room survey samples the first actual walking surface before positioning
 its standing capsule. This captures the roof's newer falling field above the

@@ -66,7 +66,8 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		var placeholder := anchor.get_node("Hinge")
 		anchor.remove_child(placeholder)
 		placeholder.free()
-		var door := DoorProp.new()
+		var door: DoorProp = (preload("res://scripts/building/orison_v2_vestibule_door.gd").new()
+				if identity=="F01_INNER_DOOR" else DoorProp.new())
 		door.knob_mesh=_knob_mesh
 		door.hinge_meshes=_hinge_meshes
 		door.name = identity + "_Leaf"

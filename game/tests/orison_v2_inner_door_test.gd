@@ -11,15 +11,18 @@ func _route() -> void:
 		failures.append("inner door lacks finished casings and linings");return
 	world.service_set_carrier.set_capture_hidden(true)
 	var collision:=door._body.get_child(0) as CollisionShape3D
-	var swing_sign: float=-1.0 if door.swing_out else 1.0
-	for angle in range(0,169,2):
+	var target_angle:=door.motion_target_angle(true)
+	if not is_equal_approx(absf(target_angle),PI*.5):
+		failures.append("inner leaf does not retain its fitted quarter-turn stop");return
+	for angle in range(91):
 		var pose:=door._body.global_transform
-		pose.basis=door.global_basis*Basis(Vector3.UP,deg_to_rad(angle*swing_sign))
+		pose.basis=door.global_basis*Basis(Vector3.UP,target_angle*angle/90.0)
 		var query:=PhysicsShapeQueryParameters3D.new()
 		query.shape=collision.shape;query.transform=pose*collision.transform
 		query.collision_mask=1;query.margin=.0001;query.exclude=[player.get_rid(),door._body.get_rid()]
-		if not world.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty():
-			failures.append("inner leaf sweep intersects retained fabric at "+str(angle));return
+		var contacts:=world.get_world_3d().direct_space_state.intersect_shape(query,1)
+		if not contacts.is_empty():
+			failures.append("inner leaf sweep intersects retained fabric at "+str(angle)+": "+str(contacts[0].collider.get_path()));return
 		if angle==90 and anchor.to_local(pose*Vector3(door.width*.5,1.0,0)).z<=0:
 			failures.append("inner leaf reverses the source northward swing");return
 	for side: float in [-1.0,1.0]:
@@ -58,4 +61,4 @@ func _route() -> void:
 		await _capture("inner_closed_"+str(side))
 	if DoorKeyring.identity(door)!="F01_INNER_DOOR" or DoorKeyring.book().locks.get("F01_INNER_DOOR",true):
 		failures.append("saved lock does not retain the semantic inner door identity")
-	print("INNER DOOR: 85 physical sweep positions, source northward swing, both real approaches and key operations")
+	print("INNER DOOR: 91 physical sweep positions, fitted quarter-turn stop, source northward swing, both real approaches and key operations")
