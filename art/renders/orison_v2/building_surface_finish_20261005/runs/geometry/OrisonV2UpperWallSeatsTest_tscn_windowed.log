@@ -1,0 +1,37 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 475 surfaces layered (304 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=23250.819
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+CEILING MAPPING: mesh=upper_wall_seats_Steel_N1_P1_P0 valid_basis=true max_uv_excess=0.00000137835741 widest=1.00008336473593 vertices=4200 derivatives=true
+CEILING MAPPING: mesh=upper_wall_seats_Steel_N1_P3_P0 valid_basis=true max_uv_excess=0.00000151619315 widest=1.00007434220425 vertices=4290 derivatives=true
+CEILING MAPPING: mesh=upper_wall_seats_Steel_N2_P3_P1 valid_basis=true max_uv_excess=0.00000219373032 widest=1.00014609941267 vertices=5049 derivatives=true
+CEILING MAPPING: mesh=upper_wall_seats_Steel_N2_P3_P2 valid_basis=true max_uv_excess=0.00000238418579 widest=1.00011141249185 vertices=1809 derivatives=true
+[HARUKIYA] CLOSED, 18 fixtures
+UPPER WALL SEAT VIEW OBSERVATION: f03_core_west with_frame={ "draw_calls": 1873, "primitives": 1163727 } hidden={ "draw_calls": 1871, "primitives": 1160897 }
+UPPER WALL SEAT VIEW OBSERVATION: f03_south_bracket with_frame={ "draw_calls": 611, "primitives": 402618 } hidden={ "draw_calls": 610, "primitives": 401218 }
+UPPER WALL SEAT VIEW OBSERVATION: f05_core_west with_frame={ "draw_calls": 913, "primitives": 616298 } hidden={ "draw_calls": 912, "primitives": 614868 }
+UPPER WALL SEAT VIEW OBSERVATION: f05_north_bracket with_frame={ "draw_calls": 460, "primitives": 325776 } hidden={ "draw_calls": 459, "primitives": 324346 }
+UPPER WALL SEAT VIEW OBSERVATION: c_west_toe_detail with_frame={ "draw_calls": 227, "primitives": 172909 } hidden={ "draw_calls": 226, "primitives": 171226 }
+INERT UPPER WALL SEATS NATIVE: parts=4 triangles=5116 contacts=21 reproduced=21 retained_source=0 wall_faces=5 heads=32 conflicts=0 checks=178 failures=0

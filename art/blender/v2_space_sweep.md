@@ -7,41 +7,52 @@ composition, with 400 views. Each room samples a 5 by 5 grid using the real
 player capsule dimensions, layer-one collision and a supporting floor ray.
 Two separated clear samples supply the ordinary 1.41 metre eye view. The first
 retains the carried device; the second hides its CanvasLayers for inspection.
-The existing lamp remains enabled; no lighting or material setting changes.
-Optional **V2_SWEEP_LEVEL** selects one level. **SHOT_DIR** is required.
+The existing lamp remains enabled. Optional **V2_SWEEP_LEVEL** selects one
+level. **SHOT_DIR** is required.
 
-This is discovery coverage, not a walkability or fabrication acceptance test.
-It teleports between samples and does not exercise locks, routes or every
-fixture interaction. A clear sample is not proof that the room is reachable.
-Enclosed/reserved rooms remain closed in gameplay. Exterior/passage areas
-beyond the 200 semantic spaces still need their own complete sweep.
+The current room sampling also resolves the first actual supporting surface
+above the authored datum. The roof's fitted falling field therefore supplies
+the station height. This corrects the survey and changes no walking geometry.
 
-The completed run is **tmp/v2-space-sweep/sweep.log.receipt.json**: 449 seconds,
-200 records, zero harness failures. All 13 overview contact sheets were viewed;
-selected larger views informed the boiler and reading-room work. The room-by-
-room index **v2_space_review.json** keeps detail and route review pending,
-including the partially obstructed landing views. Captures remain local under
-**tmp/v2-space-sweep/shots**. An initial script parse error and a deliberately
-interrupted overlay-obscured capture are not counted as completed coverage.
+The latest complete room run binds to **51670954**, completes in **475.49
+seconds**, and writes 200 records / 400 frames with zero harness failures.
+All 13 new contact sheets were inspected on 2026-10-05. The compact packet
+**art/renders/orison_v2/building_surface_finish_20261005/rooms** retains them;
+its exact wrapper receipt and original capture inventory preserve the run's
+identity. **v2_space_review.json** now references these actual captures and
+retains every room's detail/route limits and focused follow-up. Earlier runs
+retain their historical bindings rather than being relabelled as current.
 
-Concrete follow-ups from rendered inspection:
+This is discovery coverage. It teleports between clear samples and does not
+exercise locks, routes or every fixture interaction. A clear sample does not
+prove that the room is reachable. Enclosed/reserved spaces remain closed in
+gameplay. Small baths, kitchens and some landing samples have foreground
+obstructions; an overview does not accept the unseen detail.
 
-- **B1_PUBLIC_CORE** shows an apparent exposed underside/void beneath the
-  lowest stair. Check actual slab ownership and collision before changing it.
-- **F01_REAR_APRON** shows exposed exterior edges/undersides. Inspect the
-  composed outside boundary and route rather than extending a room box blindly.
-- **F01_COMMON_B** was empty; the reading-furniture batch addresses its table,
-  chairs and bookcases. **F01_LOBBY** and **F01_PACKAGE** remain sparse and need
-  their own furnishing/access review.
-- **B1_COAL_ROOM** has a stepped rectangular fuel mass. Preserve the coal
-  delivery state while replacing that visible heap with appropriate geometry.
-- Existing apartment furniture, wet fixtures, radiators, kitchen appliances,
-  millwork, stairs and roof machinery are present. Keep them and target concrete
-  detail defects: slab-like bed coverings, shelf supports, fixture joints and
-  material boundaries. Their presence does not finish the fabrication pass.
-- Close lamp illumination exposes strong wood/stone microdetail and bright
-  ceramic/metal responses. Review them in the later coordinated mapping pass;
-  no global lighting change is justified by this overview alone.
+The later **f84a7350 OrisonV2CitySweep** captures 100 authored city stations,
+including 25 nearest clear alternatives on the same actual shop/bar floor
+families. Requested anchors and substituted floor provenance are recorded.
+All seven city sheets are inspected and retained beside the room sheets.
+Several arcade shops still show primitive apparatus and stock. Some station
+views face doors or walls; these leave the underlying detail unreviewed.
+Source-owned locksmith, repair and retail fittings remain in the work queue.
+That stationary survey complements the room survey; continuous street, shop,
+bar, basement and roof routes retain their separate walking tests.
 
-Use the coverage index for the remaining family work. Neither these captures
-nor this report promote the completeness ledger or the existing accepted debt.
+Focused work since the earlier overview addresses the basement stair underside,
+coal heap, alley boundaries, reading-room furniture, lobby seating and parcel
+shelves, retained-slab masonry joins, dark exposed court iron and both working
+entrance leaves. **building_surface_finish.md** records the bounded finish;
+**V2_BUILDING_SURFACE_FINISH_2026-10-05.md** records actual source revisions,
+test summaries, receipts and open findings. Existing apartment fixtures,
+radiators, millwork, stairs and roof machinery retain their owners. Specific
+detail defects and service continuity still require their own checks.
+
+The source-owned bodega mesh and fitted lettering follow the broad room run;
+their native/production, contact, depletion, receiving, power and frontage
+checks bind to the later clean code revision. Their current views are retained
+separately in the same packet. No room is silently promoted to full acceptance.
+
+Routine local PNG bulk can be removed after the compact packet is checked.
+Native Blender sources, inspections, comparisons, logs and exact receipts are
+retained. Captures, this guide and its INERT index grant no ledger promotion.

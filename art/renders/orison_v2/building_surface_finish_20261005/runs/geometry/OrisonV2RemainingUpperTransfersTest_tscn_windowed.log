@@ -1,0 +1,48 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 475 surfaces layered (304 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=23194.206
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N2_P2_P0 valid_basis=true max_uv_excess=0.00000015459955 widest=1.00000614273772 vertices=6360 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N2_P2_P1 valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000786282206 vertices=2247 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N2_P2_P2 valid_basis=true max_uv_excess=0.00000012113014 widest=1.00000604195801 vertices=2856 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N2_P3_P0 valid_basis=true max_uv_excess=0.00000012113014 widest=1.00000496648701 vertices=4560 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N2_P3_P2 valid_basis=true max_uv_excess=0.00000025588088 widest=1.00001857948937 vertices=4989 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N3_P2_P2 valid_basis=true max_uv_excess=0.00000012113014 widest=1.00000548839581 vertices=2337 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_N3_P3_P2 valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000786282206 vertices=2259 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P1_P1_N1 valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000759391515 vertices=2280 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P1_P1_P0 valid_basis=true max_uv_excess=0.0000002590823 widest=1.00001003798337 vertices=2262 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P1_P1_P2 valid_basis=true max_uv_excess=0.00000010663643 widest=1.00000537389716 vertices=3969 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P2_P1_N1 valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000437151868 vertices=2238 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P2_P1_N2 valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000510372159 vertices=2634 derivatives=true
+CEILING MAPPING: mesh=remaining_upper_transfers_Steel_P2_P1_P2 valid_basis=true max_uv_excess=0.00000008847564 widest=1.00000477308965 vertices=471 derivatives=true
+[HARUKIYA] CLOSED, 18 fixtures
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f03_service_west with_frame={ "draw_calls": 1198, "primitives": 665854 } hidden={ "draw_calls": 1196, "primitives": 664340 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f03_service_north with_frame={ "draw_calls": 2062, "primitives": 1327165 } hidden={ "draw_calls": 2060, "primitives": 1325685 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f03_b_vest_south with_frame={ "draw_calls": 1041, "primitives": 525080 } hidden={ "draw_calls": 1039, "primitives": 523456 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f04_vest_toe with_frame={ "draw_calls": 1343, "primitives": 725570 } hidden={ "draw_calls": 1341, "primitives": 721930 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f04_north_t with_frame={ "draw_calls": 2813, "primitives": 1700031 } hidden={ "draw_calls": 2807, "primitives": 1692248 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f05_vest_offset with_frame={ "draw_calls": 774, "primitives": 414316 } hidden={ "draw_calls": 773, "primitives": 412796 }
+REMAINING UPPER TRANSFER VIEW OBSERVATION: f05_north_t with_frame={ "draw_calls": 2301, "primitives": 1309101 } hidden={ "draw_calls": 2298, "primitives": 1305165 }
+INERT REMAINING UPPER TRANSFERS NATIVE: parts=13 triangles=13154 contacts=72 reproduced=72 retained_source=0 wall_faces=16 heads=72 conflicts=0 checks=667 failures=0

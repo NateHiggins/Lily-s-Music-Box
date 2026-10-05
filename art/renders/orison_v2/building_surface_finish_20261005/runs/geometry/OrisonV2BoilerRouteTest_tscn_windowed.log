@@ -1,0 +1,73 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 475 surfaces layered (304 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=23151.543
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+[HARUKIYA] OPEN, 18 fixtures
+CONNECTED EXTERIOR CHECK: production leaf exists: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: B1_BOILER_FIRE_DOOR = true
+CONNECTED EXTERIOR CHECK: one physical plant supplies the building = true
+CONNECTED EXTERIOR CHECK: breeching begins at the installed smoke collar = true
+CONNECTED EXTERIOR CHECK: physical breeching collision: Breeching_0 = true
+CONNECTED EXTERIOR CHECK: physical breeching collision: Breeching_1 = true
+CONNECTED EXTERIOR CHECK: horizontal breeching clears the service aisle = true
+CONNECTED EXTERIOR CHECK: physical breeching collision: Breeching_2 = true
+CONNECTED EXTERIOR CHECK: horizontal breeching clears the service aisle = true
+CONNECTED EXTERIOR CHECK: boiler feet meet the authored basement floor = true
+CONNECTED EXTERIOR CHECK: actual solid floor supports the plant = true
+CONNECTED EXTERIOR CHECK: retired placeholder cannot hide or block the live plant = true
+CONNECTED EXTERIOR CHECK: closed control names its own door = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: FireDoorReach_open = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches FireDoorReach_open = true
+CONNECTED EXTERIOR CHECK: opened control offers to close its own door = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: FireDoorReach_close = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches FireDoorReach_close = true
+CONNECTED EXTERIOR CHECK: door controls do not toggle their neighbour = true
+CONNECTED EXTERIOR CHECK: closed control names its own door = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: AshDoorReach_open = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches AshDoorReach_open = true
+CONNECTED EXTERIOR CHECK: opened control offers to close its own door = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: AshDoorReach_close = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches AshDoorReach_close = true
+CONNECTED EXTERIOR CHECK: door controls do not toggle their neighbour = true
+CONNECTED EXTERIOR CHECK: damper advertises draft rather than a firing door = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: draft_adjust = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches draft_adjust = true
+CONNECTED EXTERIOR CHECK: physical draft control changes the existing hot-water and radiator supply = true
+CONNECTED EXTERIOR CHECK: boiler control retains its service-wire response = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: water_column_service = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches water_column_service = true
+CONNECTED EXTERIOR CHECK: water-column activity opens through actual E = true
+CONNECTED EXTERIOR CHECK: abort releases movement without proving the column = true
+CONNECTED EXTERIOR CHECK: settled physical lamp centers interaction target: water_column_reopen = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches water_column_reopen = true
+CONNECTED EXTERIOR CHECK: water-column step isolate_column = true
+CONNECTED EXTERIOR CHECK: water-column step prove_drain = true
+CONNECTED EXTERIOR CHECK: water-column step read_level = true
+CONNECTED EXTERIOR CHECK: water-column step return_service = true
+CONNECTED EXTERIOR CHECK: proved water column returns to service and releases movement = true
+V2 BOILER SERVICE: 17 waypoints; 0 failures

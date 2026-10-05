@@ -536,6 +536,7 @@ Evidence class: **INERT**
 ## Provenance
 
 - `art/data/building_layout.json` sha256 `f4815741dd37ab14...`
+- `art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json` sha256 `b792e5efd1fb8018...`
 - `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json` sha256 `544bb75d35a73c4f...`
 - `art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json` sha256 `5e26f5379b290c58...`
 - `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
@@ -580,4 +581,5 @@ Evidence class: **INERT**
 - `design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md` sha256 `83cff9b36fd379d2...`
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
+- `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
 - `tools/orison_spatial_dependency_manifest.json` sha256 `ff880a10e4b7458b...`

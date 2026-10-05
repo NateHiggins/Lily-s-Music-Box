@@ -1,0 +1,1088 @@
+{
+  "evidence_class": "INERT",
+  "schema": "orison.visual-finish-review.v1",
+  "current_code_commit": "b0189afa250edeef125bbd955bda15cb2b39fd90",
+  "full_shop_city_review_commit": "f84a73507ec53657a41262444d63e0e8c2bf6076",
+  "broad_geometry_review_commit": "5167095413353d946c1feaa3970820d1d2bd545a",
+  "base": "697922724b18c635596c4bb4946d0538b2859a39",
+  "geometry_changes_after_broad_review": "Source-owned bodega fittings and city sampler alternatives. After the full shop/city run only the counter Label3D seating/layout changes; native meshes, collisions and service state remain unchanged.",
+  "verification": {
+    "current": "MERGE-CANDIDATE b0189afa250edeef125bbd955bda15cb2b39fd90",
+    "broad": "MERGE-CANDIDATE 5167095413353d946c1feaa3970820d1d2bd545a",
+    "mode": "in-place",
+    "protected_unchanged_vs_merge_base": 17,
+    "selector": "v2",
+    "gate_count": 48,
+    "regressions": []
+  },
+  "room_overviews": {
+    "source_commit": "5167095413353d946c1feaa3970820d1d2bd545a",
+    "spaces": 200,
+    "images": 400,
+    "contact_sheets_reviewed": 13,
+    "detail_limits": [
+      "Obstructed small rooms and landing samples require separate detail/route views."
+    ]
+  },
+  "city_overviews": {
+    "source_commit": "f84a73507ec53657a41262444d63e0e8c2bf6076",
+    "stations": 100,
+    "images": 100,
+    "missing_stations": [],
+    "alternative_authored_floor_stations": 25,
+    "contact_sheets_reviewed": 7,
+    "scope": "Discovery photographs, not access/route or whole-fabrication acceptance."
+  },
+  "bodega": {
+    "assemblies": 58,
+    "checks": 865,
+    "evidence_class": "INERT",
+    "failures": [],
+    "partitions": 92,
+    "stock_nodes": 18,
+    "stocks": 966,
+    "triangles": 146668
+  },
+  "matched_room_pairs": [
+    {
+      "id": "F01_LOBBY",
+      "feet": [
+        3.67200016975403,
+        0.0299999918788671,
+        -4.71400022506714
+      ],
+      "coordinate_tolerance_m": 1e-05,
+      "before_commit": "697922724b18c635596c4bb4946d0538b2859a39",
+      "after_commit": "5167095413353d946c1feaa3970820d1d2bd545a",
+      "sources": [
+        "tmp/v2-finish-review/current/F01_LOBBY_1.png",
+        "game/tmp/v2-finish-review/finish-verified/godot/OrisonV2SpaceSweep_tscn_windowed_shots/F01_LOBBY_1.png"
+      ]
+    },
+    {
+      "id": "B1_PUBLIC_CORE",
+      "feet": [
+        4.18400001525879,
+        -3.17000007629395,
+        -2.61800003051758
+      ],
+      "coordinate_tolerance_m": 1e-05,
+      "before_commit": "697922724b18c635596c4bb4946d0538b2859a39",
+      "after_commit": "5167095413353d946c1feaa3970820d1d2bd545a",
+      "sources": [
+        "tmp/v2-finish-review/current/B1_PUBLIC_CORE_1.png",
+        "game/tmp/v2-finish-review/finish-verified/godot/OrisonV2SpaceSweep_tscn_windowed_shots/B1_PUBLIC_CORE_1.png"
+      ]
+    }
+  ],
+  "runtime_contract": "runtime_authority_receipt.json is an exact test-written schema-2 contract for its executed key/save/permission/denial/teardown scope.",
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "limits": [
+    "No human acceptance or whole-V2 completion.",
+    "Native and collision contacts do not prove structural/weather/service capacity.",
+    "Several marker views face a closed door or wall; 100 captures are not 100 unobstructed details.",
+    "Original arcade stock/apparatus still includes visibly primitive boxes and needs its own fabrication pass.",
+    "Historical wrapper and runtime receipts retain their original bindings."
+  ],
+  "files": [
+    {
+      "file": "room_capture_inventory.json",
+      "source": "game/tmp/v2-finish-review/finish-verified/godot/OrisonV2SpaceSweep_tscn_windowed_shots/spaces.json",
+      "sha256": "961a65651f092193dd5b02778b4bdb6815e3d0fcd134ad9fd4dacfc34a3f6123",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city_capture_inventory.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2CitySweep_tscn_windowed_shots/city-discovery.json",
+      "sha256": "9931c3da2a385ea7e3d1356785dad247aa2eb0fa50c0bac61536f8fa7545e2df",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_runtime_inspection.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2BodegaFittingsTest_tscn_windowed_shots/fittings.json",
+      "sha256": "0ce667d6dec4f8e75afb0aeb18a3521f63f5a57ae1139a29abb12b7069d99fd3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/01.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/01.jpg",
+      "sha256": "0dd8290c51d46ab71b5f74e6b3e994b30002db6854518744cf8e58cd65a4a2a7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/02.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/02.jpg",
+      "sha256": "89fbae4ae6ee551cc9f5bf84f5a801794e1514256ef16d6cce47372f71c5d465",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/03.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/03.jpg",
+      "sha256": "183f8247b2a77d471121e4a04639ee9f93cc7b5e423e0c9f14c280eda93aa5f4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/04.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/04.jpg",
+      "sha256": "78afb27e1373f79ee1b3118ab685a9f13dee633f000603ed5d47e79ab653e50f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/05.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/05.jpg",
+      "sha256": "5aed39709f6bd2d3a7198a99a8ba71d3b9c9c23e6fb1b1043fa40249a1ad79fa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/06.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/06.jpg",
+      "sha256": "1aa4f8cb68635681b00a84463a34faa20a72c063c85c0535e126ac8cdcb6de30",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/07.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/07.jpg",
+      "sha256": "44e2eba5a6949b1631796b0e30a48a0954913461949c9afb35bd83636a5d91ef",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/08.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/08.jpg",
+      "sha256": "52d12b6fdbe4bbaa41f93e62a7c4b1442542dc53955f05977908e66b7059dee3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/09.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/09.jpg",
+      "sha256": "c1c2e0cc04fb717a358897a8f6c5b8db0152d760ec18ecd3e02710f43377c196",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/10.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/10.jpg",
+      "sha256": "8a096f60ca7ad2f8dc37ad887a73aa7852ad9da91e4b3b8885fb533effb92b78",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/11.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/11.jpg",
+      "sha256": "71b6679a503b5075028408a8d5590b27ae9064f490e0fbcdabe795abd3bd5747",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/12.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/12.jpg",
+      "sha256": "555c339af66a8c3dbdc459c5198d09e1832d3c1e9dae833fcdee6cfb733cd576",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "rooms/13.jpg",
+      "source": "tmp/v2-finish-review/latest-space-sheets/13.jpg",
+      "sha256": "36777d28119a6e4124112dba5947c8c996a889177939a368a73e9be6618585c1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/01.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/01.jpg",
+      "sha256": "668abdb43d09e2593e5ae04bb92ced7be54458a58d4cf385f4d8ea0ee0e05e6b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/02.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/02.jpg",
+      "sha256": "17929f7745b20c5af8150b06e2412451b99ca51e211490a82145e5e6a426df48",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/03.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/03.jpg",
+      "sha256": "7f7ab935fbfe269ad90d3e7c7e838d981ecc2e04983498e74477bdf058348be4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/04.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/04.jpg",
+      "sha256": "7d7e09e2d2df124b02b4e6aaf2588f5f68dccae4adb894a560cb688e8a63ddfe",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/05.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/05.jpg",
+      "sha256": "e48710199f0a3aac717239b33d3c06acf96056c4fd02171f06ec0142aa932d71",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/06.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/06.jpg",
+      "sha256": "50d9d2de5de117a5400acd538bf38a31ed4a91a250f8e8010c67399a1882b36d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "city/07.jpg",
+      "source": "tmp/v2-finish-review/current-city-sheets/07.jpg",
+      "sha256": "6da5993784997982533252121cca48527beae31feee4e9565c6e07f3017a895a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_game/01.jpg",
+      "source": "tmp/v2-finish-review/verified-bodega-sheets/01.jpg",
+      "sha256": "76b3a265c7734446675894c7da37d1b2bac1b88a2f73a95ceef542c29ae6367e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_native/aisles.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/aisles.png",
+      "sha256": "abb6160559759566c23a6e99f614fc16ebe3284ca6b915cd2bb6ed339bfdebac",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/ceiling_mount_closeup.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/ceiling_mount_closeup.png",
+      "sha256": "055a863a77ce8971a504c678e2791a9b45ad21de379748b7347bfbae34bcdc20",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/cooler.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/cooler.png",
+      "sha256": "7ad7218aedd0edccee8f941691006bc76595024fe1be233b09a8fef5818e622a",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/counter.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/counter.png",
+      "sha256": "a6dd0dbd374bf85679caefdbcc193cc30d03f44263440a83ae0270ad28e98a21",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/delivery.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/delivery.png",
+      "sha256": "7788f370905f6d3616986ca287bebab85ccb8432e1b426e92bf41ab9607687c8",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/stock.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/stock.png",
+      "sha256": "93a069febfc225f44cd0e7ef564e2a58c53011d98bc8688fae8138f1c50110f0",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_native/window_crates.jpg",
+      "source": "tmp/v2-finish-review/bodega-native-final/window_crates.png",
+      "sha256": "e58af3b4cac5974f2aa68e9f453814c6afd172d1e37293d028ad7e353c166ece",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_detail/counter_front.jpg",
+      "source": "tmp/v2-finish-review/bodega-detail-visible/counter_front.png",
+      "sha256": "7489061e4789f84261c3bb4311538a9dcff4db9ec41e2b128b6a12f186cc193d",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_detail/practical_drop.jpg",
+      "source": "tmp/v2-finish-review/bodega-detail-visible/practical_drop.png",
+      "sha256": "3d3a3cc5f37a4312f83be02cf4ee9717c95899ea578d0cecbb057aecdaefa5b6",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "bodega_detail/views.json",
+      "source": "tmp/v2-finish-review/bodega-detail-visible/views.json",
+      "sha256": "f709be1686ac43c6f9285cd3ba702dd6e074dcd7b0ef60f81cda0d2ba292668a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_detail/bodega-detail-visible.log",
+      "source": "tmp/v2-finish-review/bodega-detail-visible.log",
+      "sha256": "b4671b644eaafc67d5e7ec704eb95faa217e9985fe50c25afa6cd907a0733685",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_detail/bodega-detail-visible.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-detail-visible.log.receipt.json",
+      "sha256": "8a43011517378b63fd8ae7c16ac6b6ed3002863550e9c6e61ceb171300e6f8a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_detail/capture_source.gd",
+      "source": "game/tmp/v2_bodega_finish_detail.gd",
+      "sha256": "07a5e7f202fa38deaf2ef86a325fcd85512eb858c0067ac82dff97111eb6416e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_detail/capture_scene.tscn",
+      "source": "game/tmp/V2BodegaFinishDetail.tscn",
+      "sha256": "fd427654fbdd56fdee1ec09e1375aca97884e127433790d22bf80152f5bcebbe",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "masonry_native/lobby.jpg",
+      "source": "tmp/v2-finish-review/native-door-fit-final/lobby.png",
+      "sha256": "52b0259ca3c09550c57fb042d5747ceb1a8e917840fd1ab8d79b8a70ad639cb1",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "masonry_native/upper_home.jpg",
+      "source": "tmp/v2-finish-review/native-door-fit-final/upper_home.png",
+      "sha256": "ec16c1fb72e0da025ad30c940ab4b203524fa7d18004a95ad00cb2cfa7f3bce9",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "wc_native/closed.jpg",
+      "source": "tmp/v2-finish-review/wc-native-final/closed.png",
+      "sha256": "c1f6b0bed7b0b1445dc88115dad91826a89184d4429ab07623491a2dc90953f6",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "wc_native/open_90.jpg",
+      "source": "tmp/v2-finish-review/wc-native-final/open_90.png",
+      "sha256": "100ce14c9af0b7ecbc509acee675b7782e714781fd8925398f7311be4f120ff7",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "masonry_native_inspection.json",
+      "source": "tmp/v2-finish-review/native-door-fit-final/inspection.json",
+      "sha256": "38fb81705561996661a8067c77a8c170d73bab3906eeac4dfa1a4477fed6b5d3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "wc_native_inspection.json",
+      "source": "tmp/v2-finish-review/wc-native-final/inspection.json",
+      "sha256": "da8befc4f24218d3c28f1204d102ac01fee8b6adcfba766cddbddeb58a0c41a1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "bodega_native_inspection.json",
+      "source": "tmp/v2-finish-review/bodega-native-final/inspection.json",
+      "sha256": "fa29a7c626e16abf2f8aac2aa63b9c2f1bfec64e25fb120dfb2d7020e856444d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "support_export_comparison.json",
+      "source": "tmp/v2-finish-review/support-export-comparison.json",
+      "sha256": "84c4c9b25c7f6f7771ccfb7da7482684820e4ebdf53b8242af53c9f8e0fa4fe3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "support_fixture_comparison.json",
+      "source": "tmp/v2-finish-review/support-fixture-comparison.json",
+      "sha256": "2ffd5cd97c6c2c47ae20ec1694f2d7fc9d44a032c306bbe28dfff67771b9b0b4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "fixture_pin_renewal.json",
+      "source": "tmp/v2-finish-review/fixture-pin-renewal.json",
+      "sha256": "42c898b6ad8bb7593544e04284a7889aab4e364a66244f0ba322e04f4064ff2c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "air_density_comparison.json",
+      "source": "tmp/v2-finish-review/air-probe/views.json",
+      "sha256": "39b44c75f5ff67052f99ce7264e2359e0b499e485777060dfa5377cf01071cfa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "lamp_measurements.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2PrimaryLampTest_tscn_windowed_shots/measurements.json",
+      "sha256": "e412b0d862e82eaec80a30885f3d42953aabe864464748977d2347ebcc6204ee",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "sha256": "b792e5efd1fb801809a7146bb6dd340e3f66f6ea5d29cbed09d80bdcba3a6243",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/69792272-clean-board.json",
+      "sha256": "9ba4174d1a60e23886e60dedce7efa4a2a122caa235426fb5d3489fea08aace3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "geometry_verification.json",
+      "source": "tmp/v2-finish-review/finish-verified/verification.json",
+      "sha256": "94f8ee38ae41c0440fd304afc03a3833d7e1033fc31d7b27506be1a6dda06dbd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "shop_and_city_verification.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/verification.json",
+      "sha256": "433e5183f83f58345d5475af420b2e3ec44c9402807aacbb8916234aab293f76",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "final_lettering_verification.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/verification.json",
+      "sha256": "30886559bc7f2e75980176e28a14a75b8b1bda5104359038b357b0cfe45ad9c0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "earlier_service_gap_verification.json",
+      "source": "tmp/v2-finish-review/bodega-verified/verification.json",
+      "sha256": "328a148da11eea540d5ff2eb186ae37680064b58f1d1ab138141627c02ba8502",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "earlier_service_gap.stderr",
+      "source": "tmp/v2-finish-review/bodega-verified/godot/OrisonV2BodegaPowerTest_tscn_windowed.log.stderr",
+      "sha256": "f1b4d9811e41a225cfb23c38e0cd640aea3acee73e1931a7428147b0b63658b1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/import1.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/import1.log",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/import1.log.receipt.json",
+      "sha256": "97727d993eb8099083b3e375fed173849803c964e5635e4497a083d1739c0243",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/import2.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/import2.log",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/import2.log.receipt.json",
+      "sha256": "91eb8ec8b6be9c1f51b6d9a9100e02ca882d52b0fdaaa20a5dd6765c6d8a90b5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2DoorFabricTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2DoorFabricTest_tscn_windowed.log",
+      "sha256": "3fd7b393bd75d0e5cab29478d43e5c8935a555a563a16b5f2e499bc4e7400c7c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2DoorFabricTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2DoorFabricTest_tscn_windowed.log.receipt.json",
+      "sha256": "43299e9264b4a4e3fb351d30bd06f2b18b35a9734098f1f12cb4697934374612",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ExteriorMasonryTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ExteriorMasonryTest_tscn_windowed.log",
+      "sha256": "817c8b425ce136a32f10d6eeaadd03355248e3692034cb190a927337460c292d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ExteriorMasonryTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ExteriorMasonryTest_tscn_windowed.log.receipt.json",
+      "sha256": "c82e1de05196b490cc27dc157e0c715f6635f1bf4fcf14e13521a284dd51b6bb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2InnerDoorTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2InnerDoorTest_tscn_windowed.log",
+      "sha256": "ee4967df4cdd155a1b2007cb2dd9d04e2b320ab92fd7838a0c68325a1e25b45e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2InnerDoorTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2InnerDoorTest_tscn_windowed.log.receipt.json",
+      "sha256": "cabe55ec398ef8dc8838740af3f6f59e0947a9737c29e62316438cdc9be19f4c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2LightCourtStructureTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2LightCourtStructureTest_tscn_windowed.log",
+      "sha256": "17ed32e0902329eb2cca23055ac30718a8218f638ce545f2cda29c88711d5d17",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2LightCourtStructureTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2LightCourtStructureTest_tscn_windowed.log.receipt.json",
+      "sha256": "617a2092014bd073f6258a18f6c5de2ede1fa17028052d56888e898da87d38fd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2LandingSoffitTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2LandingSoffitTest_tscn_windowed.log",
+      "sha256": "e1d9674892d96413c1838e98206a9d284992cbfd63e6015949505097febd8332",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2LandingSoffitTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2LandingSoffitTest_tscn_windowed.log.receipt.json",
+      "sha256": "74687b15132994a984484150a52ef2e30508127c9614540e988229fb6ba87952",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FrontCourtRoofTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FrontCourtRoofTest_tscn_windowed.log",
+      "sha256": "71e7c871b4c49231851ef14e93fdbe34566e7dd6e81f4203323d3aa54ef1a1a0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FrontCourtRoofTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FrontCourtRoofTest_tscn_windowed.log.receipt.json",
+      "sha256": "23e47377b4b6136b8354a0bc090f3604912477ac7913469058e2dcc65c9b9d22",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FrontFacadeTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed.log",
+      "sha256": "3e08ce4216440b69aa24a03b62f8ecf0f28575c739c8b23a9c7d4cf1a7cb941a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+      "sha256": "289b33ab1ebdbc1c2112f2d7ffb2c12fdced1486376bd82c39d18889b59ab488",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FoundationsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FoundationsTest_tscn_windowed.log",
+      "sha256": "06ed50063db2dcb7187111ff43ac99d3d7e6ead71bb381da422263ba18c9f2ae",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FoundationsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FoundationsTest_tscn_windowed.log.receipt.json",
+      "sha256": "dc3d0dcbe615e8b08fdefd02e9a23c96e51d5bc728954e3cf53a766c2de74c19",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2GroundCoreTransferTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2GroundCoreTransferTest_tscn_windowed.log",
+      "sha256": "64056397a4822c2f2349178753056d06dbd4060673441191da43d21859779c25",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2GroundCoreTransferTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2GroundCoreTransferTest_tscn_windowed.log.receipt.json",
+      "sha256": "c48bc23c18c5abf266e0453cb88da964e26c03fb4a6bcd903dbd9913a063866d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RearWingASupportTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RearWingASupportTest_tscn_windowed.log",
+      "sha256": "78bd5165c75170500f9b4e7754e1faea7af4165d25c186e6c289e446628f7bb7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RearWingASupportTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RearWingASupportTest_tscn_windowed.log.receipt.json",
+      "sha256": "a9db5b281714bcf4387a79e1eed7b1b877247e137da53984892c5272371e87ca",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RearWingCSupportTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RearWingCSupportTest_tscn_windowed.log",
+      "sha256": "f1fd71cd3d769275db5ac274195ea0cb7fc297cc42861cf4af415253a96b185d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RearWingCSupportTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RearWingCSupportTest_tscn_windowed.log.receipt.json",
+      "sha256": "6edcc1406dda8b2c4590568bcef4d663948943a5f8cfe07c60cfd83dd2ea3b26",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log",
+      "sha256": "247051c402edbbdd6a233d85a356ec47e02d7c8838829ef932512c103bd00b9a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log.receipt.json",
+      "sha256": "47a1eea333f373cead344bd60b8158b495fa275a115f6a44584f9dfff18fa3a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2UpperWallSeatsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2UpperWallSeatsTest_tscn_windowed.log",
+      "sha256": "095e88bb34be58363146d0e65945e065f70cd3942196c6486d32e8fdf87a9e9f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2UpperWallSeatsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2UpperWallSeatsTest_tscn_windowed.log.receipt.json",
+      "sha256": "fc73fb45d9ccfce8a5297eca87025e217c6c75ac9c72ec75ef8b16e749057f65",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log",
+      "sha256": "9fb493ca2f88ec725178944157681a5cfc20209bd9fa6eafedac2ee5eab43614",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log.receipt.json",
+      "sha256": "bdc5bf79f033ef0195aea2b06dcaf30dc4ee21f90c6939db045efc9289cc74aa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PrimaryLampTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PrimaryLampTest_tscn_windowed.log",
+      "sha256": "db7a482b66641b8915dba193f3a1194e3272c4d4339d4d092688ec73b4bae681",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+      "sha256": "b85cd6117c5d4cf8c0c13be5ee65970146c3c5af491068da07bb05564cb5f056",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2CityCompositionTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2CityCompositionTest_tscn_windowed.log",
+      "sha256": "813b1c9dfc94b762d301da171f52696ad975383a6c4faf495d9aba45b2b570ab",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+      "sha256": "914251f194d427076fcf7752f7de6aa72c8dc949543ef61f8028134f6944c135",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BarRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log",
+      "sha256": "fbf58d1f4026359f0448a38119db19896043535abcd952991f9d3181f797a248",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "c78072747d9e8700d1239720a52312d537debab6e8f25d9fdf9a61fbcea3de34",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV24BDoorRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV24BDoorRouteTest_tscn_windowed.log",
+      "sha256": "1de1d1f79d42c6850b40f0f8aeee5463ad6a2ab4e7a4976251a01dad6d331816",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV24BDoorRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV24BDoorRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "e7e8c05de3cd67249522354444688062038d885724f69b5a20bfdca284c1d95d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log",
+      "sha256": "a531b141b44003a75cbcb6e69ffa32482ca6de955890c57017ad09d9cfd56777",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "36b88129993d8e44185d755b292ac721f5ab45ab683e1e640fd0a0a8e894f6dc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "sha256": "6bba1a8c21a2f73dbd92773affe69d322663a69fd050b42b1848cca015363259",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "sha256": "0fbe1b2c3bf653ba1cfbdf89c7e54c97d9e264c25442689a940e14353b3eb2a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BasementRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BasementRouteTest_tscn_windowed.log",
+      "sha256": "f1caae85a1c38b9243aff31b422beba836ec5352942d2d2d077f24ac7553a1c7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BasementRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BasementRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "b1990f4b24dd21851054b0b2b4bd5bdb488cf3692c87e72531a1ba9ffb38872c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BoilerRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BoilerRouteTest_tscn_windowed.log",
+      "sha256": "663b1872b7483c591a228e582341ccd1c7f1cacc7f655cceb361c0c3d67a57e7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2BoilerRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2BoilerRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "aa6e0bbe77f52c2815d3049df256eb67a4b28d6e8c1a86a7f324d3cddf6ffe9b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log",
+      "sha256": "2ff6e7fde0a2ec4cc180f11614a798c9a9cf42c60ae2dd4a8f97831f37af895a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log.receipt.json",
+      "sha256": "4a55924a5ab86b45de10e6a9ce07b4d87d493ad307bab5a8190ec23525e17b3f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RoofRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RoofRouteTest_tscn_windowed.log",
+      "sha256": "1346444c7856abf094b51ce4b6f591656a66a3e1b6302af5d0659a5214b06529",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2RoofRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2RoofRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "63a0d56b06da626c4954b00709d9aba10bebfdfcd9a7c3905eb0cc5637e97d42",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "sha256": "dc946be3be238dfba601f97deba3fe514fa7e43cc3cfddc1a5e2759c766ccf6f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "7df13eb89403b913a5a8e5e8490b5440f41fce4648ef3039ecf37529555ff1e9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PassageRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PassageRouteTest_tscn_windowed.log",
+      "sha256": "3041d179697084e3ebad986dc08adb9c1503a16f0f77427c5df416f47f0f7cab",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2PassageRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2PassageRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "2e1ab7e9bdd912622fd658404b03e5642469b21bd134fd4416025ca8b0d78e84",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log",
+      "sha256": "5c1f7ee67e3272d11d065dbd45c8bbc16009a63d548774b422e99899913b5f81",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "238ae198e23caf1df1b86f2f400d896452ac3edc69acc421654753d5c7cc5380",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log",
+      "sha256": "9ea653211fad781e3a5019cfde494aafb15a69cbb53cbe2e217793258632fbc9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "4504be001d2f29c5231f39eaaed2cbbe029aa7348ef0c6d0a4765643027c73ed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2SpaceSweep_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2SpaceSweep_tscn_windowed.log",
+      "sha256": "3f9818a296acc93d7fc77a08b7a5637079afeef7961655a7b4ffd6dc01b8f042",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2SpaceSweep_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2SpaceSweep_tscn_windowed.log.receipt.json",
+      "sha256": "c394fa95bd08402059140482a9225e5c29fb178c2513f323bd0a0d7d6727e0a7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2CitySweep_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2CitySweep_tscn_windowed.log",
+      "sha256": "52142689828a7935d381e7a36ae800de486128cfd543f7d91bbfd86c252100b4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/geometry/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/finish-verified/godot/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+      "sha256": "9201156a69d0d0cd24cfe4172872014ae7e5cf31501f430f3405e3724995e17a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/import1.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/import1.log",
+      "sha256": "67966be60dc9179a7b310596a5b10d181d6050bbb7f3e4ecb95e2c93bb24dc26",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/import1.log.receipt.json",
+      "sha256": "76999625f0f768e8c44a9efc0e578b7da08975de2118c4675009206450b3d2e8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/import2.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/import2.log",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/import2.log.receipt.json",
+      "sha256": "50cc60e728f54e2c1efcb7376a7f6a2532e7dc94269b06dc338dc67835aa20bc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+      "sha256": "07a0a935c582478d2d1ebfa27e240afd0f2582a10d4559bcf9e4b8a0c31f5552",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+      "sha256": "fb948e0bb844d6548b311cc756337c6cd104ff2dbb1bbba79c574e5750690311",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaFrontageTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaFrontageTest_tscn_windowed.log",
+      "sha256": "3d86f72986693e85ce08792c5d25881a7edf32f8c27c1d7646a87caaa111457f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaFrontageTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaFrontageTest_tscn_windowed.log.receipt.json",
+      "sha256": "590613c26d4905e8cb527a1def2ce1e76615e51f0d80b0aafd794a7e44106b3e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log",
+      "sha256": "cdaea4d2af044b5dd47bfac434fb710d814dfbbd7ed1b314242f0f4d1870fb66",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "de8c40526bf0eb67585292d78c4d8b6f21d9504dfa623d64629cee3abb7d3294",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaPowerTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaPowerTest_tscn_windowed.log",
+      "sha256": "805ec24d290020d7db4dae33907411f7530dcb228e715890819c0210249bf142",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2BodegaPowerTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2BodegaPowerTest_tscn_windowed.log.receipt.json",
+      "sha256": "fdd560358f3da7f701ab6f3d6c7d9199712047837e71d4a16fc1044f484022dd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "sha256": "122592ec6d47ac2e817e80230c76cebe45351c52897da7ab8a874dac6e73afac",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "sha256": "e2481c7ad8101ce42bbeaed74b0ce78f16b6f063d30c01707f0c9e7cd8f964f5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "7c5b199406587ccc7cf452dc29ac8752bea8df255ea930b047991b40256ff57a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2PrimaryLampTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2PrimaryLampTest_tscn_windowed.log",
+      "sha256": "bf35fa94768b9d77f010beddfb3a5b06ce45d2ab704b3d18f1886c00636cedb3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+      "sha256": "ee483cb8b7ff4e818ad06e2d65974988d0fb3a27bf48db257970d0b0ebe8ae60",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2FrontFacadeTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed.log",
+      "sha256": "95ee85dbecd094be3464487a771a3ceabdeeb6185f8b2cdd6dff078154ed8ecb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+      "sha256": "c980cc74fb794566371fea15e2ebe449854ef059f39fa1dfd242562357952b9c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2CityCompositionTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2CityCompositionTest_tscn_windowed.log",
+      "sha256": "f0c81065d10332481f727a68d072a6bc0bc29bd21c0d2a91f6d88d7168df563f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+      "sha256": "58d4890d1fdd7261610d6b28b915b3b5e1c1d6bcd1a678e4ed3512964c7beb03",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2CitySweep_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2CitySweep_tscn_windowed.log",
+      "sha256": "a6ca5804288b58e7c7c7ba2ef4b1c6f5fef9f18625afe80a42b278f9b26ef480",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/shop_and_city/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+      "sha256": "49d0279135ac20fc9bc25fa7d98bff5a03d7c1ae2b3762911aefb510ea894bb0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/import1.log",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/import1.log",
+      "sha256": "d1fc3291160c9cb4170c7e753fe6354235bca59bf0503d6bbe95ca0035d5a4ae",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/import1.log.receipt.json",
+      "sha256": "c5e1ab68d657c5ec12f322baa83f19b4cd863a87677ad1b1cde2d72ab8c90303",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/import2.log",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/import2.log",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/import2.log.receipt.json",
+      "sha256": "5b222be3e8c27650caa6aedcb0cd8facfc47b982942b950773a089a6efc54d52",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+      "sha256": "c59e8ccdd322c7aa615e7f5ae9e352838c03c030f497f985e6f5de7ececafea1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+      "sha256": "821920795ce0e8b205469b7bf9113ac8edfbc926514551b348bec29aa047d56b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "sha256": "c7f9112fe2c3896c22a3d1e1c23d924a365bfd6ced347098d690f29a8fdc5229",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/final_lettering/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/bodega-lettering-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "sha256": "5784a944f3c106b2f57a1928d5bc9963fa48964aa5bc519dfd4b2e1c20a87411",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "front_facade/approach.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/approach.png",
+      "sha256": "1babdc269bce0319ac5dc3f74868602787b63787b4e2f908581d9ac70277658a",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "front_facade/blade.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/blade.png",
+      "sha256": "9e37abefdd6e425708350a35e0b557bb02ade2b3fcddb884ce706e67a8da3524",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "front_facade/canopy.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/canopy.png",
+      "sha256": "6f33ab486195143e18187541e8af792045e4f7a4f4c7194991e4d8403887f240",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "front_facade/door.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/door.png",
+      "sha256": "b6c440b76d53fbe8d20e1d90ff54b41e3009b56b3cf1c0bcc76317bad96ec204",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "front_facade/front.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/front.png",
+      "sha256": "a921e3d8424099176e1e1e325ec3a2d3969eef168585be38f765bf78e19a2dda",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "front_facade/front_wide.jpg",
+      "source": "tmp/v2-finish-review/bodega-seated-verified/godot/OrisonV2FrontFacadeTest_tscn_windowed_shots/front_wide.png",
+      "sha256": "2aa3c556fb2943dea76bfced21a2f136a40910679ab82ef58e39ce9a0d5230f6",
+      "copy": "JPEG visual derivative; source pixels are not a hash claim"
+    },
+    {
+      "file": "f01_lobby_final_comparison.jpg",
+      "source": "tmp/v2-finish-review/f01_lobby_final_comparison.jpg",
+      "sha256": "ab044bc8cc362b2442dacd744b24d9e64bce8b1fd15bb87a847c734ab5496ea6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "b1_public_core_final_comparison.jpg",
+      "source": "tmp/v2-finish-review/b1_public_core_final_comparison.jpg",
+      "sha256": "6e4a55b0cc7304cc832c1ab66ae2c5e9dfefe49eb08da9790b9e508063975ba6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "air_street_comparison.jpg",
+      "source": "tmp/v2-finish-review/air_street_comparison.jpg",
+      "sha256": "97400c9ce4a838e2483393ab304da1b75089cd41d7340614c5178f7084530f4c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "air_vestibule_comparison.jpg",
+      "source": "tmp/v2-finish-review/air_vestibule_comparison.jpg",
+      "sha256": "08148452a0740df51046d4ee020f8d5471b84d0a54ead59d60f9f877184e45a8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "capture_cleanup_summary.json",
+      "source": "tmp/v2-finish-review/capture_bulk_cleanup.json",
+      "sha256": "529c47f093353885e48737d83f8370d93e2cc182cf4d048aefcf2cb34b4f7ad4",
+      "copy": "Compact summary; full removed-path inventory retained locally."
+    }
+  ]
+}

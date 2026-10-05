@@ -1,0 +1,35 @@
+{
+	"checks": 2,
+	"evidence_class": "INERT",
+	"failures": [],
+	"views": [
+		{
+			"feet": [
+				17.4050006866455,
+				0.0299999993294477,
+				1.27499997615814
+			],
+			"id": "counter_front",
+			"image": "counter_front.png",
+			"local_target": [
+				-1.25,
+				0.879999995231628,
+				-1.3400000333786
+			]
+		},
+		{
+			"feet": [
+				19.5050010681152,
+				0.0299999993294477,
+				-0.875
+			],
+			"id": "practical_drop",
+			"image": "practical_drop.png",
+			"local_target": [
+				0.550000011920929,
+				2.97000002861023,
+				-2.0
+			]
+		}
+	]
+}

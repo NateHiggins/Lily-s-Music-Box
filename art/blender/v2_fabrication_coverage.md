@@ -14,8 +14,10 @@ remain necessary to establish what the player actually sees.
 The all-space overview now has 400 captures across all 200 spaces. See
 **v2_space_sweep.md** and **v2_space_review.json** for the reviewed overviews,
 obstructed landing views and remaining detail/route work. This is a coverage
-advance, not acceptance of every installation. The composed exterior and
-passage still require a complete independent sweep.
+advance, not acceptance of every installation. A separate 100-station city survey now has 100 images and seven inspected
+contact sheets; discovery limits and specific route/detail work remain. Several arcade
+apparatus and stock groups still use primitive boxes. Source-owned locksmith,
+repair and retail fittings remain open in the fabrication queue.
 
 The focused production run also writes **production_geometry_inventory.json**
 beside its screenshots, recording actual mesh types, visibility, instances and
@@ -79,6 +81,7 @@ has yet been demonstrated; none is silently marked complete.
 | Roof-wall base flashing fit | build_roof_base_flashings / retained roof source and blockout | Folded upstands, fitted feet, mitered bulkhead/parapet corners and clear retained door apertures; original walls/deck own buried contact planes. See roof_base_flashings.md. The fitted main-roof field, falls/outlets and downstream connections are in roof_drainage.md. Sealing/weather capacity remains open. |
 | Operating boiler-well window | build_boiler_window / retained semantic opening / existing household save owner | Fitted six-pane inward sash, hinges, cam and stays; original reveal/well retained. Scoped fit, walking and save proof in boiler_window.md; whole weather and combustion-air capacity remain open. |
 | Main-roof field finish | build_roof_membrane / retained seven roof deck owners / catalogue roof_bitumen | Closed four-millimetre native finish within the original slab envelope; metre UVs, three authored PBR maps and bounded partitions. Scoped fit in roof_membrane.md; coordinated falls, outlets, leaders and retained-grade receivers are fitted in roof_drainage.md. Capacity and weather acceptance remain open. |
+| Bodega source-owned retail fittings | build_bodega_fittings / 58 original source mesh owners / catalogue maps | 966 closed stocks, 92 partitions and 146,668 triangles; supported racks, individual stock, lined icebox, recessed counter, delivery cart and seated practicals. All 18 aggregate stock owners remain; real depletion, actual conduit contacts and fitted Label3D lettering are checked in bodega_fittings.md. Independent-service capacity and broader gameplay remain open. |
 | Bodega fixed frontage and lower door field | build_bodega_frontage / original exterior panes and hinged leaf | Three demonstrated upper bands closed by fitted frame and glass; raised lower panel stays inside the original moving box. Scoped native, collision and 57-pose checks in bodega_frontage.md; shop shell, weather capacity and broader materials remain open. |
 | Carried radiophone, teletype and lamp | existing service-set owners | Preserve accepted assembly, physical HUD, pointer and debug behavior; no redesign authorized by the inventory. |
 | Dream zoo, hero, organelles, sixteen critters | accepted zoo and Blender critter sources | Intentional preservation boundary. Keep accepted assets, behaviors and declared placeholders; regression checks remain required. |

@@ -68,3 +68,11 @@ by **scripts/inspect_wc_swing_clear_hinge.py**. Its two physical halves use the
 existing **iron_blackened** finish, metre UVs and corrected export tangent
 handedness. Full-pose collision sampling and ordinary walking/input tests
 remain separate checks.
+
+The compact **building_surface_finish_20261005** render packet retains the
+13 inspected room sheets, seven full city-survey sheets, ordinary and close native
+views, current facade/bodega views, actual inspections and exact wrapper and
+runtime receipts. **design/V2_BUILDING_SURFACE_FINISH_2026-10-05.md** records
+source identity, actual verification and the remaining scope limits.
+**bodega_fittings.md** describes the separately checked native retail finish,
+source-state preservation, real stock depletion and retained conduit contacts.

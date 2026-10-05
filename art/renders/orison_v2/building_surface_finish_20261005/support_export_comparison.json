@@ -1,0 +1,45 @@
+{
+  "evidence_class": "INERT",
+  "comparisons": [
+    {
+      "family": "rear_wing_a_support",
+      "previous_source_head": "0454d43fa75dac182d58d3a9409d1cf1a50dd8b5",
+      "before_sha256": "516d006c7bcc2c2c8f38b120f603245159885d26f8d053e63ce1475cf8bfaa96",
+      "after_sha256": "29f80a73da51f9f117ddf264f18820fc97367284d817ceba603c8c278c487f2a",
+      "oriented_triangles": 8414,
+      "identical_at_metre_quantum": 1e-06
+    },
+    {
+      "family": "rear_wing_c_support",
+      "previous_source_head": "3ad3a2cd2929726634ec6f8517680c9cc5804f57",
+      "before_sha256": "900700d0defbeb456a50f33ca38a3ead16c48f033f1cda111ddf6a1b5bf50bc6",
+      "after_sha256": "05232c70be2241a68f621297ff5b7d2651bff4fbde2f6150bbcb1b4550e492d8",
+      "oriented_triangles": 15022,
+      "identical_at_metre_quantum": 1e-06
+    },
+    {
+      "family": "first_upper_hall_seats",
+      "previous_source_head": "120b28f413b212ede0ce3f777370aba6e0f409da",
+      "before_sha256": "56581172fadca519bcbf3b9fa6f8f5cd2ca82d458581418a4a3a0f674e81a042",
+      "after_sha256": "920c8d0e7bfe13e0b595c32887762934054c06e92b7ebe8c0fa7e8050c945739",
+      "oriented_triangles": 5214,
+      "identical_at_metre_quantum": 1e-06
+    },
+    {
+      "family": "upper_wall_seats",
+      "previous_source_head": "a44bf6f95caf9d122a1c1ea504ae06b78c47df06",
+      "before_sha256": "786fcac6a66f72e2b98650b6d3e7344dd30d6c41f2fc923d50c70b82de4820ba",
+      "after_sha256": "160d011fee800a275baf75479decba6dc20a77c93f065f706f7c1c27603b1331",
+      "oriented_triangles": 5116,
+      "identical_at_metre_quantum": 1e-06
+    },
+    {
+      "family": "remaining_upper_transfers",
+      "previous_source_head": "97faa90eacfad8f2ea51d0145f2b699ba7f9d854",
+      "before_sha256": "edd9bfe521588bbaa00b49a3e48601e4d43925f57f1bcc5b86f697526de9f0a7",
+      "after_sha256": "2eda32b5d3d94bc4b85c3f9ee3cabf50e6efe0b1049d1484e56869905c2a1ae9",
+      "oriented_triangles": 13154,
+      "identical_at_metre_quantum": 1e-06
+    }
+  ]
+}

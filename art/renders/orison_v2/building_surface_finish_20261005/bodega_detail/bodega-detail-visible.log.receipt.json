@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 35.86,
+  "exit_code": 0,
+  "finished_utc": "2026-10-05T19:00:33Z",
+  "started_utc": "2026-10-05T18:59:57Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/bodega-detail-visible.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/bodega-detail-visible.log",
+  "stdout_sha256": "b4671b644eaafc67d5e7ec704eb95faa217e9985fe50c25afa6cd907a0733685"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tmp/V2BodegaFinishDetail.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/bodega-detail-visible",
+ "source": {
+  "dirty_paths": 264,
+  "dirty_sample": [
+   "M game/scripts/building/orison_v2_bodega_fittings.gd",
+   " M game/tests/orison_v2_bodega_fittings_test.gd",
+   "?? art/renders/orison_v2/building_surface_finish_20261005/",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid",
+   "?? game/scripts/building/orison_v2_completion_interiors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_door_casings.gd.uid"
+  ],
+  "repository_head": "f84a73507ec53657a41262444d63e0e8c2bf6076",
+  "repository_tree": "364ec1261e38d01d73df110b290ad42ba32d2da5",
+  "runtime_inputs_sha256": "b8f46546e9bd4b331ab041ad75ccbb88a36f09376f303bbda5a1d3c2b11a263b",
+  "test_path": "game/tmp/v2_bodega_finish_detail.gd",
+  "test_sha256": "07a5e7f202fa38deaf2ef86a325fcd85512eb858c0067ac82dff97111eb6416e"
+ },
+ "windowed": true
+}
