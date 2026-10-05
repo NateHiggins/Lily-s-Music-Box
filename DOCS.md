@@ -4,16 +4,16 @@ Seventy-odd documents live in this repository and another twenty-five in the
 world compiler next door. This file is the map. **If you do not know where to
 look, look here first.**
 
-## Precedence — who wins when two documents disagree
+## Precedence â€” who wins when two documents disagree
 
-1. **`design/ORISON_BIBLE.md`** — the covenant. It says so itself: where any
+1. **`design/ORISON_BIBLE.md`** â€” the covenant. It says so itself: where any
    other text disagrees, the Bible prevails until amended.
-2. **The newest dated ruling** inside the Bible (`§VIII` carries them).
+2. **The newest dated ruling** inside the Bible (`Â§VIII` carries them).
 3. **This map**, for anything about where documents live.
 4. Everything else.
 
-A disagreement you cannot resolve is not a bug to paper over — the Bible has a
-**§VI Disputed Texts** section for exactly that. Add to it rather than picking a
+A disagreement you cannot resolve is not a bug to paper over â€” the Bible has a
+**Â§VI Disputed Texts** section for exactly that. Add to it rather than picking a
 side quietly.
 
 ## The six kinds of document
@@ -31,15 +31,16 @@ Knowing which kind you are reading tells you how much to trust it.
 | **Audit** | Evidence with a method and confidence levels. Findings graduate to the queue; the audit stays as the record | `design/AUDIT_*.md` |
 | **Build guide** | How to build and verify. Mechanics only. | `HANDOFF.md`, `art/README.md`, `game/README.md` |
 
-## Where to look for…
+## Where to look forâ€¦
 
-| If you want to know… | Read |
+| If you want to knowâ€¦ | Read |
 |---|---|
 | Current room/city geometry and texture review, fitted door motion and honest ledger refresh | `design/V2_BUILDING_SURFACE_FINISH_2026-10-05.md` and `art/blender/building_surface_finish.md` |
+| Fitted Keys Cut board, passive machinery, supported display and unchanged copying authority | `art/blender/locksmith_fittings.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |
-| Controlled front-façade air finish, current key contract and remaining roof lighting check | `design/V2_FRONT_FACADE_AIR_FINISH_2026-10-05.md` |
+| Controlled front-faÃ§ade air finish, current key contract and remaining roof lighting check | `design/V2_FRONT_FACADE_AIR_FINISH_2026-10-05.md` |
 | Fitted steel beneath the front-court roof and calibrated exterior soffit finish | `art/blender/front_court_roof.md` |
 | Verified front-court roof contacts, strict landing envelopes and current ledger provenance | `design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md` |
 | Equal-output lamp comparison, waking V2 surface detail balance and current scoped contract | `design/V2_LAMP_SURFACE_BALANCE_2026-10-05.md` |
@@ -100,7 +101,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted first-upper C rear-wing beams, posts, retained basement roof seats and external footings | `art/blender/rear_wing_c_support.md` |
 | First-upper hall brackets, fitted beam seats and retained watch-wall toe ledger | `art/blender/first_upper_hall_seats.md` |
 | Repeated upper-core wall transfers and fitted C west toe against its retained inner wall | `art/blender/upper_wall_seats.md` |
-| Remaining F03–F05 wall transfers, connected T frames and retained wet-stack/light-slot boundaries | `art/blender/remaining_upper_transfers.md` |
+| Remaining F03â€“F05 wall transfers, connected T frames and retained wet-stack/light-slot boundaries | `art/blender/remaining_upper_transfers.md` |
 | Exposed landing soffits, retained slab bodies and single-owner ceiling interfaces | `art/blender/landing_soffits.md` |
 | Exposed room-slab soffits, retained apertures and roof-wall contact observations | `art/blender/room_slab_soffits.md` |
 | Fabricated bedding, preserved frames and fitted collision on fourteen beds | `art/blender/bedding.md` |
@@ -162,13 +163,13 @@ Knowing which kind you are reading tells you how much to trust it.
 | How each prop compares with the real object, and which to rebuild first | `design/PROP_MODELING_TEXTURING_BRIEF_2026-09-18.md`, then `tools/prop_reference/README.md` |
 | What the game loop is and which milestone comes next | `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`, then `design/next_session_plan.md` |
 | The final playable map: three zones, the Passage, measured perf baseline | `design/FINAL_MAP_REDESIGN_BRIEF.md` |
-| Why an object looks forty years early | Bible §VIII.2, the Rule of Signal |
+| Why an object looks forty years early | Bible Â§VIII.2, the Rule of Signal |
 | What is open right now, and who has it | `TASKS.md` |
 | Whether a system is actually used | `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` |
-| How to build the layout → Blender → Godot chain | `HANDOFF.md` |
+| How to build the layout â†’ Blender â†’ Godot chain | `HANDOFF.md` |
 | How to run a test, and which ones exist | `HANDOFF.md`, then `game/tests/` |
 | What phase the art is in | `art/docs/photoreal_target.md` |
-| Who lives in a flat and what their wound is | Bible §IV, then `game/docs/resident_character_cast.md` |
+| Who lives in a flat and what their wound is | Bible Â§IV, then `game/docs/resident_character_cast.md` |
 | How a prop should be built | `design/PROP_ART_BRIEF.md`, `design/PROP_REFERENCE_NOTES.md` |
 | What a prop *does* | `design/PROP_ACTIVITIES.md` |
 | Which foreground props and set heroes receive E, inspection, refusal or stay ambient | `design/PROP_SET_INTERACTION_MATRIX.md` |
@@ -176,10 +177,10 @@ Knowing which kind you are reading tells you how much to trust it.
 | How the complete maintenance/case/dream-request loop is wired | `game/docs/core_loop.md` |
 | How the bar works | `docs/harukiya_reference_notes.md` |
 | How the karaoke/song system works | `docs/songbook_brief.md` |
-| The machines in the bar | `game/docs/arcade_cabinets.md`, ruled in Bible §VIII.5.g |
+| The machines in the bar | `game/docs/arcade_cabinets.md`, ruled in Bible Â§VIII.5.g |
 | The proposed basement studio | `design/ORISON_STUDIO_BRIEF.md` *(proposal)* |
 | The narcolepsy dream / the maze | `design/ORISON_MAZE_BRIEF.md` *(ruled production design)*, then `game/docs/dream_boundary.md` for the landed scene/save seam and `game/docs/dream_onset.md` for the protected onset owner |
-| The ruled dream flora/fauna ecosystem and landed FA1–FA2 slices | `design/DREAM_FAUNA_BRIEF.md`, then `art/renders/dream_fauna_f1/README.md` and `art/renders/dream_fauna_fa2/README.md` |
+| The ruled dream flora/fauna ecosystem and landed FA1â€“FA2 slices | `design/DREAM_FAUNA_BRIEF.md`, then `art/renders/dream_fauna_f1/README.md` and `art/renders/dream_fauna_fa2/README.md` |
 | How the sixteen warehouse critters will be rebuilt from the biology dossier with continuous Blender anatomy and preserved behaviors | `design/astra/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19_BRIEF.md`, with `design/astra/DREAM_CRITTER_REFERENCE_MAP_2026-09-19.json` *(INERT analysis, implementation proposal and reference map)* |
 | Editable Blender sources, native warehouse gallery and completed verification for all sixteen critters | `design/astra/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19.md` *(INERT implementation report)* |
 | Recovered hero source, live organelle warehouse station and reserved zoo bays | `design/astra/DREAM_ZOO_WAREHOUSE_RESCUE_2026-09-19.md` *(INERT debug implementation and source-recovery report)* |
@@ -188,7 +189,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Which real specimen each landed Dream organ is grown from, at what scale and era, and what the being misreads about it | `design/DREAM_TEMPORAL_SPECIMEN_LEDGER.md` *(audit)*, over the doctrine it classifies: `design/DREAM_TEMPORAL_BIOLOGY.md`, `design/DREAM_ORGANELLE_COMMUNICATION.md`, `design/DREAM_ECOLOGY_ARCHITECTURE.md` |
 | Ruled waking-world vermin, birds and invasive flora | `design/ORISON_COMMENSALS_BRIEF.md` *(C1 landed; later breadth gated)* |
 | The no-screen radio and attached work light in the player's hand | `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`, `game/docs/service_set.md` *(ruled and landed)* |
-| The HUD, telegram paper, type hierarchy and institutional world text | Bible §VIII.5.k, then `game/docs/telegram_style.md` *(ruled and landed)* |
+| The HUD, telegram paper, type hierarchy and institutional world text | Bible Â§VIII.5.k, then `game/docs/telegram_style.md` *(ruled and landed)* |
 | How sound moves through the building | `game/data/acoustic_graph.json`, `game/docs/sanity_system.md` |
 | Why a texture tiles badly | `art/tools/ingest_material_sources.py`, and the compiler's `docs/provider-api.md` |
 | What clothes people wear | `design/ORISON_WARDROBE_BIBLE.md` |
@@ -215,7 +216,7 @@ map is its `README.md`, and its cross-project contract is
 
 `arcade` is the **subsystem**; the **signal parlour** is the fiction. The code
 says `arcade_*` throughout because that is the lineage it grew from; the world
-says receivers and programme cards because the Bible rules it so (§VIII.5.g).
+says receivers and programme cards because the Bible rules it so (Â§VIII.5.g).
 They agree. See the note in `game/docs/arcade_cabinets.md`.
 
 ## Three "status" documents, three jobs
@@ -226,11 +227,11 @@ They have collided before. They do not overlap:
 It defines product direction, milestone order and acceptance gates; it changes
 only when the product plan changes.
 
-- **`art/docs/photoreal_target.md`** — the eight-phase art roadmap and its
+- **`art/docs/photoreal_target.md`** â€” the eight-phase art roadmap and its
   per-phase assessment. Long-lived.
-- **`TASKS.md`** — the live queue. One line per open task, anyone may add,
+- **`TASKS.md`** â€” the live queue. One line per open task, anyone may add,
   deleted when done.
-- **`HANDOFF.md`** — how to build and verify, and nothing else.
+- **`HANDOFF.md`** â€” how to build and verify, and nothing else.
 
 Do not duplicate status between them. Two copies of a status always disagree,
 and the reader has no way to tell which one is lying.
@@ -260,8 +261,8 @@ and the reader has no way to tell which one is lying.
   the old phone documents are historical inputs, not production authority.
 - `docs/harukiya_reference_notes.md` owes an asset manifest and an interaction
   manifest, deliberately unwritten so far.
-- Bible §VI holds eight disputed texts awaiting a ruling. They are disputes, not
+- Bible Â§VI holds eight disputed texts awaiting a ruling. They are disputes, not
   oversights.
 - An audit is not a queue. `AUDIT_UNUSED_SYSTEMS_REPORT.md` carries the evidence
-  and its findings live in `TASKS.md` §U; if the two ever disagree, the audit is
+  and its findings live in `TASKS.md` Â§U; if the two ever disagree, the audit is
   the older document and the queue is what is being worked.

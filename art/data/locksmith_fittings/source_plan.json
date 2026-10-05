@@ -1,0 +1,207 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 133,
+  "runtime_keys": [
+    "plywood",
+    "chrome",
+    "brass_dull",
+    "timber",
+    "cast_iron",
+    "metal",
+    "brass_bright",
+    "wood_dark",
+    "countertop",
+    "linen",
+    "vinyl_oxblood",
+    "paper"
+  ],
+  "catalog_variants": {
+    "cast_iron": "iron_blackened",
+    "linen": "linen",
+    "brass_dull": "bronze_sheet"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "key_board",
+      "sources": [
+        "storm_shop_keys_cut_board",
+        "storm_shop_keys_cut_key0_0",
+        "storm_shop_keys_cut_key0_1",
+        "storm_shop_keys_cut_key0_2",
+        "storm_shop_keys_cut_key0_3",
+        "storm_shop_keys_cut_key0_4",
+        "storm_shop_keys_cut_key0_5",
+        "storm_shop_keys_cut_key0_6",
+        "storm_shop_keys_cut_key0_7",
+        "storm_shop_keys_cut_key0_8",
+        "storm_shop_keys_cut_key0_9",
+        "storm_shop_keys_cut_key0_10",
+        "storm_shop_keys_cut_key0_11",
+        "storm_shop_keys_cut_key0_12",
+        "storm_shop_keys_cut_key0_13",
+        "storm_shop_keys_cut_key1_0",
+        "storm_shop_keys_cut_key1_1",
+        "storm_shop_keys_cut_key1_2",
+        "storm_shop_keys_cut_key1_3",
+        "storm_shop_keys_cut_key1_4",
+        "storm_shop_keys_cut_key1_5",
+        "storm_shop_keys_cut_key1_6",
+        "storm_shop_keys_cut_key1_7",
+        "storm_shop_keys_cut_key1_8",
+        "storm_shop_keys_cut_key1_9",
+        "storm_shop_keys_cut_key1_10",
+        "storm_shop_keys_cut_key1_11",
+        "storm_shop_keys_cut_key1_12",
+        "storm_shop_keys_cut_key1_13",
+        "storm_shop_keys_cut_key2_0",
+        "storm_shop_keys_cut_key2_1",
+        "storm_shop_keys_cut_key2_2",
+        "storm_shop_keys_cut_key2_3",
+        "storm_shop_keys_cut_key2_4",
+        "storm_shop_keys_cut_key2_5",
+        "storm_shop_keys_cut_key2_6",
+        "storm_shop_keys_cut_key2_7",
+        "storm_shop_keys_cut_key2_8",
+        "storm_shop_keys_cut_key2_9",
+        "storm_shop_keys_cut_key2_10",
+        "storm_shop_keys_cut_key2_11",
+        "storm_shop_keys_cut_key2_12",
+        "storm_shop_keys_cut_key2_13",
+        "storm_shop_keys_cut_key3_0",
+        "storm_shop_keys_cut_key3_1",
+        "storm_shop_keys_cut_key3_2",
+        "storm_shop_keys_cut_key3_3",
+        "storm_shop_keys_cut_key3_4",
+        "storm_shop_keys_cut_key3_5",
+        "storm_shop_keys_cut_key3_6",
+        "storm_shop_keys_cut_key3_7",
+        "storm_shop_keys_cut_key3_8",
+        "storm_shop_keys_cut_key3_9",
+        "storm_shop_keys_cut_key3_10",
+        "storm_shop_keys_cut_key3_11",
+        "storm_shop_keys_cut_key3_12",
+        "storm_shop_keys_cut_key3_13",
+        "storm_shop_keys_cut_key4_0",
+        "storm_shop_keys_cut_key4_1",
+        "storm_shop_keys_cut_key4_2",
+        "storm_shop_keys_cut_key4_3",
+        "storm_shop_keys_cut_key4_4",
+        "storm_shop_keys_cut_key4_5",
+        "storm_shop_keys_cut_key4_6",
+        "storm_shop_keys_cut_key4_7",
+        "storm_shop_keys_cut_key4_8",
+        "storm_shop_keys_cut_key4_9",
+        "storm_shop_keys_cut_key4_10",
+        "storm_shop_keys_cut_key4_11",
+        "storm_shop_keys_cut_key4_12",
+        "storm_shop_keys_cut_key4_13",
+        "storm_shop_keys_cut_key5_0",
+        "storm_shop_keys_cut_key5_1",
+        "storm_shop_keys_cut_key5_2",
+        "storm_shop_keys_cut_key5_3",
+        "storm_shop_keys_cut_key5_4",
+        "storm_shop_keys_cut_key5_5",
+        "storm_shop_keys_cut_key5_6",
+        "storm_shop_keys_cut_key5_7",
+        "storm_shop_keys_cut_key5_8",
+        "storm_shop_keys_cut_key5_9",
+        "storm_shop_keys_cut_key5_10",
+        "storm_shop_keys_cut_key5_11",
+        "storm_shop_keys_cut_key5_12",
+        "storm_shop_keys_cut_key5_13",
+        "storm_shop_keys_cut_key6_0",
+        "storm_shop_keys_cut_key6_1",
+        "storm_shop_keys_cut_key6_2",
+        "storm_shop_keys_cut_key6_3",
+        "storm_shop_keys_cut_key6_4",
+        "storm_shop_keys_cut_key6_5",
+        "storm_shop_keys_cut_key6_6",
+        "storm_shop_keys_cut_key6_7",
+        "storm_shop_keys_cut_key6_8",
+        "storm_shop_keys_cut_key6_9",
+        "storm_shop_keys_cut_key6_10",
+        "storm_shop_keys_cut_key6_11",
+        "storm_shop_keys_cut_key6_12",
+        "storm_shop_keys_cut_key6_13"
+      ]
+    },
+    {
+      "kind": "workbench",
+      "sources": [
+        "storm_shop_keys_cut_cutter_bench",
+        "storm_shop_keys_cut_grinder",
+        "storm_shop_keys_cut_bench_vise"
+      ]
+    },
+    {
+      "kind": "key_cutter",
+      "sources": [
+        "storm_shop_keys_cut_cutter",
+        "storm_shop_keys_cut_cutter_vise0",
+        "storm_shop_keys_cut_cutter_vise1",
+        "storm_shop_keys_cut_cutter_wheel",
+        "storm_shop_keys_cut_guide_stylus"
+      ]
+    },
+    {
+      "kind": "safe",
+      "sources": [
+        "storm_shop_keys_cut_safe",
+        "storm_shop_keys_cut_safe_dial"
+      ]
+    },
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_keys_cut_counter",
+        "storm_shop_keys_cut_counter_top",
+        "storm_shop_keys_cut_ledger"
+      ]
+    },
+    {
+      "kind": "lock_table",
+      "sources": [
+        "storm_shop_keys_cut_lock_cloth",
+        "storm_shop_keys_cut_mortise0",
+        "storm_shop_keys_cut_mortise1",
+        "storm_shop_keys_cut_mortise2",
+        "storm_shop_keys_cut_mortise3",
+        "storm_shop_keys_cut_pick_roll"
+      ]
+    },
+    {
+      "kind": "padlocks",
+      "sources": [
+        "storm_shop_keys_cut_padlock_rail",
+        "storm_shop_keys_cut_padlock0",
+        "storm_shop_keys_cut_padlock1",
+        "storm_shop_keys_cut_padlock2",
+        "storm_shop_keys_cut_padlock3",
+        "storm_shop_keys_cut_padlock4",
+        "storm_shop_keys_cut_padlock5"
+      ]
+    },
+    {
+      "kind": "folded_ladder",
+      "sources": [
+        "storm_shop_keys_cut_step_rail0",
+        "storm_shop_keys_cut_step_rail1",
+        "storm_shop_keys_cut_step_rung0",
+        "storm_shop_keys_cut_step_rung1",
+        "storm_shop_keys_cut_step_rung2",
+        "storm_shop_keys_cut_step_rung3"
+      ]
+    },
+    {
+      "kind": "window_cabinet",
+      "sources": [
+        "storm_shop_keys_cut_window_plinth",
+        "storm_shop_keys_cut_window_back"
+      ]
+    }
+  ],
+  "method": "Retain all 133 selected source identities and hidden original blanks. Fit 98 pierced key bows and notched blades on supported pegs, a paired-vise manual cutter, grinding and bench-vise apparatus, a supported safe and recessed customer counter, four demonstration lock cases and six picks, six supported padlocks, a folded ladder and the original window cabinet. Extend the cutter bench only to seat the existing overhanging end vise. Add a bounded table beneath unsupported source demonstration tools. Seat the source dial on the actual visible safe door. Fit all six padlocks to the original rail length. Source records, original transaction top and key-copy permission/service areas remain unchanged. Adaptations are explicitly recorded rather than promoted to canonical machinery. Native close review found the inherited dull-brass image resembling wood; the first bright-brass substitution still read as coarse pitting. These local key/lock display surfaces instead use the existing calibrated warm bronze-sheet finish, an explicit material adaptation to the retained brass-owner identities. No new catalogue family is invented. Original source material keys remain as owner identities and shared source materials are unchanged.",
+  "open_work": "Live machinery motion, electrical supply and utility capacity are not established by native visual fittings. Original rear-store shelving/crates, facade and architecture retain their source; rear stock and shop-family apparatus beyond Keys Cut remain in the geometry queue. Resident key permission, copies, locks, saves and opening hours retain existing production owners."
+}

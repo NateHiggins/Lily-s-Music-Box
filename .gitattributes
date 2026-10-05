@@ -499,3 +499,15 @@ game/assets/props/bodega_fittings.glb.import -text
 game/tests/orison_v2_city_sweep.gd -text
 
 art/renders/orison_v2/building_surface_finish_20261005/** -text
+
+art/data/locksmith_fittings/** -text
+art/blender/scripts/build_locksmith_fittings.py -text
+art/blender/scripts/inspect_locksmith_fittings.py -text
+art/blender/locksmith_fittings_construction.json -text
+game/data/orison_v2/locksmith_fittings.json -text
+game/tests/fixtures/orison_locksmith_fittings.json -text
+game/scripts/building/orison_v2_locksmith_fittings.gd -text
+game/scripts/building/orison_v2_passage_region.gd -text
+game/scripts/building/orison_v2_passage_residency.gd -text
+game/tests/orison_v2_locksmith_fittings_test.gd -text
+game/assets/props/locksmith_fittings.glb.import -text
