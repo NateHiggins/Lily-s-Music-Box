@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/hardware_apparatus.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_hardware_paint",
+      "parts": [
+        {
+          "name": "storm_shop_hardware_paint_scale_base__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_hardware_paint_scale_base__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_hardware_paint_paint_shaker__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_hardware_paint_paint_shaker__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_hardware_paint_paddle__timber",
+          "key": "timber",
+          "tile": 1.0
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_hardware_paint_scale_base",
+          "key": "cast_iron",
+          "low": [
+            5.92,
+            0.05,
+            56.36
+          ],
+          "high": [
+            6.38,
+            0.5700000000000001,
+            57.040000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_scale_beam",
+          "key": "brass_dull",
+          "low": [
+            6.07,
+            0.74,
+            56.24
+          ],
+          "high": [
+            6.18,
+            0.81,
+            57.160000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_paint_shaker",
+          "key": "cast_iron",
+          "low": [
+            5.92,
+            0.05,
+            57.32000000000001
+          ],
+          "high": [
+            6.62,
+            1.1300000000000001,
+            58.02
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_paddle",
+          "key": "timber",
+          "low": [
+            6.68,
+            0.1,
+            57.480000000000004
+          ],
+          "high": [
+            6.76,
+            1.2200000000000002,
+            57.82000000000001
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

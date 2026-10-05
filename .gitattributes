@@ -546,3 +546,14 @@ game/scripts/building/orison_v2_hardware_drawers.gd -text
 game/tests/orison_v2_hardware_drawers_test.gd -text
 game/assets/props/hardware_drawers.glb.import -text
 art/renders/orison_v2/hardware_drawers_20261005/** -text
+
+art/data/hardware_apparatus/** -text
+art/blender/scripts/build_hardware_apparatus.py -text
+art/blender/scripts/inspect_hardware_apparatus.py -text
+art/blender/hardware_apparatus_construction.json -text
+game/data/orison_v2/hardware_apparatus.json -text
+game/tests/fixtures/orison_hardware_apparatus.json -text
+game/scripts/building/orison_v2_hardware_apparatus.gd -text
+game/tests/orison_v2_hardware_apparatus_test.gd -text
+game/assets/props/hardware_apparatus.glb.import -text
+art/renders/orison_v2/hardware_apparatus_20261005/** -text

@@ -22,6 +22,9 @@ static func mount_news(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_hardware_drawers(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/hardware_drawers.json","HardwareDrawers","F01_retail_hardware_drawers_","hardware_drawer_part")
 
+static func mount_hardware_apparatus(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/hardware_apparatus.json","HardwareApparatus","F01_retail_hardware_apparatus_","hardware_apparatus_part")
+
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 

@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 4,
+  "runtime_keys": [
+    "cast_iron",
+    "brass_dull",
+    "timber"
+  ],
+  "catalog_variants": {
+    "cast_iron": "iron_blackened",
+    "brass_dull": "brass"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "beam_scale",
+      "sources": [
+        "storm_shop_hardware_paint_scale_base",
+        "storm_shop_hardware_paint_scale_beam"
+      ]
+    },
+    {
+      "kind": "paint_shaker",
+      "sources": [
+        "storm_shop_hardware_paint_paint_shaker"
+      ]
+    },
+    {
+      "kind": "mixing_paddle",
+      "sources": [
+        "storm_shop_hardware_paint_paddle"
+      ]
+    }
+  ],
+  "open_work": [
+    "Passive fabricated beam balance and empty shaker clamp preserve source identities and existing gameplay; weighing, agitation and power capacity remain open.",
+    "The paddle bears on the actual floor and against the fitted shaker crown; original hidden references retain their poses.",
+    "Local apparatus brass uses the existing aged-brass catalogue set; source references and other brass stock retain their original material.",
+    "Independent utility continuity, remaining stock/racks/ladder and continuous shop/rear access remain open."
+  ]
+}
