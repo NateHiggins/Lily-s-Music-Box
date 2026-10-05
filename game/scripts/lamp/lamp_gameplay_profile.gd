@@ -1,7 +1,9 @@
 extends RefCounted
 ## Shared useful output for the service lamp. Electrical transients and the
 ## optical field multiply/observe this value; they do not own another light.
-const BASE_ENERGY := 6.0
+## Matched settled-output renders preserve close wall detail at this rating
+## while still revealing the dark roof and basement with room fixtures off.
+const BASE_ENERGY := 4.2
 const WAKING_RANGE := 16.0
 const WAKING_ATTENUATION := .5
 ## A work-light reflector covers nearby controls despite the carried lens's

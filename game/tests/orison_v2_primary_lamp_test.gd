@@ -39,6 +39,16 @@ func _run() -> void:
 	var profile: float = player._lamp_base_energy
 	_check(is_equal_approx(player.flashlight.spot_range,16.0),
 			"primary light output and usable throw mounted")
+	# configure() intentionally retains the live clock/contact history. Reusing
+	# it after station moves freezes different electrical dips into each view.
+	# Restore one complete independently settled state for the matched surface
+	# comparison; production electrical behavior and rated output stay intact.
+	var reference := preload("res://scripts/lamp/lamp_optical_state.gd").new()
+	reference.configure(0x28A11CE,true)
+	reference.advance(2.0)
+	var reference_snapshot: Dictionary = reference.save_state()
+	var reference_output: Dictionary = {}
+	reference.write_output(reference_output)
 	for station: Dictionary in [
 		{"id":"study_close","at":Vector3(-9.35,16,-9.9),"look":Vector3(-8.39,17.12,-9.9)},
 		{"id":"home","at":Vector3(-11.4,0,-5.8),"look":Vector3(-14.7,1.0,-6.0)},
@@ -51,10 +61,11 @@ func _run() -> void:
 		await get_tree().create_timer(1.0).timeout
 		player.set_process(false)
 		world.service_set_carrier.set_process(false)
-		air.driver.state.configure(0x28A11CE,true)
-		air.driver.state.advance(2.0)
+		air.driver.state.restore_state(reference_snapshot)
 		var levels := {}
+		var source_energy := {}
 		for energy: float in [0.0,1.5,4.2,profile,24.0]:
+			if levels.has(str(energy)): continue
 			player.set_lamp_base_energy(energy)
 			air.driver.apply_output()
 			await get_tree().create_timer(.5).timeout
@@ -62,11 +73,16 @@ func _run() -> void:
 			var image := get_viewport().get_texture().get_image()
 			image.save_png(directory.path_join(station.id+"_"+str(energy).replace(".","_")+".png"))
 			levels[str(energy)] = _luminance(image)
+			source_energy[str(energy)] = player.flashlight.light_energy
+			_check(is_equal_approx(player.flashlight.light_energy,energy*float(reference_output.intensity))
+					and player.flashlight.light_color.is_equal_approx(reference_output.color)
+					and is_equal_approx(player.flashlight.spot_angle,float(reference_output.cone_angle_deg)*air.driver.cone_scale),
+					"matched delivered lamp state in "+station.id+" at "+str(energy))
 		_check(air.field.ready and air.field.failed.is_empty() and air.field.enabled,
 				"live voxel lamp in "+station.id)
 		var gain: float = levels[str(profile)]-levels[str(0.0)]
 		var old_gain: float = levels[str(1.5)]-levels[str(0.0)]
-		metrics.append({"station":station.id,"luminance":levels,"gain":gain,"old_gain":old_gain})
+		metrics.append({"station":station.id,"luminance":levels,"source_energy":source_energy,"gain":gain,"old_gain":old_gain})
 		# The roof crop includes distant parapet and open sky. Its useful local
 		# pool has a lower average than the enclosed surfaces in other views.
 		_check(gain > (.006 if station.id == "roof" else .02) and gain > old_gain*1.5,
