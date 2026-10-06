@@ -1,0 +1,20 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.438  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\druggist_dispensary.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_druggist_dispensary.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:03.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\composed_front.png'
+00:05.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\composed_rear.png'
+00:06.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_disp_front.png'
+00:08.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_disp_rear.png'
+00:11.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_balance_case_front.png'
+00:14.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_balance_case_rear.png'
+00:15.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\stock_carriers_front.png'
+00:17.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\stock_carriers_rear.png'
+00:18.563  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_round0_0_front.png'
+00:20.094  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_round0_0_rear.png'
+00:21.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_round2_6_front.png'
+00:23.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-native\storm_shop_otis___son_round2_6_rear.png'
+DRUGGIST DISPENSARY NATIVE QA 108 closed connected stocks; 26 joined assemblies; 12 views
+
+Blender quit

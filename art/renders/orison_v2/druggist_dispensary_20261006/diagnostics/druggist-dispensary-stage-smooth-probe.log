@@ -1,0 +1,20 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-stage\art\blender\scripts\build_druggist_dispensary.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-stage\art\blender\scripts\build_druggist_dispensary.py", line 267, in <module>
+    if turned:n,u,values,smooth=turned_chart(points,origin)
+                                ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-stage\art\blender\scripts\build_druggist_dispensary.py", line 235, in turned_chart
+    u,v=derivatives()
+        ~~~~~~~~~~~^^
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-dispensary-stage\art\blender\scripts\build_druggist_dispensary.py", line 231, in derivatives
+    a=values[1]-values[0];b=values[2]-values[0];det=a[0]*b[1]-b[0]*a[1];assert abs(det)>1e-12,(name,p.tolist(),values.tolist(),radius.tolist(),height.tolist())
+                                                                               ^^^^^^^^^^^^^^
+AssertionError: ('storm_shop_otis___son_round0_0__wood_dark', [[23.568790439367294, -46.446540832668546, 2.0710001039505004], [23.569999698400498, -46.446498870998624, 2.1150000143051146], [23.569999698400498, -46.446498870998624, 2.0710001039505004]], [[0.0302631130220352, 0.19335839559971646], [0.029056318655602608, 0.28135826864263436], [0.029056318655602608, 0.28135826864263436]], [0.018498753890328023, 0.018501129003837304, 0.018501129003837304], [2.0710001039505004, 2.1150000143051146, 2.0710001039505004])
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-dispensary-stage/art/blender/scripts/build_druggist_dispensary.py', exiting.
+
+Blender quit

@@ -1,0 +1,634 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "12dbbdb5379e22ac473d9110bebf4fbee23361f6",
+  "base": "84add481c2f1e993a5209ad70b640449d0b36283",
+  "verification": "MERGE-CANDIDATE 12dbbdb5379e22ac473d9110bebf4fbee23361f6",
+  "source_records": 28,
+  "assemblies": 26,
+  "closed_stocks": 108,
+  "material_partitions": 74,
+  "triangles": 65880,
+  "source_supports": 32,
+  "removed_original_triangles": 336,
+  "native_views": 12,
+  "production_views": 6,
+  "direct_review": "All twelve final native views and six exact production frames reviewed. The fitted bench and thin rear screen support an enclosed balance and three seven-bottle ranks clear of the case. Hollow rounds, separate stoppers and blank fine-porcelain plates read under the production lamp. Actual original mortar and cupboard clearance remains.",
+  "runtime_contract": "Current test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; executed scope only.",
+  "limits": [
+    "No human acceptance or whole-shop/V2 completion.",
+    "Standing views and sampled contacts establish no continuous route or engineering capacity.",
+    "Grinding, medicine/poison custody, dispensing and independent services retain separate owners.",
+    "Poison cupboard/bottles, carboys and fountain remain fabrication work.",
+    "Captures, wrapper receipts and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/verification.json",
+      "source_sha256": "413f02a042aa9936777adebb010ebfd406a4006cad14e939f54df60eb5ce6fdb",
+      "sha256": "413f02a042aa9936777adebb010ebfd406a4006cad14e939f54df60eb5ce6fdb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/84add481-clean-board.json",
+      "source_sha256": "0571784a61dbd66950f36e1eff6e17f4da0b76f7b494d79c1f3f9fa18bd5a62c",
+      "sha256": "0571784a61dbd66950f36e1eff6e17f4da0b76f7b494d79c1f3f9fa18bd5a62c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/inspection.json",
+      "source_sha256": "fddb337910b9acf18b5e065014e4037833179fa412858dcf2cdaab01ec16eb5d",
+      "sha256": "fddb337910b9acf18b5e065014e4037833179fa412858dcf2cdaab01ec16eb5d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/druggist_dispensary_construction.json",
+      "source_sha256": "5d6a5c975d00ae2b467881ca6c1ff4a0bbd72b860d6aaba7e97238c081dcbbf6",
+      "sha256": "5d6a5c975d00ae2b467881ca6c1ff4a0bbd72b860d6aaba7e97238c081dcbbf6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "a4abde2bb6fb6a0f54acbc06c0b8c164813673e64fe9ffdba6d0d2f18ded5180",
+      "sha256": "a4abde2bb6fb6a0f54acbc06c0b8c164813673e64fe9ffdba6d0d2f18ded5180",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/views.json",
+      "source_sha256": "0e30216f556c6a8a8549f63cb92b6f9d0624aab8b30e0141434438b246979701",
+      "sha256": "0e30216f556c6a8a8549f63cb92b6f9d0624aab8b30e0141434438b246979701",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "49f7fddb427de64453f648a293887d0af6dba5abcb31f452ae40497d14df90d0",
+      "sha256": "49f7fddb427de64453f648a293887d0af6dba5abcb31f452ae40497d14df90d0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "e11ce2048892bbea2c675bf19e676ea04664d2ca2ccff988eb5cb2c14efa33ad",
+      "sha256": "e11ce2048892bbea2c675bf19e676ea04664d2ca2ccff988eb5cb2c14efa33ad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/composed_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/composed_front.png",
+      "source_sha256": "2ad2e6bc3dc4d9538fc4c277e5d6aed41a37fdc4b408b63d5f99b9cdf6ad0f25",
+      "sha256": "b7ece98e34d3232eaacc1adebe863df9a1c9a878ae471b4473384d92c23c6024",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/composed_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/composed_rear.png",
+      "source_sha256": "4b63b34e2b699626d256cb27a3c2cae90e522f43d45f8b2bd954fe4b368dac29",
+      "sha256": "33c734a1f8e520d284309388b606d731a52ef1e0ed68e64d3c60a09286ad1a68",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/stock_carriers_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/stock_carriers_front.png",
+      "source_sha256": "73d5f1d8858401e9b8938d33f48c8b5a9576261a53e3d701eeeeb9d3c17736a5",
+      "sha256": "92517597b7fe1b558f219e402bb16c6f4c7ba2fbd24c0f3e7f39f79032cd5ab3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/stock_carriers_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/stock_carriers_rear.png",
+      "source_sha256": "94585aa09a3d344ef22db5012d4445dc5a3e676d2e3572d166ac303b52fca040",
+      "sha256": "09db9fb71933ffbdbb8c1b3aeaaedc87e15d2bc02efaa639d64c456e121f1f54",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_balance_case_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_balance_case_front.png",
+      "source_sha256": "891d4aac0adaf3b76d6309dd55289a962ab6121875fe673c4f97556d44dadc5a",
+      "sha256": "31b05e6d3c3260b737ceef6c430f59bca9d0514ca25785ce2b65d3b8e74a24b4",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_balance_case_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_balance_case_rear.png",
+      "source_sha256": "e2985e4856fcd7bac36e382d01737212130eb11a8e067c5c8ada8349de015e08",
+      "sha256": "59cd1dffea57d70b792ddace374cb2468570fda628b3b68456211c09f60226d7",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_disp_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_disp_front.png",
+      "source_sha256": "bfc17cf7d1c71064a21a21a8e4196c44b9c21b20f323097f47963f9ca1b69a1c",
+      "sha256": "3f9252ca856e0f37c984e5486d4083f3909dc8e17aa15173fa511cc8cce233aa",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_disp_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_disp_rear.png",
+      "source_sha256": "01434a75f1875cead6ba8b1746ee92f46ba61f4c3ef4de2916c17f7b08f6082a",
+      "sha256": "db38324fcf708f02df70969cb513b898606e1524a842e272aca1f57e5041a4ac",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_round0_0_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_round0_0_front.png",
+      "source_sha256": "b900b982a6665c450b6961f693659e554ab21963c5a7d2aaf61c439b120c2d2a",
+      "sha256": "75974a021e8228c0efef65076a1f45d8b1b7f1b259845ce0ab12e5b3f665f35c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_round0_0_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_round0_0_rear.png",
+      "source_sha256": "dca46bd32a87047eee111bc9f8227d587697a000ab4c42b72c5c99b0ecdb9f4d",
+      "sha256": "c89bd062431e9696f6ae4b7ada9f2f79fc65aed922b368aad5cd002014d11a08",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_round2_6_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_round2_6_front.png",
+      "source_sha256": "c973d6ab8cee894c268a0e481d74ea77ad60d2f0a0ac5910aec993d2a04e6461",
+      "sha256": "dc10bbd8abcb263ac9147a35ab14d9e3692b509b7ff48cb320b6f053125da107",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_round2_6_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-native/storm_shop_otis___son_round2_6_rear.png",
+      "source_sha256": "23c8e8b6ddfc1e43974cca461e8e8adad58a166f7fce4267d335b4cc86067b5e",
+      "sha256": "3120d02c2136304e5dba2f4ca8938e2cd6433d3d9b8214184b6fe44531c9ae6d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/balance.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/balance.png",
+      "source_sha256": "844f512d3e160196c9b2448a515afd89ca5438a8e1a6f788bb829e706507a693",
+      "sha256": "f51a07291d4f5b7c894fcc52e017145188121cf39a178c284d86ff4cb3d4106a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/bench_notch.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/bench_notch.png",
+      "source_sha256": "f488f197674fc81a04c849dbb3f4be8a7e01b8c12e2204db93530ea77ff1ad9d",
+      "sha256": "c5595a56e6130719edd375bfa94ada21b4c9430b0f62754a9adb2ff643b1d7e9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/dispensary.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/dispensary.png",
+      "source_sha256": "2e42386bc98af34b84a9990f84ed7615e59f3302d0e67498a1cf43c3f186f559",
+      "sha256": "7aeff9ceca7d39880d19f68af261f8fceee5a072385bbc82e2b00d19c3ef0215",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/mortar_context.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/mortar_context.png",
+      "source_sha256": "55ae1183eac0ee995643a154b967cce137f676616e728c124a979258bc5ce8d7",
+      "sha256": "8ebd6c12f12436d1e03349eb421d72583b8f3631e09393f941cda0128f604d15",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/round_ranks.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/round_ranks.png",
+      "source_sha256": "670071af8f92c02662e8bb683af42ee0dce78dd286cc9fbea59964cbee48ebf4",
+      "sha256": "6e6dec82eb6c64eb2aff53a85587f608dd2bed3d25c1af5f99c15dd8450ffb07",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/shop_context.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed_shots/shop_context.png",
+      "source_sha256": "e54a9fce31282fb55cb6135ce813546b6d1ba63a044047706e92162b962e6bbf",
+      "sha256": "a09b96699a93309fb91ffe27e90865865d62d5604cd7ac0fe4c6811f4a7285a7",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "d3bd8a0695f5fa29f4fce5293bf0e0cbdddf71d8927ed851a3cdf488d5c1d80d",
+      "copy": "Labelled contact-sheet JPEG derivative"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "dbcff07057f3d5cd51172ab7992398ab7f0a7f4d53798d7ced82fb8651e56053",
+      "copy": "Labelled contact-sheet JPEG derivative"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "ad89a93b54a5e3c7cbc935f7221f0225b1cb30b958e8a6cd4552e1e913ea54c5",
+      "sha256": "ad89a93b54a5e3c7cbc935f7221f0225b1cb30b958e8a6cd4552e1e913ea54c5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "582c0fccd3f528c18d3c67a20581d95d78eedc3d0eb4b18d3f5af76c57b68112",
+      "sha256": "582c0fccd3f528c18d3c67a20581d95d78eedc3d0eb4b18d3f5af76c57b68112",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDispensaryTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed.log",
+      "source_sha256": "5134a1aaec27bee225f671e71e45ae72c4e53137848f5763c9f0472766fbbd4d",
+      "sha256": "5134a1aaec27bee225f671e71e45ae72c4e53137848f5763c9f0472766fbbd4d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDispensaryTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDispensaryTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "8b6be34998053196c5ae5797b4b4af662fda21e8b15632688d51d4311b1ac17c",
+      "sha256": "8b6be34998053196c5ae5797b4b4af662fda21e8b15632688d51d4311b1ac17c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistMortarTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed.log",
+      "source_sha256": "390e6b5a3c1bf4c0318da69a52d0cc254e7f3e0f43d02dd3cba0c036dfa2926e",
+      "sha256": "390e6b5a3c1bf4c0318da69a52d0cc254e7f3e0f43d02dd3cba0c036dfa2926e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistMortarTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a26bb445406a6759b9b92b2ecf53094313e740ae996238d48491fd5a0e60f72f",
+      "sha256": "a26bb445406a6759b9b92b2ecf53094313e740ae996238d48491fd5a0e60f72f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistCounterTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistCounterTest_tscn_windowed.log",
+      "source_sha256": "524a3e157b35efd7e7fb010eeb04a4105ed9067478e21db166bec1b9aefad267",
+      "sha256": "524a3e157b35efd7e7fb010eeb04a4105ed9067478e21db166bec1b9aefad267",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "c54ba488a1da44ea7f547841028fcce969b019942400550fbf064ea00620218a",
+      "sha256": "c54ba488a1da44ea7f547841028fcce969b019942400550fbf064ea00620218a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+      "source_sha256": "b87c42eaea1010309a7cd38f03ae914f0a2271a23d02f233bba9d22dc126ce97",
+      "sha256": "b87c42eaea1010309a7cd38f03ae914f0a2271a23d02f233bba9d22dc126ce97",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "46d0a89c8b62f6c8807556408a1351263908ed83b588366e54108a3128bef104",
+      "sha256": "46d0a89c8b62f6c8807556408a1351263908ed83b588366e54108a3128bef104",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "a64a2aad734a28c8b4af4ba9a1b58f567f700c61e1207870b013bf9f430b82d4",
+      "sha256": "a64a2aad734a28c8b4af4ba9a1b58f567f700c61e1207870b013bf9f430b82d4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "952f1620b6a03f5b962ac6117eeb50f05b5dc0a47860ed9980c730a82a33e84e",
+      "sha256": "952f1620b6a03f5b962ac6117eeb50f05b5dc0a47860ed9980c730a82a33e84e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "ee6854b4b46a62aab4b8a5716545f8041c24d85ae0a37ca6de0a6a7faa42ba72",
+      "sha256": "ee6854b4b46a62aab4b8a5716545f8041c24d85ae0a37ca6de0a6a7faa42ba72",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "0fdc732fa214137945a8ef2aa97d70ca5c31a4024ae5d0be4b13115858d01b8a",
+      "sha256": "0fdc732fa214137945a8ef2aa97d70ca5c31a4024ae5d0be4b13115858d01b8a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "eaabad205a5cc23562383d7ef1d8d1d6d4a704581537322bc0fa6c8545068975",
+      "sha256": "eaabad205a5cc23562383d7ef1d8d1d6d4a704581537322bc0fa6c8545068975",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "1f3a443db3d1ec9f321055b037ed314cc438c68adb1e3c137b1dc384e376b792",
+      "sha256": "1f3a443db3d1ec9f321055b037ed314cc438c68adb1e3c137b1dc384e376b792",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "c5c0ea459324103bceda6cdc87edae898a05396b36e07970687eef0755725552",
+      "sha256": "c5c0ea459324103bceda6cdc87edae898a05396b36e07970687eef0755725552",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "c12675da88575ff94512073f90775b02f09f9dc306f910135d9f6f8a08792e5f",
+      "sha256": "c12675da88575ff94512073f90775b02f09f9dc306f910135d9f6f8a08792e5f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bdb3b63d901ef2ff498127baedbacf83071f2aa4f2795effe67047c1cf9f28aa",
+      "sha256": "bdb3b63d901ef2ff498127baedbacf83071f2aa4f2795effe67047c1cf9f28aa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-build.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-build.log",
+      "source_sha256": "3f220138382f8f850963bff9c6e40f61d3b2170b3d9ecc5fc3b6e80e596d3408",
+      "sha256": "3f220138382f8f850963bff9c6e40f61d3b2170b3d9ecc5fc3b6e80e596d3408",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-native.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-native.log",
+      "source_sha256": "64d2a961fc5db5ab7c8e30d2fb1c6d5c6b16b1b5aad6655a6948fe7ea8cc080d",
+      "sha256": "64d2a961fc5db5ab7c8e30d2fb1c6d5c6b16b1b5aad6655a6948fe7ea8cc080d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-smooth-build.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-smooth-build.log",
+      "source_sha256": "c0746098618fcf6879d49bb1c48b0d82e5ef4999a2f383c5fae2c63bbab8e8ec",
+      "sha256": "c0746098618fcf6879d49bb1c48b0d82e5ef4999a2f383c5fae2c63bbab8e8ec",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-smooth-probe.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-smooth-probe.log",
+      "source_sha256": "5d88f267843e8f4ede314215b5deabebdc6b827b3a967470444da9c6fc400127",
+      "sha256": "5d88f267843e8f4ede314215b5deabebdc6b827b3a967470444da9c6fc400127",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-smooth-build-corrected.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-smooth-build-corrected.log",
+      "source_sha256": "2d2dd2436084f8f1cfe36f65aa99e4b40aee434e49d6a372930d935dba58e27b",
+      "sha256": "2d2dd2436084f8f1cfe36f65aa99e4b40aee434e49d6a372930d935dba58e27b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-stage-smooth-native.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-stage-smooth-native.log",
+      "source_sha256": "f4ce22e394fb685c7bd49c46eca11f3f0610443b34fc44487fd7427d696ea1eb",
+      "sha256": "f4ce22e394fb685c7bd49c46eca11f3f0610443b34fc44487fd7427d696ea1eb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-canonical-build.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-canonical-build.log",
+      "source_sha256": "7d4fce6010bb776cd7d83af76655259b66baecf3dc68cf24173607ce8f2211ec",
+      "sha256": "7d4fce6010bb776cd7d83af76655259b66baecf3dc68cf24173607ce8f2211ec",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-canonical-native.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-canonical-native.log",
+      "source_sha256": "85bb7b075c786cd388f938369ed3751c77f645bffccec933b1882077c703f55d",
+      "sha256": "85bb7b075c786cd388f938369ed3751c77f645bffccec933b1882077c703f55d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-import1.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-import1.log",
+      "source_sha256": "53f684905b763af7c3ca5cd59478d849c74efba1ce1d099aed003cb1e5047130",
+      "sha256": "53f684905b763af7c3ca5cd59478d849c74efba1ce1d099aed003cb1e5047130",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-import1.log.receipt.json",
+      "source_sha256": "75c5ddcf151908363fc0f68263313bb94445760f318791f00297e7cefe56ef3b",
+      "sha256": "75c5ddcf151908363fc0f68263313bb94445760f318791f00297e7cefe56ef3b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-import1.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-dispensary-import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-import2.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-import2.log.receipt.json",
+      "source_sha256": "25b2ce4867579bdc845d3ab61ec447a901ffa31e84e5e2fca5af285e32ef6fbf",
+      "sha256": "25b2ce4867579bdc845d3ab61ec447a901ffa31e84e5e2fca5af285e32ef6fbf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-first-suite.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-suite.log",
+      "source_sha256": "ec3068032bf3f868379a9ff0a533152e4153ef93a996d4eaf4321ae2149430b5",
+      "sha256": "ec3068032bf3f868379a9ff0a533152e4153ef93a996d4eaf4321ae2149430b5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-first-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-suite.log.receipt.json",
+      "source_sha256": "5b0c7178d2ac6bd8c521dad18d4b2c479890a3b9850c60d90d1f5f499245cad8",
+      "sha256": "5b0c7178d2ac6bd8c521dad18d4b2c479890a3b9850c60d90d1f5f499245cad8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-first-suite.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-suite.log.stderr",
+      "source_sha256": "576bf59e5de910b5183258f4e71806dc7374bd60502565190a4cbd982ac88f8c",
+      "sha256": "576bf59e5de910b5183258f4e71806dc7374bd60502565190a4cbd982ac88f8c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-build.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-build.log",
+      "source_sha256": "0d1f0b061896ca71b6e3f80068beea439d75d120cb5a925b15471bec86daf37e",
+      "sha256": "0d1f0b061896ca71b6e3f80068beea439d75d120cb5a925b15471bec86daf37e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-native.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-native.log",
+      "source_sha256": "d9b6f8cc62dbb37ab6cc0e7e4462c48c11febe93115262ce9905514283ea5afb",
+      "sha256": "d9b6f8cc62dbb37ab6cc0e7e4462c48c11febe93115262ce9905514283ea5afb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-import1.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-import1.log",
+      "source_sha256": "a2b99a2ebc98f0fabb95132584cafaaa9705a2816b937f2b99292860aaa82ed9",
+      "sha256": "a2b99a2ebc98f0fabb95132584cafaaa9705a2816b937f2b99292860aaa82ed9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-import1.log.receipt.json",
+      "source_sha256": "2af6f38987d4d9e78584570ceb9e5930829ed0b90882ee12576ff26dda78201d",
+      "sha256": "2af6f38987d4d9e78584570ceb9e5930829ed0b90882ee12576ff26dda78201d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-import1.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-import2.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-import2.log.receipt.json",
+      "source_sha256": "47351f8d00e8ca38aa4f57786140ba07cdddf2c8425d54441d6a0974f4810e57",
+      "sha256": "47351f8d00e8ca38aa4f57786140ba07cdddf2c8425d54441d6a0974f4810e57",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-suite.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-suite.log",
+      "source_sha256": "a34be1764cc56906b0faed0cd89a08c7cd20672264ba8de6df89e9a96319ac96",
+      "sha256": "a34be1764cc56906b0faed0cd89a08c7cd20672264ba8de6df89e9a96319ac96",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-suite.log.receipt.json",
+      "source_sha256": "625dc24eadcbea6da1b51920a7d9fe85763e5070a0e16d7ba727332f5147e0ab",
+      "sha256": "625dc24eadcbea6da1b51920a7d9fe85763e5070a0e16d7ba727332f5147e0ab",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-reader.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-notch-reader.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-notch-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-spatial-initial.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-spatial-initial.log",
+      "source_sha256": "52dde9ec83e40e343e4aaa20014802520c82c48d98842dea39e4c524f16dd977",
+      "sha256": "52dde9ec83e40e343e4aaa20014802520c82c48d98842dea39e4c524f16dd977",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-dispensary-spatial.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-spatial.log",
+      "source_sha256": "402e6aa8ba88f49580afc104027de287db03c99bfff9dda3a5d0e127cb60bf33",
+      "sha256": "402e6aa8ba88f49580afc104027de287db03c99bfff9dda3a5d0e127cb60bf33",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_native_inspection.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-native-inspection.json",
+      "source_sha256": "7d51d39e4d3ecfc06ba706e0490b0f33bd6cfcf30515c2d24528b9ee31bad79d",
+      "sha256": "7d51d39e4d3ecfc06ba706e0490b0f33bd6cfcf30515c2d24528b9ee31bad79d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/pre_notch_native_inspection.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-pre-notch-native-inspection.json",
+      "source_sha256": "3af04e263b2872f2617422e9b3e8813d9d654a00acad88422ecda0439ecb6e55",
+      "sha256": "3af04e263b2872f2617422e9b3e8813d9d654a00acad88422ecda0439ecb6e55",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_fittings.json",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-shots/fittings.json",
+      "source_sha256": "0a23ef590606cfdd4c31f0d0df91b28231180e50539ba76733994b10f93b8429",
+      "sha256": "0a23ef590606cfdd4c31f0d0df91b28231180e50539ba76733994b10f93b8429",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_pan_render.jpg",
+      "source": "tmp/v2-finish-review/druggist-dispensary-first-pan-render.png",
+      "source_sha256": "ca978332f34ce55eceb6a42a9a6d222e2165a89d2b38c7245ba6987e69dabeb0",
+      "sha256": "3aa4be9d5ede33891f1dbe18ebfb4f7407c27ff3d5d517f525e4eebb88443988",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/druggist-dispensary-ledger-refresh.log",
+      "source_sha256": "e383f796a86319f2c70be9c9deeb9e34e3a7cc2bbc33236de056e291d65b0d3b",
+      "sha256": "e383f796a86319f2c70be9c9deeb9e34e3a7cc2bbc33236de056e291d65b0d3b",
+      "copy": "byte-identical"
+    }
+  ]
+}

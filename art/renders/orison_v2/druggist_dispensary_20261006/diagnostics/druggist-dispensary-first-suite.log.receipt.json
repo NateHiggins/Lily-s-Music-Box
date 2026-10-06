@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 47.2,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T06:01:44Z",
+  "started_utc": "2026-10-06T06:00:57Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-dispensary-first-suite.log.stderr",
+  "stderr_sha256": "576bf59e5de910b5183258f4e71806dc7374bd60502565190a4cbd982ac88f8c",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-dispensary-first-suite.log",
+  "stdout_sha256": "ec3068032bf3f868379a9ff0a533152e4153ef93a996d4eaf4321ae2149430b5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistDispensaryTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-dispensary-first-shots",
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_druggist_mortar_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/druggist_dispensary.blend",
+   "?? art/blender/druggist_dispensary.md",
+   "?? art/blender/druggist_dispensary_construction.json",
+   "?? art/blender/scripts/build_druggist_dispensary.py",
+   "?? art/blender/scripts/inspect_druggist_dispensary.py",
+   "?? art/data/druggist_dispensary/",
+   "?? game/assets/props/druggist_dispensary.glb",
+   "?? game/data/orison_v2/druggist_dispensary.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "84add481c2f1e993a5209ad70b640449d0b36283",
+  "repository_tree": "2960f9c6fae8a22b7563b47f06b66bbf7c3e38ec",
+  "runtime_inputs_sha256": "38d744ab0f9ca64478cbfe3dbdc1d017b402df5991580581169a072adfa6eaff",
+  "test_path": "game/tests/orison_v2_druggist_dispensary_test.gd",
+  "test_sha256": "dd16eb78ff4b35ca46c5aa53debb528ecdd2a6a20cb47645fcd821063324a7a8"
+ },
+ "windowed": true
+}
