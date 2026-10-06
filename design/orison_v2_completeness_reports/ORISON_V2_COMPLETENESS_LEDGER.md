@@ -212,7 +212,7 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (15):**
+**runtime receipts rejected (16):**
 
 - ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -229,6 +229,7 @@ Evidence class: **INERT**
 - ! art/renders/orison_v2/news_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_cameras_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_counter_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+- ! art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 
 ## Requirements
 
@@ -570,6 +571,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/news_fittings_20261005/runtime_authority_receipt.json` sha256 `49b1e38e56d2b7f4...`
 - `art/renders/orison_v2/photo_cameras_20261005/runtime_authority_receipt.json` sha256 `ea0f16fe15238021...`
 - `art/renders/orison_v2/photo_counter_20261005/runtime_authority_receipt.json` sha256 `ad4ae5baf46989b3...`
+- `art/renders/orison_v2/photo_enlargers_20261005/runtime_authority_receipt.json` sha256 `152b715cc3bf55cc...`
 - `art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json` sha256 `0fe76abab1724f14...`
 - `design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md` sha256 `534567ba02295ef7...`
 - `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` sha256 `d4758366076e3309...`
@@ -602,4 +604,4 @@ Evidence class: **INERT**
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
 - `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `4d27937a85f05556...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `69f18cd5cd3f1f03...`

@@ -1,0 +1,16 @@
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-enlargers-stage\art\blender\scripts\build_photo_enlargers.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-enlargers-stage\art\blender\scripts\build_photo_enlargers.py", line 154, in <module>
+    vessel(identity+'_HollowLampHouse',optical_x,cy,1.99,[(.101,0),(.140,.087),(.133,.149),(.089,.198),(0,.218),(0,.204),(.082,.185),(.119,.143),(.126,.088),(.087,.010),(.101,0)],identity,'metal')
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-enlargers-stage\art\blender\scripts\build_photo_enlargers.py", line 129, in vessel
+    if len(a)==1:faces.append((a[0],b[i],b[(i+1)%n]))
+                                         ~^^^^^^^^^
+IndexError: list index out of range
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-enlargers-stage/art/blender/scripts/build_photo_enlargers.py', exiting.
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
