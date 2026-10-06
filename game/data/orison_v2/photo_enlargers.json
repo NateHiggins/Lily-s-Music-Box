@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_enlargers.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_enl_shelf__timber",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl0__dark",
+          "key": "cast_iron",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl0__metal",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl0__trim",
+          "key": "cast_iron",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl1__dark",
+          "key": "cast_iron",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl1__metal",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl1__trim",
+          "key": "cast_iron",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl2__dark",
+          "key": "cast_iron",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl2__metal",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_enl2__trim",
+          "key": "cast_iron",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_enl_shelf",
+          "key": "timber",
+          "low": [
+            22.2,
+            1.56,
+            59.349999999999994
+          ],
+          "high": [
+            22.65,
+            1.62,
+            63.449999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_enl0",
+          "key": "cast_iron",
+          "low": [
+            22.259999999999998,
+            1.62,
+            61.92999999999999
+          ],
+          "high": [
+            22.6,
+            2.24,
+            62.269999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_enl1",
+          "key": "cast_iron",
+          "low": [
+            22.259999999999998,
+            1.62,
+            61.23
+          ],
+          "high": [
+            22.6,
+            2.24,
+            61.56999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_enl2",
+          "key": "cast_iron",
+          "low": [
+            22.259999999999998,
+            1.62,
+            60.529999999999994
+          ],
+          "high": [
+            22.6,
+            2.24,
+            60.87
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

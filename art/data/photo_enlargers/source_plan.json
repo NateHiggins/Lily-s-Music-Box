@@ -1,0 +1,56 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 4,
+  "runtime_keys": [
+    "timber",
+    "cast_iron",
+    "metal",
+    "dark",
+    "trim"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark",
+    "metal": "iron_blackened",
+    "dark": "bakelite_black",
+    "trim": "brass"
+  },
+  "material_aliases": {
+    "metal": "cast_iron",
+    "dark": "cast_iron",
+    "trim": "cast_iron"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "shelf",
+      "sources": [
+        "storm_shop_photo_supplies_enl_shelf"
+      ]
+    },
+    {
+      "kind": "enlarger",
+      "sources": [
+        "storm_shop_photo_supplies_enl0"
+      ]
+    },
+    {
+      "kind": "enlarger",
+      "sources": [
+        "storm_shop_photo_supplies_enl1"
+      ]
+    },
+    {
+      "kind": "enlarger",
+      "sources": [
+        "storm_shop_photo_supplies_enl2"
+      ]
+    }
+  ],
+  "open_work": [
+    "Exactly three second-hand enlargers retain original source identities, centres, 1.62m base seats and 2.24m upper envelopes. Passive base plates, columns, focusing spindles and hollow downward lamp housings refine the original blocks. No working optics, lamp output or control logic is added.",
+    "The original high shelf retains its plan and 1.56m underside / 1.62m top. Six floor-bearing posts join the deck without adding lower cross rails that would close the retained space beneath it. This is geometric support rather than structural capacity or proof of darkroom approach.",
+    "Existing registered wood_dark, iron_blackened, bakelite_black and aged brass finish local components. Original cast_iron material remains on hidden source references. No new catalogue key, generated lettering or shared map edit is introduced.",
+    "Remaining process fixtures, portraits, darkroom entrance/light, shop glazing finish, operation, continuous routes and independent services remain open."
+  ]
+}

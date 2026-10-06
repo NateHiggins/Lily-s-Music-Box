@@ -1,0 +1,738 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_enl_shelf",
+      "rect": [
+        22.2,
+        -63.449999999999996,
+        22.65,
+        -59.349999999999994
+      ],
+      "z0": 1.56,
+      "h": 0.06,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl0",
+      "rect": [
+        22.259999999999998,
+        -62.269999999999996,
+        22.6,
+        -61.92999999999999
+      ],
+      "z0": 1.62,
+      "h": 0.62,
+      "mat": "cast_iron",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl1",
+      "rect": [
+        22.259999999999998,
+        -61.56999999999999,
+        22.6,
+        -61.23
+      ],
+      "z0": 1.62,
+      "h": 0.62,
+      "mat": "cast_iron",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl2",
+      "rect": [
+        22.259999999999998,
+        -60.87,
+        22.6,
+        -60.529999999999994
+      ],
+      "z0": 1.62,
+      "h": 0.62,
+      "mat": "cast_iron",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_enl_shelf",
+      "kind": "shelf",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl0",
+      "kind": "enlarger",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl1",
+      "kind": "enlarger",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_enl2",
+      "kind": "enlarger",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Deck",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.11068146858084683
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.224999999999998-63.425",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.0029980808918939525
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.224999999999998-61.4",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.0029983413783935186
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.224999999999998-59.364999999999995",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.0029983413783935186
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.625-63.425",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.002997950654290312
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.625-61.4",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.0029982111294975925
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf_Post22.625-59.364999999999995",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "key": "timber",
+      "volume_m3": 0.0029982111294975925
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_Base",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 0.003377263767239546
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_Column",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 0.0010966383303987063
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_HeadBridge",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 0.0025912002152910564
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_HollowLampHouse",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 0.0025497605492207217
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_LensMouth",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "trim",
+      "volume_m3": 0.0006555071281028325
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_RecessedDarkCover",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "dark",
+      "volume_m3": 0.00011189833925760728
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_FocusSpindle",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 5.909563481285365e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_FocusWheel",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "dark",
+      "volume_m3": 3.645687362802477e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0_FocusCollar",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "key": "metal",
+      "volume_m3": 0.00017809231173621567
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_Base",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 0.0033772637672395455
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_Column",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 0.0010966383303987063
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_HeadBridge",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 0.0025912002152910564
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_HollowLampHouse",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 0.0025497605492316366
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_LensMouth",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "trim",
+      "volume_m3": 0.0006555071281028326
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_RecessedDarkCover",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "dark",
+      "volume_m3": 0.00011189833925760727
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_FocusSpindle",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 5.909563481285365e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_FocusWheel",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "dark",
+      "volume_m3": 3.645687362802477e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1_FocusCollar",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "key": "metal",
+      "volume_m3": 0.00017809231173621567
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_Base",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 0.0033772637672395455
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_Column",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 0.001096543044684505
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_HeadBridge",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 0.0025912002152910564
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_HollowLampHouse",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 0.0025497032104793097
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_LensMouth",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "trim",
+      "volume_m3": 0.0006555007560324502
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_RecessedDarkCover",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "dark",
+      "volume_m3": 0.000111898794818259
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_FocusSpindle",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 5.9095634812853653e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_FocusWheel",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "dark",
+      "volume_m3": 3.646319526381946e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2_FocusCollar",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "key": "metal",
+      "volume_m3": 0.00017809231173621567
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.224999999999998,
+        0.009999999999999995,
+        63.425
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.224999999999998,
+        0.009999999999999995,
+        61.4
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.224999999999998,
+        0.009999999999999995,
+        59.364999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.625,
+        0.009999999999999995,
+        63.425
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.625,
+        0.009999999999999995,
+        61.4
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.625,
+        0.009999999999999995,
+        59.364999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "high enlarger shelf actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "owner": "storm_shop_photo_supplies_enl_shelf",
+      "point": [
+        22.43,
+        1.62,
+        62.099999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original enlarger base seated on retained high deck"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "owner": "storm_shop_photo_supplies_enl_shelf",
+      "point": [
+        22.43,
+        1.62,
+        61.39999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original enlarger base seated on retained high deck"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "owner": "storm_shop_photo_supplies_enl_shelf",
+      "point": [
+        22.43,
+        1.62,
+        60.699999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original enlarger base seated on retained high deck"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_enl_shelf__timber",
+      "assembly": "storm_shop_photo_supplies_enl_shelf",
+      "cell": "shop_photo_supplies",
+      "key": "timber",
+      "triangles": 1316
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0__dark",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0__metal",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "cell": "shop_photo_supplies",
+      "key": "metal",
+      "triangles": 1708
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl0__trim",
+      "assembly": "storm_shop_photo_supplies_enl0",
+      "cell": "shop_photo_supplies",
+      "key": "trim",
+      "triangles": 384
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1__dark",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1__metal",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "cell": "shop_photo_supplies",
+      "key": "metal",
+      "triangles": 1708
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl1__trim",
+      "assembly": "storm_shop_photo_supplies_enl1",
+      "cell": "shop_photo_supplies",
+      "key": "trim",
+      "triangles": 384
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2__dark",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2__metal",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "cell": "shop_photo_supplies",
+      "key": "metal",
+      "triangles": 1708
+    },
+    {
+      "name": "storm_shop_photo_supplies_enl2__trim",
+      "assembly": "storm_shop_photo_supplies_enl2",
+      "cell": "shop_photo_supplies",
+      "key": "trim",
+      "triangles": 384
+    }
+  ],
+  "triangles": 8732,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_enlargers.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_enl_shelf__timber",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl0__dark",
+            "key": "cast_iron",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl0__metal",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl0__trim",
+            "key": "cast_iron",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl1__dark",
+            "key": "cast_iron",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl1__metal",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl1__trim",
+            "key": "cast_iron",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl2__dark",
+            "key": "cast_iron",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl2__metal",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_enl2__trim",
+            "key": "cast_iron",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_enl_shelf",
+            "key": "timber",
+            "low": [
+              22.2,
+              1.56,
+              59.349999999999994
+            ],
+            "high": [
+              22.65,
+              1.62,
+              63.449999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_enl0",
+            "key": "cast_iron",
+            "low": [
+              22.259999999999998,
+              1.62,
+              61.92999999999999
+            ],
+            "high": [
+              22.6,
+              2.24,
+              62.269999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_enl1",
+            "key": "cast_iron",
+            "low": [
+              22.259999999999998,
+              1.62,
+              61.23
+            ],
+            "high": [
+              22.6,
+              2.24,
+              61.56999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_enl2",
+            "key": "cast_iron",
+            "low": [
+              22.259999999999998,
+              1.62,
+              60.529999999999994
+            ],
+            "high": [
+              22.6,
+              2.24,
+              60.87
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "67609f1168c0942bfef6571580af201f5dc000def2958a38916e71e5a4e84b32",
+  "source_bindings": {
+    "art/data/photo_enlargers/source_plan.json": "40d993fcf3d65cca44885f0b14b293bc1d988deade167a6e8576aaa008b2f079",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_enlargers.py": "cd8bd870e5fc5f93e1bf8ef01a8b3f15a41afd432cf429c30d0c3f548ba1a53c",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_enlargers.glb.import": "a2f2096f6b5ad40a5f78b50cb01689ffd1c68602fea4d12b29a8c8d54f219d2f",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/cast_iron_b/material.json": "bd0b37ab86ec56a9893ba5990b288f109087915566d9e7f664676be3d4a5f91d",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_albedo.png": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_rough.png": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_normal.png": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_enlargers.py": "714bf3d66f41fd5d91d165c48fe5ba23906f72bf9f615d5add412ebe7c9459b0"
+  },
+  "open_work": [
+    "Exactly three second-hand enlargers retain original source identities, centres, 1.62m base seats and 2.24m upper envelopes. Passive base plates, columns, focusing spindles and hollow downward lamp housings refine the original blocks. No working optics, lamp output or control logic is added.",
+    "The original high shelf retains its plan and 1.56m underside / 1.62m top. Six floor-bearing posts join the deck without adding lower cross rails that would close the retained space beneath it. This is geometric support rather than structural capacity or proof of darkroom approach.",
+    "Existing registered wood_dark, iron_blackened, bakelite_black and aged brass finish local components. Original cast_iron material remains on hidden source references. No new catalogue key, generated lettering or shared map edit is introduced.",
+    "Remaining process fixtures, portraits, darkroom entrance/light, shop glazing finish, operation, continuous routes and independent services remain open."
+  ]
+}
