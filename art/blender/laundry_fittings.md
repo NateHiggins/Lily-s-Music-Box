@@ -41,7 +41,8 @@ lamp calibration are unchanged. Native materials use the same relative
 images, metre charts and normal strength as the installed variants.
 
 **scripts/inspect_laundry_fittings.py** verifies source/map hashes, native
-stock volumes and connected joins and renders twelve front/rear views.
+stock volumes and connected joins and renders fourteen front/rear and
+receiving-clearance views.
 **OrisonV2LaundryFittingsTest** checks the imported partitions, UV derivatives,
 literal retention of other source attributes, collision and 57 support
 contacts, with paired production and clear shirt-detail views. Wrapper run
@@ -53,7 +54,25 @@ library, including eight completion-template beds. **OrisonV2BeddingTest**
 now covers all 22, 88 physical contacts and the twelve shared role meshes,
 with additional clear views in the C bedrooms.
 
-Wash tubs, mangle, sad irons, pulley airers, ticket presentation and rear
-workshop fittings remain open. Broad roof/weather, service routing, terrain,
+The later native apparatus batch supplies passive tubs, opposed-roll wringer,
+flat irons and drying racks. Their services, ticket presentation and rear
+workshop fitting acceptance remain open. Broad roof/weather, service routing, terrain,
 apartment furniture and texture acceptance continues. Heating cutouts remain
 parked. This batch does not declare the building complete.
+
+The original **storm_shopcab_model_laundry0** receiving hull remains intact
+at its source pose and variant. Its minimum source-B X is **7.21 m**. The
+fitted table now ends at **7.14 m**, with its padded top at **7.18 m**, leaving
+**70 mm / 30 mm** to that hull and preserving the **40 mm** pad overhang.
+The tabletop length changes from **3.55 m** to **2.14 m**; the two end legs
+and aprons follow the shortened top. The original source rectangles remain
+the retirement authority. The other **97** exported partitions retain
+identical vertex attributes, indices and node transforms.
+
+The fixture records the source assembler hash and hull datums; the native
+inspector checks separation from its actual imported twelve-triangle hull.
+The production test checks that same active hull, actual imported table/pad
+vertices and two standing floor/capsule views. These checks establish this
+local clearance, not cabinet operation, continuous shop entry, service
+capacity or human acceptance. The original programme, actors and source
+layout retain their existing authority.

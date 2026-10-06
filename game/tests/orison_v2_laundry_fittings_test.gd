@@ -56,10 +56,60 @@ func _run() -> void:
 			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and floor samples")
+	await _ironing_receiver_views(world,fixture)
 	await _laundry_views(world,fixture)
 	await _shirt_detail_views(world,fixture)
 	print("LAUNDRY FITTINGS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	var fit: Dictionary=fixture.fitted_receiver_clearance
+	var cell: Node3D=world.passage_region.cell_nodes.shop_model_laundry
+	var model: Node3D=cell.get_node("LaundryFittings")
+	var source: Dictionary=fit.source_record
+	var source_floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)=="F01")[0]
+	var original: Dictionary=source_floor.furniture.filter(func(row):return str(row.id)==str(source.id))[0]
+	var prop:=world.passage_region._actors.get_node_or_null("Arcade_"+str(source.id)) as ArcadeCabinetProp
+	check(original==source and prop!=null,"ironing fit retains the complete original receiving record and actor")
+	if prop==null:return
+	check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(source_floor.z)+float(source.get("z0",0.))]))
+		and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"ironing fit preserves cabinet variant, pose and programme owner")
+	var hull:=cell.get_node_or_null(str(fit.hull_name)) as StaticBody3D
+	check(hull!=null,"exact original receiving hull remains in its source cell")
+	if hull==null:return
+	var shape:=hull.get_child(0) as CollisionShape3D
+	var faces: PackedVector3Array=(shape.shape as ConcavePolygonShape3D).get_faces()
+	check(faces.size()==36 and not shape.disabled and hull.collision_layer==1,"complete original twelve-triangle receiving hull stays active and intact")
+	var low:=Vector3(INF,INF,INF);var high:=Vector3(-INF,-INF,-INF)
+	for vertex in faces:
+		var point:=cell.to_local(shape.to_global(vertex));low=low.min(point);high=high.max(point)
+	var a:=GameBoot.b2g(fit.hull_low_b);var b:=GameBoot.b2g(fit.hull_high_b)
+	check(low.distance_to(a.min(b))<.00003 and high.distance_to(a.max(b))<.00003,"actual retained receiving hull binds immutable assembler bounds")
+	var measured: Array=[]
+	for spec: Dictionary in [{"id":"storm_shop_model_laundry_iron_table","limit":fit.table_right_x},{"id":"storm_shop_model_laundry_iron_pad","limit":fit.pad_right_x}]:
+		var right: float=-INF;var left: float=INF;var found:=0
+		for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+			if not str(draw.get_meta("laundry_part","")).begins_with(str(spec.id)+"__"):continue
+			found+=1
+			for surface in draw.mesh.get_surface_count():
+				var vertices: PackedVector3Array=draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+				for vertex in vertices:
+					var x: float=cell.to_local(draw.to_global(vertex)).x;right=maxf(right,x);left=minf(left,x)
+		check(found==1 and absf(right-float(spec.limit))<.00003 and low.x-right>=float(fit.clearance_m)-.00003,
+			"actual fitted furniture clears the complete retained receiver hull: "+str(spec.id))
+		if str(spec.id).ends_with("_table"):
+			check(absf(right-left-float(fit.fitted_table_length_m))<.00003 and float(fit.fitted_table_length_m)<float(fit.source_table_length_m),"supported ironing table shortens only its obstructing end")
+		measured.append({"assembly":spec.id,"right_x":right,"hull_left_x":low.x,"gap_m":low.x-right})
+	check(absf(float(fit.pad_right_x)-float(fit.table_right_x)-float(fit.pad_overhang_m))<.000001,"padded top retains its original overhang beyond the timber support")
+	for spec: Dictionary in [{"id":"laundry_receiver_front","feet":[7.6,.03,42.8],"target":[7.6,1.29,43.87]},
+		{"id":"laundry_receiver_table_supports","feet":[6.75,.03,42.9],"target":[6.85,.50,44.12]}]:
+		var feet:=cell.to_global(_v(spec.feet))
+		check(_clear_laundry_station(world,feet),"standing capsule has a clear ironing/receiver observation: "+str(spec.id))
+		world.player.global_position=feet;world.player.velocity=Vector3.ZERO
+		world.player.face_world_point(cell.to_global(_v(spec.target)));world.player.set_lamp_enabled(true)
+		await _settled_optics();await shot(str(spec.id))
+	var directory:=OS.get_environment("SHOT_DIR")
+	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver hull. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
 
 func _laundry_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var observations: Array=[]

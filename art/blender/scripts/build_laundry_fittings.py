@@ -1,6 +1,6 @@
 """Source-fitted hand-laundry parcels, hung shirts and ironing furniture."""
 from pathlib import Path
-import collections,hashlib,json,math,re,sys
+import ast,collections,hashlib,json,math,re,sys
 import bpy,bmesh,numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
@@ -32,6 +32,27 @@ selected=[row for row in rows.values() if row.get('batch')=='shop_model_laundry'
 assert len(selected)==plan['original_records']
 floor=rows['storm_shop_model_laundry_floor'];ceil=rows['storm_shop_model_laundry_ceil']
 assemblies=[{'id':row['id'],'kind':('parcel' if '_parcel' in row['id'] else 'shirt' if '_shirt' in row['id'] else row['id'].split('_laundry_')[1]),'body':row,'cell':'shop_model_laundry','floor':floor} for row in selected]
+# The immutable assembler supplies the complete original receiving hull. Keep
+# the receiving owner and source boxes; fit only the table's obstructing end.
+receiver=rows[plan['receiving_clearance']['source_id']]
+assert receiver['asm']=='arcade_cab' and receiver['variant']==0 and receiver['yaw']==180.
+assembler_path=ROOT/'art/blender/scripts/build_orison.py';assembler_source=assembler_path.read_text(encoding='utf-8-sig')
+function=next(n for n in ast.parse(assembler_source).body if isinstance(n,ast.FunctionDef) and n.name=='asm_arcade_cab')
+namespace={};exec(compile(ast.Module(body=[function],type_ignores=[]),str(assembler_path),'exec'),namespace)
+class HullCollector:
+ def __init__(self):self.hulls=[]
+ def box(self,*args):pass
+ def cyl(self,*args):pass
+ def hull(self,*args):self.hulls.append(args)
+collector=HullCollector();namespace['asm_arcade_cab'](collector,receiver);assert len(collector.hulls)==1
+q=collector.hulls[0];angle=math.radians(receiver['yaw']);c=math.cos(angle);sn=math.sin(angle)
+corners=[(receiver['at'][0]+c*x-sn*y,receiver['at'][1]+sn*x+c*y,z+receiver.get('z0',0.)) for x in [q[0],q[3]] for y in [q[1],q[4]] for z in [q[2],q[5]]]
+hull_low=[min(p[i] for p in corners) for i in range(3)];hull_high=[max(p[i] for p in corners) for i in range(3)]
+hull_name=next(n['name'] for n in source_gltf['nodes'] if n['name'].endswith('_hull-colonly'))
+pad_right=hull_low[0]-float(plan['receiving_clearance']['clearance_m']);table_right=pad_right-float(plan['receiving_clearance']['pad_overhang_m'])
+receiver_clearance={'source_record':receiver,'raw_hull_name':hull_name,'hull_name':hull_name.removesuffix('-colonly'),'hull_low_b':hull_low,'hull_high_b':hull_high,'clearance_m':plan['receiving_clearance']['clearance_m'],'pad_overhang_m':plan['receiving_clearance']['pad_overhang_m'],'table_right_x':table_right,'pad_right_x':pad_right,'source_table_length_m':rows['storm_shop_model_laundry_iron_table']['rect'][2]-rows['storm_shop_model_laundry_iron_table']['rect'][0],'fitted_table_length_m':table_right-rows['storm_shop_model_laundry_iron_table']['rect'][0],'assembler_function_sha256':hashlib.sha256(ast.get_source_segment(assembler_source,function).encode()).hexdigest()}
+assert abs(hull_low[0]-7.21)<1e-10 and abs(table_right-7.14)<1e-10 and abs(pad_right-7.18)<1e-10
+
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
 retained=bpy.data.collections.new('RetainedSourceBoxes');bpy.context.scene.collection.children.link(retained);retained.hide_render=True
@@ -123,6 +144,9 @@ def curved_wire(name,path,radius,identity,key='chrome'):
  return solid(name,verts,faces,identity,key)
 for item in assemblies:
  identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect'];x=(x0+x1)*.5;y=(y0+y1)*.5;z=float(row['z0']);top=z+float(row['h']);kind=item['kind']
+ if kind in ['iron_table','iron_pad']:
+  fitted=table_right if kind=='iron_table' else pad_right;assert x0<fitted<x1
+  x1=fitted;x=(x0+x1)*.5
  if kind=='parcel':
   shelf=rows['storm_shop_model_laundry_parcel_shelf'+identity.split('_parcel')[1].split('_')[0]];bottom=shelf['z0']+shelf['h']
   box(identity+'_WrappedBundle',(x0,y0,bottom),(x1,y1,top),identity,row['mat'],.018)
@@ -243,9 +267,9 @@ for identity in sorted({a['cell'] for a in assemblies}):
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {})} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/laundry_fittings.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (ROOT/'game/data/orison_v2/laundry_fittings.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',ROOT/'game/scripts/generated/material_sets.gd',asset.with_suffix('.glb.import'),*material_definitions]
+bindings=[plan_path,layout_path,assembler_path,Path(__file__),Path(__file__).with_name('inspect_laundry_fittings.py'),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',ROOT/'game/scripts/generated/material_sets.gd',asset.with_suffix('.glb.import'),*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','fitted_receiver_clearance':receiver_clearance,'original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for name in ['art/blender/laundry_fittings_construction.json','game/tests/fixtures/orison_laundry_fittings.json']:(ROOT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('LAUNDRY FITTINGS',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

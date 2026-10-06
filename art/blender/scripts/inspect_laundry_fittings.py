@@ -1,10 +1,10 @@
 """Inspect closed stocks, fitted joins and actual catalogue maps; render QA."""
 from pathlib import Path
-import hashlib,json
+import hashlib,json,os
 import bpy,bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/laundry-native';out.mkdir(parents=True,exist_ok=True)
+r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=Path(os.environ.get('LAUNDRY_FITTINGS_INSPECTION',str(r/'tmp/laundry-native')));out.mkdir(parents=True,exist_ok=True)
 asset=r/'art/blender/laundry_fittings.blend';bpy.ops.wm.open_mainfile(filepath=str(asset))
 f=json.loads((r/'art/blender/laundry_fittings_construction.json').read_text());assert f==json.loads((r/'game/tests/fixtures/orison_laundry_fittings.json').read_text())
 for rel,h in f['source_bindings'].items():
@@ -55,5 +55,38 @@ for ids in groups:
  size=max(high-low);distance=max(.6,size)*1.7
  for role,offset in [('front',Vector((1,-.65,.40))),('rear',Vector((-1,.65,.40)))]:
   name=ids[0]+'_'+role+'.png';views.append(name);bpy.ops.object.camera_add(location=center+offset*distance);cam=bpy.context.object;cam.data.lens=42;cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler();scene.camera=cam;scene.render.filepath=str(out/name);bpy.ops.render.render(write_still=True);bpy.data.objects.remove(cam,do_unlink=True)
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','native_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'closed_volumes':volumes,'assembly_stock_joins':joins,'source_boundary_stocks':len(bpy.data.collections['RetainedSourceBoxes'].objects),'parts':len(draws),'triangles':f['triangles'],'views':views},indent=2)+'\n')
+fit=f['fitted_receiver_clearance']
+before=set(bpy.context.scene.objects);bpy.ops.import_scene.gltf(filepath=str(r/'game/assets/building/floor_01_cells/shop_model_laundry.gltf'))
+context=[o for o in bpy.context.scene.objects if o not in before and o.type=='MESH']
+hulls=[o for o in context if o.name==fit['raw_hull_name']];assert len(hulls)==1
+hull=hulls[0];hull.data.calc_loop_triangles();assert len(hull.data.loop_triangles)==12
+points=[hull.matrix_world@v.co for v in hull.data.vertices]
+low=Vector(tuple(min(v[i] for v in points) for i in range(3)));high=Vector(tuple(max(v[i] for v in points) for i in range(3)))
+assert (low-Vector(fit['hull_low_b'])).length<.00003 and (high-Vector(fit['hull_high_b'])).length<.00003
+def actual_tree(o):return BVHTree.FromPolygons([o.matrix_world@v.co for v in o.data.vertices],[list(p.vertices) for p in o.data.polygons],epsilon=0.)
+clearances=[]
+for identity,limit in [('storm_shop_model_laundry_iron_table',fit['table_right_x']),('storm_shop_model_laundry_iron_pad',fit['pad_right_x'])]:
+ objects=[o for o in draws if o.name.startswith(identity+'__')];assert len(objects)==1
+ obj=objects[0];right=max((obj.matrix_world@v.co).x for v in obj.data.vertices)
+ assert abs(right-limit)<.00003 and low.x-right>=float(fit['clearance_m'])-.00003
+ assert not actual_tree(obj).overlap(actual_tree(hull)),obj.name
+ clearances.append({'assembly':identity,'actual_right_x':right,'actual_hull_left_x':low.x,'clearance_m':low.x-right})
+# Retire only each original fitted box boundary in this temporary inspection
+# context; the shipping glTF and its complete receiving hull stay unchanged.
+retired={row['id']:0 for row in f['original_records']}
+for old in context:
+ bm=bmesh.new();bm.from_mesh(old.data);remove=[]
+ for face in bm.faces:
+  p=[old.matrix_world@v.co for v in face.verts];normal=(p[1]-p[0]).cross(p[2]-p[0]).normalized();axis=max(range(3),key=lambda i:abs(normal[i]))
+  for row in f['original_records']:
+   if not old.name.removesuffix('-col').endswith('_'+row['mat']):continue
+   q=row['rect'];a=Vector((q[0],q[1],row['z0']));b=Vector((q[2],q[3],row['z0']+row['h']));plane=b[axis] if normal[axis]>0 else a[axis]
+   if abs(normal[axis])>.999 and all(abs(v[axis]-plane)<.00003 and all(a[i]-.00003<=v[i]<=b[i]+.00003 for i in range(3)) for v in p):remove.append(face);retired[row['id']]+=1;break
+ bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(old.data);bm.free()
+assert all(count==12 for count in retired.values()),retired
+for obj in draws:obj.hide_render=False
+for obj in context:obj.hide_render=obj==hull
+for label,eye,target in [('receiver_table_front',(7.6,-42.8,1.44),(7.1,-44.08,1.02)),('receiver_table_supports',(6.75,-42.9,1.44),(6.85,-44.12,.50))]:
+ bpy.ops.object.camera_add(location=eye);cam=bpy.context.object;cam.data.lens=42;cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler();scene.camera=cam;scene.render.filepath=str(out/(label+'.png'));bpy.ops.render.render(write_still=True);bpy.data.objects.remove(cam,do_unlink=True);views.append(label+'.png')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','native_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'closed_volumes':volumes,'assembly_stock_joins':joins,'source_boundary_stocks':len(bpy.data.collections['RetainedSourceBoxes'].objects),'parts':len(draws),'triangles':f['triangles'],'receiver_clearances':clearances,'retained_receiver_hull_triangles':12,'temporary_inspection_retirement_counts':retired,'views':views,'limits':'Actual original receiver hull and fitted table/pad are separated. Only the 53 original fitted box boundaries retire in the temporary raw-source inspection context. Other accepted native apparatus, player access, programme ownership and whole-building acceptance remain separately checked obligations.'},indent=2)+'\n')
 print('LAUNDRY NATIVE QA',len(volumes),'closed connected stocks;',len(joins),'joined assemblies;',len(views),'views')

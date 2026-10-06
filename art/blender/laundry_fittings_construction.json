@@ -1,6 +1,40 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
+  "fitted_receiver_clearance": {
+    "source_record": {
+      "id": "storm_shopcab_model_laundry0",
+      "asm": "arcade_cab",
+      "at": [
+        7.6,
+        -44.25
+      ],
+      "yaw": 180.0,
+      "exterior": true,
+      "variant": 0,
+      "batch": "shop_model_laundry",
+      "zone": "PASSAGE"
+    },
+    "raw_hull_name": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_hull-colonly",
+    "hull_name": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_hull",
+    "hull_low_b": [
+      7.21,
+      -44.61,
+      0.0
+    ],
+    "hull_high_b": [
+      7.989999999999999,
+      -43.75,
+      1.83
+    ],
+    "clearance_m": 0.03,
+    "pad_overhang_m": 0.04,
+    "table_right_x": 7.14,
+    "pad_right_x": 7.18,
+    "source_table_length_m": 3.5500000000000007,
+    "fitted_table_length_m": 2.1399999999999997,
+    "assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566"
+  },
   "original_records": [
     {
       "id": "storm_shop_model_laundry_parcel0_0",
@@ -3039,7 +3073,7 @@
       "name": "storm_shop_model_laundry_iron_table_TableTop",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.17160106029608171
+      "volume_m3": 0.10342604221493977
     },
     {
       "name": "storm_shop_model_laundry_iron_table_Leg0",
@@ -3051,7 +3085,7 @@
       "name": "storm_shop_model_laundry_iron_table_Leg1",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.0027404091350448183
+      "volume_m3": 0.002740386490990035
     },
     {
       "name": "storm_shop_model_laundry_iron_table_Leg2",
@@ -3063,19 +3097,19 @@
       "name": "storm_shop_model_laundry_iron_table_Leg3",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.0027402279885655606
+      "volume_m3": 0.002740205346000529
     },
     {
       "name": "storm_shop_model_laundry_iron_table_LongApron-44.490",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.009187127163895553
+      "volume_m3": 0.0054100106669298775
     },
     {
       "name": "storm_shop_model_laundry_iron_table_LongApron-43.790",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.009187127163895553
+      "volume_m3": 0.0054100106669298775
     },
     {
       "name": "storm_shop_model_laundry_iron_table_EndApron5.090",
@@ -3084,16 +3118,16 @@
       "volume_m3": 0.002034882816125586
     },
     {
-      "name": "storm_shop_model_laundry_iron_table_EndApron8.460",
+      "name": "storm_shop_model_laundry_iron_table_EndApron7.050",
       "assembly": "storm_shop_model_laundry_iron_table",
       "key": "timber",
-      "volume_m3": 0.002034882816125586
+      "volume_m3": 0.0020348422289927733
     },
     {
       "name": "storm_shop_model_laundry_iron_pad_PaddedTop",
       "assembly": "storm_shop_model_laundry_iron_pad",
       "key": "linen",
-      "volume_m3": 0.24104984937480592
+      "volume_m3": 0.147179176132783
     },
     {
       "name": "storm_shop_model_laundry_sleeve_board_SleeveForm",
@@ -4676,7 +4710,7 @@
       "assembly": "storm_shop_model_laundry_iron_table",
       "owner": "storm_shop_model_laundry_floor",
       "point": [
-        8.46,
+        7.05,
         0.01,
         44.489999999999995
       ],
@@ -4706,7 +4740,7 @@
       "assembly": "storm_shop_model_laundry_iron_table",
       "owner": "storm_shop_model_laundry_floor",
       "point": [
-        8.46,
+        7.05,
         0.01,
         43.790000000000006
       ],
@@ -4721,7 +4755,7 @@
       "assembly": "storm_shop_model_laundry_iron_pad",
       "owner": "storm_shop_model_laundry_iron_table",
       "point": [
-        6.775,
+        6.07,
         0.88,
         44.14
       ],
@@ -6965,11 +6999,13 @@
       }
     ]
   },
-  "asset_sha256": "d6ea7a69ad96a40beb96494b0d092ba8c8e6ea39d0561bc458cc6eed891b7d6a",
+  "asset_sha256": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
   "source_bindings": {
-    "art/data/laundry_fittings/source_plan.json": "e4eb3a5c30a63e7bb71c266cab553b845352b524ac6e14b72a77f483a843fc72",
+    "art/data/laundry_fittings/source_plan.json": "51500495e7de437ca2c4b56412742fab0b43be114dd3d666de5b2e1aa92350c5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_laundry_fittings.py": "3e51c57c8085cc207443ebf6c61e6dc9523d53d0207d2ba14da922f493d9bd4b",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/build_laundry_fittings.py": "4351afeaf1f916a13f9c28812ca644faf465bedde0f7927ea38e20cfe43f8a59",
+    "art/blender/scripts/inspect_laundry_fittings.py": "7e758290599cafab787a5f08373385a351b0e8b2f29f2263787955f99ccdf398",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -6993,5 +7029,5 @@
     "game/assets/building/floor_01_cells/shop_model_laundry.gltf": "0e8fff621511552fc51b7aa9b5d5fb9ed5ec89e976fc9bfd077dbbd986437af8",
     "game/assets/building/floor_01_cells/shop_model_laundry.bin": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4"
   },
-  "open_work": "Wash tubs, mangle, sad irons, pulley airers, tickets and rear workshop fittings still need fabrication. This batch proves visual geometry and contacts only, not live services or structural capacity. Broad architecture and texture acceptance remains open."
+  "open_work": "Six receiving chassis still need their period furniture. The separately fitted tubs, wringer, irons and airers remain passive; operating services, tickets, rear workshop access and whole-building acceptance remain open. This local table fit grants no service capacity, continuous route or human acceptance."
 }
