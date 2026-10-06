@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_process.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_dev_tray0__enamel_finish",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray0__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray1__enamel_finish",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray1__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray2__enamel_finish",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray2__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray3__enamel_finish",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance"
+        },
+        {
+          "name": "storm_shop_photo_supplies_dev_tray3__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank0__dark",
+          "key": "metal",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank0__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank0__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank1__dark",
+          "key": "metal",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank1__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank1__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank2__dark",
+          "key": "metal",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank2__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tank2__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_photo_supplies_print_dryer__enamel_finish",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance"
+        },
+        {
+          "name": "storm_shop_photo_supplies_print_dryer__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_print_dryer__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod0__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod0__wood",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod1__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod1__wood",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod2__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod2__wood",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod3__iron",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_tripod3__wood",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_flash_tin0__tin",
+          "key": "metal",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner"
+        },
+        {
+          "name": "storm_shop_photo_supplies_flash_tin0__wood",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_dev_tray0",
+          "key": "enamel",
+          "low": [
+            21.72,
+            0.08,
+            61.21999999999999
+          ],
+          "high": [
+            21.98,
+            0.125,
+            62.11999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_dev_tray1",
+          "key": "enamel",
+          "low": [
+            21.38,
+            0.18,
+            61.21999999999999
+          ],
+          "high": [
+            21.64,
+            0.22499999999999998,
+            62.11999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_dev_tray2",
+          "key": "enamel",
+          "low": [
+            21.04,
+            0.28,
+            61.21999999999999
+          ],
+          "high": [
+            21.3,
+            0.325,
+            62.11999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_dev_tray3",
+          "key": "enamel",
+          "low": [
+            20.7,
+            0.38000000000000006,
+            61.21999999999999
+          ],
+          "high": [
+            20.96,
+            0.42500000000000004,
+            62.11999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tank0",
+          "key": "nickel_plated",
+          "low": [
+            21.66,
+            0.08,
+            60.839999999999996
+          ],
+          "high": [
+            21.96,
+            0.6599999999999999,
+            61.059999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tank1",
+          "key": "nickel_plated",
+          "low": [
+            21.66,
+            0.08,
+            60.53999999999999
+          ],
+          "high": [
+            21.96,
+            0.6599999999999999,
+            60.75999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tank2",
+          "key": "nickel_plated",
+          "low": [
+            21.66,
+            0.08,
+            60.239999999999995
+          ],
+          "high": [
+            21.96,
+            0.6599999999999999,
+            60.459999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_print_dryer",
+          "key": "enamel",
+          "low": [
+            21.08,
+            0.05,
+            59.67999999999999
+          ],
+          "high": [
+            21.84,
+            0.9500000000000001,
+            60.31999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tripod0",
+          "key": "timber",
+          "low": [
+            20.22,
+            0.05,
+            59.42999999999999
+          ],
+          "high": [
+            20.88,
+            1.77,
+            59.48
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tripod1",
+          "key": "timber",
+          "low": [
+            20.22,
+            0.05,
+            59.33
+          ],
+          "high": [
+            20.88,
+            1.77,
+            59.379999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tripod2",
+          "key": "timber",
+          "low": [
+            20.22,
+            0.05,
+            59.23
+          ],
+          "high": [
+            20.88,
+            1.77,
+            59.279999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_tripod3",
+          "key": "timber",
+          "low": [
+            20.22,
+            0.05,
+            59.129999999999995
+          ],
+          "high": [
+            20.88,
+            1.77,
+            59.17999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_flash_tin0",
+          "key": "metal",
+          "low": [
+            22.3,
+            0.46,
+            63.199999999999996
+          ],
+          "high": [
+            22.58,
+            0.7,
+            63.379999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_flash_tin1",
+          "key": "metal",
+          "low": [
+            22.3,
+            0.46,
+            62.959999999999994
+          ],
+          "high": [
+            22.58,
+            0.7,
+            63.13999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_flash_tin2",
+          "key": "metal",
+          "low": [
+            22.3,
+            0.46,
+            62.71999999999999
+          ],
+          "high": [
+            22.58,
+            0.7,
+            62.89999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_flash_tin3",
+          "key": "metal",
+          "low": [
+            22.3,
+            0.46,
+            62.48
+          ],
+          "high": [
+            22.58,
+            0.7,
+            62.66
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

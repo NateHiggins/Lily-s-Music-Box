@@ -623,3 +623,14 @@ game/scripts/building/orison_v2_photo_enlargers.gd -text
 game/tests/orison_v2_photo_enlargers_test.gd -text
 game/assets/props/photo_enlargers.glb.import -text
 art/renders/orison_v2/photo_enlargers_20261005/** -text
+
+art/data/photo_process/** -text
+art/blender/scripts/build_photo_process.py -text
+art/blender/scripts/inspect_photo_process.py -text
+art/blender/photo_process_construction.json -text
+game/data/orison_v2/photo_process.json -text
+game/tests/fixtures/orison_photo_process.json -text
+game/scripts/building/orison_v2_photo_process.gd -text
+game/tests/orison_v2_photo_process_test.gd -text
+game/assets/props/photo_process.glb.import -text
+art/renders/orison_v2/photo_process_20261005/** -text

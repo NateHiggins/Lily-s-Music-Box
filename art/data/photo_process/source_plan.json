@@ -1,0 +1,120 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 16,
+  "runtime_keys": [
+    "enamel",
+    "nickel_plated",
+    "timber",
+    "metal",
+    "enamel_finish",
+    "wood",
+    "iron",
+    "dark",
+    "tin"
+  ],
+  "catalog_variants": {
+    "enamel_finish": "enamel_appliance",
+    "wood": "wood_dark",
+    "iron": "iron_blackened",
+    "dark": "bakelite_black",
+    "tin": "zinc_liner"
+  },
+  "material_aliases": {
+    "enamel_finish": "enamel",
+    "wood": "timber",
+    "iron": "metal",
+    "dark": "metal",
+    "tin": "metal"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "tray",
+      "sources": [
+        "storm_shop_photo_supplies_dev_tray0"
+      ]
+    },
+    {
+      "kind": "tray",
+      "sources": [
+        "storm_shop_photo_supplies_dev_tray1"
+      ]
+    },
+    {
+      "kind": "tray",
+      "sources": [
+        "storm_shop_photo_supplies_dev_tray2"
+      ]
+    },
+    {
+      "kind": "tray",
+      "sources": [
+        "storm_shop_photo_supplies_dev_tray3"
+      ]
+    },
+    {
+      "kind": "tank",
+      "sources": [
+        "storm_shop_photo_supplies_tank0"
+      ]
+    },
+    {
+      "kind": "tank",
+      "sources": [
+        "storm_shop_photo_supplies_tank1"
+      ]
+    },
+    {
+      "kind": "tank",
+      "sources": [
+        "storm_shop_photo_supplies_tank2"
+      ]
+    },
+    {
+      "kind": "dryer",
+      "sources": [
+        "storm_shop_photo_supplies_print_dryer"
+      ]
+    },
+    {
+      "kind": "tripod",
+      "sources": [
+        "storm_shop_photo_supplies_tripod0"
+      ]
+    },
+    {
+      "kind": "tripod",
+      "sources": [
+        "storm_shop_photo_supplies_tripod1"
+      ]
+    },
+    {
+      "kind": "tripod",
+      "sources": [
+        "storm_shop_photo_supplies_tripod2"
+      ]
+    },
+    {
+      "kind": "tripod",
+      "sources": [
+        "storm_shop_photo_supplies_tripod3"
+      ]
+    },
+    {
+      "kind": "flash",
+      "sources": [
+        "storm_shop_photo_supplies_flash_tin0",
+        "storm_shop_photo_supplies_flash_tin1",
+        "storm_shop_photo_supplies_flash_tin2",
+        "storm_shop_photo_supplies_flash_tin3"
+      ]
+    }
+  ],
+  "open_work": [
+    "Four empty developing trays retain source plans and lower/top datums. Their actual open bowls and four floor-bearing legs replace unsupported steps; no chemical liquid or processing operation is added.",
+    "Three closed passive developing tanks retain original centres and .08/.66m envelope; small feet reach the .01m floor. The print dryer retains its .05/.95m body envelope, now an open-front shell with a seated drum, axle, slatted lower vent and floor feet. No heat, drive or electrical demand is added.",
+    "Four folded timber tripods retain original narrow plans and upper envelopes, with joined clamps and three floor shoes apiece. Four closed flash tins retain original centres and .46/.70m envelopes, now seated on a short joined timber stock stand beneath the original high shelf. No chemical content or ignition/control behavior is added.",
+    "Local registered enamel_appliance, wood_dark, iron_blackened, bakelite_black and zinc_liner finishes keep shared maps unchanged. Original shipping enamel, nickel, timber and metal remain on hidden source references. Portraits, darkroom entrance/light, glass finish, operating process, continuous access and independent services remain open."
+  ]
+}
