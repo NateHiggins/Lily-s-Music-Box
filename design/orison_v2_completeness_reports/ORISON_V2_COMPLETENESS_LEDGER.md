@@ -212,7 +212,7 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (37):**
+**runtime receipts rejected (38):**
 
 - ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -598,6 +598,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/radio_receiving_20261006/runtime_authority_receipt.json` sha256 `ac87e2947c32c849...`
 - `art/renders/orison_v2/radio_stock_20261006/runtime_authority_receipt.json` sha256 `d10b8a4762c99e8b...`
 - `art/renders/orison_v2/radio_wire_20261006/runtime_authority_receipt.json` sha256 `2966b80c068ea0d1...`
+- `art/renders/orison_v2/receiving_panel_20261006/runtime_authority_receipt.json` sha256 `d6a20462a566904f...`
 - `design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md` sha256 `534567ba02295ef7...`
 - `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` sha256 `d4758366076e3309...`
 - `design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md` sha256 `6bbb9e719408adc9...`

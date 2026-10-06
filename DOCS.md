@@ -65,6 +65,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original Radio Service passive aerial-wire reels and supported iron ring | `art/blender/radio_wire.md` and `design/V2_RADIO_WIRE_2026-10-06.md` |
 | Source-owned Radio Service charging jars, fitted rack and cabinet clearance | `art/blender/radio_battery.md` and `design/V2_RADIO_BATTERY_2026-10-06.md` |
 | Seven passage receiving owners, keyboard play and persistent/unloaded board lifecycle | `art/blender/passage_receivers.md` and `design/V2_PASSAGE_RECEIVERS_2026-10-06.md` |
+| Fitted receiving programme panel, actual window resizing and retained keyboard/owned teardown | `design/V2_RECEIVING_PANEL_2026-10-06.md` |
 | Radio Service period receiving chassis, exact assembled-source ownership and retained programme | `art/blender/radio_receiving.md` and `design/V2_RADIO_RECEIVING_2026-10-06.md` |
 | Original Radio Service four-level rack and fourteen seated stored valves | `art/blender/radio_stock.md` and `design/V2_RADIO_STOCK_2026-10-06.md` |
 | Original Radio Service test instruments, seated valves and retained literal display | `art/blender/radio_apparatus.md` and `design/V2_RADIO_APPARATUS_2026-10-06.md` |

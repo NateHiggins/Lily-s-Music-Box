@@ -34,12 +34,13 @@ and geometry reconstruction alongside its existing doors, carts, counter,
 native specialist fittings and shader values.
 
 This transfer adds no chassis geometry, material key, utility route, door
-cutout or programme. The old imported cabinet shapes remain until native
-fitting. Their late-century finishes violate Bible **VIII.5.g**; laundry and
+cutout or programme. The old imported cabinet shapes were retained by this transfer; Radio Service
+now has its separately verified native chassis. Their late-century finishes violate Bible **VIII.5.g**; laundry and
 photographic frontage overlap/occlusion and the cramped luncheonette counter
 remain open geometry findings. Straight-axis luncheonette samples failed
 without changing collision; oblique samples exist. The play panel's lower
-hint is clipped in the 1280-by-720 diagnostic capture. Standing samples grant
+hint was clipped in the 1280-by-720 diagnostic capture; the later panel batch
+below resolves that layout finding. Standing samples grant
 no continuous shop entry route, sightline or human acceptance. The scoped
 schema-2 test contract explicitly leaves save/reconstruction unexecuted and
 grants no ledger promotion or whole-building completion.
@@ -52,3 +53,12 @@ The 63 directly inspected final images, exact receipts and separately complete
 resident-key authority are retained in
 **art/renders/orison_v2/passage_receivers_20261006**. See
 **design/V2_PASSAGE_RECEIVERS_2026-10-06.md** for scope and open findings.
+
+Source **99cb6efd** fits the live programme panel at four actual client
+window sizes, retaining its nearest-filtered 480x360 feed and centred 4:3
+aspect. The inherited test now completes **586 checks** in the native Radio
+Service scene with zero retained owned panel/board nodes, resources or playbacks.
+The full **48-gate/tools-test** comparison and **five** bound Godot runs pass.
+Exact review and separately complete current key authority are retained in
+**art/renders/orison_v2/receiving_panel_20261006**; see
+**design/V2_RECEIVING_PANEL_2026-10-06.md** for scope.

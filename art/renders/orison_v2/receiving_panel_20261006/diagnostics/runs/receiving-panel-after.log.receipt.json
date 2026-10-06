@@ -1,0 +1,47 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 58.2,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T20:42:51Z",
+  "started_utc": "2026-10-06T20:41:53Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PASSAGE RECEIVING CONTRACT: PASS checks=586 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/receiving-panel-after.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/receiving-panel-after.log",
+  "stdout_sha256": "543be2629a2dd5635c6ca5910741ecc92ca3e1d47365ebbec5379856c0f32a18"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioReceivingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/receiving-panel-after-shots",
+ "source": {
+  "dirty_paths": 3,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/ui/arcade_panel.gd",
+   " M game/tests/orison_v2_passage_receivers_test.gd"
+  ],
+  "repository_head": "90e84d8caa6de196c7ceff3378b04e6afa609b1e",
+  "repository_tree": "3cf36ff983d86bba5aa224b52ff3b74eea10dbde",
+  "runtime_inputs_sha256": "8dd56e12fa91b68ff089b0011ff75ceb511cb6aa3b583f713e3fbee143f82a2f",
+  "test_path": "game/tests/orison_v2_radio_receiving_test.gd",
+  "test_sha256": "6f02e52b4fe202f00bb69dc5c1bf6fb722591cff0e0faf3506967c1081e75285"
+ },
+ "windowed": true
+}

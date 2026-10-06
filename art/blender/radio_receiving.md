@@ -38,8 +38,9 @@ metrics, all remaining assembled source geometry and all seven accepted Radio
 Service models as conservative context. Runtime ownership, keyboard operation,
 both reconstruction cycles, access and rendered game views remain separate
 checks. This guide and native inspection grant no ledger promotion or human
-acceptance. The other six receiving chassis, shop frontage conflicts and modal
-hint clipping remain open.
+acceptance. The other six receiving chassis and shop frontage conflicts remain
+open. The later shared programme-panel batch resolves the clipped modal hint;
+see **design/V2_RECEIVING_PANEL_2026-10-06.md**.
 
 The stable import UID uses full-precision meshes and disables generated LODs,
 matching the accepted Radio Service fittings. Default import compression changed
