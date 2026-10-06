@@ -148,6 +148,22 @@ func _check_specialist_fittings() -> bool:
 	for draw: MeshInstance3D in photo_receiving_draws:
 		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
 		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed photo_receiving physical faces match visible faces: " + str(draw.name)): return false
+	var news_cell: Node3D = world.passage_region.cell_nodes.shop_news_cigars
+	var news_receiving := news_cell.get_node_or_null("NewsReceiving") as Node3D
+	if not _require(news_receiving != null, "reconstructed native news_receiving chassis exists"): return false
+	var news_receiving_fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_news_receiving.json"))
+	if not _require(FileAccess.get_sha256(str(news_receiving_fixture.runtime.asset)) == news_receiving_fixture.asset_sha256, "reconstructed news_receiving chassis binds its native export"): return false
+	var news_receiving_retired: Dictionary = news_receiving.get_meta("removed_triangles")
+	for source_draw: Dictionary in news_receiving_fixture.runtime.original_draws:
+		var original := news_cell.get_node(str(source_draw.name)) as MeshInstance3D
+		if not _require(not original.visible and int(news_receiving_retired.get(source_draw.name, -1)) == int(source_draw.expected_triangles), "reconstructed assembled source draw stays retired: " + str(source_draw.name)): return false
+	var news_old_hull := news_receiving.get_meta("original_hull") as StaticBody3D
+	if not _require(news_old_hull.collision_layer == 0 and news_old_hull.collision_mask == 0 and news_old_hull.get_child(0).disabled and int(news_receiving_retired.get(news_receiving_fixture.runtime.hull_name, -1)) == 12, "reconstructed exact source hull remains disabled"): return false
+	var news_receiving_draws := news_receiving.find_children("*", "MeshInstance3D", true, false)
+	if not _require(news_receiving_draws.size() == news_receiving_fixture.parts.size(), "reconstructed native news_receiving partitions remain complete"): return false
+	for draw: MeshInstance3D in news_receiving_draws:
+		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
+		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed news_receiving physical faces match visible faces: " + str(draw.name)): return false
 	return true
 
 func _check_ceiling_detail() -> void:

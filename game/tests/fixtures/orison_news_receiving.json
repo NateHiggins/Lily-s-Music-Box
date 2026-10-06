@@ -1,0 +1,3262 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shopcab_news_cigars0",
+      "asm": "arcade_cab",
+      "at": [
+        20.05,
+        -50.099999999999994
+      ],
+      "yaw": 270.0,
+      "exterior": true,
+      "variant": 0,
+      "batch": "shop_news_cigars",
+      "zone": "PASSAGE"
+    }
+  ],
+  "original_primitives": [
+    {
+      "kind": "box",
+      "args": [
+        "metal",
+        -0.33,
+        -0.36,
+        0.02,
+        0.33,
+        0.36,
+        1.83
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.31,
+        -0.49,
+        0.92,
+        0.31,
+        -0.33999999999999997,
+        1.02
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "terracotta",
+        -0.17,
+        -0.425,
+        1.02,
+        1.035,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        -0.05000000000000002,
+        -0.425,
+        1.02,
+        1.035,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        0.06999999999999998,
+        -0.425,
+        1.02,
+        1.035,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        -0.2,
+        -0.44999999999999996,
+        1.02,
+        1.1,
+        0.008,
+        0.008,
+        6
+      ],
+      "triangles": 24
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.30000000000000004,
+        -0.38,
+        1.06,
+        0.30000000000000004,
+        -0.3,
+        1.52
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "screen",
+        -0.27,
+        -0.365,
+        1.1,
+        0.27,
+        -0.355,
+        1.48
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "milk_glass",
+        -0.31,
+        -0.39,
+        1.6700000000000002,
+        0.31,
+        -0.31,
+        1.81
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "brass",
+        -0.09,
+        -0.372,
+        0.38,
+        0.09,
+        -0.36,
+        0.55
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        0.0,
+        -0.38,
+        0.44,
+        0.455,
+        0.012,
+        0.012,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.3,
+        0.335,
+        0.24,
+        0.315
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.35,
+        0.335,
+        0.24,
+        0.365
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.4,
+        0.335,
+        0.24,
+        0.41500000000000004
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.45,
+        0.335,
+        0.24,
+        0.465
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "hull",
+      "args": [
+        -0.39,
+        -0.5,
+        0.0,
+        0.39,
+        0.36,
+        1.83
+      ],
+      "triangles": 12
+    }
+  ],
+  "original_assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566",
+  "assemblies": [
+    {
+      "id": "storm_shopcab_news_cigars0",
+      "kind": "period_receiving_chassis",
+      "cell": "shop_news_cigars",
+      "floor": {
+        "id": "storm_shop_news_cigars_floor",
+        "rect": [
+          17.0,
+          -50.89999999999999,
+          21.0,
+          -48.8
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_news_cigars",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shopcab_news_cigars0_FloorFoot0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FloorFoot1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FloorFoot2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FloorFoot3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_Bottom",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.014233548795110709
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CellTray",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.016627809257131993
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_LeftWall",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.03515681044166126
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_RearWall",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.030271709490154623
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_Crown",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.01660946874079165
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_RightFrameLower",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0008032615849017772
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_RightFrameUpper",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.019246001096992368
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_RightFrameFront",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.002475761599765415
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_RightFrameRear",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0024757616034721004
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ServiceDoor",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00867301355498942
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ServiceHinge0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 1.1187266568806269e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_HingeLeaf0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 1.670970273774595e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ServiceHinge1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 1.1187266568806269e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_HingeLeaf1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 1.670970202340854e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ServiceLatch",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 4.532330059736429e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_InsideSchematic",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "paper",
+      "volume_m3": 0.00030767766284881253
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramRail0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramRail1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321511265791407e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131737186243e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469102156696e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495299764897e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215172585682084e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365444937277e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215206070147237e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214796748576893e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926520907e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679660600785e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321560012561739e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904537e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214560732560214e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433736994e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493702e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482166542332e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321479027296726e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155162984e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439116998989e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321519868102898e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975469858943e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214709331357874e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508031796565e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225379409295e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32144833869189e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321505624564357e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321472483191801e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497556212229e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215198763566245e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439116999108e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155178568e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272965368e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321538469911518e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642985513845e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737395e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214560732559954e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463576790479e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125616995e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216428545404674e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321535593161672e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214786401479993e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215205958448626e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32143653470001e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32151725856732e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997653995e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469522476984e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321515127747395e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve0_47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213596112343933e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead00",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead01",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.887964264834659e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramGrid0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748471548333e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215219932669505e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055270988747e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467287132609e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935890952405e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452888344e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320053152893e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215253150218836e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321481384783495e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214820063592605e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216805937119e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215649860049463e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214572912135992e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32145714068393e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215643777711535e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216802996048175e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214843514980685e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321483704129627e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215215391333837e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594716034e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215106711716057e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495626077546e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467198993188e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215065916686995e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214333604184503e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321459065962418e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055266511206e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214673799555353e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495635303896e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321510679425358e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594717316e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521539134948e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041294642e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32153426375009e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32164199129409e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215644540583003e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457125861407e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457276391069e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215650622920083e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216422276361336e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215319761963216e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847836574e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215253038520167e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321431995521564e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452879576e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935890957277e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214670862556265e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321506592841044e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve1_47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213704335068998e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047932295289896e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.887951877521911e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramGrid1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748069221054e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215112657914073e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321505625012112e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214723903688744e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997648966e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521977256068e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439143131518e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520607014724e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415442323e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321480592652091e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216796606007848e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617396e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321455710900383e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463939146092e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493702e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821665423316e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482116339275e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155162984e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321436518361199e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146212252314e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975469858947e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469635214546e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151265750508e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225379409295e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214483386918895e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32151317327087e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469194979623e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497556212229e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146294789947e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321436518361318e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155178576e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321481081629243e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321538469911516e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216429855138443e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737395e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463939146066e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109004084e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125616995e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216428545404666e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215355931616717e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415444205e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215205958448634e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439133337799e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521977255217e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495299765399e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214708203982263e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508032968909e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramValve2_47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213596112343933e-09
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramLead21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_DiagramGrid2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407484715483325e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveRack",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0068919111620934365
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveSocket0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992604010885
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveEnvelope0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894377702486
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveSocket1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992789119015
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveEnvelope1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894358636274
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveSocket2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992744111016
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ValveEnvelope2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894362008838
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_WetCell0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247143403836611
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_WetCellLid0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0011497449473562074
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CellTerminal0_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989737e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CellTerminal0_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989737e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_WetCell1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247143440998015
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_WetCellLid1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0011497449421298295
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CellTerminal1_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709844e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CellTerminal1_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709845e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ControlDeck",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.009416197550346726
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_Button0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626983968478e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_Button1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383628212949855e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_Button2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626844817743e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ExistingStick",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 1.6581144207169287e-05
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FrontLower",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.0064008380778992156
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FrontUpper",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.001902607975145212
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FrontLeft",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.000397142968707229
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FrontRight",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.000397142968707229
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleCloth",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 0.0008254157167600084
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561990568997
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561990568997
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562065690254
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561990568997
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561336404232
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562065690254
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleBar6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561990568997
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleRailBottom",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851669779734522
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_GrilleRailTop",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851669850905876
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ScopeFascia",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite",
+      "volume_m3": 0.008059283598063101
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CircularScopeBezel",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.002062718900689646
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ScopeCasing",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0006979902407621475
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_ScopeRear",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0021708238120946768
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CardBacking",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.0057385137274966365
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CardFrameLeft",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.00028775170619916126
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CardFrameRight",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.0002877516978145199
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CardFrameBottom",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.0003952716990145163
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CardFrameTop",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.0005932666893337875
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinPlate",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 0.0006105336073931121
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinLatch",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 4.919636261090217e-06
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinScrew00",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632953e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinScrew01",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 2.204259171644012e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinScrew10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632956e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_CoinScrew11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "brass_dull",
+      "volume_m3": 2.204259171644012e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837956913826e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103088722496188e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047859259018002e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965770655943514e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857718839524246e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724829613623503e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592292894238e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696786540166e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.193105820780851e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978010987662221e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761724748719e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505033422923082e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252513720343065e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993137786029176e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729897256484472e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465850660469009e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204115183010493e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782968891169e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699864976973067e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463213585381312e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.2404658695874727e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0339669247161856e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8456228045021396e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.676900754903629e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.528719307706723e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.401441805306388e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2948844668186337e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.208431936943022e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1411171013096867e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.091915740643825e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0597634735086103e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0439066701828466e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0439066700311e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0597724502375324e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0919053359656123e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.14112576423765e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.208423635461904e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.294893605542345e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4014418049110917e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.528719299509123e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6769007537967795e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8456172456067345e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.03396692828083e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.240466681880093e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463210289652693e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.6998619909132706e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782514122772e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204118783325925e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore48",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465851739394415e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore49",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729894236520397e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore50",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993136170802743e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore51",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252511858359637e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore52",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505032085154364e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore53",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761730780007e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore54",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978001872132608e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore55",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.193105825878293e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore56",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696791603479e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore57",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592668202657e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore58",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724831966991777e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore59",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857715281337527e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore60",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965771553110885e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore61",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.04785588042309e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore62",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103092448879081e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexCore63",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837961845126e-07
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.692533463225314e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6694715466430185e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.627926089209168e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.573998286737569e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5114802644590356e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.4389597190631614e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.349594494531999e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.235207250505021e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.0910594466313887e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.920895413122884e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.73761001905522e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.5591182804265783e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.400548489223011e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.266618616978436e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.147880593744901e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.023211432600911e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.869579932833067e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6749114928685206e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.448021503223644e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2190078039817474e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.027531544653538e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.904246366500664e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8551507529490385e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8563220412738906e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.861337706406474e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.822101444419609e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7153800493043653e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5580463077295178e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3990982531400165e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2922820676902854e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2703399020160284e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7502404091105712e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.781250721533816e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3132953318301993e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.281745472855171e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.339739801032733e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.475320222762921e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6466187993508863e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7984973364398987e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8911591751445683e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.921984604296533e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9245069834258956e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.947564336930429e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.02993207112756e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1845209611829357e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.395841730904809e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6295308388762646e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.849118076114295e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_48",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0321332834833794e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_49",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.17727737515762e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_50",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300605353800905e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_51",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.424229269602269e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_52",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.564870002833706e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_53",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.72671889786348e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_54",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.901371446235946e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_55",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.072872876230305e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_56",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.225484226741563e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_57",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.3501238639094895e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_58",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.4463932077074494e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_59",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5206376345877194e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_60",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.580386985706384e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_61",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.630036396955451e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_62",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6689032570881316e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid0_63",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.69182981003855e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_0",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.695485012801139e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_1",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6815770826844576e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_2",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.649698063989648e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_3",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5944217021978143e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_4",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.513276753887804e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_5",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.409394689836766e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_6",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.291428641946517e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_7",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.1701903627950053e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_8",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.052964540946853e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_9",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.9389576585645586e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_10",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.8189425517614676e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_11",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.6784479233210426e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_12",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.505969013572256e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_13",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300919660598432e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_14",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.077115869565364e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_15",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8599746523209545e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_16",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.67635887847098e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_17",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.542083030896874e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_18",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4527065149762e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_19",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.382823052679752e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_20",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.295797068402338e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_21",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.161908619435482e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_22",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9768162882439567e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_23",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7686935391794227e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_24",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.586514978597867e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_25",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4747169937623843e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_26",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.452099637092671e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_27",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.503672394701816e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_28",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5849341727979186e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_29",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.638709990238461e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_30",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6234190563971096e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_31",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.885353974392639e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_32",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8554502727464244e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_33",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5774064609767812e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_34",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6500640372335895e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_35",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6474471865585762e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_36",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5869458289890444e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_37",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5183264281183452e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_38",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.497028212614965e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_39",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5581518357342573e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_40",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7045222492509365e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_41",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9069264890641676e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_42",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.117418446766406e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_43",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.293399612698792e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_44",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4180123077631895e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_45",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.50510523850522e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_46",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.587145463151751e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_47",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.696615761309577e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_48",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 3.851182183728193e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_49",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.047817240612708e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_50",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.2669503263018144e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_51",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.482254915368892e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_52",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.6726782332068105e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_53",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.829872514802127e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_54",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 4.958546807673947e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_55",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.0710950199665294e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_56",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.1799036697631236e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_57",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.290895240570788e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_58",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.4018418510706626e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_59",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.504112431682997e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_60",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.588041877034974e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_61",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.647545248572743e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_62",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6821980049565567e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexBraid1_63",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "fabric_warm",
+      "volume_m3": 5.696060301812368e-08
+    },
+    {
+      "name": "storm_shopcab_news_cigars0_FlexGrommet",
+      "assembly": "storm_shopcab_news_cigars0",
+      "key": "bakelite_black",
+      "volume_m3": 1.078770951827134e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shopcab_news_cigars0",
+      "owner": "storm_shop_news_cigars_floor",
+      "point": [
+        19.75,
+        0.009999999999999995,
+        49.82999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_news_cigars0",
+      "owner": "storm_shop_news_cigars_floor",
+      "point": [
+        20.35,
+        0.009999999999999995,
+        49.82999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_news_cigars0",
+      "owner": "storm_shop_news_cigars_floor",
+      "point": [
+        19.75,
+        0.009999999999999995,
+        50.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_news_cigars0",
+      "owner": "storm_shop_news_cigars_floor",
+      "point": [
+        20.35,
+        0.009999999999999995,
+        50.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_news_cigars0__bakelite",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "bakelite",
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__bakelite__service_panel",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__bakelite_black",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "bakelite_black",
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__bakelite_black__schematic_traces",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "bakelite_black",
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__brass_dull",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "brass_dull",
+      "triangles": 3204
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__brass_dull__service_latch",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "brass_dull",
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__copper_aged",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "copper_aged",
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__enamel_appliance",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "enamel_appliance",
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__fabric_warm",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "fabric_warm",
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__milk_glass",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "milk_glass",
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_news_cigars0__paper",
+      "assembly": "storm_shopcab_news_cigars0",
+      "cell": "shop_news_cigars",
+      "key": "paper",
+      "triangles": 188
+    }
+  ],
+  "triangles": 38040,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/news_receiving.glb",
+    "tolerance": 2e-05,
+    "source_record": {
+      "id": "storm_shopcab_news_cigars0",
+      "asm": "arcade_cab",
+      "at": [
+        20.05,
+        -50.099999999999994
+      ],
+      "yaw": 270.0,
+      "exterior": true,
+      "variant": 0,
+      "batch": "shop_news_cigars",
+      "zone": "PASSAGE"
+    },
+    "original_draws": [
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite",
+        "key": "bakelite",
+        "expected_triangles": 128,
+        "low": [
+          19.725000381469727,
+          0,
+          49.80500030517578
+        ],
+        "high": [
+          20.375,
+          0.029999999329447746,
+          50.39500045776367
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite_black",
+        "key": "bakelite_black",
+        "expected_triangles": 128,
+        "low": [
+          19.559999465942383,
+          0.30000001192092896,
+          49.790000915527344
+        ],
+        "high": [
+          20.290000915527344,
+          1.5199999809265137,
+          50.435001373291016
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_brass",
+        "key": "brass",
+        "expected_triangles": 12,
+        "low": [
+          19.67799949645996,
+          0.3799999952316284,
+          50.0099983215332
+        ],
+        "high": [
+          19.690000534057617,
+          0.550000011920929,
+          50.189998626708984
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_metal",
+        "key": "metal",
+        "expected_triangles": 12,
+        "low": [
+          19.690000534057617,
+          0.019999999552965164,
+          49.77000045776367
+        ],
+        "high": [
+          20.40999984741211,
+          1.8300000429153442,
+          50.43000030517578
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_enamel",
+        "key": "enamel",
+        "expected_triangles": 64,
+        "low": [
+          19.608999252319336,
+          1.0199999809265137,
+          50.034000396728516
+        ],
+        "high": [
+          19.641000747680664,
+          1.034999966621399,
+          50.18600082397461
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_milk_glass",
+        "key": "milk_glass",
+        "expected_triangles": 12,
+        "low": [
+          19.65999984741211,
+          1.6699999570846558,
+          49.790000915527344
+        ],
+        "high": [
+          19.739999771118164,
+          1.809999942779541,
+          50.40999984741211
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_screen",
+        "key": "screen",
+        "expected_triangles": 12,
+        "low": [
+          19.684999465942383,
+          1.100000023841858,
+          49.83000183105469
+        ],
+        "high": [
+          19.69499969482422,
+          1.4800000190734863,
+          50.369998931884766
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_terracotta",
+        "key": "terracotta",
+        "expected_triangles": 32,
+        "low": [
+          19.608999252319336,
+          1.0199999809265137,
+          49.91400146484375
+        ],
+        "high": [
+          19.641000747680664,
+          1.034999966621399,
+          49.94599914550781
+        ]
+      }
+    ],
+    "hull_name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_hull",
+    "raw_hull_name": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_hull-colonly",
+    "hull_triangles": 12,
+    "hull_low": [
+      19.549999237060547,
+      0,
+      49.709999084472656
+    ],
+    "hull_high": [
+      20.40999984741211,
+      1.8300000429153442,
+      50.4900016784668
+    ],
+    "parts": [
+      {
+        "name": "storm_shopcab_news_cigars0__bakelite",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 5092
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__bakelite__service_panel",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 188
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__bakelite_black",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 3280
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__bakelite_black__schematic_traces",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 5668
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__brass_dull",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 3204
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__brass_dull__service_latch",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 124
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__copper_aged",
+        "key": "copper_aged",
+        "catalog_key": "copper_aged",
+        "tile": 0.4,
+        "triangles": 368
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__enamel_appliance",
+        "key": "enamel_appliance",
+        "catalog_key": "enamel_appliance",
+        "tile": 0.72,
+        "triangles": 936
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__fabric_warm",
+        "key": "fabric_warm",
+        "catalog_key": "fabric_warm",
+        "tile": 0.7,
+        "triangles": 8636
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__milk_glass",
+        "key": "milk_glass",
+        "catalog_key": "milk_glass",
+        "tile": 0.5,
+        "triangles": 10356
+      },
+      {
+        "name": "storm_shopcab_news_cigars0__paper",
+        "key": "paper",
+        "catalog_key": "paper",
+        "tile": 0.5,
+        "triangles": 188
+      }
+    ]
+  },
+  "asset_sha256": "9a36a750e5754e6a40cddf80581a2480281dd3558a881f22b75d77901c582c2c",
+  "fitted_datums": {
+    "floor_top": 0.009999999999999995,
+    "maximum": 1.83,
+    "scope_centre_local": [
+      0,
+      1.29,
+      -0.386
+    ],
+    "scope_diameter": 0.38,
+    "bezel_inner_radius": 0.1908,
+    "service_panel_closed": true
+  },
+  "source_bindings": {
+    "art/data/news_receiving/source_plan.json": "b4eef11a946789a85e83290fa851020bfdcb72fc72a35d0ca74304377472c12c",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_news_receiving.py": "216f4739926f86fd96a518d4dc3e1d655ab83103b3c9ca29a7008b2e606e6609",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/news_receiving.glb.import": "430f8969d1978e5db7bf8dc762297ea4da5025b29903fcee4ffd4b9f44640377",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/floor_01_cells/shop_news_cigars.gltf": "2504ef7ff2283a7f32a8cae426dfdf1a70760e5d7719a32cf63daad9e50a8871",
+    "game/assets/building/floor_01_cells/shop_news_cigars.bin": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926",
+    "art/blender/scripts/inspect_news_receiving.py": "c35c1e6e9d0a7be1a9d333b672e2f0f1f3304702dd6cfc2121350b9ff1b74f9f",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/news_fittings.glb": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+    "game/data/orison_v2/news_fittings.json": "9efc9cf8ff901b6cdb2773c4d5ad4a0c8c4f471b96d5ff08381bb8f2ffd42e57",
+    "art/blender/news_fittings.blend": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95"
+  },
+  "open_work": [
+    "Bible VIII.5.g governs this period ADAPTATION of the exact variant-0 original chassis: Bakelite case, circular brass bezel, cloth-backed grille, original controls, passive valve rack behind closed hinged service stock, letter-free inside-lid diagram, wet cells and braided flex. OUTER RIM keeps its original programme/card and genre-control owner.",
+    "Source pose/yaw/variant, 1.83m maximum, 1.29m scope centre, 0.38m live quad and all original control datums remain. Four feet seat on the unchanged 0.01m source floor top. The stool and all other furnishings keep their existing owners; standing access and continuous access remain separate duties.",
+    "Retire only eight validated original decorative owners (400 triangles) and the exact separately named 12-triangle hull. Every unrelated shipping array and collision shape/state/pose must remain exact. No original layout, assembler or shipping glTF edit.",
+    "All finish keys/maps already belong to the catalogue. Lettering stays Label3D. Passive stock and posed native inspection grant no new power, electrical, maintenance, service or human authority.",
+    "Closed positive connected stocks, assembly joins, strict physical UVs/tangents, four actual floor contacts, all remaining source plus accepted native seating and News fittings, installed ownership/material/collision/input, reconstruction and rendered composition remain required. Three other receiving chassis, stool/frontal access, services and broader V2 acceptance remain open."
+  ]
+}

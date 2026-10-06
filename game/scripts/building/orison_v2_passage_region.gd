@@ -37,6 +37,7 @@ const RadioDisplay := preload("res://scripts/building/orison_v2_radio_display.gd
 const RadioReceiving := preload("res://scripts/building/orison_v2_radio_receiving.gd")
 const LaundryReceiving := preload("res://scripts/building/orison_v2_laundry_receiving.gd")
 const PhotoReceiving := preload("res://scripts/building/orison_v2_photo_receiving.gd")
+const NewsReceiving := preload("res://scripts/building/orison_v2_news_receiving.gd")
 const Receivers := preload("res://scripts/building/orison_v2_passage_receivers.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
@@ -210,6 +211,9 @@ func _ready() -> void:
 			return
 		if not PhotoReceiving.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native Photo Supplies receiving chassis refused: "+identity)
+			return
+		if not NewsReceiving.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native News Cigars receiving chassis refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()
