@@ -107,11 +107,19 @@ func _check_battery_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 	for row: Dictionary in fixture.fitted_records:fitted[str(row.id)]=row
 	var source_rows: Array=world.passage_region.source_layout.floors.filter(func(row):return row.id=="F01")[0].furniture
 	var counter: Dictionary=source_rows.filter(func(row):return row.id=="storm_shop_radio_service_counter_top")[0]
+	var bench: Dictionary=source_rows.filter(func(row):return row.id=="storm_shop_radio_service_bench_top")[0]
 	var rack: String=fixture.assemblies[0].id;var dx: float=float(counter.rect[2])+.15-float(originals[rack].rect[0])
+	var dy: float=float(bench.rect[1])-.72-float(originals[rack].rect[3])
 	for identity: String in fitted:
 		var original: Dictionary=originals[identity];var actual: Dictionary=fitted[identity];var expected: Dictionary=original.duplicate(true)
-		expected.rect[0]+=dx;expected.rect[2]+=dx
-		check(actual==expected,"fitted stock derives its X placement from the authored counter while retaining every other source field: "+identity)
+		expected.rect[0]+=dx;expected.rect[2]+=dx;expected.rect[1]+=dy;expected.rect[3]+=dy
+		# Independent Godot parsing measured two 7.1e-15m coordinate
+		# differences. Keep all non-placement fields exact and compare
+		# derived doubles within 1e-12m; physical surfaces remain at 30um.
+		var unchanged:=actual.duplicate(true);unchanged.erase("rect")
+		var fields:=original.duplicate(true);fields.erase("rect");var coordinates_match:=true
+		for component in 4:coordinates_match=coordinates_match and absf(float(actual.rect[component])-float(expected.rect[component]))<1e-12
+		check(unchanged==fields and coordinates_match,"fitted placement derives from the authored counter and bench while retaining every non-placement field: "+identity)
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
 		check(draw.transform.basis.is_equal_approx(Basis.IDENTITY) and draw.material_override==null and mat!=null and not mat.emission_enabled,"unit-scale partitions and passive materials retain their owners")
@@ -151,6 +159,7 @@ func _check_battery_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 	var timber: MeshInstance3D=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("radio_battery_part",""))==rack+"__timber")[0]
 	var bounds: AABB=timber.transform*timber.mesh.get_aabb()
 	check(absf(bounds.position.x-(float(counter.rect[2])+.15))<.00003 and bounds.end.x<19.,"fitted rack clears the retained cabinet and follows the authored counter datum")
+	check(absf(bounds.position.z-(-float(bench.rect[1])+.72))<.00003,"rack front preserves the declared 720mm source-derived bench passage")
 
 func _vertical_battery_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, at: Vector3, downward: bool) -> Dictionary:
 	var direction:=Vector3.DOWN if downward else Vector3.UP
@@ -170,4 +179,4 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 		observations.append(view.duplicate(true))
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Same retained standing floor/capsule samples before and after charging display fitting. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity."},"\t"))
 
-const RADIO_BATTERY_VIEWS: Array=[{"id":"radio_battery_room","image":"radio_battery_room.png","feet":[19.45,0.03,57.8],"target":[18.77,1.02,57.2]},{"id":"five_charging_jars","image":"five_charging_jars.png","feet":[19.4,0.03,57.2],"target":[18.77,1.12,57.2]},{"id":"jar_and_cap_seat","image":"jar_and_cap_seat.png","feet":[19.4,0.03,57.5],"target":[18.77,1.24,57.59]},{"id":"passive_series_links","image":"passive_series_links.png","feet":[19.4,0.03,57.5],"target":[18.77,1.325,57.3]},{"id":"rack_floor_feet","image":"rack_floor_feet.png","feet":[19.4,0.03,57.8],"target":[18.77,0.1,57.2]},{"id":"retained_repair_cabinet","image":"retained_repair_cabinet.png","feet":[19.45,0.03,57.5],"target":[21.45,0.95,57.2]}]
+const RADIO_BATTERY_VIEWS: Array=[{"id":"radio_battery_room","image":"radio_battery_room.png","feet":[19.45,0.03,57.8],"target":[18.77,1.02,57.800000000000004]},{"id":"five_charging_jars","image":"five_charging_jars.png","feet":[19.4,0.03,57.2],"target":[18.77,1.12,57.800000000000004]},{"id":"jar_and_cap_seat","image":"jar_and_cap_seat.png","feet":[19.4,0.03,57.5],"target":[18.77,1.24,58.190000000000005]},{"id":"passive_series_links","image":"passive_series_links.png","feet":[19.4,0.03,57.5],"target":[18.77,1.325,57.9]},{"id":"rack_floor_feet","image":"rack_floor_feet.png","feet":[19.4,0.03,57.8],"target":[18.77,0.1,57.800000000000004]},{"id":"retained_repair_cabinet","image":"retained_repair_cabinet.png","feet":[19.45,0.03,57.5],"target":[21.45,0.95,57.2]}]

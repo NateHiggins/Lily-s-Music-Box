@@ -11,8 +11,11 @@ Native inspection found **1,595 actual triangle pairs** intersecting the
 retained repair cabinet, including its chrome body and collision hull. This
 explicit **ADAPTATION** fits the charging display beside the source-authored
 counter: rack left edge equals **counter_top right edge + 0.15 metres**.
-This derives source X **18.55–18.99 metres**, a **−2.73 metre** translation.
-Original source Y stations, relative jar spacing, heights and maxima remain.
+This derives source X **18.55–18.99 metres**, a **−2.73 metre** X translation.
+The front edge derives from **bench_top rear edge + 0.72 metres** in game Z,
+a **−0.60 metre** source-Y translation. The first lateral-only fit left a
+120mm bench gap; the final 720mm passage admits the 660mm player capsule
+with 60mm breathing space. Relative jar spacing, heights and maxima remain.
 The cabinet and layout authority are unchanged. No context intersection is
 waived. Before/after frames and the failed native inspection are retained.
 
@@ -46,7 +49,9 @@ Normal passage loading and residency reconstruction use the scoped adapter.
 materials, imported charts/tangents and visible/physical faces, source-derived
 placement, all floor/jar/cap/link bearings and passive materials. Six matched
 standing captures check floor and capsule clearance; they prove no continuous
-route or sightline. Bench/apparatus/rack diagnostics move their affected standing
+route or sightline. **OrisonV2RadioAccessTest** separately walks the actual player
+through the front bench passage to the work bay and back, extending the retained
+east threshold, ordinary key, night-grille and geometry-retirement tour. Bench/apparatus/rack diagnostics move their affected standing
 stations outside the newly fitted display. Their historical packets and assets
 retain their own exact source and visual evidence.
 

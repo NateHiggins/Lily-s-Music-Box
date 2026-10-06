@@ -72,10 +72,11 @@ for contact in f['contacts']:
 battery_bearings=[];series_bearings=[];up=Vector((0,0,1));rack=f['assemblies'][0]['id']
 layout=json.loads((r/'art/data/building_layout.json').read_text(encoding='utf-8'));original_rows={row['id']:row for floor in layout['floors'] if floor['id']=='F01' for row in floor['furniture']}
 dx=original_rows['storm_shop_radio_service_counter_top']['rect'][2]+.15-original_rows[rack]['rect'][0]
+dy=original_rows['storm_shop_radio_service_bench_top']['rect'][1]-.72-original_rows[rack]['rect'][3]
 assert len(f['fitted_records'])==len(f['original_records'])==11
 for original,fitted in zip(f['original_records'],f['fitted_records']):
  assert original==original_rows[original['id']] and fitted['id']==original['id']
- expected=dict(original);expected['rect']=[original['rect'][0]+dx,original['rect'][1],original['rect'][2]+dx,original['rect'][3]];assert fitted==expected,original['id']
+ expected=dict(original);expected['rect']=[original['rect'][0]+dx,original['rect'][1]+dy,original['rect'][2]+dx,original['rect'][3]+dy];assert fitted==expected,original['id']
 jar_rows=[next(x for x in f['fitted_records'] if x['id']=='storm_shop_radio_service_wet_cell'+str(i)) for i in range(5)]
 for index,row in enumerate(jar_rows):
  q=row['rect'];cx=(q[0]+q[2])*.5;cy=(q[1]+q[3])*.5;base=row['z0'];crown=base+row['h'];cap='storm_shop_radio_service_cell_cap'+str(index)
@@ -155,7 +156,7 @@ assert not intersections,intersections[:20]
 for obj in context:obj.hide_render=True
 views=[]
 def render(label,eye,target,lens=50):
- eye=(eye[0]+dx,eye[1],eye[2]);target=(target[0]+dx,target[1],target[2])
+ eye=(eye[0]+dx,eye[1]+dy,eye[2]);target=(target[0]+dx,target[1]+dy,target[2])
  bpy.ops.object.camera_add(location=eye);camera=bpy.context.object;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.lens=lens;scene.camera=camera
  if label in ['charging_front','charging_rear','charging_end','floor_feet']:
   subject=draws if label!='floor_feet' else [o for o in bpy.data.collections['ClosedConstruction'].objects if '_FloorFoot' in o.name]

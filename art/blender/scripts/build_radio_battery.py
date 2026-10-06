@@ -39,12 +39,12 @@ for group in plan['groups']:
  members=[rows[identity] for identity in group['sources']];selected.extend(members);assemblies.append({'id':members[0]['id'],'kind':group['kind'],'members':members,'body':members[0],'cell':'shop_radio_service','floor':floor})
 assert len(selected)==plan['original_records'] and len({row['id'] for row in selected})==len(selected)
 # Author every fitted world position from the immutable generator datums.
-# The original charging stock and actual cabinet overlap; preserve retirement
-# bounds while fitting the single assembly beside the authored counter.
-counter=rows['storm_shop_radio_service_counter_top'];rack=assemblies[0]['body']
-fitted_dx=counter['rect'][2]+.15-rack['rect'][0];fitted_records=copy.deepcopy(selected)
+# Preserve retirement bounds, cabinet and a 0.72m bench passage for the
+# 0.66m player capsule plus 0.06m geometric breathing space.
+counter=rows['storm_shop_radio_service_counter_top'];bench=rows['storm_shop_radio_service_bench_top'];rack=assemblies[0]['body']
+fitted_dx=counter['rect'][2]+.15-rack['rect'][0];fitted_dy=bench['rect'][1]-.72-rack['rect'][3];fitted_records=copy.deepcopy(selected)
 for row in fitted_records:
- row['rect'][0]+=fitted_dx;row['rect'][2]+=fitted_dx
+ row['rect'][0]+=fitted_dx;row['rect'][2]+=fitted_dx;row['rect'][1]+=fitted_dy;row['rect'][3]+=fitted_dy
 for item in assemblies:
  item['fitted_members']=[next(row for row in fitted_records if row['id']==member['id']) for member in item['members']];item['body']=item['fitted_members'][0]
 

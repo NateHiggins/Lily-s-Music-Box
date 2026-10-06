@@ -218554,6 +218554,186 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "74ab82dc405d7fde",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "var source_rows: Array=world.passage_region.source_layout.floors.filter(func(row):return row.id==\"F01\")[0].furniture"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "82cf36ae29ec30ff",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_RADIO_SERVICE",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "if identity!=\"SITE_SHOP_DOOR_RADIO_SERVICE\":return true"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "68bf7672049b5c23",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_battery_rack",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "var rack: Dictionary=fixture.fitted_records.filter(func(row):return row.id==\"storm_shop_radio_service_battery_rack\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f2c8baa03b3a903c",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_bench_top",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "var bench: Dictionary=source_rows.filter(func(row):return row.id==\"storm_shop_radio_service_bench_top\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ba9c0dcc37801501",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_bench_top",
+   "file": "game/tests/orison_v2_radio_battery_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_battery_details"
+   ],
+   "lines": [
+    110
+   ],
+   "count": 1,
+   "context": [
+    "var bench: Dictionary=source_rows.filter(func(row):return row.id==\"storm_shop_radio_service_bench_top\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5c051f6db94b5a42",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_counter_top",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "var counter: Dictionary=source_rows.filter(func(row):return row.id==\"storm_shop_radio_service_counter_top\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }
