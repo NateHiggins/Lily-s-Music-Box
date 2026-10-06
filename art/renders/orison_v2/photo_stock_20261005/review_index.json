@@ -1,0 +1,633 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "4980538203725368144f3d05ff0a8aa62a419552",
+  "base": "53959aec6fa0572738c18abaed0618b363738358",
+  "verification": "MERGE-CANDIDATE 4980538203725368144f3d05ff0a8aa62a419552",
+  "source_records": 20,
+  "assemblies": 16,
+  "closed_stocks": 101,
+  "material_partitions": 16,
+  "triangles": 18988,
+  "source_supports": 19,
+  "removed_original_triangles": 240,
+  "native_views": 32,
+  "production_views": 4,
+  "direct_review": "All 32 final native and four final clean production observations inspected at full size. Joined rear decks, original fifteen carton envelopes and empty upper two shelves are visible. Local registered paper/tint replacement removes the book-cover atlas mismatch. This is bounded fitting evidence, not whole-shop acceptance.",
+  "runtime_contract": "Exact current test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; executed scope only.",
+  "limits": [
+    "No human acceptance or whole-V2 completion.",
+    "Passive shelving/carton construction only; stock/depletion state, purchasing and photography operation keep original owners.",
+    "Existing storefront/counter glass finish, remaining fittings and continuous routes retain separate evidence duties.",
+    "Wrapper receipts, captures and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/verification.json",
+      "source_sha256": "065e48d8a6ec0f8a2940975dddae2955ddf715747dc8c91e526b40e23e7492d5",
+      "sha256": "065e48d8a6ec0f8a2940975dddae2955ddf715747dc8c91e526b40e23e7492d5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/53959aec-clean-board.json",
+      "source_sha256": "51bf313c92737eb70ef869245898fb89b9074f2ef8aaa8c073abdd70adb1c29b",
+      "sha256": "51bf313c92737eb70ef869245898fb89b9074f2ef8aaa8c073abdd70adb1c29b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/photo-stock-native/inspection.json",
+      "source_sha256": "7305f86f339f7dc6ae087e2faf07c928d6b44946530890c4a30b956b991fcb26",
+      "sha256": "7305f86f339f7dc6ae087e2faf07c928d6b44946530890c4a30b956b991fcb26",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/photo_stock_construction.json",
+      "source_sha256": "cfd5857c1dba0f807f0f0c2c32d551def3c9a15c32d66c4a532ac2f48b8a6077",
+      "sha256": "cfd5857c1dba0f807f0f0c2c32d551def3c9a15c32d66c4a532ac2f48b8a6077",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "fe802a2b45f33e799dd488ac6e28eaae1e3282f95631e3b4dc38dbd275023f3d",
+      "sha256": "fe802a2b45f33e799dd488ac6e28eaae1e3282f95631e3b4dc38dbd275023f3d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/views.json",
+      "source_sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b",
+      "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "0fe76abab1724f14c3340014502e2b04145e30073bd13993a7166e8aceadf65a",
+      "sha256": "0fe76abab1724f14c3340014502e2b04145e30073bd13993a7166e8aceadf65a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "5413334b8e123140e2598dba9891f074b2fd822ac00a866a3fce81faf9211298",
+      "sha256": "5413334b8e123140e2598dba9891f074b2fd822ac00a866a3fce81faf9211298",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box0_front.png",
+      "source_sha256": "32f06a64ef4cbd9cd84b65effe610e5393331d0b6ddf721852e05799ed97163b",
+      "sha256": "a64316aff96c1e759c4678a7db90a31adfbc5d94c9a3f09e1a6c15bde9fe1c61",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box0_rear.png",
+      "source_sha256": "dbd12e3acdc059b0b9638ac2fc3a611efa54ee26c7785d9a4d0305013c2efd8a",
+      "sha256": "87f6f0f4c0bddee51faa10db3f872eff8269d8622494f2eb9dbcf9a158235ea6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box10_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box10_front.png",
+      "source_sha256": "13edea8da2837f252455123c31c9e91af48759bded644f337c065bef968abe2c",
+      "sha256": "adf22ef42d760d8b86fc40f8f4f9812fa2e22a37e99187cff9de9a1ae2da3000",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box10_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box10_rear.png",
+      "source_sha256": "ea2e7cc652c22b07689ecd3ac7dc22962b4c7fd370785ac53959e0a952378ed4",
+      "sha256": "ca2dd7fc735ebcae39a0c1ad780c51c2f1466d70a903afe7fb4bcb3f8a1fc5bd",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box11_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box11_front.png",
+      "source_sha256": "169852c8cffdc8a86a8aa2d66b299378910e6dd138ef177d42afdbab41d61786",
+      "sha256": "0f45c513e06f93ea5a6dc6f7f549310cdb0e6ae4ecc76c30d5e5be458670cc13",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box11_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box11_rear.png",
+      "source_sha256": "6838ffb60722e4616b9e248109f216f235012aa8cc639cfcad04f6198d937af3",
+      "sha256": "842d111f16780d7d8b2cc5df310a29da3085678da79bc17a59882772944e4624",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box12_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box12_front.png",
+      "source_sha256": "dc4221cc0c4e1f9149c0dafa6be745d4ab7f6fdc16c768e7dfec488f25f49ca0",
+      "sha256": "f972182b7b078d66d0df6b275793750bb5a20b7dae35f8c1a505f600a0ca38a3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box12_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box12_rear.png",
+      "source_sha256": "a05ebb7d62a864a874c17a7cbf6ec40ac88dea4823c97dcfd1616c2835834769",
+      "sha256": "28a82c8766755e9ab7cc62b5a0f26954b4c418befb0d58c4939f751f62b2e9c0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box13_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box13_front.png",
+      "source_sha256": "f398f03be0115af8b37b0898a1fad387a7e03ee741a6b93c08256f00a49873a0",
+      "sha256": "caa9d55adc86194faf9908d4844bfeeeba55087499915b07fa01c0f4cb0c011a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box13_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box13_rear.png",
+      "source_sha256": "97824c239b38f812b2907aff4c9e13ae1f72e1009746b24164a56152f57f2517",
+      "sha256": "9c35c1ae4a34041cc6df146e66e541ffdc8539fab990f694c9ce844e17bb2055",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box14_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box14_front.png",
+      "source_sha256": "f9dcdc42045ea4fdb4882151cf521a92716a078a928d5a70e3100499abc9950c",
+      "sha256": "1955a90a05aa0fb620d1e67c15ea0e3b0172fd00fe45cf31b9dfbde73ea35c44",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box14_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box14_rear.png",
+      "source_sha256": "d8aa7b572869c93a71c0809ef2390b997da2b144ab42202825ea6a988c90d702",
+      "sha256": "edb615dc9b1c3df1cdab335b5221e4f6887a8709eb07fe7cd6294bda98b96e59",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box1_front.png",
+      "source_sha256": "fa8092cb1802a8c87f5b6f3805c957dd046e8d4c5b633e0ecebe139da5ef885f",
+      "sha256": "ade2bbc6f41801ae209eac1eb4360dfb43fdcc538b45ae470e8201b7b8f3f3e1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box1_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box1_rear.png",
+      "source_sha256": "efddd71297c151543b5e2cba8a3f2415d3ced802c12fba348527ef06fdb43742",
+      "sha256": "c4e4845d55a3b90519e44335045abb2073ac0c8f27db62ca0c1088dc46ba48ec",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box2_front.png",
+      "source_sha256": "b123297168bccbfeb2372d346bff006f820fead195f3ce8718f1453dcf600853",
+      "sha256": "b491ce21219a19197fddc175ea5c914bc28e6daf209d9984dc0ec62824d1b55a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box2_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box2_rear.png",
+      "source_sha256": "dd9793fd2ae1a727615fd862121d22c435f83485f6a624b11ec6adcef249c738",
+      "sha256": "d70bb66ba4f06118f32e204bf7cd815719e8f5142660843853aaf7844bfb1c5e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box3_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box3_front.png",
+      "source_sha256": "cedbc960412f92093ba9177f36201bd0e439794ee47f2aed0c6013605b4cca4a",
+      "sha256": "637bf046c44bf319047611ac720b4da27755ad6a5fc4ce524f05505eb6cb189f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box3_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box3_rear.png",
+      "source_sha256": "843f963981e78a62337457e3d18b80f69283a1f4ab687c51560345e7b6382ca7",
+      "sha256": "d21e65189360310ba7aed33940ae745a7930ade78348b76d87fa17e6379e978a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box4_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box4_front.png",
+      "source_sha256": "7055da453497587aaf9376b395afe1f6d55ce1414bc6756a20527f5688f8967a",
+      "sha256": "8d33bef12f573edf8dce0b3814a1f1fe64a299a30778fedbd1d22640b3e05a54",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box4_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box4_rear.png",
+      "source_sha256": "edd7d1be8d0cf284467e952522e096cf3e4d2555f3d2aa707689f48c182f1195",
+      "sha256": "cf06c9708a69f55ec18d1ea91f2dd40cc2c808583ee894268f6723fad7d24cd7",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box5_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box5_front.png",
+      "source_sha256": "6cd873fa75f301b198299370934b0998b8d8506727d29499087ccef57ee88936",
+      "sha256": "8ef7b645142d5b329f5d2e1f3c09fa3dd259d940c244a110bf66a8358e93c93e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box5_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box5_rear.png",
+      "source_sha256": "90b567e28cbff5e6e4844955f58dcd624c796c016d47c8971078dbf5996fe470",
+      "sha256": "d12b03d053d1632695b9d659c3b3bb0fc837642f3b33d73771adc7fa25f16e1c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box6_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box6_front.png",
+      "source_sha256": "a36ab45c9425d91172f1777c5de50e1567403f71e7325237c8d9fdc97d91f1c0",
+      "sha256": "e1c428a3b999b335170ee54775eb984e7faac07b20e659db7ba1740da0603f6a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box6_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box6_rear.png",
+      "source_sha256": "eb92a65229726218f1a90f5ac69543b0b74e9cb0c85858968cb71429402cabb5",
+      "sha256": "4a82c2a696587ced545248162c90c92b8365ebc7b198937887be245f0c0901d0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box7_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box7_front.png",
+      "source_sha256": "f45e7fd8a805bbe9bf9fba0099d3a0c1037ad3af49574e87a467e70d3f49a4ab",
+      "sha256": "a70e6c294f68a8ace949ea8324713dd7b60976e7cc6075598cd0bcbd9e98bd41",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box7_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box7_rear.png",
+      "source_sha256": "3b468ff4076034b4ebdbc238264427377c92a8c0cebb2cc442e1863be3db043a",
+      "sha256": "25ee1fd20a18fb67f0ff1ee633008ca900ead9c40fa21f4f163b1434c07428f1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box8_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box8_front.png",
+      "source_sha256": "665527bca381e63c8e437ec08c0c82de68ee7808c89a68f36ffde37dfc39d9e6",
+      "sha256": "3ce4935623ea48a1a132c214578f191a6a99d720953c2c94d10a109b5c593365",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box8_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box8_rear.png",
+      "source_sha256": "1632f72389849fa4203449be6ee21a141fc8333c0edf9224ff9192429409ecfb",
+      "sha256": "eb27d46561dcccbb91d18c94388eeb8f3e4867b11c304f17100be537a09e2ef5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box9_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box9_front.png",
+      "source_sha256": "1559ada8e8838b0d4e49d696e136f369e439f4ee7fb729d1fb269c9b7be1cad9",
+      "sha256": "daa4bd1a72e2b362322644c523f51a6a17e07a30227e24c98dd348fb65288518",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_box9_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_box9_rear.png",
+      "source_sha256": "46c3ba9312a1a8614faf09515b9a984941d1d6e7e28c9d8ad2913eb88e0d2e4c",
+      "sha256": "f386d4a560abda8f211a194c58ffe1d9dabf97693b522dc4d4a21009b4b0020a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_cab_sh0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_cab_sh0_front.png",
+      "source_sha256": "8c7daaacbab4663e5719509b8c5afca3e9da454acd443f80df40f499095af3cb",
+      "sha256": "a910befa44fa55429c33a5cdbbd24a9d565b2cdf688605e8e23c218fa07cac75",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_cab_sh0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-native/storm_shop_photo_supplies_cab_sh0_rear.png",
+      "source_sha256": "0d3187bf1ade5aa73c95ed7e6aabfc3d7d1dfde51f94da84e375f13ac2509d36",
+      "sha256": "91c9f959f8dbbe1d30b0a07ab76ac094c9f3babbf7d2a39fbcb0d09e89559891",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/left_column.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/left_column.png",
+      "source_sha256": "a7a7b024262162f5c3e7c7f489abb8600239a2c0b3512799c82df53db8ce0e9b",
+      "sha256": "aa987c7eb8c7e9c8ad4dc42ce26129a4014b2f25de912a04e32468d56b1f1323",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/lower_cartons.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/lower_cartons.png",
+      "source_sha256": "1da67761523d8804c36bfca9d2336f487c0c816823e8699cb730de1c30c0ed98",
+      "sha256": "ecf51e34cdb08367091eec4cf6e72b1d8725b5d576704b0baef4746ffe3e5c7c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/rear_shelf_wall.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/rear_shelf_wall.png",
+      "source_sha256": "32e5c44c301950195e493e7da65db3a95ad475ee7905e4dbc95fd8059da7f7dd",
+      "sha256": "fc1dc61fa01770a23d5d4eeb8c951a304b98095275819ea6ce478c7b4c7d76b0",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/upper_empty_shelves.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed_shots/upper_empty_shelves.png",
+      "source_sha256": "b602c32e06d94a3ff2fc28ea60cf60f7c6adecf2654f675caff6c6862f027829",
+      "sha256": "493940980eff7f012b4bab008e9524b6e585978881b3777066212f4c81889ec8",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/box0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-original-atlas-native/storm_shop_photo_supplies_box0_front.png",
+      "source_sha256": "a2bd72c2e4b01842f652d9f0a0843795f1ffe41d3ff7e3a4510ba5e77dcd7951",
+      "sha256": "fabbfb861be0689446015fa1dc348455f165bb6b228379c557ba22efbc27247c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/box1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-original-atlas-native/storm_shop_photo_supplies_box1_front.png",
+      "source_sha256": "0c028933362917e7d97ee230b0b81fe5caa11b15da83bf3baec6fd817cb640bc",
+      "sha256": "a8640594a652cbaaa10352911df46d55f6a78774a215e8fb277ddb00834e6f8f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/box2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-original-atlas-native/storm_shop_photo_supplies_box2_front.png",
+      "source_sha256": "1b07e7bd7bfd0476f84f1b31901b8ae34bacf5fb50b0905edc0d07b3f7516a29",
+      "sha256": "a9ac35cda5f5f9a565644d5a3667e2bef049cb465360d721e595f6cdb13ac5f4",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/cab_sh0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-original-atlas-native/storm_shop_photo_supplies_cab_sh0_front.png",
+      "source_sha256": "f0a83224c16bc5451a1101c3f4b5945a55981d0028eddfa4a6fe5748c8c0827f",
+      "sha256": "47a71257eefe17bb1ebb75e83b45bda1fed9569c78873608cbf87d806e8d99d9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/cab_sh0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-stock-original-atlas-native/storm_shop_photo_supplies_cab_sh0_rear.png",
+      "source_sha256": "81a4d597fd8f634a02ec26a5e6dfd1595c2d47fb9f6a7905612ce394ed800459",
+      "sha256": "151aae2606ef1a9a573ab7ef2956d5d447e7665077035941f8f8cf2c07ab5cd5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "541261f7b718081153aa98f8246c7e814f97ad9d9f929fb0cac8d1cd69e82972",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "ef3b4ff5b2cab5e5487099474a260499beb798bfb83b1e090293be23c8f4dbd8",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "e2a293b98dae1cecd45f95bbe2f828d617daf15f0610e2ee53481001822a90f7",
+      "sha256": "e2a293b98dae1cecd45f95bbe2f828d617daf15f0610e2ee53481001822a90f7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "42577a9308255ac9e9897b37749bdb95f96596e0195a3c174a0dfcfa4a14d151",
+      "sha256": "42577a9308255ac9e9897b37749bdb95f96596e0195a3c174a0dfcfa4a14d151",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoStockTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed.log",
+      "source_sha256": "281974088b269ed738673c57aa8424eed32a15afa9574e3f2314a3601b24460d",
+      "sha256": "281974088b269ed738673c57aa8424eed32a15afa9574e3f2314a3601b24460d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoStockTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9684d776948c0f6a6a79d939e1cd08a42473b644eff9ef387756841b4f0c6fbf",
+      "sha256": "9684d776948c0f6a6a79d939e1cd08a42473b644eff9ef387756841b4f0c6fbf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCounterTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoCounterTest_tscn_windowed.log",
+      "source_sha256": "b41f4cce2213a3d9f0816fe4240972d25e20b07500ad26d941175cd9a456575a",
+      "sha256": "b41f4cce2213a3d9f0816fe4240972d25e20b07500ad26d941175cd9a456575a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCounterTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoCounterTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "882ecd9421dde2f4c82a981c1838bfec66020e2e36b6eaefaeace04c4950c583",
+      "sha256": "882ecd9421dde2f4c82a981c1838bfec66020e2e36b6eaefaeace04c4950c583",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source_sha256": "0eadbd4a4bdb81a7e3898be29e54e550b2a9b051eb4c67b3b8dcb335b6fdb22c",
+      "sha256": "0eadbd4a4bdb81a7e3898be29e54e550b2a9b051eb4c67b3b8dcb335b6fdb22c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bcc4422f563baa6aa2dfe0b9af5862e0b2e62e503b9801fe9854c748e071e39f",
+      "sha256": "bcc4422f563baa6aa2dfe0b9af5862e0b2e62e503b9801fe9854c748e071e39f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "ae8c12e2fbb3c690bde3d8de3da786635fcb399a3034161e80bb3fc7f22f0bc1",
+      "sha256": "ae8c12e2fbb3c690bde3d8de3da786635fcb399a3034161e80bb3fc7f22f0bc1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "93913d0ec3d916cb2729b71cd65db6dc2ca289d964d4b99a3620322b73e7d57e",
+      "sha256": "93913d0ec3d916cb2729b71cd65db6dc2ca289d964d4b99a3620322b73e7d57e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "60b36def824743de4c187ad99455680060ea2411d21966f23bde978dcbc281a8",
+      "sha256": "60b36def824743de4c187ad99455680060ea2411d21966f23bde978dcbc281a8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ec7c8aacbb85d767da7cebfa60a39541f15960d1485197da787deda767ed334f",
+      "sha256": "ec7c8aacbb85d767da7cebfa60a39541f15960d1485197da787deda767ed334f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "bd5eedb490fd12c99b123ba8bc005d6a48909b9cb234f11a8e5ffa2a5b74aad3",
+      "sha256": "bd5eedb490fd12c99b123ba8bc005d6a48909b9cb234f11a8e5ffa2a5b74aad3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "94b614ae3e72da97376005c753da89fefdfa0e488d1085a57d5269222af71782",
+      "sha256": "94b614ae3e72da97376005c753da89fefdfa0e488d1085a57d5269222af71782",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "f7ea2f3b7083a1cc74f32ffb3c8e8e6e3d9ca333ab3efb98752aefaae1913bf4",
+      "sha256": "f7ea2f3b7083a1cc74f32ffb3c8e8e6e3d9ca333ab3efb98752aefaae1913bf4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bc548583071240beec34c5149362cdd3b4c03d89c1dd0a9de84602c5a68b3a30",
+      "sha256": "bc548583071240beec34c5149362cdd3b4c03d89c1dd0a9de84602c5a68b3a30",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "7e759b141af8d072392aab37ab75633ad8d6eb59b2f0ee9ddd84f7ef03d54306",
+      "sha256": "7e759b141af8d072392aab37ab75633ad8d6eb59b2f0ee9ddd84f7ef03d54306",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-stage-build.log",
+      "source": "tmp/v2-finish-review/photo-stock-stage-build.log",
+      "source_sha256": "2aa5a73f47261e3233beb01de32049e270b9dfe7a2239109b81f4dce39719e06",
+      "sha256": "2aa5a73f47261e3233beb01de32049e270b9dfe7a2239109b81f4dce39719e06",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-bound-material-build.log",
+      "source": "tmp/v2-finish-review/photo-stock-bound-material-build.log",
+      "source_sha256": "e0aeb28c21ac1bfc037aec85323a1abcef72ca2904fde399ea11bcbf25eee9ed",
+      "sha256": "e0aeb28c21ac1bfc037aec85323a1abcef72ca2904fde399ea11bcbf25eee9ed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-joined-build.log",
+      "source": "tmp/v2-finish-review/photo-stock-joined-build.log",
+      "source_sha256": "cb404d583df68d5fdd1f1629b5ab6fee1e3d1444a02bd3f3f3788a787ed6f0d9",
+      "sha256": "cb404d583df68d5fdd1f1629b5ab6fee1e3d1444a02bd3f3f3788a787ed6f0d9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-stage-native.log",
+      "source": "tmp/v2-finish-review/photo-stock-stage-native.log",
+      "source_sha256": "da0516c65a0c1c72937e2049ac59c3202ec56b5da54b63dee143ac299e1c8f58",
+      "sha256": "da0516c65a0c1c72937e2049ac59c3202ec56b5da54b63dee143ac299e1c8f58",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-paper-finish-build.log",
+      "source": "tmp/v2-finish-review/photo-stock-paper-finish-build.log",
+      "source_sha256": "29851ef5da6500267d62d0e8d43266d780c499899d0cbb4444f1f3aeb131c5a2",
+      "sha256": "29851ef5da6500267d62d0e8d43266d780c499899d0cbb4444f1f3aeb131c5a2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-paper-finish-native.log",
+      "source": "tmp/v2-finish-review/photo-stock-paper-finish-native.log",
+      "source_sha256": "35eafc7c0eb89b8775faead9ed19628e56421e8588b40ad50620a1e9d68a9110",
+      "sha256": "35eafc7c0eb89b8775faead9ed19628e56421e8588b40ad50620a1e9d68a9110",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-canonical-build.log",
+      "source": "tmp/v2-finish-review/photo-stock-canonical-build.log",
+      "source_sha256": "ead2abf5ce89d0de19790959f8c79a39e9fbf9014a8ada1290fb3dfa04f720f2",
+      "sha256": "ead2abf5ce89d0de19790959f8c79a39e9fbf9014a8ada1290fb3dfa04f720f2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-canonical-native.log",
+      "source": "tmp/v2-finish-review/photo-stock-canonical-native.log",
+      "source_sha256": "f7d629c12d532522fa1ab841eae99027bcf141e3df7d68f096c83eb30cc44f50",
+      "sha256": "f7d629c12d532522fa1ab841eae99027bcf141e3df7d68f096c83eb30cc44f50",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-production.log",
+      "source": "tmp/v2-finish-review/photo-stock-production.log",
+      "source_sha256": "3aa6b759484ff50cc3fdea40a096868b4e7dd40b0af0b5f8d6743857dd67e273",
+      "sha256": "3aa6b759484ff50cc3fdea40a096868b4e7dd40b0af0b5f8d6743857dd67e273",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-production.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-stock-production.log.receipt.json",
+      "source_sha256": "a17447c72c80836a28740eac40c09860032cea3731d4660b55f38f096a1fc95c",
+      "sha256": "a17447c72c80836a28740eac40c09860032cea3731d4660b55f38f096a1fc95c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-final-reader.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-stock-final-spatial.log",
+      "source": "tmp/v2-finish-review/photo-stock-final-spatial.log",
+      "source_sha256": "5d24f9c4e9b10ab2a4e158b2244f109acf6e160eead44b076fd5e042b0b1c024",
+      "sha256": "5d24f9c4e9b10ab2a4e158b2244f109acf6e160eead44b076fd5e042b0b1c024",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/photo-stock-ledger-refresh.log",
+      "source_sha256": "48a6bf1ae5448fc114c54972f2a1c5185c38e2837c62f49a705bfda74c267b03",
+      "sha256": "48a6bf1ae5448fc114c54972f2a1c5185c38e2837c62f49a705bfda74c267b03",
+      "copy": "byte-identical"
+    }
+  ]
+}

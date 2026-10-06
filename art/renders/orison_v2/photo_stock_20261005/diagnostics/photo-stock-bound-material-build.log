@@ -1,0 +1,9 @@
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-stock-stage\art\blender\scripts\build_photo_stock.py", line 29
+    spec=catalog[source_key];assert files==spec['files'];definition=ROOT/f'art/textures/{spec["catalog_mapping"]}/asset.json';tile=spec['meters_per_tile']
+    ^^^^
+IndentationError: expected an indented block after 'if' statement on line 28
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-stock-stage/art/blender/scripts/build_photo_stock.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
