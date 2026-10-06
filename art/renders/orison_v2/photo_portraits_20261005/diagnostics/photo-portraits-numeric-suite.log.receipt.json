@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 47.22,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T03:14:53Z",
+  "started_utc": "2026-10-06T03:14:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-portraits-numeric-suite.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-portraits-numeric-suite.log",
+  "stdout_sha256": "649f6057d1202f030b39388d41757cbddd2472e401f4bcef97748a9544dc117c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PhotoPortraitsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-portraits-numeric-shots",
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/photo_portraits.blend",
+   "?? art/blender/photo_portraits.md",
+   "?? art/blender/photo_portraits_construction.json",
+   "?? art/blender/scripts/build_photo_portraits.py",
+   "?? art/blender/scripts/inspect_photo_portraits.py",
+   "?? art/data/photo_portraits/",
+   "?? game/assets/props/photo_portraits.glb",
+   "?? game/assets/props/photo_portraits/",
+   "?? game/data/orison_v2/photo_portraits.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "4c2f477a742761698805019c3db796488b0484c0",
+  "repository_tree": "df3a8a13c860b6fd2e9b9fe7d16d5fa43231c0d3",
+  "runtime_inputs_sha256": "1d417b018fe13e5b02110f58fa4cb16467cc2c10975b5d3b67ce6b542f7ca533",
+  "test_path": "game/tests/orison_v2_photo_portraits_test.gd",
+  "test_sha256": "a717d86907f498554e92cc0b567f5acc4c42c3023ffa3c49650699cc6e7050c0"
+ },
+ "windowed": true
+}

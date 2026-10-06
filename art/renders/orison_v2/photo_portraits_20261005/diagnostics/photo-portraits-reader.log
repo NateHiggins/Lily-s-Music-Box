@@ -1,0 +1,18 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1122
+  FILE_UNREAD: 11
+  known (in baseline): 1124
+  resolved since baseline: 184
+  NEW: 11
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:asset (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:catalog_key (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:expected_triangles (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:high (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:key (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:low (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:parts (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:replace (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:schema_version (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:tile (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/photo_portraits.json:tolerance (zero production token readers)
