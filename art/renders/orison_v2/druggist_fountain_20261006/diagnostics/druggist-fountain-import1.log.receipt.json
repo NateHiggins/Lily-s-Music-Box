@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 11.29,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T08:27:43Z",
+  "started_utc": "2026-10-06T08:27:31Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-fountain-import1.log.stderr",
+  "stderr_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-fountain-import1.log",
+  "stdout_sha256": "cf6d51d922ec5ee39bf0532a4cf39f11e133b80167c2382877d286abe02266c9"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 277,
+  "dirty_sample": [
+   "M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/druggist_fountain.blend",
+   "?? art/blender/druggist_fountain_construction.json",
+   "?? art/blender/scripts/build_druggist_fountain.py",
+   "?? art/blender/scripts/inspect_druggist_fountain.py",
+   "?? art/data/druggist_fountain/",
+   "?? game/assets/props/druggist_fountain.glb",
+   "?? game/data/orison_v2/druggist_fountain.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid"
+  ],
+  "repository_head": "23ce7a8688c27fd2f01a89ec6f73b3272f86833e",
+  "repository_tree": "b8dd77b56bc90f9deef4443750c73e0f373f1f1b",
+  "runtime_inputs_sha256": "f9504a2341acd6f650402d21c7e3c13a9c520e4c1de3ff17ff47db821eef5d3c",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

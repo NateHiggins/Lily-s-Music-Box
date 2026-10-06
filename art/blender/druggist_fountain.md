@@ -56,5 +56,6 @@ game views; its broader optical review remains open.
 This passive fitting adds no liquid, syrup, dispensing, drainage,
 refrigeration, chemical, medical, inventory or independent-service owner.
 It makes no wall, floor or service cutout and proves no engineering
-capacity. Stools, custody, operations, utilities, routes and broad shop/V2
-acceptance remain separate work. This guide grants no acceptance.
+capacity. The four original stools already have separate fitted seating
+geometry. Custody, operations, utilities, routes and broad shop/V2 acceptance
+remain separate work. This guide grants no acceptance.

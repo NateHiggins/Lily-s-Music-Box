@@ -1,0 +1,363 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "c1eccf65c17c0769c5385cad09cc83cc0109d7ab9ae2c8438873f226ef06c233",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_otis___son_fount_MarblePlinth",
+      "volume_m3": 0.19357204368570008
+    },
+    {
+      "name": "storm_shop_otis___son_fount_EndWall0",
+      "volume_m3": 0.02574425012099698
+    },
+    {
+      "name": "storm_shop_otis___son_fount_EndWall1",
+      "volume_m3": 0.025744250143702727
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RearWall",
+      "volume_m3": 0.06920209886577823
+    },
+    {
+      "name": "storm_shop_otis___son_fount_FrontBacking",
+      "volume_m3": 0.04548164061930214
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel0",
+      "volume_m3": 0.01798366798698154
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel1",
+      "volume_m3": 0.017983668568465578
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel2",
+      "volume_m3": 0.01798366813235255
+    },
+    {
+      "name": "storm_shop_otis___son_fount_WorkedOriginalCounter",
+      "volume_m3": 0.10347079824660158
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot0",
+      "volume_m3": 0.00024217362124752967
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck0",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing0",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem0",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle0",
+      "volume_m3": 7.518059900582519e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray0",
+      "volume_m3": 0.00015163708438177797
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot1",
+      "volume_m3": 0.00024217362361085925
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck1",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing1",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem1",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle1",
+      "volume_m3": 7.518537905408344e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray1",
+      "volume_m3": 0.00015163706074988677
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot2",
+      "volume_m3": 0.00024217362361085925
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck2",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing2",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem2",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle2",
+      "volume_m3": 7.518537905408344e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray2",
+      "volume_m3": 0.00015163704368833283
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_otis___son_fount",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_otis___son_fount_MarblePlinth",
+          "storm_shop_otis___son_fount_EndWall0"
+        ],
+        [
+          "storm_shop_otis___son_fount_MarblePlinth",
+          "storm_shop_otis___son_fount_EndWall1"
+        ],
+        [
+          "storm_shop_otis___son_fount_MarblePlinth",
+          "storm_shop_otis___son_fount_RearWall"
+        ],
+        [
+          "storm_shop_otis___son_fount_MarblePlinth",
+          "storm_shop_otis___son_fount_FrontBacking"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall0",
+          "storm_shop_otis___son_fount_RearWall"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall0",
+          "storm_shop_otis___son_fount_FrontBacking"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall0",
+          "storm_shop_otis___son_fount_WorkedOriginalCounter"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall1",
+          "storm_shop_otis___son_fount_RearWall"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall1",
+          "storm_shop_otis___son_fount_FrontBacking"
+        ],
+        [
+          "storm_shop_otis___son_fount_EndWall1",
+          "storm_shop_otis___son_fount_WorkedOriginalCounter"
+        ],
+        [
+          "storm_shop_otis___son_fount_RearWall",
+          "storm_shop_otis___son_fount_WorkedOriginalCounter"
+        ],
+        [
+          "storm_shop_otis___son_fount_FrontBacking",
+          "storm_shop_otis___son_fount_InsetFrontPanel0"
+        ],
+        [
+          "storm_shop_otis___son_fount_FrontBacking",
+          "storm_shop_otis___son_fount_InsetFrontPanel1"
+        ],
+        [
+          "storm_shop_otis___son_fount_FrontBacking",
+          "storm_shop_otis___son_fount_InsetFrontPanel2"
+        ],
+        [
+          "storm_shop_otis___son_fount_FrontBacking",
+          "storm_shop_otis___son_fount_WorkedOriginalCounter"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_TapFoot0"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_RemovableCatchTray0"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_TapFoot1"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_RemovableCatchTray1"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_TapFoot2"
+        ],
+        [
+          "storm_shop_otis___son_fount_WorkedOriginalCounter",
+          "storm_shop_otis___son_fount_RemovableCatchTray2"
+        ],
+        [
+          "storm_shop_otis___son_fount_TapFoot0",
+          "storm_shop_otis___son_fount_OpenGooseneck0"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck0",
+          "storm_shop_otis___son_fount_ValveHousing0"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck0",
+          "storm_shop_otis___son_fount_ControlStem0"
+        ],
+        [
+          "storm_shop_otis___son_fount_ValveHousing0",
+          "storm_shop_otis___son_fount_ControlStem0"
+        ],
+        [
+          "storm_shop_otis___son_fount_ControlStem0",
+          "storm_shop_otis___son_fount_THandle0"
+        ],
+        [
+          "storm_shop_otis___son_fount_TapFoot1",
+          "storm_shop_otis___son_fount_OpenGooseneck1"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck1",
+          "storm_shop_otis___son_fount_ValveHousing1"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck1",
+          "storm_shop_otis___son_fount_ControlStem1"
+        ],
+        [
+          "storm_shop_otis___son_fount_ValveHousing1",
+          "storm_shop_otis___son_fount_ControlStem1"
+        ],
+        [
+          "storm_shop_otis___son_fount_ControlStem1",
+          "storm_shop_otis___son_fount_THandle1"
+        ],
+        [
+          "storm_shop_otis___son_fount_TapFoot2",
+          "storm_shop_otis___son_fount_OpenGooseneck2"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck2",
+          "storm_shop_otis___son_fount_ValveHousing2"
+        ],
+        [
+          "storm_shop_otis___son_fount_OpenGooseneck2",
+          "storm_shop_otis___son_fount_ControlStem2"
+        ],
+        [
+          "storm_shop_otis___son_fount_ValveHousing2",
+          "storm_shop_otis___son_fount_ControlStem2"
+        ],
+        [
+          "storm_shop_otis___son_fount_ControlStem2",
+          "storm_shop_otis___son_fount_THandle2"
+        ]
+      ]
+    }
+  ],
+  "independent_stock_surface_pairs": 0,
+  "actual_cavity_samples": [
+    {
+      "tap": 0,
+      "sample": "open_mouth",
+      "hit": [
+        19.80500030517578,
+        -45.05500030517578,
+        1.4107824563980103
+      ]
+    },
+    {
+      "tap": 0,
+      "sample": "annular_rim",
+      "hit": [
+        19.816999435424805,
+        -45.05500030517578,
+        1.2699799537658691
+      ]
+    },
+    {
+      "tap": 0,
+      "sample": "tray_inner_floor",
+      "hit": [
+        19.80500030517578,
+        -45.05500030517578,
+        1.0850200653076172
+      ]
+    },
+    {
+      "tap": 1,
+      "sample": "open_mouth",
+      "hit": [
+        19.80500030517578,
+        -44.834999084472656,
+        1.4107824563980103
+      ]
+    },
+    {
+      "tap": 1,
+      "sample": "annular_rim",
+      "hit": [
+        19.816999435424805,
+        -44.834999084472656,
+        1.2699799537658691
+      ]
+    },
+    {
+      "tap": 1,
+      "sample": "tray_inner_floor",
+      "hit": [
+        19.80500030517578,
+        -44.834999084472656,
+        1.0850200653076172
+      ]
+    },
+    {
+      "tap": 2,
+      "sample": "open_mouth",
+      "hit": [
+        19.80500030517578,
+        -44.6150016784668,
+        1.410780668258667
+      ]
+    },
+    {
+      "tap": 2,
+      "sample": "annular_rim",
+      "hit": [
+        19.816999435424805,
+        -44.6150016784668,
+        1.2699799537658691
+      ]
+    },
+    {
+      "tap": 2,
+      "sample": "tray_inner_floor",
+      "hit": [
+        19.80500030517578,
+        -44.6150016784668,
+        1.0850200653076172
+      ]
+    }
+  ],
+  "source_boundary_stocks": 5,
+  "parts": 9,
+  "triangles": 20640,
+  "views": [
+    "cabinet_front.png",
+    "cabinet_rear.png",
+    "hardware_front.png",
+    "hardware_rear.png",
+    "open_nozzle0.png",
+    "open_nozzle1.png",
+    "open_nozzle2.png",
+    "open_catch_trays.png"
+  ]
+}

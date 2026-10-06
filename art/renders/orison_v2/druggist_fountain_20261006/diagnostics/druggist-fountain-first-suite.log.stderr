@@ -1,0 +1,46 @@
+SCRIPT ERROR: Parse Error: Function "_mount_export()" not found in base self.
+   at: GDScript::reload (res://scripts/building/orison_v2_shop_seating.gd:71)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_passage_region.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:0)
+ERROR: Failed to load script "res://scripts/building/orison_v2_runtime_root.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'mount_cell' in base 'GDScript'.
+   at: OrisonV2PassageRegion._ready (res://scripts/building/orison_v2_passage_region.gd:91)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_passage_region.gd:91)
+       [1] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [4] _run (res://tests/orison_v2_druggist_fountain_test.gd:6)
+SCRIPT ERROR: Invalid call. Nonexistent function 'mount_bar_pool' in base 'GDScript'.
+   at: mount_cell (res://scripts/building/orison_v2_bar_pool.gd:4)
+   GDScript backtrace (most recent call first):
+       [0] mount_cell (res://scripts/building/orison_v2_bar_pool.gd:4)
+       [1] _ready (res://scripts/building/orison_v2_bar_region.gd:54)
+       [2] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:593)
+       [3] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [4] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [5] _run (res://tests/orison_v2_druggist_fountain_test.gd:6)
+ERROR: V2 BAR: native pool table does not fit its retained source boundaries
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://scripts/building/orison_v2_bar_region.gd:199)
+       [1] _ready (res://scripts/building/orison_v2_bar_region.gd:56)
+       [2] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:593)
+       [3] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [4] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [5] _run (res://tests/orison_v2_druggist_fountain_test.gd:6)
+ERROR: ORISON V2 RUNTIME: exterior composition failed
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:310)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [2] _run (res://tests/orison_v2_druggist_fountain_test.gd:6)
+ERROR: original unused soda fountain fits the Otis & Son shop
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/orison_v2_druggist_fountain_test.gd:8)

@@ -1,0 +1,32 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-fountain-stage\art\blender\scripts\build_druggist_fountain.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "druggist_fountain.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+04:19:27 | INFO: Starting glTF 2.0 export
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__catch_trays
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__marble_case
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__marble_top
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__nozzle0
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__nozzle1
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__nozzle2
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__tap0
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__tap1
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Extracting primitive: storm_shop_otis___son_fount__tap2
+04:19:27 | INFO: Primitives created: 1
+04:19:27 | INFO: Finished glTF 2.0 export in 0.048584699630737305 s
+
+DRUGGIST FOUNTAIN 5 original records; 1 assemblies; 27 closed stocks; 9 parts; 20640 triangles; 4 foot contacts
+
+Blender quit

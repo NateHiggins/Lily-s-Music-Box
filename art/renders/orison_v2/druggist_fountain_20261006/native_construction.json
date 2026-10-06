@@ -1,0 +1,563 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_otis___son_fount",
+      "rect": [
+        19.1,
+        -45.349999999999994,
+        21.3,
+        -44.55
+      ],
+      "z0": 0.01,
+      "h": 1.02,
+      "mat": "marble_lobby",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_fount_top",
+      "rect": [
+        19.05,
+        -45.42,
+        21.35,
+        -44.519999999999996
+      ],
+      "z0": 1.03,
+      "h": 0.05,
+      "mat": "marble_lobby",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_fount_tap0",
+      "rect": [
+        19.6,
+        -45.099999999999994,
+        19.69,
+        -45.01
+      ],
+      "z0": 1.08,
+      "h": 0.44,
+      "mat": "chrome",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_fount_tap1",
+      "rect": [
+        19.6,
+        -44.879999999999995,
+        19.69,
+        -44.79
+      ],
+      "z0": 1.08,
+      "h": 0.44,
+      "mat": "chrome",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_fount_tap2",
+      "rect": [
+        19.6,
+        -44.66,
+        19.69,
+        -44.56999999999999
+      ],
+      "z0": 1.08,
+      "h": 0.44,
+      "mat": "chrome",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_otis___son_fount",
+      "kind": "unused_fountain",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_otis___son_fount_MarblePlinth",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.19357204368570008
+    },
+    {
+      "name": "storm_shop_otis___son_fount_EndWall0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.02574425012099698
+    },
+    {
+      "name": "storm_shop_otis___son_fount_EndWall1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.025744250143702727
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RearWall",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.06920209886577823
+    },
+    {
+      "name": "storm_shop_otis___son_fount_FrontBacking",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.04548164061930214
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.01798366798698154
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.017983668568465578
+    },
+    {
+      "name": "storm_shop_otis___son_fount_InsetFrontPanel2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_case",
+      "volume_m3": 0.01798366813235255
+    },
+    {
+      "name": "storm_shop_otis___son_fount_WorkedOriginalCounter",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "marble_top",
+      "volume_m3": 0.10347079824660158
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap0",
+      "volume_m3": 0.00024217362124752967
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "nozzle0",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap0",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap0",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap0",
+      "volume_m3": 7.518059900582519e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray0",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "catch_trays",
+      "volume_m3": 0.00015163708438177797
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap1",
+      "volume_m3": 0.00024217362361085925
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "nozzle1",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap1",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap1",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap1",
+      "volume_m3": 7.518537905408344e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray1",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "catch_trays",
+      "volume_m3": 0.00015163706074988677
+    },
+    {
+      "name": "storm_shop_otis___son_fount_TapFoot2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap2",
+      "volume_m3": 0.00024217362361085925
+    },
+    {
+      "name": "storm_shop_otis___son_fount_OpenGooseneck2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "nozzle2",
+      "volume_m3": 0.00018514121551735106
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ValveHousing2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap2",
+      "volume_m3": 7.126234804404052e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_ControlStem2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap2",
+      "volume_m3": 3.0449080559574734e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_THandle2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "tap2",
+      "volume_m3": 7.518537905408344e-05
+    },
+    {
+      "name": "storm_shop_otis___son_fount_RemovableCatchTray2",
+      "assembly": "storm_shop_otis___son_fount",
+      "key": "catch_trays",
+      "volume_m3": 0.00015163704368833283
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_otis___son_fount",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        19.16,
+        0.01,
+        45.28999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original marble plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_fount",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        21.240000000000002,
+        0.01,
+        45.28999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original marble plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_fount",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        19.16,
+        0.01,
+        44.61
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original marble plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_fount",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        21.240000000000002,
+        0.01,
+        44.61
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original marble plinth on actual shop floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_otis___son_fount__catch_trays",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "catch_trays",
+      "triangles": 1140
+    },
+    {
+      "name": "storm_shop_otis___son_fount__marble_case",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "marble_case",
+      "triangles": 1504
+    },
+    {
+      "name": "storm_shop_otis___son_fount__marble_top",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "marble_top",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_otis___son_fount__nozzle0",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "nozzle0",
+      "triangles": 5184
+    },
+    {
+      "name": "storm_shop_otis___son_fount__nozzle1",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "nozzle1",
+      "triangles": 5184
+    },
+    {
+      "name": "storm_shop_otis___son_fount__nozzle2",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "nozzle2",
+      "triangles": 5184
+    },
+    {
+      "name": "storm_shop_otis___son_fount__tap0",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "tap0",
+      "triangles": 752
+    },
+    {
+      "name": "storm_shop_otis___son_fount__tap1",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "tap1",
+      "triangles": 752
+    },
+    {
+      "name": "storm_shop_otis___son_fount__tap2",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "tap2",
+      "triangles": 752
+    }
+  ],
+  "triangles": 20640,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/druggist_fountain.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_otis_son",
+        "parts": [
+          {
+            "name": "storm_shop_otis___son_fount__catch_trays",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__marble_case",
+            "key": "marble_lobby",
+            "tile": 1.5
+          },
+          {
+            "name": "storm_shop_otis___son_fount__marble_top",
+            "key": "marble_lobby",
+            "tile": 1.5
+          },
+          {
+            "name": "storm_shop_otis___son_fount__nozzle0",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__nozzle1",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__nozzle2",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__tap0",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__tap1",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__tap2",
+            "key": "chrome",
+            "tile": 0.8
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_otis___son_fount",
+            "key": "marble_lobby",
+            "low": [
+              19.1,
+              0.01,
+              44.55
+            ],
+            "high": [
+              21.3,
+              1.03,
+              45.349999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_fount_top",
+            "key": "marble_lobby",
+            "low": [
+              19.05,
+              1.03,
+              44.519999999999996
+            ],
+            "high": [
+              21.35,
+              1.08,
+              45.42
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_fount_tap0",
+            "key": "chrome",
+            "low": [
+              19.6,
+              1.08,
+              45.01
+            ],
+            "high": [
+              19.69,
+              1.52,
+              45.099999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_fount_tap1",
+            "key": "chrome",
+            "low": [
+              19.6,
+              1.08,
+              44.79
+            ],
+            "high": [
+              19.69,
+              1.52,
+              44.879999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_fount_tap2",
+            "key": "chrome",
+            "low": [
+              19.6,
+              1.08,
+              44.56999999999999
+            ],
+            "high": [
+              19.69,
+              1.52,
+              44.66
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "1645197ffd0eb41ed11595e489394595f6fbe04c0c16bbe0a09b08733eb1a7a8",
+  "source_bindings": {
+    "art/data/druggist_fountain/source_plan.json": "a0de0b2cb1a1d3f6afbd58abca99a692a7db99f70de59f30526bd70536c2dee8",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_druggist_fountain.py": "9528d26aef8c630f4ba3a3a9071fa08a23abd8e07f8666719ada910071f9fb31",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/druggist_fountain.glb.import": "a573bc4049ed30cecf9a89a35241188fdf79cae75b29c3244a879aa2f071f53f",
+    "art/textures/ai_materials/marble_lobby_b/material.json": "b373def49a421619f9e32f2ac9a6b2edc5d51dd850af73f3b6dfa74d3f62d929",
+    "art/textures/ai_materials/chrome/material.json": "3c96b4f861b2e91d5bb5fa8cf804cd43cce6918633b2bfbdcaa8896dbafc0382",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_rough.png": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_normal.png": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a",
+    "game/assets/building/textures/T_ai_materials_chrome_b_albedo.png": "52818b170ec1f66bc9b2d99fa16305a5937491999af53bbe6d723e85fe84d19b",
+    "game/assets/building/textures/T_ai_materials_chrome_b_rough.png": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f",
+    "game/assets/building/textures/T_ai_materials_chrome_b_normal.png": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_otis_son.gltf": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+    "game/assets/building/floor_01_cells/shop_otis_son.bin": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+    "art/blender/scripts/inspect_druggist_fountain.py": "576659bb52580e0fc6a32b03c6c64f143a78a50915c001cbde218d1e43491271",
+    "game/assets/props/druggist_carboys.glb": "f3d19a4930d258df28ec589cf133d776c3194b687369200ccb9727d46e5537a2",
+    "game/data/orison_v2/druggist_carboys.json": "894cb275ef6e6839168445a7deaebae97d44d202ba39f1d3bb9dd52b2c511c92"
+  },
+  "open_work": [
+    "Five original source identities, hidden source poses, roles and materials remain. The source explicitly describes an unused soda fountain.",
+    "Fabricate the original floor-seated marble case as a plinth, supported end/rear panels and inset front panels. Retain its original 2.2m by 0.8m plan, 0.01m base and 1.03m top. Its separately worked original marble counter retains its complete plan and 1.03m to 1.08m datums.",
+    "Three chrome tap feet retain original source centres, 1.08m base and 1.52m maximum control height. Actual hollow gooseneck mouths turn toward the clear central worktop; three separate shallow catch trays sit beneath them without overlapping the original feet.",
+    "Static cabinet and fittings establish no flowing water, syrup, refrigeration, drainage, chemical identity, medical operation or dispensing owner. No wall, floor or independent service cutout is authorized by this fixture-only adaptation.",
+    "Actual native stock joins, open mouths, tray cavities, floor/contact seats, metre charts and standing observations must be inspected before installation or review retention.",
+    "This INERT source plan establishes no runtime proof, route or human acceptance. Stools, other fixtures, independent utilities and engineering capacity retain their own owners."
+  ]
+}

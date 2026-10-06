@@ -1,0 +1,72 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 24.73,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T08:33:41Z",
+  "started_utc": "2026-10-06T08:33:16Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 6,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Function \"_mount_export()\" not found in base self.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_runtime_root.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_cell' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_bar_pool' in base 'GDScript'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_cell' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_bar_pool' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-fountain-first-suite.log.stderr",
+  "stderr_sha256": "175c39ef2e85c564725c703e92f579b4fb3ec42179c66d34b8b931321c1695ae",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-fountain-first-suite.log",
+  "stdout_sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistFountainTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-fountain-first-shots",
+ "source": {
+  "dirty_paths": 281,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/druggist_fountain.blend",
+   "?? art/blender/druggist_fountain.md",
+   "?? art/blender/druggist_fountain_construction.json",
+   "?? art/blender/scripts/build_druggist_fountain.py",
+   "?? art/blender/scripts/inspect_druggist_fountain.py",
+   "?? art/data/druggist_fountain/",
+   "?? game/assets/props/druggist_fountain.glb",
+   "?? game/data/orison_v2/druggist_fountain.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid"
+  ],
+  "repository_head": "23ce7a8688c27fd2f01a89ec6f73b3272f86833e",
+  "repository_tree": "b8dd77b56bc90f9deef4443750c73e0f373f1f1b",
+  "runtime_inputs_sha256": "f9504a2341acd6f650402d21c7e3c13a9c520e4c1de3ff17ff47db821eef5d3c",
+  "test_path": "game/tests/orison_v2_druggist_fountain_test.gd",
+  "test_sha256": "2d94036be8965bf9010cd8764e0b490e8932f5cebeeeb98bc0e806ebaf833fb1"
+ },
+ "windowed": true
+}
