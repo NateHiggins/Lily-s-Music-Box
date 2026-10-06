@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 46.51,
+  "exit_code": 1,
+  "finished_utc": "2026-10-05T23:34:01Z",
+  "started_utc": "2026-10-05T23:33:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/hardware-stock-probe-fit.log.stderr",
+  "stderr_sha256": "5d3fd829b2a99f5542f21a4d363f5c498e6130983585e7d7524a661c5cac1b4b",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/hardware-stock-probe-fit.log",
+  "stdout_sha256": "c5f76b240160a0e5ea2393b9902effacfd227f9547b73bee454fe5272e5b4d17"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2HardwareStockTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/hardware-stock-probe-fit",
+ "source": {
+  "dirty_paths": 281,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/hardware_stock.blend",
+   "?? art/blender/hardware_stock.md",
+   "?? art/blender/hardware_stock_construction.json",
+   "?? art/blender/scripts/build_hardware_stock.py",
+   "?? art/blender/scripts/inspect_hardware_stock.py",
+   "?? art/data/hardware_stock/",
+   "?? game/assets/props/hardware_stock.glb",
+   "?? game/data/orison_v2/hardware_stock.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid"
+  ],
+  "repository_head": "05f7006350147c6cbba35f241a02be106ecd6e7d",
+  "repository_tree": "746cb93ce54b90ba4ef14b050a07e00e0d6010b6",
+  "runtime_inputs_sha256": "2c928247df5191db60ddd43001625b1c0394bbeb603212fc83b3d5d2f52e850e",
+  "test_path": "game/tests/orison_v2_hardware_stock_test.gd",
+  "test_sha256": "c95594fcff26cd4c85fe776e9eac4f47b24273a0dfbfd296ce6497ec19a14b9e"
+ },
+ "windowed": true
+}

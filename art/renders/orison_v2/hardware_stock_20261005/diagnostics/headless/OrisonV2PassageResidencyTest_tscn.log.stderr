@@ -1,0 +1,164 @@
+ERROR: Initializing already initialized RID
+   at: get_or_null (./core/templates/rid_owner.h:236)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Initializing already initialized RID
+   at: get_or_null (./core/templates/rid_owner.h:236)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "material" is null.
+   at: material_set_next_pass (servers/rendering/dummy/storage/material_storage.cpp:257)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "material" is null.
+   at: material_set_next_pass (servers/rendering/dummy/storage/material_storage.cpp:257)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Initializing already initialized RID
+   at: get_or_null (./core/templates/rid_owner.h:236)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/props/light_fixture_prop.gd:653)
+ERROR: Parameter "material" is null.
+   at: material_get_instance_shader_parameters (servers/rendering/dummy/storage/material_storage.cpp:264)
+   GDScript backtrace (most recent call first):
+       [0] mount_records (res://scripts/building/orison_v2_shop_seating.gd:107)
+       [1] mount_cell (res://scripts/building/orison_v2_shop_seating.gd:5)
+       [2] _stage_one (res://scripts/building/orison_v2_passage_residency.gd:179)
+       [3] _process (res://scripts/building/orison_v2_passage_residency.gd:120)
+ERROR: unimplemented base type encountered in renderer scene cull
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:705)
+   GDScript backtrace (most recent call first):
+       [0] _stage_one (res://scripts/building/orison_v2_passage_residency.gd:171)
+       [1] _process (res://scripts/building/orison_v2_passage_residency.gd:120)
+ERROR: Index p_surface = 0 is out of bounds (instance->materials.size() = 0).
+   at: instance_set_surface_override_material (servers/rendering/renderer_scene_cull.cpp:1039)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/building/surface_pass.gd:296)
+       [1] _stage_one (res://scripts/building/orison_v2_passage_residency.gd:206)
+       [2] _process (res://scripts/building/orison_v2_passage_residency.gd:120)
+ERROR: Index p_surface = 0 is out of bounds (instance->materials.size() = 0).
+   at: instance_set_surface_override_material (servers/rendering/renderer_scene_cull.cpp:1039)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/building/surface_pass.gd:296)
+       [1] _stage_one (res://scripts/building/orison_v2_passage_residency.gd:206)
+       [2] _process (res://scripts/building/orison_v2_passage_residency.gd:120)

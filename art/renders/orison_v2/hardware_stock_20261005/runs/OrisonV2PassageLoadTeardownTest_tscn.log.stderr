@@ -1,0 +1,105 @@
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:257)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:235)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:820)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
