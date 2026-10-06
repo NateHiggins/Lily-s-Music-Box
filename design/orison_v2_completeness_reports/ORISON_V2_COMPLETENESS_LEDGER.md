@@ -212,7 +212,7 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (19):**
+**runtime receipts rejected (20):**
 
 - ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -230,6 +230,7 @@ Evidence class: **INERT**
 - ! art/renders/orison_v2/photo_cameras_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_counter_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_enlargers_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+- ! art/renders/orison_v2/photo_glazing_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_portraits_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_process_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -552,6 +553,7 @@ Evidence class: **INERT**
 - `art/data/building_layout.json` sha256 `f4815741dd37ab14...`
 - `art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json` sha256 `b792e5efd1fb8018...`
 - `art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json` sha256 `f4116ede94c5262f...`
+- `art/renders/orison_v2/druggist_drawers_20261006/runtime_authority_receipt.json` sha256 `3016eefb0ed94bee...`
 - `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json` sha256 `544bb75d35a73c4f...`
 - `art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json` sha256 `5e26f5379b290c58...`
 - `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
@@ -610,4 +612,4 @@ Evidence class: **INERT**
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
 - `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `89a0b1ee1d3ff94a...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `600918d616b5d0bb...`

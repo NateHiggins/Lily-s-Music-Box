@@ -1,0 +1,32 @@
+orison spatial dependency audit (check)
+records: 7211  tiers: data=4095, production=956, scene=5, test=2155
+authority: DATA_FOREIGN_KEY=4095, DEBUG_ONLY=12, GENERATED_IDENTITY=362, RUNTIME_LOOKUP=811, SAVE_CONTRACT=16, SCENE_NODE_PATH=266, TEST_CONTRACT=2155
+spatial: ASSET_PATH=347, CAMERA_STATION=264, CONTAINMENT_ASSUMPTION=10, DERIVED_LAYOUT_LOOKUP=30, DISTANCE_THRESHOLD=10, FLOOR_MEMBERSHIP=372, RAW_GODOT_COORDINATE=237, RAW_PLAN_COORDINATE=76, ROOM_MEMBERSHIP=681, SEMANTIC_ANCHOR=4469, UNKNOWN_DYNAMIC=108
+disposition: MUST_PRESERVE_ID=107, OWNER_DECISION=1, PRESERVE_OR_ALIAS=4759, REGENERATE_CONSUMER=130, REPLACE_WITH_NAMED_ANCHOR=52, SAFE_TO_CHANGE=5, UNRESOLVED=107, UPDATE_TEST_FIXTURE=2050
+vector3 literals: 5007 total, 3910 stats-only (local/presentation)
+NEW unclassified (FAIL): 56
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_counter [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_counter_top [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_0 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_1 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_2 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_3 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_4 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_5 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_6 [data]
+  - id_reference:game/data/orison_v2/druggist_drawers.json:storm_shop_otis___son_drw0_7 [data]
+  ... 46 more (--verbose)
+classification changes (FAIL): 0
+targets vanished (FAIL): 0
+save-contract unresolved (FAIL): 0
+stale preserved records (STALE): 0
+new incidental (report only): 1
+  - id_reference:game/tests/orison_v2_druggist_drawers_test.gd:F01_VESTIBULE [test]
+cleanup opportunities: 6
+  - asset_path:game/tests/debug_in_pause_test.gd:res://scenes/building/orison_root.tscn [test]
+  - asset_path:game/tests/dream_ecology_entry_test.gd:res://scenes/building/orison_root.tscn [test]
+  - vector3_coordinate:game/tests/orison_v2_vertical_route_test.gd:_run [test]
+  - asset_path:game/tests/zoo_teleport_test.gd:res://scenes/building/orison_root.tscn [test]
+  - vector3_coordinate:game/tests/orison_v2_basement_route_test.gd:_prepare_player_start [test]
+  - generated_name:game/scripts/building/orison_v2_shop_seating.gd:mount_cell [production]
+result: fail

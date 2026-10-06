@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.11,
+  "exit_code": null,
+  "finished_utc": "2026-10-06T04:14:38Z",
+  "started_utc": "2026-10-06T04:11:38Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"installed\" variable because the value doesn't have a set type.",
+   "ERROR: Failed to load script \"res://tests/orison_v2_druggist_drawers_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-first-suite.log.stderr",
+  "stderr_sha256": "e7788b493d7ecda0cd7ba52075e956636e149ff70cbf36db4bcef2f04dcb0d2f",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-first-suite.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistDrawersTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-first-shots",
+ "source": {
+  "dirty_paths": 282,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/druggist_drawers.blend",
+   "?? art/blender/druggist_drawers.md",
+   "?? art/blender/druggist_drawers_construction.json",
+   "?? art/blender/scripts/build_druggist_drawers.py",
+   "?? art/blender/scripts/inspect_druggist_drawers.py",
+   "?? art/data/druggist_drawers/",
+   "?? game/assets/props/druggist_drawers.glb",
+   "?? game/data/orison_v2/druggist_drawers.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid"
+  ],
+  "repository_head": "bec6780af28162962d811416d79b8d0500565531",
+  "repository_tree": "8a66c383a19f6c8d0850ee060d6da8277640b50d",
+  "runtime_inputs_sha256": "7c8469e025c3ea437180e889292b6fb7f6fc1d0acaf400d59376398df9502a50",
+  "test_path": "game/tests/orison_v2_druggist_drawers_test.gd",
+  "test_sha256": "7dc64839388b962ba245afa534fa23fffb0ef9130378558a0644a4b97974722d"
+ },
+ "windowed": true
+}

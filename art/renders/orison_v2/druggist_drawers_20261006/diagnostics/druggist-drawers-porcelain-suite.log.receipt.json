@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.4,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T04:19:55Z",
+  "started_utc": "2026-10-06T04:19:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-porcelain-suite.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-porcelain-suite.log",
+  "stdout_sha256": "fff3b9d7837c02566465a3c918ffe7959a17c954557b4149411ec8f109df43c8"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistDrawersTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-drawers-porcelain-shots",
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "A  art/blender/druggist_drawers.blend",
+   "A  art/blender/druggist_drawers.md",
+   "A  art/blender/druggist_drawers_construction.json",
+   "A  art/blender/scripts/build_druggist_drawers.py",
+   "A  art/blender/scripts/inspect_druggist_drawers.py",
+   "M  art/blender/v2_fabrication_coverage.md",
+   "A  art/data/druggist_drawers/source_plan.json",
+   "A  game/assets/props/druggist_drawers.glb",
+   "A  game/assets/props/druggist_drawers.glb.import",
+   "A  game/data/orison_v2/druggist_drawers.json",
+   "A  game/scripts/building/orison_v2_druggist_drawers.gd",
+   "A  game/scripts/building/orison_v2_druggist_drawers.gd.uid",
+   "M  game/scripts/building/orison_v2_passage_region.gd",
+   "M  game/scripts/building/orison_v2_passage_residency.gd",
+   "M  game/scripts/building/orison_v2_shop_seating.gd",
+   "A  game/tests/OrisonV2DruggistDrawersTest.tscn",
+   "A  game/tests/fixtures/orison_druggist_drawers.json",
+   "A  game/tests/orison_v2_druggist_drawers_test.gd"
+  ],
+  "repository_head": "bec6780af28162962d811416d79b8d0500565531",
+  "repository_tree": "8a66c383a19f6c8d0850ee060d6da8277640b50d",
+  "runtime_inputs_sha256": "e24f96f25c3fc8613a47cfd3042c316d0f8ae69e65578964f90081e596350944",
+  "test_path": "game/tests/orison_v2_druggist_drawers_test.gd",
+  "test_sha256": "017974f2f585018acf0035d4c556bfefc2747f550677b1a180c3e5e048e31143"
+ },
+ "windowed": true
+}
