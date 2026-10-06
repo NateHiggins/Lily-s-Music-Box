@@ -61,7 +61,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original funeral fixed curtain runs and ceiling-seated suspension | `art/blender/funeral_drapes.md` and `design/V2_FUNERAL_DRAPES_2026-10-06.md` |
 | Original funeral potted palms and supported laid wreaths | `art/blender/funeral_foliage.md` and `design/V2_FUNERAL_FOLIAGE_2026-10-06.md` |
 | Original Radio Service alignment bench and supported side leaf | `art/blender/radio_bench.md` and `design/V2_RADIO_BENCH_2026-10-06.md` |
-| Original Radio Service four-level rack and fourteen seated stored valves | `art/blender/radio_stock.md` |
+| Original Radio Service four-level rack and fourteen seated stored valves | `art/blender/radio_stock.md` and `design/V2_RADIO_STOCK_2026-10-06.md` |
 | Original Radio Service test instruments, seated valves and retained literal display | `art/blender/radio_apparatus.md` and `design/V2_RADIO_APPARATUS_2026-10-06.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |

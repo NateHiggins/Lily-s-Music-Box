@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.12,
+  "exit_code": null,
+  "finished_utc": "2026-10-06T13:06:02Z",
+  "started_utc": "2026-10-06T13:03:01Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 5,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "ERROR: Failed to load script \"res://tests/orison_v2_radio_stock_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope.",
+   "SCRIPT ERROR: Parse Error: Identifier \"suffix\" not declared in the current scope."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-stock-first.log.stderr",
+  "stderr_sha256": "14214a88fde5f2bb0b2f319768715c396c5d00d2cb835cdd3cfc35f2531fd301",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-stock-first.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioStockTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-stock-first-shots",
+ "source": {
+  "dirty_paths": 281,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/radio_stock.blend",
+   "?? art/blender/radio_stock.md",
+   "?? art/blender/radio_stock_construction.json",
+   "?? art/blender/scripts/build_radio_stock.py",
+   "?? art/blender/scripts/inspect_radio_stock.py",
+   "?? art/data/radio_stock/",
+   "?? game/assets/props/radio_stock.glb",
+   "?? game/data/orison_v2/radio_stock.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid"
+  ],
+  "repository_head": "60e9d7224d877e26ef582b88feab9d89e892b5ea",
+  "repository_tree": "c7672c79b10069900c525efaf0419499fcb4c590",
+  "runtime_inputs_sha256": "3ceccb3b709cab0d87411659553bc82b5f4b20742a9cb68e79cb85a2ad06a5ac",
+  "test_path": "game/tests/orison_v2_radio_stock_test.gd",
+  "test_sha256": "f705334de15dce29a981fba95a0673608561bf18962fc3f27a77f7ff2798b4eb"
+ },
+ "windowed": true
+}

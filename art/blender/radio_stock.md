@@ -48,3 +48,7 @@ keys, saves, services and carrier behaviour retain their separate owners.
 Their coarse forms and material mismatches remain open. Instrument operation,
 engineering capacity, human acceptance, whole-shop acceptance and V2
 completion remain separate requirements.
+
+Verified production checks and retained final/diagnostic views are recorded
+in **design/V2_RADIO_STOCK_2026-10-06.md**. That inert report grants no
+requirement promotion or human acceptance.

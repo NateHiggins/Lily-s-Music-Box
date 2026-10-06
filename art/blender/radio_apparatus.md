@@ -64,3 +64,8 @@ whole-shop completion or V2 completion is inferred.
 Verified production checks and retained final/diagnostic views are recorded
 in **design/V2_RADIO_APPARATUS_2026-10-06.md**. That inert report grants no
 requirement promotion or human acceptance.
+
+The subsequent source-owned valve-stock rack is documented separately in
+**art/blender/radio_stock.md** and **design/V2_RADIO_STOCK_2026-10-06.md**.
+Its four shelves and fourteen stored valves now have fitted physical forms;
+the apparatus keeps its separate stations, source owners and bearings.
