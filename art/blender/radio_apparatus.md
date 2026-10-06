@@ -69,3 +69,9 @@ The subsequent source-owned valve-stock rack is documented separately in
 **art/blender/radio_stock.md** and **design/V2_RADIO_STOCK_2026-10-06.md**.
 Its four shelves and fourteen stored valves now have fitted physical forms;
 the apparatus keeps its separate stations, source owners and bearings.
+
+The subsequent charging-display fit is documented in **art/blender/radio_battery.md**.
+It clears the retained repair cabinet using a declared source-derived placement.
+Affected standing diagnostics now sample outside that occupied bay; this guide’s
+historical matched captures and their exact commits remain unchanged. The accepted
+native assets, stations and geometric bearings described above are unchanged.

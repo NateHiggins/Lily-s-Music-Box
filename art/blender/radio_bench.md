@@ -57,3 +57,9 @@ The subsequent instrument fitting is documented separately in
 **design/V2_RADIO_APPARATUS_2026-10-06.md**. Its native cases and valves now
 occupy the preserved stations; the bench retains the worktop datum and
 physical instrument bearings verified here.
+
+The subsequent charging-display fit is documented in **art/blender/radio_battery.md**.
+It clears the retained repair cabinet using a declared source-derived placement.
+Affected standing diagnostics now sample outside that occupied bay; this guide’s
+historical matched captures and their exact commits remain unchanged. The accepted
+native assets, stations and geometric bearings described above are unchanged.

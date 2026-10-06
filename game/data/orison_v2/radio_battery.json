@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_battery.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_battery_rack__bakelite_black",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__electrode_metal",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "tint": [
+            0.16,
+            0.17,
+            0.16,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__glass_shell",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__series_wire",
+          "key": "bakelite_black",
+          "tile": 0.4,
+          "catalog_key": "copper_aged"
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__terminal_metal",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "tint": [
+            0.6,
+            0.6,
+            0.57,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_radio_service_battery_rack__wet_fill",
+          "key": "glassish",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.2,
+            0.24,
+            0.22,
+            1
+          ]
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_battery_rack",
+          "key": "timber",
+          "low": [
+            21.28,
+            0.05,
+            56.66
+          ],
+          "high": [
+            21.72,
+            0.89,
+            57.739999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_wet_cell0",
+          "key": "glassish",
+          "low": [
+            21.36,
+            0.94,
+            57.519999999999996
+          ],
+          "high": [
+            21.64,
+            1.26,
+            57.66
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_wet_cell1",
+          "key": "glassish",
+          "low": [
+            21.36,
+            0.94,
+            57.31999999999999
+          ],
+          "high": [
+            21.64,
+            1.26,
+            57.459999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_wet_cell2",
+          "key": "glassish",
+          "low": [
+            21.36,
+            0.94,
+            57.11999999999999
+          ],
+          "high": [
+            21.64,
+            1.26,
+            57.25999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_wet_cell3",
+          "key": "glassish",
+          "low": [
+            21.36,
+            0.94,
+            56.919999999999995
+          ],
+          "high": [
+            21.64,
+            1.26,
+            57.059999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_wet_cell4",
+          "key": "glassish",
+          "low": [
+            21.36,
+            0.94,
+            56.71999999999999
+          ],
+          "high": [
+            21.64,
+            1.26,
+            56.85999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cell_cap0",
+          "key": "bakelite_black",
+          "low": [
+            21.39,
+            1.27,
+            57.55
+          ],
+          "high": [
+            21.61,
+            1.33,
+            57.629999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cell_cap1",
+          "key": "bakelite_black",
+          "low": [
+            21.39,
+            1.27,
+            57.349999999999994
+          ],
+          "high": [
+            21.61,
+            1.33,
+            57.42999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cell_cap2",
+          "key": "bakelite_black",
+          "low": [
+            21.39,
+            1.27,
+            57.14999999999999
+          ],
+          "high": [
+            21.61,
+            1.33,
+            57.22999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cell_cap3",
+          "key": "bakelite_black",
+          "low": [
+            21.39,
+            1.27,
+            56.949999999999996
+          ],
+          "high": [
+            21.61,
+            1.33,
+            57.029999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cell_cap4",
+          "key": "bakelite_black",
+          "low": [
+            21.39,
+            1.27,
+            56.74999999999999
+          ],
+          "high": [
+            21.61,
+            1.33,
+            56.82999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

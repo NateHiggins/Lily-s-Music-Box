@@ -52,3 +52,9 @@ completion remain separate requirements.
 Verified production checks and retained final/diagnostic views are recorded
 in **design/V2_RADIO_STOCK_2026-10-06.md**. That inert report grants no
 requirement promotion or human acceptance.
+
+The subsequent charging-display fit is documented in **art/blender/radio_battery.md**.
+It clears the retained repair cabinet using a declared source-derived placement.
+Affected standing diagnostics now sample outside that occupied bay; this guide’s
+historical matched captures and their exact commits remain unchanged. The accepted
+native assets, stations and geometric bearings described above are unchanged.
