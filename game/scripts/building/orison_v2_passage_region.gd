@@ -27,6 +27,7 @@ const DruggistCarboys := preload("res://scripts/building/orison_v2_druggist_carb
 const DruggistFountain := preload("res://scripts/building/orison_v2_druggist_fountain.gd")
 const FuneralFittings := preload("res://scripts/building/orison_v2_funeral_fittings.gd")
 const FuneralDrapes := preload("res://scripts/building/orison_v2_funeral_drapes.gd")
+const FuneralFoliage := preload("res://scripts/building/orison_v2_funeral_foliage.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -167,6 +168,9 @@ func _ready() -> void:
 			return
 		if not FuneralDrapes.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native fixed funeral curtains refused: "+identity)
+			return
+		if not FuneralFoliage.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native funeral foliage refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

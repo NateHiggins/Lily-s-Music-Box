@@ -756,3 +756,14 @@ game/scripts/building/orison_v2_funeral_drapes.gd -text
 game/tests/orison_v2_funeral_drapes_test.gd -text
 game/assets/props/funeral_drapes.glb.import -text
 art/renders/orison_v2/funeral_drapes_20261006/** -text
+
+art/data/funeral_foliage/** -text
+art/blender/scripts/build_funeral_foliage.py -text
+art/blender/scripts/inspect_funeral_foliage.py -text
+art/blender/funeral_foliage_construction.json -text
+game/data/orison_v2/funeral_foliage.json -text
+game/tests/fixtures/orison_funeral_foliage.json -text
+game/scripts/building/orison_v2_funeral_foliage.gd -text
+game/tests/orison_v2_funeral_foliage_test.gd -text
+game/assets/props/funeral_foliage.glb.import -text
+art/renders/orison_v2/funeral_foliage_20261006/** -text

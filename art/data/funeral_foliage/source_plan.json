@@ -1,0 +1,76 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 8,
+  "runtime_keys": [
+    "wood_dark",
+    "plant",
+    "brass_dull",
+    "stand_frame",
+    "wreath_twig",
+    "foliage",
+    "pot_brass",
+    "palm_stem",
+    "soil"
+  ],
+  "catalog_variants": {
+    "foliage": "plant",
+    "soil": "soot",
+    "pot_brass": "brass"
+  },
+  "material_aliases": {
+    "stand_frame": "wood_dark",
+    "wreath_twig": "wood_dark",
+    "foliage": "plant",
+    "pot_brass": "brass_dull",
+    "palm_stem": "wood_dark",
+    "soil": "soot"
+  },
+  "material_tints": {
+    "foliage": [
+      0.25,
+      0.43,
+      0.18,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "laid_wreath",
+      "sources": [
+        "storm_shop_funeral_parlour_stand",
+        "storm_shop_funeral_parlour_wreath"
+      ]
+    },
+    {
+      "kind": "laid_wreath",
+      "sources": [
+        "storm_shop_funeral_parlour_stand_e",
+        "storm_shop_funeral_parlour_wreath_e"
+      ]
+    },
+    {
+      "kind": "potted_palm",
+      "sources": [
+        "storm_shop_funeral_parlour_palm_pot_w",
+        "storm_shop_funeral_parlour_palm_w"
+      ]
+    },
+    {
+      "kind": "potted_palm",
+      "sources": [
+        "storm_shop_funeral_parlour_palm_pot_e",
+        "storm_shop_funeral_parlour_palm_e"
+      ]
+    }
+  ],
+  "open_work": [
+    "Eight immutable source records retain identities, hidden poses and source-owned roles. Two existing wreaths remain laid arrangements at their original serving height; no new flowers, funeral rite, lettering or occupancy is invented.",
+    "ADAPTATION: open brass pots, display soil and small floor-seated foot rings bear clusters of slender canes and curved pinnate fronds. Actual foliage stays within the source plan and original 1.86m maximum.",
+    "ADAPTATION: four-legged floor-seated timber stands retain their original top plans and 0.91m support height. Open leafy wreath rings replace the solid green masses within their original plans and 1.05m maximum.",
+    "Existing plant catalogue maps supply leaf surface detail with declared local tint. Original timber retains its shipping maps; the registered aged-brass finish is local to the two brass pots and soot is local display soil. Original retained brass surfaces keep their shipping finish. No new map, material key, shared shader or architecture changes.",
+    "Existing curtains, seating, lectern, empty bier, rear boundary, doors, hours, keys, saves and services retain their owners. No plant simulation, growth, ritual, chapel access or independent operation is inferred.",
+    "Ignored native preparation needs manifold/stock joins, original envelope, actual support, furniture separation, metre charts and rendered review before installation. It grants no runtime proof, route, capacity or acceptance."
+  ]
+}

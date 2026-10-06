@@ -1,0 +1,5280 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_funeral_parlour_stand",
+      "rect": [
+        9.5,
+        -60.2,
+        9.95,
+        -59.75
+      ],
+      "z0": 0.05,
+      "h": 0.86,
+      "mat": "wood_dark",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_wreath",
+      "rect": [
+        9.45,
+        -60.230000000000004,
+        10.0,
+        -59.72
+      ],
+      "z0": 0.91,
+      "h": 0.14,
+      "mat": "plant",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_stand_e",
+      "rect": [
+        8.5,
+        -63.8,
+        9.28,
+        -63.48
+      ],
+      "z0": 0.05,
+      "h": 0.86,
+      "mat": "wood_dark",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_wreath_e",
+      "rect": [
+        8.46,
+        -63.84,
+        9.32,
+        -63.44
+      ],
+      "z0": 0.91,
+      "h": 0.14,
+      "mat": "plant",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_pot_w",
+      "rect": [
+        4.58,
+        -60.22,
+        5.0600000000000005,
+        -59.68000000000001
+      ],
+      "z0": 0.05,
+      "h": 0.52,
+      "mat": "brass_dull",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_w",
+      "rect": [
+        4.45,
+        -60.400000000000006,
+        5.2,
+        -59.5
+      ],
+      "z0": 0.58,
+      "h": 1.28,
+      "mat": "plant",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_pot_e",
+      "rect": [
+        4.58,
+        -63.72,
+        5.0600000000000005,
+        -63.18
+      ],
+      "z0": 0.05,
+      "h": 0.52,
+      "mat": "brass_dull",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_e",
+      "rect": [
+        4.45,
+        -63.9,
+        5.2,
+        -63.0
+      ],
+      "z0": 0.58,
+      "h": 1.28,
+      "mat": "plant",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_funeral_parlour_stand",
+      "kind": "laid_wreath",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_funeral_parlour_stand_e",
+      "kind": "laid_wreath",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_pot_w",
+      "kind": "potted_palm",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_funeral_parlour_palm_pot_e",
+      "kind": "potted_palm",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_funeral_parlour_stand_FloorPad0",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 9.468561576183499e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Leg0",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0009893096031748443
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_FloorPad1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 9.468561014103411e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Leg1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0009893096077023308
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_FloorPad2",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 9.46856213826362e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Leg2",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0009893095986473572
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_FloorPad3",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 9.468561576183499e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Leg3",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0009893096031748437
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Xstretcher0.22-60.165000000000006",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.00023955269999028064
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Xstretcher0.22-59.785",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0002395526989131559
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Ystretcher0.229.535",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.00023955269891315592
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Ystretcher0.229.915",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.00023955269999028058
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Xstretcher0.855-60.165000000000006",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.00023955269266238288
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Xstretcher0.855-59.785",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0002395526915852582
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Ystretcher0.8559.535",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0002395526915852582
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_Ystretcher0.8559.915",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.0002395526926623829
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_ServingTop",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "stand_frame",
+      "volume_m3": 0.007083773771559408
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_TwigRing",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "wreath_twig",
+      "volume_m3": 0.0006473836517312612
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf0-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7274433869661184e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf01",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8905234793202736e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf1-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7680203568004586e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf11",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8793039936369615e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf2-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8006645592525071e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf21",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8915545313094651e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf3-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.820272776045166e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf31",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.9254240817414637e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf4-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8233090249640094e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf41",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.971055255951353e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf5-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8091294716658533e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf51",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0206163952672614e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf6-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7806608953624724e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf61",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0644088128107967e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf7-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7424897419142274e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf71",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0936888879402853e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf8-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.702208177059776e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf81",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.103767955142916e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf9-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6680968562016502e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf91",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0925653222197897e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf10-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6467996004786455e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf101",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0620189440221457e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf11-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6419328101858262e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf111",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.018042377037866e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf12-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6581317965255282e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf121",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.9681509049373943e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf13-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6891623965920091e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf131",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.9227176014535337e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf14-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7274927401913275e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf141",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8905209056891507e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf15-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7680203356761866e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf151",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8793039937765367e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf16-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.800671828522616e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf161",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8915610878503652e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf17-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8202536314085178e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf171",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.9254119323294534e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf18-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8232672487593373e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf181",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.971055256446109e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf19-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.8091294741478083e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf191",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.020577720016359e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf20-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.780648526355539e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf201",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0644088375211724e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf21-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7424298889727958e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf211",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.093678603419908e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf22-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.7022118341871455e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf221",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.1037400600178693e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf23-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.668096860421005e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf231",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.092565316445329e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf24-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6467938214472006e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf241",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.0620730759944514e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf25-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6419315776130456e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf251",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 2.018031007895114e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf26-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.6581849014559223e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf261",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.968142667091119e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf27-1",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.689154856501605e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_WreathLeaf271",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "key": "foliage",
+      "volume_m3": 1.9227145077307718e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_FloorPad0",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 9.468561961005984e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Leg0",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.000989309603174843
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_FloorPad1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 9.468561828062768e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Leg1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.000989309603174843
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_FloorPad2",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 9.468561961005984e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Leg2",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.000989309603174843
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_FloorPad3",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 9.468561828062768e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Leg3",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.000989309603174843
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Xstretcher0.22-63.765",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.0004372227011068153
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Xstretcher0.22-63.51499999999999",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.0004372227011068153
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Ystretcher0.228.535",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.00016168271047925677
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Ystretcher0.229.245",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.00016168271122535646
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Xstretcher0.855-63.765",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.0004372226876632825
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Xstretcher0.855-63.51499999999999",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.0004372226876632825
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Ystretcher0.8558.535",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.0001616827055605476
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_Ystretcher0.8559.245",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.00016168270630664733
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_ServingTop",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "stand_frame",
+      "volume_m3": 0.00873147346113792
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_TwigRing",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "wreath_twig",
+      "volume_m3": 0.0011141020679968782
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf0-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.6162193855144228e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf01",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.4251541291189313e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf1-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.0377799896994747e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf11",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.640912881324586e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf2-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.4380482343331974e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf21",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.0369074552679737e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf3-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.763954706677926e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf31",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.4716428042210765e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf4-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.9831280679300165e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf41",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.860936165476703e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf5-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.078102257601224e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf51",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.156151010619699e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf6-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.042180819081145e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf61",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.3306076234525944e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf7-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.8767555437005893e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf71",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.369348433741739e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf8-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.5955149629703985e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf81",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.2691498653049265e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf9-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.2233267434207108e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf91",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.0385904732319588e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf10-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.8023295670535906e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf101",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.6969137747707836e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf11-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.4103176741442015e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf111",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.2803114806995375e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf12-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.1887208753833146e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf121",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.8495481721573538e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf13-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.2792710614899954e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf131",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.5137489623393468e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf14-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.6162193859295274e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf141",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.425215301370548e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf15-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.037746569942169e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf151",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.6409128813208282e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf16-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.438031252261168e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf161",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.0369495297241652e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf17-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.763964394212229e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf171",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.4717041249469533e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf18-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.983156756662213e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf181",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.860879070292833e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf19-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.0781022573433264e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf191",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.1562052115996666e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf20-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.042177749007545e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf201",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.330599457226508e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf21-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.8767375553810643e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf211",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.3693659407021026e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf22-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.59551496455608e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf221",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.2691498721314953e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf23-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.2232718485860857e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf231",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 3.038615065902852e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf24-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.8023434071347235e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf241",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.696939041884599e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf25-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.4103176738224795e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf251",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 2.2804237659239507e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf26-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.188772349267859e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf261",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.8495980679341741e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf27-1",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.2793636143187115e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e_WreathLeaf271",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "key": "foliage",
+      "volume_m3": 1.5137969290048543e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_FootRing",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "pot_brass",
+      "volume_m3": 0.002861736693285156
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_OpenPot",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "pot_brass",
+      "volume_m3": 0.03044944625561777
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_PotBottom",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "pot_brass",
+      "volume_m3": 0.0012946893317019568
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_DisplaySoil",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "soil",
+      "volume_m3": 0.005160875713396327
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Cane0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 8.027424028230008e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Cane1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 8.742698165668995e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Cane2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 9.448904561416442e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Cane3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 0.00010160816208868725
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Cane4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 0.00010873705707532305
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.0335008425766222e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5537403372738933e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.562231452843781e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.438848281133324e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.446358331436318e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3283434933908699e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3368915551505997e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2215402130157035e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2301049222782179e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1197262114182756e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.127499185144248e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0229609873719362e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0307869188862005e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.304062027762103e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.368813588516706e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.420568196645634e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.490398655931722e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.581593918061859e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.644010800952375e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.789342215703432e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.851748748116955e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.042453707130476e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna0_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.102498109855462e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.9211868965663265e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.2390924001432943e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5452637661944732e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5739983719757777e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4285961434071055e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4598334725189253e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3176131662431766e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3487248359850801e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2124448514375882e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2409995847836612e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1111928428836255e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1379034420454352e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0147559331914325e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0415868350679355e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.232241717827398e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.487560171688268e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.347212627120393e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.588012583603271e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.519051619368749e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.745408739410563e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.729747469409958e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.945551349776772e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 5.982141196695689e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna1_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.188943779045724e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.2739926647292156e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.4387276764297137e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5516542867637204e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5712821844633845e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4351927707295798e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4548289500579193e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3255881642164143e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3434697124533983e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2202395485423716e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2374030094619174e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1187830858148734e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.137185144680633e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0202907953188285e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0399393705643949e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.278430800659327e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.475818169246293e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.403874264537285e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.57461482113676e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.565231860594845e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.720723364513669e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.782214667728858e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.930004981454313e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.031192219456374e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna2_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.189597166617273e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.6315367835132997e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.626326109760882e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5673017103258016e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5579533856240394e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4515658412092168e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4395720702828892e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3407578159205053e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.331010332647023e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2320670279140254e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2245564790566738e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1319185863824057e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.122827478796704e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0352627687038925e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0270625329036036e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.4181537368932e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.352662910817549e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.51920250562991e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.451455081702604e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.686669279971161e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.627985636821936e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.904414490845575e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.825672361907486e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.148711406701431e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna3_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.07988054605236e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.9889520012602953e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.643713371159013e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5735496838604705e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.54357887728632e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4600994441064901e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4300519570536762e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.350501429540111e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3195299426908456e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2433318789989483e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2138020191318965e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1382713915321424e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.111245800521684e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0432315984805337e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0147144130407972e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.484309227135286e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.237411835935625e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.600343625046565e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.355212741210826e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.761795549808037e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.528787622860518e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.942039636266001e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.732727378318923e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.190159843846306e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna4_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 5.991279042908174e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 3.034205537698109e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis5",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.2313483791273516e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.569260073986311e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5470170829365191e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4545596066305106e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4324881116788194e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3433501238353826e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3216949544248991e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.23669988662426e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2162495748819478e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1346012220882116e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1146661782678719e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0363037350625773e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0177711825603406e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.43637306003392e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.254271826454132e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.544302681344197e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.372846597482347e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.694442756802651e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.534444807508908e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.898863632056032e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.747202972917787e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.147395884386872e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna5_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.005430641999244e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade5",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.2670562097267836e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis6",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.4085705329525668e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5537403372738925e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5622314528443584e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4388482811333243e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.446358331367942e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3283434933919526e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3368915551844993e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2215392957096863e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2301048410708236e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1197262114166137e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1274991850827374e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0229609873185933e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.030787032186627e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.304052938761575e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.368813812053895e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.420568195145101e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.490398655924489e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.581593917339779e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.644010800945148e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.789333616432686e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.851749636257792e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.042462324855782e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna6_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.102496790269386e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade6",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.610895416980982e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis7",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.608182627016199e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5452410653038265e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5740268976562218e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4285961449625015e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4598334714658037e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3176379409266393e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.348701362602988e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2124238337341692e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2410241912245322e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1111928429573528e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1379034418726858e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0147351864793586e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0415868350679355e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.232241709724799e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.487560178760879e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.347212626539262e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.587798307916957e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.519051611638387e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.745422479956451e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.729892783194112e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.945750958008193e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 5.982006295327543e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna7_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.188754203066392e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade7",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.966294717411795e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis8",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.0733135645394189e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5516542867580097e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5712821844679375e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4351927707295803e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4548289500579184e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.325587843876595e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3434697124849846e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2202395485350712e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.237403009444932e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1187830858148734e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1371851446806337e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0202907952984455e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0399393705699605e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.278430800640537e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.475818168639145e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.403874264443316e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.574614821136765e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.565231860594853e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.720723364513666e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.78221466772886e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.930004981454307e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.031192219475887e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna8_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.189597166617279e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade8",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.9543812684140946e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis9",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.2503724154172401e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5673055468853438e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5579573544206853e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4515658412095056e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4395720711369508e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3407497916230607e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3310104969682713e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2320552853646017e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2245529008743628e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1319220296528872e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1228310664410633e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0352627686618973e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.027062532974149e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.418123419049322e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.352622998385106e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.519279605779088e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.451465454105774e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.686747238019887e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.627985636116485e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.904414481838021e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.825672361262749e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.148736181817565e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna9_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.079906791023545e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade9",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.2990949344678614e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis10",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.4307051596538103e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5735468589962842e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5435753055445308e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.460099444922388e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4300519578740565e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3505014295492916e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.319533133378288e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2433293632849657e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.213802019131897e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1382713914394784e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1112458014176688e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.043229208485432e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0147115258094007e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.484309227355739e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.237411835733241e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.600364198581478e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.355240240820042e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.761795551782737e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.528787622882194e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.942039636174205e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.732702574146175e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.190159844093503e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna10_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 5.991279051873088e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade10",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.6291445725773024e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_ArchedRachis11",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "palm_stem",
+      "volume_m3": 1.6161490016833022e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.569261239416983e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.5470152239549445e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.4545584995256512e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.43248992260747e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3433501238353822e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.3216949543790732e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2367008236642734e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.2162513819564025e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.134601222359804e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.1146661771157252e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.0363037350492059e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 1.017771181734324e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.436373059893704e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 9.254255725796716e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.544302689597144e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 8.372846589622603e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.694442757536295e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 7.534444798753613e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.898869268554245e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.747202972917786e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.147395884252433e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_Pinna11_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 6.005430641515694e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w_TerminalBlade11",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "key": "foliage",
+      "volume_m3": 2.9647430968389203e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_FootRing",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "pot_brass",
+      "volume_m3": 0.002861736693285156
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_OpenPot",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "pot_brass",
+      "volume_m3": 0.03044944625561777
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_PotBottom",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "pot_brass",
+      "volume_m3": 0.0012946893317019568
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_DisplaySoil",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "soil",
+      "volume_m3": 0.005160875713396327
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Cane0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 8.027424028230008e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Cane1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 8.742698165668995e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Cane2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 9.448904561416442e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Cane3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 0.00010160816208868725
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Cane4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 0.00010873705707532305
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.0323497762951392e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578372720166326e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578998494627141e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4430402025045071e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4419365246445021e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3323787642012207e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3328493615470353e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255326342508935e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2258811729478573e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1237293764209597e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1246504023615866e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.026453533683988e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0267490372509892e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.338318432168669e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.333294491830481e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452465376711062e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.451479499788072e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.613804017759623e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.609201859444455e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.8204997615126e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.819535549866599e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.071842752852597e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna0_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.071917041694463e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade0",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.920201349940535e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.22073706111642e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5574289373039103e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5597456968509541e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.443776685075003e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4419139606860248e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3320944630425791e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3301360132796118e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2257487315045557e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2263895185011901e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1242797882262858e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1244983181418033e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.025724412360883e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.025326530943472e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.334816390333612e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.333616718456654e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.454886517050062e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.46127236398558e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.613218979686592e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.619685181353218e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.819557872853885e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.818620235707135e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.070288585519937e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna1_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.066548422647964e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.2661718371662847e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.4019975198378965e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5574986667444108e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5599132723571607e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4417654770935244e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4434698895464588e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3323242190337568e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3320734489185443e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2265497456443756e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.227026218898095e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.124495211275585e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1230591591591345e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0261933366815168e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.026481198333856e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.337572004734911e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.323025584391693e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.458493014149356e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.450172070794077e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.619158501916035e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.610747470046482e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.812342286928902e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.822598704480096e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.076479555109497e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna2_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.082869983811471e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade2",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.6118304399242384e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.6041898937332844e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5598608207758157e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5560854173805212e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.444117825176883e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4425444518243811e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3325905181401495e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3343190958993775e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255466393980517e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2270019607813119e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1253367785252469e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.124598095421377e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0278737855384057e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0255015059999067e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.340150493134997e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.327151255807519e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452144259881105e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.459755046309629e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.623211447338519e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.61618617517041e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.82951993547041e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.809473223167736e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.072089974714002e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna3_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.061024856368032e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade3",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.962843506617796e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.6286833642619257e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5582005340700996e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5585451133856654e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4408004828703237e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4426174940617147e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3313253880345465e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.329971078946674e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255657363334563e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2264246573878176e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1236563834163792e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1242149755071838e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0252647809585722e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0255005878591263e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.338652331381557e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.337037650572786e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.443347181955324e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.447723723490466e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.601227785364377e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.615559580230193e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.829559347211783e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.821197718524159e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.075665334592311e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna4_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.074011181750416e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade4",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 3.007277256182101e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis5",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.2247225689769492e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5588922175633138e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578685753664453e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4425264254526809e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4432964560635337e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3319070273827038e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3317124480669003e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2251055082049907e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2256479031973354e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1238682145962193e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1240731252429373e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0259168209880002e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0265514181038143e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.338876277474351e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.337007613435017e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.448878457570816e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452841429948371e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.614853163309429e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.61043051661901e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.821447515633516e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.820296177375925e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.075924889838174e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna5_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.070327749310784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade5",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.2625881928444915e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis6",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.4078550478907738e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578372720165602e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578998494632926e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.443040202504508e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.441936524575548e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3323787642012936e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3328493621481174e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255317205036617e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2258810893068638e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1237293752721388e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1246504024299635e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0264535336315128e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0267490373344725e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.338309398484852e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.333294544068794e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452465375214863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.451479501131035e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.613804017037545e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.609201860166529e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.820491199993776e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.819536534244836e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.071851410805426e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna6_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.071915682512597e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade6",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.6105684414065066e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis7",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.5937980473098483e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5574289373039094e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5597456977561187e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4437987559991566e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4418879185632118e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3320971799429958e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3301379548512256e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2257487304822977e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.226389519608233e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.124279788308974e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1244736794592156e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0257220378886646e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.025326531759587e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.334639542339173e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.333837641833182e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.454886509861797e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.461272354091866e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.613379834039432e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.619699241378785e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.819557881686517e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.818620225755607e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.070288592015751e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna7_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.066548422752773e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade7",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.9582621751287475e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis8",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.0292879389253759e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5574986668151737e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5599132723889638e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4417654770935244e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4434698895464592e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.332324219031878e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.332073448918544e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2265497455608918e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2270262188772774e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.124495211275585e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1230591591591351e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0261933366597605e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0264811982908491e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.337572003864663e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.323025584944633e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.45849301391156e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.450172070851181e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.619158501916029e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.610747470046484e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.812342286928897e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.822598704480094e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.076479555248994e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna8_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.082869984092642e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade8",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.919978345093128e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis9",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.2232413836077715e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5598571265989796e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5560893772149356e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4441256691847344e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4425433843336674e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3325905173168782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3343190943781696e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255431827076061e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2269983771020239e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1253402506332657e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1246021368565321e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0278666512947626e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0255015059336254e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.340119855890959e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.327119337220105e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452144260224437e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.459755045472626e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.623211437851028e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.616186175170405e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.829519943922849e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.809465368343451e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.072183441439605e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna9_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.061051177113384e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade9",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.2659818012072752e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis10",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.4032797632981268e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5581976688769175e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.558541578004187e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4408004829392792e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4426174949677463e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.331325387916368e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3299742298187435e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2255631911095152e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.226424657387819e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1236563834354615e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1242149755942093e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0252623653310505e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0254977303031372e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.33865233885677e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.337037650557618e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.443368115543667e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.447750917623551e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.601227785381002e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.615559579521123e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.829559347263824e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.821173109291684e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.075665335256565e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna10_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.074011172741418e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade10",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.6101185158742373e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_ArchedRachis11",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "palm_stem",
+      "volume_m3": 1.6107335975017864e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_1_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5588933937639435e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_1_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.5578667271929222e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_2_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4425253165250614e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_2_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.4432982623375594e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_3_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3319070273827033e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_3_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.3317124486298183e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_4_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.225106441966666e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_4_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.2256496932102805e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_5_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.1238682146092293e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_5_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.12407409141597e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_6_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0259168210550753e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_6_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 1.0265514189299755e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_7_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.338876277347854e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_7_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 9.336991648844255e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_8_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.448878449322921e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_8_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 8.452841429955595e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_9_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.614853172074845e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_9_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 7.610430516619005e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_10_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.821453216860769e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_10_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.820296177375932e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_11_-1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.075924883969021e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_Pinna11_11_1",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 6.070327749742297e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e_TerminalBlade11",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "key": "foliage",
+      "volume_m3": 2.9646137346936116e-06
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.535,
+        0.009999999999999995,
+        60.165000000000006
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.915,
+        0.009999999999999995,
+        60.165000000000006
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.535,
+        0.009999999999999995,
+        59.785
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.915,
+        0.009999999999999995,
+        59.785
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        8.535,
+        0.009999999999999995,
+        63.765
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.245,
+        0.009999999999999995,
+        63.765
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        8.535,
+        0.009999999999999995,
+        63.51499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        9.245,
+        0.009999999999999995,
+        63.51499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wreath stand foot on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.9736,
+        0.009999999999999995,
+        59.95
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.82,
+        0.009999999999999995,
+        59.77720000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.6664,
+        0.009999999999999995,
+        59.95
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.82,
+        0.009999999999999995,
+        60.1228
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.9736,
+        0.009999999999999995,
+        63.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.82,
+        0.009999999999999995,
+        63.2772
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.6664,
+        0.009999999999999995,
+        63.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "owner": "storm_shop_funeral_parlour_floor",
+      "point": [
+        4.82,
+        0.009999999999999995,
+        63.622800000000005
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm foot ring on original shop floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_funeral_parlour_stand__foliage",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "cell": "shop_funeral_parlour",
+      "key": "foliage",
+      "triangles": 8512
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand__stand_frame",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "cell": "shop_funeral_parlour",
+      "key": "stand_frame",
+      "triangles": 3196
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand__wreath_twig",
+      "assembly": "storm_shop_funeral_parlour_stand",
+      "cell": "shop_funeral_parlour",
+      "key": "wreath_twig",
+      "triangles": 512
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e__foliage",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "cell": "shop_funeral_parlour",
+      "key": "foliage",
+      "triangles": 8512
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e__stand_frame",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "cell": "shop_funeral_parlour",
+      "key": "stand_frame",
+      "triangles": 3196
+    },
+    {
+      "name": "storm_shop_funeral_parlour_stand_e__wreath_twig",
+      "assembly": "storm_shop_funeral_parlour_stand_e",
+      "cell": "shop_funeral_parlour",
+      "key": "wreath_twig",
+      "triangles": 512
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w__foliage",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "cell": "shop_funeral_parlour",
+      "key": "foliage",
+      "triangles": 28704
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w__palm_stem",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "cell": "shop_funeral_parlour",
+      "key": "palm_stem",
+      "triangles": 5116
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w__pot_brass",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "cell": "shop_funeral_parlour",
+      "key": "pot_brass",
+      "triangles": 1920
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_w__soil",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_w",
+      "cell": "shop_funeral_parlour",
+      "key": "soil",
+      "triangles": 512
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e__foliage",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "cell": "shop_funeral_parlour",
+      "key": "foliage",
+      "triangles": 28704
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e__palm_stem",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "cell": "shop_funeral_parlour",
+      "key": "palm_stem",
+      "triangles": 5116
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e__pot_brass",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "cell": "shop_funeral_parlour",
+      "key": "pot_brass",
+      "triangles": 1920
+    },
+    {
+      "name": "storm_shop_funeral_parlour_palm_pot_e__soil",
+      "assembly": "storm_shop_funeral_parlour_palm_pot_e",
+      "cell": "shop_funeral_parlour",
+      "key": "soil",
+      "triangles": 512
+    }
+  ],
+  "triangles": 96944,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/funeral_foliage.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_funeral_parlour",
+        "parts": [
+          {
+            "name": "storm_shop_funeral_parlour_stand__foliage",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant",
+            "tint": [
+              0.25,
+              0.43,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_stand__stand_frame",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_stand__wreath_twig",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_stand_e__foliage",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant",
+            "tint": [
+              0.25,
+              0.43,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_stand_e__stand_frame",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_stand_e__wreath_twig",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_w__foliage",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant",
+            "tint": [
+              0.25,
+              0.43,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_w__palm_stem",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_w__pot_brass",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_w__soil",
+            "key": "soot",
+            "tile": 0.55,
+            "catalog_key": "soot"
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_e__foliage",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant",
+            "tint": [
+              0.25,
+              0.43,
+              0.18,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_e__palm_stem",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_e__pot_brass",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_funeral_parlour_palm_pot_e__soil",
+            "key": "soot",
+            "tile": 0.55,
+            "catalog_key": "soot"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_funeral_parlour_stand",
+            "key": "wood_dark",
+            "low": [
+              9.5,
+              0.05,
+              59.75
+            ],
+            "high": [
+              9.95,
+              0.91,
+              60.2
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_wreath",
+            "key": "plant",
+            "low": [
+              9.45,
+              0.91,
+              59.72
+            ],
+            "high": [
+              10.0,
+              1.05,
+              60.230000000000004
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_stand_e",
+            "key": "wood_dark",
+            "low": [
+              8.5,
+              0.05,
+              63.48
+            ],
+            "high": [
+              9.28,
+              0.91,
+              63.8
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_wreath_e",
+            "key": "plant",
+            "low": [
+              8.46,
+              0.91,
+              63.44
+            ],
+            "high": [
+              9.32,
+              1.05,
+              63.84
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_palm_pot_w",
+            "key": "brass_dull",
+            "low": [
+              4.58,
+              0.05,
+              59.68000000000001
+            ],
+            "high": [
+              5.0600000000000005,
+              0.5700000000000001,
+              60.22
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_palm_w",
+            "key": "plant",
+            "low": [
+              4.45,
+              0.58,
+              59.5
+            ],
+            "high": [
+              5.2,
+              1.8599999999999999,
+              60.400000000000006
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_palm_pot_e",
+            "key": "brass_dull",
+            "low": [
+              4.58,
+              0.05,
+              63.18
+            ],
+            "high": [
+              5.0600000000000005,
+              0.5700000000000001,
+              63.72
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_palm_e",
+            "key": "plant",
+            "low": [
+              4.45,
+              0.58,
+              63.0
+            ],
+            "high": [
+              5.2,
+              1.8599999999999999,
+              63.9
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "eafe453b54c0a54bb8ad6af4baf669b01e6ad2107826da03259dc8e39c672b36",
+  "source_bindings": {
+    "art/data/funeral_foliage/source_plan.json": "6ca4638ca8716524759adb3d8c9c5023cbfea002de8644d03322a52e8badba14",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_funeral_foliage.py": "3b2f5f9a50bac9c9bc1eb0da73727b4ca83404f0a391e0bc5307a6961bd018d1",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/funeral_foliage.glb.import": "abe43769280c821c3466dae6da02dd83dd03416f6016b6d190de7aa9102878ba",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/plant/material.json": "d954507b80ab2ec6f26e16d34512f28de4caa89a37cc2790423adf8641faedd6",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/soot/material.json": "9815f25071c75361fb2b6bcd4c1dce3582c99494e34ec03051940c77eeeb4051",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_ai_materials_plant_b_albedo.png": "97a8055069a3fef322f4cca6b9fb2189eab10c3b367efc9c9dbec16531e2108e",
+    "game/assets/building/textures/T_ai_materials_plant_b_rough.png": "dcb25fca0f414bb39dcec0b1247d416a8a80f215436e8c55a267b0bc274aee62",
+    "game/assets/building/textures/T_ai_materials_plant_b_normal.png": "eedcb1fbb83c364e6ee0d5fe4f7441d727b1b781a161076402fb36bc88bca818",
+    "game/assets/building/textures/T_ai_materials_brass_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_rough.png": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d",
+    "game/assets/building/textures/T_ai_materials_brass_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_library_organic_leaf_surface_albedo.png": "acb3efc14d7ee028576415bd902320c6815c105fae6f086f005829bd34f9db3e",
+    "game/assets/building/textures/T_library_organic_leaf_surface_rough.png": "98502306cc9fd85e64d7a701e1973675f7caa13f2eda74e66edc9251352e941a",
+    "game/assets/building/textures/T_library_organic_leaf_surface_normal.png": "91f2054374460063854bbf31eb2eb62e323d23e48114f4b34086563360352d2b",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
+    "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf": "156126eccebb5136d505943080fd8ec7d25ec84880f3ab82d9e865cb0e238be8",
+    "game/assets/building/floor_01_cells/shop_funeral_parlour.bin": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+    "art/blender/scripts/inspect_funeral_foliage.py": "ed391dd6b430589e56b0e8c9b2b6ad60da2beaddf079d53e972d6a7002fc196c",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "game/assets/props/funeral_fittings.glb": "1ff08377281c02f8ddd6f7f91376a3ae3560b01cd2dbbbc1697808dd57cad236",
+    "game/data/orison_v2/funeral_fittings.json": "154fc040f6d8eb5d85ebca27ee58b602d0c2f0f0812f67b02ae2f87faec2fd77",
+    "game/assets/props/funeral_drapes.glb": "d0c328fa87393c3c9bec5cd084d6ad8e77a40e4bd2a220534cb82ec73826a54b",
+    "game/data/orison_v2/funeral_drapes.json": "4b6dffc14219af79a6704d8bf7336520fec1218ea9f94eaacd0b30fde7064782"
+  },
+  "open_work": [
+    "Eight immutable source records retain identities, hidden poses and source-owned roles. Two existing wreaths remain laid arrangements at their original serving height; no new flowers, funeral rite, lettering or occupancy is invented.",
+    "ADAPTATION: open brass pots, display soil and small floor-seated foot rings bear clusters of slender canes and curved pinnate fronds. Actual foliage stays within the source plan and original 1.86m maximum.",
+    "ADAPTATION: four-legged floor-seated timber stands retain their original top plans and 0.91m support height. Open leafy wreath rings replace the solid green masses within their original plans and 1.05m maximum.",
+    "Existing plant catalogue maps supply leaf surface detail with declared local tint. Original timber retains its shipping maps; the registered aged-brass finish is local to the two brass pots and soot is local display soil. Original retained brass surfaces keep their shipping finish. No new map, material key, shared shader or architecture changes.",
+    "Existing curtains, seating, lectern, empty bier, rear boundary, doors, hours, keys, saves and services retain their owners. No plant simulation, growth, ritual, chapel access or independent operation is inferred.",
+    "Ignored native preparation needs manifold/stock joins, original envelope, actual support, furniture separation, metre charts and rendered review before installation. It grants no runtime proof, route, capacity or acceptance."
+  ]
+}
