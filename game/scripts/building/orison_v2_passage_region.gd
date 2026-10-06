@@ -30,6 +30,7 @@ const FuneralDrapes := preload("res://scripts/building/orison_v2_funeral_drapes.
 const FuneralFoliage := preload("res://scripts/building/orison_v2_funeral_foliage.gd")
 const RadioBench := preload("res://scripts/building/orison_v2_radio_bench.gd")
 const RadioApparatus := preload("res://scripts/building/orison_v2_radio_apparatus.gd")
+const RadioStock := preload("res://scripts/building/orison_v2_radio_stock.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -179,6 +180,9 @@ func _ready() -> void:
 			return
 		if not RadioApparatus.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native radio test instruments refused: "+identity)
+			return
+		if not RadioStock.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native stored radio valves refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

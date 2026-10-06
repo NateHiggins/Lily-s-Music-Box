@@ -789,3 +789,14 @@ game/scripts/building/orison_v2_radio_apparatus.gd -text
 game/tests/orison_v2_radio_apparatus_test.gd -text
 game/assets/props/radio_apparatus.glb.import -text
 art/renders/orison_v2/radio_apparatus_20261006/** -text
+
+art/data/radio_stock/** -text
+art/blender/scripts/build_radio_stock.py -text
+art/blender/scripts/inspect_radio_stock.py -text
+art/blender/radio_stock_construction.json -text
+game/data/orison_v2/radio_stock.json -text
+game/tests/fixtures/orison_radio_stock.json -text
+game/scripts/building/orison_v2_radio_stock.gd -text
+game/tests/orison_v2_radio_stock_test.gd -text
+game/assets/props/radio_stock.glb.import -text
+art/renders/orison_v2/radio_stock_20261006/** -text

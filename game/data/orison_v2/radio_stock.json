@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_stock.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve0",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve1",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve10",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve11",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve12",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve13",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve2",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve3",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve4",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve5",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve6",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve7",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve8",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__milk_glass__valve9",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve0",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve1",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve10",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve11",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve12",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve13",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve2",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve3",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve4",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve5",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve6",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve7",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve8",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_radio_service_valve_sh0__valve_base__valve9",
+          "key": "milk_glass",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_valve_sh0",
+          "key": "timber",
+          "low": [
+            19.6,
+            0.85,
+            58.35999999999999
+          ],
+          "high": [
+            21.6,
+            0.89,
+            58.64999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve_sh1",
+          "key": "timber",
+          "low": [
+            19.6,
+            1.27,
+            58.35999999999999
+          ],
+          "high": [
+            21.6,
+            1.31,
+            58.64999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve_sh2",
+          "key": "timber",
+          "low": [
+            19.6,
+            1.69,
+            58.35999999999999
+          ],
+          "high": [
+            21.6,
+            1.73,
+            58.64999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve_sh3",
+          "key": "timber",
+          "low": [
+            19.6,
+            2.11,
+            58.35999999999999
+          ],
+          "high": [
+            21.6,
+            2.15,
+            58.64999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve0",
+          "key": "milk_glass",
+          "low": [
+            21.35,
+            0.89,
+            58.48
+          ],
+          "high": [
+            21.45,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve1",
+          "key": "milk_glass",
+          "low": [
+            21.05,
+            0.89,
+            58.48
+          ],
+          "high": [
+            21.15,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve2",
+          "key": "milk_glass",
+          "low": [
+            20.75,
+            0.89,
+            58.48
+          ],
+          "high": [
+            20.85,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve3",
+          "key": "milk_glass",
+          "low": [
+            20.45,
+            0.89,
+            58.48
+          ],
+          "high": [
+            20.55,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve4",
+          "key": "milk_glass",
+          "low": [
+            20.15,
+            0.89,
+            58.48
+          ],
+          "high": [
+            20.25,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve5",
+          "key": "milk_glass",
+          "low": [
+            19.85,
+            0.89,
+            58.48
+          ],
+          "high": [
+            19.95,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve6",
+          "key": "milk_glass",
+          "low": [
+            19.55,
+            0.89,
+            58.48
+          ],
+          "high": [
+            19.65,
+            1.02,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve7",
+          "key": "milk_glass",
+          "low": [
+            21.35,
+            1.73,
+            58.48
+          ],
+          "high": [
+            21.45,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve8",
+          "key": "milk_glass",
+          "low": [
+            21.05,
+            1.73,
+            58.48
+          ],
+          "high": [
+            21.15,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve9",
+          "key": "milk_glass",
+          "low": [
+            20.75,
+            1.73,
+            58.48
+          ],
+          "high": [
+            20.85,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve10",
+          "key": "milk_glass",
+          "low": [
+            20.45,
+            1.73,
+            58.48
+          ],
+          "high": [
+            20.55,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve11",
+          "key": "milk_glass",
+          "low": [
+            20.15,
+            1.73,
+            58.48
+          ],
+          "high": [
+            20.25,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve12",
+          "key": "milk_glass",
+          "low": [
+            19.85,
+            1.73,
+            58.48
+          ],
+          "high": [
+            19.95,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_valve13",
+          "key": "milk_glass",
+          "low": [
+            19.55,
+            1.73,
+            58.48
+          ],
+          "high": [
+            19.65,
+            1.8599999999999999,
+            58.58
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

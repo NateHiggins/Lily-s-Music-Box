@@ -217626,6 +217626,538 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "7c07cf83075957ad",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve0",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a23e8eac57e14dbf",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve1",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3d206ac9aad224fa",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve10",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "440ee71fb5edc04a",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve11",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b3fa0e137e35ea77",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve12",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bc2932f016f161cf",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve13",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "64fcabb9fa24a03c",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve2",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a5ef18f581901556",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve3",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "799fbb1f0a852fe8",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve4",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5034a90ed4a6566b",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve5",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "39b198869cdf96c5",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve6",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b25b4087e5656f37",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve7",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "58074c15c8cb2130",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve8",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e9d6979a5d706645",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve9",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "679d31639ccee90e",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve_sh0",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a16f38038acf295c",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve_sh1",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8b671874b785668f",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve_sh2",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "de31983bd2c8d29e",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_valve_sh3",
+   "file": "game/data/orison_v2/radio_stock.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "52c9c474fd381ed7",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_radio_stock_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
