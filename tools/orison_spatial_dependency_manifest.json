@@ -219849,6 +219849,94 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "bef515e03f729fc0",
+   "kind": "id_reference",
+   "token": "storm_shopcab_pawnbroker0",
+   "file": "game/data/orison_v2/pawn_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_record/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5e4ffbfab87d04cd",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_pawn_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9c48632f5f01be0c",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_pawn_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    74
+   ],
+   "count": 1,
+   "context": [
+    "\"pawn_receiving_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -164,6 +164,22 @@ func _check_specialist_fittings() -> bool:
 	for draw: MeshInstance3D in news_receiving_draws:
 		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
 		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed news_receiving physical faces match visible faces: " + str(draw.name)): return false
+	var pawn_cell: Node3D = world.passage_region.cell_nodes.shop_pawnbroker
+	var pawn_receiving := pawn_cell.get_node_or_null("PawnReceiving") as Node3D
+	if not _require(pawn_receiving != null, "reconstructed native pawn_receiving chassis exists"): return false
+	var pawn_receiving_fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_pawn_receiving.json"))
+	if not _require(FileAccess.get_sha256(str(pawn_receiving_fixture.runtime.asset)) == pawn_receiving_fixture.asset_sha256, "reconstructed pawn_receiving chassis binds its native export"): return false
+	var pawn_receiving_retired: Dictionary = pawn_receiving.get_meta("removed_triangles")
+	for source_draw: Dictionary in pawn_receiving_fixture.runtime.original_draws:
+		var original := pawn_cell.get_node(str(source_draw.name)) as MeshInstance3D
+		if not _require(not original.visible and int(pawn_receiving_retired.get(source_draw.name, -1)) == int(source_draw.expected_triangles), "reconstructed assembled source draw stays retired: " + str(source_draw.name)): return false
+	var pawn_old_hull := pawn_receiving.get_meta("original_hull") as StaticBody3D
+	if not _require(pawn_old_hull.collision_layer == 0 and pawn_old_hull.collision_mask == 0 and pawn_old_hull.get_child(0).disabled and int(pawn_receiving_retired.get(pawn_receiving_fixture.runtime.hull_name, -1)) == 12, "reconstructed exact source hull remains disabled"): return false
+	var pawn_receiving_draws := pawn_receiving.find_children("*", "MeshInstance3D", true, false)
+	if not _require(pawn_receiving_draws.size() == pawn_receiving_fixture.parts.size(), "reconstructed native pawn_receiving partitions remain complete"): return false
+	for draw: MeshInstance3D in pawn_receiving_draws:
+		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
+		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed pawn_receiving physical faces match visible faces: " + str(draw.name)): return false
 	return true
 
 func _check_ceiling_detail() -> void:

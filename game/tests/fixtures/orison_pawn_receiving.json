@@ -1,0 +1,3342 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shopcab_pawnbroker0",
+      "asm": "arcade_cab",
+      "at": [
+        18.55,
+        -55.019999999999996
+      ],
+      "yaw": 180.0,
+      "exterior": true,
+      "variant": 1,
+      "batch": "shop_pawnbroker",
+      "zone": "PASSAGE"
+    }
+  ],
+  "original_primitives": [
+    {
+      "kind": "box",
+      "args": [
+        "fabric_cool",
+        -0.33,
+        -0.36,
+        0.02,
+        0.33,
+        0.36,
+        1.68
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.31,
+        -0.49,
+        0.95,
+        0.31,
+        -0.33999999999999997,
+        1.06
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "terracotta",
+        -0.17,
+        -0.425,
+        1.06,
+        1.075,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        -0.05000000000000002,
+        -0.425,
+        1.06,
+        1.075,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        0.06999999999999998,
+        -0.425,
+        1.06,
+        1.075,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        -0.2,
+        -0.44999999999999996,
+        1.06,
+        1.14,
+        0.008,
+        0.008,
+        6
+      ],
+      "triangles": 24
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.30000000000000004,
+        -0.38,
+        1.0999999999999999,
+        0.30000000000000004,
+        -0.3,
+        1.59
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "screen",
+        -0.27,
+        -0.365,
+        1.14,
+        0.27,
+        -0.355,
+        1.55
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "milk_glass",
+        -0.38,
+        -0.42,
+        1.68,
+        0.38,
+        -0.26,
+        1.9
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "terracotta",
+        -0.39,
+        -0.36,
+        0.55,
+        -0.36,
+        0.26,
+        1.7999999999999998
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "terracotta",
+        0.36,
+        -0.36,
+        0.55,
+        0.39,
+        0.26,
+        1.7999999999999998
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "brass",
+        -0.09,
+        -0.372,
+        0.38,
+        0.09,
+        -0.36,
+        0.55
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        0.0,
+        -0.38,
+        0.44,
+        0.455,
+        0.012,
+        0.012,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.3,
+        0.335,
+        0.24,
+        0.315
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.35,
+        0.335,
+        0.24,
+        0.365
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.4,
+        0.335,
+        0.24,
+        0.41500000000000004
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.45,
+        0.335,
+        0.24,
+        0.465
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "hull",
+      "args": [
+        -0.39,
+        -0.5,
+        0.0,
+        0.39,
+        0.36,
+        1.9
+      ],
+      "triangles": 12
+    }
+  ],
+  "original_assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566",
+  "assemblies": [
+    {
+      "id": "storm_shopcab_pawnbroker0",
+      "kind": "period_receiving_chassis",
+      "cell": "shop_pawnbroker",
+      "floor": {
+        "id": "storm_shop_pawnbroker_floor",
+        "rect": [
+          17.0,
+          -55.49999999999999,
+          23.0,
+          -51.099999999999994
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_pawnbroker",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shopcab_pawnbroker0_FloorFoot0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298752
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FloorFoot1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298757
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FloorFoot2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298757
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FloorFoot3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_Bottom",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.014233548925814722
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CellTray",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.016627809320242617
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_LeftWall",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.036567378477901584
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RearWall",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.03148627854081629
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_Crown",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.016609468872310518
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RightFrameLower",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0008032615874662742
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RightFrameUpper",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0206569209749457
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RightFrameFront",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0024757615997654152
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RightFrameRear",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0033380016716397292
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ServiceDoor",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0076911537453599275
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ServiceHinge0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726826385198e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_HingeLeaf0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.0899702014529656e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ServiceHinge1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726826385198e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_HingeLeaf1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.0899701119725947e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ServiceLatch",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 4.532330059736429e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_InsideSchematic",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "paper",
+      "volume_m3": 0.00030767767620270116
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramRail0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramRail1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215112660342576e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131639824996e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214691473094832e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214953014074035e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215172585679863e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321436539596869e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215206014298583e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214796748577194e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926521184e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32167966060078e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321560012561729e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904595e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214560732560152e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737093e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216793664937066e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482166542304e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272966782e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155170135e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439116999048e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215198755679686e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975502704436e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214708792231917e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215080404958853e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225384321557e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32144833844904e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215056343004824e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214724380390147e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975529276803e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321519868891554e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391169990494e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155171425e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321479027296584e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216429855138476e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737296e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321456073256002e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904723e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32156001256171e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216428545404657e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321535593161622e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321478640147944e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429729e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321436539596869e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215172585675417e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952981228926e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214695763895803e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151190480753e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve0_47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321359610743167e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead00",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead01",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramGrid0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407484715483325e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521993509801e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055173627496e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467332285396e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935907377425e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321513145288614e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320004184293e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215253094370165e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847835354e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214820063593015e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216805937118952e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215649860049372e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214572468316887e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457196189973e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215643777711655e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216802996048225e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214843514980275e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041295866e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215215391340996e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321431859471666e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321510678636682e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495629362099e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214671450805915e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321506600368019e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214333609096773e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214590657195687e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055363872453e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214673348027484e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495632019342e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215106719602803e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594716704e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521539134232e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041295048e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215342637501298e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216419912940886e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321564454058291e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214571961899744e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214572468316863e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215650622920195e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216422276361402e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215319761962814e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847836173e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321525309436884e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320004184243e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452881768e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321493587453226e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214671401682227e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215065841417232e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve1_47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213704330156736e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047932295289895e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879518775219105e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramGrid1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407480692210544e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321511266034257e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215056152759868e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321472435521661e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214953014074022e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521977255855e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391382346592e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429858e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415442794e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926521184e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679660600779e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617292e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109003893e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463939146085e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321559443373709e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493707e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482166542304e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821163392186e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155170135e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183612587e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146286903115e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975502704436e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214695813019495e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151352743707e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225384321557e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214483384490397e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321513183006995e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469149826836e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32149755292768e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146220139155e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183612595e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155171425e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321481081629273e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642985513847e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32155944337373e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463939146072e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109004018e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617094e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642854540465e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321535593161621e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415443733e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429729e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439138234659e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215219772554305e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952981228934e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214708743108216e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32150802426959e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramValve2_47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321359610743167e-09
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465846e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramLead21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 3.887964264834659e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_DiagramGrid2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748471548333e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveRack",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.006891911574742713
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveSocket0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0001929699252697991
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveEnvelope0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894364987967
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveSocket1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992494766512
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveEnvelope1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "milk_glass",
+      "volume_m3": 0.000589189437805908
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveSocket2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992679874664
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ValveEnvelope2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894358992886
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_WetCell0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.00924714355642503
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_WetCellLid0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.001149744921899267
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CellTerminal0_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989738e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CellTerminal0_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989737e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_WetCell1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247143482102222
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_WetCellLid1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0011497449452491054
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CellTerminal1_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709844e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CellTerminal1_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709843e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ControlDeck",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.010358507615390294
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_Button0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626983968478e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_Button1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383628212949857e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_Button2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626844817743e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ExistingStick",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 1.6581120392411466e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FrontLower",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.006400837969117042
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FrontUpper",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.002311537948607576
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FrontLeft",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00039714294759944635
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FrontRight",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00039714296682436174
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleCloth",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 0.0008254157536167978
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561788654473
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856244281926
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856171439915
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleBar6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleRailBottom",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851670264644464
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_GrilleRailTop",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.0002085167033581582
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ScopeFascia",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0070639147891985695
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CircularScopeBezel",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.0022126249694096934
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ScopeCasing",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0007522385797529432
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_ScopeRear",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0025158070291071252
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CardBacking",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.01019430974990958
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CardFrameLeft",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.00019950470055919933
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CardFrameRight",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.00019950469382230845
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CardFrameBottom",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.0005607497103210999
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CardFrameTop",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.0007011467124258588
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim-1Front",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0022486617427319973
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim-1Rear",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0018736716731063893
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim-1Top",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0006503167127126069
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RimBridge-1_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.2433392159884333e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RimBridge-1_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.2433433791126088e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim1Front",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0022486617427319973
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim1Rear",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0018736716731063893
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_SideRim1Top",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite",
+      "volume_m3": 0.0006503167127126069
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RimBridge1_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.2433392159884337e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_RimBridge1_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 1.2433433791126085e-05
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinPlate",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 0.0006105336111823958
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinLatch",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 4.919636261090215e-06
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinScrew00",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632958e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinScrew01",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.204259171644012e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinScrew10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632958e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_CoinScrew11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "brass_dull",
+      "volume_m3": 2.204259171644012e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837968677607e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103088734208007e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047859272198759e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965770667178371e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857718848532502e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724829605665402e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592296283464e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696791347772e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.19310582557448e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978010992439533e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761730483797e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505033428825826e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252513748512975e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993137829511838e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729897258412015e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465850665546164e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204115187911642e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782977597969e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.6998649700336594e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463213601826105e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.240465888660594e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.033966933133816e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8456227934801186e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6769007570979835e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.52871930063641e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4014418056293365e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2948844680817795e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2084319379172937e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.141117103269576e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0919157403744947e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0597634733475767e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.043906670125027e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.04390667009289e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.059772450398585e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0919053362349704e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1411257622469256e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.208423635085709e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2948936042547797e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4014418037500276e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.5287193008631866e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.67690075714729e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.845617238566485e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.033966922368288e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.240466665776317e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4632102971745746e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699861972003638e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782512806744e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204118778193428e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore48",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465851734417056e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore49",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729894228414579e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore50",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993136170889185e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore51",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252511881744805e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore52",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.50503208042063e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore53",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761727650381e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore54",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978001868109708e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore55",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.193105821934543e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore56",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.39069678773209e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore57",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592663349046e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore58",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724831978670517e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore59",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857715281809495e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore60",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965771553588973e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore61",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047855881559672e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore62",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103092452129592e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexCore63",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837965156476e-07
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.692533456336936e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6694715427955486e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6279260938852464e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.57399823966315e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.511480331012294e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.438959752153476e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.349594494587244e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.2352072537339267e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.0910594320036074e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.920895412693251e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.737610013840448e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.559118278378842e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.400548492398534e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.266618620028469e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.147880593085137e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.023211415085217e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8695799395772985e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6749114936703935e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.448021502902503e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.219007809334359e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0275315523451686e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.904246376537904e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8551507546367348e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8563220468681154e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8613377074133522e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8221014436827424e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7153800272004195e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5580463079260774e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3990982505161474e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2922820667125838e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.270339902432039e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7502404117789944e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7812507178595147e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3132953116652578e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.281745474054733e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3397397977610556e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4753202274587873e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6466187973737426e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7984973328588757e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.891159169798494e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9219846023060628e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9245069948906732e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9475643323318485e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.029932077238926e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.184520962429715e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.395841732572445e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.629530809069737e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.849118075420467e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_48",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0321332899226675e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_49",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.1772773789834576e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_50",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300605369280366e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_51",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4242292695632505e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_52",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.564869992805048e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_53",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.7267189051072136e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_54",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.901371444428116e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_55",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.072872846220204e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_56",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.22548422615183e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_57",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.3501238638955625e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_58",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.446393207688974e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_59",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.520637640875928e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_60",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.580387004274693e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_61",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.630036478814237e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_62",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.66890325726795e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid0_63",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6918298097788196e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_0",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6954850062974426e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_1",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.681577077894419e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_2",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.64969806404015e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_3",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5944216890066625e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_4",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5132767428792685e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_5",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.409394686468998e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_6",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.291428640976146e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_7",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.1701903488667476e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_8",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.052964715810703e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_9",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.938957736914996e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_10",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.8189425518157915e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_11",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.6784479208490246e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_12",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.5059690136206996e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_13",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.3009196624398617e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_14",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.077115876110643e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_15",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8599746508003874e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_16",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6763588613557744e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_17",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.542083043168123e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_18",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.452706520167373e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_19",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.3828230530128505e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_20",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.295797072777179e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_21",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.161908642671347e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_22",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.976816287492731e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_23",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.768693541501203e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_24",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.586514976576732e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_25",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4747169859302938e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_26",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4520996372194427e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_27",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5036723829394878e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_28",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5849341868680828e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_29",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6387099928041092e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_30",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6234190541062293e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_31",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8853539696459232e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_32",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8554502736350788e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_33",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.577406461853469e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_34",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6500640497111756e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_35",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6474471854442263e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_36",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5869458091646442e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_37",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5183264286961084e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_38",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.497028206273788e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_39",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5581518239487663e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_40",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7045222482415363e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_41",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 2.906926489946477e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_42",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.11741842312715e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_43",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.293399621538628e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_44",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4180123152905476e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_45",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.5051052009245905e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_46",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.587145467310735e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_47",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.696615763088021e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_48",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8511821101247715e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_49",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.047817246167142e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_50",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.26695033858906e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_51",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4822549212951186e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_52",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.672678224431067e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_53",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.829872525004185e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_54",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 4.9585468041399914e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_55",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.071094891476293e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_56",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.179903761998726e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_57",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.290895244468461e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_58",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.401841850836363e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_59",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.504112426774507e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_60",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.588041875739611e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_61",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.647545247156823e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_62",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6821980014395184e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexBraid1_63",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6960603077836305e-08
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0_FlexGrommet",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "key": "bakelite_black",
+      "volume_m3": 1.0787709518271347e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shopcab_pawnbroker0",
+      "owner": "storm_shop_pawnbroker_floor",
+      "point": [
+        18.82,
+        0.009999999999999995,
+        54.72
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_pawnbroker0",
+      "owner": "storm_shop_pawnbroker_floor",
+      "point": [
+        18.82,
+        0.009999999999999995,
+        55.31999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_pawnbroker0",
+      "owner": "storm_shop_pawnbroker_floor",
+      "point": [
+        18.28,
+        0.009999999999999995,
+        54.72
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_pawnbroker0",
+      "owner": "storm_shop_pawnbroker_floor",
+      "point": [
+        18.28,
+        0.009999999999999995,
+        55.31999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "bakelite",
+      "triangles": 6220
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite__service_panel",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite_black",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "bakelite_black",
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite_black__schematic_traces",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "bakelite_black",
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__brass_dull",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "brass_dull",
+      "triangles": 3956
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__brass_dull__service_latch",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "brass_dull",
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__copper_aged",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "copper_aged",
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__enamel_appliance",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "enamel_appliance",
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__fabric_warm",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "fabric_warm",
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__milk_glass",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "milk_glass",
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__paper",
+      "assembly": "storm_shopcab_pawnbroker0",
+      "cell": "shop_pawnbroker",
+      "key": "paper",
+      "triangles": 188
+    }
+  ],
+  "triangles": 39920,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/pawn_receiving.glb",
+    "tolerance": 2e-05,
+    "source_record": {
+      "id": "storm_shopcab_pawnbroker0",
+      "asm": "arcade_cab",
+      "at": [
+        18.55,
+        -55.019999999999996
+      ],
+      "yaw": 180.0,
+      "exterior": true,
+      "variant": 1,
+      "batch": "shop_pawnbroker",
+      "zone": "PASSAGE"
+    },
+    "original_draws": [
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite",
+        "key": "bakelite",
+        "expected_triangles": 128,
+        "low": [
+          18.2549991607666,
+          0,
+          54.69499969482422
+        ],
+        "high": [
+          18.844999313354492,
+          0.029999999329447746,
+          55.345001220703125
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black",
+        "key": "bakelite_black",
+        "expected_triangles": 128,
+        "low": [
+          18.21500015258789,
+          0.30000001192092896,
+          54.529998779296875
+        ],
+        "high": [
+          18.860000610351562,
+          1.590000033378601,
+          55.2599983215332
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass",
+        "key": "brass",
+        "expected_triangles": 12,
+        "low": [
+          18.459999084472656,
+          0.3799999952316284,
+          54.64799880981445
+        ],
+        "high": [
+          18.639999389648438,
+          0.550000011920929,
+          54.65999984741211
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_cool",
+        "key": "fabric_cool",
+        "expected_triangles": 12,
+        "low": [
+          18.219999313354492,
+          0.019999999552965164,
+          54.65999984741211
+        ],
+        "high": [
+          18.8799991607666,
+          1.6799999475479126,
+          55.380001068115234
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel",
+        "key": "enamel",
+        "expected_triangles": 64,
+        "low": [
+          18.464000701904297,
+          1.059999942779541,
+          54.57899856567383
+        ],
+        "high": [
+          18.615999221801758,
+          1.0750000476837158,
+          54.611000061035156
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_milk_glass",
+        "key": "milk_glass",
+        "expected_triangles": 12,
+        "low": [
+          18.170000076293945,
+          1.6799999475479126,
+          54.599998474121094
+        ],
+        "high": [
+          18.93000030517578,
+          1.899999976158142,
+          54.7599983215332
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_screen",
+        "key": "screen",
+        "expected_triangles": 12,
+        "low": [
+          18.280000686645508,
+          1.1399999856948853,
+          54.654998779296875
+        ],
+        "high": [
+          18.81999969482422,
+          1.5499999523162842,
+          54.665000915527344
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_terracotta",
+        "key": "terracotta",
+        "expected_triangles": 56,
+        "low": [
+          18.15999984741211,
+          0.550000011920929,
+          54.57899856567383
+        ],
+        "high": [
+          18.940000534057617,
+          1.7999999523162842,
+          55.279998779296875
+        ]
+      }
+    ],
+    "hull_name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull",
+    "raw_hull_name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull-colonly",
+    "hull_triangles": 12,
+    "hull_low": [
+      18.15999984741211,
+      0,
+      54.52000045776367
+    ],
+    "hull_high": [
+      18.940000534057617,
+      1.899999976158142,
+      55.380001068115234
+    ],
+    "parts": [
+      {
+        "name": "storm_shopcab_pawnbroker0__bakelite",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 6220
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__bakelite__service_panel",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 188
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__bakelite_black",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 3280
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__bakelite_black__schematic_traces",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 5668
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__brass_dull",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 3956
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__brass_dull__service_latch",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 124
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__copper_aged",
+        "key": "copper_aged",
+        "catalog_key": "copper_aged",
+        "tile": 0.4,
+        "triangles": 368
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__enamel_appliance",
+        "key": "enamel_appliance",
+        "catalog_key": "enamel_appliance",
+        "tile": 0.72,
+        "triangles": 936
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__fabric_warm",
+        "key": "fabric_warm",
+        "catalog_key": "fabric_warm",
+        "tile": 0.7,
+        "triangles": 8636
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__milk_glass",
+        "key": "milk_glass",
+        "catalog_key": "milk_glass",
+        "tile": 0.5,
+        "triangles": 10356
+      },
+      {
+        "name": "storm_shopcab_pawnbroker0__paper",
+        "key": "paper",
+        "catalog_key": "paper",
+        "tile": 0.5,
+        "triangles": 188
+      }
+    ]
+  },
+  "asset_sha256": "9f963737dbad1bc150a1f28447262d06d1a0d13fca0b5d4745ba5c2eb5f1ad25",
+  "fitted_datums": {
+    "floor_top": 0.009999999999999995,
+    "maximum": 1.9,
+    "scope_centre_local": [
+      0,
+      1.345,
+      -0.386
+    ],
+    "scope_diameter": 0.41,
+    "bezel_inner_radius": 0.2058,
+    "service_panel_closed": true
+  },
+  "source_bindings": {
+    "art/data/pawn_receiving/source_plan.json": "634b7d4ebaebc94caeaba65ea26b574f42dd433930d3f55b9a8c13964aa611a3",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_pawn_receiving.py": "e986ecbc9c87562ad71639003c93b3e1dc95478804ea33e81ecaa7662fd422aa",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/pawn_receiving.glb.import": "9009409b7fe6a1ed86b55754be1defaa5067210c0fbb6d7dd78d1060fe7d7c0d",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/floor_01_cells/shop_pawnbroker.gltf": "7c8a009e1a5cefeb2767bd83b58a8b6fae400b248049f484032bd6480a84d6b2",
+    "game/assets/building/floor_01_cells/shop_pawnbroker.bin": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
+    "art/blender/scripts/inspect_pawn_receiving.py": "daa7d02d3c52d5bc7d19e73f30929440654fd3d2198fbcfa8339cd71e2557d58",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17"
+  },
+  "open_work": [
+    "Bible VIII.5.g governs this period ADAPTATION of the exact variant-1 chassis. Bakelite case, brass circular bezel, cloth grille, passive valves/wet cells and braided flex retain the original pose, control datums and TOWER OF ASH owner. The wider 1.68..1.90m header and exact side-fin envelope remain as supported Bakelite side rims; the shortened closed side hatch has clearance from those rims in isolated inspection poses.",
+    "Original variant-1 maximum 1.90m, scope centre 1.345m, live quad 0.41m and control heights remain. Four feet meet the unchanged source floor top 0.01m. All eight finish keys/maps already belong to the catalogue; text remains Label3D.",
+    "Only eight exact original decorative owners (424 triangles) and their separately named 12-triangle hull retire. Every unrelated source array and neighboring collision shape/state/pose remains exact. No layout, assembler or shipping glTF edit.",
+    "All remaining original source remains conservative inspection context. This cell has no previously accepted native furnishings. Fin-rim supports, closed positive connected stock, actual floor contacts, metre charts/tangents, imported ownership/maps/collision, ordinary input, reconstruction and direct rendered inspection remain required. Passive stock and offline hatch poses grant no repair, power or service capacity.",
+    "Other Pawn furnishings, continuous standing and service access, the two Diner receiving chassis, broader services and whole-building/human acceptance remain separate open work."
+  ]
+}
