@@ -1,0 +1,851 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/druggist_dispensary.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_disp__countertop",
+          "key": "countertop",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_disp__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_disp__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_balance_case__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_otis___son_balance_case__brass_dull_pan0",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_otis___son_balance_case__brass_dull_pan1",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_otis___son_balance_case__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_balance_case__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round_shelf0__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_otis___son_round_shelf1__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_otis___son_round_shelf2__timber",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_otis___son_round0_0__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_0__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_1__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_1__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_2__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_2__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_3__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_3__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_4__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_4__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_4__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_5__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_5__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_5__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round0_6__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round0_6__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round0_6__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_0__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_0__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_1__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_1__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_2__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_2__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_3__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_3__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_4__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_4__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_4__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_5__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_5__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_5__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round1_6__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round1_6__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round1_6__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_0__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_0__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_0__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_1__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_1__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_1__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_2__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_2__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_2__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_3__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_3__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_3__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_4__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_4__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_4__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_5__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_5__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_5__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_round2_6__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_round2_6__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_round2_6__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_disp",
+          "key": "wood_dark",
+          "low": [
+            23.1,
+            0.01,
+            44.8
+          ],
+          "high": [
+            23.7,
+            1.11,
+            47.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_disp_top",
+          "key": "countertop",
+          "low": [
+            23.05,
+            1.11,
+            44.76
+          ],
+          "high": [
+            23.75,
+            1.1600000000000001,
+            47.739999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_disp_screen",
+          "key": "glassish",
+          "low": [
+            23.66,
+            1.16,
+            44.8
+          ],
+          "high": [
+            23.72,
+            2.11,
+            47.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_balance_case",
+          "key": "glassish",
+          "low": [
+            23.12,
+            1.18,
+            45.87
+          ],
+          "high": [
+            23.58,
+            1.72,
+            46.47
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round_shelf0",
+          "key": "timber",
+          "low": [
+            23.28,
+            0.82,
+            44.72
+          ],
+          "high": [
+            23.38,
+            0.875,
+            46.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round_shelf1",
+          "key": "timber",
+          "low": [
+            23.28,
+            1.2999999999999998,
+            44.72
+          ],
+          "high": [
+            23.38,
+            1.3549999999999998,
+            46.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round_shelf2",
+          "key": "timber",
+          "low": [
+            23.28,
+            1.7799999999999998,
+            44.72
+          ],
+          "high": [
+            23.38,
+            1.8349999999999997,
+            46.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_0",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            46.4
+          ],
+          "high": [
+            23.5,
+            1.22,
+            46.53
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_1",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            46.17285714285714
+          ],
+          "high": [
+            23.5,
+            1.22,
+            46.302857142857135
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_2",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            45.94571428571429
+          ],
+          "high": [
+            23.5,
+            1.22,
+            46.075714285714284
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_3",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            45.71857142857142
+          ],
+          "high": [
+            23.5,
+            1.22,
+            45.848571428571425
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_4",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            45.49142857142857
+          ],
+          "high": [
+            23.5,
+            1.22,
+            45.62142857142857
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_5",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            45.26428571428571
+          ],
+          "high": [
+            23.5,
+            1.22,
+            45.394285714285715
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round0_6",
+          "key": "glassish",
+          "low": [
+            23.32,
+            0.88,
+            45.037142857142854
+          ],
+          "high": [
+            23.5,
+            1.22,
+            45.16714285714285
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_0",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            46.4
+          ],
+          "high": [
+            23.5,
+            1.7,
+            46.53
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_1",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            46.17285714285714
+          ],
+          "high": [
+            23.5,
+            1.7,
+            46.302857142857135
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_2",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            45.94571428571429
+          ],
+          "high": [
+            23.5,
+            1.7,
+            46.075714285714284
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_3",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            45.71857142857142
+          ],
+          "high": [
+            23.5,
+            1.7,
+            45.848571428571425
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_4",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            45.49142857142857
+          ],
+          "high": [
+            23.5,
+            1.7,
+            45.62142857142857
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_5",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            45.26428571428571
+          ],
+          "high": [
+            23.5,
+            1.7,
+            45.394285714285715
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round1_6",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.3599999999999999,
+            45.037142857142854
+          ],
+          "high": [
+            23.5,
+            1.7,
+            45.16714285714285
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_0",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            46.4
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            46.53
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_1",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            46.17285714285714
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            46.302857142857135
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_2",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            45.94571428571429
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            46.075714285714284
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_3",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            45.71857142857142
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            45.848571428571425
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_4",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            45.49142857142857
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            45.62142857142857
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_5",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            45.26428571428571
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            45.394285714285715
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_round2_6",
+          "key": "glassish",
+          "low": [
+            23.32,
+            1.8399999999999999,
+            45.037142857142854
+          ],
+          "high": [
+            23.5,
+            2.1799999999999997,
+            45.16714285714285
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

@@ -22,14 +22,14 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
-	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_druggist_mortar.json"))
-	var installed: bool=passage.cell_nodes.has("shop_otis_son") and passage.cell_nodes.shop_otis_son.has_node("DruggistMortar")
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_druggist_dispensary.json"))
+	var installed: bool=passage.cell_nodes.has("shop_otis_son") and passage.cell_nodes.shop_otis_son.has_node("DruggistDispensary")
 	check(installed,"actual retained druggist cell and drawer fitting exist before their contracts")
 	if not installed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
-	check(FileAccess.get_sha256("res://assets/props/druggist_mortar.glb")==fixture.asset_sha256,"installed mesh binds the native mortar/pestle export")
+	check(FileAccess.get_sha256("res://assets/props/druggist_dispensary.glb")==fixture.asset_sha256,"installed mesh binds the native composed dispensary export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
-		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("DruggistMortar")
+		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("DruggistDispensary")
 		var originals: Dictionary=model.get_meta("original_meshes");var counts: Dictionary=model.get_meta("removed_triangles")
 		for box: Dictionary in record.replace:
 			check(counts[box.id]==int(box.expected_triangles),"exact original source boundary removed: "+str(box.id));removed+=int(counts[box.id])
@@ -46,7 +46,7 @@ func _run() -> void:
 			check((shape.disabled and not draw.visible) if retained.get_surface_count()==0 else (shape.shape as ConcavePolygonShape3D).get_faces()==retained.get_faces(),"trimmed physical boundaries match visible boundaries")
 		for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 			parts+=1;var count:=draw.mesh.get_faces().size()/3;triangles+=count
-			var name:=str(draw.get_meta("druggist_mortar_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
+			var name:=str(draw.get_meta("druggist_dispensary_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
 			check(count==int(expected.triangles) and expected.cell==record.id,"each fitted partition binds exact native triangles and cell")
 			_check_cap_mapping(draw.mesh,true)
 			var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
@@ -75,20 +75,20 @@ func _run() -> void:
 			var at:=_v(contact.point);var direction:=_v(contact.direction);var exclude: Array[RID]=[world.player.get_rid()]
 			for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):
 				var draw:=body.get_parent() as MeshInstance3D
-				if draw!=null and str(draw.get_meta("druggist_mortar_part")).begins_with(str(contact.assembly)+"__"):exclude.append(body.get_rid())
+				if draw!=null and str(draw.get_meta("druggist_dispensary_part")).begins_with(str(contact.assembly)+"__"):exclude.append(body.get_rid())
 			var query:=PhysicsRayQueryParameters3D.create(cell.to_global(at+direction*.004),cell.to_global(at-direction*.004),1,exclude)
 			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and floor samples")
-	_check_mortar_details(world,fixture)
+	_check_dispensary_details(world,fixture)
 	await _retail_detail_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
-	print("DRUGGIST MORTAR: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
+	print("DRUGGIST DISPENSARY: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
-	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("druggist_mortar_part",""))==part)
+	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("druggist_dispensary_part",""))==part)
 	check(targets.size()==1,"actual installed cavity partition: "+part)
 	if targets.size()!=1:return {}
 	var target: CollisionObject3D=targets[0].find_children("*","CollisionShape3D",true,false)[0].get_parent()
@@ -97,49 +97,54 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 		if body!=target:exclude.append(body.get_rid())
 	return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,finish,1,exclude))
 
-func _check_mortar_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
-	var cell: Node3D=world.passage_region.cell_nodes.shop_otis_son;var model: Node3D=cell.get_node("DruggistMortar")
+func _check_dispensary_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	var cell: Node3D=world.passage_region.cell_nodes.shop_otis_son;var model: Node3D=cell.get_node("DruggistDispensary")
 	var prefix:="storm_shop_otis___son_"
-	check(fixture.original_records.size()==2 and fixture.assemblies.size()==2 and fixture.closed_stocks.size()==2,"the original mortar and pestle remain two source-owned closed stocks")
+	check(fixture.original_records.size()==28 and fixture.assemblies.size()==26,"all original bench, balance and three seven-round ranks keep their source identities")
 	var original: Dictionary={}
 	for floor: Dictionary in world.passage_region.source_layout.floors:
 		if str(floor.id)!="F01":continue
 		for row: Dictionary in floor.furniture:original[str(row.id)]=row
-	var top: Dictionary=original[prefix+"disp_top"];var tr: Array=top.rect;var seat: float=float(top.z0)+float(top.h)
-	var row: Dictionary=original[prefix+"mortar"];var cx: float=(float(row.rect[0])+float(row.rect[2]))*.5;var cy: float=(float(row.rect[1])+float(row.rect[3]))*.5-.035
+	var case_row: Dictionary=original[prefix+"balance_case"];var cr: Array=case_row.rect;var case_top:=1.70
+	var cupboard: Dictionary=original[prefix+"poison_cupboard"];var pr: Array=cupboard.rect
+	var boards:=0;var rounds:=0;var panes:=0
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		var a: AABB=draw.transform*draw.mesh.get_aabb();var end:=a.end
-		check(a.position.x>=float(tr[0])-.000003 and end.x<=float(tr[2])+.000003 and a.position.z>=-float(tr[3])-.000003 and end.z<=-float(tr[1])+.000003 and a.position.y>=seat-.000003 and end.y<3.3,"actual marble objects fit the original serving-top plan and retained shop ceiling")
-	var shelf: Dictionary=original[prefix+"round_shelf1"];var sr: Array=shelf.rect;var back: float=-INF;var samples:=0
-	if cell.has_node("DruggistDispensary"):
-		for draw: MeshInstance3D in cell.get_node("DruggistDispensary").find_children("*","MeshInstance3D",true,false):
-			if str(draw.get_meta("druggist_dispensary_part",""))!=prefix+"round_shelf1__timber":continue
+		var part:=str(draw.get_meta("druggist_dispensary_part"));var a: AABB=draw.transform*draw.mesh.get_aabb()
+		check(a.position.x>=22.38-.000003 and a.end.x<=23.75+.000003 and a.position.z>=44.76-.000003 and a.end.z<=47.74+.000003 and a.position.y>=.01-.000003 and a.end.y<3.3,"actual composed furniture fits retained floor and ceiling")
+		if part==prefix+"disp__countertop":
 			for raw: Vector3 in draw.mesh.get_faces():
-				var p: Vector3=draw.transform*raw;back=maxf(back,p.z);samples+=1
-	else:
-		for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
-			if not str(draw.name).trim_suffix("-col").ends_with("_timber"):continue
-			for vertex: Vector3 in draw.mesh.get_faces():
-				var p: Vector3=draw.transform*vertex
-				if p.x>=float(sr[0])-.0002 and p.x<=float(sr[2])+.0002 and p.z>=-float(sr[3])-.0002 and p.z<=-float(sr[1])+.0002 and p.y>=float(shelf.z0)-.0002 and p.y<=float(shelf.z0)+float(shelf.h)+.0002:
-					back=maxf(back,p.z);samples+=1
-	check(samples>0 and absf(back+float(sr[1]))<.0002,"actual current source-owned shelf faces establish the retained rear boundary")
-	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		var a: AABB=draw.transform*draw.mesh.get_aabb()
-		check(samples>0 and a.position.z>=back+.010-.000003,"actual marble parts clear the retained stock shelf by at least 10mm")
-	var part:=prefix+"mortar__marble_lobby"
-	var hit:=_isolated_ray(world,model,part,cell.to_global(Vector3(cx+.055,seat+.29,-cy)),cell.to_global(Vector3(cx+.055,seat-1.,-cy)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-seat-.030)<.00003 and hit.normal.dot(cell.global_basis.y)>.99,"actual bowl mouth reaches its recessed 30mm inner base")
-	hit=_isolated_ray(world,model,part,cell.to_global(Vector3(cx+.150,seat+.60,-cy)),cell.to_global(Vector3(cx+.150,seat-1.,-cy)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-seat-.300)<.00003,"actual solid lip surrounds the hollow bowl")
-	var pestle:=prefix+"pestle__marble_lobby"
-	hit=_isolated_ray(world,model,pestle,cell.to_global(Vector3(cx,seat-.10,-cy)),cell.to_global(Vector3(cx,seat+.60,-cy)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-seat-.030)<.00003 and hit.normal.dot(-cell.global_basis.y)>.99,"actual flat grinding end seats at the hollow bowl's inner floor")
+				var p: Vector3=draw.transform*raw
+				check(not (p.x<float(pr[2])+.010-.000003 and p.z<=-float(pr[1])+.010-.000003),"actual notched top vertices keep 10mm from retained cupboard")
+			check(absf(a.end.y-1.16)<.000003,"original 1.16m work-top datum retained")
+		if "round_shelf" in part and part.ends_with("__timber"):
+			boards+=1
+			for raw: Vector3 in draw.mesh.get_faces():
+				var p: Vector3=draw.transform*raw
+				if p.x<=float(cr[2])+.000003 and p.z>=-float(cr[3]) and p.z<=-float(cr[1]):check(p.y>=case_top+.035-.000003,"actual stock boards clear the enclosed balance by 35mm")
+		if "_round" in part and not "shelf" in part and part.ends_with("__glassish"):
+			rounds+=1;check(a.position.y>=1.775-.000003 and a.end.y<=3.075+.000003,"all actual round bodies are seated above the balance instead of inside its bench")
+			check(draw.material_override==null,"round bodies retain their source glass optical owner")
+		if part in [prefix+"disp__glassish",prefix+"balance_case__glassish"]:
+			panes+=1
+			var glass:=draw.material_override as ShaderMaterial
+			check(glass!=null and glass.shader.resource_path=="res://shaders/lamp_glass_surface.gdshader" and is_equal_approx(float(glass.get_shader_parameter("surface_roughness")),.06),"thin fixed panes use the actual existing clear-glass owner")
+	check(boards==3 and rounds==21 and panes==2,"actual imported stock and fixed glazing partitions are complete")
+	var case_part:=prefix+"balance_case__wood_dark"
+	var hit:=_isolated_ray(world,model,case_part,cell.to_global(Vector3(23.35,1.10,46.17)),cell.to_global(Vector3(23.35,1.25,46.17)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.16)<.00003,"case has an actual seated lower face")
+	var round_part:=prefix+"round0_0__glassish"
+	hit=_isolated_ray(world,model,round_part,cell.to_global(Vector3(23.57,2.12,46.465)),cell.to_global(Vector3(23.57,1.70,46.465)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.793)<.00003,"actual round neck opens into an 18mm inner glass base beneath its separate stopper")
+	var top_part:=prefix+"disp__countertop"
+	hit=_isolated_ray(world,model,top_part,cell.to_global(Vector3(23.10,1.30,45.0)),cell.to_global(Vector3(23.10,1.0,45.0)))
+	check(hit.is_empty(),"actual top face has a cupboard notch rather than an overlapping face")
+	hit=_isolated_ray(world,model,top_part,cell.to_global(Vector3(23.35,1.30,46.875)),cell.to_global(Vector3(23.35,1.0,46.875)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.16)<.00003,"actual work top remains under the separate fitted mortar")
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_otis_son
 	var r: Array=fixture.assemblies[0].floor.rect;var observations: Array=[]
-	for view: Array in [["mortar",Vector3(22.30,.03,46.88),Vector3(23.35,1.39,46.875)],["bowl_mouth",Vector3(22.35,.03,47.20),Vector3(23.35,1.26,46.875)],["retained_stock",Vector3(21.50,.03,46.95),Vector3(23.4,1.51,46.28)],["shop_context",Vector3(17.30,.03,45.65),Vector3(22.8,1.55,46.9)]]:
+	for view: Array in [["dispensary",Vector3(21.8,.03,46.4),Vector3(23.45,1.65,46.1)],["balance",Vector3(22.25,.03,46.17),Vector3(23.35,1.44,46.17)],["round_ranks",Vector3(21.95,.03,45.55),Vector3(23.57,2.45,45.55)],["bench_notch",Vector3(21.85,.03,45.90),Vector3(23.2,1.12,45.10)],["mortar_context",Vector3(22.30,.03,47.15),Vector3(23.35,1.4,46.875)],["shop_context",Vector3(17.30,.03,45.65),Vector3(23.1,1.6,46.2)]]:
 		var preferred: Vector3=view[1];var selected:=preferred;var distance:=INF
 		if not _city_clear_station(world,cell.to_global(preferred)):
 			for u in range(1,25):
@@ -152,4 +157,4 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		world.player.face_world_point(cell.to_global(view[2]));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png"})
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule passive mortar/pestle observations. Medicine/poison custody, stock state, operating dispensing/fountain, continuous routes and independent services retain separate authority."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule composed dispensary observations. Medicine/poison custody, stock state, operating dispensing/fountain, continuous routes and independent services retain separate authority."},"\t"))
