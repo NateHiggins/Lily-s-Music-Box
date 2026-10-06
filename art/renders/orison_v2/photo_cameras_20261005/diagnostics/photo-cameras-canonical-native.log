@@ -1,0 +1,15 @@
+00:01.297  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_cameras.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_cameras.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:06.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_window_plinth_front.png'
+00:10.985  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_window_plinth_rear.png'
+00:17.282  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body0_front.png'
+00:22.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body0_rear.png'
+00:28.407  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body1_front.png'
+00:33.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body1_rear.png'
+00:40.094  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body2_front.png'
+00:45.313  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-cameras-native\storm_shop_photo_supplies_camera_body2_rear.png'
+PHOTO CAMERAS NATIVE QA 50 closed connected stocks; 4 joined assemblies; 8 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

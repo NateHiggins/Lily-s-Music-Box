@@ -1,0 +1,507 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "b6491d888f24a2fb48efe9b0c4ccebdc072346bd",
+  "base": "958207f61b2a60e15d9165be9693a2f22913c482",
+  "verification": "MERGE-CANDIDATE b6491d888f24a2fb48efe9b0c4ccebdc072346bd",
+  "source_records": 8,
+  "assemblies": 4,
+  "closed_stocks": 50,
+  "material_partitions": 8,
+  "triangles": 10016,
+  "source_supports": 7,
+  "removed_original_triangles": 96,
+  "native_views": 8,
+  "production_views": 7,
+  "direct_review": "All eight final native and seven final clean production views inspected at full size. The real supported doorway view with the normal handheld lamp exposes all three distinct forms and their fitted stand. Exterior observations show silhouettes under existing storefront glass with the handheld lamp off. Existing storefront glare, dim glass and still-blocky counter remain visible open findings, not visual acceptance. Earlier obstructed station and glare comparisons are retained honestly.",
+  "runtime_contract": "Exact test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; executed scope only.",
+  "limits": [
+    "No human acceptance or whole-V2 completion.",
+    "Passive camera/display geometry only; functioning photography, darkroom access, stock and independent service capacity remain open.",
+    "Existing storefront glazing/lighting, remaining shop fittings and continuous routes retain separate evidence duties.",
+    "Wrapper receipts, captures and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/verification.json",
+      "source_sha256": "859bf51c88624301da564e991b697f458eab7b8d93f3fa2570760450a57104b8",
+      "sha256": "859bf51c88624301da564e991b697f458eab7b8d93f3fa2570760450a57104b8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/958207f6-clean-board.json",
+      "source_sha256": "298c0eba89c2702c1bdd33d4e0719372e0297289f4a1e8c234cdaa8d0f1a9c6b",
+      "sha256": "298c0eba89c2702c1bdd33d4e0719372e0297289f4a1e8c234cdaa8d0f1a9c6b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/photo-cameras-native/inspection.json",
+      "source_sha256": "156997dd4824c6d82f0ca3a811bd86585c3ed57cfb4f214f15638ea013f761b1",
+      "sha256": "156997dd4824c6d82f0ca3a811bd86585c3ed57cfb4f214f15638ea013f761b1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/photo_cameras_construction.json",
+      "source_sha256": "c6bfee532f0e26c1690e2410c7a7edec22a9e8a2347339a14fcb020d898fec2a",
+      "sha256": "c6bfee532f0e26c1690e2410c7a7edec22a9e8a2347339a14fcb020d898fec2a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "6b1ed697386d7b9275b78e0f5459dc0012301426ab814925090a10fbdb93a0e9",
+      "sha256": "6b1ed697386d7b9275b78e0f5459dc0012301426ab814925090a10fbdb93a0e9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/views.json",
+      "source_sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+      "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "ea0f16fe152380214c36da2d9eaa67e16e8663afc16e623b2db828c853cce075",
+      "sha256": "ea0f16fe152380214c36da2d9eaa67e16e8663afc16e623b2db828c853cce075",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "43f5c6afd06c72a81e1a701d853048176c9333870d603aa6272b6374ac2de165",
+      "sha256": "43f5c6afd06c72a81e1a701d853048176c9333870d603aa6272b6374ac2de165",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body0_front.png",
+      "source_sha256": "7b83a720110431b94f825d2df1f24178f83c18534ed8738da620b1c9accf90f6",
+      "sha256": "35694e0e370773ea35aa022b72fc4222fa53eb462ffb432fcbd67af61992f7b9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body0_rear.png",
+      "source_sha256": "923c1e07c759622dccc7582dfba80d085ca40339a4bb9bb2fb17bd8bd825bd2c",
+      "sha256": "360637b8b5fffc4df3949130e10252d6445a43deb40568ff916f5556041e1800",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body1_front.png",
+      "source_sha256": "b60dbbf7ad619ce5aa0b1e3aeb1d80225e632f933ffb386678ae91afb199be0f",
+      "sha256": "a6f36ca227fe94b8bac9c13d690620e81022d54f44252f89732188fad31dd94d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body1_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body1_rear.png",
+      "source_sha256": "6d5ba907cca6261dffc79436a7267cbca6f4f672120f4757aa4b44e76882aca8",
+      "sha256": "6df38408414abfacd5b3adeaa849a9f2ff62371bc5137c9e67f14a982927213e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body2_front.png",
+      "source_sha256": "44fb5f483653488dcf1adf6f6f88f483801e892b65ae419070d152d9ac2089cb",
+      "sha256": "58b98fd61458ec7d38265cdff78e7df105feb30a380dc01f1a5c09f7ed2c12e2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_camera_body2_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_camera_body2_rear.png",
+      "source_sha256": "fba13c25739270cfcc47657d9a060edcaee32c3e9b475210f6c68422e3c7c908",
+      "sha256": "a44c1f669d95001b758de7e82c5d49c6db75afb4b6fb034c48f25588f1309fdb",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_window_plinth_front.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_window_plinth_front.png",
+      "source_sha256": "229977731bef2e4fcd78ac818ac7f39691fe0483b03cdbd6bb6b19d307fcf37f",
+      "sha256": "6a8d90e12e1ed1269062bd3fa3a032e4e9c35d8e5075d5ff715944d789c57632",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_window_plinth_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-native/storm_shop_photo_supplies_window_plinth_rear.png",
+      "source_sha256": "d50a3b53a1043cb7beb9586bf5bb80ff3f48482e5d23493cfdc64af72eb07acf",
+      "sha256": "383d76ff6ab2807929d3f056d7ce5baae57dc0dfdce8eafc0db9d1b6ce978d8c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/box_camera.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/box_camera.png",
+      "source_sha256": "20ad150cb302e05bedbe0ec20254da791584c50244f6f566fb3bfa18b430e741",
+      "sha256": "cb77ecff5f3c696d7180e21f943a17a2076b47415902a80291b7fa50c4265dad",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/camera_forms_detail.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/camera_forms_detail.png",
+      "source_sha256": "e76f104c6e11c5c6feb74c204a3c84853acf7b9ab4397d2043e59556804c6c94",
+      "sha256": "b6485473a66691442788244584ccadb3ae11ba305414e72ea46e8411a249dd15",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/display_back.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/display_back.png",
+      "source_sha256": "0b6604f191a8ebfdf3389ecf327784d493c912d8fd82c469c41a988512fd01ad",
+      "sha256": "3aa3f25434218f8dcd9f83c03e87bc59a9184c1d2f4850d193cefd99ce626fd7",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/folding_camera.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/folding_camera.png",
+      "source_sha256": "fd213d221e59bda69527cb174b440c627d34dfe273a87ab9c398899eb764218e",
+      "sha256": "fd8065adae97be02f439d6f7a46740a5fc984b12e0e950b14753c743da8d24d2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/press_camera.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/press_camera.png",
+      "source_sha256": "cf9f897c8c1bbedb00c1348c44a3203b9dcb9b1ed255e3b19da3bcced31d9b63",
+      "sha256": "39475e145de221350d137d4a2c31fefd659fdd074c9765782805103163553782",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/shop_context.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/shop_context.png",
+      "source_sha256": "6f5cb22d85cfcf29ba84c1947e4c69ae46c330a10e563fe276ed5a1e8ce672ce",
+      "sha256": "75f1b9ab07abaa3a853f6821c68b2899a1a5bc2f5f1150ea54ef662a61d4850c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/window_display.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed_shots/window_display.png",
+      "source_sha256": "790a569e698d7dddc4ba9cc608a455353794aef68a3e397056e9c30cc615c0e0",
+      "sha256": "80fa57294e116844a1f7f49c5714a1fee49bffa5e79406e56f92e26f58daae37",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_view_fit/lamp_glare_camera.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-production/folding_camera.png",
+      "source_sha256": "5583d625b6b7dcf511b85d4f47ee92feb36dfc45216bc1877d068bab550a8a6b",
+      "sha256": "3cd0446a34f35031cfe0e09b79ce255d7903ba7dc3a80a61b754beef1c32d0f2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_view_fit/lamp_glare_window.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-production/window_display.png",
+      "source_sha256": "2f4fb6bf1c088027ce881f991b13d50c5cb5a206ae3c0f5808d0676a3240dcbc",
+      "sha256": "455565fa1943ee5dac86c7bcd51ca03599b8f0cd02c5eec5868a212e98652e85",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_view_fit/lamp_off_window.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-lamp-off/window_display.png",
+      "source_sha256": "ee0b724bb0f92d4b1ba6dd33a23a2a8bd4a720cccd4ae995bdca5026efb0c020",
+      "sha256": "67ef3426f8cda6aa1ecee54d1b7ec2f11b86a71a7df800bc856bf2bc03066153",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_view_fit/blocked_near_station.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-view-fit/press_camera.png",
+      "source_sha256": "449425e5b99d3bc620586e10d4ba58e3497c369e2d3e3b80c10568692a71a972",
+      "sha256": "4e531193a93e8da41047420934c2f5014f7ed3ab11b91a2cfcff267c8cde0237",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_view_fit/dim_near_station.jpg",
+      "source": "tmp/v2-finish-review/photo-cameras-view-fit/folding_camera.png",
+      "source_sha256": "b09892813349b06dc59d00a3023cdb8a7d8ef37568e5caa5fb9d64c22a3602e9",
+      "sha256": "2c80b45ed8736a54ad8deceee979726d1c20ce23fd2c220f195fd2915ad33101",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "38fe2a21cf32126e8bdaabf6ef39cfe50cb383dd2ebcefbeccec764da06959b5",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "f1db10966dd8389c3cd7f5ef2672a8aa40005dc8b9f1236b18747fbc228fa00a",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "ccf1ae19c3e4fde3abb8c89dcd98c9bf6909cba166673af3da87b83c0fd28148",
+      "sha256": "ccf1ae19c3e4fde3abb8c89dcd98c9bf6909cba166673af3da87b83c0fd28148",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "f1342504afb7cff9d31343d88ff1e66bca30bf84a124eef551ed44e7485f56ce",
+      "sha256": "f1342504afb7cff9d31343d88ff1e66bca30bf84a124eef551ed44e7485f56ce",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source_sha256": "73495eae1f75f958796a6e5e2bf192114ea5ebea989eb3bb786d14eef6e67650",
+      "sha256": "73495eae1f75f958796a6e5e2bf192114ea5ebea989eb3bb786d14eef6e67650",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "f99ce5db94f423750b35979c16c5e22a95e7c59683cd31dc5fd97cb7aa1712da",
+      "sha256": "f99ce5db94f423750b35979c16c5e22a95e7c59683cd31dc5fd97cb7aa1712da",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source_sha256": "f01fc352a4a69d0236c92d68519db71c12822d883ae76fbc24c94fc171f90fc6",
+      "sha256": "f01fc352a4a69d0236c92d68519db71c12822d883ae76fbc24c94fc171f90fc6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "518f7e345d8f9cfd42871bf79505d1aca290cd8d2e48078b07a72dd292fc4f59",
+      "sha256": "518f7e345d8f9cfd42871bf79505d1aca290cd8d2e48078b07a72dd292fc4f59",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "dae67015053c7646d0b88ab9e6ef8964204d3f370a1903a83c6dd1680980930a",
+      "sha256": "dae67015053c7646d0b88ab9e6ef8964204d3f370a1903a83c6dd1680980930a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "f4fe4ac9e593f4f495829b6d111717e4d646edea3860946e7b2ee9018e06780b",
+      "sha256": "f4fe4ac9e593f4f495829b6d111717e4d646edea3860946e7b2ee9018e06780b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "4221a3ae5c8afdee1f20456cfc1d29ae0f2f632545a3da16f1626bfe5db0168e",
+      "sha256": "4221a3ae5c8afdee1f20456cfc1d29ae0f2f632545a3da16f1626bfe5db0168e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "5592362d5b5f1f88974cb733b63a6b1469c078903860a68b7448f9beb80de730",
+      "sha256": "5592362d5b5f1f88974cb733b63a6b1469c078903860a68b7448f9beb80de730",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "e281127e31c3825a1e7f92a608f54811f7ed3eda3d282713c333c8a457434849",
+      "sha256": "e281127e31c3825a1e7f92a608f54811f7ed3eda3d282713c333c8a457434849",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "07d81b20f3c14dcd6f3efb2aca8b59ca42b5414dda3a45781e5ef117abb75906",
+      "sha256": "07d81b20f3c14dcd6f3efb2aca8b59ca42b5414dda3a45781e5ef117abb75906",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "1394b61e212ac6ea2a44fa1934c1c98be7465ae962349d475e154f792cf594ba",
+      "sha256": "1394b61e212ac6ea2a44fa1934c1c98be7465ae962349d475e154f792cf594ba",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "def44346de080fa273866aa3de584b1486da86cde9dc5eb20544906e89845782",
+      "sha256": "def44346de080fa273866aa3de584b1486da86cde9dc5eb20544906e89845782",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "095a661f90f60db0c3df2e27292e6c396576001de335f87eaf14fedd41fd3f8a",
+      "sha256": "095a661f90f60db0c3df2e27292e6c396576001de335f87eaf14fedd41fd3f8a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-stage-build.log",
+      "source": "tmp/v2-finish-review/photo-cameras-stage-build.log",
+      "source_sha256": "4bf9dbce241f889373c6c67338fc2d6d973f10e26cce0a6ee1a4d113c81e4f20",
+      "sha256": "4bf9dbce241f889373c6c67338fc2d6d973f10e26cce0a6ee1a4d113c81e4f20",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-source-fit-build.log",
+      "source": "tmp/v2-finish-review/photo-cameras-source-fit-build.log",
+      "source_sha256": "cf8bf5ad295357ef26fa7ed170b1a01437210b6f57cad40db91b38eb3ba0bc0d",
+      "sha256": "cf8bf5ad295357ef26fa7ed170b1a01437210b6f57cad40db91b38eb3ba0bc0d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-source-fit-native.log",
+      "source": "tmp/v2-finish-review/photo-cameras-source-fit-native.log",
+      "source_sha256": "892b8e753b62b410e51a4caebc90e62afce4bf5b673790c3fab240ab6077d917",
+      "sha256": "892b8e753b62b410e51a4caebc90e62afce4bf5b673790c3fab240ab6077d917",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-joined-build.log",
+      "source": "tmp/v2-finish-review/photo-cameras-joined-build.log",
+      "source_sha256": "ce7cf93975e1056e24ef3718cce877a520ae501a5c05d0c4df8fda7a71812339",
+      "sha256": "ce7cf93975e1056e24ef3718cce877a520ae501a5c05d0c4df8fda7a71812339",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-joined-native.log",
+      "source": "tmp/v2-finish-review/photo-cameras-joined-native.log",
+      "source_sha256": "37e50a561e3f63c9e5729cc9a70c276739999fb4c453f43bb8f3470b529ce4e8",
+      "sha256": "37e50a561e3f63c9e5729cc9a70c276739999fb4c453f43bb8f3470b529ce4e8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-canonical-build.log",
+      "source": "tmp/v2-finish-review/photo-cameras-canonical-build.log",
+      "source_sha256": "f3cfcb9806dc1540f56ad02ce839dff7582323ee97699c1cca6c2d1ca9cd08e2",
+      "sha256": "f3cfcb9806dc1540f56ad02ce839dff7582323ee97699c1cca6c2d1ca9cd08e2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-canonical-native.log",
+      "source": "tmp/v2-finish-review/photo-cameras-canonical-native.log",
+      "source_sha256": "c993b1d4f1a2c16bf5d3eae808dabc6c4975e801470ae38dc4cdf3270d8a7652",
+      "sha256": "c993b1d4f1a2c16bf5d3eae808dabc6c4975e801470ae38dc4cdf3270d8a7652",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-production.log",
+      "source": "tmp/v2-finish-review/photo-cameras-production.log",
+      "source_sha256": "0c21c836439ab0317db66a7e9b3546ce1de50c09d2230f705e6da5de839f7c39",
+      "sha256": "0c21c836439ab0317db66a7e9b3546ce1de50c09d2230f705e6da5de839f7c39",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-production.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-production.log.receipt.json",
+      "source_sha256": "f657f5585420d18613d2461aff36b8de2e974d54d8cfda2af2117693e5d97a62",
+      "sha256": "f657f5585420d18613d2461aff36b8de2e974d54d8cfda2af2117693e5d97a62",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-lamp-off.log",
+      "source": "tmp/v2-finish-review/photo-cameras-lamp-off.log",
+      "source_sha256": "6ecab327b7b2f7e352c1b45ca2cad31285d070bc91a3fa8cf35cee81f61b6c99",
+      "sha256": "6ecab327b7b2f7e352c1b45ca2cad31285d070bc91a3fa8cf35cee81f61b6c99",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-lamp-off.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-lamp-off.log.receipt.json",
+      "source_sha256": "94486cc9f6b40d4846aa2fc1ddf00eba6e3b783bcc25f4ecd43e43d817dccae1",
+      "sha256": "94486cc9f6b40d4846aa2fc1ddf00eba6e3b783bcc25f4ecd43e43d817dccae1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-view-fit.log",
+      "source": "tmp/v2-finish-review/photo-cameras-view-fit.log",
+      "source_sha256": "9f3a880fd5a87a16ee6ed5b5942d39f736afdf9b9bbbd42f248bb69f770d5310",
+      "sha256": "9f3a880fd5a87a16ee6ed5b5942d39f736afdf9b9bbbd42f248bb69f770d5310",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-view-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-view-fit.log.receipt.json",
+      "source_sha256": "3adef349338ebf037a1e2e18b7506a7cc8db41405357e06c6223f09574dd766b",
+      "sha256": "3adef349338ebf037a1e2e18b7506a7cc8db41405357e06c6223f09574dd766b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-detail-fit.log",
+      "source": "tmp/v2-finish-review/photo-cameras-detail-fit.log",
+      "source_sha256": "047974936301052834f45e51d0e0188923faa711028c04d49b927f8a346bdc2d",
+      "sha256": "047974936301052834f45e51d0e0188923faa711028c04d49b927f8a346bdc2d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-detail-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-cameras-detail-fit.log.receipt.json",
+      "source_sha256": "0da361ed02defe9ca3a0e940a76554ada2df636023c402b11c8ec73808188495",
+      "sha256": "0da361ed02defe9ca3a0e940a76554ada2df636023c402b11c8ec73808188495",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-final-reader.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-cameras-final-spatial.log",
+      "source": "tmp/v2-finish-review/photo-cameras-final-spatial.log",
+      "source_sha256": "fc55059519ebd7273b7e6957475bae41887e5a2373932c0bc60130af55f689ed",
+      "sha256": "fc55059519ebd7273b7e6957475bae41887e5a2373932c0bc60130af55f689ed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/photo-cameras-ledger-refresh.log",
+      "source_sha256": "5f03be9c7216dd0095c63b884556f6c8643eb97cac117151d3c72b44ee16fd99",
+      "sha256": "5f03be9c7216dd0095c63b884556f6c8643eb97cac117151d3c72b44ee16fd99",
+      "copy": "byte-identical"
+    }
+  ]
+}

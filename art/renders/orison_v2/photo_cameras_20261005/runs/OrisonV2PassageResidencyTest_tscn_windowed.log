@@ -1,0 +1,94 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 744 surfaces layered (338 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=26744.722
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+[HARUKIYA] OPEN, 18 fixtures
+CONNECTED EXTERIOR CHECK: arcade composes in the same production world = true
+CONNECTED EXTERIOR CHECK: hardware stock uses initialized shared authorities = true
+[SURFACE] 33 surfaces layered (20 materials)
+[SURFACE] 173 surfaces layered (52 materials)
+[SURFACE] 231 surfaces layered (76 materials)
+[SURFACE] 273 surfaces layered (100 materials)
+[SURFACE] 467 surfaces layered (136 materials)
+[SURFACE] 507 surfaces layered (159 materials)
+[SURFACE] 543 surfaces layered (190 materials)
+[SURFACE] 573 surfaces layered (218 materials)
+[SURFACE] 603 surfaces layered (246 materials)
+[SURFACE] 653 surfaces layered (272 materials)
+[SURFACE] 689 surfaces layered (302 materials)
+[SURFACE] 734 surfaces layered (331 materials)
+RESIDENCY_AT_NAVE {"cell_count":13,"load_cycles":1,"peak_activation_ms":6.029,"peak_stage_ms":2157.961,"pending_requests":0,"physical_actors_retained":true,"retired_geometry_roots_alive":0,"retired_mesh_resources_alive":0,"stage_records":[{"cell":"passage","fetch_ms":0.001,"instantiate_ms":1.213,"surface_ms":11.146},{"cell":"shop_model_laundry","fetch_ms":0.006,"instantiate_ms":0.636,"surface_ms":239.679},{"cell":"shop_shoe_rebuilding","fetch_ms":0.005,"instantiate_ms":0.423,"surface_ms":182.537},{"cell":"shop_keys_cut","fetch_ms":0.005,"instantiate_ms":0.679,"surface_ms":212.468},{"cell":"shop_hardware_paint","fetch_ms":0.005,"instantiate_ms":0.837,"surface_ms":2157.119},{"cell":"shop_funeral_parlour","fetch_ms":0.005,"instantiate_ms":0.545,"surface_ms":119.043},{"cell":"shop_photo_supplies","fetch_ms":0.006,"instantiate_ms":0.475,"surface_ms":66.036},{"cell":"shop_radio_service","fetch_ms":0.005,"instantiate_ms":0.451,"surface_ms":7.861},{"cell":"shop_pawnbroker","fetch_ms":0.005,"instantiate_ms":0.579,"surface_ms":8.306},{"cell":"shop_news_cigars","fetch_ms":0.011,"instantiate_ms":0.425,"surface_ms":123.934},{"cell":"shop_otis_son","fetch_ms":0.006,"instantiate_ms":0.76,"surface_ms":35.186},{"cell":"shop_luncheonette","fetch_ms":0.005,"instantiate_ms":0.476,"surface_ms":47.517}],"state":"RESIDENT","unload_cycles":1}
+CONNECTED EXTERIOR CHECK: arcade geometry reloads asynchronously after leaving the core = true
+CONNECTED EXTERIOR CHECK: all three ceiling detail batches survive passage residency = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches handcart = true
+CONNECTED EXTERIOR CHECK: ordinary input physically moves the handcart = true
+CONNECTED EXTERIOR CHECK: authored hardware shop door exists = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door = true
+CONNECTED EXTERIOR CHECK: hardware door opens through ordinary input = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door_close = true
+CONNECTED EXTERIOR CHECK: customer closes the inward leaf before passing the counter = true
+CONNECTED EXTERIOR CHECK: actual source-anchored hardware counter exists = true
+CONNECTED EXTERIOR CHECK: maintenance job awaits authored capsule = true
+CONNECTED EXTERIOR CHECK: right shop offers the awaited part = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_counter = true
+CONNECTED EXTERIOR CHECK: physical counter grants the part exactly once = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_counter_repeat = true
+CONNECTED EXTERIOR CHECK: repeated counter input cannot duplicate the part = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches hardware_door_exit = true
+CONNECTED EXTERIOR CHECK: return indoors retains the physically acquired part = true
+RESIDENCY_DORMANT {"cell_count":1,"load_cycles":1,"peak_activation_ms":6.029,"peak_stage_ms":2157.961,"pending_requests":0,"physical_actors_retained":true,"retired_geometry_roots_alive":0,"retired_mesh_resources_alive":0,"stage_records":[{"cell":"passage","fetch_ms":0.001,"instantiate_ms":1.213,"surface_ms":11.146},{"cell":"shop_model_laundry","fetch_ms":0.006,"instantiate_ms":0.636,"surface_ms":239.679},{"cell":"shop_shoe_rebuilding","fetch_ms":0.005,"instantiate_ms":0.423,"surface_ms":182.537},{"cell":"shop_keys_cut","fetch_ms":0.005,"instantiate_ms":0.679,"surface_ms":212.468},{"cell":"shop_hardware_paint","fetch_ms":0.005,"instantiate_ms":0.837,"surface_ms":2157.119},{"cell":"shop_funeral_parlour","fetch_ms":0.005,"instantiate_ms":0.545,"surface_ms":119.043},{"cell":"shop_photo_supplies","fetch_ms":0.006,"instantiate_ms":0.475,"surface_ms":66.036},{"cell":"shop_radio_service","fetch_ms":0.005,"instantiate_ms":0.451,"surface_ms":7.861},{"cell":"shop_pawnbroker","fetch_ms":0.005,"instantiate_ms":0.579,"surface_ms":8.306},{"cell":"shop_news_cigars","fetch_ms":0.011,"instantiate_ms":0.425,"surface_ms":123.934},{"cell":"shop_otis_son","fetch_ms":0.006,"instantiate_ms":0.76,"surface_ms":35.186},{"cell":"shop_luncheonette","fetch_ms":0.005,"instantiate_ms":0.476,"surface_ms":47.517}],"state":"DORMANT","unload_cycles":2}
+CONNECTED EXTERIOR CHECK: dormancy releases imported nodes and mesh resources = true
+CONNECTED EXTERIOR CHECK: dormancy unregisters counter and suspends cart physics = true
+[SURFACE] 33 surfaces layered (20 materials)
+[SURFACE] 173 surfaces layered (52 materials)
+[SURFACE] 231 surfaces layered (76 materials)
+[SURFACE] 273 surfaces layered (100 materials)
+[SURFACE] 467 surfaces layered (136 materials)
+[SURFACE] 507 surfaces layered (159 materials)
+[SURFACE] 543 surfaces layered (190 materials)
+[SURFACE] 573 surfaces layered (218 materials)
+[SURFACE] 603 surfaces layered (246 materials)
+[SURFACE] 653 surfaces layered (272 materials)
+[SURFACE] 689 surfaces layered (302 materials)
+[SURFACE] 734 surfaces layered (331 materials)
+RESIDENCY_RESUMED {"cell_count":13,"load_cycles":2,"peak_activation_ms":6.029,"peak_stage_ms":2157.961,"pending_requests":0,"physical_actors_retained":true,"retired_geometry_roots_alive":0,"retired_mesh_resources_alive":0,"stage_records":[{"cell":"passage","fetch_ms":0.001,"instantiate_ms":1.213,"surface_ms":11.146},{"cell":"shop_model_laundry","fetch_ms":0.006,"instantiate_ms":0.636,"surface_ms":239.679},{"cell":"shop_shoe_rebuilding","fetch_ms":0.005,"instantiate_ms":0.423,"surface_ms":182.537},{"cell":"shop_keys_cut","fetch_ms":0.005,"instantiate_ms":0.679,"surface_ms":212.468},{"cell":"shop_hardware_paint","fetch_ms":0.005,"instantiate_ms":0.837,"surface_ms":2157.119},{"cell":"shop_funeral_parlour","fetch_ms":0.005,"instantiate_ms":0.545,"surface_ms":119.043},{"cell":"shop_photo_supplies","fetch_ms":0.006,"instantiate_ms":0.475,"surface_ms":66.036},{"cell":"shop_radio_service","fetch_ms":0.005,"instantiate_ms":0.451,"surface_ms":7.861},{"cell":"shop_pawnbroker","fetch_ms":0.005,"instantiate_ms":0.579,"surface_ms":8.306},{"cell":"shop_news_cigars","fetch_ms":0.011,"instantiate_ms":0.425,"surface_ms":123.934},{"cell":"shop_otis_son","fetch_ms":0.006,"instantiate_ms":0.76,"surface_ms":35.186},{"cell":"shop_luncheonette","fetch_ms":0.005,"instantiate_ms":0.476,"surface_ms":47.517},{"cell":"passage","fetch_ms":0.002,"instantiate_ms":1.172,"surface_ms":7.986},{"cell":"shop_model_laundry","fetch_ms":0.006,"instantiate_ms":0.625,"surface_ms":230.114},{"cell":"shop_shoe_rebuilding","fetch_ms":0.005,"instantiate_ms":0.442,"surface_ms":179.42},{"cell":"shop_keys_cut","fetch_ms":0.005,"instantiate_ms":0.678,"surface_ms":207.587},{"cell":"shop_hardware_paint","fetch_ms":0.005,"instantiate_ms":0.761,"surface_ms":2132.103},{"cell":"shop_funeral_parlour","fetch_ms":0.005,"instantiate_ms":0.471,"surface_ms":100.242},{"cell":"shop_photo_supplies","fetch_ms":0.005,"instantiate_ms":0.501,"surface_ms":55.989},{"cell":"shop_radio_service","fetch_ms":0.006,"instantiate_ms":0.558,"surface_ms":8.102},{"cell":"shop_pawnbroker","fetch_ms":0.005,"instantiate_ms":0.524,"surface_ms":7.563},{"cell":"shop_news_cigars","fetch_ms":0.005,"instantiate_ms":0.387,"surface_ms":109.723},{"cell":"shop_otis_son","fetch_ms":0.006,"instantiate_ms":0.757,"surface_ms":46.555},{"cell":"shop_luncheonette","fetch_ms":0.006,"instantiate_ms":0.526,"surface_ms":65.756}],"state":"RESIDENT","unload_cycles":2}
+CONNECTED EXTERIOR CHECK: vestibule prefetch reconstructs a second geometry cycle = true
+CONNECTED EXTERIOR CHECK: open leaf and physically moved cart survive residency unchanged = true
+CONNECTED EXTERIOR CHECK: counter remount preserves acquisition and duplicate protection = true
+CONNECTED EXTERIOR CHECK: all shader values and texture paths survive geometry reconstruction = true
+CONNECTED EXTERIOR CHECK: all three ceiling detail batches survive passage residency = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+CONNECTED EXTERIOR CHECK: ceiling ornaments remain single batched surfaces = true
+CONNECTED EXTERIOR CHECK: ceiling detail receives the architectural surface pass = true
+V2 PASSAGE RESIDENCY: 42 waypoints; 0 failures
