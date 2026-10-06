@@ -1,0 +1,44 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 2,
+  "runtime_keys": [
+    "bakelite_black",
+    "brass_dull",
+    "paper",
+    "book_ochre"
+  ],
+  "catalog_variants": {
+    "brass_dull": "brass_dull",
+    "book_ochre": "paper"
+  },
+  "material_aliases": {},
+  "material_tints": {
+    "book_ochre": [
+      0.18,
+      0.085,
+      0.035,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "telephone",
+      "sources": [
+        "storm_shop_otis___son_telephone"
+      ]
+    },
+    {
+      "kind": "ledger",
+      "sources": [
+        "storm_shop_otis___son_ledger"
+      ]
+    }
+  ],
+  "open_work": [
+    "The two original X centres and source identities remain. New bodies move into the .32m exposed serving strip in front of the fitted drawer bank; original .48/.50m depths cannot fit that strip. Telephone base uses .216m depth; closed paper ledger uses .22m depth. Original hidden poses stay unchanged.",
+    "The phone has a closed body, seated feet, stem, hollow transmitter and hanging receiver, hook, cord and perforated blank rotary ring. The ledger is a closed stack with plain brown card covers and binding. No generated lettering or new material key.",
+    "Physical supports and sampled separations only. Telephone communication, readable ledger contents, dispensing, medicine/poison custody, continuous routes and independent utilities retain separate authority."
+  ]
+}

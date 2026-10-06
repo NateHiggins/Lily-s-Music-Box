@@ -55,6 +55,9 @@ static func mount_photo_glazing(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_druggist_drawers(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/druggist_drawers.json","DruggistDrawers","F01_retail_druggist_drawers_","druggist_drawer_part")
 
+static func mount_druggist_counter(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/druggist_counter.json","DruggistCounter","F01_retail_druggist_counter_","druggist_counter_part")
+
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 

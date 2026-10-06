@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/druggist_counter.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_telephone__bakelite_black",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_otis___son_telephone__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_otis___son_ledger__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.18,
+            0.085,
+            0.035,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_ledger__paper",
+          "key": "paper",
+          "tile": 0.5
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_telephone",
+          "key": "bakelite_black",
+          "low": [
+            18.86,
+            1.12,
+            47.97999999999999
+          ],
+          "high": [
+            19.3,
+            1.5,
+            48.459999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_ledger",
+          "key": "paper",
+          "low": [
+            19.54,
+            1.12,
+            47.97999999999999
+          ],
+          "high": [
+            20.02,
+            1.1700000000000002,
+            48.47999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

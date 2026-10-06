@@ -1,0 +1,426 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_otis___son_telephone",
+      "rect": [
+        18.86,
+        -48.459999999999994,
+        19.3,
+        -47.97999999999999
+      ],
+      "z0": 1.12,
+      "h": 0.38,
+      "mat": "bakelite_black",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_ledger",
+      "rect": [
+        19.54,
+        -48.47999999999999,
+        20.02,
+        -47.97999999999999
+      ],
+      "z0": 1.12,
+      "h": 0.05,
+      "mat": "paper",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_otis___son_telephone",
+      "kind": "telephone",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_ledger",
+      "kind": "ledger",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_otis___son_telephone_Base",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 0.0014739000113779793
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.008-47.971999999999994",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.008-47.867999999999995",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.151999999999997-47.971999999999994",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.151999999999997-47.867999999999995",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Stem",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 0.00035084427358337417
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.1600000000000001",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 4.8719230546973025e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.365",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 2.541184421032787e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.413",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 2.541184421032787e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_OpenTransmitter",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 0.00010516780004844281
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_ReceiverHook",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 4.699329536941508e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_HookReturn",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 1.9580833511695377e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_OpenReceiver",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 6.130155046817305e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_ReceiverCord",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 9.391015377614492e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_PerforatedRotaryRing",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 5.5308285940300686e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_DialCentre",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "bakelite_black",
+      "volume_m3": 2.8193171490137336e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_FingerStop",
+      "assembly": "storm_shop_otis___son_telephone",
+      "key": "brass_dull",
+      "volume_m3": 1.3531351914369827e-06
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_LowerCardCover",
+      "assembly": "storm_shop_otis___son_ledger",
+      "key": "book_ochre",
+      "volume_m3": 0.00042169420646266984
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_ClosedPageStack",
+      "assembly": "storm_shop_otis___son_ledger",
+      "key": "paper",
+      "volume_m3": 0.004031146666335272
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_UpperCardCover",
+      "assembly": "storm_shop_otis___son_ledger",
+      "key": "book_ochre",
+      "volume_m3": 0.00042169420646266984
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_BoundSpine",
+      "assembly": "storm_shop_otis___son_ledger",
+      "key": "book_ochre",
+      "volume_m3": 9.079578629091171e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_otis___son_telephone",
+      "owner": "storm_shop_otis___son_counter_top",
+      "point": [
+        19.008,
+        1.11,
+        47.971999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "telephone on actual exposed original counter top"
+    },
+    {
+      "assembly": "storm_shop_otis___son_telephone",
+      "owner": "storm_shop_otis___son_counter_top",
+      "point": [
+        19.008,
+        1.11,
+        47.867999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "telephone on actual exposed original counter top"
+    },
+    {
+      "assembly": "storm_shop_otis___son_telephone",
+      "owner": "storm_shop_otis___son_counter_top",
+      "point": [
+        19.151999999999997,
+        1.11,
+        47.971999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "telephone on actual exposed original counter top"
+    },
+    {
+      "assembly": "storm_shop_otis___son_telephone",
+      "owner": "storm_shop_otis___son_counter_top",
+      "point": [
+        19.151999999999997,
+        1.11,
+        47.867999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "telephone on actual exposed original counter top"
+    },
+    {
+      "assembly": "storm_shop_otis___son_ledger",
+      "owner": "storm_shop_otis___son_counter_top",
+      "point": [
+        19.78,
+        1.11,
+        47.92999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed ledger seated on exposed original serving top"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_otis___son_telephone__bakelite_black",
+      "assembly": "storm_shop_otis___son_telephone",
+      "cell": "shop_otis_son",
+      "key": "bakelite_black",
+      "triangles": 3156
+    },
+    {
+      "name": "storm_shop_otis___son_telephone__brass_dull",
+      "assembly": "storm_shop_otis___son_telephone",
+      "cell": "shop_otis_son",
+      "key": "brass_dull",
+      "triangles": 2688
+    },
+    {
+      "name": "storm_shop_otis___son_ledger__book_ochre",
+      "assembly": "storm_shop_otis___son_ledger",
+      "cell": "shop_otis_son",
+      "key": "book_ochre",
+      "triangles": 564
+    },
+    {
+      "name": "storm_shop_otis___son_ledger__paper",
+      "assembly": "storm_shop_otis___son_ledger",
+      "cell": "shop_otis_son",
+      "key": "paper",
+      "triangles": 188
+    }
+  ],
+  "triangles": 6596,
+  "precision_chart_fallbacks": 4,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/druggist_counter.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_otis_son",
+        "parts": [
+          {
+            "name": "storm_shop_otis___son_telephone__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3
+          },
+          {
+            "name": "storm_shop_otis___son_telephone__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass_dull"
+          },
+          {
+            "name": "storm_shop_otis___son_ledger__book_ochre",
+            "key": "book_ochre",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.18,
+              0.085,
+              0.035,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_ledger__paper",
+            "key": "paper",
+            "tile": 0.5
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_otis___son_telephone",
+            "key": "bakelite_black",
+            "low": [
+              18.86,
+              1.12,
+              47.97999999999999
+            ],
+            "high": [
+              19.3,
+              1.5,
+              48.459999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_ledger",
+            "key": "paper",
+            "low": [
+              19.54,
+              1.12,
+              47.97999999999999
+            ],
+            "high": [
+              20.02,
+              1.1700000000000002,
+              48.47999999999999
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "1750d4a42c920fb0a4dba7b98a49d19bdfadd72c95eddd27497a557c8937dea1",
+  "source_bindings": {
+    "art/data/druggist_counter/source_plan.json": "52a202c1f5d204689a30caf09f5819a0084dbcc474ee379e9a42ffc15f159558",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_druggist_counter.py": "656f26c5b7177f4c662f74eb2b13617ac1fd6a7bc6414f317320363ae134d6e9",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/druggist_counter.glb.import": "721321d597fce4c8acf98dd7d1cd4bdce01eb6d81ef985e8ed76cbf41ea95f81",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+    "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+    "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_otis_son.gltf": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+    "game/assets/building/floor_01_cells/shop_otis_son.bin": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+    "art/blender/scripts/inspect_druggist_counter.py": "6e4a87026c619c4edd2b4ed295cf138448108d03c8572fe4412710028da3663d",
+    "game/assets/props/druggist_drawers.glb": "04f8c468edcd478d709ed8390034499e7dd07c500787ad469e047b414d9c5dd9",
+    "game/data/orison_v2/druggist_drawers.json": "8e0105d74969d26a1a29ad8446df629a8c20354685a3f9660bbe7532b971a7a5"
+  },
+  "open_work": [
+    "The two original X centres and source identities remain. New bodies move into the .32m exposed serving strip in front of the fitted drawer bank; original .48/.50m depths cannot fit that strip. Telephone base uses .216m depth; closed paper ledger uses .22m depth. Original hidden poses stay unchanged.",
+    "The phone has a closed body, seated feet, stem, hollow transmitter and hanging receiver, hook, cord and perforated blank rotary ring. The ledger is a closed stack with plain brown card covers and binding. No generated lettering or new material key.",
+    "Physical supports and sampled separations only. Telephone communication, readable ledger contents, dispensing, medicine/poison custody, continuous routes and independent utilities retain separate authority."
+  ]
+}
