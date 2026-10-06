@@ -128,6 +128,7 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 	check(prop._playing() and world.player.call_locked and prop.machine.state==ArcadeMachine.State.PLAYING,
 		"ordinary keyboard E enters the existing programme and locks the outer player")
 	if not prop._playing():return
+	await _panel_resize_views(world,prop)
 	_track_board(prop)
 	await shot("radio_receiving_play")
 	passage.residency._update_wanted(world.adapter.root.to_global(Vector3(1.925,0,-3.5)))
@@ -147,6 +148,56 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 	check(panel_ref.get_ref()==null and not world.player.call_locked and not prop.machine.is_booted(),
 		"receiving shutdown closes the root-owned panel, releases movement and unloads its programme")
 	exercised=true
+
+func _panel_resize_views(world: OrisonV2RuntimeRoot, prop: ArcadeCabinetProp) -> void:
+	var panel := prop._panel_ui as ArcadePanel
+	var labels := panel.find_children("*","Label",true,false)
+	check(labels.size()==2,"live programme panel exposes its title and ordinary control hint")
+	if labels.size()!=2:return
+	var title := labels[0] as Label
+	var hint := labels[1] as Label
+	var machine := prop.machine
+	var board_world := machine._world
+	var board_player := machine.player
+	var texture := panel._picture.texture
+	for node in [panel,title,hint,panel._picture]:owned_nodes.append(weakref(node))
+	var original_size := get_tree().root.size
+	var observations: Array=[]
+	for requested: Vector2i in [Vector2i(640,360),Vector2i(1280,720),Vector2i(1920,1080),Vector2i(800,1000)]:
+		get_tree().root.size=requested
+		await get_tree().process_frame;await get_tree().process_frame
+		await get_tree().create_timer(.3).timeout
+		await RenderingServer.frame_post_draw
+		var actual := Vector2(get_tree().root.size)
+		var safe := Rect2(Vector2(24,24),actual-Vector2(48,48))
+		var title_rect := title.get_global_rect()
+		var picture_rect := panel._picture.get_global_rect()
+		var hint_rect := hint.get_global_rect()
+		var name := "receiving_panel_%dx%d" % [requested.x,requested.y]
+		check(get_tree().root.size==requested,"actual client window reaches requested panel review size: "+name)
+		check(safe.encloses(title_rect) and safe.encloses(hint_rect) and safe.encloses(picture_rect),
+			"title, picture and controls stay inside visible window margins: "+name)
+		check(title_rect.end.y<=picture_rect.position.y and picture_rect.end.y<=hint_rect.position.y
+			and picture_rect.size.x>0 and picture_rect.size.y>0,"picture fits between readable title and controls: "+name)
+		check(title.is_visible_in_tree() and hint.is_visible_in_tree() and title.text==str(prop.cabinet.title)
+			and hint.text.contains("ESC step away"),"source programme title and complete control hint remain visible: "+name)
+		check(prop._panel_ui==panel and prop._playing() and world.player.call_locked and prop.machine==machine
+			and machine.is_booted() and machine._world==board_world and machine.player==board_player,
+			"resizing keeps the same live board, focus and outer movement lock: "+name)
+		check(panel._picture.texture==texture and texture==machine.get_texture() and texture.get_size()==Vector2(480,360)
+			and panel._picture.texture_filter==CanvasItem.TEXTURE_FILTER_NEAREST,
+			"resizing retains the existing low-resolution nearest-filtered programme feed: "+name)
+		await shot(name)
+		observations.append({"frame":name,"requested":[requested.x,requested.y],"actual":[actual.x,actual.y],
+			"title_rect":[title_rect.position.x,title_rect.position.y,title_rect.size.x,title_rect.size.y],
+			"picture_rect":[picture_rect.position.x,picture_rect.position.y,picture_rect.size.x,picture_rect.size.y],
+			"hint_rect":[hint_rect.position.x,hint_rect.position.y,hint_rect.size.x,hint_rect.size.y]})
+	get_tree().root.size=original_size
+	await get_tree().process_frame;await get_tree().process_frame
+	check(get_tree().root.size==original_size,"panel review restores the original client window before keyboard exit and teardown")
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("panel_resize_views.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"Actual live programme panel in four client window sizes. Rectangle visibility and unchanged board/focus are checked; aspect and legibility are inspected in the captured frames. No broader completion or save claim.",
+		"views":observations},"\t"))
 
 func _track_board(prop: ArcadeCabinetProp) -> void:
 	for node in [prop.machine._world,prop.machine._enemy_container,prop.machine._environment,
@@ -181,7 +232,7 @@ func _write_receiving_contract(started: int, nodes: int, resources: int, playbac
 	var hash := HashingContext.new();hash.start(HashingContext.HASH_SHA256);hash.update(FileAccess.get_file_as_bytes(path))
 	var passed := failures.is_empty() and exercised;var status := "PASS" if passed else "FAIL"
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Seven passage receiving owners, original catalogue/pose/graph, Radio Service keyboard play/exit, focused-parent protection and owned teardown. No chassis fit, power capacity, continuous entry route, save/reconstruction or broader completion acceptance.",
+		"scope":"Seven passage receiving owners, original catalogue/pose/graph, Radio Service keyboard play/exit, live panel resizing, focused-parent protection and owned teardown. No chassis fit, power capacity, continuous entry route, save/reconstruction or broader completion acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":hash.finish().hex_encode(),
 			"repository_head":str(head_output[0]).strip_edges() if not head_output.is_empty() else "",

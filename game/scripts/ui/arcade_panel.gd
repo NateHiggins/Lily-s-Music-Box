@@ -37,32 +37,37 @@ func open(player: Node, prop: Node) -> void:
 	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(backdrop)
 
-	var centre := CenterContainer.new()
-	centre.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(centre)
+	var frame := MarginContainer.new()
+	frame.set_anchors_preset(Control.PRESET_FULL_RECT)
+	for edge in ["left", "top", "right", "bottom"]:
+		frame.add_theme_constant_override("margin_" + edge, 24)
+	add_child(frame)
 
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 14)
-	centre.add_child(column)
+	frame.add_child(column)
 
 	var marquee := Label.new()
 	marquee.text = String(_prop.cabinet.get("title", ""))
 	marquee.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	marquee.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	marquee.add_theme_font_size_override("font_size", 26)
 	marquee.add_theme_color_override("font_color", _accent())
 	column.add_child(marquee)
 
 	_picture = TextureRect.new()
 	_picture.texture = _machine.get_texture()
-	# Nearest, and an integer-ish size. The point of a 480x360 feed is that it
-	# looks like 480x360.
+	# Keep the board's coarse pixels and aspect ratio. The title and controls
+	# reserve their height first; the live picture fills the space between them.
 	_picture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	_picture.stretch_mode = TextureRect.STRETCH_SCALE
-	_picture.custom_minimum_size = ArcadeMachine.RES * 2
+	_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_picture.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	column.add_child(_picture)
 
 	_hint = Label.new()
 	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_hint.add_theme_font_size_override("font_size", 13)
 	_hint.add_theme_color_override("font_color", Color(0.62, 0.64, 0.68))
 	_hint.text = "WASD move · mouse look · click fire · E interact · ESC step away"
