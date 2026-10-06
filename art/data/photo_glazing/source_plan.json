@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 3,
+  "runtime_keys": [
+    "glassish"
+  ],
+  "catalog_variants": {},
+  "material_aliases": {},
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "pane",
+      "sources": [
+        "storm_sf_photo_supplies_glass1"
+      ]
+    },
+    {
+      "kind": "pane",
+      "sources": [
+        "storm_sf_photo_supplies_transom"
+      ]
+    },
+    {
+      "kind": "pane",
+      "sources": [
+        "storm_shop_photo_supplies_borrowed_glass"
+      ]
+    }
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  },
+  "thickness_m": {
+    "storm_sf_photo_supplies_glass1": 0.008,
+    "storm_sf_photo_supplies_transom": 0.008,
+    "storm_shop_photo_supplies_borrowed_glass": 0.006
+  },
+  "open_work": [
+    "Three original fixed-glass source records retain plans, centres and vertical envelopes; 60/120/30mm placeholder depths become 8/8/6mm physical sheet. Source mullions, piers, sill/head, band, doors and all openings retain their owners. Seven wall/frame contacts are sampled; structural capacity, sealing and service continuity remain separate duties.",
+    "Native clear dielectric is an inspection approximation of the existing registered architectural Glazing optical owner. Production must use that same unchanged shader on local overrides, retaining original shipping StandardMaterial surfaces and all shared maps. The already fitted four counter panes may receive the same declared local optical override without changing their geometry.",
+    "Equal light-output standing comparisons, visible stock through the window/counter and existing ownership suites must pass before adoption. No completed glass/whole-shop acceptance claim is made by staging."
+  ]
+}

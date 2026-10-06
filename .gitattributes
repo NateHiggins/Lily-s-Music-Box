@@ -646,3 +646,14 @@ game/tests/orison_v2_photo_portraits_test.gd -text
 game/assets/props/photo_portraits.glb.import -text
 game/assets/props/photo_portraits/portrait_atlas.png.import -text
 art/renders/orison_v2/photo_portraits_20261005/** -text
+
+art/data/photo_glazing/** -text
+art/blender/scripts/build_photo_glazing.py -text
+art/blender/scripts/inspect_photo_glazing.py -text
+art/blender/photo_glazing_construction.json -text
+game/data/orison_v2/photo_glazing.json -text
+game/tests/fixtures/orison_photo_glazing.json -text
+game/scripts/building/orison_v2_photo_glazing.gd -text
+game/tests/orison_v2_photo_glazing_test.gd -text
+game/assets/props/photo_glazing.glb.import -text
+art/renders/orison_v2/photo_glazing_20261005/** -text

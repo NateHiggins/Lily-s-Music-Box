@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_glazing.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_sf_photo_supplies_glass1__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "storm_sf_photo_supplies_transom__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "storm_shop_photo_supplies_borrowed_glass__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_sf_photo_supplies_glass1",
+          "key": "glassish",
+          "low": [
+            16.88,
+            0.55,
+            58.98
+          ],
+          "high": [
+            16.94,
+            2.05,
+            62.35999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_sf_photo_supplies_transom",
+          "key": "glassish",
+          "low": [
+            16.86,
+            2.05,
+            58.94
+          ],
+          "high": [
+            16.98,
+            2.45,
+            63.85999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            22.955,
+            2.35,
+            59.449999999999996
+          ],
+          "high": [
+            22.985,
+            3.05,
+            63.349999999999994
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}

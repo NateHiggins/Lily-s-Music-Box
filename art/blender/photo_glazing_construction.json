@@ -1,0 +1,376 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_sf_photo_supplies_glass1",
+      "rect": [
+        16.88,
+        -62.35999999999999,
+        16.94,
+        -58.98
+      ],
+      "z0": 0.55,
+      "h": 1.4999999999999998,
+      "mat": "glassish",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_sf_photo_supplies_transom",
+      "rect": [
+        16.86,
+        -63.85999999999999,
+        16.98,
+        -58.94
+      ],
+      "z0": 2.05,
+      "h": 0.40000000000000036,
+      "mat": "glassish",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_borrowed_glass",
+      "rect": [
+        22.955,
+        -63.349999999999994,
+        22.985,
+        -59.449999999999996
+      ],
+      "z0": 2.35,
+      "h": 0.6999999999999997,
+      "mat": "glassish",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "thickness_m": {
+    "storm_sf_photo_supplies_glass1": 0.008,
+    "storm_sf_photo_supplies_transom": 0.008,
+    "storm_shop_photo_supplies_borrowed_glass": 0.006
+  },
+  "assemblies": [
+    {
+      "id": "storm_sf_photo_supplies_glass1",
+      "kind": "pane",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_sf_photo_supplies_transom",
+      "kind": "pane",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_borrowed_glass",
+      "kind": "pane",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_sf_photo_supplies_glass1_ThinPane",
+      "assembly": "storm_sf_photo_supplies_glass1",
+      "key": "glassish",
+      "volume_m3": 0.04055707144655975
+    },
+    {
+      "name": "storm_sf_photo_supplies_transom_ThinPane",
+      "assembly": "storm_sf_photo_supplies_transom",
+      "key": "glassish",
+      "volume_m3": 0.015742868987306487
+    },
+    {
+      "name": "storm_shop_photo_supplies_borrowed_glass_ThinPane",
+      "assembly": "storm_shop_photo_supplies_borrowed_glass",
+      "key": "glassish",
+      "volume_m3": 0.01638140782282724
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_sf_photo_supplies_glass1",
+      "owner": "storm_sf_photo_supplies_sillcap1",
+      "point": [
+        16.91,
+        0.55,
+        60.669999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "fixed shop-window actual sill seat"
+    },
+    {
+      "assembly": "storm_sf_photo_supplies_glass1",
+      "owner": "storm_sf_photo_supplies_headstop1",
+      "point": [
+        16.91,
+        2.05,
+        60.669999999999995
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fixed shop-window actual head seat"
+    },
+    {
+      "assembly": "storm_sf_photo_supplies_transom",
+      "owner": "storm_sf_photo_supplies_band",
+      "point": [
+        16.92,
+        2.45,
+        61.39999999999999
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fixed transom actual band underside"
+    },
+    {
+      "assembly": "storm_sf_photo_supplies_transom",
+      "owner": "storm_sf_photo_supplies_pier6",
+      "point": [
+        16.92,
+        2.25,
+        63.85999999999999
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "fixed transom actual first pier"
+    },
+    {
+      "assembly": "storm_sf_photo_supplies_transom",
+      "owner": "storm_sf_photo_supplies_pier56",
+      "point": [
+        16.92,
+        2.25,
+        58.94
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fixed transom actual second pier"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_borrowed_glass",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.97,
+        2.35,
+        61.39999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "borrowed-light actual sill seat"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_borrowed_glass",
+      "owner": "storm_shop_photo_supplies_borrowed_head",
+      "point": [
+        22.97,
+        3.05,
+        61.39999999999999
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "borrowed-light actual head seat"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_sf_photo_supplies_glass1__glassish",
+      "assembly": "storm_sf_photo_supplies_glass1",
+      "cell": "shop_photo_supplies",
+      "key": "glassish",
+      "triangles": 12
+    },
+    {
+      "name": "storm_sf_photo_supplies_transom__glassish",
+      "assembly": "storm_sf_photo_supplies_transom",
+      "cell": "shop_photo_supplies",
+      "key": "glassish",
+      "triangles": 12
+    },
+    {
+      "name": "storm_shop_photo_supplies_borrowed_glass__glassish",
+      "assembly": "storm_shop_photo_supplies_borrowed_glass",
+      "cell": "shop_photo_supplies",
+      "key": "glassish",
+      "triangles": 12
+    }
+  ],
+  "triangles": 36,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_glazing.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_sf_photo_supplies_glass1__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "storm_sf_photo_supplies_transom__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "storm_shop_photo_supplies_borrowed_glass__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_sf_photo_supplies_glass1",
+            "key": "glassish",
+            "low": [
+              16.88,
+              0.55,
+              58.98
+            ],
+            "high": [
+              16.94,
+              2.05,
+              62.35999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_sf_photo_supplies_transom",
+            "key": "glassish",
+            "low": [
+              16.86,
+              2.05,
+              58.94
+            ],
+            "high": [
+              16.98,
+              2.45,
+              63.85999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_borrowed_glass",
+            "key": "glassish",
+            "low": [
+              22.955,
+              2.35,
+              59.449999999999996
+            ],
+            "high": [
+              22.985,
+              3.05,
+              63.349999999999994
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ],
+    "optics": {
+      "role": "Glazing",
+      "room_class": "public",
+      "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+      "shader": "res://shaders/lamp_glass_surface.gdshader",
+      "surface_roughness": 0.06
+    }
+  },
+  "asset_sha256": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60",
+  "source_bindings": {
+    "art/data/photo_glazing/source_plan.json": "9ea8923098c374fc8465c46cee3d47212a5484a0d8e2602a9930502cbc61c740",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_glazing.py": "1c78ed046953b717091082b8d1038cd51621ea56ed173bcfa9e039f3e6273475",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_glazing.glb.import": "d003eb24fa75d988b87d34e3e3d3f04fbd4a9931076fb877d8df193700d55cda",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_glazing.py": "d402f994a95856439f2bdeee51f70d29a98ce07324da64d109f63b8171acd973",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1"
+  },
+  "open_work": [
+    "Three original fixed-glass source records retain plans, centres and vertical envelopes; 60/120/30mm placeholder depths become 8/8/6mm physical sheet. Source mullions, piers, sill/head, band, doors and all openings retain their owners. Seven wall/frame contacts are sampled; structural capacity, sealing and service continuity remain separate duties.",
+    "Native clear dielectric is an inspection approximation of the existing registered architectural Glazing optical owner. Production must use that same unchanged shader on local overrides, retaining original shipping StandardMaterial surfaces and all shared maps. The already fitted four counter panes may receive the same declared local optical override without changing their geometry.",
+    "Equal light-output standing comparisons, visible stock through the window/counter and existing ownership suites must pass before adoption. No completed glass/whole-shop acceptance claim is made by staging."
+  ]
+}

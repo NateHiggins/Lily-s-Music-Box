@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/orison_v2_photo_glazing_test.gd" id="1"]
+
+[node name="OrisonV2PhotoGlazingTest" type="Node3D"]
+script = ExtResource("1")
