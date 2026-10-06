@@ -1,0 +1,3280 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shopcab_photo_supplies0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -59.349999999999994
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "original_primitives": [
+    {
+      "kind": "box",
+      "args": [
+        "chrome",
+        -0.33,
+        -0.36,
+        0.02,
+        0.33,
+        0.36,
+        1.72
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.31,
+        -0.49,
+        0.88,
+        0.31,
+        -0.33999999999999997,
+        0.97
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "terracotta",
+        -0.17,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        -0.05000000000000002,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        0.06999999999999998,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        -0.2,
+        -0.44999999999999996,
+        0.97,
+        1.05,
+        0.008,
+        0.008,
+        6
+      ],
+      "triangles": 24
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.30000000000000004,
+        -0.38,
+        0.98,
+        0.30000000000000004,
+        -0.3,
+        1.42
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "screen",
+        -0.27,
+        -0.365,
+        1.02,
+        0.27,
+        -0.355,
+        1.38
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "milk_glass",
+        -0.31,
+        -0.39,
+        1.56,
+        0.31,
+        -0.31,
+        1.7
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "brass",
+        -0.09,
+        -0.372,
+        0.38,
+        0.09,
+        -0.36,
+        0.55
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        0.0,
+        -0.38,
+        0.44,
+        0.455,
+        0.012,
+        0.012,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.3,
+        0.335,
+        0.24,
+        0.315
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.35,
+        0.335,
+        0.24,
+        0.365
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.4,
+        0.335,
+        0.24,
+        0.41500000000000004
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.45,
+        0.335,
+        0.24,
+        0.465
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "hull",
+      "args": [
+        -0.39,
+        -0.5,
+        0.0,
+        0.39,
+        0.36,
+        1.72
+      ],
+      "triangles": 12
+    }
+  ],
+  "original_assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566",
+  "assemblies": [
+    {
+      "id": "storm_shopcab_photo_supplies0",
+      "kind": "period_receiving_chassis",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shopcab_photo_supplies0_FloorFoot0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FloorFoot1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298763
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FloorFoot2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FloorFoot3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298757
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_Bottom",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.014233548925814722
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CellTray",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.016627809320242617
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_LeftWall",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.032940198072674245
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_RearWall",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.028363098269264798
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_Crown",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.01660946887231052
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_RightFrameLower",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0008032615796855823
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_RightFrameUpper",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.017028841278165528
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_RightFrameFront",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.002475761671980413
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_RightFrameRear",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0024757616800677737
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ServiceDoor",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.008673013567839907
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ServiceHinge0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726656880627e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_HingeLeaf0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 1.6709702050983922e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ServiceHinge1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726656880627e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_HingeLeaf1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 1.6709701336646556e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ServiceLatch",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 4.532330059736428e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_InsideSchematic",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "paper",
+      "volume_m3": 0.0003076776798434686
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramRail0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramRail1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 2.375975930761449e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215112660342564e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131589524916e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214691493131434e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214953014073456e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321517258567986e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365395968693e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429858e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214796748577194e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321480592652118e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32167966060078e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617297e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904595e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214560732560144e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737097e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493707e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482166542304e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272966782e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155170135e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391169990486e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321519875567968e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497551599216e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214708762762135e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508044415421e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225384321557e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32144833844904e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215056393304904e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321472436035354e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497551598908e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215198688915544e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439116999049e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321516915517142e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272965848e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642985513847e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321559443373729e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321456073256002e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904727e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321560012561709e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216428545404645e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215355931616213e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214786401479447e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429729e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365395968685e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321517258567542e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32149529812295e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469579336559e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151151285395e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve0_47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213596107431675e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead00",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead01",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramGrid0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748471548333e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521993509801e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321505512332742e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467334289056e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935907376854e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321513145288615e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320004184293e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215253094370165e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321481384783536e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482006359302e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216805937118952e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215649860049372e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214572468316883e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457196189973e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215643777711647e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216802996048225e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214843514980275e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041295862e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215215391340996e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594716655e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321510678636683e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214956306908707e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214671421336137e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321506604287555e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214333609096773e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214590657195682e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055414172524e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214673327990882e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32149563069057e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215106719602807e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594716713e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521539134232e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041295048e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215342637501294e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216419912940886e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215644540582912e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214571961899752e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214572468316867e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32156506229202e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216422276361407e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321531976196281e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847836173e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321525309436884e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320004184243e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452881764e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935874532833e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467143115201e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215065802221883e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve1_47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213704330156736e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047932295289895e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.887951877521911e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramGrid1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407480692210544e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321511266034257e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321505610245979e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214724375253215e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214953014073456e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215219772558553e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439138234659e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215206014298583e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321476341544278e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926521184e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32167966060078e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321560012561729e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109003893e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214639391460853e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737097e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493707e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821665423043e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821163392195e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321516915517013e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183612583e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146286903107e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975515992158e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469578354971e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321515139193907e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321422538432156e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32144833844904e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321513188037002e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214691478231756e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975515989077e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146220139147e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183612595e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155171425e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321481081629273e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642985513847e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321559443373729e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214639391460713e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321455710900402e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32156001256171e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642854540465e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321535593161622e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415443737e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520601429728e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391382346584e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215219772554293e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321495298122951e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214708772578006e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508020350053e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramValve2_47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321359610743167e-09
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramLead21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_DiagramGrid2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748471548333e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveRack",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0068919114972503465
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveSocket0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992634866653
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveEnvelope0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894362365442
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveSocket1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0001929699267987465
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveEnvelope1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894358992882
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveSocket2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992494766493
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ValveEnvelope2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894378059101
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_WetCell0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247144016811305
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_WetCellLid0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.001149744921899267
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CellTerminal0_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989737e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CellTerminal0_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989737e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_WetCell1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247143942488493
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_WetCellLid1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0011497449452491056
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CellTerminal1_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709844e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CellTerminal1_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709843e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ControlDeck",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.008473888111377363
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_Button0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626983968483e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_Button1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383628212949859e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_Button2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626844817736e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ExistingStick",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 1.6581120392411466e-05
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FrontLower",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.006400837975162919
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FrontUpper",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0013573679125434344
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FrontLeft",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00039714294948231364
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FrontRight",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00039714296870722903
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleCloth",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 0.0008254157216710642
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561788654473
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856244281926
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856171439915
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleBar6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleRailBottom",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851670295963907
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_GrilleRailTop",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.0002085167036713526
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ScopeFascia",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite",
+      "volume_m3": 0.007333520523877625
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CircularScopeBezel",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.00196278010735099
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ScopeCasing",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0006618243331741961
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_ScopeRear",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0019549621881401265
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CardBacking",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.005738514047710802
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CardFrameLeft",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.00028775170375599
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CardFrameRight",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.0002877517034784279
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CardFrameBottom",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.00039527170100644104
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CardFrameTop",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.0005932666718978582
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinPlate",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 0.0006105335818065761
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinLatch",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 4.919636261090216e-06
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinScrew00",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632956e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinScrew01",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042591716440121e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinScrew10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632956e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_CoinScrew11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042591716440121e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837972445354e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103088737953364e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047859275899042e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965770670810247e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857718864141486e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724829613378674e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592302657496e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696791982992e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.19310582122202e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978010988973586e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761720034484e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505033419387081e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252513746932586e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993137828323355e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729897257661785e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465850665745728e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204115187880379e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782978442349e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699864971506811e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4632136039786964e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.240465891467492e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.033966938578932e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.845622782459328e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.676900756883211e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.5287193007365245e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.401441805489453e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.294884468088003e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2084319383955417e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.141117085529717e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0919157404074813e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.059763473619481e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.043906670125027e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0439066700928896e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.059772451890449e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.091905336267988e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1411257445070667e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2084236348267103e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.294893604261004e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.401441803920749e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.528719300548963e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6769007569325177e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8456172275457337e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.033966927752657e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.2404666685832137e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463210299327166e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699861973476797e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782513651126e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204118778057251e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore48",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465851734551528e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore49",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729894227664348e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore50",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993136169700702e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore51",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252511880164415e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore52",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505032084634575e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore53",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761731344151e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore54",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 6.97800186453568e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore55",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.19310581758208e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore56",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696788367308e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore57",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592668958695e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore58",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724831986383788e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore59",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857715277690272e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore60",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965771557220847e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore61",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047855885259953e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore62",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103092455874942e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexCore63",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837968924222e-07
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6925334588285196e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.669471559392747e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6279260984655195e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.573998239663148e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.511480331012294e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.438959752153477e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.349594494171763e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.235207249228398e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.0910594327914996e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.9208954126932505e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.737610014404418e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.559118286884849e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.400548494492514e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.266618617717863e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.14788059165231e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.023211455495507e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8695799397604045e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6749114928819686e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.448021503065483e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2190078096972055e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0275315474887555e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9042463756918305e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8551507547215628e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8563220480729942e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8613377347645606e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8221014419161946e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.715380027200419e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5580463079260774e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3990982505161477e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.292282069653631e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2703399053024616e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.750240409361632e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7812507213099385e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.313295306956143e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2817454709698963e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.339739792620049e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4753202274587873e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6466187973737426e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.798497332751513e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8911591718457905e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9219846285854624e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9245069963755848e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.947564330871344e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0299320788737667e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.184520958181687e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.395841725205489e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.629530804095211e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.849118041817654e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_48",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.032133288901616e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_49",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.1772773762377076e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_50",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300605374655703e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_51",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4242292709247534e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_52",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.564869978778128e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_53",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.7267189073629914e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_54",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.901371445305678e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_55",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.07287284374636e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_56",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.225484226239709e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_57",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.3501238611230046e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_58",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.4463932079979374e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_59",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5206376408759286e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_60",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5803870042746947e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_61",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.630036478814237e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_62",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.668903248863631e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid0_63",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.691829810664528e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_0",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.695485006297442e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_1",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.681577077894419e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_2",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6496980638424746e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_3",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.594421683578443e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_4",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.513276748315625e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_5",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.409394694872673e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_6",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.291428649259239e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_7",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.170190343874277e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_8",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.052964759384804e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_9",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.9389577763075235e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_10",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.818942534659803e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_11",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.678447924116853e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_12",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.5059690136206996e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_13",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.3009196696825347e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_14",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0771158812994696e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_15",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.859974647067792e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_16",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.676358863607982e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_17",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.542083042824452e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_18",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4527065213210766e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_19",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.382823051121762e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_20",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.295797073592304e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_21",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.161908649115687e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_22",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9768162940798334e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_23",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.768693541501203e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_24",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5865149838436322e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_25",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4747169845942294e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_26",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.452099634078536e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_27",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.503672381053422e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_28",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5849341899185452e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_29",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6387099884791236e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_30",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6234190541062296e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_31",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8853539409840793e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_32",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.855450279943072e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_33",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5774064618534693e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_34",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6500640497111756e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_35",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6474471897681683e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_36",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5869458096534203e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_37",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5183264265627345e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_38",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.497028203023918e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_39",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5581518283333185e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_40",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7045222469573036e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_41",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9069264899464768e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_42",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1174184162426036e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_43",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.293399635097184e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_44",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4180123159027394e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_45",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.505105205994452e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_46",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.587145463297434e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_47",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.696615763806137e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_48",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 3.851182107293272e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_49",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.047817246159547e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_50",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.2669503402774815e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_51",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.482254922419366e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_52",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.672678223980716e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_53",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.829872538208854e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_54",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 4.958546835777978e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_55",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.071094891476293e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_56",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.1799037631852963e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_57",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.290895246968419e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_58",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.4018418459174346e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_59",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.504112430053005e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_60",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5880418326727715e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_61",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6475452560278803e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_62",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.68219800682514e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexBraid1_63",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "fabric_warm",
+      "volume_m3": 5.69606030778363e-08
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0_FlexGrommet",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "key": "bakelite_black",
+      "volume_m3": 1.0787709518271342e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shopcab_photo_supplies0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.18,
+        0.009999999999999995,
+        59.64999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_photo_supplies0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.18,
+        0.009999999999999995,
+        59.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_photo_supplies0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.72,
+        0.009999999999999995,
+        59.64999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_photo_supplies0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.72,
+        0.009999999999999995,
+        59.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite",
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite__service_panel",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite_black",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite_black",
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite_black__schematic_traces",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite_black",
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__brass_dull",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 3204
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__brass_dull__service_latch",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__copper_aged",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "copper_aged",
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__enamel_appliance",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_appliance",
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__fabric_warm",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "fabric_warm",
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__milk_glass",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "milk_glass",
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__paper",
+      "assembly": "storm_shopcab_photo_supplies0",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 188
+    }
+  ],
+  "triangles": 38040,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_receiving.glb",
+    "tolerance": 2e-05,
+    "source_record": {
+      "id": "storm_shopcab_photo_supplies0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -59.349999999999994
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    "original_draws": [
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite",
+        "key": "bakelite",
+        "expected_triangles": 128,
+        "low": [
+          21.155000686645508,
+          0,
+          59.025001525878906
+        ],
+        "high": [
+          21.7450008392334,
+          0.029999999329447746,
+          59.67499923706055
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black",
+        "key": "bakelite_black",
+        "expected_triangles": 128,
+        "low": [
+          21.139999389648438,
+          0.30000001192092896,
+          59.11000061035156
+        ],
+        "high": [
+          21.78499984741211,
+          1.4199999570846558,
+          59.84000015258789
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass",
+        "key": "brass",
+        "expected_triangles": 12,
+        "low": [
+          21.360000610351562,
+          0.3799999952316284,
+          59.709999084472656
+        ],
+        "high": [
+          21.540000915527344,
+          0.550000011920929,
+          59.72200012207031
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_chrome",
+        "key": "chrome",
+        "expected_triangles": 12,
+        "low": [
+          21.1200008392334,
+          0.019999999552965164,
+          58.9900016784668
+        ],
+        "high": [
+          21.780000686645508,
+          1.7200000286102295,
+          59.709999084472656
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel",
+        "key": "enamel",
+        "expected_triangles": 64,
+        "low": [
+          21.384000778198242,
+          0.9700000286102295,
+          59.75899887084961
+        ],
+        "high": [
+          21.535999298095703,
+          0.9850000143051147,
+          59.79100036621094
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_milk_glass",
+        "key": "milk_glass",
+        "expected_triangles": 12,
+        "low": [
+          21.139999389648438,
+          1.559999942779541,
+          59.65999984741211
+        ],
+        "high": [
+          21.760000228881836,
+          1.7000000476837158,
+          59.7400016784668
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_screen",
+        "key": "screen",
+        "expected_triangles": 12,
+        "low": [
+          21.18000030517578,
+          1.0199999809265137,
+          59.70500183105469
+        ],
+        "high": [
+          21.719999313354492,
+          1.3799999952316284,
+          59.71500015258789
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_terracotta",
+        "key": "terracotta",
+        "expected_triangles": 32,
+        "low": [
+          21.263999938964844,
+          0.9700000286102295,
+          59.75899887084961
+        ],
+        "high": [
+          21.29599952697754,
+          0.9850000143051147,
+          59.79100036621094
+        ]
+      }
+    ],
+    "hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull",
+    "raw_hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly",
+    "hull_triangles": 12,
+    "hull_low": [
+      21.059999465942383,
+      0,
+      58.9900016784668
+    ],
+    "hull_high": [
+      21.84000015258789,
+      1.7200000286102295,
+      59.849998474121094
+    ],
+    "parts": [
+      {
+        "name": "storm_shopcab_photo_supplies0__bakelite",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 5092
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__bakelite__service_panel",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 188
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__bakelite_black",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 3280
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__bakelite_black__schematic_traces",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 5668
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__brass_dull",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 3204
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__brass_dull__service_latch",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 124
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__copper_aged",
+        "key": "copper_aged",
+        "catalog_key": "copper_aged",
+        "tile": 0.4,
+        "triangles": 368
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__enamel_appliance",
+        "key": "enamel_appliance",
+        "catalog_key": "enamel_appliance",
+        "tile": 0.72,
+        "triangles": 936
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__fabric_warm",
+        "key": "fabric_warm",
+        "catalog_key": "fabric_warm",
+        "tile": 0.7,
+        "triangles": 8636
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__milk_glass",
+        "key": "milk_glass",
+        "catalog_key": "milk_glass",
+        "tile": 0.5,
+        "triangles": 10356
+      },
+      {
+        "name": "storm_shopcab_photo_supplies0__paper",
+        "key": "paper",
+        "catalog_key": "paper",
+        "tile": 0.5,
+        "triangles": 188
+      }
+    ]
+  },
+  "asset_sha256": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622",
+  "fitted_datums": {
+    "floor_top": 0.009999999999999995,
+    "maximum": 1.72,
+    "scope_centre_local": [
+      0,
+      1.2,
+      -0.386
+    ],
+    "scope_diameter": 0.36,
+    "bezel_inner_radius": 0.1808,
+    "service_panel_closed": true
+  },
+  "source_bindings": {
+    "art/data/photo_receiving/source_plan.json": "ff547c5a512896e95f50c35c705229a828f31cde12182ddb2dcfb5e73c07e30e",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_receiving.py": "4f7f47080bac7840adf32b555ee2d6b39bb03675f13e070ae6302b37d2b759e2",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_receiving.glb.import": "7ed52517f61c97435829b02c04ee235c658d881b542333466c7587a78d2addec",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_receiving.py": "70a41856cf7a7fbdba112e208fa414d1de14a17d5ee487319031a253eb4a5c74",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/photo_stock.glb": "6ab3dd06c096437f37566087ff6dab293b16cd3086848e8bcb149f1e02472965",
+    "game/data/orison_v2/photo_stock.json": "50f0facbb0c8a604849c2d0fb7b11e7192cee3b7d5a7ade52f6e5ce8e60dc368",
+    "art/blender/photo_stock.blend": "e64c09c63263ff8ba43dc9eb3280a75cab2fd8af937cd430cad902a3955ecc4a",
+    "game/assets/props/photo_counter.glb": "ed21b0516bc65f1fa780465009bac294226299940134d1ac2e08dbc961c3333f",
+    "game/data/orison_v2/photo_counter.json": "d20a95f883eca27036e7ff74ce096a56d875a36d83fd6de5bceadb6c7c0d5d2c",
+    "art/blender/photo_counter.blend": "f234607b8c07c97d3cf26f278d9ba869a9add0d260ef21a994764854a62b5022",
+    "game/assets/props/photo_portraits.glb": "30a5b098566666d650ac658504ce1559b6199c1482ea57caa0faf47632961472",
+    "game/data/orison_v2/photo_portraits.json": "bba64fee00e61a903c4b7a32c8cbce53707d1f79915021998034c339bcf708f1",
+    "art/blender/photo_portraits.blend": "74bb89c3c5d42324fa061c423ec2af3869a660e727217e08dfba6c4e7ab46444",
+    "game/assets/props/photo_glazing.glb": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60",
+    "game/data/orison_v2/photo_glazing.json": "c0f978846e8105a4fd75c31e64094670b40baad438a7e4e1beab170a605cd128",
+    "art/blender/photo_glazing.blend": "1787c33ec14d825eee94e760b863831cd24eb8bfd94d8855f785a9284e08eeb4",
+    "game/assets/props/photo_cameras.glb": "796c35815a286732d25fecf73790fd2ed3a187c8b835461880dab85a3b305baf",
+    "game/data/orison_v2/photo_cameras.json": "5305b43d29a602d7ded9366581630f57c81992af66f318b2d17c369e5187056b",
+    "art/blender/photo_cameras.blend": "240ac9ea5b749ab03babcd214cba6a59ec04875d9a1c963ac9e8578a47d864f7",
+    "game/assets/props/photo_process.glb": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032",
+    "game/data/orison_v2/photo_process.json": "d3b6a346e5dd494d51e39f46770517f2bba55ea623d42810e2b529c942d6dd01",
+    "art/blender/photo_process.blend": "ab265a9051ad88182041abf94a6ca43a84b15a90f66ae9783df102468418fe72",
+    "game/assets/props/photo_enlargers.glb": "67609f1168c0942bfef6571580af201f5dc000def2958a38916e71e5a4e84b32",
+    "game/data/orison_v2/photo_enlargers.json": "7e4fa7980a8db037d086d07fb4f2ea133010f85018390c021da24538202de1bc",
+    "art/blender/photo_enlargers.blend": "a2a1c9ab896e093a308472ea7e9778d9b73b918fb72bc4f74c709179f4ece74d"
+  },
+  "open_work": [
+    "Bible VIII.5.g governs the period replacement of the original variant-2 chrome chassis: Bakelite carcass, circular brass bezel, braided cloth flex, passive valve rack behind closed hinged service stock, letter-free inside-lid diagram and base wet cells. Original COUNTY LEAGUE programme/card/genre controls stay with their persistent owner.",
+    "Source pose/yaw/variant, 1.72m maximum, 1.20m scope centre, 0.36m square live scope quad and control-height datums remain. Four feet seat on the unchanged source floor top 0.01m. The previously fitted passive print dryer remains 30mm clear of the complete original hull; frontal access remains a separate duty.",
+    "Validate only eight exact decorative imported source owners (400 triangles) and the separately named 12-triangle hull before retirement. Preserve every unrelated array and collision shape/state/pose. The original layout, assembler and shipping glTF remain unchanged.",
+    "All finishes are existing catalogue keys/maps. Programme lettering stays Label3D. Passive inspection stock grants no new input, maintenance, electrical or circuit capacity authority.",
+    "Native connected/positive closed stocks, assembly joins, strict physical UVs/tangents, actual floor contacts, all remaining source and eight accepted Photo libraries, imported ownership, ordinary COUNTY LEAGUE E/Escape, reconstruction and rendered composition remain required. This plan grants no runtime or human acceptance. Four other receiving chassis, frontal access, light/darkroom, services and whole-building acceptance remain open."
+  ]
+}

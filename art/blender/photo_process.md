@@ -64,10 +64,16 @@ intact for exact comparison and retirement. All other process partitions
 retain their serialized arrays and transforms, subject to export comparison.
 The inspector adds two source-context views and actual hull/mesh bounds and
 overlap checks; the runtime suite uses fitted dryer datums and two supported
-gap observations. Verification is pending; no committed verdict is claimed.
+gap observations. The bound committed result follows below.
 
 Committed source **e5376760** passes the full **48-gate/tools-test**
 comparison and **eight** bound Godot runs. All **28** native and **55** final
 production frames were directly reviewed. Evidence and separate complete key
 authority: **art/renders/orison_v2/photo_receiving_clearance_20261006**.
 Report: **design/V2_PHOTO_RECEIVING_CLEARANCE_2026-10-06.md**.
+
+The subsequent native **PhotoReceiving** replacement keeps that original
+12-triangle hull disabled and intact as its exact source owner. The process
+suite checks the same complete bounds, dryer gap and native owner after this
+retirement. The process export and all sixteen original equipment records
+remain unchanged by the receiving-chassis batch. Frontal access remains open.
