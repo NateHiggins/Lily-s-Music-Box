@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_wire.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_aerial_spools__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4
+        },
+        {
+          "name": "storm_shop_radio_service_aerial_spools__copper_aged",
+          "key": "copper_aged",
+          "tile": 0.4
+        },
+        {
+          "name": "storm_shop_radio_service_aerial_spools__timber",
+          "key": "timber",
+          "tile": 1.0,
+          "catalog_key": "timber"
+        },
+        {
+          "name": "storm_shop_radio_service_solder_ring__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_aerial_spools",
+          "key": "copper_aged",
+          "low": [
+            20.58,
+            0.08,
+            56.779999999999994
+          ],
+          "high": [
+            20.96,
+            0.54,
+            57.61999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_solder_ring",
+          "key": "cast_iron",
+          "low": [
+            20.08,
+            0.08,
+            56.879999999999995
+          ],
+          "high": [
+            20.46,
+            0.34,
+            57.519999999999996
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

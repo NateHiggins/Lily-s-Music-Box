@@ -1,0 +1,516 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_radio_service_aerial_spools",
+      "rect": [
+        20.58,
+        -57.61999999999999,
+        20.96,
+        -56.779999999999994
+      ],
+      "z0": 0.08,
+      "h": 0.46,
+      "mat": "copper_aged",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_solder_ring",
+      "rect": [
+        20.08,
+        -57.519999999999996,
+        20.46,
+        -56.879999999999995
+      ],
+      "z0": 0.08,
+      "h": 0.26,
+      "mat": "cast_iron",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_radio_service_aerial_spools",
+      "kind": "passive_aerial_wire_stock",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_solder_ring",
+      "kind": "passive_iron_ring_stock",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.00021182162399937057
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.00021182162335761127
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot2",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.00021182162399937057
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot3",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.00021182162335761127
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_BaseBoard",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.013709437816716165
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_EdgeRail0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0011398895883637527
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_EdgeRail1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0011398895883637525
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost0_0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0004689536269933846
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost0_1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0004689536235607488
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FixedSpindle0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "cast_iron",
+      "volume_m3": 0.0003796015361621393
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelBarrel0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.005453273257256775
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange0_0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange0_1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_PassiveCopperDrum0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "copper_aged",
+      "volume_m3": 0.006103037330861677
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "copper_aged",
+      "volume_m3": 0.0005078142332139296
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost1_0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0004689536235607488
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost1_1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.00046895362356074886
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FixedSpindle1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "cast_iron",
+      "volume_m3": 0.0003796015361621393
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelBarrel1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.005453191997317611
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange1_0",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange1_1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "timber",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_PassiveCopperDrum1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "copper_aged",
+      "volume_m3": 0.006103131207856813
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding1",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "key": "copper_aged",
+      "volume_m3": 0.0005078142332139298
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot0",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.0001353536157174451
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot1",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.00013535361448485357
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot2",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.00013535362265928373
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot3",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.00013535362142669217
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_LowerCradle",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.004103130807107289
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FiniteIronRing",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "key": "cast_iron",
+      "volume_m3": 0.019949524043460932
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.655,
+        0.009999999999999995,
+        57.53499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aerial-stock foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.655,
+        0.009999999999999995,
+        56.864999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aerial-stock foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.884999999999998,
+        0.009999999999999995,
+        57.53499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aerial-stock foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.884999999999998,
+        0.009999999999999995,
+        56.864999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aerial-stock foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.169999999999998,
+        0.009999999999999995,
+        57.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "iron-ring foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.169999999999998,
+        0.009999999999999995,
+        57.029999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "iron-ring foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.37,
+        0.009999999999999995,
+        57.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "iron-ring foot on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        20.37,
+        0.009999999999999995,
+        57.029999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "iron-ring foot on actual retained floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_radio_service_aerial_spools__cast_iron",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools__copper_aged",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "cell": "shop_radio_service",
+      "key": "copper_aged",
+      "triangles": 20768
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools__timber",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "cell": "shop_radio_service",
+      "key": "timber",
+      "triangles": 5908
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring__cast_iron",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 3056
+    }
+  ],
+  "triangles": 30108,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/radio_wire.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_radio_service",
+        "parts": [
+          {
+            "name": "storm_shop_radio_service_aerial_spools__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4
+          },
+          {
+            "name": "storm_shop_radio_service_aerial_spools__copper_aged",
+            "key": "copper_aged",
+            "tile": 0.4
+          },
+          {
+            "name": "storm_shop_radio_service_aerial_spools__timber",
+            "key": "timber",
+            "tile": 1.0,
+            "catalog_key": "timber"
+          },
+          {
+            "name": "storm_shop_radio_service_solder_ring__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_radio_service_aerial_spools",
+            "key": "copper_aged",
+            "low": [
+              20.58,
+              0.08,
+              56.779999999999994
+            ],
+            "high": [
+              20.96,
+              0.54,
+              57.61999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_solder_ring",
+            "key": "cast_iron",
+            "low": [
+              20.08,
+              0.08,
+              56.879999999999995
+            ],
+            "high": [
+              20.46,
+              0.34,
+              57.519999999999996
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+  "source_bindings": {
+    "art/data/radio_wire/source_plan.json": "b63c75cbfa48edc6cfbbb6f00e8eddc229828506c93f75008ebd5615b47000b6",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_radio_wire.py": "b2fa42f6338cd643949affc1892b34526468613c761df2dcf8f91929239a8310",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/radio_wire.glb.import": "16cd156b6fa5e957edf3770b92ddb183b86859ec4f29d63d4e7492efdd6fa958",
+    "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "art/textures/ai_materials/cast_iron/material.json": "4e0684bd596f37118193b3961a9cf97790f1aa571414eeca779c06aa9514976e",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_albedo.png": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_rough.png": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_normal.png": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2",
+    "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+    "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+    "art/blender/scripts/inspect_radio_wire.py": "40b7e87d82edf33f59ef28c58126fc92b5095709e78d13ba6f04d4e6f791633d",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "game/assets/props/radio_bench.glb": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
+    "game/data/orison_v2/radio_bench.json": "9b6f0fe4efaceec0021f497b0b13117a7bed0a3cbbdd51b52a422326ac04ecda",
+    "art/blender/radio_bench.blend": "3b24bffb7fe18fe757babbc2900d56da377c9eb15c9c18374c0c100d448c4307",
+    "game/assets/props/radio_apparatus.glb": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d",
+    "game/data/orison_v2/radio_apparatus.json": "6f1dd1866df7c25478c54019d112ec5f5068b7d7c9b5f1873e18fbc5f291bdc4",
+    "art/blender/radio_apparatus.blend": "b2ad3337a17357b71883c4660ebb345be9a30dc16f7758c39b9fe6ba98c629d4",
+    "game/assets/props/radio_stock.glb": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf",
+    "game/data/orison_v2/radio_stock.json": "a76029e79ea3637c15416faa7a1d1e0d9ca0cef3c485a99b241eff9b35a04dd6",
+    "art/blender/radio_stock.blend": "287e4988337c632769fd255ddbe23a1afc9d7bccee3bef6d3616fd98759328cd",
+    "game/assets/props/radio_battery.glb": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966",
+    "game/data/orison_v2/radio_battery.json": "d35a9df2dd923599c46ce660b6165052743027e9c7888e02f8dfa2f5940161b6",
+    "art/blender/radio_battery.blend": "75a903535b12ad6e1856975e2e8764bbd09ea4866b739e10be0fcf9c03862b75"
+  },
+  "open_work": [
+    "Two original source records remain immutable retirement bounds and hidden native comparison boxes. Their floor footprints, source heights and maxima remain; no layout or accepted native asset changes.",
+    "ADAPTATION: two fixed wooden reels, finite copper stock and closed display winding make the aerial-spool source legible. Floor feet, base board and spindle posts bridge the original 70mm floor gap. No live aerial route, electrical state, spool interaction, wire specification, current or engineering capacity is inferred.",
+    "ADAPTATION: a finite open-centre iron ring, lower cradle and four seated feet replace the original cast-iron block. The original cast-iron finish remains. No solder chemistry, heater, fuel, service route, temperature or functional procedure is inferred.",
+    "Shipping copper and cast iron plus the existing registered timber finish retain their material owners and metre charts. No generated lettering, new material key/map/shader, architectural cutout, door/lock/save/hours or carrier change.",
+    "Native context includes original cabinet, unchanged bench/apparatus/valve rack, accepted charging display and retained room. Positive closed stock, full connected assemblies, original maxima, exact floor bearings, strict UV charts, rendered review, ordinary production mounting and actual-player access remain to be verified. This ignored preparation grants no acceptance."
+  ]
+}

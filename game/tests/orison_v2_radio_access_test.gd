@@ -8,7 +8,7 @@ func _visit_shop(identity: String, door: DoorProp) -> bool:
 	if identity!="SITE_SHOP_DOOR_RADIO_SERVICE":return true
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_radio_battery.json"))
-	if not _require(["RadioBench","RadioApparatus","RadioStock","RadioBattery"].all(func(name):return cell.has_node(name)),"all native Radio Service fittings survive the actual exterior round"):return false
+	if not _require(["RadioBench","RadioApparatus","RadioStock","RadioBattery","RadioWire"].all(func(name):return cell.has_node(name)),"all native Radio Service fittings survive the actual exterior round"):return false
 	var battery: Node3D=cell.get_node("RadioBattery")
 	var retired: Dictionary=battery.get_meta("removed_triangles")
 	if not _require(retired.values().reduce(func(total,value):return total+int(value),0)==132 and battery.find_children("*","MeshInstance3D",true,false).size()==fixture.parts.size(),"reloaded charging display retains exact replacement and native partitions"):return false
