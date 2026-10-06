@@ -97,65 +97,63 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 func _check_display_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var model: Node3D=cell.get_node("RadioDisplay")
 	var identity: String="storm_shop_radio_service_counter"
-	check(fixture.original_records.size()==6 and fixture.assemblies.size()==1 and fixture.closed_stocks.size()==29,"six immutable source records become one supported counter/display assembly")
-	check(model.find_children("*","Light3D",true,false).is_empty(),"passive counter/display adds no signal or illumination")
+	check(fixture.original_records.size()==6 and fixture.assemblies.size()==3 and fixture.closed_stocks.size()==29,"six immutable records become a counter and two independently supported window speakers")
+	check(model.find_children("*","Light3D",true,false).is_empty(),"passive display adds no signal or illumination")
 	var original: Dictionary={}
 	for row: Dictionary in fixture.original_records:original[str(row.id)]=row
 	var top_row: Dictionary=original.storm_shop_radio_service_counter_top;var q: Array=top_row.rect
 	var worktop: float=float(top_row.z0)+float(top_row.h)
 	var rear_owner: Dictionary=fixture.fitted_datums.rear_wainscot
 	var rear: float=maxf(float(q[1]),float(rear_owner.rect[3])+.002)
-	var front: float=float(q[0])+.20;var horn_y: float=rear+.28;var cone_y: float=float(q[3])-.64
-	var horn_height: float=worktop+.30;var cone_height: float=worktop+.31
-	check(absf(float(fixture.fitted_datums.countertop_rear_y)-rear)<1e-12 and absf(float(fixture.fitted_datums.countertop_top)-worktop)<1e-12,"fitted datums derive from immutable countertop and actual retained wainscot")
-	check(absf(rear-float(q[1])-.032)<1e-12 and absf(rear-float(rear_owner.rect[3])-.002)<1e-12,"declared 32mm rear trim leaves 2mm actual wainscot clearance")
+	var window: Dictionary=fixture.fitted_datums.window_plinth;var w: Array=window.rect;var seat: float=float(window.z0)+float(window.h)
+	var front: float=float(w[0])+.06;var horn_y: float=float(w[1])+.25;var cone_y: float=float(w[3])-.31
+	var horn_row: Dictionary=original.storm_shop_radio_service_horn_mouth;var cone_row: Dictionary=original.storm_shop_radio_service_cone_speaker
+	var horn_height: float=float(horn_row.z0)+float(horn_row.h)-.24;var cone_height: float=float(cone_row.z0)+float(cone_row.h)-.29
+	check(absf(float(fixture.fitted_datums.countertop_rear_y)-rear)<1e-12 and absf(float(fixture.fitted_datums.countertop_top)-worktop)<1e-12,"counter fit derives from immutable countertop and retained wainscot")
+	check(absf(rear-float(q[1])-.032)<1e-12 and absf(rear-float(rear_owner.rect[3])-.002)<1e-12,"declared 32mm rear trim retains 2mm wainscot clearance")
+	check(_v(fixture.fitted_datums.horn_centre).distance_to(Vector3(front,horn_y,horn_height))<.00003 and _v(fixture.fitted_datums.cone_centre).distance_to(Vector3(front,cone_y,cone_height))<.00003,"speaker fits derive from actual window plinth and original source maxima")
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
-		check(draw.transform.basis.is_equal_approx(Basis.IDENTITY) and draw.material_override==null and mat!=null and not mat.emission_enabled,"native counter/display retains unit-scale passive source finish")
+		check(draw.transform.basis.is_equal_approx(Basis.IDENTITY) and draw.material_override==null and mat!=null and not mat.emission_enabled,"native counter/window partitions retain unit-scale passive finish")
 	for contact: Dictionary in fixture.contacts:
-		var point:=_v(contact.point)
-		var underside:=_isolated_ray(world,model,identity+"__wood_dark",cell.to_global(point-Vector3(0,.02,0)),cell.to_global(point+Vector3(0,.02,0)))
-		check(not underside.is_empty() and cell.to_local(underside.position).distance_to(point)<.00003,"actual counter post seats on unchanged retained floor: "+str(contact.label))
+		var point:=_v(contact.point);var key: String="wood_dark" if str(contact.assembly)==identity else "cast_iron"
+		var underside:=_isolated_ray(world,model,str(contact.assembly)+"__"+key,cell.to_global(point-Vector3(0,.02,0)),cell.to_global(point+Vector3(0,.02,0)))
+		check(not underside.is_empty() and cell.to_local(underside.position).distance_to(point)<.00003,"native underside seats on actual retained floor/window plinth: "+str(contact.label))
 	var top_draw: MeshInstance3D=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("radio_display_part",""))==identity+"__countertop")[0]
 	var bounds: AABB=top_draw.transform*top_draw.mesh.get_aabb()
-	check(absf(bounds.end.y-worktop)<.00003 and absf(bounds.end.z+rear)<.00003 and absf(bounds.position.z+float(q[3]))<.00003,"actual imported worktop preserves height/front and fitted rear clearance")
-	var book: Dictionary=original.storm_shop_radio_service_ledger
-	var book_x: float=(float(book.rect[0])+float(book.rect[2]))*.5
-	for seat: Array in [["horn",front+.32,-horn_y,"cast_iron"],["cone",front+.015,-cone_y,"cast_iron"],["ledger",book_x,-float(q[3])+.19,"wood_dark"]]:
-		var at:=Vector3(seat[1],worktop,seat[2])
-		var lower:=_isolated_ray(world,model,identity+"__"+str(seat[3]),cell.to_global(at-Vector3(0,.02,0)),cell.to_global(at+Vector3(0,.02,0)))
-		var upper:=_isolated_ray(world,model,identity+"__countertop",cell.to_global(at+Vector3(0,.02,0)),cell.to_global(at-Vector3(0,.02,0)))
-		check(not lower.is_empty() and not upper.is_empty() and cell.to_local(lower.position).distance_to(at)<.00003 and cell.to_local(upper.position).distance_to(at)<.00003,"actual native "+str(seat[0])+" bears directly on imported worktop")
-	var book_top:=_isolated_ray(world,model,identity+"__paper",cell.to_global(Vector3(book_x,2.,-float(q[3])+.19)),cell.to_global(Vector3(book_x,1.,-float(q[3])+.19)))
+	check(absf(bounds.end.y-worktop)<.00003 and absf(bounds.end.z+rear)<.00003 and absf(bounds.position.z+float(q[3]))<.00003,"actual imported counter preserves height/front and fitted rear clearance")
+	var book: Dictionary=original.storm_shop_radio_service_ledger;var book_x: float=(float(book.rect[0])+float(book.rect[2]))*.5
+	var at:=Vector3(book_x,worktop,-float(q[3])+.19)
+	var lower:=_isolated_ray(world,model,identity+"__wood_dark",cell.to_global(at-Vector3(0,.02,0)),cell.to_global(at+Vector3(0,.02,0)))
+	var upper:=_isolated_ray(world,model,identity+"__countertop",cell.to_global(at+Vector3(0,.02,0)),cell.to_global(at-Vector3(0,.02,0)))
+	check(not lower.is_empty() and not upper.is_empty() and cell.to_local(lower.position).distance_to(at)<.00003 and cell.to_local(upper.position).distance_to(at)<.00003,"actual ledger pad bears directly on imported worktop")
+	var book_top:=_isolated_ray(world,model,identity+"__paper",cell.to_global(Vector3(book_x,2.,at.z)),cell.to_global(Vector3(book_x,1.,at.z)))
 	check(not book_top.is_empty() and absf(cell.to_local(book_top.position).y-(float(book.z0)+float(book.h)))<.00003,"seated ledger retains original 1.18m maximum")
-	var horn_axis:=_isolated_ray(world,model,identity+"__brass_dull",cell.to_global(Vector3(front-.15,horn_height,-horn_y)),cell.to_global(Vector3(front+.10,horn_height,-horn_y)))
-	check(horn_axis.is_empty(),"actual finite horn mouth remains open through its front shell")
-	var horn_shell:=_isolated_ray(world,model,identity+"__brass_dull",cell.to_global(Vector3(front-.15,horn_height,-horn_y+.18)),cell.to_global(Vector3(front+.38,horn_height,-horn_y+.18)))
-	check(not horn_shell.is_empty(),"actual native horn has a finite physical wall around its open mouth")
-	var crown:=_isolated_ray(world,model,identity+"__brass_dull",cell.to_global(Vector3(front+.004,2.,-horn_y)),cell.to_global(Vector3(front+.004,1.,-horn_y)))
-	check(not crown.is_empty() and absf(cell.to_local(crown.position).y-(horn_height+.244))<.00003,"finite horn lip uses its declared worktop-derived elevation")
-	var cone_shell:=_isolated_ray(world,model,identity+"__fabric_warm",cell.to_global(Vector3(front-.15,cone_height,-cone_y+.15)),cell.to_global(Vector3(front+.20,cone_height,-cone_y+.15)))
-	check(not cone_shell.is_empty(),"actual passive textile cone has finite imported physical stock")
-	var cone_axis:=_isolated_ray(world,model,identity+"__fabric_warm",cell.to_global(Vector3(front-.15,cone_height,-cone_y)),cell.to_global(Vector3(front+.20,cone_height,-cone_y)))
-	check(cone_axis.is_empty(),"finite textile cone retains its native open centre")
-	var cone_crown:=_isolated_ray(world,model,identity+"__cast_iron",cell.to_global(Vector3(front+.013,2.,-cone_y)),cell.to_global(Vector3(front+.013,1.,-cone_y)))
-	check(not cone_crown.is_empty() and absf(cell.to_local(cone_crown.position).y-(cone_height+.29))<.00003,"actual iron speaker frame retains its fitted countertop-derived maximum")
+	var horn_key: String=str(horn_row.id)+"__brass_dull";var cone_key: String=str(cone_row.id)
+	var horn_axis:=_isolated_ray(world,model,horn_key,cell.to_global(Vector3(front-.15,horn_height,-horn_y)),cell.to_global(Vector3(front+.08,horn_height,-horn_y)))
+	check(horn_axis.is_empty(),"actual finite window horn retains an open front mouth")
+	var horn_shell:=_isolated_ray(world,model,horn_key,cell.to_global(Vector3(front-.15,horn_height,-horn_y+.18)),cell.to_global(Vector3(front+.27,horn_height,-horn_y+.18)))
+	check(not horn_shell.is_empty(),"actual window horn has finite physical shell around its opening")
+	var crown:=_isolated_ray(world,model,horn_key,cell.to_global(Vector3(front+.004,2.,-horn_y)),cell.to_global(Vector3(front+.004,.44,-horn_y)))
+	check(not crown.is_empty() and absf(cell.to_local(crown.position).y-(float(horn_row.z0)+float(horn_row.h)))<.00003,"window horn lip preserves its original 0.96m maximum")
+	var cone_shell:=_isolated_ray(world,model,cone_key+"__fabric_warm",cell.to_global(Vector3(front-.15,cone_height,-cone_y+.15)),cell.to_global(Vector3(front+.20,cone_height,-cone_y+.15)))
+	check(not cone_shell.is_empty(),"actual window cone has finite passive textile stock")
+	var cone_axis:=_isolated_ray(world,model,cone_key+"__fabric_warm",cell.to_global(Vector3(front-.15,cone_height,-cone_y)),cell.to_global(Vector3(front+.20,cone_height,-cone_y)))
+	check(cone_axis.is_empty(),"actual window cone retains its finite open centre")
+	var cone_crown:=_isolated_ray(world,model,cone_key+"__cast_iron",cell.to_global(Vector3(front+.013,2.,-cone_y)),cell.to_global(Vector3(front+.013,.44,-cone_y)))
+	check(not cone_crown.is_empty() and absf(cell.to_local(cone_crown.position).y-(float(cone_row.z0)+float(cone_row.h)))<.00003,"window speaker frame preserves its original 1.04m maximum")
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var observations: Array=[]
-	# A declared diagnostic leaf pose keeps existing glass glare out of both
-	# matched view sets. The owner's normal motion keeps physical geometry.
 	var capture_door: DoorProp=world.passage_region.doors["SITE_SHOP_DOOR_RADIO_SERVICE"]
-	capture_door.npc_set_open(true)
-	await get_tree().create_timer(.8).timeout
-	check(capture_door.is_ready_for_passage(),"diagnostic open leaf reaches its existing fitted owner pose")
-	for view: Dictionary in RADIO_DISPLAY_VIEWS:
+	capture_door.npc_set_open(false);await get_tree().create_timer(.8).timeout
+	check(not capture_door.open and absf(capture_door._body.rotation.y)<.000001,"diagnostic leaf reaches existing closed owner pose")
+	for view: Dictionary in RADIO_WINDOW_VIEWS:
 		var feet:=_v(view.feet);var target:=_v(view.target)
-		check(_city_clear_station(world,cell.to_global(feet)),"same retained floor/capsule radio counter/display observation: "+str(view.id))
+		check(_city_clear_station(world,cell.to_global(feet)),"retained window/counter standing floor and capsule sample: "+str(view.id))
 		world.player.global_position=cell.to_global(feet);world.player.velocity=Vector3.ZERO
-		world.player.face_world_point(cell.to_global(target));world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(view.id)
-		observations.append(view.duplicate(true))
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"capture_leaf_pose":{"id":"SITE_SHOP_DOOR_RADIO_SERVICE","open":capture_door.open,"angle_radians":capture_door._body.rotation.y,"method":"existing npc_set_open diagnostic pose; no ordinary-input route claim"},"scope":"Six matched retained entry floor/capsule samples before and after fitting; six additional interior observations of installed stock. Entry views are partly obscured by the retained window backboard. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity."},"\t"))
+		world.player.face_world_point(cell.to_global(target));world.player.set_lamp_enabled(bool(view.lamp))
+		await _settled_optics();await shot(view.id);observations.append(view.duplicate(true))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"capture_leaf_pose":{"id":"SITE_SHOP_DOOR_RADIO_SERVICE","open":capture_door.open,"angle_radians":capture_door._body.rotation.y,"method":"existing npc_set_open closed diagnostic pose; no ordinary-input route claim"},"scope":"Matched floor/capsule observations of window speaker placement and fitted counter. Original glazing/backboard and physical collision remain. Exterior lamp off avoids direct torch reflection. No continuous route, sightline, signal, operation or engineering capacity."}))
 
-const RADIO_DISPLAY_VIEWS: Array=[{"id":"display_from_entry","image":"display_from_entry.png","feet":[17.2,0.03,56.8],"target":[18.05,1.35,57.98]},{"id":"horn_open_mouth","image":"horn_open_mouth.png","feet":[17.2,0.03,56.8],"target":[17.9,1.42,58.368]},{"id":"passive_textile_cone","image":"passive_textile_cone.png","feet":[17.2,0.03,56.8],"target":[17.9,1.43,57.8]},{"id":"counter_floor_posts","image":"counter_floor_posts.png","feet":[17.2,0.03,56.8],"target":[17.98,0.1,57.36]},{"id":"native_display_bearings","image":"native_display_bearings.png","feet":[17.2,0.03,56.8],"target":[18.1,1.12,57.8]},{"id":"seated_counter_ledger","image":"seated_counter_ledger.png","feet":[17.2,0.03,56.8],"target":[18.1,1.16,57.35]},{"id":"display_from_entry_interior","image":"display_from_entry_interior.png","feet":[17.5,0.03,56.8],"target":[18.05,1.35,57.98]},{"id":"horn_open_mouth_interior","image":"horn_open_mouth_interior.png","feet":[17.5,0.03,56.8],"target":[17.9,1.42,58.368]},{"id":"passive_textile_cone_interior","image":"passive_textile_cone_interior.png","feet":[17.5,0.03,56.8],"target":[17.9,1.43,57.8]},{"id":"counter_floor_posts_interior","image":"counter_floor_posts_interior.png","feet":[17.5,0.03,56.8],"target":[17.98,0.1,57.36]},{"id":"native_display_bearings_interior","image":"native_display_bearings_interior.png","feet":[17.5,0.03,56.8],"target":[18.1,1.12,57.8]},{"id":"seated_counter_ledger_interior","image":"seated_counter_ledger_interior.png","feet":[17.5,0.03,56.8],"target":[18.1,1.16,57.35]}]
+const RADIO_WINDOW_VIEWS: Array=[{"id":"passive_window_stock","image":"passive_window_stock.png","feet":[15.6,0.03,57.95],"target":[17.24,0.74,57.95],"lamp":false},{"id":"window_horn_mouth","image":"window_horn_mouth.png","feet":[15.6,0.03,58.25],"target":[17.24,0.72,58.27],"lamp":false},{"id":"window_cone_speaker","image":"window_cone_speaker.png","feet":[15.6,0.03,57.6],"target":[17.24,0.75,57.63],"lamp":false},{"id":"window_plinth_bearings","image":"window_plinth_bearings.png","feet":[15.6,0.03,57.95],"target":[17.35,0.44,57.95],"lamp":false},{"id":"counter_floor_posts","image":"counter_floor_posts.png","feet":[17.5,0.03,56.8],"target":[17.98,0.1,57.36],"lamp":true},{"id":"seated_counter_ledger","image":"seated_counter_ledger.png","feet":[17.5,0.03,56.8],"target":[18.1,1.16,57.35],"lamp":true}]

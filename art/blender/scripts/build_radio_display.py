@@ -113,51 +113,53 @@ def turned_x(name,x_positions,radii,centres,identity,key,n=96):
  return solid(name,verts,faces,identity,key)
 
 for item in assemblies:
- identity=item['id']; source={row['id']:row for row in item['members']}
- body=source['storm_shop_radio_service_counter']; top_row=source['storm_shop_radio_service_counter_top']; book=source['storm_shop_radio_service_ledger']
- x0,y0,x1,y1=body['rect']; tx0,ty0,tx1,ty1=top_row['rect']; floor_top=item['floor']['z0']+item['floor']['h']; worktop=top_row['z0']+top_row['h']
- rear_owner=rows['storm_shop_radio_service_dw']; ty0=max(ty0,rear_owner['rect'][3]+.002)
- # Frame and panels keep the original counter perimeter and worktop datum.
- for i,(xx,yy) in enumerate((x,y) for x in [x0+.075,x1-.075] for y in [y0+.13,y1-.13]):
-  box(identity+'_FloorPost'+str(i),(xx-.036,yy-.036,floor_top),(xx+.036,yy+.036,top_row['z0']+.008),identity,'wood_dark',.003)
-  support(identity,item['floor']['id'],(xx,yy,floor_top),(0,0,1),'counter post on actual retained floor')
- for i,xx in enumerate([x0+.025,x1-.055]):
-  for k,zz in enumerate([body['z0']+.11,top_row['z0']-.08]):
-   box(identity+'_LongRail'+str(i)+'_'+str(k),(xx,y0+.02,zz),(xx+.03,y1-.02,zz+.07),identity,'wood_dark',.002)
- for i,yy in enumerate([y0+.025,y1-.055]):
-  for k,zz in enumerate([body['z0']+.11,top_row['z0']-.08]):
-   box(identity+'_EndRail'+str(i)+'_'+str(k),(x0+.025,yy,zz),(x1-.025,yy+.03,zz+.07),identity,'wood_dark',.002)
- # Static shallow infill expresses millwork without inventing drawer operation.
- for i in range(3):
-  a=y0+.055+(y1-y0-.11)*i/3; b=y0+.055+(y1-y0-.11)*(i+1)/3
-  box(identity+'_FrontPanel'+str(i),(x0+.035,a,body['z0']+.16),(x0+.055,b,top_row['z0']-.02),identity,'wood_dark',.002)
- for i,yy in enumerate([y0+.035,y1-.055]):
-  box(identity+'_EndPanel'+str(i),(x0+.055,yy,body['z0']+.16),(x1-.055,yy+.02,top_row['z0']-.02),identity,'wood_dark',.002)
- box(identity+'_Countertop',(tx0,ty0,top_row['z0']),(tx1,ty1,worktop),identity,'countertop',.003)
- # The source ledger overhangs its support by 140mm. Seat its front edge on
- # the immutable countertop front edge and bridge the unchanged 10mm gap.
- bx0,by0,bx1,by1=book['rect']; shift_y=ty1-by1; by0+=shift_y;by1+=shift_y
- box(identity+'_LedgerPad',(bx0+.008,by0+.008,worktop),(bx1-.008,by1-.008,book['z0']+.003),identity,'wood_dark',.002)
- box(identity+'_Ledger',(bx0,by0,book['z0']),(bx1,by1,book['z0']+book['h']),identity,'paper',.001)
- # Display positions are derived from the accepted countertop. They are an
- # explicit adaptation of the original intersecting floor-display boxes.
- front=tx0+.20; horn_y=ty0+.28; cone_y=ty1-.64
- horn_z=worktop+.30
- horn_x=[front,front+.035,front+.12,front+.22,front+.32,front+.38]
- horn_r=[.24,.23,.17,.105,.064,.055]
- horn_c=[(horn_y,horn_z),(horn_y,horn_z),(horn_y,horn_z-.02),(horn_y,horn_z-.075),(horn_y,horn_z-.14),(horn_y,horn_z-.17)]
- turned_x(identity+'_FiniteHorn',horn_x+list(reversed(horn_x)),horn_r+[r-.008 for r in reversed(horn_r)],horn_c+list(reversed(horn_c)),identity,'brass_dull')
- tube_ring(identity+'_HornLip',(front-.003,horn_y,horn_z),(front+.012,horn_y,horn_z),.244,.230,identity,'brass_dull',96)
- rod(identity+'_HornPlinth',(front+.32,horn_y,worktop),(front+.32,horn_y,worktop+.018),.092,identity,'cast_iron',64)
- rod(identity+'_HornStay',(front+.32,horn_y,worktop+.012),(front+.32,horn_y,worktop+.10),.027,identity,'cast_iron',48)
- cone_z=worktop+.31
- tube_ring(identity+'_ConeFrame',(front,cone_y,cone_z),(front+.026,cone_y,cone_z),.29,.267,identity,'cast_iron',96)
- # Closed thin textile stock retains a finite cone; no driver or voice-coil
- # specification, signal, illumination or interaction is chosen.
- turned_x(identity+'_FiniteTextileCone',[front+.008,front+.105,front+.125,front+.132,front+.132,front+.125,front+.105,front+.008],[.270,.075,.016,.016,.010,.010,.069,.264],[(cone_y,cone_z)]*8,identity,'fabric_warm')
- rod(identity+'_ConePlinth',(front+.015,cone_y,worktop),(front+.015,cone_y,worktop+.023),.14,identity,'cast_iron',64)
- for i,yy in enumerate([cone_y-.10,cone_y+.10]):
-  box(identity+'_ConeFoot'+str(i),(front-.010,yy-.015,worktop+.015),(front+.035,yy+.015,worktop+.055),identity,'cast_iron',.002)
+ identity=item['id'];source={row['id']:row for row in item['members']}
+ if item['kind']=='supported_counter_and_ledger':
+  body=source['storm_shop_radio_service_counter']; top_row=source['storm_shop_radio_service_counter_top']; book=source['storm_shop_radio_service_ledger']
+  x0,y0,x1,y1=body['rect']; tx0,ty0,tx1,ty1=top_row['rect']; floor_top=item['floor']['z0']+item['floor']['h']; worktop=top_row['z0']+top_row['h']
+  rear_owner=rows['storm_shop_radio_service_dw']; ty0=max(ty0,rear_owner['rect'][3]+.002)
+  # Frame and panels keep the original counter perimeter and worktop datum.
+  for i,(xx,yy) in enumerate((x,y) for x in [x0+.075,x1-.075] for y in [y0+.13,y1-.13]):
+   box(identity+'_FloorPost'+str(i),(xx-.036,yy-.036,floor_top),(xx+.036,yy+.036,top_row['z0']+.008),identity,'wood_dark',.003)
+   support(identity,item['floor']['id'],(xx,yy,floor_top),(0,0,1),'counter post on actual retained floor')
+  for i,xx in enumerate([x0+.025,x1-.055]):
+   for k,zz in enumerate([body['z0']+.11,top_row['z0']-.08]):
+    box(identity+'_LongRail'+str(i)+'_'+str(k),(xx,y0+.02,zz),(xx+.03,y1-.02,zz+.07),identity,'wood_dark',.002)
+  for i,yy in enumerate([y0+.025,y1-.055]):
+   for k,zz in enumerate([body['z0']+.11,top_row['z0']-.08]):
+    box(identity+'_EndRail'+str(i)+'_'+str(k),(x0+.025,yy,zz),(x1-.025,yy+.03,zz+.07),identity,'wood_dark',.002)
+  # Static shallow infill expresses millwork without inventing drawer operation.
+  for i in range(3):
+   a=y0+.055+(y1-y0-.11)*i/3; b=y0+.055+(y1-y0-.11)*(i+1)/3
+   box(identity+'_FrontPanel'+str(i),(x0+.035,a,body['z0']+.16),(x0+.055,b,top_row['z0']-.02),identity,'wood_dark',.002)
+  for i,yy in enumerate([y0+.035,y1-.055]):
+   box(identity+'_EndPanel'+str(i),(x0+.055,yy,body['z0']+.16),(x1-.055,yy+.02,top_row['z0']-.02),identity,'wood_dark',.002)
+  box(identity+'_Countertop',(tx0,ty0,top_row['z0']),(tx1,ty1,worktop),identity,'countertop',.003)
+  # The source ledger overhangs its support by 140mm. Seat its front edge on
+  # the immutable countertop front edge and bridge the unchanged 10mm gap.
+  bx0,by0,bx1,by1=book['rect']; shift_y=ty1-by1; by0+=shift_y;by1+=shift_y
+  box(identity+'_LedgerPad',(bx0+.008,by0+.008,worktop),(bx1-.008,by1-.008,book['z0']+.003),identity,'wood_dark',.002)
+  box(identity+'_Ledger',(bx0,by0,book['z0']),(bx1,by1,book['z0']+book['h']),identity,'paper',.001)
+ elif item['kind']=='passive_window_horn':
+  plinth=rows['storm_shop_radio_service_window_plinth'];wx0,wy0,wx1,wy1=plinth['rect'];seat=plinth['z0']+plinth['h']
+  front=wx0+.06;horn_y=wy0+.25;horn_z=source['storm_shop_radio_service_horn_mouth']['z0']+source['storm_shop_radio_service_horn_mouth']['h']-.24
+  horn_x=[front,front+.025,front+.08,front+.15,front+.22,front+.27]
+  horn_r=[.236,.228,.170,.105,.064,.055]
+  horn_c=[(horn_y,horn_z),(horn_y,horn_z),(horn_y,horn_z-.02),(horn_y,horn_z-.075),(horn_y,horn_z-.14),(horn_y,horn_z-.17)]
+  turned_x(identity+'_FiniteHorn',horn_x+list(reversed(horn_x)),horn_r+[r-.008 for r in reversed(horn_r)],horn_c+list(reversed(horn_c)),identity,'brass_dull')
+  tube_ring(identity+'_HornLip',(front-.003,horn_y,horn_z),(front+.012,horn_y,horn_z),.240,.226,identity,'brass_dull',96)
+  rod(identity+'_HornPlinth',(front+.22,horn_y,seat),(front+.22,horn_y,seat+.018),.075,identity,'cast_iron',64)
+  rod(identity+'_HornStay',(front+.22,horn_y,seat+.012),(front+.22,horn_y,seat+.105),.027,identity,'cast_iron',48)
+  support(identity,plinth['id'],(front+.22,horn_y,seat),(0,0,1),'horn foot on actual retained window plinth')
+ elif item['kind']=='passive_window_cone':
+  plinth=rows['storm_shop_radio_service_window_plinth'];wx0,wy0,wx1,wy1=plinth['rect'];seat=plinth['z0']+plinth['h']
+  front=wx0+.06;cone_y=wy1-.31;cone_z=source['storm_shop_radio_service_cone_speaker']['z0']+source['storm_shop_radio_service_cone_speaker']['h']-.29
+  tube_ring(identity+'_ConeFrame',(front,cone_y,cone_z),(front+.026,cone_y,cone_z),.29,.267,identity,'cast_iron',96)
+  turned_x(identity+'_FiniteTextileCone',[front+.008,front+.105,front+.125,front+.132,front+.132,front+.125,front+.105,front+.008],[.270,.075,.016,.016,.010,.010,.069,.264],[(cone_y,cone_z)]*8,identity,'fabric_warm')
+  rod(identity+'_ConePlinth',(front+.13,cone_y,seat),(front+.13,cone_y,seat+.025),.14,identity,'cast_iron',64)
+  for i,yy in enumerate([cone_y-.07,cone_y+.07]):box(identity+'_ConeFoot'+str(i),(front-.010,yy-.015,seat+.015),(front+.035,yy+.015,seat+.065),identity,'cast_iron',.002)
+  support(identity,plinth['id'],(front+.13,cone_y,seat),(0,0,1),'cone foot on actual retained window plinth')
+ else:raise AssertionError(item['kind'])
 
 for row in selected:
  x0,y0,x1,y1=row['rect'];z0=row['z0'];box(row['id']+'_RetainedBox',(x0,y0,z0),(x1,y1,z0+row['h']),row['id'],row['mat'],0,retained)
@@ -232,6 +234,8 @@ bindings.append(OUT/'art/blender/scripts/inspect_radio_display.py')
 bindings.extend([ROOT/'art/data/shop_interiors.py',ROOT/'game/assets/props/shop_seating.glb',ROOT/'game/data/orison_v2/shop_seating.json',ROOT/'game/assets/props/radio_bench.glb',ROOT/'game/data/orison_v2/radio_bench.json',ROOT/'art/blender/radio_bench.blend',ROOT/'game/assets/props/radio_apparatus.glb',ROOT/'game/data/orison_v2/radio_apparatus.json',ROOT/'art/blender/radio_apparatus.blend',ROOT/'game/assets/props/radio_stock.glb',ROOT/'game/data/orison_v2/radio_stock.json',ROOT/'art/blender/radio_stock.blend',ROOT/'game/assets/props/radio_battery.glb',ROOT/'game/data/orison_v2/radio_battery.json',ROOT/'art/blender/radio_battery.blend',ROOT/'game/assets/props/radio_wire.glb',ROOT/'game/data/orison_v2/radio_wire.json',ROOT/'art/blender/radio_wire.blend'])
 
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
-report['fitted_datums']={'rear_wainscot':rows['storm_shop_radio_service_dw'],'countertop_rear_y':ty0,'countertop_front_y':ty1,'countertop_top':worktop,'horn_centre':[front,horn_y,horn_z],'cone_centre':[front,cone_y,cone_z],'ledger_translation_y':shift_y,'wall_clearance_m':.002}
+top_row=rows['storm_shop_radio_service_counter_top'];q=top_row['rect'];rear_owner=rows['storm_shop_radio_service_dw'];window=rows['storm_shop_radio_service_window_plinth'];w=window['rect'];hm=rows['storm_shop_radio_service_horn_mouth'];cs=rows['storm_shop_radio_service_cone_speaker']
+report['fitted_datums']={'rear_wainscot':rear_owner,'countertop_rear_y':max(q[1],rear_owner['rect'][3]+.002),'countertop_front_y':q[3],'countertop_top':top_row['z0']+top_row['h'],'window_plinth':window,'window_back':rows['storm_shop_radio_service_window_back'],'horn_centre':[w[0]+.06,w[1]+.25,hm['z0']+hm['h']-.24],'cone_centre':[w[0]+.06,w[3]-.31,cs['z0']+cs['h']-.29],'ledger_translation_y':q[3]-rows['storm_shop_radio_service_ledger']['rect'][3],'wall_clearance_m':.002}
+
 for name in ['art/blender/radio_display_construction.json','game/tests/fixtures/orison_radio_display.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('RADIO DISPLAY',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'floor/instrument contacts')

@@ -90,7 +90,45 @@
   "assemblies": [
     {
       "id": "storm_shop_radio_service_counter",
-      "kind": "counter_and_passive_speaker_display",
+      "kind": "supported_counter_and_ledger",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_horn_mouth",
+      "kind": "passive_window_horn",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_cone_speaker",
+      "kind": "passive_window_cone",
       "cell": "shop_radio_service",
       "floor": {
         "id": "storm_shop_radio_service_floor",
@@ -230,58 +268,58 @@
       "volume_m3": 0.006839211433150088
     },
     {
-      "name": "storm_shop_radio_service_counter_FiniteHorn",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_horn_mouth_FiniteHorn",
+      "assembly": "storm_shop_radio_service_horn_mouth",
       "key": "brass_dull",
-      "volume_m3": 0.002485109410474015
+      "volume_m3": 0.0017168478954719306
     },
     {
-      "name": "storm_shop_radio_service_counter_HornLip",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_horn_mouth_HornLip",
+      "assembly": "storm_shop_radio_service_horn_mouth",
       "key": "brass_dull",
-      "volume_m3": 0.00031251658917124357
+      "volume_m3": 0.00030723819580464874
     },
     {
-      "name": "storm_shop_radio_service_counter_HornPlinth",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_horn_mouth_HornPlinth",
+      "assembly": "storm_shop_radio_service_horn_mouth",
       "key": "cast_iron",
-      "volume_m3": 0.0004778628470218128
+      "volume_m3": 0.000317573480740907
     },
     {
-      "name": "storm_shop_radio_service_counter_HornStay",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_horn_mouth_HornStay",
+      "assembly": "storm_shop_radio_service_horn_mouth",
       "key": "cast_iron",
-      "volume_m3": 0.0002009669233704013
+      "volume_m3": 0.00021238541194012637
     },
     {
-      "name": "storm_shop_radio_service_counter_ConeFrame",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_cone_speaker_ConeFrame",
+      "assembly": "storm_shop_radio_service_cone_speaker",
       "key": "cast_iron",
-      "volume_m3": 0.0010456939642872198
+      "volume_m3": 0.0010456935626479147
     },
     {
-      "name": "storm_shop_radio_service_counter_FiniteTextileCone",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_cone_speaker_FiniteTextileCone",
+      "assembly": "storm_shop_radio_service_cone_speaker",
       "key": "fabric_warm",
-      "volume_m3": 0.000654836969788688
+      "volume_m3": 0.0006548371748771297
     },
     {
-      "name": "storm_shop_radio_service_counter_ConePlinth",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_cone_speaker_ConePlinth",
+      "assembly": "storm_shop_radio_service_cone_speaker",
       "key": "cast_iron",
-      "volume_m3": 0.0014139593620325665
+      "volume_m3": 0.0015369125890104603
     },
     {
-      "name": "storm_shop_radio_service_counter_ConeFoot0",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot0",
+      "assembly": "storm_shop_radio_service_cone_speaker",
       "key": "cast_iron",
-      "volume_m3": 5.355362085313835e-05
+      "volume_m3": 6.701362029615823e-05
     },
     {
-      "name": "storm_shop_radio_service_counter_ConeFoot1",
-      "assembly": "storm_shop_radio_service_counter",
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot1",
+      "assembly": "storm_shop_radio_service_cone_speaker",
       "key": "cast_iron",
-      "volume_m3": 5.355362064684439e-05
+      "volume_m3": 6.701362099143048e-05
     }
   ],
   "contacts": [
@@ -344,36 +382,45 @@
         0
       ],
       "label": "counter post on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "point": [
+        17.459999999999997,
+        0.44,
+        58.269999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "horn foot on actual retained window plinth"
+    },
+    {
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "point": [
+        17.369999999999997,
+        0.44,
+        57.629999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cone foot on actual retained window plinth"
     }
   ],
   "parts": [
-    {
-      "name": "storm_shop_radio_service_counter__brass_dull",
-      "assembly": "storm_shop_radio_service_counter",
-      "cell": "shop_radio_service",
-      "key": "brass_dull",
-      "triangles": 3072
-    },
-    {
-      "name": "storm_shop_radio_service_counter__cast_iron",
-      "assembly": "storm_shop_radio_service_counter",
-      "cell": "shop_radio_service",
-      "key": "cast_iron",
-      "triangles": 1836
-    },
     {
       "name": "storm_shop_radio_service_counter__countertop",
       "assembly": "storm_shop_radio_service_counter",
       "cell": "shop_radio_service",
       "key": "countertop",
       "triangles": 188
-    },
-    {
-      "name": "storm_shop_radio_service_counter__fabric_warm",
-      "assembly": "storm_shop_radio_service_counter",
-      "cell": "shop_radio_service",
-      "key": "fabric_warm",
-      "triangles": 1536
     },
     {
       "name": "storm_shop_radio_service_counter__paper",
@@ -388,6 +435,34 @@
       "cell": "shop_radio_service",
       "key": "wood_dark",
       "triangles": 3384
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth__brass_dull",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "cell": "shop_radio_service",
+      "key": "brass_dull",
+      "triangles": 3072
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 440
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 1396
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker__fabric_warm",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "cell": "shop_radio_service",
+      "key": "fabric_warm",
+      "triangles": 1536
     }
   ],
   "triangles": 10204,
@@ -401,25 +476,9 @@
         "id": "shop_radio_service",
         "parts": [
           {
-            "name": "storm_shop_radio_service_counter__brass_dull",
-            "key": "brass_dull",
-            "tile": 0.5
-          },
-          {
-            "name": "storm_shop_radio_service_counter__cast_iron",
-            "key": "cast_iron",
-            "tile": 0.4,
-            "catalog_key": "cast_iron"
-          },
-          {
             "name": "storm_shop_radio_service_counter__countertop",
             "key": "countertop",
             "tile": 1.2
-          },
-          {
-            "name": "storm_shop_radio_service_counter__fabric_warm",
-            "key": "fabric_warm",
-            "tile": 0.7
           },
           {
             "name": "storm_shop_radio_service_counter__paper",
@@ -430,6 +489,28 @@
             "name": "storm_shop_radio_service_counter__wood_dark",
             "key": "wood_dark",
             "tile": 1.2
+          },
+          {
+            "name": "storm_shop_radio_service_horn_mouth__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_radio_service_horn_mouth__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "cast_iron"
+          },
+          {
+            "name": "storm_shop_radio_service_cone_speaker__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "cast_iron"
+          },
+          {
+            "name": "storm_shop_radio_service_cone_speaker__fabric_warm",
+            "key": "fabric_warm",
+            "tile": 0.7
           }
         ],
         "replace": [
@@ -527,11 +608,11 @@
       }
     ]
   },
-  "asset_sha256": "dd22eb1bfe9407649dd1e961e112969389db19f973e7b1369a284259a4e40b89",
+  "asset_sha256": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7",
   "source_bindings": {
-    "art/data/radio_display/source_plan.json": "6e37e244d58e9383279173db0245f6f8a49275ffd489b9805f72585a1b354c5f",
+    "art/data/radio_display/source_plan.json": "8060f62bb545470044ffc12a4bfc08ad4584becfce1476bd61114a9b532fe71d",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_radio_display.py": "e2496680ff94fcde9f5649eaf4638ba7d8b37eb59e5ba5967e9a90921de71a21",
+    "art/blender/scripts/build_radio_display.py": "55391c3b82ba67f9941595948c666a49ab8a93fd82a10bff5b922c9992a5b76c",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -562,7 +643,7 @@
     "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
     "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
     "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
-    "art/blender/scripts/inspect_radio_display.py": "a6cb1fd1f7f9ee3e041a7ae07263e2412c59e09a5aba6bb810b9dba0bae340c7",
+    "art/blender/scripts/inspect_radio_display.py": "fbaa52c0c3698fc61ee6fe004c5163bbcec024d9b22df9abadcd9c761b2b9b71",
     "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
     "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
     "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
@@ -583,12 +664,12 @@
     "art/blender/radio_wire.blend": "a48e218d6073e9bc63a5af943f40ada04a5e2fd083da09f2f6b3b09b192fd95c"
   },
   "open_work": [
-    "Six original records remain immutable retirement bounds and hidden native boxes. The cabinet, room, accepted Radio Service models, all actors and service/gameplay owners remain unchanged.",
-    "ADAPTATION: supported counter keeps its original body perimeter and 1.12m countertop height. The countertop rear edge is derived from the retained dw wainscot inner face plus 2mm, trimming its original 30mm wall intrusion with 2mm clearance. Static millwork chooses no new drawer or counter interaction.",
-    "ADAPTATION: the ledger front edge is derived from the countertop front edge to resolve its 140mm overhang; an inserted pad bridges its original 10mm support gap. Its original height and maxima remain.",
-    "ADAPTATION: the floor speaker boxes intersect the original counter. Passive finite horn and cloth cone geometry is seated on the actual native countertop, with placements derived from its edges. Original retirement coordinates remain immutable; speaker elevation and local display placement are explicit fitted adaptations. Horn centre derives from the fitted countertop rear edge +0.28m; cone centre derives from its unchanged front edge -0.64m. Native horn/cone and ledger surfaces must remain pairwise disjoint apart from their separate countertop seats.",
-    "Shipping wood-dark, countertop, paper, brass and fabric plus existing registered cast iron retain their material owners. No new key, map, lettering or shader.",
-    "Native manifold/connectivity, actual seats, conservative context, door-pose clearance, strict metre charts, native/game rendering and ordinary-input access are still required. This ignored draft grants no acceptance. No driver/voice-coil specification, live signal, illumination, current, capacity, operation or carrier change."
+    "Six original records remain immutable retirement bounds and hidden native boxes. The retained window plinth/backboard, cabinet, room, five accepted Radio Service models, actors and service/gameplay owners remain unchanged.",
+    "ADAPTATION: supported counter retains its original perimeter and 1.12m worktop height. Source-derived 32mm rear trim leaves 2mm retained wainscot clearance. Static millwork adds no interaction.",
+    "ADAPTATION: ledger front edge derives from countertop front edge, removing 140mm unsupported overhang. A pad bridges its original 10mm support gap; original height and 1.18m maximum remain.",
+    "ADAPTATION: speakers seat on the actual retained window plinth as the source author specifies for pavement display. Fitted positions derive from plinth edges and avoid the counter and backing. Horn 0.96m and cone-frame 1.04m original maxima remain. Finite passive horn and cone geometry changes no original retirement record, wall, door, service or gameplay authority.",
+    "Shipping wood-dark, countertop, paper, brass and fabric plus existing registered cast iron retain their owners. No new material key, map, lettering or shader.",
+    "Native manifold/connectivity, retained floor/plinth seats, conservative context, closed-leaf standing views, strict physical UV charts, rendered inspection, imported checks and ordinary-input access remain required. This ignored draft grants no acceptance. No driver specification, signal, current, capacity, new operation, illumination or carrier change."
   ],
   "fitted_datums": {
     "rear_wainscot": {
@@ -608,15 +689,43 @@
     "countertop_rear_y": -58.64799999999999,
     "countertop_front_y": -57.16,
     "countertop_top": 1.12,
+    "window_plinth": {
+      "id": "storm_shop_radio_service_window_plinth",
+      "rect": [
+        17.18,
+        -58.519999999999996,
+        17.54,
+        -57.31999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.39,
+      "mat": "wood_dark",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    "window_back": {
+      "id": "storm_shop_radio_service_window_back",
+      "rect": [
+        17.54,
+        -58.519999999999996,
+        17.58,
+        -57.31999999999999
+      ],
+      "z0": 0.42,
+      "h": 1.15,
+      "mat": "plywood",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
     "horn_centre": [
-      17.9,
-      -58.36799999999999,
-      1.4200000000000002
+      17.24,
+      -58.269999999999996,
+      0.72
     ],
     "cone_centre": [
-      17.9,
-      -57.8,
-      1.4300000000000002
+      17.24,
+      -57.629999999999995,
+      0.75
     ],
     "ledger_translation_y": -0.14000000000000057,
     "wall_clearance_m": 0.002

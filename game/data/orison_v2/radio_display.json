@@ -7,25 +7,9 @@
       "id": "shop_radio_service",
       "parts": [
         {
-          "name": "storm_shop_radio_service_counter__brass_dull",
-          "key": "brass_dull",
-          "tile": 0.5
-        },
-        {
-          "name": "storm_shop_radio_service_counter__cast_iron",
-          "key": "cast_iron",
-          "tile": 0.4,
-          "catalog_key": "cast_iron"
-        },
-        {
           "name": "storm_shop_radio_service_counter__countertop",
           "key": "countertop",
           "tile": 1.2
-        },
-        {
-          "name": "storm_shop_radio_service_counter__fabric_warm",
-          "key": "fabric_warm",
-          "tile": 0.7
         },
         {
           "name": "storm_shop_radio_service_counter__paper",
@@ -36,6 +20,28 @@
           "name": "storm_shop_radio_service_counter__wood_dark",
           "key": "wood_dark",
           "tile": 1.2
+        },
+        {
+          "name": "storm_shop_radio_service_horn_mouth__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_horn_mouth__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "cast_iron"
+        },
+        {
+          "name": "storm_shop_radio_service_cone_speaker__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "cast_iron"
+        },
+        {
+          "name": "storm_shop_radio_service_cone_speaker__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7
         }
       ],
       "replace": [

@@ -5,7 +5,7 @@ import bpy,bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 from bpy_extras.object_utils import world_to_camera_view
-r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/radio-display-native';out.mkdir(parents=True,exist_ok=True)
+r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/radio-display-window-native';out.mkdir(parents=True,exist_ok=True)
 import os
 source=Path(os.environ.get('RADIO_DISPLAY_OUT',str(r)));asset=source/'art/blender/radio_display.blend';bpy.ops.wm.open_mainfile(filepath=str(asset))
 f=json.loads((source/'art/blender/radio_display_construction.json').read_text(encoding='utf-8'));assert f==json.loads((source/'game/tests/fixtures/orison_radio_display.json').read_text(encoding='utf-8'))
@@ -66,42 +66,32 @@ for contact in f['contacts']:
  assert hits and min(hits)<.00002,contact
  support_samples.append({'label':contact['label'],'assembly':contact['assembly'],'distance_m':min(hits)})
 
-# Fitted counter/display bounds derive from the immutable support datums.
-stock_extents=[]
-rows_by_id={row['id']:row for row in f['original_records']}
-top=rows_by_id['storm_shop_radio_service_counter_top']; q=top['rect']; worktop=top['z0']+top['h']
-rear=f['fitted_datums']['rear_wainscot']; fitted_rear=rear['rect'][3]+.002
+# Counter fit and original speaker maxima are checked on actual native stock.
+stock_extents=[];rows_by_id={row['id']:row for row in f['original_records']}
+top=rows_by_id['storm_shop_radio_service_counter_top'];q=top['rect'];worktop=top['z0']+top['h']
+rear=f['fitted_datums']['rear_wainscot'];fitted_rear=rear['rect'][3]+.002;window=f['fitted_datums']['window_plinth'];w=window['rect'];seat=window['z0']+window['h']
 assert abs(f['fitted_datums']['countertop_rear_y']-fitted_rear)<1e-12
-points=[o.matrix_world@v.co for o in bpy.data.collections['ClosedConstruction'].objects for v in o.data.vertices]
-assert all(q[0]-.00003<=p.x<=q[2]+.00003 and q[1]-.00003<=p.y<=q[3]+.00003 and .01-.00003<=p.z<=worktop+.60+.00003 for p in points)
-assert abs(max(p.z for p in points)-(worktop+.60))<.00003
+for assembly in f['assemblies']:
+ stocks=[o for o in bpy.data.collections['ClosedConstruction'].objects if next(row['assembly'] for row in f['closed_stocks'] if row['name']==o.name)==assembly['id']]
+ points=[o.matrix_world@v.co for o in stocks for v in o.data.vertices]
+ if assembly['kind']=='supported_counter_and_ledger':
+  maximum=rows_by_id['storm_shop_radio_service_ledger']['z0']+rows_by_id['storm_shop_radio_service_ledger']['h'];bounds=q;low=.01
+ else:
+  row=rows_by_id[assembly['id']];maximum=row['z0']+row['h'];bounds=w;low=seat
+ assert all(bounds[0]-.00003<=p.x<=bounds[2]+.00003 and bounds[1]-.00003<=p.y<=bounds[3]+.00003 and low-.00003<=p.z<=maximum+.00003 for p in points),(assembly['id'],'outside fitted support footprint or original maximum')
+ assert abs(max(p.z for p in points)-maximum)<.00003
+ stock_extents.append({'assembly':assembly['id'],'actual_maximum':max(p.z for p in points),'source_maximum':maximum,'placement':'Original counter/ledger datum or source-called-for retained window-plinth display.'})
 counter=bpy.data.objects['storm_shop_radio_service_counter_Countertop']
 assert abs(max((counter.matrix_world@v.co).z for v in counter.data.vertices)-worktop)<.00003
 assert abs(min((counter.matrix_world@v.co).y for v in counter.data.vertices)-fitted_rear)<.00003
 book=bpy.data.objects['storm_shop_radio_service_counter_Ledger']
 assert abs(max((book.matrix_world@v.co).z for v in book.data.vertices)-(rows_by_id['storm_shop_radio_service_ledger']['z0']+rows_by_id['storm_shop_radio_service_ledger']['h']))<.00003
-stock_extents.append({'assembly':f['assemblies'][0]['id'],'countertop_datum':worktop,'native_display_maximum':max(p.z for p in points),'placement':'Declared source-derived countertop display; original retirement bounds remain immutable.'})
-internal_bearings=[]
-for name,x,y in [('HornPlinth',q[0]+.52,fitted_rear+.28),('ConePlinth',q[0]+.215,q[3]-.64),('LedgerPad',(rows_by_id['storm_shop_radio_service_ledger']['rect'][0]+rows_by_id['storm_shop_radio_service_ledger']['rect'][2])*.5,q[3]-.19)]:
- at=Vector((x,y,worktop)); plinth=ray_trees['storm_shop_radio_service_counter_'+name]
- support=ray_trees['storm_shop_radio_service_counter_Countertop']
- lower=plinth.ray_cast(at-Vector((0,0,.02)),Vector((0,0,1)),.04)
- upper=support.ray_cast(at+Vector((0,0,.02)),Vector((0,0,-1)),.04)
- assert lower[0] is not None and upper[0] is not None and (lower[0]-at).length<.00003 and (upper[0]-at).length<.00003,name
- internal_bearings.append({'stock':name,'datum':list(at),'native_lower_distance_m':(lower[0]-at).length,'countertop_upper_distance_m':(upper[0]-at).length})
-
-# Shared counter stock is one assembly; its two independent displays and ledger
-# must still remain geometrically disjoint from each other.
-display_sets={
- 'horn':[o for o in bpy.data.collections['ClosedConstruction'].objects if 'Horn' in o.name],
- 'cone':[o for o in bpy.data.collections['ClosedConstruction'].objects if 'Cone' in o.name],
- 'ledger':[o for o in bpy.data.collections['ClosedConstruction'].objects if 'Ledger' in o.name]}
-independent_display_pairs=0
-for left,right in [('horn','cone'),('horn','ledger'),('cone','ledger')]:
- for a in display_sets[left]:
-  for b in display_sets[right]:
-   assert not ray_trees[a.name].overlap(ray_trees[b.name]),('independent display intersection',a.name,b.name)
-   independent_display_pairs+=1
+at=Vector(((rows_by_id['storm_shop_radio_service_ledger']['rect'][0]+rows_by_id['storm_shop_radio_service_ledger']['rect'][2])*.5,q[3]-.19,worktop))
+lower=ray_trees['storm_shop_radio_service_counter_LedgerPad'].ray_cast(at-Vector((0,0,.02)),Vector((0,0,1)),.04)
+upper=ray_trees['storm_shop_radio_service_counter_Countertop'].ray_cast(at+Vector((0,0,.02)),Vector((0,0,-1)),.04)
+assert lower[0] is not None and upper[0] is not None and (lower[0]-at).length<.00003 and (upper[0]-at).length<.00003
+internal_bearings=[{'stock':'LedgerPad','datum':list(at),'native_lower_distance_m':(lower[0]-at).length,'countertop_upper_distance_m':(upper[0]-at).length}]
+independent_display_pairs=independent_pairs
 
 uv_metrics=[]
 for obj in draws:
@@ -165,13 +155,9 @@ for obj in draws:
   for left,right in tree.overlap(actual_tree(other)):
    native=[obj.matrix_world@obj.data.vertices[i].co for i in obj.data.polygons[left].vertices];source_points=[other.matrix_world@other.data.vertices[i].co for i in other.data.polygons[right].vertices];matches=[]
    for identity in owners:
-    owner=rows[identity];q=owner['rect'];plane=owner['z0']+owner['h'] if identity.endswith('_floor') else owner['z0']
-    if identity.endswith('_floor'):
-     separated=min(p.z for p in native)>=plane-.00003 and max(p.z for p in source_points)<=plane+.00003
-     touching=min(p.z for p in native)<=plane+.00003 and max(p.z for p in source_points)>=plane-.00003
-    else:
-     separated=max(p.z for p in native)<=plane+.00003 and min(p.z for p in source_points)>=plane-.00003
-     touching=max(p.z for p in native)>=plane-.00003 and min(p.z for p in source_points)<=plane+.00003
+    owner=rows[identity];q=owner['rect'];plane=owner['z0']+owner['h']
+    separated=min(p.z for p in native)>=plane-.00003 and max(p.z for p in source_points)<=plane+.00003
+    touching=min(p.z for p in native)<=plane+.00003 and max(p.z for p in source_points)>=plane-.00003
     if other.name.removesuffix('-col').endswith('_'+owner['mat']) and separated and touching and all(q[0]-.00003<=p.x<=q[2]+.00003 and q[1]-.00003<=p.y<=q[3]+.00003 for p in source_points):matches.append(identity)
    if matches:allowed.append({'native':obj.name,'context':other.name,'native_face':left,'context_face':right,'owners':matches})
    else:intersections.append({'native':obj.name,'context':other.name,'native_face':left,'context_face':right})
@@ -196,12 +182,12 @@ render('stock_front',(15.8,-56.8,2.3),(18.05,-57.92,1.),45)
 render('stock_rear',(20.2,-60.2,2.3),(18.05,-57.92,1.),45)
 render('stock_side',(19.8,-55.8,2.0),(18.05,-57.92,1.),45)
 render('floor_feet',(16.3,-56.3,.7),(18.05,-57.92,.08),45)
-render('horn_lip',(17.1,-58.4,1.5),(17.90,-58.368,1.42))
-render('finite_horn_throat',(18.8,-58.15,1.70),(18.10,-58.368,1.42))
-render('textile_cone',(17.05,-57.75,1.55),(17.90,-57.80,1.43))
-render('open_cone_profile',(18.6,-57.0,1.80),(18.02,-57.80,1.43))
+render('horn_lip',(16.4,-58.27,.82),(17.24,-58.27,.72))
+render('finite_horn_throat',(17.75,-58.0,.95),(17.43,-58.27,.58))
+render('textile_cone',(16.4,-57.63,.88),(17.24,-57.63,.75))
+render('open_cone_profile',(17.7,-56.9,1.15),(17.33,-57.63,.75))
 render('seated_ledger',(17.4,-56.8,1.7),(18.1,-57.35,1.15))
-render('display_bearings',(17.0,-57.0,1.9),(18.03,-58.0,1.12))
+render('display_bearings',(16.6,-57.4,1.10),(17.35,-57.95,.44))
 
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','native_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'closed_volumes':volumes,'assembly_stock_joins':joins,'actual_native_support_samples':support_samples,'actual_owner_support_samples':owner_support,'actual_stock_extents':stock_extents,'actual_internal_bearings':internal_bearings,'independent_display_pairs':independent_display_pairs,'accepted_native_context_objects':len(accepted),'source_boundary_stocks':6,'removed_original_triangles':72,'parts':len(draws),'triangles':f['triangles'],'context_intersections':intersections,'declared_contact_pairs':allowed,'uv_metrics':uv_metrics,'views':views,'limits':'Original wall, door/handle, cabinet and actual accepted native fittings remain conservative context; only actual floor contact pairs admitted. The source-derived countertop supports passive finite horn/cone stock and a seated ledger. Door poses, imported rendering, ordinary access, signal operation, capacity and acceptance remain separate requirements.'},indent=2)+'\n',encoding='utf-8',newline='\n')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','native_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'closed_volumes':volumes,'assembly_stock_joins':joins,'actual_native_support_samples':support_samples,'actual_owner_support_samples':owner_support,'actual_stock_extents':stock_extents,'actual_internal_bearings':internal_bearings,'independent_display_pairs':independent_display_pairs,'accepted_native_context_objects':len(accepted),'source_boundary_stocks':6,'removed_original_triangles':72,'parts':len(draws),'triangles':f['triangles'],'context_intersections':intersections,'declared_contact_pairs':allowed,'uv_metrics':uv_metrics,'views':views,'limits':'Original wall, door/handle, cabinet and actual accepted native fittings remain conservative context; only actual floor/window-plinth contact pairs admitted. The fitted counter supports its ledger; the unchanged window plinth supports finite passive horn/cone stock at original maxima. Door poses, imported rendering, ordinary access, signal operation, capacity and acceptance remain separate requirements.'},indent=2)+'\n',encoding='utf-8',newline='\n')
 print('RADIO DISPLAY NATIVE QA',len(volumes),'closed connected stocks;',len(joins),'joined assembly;',len(owner_support),'retained owner contacts;',len(views),'views')
