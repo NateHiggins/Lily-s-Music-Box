@@ -1,0 +1,588 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/hardware_tools.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_hardware_paint",
+      "parts": [
+        {
+          "name": "storm_shop_hardware_paint_glass_rack__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_hardware_paint_glass_rack__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "storm_shop_hardware_paint_glass_rack__metal",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_hardware_paint_glass_rack__timber",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__metal",
+          "key": "metal",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__plywood",
+          "key": "plywood",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__soot",
+          "key": "soot",
+          "tile": 1.8,
+          "catalog_key": "smoked_plaster"
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__soot__vacant",
+          "key": "soot",
+          "tile": 1.8,
+          "catalog_key": "plaster_stained"
+        },
+        {
+          "name": "storm_shop_hardware_paint_tool_board__timber",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_hardware_paint_ladder_r0__timber",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_hardware_paint_glass_rack",
+          "key": "timber",
+          "low": [
+            5.08,
+            0.05,
+            54.82
+          ],
+          "high": [
+            6.12,
+            1.3900000000000001,
+            55.44
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_sheet0",
+          "key": "glassish",
+          "low": [
+            5.14,
+            0.22,
+            54.88
+          ],
+          "high": [
+            6.0600000000000005,
+            1.24,
+            54.905
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_sheet1",
+          "key": "glassish",
+          "low": [
+            5.14,
+            0.22,
+            54.980000000000004
+          ],
+          "high": [
+            6.0600000000000005,
+            1.24,
+            55.005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_sheet2",
+          "key": "glassish",
+          "low": [
+            5.14,
+            0.22,
+            55.08
+          ],
+          "high": [
+            6.0600000000000005,
+            1.24,
+            55.105000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_sheet3",
+          "key": "glassish",
+          "low": [
+            5.14,
+            0.22,
+            55.18000000000001
+          ],
+          "high": [
+            6.0600000000000005,
+            1.24,
+            55.205
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_sheet4",
+          "key": "glassish",
+          "low": [
+            5.14,
+            0.22,
+            55.28
+          ],
+          "high": [
+            6.0600000000000005,
+            1.24,
+            55.305
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_glass_cutter",
+          "key": "brass_dull",
+          "low": [
+            6.18,
+            0.92,
+            54.92
+          ],
+          "high": [
+            6.26,
+            0.99,
+            55.38
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_board",
+          "key": "plywood",
+          "low": [
+            4.72,
+            1.1,
+            58.84
+          ],
+          "high": [
+            7.38,
+            2.4400000000000004,
+            59.21
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow0",
+          "key": "soot",
+          "low": [
+            4.86,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            4.98,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow1",
+          "key": "soot",
+          "low": [
+            5.16,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            5.28,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow2",
+          "key": "soot",
+          "low": [
+            5.46,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            5.58,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow3",
+          "key": "soot",
+          "low": [
+            5.76,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            5.88,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow4",
+          "key": "soot",
+          "low": [
+            6.0600000000000005,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            6.180000000000001,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow5",
+          "key": "soot",
+          "low": [
+            6.36,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            6.48,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow6",
+          "key": "soot",
+          "low": [
+            6.66,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            6.78,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool_shadow7",
+          "key": "soot",
+          "low": [
+            6.960000000000001,
+            1.22,
+            58.870000000000005
+          ],
+          "high": [
+            7.080000000000001,
+            1.64,
+            59.18
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool0",
+          "key": "metal",
+          "low": [
+            4.88,
+            1.29,
+            58.91
+          ],
+          "high": [
+            4.95,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool1",
+          "key": "metal",
+          "low": [
+            5.18,
+            1.29,
+            58.91
+          ],
+          "high": [
+            5.25,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool2",
+          "key": "metal",
+          "low": [
+            5.4799999999999995,
+            1.29,
+            58.91
+          ],
+          "high": [
+            5.55,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool3",
+          "key": "metal",
+          "low": [
+            5.779999999999999,
+            1.29,
+            58.91
+          ],
+          "high": [
+            5.85,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool4",
+          "key": "metal",
+          "low": [
+            6.08,
+            1.29,
+            58.91
+          ],
+          "high": [
+            6.15,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool6",
+          "key": "metal",
+          "low": [
+            6.68,
+            1.29,
+            58.91
+          ],
+          "high": [
+            6.75,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_tool7",
+          "key": "metal",
+          "low": [
+            6.98,
+            1.29,
+            58.91
+          ],
+          "high": [
+            7.050000000000001,
+            1.56,
+            59.14
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_r0",
+          "key": "timber",
+          "low": [
+            7.9,
+            0.05,
+            58.35
+          ],
+          "high": [
+            8.7,
+            3.0999999999999996,
+            58.43
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_r1",
+          "key": "timber",
+          "low": [
+            7.9,
+            0.05,
+            58.75
+          ],
+          "high": [
+            8.7,
+            3.0999999999999996,
+            58.83
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung0",
+          "key": "timber",
+          "low": [
+            7.95,
+            0.3,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            0.35,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung1",
+          "key": "timber",
+          "low": [
+            7.95,
+            0.62,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            0.67,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung2",
+          "key": "timber",
+          "low": [
+            7.95,
+            0.94,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            0.99,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung3",
+          "key": "timber",
+          "low": [
+            7.95,
+            1.26,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            1.31,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung4",
+          "key": "timber",
+          "low": [
+            7.95,
+            1.58,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            1.6300000000000001,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung5",
+          "key": "timber",
+          "low": [
+            7.95,
+            1.9000000000000001,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            1.9500000000000002,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung6",
+          "key": "timber",
+          "low": [
+            7.95,
+            2.2199999999999998,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            2.2699999999999996,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung7",
+          "key": "timber",
+          "low": [
+            7.95,
+            2.54,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            2.59,
+            58.8
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_ladder_rung8",
+          "key": "timber",
+          "low": [
+            7.95,
+            2.86,
+            58.400000000000006
+          ],
+          "high": [
+            8.02,
+            2.9099999999999997,
+            58.8
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

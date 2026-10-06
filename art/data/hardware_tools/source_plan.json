@@ -1,0 +1,83 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 34,
+  "runtime_keys": [
+    "timber",
+    "glassish",
+    "brass_dull",
+    "plywood",
+    "soot",
+    "soot__vacant",
+    "metal"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark",
+    "brass_dull": "brass",
+    "soot": "smoked_plaster",
+    "soot__vacant": "plaster_stained",
+    "metal": "iron_blackened"
+  },
+  "material_aliases": {
+    "timber": "wood_dark",
+    "soot__vacant": "soot"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "glass_rack",
+      "sources": [
+        "storm_shop_hardware_paint_glass_rack",
+        "storm_shop_hardware_paint_glass_sheet0",
+        "storm_shop_hardware_paint_glass_sheet1",
+        "storm_shop_hardware_paint_glass_sheet2",
+        "storm_shop_hardware_paint_glass_sheet3",
+        "storm_shop_hardware_paint_glass_sheet4",
+        "storm_shop_hardware_paint_glass_cutter"
+      ]
+    },
+    {
+      "kind": "tool_board",
+      "sources": [
+        "storm_shop_hardware_paint_tool_board",
+        "storm_shop_hardware_paint_tool_shadow0",
+        "storm_shop_hardware_paint_tool_shadow1",
+        "storm_shop_hardware_paint_tool_shadow2",
+        "storm_shop_hardware_paint_tool_shadow3",
+        "storm_shop_hardware_paint_tool_shadow4",
+        "storm_shop_hardware_paint_tool_shadow5",
+        "storm_shop_hardware_paint_tool_shadow6",
+        "storm_shop_hardware_paint_tool_shadow7",
+        "storm_shop_hardware_paint_tool0",
+        "storm_shop_hardware_paint_tool1",
+        "storm_shop_hardware_paint_tool2",
+        "storm_shop_hardware_paint_tool3",
+        "storm_shop_hardware_paint_tool4",
+        "storm_shop_hardware_paint_tool6",
+        "storm_shop_hardware_paint_tool7"
+      ]
+    },
+    {
+      "kind": "ladder",
+      "sources": [
+        "storm_shop_hardware_paint_ladder_r0",
+        "storm_shop_hardware_paint_ladder_r1",
+        "storm_shop_hardware_paint_ladder_rung0",
+        "storm_shop_hardware_paint_ladder_rung1",
+        "storm_shop_hardware_paint_ladder_rung2",
+        "storm_shop_hardware_paint_ladder_rung3",
+        "storm_shop_hardware_paint_ladder_rung4",
+        "storm_shop_hardware_paint_ladder_rung5",
+        "storm_shop_hardware_paint_ladder_rung6",
+        "storm_shop_hardware_paint_ladder_rung7",
+        "storm_shop_hardware_paint_ladder_rung8"
+      ]
+    }
+  ],
+  "open_work": [
+    "The glass stand and its five original sheet identities shift +0.15m along X to clear drawer-wall pulls. Fitted glass is 6mm thick within the original 25mm reference blocks, retaining each original front plane. The cutter gains an actual timber rail at its original .92m seat.",
+    "The original 370mm-deep tool-board block becomes a 24mm plywood panel .36m higher, attached by four joined spacers to the fitted east case. Eight silhouettes retain the deliberately empty index five; seven passive tools acquire distinct shapes.",
+    "The original two rail and nine rung identities become a narrow leaning ladder: floor-bearing feet and two actual geometric contacts with the east case front at 2.43m. Original hidden references retain poses. No borrowing behavior or structural load capacity is asserted.",
+    "Original glazing keeps source maps/tint; local wood and brass use existing finishes. Continuous shop/rear routes, utilities, operational tools and ladder plot behavior remain separate."
+  ]
+}
