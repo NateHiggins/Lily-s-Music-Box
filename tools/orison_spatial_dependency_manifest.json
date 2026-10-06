@@ -216326,6 +216326,292 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "e9e933bf59dd0cb7",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_bier",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "606b3815590a08fa",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_bier_trestle0",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "35ef468d4a460bb4",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_bier_trestle1",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1d02221b3fd40f51",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_book",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "14867afce80cefb1",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_lectern",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b0fd31c1def91802",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_lectern_top",
+   "file": "game/data/orison_v2/funeral_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1dca78a1a2e21e71",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_funeral_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8430e0cba431909f",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_bier",
+   "file": "game/tests/orison_v2_funeral_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_funeral_details"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "var lectern:=\"storm_shop_funeral_parlour_lectern\";var bier:=\"storm_shop_funeral_parlour_bier\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3b2bf387bc62bd8f",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_book",
+   "file": "game/tests/orison_v2_funeral_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_funeral_details"
+   ],
+   "lines": [
+    109
+   ],
+   "count": 1,
+   "context": [
+    "var identity: String=lectern+\"_top\" if part.ends_with(\"__lectern_top\") else bier if part.ends_with(\"__bier_deck\") else \"storm_shop_funeral_parlour_book\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5d35ce0fffa465dd",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_lectern",
+   "file": "game/tests/orison_v2_funeral_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_funeral_details"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "var lectern:=\"storm_shop_funeral_parlour_lectern\";var bier:=\"storm_shop_funeral_parlour_bier\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

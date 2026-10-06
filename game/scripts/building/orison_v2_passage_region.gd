@@ -25,6 +25,7 @@ const DruggistDispensary := preload("res://scripts/building/orison_v2_druggist_d
 const DruggistCupboard := preload("res://scripts/building/orison_v2_druggist_cupboard.gd")
 const DruggistCarboys := preload("res://scripts/building/orison_v2_druggist_carboys.gd")
 const DruggistFountain := preload("res://scripts/building/orison_v2_druggist_fountain.gd")
+const FuneralFittings := preload("res://scripts/building/orison_v2_funeral_fittings.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -159,6 +160,9 @@ func _ready() -> void:
 			return
 		if not DruggistFountain.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native unused druggist fountain refused: "+identity)
+			return
+		if not FuneralFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native funeral lectern and empty bier refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

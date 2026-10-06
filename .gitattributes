@@ -734,3 +734,14 @@ game/scripts/building/orison_v2_druggist_fountain.gd -text
 game/tests/orison_v2_druggist_fountain_test.gd -text
 game/assets/props/druggist_fountain.glb.import -text
 art/renders/orison_v2/druggist_fountain_20261006/** -text
+
+art/data/funeral_fittings/** -text
+art/blender/scripts/build_funeral_fittings.py -text
+art/blender/scripts/inspect_funeral_fittings.py -text
+art/blender/funeral_fittings_construction.json -text
+game/data/orison_v2/funeral_fittings.json -text
+game/tests/fixtures/orison_funeral_fittings.json -text
+game/scripts/building/orison_v2_funeral_fittings.gd -text
+game/tests/orison_v2_funeral_fittings_test.gd -text
+game/assets/props/funeral_fittings.glb.import -text
+art/renders/orison_v2/funeral_fittings_20261006/** -text

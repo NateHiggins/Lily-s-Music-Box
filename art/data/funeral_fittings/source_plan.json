@@ -1,0 +1,62 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 6,
+  "runtime_keys": [
+    "wood_dark",
+    "oak_quartered",
+    "paper",
+    "lectern_body",
+    "lectern_top",
+    "book_cover",
+    "book_pages",
+    "bier_frame",
+    "bier_deck"
+  ],
+  "catalog_variants": {
+    "book_cover": "paper"
+  },
+  "material_aliases": {
+    "lectern_body": "wood_dark",
+    "lectern_top": "oak_quartered",
+    "book_cover": "paper",
+    "book_pages": "paper",
+    "bier_frame": "wood_dark",
+    "bier_deck": "wood_dark"
+  },
+  "material_tints": {
+    "book_cover": [
+      0.18,
+      0.085,
+      0.035,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "lectern",
+      "sources": [
+        "storm_shop_funeral_parlour_lectern",
+        "storm_shop_funeral_parlour_lectern_top",
+        "storm_shop_funeral_parlour_book"
+      ]
+    },
+    {
+      "kind": "empty_bier",
+      "sources": [
+        "storm_shop_funeral_parlour_bier",
+        "storm_shop_funeral_parlour_bier_trestle0",
+        "storm_shop_funeral_parlour_bier_trestle1"
+      ]
+    }
+  ],
+  "open_work": [
+    "Six original records retain identities, hidden poses, material ownership and their source plans/top heights. The original author calls the empty bier the room hero; it remains empty.",
+    "ADAPTATION: the lectern becomes a floor-seated base, upright and supported original desk, with an unlettered closed book seated at its original 1.22m datum. Its original 1.27m maximum remains.",
+    "ADAPTATION: two floor-seated timber trestles support the original empty bier deck. Explicit bearing cleats bridge the original twenty-millimetre crown/deck gap, and foot pads reach the actual source floor.",
+    "Existing chairs, chapel benches, rear rail/view-only boundary, drapes, plants, doors, hours, keys, saves and utilities retain their owners. No coffin, body, ritual or chapel access is invented.",
+    "Native stock joins, supports, strict metre charts and current player-height room context require inspection. This INERT source plan grants no runtime proof, route, load capacity or acceptance.",
+    "The unlettered book has a local brown card binding using the existing paper catalogue. A diagnostic book_brown library atlas misaligns under metre repetition; that atlas is not installed or globally changed."
+  ]
+}

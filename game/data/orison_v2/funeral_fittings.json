@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/funeral_fittings.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_funeral_parlour",
+      "parts": [
+        {
+          "name": "storm_shop_funeral_parlour_lectern__book_cover",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.18,
+            0.085,
+            0.035,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_funeral_parlour_lectern__book_pages",
+          "key": "paper",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_funeral_parlour_lectern__lectern_body",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_funeral_parlour_lectern__lectern_top",
+          "key": "oak_quartered",
+          "tile": 0.9
+        },
+        {
+          "name": "storm_shop_funeral_parlour_bier__bier_deck",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_funeral_parlour_bier__bier_frame",
+          "key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_funeral_parlour_lectern",
+          "key": "wood_dark",
+          "low": [
+            4.85,
+            0.05,
+            61.42
+          ],
+          "high": [
+            5.15,
+            1.1700000000000002,
+            61.980000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_lectern_top",
+          "key": "oak_quartered",
+          "low": [
+            4.8,
+            1.17,
+            61.36
+          ],
+          "high": [
+            5.2,
+            1.22,
+            62.040000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_book",
+          "key": "paper",
+          "low": [
+            4.95,
+            1.22,
+            61.56
+          ],
+          "high": [
+            5.12,
+            1.27,
+            61.84
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_bier",
+          "key": "wood_dark",
+          "low": [
+            5.28,
+            0.69,
+            60.400000000000006
+          ],
+          "high": [
+            6.0,
+            0.7899999999999999,
+            63.0
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_bier_trestle0",
+          "key": "wood_dark",
+          "low": [
+            5.34,
+            0.05,
+            60.6
+          ],
+          "high": [
+            5.9399999999999995,
+            0.67,
+            60.88
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_bier_trestle1",
+          "key": "wood_dark",
+          "low": [
+            5.34,
+            0.05,
+            62.52
+          ],
+          "high": [
+            5.9399999999999995,
+            0.67,
+            62.800000000000004
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
