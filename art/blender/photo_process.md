@@ -52,3 +52,16 @@ Portraits, darkroom entrance/light, storefront/counter glass finish,
 continuous shop/rear/darkroom access, working photography, stock state and
 independent services retain separate evidence duties. This passive fitting
 grants neither human acceptance nor whole-V2 completion.
+
+
+Receiving clearance is an explicit local **ADAPTATION**. The complete
+immutable variant-2 cabinet hull starts at **Y -59.85m**. The dryer north
+end now stops at **Y -59.88m**, leaving **30mm** clear. Length changes from
+**0.64m to 0.44m** while the **0.76m** width and **0.05–0.95m** body
+height remain. The shell, passive axle/drum, slat spacing and north floor
+feet follow the fitted end. Every original source record/rectangle stays
+intact for exact comparison and retirement. All other process partitions
+retain their serialized arrays and transforms, subject to export comparison.
+The inspector adds two source-context views and actual hull/mesh bounds and
+overlap checks; the runtime suite uses fitted dryer datums and two supported
+gap observations. Verification is pending; no committed verdict is claimed.

@@ -1,6 +1,52 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
+  "fitted_receiver_clearance": {
+    "source_record": {
+      "id": "storm_shopcab_photo_supplies0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -59.349999999999994
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    "dryer_source_record": {
+      "id": "storm_shop_photo_supplies_print_dryer",
+      "rect": [
+        21.08,
+        -60.31999999999999,
+        21.84,
+        -59.67999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.9,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    "raw_hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly",
+    "hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull",
+    "hull_low_b": [
+      21.06,
+      -59.849999999999994,
+      0.0
+    ],
+    "hull_high_b": [
+      21.84,
+      -58.989999999999995,
+      1.72
+    ],
+    "clearance_m": 0.03,
+    "dryer_north_y": -59.879999999999995,
+    "source_dryer_length_m": 0.6400000000000006,
+    "fitted_dryer_length_m": 0.4399999999999977,
+    "assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566"
+  },
   "original_records": [
     {
       "id": "storm_shop_photo_supplies_dev_tray0",
@@ -853,13 +899,13 @@
       "name": "storm_shop_photo_supplies_print_dryer_Bottom",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "enamel_finish",
-      "volume_m3": 0.00680395437776998
+      "volume_m3": 0.004676745211309673
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_Top",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "enamel_finish",
-      "volume_m3": 0.006803952565804862
+      "volume_m3": 0.004676743965591011
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_Left",
@@ -877,19 +923,19 @@
       "name": "storm_shop_photo_supplies_print_dryer_Back",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "enamel_finish",
-      "volume_m3": 0.007548547886662864
+      "volume_m3": 0.0050965959149573085
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_Axle",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 0.0006310846916809413
+      "volume_m3": 0.0004288133636286356
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_PassiveDrum",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "nickel_plated",
-      "volume_m3": 0.07402219326985152
+      "volume_m3": 0.0489301484821145
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar0",
@@ -901,19 +947,19 @@
       "name": "storm_shop_photo_supplies_print_dryer_VentBar1",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.5848386622798468e-05
+      "volume_m3": 1.5853464424226465e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar2",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.5853464424226465e-05
+      "volume_m3": 1.5848386622798468e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar3",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.5848386622798468e-05
+      "volume_m3": 1.5853464424226465e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar4",
@@ -925,7 +971,7 @@
       "name": "storm_shop_photo_supplies_print_dryer_VentBar5",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.585346442422646e-05
+      "volume_m3": 1.5853464424226465e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar6",
@@ -937,7 +983,7 @@
       "name": "storm_shop_photo_supplies_print_dryer_VentBar7",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.5853464424226465e-05
+      "volume_m3": 1.5848386622798468e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar8",
@@ -955,7 +1001,7 @@
       "name": "storm_shop_photo_supplies_print_dryer_VentBar10",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 1.5848386622798468e-05
+      "volume_m3": 1.5853464424226465e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_VentBar11",
@@ -970,10 +1016,10 @@
       "volume_m3": 4.361910607976371e-05
     },
     {
-      "name": "storm_shop_photo_supplies_print_dryer_Foot21.11-59.709999999999994",
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.11-59.91",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 4.361910607976371e-05
+      "volume_m3": 4.3613872382759867e-05
     },
     {
       "name": "storm_shop_photo_supplies_print_dryer_Foot21.81-60.28999999999999",
@@ -982,10 +1028,10 @@
       "volume_m3": 4.361910607976371e-05
     },
     {
-      "name": "storm_shop_photo_supplies_print_dryer_Foot21.81-59.709999999999994",
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.81-59.91",
       "assembly": "storm_shop_photo_supplies_print_dryer",
       "key": "iron",
-      "volume_m3": 4.361910607976371e-05
+      "volume_m3": 4.3613872382759867e-05
     },
     {
       "name": "storm_shop_photo_supplies_tripod0_FoldedLeg0",
@@ -1655,7 +1701,7 @@
       "point": [
         21.11,
         0.009999999999999995,
-        59.709999999999994
+        59.91
       ],
       "direction": [
         0,
@@ -1685,7 +1731,7 @@
       "point": [
         21.81,
         0.009999999999999995,
-        59.709999999999994
+        59.91
       ],
       "direction": [
         0,
@@ -2639,11 +2685,12 @@
       }
     ]
   },
-  "asset_sha256": "8c68eed60d8d4ad968f7c95658867c4e837413589e34ab3fdbea86038d31212c",
+  "asset_sha256": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032",
   "source_bindings": {
-    "art/data/photo_process/source_plan.json": "f4b7168a484e9a1d02cdab90e0f04e04be6e964b938539df140f2c5dac25d169",
+    "art/data/photo_process/source_plan.json": "e3395a8121c028f08445b9f36e77ca2141399537fac89cb1d8d44a703f3f9db5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_process.py": "f094510197f83f870a58c27eb5edb94f420121fa584eec4be6a494ed28ebbba5",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/build_photo_process.py": "4b9b32f89fff7b7797c048a42203708709ab686c11e58628ce6f7fc48381ec05",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -2694,12 +2741,13 @@
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
     "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
-    "art/blender/scripts/inspect_photo_process.py": "7b1db06769874fbcc5d3681f92a5b81d48cb29a6febdad2ca7c8d2f6270383ba"
+    "art/blender/scripts/inspect_photo_process.py": "32a2dd0b802debd26de1735ebe23efb699eed430ac9b299c45f516112c1f648f"
   },
   "open_work": [
     "Four empty developing trays retain source plans and lower/top datums. Their actual open bowls and four floor-bearing legs replace unsupported steps; no chemical liquid or processing operation is added.",
     "Three closed passive developing tanks retain original centres and .08/.66m envelope; small feet reach the .01m floor. The print dryer retains its .05/.95m body envelope, now an open-front shell with a seated drum, axle, slatted lower vent and floor feet. No heat, drive or electrical demand is added.",
     "Four folded timber tripods retain original narrow plans and upper envelopes, with joined clamps and three floor shoes apiece. Four closed flash tins retain original centres and .46/.70m envelopes, now seated on a short joined timber stock stand beneath the original high shelf. No chemical content or ignition/control behavior is added.",
-    "Local registered enamel_appliance, wood_dark, iron_blackened, bakelite_black and zinc_liner finishes keep shared maps unchanged. Original shipping enamel, nickel, timber and metal remain on hidden source references. Portraits, darkroom entrance/light, glass finish, operating process, continuous access and independent services remain open."
+    "Local registered enamel_appliance, wood_dark, iron_blackened, bakelite_black and zinc_liner finishes keep shared maps unchanged. Original shipping enamel, nickel, timber and metal remain on hidden source references. Portraits, darkroom entrance/light, glass finish, operating process, continuous access and independent services remain open.",
+    "Fit the north end of the passive print dryer 30mm south of the complete original variant-2 receiver hull. Derive that limit from the original assembler, reseat its north feet and shorten shell/axle/drum/slat spacing together. Retain every original source rectangle and receiver pose/programme. This local fit grants no live photography, services, continuous entry or human acceptance."
   ]
 }

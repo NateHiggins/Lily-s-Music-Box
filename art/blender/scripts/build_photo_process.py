@@ -1,6 +1,6 @@
 """Source-owned passive developing trays, tanks, dryer, folded tripods and flash tins."""
 from pathlib import Path
-import collections,hashlib,json,math,re,sys
+import ast,collections,hashlib,json,math,re,sys
 import bpy,bmesh,numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())/'art/blender/scripts'))
@@ -35,6 +35,27 @@ floor=rows['storm_shop_photo_supplies_floor'];ceil=rows['storm_shop_photo_suppli
 for group in plan['groups']:
  members=[rows[identity] for identity in group['sources']];selected.extend(members);assemblies.append({'id':members[0]['id'],'kind':group['kind'],'members':members,'body':members[0],'cell':'shop_photo_supplies','floor':floor})
 assert len(selected)==plan['original_records'] and len({row['id'] for row in selected})==len(selected)
+# Preserve the receiver owner and all original boxes. Only the north dryer
+# end fits to the complete immutable source hull with an explicit 30mm gap.
+receiver=rows[plan['receiving_clearance']['source_id']]
+assert receiver['asm']=='arcade_cab' and receiver['variant']==2 and receiver['yaw']==360.
+assembler_path=ROOT/'art/blender/scripts/build_orison.py';assembler_source=assembler_path.read_text(encoding='utf-8-sig')
+function=next(n for n in ast.parse(assembler_source).body if isinstance(n,ast.FunctionDef) and n.name=='asm_arcade_cab')
+namespace={};exec(compile(ast.Module(body=[function],type_ignores=[]),str(assembler_path),'exec'),namespace)
+class HullCollector:
+ def __init__(self):self.hulls=[]
+ def box(self,*args):pass
+ def cyl(self,*args):pass
+ def hull(self,*args):self.hulls.append(args)
+collector=HullCollector();namespace['asm_arcade_cab'](collector,receiver);assert len(collector.hulls)==1
+q=collector.hulls[0];angle=math.radians(receiver['yaw']);c=math.cos(angle);sn=math.sin(angle)
+corners=[(receiver['at'][0]+c*x-sn*y,receiver['at'][1]+sn*x+c*y,z+receiver.get('z0',0.)) for x in [q[0],q[3]] for y in [q[1],q[4]] for z in [q[2],q[5]]]
+hull_low=[min(p[i] for p in corners) for i in range(3)];hull_high=[max(p[i] for p in corners) for i in range(3)]
+hull_name=next(n['name'] for n in source_gltf['nodes'] if n['name'].endswith('_hull-colonly'))
+dryer=rows[plan['receiving_clearance']['dryer_source_id']];north_limit=hull_low[1]-float(plan['receiving_clearance']['clearance_m'])
+receiver_clearance={'source_record':receiver,'dryer_source_record':dryer,'raw_hull_name':hull_name,'hull_name':hull_name.removesuffix('-colonly'),'hull_low_b':hull_low,'hull_high_b':hull_high,'clearance_m':plan['receiving_clearance']['clearance_m'],'dryer_north_y':north_limit,'source_dryer_length_m':dryer['rect'][3]-dryer['rect'][1],'fitted_dryer_length_m':north_limit-dryer['rect'][1],'assembler_function_sha256':hashlib.sha256(ast.get_source_segment(assembler_source,function).encode()).hexdigest()}
+assert abs(hull_low[1]+59.85)<1e-10 and abs(north_limit+59.88)<1e-10 and dryer['rect'][1]<north_limit<dryer['rect'][3]
+
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
 retained=bpy.data.collections.new('RetainedSourceBoxes');bpy.context.scene.collection.children.link(retained);retained.hide_render=True
@@ -138,6 +159,8 @@ def bounds(row):
  x0,y0,x1,y1=row['rect'];return x0,y0,x1,y1,row['z0'],row['z0']+row['h']
 for item in assemblies:
  identity=item['id'];row=item['body'];x0,y0,x1,y1,z0,z1=bounds(row);ground=floor['z0']+floor['h'];cx=(x0+x1)/2;cy=(y0+y1)/2
+ if item['kind']=='dryer':
+  assert row['id']==plan['receiving_clearance']['dryer_source_id'];y1=north_limit;cy=(y0+y1)/2
  if item['kind']=='tray':
   box(identity+'_BowlBottom',(x0,y0,z0),(x1,y1,z0+.004),identity,'enamel_finish',.001)
   box(identity+'_WestRim',(x0,y0,z0+.003),(x0+.004,y1,z1),identity,'enamel_finish',.001)
@@ -261,12 +284,12 @@ for identity in sorted({a['cell'] for a in assemblies}):
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':plan.get('material_aliases',{}).get(p['key'],p['key']),'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {}),} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/photo_process.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/photo_process.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/photo_process.glb.import',*material_definitions]
+bindings=[plan_path,layout_path,assembler_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/photo_process.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/tools/build_iron_blackened.py',ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/f'art/textures/procedural/iron_blackened/{name}.png' for name in ['albedo','roughness','normal','height'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
 bindings.append(OUT/'art/blender/scripts/inspect_photo_process.py')
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','fitted_receiver_clearance':receiver_clearance,'original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for name in ['art/blender/photo_process_construction.json','game/tests/fixtures/orison_photo_process.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('PHOTO PROCESS',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

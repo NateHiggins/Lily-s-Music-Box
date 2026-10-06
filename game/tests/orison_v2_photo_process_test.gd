@@ -80,6 +80,7 @@ func _run() -> void:
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and floor samples")
 	_check_process_details(world,fixture)
+	await _receiving_clearance_views(world,fixture)
 	await _retail_detail_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
@@ -112,7 +113,7 @@ func _check_process_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 		at.y=float(row.z0)+float(row.h)
 		hit=_isolated_ray(world,model,prefix+"tank"+str(index)+"__nickel_plated",cell.to_global(at+Vector3(0,.06,0)),cell.to_global(at-Vector3(0,.04,0)))
 		check(not hit.is_empty() and absf(cell.to_local(hit.position).y-at.y)<.00003 and hit.normal.dot(cell.global_basis.y)>.99,"closed developing tank lid retains original top envelope: "+str(index))
-	var dryer: Dictionary=fixture.original_records.filter(func(r):return r.id==prefix+"print_dryer")[0];var dr: Array=dryer.rect;var cy: float=-(float(dr[1])+float(dr[3]))*.5
+	var dryer: Dictionary=fixture.original_records.filter(func(r):return r.id==prefix+"print_dryer")[0];var dr: Array=dryer.rect.duplicate();dr[3]=fixture.fitted_receiver_clearance.dryer_north_y;var cy: float=-(float(dr[1])+float(dr[3]))*.5
 	var hit:=_isolated_ray(world,model,prefix+"print_dryer__enamel_finish",cell.to_global(Vector3(float(dr[0])-.05,.41,cy)),cell.to_global(Vector3(float(dr[0])+.4,.41,cy)))
 	check(hit.is_empty(),"actual print-dryer front shell has an open cavity")
 	hit=_isolated_ray(world,model,prefix+"print_dryer__enamel_finish",cell.to_global(Vector3(float(dr[0])-.05,.41,cy)),cell.to_global(Vector3(float(dr[2])+.03,.41,cy)))
@@ -143,3 +144,45 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png"})
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule passive process-equipment observations; chemicals, heat, photography operation, darkroom approach, continuous routes and services retain separate duties."},"\t"))
+
+func _receiving_clearance_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	var fit: Dictionary=fixture.fitted_receiver_clearance
+	var cell: Node3D=world.passage_region.cell_nodes.shop_photo_supplies
+	var model: Node3D=cell.get_node("PhotoProcess")
+	var source: Dictionary=fit.source_record
+	var floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)=="F01")[0]
+	var original: Dictionary=floor.furniture.filter(func(row):return str(row.id)==str(source.id))[0]
+	var prop:=world.passage_region._actors.get_node_or_null("Arcade_"+str(source.id)) as ArcadeCabinetProp
+	check(original==source and prop!=null,"dryer fit preserves complete immutable receiver record and actor")
+	if prop==null:return
+	check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(floor.z)+float(source.get("z0",0.))])) and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"dryer fit retains original receiver variant and pose")
+	var original_dryer: Dictionary=floor.furniture.filter(func(row):return str(row.id)==str(fit.dryer_source_record.id))[0]
+	check(original_dryer==fit.dryer_source_record,"dryer original rectangle and source record stay intact")
+	var hull:=cell.get_node_or_null(str(fit.hull_name)) as StaticBody3D
+	check(hull!=null,"exact original receiving hull remains in Photo Supplies")
+	if hull==null:return
+	var shape:=hull.get_child(0) as CollisionShape3D
+	var faces: PackedVector3Array=(shape.shape as ConcavePolygonShape3D).get_faces()
+	check(faces.size()==36 and not shape.disabled and hull.collision_layer==1,"original twelve-triangle receiving hull remains active and complete")
+	var low:=Vector3(INF,INF,INF);var high:=Vector3(-INF,-INF,-INF)
+	for vertex in faces:
+		var point:=cell.to_local(shape.to_global(vertex));low=low.min(point);high=high.max(point)
+	var a:=GameBoot.b2g(fit.hull_low_b);var b:=GameBoot.b2g(fit.hull_high_b)
+	check(low.distance_to(a.min(b))<.00003 and high.distance_to(a.max(b))<.00003,"actual original receiver hull binds immutable assembler bounds")
+	var north: float=INF;var south: float=-INF;var found:=0
+	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		if not str(draw.get_meta("photo_process_part","")).begins_with(str(fit.dryer_source_record.id)+"__"):continue
+		found+=1
+		for surface in draw.mesh.get_surface_count():
+			var vertices: PackedVector3Array=draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+			for vertex in vertices:
+				var z: float=cell.to_local(draw.to_global(vertex)).z;north=minf(north,z);south=maxf(south,z)
+	check(found==3 and absf(north+float(fit.dryer_north_y))<.00003 and north-high.z>=float(fit.clearance_m)-.00003,"all actual dryer finishes stop clear of the complete receiver hull")
+	check(absf(south-north-float(fit.fitted_dryer_length_m))<.00003 and float(fit.fitted_dryer_length_m)<float(fit.source_dryer_length_m),"dryer shortens only its obstructing north end")
+	for spec: Dictionary in [{"id":"photo_receiver_dryer_scope","feet":[20.35,.03,60.1],"target":[21.45,1.20,59.736]},{"id":"photo_receiver_dryer_supports","feet":[20.35,.03,60.1],"target":[21.35,.08,59.98]}]:
+		var feet:=cell.to_global(_v(spec.feet))
+		check(_city_clear_station(world,feet),"floor-supported capsule observes actual dryer/receiver gap: "+str(spec.id))
+		world.player.global_position=feet;world.player.velocity=Vector3.ZERO
+		world.player.face_world_point(cell.to_global(_v(spec.target)));world.player.set_lamp_enabled(true)
+		await _settled_optics();await shot(str(spec.id))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","north_z":north,"hull_front_z":high.z,"gap_m":north-high.z,"fitted_length_m":south-north,"original_hull_triangles":12,"scope":"Actual passive dryer fit clears complete original receiver hull. Standing floor/capsule observations do not prove continuous entry, cabinet operation, services or human acceptance."},"\t"))

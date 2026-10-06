@@ -219643,6 +219643,36 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "246e574f4b30a5b4",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_photo_process_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_receiving_clearance_views"
+   ],
+   "lines": [
+    153
+   ],
+   "count": 1,
+   "context": [
+    "var floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)==\"F01\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   }
  ]
 }
