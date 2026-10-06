@@ -56,6 +56,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original druggist dispensary bench, balance case and raised round ranks | `art/blender/druggist_dispensary.md` and `design/V2_DRUGGIST_DISPENSARY_2026-10-06.md` |
 | Original druggist poison cupboard and tactile bottles | `art/blender/druggist_cupboard.md` and `design/V2_DRUGGIST_CUPBOARD_2026-10-06.md` |
 | Original druggist hero carboys and fitted window display | `art/blender/druggist_carboys.md` and `design/V2_DRUGGIST_CARBOYS_2026-10-06.md` |
+| Original druggist unused soda fountain | `art/blender/druggist_fountain.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |
