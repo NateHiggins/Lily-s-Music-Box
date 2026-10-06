@@ -1,0 +1,430 @@
+class_name OrisonV2PassageRegion
+extends Node3D
+## Authored arcade cells registered at the same front-door origin as V2.
+## Geometry streams at interior boundaries; physical actors and shop authority
+## retain their identities while the imported geometry is dormant.
+
+const Surface := preload("res://scripts/building/surface_pass.gd")
+const Finish := preload("res://scripts/building/passage_finish_pass.gd")
+const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
+const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
+const Laundry := preload("res://scripts/building/orison_v2_laundry_fittings.gd")
+const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_apparatus.gd")
+const CobblerFittings := preload("res://scripts/building/orison_v2_cobbler_fittings.gd")
+const NewsFittings := preload("res://scripts/building/orison_v2_news_fittings.gd")
+const HardwareDrawers := preload("res://scripts/building/orison_v2_hardware_drawers.gd")
+const HardwareTools := preload("res://scripts/building/orison_v2_hardware_tools.gd")
+const PhotoCameras := preload("res://scripts/building/orison_v2_photo_cameras.gd")
+const PhotoProcess := preload("res://scripts/building/orison_v2_photo_process.gd")
+const PhotoPortraits := preload("res://scripts/building/orison_v2_photo_portraits.gd")
+const PhotoGlazing := preload("res://scripts/building/orison_v2_photo_glazing.gd")
+const DruggistDrawers := preload("res://scripts/building/orison_v2_druggist_drawers.gd")
+const DruggistCounter := preload("res://scripts/building/orison_v2_druggist_counter.gd")
+const DruggistMortar := preload("res://scripts/building/orison_v2_druggist_mortar.gd")
+const DruggistDispensary := preload("res://scripts/building/orison_v2_druggist_dispensary.gd")
+const DruggistCupboard := preload("res://scripts/building/orison_v2_druggist_cupboard.gd")
+const DruggistCarboys := preload("res://scripts/building/orison_v2_druggist_carboys.gd")
+const DruggistFountain := preload("res://scripts/building/orison_v2_druggist_fountain.gd")
+const FuneralFittings := preload("res://scripts/building/orison_v2_funeral_fittings.gd")
+const FuneralDrapes := preload("res://scripts/building/orison_v2_funeral_drapes.gd")
+const FuneralFoliage := preload("res://scripts/building/orison_v2_funeral_foliage.gd")
+const RadioBench := preload("res://scripts/building/orison_v2_radio_bench.gd")
+const RadioApparatus := preload("res://scripts/building/orison_v2_radio_apparatus.gd")
+const RadioStock := preload("res://scripts/building/orison_v2_radio_stock.gd")
+const RadioBattery := preload("res://scripts/building/orison_v2_radio_battery.gd")
+const RadioWire := preload("res://scripts/building/orison_v2_radio_wire.gd")
+const RadioDisplay := preload("res://scripts/building/orison_v2_radio_display.gd")
+const RadioReceiving := preload("res://scripts/building/orison_v2_radio_receiving.gd")
+const LaundryReceiving := preload("res://scripts/building/orison_v2_laundry_receiving.gd")
+const PhotoReceiving := preload("res://scripts/building/orison_v2_photo_receiving.gd")
+const NewsReceiving := preload("res://scripts/building/orison_v2_news_receiving.gd")
+const Receivers := preload("res://scripts/building/orison_v2_passage_receivers.gd")
+const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
+const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
+const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
+const HardwareStock := preload("res://scripts/building/orison_v2_hardware_stock.gd")
+const HardwareApparatus := preload("res://scripts/building/orison_v2_hardware_apparatus.gd")
+const LocksmithFittings := preload("res://scripts/building/orison_v2_locksmith_fittings.gd")
+const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
+	"shop_keys_cut", "shop_hardware_paint", "shop_funeral_parlour",
+	"shop_photo_supplies", "shop_radio_service", "shop_pawnbroker",
+	"shop_news_cigars", "shop_otis_son", "shop_luncheonette"]
+
+var startup_failed := false
+var shop_service: MaintenanceShopService
+var source_layout: Dictionary
+var cell_nodes: Dictionary = {}
+var doors: Dictionary = {}
+var surface_pass: RefCounted
+var finish: PassageFinishPass
+var _signs: Array[ShopSignProp] = []
+var _counter_ids: Array[String] = []
+var _geometry_root: Node3D
+var _actors: Node3D
+var residency: Node
+var receiving_row: Receivers
+var _acoustic_originals: Dictionary = {}
+
+static func cell_path(identity: String) -> String:
+	if identity == "passage":
+		return "res://assets/building/orison_v2/passage/passage.gltf"
+	return "res://assets/building/floor_01_cells/%s.gltf" % identity
+
+func configure(service: MaintenanceShopService) -> bool:
+	if is_inside_tree() or service == null:
+		return false
+	shop_service = service
+	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
+	if decoded is not Dictionary:
+		return false
+	source_layout = decoded
+	var entries: Array[Dictionary] = []
+	for floor: Dictionary in source_layout.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			if marker.id == "F01_DOOR_06": entries.append(marker)
+	if entries.size() != 1 or float(entries[0].yaw_deg) != 0.0:
+		return false
+	var entry: Dictionary = entries[0]
+	var center := GameBoot.b2g(entry.pos) + Vector3.RIGHT * float(entry.w) * 0.5
+	position = -center
+	return true
+
+func _ready() -> void:
+	if source_layout.is_empty() or shop_service == null:
+		_fail("unconfigured Passage region")
+		return
+	if not _mount_scene("gateway", "res://assets/building/orison_v2/exterior/passage_gateway.gltf"):
+		return
+	_geometry_root = Node3D.new()
+	_geometry_root.name = "ResidentGeometry"
+	add_child(_geometry_root)
+	for identity: String in CELLS:
+		if not _mount_scene(identity, cell_path(identity)):
+			return
+	surface_pass = Surface.new()
+	for identity: String in CELLS:
+		if not Seating.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native seating fit refused: "+identity)
+			return
+		if not Laundry.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native laundry fit refused: "+identity)
+			return
+		if not LaundryApparatus.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native laundry apparatus fit refused: "+identity)
+			return
+		if not LocksmithFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native locksmith fit refused: "+identity)
+			return
+		if not CobblerFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native cobbler fit refused: "+identity)
+			return
+		if not NewsFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native news fit refused: "+identity)
+			return
+		if not HardwareDrawers.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native hardware drawer fit refused: "+identity)
+			return
+		if not HardwareApparatus.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native hardware apparatus fit refused: "+identity)
+			return
+		if not HardwareStock.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native hardware stock fit refused: "+identity)
+			return
+		if not HardwareTools.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native hardware tools fit refused: "+identity)
+			return
+		if not PhotoCameras.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography display fit refused: "+identity)
+			return
+		if not PhotoCounter.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography counter fit refused: "+identity)
+			return
+		if not PhotoStock.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography supply shelving fit refused: "+identity)
+			return
+		if not PhotoEnlargers.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography enlarger fit refused: "+identity)
+			return
+		if not PhotoProcess.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography process fit refused: "+identity)
+			return
+		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native unclaimed portrait fit refused: "+identity)
+			return
+		if not PhotoGlazing.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native fixed photographic glazing refused: "+identity)
+			return
+		if not DruggistDrawers.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist drawer/counter fit refused: "+identity)
+			return
+		if not DruggistCounter.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist counter objects refused: "+identity)
+			return
+		if not DruggistMortar.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist marble objects refused: "+identity)
+			return
+		if not DruggistDispensary.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native composed dispensary refused: "+identity)
+			return
+		if not DruggistCupboard.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist cupboard refused: "+identity)
+			return
+		if not DruggistCarboys.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist display carboys refused: "+identity)
+			return
+		if not DruggistFountain.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native unused druggist fountain refused: "+identity)
+			return
+		if not FuneralFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native funeral lectern and empty bier refused: "+identity)
+			return
+		if not FuneralDrapes.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native fixed funeral curtains refused: "+identity)
+			return
+		if not FuneralFoliage.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native funeral foliage refused: "+identity)
+			return
+		if not RadioBench.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native radio alignment bench refused: "+identity)
+			return
+		if not RadioApparatus.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native radio test instruments refused: "+identity)
+			return
+		if not RadioStock.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native stored radio valves refused: "+identity)
+			return
+		if not RadioBattery.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native charging display refused: "+identity)
+			return
+		if not RadioWire.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native passive wire/ring stock refused: "+identity)
+			return
+		if not RadioDisplay.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native fitted counter/display refused: "+identity)
+			return
+		if not RadioReceiving.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native period receiving chassis refused: "+identity)
+			return
+		if not LaundryReceiving.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Laundry receiving chassis refused: "+identity)
+			return
+		if not PhotoReceiving.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Photo Supplies receiving chassis refused: "+identity)
+			return
+		if not NewsReceiving.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native News Cigars receiving chassis refused: "+identity)
+			return
+	surface_pass.apply(cell_nodes)
+	_actors = Node3D.new()
+	_actors.name = "PassageActors"
+	add_child(_actors)
+	_mount_markers()
+	receiving_row = Receivers.new()
+	receiving_row.name = "PassageReceivingRow"
+	_actors.add_child(receiving_row)
+	if not receiving_row.mount(source_layout, _actors, CELLS):
+		_fail("source-owned passage receivers refused")
+		return
+	finish = Finish.new()
+	_actors.add_child(finish)
+	finish.build(source_layout)
+	for sign_prop: ShopSignProp in _signs:
+		sign_prop.bind_hours_director(finish.hours_director)
+	_mount_counters()
+	if not _mount_key_counter(): return
+	add_to_group("orison_v2_passage_region")
+	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
+
+func _mount_scene(identity: String, path: String) -> bool:
+	var packed := load(path) as PackedScene
+	if packed == null:
+		_fail("missing imported cell: " + identity)
+		return false
+	var cell := packed.instantiate() as Node3D
+	if cell == null:
+		_fail("non-spatial cell: " + identity)
+		return false
+	cell.name = identity
+	if identity == "gateway": add_child(cell)
+	else: _geometry_root.add_child(cell)
+	cell_nodes[identity] = cell
+	return true
+
+func _mount_markers() -> void:
+	for floor: Dictionary in source_layout.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			var identity := str(marker.id)
+			if str(marker.get("zone", "")) != "PASSAGE" and not identity.begins_with("PASSAGE_PORTAL_LT_"):
+				continue
+			var prop: Node3D
+			if marker.kind == "door":
+				var door := DoorProp.new()
+				door.width = float(marker.w)
+				door.height = float(marker.h)
+				door.leaf_state = str(marker.leaf)
+				door.swing_out = str(marker.get("swing", "")) == "out"
+				door.door_kind = str(marker.get("subtype", "storefront"))
+				door.unit = str(marker.get("unit", ""))
+				door.finish_variant = int(marker.get("finish_variant", 0))
+				doors[identity] = door
+				prop = door
+			elif marker.kind == "shop_sign":
+				var sign_prop := ShopSignProp.new()
+				sign_prop.prop_type = "shop_sign"
+				sign_prop.sign_text = str(marker.get("text", "SHOP"))
+				sign_prop.shop_name = str(marker.get("shop_name", sign_prop.sign_text))
+				sign_prop.trade = str(marker.get("trade", ""))
+				sign_prop.sub_text = str(marker.get("sub", ""))
+				sign_prop.blade_text = str(marker.get("blade_text", ""))
+				sign_prop.blade_dx = float(marker.get("blade_dx", 0.0))
+				sign_prop.half_width = float(marker.get("half_width", 2.4))
+				sign_prop.compact = bool(marker.get("compact", false))
+				var tint: Array = marker.get("tint", [0.9, 0.86, 0.74])
+				sign_prop.tint = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+				_signs.append(sign_prop)
+				prop = sign_prop
+			elif LightFixtureProp.TONE.has(str(marker.kind)):
+				var fixture := LightFixtureProp.new()
+				fixture.prop_type = str(marker.kind)
+				fixture.range_clamp = float(marker.get("range", 0.0))
+				fixture.energy_scale = float(marker.get("energy", 1.0))
+				fixture.standby_scale = float(marker.get("standby", 0.0))
+				fixture.navigation_light = bool(marker.get("navigation", false))
+				# The nave is one tall room, regardless of the fixture's height.
+				fixture.set_meta("vertical_zone", "PASSAGE")
+				prop = fixture
+			else:
+				continue
+			prop.name = identity
+			prop.position = GameBoot.b2g(marker.pos)
+			prop.rotation.y = deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
+			if prop is FunctionalProp and AcousticGraphData.nodes.has(identity):
+				prop.graph_node_id = identity
+				_acoustic_originals[identity] = AcousticGraphData.nodes[identity].duplicate(true)
+				var graph_record: Dictionary = AcousticGraphData.nodes[identity].duplicate(true)
+				var mouth := to_global(prop.position)
+				graph_record.pos = [mouth.x, -mouth.z, mouth.y]
+				AcousticGraphData.nodes[identity] = graph_record
+			_actors.add_child(prop)
+
+func _mount_counters() -> void:
+	for item_id: String in shop_service.stock_ids():
+		var record := shop_service.stock_record(item_id)
+		var anchor_id := str(record.counter_anchor_id)
+		var matches: Array[Dictionary] = []
+		for floor: Dictionary in source_layout.floors:
+			if floor.id != "F01": continue
+			for furniture: Dictionary in floor.get("furniture", []):
+				if str(furniture.id) == anchor_id: matches.append(furniture)
+		if matches.size() != 1:
+			_fail("ambiguous or absent counter anchor: " + anchor_id)
+			return
+		var anchor: Dictionary = matches[0]
+		var rect: Array = anchor.rect
+		var top := float(anchor.get("z0", 0.0)) + float(anchor.get("h", 0.0))
+		var local_position := GameBoot.b2g([(float(rect[0])+float(rect[2]))*0.5,
+			(float(rect[1])+float(rect[3]))*0.5, top+MaintenanceShopService.REACH_H*0.5])
+		var size := Vector3(absf(float(rect[2])-float(rect[0])), MaintenanceShopService.REACH_H,
+			absf(float(rect[3])-float(rect[1])))
+		# Keep the production stock's explicit legacy transaction identity.
+		# No duplicate inventory, implicit namespace conversion or free part.
+		var identity := str(record.shop_id)
+		if identity in _counter_ids: continue
+		var counter := shop_service.mount_counter(identity, Transform3D(Basis.IDENTITY, to_global(local_position)), size, "hardware counter")
+		if counter == null:
+			_fail("counter mount refused: " + identity)
+			return
+		_counter_ids.append(identity)
+
+
+func _mount_key_counter() -> bool:
+	var matches: Array[Dictionary] = []
+	for floor: Dictionary in source_layout.floors:
+		if floor.id != "F01": continue
+		for item: Dictionary in floor.furniture:
+			if item.id == "storm_shop_keys_cut_counter_top": matches.append(item)
+	if matches.size()!=1:
+		_fail("ambiguous Keys Cut counter source")
+		return false
+	var source: Dictionary = matches[0]
+	var rect: Array = source.rect
+	var counter := preload("res://scripts/props/key_copy_counter.gd").new()
+	counter.name = "AuthorizedKeyCopies"
+	counter.hours = finish.hours_director
+	counter.size = Vector3(float(rect[2])-float(rect[0]),.30,float(rect[3])-float(rect[1]))
+	counter.position = GameBoot.b2g([(float(rect[0])+float(rect[2]))*.5,(float(rect[1])+float(rect[3]))*.5,float(source.z0)+float(source.h)+.15])
+	_actors.add_child(counter)
+	return true
+
+func shutdown() -> void:
+	if is_instance_valid(receiving_row):
+		receiving_row.shutdown()
+	for identity: String in _acoustic_originals:
+		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]
+	_acoustic_originals.clear()
+	if is_instance_valid(residency):
+		residency.shutdown()
+	if is_instance_valid(shop_service):
+		for identity: String in _counter_ids:
+			shop_service.unmount_counter(identity)
+	_counter_ids.clear()
+	for identity: String in doors:
+		AudioPolicy.release_source(StringName(identity))
+	doors.clear()
+	_signs.clear()
+	cell_nodes.clear()
+	surface_pass = null
+	shop_service = null
+
+func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionary) -> bool:
+	if residency != null or startup_failed:
+		return false
+	residency = Residency.new()
+	if not residency.configure(self, player, frame, layout):
+		residency.free()
+		residency = null
+		return false
+	add_child(residency)
+	return true
+
+func suspend_geometry() -> WeakRef:
+	for identity: String in _counter_ids:
+		shop_service.unmount_counter(identity)
+	_counter_ids.clear()
+	finish.hours_director.set_passage_active(false)
+	for cart: PassagePushcart in finish.pushcarts:
+		cart.set_passage_active(false)
+	receiving_row.suspend()
+	_actors.visible = false
+	_actors.process_mode = Node.PROCESS_MODE_DISABLED
+	var retired: WeakRef = weakref(_geometry_root)
+	remove_child(_geometry_root)
+	_geometry_root.queue_free()
+	_geometry_root = null
+	for identity: String in CELLS:
+		cell_nodes.erase(identity)
+	surface_pass = null
+	return retired
+
+func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted) -> void:
+	_geometry_root = geometry
+	_geometry_root.name = "ResidentGeometry"
+	add_child(_geometry_root)
+	cell_nodes.merge(cells)
+	surface_pass = surfaces
+	_actors.process_mode = Node.PROCESS_MODE_INHERIT
+	_actors.visible = true
+	finish.hours_director.set_passage_active(true)
+	finish.hours_director.apply_for_minute(ScheduleDirector.minute_now())
+	for cart: PassagePushcart in finish.pushcarts:
+		cart.set_passage_active(true)
+	_mount_counters()
+
+func _exit_tree() -> void:
+	shutdown()
+
+func _fail(reason: String) -> void:
+	startup_failed = true
+	push_error("V2 PASSAGE: " + reason)

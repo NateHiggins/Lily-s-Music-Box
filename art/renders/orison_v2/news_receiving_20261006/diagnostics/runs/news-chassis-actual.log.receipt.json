@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 64.89,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T22:47:46Z",
+  "started_utc": "2026-10-06T22:46:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "PASSAGE RECEIVING CONTRACT: FAIL checks=771 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/news-chassis-actual.log.stderr",
+  "stderr_sha256": "cc59a81400e831c00536ccdb11756ef8cb7c95318969f79dc3abad7743c3e415",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/news-chassis-actual.log",
+  "stdout_sha256": "c9fed203df177ecc66577c186a655d21e479212672629c9a26532ae2b22aba27"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2NewsReceivingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/news-chassis-actual-shots",
+ "source": {
+  "dirty_paths": 280,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/news_receiving.blend",
+   "?? art/blender/news_receiving.md",
+   "?? art/blender/news_receiving_construction.json",
+   "?? art/blender/scripts/build_news_receiving.py",
+   "?? art/blender/scripts/inspect_news_receiving.py",
+   "?? art/data/news_receiving/",
+   "?? game/assets/props/news_receiving.glb",
+   "?? game/data/orison_v2/news_receiving.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid"
+  ],
+  "repository_head": "c4599174ecd6b21b2c6e63383e7fe3fe7162dfbe",
+  "repository_tree": "7cbf09183b0a9ede8f679844912e748256dbb374",
+  "runtime_inputs_sha256": "48af4dcf933303002ad4719b7a271a49b4b772179bcd146ee07324b46263b8e9",
+  "test_path": "game/tests/orison_v2_news_receiving_test.gd",
+  "test_sha256": "c2e6af693da3ab103175948b24bd93f92d28cc9feca24b0e33f1cdb0322fb954"
+ },
+ "windowed": true
+}

@@ -33,9 +33,3 @@ completes **771** checks with owned nodes/resources/playbacks **0 / 0 / 0**.
 The requested side-service point is obstructed; its nearest clear floor sample
 remains in the front aisle. No side-service or continuous operating route is
 proven by that observation. Both diagnostic runs stay retained separately.
-
-Committed source **3bc3e624** passes the complete **48-gate/tools-test**
-comparison and **eight** bound Godot runs. All **10** native and **62** final
-production frames were directly reviewed. Retained evidence and the separate
-complete key authority: **art/renders/orison_v2/news_receiving_20261006**.
-Report: **design/V2_NEWS_RECEIVING_2026-10-06.md**.

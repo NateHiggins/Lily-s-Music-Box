@@ -10208,6 +10208,12 @@
     ]
    },
    {
+    "file": "art/renders/orison_v2/photo_receiving_20261006/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/photo_receiving_clearance_20261006/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10272,7 +10278,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "6044d720be63ec4cd1fb199c03391c400e36667d96295dc027a22ac4b52a5d3b",
+  "tools/orison_spatial_dependency_manifest.json": "3d173f3b6072ef2b8dac1dbb2b12b19043f6c5d0cb0ba6cefadf162ba9a6126e",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
@@ -10336,6 +10342,8 @@
   "art/renders/orison_v2/locksmith_fittings_20261005/runtime_authority_receipt.json": "d44c859635227a58d6ebf1565f18c3428ea53a5f1b62d2eccac1a404b6825fe3",
   "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json": "df1cd431570a3f3c946aac5747f50ce808f04c3bc1b90d54fa514b7ecdf58048",
   "art/renders/orison_v2/news_fittings_20261005/runtime_authority_receipt.json": "49b1e38e56d2b7f4d98052606d89adbed0389953db766a7725cc57b467b405bb",
+  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/news_receiving_20261006/runtime_authority_receipt.json": "1b3ae57def8bd39eb54704d1655f32b9b7ad51602a61f1cf28e926a1bedbbd34",
   "art/renders/orison_v2/passage_receivers_20261006/runtime_authority_receipt.json": "893598fc42cabd6f83b2ea26c67be99968dade07a73b4b9b45cbad17af085e62",
   "art/renders/orison_v2/photo_cameras_20261005/runtime_authority_receipt.json": "ea0f16fe152380214c36da2d9eaa67e16e8663afc16e623b2db828c853cce075",
   "art/renders/orison_v2/photo_counter_20261005/runtime_authority_receipt.json": "ad4ae5baf46989b37f0d57b5bb2c64d50b77339f64c4a389188e2deefec1565a",
@@ -10343,7 +10351,6 @@
   "art/renders/orison_v2/photo_glazing_20261005/runtime_authority_receipt.json": "324512cd92374007ac2493a9c959a84ce7181467cf6feb40802ae61ef760da81",
   "art/renders/orison_v2/photo_portraits_20261005/runtime_authority_receipt.json": "85ab2b1148e878ce0c5b75fc9164e3dab35c595fd1c6829ba5af4ec5b9019768",
   "art/renders/orison_v2/photo_process_20261005/runtime_authority_receipt.json": "9d6a80e7cef7a90382acecfe91d6fff6640e295fca6d351d81008739c007ea1c",
-  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
   "art/renders/orison_v2/photo_receiving_20261006/runtime_authority_receipt.json": "15fff34a79249cc024c24562a2fe4142d67722a500aca3f5f714f05dd8a34f68",
   "art/renders/orison_v2/photo_receiving_clearance_20261006/runtime_authority_receipt.json": "a1082633add773da2f626bfb7e41352d51ce1eab93e6cf197bfab78ce6f07fc5",
   "art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json": "0fe76abab1724f14c3340014502e2b04145e30073bd13993a7166e8aceadf65a",
