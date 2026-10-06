@@ -1,0 +1,15 @@
+00:01.375  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-stage\art\blender\hardware_tools.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-stage\art\blender\scripts\inspect_hardware_tools.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:12.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_glass_rack_front.png'
+00:21.859  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_glass_rack_rear.png'
+00:26.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_tool_board_front.png'
+00:30.234  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_tool_board_rear.png'
+00:33.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_ladder_r0_front.png'
+00:37.359  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\storm_shop_hardware_paint_ladder_r0_rear.png'
+00:45.906  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\tool_forms_detail.png'
+00:54.313  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\hardware-tools-native\empty_tool_slot_detail.png'
+HARDWARE TOOLS NATIVE QA 100 closed connected stocks; 3 joined assemblies; 8 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

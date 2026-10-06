@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 44.46,
+  "exit_code": -1,
+  "finished_utc": "2026-10-06T00:33:16Z",
+  "started_utc": "2026-10-06T00:32:32Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log.stderr",
+  "stderr_sha256": "665c7e6c04c415c2460ea757bc6d5b4482224ba67de2c8a69d5eeefc1e017ac3",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2HardwareStockTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "tmp\\v2-finish-review\\hardware-tools-final-verified\\godot\\OrisonV2HardwareStockTest_tscn_windowed_shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "84a8ea001b0d0906fb47e597a1eecee31ba0ea43",
+  "repository_tree": "ac7eb983af1791f7ce48b2b3e6d95a28b552c173",
+  "runtime_inputs_sha256": "bf30b56084044d55f2794101966749a1206a8762897fd31bae5afe006e394a01",
+  "test_path": "game/tests/orison_v2_hardware_stock_test.gd",
+  "test_sha256": "5055cf64a9aec26ae4e97fe297390d33dbea7c5a6afa251b1a6446cdfe6011bf"
+ },
+ "windowed": true
+}

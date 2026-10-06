@@ -1,0 +1,11 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "84a8ea001b0d0906fb47e597a1eecee31ba0ea43",
+  "attempt": "hardware-tools-final-verified",
+  "verdict": null,
+  "reason": "Restricted Godot user-state writes caused native startup crashes before assertions. The verifier was stopped; it produced no verification.json.",
+  "first_suite": "OrisonV2HardwareToolsTest: wrapper timeout, no verdict",
+  "second_suite": "OrisonV2HardwareStockTest: matched own startup-crashed process ended, actual wrapper exit -1, no verdict",
+  "replacement": "hardware-tools-clean-verified: full rerun with absolute evidence paths and required user-state write access",
+  "process_scope": "Only exact own processes after matching command, parent, PID and UTC start; no other Godot process closed."
+}

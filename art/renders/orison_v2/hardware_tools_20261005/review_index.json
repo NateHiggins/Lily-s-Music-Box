@@ -1,0 +1,738 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "84a8ea001b0d0906fb47e597a1eecee31ba0ea43",
+  "base": "6d759d5e86c6b117e85b982899c6ecb02864a429",
+  "verification": "MERGE-CANDIDATE 84a8ea001b0d0906fb47e597a1eecee31ba0ea43",
+  "source_records": 34,
+  "assemblies": 3,
+  "closed_stocks": 100,
+  "material_partitions": 11,
+  "triangles": 10976,
+  "source_supports": 12,
+  "removed_original_triangles": 408,
+  "native_views": 8,
+  "production_views": 7,
+  "direct_review": "All eight final native and seven final clean production images inspected at full size. Clear separate panes, supported cutter, seven shaped tools with the original pale empty silhouette, open ladder space and stock below the raised board. Earlier cropped, spotted-metal, dark-vacancy and unbound timber observations remain diagnostics.",
+  "runtime_contract": "Exact test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; only its executed scope.",
+  "limits": [
+    "No human acceptance or whole-V2 completion.",
+    "All 171 nonarchitectural hardware fitting source records now have native visual geometry, not operational or capacity acceptance.",
+    "Weighing/agitation, power, ladder plot behavior, continuous shop/rear access and independent utility continuity/capacity remain open.",
+    "Wrapper receipts, captures and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/verification.json",
+      "source_sha256": "af6493109359aceeedda1732777b776ccc28fbf55fa831a3ca190dd75012b051",
+      "sha256": "af6493109359aceeedda1732777b776ccc28fbf55fa831a3ca190dd75012b051",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/6d759d5e-clean-board.json",
+      "source_sha256": "db59c28f862ee56c01e5e8632af8132a8833e21967b44f2772385b669eea6401",
+      "sha256": "db59c28f862ee56c01e5e8632af8132a8833e21967b44f2772385b669eea6401",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/hardware-tools-native/inspection.json",
+      "source_sha256": "0329caee2ae7b2e254dabce30d868ef262a84c53b295bbbc4f57e3788c325e10",
+      "sha256": "0329caee2ae7b2e254dabce30d868ef262a84c53b295bbbc4f57e3788c325e10",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/hardware_tools_construction.json",
+      "source_sha256": "731c5862d6c08d9f4d0504da9f14d98058deaa55785dae35588915bd6d645099",
+      "sha256": "731c5862d6c08d9f4d0504da9f14d98058deaa55785dae35588915bd6d645099",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "57b15f67bee35f6766e90ca30ab71408985d5d84703cf9e7f3d5818a8d686dc2",
+      "sha256": "57b15f67bee35f6766e90ca30ab71408985d5d84703cf9e7f3d5818a8d686dc2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/views.json",
+      "source_sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20",
+      "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "7a45613a0f6d97a4ce80b596260ba7d1b7ef170cadcff6e14dcf25f89f992e87",
+      "sha256": "7a45613a0f6d97a4ce80b596260ba7d1b7ef170cadcff6e14dcf25f89f992e87",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "663d85575cd8602694835e8eeaec03f0b5eae4ec20fbe8e080234891beb26fad",
+      "sha256": "663d85575cd8602694835e8eeaec03f0b5eae4ec20fbe8e080234891beb26fad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/empty_tool_slot_detail.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/empty_tool_slot_detail.png",
+      "source_sha256": "be669a7cfbf7d0451ee095417f267872c932dd3a9a241bc143b8c9904bec78e9",
+      "sha256": "6744616b8f3fea825af90421948d29a1fb9d32fd03bc332c8fedd443d2b28f90",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_glass_rack_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_glass_rack_front.png",
+      "source_sha256": "995baaf48984d365418c198aeb17d50be4a71e0f501b9072b98f3430744797c9",
+      "sha256": "4105b29ba9f2c0204a6dd67ed936fd7ebddd8d65d6fbe322d614b43d8642bd8e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_glass_rack_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_glass_rack_rear.png",
+      "source_sha256": "e4e126fc28aed3315eaf0a3dd3d36aac9abd0caa2cf03374913f9e050c4ac27b",
+      "sha256": "4751cd7f9b7911b92aa735e8006c355532ee75eaad7d74e47c290af086106d1f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_ladder_r0_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_ladder_r0_front.png",
+      "source_sha256": "87a4e0c68048ff4547b23b2d606cd7f3dce208fbbcab827055823cb7c19df0a9",
+      "sha256": "a9e10adfc6d1667cd2d4e99f019e086f1480d16a05540f96b91d06390f53ca49",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_ladder_r0_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_ladder_r0_rear.png",
+      "source_sha256": "2ed1c3d8de019c2fe0b091b17d79cca4581afee3862afdc01cd76547ae25f77b",
+      "sha256": "74c1fbeaa14c1831dbdb9b9678c7d6878c3357a10933e4b677f1c55c62b25a66",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_tool_board_front.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_tool_board_front.png",
+      "source_sha256": "a961116a2008def7df3650380baa2ac782e304f4054a816286a939ad508e587a",
+      "sha256": "9c413effa955d96fe325599efacb7447a19e3ee0fe20e68daf99bffba217c4f2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_hardware_paint_tool_board_rear.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/storm_shop_hardware_paint_tool_board_rear.png",
+      "source_sha256": "ce80c6a74e6191d81b9ddd1ce98be83626a288a591db2d2e50960e8a13f34786",
+      "sha256": "0ecf01b5850e03edc1468779dfbdcf4312437a1ca2aab8f3f9054cfedb636992",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/tool_forms_detail.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-native/tool_forms_detail.png",
+      "source_sha256": "7daf7f04433572dfb822c4ee21b5413cea4d9699872a898954454723abc63b3b",
+      "sha256": "d8f9aaf4bb03f412c06fb231ad6f69546c95000c2e4018f12c2726719a37175d",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/east_stock.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/east_stock.png",
+      "source_sha256": "913fabaaca087eefe7ee052edb6684bacc62f361784cafa3d9f6971d9256b7d8",
+      "sha256": "6e96f5bbd875a89af182f969167d30172913950833b2ff1e0602b5fb1db4703a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/empty_tool_slot.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/empty_tool_slot.png",
+      "source_sha256": "f6c9bb3facb159904e1416bc500ccb9d6f696ebc332c1ee3643b33eb95fea251",
+      "sha256": "fb29ed0812d3915f881710cf68cd4eb9e867fc566be634f58f7b6c41f82c0f3a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/glass_cutter.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/glass_cutter.png",
+      "source_sha256": "7a211f8f323e4b5d8d8be492b7754461d392670ef01e16cbe4acec0f002a64ac",
+      "sha256": "64e542b1a105ec73877e32316d7a3aa2b3946fa0f5833bb43ef6a542a0c6f67e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/glass_stand.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/glass_stand.png",
+      "source_sha256": "432ae4e9256b5047a0a7dd5d03aab8e1aba374b90edb6bd4bafd745c6320aff0",
+      "sha256": "306becb4bbe4882a38a0a3a16d30aa3cfb61a03ad5ca49a0107a957604d70dcf",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/ladder.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/ladder.png",
+      "source_sha256": "728775e1208b10f8d613f4a3db03d0ced6e372b2253c55f903fe999b17d0387c",
+      "sha256": "04a84cf8c90d060edb2c4bb7a3bcf46d8f505eba1b93c79b47afb3653ed2ad00",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/shop_context.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/shop_context.png",
+      "source_sha256": "59667aa92f92cfbc55a88dd1ed39216a69207dcfc2a170da227e0160379dc2e5",
+      "sha256": "ef431b45a288e1b38c1a2e18b26e22149e9d77bae8afb8f32530445c6581a039",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/tool_board.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed_shots/tool_board.png",
+      "source_sha256": "f03198433794e46de41d7c0d973dff6f46371a1b5cfc998e398d758b523fce3f",
+      "sha256": "944e1f851f6d9f56e0470c72a750f79c198029b8ca08dccd7ed147f45ebb2e80",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_fit/spotted-metal.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-spotted-metal-before.png",
+      "source_sha256": "c7fcccdc5a48f8cb9dd2e47ea0b82700f57ed45228063d5358531588a6516701",
+      "sha256": "a6b6c8d38caa9c7e7013e96386046fe6d6d2502e84113462ed837af07f6c19a9",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_fit/cropped-slot.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-cropped-slot-before.png",
+      "source_sha256": "83f3d0bca73865d9cfe082fc485289edf93199c8fac168e9fa17a1692b26e180",
+      "sha256": "43f3966ee3467d003c30cfe51f3458b5e93b8766cc3cd3424618addff4000ef3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_fit/dark-slot.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-dark-slot-before.png",
+      "source_sha256": "9b0f5a5e4e23f0753e406bd51c09ea734de8b8cc735eb4f4f0e2fd300c02f155",
+      "sha256": "55eb43bb7c4bcedcb281f58faab44295eb35003c0af066f66fe0dc316bb8c16c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before_fit/shipping-wood.jpg",
+      "source": "tmp/v2-finish-review/hardware-tools-shipping-wood-before.png",
+      "source_sha256": "604585a47f6f0d900b1c28f8ed4424b40f7aa188afdc96a26c976ea9495b4e01",
+      "sha256": "c3f86d0e1c51225d123a306ad49c134f27f67da72d2c954559932290192c1cce",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "104e1fe9d98ee90f293db8f49fed919a99db3220ec41d2266917a782c23f1e37",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "29a5639d2c0f2959d443eba6cdff1c9dc9fbe0164480ad4c391376046d30d141",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/import1.log.receipt.json",
+      "source_sha256": "314f62c5293bc95b447fac1250f6fbed4b8e99b889e8dae32f1a467f9661bf42",
+      "sha256": "314f62c5293bc95b447fac1250f6fbed4b8e99b889e8dae32f1a467f9661bf42",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/import2.log.receipt.json",
+      "source_sha256": "5e6a14aa622c2094549920f66ac9001021afc5fc92530237394bfa97d7ffd764",
+      "sha256": "5e6a14aa622c2094549920f66ac9001021afc5fc92530237394bfa97d7ffd764",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source_sha256": "21e5a9ee8e50c91e5e3c9a818be31fdacc7017cbfc1af6f11e28d7ff095128fd",
+      "sha256": "21e5a9ee8e50c91e5e3c9a818be31fdacc7017cbfc1af6f11e28d7ff095128fd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "6b5cff77a39b2df1b0fc0c544b131f29e6c57cd339c893575a51f7dc0b241edb",
+      "sha256": "6b5cff77a39b2df1b0fc0c544b131f29e6c57cd339c893575a51f7dc0b241edb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareStockTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log",
+      "source_sha256": "581aacda299b5ac88924705275c51e2663a8c70e0a680eb2a56c7b231705f9c6",
+      "sha256": "581aacda299b5ac88924705275c51e2663a8c70e0a680eb2a56c7b231705f9c6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareStockTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "50ddb6b0e844bf397dba65474c641923e976351331ecd221774da95f3a999ea8",
+      "sha256": "50ddb6b0e844bf397dba65474c641923e976351331ecd221774da95f3a999ea8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareApparatusTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed.log",
+      "source_sha256": "6535481202f90a0eda6301e06d613d379859acb15460e2c776e0a558c74517e1",
+      "sha256": "6535481202f90a0eda6301e06d613d379859acb15460e2c776e0a558c74517e1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareApparatusTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareApparatusTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a7da1f0ef10097325c23269807acf1562941d57d1b08d97b5eb1dce784764341",
+      "sha256": "a7da1f0ef10097325c23269807acf1562941d57d1b08d97b5eb1dce784764341",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareDrawersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareDrawersTest_tscn_windowed.log",
+      "source_sha256": "6c1c93ed688565c9c0ed608d626469ea2dfdce600043b18545f2c60d9496d7ab",
+      "sha256": "6c1c93ed688565c9c0ed608d626469ea2dfdce600043b18545f2c60d9496d7ab",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2HardwareDrawersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2HardwareDrawersTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "261922c83d1e8d9707cbc5a18bb2de606334e98e240a74096d351400ef1d1c10",
+      "sha256": "261922c83d1e8d9707cbc5a18bb2de606334e98e240a74096d351400ef1d1c10",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log",
+      "source_sha256": "d2e06452cb4c2b0ebd049dbb0f0b499c000562a2f4e226bf2def77d89b100d80",
+      "sha256": "d2e06452cb4c2b0ebd049dbb0f0b499c000562a2f4e226bf2def77d89b100d80",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "b1ce9571a2ef7eaa983fdfe2fc9c67920c131c6e48dc3fe0928d49d37cea93f3",
+      "sha256": "b1ce9571a2ef7eaa983fdfe2fc9c67920c131c6e48dc3fe0928d49d37cea93f3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+      "source_sha256": "f37fdf5b397c3f223f15fa0f26f41a1a0501a96cfc6bfe76bc6714288625876d",
+      "sha256": "f37fdf5b397c3f223f15fa0f26f41a1a0501a96cfc6bfe76bc6714288625876d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "07346fcb6e37196dc861c67e46affc644ac312474ebc12d223ec3d33ffee5fe1",
+      "sha256": "07346fcb6e37196dc861c67e46affc644ac312474ebc12d223ec3d33ffee5fe1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+      "source_sha256": "da1f8bbda37389ca1a7d8430090d52f88322d7d6a1e16078ef9927d205544933",
+      "sha256": "da1f8bbda37389ca1a7d8430090d52f88322d7d6a1e16078ef9927d205544933",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "10fcf638986f489f300c8892a28a3b448fe38b352f0d27bebfa174431c0d1ca7",
+      "sha256": "10fcf638986f489f300c8892a28a3b448fe38b352f0d27bebfa174431c0d1ca7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "ebc415b373b7c3337ef9cad96f55a156e2399db91e397ad1724c038955c6fa2e",
+      "sha256": "ebc415b373b7c3337ef9cad96f55a156e2399db91e397ad1724c038955c6fa2e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9cbb1386d067e28db2515f95878d14c84e30f19ae7a2c422d00ac6f7357f3d53",
+      "sha256": "9cbb1386d067e28db2515f95878d14c84e30f19ae7a2c422d00ac6f7357f3d53",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "18b4d9848c79d17f3aa54370562f15d8facb2ced5affeede79ef41d85735dea7",
+      "sha256": "18b4d9848c79d17f3aa54370562f15d8facb2ced5affeede79ef41d85735dea7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "512ef7209b7a20d7959ffa096f204dd259cc106213820fc84f856523e4451325",
+      "sha256": "512ef7209b7a20d7959ffa096f204dd259cc106213820fc84f856523e4451325",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "392f191a8de9519b688287b246d9c17849b2982d52ee29c8b2d43863bebca6ea",
+      "sha256": "392f191a8de9519b688287b246d9c17849b2982d52ee29c8b2d43863bebca6ea",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bfb4900f2b17304fe1e89558b206c035ed49abf071107b5135b9b1488c0c0c85",
+      "sha256": "bfb4900f2b17304fe1e89558b206c035ed49abf071107b5135b9b1488c0c0c85",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "854f382789812feb1d72dd1149671fd694f514a9575af45ec3819d2a14b5cfaf",
+      "sha256": "854f382789812feb1d72dd1149671fd694f514a9575af45ec3819d2a14b5cfaf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "5b631f9df81c3dc263e0dd59a590de3f79fe6dcf640f17022c6c0d90848ce68a",
+      "sha256": "5b631f9df81c3dc263e0dd59a590de3f79fe6dcf640f17022c6c0d90848ce68a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-clean-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "81df7ab1a09cc24726df10ff4b8d2d8c48f34de572f3b95b7af9471eea834da6",
+      "sha256": "81df7ab1a09cc24726df10ff4b8d2d8c48f34de572f3b95b7af9471eea834da6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-stage-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-stage-build.log",
+      "source_sha256": "3bb1e43d6761e5b8faf98f37a652e0544e02dd18db3873a9cc99be46ae6421ad",
+      "sha256": "3bb1e43d6761e5b8faf98f37a652e0544e02dd18db3873a9cc99be46ae6421ad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-stage-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-stage-native.log",
+      "source_sha256": "6ab592c176750bcca6a9ff8dd3060966ca9fa0ca3756c509824f4a98e5a915c7",
+      "sha256": "6ab592c176750bcca6a9ff8dd3060966ca9fa0ca3756c509824f4a98e5a915c7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-final-stage-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-stage-build.log",
+      "source_sha256": "2f6b9e1b3c446765cebc31d25db17f9e53509cf0401639a1b0dd8b44e0c8c624",
+      "sha256": "2f6b9e1b3c446765cebc31d25db17f9e53509cf0401639a1b0dd8b44e0c8c624",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-final-stage-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-stage-native.log",
+      "source_sha256": "81d48435c8544b4f47bd41cbeb86157f6b892d6ccb0aee4535cbf7391033533f",
+      "sha256": "81d48435c8544b4f47bd41cbeb86157f6b892d6ccb0aee4535cbf7391033533f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-iron-stage-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-iron-stage-build.log",
+      "source_sha256": "067dad28ea0fee7269df9791844a44e3d9277f527ca90e6ed8c64be842a027c8",
+      "sha256": "067dad28ea0fee7269df9791844a44e3d9277f527ca90e6ed8c64be842a027c8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-iron-stage-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-iron-stage-native.log",
+      "source_sha256": "482a09adaa3a5c80e6c714a44e192a88bd72af17b9817e8d7ad8de08ca236bfb",
+      "sha256": "482a09adaa3a5c80e6c714a44e192a88bd72af17b9817e8d7ad8de08ca236bfb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-pale-stage-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-pale-stage-build.log",
+      "source_sha256": "237b6c835bd70f05dab1f7b454d02de2c1326ee49e160ba0a9e31ec2c8ea73f7",
+      "sha256": "237b6c835bd70f05dab1f7b454d02de2c1326ee49e160ba0a9e31ec2c8ea73f7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-pale-stage-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-pale-stage-native.log",
+      "source_sha256": "065a7b50c85f619aedeccf903a828d6c432f8354c342b7119650bc5aba13c7d1",
+      "sha256": "065a7b50c85f619aedeccf903a828d6c432f8354c342b7119650bc5aba13c7d1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-sheet-fit-stage-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-sheet-fit-stage-build.log",
+      "source_sha256": "274815f8596ff282422a5f736edbdf6a7cdc31e5a5f6f3d637371ddf1178366b",
+      "sha256": "274815f8596ff282422a5f736edbdf6a7cdc31e5a5f6f3d637371ddf1178366b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-sheet-fit-stage-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-sheet-fit-stage-native.log",
+      "source_sha256": "c8c2f20e0eb0c4c9d775609e532994f36b2e8e61c805f2fdc6faa6aed0d8a7c1",
+      "sha256": "c8c2f20e0eb0c4c9d775609e532994f36b2e8e61c805f2fdc6faa6aed0d8a7c1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-canonical-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-canonical-build.log",
+      "source_sha256": "73116fba9741297d299ca2df37f1026aac64b9242d3177ece76d3fc100703baf",
+      "sha256": "73116fba9741297d299ca2df37f1026aac64b9242d3177ece76d3fc100703baf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-canonical-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-canonical-native.log",
+      "source_sha256": "2cccdc4f504c98d1582398d7e82c84631066bfa074a22a9ccc4919f582744891",
+      "sha256": "2cccdc4f504c98d1582398d7e82c84631066bfa074a22a9ccc4919f582744891",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-build.log",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-build.log",
+      "source_sha256": "1616b495fa29986e52c4cb2f7fcbe2f787df0d702711eaf699aa02f5766a853d",
+      "sha256": "1616b495fa29986e52c4cb2f7fcbe2f787df0d702711eaf699aa02f5766a853d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-native.log",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-native.log",
+      "source_sha256": "a756777dd3310d8626bd91c05313ee73d0e41e159c4e936cc4e223573766aea1",
+      "sha256": "a756777dd3310d8626bd91c05313ee73d0e41e159c4e936cc4e223573766aea1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-production.log",
+      "source": "tmp/v2-finish-review/hardware-tools-production.log",
+      "source_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-production.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-production.log.receipt.json",
+      "source_sha256": "38f973b97dd7489ed8a650036447f13d90b5ec44e4029fb96caab9776719745e",
+      "sha256": "38f973b97dd7489ed8a650036447f13d90b5ec44e4029fb96caab9776719745e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-production.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-production.log.stderr",
+      "source_sha256": "c05878c4551cb2ff1ffcca70bcbf86be5d2bff0314ac7705e184ce00a71c2206",
+      "sha256": "c05878c4551cb2ff1ffcca70bcbf86be5d2bff0314ac7705e184ce00a71c2206",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-typed-test.log",
+      "source": "tmp/v2-finish-review/hardware-tools-typed-test.log",
+      "source_sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-typed-test.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-typed-test.log.receipt.json",
+      "source_sha256": "f3a8a4ccf956741fb22dac33867f12ccd78813aa36ba87bf6db1a402a9c1bd60",
+      "sha256": "f3a8a4ccf956741fb22dac33867f12ccd78813aa36ba87bf6db1a402a9c1bd60",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-typed-test.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-typed-test.log.stderr",
+      "source_sha256": "1f6d3f195d59b224746f9e46acb981c117ccba1d51cdb122f90f8b7ed5294cf7",
+      "sha256": "1f6d3f195d59b224746f9e46acb981c117ccba1d51cdb122f90f8b7ed5294cf7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-fit.log",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-fit.log",
+      "source_sha256": "a14e5d81e09b3f40afaf07a573de8cccade8807bc8060fb9d435d31c204852e8",
+      "sha256": "a14e5d81e09b3f40afaf07a573de8cccade8807bc8060fb9d435d31c204852e8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-fit.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-fit.log.receipt.json",
+      "source_sha256": "d423154e230720606112def524af27eedf8438cd747437aa7d055a557f6308df",
+      "sha256": "d423154e230720606112def524af27eedf8438cd747437aa7d055a557f6308df",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-import1.log",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-import1.log",
+      "source_sha256": "ef6900cd1b340b018366854072bc829769718b29fa1ae5ade128a777a349e1be",
+      "sha256": "ef6900cd1b340b018366854072bc829769718b29fa1ae5ade128a777a349e1be",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-import1.log.receipt.json",
+      "source_sha256": "9d938feab8b7727349ea12f8a00e9f41e5e29f2b945abd5beb073d7ae306322a",
+      "sha256": "9d938feab8b7727349ea12f8a00e9f41e5e29f2b945abd5beb073d7ae306322a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-import2.log",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-catalogue-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-catalogue-import2.log.receipt.json",
+      "source_sha256": "ac0fd2ad2f548fe32f3d266625dde6de3d9d1b0b55c8624e67806636a87fd38c",
+      "sha256": "ac0fd2ad2f548fe32f3d266625dde6de3d9d1b0b55c8624e67806636a87fd38c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-final-reader.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/hardware-tools-final-spatial.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-spatial.log",
+      "source_sha256": "d9e2f149189e07eeb4c321bf1f9bf9be5600c83ebed77b2c649dc2fd091b04ed",
+      "sha256": "d9e2f149189e07eeb4c321bf1f9bf9be5600c83ebed77b2c649dc2fd091b04ed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import1.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "a9fb1170d19f9a6b31791de900901371b3bf4e46dab847bb3c764f048e93333c",
+      "sha256": "a9fb1170d19f9a6b31791de900901371b3bf4e46dab847bb3c764f048e93333c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import1.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import1.log.stderr",
+      "source_sha256": "5ade64f3e99b9152ebd3270c01849c3f158fc31c8fcb44e374f49859d92988c3",
+      "sha256": "5ade64f3e99b9152ebd3270c01849c3f158fc31c8fcb44e374f49859d92988c3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import2.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "b429e86d6190a868e9e388b94298350c3046ea97e387384a3e40cba12e84044c",
+      "sha256": "b429e86d6190a868e9e388b94298350c3046ea97e387384a3e40cba12e84044c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/import2.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/import2.log.stderr",
+      "source_sha256": "b7303503801be05994605f606b05341971702cd1b013c8db8ae3291303eace65",
+      "sha256": "b7303503801be05994605f606b05341971702cd1b013c8db8ae3291303eace65",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareStockTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareStockTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "5897912dbca43591748fd7f2a582f7423262eccd2c5a24de2fb6c881bed9d7a3",
+      "sha256": "5897912dbca43591748fd7f2a582f7423262eccd2c5a24de2fb6c881bed9d7a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareStockTest_tscn_windowed.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareStockTest_tscn_windowed.log.stderr",
+      "source_sha256": "665c7e6c04c415c2460ea757bc6d5b4482224ba67de2c8a69d5eeefc1e017ac3",
+      "sha256": "665c7e6c04c415c2460ea757bc6d5b4482224ba67de2c8a69d5eeefc1e017ac3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "50993ff8ac6f52ced5c5a66d80ca3554d97271fdb0adf42c26744e1fa2416698",
+      "sha256": "50993ff8ac6f52ced5c5a66d80ca3554d97271fdb0adf42c26744e1fa2416698",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/OrisonV2HardwareToolsTest_tscn_windowed.log.stderr",
+      "source": "tmp/v2-finish-review/hardware-tools-final-verified/godot/OrisonV2HardwareToolsTest_tscn_windowed.log.stderr",
+      "source_sha256": "e63f69cc74afd215278d87e95416181d9122dcad7ae7255e92a3cb9fe45f5d3c",
+      "sha256": "e63f69cc74afd215278d87e95416181d9122dcad7ae7255e92a3cb9fe45f5d3c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/restricted_startup/aborted_verifier.json",
+      "source": "tmp/v2-finish-review/hardware-tools-aborted-verifier.json",
+      "source_sha256": "af346b94bf45e89fe8ec15475bc1502c1086eeb06213afe6e75b3d553da25697",
+      "sha256": "af346b94bf45e89fe8ec15475bc1502c1086eeb06213afe6e75b3d553da25697",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/hardware-tools-ledger-refresh.log",
+      "source_sha256": "265f7d9fd1154de5af15cb799a1b85ac8f1ce561863acdc5eb80299f58404401",
+      "sha256": "265f7d9fd1154de5af15cb799a1b85ac8f1ce561863acdc5eb80299f58404401",
+      "copy": "byte-identical"
+    }
+  ]
+}

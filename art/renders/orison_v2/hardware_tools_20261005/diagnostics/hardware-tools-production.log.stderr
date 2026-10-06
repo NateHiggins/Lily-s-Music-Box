@@ -1,0 +1,6 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "silhouettes" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/orison_v2_hardware_tools_test.gd:100)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "tools" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/orison_v2_hardware_tools_test.gd:101)
+ERROR: Failed to load script "res://tests/orison_v2_hardware_tools_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
