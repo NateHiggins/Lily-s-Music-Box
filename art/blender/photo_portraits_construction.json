@@ -1,0 +1,1426 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_portrait_rail",
+      "rect": [
+        22.82,
+        -63.419999999999995,
+        22.88,
+        -61.779999999999994
+      ],
+      "z0": 1.2,
+      "h": 0.06,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait0",
+      "rect": [
+        22.81,
+        -63.35999999999999,
+        22.87,
+        -63.065
+      ],
+      "z0": 1.3,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait1",
+      "rect": [
+        22.81,
+        -63.00999999999999,
+        22.87,
+        -62.714999999999996
+      ],
+      "z0": 1.3,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait2",
+      "rect": [
+        22.81,
+        -62.66,
+        22.87,
+        -62.364999999999995
+      ],
+      "z0": 1.3,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait3",
+      "rect": [
+        22.81,
+        -62.309999999999995,
+        22.87,
+        -62.01499999999999
+      ],
+      "z0": 1.3,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait4",
+      "rect": [
+        22.81,
+        -63.35999999999999,
+        22.87,
+        -63.065
+      ],
+      "z0": 1.84,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait5",
+      "rect": [
+        22.81,
+        -63.00999999999999,
+        22.87,
+        -62.714999999999996
+      ],
+      "z0": 1.84,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait6",
+      "rect": [
+        22.81,
+        -62.66,
+        22.87,
+        -62.364999999999995
+      ],
+      "z0": 1.84,
+      "h": 0.44,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_portrait_rail",
+      "kind": "rail",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait0",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait1",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait2",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait3",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait4",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait5",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait6",
+      "kind": "portrait",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "wood",
+      "volume_m3": 0.0042420149039443565
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_WallPacker0",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "wood",
+      "volume_m3": 5.1727004359151604e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_Fixing0",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "iron",
+      "volume_m3": 9.795005579855964e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_WallPacker1",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "wood",
+      "volume_m3": 5.1727004359151604e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_Fixing1",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "iron",
+      "volume_m3": 9.795005579855964e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_WallPacker2",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "wood",
+      "volume_m3": 5.1727004359151604e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_Fixing2",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "iron",
+      "volume_m3": 9.795005579855964e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_WallPacker3",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "wood",
+      "volume_m3": 5.1727004359151604e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail_Fixing3",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "key": "iron",
+      "volume_m3": 9.795005579855964e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "key": "iron",
+      "volume_m3": 1.034026936625769e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "key": "iron",
+      "volume_m3": 1.034026936625769e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "key": "paper",
+      "volume_m3": 0.000120013122796081
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "key": "iron",
+      "volume_m3": 1.034026936625769e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6_RigidCard",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "key": "paper",
+      "volume_m3": 0.00012001026152574923
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6_TopClamp0",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6_TopClamp1",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "key": "iron",
+      "volume_m3": 1.0343559270366335e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.232,
+        63.36
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "extended picture rail actual back-wall fixing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.232,
+        62.45
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "extended picture rail actual back-wall fixing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.232,
+        61.65
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "extended picture rail actual back-wall fixing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.232,
+        60.65
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "extended picture rail actual back-wall fixing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        63.2615
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        63.1635
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        63.2125
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.9115
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.8135
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        62.8625
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.5615
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.4635
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        62.5125
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.2115
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        62.1135
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        62.1625
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        61.8615
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        61.7635
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        61.8125
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        61.114
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        61.016
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        61.065
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        60.764
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "owner": "storm_shop_photo_supplies_back_lo",
+      "point": [
+        22.94,
+        1.5070000000000001,
+        60.666000000000004
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "unclaimed card actual wall clamp"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "owner": "storm_shop_photo_supplies_portrait_rail_Rail",
+      "point": [
+        22.885,
+        1.26,
+        60.715
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "unclaimed card seated on extended picture rail"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail__iron",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 240
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait_rail__wood",
+      "assembly": "storm_shop_photo_supplies_portrait_rail",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0__image",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0__iron",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait0__paper",
+      "assembly": "storm_shop_photo_supplies_portrait0",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1__image",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1__iron",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait1__paper",
+      "assembly": "storm_shop_photo_supplies_portrait1",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2__image",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2__iron",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait2__paper",
+      "assembly": "storm_shop_photo_supplies_portrait2",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3__image",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3__iron",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait3__paper",
+      "assembly": "storm_shop_photo_supplies_portrait3",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4__image",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4__iron",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait4__paper",
+      "assembly": "storm_shop_photo_supplies_portrait4",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5__image",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5__iron",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait5__paper",
+      "assembly": "storm_shop_photo_supplies_portrait5",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6__image",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "cell": "shop_photo_supplies",
+      "key": "image",
+      "triangles": 2
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6__iron",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_photo_supplies_portrait6__paper",
+      "assembly": "storm_shop_photo_supplies_portrait6",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 10
+    }
+  ],
+  "triangles": 3896,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_portraits.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_portrait_rail__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait_rail__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait0__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait0__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait0__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait1__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait1__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait1__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait2__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait2__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait2__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait3__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait3__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait3__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait4__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait4__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait4__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait5__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait5__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait5__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait6__image",
+            "key": "paper",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait6__iron",
+            "key": "timber",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_portrait6__paper",
+            "key": "paper",
+            "tile": 0.5
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_portrait_rail",
+            "key": "timber",
+            "low": [
+              22.82,
+              1.2,
+              61.779999999999994
+            ],
+            "high": [
+              22.88,
+              1.26,
+              63.419999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait0",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.3,
+              63.065
+            ],
+            "high": [
+              22.87,
+              1.74,
+              63.35999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait1",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.3,
+              62.714999999999996
+            ],
+            "high": [
+              22.87,
+              1.74,
+              63.00999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait2",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.3,
+              62.364999999999995
+            ],
+            "high": [
+              22.87,
+              1.74,
+              62.66
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait3",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.3,
+              62.01499999999999
+            ],
+            "high": [
+              22.87,
+              1.74,
+              62.309999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait4",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.84,
+              63.065
+            ],
+            "high": [
+              22.87,
+              2.2800000000000002,
+              63.35999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait5",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.84,
+              62.714999999999996
+            ],
+            "high": [
+              22.87,
+              2.2800000000000002,
+              63.00999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_portrait6",
+            "key": "paper",
+            "low": [
+              22.81,
+              1.84,
+              62.364999999999995
+            ],
+            "high": [
+              22.87,
+              2.2800000000000002,
+              62.66
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ],
+    "portraits": [
+      {
+        "id": "storm_shop_photo_supplies_portrait0",
+        "position": [
+          22.885,
+          -63.2125,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 0
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait1",
+        "position": [
+          22.885,
+          -62.8625,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 1
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait2",
+        "position": [
+          22.885,
+          -62.5125,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 2
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait3",
+        "position": [
+          22.885,
+          -62.1625,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 3
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait4",
+        "position": [
+          22.885,
+          -61.8125,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 0
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait5",
+        "position": [
+          22.885,
+          -61.065,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 1
+      },
+      {
+        "id": "storm_shop_photo_supplies_portrait6",
+        "position": [
+          22.885,
+          -60.715,
+          1.385
+        ],
+        "wall": "east",
+        "yaw": -1.5707963267948966,
+        "width": 0.16,
+        "height": 0.25,
+        "atlas_cell": 2
+      }
+    ],
+    "image_content": {
+      "catalog_role": "art",
+      "substrate_role": "paper",
+      "resource": "res://assets/props/photo_portraits/portrait_atlas.png",
+      "sha256": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "columns": 2,
+      "rows": 2,
+      "uv_inset": 0.005,
+      "roughness": 0.82,
+      "catalog_binding": {
+        "catalog_key": "art",
+        "catalog_mapping": "ai_materials/art",
+        "shipping_albedo": "res://assets/building/textures/T_ai_materials_art_albedo.png",
+        "shipping_albedo_sha256": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e"
+      }
+    },
+    "image_parts": [
+      "storm_shop_photo_supplies_portrait0__image",
+      "storm_shop_photo_supplies_portrait1__image",
+      "storm_shop_photo_supplies_portrait2__image",
+      "storm_shop_photo_supplies_portrait3__image",
+      "storm_shop_photo_supplies_portrait4__image",
+      "storm_shop_photo_supplies_portrait5__image",
+      "storm_shop_photo_supplies_portrait6__image"
+    ]
+  },
+  "asset_sha256": "30a5b098566666d650ac658504ce1559b6199c1482ea57caa0faf47632961472",
+  "source_bindings": {
+    "art/data/photo_portraits/source_plan.json": "38f0b65ffd68f5e0744cb696446c43548d058267fcfc17c1216ee94679c7b339",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_portraits.py": "9ea6920a8066241e1801231534d23edc34b68959b18ae848a11bc827b1f1af9c",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_portraits.glb.import": "0a8840cc11a771d2b11f169e4e7c1e8986abe16fc82da44434680de4c9f0a43a",
+    "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "game/assets/building/textures/T_ai_materials_timber_b_albedo.png": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+    "game/assets/building/textures/T_ai_materials_timber_b_rough.png": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+    "game/assets/building/textures/T_ai_materials_timber_b_normal.png": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+    "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+    "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+    "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_portraits.py": "059e84d90d9aedb71ddaa9198e2f3410f8b7f2de990230cf4e2604d207e05e2b",
+    "art/data/photo_portraits/portrait_atlas.png": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+    "game/assets/props/photo_portraits/portrait_atlas.png": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+    "art/data/photo_portraits/prompt.txt": "fcbb0bb4b47e75731a4453a4df2cf2845e55c70cebafa5dc3fe4d202265b38ad",
+    "art/data/photo_portraits/generation_provenance.json": "c81dfdbdfa25b5036da70c00f2795133e9059dc18005be963fd091919af0ef38",
+    "game/scripts/building/wall_art_law.gd": "3317a9f8c86c8def99b4bbd4604fd9935f26ad14056dc3689f9db2a0a44cdf9f",
+    "game/assets/building/textures/T_ai_materials_art_albedo.png": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e",
+    "game/assets/props/photo_portraits/portrait_atlas.png.import": "f416b2806da9bb3efdbc5cc158cac0dd50d882fbd07b2d34cad3eb242f12ae9f",
+    "game/scripts/building/orison_v2_photo_portraits.gd": "dab1655fc0991f46c828a52dfed54c0e305146965274f4b5d173204730c6fde1"
+  },
+  "open_work": [
+    "Seven original unclaimed print records retain their identities. The first four original along-wall centres remain; the former three upper prints move into the same lower row, with one wider empty band around the high shelf central floor post. Prints shrink from .295/.44m blocks to .160/.250m rigid cards. A declared rail extension supports all seven beneath the retained high deck; wall faces, borrowed-light aperture, source arrays and door remain unchanged.",
+    "Generated fictional adult portrait content uses the existing registered art role on a local matte ink face over physical paper. It does not depict named residents or Mina. Shared artwork, catalogue keys/mapping and paper maps remain unchanged.",
+    "Real wall backing, WallArtLaw reservations, physical rail/card/clamp seats, exact four-cell orientation and unobstructed supported standing observations must pass before review. Continuous shop/darkroom access, process operation, glass finish and independent services retain separate duties."
+  ]
+}

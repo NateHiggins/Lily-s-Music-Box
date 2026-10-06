@@ -46,6 +46,9 @@ static func mount_photo_enlargers(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_photo_process(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/photo_process.json","PhotoProcess","F01_retail_photo_process_","photo_process_part")
 
+static func mount_photo_portraits(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/photo_portraits.json","PhotoPortraits","F01_retail_photo_portraits_","photo_portraits_part")
+
 static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_pool.json","BarPool","F01_retail_bar_pool_","bar_pool_part","shop_bar")
 

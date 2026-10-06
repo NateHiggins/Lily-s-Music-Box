@@ -16,6 +16,7 @@ const HardwareDrawers := preload("res://scripts/building/orison_v2_hardware_draw
 const HardwareTools := preload("res://scripts/building/orison_v2_hardware_tools.gd")
 const PhotoCameras := preload("res://scripts/building/orison_v2_photo_cameras.gd")
 const PhotoProcess := preload("res://scripts/building/orison_v2_photo_process.gd")
+const PhotoPortraits := preload("res://scripts/building/orison_v2_photo_portraits.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -123,6 +124,9 @@ func _ready() -> void:
 			return
 		if not PhotoProcess.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography process fit refused: "+identity)
+			return
+		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native unclaimed portrait fit refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

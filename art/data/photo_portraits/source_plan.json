@@ -1,0 +1,190 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 8,
+  "runtime_keys": [
+    "timber",
+    "paper",
+    "wood",
+    "iron",
+    "image"
+  ],
+  "catalog_variants": {
+    "wood": "wood_dark",
+    "iron": "iron_blackened"
+  },
+  "material_aliases": {
+    "wood": "timber",
+    "iron": "timber",
+    "image": "paper"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "rail",
+      "sources": [
+        "storm_shop_photo_supplies_portrait_rail"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait0"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait1"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait2"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait3"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait4"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait5"
+      ]
+    },
+    {
+      "kind": "portrait",
+      "sources": [
+        "storm_shop_photo_supplies_portrait6"
+      ]
+    }
+  ],
+  "poses": [
+    {
+      "id": "storm_shop_photo_supplies_portrait0",
+      "position": [
+        22.885,
+        -63.2125,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 0
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait1",
+      "position": [
+        22.885,
+        -62.8625,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 1
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait2",
+      "position": [
+        22.885,
+        -62.5125,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 2
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait3",
+      "position": [
+        22.885,
+        -62.1625,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 3
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait4",
+      "position": [
+        22.885,
+        -61.8125,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 0
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait5",
+      "position": [
+        22.885,
+        -61.065,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 1
+    },
+    {
+      "id": "storm_shop_photo_supplies_portrait6",
+      "position": [
+        22.885,
+        -60.715,
+        1.385
+      ],
+      "wall": "east",
+      "yaw": -1.5707963267948966,
+      "width": 0.16,
+      "height": 0.25,
+      "atlas_cell": 2
+    }
+  ],
+  "image_content": {
+    "catalog_role": "art",
+    "substrate_role": "paper",
+    "resource": "res://assets/props/photo_portraits/portrait_atlas.png",
+    "sha256": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "columns": 2,
+    "rows": 2,
+    "uv_inset": 0.005,
+    "roughness": 0.82,
+    "catalog_binding": {
+      "catalog_key": "art",
+      "catalog_mapping": "ai_materials/art",
+      "shipping_albedo": "res://assets/building/textures/T_ai_materials_art_albedo.png",
+      "shipping_albedo_sha256": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e"
+    }
+  },
+  "open_work": [
+    "Seven original unclaimed print records retain their identities. The first four original along-wall centres remain; the former three upper prints move into the same lower row, with one wider empty band around the high shelf central floor post. Prints shrink from .295/.44m blocks to .160/.250m rigid cards. A declared rail extension supports all seven beneath the retained high deck; wall faces, borrowed-light aperture, source arrays and door remain unchanged.",
+    "Generated fictional adult portrait content uses the existing registered art role on a local matte ink face over physical paper. It does not depict named residents or Mina. Shared artwork, catalogue keys/mapping and paper maps remain unchanged.",
+    "Real wall backing, WallArtLaw reservations, physical rail/card/clamp seats, exact four-cell orientation and unobstructed supported standing observations must pass before review. Continuous shop/darkroom access, process operation, glass finish and independent services retain separate duties."
+  ]
+}
