@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_stock.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_cab_sh0__timber",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_box0__paper__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.7,
+            0.4,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box1__paper__book_teal",
+          "key": "book_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.34,
+            0.29,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box2__paper__lacquer_red",
+          "key": "lacquer_red",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.54,
+            0.13,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box3__paper__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.7,
+            0.4,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box4__paper__book_teal",
+          "key": "book_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.34,
+            0.29,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box5__paper__lacquer_red",
+          "key": "lacquer_red",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.54,
+            0.13,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box6__paper__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.7,
+            0.4,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box7__paper__book_teal",
+          "key": "book_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.34,
+            0.29,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box8__paper__lacquer_red",
+          "key": "lacquer_red",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.54,
+            0.13,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box9__paper__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.7,
+            0.4,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box10__paper__book_teal",
+          "key": "book_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.34,
+            0.29,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box11__paper__lacquer_red",
+          "key": "lacquer_red",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.54,
+            0.13,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box12__paper__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.7,
+            0.4,
+            0.1,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box13__paper__book_teal",
+          "key": "book_teal",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.12,
+            0.34,
+            0.29,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_photo_supplies_box14__paper__lacquer_red",
+          "key": "lacquer_red",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.54,
+            0.13,
+            0.1,
+            1.0
+          ]
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_cab_sh0",
+          "key": "timber",
+          "low": [
+            19.2,
+            0.55,
+            63.49999999999999
+          ],
+          "high": [
+            21.7,
+            0.5900000000000001,
+            63.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_cab_sh1",
+          "key": "timber",
+          "low": [
+            19.2,
+            0.99,
+            63.49999999999999
+          ],
+          "high": [
+            21.7,
+            1.03,
+            63.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_cab_sh2",
+          "key": "timber",
+          "low": [
+            19.2,
+            1.4300000000000002,
+            63.49999999999999
+          ],
+          "high": [
+            21.7,
+            1.4700000000000002,
+            63.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_cab_sh3",
+          "key": "timber",
+          "low": [
+            19.2,
+            1.87,
+            63.49999999999999
+          ],
+          "high": [
+            21.7,
+            1.9100000000000001,
+            63.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_cab_sh4",
+          "key": "timber",
+          "low": [
+            19.2,
+            2.31,
+            63.49999999999999
+          ],
+          "high": [
+            21.7,
+            2.35,
+            63.849999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box0",
+          "key": "book_ochre",
+          "low": [
+            21.25,
+            0.59,
+            63.53999999999999
+          ],
+          "high": [
+            21.55,
+            0.75,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box1",
+          "key": "book_teal",
+          "low": [
+            20.73,
+            0.59,
+            63.53999999999999
+          ],
+          "high": [
+            21.03,
+            0.75,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box2",
+          "key": "lacquer_red",
+          "low": [
+            20.21,
+            0.59,
+            63.53999999999999
+          ],
+          "high": [
+            20.509999999999998,
+            0.75,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box3",
+          "key": "book_ochre",
+          "low": [
+            19.69,
+            0.59,
+            63.53999999999999
+          ],
+          "high": [
+            19.99,
+            0.75,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box4",
+          "key": "book_teal",
+          "low": [
+            19.17,
+            0.59,
+            63.53999999999999
+          ],
+          "high": [
+            19.47,
+            0.75,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box5",
+          "key": "lacquer_red",
+          "low": [
+            21.25,
+            1.03,
+            63.53999999999999
+          ],
+          "high": [
+            21.55,
+            1.19,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box6",
+          "key": "book_ochre",
+          "low": [
+            20.73,
+            1.03,
+            63.53999999999999
+          ],
+          "high": [
+            21.03,
+            1.19,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box7",
+          "key": "book_teal",
+          "low": [
+            20.21,
+            1.03,
+            63.53999999999999
+          ],
+          "high": [
+            20.509999999999998,
+            1.19,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box8",
+          "key": "lacquer_red",
+          "low": [
+            19.69,
+            1.03,
+            63.53999999999999
+          ],
+          "high": [
+            19.99,
+            1.19,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box9",
+          "key": "book_ochre",
+          "low": [
+            19.17,
+            1.03,
+            63.53999999999999
+          ],
+          "high": [
+            19.47,
+            1.19,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box10",
+          "key": "book_teal",
+          "low": [
+            21.25,
+            1.47,
+            63.53999999999999
+          ],
+          "high": [
+            21.55,
+            1.63,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box11",
+          "key": "lacquer_red",
+          "low": [
+            20.73,
+            1.47,
+            63.53999999999999
+          ],
+          "high": [
+            21.03,
+            1.63,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box12",
+          "key": "book_ochre",
+          "low": [
+            20.21,
+            1.47,
+            63.53999999999999
+          ],
+          "high": [
+            20.509999999999998,
+            1.63,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box13",
+          "key": "book_teal",
+          "low": [
+            19.69,
+            1.47,
+            63.53999999999999
+          ],
+          "high": [
+            19.99,
+            1.63,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_box14",
+          "key": "lacquer_red",
+          "low": [
+            19.17,
+            1.47,
+            63.53999999999999
+          ],
+          "high": [
+            19.47,
+            1.63,
+            63.809999999999995
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

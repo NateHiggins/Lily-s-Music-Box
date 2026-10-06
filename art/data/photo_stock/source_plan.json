@@ -1,0 +1,153 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 20,
+  "runtime_keys": [
+    "timber",
+    "book_ochre",
+    "book_teal",
+    "lacquer_red",
+    "paper__book_ochre",
+    "paper__book_teal",
+    "paper__lacquer_red"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark",
+    "paper__book_ochre": "paper",
+    "paper__book_teal": "paper",
+    "paper__lacquer_red": "paper"
+  },
+  "material_aliases": {
+    "paper__book_ochre": "book_ochre",
+    "paper__book_teal": "book_teal",
+    "paper__lacquer_red": "lacquer_red"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "cabinet",
+      "sources": [
+        "storm_shop_photo_supplies_cab_sh0",
+        "storm_shop_photo_supplies_cab_sh1",
+        "storm_shop_photo_supplies_cab_sh2",
+        "storm_shop_photo_supplies_cab_sh3",
+        "storm_shop_photo_supplies_cab_sh4"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box0"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box1"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box2"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box3"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box4"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box5"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box6"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box7"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box8"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box9"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box10"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box11"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box12"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box13"
+      ]
+    },
+    {
+      "kind": "carton",
+      "sources": [
+        "storm_shop_photo_supplies_box14"
+      ]
+    }
+  ],
+  "open_work": [
+    "Five original shelf datums retain their heights. The visible decks extend 0.06m left and 0.05m right to join floor-bearing posts and carry the original overhanging carton column. Floor-bearing posts and rear panel carry all five decks. Hidden source references retain original poses.",
+    "Exactly fifteen original colored boxes become closed lidded cartons, with original envelopes and lower datums seated on the three corresponding shelf levels. Top two shelves remain empty. Original stock/depletion state, photography operation and service capacity are unchanged.",
+    "Native timber uses registered wood_dark. Original three source colors and hidden shipping materials retain their identities; only visible cartons gain registered paper maps at 0.5m with bounded ochre, teal and red tints. Rendered inspection rejected the original book-cover atlas repeats and chipped lacquer wood on supply cartons. No new global catalogue key, generated lettering or shared map edit is introduced."
+  ],
+  "material_tints": {
+    "paper__book_ochre": [
+      0.7,
+      0.4,
+      0.1,
+      1.0
+    ],
+    "paper__book_teal": [
+      0.12,
+      0.34,
+      0.29,
+      1.0
+    ],
+    "paper__lacquer_red": [
+      0.54,
+      0.13,
+      0.1,
+      1.0
+    ]
+  }
+}
