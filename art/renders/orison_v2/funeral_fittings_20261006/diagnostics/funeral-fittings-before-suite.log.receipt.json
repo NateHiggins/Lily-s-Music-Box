@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.68,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T09:16:10Z",
+  "started_utc": "2026-10-06T09:15:20Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-before-suite.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-before-suite.log",
+  "stdout_sha256": "b257182128701f75578128f480f1b583dc6a3da736d495922af91cc54c622d04"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/FuneralBeforeCapture.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-before-shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "3ab02e431544a994fddd7d5bebb0f1d077efcc0a",
+  "repository_tree": "f17987468311be853b70467adbfd2479eec4d2d3",
+  "runtime_inputs_sha256": "aa9db6681249b35dd1580cae59ec52550da2008848d16155ddf86cdc9dd0c511",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

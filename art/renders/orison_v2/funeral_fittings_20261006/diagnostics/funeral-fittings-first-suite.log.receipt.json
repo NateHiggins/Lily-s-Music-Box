@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 50.01,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T09:27:34Z",
+  "started_utc": "2026-10-06T09:26:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-first-suite.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-first-suite.log",
+  "stdout_sha256": "4bb92aacdf6c63c781739b26a2f4c32ebfc7acdd0f49eac1ad7ba45c0a909d68"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FuneralFittingsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-first-shots",
+ "source": {
+  "dirty_paths": 277,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/funeral_fittings.blend",
+   "?? art/blender/funeral_fittings_construction.json",
+   "?? art/blender/scripts/build_funeral_fittings.py",
+   "?? art/blender/scripts/inspect_funeral_fittings.py",
+   "?? art/data/funeral_fittings/",
+   "?? game/assets/props/funeral_fittings.glb",
+   "?? game/data/orison_v2/funeral_fittings.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid"
+  ],
+  "repository_head": "3ab02e431544a994fddd7d5bebb0f1d077efcc0a",
+  "repository_tree": "f17987468311be853b70467adbfd2479eec4d2d3",
+  "runtime_inputs_sha256": "8a0c6c742431b61d7bc36574649276186c239f954d79692a9e18c45cae86b670",
+  "test_path": "game/tests/orison_v2_funeral_fittings_test.gd",
+  "test_sha256": "34db715654d9fe160fc92c52e9a0ce3b49cb55e9eee43e6275e7e67afbff7981"
+ },
+ "windowed": true
+}

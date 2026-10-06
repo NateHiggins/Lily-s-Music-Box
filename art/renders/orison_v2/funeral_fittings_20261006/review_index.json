@@ -1,0 +1,760 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "57f4defca2dfbda8c96a264131c4cd7ecf2294a4",
+  "base": "3ab02e431544a994fddd7d5bebb0f1d077efcc0a",
+  "scope": {
+    "source_records": 6,
+    "assemblies": 2,
+    "closed_stocks": 29,
+    "material_partitions": 6,
+    "triangles": 5452,
+    "source_supports": 12,
+    "removed_original_triangles": 72,
+    "native_views": 8,
+    "production_views": 8,
+    "checks": 203
+  },
+  "review": "Eight final native and eight exact candidate standing game frames directly reviewed; baseline camera poses remain byte-equivalent JSON values.",
+  "runtime_contract": "Test-written schema-2 resident key-copy, permissions, locked-door denial, save and reconstruction proof for executed scope only.",
+  "limits": [
+    "Native support and join proof establishes no engineering load capacity.",
+    "The green plant blocks and coarse drapery remain visible unfinished geometry.",
+    "Standing trestle views obscure some underside construction; native bearing views and imported ray checks carry that bounded evidence.",
+    "Clear stations establish no continuous route or sightline contract.",
+    "Isolated below-floor support rays establish geometry, not player access.",
+    "Existing sixteen chairs, chapel benches, rear boundary, doors, hours, keys, saves and utilities retain their owners.",
+    "No coffin, body, ritual, occupancy, chapel access or operation is inferred.",
+    "Early inflated BVH floor-query failure and book-atlas misalignment are retained diagnostics only.",
+    "No whole-room/human acceptance or V2 completion; captures, wrapper receipts and inert reports promote no requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/verification.json",
+      "source_sha256": "a9213d00e01ecd7cbebc779e0d6e9abf9aa21d78b99e9aaf8039207f52e5c609",
+      "sha256": "a9213d00e01ecd7cbebc779e0d6e9abf9aa21d78b99e9aaf8039207f52e5c609",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/3ab02e43-clean-board.json",
+      "source_sha256": "2ec1891df3e41da80549cdc2d25415c5b0798411ef6a67a5aee20623c867c818",
+      "sha256": "2ec1891df3e41da80549cdc2d25415c5b0798411ef6a67a5aee20623c867c818",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/inspection.json",
+      "source_sha256": "4ad081d2deaf638f233274046c5e77900fc29b84da545a8312924f8802784d4a",
+      "sha256": "4ad081d2deaf638f233274046c5e77900fc29b84da545a8312924f8802784d4a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/funeral_fittings_construction.json",
+      "source_sha256": "5540c710f73ede335f3e4b8b41635fe9306d78cb36f6e3fd390b99d22040e78e",
+      "sha256": "5540c710f73ede335f3e4b8b41635fe9306d78cb36f6e3fd390b99d22040e78e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+      "sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/views.json",
+      "source_sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+      "sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "3ad82f3b01095eeccc6b9e7303cc1a67037746f3f524a473b405475e38c5aa3e",
+      "sha256": "3ad82f3b01095eeccc6b9e7303cc1a67037746f3f524a473b405475e38c5aa3e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "b30b9171fa0ca8919fb5290e6a24cec60acabfff7c37edf8e79800cf5f53cae4",
+      "sha256": "b30b9171fa0ca8919fb5290e6a24cec60acabfff7c37edf8e79800cf5f53cae4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/spatial_reviewed.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-spatial-reviewed.json",
+      "source_sha256": "6e537d3b106ec0c3c9b6c16aa798c7a4c04de128e1efce0700a3b05a7414a80c",
+      "sha256": "6e537d3b106ec0c3c9b6c16aa798c7a4c04de128e1efce0700a3b05a7414a80c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before_views.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/views.json",
+      "source_sha256": "d9431b7ff74f3c1c84a9b4ee51370ae14b2ccdaad863f683f54db895126dbbe5",
+      "sha256": "d9431b7ff74f3c1c84a9b4ee51370ae14b2ccdaad863f683f54db895126dbbe5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/fittings.json",
+      "source_sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+      "sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_views.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/views.json",
+      "source_sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+      "sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_native_inspection.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/inspection.json",
+      "source_sha256": "1c56683e6b29fb001553f6c72c8c65920a2aad931ecaf69d4e43246957eedeae",
+      "sha256": "1c56683e6b29fb001553f6c72c8c65920a2aad931ecaf69d4e43246957eedeae",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/book.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/book.png",
+      "source_sha256": "c95433102ae9fa30a1dab7cdcce5c62f7dd5668be6e520791b30bc88032785a3",
+      "sha256": "b6e466c5d204bd3bee36445f8b3d95f6062ef5d5a4affa1d49dd16382bf04b36",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/empty_bier_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/empty_bier_front.png",
+      "source_sha256": "3965cf15e707f9f70ed1bb9eecc4981cb089f761ad4407e3400a81502a2f9991",
+      "sha256": "3e395795f3cda0e582a32955454823f70b4eca0d234f191b3e44c893ff6963b3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/empty_bier_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/empty_bier_rear.png",
+      "source_sha256": "81abfa4f8280415a526ed944c458dd062de3365ae451efeeea2629094fc088a6",
+      "sha256": "f616e3a91c7ebb7aebf0cb8dea0add64525064ce09566b6d223d92550a5784db",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/lectern_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/lectern_bearing.png",
+      "source_sha256": "988437a425ef6451e56bb5348c7c2c78750e9e2aeb041a7065820371ae17ebe4",
+      "sha256": "b1fabe9ffe2a2ef3f22d8be131ee166200f8d8846734800548d0d20a2cafdf41",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/lectern_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/lectern_front.png",
+      "source_sha256": "dc3b9d58f1886de9ce213e1526fbfb95769666fca11f1fbae27d8aca485b3b5b",
+      "sha256": "eba431f7cd4c37297484b40b23e0819246f7fdf40f0f423fd4065974cca7b12f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/lectern_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/lectern_rear.png",
+      "source_sha256": "2280c1fbdccd2561f6d3fe7f47a30754322269de7a57cd28b90555a4193bd65c",
+      "sha256": "81b3bedc1ebb46bf355af09cecc56fa7fe7d06a0c5e32ab82ce6ee5813f5e970",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/trestle0.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/trestle0.png",
+      "source_sha256": "5c51c324d69261522c5b3e3430419bcb36b81dbad38175321d485a2845b56fe7",
+      "sha256": "302ca2924e15e9cc426e6f59049888d106986f2eaad2c12439d31dc17e809cf0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/trestle1.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-native/trestle1.png",
+      "source_sha256": "7cfd7f2acabcfc361611487bef1835701077271de507bc703c6ac4b37cfdbd09",
+      "sha256": "979f639ab150351d770ce3a159b45f37151b17d7d410ab9bfba45aa99913d575",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/book.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/book.png",
+      "source_sha256": "f07da8b2fed8d707ca9cb75e33c0546ac01b72d14982b1a0ffe887a802dbe989",
+      "sha256": "c3830aa542bf6ba6ad9e707846e23823ae39fcde6d5f88c05ecf88efa779fca3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/empty_bier.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/empty_bier.png",
+      "source_sha256": "55147fb11fe7c6a8fa204e8f6e9f19445d73c8c2396f82ad4e934c8251017d3d",
+      "sha256": "85e7c5a9aeb66de3916d3a1a569f96fabb8e53cb0f4b90d193cca8ede5a5404a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/gallery_direction.png",
+      "source_sha256": "8e4196303c3c27e8b7191e45cb93921ee3ec0d2b931ed13e09f285d70848da49",
+      "sha256": "c499268c60999540e4d758507fadd50909d43bf8fc11fe53ffed53e98f2fb56d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/lectern.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/lectern.png",
+      "source_sha256": "5d70b7b6ad1e9b95d2f5d68fabf700f188ae2b430fbfe50f80fb61afe167b443",
+      "sha256": "e55fd5ed14ce7f8b48600b8eba44e0703665d90eb51521c29e8b5395b83e3e76",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/lectern_base.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/lectern_base.png",
+      "source_sha256": "3736b22b6aed4fd4de6e2f85cbf81065fc1d2b5e2d8b67218c92943ba5845d99",
+      "sha256": "39b00f0c4ada002e8678c8371b4d041fbb246b202714b1c82c4dfa06504c793b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/room_overview.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/room_overview.png",
+      "source_sha256": "091db9d63aec87591439fbc1e1d3b8625676853e4690d63cea645488cbd367c9",
+      "sha256": "bba84b33e1748d9d9e9d6362093492b1eed7c8ac3846b09095bd3b788deede0a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/trestle0.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/trestle0.png",
+      "source_sha256": "ba36bb11b40dafe36882a88a91c122dbc746df31120ff6c48a20e6bf91ac4150",
+      "sha256": "3b2e3c8ea43d807edecddcc72802fc20a9f5f7073ef93a053fa38952b4754b83",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/trestle1.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed_shots/trestle1.png",
+      "source_sha256": "f5b50f63903e35d4219caf6333e7b9472913e67bce5473f77f5a856fa028b1af",
+      "sha256": "d254be8c7daeaec5fa0abc0f5185d5143c5711a8f20c089cdf1849225dc3c3bd",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "diagnostics/before/book.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/book.png",
+      "source_sha256": "63606f595b2bfc7de4459615df0836470a108f61371cde104f0f9bc12ba828a6",
+      "sha256": "3ad695dd283470eb1ff4011c7283c27d3554f366e8b2415f0224684755643eac",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/empty_bier.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/empty_bier.png",
+      "source_sha256": "be3f3bd5ccc5f0eef51bf765d22a38ff712ba5aa9672ec31929274915c26fb6d",
+      "sha256": "a1a666cef30867a1bd2686a4757222d33b01aedc3883b31aac09c8db170e21f0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/gallery_direction.png",
+      "source_sha256": "d0f1ce59adcb072877c410dfd0c53b30ffbe4317e6bc67cb3f5d0273d59df7bb",
+      "sha256": "dd6fcf9a22164bf2dc9c7fbc0f08682b5ab33eda3a8199b70c7c4c785ca6ae36",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/lectern.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/lectern.png",
+      "source_sha256": "d42bd972f8c4896df7845c261d00305d0b9f06168420e4cb33b6479c1bfd2a0d",
+      "sha256": "e427e588a2e64018ef453c805248a79362f44fdc7689c462aeaf06b02ce79ad4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/lectern_base.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/lectern_base.png",
+      "source_sha256": "cb2a9ac45d39b5f36c8c737473fd3d4f0469e5089a161d4406a01f969138ce12",
+      "sha256": "e95343be657d100900f26553058ff7b973d87df2333b76638c5403d3ca3bae52",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/room_overview.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/room_overview.png",
+      "source_sha256": "1aa620a9dd927b01f21f7b33182d0adfdfd314ab7e63b8ec3e62055c242758aa",
+      "sha256": "f7fe19635ac36da0d4647727d6d17a364ca6fb0a150ddd6579ed7af255499686",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/trestle0.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/trestle0.png",
+      "source_sha256": "78339b54a0d93deddff947b3648f9da4206e99618a9340f4c8a4aefedcda250d",
+      "sha256": "cf5fb9cc34101bd1ec32c2a18e5820434dd5ec457699438b6d61fb0154b01aa2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/trestle1.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-shots/trestle1.png",
+      "source_sha256": "ca31dee05f404f626fe488dc86ad3544a6a5bf7525aa712f84e8043325cb769a",
+      "sha256": "6b07f16601486cec760ceed67f4aab64e03e048dcd23c2f24c29f9b10e930ec7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/book.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/book.png",
+      "source_sha256": "920048d6dcc9ab3128d630c3b24c6e0fde15bb767c156699013448c616be2844",
+      "sha256": "9336d3a93ba02d90222dd41b3644b3fc02a352518c6349207e2887a3ee20cb78",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/empty_bier_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/empty_bier_front.png",
+      "source_sha256": "0c4f09d261a1f4aa68c2072c7879bbbcd1ddfe56e27694bcfc8d4a1181e7fee8",
+      "sha256": "d409edf178e10197655a335b3758bf9bdc7b836854902f07898c65dd15be6ada",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/empty_bier_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/empty_bier_rear.png",
+      "source_sha256": "d8c8a07dd0a318b27b0a22d7e2b817e6aaf25877e9ed861e1c4d19df90e71dff",
+      "sha256": "16033ade62df4862e369d9e6e13344464cdf556c6a56fad8cfc7af13c5d9573c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/lectern_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/lectern_bearing.png",
+      "source_sha256": "73af74985e4a5662fe4cffdd940f29146d4b1ade222542220abfaa6825c96aa2",
+      "sha256": "ec2deb82e09fb72e00ae4286406dcae56af95f3f2c0099fb553130bfb49aba48",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/lectern_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/lectern_front.png",
+      "source_sha256": "7b36b884fefed6c7e1c12ae84feb91d660ee2812586f745c8b35c9a9c071e08f",
+      "sha256": "750856bf6038c4831a29d5a3e5bc0a517b5e278f7c8b64df18dd7b3d789a39a1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/lectern_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/lectern_rear.png",
+      "source_sha256": "b12d3e40c3ad8295af36aefe05625ca91802b850f7ab8166f144fb6175b06286",
+      "sha256": "de2cbe2acf7a8c3b071b268fa1b48fb9ce4335f62ef31f31e3752f75016e6f02",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/trestle0.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/trestle0.png",
+      "source_sha256": "696cfe7a53c06af8139997060b644f0143157477ebc052dc799d02b4d9b94a7c",
+      "sha256": "f4f0e435d1cf29e471eb88807ac7d74cb3059884d5cca20888fdf9380f1b37e1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/trestle1.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-native/trestle1.png",
+      "source_sha256": "66b628a75b10a63bf7a9feedc97659997de845f56e786bc983e1f4e3b28e9902",
+      "sha256": "c183de9d7faa6b6f000280b74aca23305039df597c78b4670c119044be77aee3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/book.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/book.png",
+      "source_sha256": "de8754aa44256bef50a32b8d14fb88dfa7c6f463a3f34db869b68db1621e4bc7",
+      "sha256": "b420dd9e0007c2b3d9fe573d626ede5ddaa1dddbbe31b8429367fc8cdd726406",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/empty_bier.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/empty_bier.png",
+      "source_sha256": "53954625803d7dbf12f7f9588df0568feada4c77549c7bf5bf06dfc3bcbc4561",
+      "sha256": "a0743fa873ab91b6e62debbb953fc266cc49c2523cb911f57b296bad3b7b476e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/gallery_direction.png",
+      "source_sha256": "1a81cfff635274e08d5b5dcafdb47bfc752fde3a20a438551301b5521eaaea45",
+      "sha256": "8d6f1a3e501999c087fb5bd7c2e08a6b48f1ad22599cacd5d14cae8e9effc44d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/lectern.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/lectern.png",
+      "source_sha256": "cebee42e3f9cb1e11f2b2b6353e9a895ffc9aa61b2552349e0ba127186d1edcc",
+      "sha256": "cb7586910ad01b9780f12f9cc0849b4a88c472593eed3a2de6bf9a36b7acf042",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/lectern_base.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/lectern_base.png",
+      "source_sha256": "5b5234450dd9b36b76fe007f91bf39ed7e54a2c16458c349b743e7ad52943f8f",
+      "sha256": "7eec379c580f10cd05f725d2f3db7e244b4db593dbf6c3210486f665fd58ec55",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/room_overview.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/room_overview.png",
+      "source_sha256": "3ed51be76ba01d30c60738fb9bd4d70e50555eafa4b2055a6bb8121b72d73961",
+      "sha256": "3deecb85a7a659689a64c4fffd0a522a37a660921d11e8ef66d8204a25c5577f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/trestle0.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/trestle0.png",
+      "source_sha256": "b9cbd930d7eb1377d2e5a4f71c1e98af66ccfb2c3afead7ba91237813111572c",
+      "sha256": "5e022f10e4ef85536dae8c9dc8b18fde3c0ad83cc954479a754ba0749aa39bca",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/trestle1.jpg",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-shots/trestle1.png",
+      "source_sha256": "5011402715b657837817ac543e3d14276cd15009428833eef7e87837d39391b8",
+      "sha256": "bea7801ea511080c199f407e628e68fb23fdc179acba1827ff3c8aa381c84b72",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/funeral-fittings-before-suite.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-suite.log",
+      "source_sha256": "b257182128701f75578128f480f1b583dc6a3da736d495922af91cc54c622d04",
+      "sha256": "b257182128701f75578128f480f1b583dc6a3da736d495922af91cc54c622d04",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-before-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-before-suite.log.receipt.json",
+      "source_sha256": "37f438bcb0ea4f333ca0a198b12fd5026e0e0fe0456e9811691467bdf7071efe",
+      "sha256": "37f438bcb0ea4f333ca0a198b12fd5026e0e0fe0456e9811691467bdf7071efe",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-canonical-build.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-canonical-build.log",
+      "source_sha256": "019156cd05cdd554b201afad65801c05844af8d44653fc206e9cc172e35f15d6",
+      "sha256": "019156cd05cdd554b201afad65801c05844af8d44653fc206e9cc172e35f15d6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-canonical-native.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-canonical-native.log",
+      "source_sha256": "7339fc49313bcb12f6cb47d7e879b9e351babcb7d3c42e1ae2a69d6cceeff264",
+      "sha256": "7339fc49313bcb12f6cb47d7e879b9e351babcb7d3c42e1ae2a69d6cceeff264",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-card-build.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-card-build.log",
+      "source_sha256": "eb30fdcbf1ef79652a945968aa3d6616d51aa63f870789d01a57993b000e19c4",
+      "sha256": "eb30fdcbf1ef79652a945968aa3d6616d51aa63f870789d01a57993b000e19c4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-card-native.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-card-native.log",
+      "source_sha256": "7147d0318018830d1b96888850f9caacfc1cc85bd6bf0eca25821627b95e3c37",
+      "sha256": "7147d0318018830d1b96888850f9caacfc1cc85bd6bf0eca25821627b95e3c37",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-contact-diagnostic.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-contact-diagnostic.log",
+      "source_sha256": "721ab8b6042f23099e13fbff5668fccca47ddac3ea677cf925c5b623fd75cd69",
+      "sha256": "721ab8b6042f23099e13fbff5668fccca47ddac3ea677cf925c5b623fd75cd69",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-final-verifier.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verifier.log",
+      "source_sha256": "64a49944ec078560863d5b48c52a14225d28de3b8adc421db18569fb7817c09a",
+      "sha256": "64a49944ec078560863d5b48c52a14225d28de3b8adc421db18569fb7817c09a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-first-suite.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-suite.log",
+      "source_sha256": "4bb92aacdf6c63c781739b26a2f4c32ebfc7acdd0f49eac1ad7ba45c0a909d68",
+      "sha256": "4bb92aacdf6c63c781739b26a2f4c32ebfc7acdd0f49eac1ad7ba45c0a909d68",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-first-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-first-suite.log.receipt.json",
+      "source_sha256": "3ad294262cce396e9cb0cccf9b70bb07f92fb6751afd74f7648625456badb019",
+      "sha256": "3ad294262cce396e9cb0cccf9b70bb07f92fb6751afd74f7648625456badb019",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-import1.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-import1.log",
+      "source_sha256": "b592a46aa8e4f579d0ccc93f9cb597058808fba6d606cc688ec2ccc74ec2d98f",
+      "sha256": "b592a46aa8e4f579d0ccc93f9cb597058808fba6d606cc688ec2ccc74ec2d98f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-import1.log.receipt.json",
+      "source_sha256": "1302851221b56404d3925304a2c86058e87ddbd40f11992e82a75eac5d12bd8e",
+      "sha256": "1302851221b56404d3925304a2c86058e87ddbd40f11992e82a75eac5d12bd8e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-import1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-fittings-import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-import2.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-import2.log.receipt.json",
+      "source_sha256": "b76a06be76fa83e7530668f8a5547176710c21aa989d73908d23b7dd179fac77",
+      "sha256": "b76a06be76fa83e7530668f8a5547176710c21aa989d73908d23b7dd179fac77",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-precommit-board.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-precommit-board.log",
+      "source_sha256": "98c00db6e5b3f51fd81eb4606da9b6830b8a893eea9e375a866bb33e64b095e8",
+      "sha256": "98c00db6e5b3f51fd81eb4606da9b6830b8a893eea9e375a866bb33e64b095e8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-reader.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-stage-bound-build.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-stage-bound-build.log",
+      "source_sha256": "623004d9565a8c196104d5a11d427080f464f51eea9d089c00fa930247f5e6cf",
+      "sha256": "623004d9565a8c196104d5a11d427080f464f51eea9d089c00fa930247f5e6cf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-stage-build.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-stage-build.log",
+      "source_sha256": "ca8c0be780a2d1ba3deb8b234e2f70588d8de128a5c241929ad6d0956edfef93",
+      "sha256": "ca8c0be780a2d1ba3deb8b234e2f70588d8de128a5c241929ad6d0956edfef93",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-stage-exact-native.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-stage-exact-native.log",
+      "source_sha256": "df3b55b64c718539033a5630445d76de74966412209da4b078dc9b9af85fc25f",
+      "sha256": "df3b55b64c718539033a5630445d76de74966412209da4b078dc9b9af85fc25f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-fittings-stage-native.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-stage-native.log",
+      "source_sha256": "dbc7a3e214ffc95a1b3de9afaffd572459df68e7b72748ad45c8380e8180124f",
+      "sha256": "dbc7a3e214ffc95a1b3de9afaffd572459df68e7b72748ad45c8380e8180124f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "0fb3ad052b477b5cef3eb444c672cee3b1aa5bba71f8520d89fe3e77f54c0fef",
+      "sha256": "0fb3ad052b477b5cef3eb444c672cee3b1aa5bba71f8520d89fe3e77f54c0fef",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "1cbc78abba63ea9abbd14114037b46c2b411ac70b5cbabc3a2f4a878fe772f37",
+      "sha256": "1cbc78abba63ea9abbd14114037b46c2b411ac70b5cbabc3a2f4a878fe772f37",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source_sha256": "4a0fd5792f3969bbc71588ca97e0acb40c3c2709ff0bf4fc13f4c6293a87cf9b",
+      "sha256": "4a0fd5792f3969bbc71588ca97e0acb40c3c2709ff0bf4fc13f4c6293a87cf9b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "403d124dbff17ac55aa8d7dcba6b4508cc9b9fbee3a6b816a300036b0e1119d6",
+      "sha256": "403d124dbff17ac55aa8d7dcba6b4508cc9b9fbee3a6b816a300036b0e1119d6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source_sha256": "b5b9976eadaa6b228a0884e84611d06202a6f024fc03dd419276105c92cfc29d",
+      "sha256": "b5b9976eadaa6b228a0884e84611d06202a6f024fc03dd419276105c92cfc29d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "78db8be592de9851d20d061944616b957305bc4cede6eeed127098d7b907c1aa",
+      "sha256": "78db8be592de9851d20d061944616b957305bc4cede6eeed127098d7b907c1aa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistFountainTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2DruggistFountainTest_tscn_windowed.log",
+      "source_sha256": "897d2767b30907dbbdd40e48589c37345674dca893ec59d81d41d71acbbb62fe",
+      "sha256": "897d2767b30907dbbdd40e48589c37345674dca893ec59d81d41d71acbbb62fe",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistFountainTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2DruggistFountainTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a6081e8a13115ff14b8b1401480184a3c72ac6ec139ae76fc3fbc6a5b20f4a39",
+      "sha256": "a6081e8a13115ff14b8b1401480184a3c72ac6ec139ae76fc3fbc6a5b20f4a39",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "e16c87e282979512cd2844fba52f1efce980928cea41c4148363f427c4cdb6c2",
+      "sha256": "e16c87e282979512cd2844fba52f1efce980928cea41c4148363f427c4cdb6c2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "8f3f80205cf15543884e0f1c008c68c6632a84be25f1ae87f7b9f18b20a8dad9",
+      "sha256": "8f3f80205cf15543884e0f1c008c68c6632a84be25f1ae87f7b9f18b20a8dad9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "37bf430f7c9a6a99ab427a6418568ea1bf85239c3d8b847767953279b791ee38",
+      "sha256": "37bf430f7c9a6a99ab427a6418568ea1bf85239c3d8b847767953279b791ee38",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "c9d755a552f6634220f4435fb9c4905805e0250105ada1b056de024c4885f0f5",
+      "sha256": "c9d755a552f6634220f4435fb9c4905805e0250105ada1b056de024c4885f0f5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "dbc41faf8f8040bcfca7739cae9278442eca4123eef5e9a99d2cf5e5818c92c9",
+      "sha256": "dbc41faf8f8040bcfca7739cae9278442eca4123eef5e9a99d2cf5e5818c92c9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "fd90f2de62dcc13f422cbdd1667485f71d80f9b80446e94ef964013b6290caa0",
+      "sha256": "fd90f2de62dcc13f422cbdd1667485f71d80f9b80446e94ef964013b6290caa0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ea64b5eee05de34a8df28eb59a7f6a53e93438a61d5819b31693e08fb2301ca9",
+      "sha256": "ea64b5eee05de34a8df28eb59a7f6a53e93438a61d5819b31693e08fb2301ca9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "94371608cd31e75ef19ccfc0d8f42036f74e584d424a85cd8e2916e9d198d5dd",
+      "sha256": "94371608cd31e75ef19ccfc0d8f42036f74e584d424a85cd8e2916e9d198d5dd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-fittings-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "31b0682de1a736d1985e7e52fb566c08ada582a9246101d376ad27dfdc665a7c",
+      "sha256": "31b0682de1a736d1985e7e52fb566c08ada582a9246101d376ad27dfdc665a7c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/funeral-fittings-ledger-refresh.log",
+      "source_sha256": "b0d41793228987b4a60e0c1457df91636eacf9ba53195ad51463d75b1c044ee4",
+      "sha256": "b0d41793228987b4a60e0c1457df91636eacf9ba53195ad51463d75b1c044ee4",
+      "copy": "byte-identical"
+    }
+  ]
+}

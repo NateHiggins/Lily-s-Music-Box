@@ -1,0 +1,497 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "01571dc78aa4225b4a48087c7b5b6365201ce7f3ecc47f4857f7375c76b857c0",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_funeral_parlour_lectern_FloorBase",
+      "volume_m3": 0.01342506909549466
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_Upright",
+      "volume_m3": 0.028847084504269413
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_Crown",
+      "volume_m3": 0.010008058657578285
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_WorkedDesk",
+      "volume_m3": 0.013589875933851421
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_BookLowerCover",
+      "volume_m3": 0.00023777762703371496
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_BookPages",
+      "volume_m3": 0.001850516982786026
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_BookUpperCover",
+      "volume_m3": 0.000237777627033715
+    },
+    {
+      "name": "storm_shop_funeral_parlour_lectern_BookSpine",
+      "volume_m3": 8.36657006471195e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_FootPad00",
+      "volume_m3": 0.0010763936192500403
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_SplayedLeg00",
+      "volume_m3": 0.0036546864337341587
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_FootPad01",
+      "volume_m3": 0.0010763936192500405
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_SplayedLeg01",
+      "volume_m3": 0.003654686437560303
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_LowStretcher0",
+      "volume_m3": 0.0009922815579657288
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_CrownBeam0",
+      "volume_m3": 0.0034455738188914134
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_BearingCleat0",
+      "volume_m3": 0.0017948067872470344
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_FootPad10",
+      "volume_m3": 0.001076393609389307
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_SplayedLeg10",
+      "volume_m3": 0.0036546864337341587
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_FootPad11",
+      "volume_m3": 0.001076393609389307
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_SplayedLeg11",
+      "volume_m3": 0.003654686437560303
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_LowStretcher1",
+      "volume_m3": 0.0009922815579657285
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_CrownBeam1",
+      "volume_m3": 0.0034455736987219193
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_BearingCleat1",
+      "volume_m3": 0.0017948067780342355
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_LongRail0",
+      "volume_m3": 0.004594649606959421
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_LongRail1",
+      "volume_m3": 0.004594649616761198
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_EmptyDeckPlank0",
+      "volume_m3": 0.03702446253267538
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_EmptyDeckPlank1",
+      "volume_m3": 0.03663447710186362
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_EmptyDeckPlank2",
+      "volume_m3": 0.03663447724762507
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_EmptyDeckPlank3",
+      "volume_m3": 0.03663447710186362
+    },
+    {
+      "name": "storm_shop_funeral_parlour_bier_EmptyDeckPlank4",
+      "volume_m3": 0.037024462513798755
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_funeral_parlour_lectern",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_funeral_parlour_lectern_FloorBase",
+          "storm_shop_funeral_parlour_lectern_Upright"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_Upright",
+          "storm_shop_funeral_parlour_lectern_Crown"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_Upright",
+          "storm_shop_funeral_parlour_lectern_WorkedDesk"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_Crown",
+          "storm_shop_funeral_parlour_lectern_WorkedDesk"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_WorkedDesk",
+          "storm_shop_funeral_parlour_lectern_BookLowerCover"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_WorkedDesk",
+          "storm_shop_funeral_parlour_lectern_BookSpine"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_BookLowerCover",
+          "storm_shop_funeral_parlour_lectern_BookPages"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_BookLowerCover",
+          "storm_shop_funeral_parlour_lectern_BookSpine"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_BookPages",
+          "storm_shop_funeral_parlour_lectern_BookUpperCover"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_BookPages",
+          "storm_shop_funeral_parlour_lectern_BookSpine"
+        ],
+        [
+          "storm_shop_funeral_parlour_lectern_BookUpperCover",
+          "storm_shop_funeral_parlour_lectern_BookSpine"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_funeral_parlour_bier_FootPad00",
+          "storm_shop_funeral_parlour_bier_SplayedLeg00"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg00",
+          "storm_shop_funeral_parlour_bier_LowStretcher0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg00",
+          "storm_shop_funeral_parlour_bier_CrownBeam0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_FootPad01",
+          "storm_shop_funeral_parlour_bier_SplayedLeg01"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg01",
+          "storm_shop_funeral_parlour_bier_LowStretcher0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg01",
+          "storm_shop_funeral_parlour_bier_CrownBeam0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam0",
+          "storm_shop_funeral_parlour_bier_BearingCleat0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam0",
+          "storm_shop_funeral_parlour_bier_LongRail0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam0",
+          "storm_shop_funeral_parlour_bier_LongRail1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_LongRail0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_LongRail1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank2"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank3"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank4"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_FootPad10",
+          "storm_shop_funeral_parlour_bier_SplayedLeg10"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg10",
+          "storm_shop_funeral_parlour_bier_LowStretcher1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg10",
+          "storm_shop_funeral_parlour_bier_CrownBeam1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_FootPad11",
+          "storm_shop_funeral_parlour_bier_SplayedLeg11"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg11",
+          "storm_shop_funeral_parlour_bier_LowStretcher1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_SplayedLeg11",
+          "storm_shop_funeral_parlour_bier_CrownBeam1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam1",
+          "storm_shop_funeral_parlour_bier_BearingCleat1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam1",
+          "storm_shop_funeral_parlour_bier_LongRail0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_CrownBeam1",
+          "storm_shop_funeral_parlour_bier_LongRail1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_LongRail0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_LongRail1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank1"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank2"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank3"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_BearingCleat1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank4"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_LongRail0",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank0"
+        ],
+        [
+          "storm_shop_funeral_parlour_bier_LongRail1",
+          "storm_shop_funeral_parlour_bier_EmptyDeckPlank4"
+        ]
+      ]
+    }
+  ],
+  "independent_stock_surface_pairs": 168,
+  "actual_support_samples": [
+    {
+      "label": "lectern base on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_lectern",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "lectern base on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_lectern",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "lectern base on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_lectern",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "lectern base on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_lectern",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    },
+    {
+      "label": "trestle foot pad on original shop floor",
+      "assembly": "storm_shop_funeral_parlour_bier",
+      "distance_m": 0.0
+    }
+  ],
+  "source_boundary_stocks": 6,
+  "parts": 6,
+  "triangles": 5452,
+  "views": [
+    {
+      "id": "lectern_front",
+      "eye": [
+        7.2,
+        -63.900000000000006,
+        2.2
+      ],
+      "target": [
+        5.0,
+        -61.7,
+        0.65
+      ],
+      "file": "lectern_front.png"
+    },
+    {
+      "id": "lectern_rear",
+      "eye": [
+        2.8,
+        -59.5,
+        2.2
+      ],
+      "target": [
+        5.0,
+        -61.7,
+        0.65
+      ],
+      "file": "lectern_rear.png"
+    },
+    {
+      "id": "book",
+      "eye": [
+        5.45,
+        -62.1,
+        1.65
+      ],
+      "target": [
+        5.035,
+        -61.7,
+        1.245
+      ],
+      "file": "book.png"
+    },
+    {
+      "id": "lectern_bearing",
+      "eye": [
+        5.75,
+        -62.45,
+        1.0
+      ],
+      "target": [
+        5.0,
+        -61.7,
+        1.12
+      ],
+      "file": "lectern_bearing.png"
+    },
+    {
+      "id": "empty_bier_front",
+      "eye": [
+        8.64,
+        -64.9,
+        2.1
+      ],
+      "target": [
+        5.640000000000001,
+        -61.7,
+        0.45
+      ],
+      "file": "empty_bier_front.png"
+    },
+    {
+      "id": "empty_bier_rear",
+      "eye": [
+        2.6400000000000006,
+        -58.5,
+        2.1
+      ],
+      "target": [
+        5.640000000000001,
+        -61.7,
+        0.45
+      ],
+      "file": "empty_bier_rear.png"
+    },
+    {
+      "id": "trestle0",
+      "eye": [
+        6.9399999999999995,
+        -62.04,
+        1.15
+      ],
+      "target": [
+        5.64,
+        -60.74,
+        0.37
+      ],
+      "file": "trestle0.png"
+    },
+    {
+      "id": "trestle1",
+      "eye": [
+        6.9399999999999995,
+        -63.96,
+        1.15
+      ],
+      "target": [
+        5.64,
+        -62.660000000000004,
+        0.37
+      ],
+      "file": "trestle1.png"
+    }
+  ],
+  "empty_bier": "No installed construction lies above the original empty deck."
+}

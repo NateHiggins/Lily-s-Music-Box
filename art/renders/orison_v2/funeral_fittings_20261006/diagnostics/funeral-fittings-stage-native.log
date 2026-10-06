@@ -1,0 +1,14 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.391  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\funeral-fittings-stage\art\blender\funeral_fittings.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\funeral-fittings-stage\art\blender\scripts\inspect_funeral_fittings.py:52: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\funeral-fittings-stage\art\blender\scripts\inspect_funeral_fittings.py", line 61, in <module>
+    assert hits and min(hits)<.00002,contact
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'assembly': 'storm_shop_funeral_parlour_bier', 'owner': 'storm_shop_funeral_parlour_floor', 'point': [5.405, 0.009999999999999995, 60.845000000000006], 'direction': [0, 1, 0], 'label': 'trestle foot pad on original shop floor'}
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-fittings-stage/art/blender/scripts/inspect_funeral_fittings.py', exiting.
+
+Blender quit

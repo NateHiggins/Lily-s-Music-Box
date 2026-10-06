@@ -10058,6 +10058,12 @@
     ]
    },
    {
+    "file": "art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10176,7 +10182,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "e020dcabfb969d8f01c22dd935c847d6a9eec3948c0bc5c03bb8198c7d55069f",
+  "tools/orison_spatial_dependency_manifest.json": "02853e15b5a4b1f30859fb5a920a4b9d5513bf169cd57fee0edc7080884d1d6f",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
@@ -10222,12 +10228,13 @@
   "art/renders/orison_v2/druggist_cupboard_20261006/runtime_authority_receipt.json": "8764884ee63b1fffcfb07855cb91496eac7a19e65f09cb4c0da86708a0090a38",
   "art/renders/orison_v2/druggist_dispensary_20261006/runtime_authority_receipt.json": "49f7fddb427de64453f648a293887d0af6dba5abcb31f452ae40497d14df90d0",
   "art/renders/orison_v2/druggist_drawers_20261006/runtime_authority_receipt.json": "3016eefb0ed94bee31a3f64de07b4be2561ebd284957e1b28b7ac382e8eebe4c",
-  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
   "art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json": "40fa6d272f8710c64f7ed3c5ad16dc790446058075285ebdd342aa1e06c5bdd1",
   "art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
   "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json": "5e26f5379b290c589bbbc966b42753a66475eb1c7733d4efd03f3039f4b506ee",
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",
+  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/funeral_fittings_20261006/runtime_authority_receipt.json": "3ad82f3b01095eeccc6b9e7303cc1a67037746f3f524a473b405475e38c5aa3e",
   "art/renders/orison_v2/hardware_apparatus_20261005/runtime_authority_receipt.json": "9f2132f0d7d2ff46d0ca8998ca0ce135a2c2559e18e877bd2f6818302be4d6d5",
   "art/renders/orison_v2/hardware_drawers_20261005/runtime_authority_receipt.json": "8efc20ee5e2a01b44f1e16ddee0a8857bcd6498a0a0107be1b52c588286c19dd",
   "art/renders/orison_v2/hardware_stock_20261005/runtime_authority_receipt.json": "b1a14561ecae26c99803b6c6e20a1769123a275eb4828f138d3ef07f57252978",
