@@ -1,0 +1,166 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Standing-capsule display-carboy observations. Opaque bounded display-fill volumes have no liquid simulation, chemistry or medical owner. Fountain, custody, continuous routes and independent services retain separate authority.",
+	"views": [
+		{
+			"feet": [
+				16.25,
+				0.0299999993294477,
+				47.25
+			],
+			"id": "display_bay",
+			"image": "display_bay.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.25,
+				0.0299999993294477,
+				47.25
+			],
+			"target": [
+				17.4699993133545,
+				1.10000002384186,
+				47.4000015258789
+			]
+		},
+		{
+			"feet": [
+				16.25,
+				0.0299999993294477,
+				47.25
+			],
+			"id": "display_bay_shop_light",
+			"image": "display_bay_shop_light.png",
+			"lamp_enabled": false,
+			"requested_feet": [
+				16.25,
+				0.0299999993294477,
+				47.25
+			],
+			"target": [
+				17.4699993133545,
+				1.10000002384186,
+				47.4000015258789
+			]
+		},
+		{
+			"feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.75
+			],
+			"id": "pedestal_feet",
+			"image": "pedestal_feet.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.75
+			],
+			"target": [
+				17.4699993133545,
+				0.270000010728836,
+				47.6699981689453
+			]
+		},
+		{
+			"feet": [
+				20.1000003814697,
+				0.0299999993294477,
+				47.2000007629395
+			],
+			"id": "shop_context",
+			"image": "shop_context.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				20.1000003814697,
+				0.0299999993294477,
+				47.2000007629395
+			],
+			"target": [
+				17.6700000762939,
+				1.0,
+				47.4000015258789
+			]
+		},
+		{
+			"feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				48.1500015258789
+			],
+			"id": "carboy0",
+			"image": "carboy0.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				48.1500015258789
+			],
+			"target": [
+				17.4699993133545,
+				1.12000000476837,
+				48.1500015258789
+			]
+		},
+		{
+			"feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.6699981689453
+			],
+			"id": "carboy1",
+			"image": "carboy1.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.6699981689453
+			],
+			"target": [
+				17.4699993133545,
+				1.12000000476837,
+				47.6699981689453
+			]
+		},
+		{
+			"feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.189998626709
+			],
+			"id": "carboy2",
+			"image": "carboy2.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				47.189998626709
+			],
+			"target": [
+				17.4699993133545,
+				1.12000000476837,
+				47.189998626709
+			]
+		},
+		{
+			"feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				46.7099990844727
+			],
+			"id": "carboy3",
+			"image": "carboy3.png",
+			"lamp_enabled": true,
+			"requested_feet": [
+				16.3500003814697,
+				0.0299999993294477,
+				46.7099990844727
+			],
+			"target": [
+				17.4699993133545,
+				1.12000000476837,
+				46.7099990844727
+			]
+		}
+	]
+}

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 51.16,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T07:53:48Z",
+  "started_utc": "2026-10-06T07:52:57Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-carboys-shadow-suite.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-carboys-shadow-suite.log",
+  "stdout_sha256": "0c38cdb7f62ad37954d2442f41c37de77b83bd9d35a0d7bf391330b0f174a172"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistCarboysTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-carboys-shadow-shots",
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "A  art/blender/druggist_carboys.blend",
+   "A  art/blender/druggist_carboys.md",
+   "A  art/blender/druggist_carboys_construction.json",
+   "A  art/blender/scripts/build_druggist_carboys.py",
+   "A  art/blender/scripts/inspect_druggist_carboys.py",
+   "M  art/blender/v2_fabrication_coverage.md",
+   "A  art/data/druggist_carboys/source_plan.json",
+   "A  game/assets/props/druggist_carboys.glb",
+   "A  game/assets/props/druggist_carboys.glb.import",
+   "A  game/data/orison_v2/druggist_carboys.json",
+   "A  game/scripts/building/orison_v2_druggist_carboys.gd",
+   "A  game/scripts/building/orison_v2_druggist_carboys.gd.uid",
+   "M  game/scripts/building/orison_v2_passage_region.gd",
+   "M  game/scripts/building/orison_v2_passage_residency.gd",
+   "M  game/scripts/building/orison_v2_shop_seating.gd",
+   "A  game/tests/OrisonV2DruggistCarboysTest.tscn",
+   "A  game/tests/fixtures/orison_druggist_carboys.json",
+   "A  game/tests/orison_v2_druggist_carboys_test.gd"
+  ],
+  "repository_head": "f441f3c410160772f8ad351219927c6ae2c4042e",
+  "repository_tree": "8fa5660a66e320f02cdfe32269361a46fa4ff460",
+  "runtime_inputs_sha256": "7bb4303043b147e46719b41faebdfd61d5d4609cc91b267d7ab6eccf4052caca",
+  "test_path": "game/tests/orison_v2_druggist_carboys_test.gd",
+  "test_sha256": "19291a5ed171a58fd5c9313060faa5bebc200c24b8ffde00cffe868376890c46"
+ },
+ "windowed": true
+}
