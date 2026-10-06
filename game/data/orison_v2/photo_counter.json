@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_counter.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_counter__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_photo_supplies_counter__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_photo_supplies_counter__timber",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_photo_supplies_ledger__paper",
+          "key": "paper",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_photo_supplies_ledger__paper__cover",
+          "key": "paper",
+          "tile": 0.5,
+          "tint": [
+            0.2,
+            0.25,
+            0.18,
+            1.0
+          ]
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_counter",
+          "key": "wood_dark",
+          "low": [
+            17.95,
+            0.05,
+            60.3
+          ],
+          "high": [
+            18.65,
+            1.05,
+            62.39999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_counter_gl",
+          "key": "glassish",
+          "low": [
+            17.95,
+            1.05,
+            60.3
+          ],
+          "high": [
+            18.65,
+            1.4100000000000001,
+            62.39999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_counter_top",
+          "key": "brass_dull",
+          "low": [
+            17.9,
+            1.41,
+            60.25999999999999
+          ],
+          "high": [
+            18.7,
+            1.45,
+            62.44
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_ledger",
+          "key": "paper",
+          "low": [
+            18.12,
+            1.46,
+            61.21999999999999
+          ],
+          "high": [
+            18.52,
+            1.51,
+            61.57999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

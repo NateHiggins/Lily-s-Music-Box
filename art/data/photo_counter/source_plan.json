@@ -1,0 +1,52 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 4,
+  "runtime_keys": [
+    "timber",
+    "wood_dark",
+    "brass_dull",
+    "glassish",
+    "paper",
+    "paper__cover"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark",
+    "brass_dull": "brass"
+  },
+  "material_aliases": {
+    "timber": "wood_dark",
+    "paper__cover": "paper"
+  },
+  "material_tints": {
+    "paper__cover": [
+      0.2,
+      0.25,
+      0.18,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_photo_supplies_counter",
+        "storm_shop_photo_supplies_counter_gl",
+        "storm_shop_photo_supplies_counter_top"
+      ]
+    },
+    {
+      "kind": "ledger",
+      "sources": [
+        "storm_shop_photo_supplies_ledger"
+      ]
+    }
+  ],
+  "open_work": [
+    "The original counter retains its plan rectangle and 1.45m top. Joined feet fill the original .04m gap to the actual floor; panels and rails enclose the lower cabinet, and four posts support a thin-pane glazed display tier. No storage or display operation is added.",
+    "The original solid glass reference block becomes four 4mm closed panes within that envelope, retaining its tint, maps and culling. Local plain-alpha blending is a declared optical adaptation rather than changing the original storefront glass owner.",
+    "The original full brass top block becomes a joined wood core with a 3mm brass sheet at the same 1.45m upper datum. The ledger lowers .01m onto that actual top, with dark-green paper-map covers around a white page block. Original hidden references retain poses.",
+    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority."
+  ]
+}

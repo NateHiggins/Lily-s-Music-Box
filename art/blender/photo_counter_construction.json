@@ -1,0 +1,560 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_counter",
+      "rect": [
+        17.95,
+        -62.39999999999999,
+        18.65,
+        -60.3
+      ],
+      "z0": 0.05,
+      "h": 1.0,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_counter_gl",
+      "rect": [
+        17.95,
+        -62.39999999999999,
+        18.65,
+        -60.3
+      ],
+      "z0": 1.05,
+      "h": 0.36,
+      "mat": "glassish",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_counter_top",
+      "rect": [
+        17.9,
+        -62.44,
+        18.7,
+        -60.25999999999999
+      ],
+      "z0": 1.41,
+      "h": 0.04,
+      "mat": "brass_dull",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_ledger",
+      "rect": [
+        18.12,
+        -61.57999999999999,
+        18.52,
+        -61.21999999999999
+      ],
+      "z0": 1.46,
+      "h": 0.05,
+      "mat": "paper",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_counter",
+      "kind": "counter",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_ledger",
+      "kind": "ledger",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0032286179165313
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.003228874983157758
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0032286179165313
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.003228874983157758
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongPanel17.953",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.034262668727184614
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0026346374571616796
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.002634638930548163
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongPanel18.628",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.03425922909750452
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail18.6280.114",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0026346374571616796
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail18.6280.989",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0026346389305481627
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.01074849100943323
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0008441089615244964
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0008441094335928818
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.010746332805595563
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0008441089615244964
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0008441094335928818
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_DisplayFloor",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.032091133265892094
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "glassish",
+      "volume_m3": 0.0029247485714308068
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedLongPane18.644",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "glassish",
+      "volume_m3": 0.0029261433013170394
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "glassish",
+      "volume_m3": 0.0008972680318797553
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedEndPane-60.306",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "glassish",
+      "volume_m3": 0.0008981242036659003
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapLong17.95",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0007370134313051543
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapLong18.634",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0007370134313051543
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0002457050170383262
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0002457050170383262
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CountertopCore",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "timber",
+      "volume_m3": 0.0662690662984511
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_ThinBrassTop",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 0.005231567557238366
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Pages",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "key": "paper",
+      "volume_m3": 0.006136175108202192
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Cover1.45",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "key": "paper__cover",
+      "volume_m3": 0.00043179563740057916
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Cover1.497",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "key": "paper__cover",
+      "volume_m3": 0.0004318128035212047
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Spine",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "key": "paper__cover",
+      "volume_m3": 9.923439404730587e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_counter",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.974999999999998,
+        0.009999999999999995,
+        62.37499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "photographic counter actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_counter",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.974999999999998,
+        0.009999999999999995,
+        60.324999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "photographic counter actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_counter",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        18.625,
+        0.009999999999999995,
+        62.37499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "photographic counter actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_counter",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        18.625,
+        0.009999999999999995,
+        60.324999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "photographic counter actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "owner": "storm_shop_photo_supplies_counter_top",
+      "point": [
+        18.32,
+        1.45,
+        61.39999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger actually seated on original counter top datum"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_counter__brass_dull",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter__glassish",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "cell": "shop_photo_supplies",
+      "key": "glassish",
+      "triangles": 48
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter__timber",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "cell": "shop_photo_supplies",
+      "key": "timber",
+      "triangles": 4136
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger__paper",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "cell": "shop_photo_supplies",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger__paper__cover",
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "cell": "shop_photo_supplies",
+      "key": "paper__cover",
+      "triangles": 564
+    }
+  ],
+  "triangles": 5124,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_counter.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_counter__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_photo_supplies_counter__glassish",
+            "key": "glassish",
+            "tile": 1.6,
+            "plain_alpha": true
+          },
+          {
+            "name": "storm_shop_photo_supplies_counter__timber",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_ledger__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_photo_supplies_ledger__paper__cover",
+            "key": "paper",
+            "tile": 0.5,
+            "tint": [
+              0.2,
+              0.25,
+              0.18,
+              1.0
+            ]
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_counter",
+            "key": "wood_dark",
+            "low": [
+              17.95,
+              0.05,
+              60.3
+            ],
+            "high": [
+              18.65,
+              1.05,
+              62.39999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_counter_gl",
+            "key": "glassish",
+            "low": [
+              17.95,
+              1.05,
+              60.3
+            ],
+            "high": [
+              18.65,
+              1.4100000000000001,
+              62.39999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_counter_top",
+            "key": "brass_dull",
+            "low": [
+              17.9,
+              1.41,
+              60.25999999999999
+            ],
+            "high": [
+              18.7,
+              1.45,
+              62.44
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_ledger",
+            "key": "paper",
+            "low": [
+              18.12,
+              1.46,
+              61.21999999999999
+            ],
+            "high": [
+              18.52,
+              1.51,
+              61.57999999999999
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "ed21b0516bc65f1fa780465009bac294226299940134d1ac2e08dbc961c3333f",
+  "source_bindings": {
+    "art/data/photo_counter/source_plan.json": "0d33b0c2f0a340951e0e891f2b350d23981544694d1d927373aa07eb82700c4c",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_counter.py": "a9557a36c424b4a964b47f7504b47e70befbf996b7e7e60f01ab8e7928427105",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_counter.glb.import": "b1802d6321b86484e88e1e2bdd4867d79e5146536365efcb9486a487e465796c",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+    "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+    "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_counter.py": "1dfc8356f806d8eb7569eb2d8a3a373e062fabde99bf46292d62c2380b1ad018"
+  },
+  "open_work": [
+    "The original counter retains its plan rectangle and 1.45m top. Joined feet fill the original .04m gap to the actual floor; panels and rails enclose the lower cabinet, and four posts support a thin-pane glazed display tier. No storage or display operation is added.",
+    "The original solid glass reference block becomes four 4mm closed panes within that envelope, retaining its tint, maps and culling. Local plain-alpha blending is a declared optical adaptation rather than changing the original storefront glass owner.",
+    "The original full brass top block becomes a joined wood core with a 3mm brass sheet at the same 1.45m upper datum. The ledger lowers .01m onto that actual top, with dark-green paper-map covers around a white page block. Original hidden references retain poses.",
+    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority."
+  ]
+}

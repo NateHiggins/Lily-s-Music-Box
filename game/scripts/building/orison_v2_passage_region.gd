@@ -15,6 +15,7 @@ const NewsFittings := preload("res://scripts/building/orison_v2_news_fittings.gd
 const HardwareDrawers := preload("res://scripts/building/orison_v2_hardware_drawers.gd")
 const HardwareTools := preload("res://scripts/building/orison_v2_hardware_tools.gd")
 const PhotoCameras := preload("res://scripts/building/orison_v2_photo_cameras.gd")
+const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
 const HardwareStock := preload("res://scripts/building/orison_v2_hardware_stock.gd")
 const HardwareApparatus := preload("res://scripts/building/orison_v2_hardware_apparatus.gd")
 const LocksmithFittings := preload("res://scripts/building/orison_v2_locksmith_fittings.gd")
@@ -107,6 +108,9 @@ func _ready() -> void:
 			return
 		if not PhotoCameras.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography display fit refused: "+identity)
+			return
+		if not PhotoCounter.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native photography counter fit refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()
