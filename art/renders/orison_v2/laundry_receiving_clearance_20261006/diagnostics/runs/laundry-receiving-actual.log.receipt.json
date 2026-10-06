@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 57.74,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T21:05:38Z",
+  "started_utc": "2026-10-06T21:04:40Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/laundry-receiving-actual.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/laundry-receiving-actual.log",
+  "stdout_sha256": "d8fb2fb55210d87ad9f63e6691dafc66c5425a4a2b90324cc8ae183e22d22167"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2LaundryFittingsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/laundry-receiving-actual-shots",
+ "source": {
+  "dirty_paths": 270,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/laundry_fittings.blend",
+   " M art/blender/laundry_fittings_construction.json",
+   " M art/blender/scripts/build_laundry_fittings.py",
+   " M art/blender/scripts/inspect_laundry_fittings.py",
+   " M art/data/laundry_fittings/source_plan.json",
+   " M game/assets/props/laundry_fittings.glb",
+   " M game/tests/fixtures/orison_laundry_fittings.json",
+   " M game/tests/orison_v2_laundry_fittings_test.gd",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid"
+  ],
+  "repository_head": "fd273b5ba36672096ab3fd3f105a1d91d64f400b",
+  "repository_tree": "bca127cdd3e8f69d0a770a79baf9bc84e7c1e61b",
+  "runtime_inputs_sha256": "8dd56e12fa91b68ff089b0011ff75ceb511cb6aa3b583f713e3fbee143f82a2f",
+  "test_path": "game/tests/orison_v2_laundry_fittings_test.gd",
+  "test_sha256": "7fd5292e35130191c510ad4d6b313882c808e3703c5e507cb218fe13184f82d1"
+ },
+ "windowed": true
+}

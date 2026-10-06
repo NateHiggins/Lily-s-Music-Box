@@ -1,0 +1,68 @@
+{
+ "evidence_class": "INERT",
+ "manifest_before_lf_sha256": "7d3349201141223140508252524432a885df46485e50410c941762e04fcf2173",
+ "manifest_after_lf_sha256": "1da695a1adeaa7b280f7c166f274a763859b0461753d72fffcaa4919a214dca8",
+ "records": [
+  {
+   "key": "b10a171289a540cf",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_iron_pad",
+   "file": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ironing_receiver_views"
+   ],
+   "lines": [
+    89
+   ],
+   "count": 1,
+   "context": [
+    "for spec: Dictionary in [{\"id\":\"storm_shop_model_laundry_iron_table\",\"limit\":fit.table_right_x},{\"id\":\"storm_shop_model_laundry_iron_pad\",\"limit\":fit.pad_right_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f90ad0410ae7504b",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_iron_table",
+   "file": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ironing_receiver_views"
+   ],
+   "lines": [
+    89
+   ],
+   "count": 1,
+   "context": [
+    "for spec: Dictionary in [{\"id\":\"storm_shop_model_laundry_iron_table\",\"limit\":fit.table_right_x},{\"id\":\"storm_shop_model_laundry_iron_pad\",\"limit\":fit.pad_right_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  }
+ ],
+ "decision": "These two existing furniture identities address the actual exported table/pad partitions in the new clearance test. Source rectangles and generated fitted limits remain separate; the fixture records the adaptation. Update this test fixture with any future explicit identity change. Only these individually reviewed records are appended; every previous manifest record is preserved. No manifest reset, coordinate authority or ledger promotion."
+}

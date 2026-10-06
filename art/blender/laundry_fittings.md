@@ -76,3 +76,10 @@ vertices and two standing floor/capsule views. These checks establish this
 local clearance, not cabinet operation, continuous shop entry, service
 capacity or human acceptance. The original programme, actors and source
 layout retain their existing authority.
+
+Source **611eb205** passes the **48-gate/tools-test** comparison and
+**seven** bound Godot runs. All **14** native and **85** final production
+frames were directly reviewed. Exact evidence and separately complete current
+key authority are retained under
+**art/renders/orison_v2/laundry_receiving_clearance_20261006**. Report:
+**design/V2_LAUNDRY_RECEIVING_CLEARANCE_2026-10-06.md**.
