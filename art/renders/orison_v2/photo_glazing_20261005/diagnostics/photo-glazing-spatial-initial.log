@@ -1,0 +1,25 @@
+orison spatial dependency audit (check)
+records: 7154  tiers: data=4039, production=956, scene=5, test=2154
+authority: DATA_FOREIGN_KEY=4039, DEBUG_ONLY=12, GENERATED_IDENTITY=362, RUNTIME_LOOKUP=811, SAVE_CONTRACT=16, SCENE_NODE_PATH=266, TEST_CONTRACT=2154
+spatial: ASSET_PATH=347, CAMERA_STATION=264, CONTAINMENT_ASSUMPTION=10, DERIVED_LAYOUT_LOOKUP=30, DISTANCE_THRESHOLD=10, FLOOR_MEMBERSHIP=372, RAW_GODOT_COORDINATE=237, RAW_PLAN_COORDINATE=76, ROOM_MEMBERSHIP=681, SEMANTIC_ANCHOR=4413, UNKNOWN_DYNAMIC=108
+disposition: MUST_PRESERVE_ID=107, OWNER_DECISION=1, PRESERVE_OR_ALIAS=4703, REGENERATE_CONSUMER=130, REPLACE_WITH_NAMED_ANCHOR=52, SAFE_TO_CHANGE=5, UNRESOLVED=107, UPDATE_TEST_FIXTURE=2049
+vector3 literals: 5000 total, 3903 stats-only (local/presentation)
+NEW unclassified (FAIL): 3
+  - id_reference:game/data/orison_v2/photo_glazing.json:storm_sf_photo_supplies_glass1 [data]
+  - id_reference:game/data/orison_v2/photo_glazing.json:storm_sf_photo_supplies_transom [data]
+  - id_reference:game/data/orison_v2/photo_glazing.json:storm_shop_photo_supplies_borrowed_glass [data]
+classification changes (FAIL): 0
+targets vanished (FAIL): 0
+save-contract unresolved (FAIL): 0
+stale preserved records (STALE): 0
+new incidental (report only): 2
+  - id_reference:game/tests/orison_v2_photo_glazing_test.gd:F01_VESTIBULE [test]
+  - vector3_coordinate:game/tests/orison_v2_photo_glazing_test.gd:_retail_detail_views [test]
+cleanup opportunities: 6
+  - asset_path:game/tests/debug_in_pause_test.gd:res://scenes/building/orison_root.tscn [test]
+  - asset_path:game/tests/dream_ecology_entry_test.gd:res://scenes/building/orison_root.tscn [test]
+  - vector3_coordinate:game/tests/orison_v2_vertical_route_test.gd:_run [test]
+  - asset_path:game/tests/zoo_teleport_test.gd:res://scenes/building/orison_root.tscn [test]
+  - vector3_coordinate:game/tests/orison_v2_basement_route_test.gd:_prepare_player_start [test]
+  - generated_name:game/scripts/building/orison_v2_shop_seating.gd:mount_cell [production]
+result: fail

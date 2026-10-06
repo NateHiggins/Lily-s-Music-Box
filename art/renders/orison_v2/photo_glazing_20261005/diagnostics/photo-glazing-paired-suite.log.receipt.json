@@ -1,0 +1,71 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.12,
+  "exit_code": null,
+  "finished_utc": "2026-10-06T03:43:12Z",
+  "started_utc": "2026-10-06T03:40:11Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 6,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot find member \"resource_path\" in base \"res://scripts/building/orison_v2_architectural_materials.gd\".",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_runtime_root.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_cell' in base 'GDScript'.",
+   "SCRIPT ERROR: Cannot call method 'get_meta' on a null value."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'mount_cell' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-glazing-paired-suite.log.stderr",
+  "stderr_sha256": "ff4ec229e7860eb085b4b28a17a91ed944a024de0d9b5d56e783de391e81497c",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-glazing-paired-suite.log",
+  "stdout_sha256": "51f6bb6ab6dc9bfe806b0b7a7ff2dbdb4ef6e9f4ecc7a9d8893487b1c1284569"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PhotoGlazingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-glazing-paired-shots",
+ "source": {
+  "dirty_paths": 282,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/photo_glazing.blend",
+   "?? art/blender/photo_glazing.md",
+   "?? art/blender/photo_glazing_construction.json",
+   "?? art/blender/scripts/build_photo_glazing.py",
+   "?? art/blender/scripts/inspect_photo_glazing.py",
+   "?? art/data/photo_glazing/",
+   "?? game/assets/props/photo_glazing.glb",
+   "?? game/data/orison_v2/photo_glazing.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid"
+  ],
+  "repository_head": "be35309088c041bca415072c8759cb8d4a166783",
+  "repository_tree": "29de4fb04f465680b9f38690f65ba8f70fea78ad",
+  "runtime_inputs_sha256": "3772932d4f328f418999258045eb337b2d79e739d75ac00562f5c939b10430d7",
+  "test_path": "game/tests/orison_v2_photo_glazing_test.gd",
+  "test_sha256": "38038698ad69513abda0e5d31805ab7397c998f52e47d84ccab7c2b8378f1876"
+ },
+ "windowed": true
+}

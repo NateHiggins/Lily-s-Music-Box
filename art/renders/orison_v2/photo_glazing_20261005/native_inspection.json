@@ -1,0 +1,47 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "1787c33ec14d825eee94e760b863831cd24eb8bfd94d8855f785a9284e08eeb4",
+  "closed_volumes": [
+    {
+      "name": "storm_sf_photo_supplies_glass1_ThinPane",
+      "volume_m3": 0.04055707144655975
+    },
+    {
+      "name": "storm_sf_photo_supplies_transom_ThinPane",
+      "volume_m3": 0.015742868987306487
+    },
+    {
+      "name": "storm_shop_photo_supplies_borrowed_glass_ThinPane",
+      "volume_m3": 0.01638140782282724
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_sf_photo_supplies_glass1",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "storm_sf_photo_supplies_transom",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_borrowed_glass",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    }
+  ],
+  "source_boundary_stocks": 3,
+  "parts": 3,
+  "triangles": 36,
+  "inspection_context": "Temporary contrasting geometry behind each pane; not exported. Native clear dielectric approximates the existing shipping optical shader. Production review remains required.",
+  "views": [
+    "storm_sf_photo_supplies_glass1_front.png",
+    "storm_sf_photo_supplies_glass1_rear.png",
+    "storm_sf_photo_supplies_transom_front.png",
+    "storm_sf_photo_supplies_transom_rear.png",
+    "storm_shop_photo_supplies_borrowed_glass_front.png",
+    "storm_shop_photo_supplies_borrowed_glass_rear.png"
+  ]
+}
