@@ -248,6 +248,27 @@ func _stage_one() -> void:
 		if not region.DruggistFountain.mount_cell(cell,region.source_layout):
 			_fail("native unused druggist fountain reload refused: "+identity)
 			return
+		if not region.FuneralFittings.mount_cell(cell,region.source_layout):
+			_fail("native funeral furniture reload refused: "+identity)
+			return
+		if not region.FuneralDrapes.mount_cell(cell,region.source_layout):
+			_fail("native funeral drapery reload refused: "+identity)
+			return
+		if not region.FuneralFoliage.mount_cell(cell,region.source_layout):
+			_fail("native funeral foliage reload refused: "+identity)
+			return
+		if not region.RadioBench.mount_cell(cell,region.source_layout):
+			_fail("native radio bench reload refused: "+identity)
+			return
+		if not region.RadioApparatus.mount_cell(cell,region.source_layout):
+			_fail("native radio apparatus reload refused: "+identity)
+			return
+		if not region.RadioStock.mount_cell(cell,region.source_layout):
+			_fail("native radio valve stock reload refused: "+identity)
+			return
+		if not region.RadioBattery.mount_cell(cell,region.source_layout):
+			_fail("native radio charging display reload refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

@@ -122,6 +122,9 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		counts[str(box.id)]=0
 	var replacements: Dictionary={}
 	for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
+		# Earlier native fittings keep their own geometry/material owner.
+		# Only shipping source draws supply authored retirement boundaries.
+		if draw.has_meta("material_key"):continue
 		var boxes: Array[Dictionary]=[]
 		for box: Dictionary in record.replace:
 			if str(draw.name).trim_suffix("-col").ends_with("_"+str(box.key)):boxes.append(box)

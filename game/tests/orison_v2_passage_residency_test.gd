@@ -10,6 +10,7 @@ func _init() -> void:
 func _capture(identity: String, target: Vector3) -> void:
 	await super._capture(identity, target)
 	if identity != "nave": return
+	if not _check_specialist_fittings():return
 	_check_ceiling_detail()
 	_surface_signature = _surface_values()
 	_moved_cart = world.passage_region.finish.pushcarts[0]
@@ -54,6 +55,7 @@ func _route() -> void:
 	if not _require(resumed.state == "RESIDENT" and resumed.cell_count == 13
 			and resumed.load_cycles >= 2 and resumed.unload_cycles >= 2,
 			"vestibule prefetch reconstructs a second geometry cycle"): return
+	if not _check_specialist_fittings():return
 	_require(door.get_instance_id() == door_id and door.open == door_open
 			and _moved_cart.get_instance_id() == cart_id
 			and _moved_cart.global_position.distance_to(cart_position) < 0.03
@@ -66,6 +68,33 @@ func _route() -> void:
 	_require(not _surface_signature.is_empty() and _surface_values() == _surface_signature,
 			"all shader values and texture paths survive geometry reconstruction")
 	_check_ceiling_detail()
+
+func _check_specialist_fittings() -> bool:
+	# Both observed reconstruction cycles must carry the same native owners
+	# as startup, rather than quietly reverting to retired source boxes.
+	for spec: Array in [
+		["shop_funeral_parlour","FuneralFittings","funeral_fittings"],
+		["shop_funeral_parlour","FuneralDrapes","funeral_drapes"],
+		["shop_funeral_parlour","FuneralFoliage","funeral_foliage"],
+		["shop_radio_service","RadioBench","radio_bench"],
+		["shop_radio_service","RadioApparatus","radio_apparatus"],
+		["shop_radio_service","RadioStock","radio_stock"],
+		["shop_radio_service","RadioBattery","radio_battery"]]:
+		var cell: Node3D=world.passage_region.cell_nodes[spec[0]]
+		var model:=cell.get_node_or_null(str(spec[1])) as Node3D
+		if not _require(model!=null,"reloaded native owner exists: "+str(spec[1])):return false
+		var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_"+str(spec[2])+".json"))
+		if not _require(FileAccess.get_sha256(str(fixture.runtime.asset))==fixture.asset_sha256,"reloaded native source export binds: "+str(spec[1])):return false
+		var retired: Dictionary=model.get_meta("removed_triangles")
+		var expected: Dictionary=fixture.runtime.cells.filter(func(row):return row.id==spec[0])[0]
+		for box: Dictionary in expected.replace:
+			if not _require(int(retired.get(box.id,-1))==int(box.expected_triangles),"reloaded source boundary stays retired: "+str(box.id)):return false
+		var draws:=model.find_children("*","MeshInstance3D",true,false)
+		if not _require(draws.size()==fixture.parts.size(),"reloaded native partitions remain: "+str(spec[1])):return false
+		for draw: MeshInstance3D in draws:
+			var shapes:=draw.find_children("*","CollisionShape3D",true,false)
+			if not _require(shapes.size()==1 and shapes[0].shape is ConcavePolygonShape3D and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"reloaded native visible/physical faces agree: "+str(draw.name)):return false
+	return true
 
 func _check_ceiling_detail() -> void:
 	var cell: Node3D = world.passage_region.cell_nodes.passage
