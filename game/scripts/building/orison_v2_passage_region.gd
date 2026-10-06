@@ -22,6 +22,7 @@ const DruggistDrawers := preload("res://scripts/building/orison_v2_druggist_draw
 const DruggistCounter := preload("res://scripts/building/orison_v2_druggist_counter.gd")
 const DruggistMortar := preload("res://scripts/building/orison_v2_druggist_mortar.gd")
 const DruggistDispensary := preload("res://scripts/building/orison_v2_druggist_dispensary.gd")
+const DruggistCupboard := preload("res://scripts/building/orison_v2_druggist_cupboard.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -147,6 +148,9 @@ func _ready() -> void:
 			return
 		if not DruggistDispensary.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native composed dispensary refused: "+identity)
+			return
+		if not DruggistCupboard.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist cupboard refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

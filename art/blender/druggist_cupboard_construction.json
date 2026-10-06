@@ -1,0 +1,1889 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_otis___son_poison_cupboard",
+      "rect": [
+        22.38,
+        -45.22,
+        23.18,
+        -44.62
+      ],
+      "z0": 0.22,
+      "h": 1.72,
+      "mat": "wood_dark",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_glass",
+      "rect": [
+        22.46,
+        -45.26,
+        23.1,
+        -45.199999999999996
+      ],
+      "z0": 0.58,
+      "h": 0.92,
+      "mat": "glassish",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison0",
+      "rect": [
+        22.54,
+        -45.12,
+        22.61,
+        -44.92
+      ],
+      "z0": 0.66,
+      "h": 0.34,
+      "mat": "lacquer_red",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib0",
+      "rect": [
+        22.54,
+        -45.14999999999999,
+        22.565,
+        -44.89
+      ],
+      "z0": 0.72,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison1",
+      "rect": [
+        22.63,
+        -45.12,
+        22.7,
+        -44.92
+      ],
+      "z0": 1.04,
+      "h": 0.34,
+      "mat": "book_teal",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib1",
+      "rect": [
+        22.63,
+        -45.14999999999999,
+        22.655,
+        -44.89
+      ],
+      "z0": 1.1,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison2",
+      "rect": [
+        22.72,
+        -45.12,
+        22.79,
+        -44.92
+      ],
+      "z0": 0.66,
+      "h": 0.34,
+      "mat": "lacquer_red",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib2",
+      "rect": [
+        22.72,
+        -45.14999999999999,
+        22.745,
+        -44.89
+      ],
+      "z0": 0.72,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison3",
+      "rect": [
+        22.810000000000002,
+        -45.12,
+        22.880000000000003,
+        -44.92
+      ],
+      "z0": 1.04,
+      "h": 0.34,
+      "mat": "book_teal",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib3",
+      "rect": [
+        22.810000000000002,
+        -45.14999999999999,
+        22.835,
+        -44.89
+      ],
+      "z0": 1.1,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison4",
+      "rect": [
+        22.9,
+        -45.12,
+        22.97,
+        -44.92
+      ],
+      "z0": 0.66,
+      "h": 0.34,
+      "mat": "lacquer_red",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib4",
+      "rect": [
+        22.9,
+        -45.14999999999999,
+        22.925,
+        -44.89
+      ],
+      "z0": 0.72,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison5",
+      "rect": [
+        22.990000000000002,
+        -45.12,
+        23.060000000000002,
+        -44.92
+      ],
+      "z0": 1.04,
+      "h": 0.34,
+      "mat": "book_teal",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_poison_rib5",
+      "rect": [
+        22.990000000000002,
+        -45.14999999999999,
+        23.015,
+        -44.89
+      ],
+      "z0": 1.1,
+      "h": 0.05,
+      "mat": "porcelain",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_otis___son_poison_cupboard",
+      "kind": "cupboard",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison0",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison1",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison2",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison3",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison4",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_poison5",
+      "kind": "bottle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FloorFoot0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0005487336358101344
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FloorFoot1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0005487336099095439
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FloorFoot2",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0005487336358101344
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FloorFoot3",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0005487336099095439
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_SeatedPlinth",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.016794273736206917
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_Side0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.03426275755198838
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_Side1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.03426275754039739
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_Back",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.025457545966042504
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_Crown",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.016794273750425914
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FrontPanel0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.007645533397950091
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FrontPanel1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.009782653330797593
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FixedLeafStile0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0009769766690931503
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FixedLeafStile1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0009769767183247244
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FixedLeafRail0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.0003570856971209049
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_FixedLeafRail1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.000357085695246775
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_ThinInsetPane",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "glassish",
+      "volume_m3": 0.0035327999013900755
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_BottleShelf0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.012766651699580363
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_BottleShelf1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "wood_dark",
+      "volume_m3": 0.01276665170461442
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_HingeLeaf0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 6.997962545012196e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_HingeKnuckle0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 6.855241623958743e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_HingeLeaf1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 6.9979628878362616e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_HingeKnuckle1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 6.855248322383542e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_PassiveLockPlate0",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 2.402962801620221e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_PassiveLockPlate1",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 2.4029627772903024e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_PassiveLockPlate2",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 7.617128536713042e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard_PassiveLockPlate3",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "key": "brass_dull",
+      "volume_m3": 7.617128278326929e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "glass_red",
+      "volume_m3": 0.00031644914730111
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "wood_dark",
+      "volume_m3": 1.0171494455432342e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744282e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075544199608e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075451612464e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487955e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075451612464e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.10707554419961e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison0_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison0",
+      "key": "porcelain",
+      "volume_m3": 2.3935061020187884e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "glass_teal",
+      "volume_m3": 0.00031644909532874794
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "wood_dark",
+      "volume_m3": 1.0171494849923499e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075492487956e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075544199611e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744282e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075213345033e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075213345033e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707554419961e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744282e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison1_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison1",
+      "key": "porcelain",
+      "volume_m3": 2.393506191183842e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "glass_red",
+      "volume_m3": 0.0003164491387389961
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "wood_dark",
+      "volume_m3": 1.0171494362809982e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075745474778e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075213345033e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075745474778e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075213345034e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "ribs_red",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison2_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison2",
+      "key": "porcelain",
+      "volume_m3": 2.393506105789691e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "glass_teal",
+      "volume_m3": 0.00031644909273903
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "wood_dark",
+      "volume_m3": 1.0171494842209551e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075187389111e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075187389111e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474778e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075187389109e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744282e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison3_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison3",
+      "key": "porcelain",
+      "volume_m3": 2.3935061870068404e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "glass_red",
+      "volume_m3": 0.0003164491370131906
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "wood_dark",
+      "volume_m3": 1.017149432434807e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075544199608e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.10707554419961e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075479744282e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "ribs_red",
+      "volume_m3": 8.107075492487957e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison4_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison4",
+      "key": "porcelain",
+      "volume_m3": 2.393506102018789e-06
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_HollowTactileBottle",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "glass_teal",
+      "volume_m3": 0.00031644909434326964
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_SeparateStopper",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "wood_dark",
+      "volume_m3": 1.0171494798169872e-05
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib0",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474779e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib1",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075213345033e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib2",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib3",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib4",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib5",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib6",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707527329169e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib7",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib8",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.10707518738911e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib9",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075745474777e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib10",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075479744281e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_TactileRib11",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "ribs_teal",
+      "volume_m3": 8.107075213345033e-07
+    },
+    {
+      "name": "storm_shop_otis___son_poison5_BlankPorcelainPlate",
+      "assembly": "storm_shop_otis___son_poison5",
+      "key": "porcelain",
+      "volume_m3": 2.393506191183841e-06
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        22.43,
+        0.01,
+        45.17
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cupboard foot on actual original floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        23.13,
+        0.01,
+        45.17
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cupboard foot on actual original floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        22.43,
+        0.01,
+        44.669999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cupboard foot on actual original floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "owner": "storm_shop_otis___son_floor",
+      "point": [
+        23.13,
+        0.01,
+        44.669999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cupboard foot on actual original floor"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison0",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        22.575,
+        0.66,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison1",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        22.665,
+        1.04,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison2",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        22.755,
+        0.66,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison3",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        22.845000000000002,
+        1.04,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison4",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        22.935,
+        0.66,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    },
+    {
+      "assembly": "storm_shop_otis___son_poison5",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "point": [
+        23.025000000000002,
+        1.04,
+        45.019999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle on actual cupboard shelf at retained seat"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_otis___son_poison_cupboard__brass_dull",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "cell": "shop_otis_son",
+      "key": "brass_dull",
+      "triangles": 1376
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard__glassish",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "cell": "shop_otis_son",
+      "key": "glassish",
+      "triangles": 12
+    },
+    {
+      "name": "storm_shop_otis___son_poison_cupboard__wood_dark",
+      "assembly": "storm_shop_otis___son_poison_cupboard",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 3196
+    },
+    {
+      "name": "storm_shop_otis___son_poison0__glass_red",
+      "assembly": "storm_shop_otis___son_poison0",
+      "cell": "shop_otis_son",
+      "key": "glass_red",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison0__porcelain",
+      "assembly": "storm_shop_otis___son_poison0",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison0__ribs_red",
+      "assembly": "storm_shop_otis___son_poison0",
+      "cell": "shop_otis_son",
+      "key": "ribs_red",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison0__wood_dark",
+      "assembly": "storm_shop_otis___son_poison0",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_otis___son_poison1__glass_teal",
+      "assembly": "storm_shop_otis___son_poison1",
+      "cell": "shop_otis_son",
+      "key": "glass_teal",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison1__porcelain",
+      "assembly": "storm_shop_otis___son_poison1",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison1__ribs_teal",
+      "assembly": "storm_shop_otis___son_poison1",
+      "cell": "shop_otis_son",
+      "key": "ribs_teal",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison1__wood_dark",
+      "assembly": "storm_shop_otis___son_poison1",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_otis___son_poison2__glass_red",
+      "assembly": "storm_shop_otis___son_poison2",
+      "cell": "shop_otis_son",
+      "key": "glass_red",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison2__porcelain",
+      "assembly": "storm_shop_otis___son_poison2",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison2__ribs_red",
+      "assembly": "storm_shop_otis___son_poison2",
+      "cell": "shop_otis_son",
+      "key": "ribs_red",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison2__wood_dark",
+      "assembly": "storm_shop_otis___son_poison2",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_otis___son_poison3__glass_teal",
+      "assembly": "storm_shop_otis___son_poison3",
+      "cell": "shop_otis_son",
+      "key": "glass_teal",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison3__porcelain",
+      "assembly": "storm_shop_otis___son_poison3",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison3__ribs_teal",
+      "assembly": "storm_shop_otis___son_poison3",
+      "cell": "shop_otis_son",
+      "key": "ribs_teal",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison3__wood_dark",
+      "assembly": "storm_shop_otis___son_poison3",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_otis___son_poison4__glass_red",
+      "assembly": "storm_shop_otis___son_poison4",
+      "cell": "shop_otis_son",
+      "key": "glass_red",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison4__porcelain",
+      "assembly": "storm_shop_otis___son_poison4",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison4__ribs_red",
+      "assembly": "storm_shop_otis___son_poison4",
+      "cell": "shop_otis_son",
+      "key": "ribs_red",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison4__wood_dark",
+      "assembly": "storm_shop_otis___son_poison4",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    },
+    {
+      "name": "storm_shop_otis___son_poison5__glass_teal",
+      "assembly": "storm_shop_otis___son_poison5",
+      "cell": "shop_otis_son",
+      "key": "glass_teal",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_poison5__porcelain",
+      "assembly": "storm_shop_otis___son_poison5",
+      "cell": "shop_otis_son",
+      "key": "porcelain",
+      "triangles": 36
+    },
+    {
+      "name": "storm_shop_otis___son_poison5__ribs_teal",
+      "assembly": "storm_shop_otis___son_poison5",
+      "cell": "shop_otis_son",
+      "key": "ribs_teal",
+      "triangles": 144
+    },
+    {
+      "name": "storm_shop_otis___son_poison5__wood_dark",
+      "assembly": "storm_shop_otis___son_poison5",
+      "cell": "shop_otis_son",
+      "key": "wood_dark",
+      "triangles": 380
+    }
+  ],
+  "triangles": 21744,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/druggist_cupboard.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_otis_son",
+        "parts": [
+          {
+            "name": "storm_shop_otis___son_poison_cupboard__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass_dull"
+          },
+          {
+            "name": "storm_shop_otis___son_poison_cupboard__glassish",
+            "key": "glassish",
+            "tile": 1.6,
+            "plain_alpha": true
+          },
+          {
+            "name": "storm_shop_otis___son_poison_cupboard__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison0__glass_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison0__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison0__ribs_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison0__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison1__glass_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison1__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison1__ribs_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison1__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison2__glass_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison2__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison2__ribs_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison2__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison3__glass_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison3__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison3__ribs_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison3__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison4__glass_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison4__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison4__ribs_red",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.52,
+              0.1,
+              0.095,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison4__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_otis___son_poison5__glass_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison5__porcelain",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain"
+          },
+          {
+            "name": "storm_shop_otis___son_poison5__ribs_teal",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.1,
+              0.32,
+              0.28,
+              1
+            ]
+          },
+          {
+            "name": "storm_shop_otis___son_poison5__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_otis___son_poison_cupboard",
+            "key": "wood_dark",
+            "low": [
+              22.38,
+              0.22,
+              44.62
+            ],
+            "high": [
+              23.18,
+              1.94,
+              45.22
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_glass",
+            "key": "glassish",
+            "low": [
+              22.46,
+              0.58,
+              45.199999999999996
+            ],
+            "high": [
+              23.1,
+              1.5,
+              45.26
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison0",
+            "key": "lacquer_red",
+            "low": [
+              22.54,
+              0.66,
+              44.92
+            ],
+            "high": [
+              22.61,
+              1.0,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib0",
+            "key": "porcelain",
+            "low": [
+              22.54,
+              0.72,
+              44.89
+            ],
+            "high": [
+              22.565,
+              0.77,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison1",
+            "key": "book_teal",
+            "low": [
+              22.63,
+              1.04,
+              44.92
+            ],
+            "high": [
+              22.7,
+              1.3800000000000001,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib1",
+            "key": "porcelain",
+            "low": [
+              22.63,
+              1.1,
+              44.89
+            ],
+            "high": [
+              22.655,
+              1.1500000000000001,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison2",
+            "key": "lacquer_red",
+            "low": [
+              22.72,
+              0.66,
+              44.92
+            ],
+            "high": [
+              22.79,
+              1.0,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib2",
+            "key": "porcelain",
+            "low": [
+              22.72,
+              0.72,
+              44.89
+            ],
+            "high": [
+              22.745,
+              0.77,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison3",
+            "key": "book_teal",
+            "low": [
+              22.810000000000002,
+              1.04,
+              44.92
+            ],
+            "high": [
+              22.880000000000003,
+              1.3800000000000001,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib3",
+            "key": "porcelain",
+            "low": [
+              22.810000000000002,
+              1.1,
+              44.89
+            ],
+            "high": [
+              22.835,
+              1.1500000000000001,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison4",
+            "key": "lacquer_red",
+            "low": [
+              22.9,
+              0.66,
+              44.92
+            ],
+            "high": [
+              22.97,
+              1.0,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib4",
+            "key": "porcelain",
+            "low": [
+              22.9,
+              0.72,
+              44.89
+            ],
+            "high": [
+              22.925,
+              0.77,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison5",
+            "key": "book_teal",
+            "low": [
+              22.990000000000002,
+              1.04,
+              44.92
+            ],
+            "high": [
+              23.060000000000002,
+              1.3800000000000001,
+              45.12
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_poison_rib5",
+            "key": "porcelain",
+            "low": [
+              22.990000000000002,
+              1.1,
+              44.89
+            ],
+            "high": [
+              23.015,
+              1.1500000000000001,
+              45.14999999999999
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+  "source_bindings": {
+    "art/data/druggist_cupboard/source_plan.json": "127dbf0934b5e3e930d3373194be7007835fbfe0290eeaf3013c2119d60fda0e",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_druggist_cupboard.py": "f4aec314a45c9ed7e0a20e4c9f5ee71c390e937cbe5dd273bc2636ba98fea40d",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/druggist_cupboard.glb.import": "efb149a938abdcd62c71ddb09fb99739af3900e2583e24275e99aa5005c57396",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "art/textures/ai_materials/lacquer_red_b/material.json": "83cc823b1c431e68bb342f39ca91a1f0ec3c6a56db470dd0e6c51bfcb1f94d03",
+    "art/textures/library/furniture/book_teal/asset.json": "78667524c82a3549885a89db5d81ab73c1f4f7d002282417d4c3f34bf97d1be3",
+    "art/textures/ai_materials/porcelain/material.json": "899a0a9636c14284da209f449d586f15bd8766e29436333087603d1a8e52c6d5",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "game/assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png": "1d700ff53ee72a209364926b2e3562967304dacff8f786bc6fc6f23b0322ace3",
+    "game/assets/building/textures/T_ai_materials_lacquer_red_b_rough.png": "740a6524e66baf2d6ff290b7d36d9cf55fefa25defd1d1fd385a0bf3b3eed204",
+    "game/assets/building/textures/T_ai_materials_lacquer_red_b_normal.png": "1104195b3d6694c6b1dfd6558d944e2bd127c8120f34ca766cdd126ac364b079",
+    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+    "game/assets/building/textures/T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_porcelain_albedo.png": "e85e5384e87a545a1cf3b368fc466a8611b87932ea7ad2ee7557a4a291263b5c",
+    "game/assets/building/textures/T_library_furniture_porcelain_rough.png": "9c0c46ffaca87f8aa08c408000d2bf16c722e775b030ff0b5832bf434a1f51cc",
+    "game/assets/building/textures/T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_otis_son.gltf": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+    "game/assets/building/floor_01_cells/shop_otis_son.bin": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+    "art/blender/scripts/inspect_druggist_cupboard.py": "f0f5b51777849b55eca42a9c110623fc37a4346bfbfcc671129076dfd374006c",
+    "game/assets/props/druggist_dispensary.glb": "4ddd7a7c68db66a4704ca5a163b25324630f72df9b12110b2e98768488ec2546",
+    "game/data/orison_v2/druggist_dispensary.json": "826943033b3aa8565f300a9fc06281716e66a121e65101bf7534fa47f0dfee3e",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2"
+  },
+  "open_work": [
+    "The retained 0.8 by 0.6 metre case plan and 1.94m top stay. Four floor-seated feet carry its original 0.22m base. Two actual shelves support the original alternating bottle seats at 0.66/1.04m.",
+    "The original projecting 60mm glass slab becomes one 6mm pane centred at Yn -45.202m, 28mm inward; fixed frame and passive hardware remain inside the original case plan and clear the adjacent notched bench by at least 10mm.",
+    "Six original red/teal bodies and corresponding rib identities become narrow hollow coloured glass bodies, twelve physical tactile ribs each, separate wood stoppers and blank fine-porcelain plates. Existing milk_glass charts and bounded local opaque tints replace visible lacquer/book atlases; every hidden original pose remains.",
+    "The closed leaf, hinge and lock plate are passive fabrication. Cupboard access, poison custody, dispensing and medical operations require their explicit gameplay owners. Carboys/fountain, independent services and continuous routes remain separate work."
+  ]
+}

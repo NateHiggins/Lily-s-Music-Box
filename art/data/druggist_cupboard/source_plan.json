@@ -1,0 +1,121 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 14,
+  "runtime_keys": [
+    "wood_dark",
+    "glassish",
+    "lacquer_red",
+    "book_teal",
+    "porcelain",
+    "brass_dull",
+    "glass_red",
+    "glass_teal",
+    "ribs_red",
+    "ribs_teal"
+  ],
+  "catalog_variants": {
+    "porcelain": "porcelain",
+    "brass_dull": "brass_dull",
+    "glass_red": "milk_glass",
+    "glass_teal": "milk_glass",
+    "ribs_red": "milk_glass",
+    "ribs_teal": "milk_glass"
+  },
+  "material_aliases": {
+    "glass_red": "milk_glass",
+    "glass_teal": "milk_glass",
+    "ribs_red": "milk_glass",
+    "ribs_teal": "milk_glass"
+  },
+  "material_tints": {
+    "glass_red": [
+      0.52,
+      0.1,
+      0.095,
+      1
+    ],
+    "ribs_red": [
+      0.52,
+      0.1,
+      0.095,
+      1
+    ],
+    "glass_teal": [
+      0.1,
+      0.32,
+      0.28,
+      1
+    ],
+    "ribs_teal": [
+      0.1,
+      0.32,
+      0.28,
+      1
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "cupboard",
+      "sources": [
+        "storm_shop_otis___son_poison_cupboard",
+        "storm_shop_otis___son_poison_glass"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 0,
+      "sources": [
+        "storm_shop_otis___son_poison0",
+        "storm_shop_otis___son_poison_rib0"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 1,
+      "sources": [
+        "storm_shop_otis___son_poison1",
+        "storm_shop_otis___son_poison_rib1"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 2,
+      "sources": [
+        "storm_shop_otis___son_poison2",
+        "storm_shop_otis___son_poison_rib2"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 3,
+      "sources": [
+        "storm_shop_otis___son_poison3",
+        "storm_shop_otis___son_poison_rib3"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 4,
+      "sources": [
+        "storm_shop_otis___son_poison4",
+        "storm_shop_otis___son_poison_rib4"
+      ]
+    },
+    {
+      "kind": "bottle",
+      "index": 5,
+      "sources": [
+        "storm_shop_otis___son_poison5",
+        "storm_shop_otis___son_poison_rib5"
+      ]
+    }
+  ],
+  "open_work": [
+    "The retained 0.8 by 0.6 metre case plan and 1.94m top stay. Four floor-seated feet carry its original 0.22m base. Two actual shelves support the original alternating bottle seats at 0.66/1.04m.",
+    "The original projecting 60mm glass slab becomes one 6mm pane centred at Yn -45.202m, 28mm inward; fixed frame and passive hardware remain inside the original case plan and clear the adjacent notched bench by at least 10mm.",
+    "Six original red/teal bodies and corresponding rib identities become narrow hollow coloured glass bodies, twelve physical tactile ribs each, separate wood stoppers and blank fine-porcelain plates. Existing milk_glass charts and bounded local opaque tints replace visible lacquer/book atlases; every hidden original pose remains.",
+    "The closed leaf, hinge and lock plate are passive fabrication. Cupboard access, poison custody, dispensing and medical operations require their explicit gameplay owners. Carboys/fountain, independent services and continuous routes remain separate work."
+  ]
+}

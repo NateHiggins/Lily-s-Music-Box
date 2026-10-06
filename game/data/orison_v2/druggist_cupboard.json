@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/druggist_cupboard.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_poison_cupboard__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_otis___son_poison_cupboard__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_poison_cupboard__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison0__glass_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison0__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison0__ribs_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison0__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison1__glass_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison1__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison1__ribs_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison1__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison2__glass_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison2__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison2__ribs_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison2__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison3__glass_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison3__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison3__ribs_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison3__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison4__glass_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison4__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison4__ribs_red",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.52,
+            0.1,
+            0.095,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison4__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_otis___son_poison5__glass_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison5__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_otis___son_poison5__ribs_teal",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.1,
+            0.32,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_otis___son_poison5__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_poison_cupboard",
+          "key": "wood_dark",
+          "low": [
+            22.38,
+            0.22,
+            44.62
+          ],
+          "high": [
+            23.18,
+            1.94,
+            45.22
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_glass",
+          "key": "glassish",
+          "low": [
+            22.46,
+            0.58,
+            45.199999999999996
+          ],
+          "high": [
+            23.1,
+            1.5,
+            45.26
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison0",
+          "key": "lacquer_red",
+          "low": [
+            22.54,
+            0.66,
+            44.92
+          ],
+          "high": [
+            22.61,
+            1.0,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib0",
+          "key": "porcelain",
+          "low": [
+            22.54,
+            0.72,
+            44.89
+          ],
+          "high": [
+            22.565,
+            0.77,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison1",
+          "key": "book_teal",
+          "low": [
+            22.63,
+            1.04,
+            44.92
+          ],
+          "high": [
+            22.7,
+            1.3800000000000001,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib1",
+          "key": "porcelain",
+          "low": [
+            22.63,
+            1.1,
+            44.89
+          ],
+          "high": [
+            22.655,
+            1.1500000000000001,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison2",
+          "key": "lacquer_red",
+          "low": [
+            22.72,
+            0.66,
+            44.92
+          ],
+          "high": [
+            22.79,
+            1.0,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib2",
+          "key": "porcelain",
+          "low": [
+            22.72,
+            0.72,
+            44.89
+          ],
+          "high": [
+            22.745,
+            0.77,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison3",
+          "key": "book_teal",
+          "low": [
+            22.810000000000002,
+            1.04,
+            44.92
+          ],
+          "high": [
+            22.880000000000003,
+            1.3800000000000001,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib3",
+          "key": "porcelain",
+          "low": [
+            22.810000000000002,
+            1.1,
+            44.89
+          ],
+          "high": [
+            22.835,
+            1.1500000000000001,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison4",
+          "key": "lacquer_red",
+          "low": [
+            22.9,
+            0.66,
+            44.92
+          ],
+          "high": [
+            22.97,
+            1.0,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib4",
+          "key": "porcelain",
+          "low": [
+            22.9,
+            0.72,
+            44.89
+          ],
+          "high": [
+            22.925,
+            0.77,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison5",
+          "key": "book_teal",
+          "low": [
+            22.990000000000002,
+            1.04,
+            44.92
+          ],
+          "high": [
+            23.060000000000002,
+            1.3800000000000001,
+            45.12
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_poison_rib5",
+          "key": "porcelain",
+          "low": [
+            22.990000000000002,
+            1.1,
+            44.89
+          ],
+          "high": [
+            23.015,
+            1.1500000000000001,
+            45.14999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

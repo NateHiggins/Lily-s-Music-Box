@@ -239,6 +239,9 @@ func _stage_one() -> void:
 		if not region.DruggistDispensary.mount_cell(cell,region.source_layout):
 			_fail("native composed dispensary reload refused: "+identity)
 			return
+		if not region.DruggistCupboard.mount_cell(cell,region.source_layout):
+			_fail("native druggist cupboard reload refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

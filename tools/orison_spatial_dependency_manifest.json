@@ -215196,6 +215196,456 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "f57bd188cd758150",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison0",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2fcf0bc11e564f7d",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison1",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8dfb10175c754a65",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison2",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "94979043bf8e9fc8",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison3",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "644a0022bf91b956",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison4",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9832fc400aa2af17",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison5",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8e74a81654d21689",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_cupboard",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6853d1ee8acecd76",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_glass",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6cba09316e7510f7",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib0",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "672039fd52d508db",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib1",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1f64e661ced54a4c",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib2",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0b46c7c452be430d",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib3",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "872b65a56825c704",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib4",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "880f9e067d8e09fb",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_poison_rib5",
+   "file": "game/data/orison_v2/druggist_cupboard.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3a80a5589b606389",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_druggist_cupboard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_cupboard_details"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id)!=\"F01\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a5e1d49fa5ff8663",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_druggist_cupboard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
