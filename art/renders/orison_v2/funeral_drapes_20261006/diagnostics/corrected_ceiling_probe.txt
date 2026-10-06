@@ -1,0 +1,43 @@
+extends "res://tests/orison_v2_city_sweep.gd"
+## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+func _run() -> void:
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
+	var world:=_world_scene().instantiate() as OrisonV2RuntimeRoot;add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(not world.startup_failed and not world.passage_region.startup_failed,"actual city starts for funeral fitting discovery")
+	if world.startup_failed or world.passage_region.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
+	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	var passage: OrisonV2PassageRegion=world.passage_region
+	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"):driver.set_frozen_for_tests(true)
+	world.shop_simulation.set_process(false)
+	var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id=="F01_VESTIBULE")[0]
+	var rect: Array=vestibule.rect
+	world.player.global_position=world.adapter.root.to_global(Vector3((rect[0]+rect[2])*.5,0.,(rect[1]+rect[3])*.5))
+	await get_tree().physics_frame;await get_tree().physics_frame
+	for frame in 600:
+		if passage.residency.state=="RESIDENT":break
+		await get_tree().process_frame
+	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
+	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var plan: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-drapes-probe-plan.json"))
+	var cell: Node3D=passage.cell_nodes.shop_funeral_parlour;var samples: Array=[]
+	for group: Dictionary in plan.groups:
+		for point: Array in group.ceiling_points:
+			var at:=_v(point);var query:=PhysicsRayQueryParameters3D.create(cell.to_global(at-Vector3(0,.10,0)),cell.to_global(at+Vector3(0,.05,0)),1,[world.player.get_rid()])
+			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
+			check(not hit.is_empty() and absf(cell.to_local(hit.position).y-3.3)<.00003,"actual retained ceiling supports proposed curtain hanger")
+			if not hit.is_empty():samples.append({"assembly":group.id,"requested":point,"hit":_array(cell.to_local(hit.position)),"normal":_array(hit.normal),"collider":str(hit.collider.get_path())})
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(DirAccess.make_dir_recursive_absolute(directory)==OK,"ceiling discovery output directory is available")
+	var output:=FileAccess.open(directory.path_join("source_fit.json"),FileAccess.WRITE)
+	check(output!=null,"ceiling discovery output can be written")
+	if output==null:world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(1);return
+	output.store_string(JSON.stringify({"evidence_class":"INERT","samples":samples,"checks":checks,"failures":failures,"scope":"Actual retained ceiling samples for an ignored curtain proposal; no construction, route, operation, load capacity or acceptance is established."},"\t"))
+	print("FUNERAL DRAPE CEILING DISCOVERY: checks=",checks," samples=",samples.size()," failures=",failures.size())
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func _array(v: Vector3) -> Array:
+	return [v.x,v.y,v.z]

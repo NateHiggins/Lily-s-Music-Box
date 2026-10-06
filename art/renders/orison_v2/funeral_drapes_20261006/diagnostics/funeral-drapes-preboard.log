@@ -1,0 +1,77 @@
+# Gate board - 8bfa911e51f4
+
+- commit `8bfa911e51f4e08b6b2c16d9b9adb143b3a93bf6`
+- tree `39f8ca4d538a2f1cb45fdd3e658ea25512b560fd`
+- created 2026-10-06T10:30:25Z
+- dirty paths: 23
+
+| gate | severity | exit | seconds | headline |
+|---|---|---:|---:|---|
+| ledger | INCOMPLETE | 2 | 4.25 | blockers 7 / 8 / 127 / 42 / 151 / 153; requirements 240 |
+| spatial | PASS | 0 | 4.61 | no defects counted |
+| systemic | PASS | 0 | 2.52 | drift.new_review 21 |
+| period | PASS | 0 | 0.98 | no defects counted |
+| reader | PASS | 0 | 3.05 | unread 1124; vs frozen baseline: new 0, resolved 184 |
+| carriers | PASS | 0 | 0.62 | ambiguous_dynamic 2 |
+| rulings | PASS | 0 | 30.02 | no defects counted |
+| test:test_astra_packet | PASS | 0 | 2.09 | ran 10, failed 0 |
+| test:test_audio_emitters | PASS | 0 | 3.86 | ran 6, failed 0 |
+| test:test_check_rulings | PASS | 0 | 0.66 | ran 6, failed 0 |
+| test:test_data_consumption | PASS | 0 | 8.22 | ran 26, failed 0 |
+| test:test_gate_board | PASS | 0 | 0.12 | ran 15, failed 0 |
+| test:test_honed_stone_maps | PASS | 0 | 0.48 | ran 4, failed 0 |
+| test:test_interaction_implementors | PASS | 0 | 0.97 | ran 31, failed 0 |
+| test:test_interaction_prompt_carriers | PASS | 0 | 0.94 | ran 28, failed 0 |
+| test:test_lanes | PASS | 0 | 1.03 | ran 6, failed 0 |
+| test:test_lint_design_doc | PASS | 0 | 0.2 | ran 9, failed 0 |
+| test:test_m11c0_floor01_harness_contract | PASS | 0 | 0.12 | ran 5, failed 0 |
+| test:test_m11c1_floor01_source_ownership | PASS | 0 | 2.7 | ran 27, failed 0 |
+| test:test_m11c1_owner_first_export | PASS | 0 | 0.22 | ran 11, failed 0 |
+| test:test_m11c1_runtime_rehearsal | FAIL | 1 | 0.45 | ran 6, failed 1 |
+| test:test_m11c1_scanner_consumer_adapter | PASS | 0 | 0.12 | ran 7, failed 0 |
+| test:test_m11c2_floor01_production_export | PASS | 0 | 0.69 | ran 11, failed 0 |
+| test:test_m11c2_production_harness_contract | PASS | 0 | 0.14 | ran 22, failed 0 |
+| test:test_orison_floor01_source_ownership | PASS | 0 | 0.28 | ran 13, failed 0 |
+| test:test_orison_spatial_dependencies | PASS | 0 | 6.38 | ran 56, failed 0 |
+| test:test_orison_v2_completeness | PASS | 0 | 17.88 | ran 107, failed 0 |
+| test:test_period_dates | PASS | 0 | 0.39 | ran 4, failed 0 |
+| test:test_prop_reference | PASS | 0 | 0.27 | ran 23, failed 0 |
+| test:test_prop_review | PASS | 0 | 0.25 | ran 4, failed 0 |
+| test:test_rehearse_orison_floor01_partition | PASS | 0 | 0.23 | ran 5, failed 0 |
+| test:test_room_checkpoint_linter | PASS | 0 | 2.0 | ran 29, failed 0 |
+| test:test_room_checkpoint_reconciler | PASS | 0 | 0.73 | ran 38, failed 0 |
+| test:test_room_evidence_verifier | PASS | 0 | 10.06 | ran 34, failed 0 |
+| test:test_room_gate_hook | PASS | 0 | 86.45 | ran 24, failed 0 |
+| test:test_room_layout_workbench | PASS | 0 | 17.97 | ran 35, failed 0 |
+| test:test_room_reconstruction_gate | PASS | 0 | 94.34 | ran 26, failed 0 |
+| test:test_room_reconstruction_progress | PASS | 0 | 72.3 | ran 24, failed 0 |
+| test:test_run_receipt | PASS | 0 | 0.94 | ran 9, failed 0 |
+| test:test_runtime_source_projections | PASS | 0 | 0.08 | ran 4, failed 0 |
+| test:test_systemic_situation_authority | PASS | 0 | 4.91 | ran 58, failed 0 |
+| test:test_upper_daylight_contract | PASS | 0 | 0.08 | ran 1, failed 0 |
+| test:test_v2_authoring_projection | PASS | 0 | 1.03 | ran 8, failed 0 |
+| test:test_v2_boiler_inlet_projection | PASS | 0 | 0.22 | ran 3, failed 0 |
+| test:test_v2_completion_projection | PASS | 0 | 0.2 | ran 4, failed 0 |
+| test:test_v2_roof | PASS | 0 | 0.33 | ran 4, failed 0 |
+| test:test_v2_ventilation_fabric_projection | PASS | 0 | 0.23 | ran 3, failed 0 |
+| test:test_verify_candidate | PASS | 0 | 1.98 | ran 19, failed 0 |
+
+## Against 8bfa911e51f4
+
+Verdict: **NO REGRESSIONS**
+
+requirements_changed: []
+
+### Regressions (0)
+
+- none
+
+### Improvements (0)
+
+- none
+
+### Other changes (0)
+
+- none
+
+

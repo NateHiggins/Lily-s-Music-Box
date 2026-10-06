@@ -1,0 +1,1192 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "3aacc6f64310219e3ce9b560022e8982a539f845",
+  "base": "8bfa911e51f4e08b6b2c16d9b9adb143b3a93bf6",
+  "scope": {
+    "source_records": 10,
+    "assemblies": 2,
+    "closed_stocks": 94,
+    "material_partitions": 4,
+    "triangles": 51776,
+    "ceiling_contacts": 20,
+    "removed_original_triangles": 120,
+    "native_views": 11,
+    "production_views": 9,
+    "checks": 186
+  },
+  "review": "Eleven final native and nine exact candidate standing game frames directly reviewed; before and after feet and targets are identical.",
+  "runtime_contract": "Test-written schema-2 resident key-copy, permissions, locked-door denial, save and reconstruction proof in executed scope only.",
+  "limits": [
+    "Original plant blocks obscure several close views; their replacement remains open.",
+    "Native ceiling views are declared metal-only cutaways; actual cloth is retained in other views.",
+    "Clear standing floor/capsule samples establish no continuous route or sightline.",
+    "Contacts establish geometry, not engineering load capacity.",
+    "The original opening is unchanged; no moving curtain, ritual, occupancy or chapel access is inferred.",
+    "First missing-output-directory ceiling probe timed out with a script error; the corrected orderly probe completed with five real ceiling samples.",
+    "First projected cloth end-cap charts stretched twelve triangles by about fifteen percent; orthonormal cap charts resolve the metric error.",
+    "First imported continuous cloth charts had wrong tangent handedness and normal offsets crossed endpoints. Final generator derives both UV directions and constrains actual edge endpoints.",
+    "Early captures, logs and receipts are diagnostics only.",
+    "No whole-room/human acceptance or V2 completion; captures, wrapper receipts and inert reports promote no requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/verification.json",
+      "source_sha256": "aeee8de7fd752aaf604cb3f0781056169da07453ce940e1881d09ebc4f48fb32",
+      "sha256": "aeee8de7fd752aaf604cb3f0781056169da07453ce940e1881d09ebc4f48fb32",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/8bfa911e-clean-board.json",
+      "source_sha256": "59094a31fc66047066d9d9b0e307a97234de3ebf4556ae83d1957088bcd184d4",
+      "sha256": "59094a31fc66047066d9d9b0e307a97234de3ebf4556ae83d1957088bcd184d4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/inspection.json",
+      "source_sha256": "0bff291f46d8e5dd4aca2a8ba04488bf3e5ad9293a8f5c8a0fd78ded88fd6f8c",
+      "sha256": "0bff291f46d8e5dd4aca2a8ba04488bf3e5ad9293a8f5c8a0fd78ded88fd6f8c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/funeral_drapes_construction.json",
+      "source_sha256": "473dc478bdef9bfa0f19c1bfe7279f1dfd7e8695cfca9eddd445b4a0de2b5b4c",
+      "sha256": "473dc478bdef9bfa0f19c1bfe7279f1dfd7e8695cfca9eddd445b4a0de2b5b4c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "4961b648adb20ee5f50fe6920dfc352f3ffc3727c4a9a806929378df8e55196f",
+      "sha256": "4961b648adb20ee5f50fe6920dfc352f3ffc3727c4a9a806929378df8e55196f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/views.json",
+      "source_sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "b380336a2a91ff4d0cfd27d5f172a2b11b235d84cd194fa33aa87f81df5db646",
+      "sha256": "b380336a2a91ff4d0cfd27d5f172a2b11b235d84cd194fa33aa87f81df5db646",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "1c080d30839197427b3920aa6a7963f60b50eae6812167acec48b6a6618cb8ac",
+      "sha256": "1c080d30839197427b3920aa6a7963f60b50eae6812167acec48b6a6618cb8ac",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/spatial_reviewed.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-spatial-reviewed.json",
+      "source_sha256": "d440d141a13631a7b6719413a3eca0b2d87f28d9a5dc6976710b83de1baab079",
+      "sha256": "d440d141a13631a7b6719413a3eca0b2d87f28d9a5dc6976710b83de1baab079",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before_views.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/views.json",
+      "source_sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/fittings.json",
+      "source_sha256": "cc2fcc8f4789b4a1b177bd2201e976e414e83daf34bab90a924cd322538aa656",
+      "sha256": "cc2fcc8f4789b4a1b177bd2201e976e414e83daf34bab90a924cd322538aa656",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_views.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/views.json",
+      "source_sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_native_inspection.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/inspection.json",
+      "source_sha256": "d4bfcb25265c3b002fc200c0cc065f726c5a335a682b536ac85171387b38c4c1",
+      "sha256": "d4bfcb25265c3b002fc200c0cc065f726c5a335a682b536ac85171387b38c4c1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before_cap_uv.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-cap-uv.json",
+      "source_sha256": "4f2c97c620c83d9a964c20702076ccccb3bb9d64bdbfa4c1896413b4aa470e56",
+      "sha256": "4f2c97c620c83d9a964c20702076ccccb3bb9d64bdbfa4c1896413b4aa470e56",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_ceiling_probe.txt",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-probe.gd",
+      "source_sha256": "91b236d2565cbadd7940ad4bdcc524d675b238bf06471c47dd87807b319d1e3b",
+      "sha256": "91b236d2565cbadd7940ad4bdcc524d675b238bf06471c47dd87807b319d1e3b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/corrected_ceiling_probe.txt",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe.gd",
+      "source_sha256": "fb47bd22bd736cde8cf4ebe1cbe3f20868745ee62473ffbd7381c033223a140a",
+      "sha256": "fb47bd22bd736cde8cf4ebe1cbe3f20868745ee62473ffbd7381c033223a140a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/both_runs_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/both_runs_opening.png",
+      "source_sha256": "b5e9f5cca9c820091802cc554ea2272b51c040f0ab990197da7b076166933e60",
+      "sha256": "d764319aca2bc547e0838b54e384d1ceca4e480b9ed790c2d21d5356d3c5f90d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run0_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run0_ceiling_bearing.png",
+      "source_sha256": "a29d8c4e8826fc69b0708fb6cd638d320769a0604e452a8b610b12aef994014f",
+      "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run0_front.png",
+      "source_sha256": "6500ebe0eb877fa3b59c50c21ff01778bc5eef7671045ab3e0476232c8bb54cc",
+      "sha256": "3a34f118d852f1ef806e7671027a9307a551edf24c9ae69c8f899f429bcd6749",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run0_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run0_header.png",
+      "source_sha256": "302275a3221734023a0f7fbdda7356ffa406e32ace0be28bf1a62f0057bb97e6",
+      "sha256": "873418c989f787b7759246210eab5c365656fc60800ce7fd70f3fafbfd05a5e7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run0_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run0_hem.png",
+      "source_sha256": "c4ead5f972a00a008dfed62fa37dc0a0259b7e45fed9d187475ab5a7896f7855",
+      "sha256": "58bd0032acdc1bd8664b190499dadfe43fe7fb9207d368f092783d0402451216",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run0_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run0_rear.png",
+      "source_sha256": "9191a6ccac45fcdd924beb6dcd3c210006b945f8faf0b1636479357527f0f730",
+      "sha256": "30e27e780f2fc18a5e632a231809a96fe87203fb2b25c5cb3f41266451352d3f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run1_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run1_ceiling_bearing.png",
+      "source_sha256": "b2ded6cb87c814caa6d0c1e4ce0722346dc6fd9479e1284cc6938eadeb601d56",
+      "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run1_front.png",
+      "source_sha256": "d8087f454b5c6d83577d669de8918a2cd700560ec1a81d8588a0532e1b18e877",
+      "sha256": "92da4285d20391cd652d6fd33d0b21b7ae35d1a4b2bbd73533afb8987ce35083",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run1_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run1_header.png",
+      "source_sha256": "89a076b2f5c61b8cf959890693d36a18cb0b3e2705c51128652594c725cce467",
+      "sha256": "95a0826cc6e2b75060500964d59b687893e5a9efa4ad8f6519808e7d8bc8df2c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run1_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run1_hem.png",
+      "source_sha256": "d7e0810439ff1bd7d0ad9d2b81b5922600b53d692d8f9c9ddec4c228ad12bd88",
+      "sha256": "dc41dc755d2251b4b4626dfaaba62779b069d8a619eae1b6517b7d2b22429fa3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/run1_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-native/run1_rear.png",
+      "source_sha256": "4371266703e803d74ee9e65ba1c8cf0d01bc77bf765c7e0a63df2c881c2ef85a",
+      "sha256": "fa701769730bec2874c18edc1be83e62de4c4e6596851b4708fac39c2d10e9cf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/curtain_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/curtain_room.png",
+      "source_sha256": "fb7d2c75f616cb606b8150bedf0f9d0b2b548e8440eee98aac5edc95b521d4bb",
+      "sha256": "493d25c109205c4640cb531f7a67b272792b5f2cdedf9e27410dcdba904a9e7f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/gallery_direction.png",
+      "source_sha256": "3488a951f2f3689355ccf2bc81f4d770edf123e0eddbf75cebdf7ff6c7abb59c",
+      "sha256": "8ce5c3ad1f6701ddbe1f1e0dd64701a6b31f93909dc0755526237523102ae44f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/long_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/long_header.png",
+      "source_sha256": "08d7a1c939744e6356403e1ef1ca5152239a53dc0a2ad2816663f9fe69a77638",
+      "sha256": "3724c3b7c25c34237c6298a2ae0f196b8fc01302faba156ba02283cc9c49bfb8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/long_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/long_hem.png",
+      "source_sha256": "99c3fde992b5003473f2f01e4ecf87439c5b3d220ba6278185b4426bd1672daa",
+      "sha256": "302bf871cef38cf4dbd5330de9aa41cebe17e41c88d241a22d14f99587de89d3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/long_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/long_run.png",
+      "source_sha256": "f158c4bba960cc3d72d316246ec255453410e7fe083e99b6ae5cf08d251fbfd0",
+      "sha256": "8f2bb83e10bd5f9cb2b3ca97043cb5c62326065c32907c35f6bae4bfcc7c1931",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/rear_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/rear_opening.png",
+      "source_sha256": "29e798092d5103f0b04f3805c8a5946587812a6561731d489b453b25dbc75c4f",
+      "sha256": "7c3a37ad5c064bc004337e30e2aefa09e47658b31d2df3264b836179fe44069f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/short_ceiling.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/short_ceiling.png",
+      "source_sha256": "a337f550efce093955020731c00582ce46413704e15dfd84599d4044819cca84",
+      "sha256": "95777a3b3221e382794be68c011d4f73f0b283e06e95d6f17f3d6d712e4d70a1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/short_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/short_header.png",
+      "source_sha256": "5348524b980c967f9f34f7ce487a622d732ec86848be53c72b177723875e5839",
+      "sha256": "c2d5963eb471208c3a16f3b78995bd863510991942a9fc8b4af819ce0d3a72a2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/short_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed_shots/short_run.png",
+      "source_sha256": "424ee182c5a7d2a2ccabde336e6482d2c5b0f7e8bed5859c7d2684de4d0e402e",
+      "sha256": "5ea35541fbe255eefc1961d6d903a4828ee76f7fb5a04f2490c7b7efad024839",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "diagnostics/before/curtain_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/curtain_room.png",
+      "source_sha256": "95a6b447017157c56ac5f2ae41140f69cc18d9ff69d084cbe647f64012d3714d",
+      "sha256": "9f3544bbf83c951e72b195336a66f2aa08b928059e8f401960cd643521a6cf26",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/gallery_direction.png",
+      "source_sha256": "781fe7503ac2516cf5ed7ff3a554c67e292c64cc13260666d8c1c2784be15b29",
+      "sha256": "d981fb2947479897f0db28d7aa69df2b15d67ae065a0bd86de2ea48a2d7af5c4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/long_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/long_header.png",
+      "source_sha256": "399b92f5ff80f30c0932dff6c2043e3c64d5d1d1e86697f6061c3677cc0b6984",
+      "sha256": "3105ca743697bb9c6997eca91f66f77e80c8c1f41f97ea4fd9f1a4c4e5f2efe6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/long_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/long_hem.png",
+      "source_sha256": "c3bdddfaf6dc4053be8565cdcbf5b0bc2d1f9933235d243e7dd9401f1bc04b58",
+      "sha256": "e19fc41c55008a0ab27a13d94ca02181a335a2884015d237de11de7ffd2a3a53",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/long_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/long_run.png",
+      "source_sha256": "9845b24bed4ae5290aceee1506ff6d588f72db499a46d0a648c3924bdebbc10f",
+      "sha256": "58f56f12783a7f48b3605ba048a81a9c413eef320db56db026991262076fcb87",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/rear_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/rear_opening.png",
+      "source_sha256": "7b1c81f0d417d331c08b8d59321ecac44b1ef33cec73a65ec0197549e735301a",
+      "sha256": "c61521877401788a727f8729b1aaf2c0a6e649f3fa21acf1cf192a03ef9dc09a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/short_ceiling.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/short_ceiling.png",
+      "source_sha256": "d42581ecbca0f3251f9a939e397cbbb068d9b723f9394be5912c7b4c25396a24",
+      "sha256": "7730cda28749e409a2faa66af709dc493e7b272593d513b9577774ff8e8153c9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/short_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/short_header.png",
+      "source_sha256": "df92256a0ce718ae11d04f0ef63fe76ac1d4f79051070ba0a89bf4557125b9ca",
+      "sha256": "4152bb278610067ff0959350b0606e2ab74e05e9ea6c2469e08b8c78a327b4ac",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/short_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-shots/short_run.png",
+      "source_sha256": "c350398e7ae92f713b70031fb36f9251505ba54d7e335b8d484a2222f6eca0b8",
+      "sha256": "174874324dafd23cdc5110f3fdbc512571ba86b78c28ba724b6fcb954f690a62",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run0_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run0_ceiling_bearing.png",
+      "source_sha256": "18765b884e68c7cf3cf1fd1ee386759e6748662a3a7daffca77780804a1494f4",
+      "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run0_front.png",
+      "source_sha256": "b721410a12f4176a3a009d1b01c192d4c3d3430bd3f5ef7662266906c7e94f7b",
+      "sha256": "775ef65cc1adfc3491b82a57af8432b8a57cc980bfb4ff5f0fde605119900a19",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run0_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run0_header.png",
+      "source_sha256": "addd86bb4cd757d4f8693c8572880166e07afa4e09c5389af63d14f10c078bef",
+      "sha256": "b45a503862f97adf77d90a7fa019e73b29ad11581dec5b6dcd71d5aa45d090f8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run0_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run0_hem.png",
+      "source_sha256": "9b0a2ffa47e86b8381881f13337037f57d25b0ec942bb736ca22e22db86794cf",
+      "sha256": "fb146d8b7d71d28ca2b588b023e96edad6bcda2e40c7d7bd718d06ed9e3c2bc6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run0_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run0_rear.png",
+      "source_sha256": "362cf3226dfab7f2f2c2f9357be46867a2b68ae1e62c440f1357d3aecb1e87be",
+      "sha256": "4e01f45a058a4e131cbea7c59d8605c412fd3db9d938201dff4d72e3980d1d1a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run1_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run1_ceiling_bearing.png",
+      "source_sha256": "295a3005e167f3ece62de69a400c943dfaa78138d81c85fc2429ec4d6115a020",
+      "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run1_front.png",
+      "source_sha256": "4f91029e80afa6a86818d56272d1df606546c8a5e84a8f0c587de8790cff1175",
+      "sha256": "23d3558091ff2d70966ec7b6445c1ed36c39bd399f9a8cbdf899c5aada659023",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run1_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run1_header.png",
+      "source_sha256": "cbd5be9be94765c260628028b2246b642f6410b1f2c59ddbe92db7888af25e17",
+      "sha256": "259ab8c10034ba9d23be8a507a11b4f056ba4bdc005d934c06db7ca47d305f70",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run1_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run1_hem.png",
+      "source_sha256": "97bb4ea9ee0a80d534b8aa207a487b7df3cd8818ab13bafc10d60f824aa167de",
+      "sha256": "7212f8bdf464cc7fc339d7dd304bc46d4e5aeb589120aacee83711e6007aafbd",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/run1_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-native/run1_rear.png",
+      "source_sha256": "299224917ec970dfd34737a2fcaff4f03d1222f83f7bb0f49353cf11aa236723",
+      "sha256": "2057fd9e5407e254fa1121c5b503dd7d3ff837d532265bf7ca23437c7a63b6e6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/both_runs_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/both_runs_opening.png",
+      "source_sha256": "80d548b684899424ab87fbf6bf5b2e820b67acc80cc6345de6598c08c1671465",
+      "sha256": "3e27f5fdb9a47eef1c39b113491eba52b0a509160956097213e79fc3fc5800c2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run0_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run0_ceiling_bearing.png",
+      "source_sha256": "84087c93f3d14fdb699296053f63309d3ac792ba52d417f61eb28bbca1583391",
+      "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run0_front.png",
+      "source_sha256": "9ea3e152e490f267fce43c1dd7259dab93e17fa7e019a5f7eba0c638d11031b7",
+      "sha256": "f8dfd8b1aa914723273fd6288a0917bee94e04a11cda75e27646fba4c1cd2c3a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run0_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run0_header.png",
+      "source_sha256": "e21309ef3486fcab528d9cd01f3902a56cced33e48fcc59a5f8f6b0bba9fc0fe",
+      "sha256": "b45a503862f97adf77d90a7fa019e73b29ad11581dec5b6dcd71d5aa45d090f8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run0_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run0_hem.png",
+      "source_sha256": "f635b9aac550a2d159d53745d548dfe623f6f3a82d12a45e9f65f73dad8e8762",
+      "sha256": "fb146d8b7d71d28ca2b588b023e96edad6bcda2e40c7d7bd718d06ed9e3c2bc6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run0_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run0_rear.png",
+      "source_sha256": "a883a788ad4ddb56b126cdaf4548778fa3215d70730e57400186a019275ab0be",
+      "sha256": "27427183dd8d9b6a1320d7d9c6cb80f2054551cb6993d4056c6029c91fee3114",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run1_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run1_ceiling_bearing.png",
+      "source_sha256": "508756ff08702915e1bcc5d99a5075ead46d876ad88cd2010a9c0e1a82460b54",
+      "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run1_front.png",
+      "source_sha256": "c388c16159c2bc6de7bcfe7ec9e2db16c95f35173622e5ed5a9caac1304203f7",
+      "sha256": "48d46e9239a932009f248df600459756da90d15ac426c72982d31b5aa44ee414",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run1_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run1_header.png",
+      "source_sha256": "1d9ad6659ded37ec1582b2dc218d2e086db369d7fd06f40012e5a042eb47aaa8",
+      "sha256": "259ab8c10034ba9d23be8a507a11b4f056ba4bdc005d934c06db7ca47d305f70",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run1_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run1_hem.png",
+      "source_sha256": "fcb672bd9a381a27408b973be0e085c606ec813b5d42efd2497f6b219e6f6665",
+      "sha256": "7212f8bdf464cc7fc339d7dd304bc46d4e5aeb589120aacee83711e6007aafbd",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/framed_before_caps/run1_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-diagnostic/run1_rear.png",
+      "source_sha256": "25e150d9f213eca113f64c933d41827bd8407e599deb171c5bc6b3963eae1c7c",
+      "sha256": "3436d8ae515bf1554d5b719cb688301d8f9a57d85b96d5b0dfa0274f706d7d26",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/both_runs_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/both_runs_opening.png",
+      "source_sha256": "0d0bfaa17ccd385a3d67cdcd304c1b10e200adfc9492732a7842a838f203a584",
+      "sha256": "97fc67c1356a5d1b5b3e85740c989378a794e44a2eabe9b1bc0208d6248a314d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run0_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run0_ceiling_bearing.png",
+      "source_sha256": "4ecd11ebe59baa7bf9b2ef23f69f85e01228a7c111830560cde291f51f360c77",
+      "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run0_front.png",
+      "source_sha256": "aff8eba9589fccc1c355808cbcfc33cf9c1000301a81d1db496286ef6b772748",
+      "sha256": "fe9ef7e29e978a10646951b6d49474e69604371ceced8fdb9de551c8efd3b189",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run0_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run0_header.png",
+      "source_sha256": "379460083fb23f4c6e64ca19ab7081a6d3d2a94487b073eba1cde958df530162",
+      "sha256": "14c39ff8ac81b5a744dbb7e4ac9077e97f6caf239a0748e6eae90ca1efd0bd13",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run0_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run0_hem.png",
+      "source_sha256": "3502a9e72854518fcea3b75a49faf86d45276afe71030da99463ae164c8b213c",
+      "sha256": "7d961af4cad1a01a53b180098bec0a2c3ad9f45ce1ada77ec880adf989441dcc",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run0_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run0_rear.png",
+      "source_sha256": "b0f93a2414876089f618fec60b6cce26bbd2c1be9c4236f2bb282103cae54375",
+      "sha256": "078e5ead7b3fdabf8d42a18e9acc6fda6ac428e4d076408fb26f05ab0e0e766c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run1_ceiling_bearing.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run1_ceiling_bearing.png",
+      "source_sha256": "081e2c8a7e892e80911bacae79272f99350a552b757559aa142587a402b919b3",
+      "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run1_front.png",
+      "source_sha256": "0970e3d62e3df9e8692ab3534f0d1973f469a1b5227d3c01abceb9748a7f4905",
+      "sha256": "3b73ee9bc7afc0113116494f5ab6462da93f442f4e058a13efdf00c372089688",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run1_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run1_header.png",
+      "source_sha256": "0193489647e06a59fa98b65d7e7671e138fe055c0ed59810a5560f05636e39f1",
+      "sha256": "95a0826cc6e2b75060500964d59b687893e5a9efa4ad8f6519808e7d8bc8df2c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run1_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run1_hem.png",
+      "source_sha256": "46a759cd493323ab735a19a208e942f77a4799a04d0b502b59c2031e0b62b8c6",
+      "sha256": "dc41dc755d2251b4b4626dfaaba62779b069d8a619eae1b6517b7d2b22429fa3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_canonical_native/run1_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-canonical-native/run1_rear.png",
+      "source_sha256": "290e45c8eff3c25cff2f010200d611c1dcf53a17ea1e925fea0b1c07cd7f2933",
+      "sha256": "e9625be21d0bea13373800a1c7fb3789537bb366a10898f204f04f9d03be8d9b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/curtain_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/curtain_room.png",
+      "source_sha256": "4ca1824c915eb5a394d888a5a2ab55c953f5144233f4a5162c23404d71029547",
+      "sha256": "000e4db8cdfeabcc1f899e9be4630bf2b37d2f6ef85e02a0e976329bf778b21f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/gallery_direction.png",
+      "source_sha256": "6ca12e168e90c529a9e779cdfc491980909f18e4077f1b47811483b62aff54ad",
+      "sha256": "fbb8a25165a6365796c9f6aa02dc68a140f1bf9d1637520a5b21f3211c82908d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/long_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/long_header.png",
+      "source_sha256": "8c1fc7a294b5531974bd53ad7d924582be0856220f005291fa2ce9c83b4c1483",
+      "sha256": "bfbe196529dec05de01bbe584d2c9fd519fd7fc2b009dff6bb9527e5b44a415c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/long_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/long_hem.png",
+      "source_sha256": "21f868d025fa8c38ec796c96a7e5829e64a2bb89ea000fde5d429dd485b963a6",
+      "sha256": "9d4ef6e168cc52f930b4d7b9ed2b0a605bf004b46205b9892aead7c9020bfa92",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/long_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/long_run.png",
+      "source_sha256": "0e38ff5c01bf62d4c8c17eb9cd1c5d30510b2f46bd5ee4881d959df1a5143cd2",
+      "sha256": "b88c102d4d4ae142398885855e6f1a89ea08ca5c1799c178c0e5eeb3dd3e9280",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/rear_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/rear_opening.png",
+      "source_sha256": "fdbde76f0583692ceacf989dc15a68aad1eebb97f36a4b11ebe3bc5490db8946",
+      "sha256": "323ea2e6539ee2502909e15bb7761fcf529757efaf5b27d5c4139f845c68cec0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/short_ceiling.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/short_ceiling.png",
+      "source_sha256": "ca3a70b0c3e26d505ca5383d56f66c67bb1769ee1d262ac44df3ffb808ac5576",
+      "sha256": "2788eee1c1912bedcf5a6993b5d544a0ce98a9a11fed7e427ec451d365aad943",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/short_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/short_header.png",
+      "source_sha256": "0ba73a5bf21a87f3ea8054a3e04d7e33250a0162bace47e72585b7019ec3ca07",
+      "sha256": "e28fcc091983edfc3c0251a5c5b26e25edf2b66aa5e9175b5ba1e62482be1845",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/short_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-first-shots/short_run.png",
+      "source_sha256": "d70320d5897865a507d6935f7565d85643f3b38c9aba7155bbdfa9334e0f33e9",
+      "sha256": "b2e2ce3bc2d25beb1a202f60ebcdeb280b491bd7ebe4de13ef95cb9b74631279",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/curtain_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/curtain_room.png",
+      "source_sha256": "2ebe4c5bb24f3f4aa714051a27038cbfb849aa1a434c51c3ba42c7c569597b64",
+      "sha256": "6a2bcc710b112f94b441806864361988053dfcf3bf9484e85d3b14a4423d219d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/gallery_direction.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/gallery_direction.png",
+      "source_sha256": "5745461b58eacfa281865edf0ee28c59f4b56fdc6cc73a8b68cfb348c4c1b1bb",
+      "sha256": "19752427ae1904e56588319885f3fcc49cd4601dbde45a4541e739944680528a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/long_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/long_header.png",
+      "source_sha256": "40ea25ece86768098700fdb36dc0e134a5863f69c281c5fe90a0740285ef2220",
+      "sha256": "33fae8d936ce40e80dcedf443c1953476d997362114e01050d2bd4b01e1fed55",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/long_hem.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/long_hem.png",
+      "source_sha256": "07471a7d3388ff9dd2135702f7d2b0ad474ad4bd207401982bb26a09509f0c27",
+      "sha256": "a58289a7f457fb3e8fa901b8bb6c1e3966b329d5b5855eed729e8d77cdb22658",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/long_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/long_run.png",
+      "source_sha256": "e2efcc34ca369e1fa0313aac1feb7aa7e59226ff3a1ffb1beb122ea5caea1b61",
+      "sha256": "a84c9977501c0a91d818277d2dcdb902f96306497e94907901c5cf34daf40580",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/rear_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/rear_opening.png",
+      "source_sha256": "4e364cf6906a18e117aa9a9ea74a2679d547fdac4e0a1ada7e70effe4aa7a07a",
+      "sha256": "5e11d560e986e0ecb0ebe4a858103783b4e1dec0b1321f4b22ef026b5e5c989b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/short_ceiling.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/short_ceiling.png",
+      "source_sha256": "2089792b2322926b95292284f717d25dba42c8106b578fbe5720aeb5bd1a82a2",
+      "sha256": "5e41dfb82cde5c95b64f6181b362142477b9766ed373064fd29c4025cd4fe706",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/short_header.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/short_header.png",
+      "source_sha256": "8c77ba6a1a2fe83d886140fcff92cc4d34619cbb2622a9f7b84d22aaf703efe3",
+      "sha256": "afd63aadf8ebab0198a2470b04a63dcc04740543038b20364792e5f3488352a9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/corrected_development/short_run.jpg",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-shots/short_run.png",
+      "source_sha256": "ae36b6f3a5ec72c78409ace29dcbdc54f6fcb5522de527e15b842e3c19376a27",
+      "sha256": "bc37c1921de650fad42bbc43f526d2e9b92b5899686d12572047c2cd86783ba5",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/funeral-drapes-before-cap-uv.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-before-cap-uv.log",
+      "source_sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+      "sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-before.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-before.log",
+      "source_sha256": "89008560c44f98bcc43daa48e75b4b66859e7648627cea17969bc2f3aedf7dce",
+      "sha256": "89008560c44f98bcc43daa48e75b4b66859e7648627cea17969bc2f3aedf7dce",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-before.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-before.log.receipt.json",
+      "source_sha256": "1a349d46b4903c308ef8482758008ab1c001b84365f905ae770017517b6ddbc5",
+      "sha256": "1a349d46b4903c308ef8482758008ab1c001b84365f905ae770017517b6ddbc5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-bound-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-bound-build.log",
+      "source_sha256": "6a34ddebc919cacc17f10ad8f84cb7c03d5ce64b7a6e8d27819e15d0abdb83b1",
+      "sha256": "6a34ddebc919cacc17f10ad8f84cb7c03d5ce64b7a6e8d27819e15d0abdb83b1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-canonical-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-canonical-build.log",
+      "source_sha256": "9fc0815244aba2e2d9d1011ee562ee0a7ace7989fff6309691ebb4593af586c3",
+      "sha256": "9fc0815244aba2e2d9d1011ee562ee0a7ace7989fff6309691ebb4593af586c3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-canonical-native.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-canonical-native.log",
+      "source_sha256": "5ff741d8239f2c982469454c670056c2301ec8fae0e8b76fb93b424b08a53d04",
+      "sha256": "5ff741d8239f2c982469454c670056c2301ec8fae0e8b76fb93b424b08a53d04",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-cap-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-cap-build.log",
+      "source_sha256": "0aea24f06faaeeddb5d224fd74700a40aeebcf0a6a6d271c9b030e975e32e79b",
+      "sha256": "0aea24f06faaeeddb5d224fd74700a40aeebcf0a6a6d271c9b030e975e32e79b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-cap-native.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-cap-native.log",
+      "source_sha256": "5f440662d6ed119040a3e5a27d92e3890b97dde3cd2a66e6e3bc04f5c0861c1e",
+      "sha256": "5f440662d6ed119040a3e5a27d92e3890b97dde3cd2a66e6e3bc04f5c0861c1e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-build.log",
+      "source_sha256": "0e08c733c8c32b8d11aeba819a18bcad6055925039b6031870c9bc4a691ab63a",
+      "sha256": "0e08c733c8c32b8d11aeba819a18bcad6055925039b6031870c9bc4a691ab63a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected-import.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-import.log",
+      "source_sha256": "21c5d8e3c97967573078a3a9a16be88db42784c69d8b4c5e4c76d548ecd2b0b6",
+      "sha256": "21c5d8e3c97967573078a3a9a16be88db42784c69d8b4c5e4c76d548ecd2b0b6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected-import.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-import.log.receipt.json",
+      "source_sha256": "2f7142cdf3bc822d6122f4715c0b6f38c25f0b66c792c73f47d132556936f343",
+      "sha256": "2f7142cdf3bc822d6122f4715c0b6f38c25f0b66c792c73f47d132556936f343",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected-native.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected-native.log",
+      "source_sha256": "91b1a1db0b42880eae2f6e4714d6140c2eef835fae72ad28e36e191e7cba546a",
+      "sha256": "91b1a1db0b42880eae2f6e4714d6140c2eef835fae72ad28e36e191e7cba546a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected.log",
+      "source_sha256": "39f6807760fbe6d52b0eb9ea2768da2d19146af4fc32a5538bcdbc0969771333",
+      "sha256": "39f6807760fbe6d52b0eb9ea2768da2d19146af4fc32a5538bcdbc0969771333",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-corrected.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-corrected.log.receipt.json",
+      "source_sha256": "a629d119df7a70a5d371c0656b31957aa4c14ab5386f1db86a23b565570339eb",
+      "sha256": "a629d119df7a70a5d371c0656b31957aa4c14ab5386f1db86a23b565570339eb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-first.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-first.log",
+      "source_sha256": "563c028ae10e95642b1cc20af45875ebd2d63a4f67b5153ec27434f09488ea78",
+      "sha256": "563c028ae10e95642b1cc20af45875ebd2d63a4f67b5153ec27434f09488ea78",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-first.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-first.log.receipt.json",
+      "source_sha256": "6f7547897a2df56aeb31b92526f74cb8616ef9a1693d1cfdc047b45d451ed407",
+      "sha256": "6f7547897a2df56aeb31b92526f74cb8616ef9a1693d1cfdc047b45d451ed407",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-first.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-drapes-first.log.stderr",
+      "source_sha256": "0c8f3d3502b097d5f6c775a6ef95c5e305048235f54e7198e7603491ed1953ff",
+      "sha256": "0c8f3d3502b097d5f6c775a6ef95c5e305048235f54e7198e7603491ed1953ff",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-framed-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-build.log",
+      "source_sha256": "4a032843771920bffd5277d9a0d8c3287ab281e17bd5f71a5bcba9fee416a189",
+      "sha256": "4a032843771920bffd5277d9a0d8c3287ab281e17bd5f71a5bcba9fee416a189",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-framed-native.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-framed-native.log",
+      "source_sha256": "71dcd71c0249e8e4d3bc195f1b0d4e8387e462ec8f639d43de4057999ed08994",
+      "sha256": "71dcd71c0249e8e4d3bc195f1b0d4e8387e462ec8f639d43de4057999ed08994",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-import1.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-import1.log",
+      "source_sha256": "911661594054267b77d7c5cf34bc2b2e609cdca9acca5ffb8f02738a8d47321a",
+      "sha256": "911661594054267b77d7c5cf34bc2b2e609cdca9acca5ffb8f02738a8d47321a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-import1.log.receipt.json",
+      "source_sha256": "8762ad66d0f6f659314fea77a73020100e6f3a31cbba5cc719db1c22188e9ae1",
+      "sha256": "8762ad66d0f6f659314fea77a73020100e6f3a31cbba5cc719db1c22188e9ae1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-import1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-drapes-import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-import2.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-import2.log.receipt.json",
+      "source_sha256": "3c29a36aa181818d4f2083d2c37a6494c87117dfeb74c9e10a874d075ec0e0ac",
+      "sha256": "3c29a36aa181818d4f2083d2c37a6494c87117dfeb74c9e10a874d075ec0e0ac",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-metric-bound-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-metric-bound-build.log",
+      "source_sha256": "bd54e46c49dddb2a132560230e17359cafe1a97d14d75eade035fa7cd5023eb9",
+      "sha256": "bd54e46c49dddb2a132560230e17359cafe1a97d14d75eade035fa7cd5023eb9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-preboard.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-preboard.log",
+      "source_sha256": "ea50878731f49ef513cd32b9436b5bc90156c988ea2ce0ee17407b1dbcb7b5b8",
+      "sha256": "ea50878731f49ef513cd32b9436b5bc90156c988ea2ce0ee17407b1dbcb7b5b8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-probe-corrected.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe-corrected.log",
+      "source_sha256": "ebdfd6ae2942f904f3e6f0045bd8ec42b2351d07c28a16c337a173ca1a7cf078",
+      "sha256": "ebdfd6ae2942f904f3e6f0045bd8ec42b2351d07c28a16c337a173ca1a7cf078",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-probe-corrected.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe-corrected.log.receipt.json",
+      "source_sha256": "2d307dd2b32535e40819d06a92a3769e415a0abb198d557499890aa3fbf66bc9",
+      "sha256": "2d307dd2b32535e40819d06a92a3769e415a0abb198d557499890aa3fbf66bc9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-probe.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe.log",
+      "source_sha256": "cd38d175433ead8642a3b6e1e3fd96a5fc255f1cd620b96007021e9c290a5209",
+      "sha256": "cd38d175433ead8642a3b6e1e3fd96a5fc255f1cd620b96007021e9c290a5209",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-probe.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe.log.receipt.json",
+      "source_sha256": "a00ef130d27311ab2b05f28d82bebe098cbcbbf9b825fe51eadb4197fa282282",
+      "sha256": "a00ef130d27311ab2b05f28d82bebe098cbcbbf9b825fe51eadb4197fa282282",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-probe.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-drapes-probe.log.stderr",
+      "source_sha256": "c6aef2082cd371a4a37857769eebfa45c468ba57fa32659dd118e20e695bcb0e",
+      "sha256": "c6aef2082cd371a4a37857769eebfa45c468ba57fa32659dd118e20e695bcb0e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-stage-build.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-stage-build.log",
+      "source_sha256": "bbe882b73ed6a52357a1c20fa75012b5535a2a02151db79cf80e3e29aada4d87",
+      "sha256": "bbe882b73ed6a52357a1c20fa75012b5535a2a02151db79cf80e3e29aada4d87",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-stage-native.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-stage-native.log",
+      "source_sha256": "20bc00b3c655835fda6fa513b4d41b6cbe6ca6ce6751e18247aaea8f54527d5a",
+      "sha256": "20bc00b3c655835fda6fa513b4d41b6cbe6ca6ce6751e18247aaea8f54527d5a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-uv-diagnostic.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-uv-diagnostic.log",
+      "source_sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+      "sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-drapes-verifier.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-verifier.log",
+      "source_sha256": "f24aec8bc995333d657ba7ffc1370da869d53e534693d3adaabeabd99f16880a",
+      "sha256": "f24aec8bc995333d657ba7ffc1370da869d53e534693d3adaabeabd99f16880a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "26ebec536c2e3fad77f606c784ea16b031c53618dc1344725cca4f10c309f2a8",
+      "sha256": "26ebec536c2e3fad77f606c784ea16b031c53618dc1344725cca4f10c309f2a8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "c7088f2d7c64ec7a51dbde1f2491310910fcc4119a904e43575180f0a45c4a8f",
+      "sha256": "c7088f2d7c64ec7a51dbde1f2491310910fcc4119a904e43575180f0a45c4a8f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+      "source_sha256": "04c8c79d1d33047c024aaecf9e91126fc683eeea1ddeb759170020c464e75a9a",
+      "sha256": "04c8c79d1d33047c024aaecf9e91126fc683eeea1ddeb759170020c464e75a9a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "70aeb4d9582d19570e1e7e0a1f49234b0450880c028cbd42303577afaefffd8a",
+      "sha256": "70aeb4d9582d19570e1e7e0a1f49234b0450880c028cbd42303577afaefffd8a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source_sha256": "86a4e55d188a21e066284ec018e4d3a36a48da1cf68eda620400db841478a7ba",
+      "sha256": "86a4e55d188a21e066284ec018e4d3a36a48da1cf68eda620400db841478a7ba",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "991899da794af124f41f28061f9121da6fd0d4c902fda1667953a4ab8418ccda",
+      "sha256": "991899da794af124f41f28061f9121da6fd0d4c902fda1667953a4ab8418ccda",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source_sha256": "2edd128a2249f4a574939c620f0520aef8bc7b4515b21220a1ba6e04a8a3b876",
+      "sha256": "2edd128a2249f4a574939c620f0520aef8bc7b4515b21220a1ba6e04a8a3b876",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "3d9ed3060106951f3a3cd78a8ee366594a8aa2c03bee6c91bc489bf0c47a723f",
+      "sha256": "3d9ed3060106951f3a3cd78a8ee366594a8aa2c03bee6c91bc489bf0c47a723f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "4995cd8a08331001d55e734dfab30dcfebdb3441c6cabe45e62f1a40546b5070",
+      "sha256": "4995cd8a08331001d55e734dfab30dcfebdb3441c6cabe45e62f1a40546b5070",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ac1557ffac23a5936d957e350e76a5c2cefe0c184b846581414305563ef8e8ee",
+      "sha256": "ac1557ffac23a5936d957e350e76a5c2cefe0c184b846581414305563ef8e8ee",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "21a213dc0b7fa595e0da5175f462bdba20abad95c37e9c717edf96e34fecf168",
+      "sha256": "21a213dc0b7fa595e0da5175f462bdba20abad95c37e9c717edf96e34fecf168",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "25bf7e5d8e6d1d9222d6ea0c961c3798a011a4f7fb35ed7f15947c75ae7434bf",
+      "sha256": "25bf7e5d8e6d1d9222d6ea0c961c3798a011a4f7fb35ed7f15947c75ae7434bf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a440713e03e77a01ecfd199d0e63f01bcbbdfc2871f6c50cbe0c34bb1b131281",
+      "sha256": "a440713e03e77a01ecfd199d0e63f01bcbbdfc2871f6c50cbe0c34bb1b131281",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "adf0ddaddf43b5f39a73447e139c0e3796863d6204d49d977f1332590814ab96",
+      "sha256": "adf0ddaddf43b5f39a73447e139c0e3796863d6204d49d977f1332590814ab96",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "1aeebebea2701d27e861136ce392ab53f688ab6e925325eba3796c1954bdb9b3",
+      "sha256": "1aeebebea2701d27e861136ce392ab53f688ab6e925325eba3796c1954bdb9b3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "f55d8b3189e2ff30d0b9131bfbd2fda9bfa3fc88392e137412cf59f5ad163a50",
+      "sha256": "f55d8b3189e2ff30d0b9131bfbd2fda9bfa3fc88392e137412cf59f5ad163a50",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-drapes-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "21f660a9868976ba376ffc2bfb34f914bdc1e4f8e397349101b82e5692c72667",
+      "sha256": "21f660a9868976ba376ffc2bfb34f914bdc1e4f8e397349101b82e5692c72667",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/funeral-drapes-ledger-refresh.log",
+      "source_sha256": "e2f9f1b412844383c39132be085c7289446892880b2a0f5c3197389f6034ab8c",
+      "sha256": "e2f9f1b412844383c39132be085c7289446892880b2a0f5c3197389f6034ab8c",
+      "copy": "byte-identical"
+    }
+  ]
+}

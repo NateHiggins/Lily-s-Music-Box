@@ -10088,6 +10088,12 @@
     ]
    },
    {
+    "file": "art/renders/orison_v2/funeral_fittings_20261006/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/hardware_apparatus_20261005/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10182,7 +10188,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "02853e15b5a4b1f30859fb5a920a4b9d5513bf169cd57fee0edc7080884d1d6f",
+  "tools/orison_spatial_dependency_manifest.json": "2da62052128909f257ea01bdb1b09996c06254beecdfae6e1ae8e46476e38500",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
@@ -10234,6 +10240,7 @@
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",
   "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/funeral_drapes_20261006/runtime_authority_receipt.json": "b380336a2a91ff4d0cfd27d5f172a2b11b235d84cd194fa33aa87f81df5db646",
   "art/renders/orison_v2/funeral_fittings_20261006/runtime_authority_receipt.json": "3ad82f3b01095eeccc6b9e7303cc1a67037746f3f524a473b405475e38c5aa3e",
   "art/renders/orison_v2/hardware_apparatus_20261005/runtime_authority_receipt.json": "9f2132f0d7d2ff46d0ca8998ca0ce135a2c2559e18e877bd2f6818302be4d6d5",
   "art/renders/orison_v2/hardware_drawers_20261005/runtime_authority_receipt.json": "8efc20ee5e2a01b44f1e16ddee0a8857bcd6498a0a0107be1b52c588286c19dd",

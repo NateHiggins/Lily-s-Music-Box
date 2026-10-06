@@ -1,0 +1,52 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Independent native triangle Jacobian metric; no asset is modified.",
+  "parts": [
+    {
+      "part": "storm_shop_funeral_parlour_drape0__curtain_cloth",
+      "triangles": 2976,
+      "minimum_metres_per_uv": 0.9996635856623318,
+      "maximum_metres_per_uv": 1.1492346391523764,
+      "outside_one_percent": 6,
+      "first_bad_faces": [
+        802,
+        803,
+        1606,
+        1607,
+        2410,
+        2411
+      ]
+    },
+    {
+      "part": "storm_shop_funeral_parlour_drape0__curtain_iron",
+      "triangles": 7340,
+      "minimum_metres_per_uv": 0.9999139870622785,
+      "maximum_metres_per_uv": 1.0000754025717045,
+      "outside_one_percent": 0,
+      "first_bad_faces": []
+    },
+    {
+      "part": "storm_shop_funeral_parlour_drape6__curtain_cloth",
+      "triangles": 14448,
+      "minimum_metres_per_uv": 0.9996493419869709,
+      "maximum_metres_per_uv": 1.1492346391523764,
+      "outside_one_percent": 6,
+      "first_bad_faces": [
+        3874,
+        3875,
+        7750,
+        7751,
+        11626,
+        11627
+      ]
+    },
+    {
+      "part": "storm_shop_funeral_parlour_drape6__curtain_iron",
+      "triangles": 27012,
+      "minimum_metres_per_uv": 0.9999205526757798,
+      "maximum_metres_per_uv": 1.000068971806301,
+      "outside_one_percent": 0,
+      "first_bad_faces": []
+    }
+  ]
+}
