@@ -1,0 +1,39 @@
+{
+ "evidence_class": "INERT",
+ "source": "tmp/v2-finish-review/radio-battery-counter-spatial-live.json",
+ "source_sha256": "ab66da87a5dec61a59e8be1b2935f9ed8017b994f346aae44089a58fc23923dd",
+ "source_bytes": 7111,
+ "scope": "One reviewed existing counter datum test reference for the ordinary player turn around the ledger. Prior records unchanged.",
+ "records": [
+  {
+   "key": "5c051f6db94b5a42",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_counter_top",
+   "file": "game/tests/orison_v2_radio_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_visit_shop"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "var counter: Dictionary=source_rows.filter(func(row):return row.id==\"storm_shop_radio_service_counter_top\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  }
+ ]
+}

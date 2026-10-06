@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 48.72,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T14:14:46Z",
+  "started_utc": "2026-10-06T14:13:57Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before-second.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before-second.log",
+  "stdout_sha256": "86a6e3466704835cfca94fdd798538d0a3830217d83e6876699a287fb8e159b0"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/RadioBatteryClearanceBefore.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before-shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "b844f9b2430606d2588aa6bca283d8989602a7b0",
+  "repository_tree": "0f2a7fdebac42f7e14f4dcd9a7207a9f6825baa7",
+  "runtime_inputs_sha256": "7d68b93520add9717093df00286e96d280ef867c70defcdd589c7d7f9f7910ec",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

@@ -1,0 +1,259 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 1148 surfaces layered (401 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=29800.020
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+[HARUKIYA] OPEN, 18 fixtures
+CONNECTED EXTERIOR CHECK: complete retained arcade roster = true
+[SURFACE] 33 surfaces layered (20 materials)
+[SURFACE] 173 surfaces layered (52 materials)
+[SURFACE] 231 surfaces layered (76 materials)
+[SURFACE] 273 surfaces layered (100 materials)
+[SURFACE] 467 surfaces layered (136 materials)
+[SURFACE] 507 surfaces layered (159 materials)
+[SURFACE] 621 surfaces layered (214 materials)
+[SURFACE] 651 surfaces layered (242 materials)
+[SURFACE] 681 surfaces layered (270 materials)
+[SURFACE] 731 surfaces layered (296 materials)
+[SURFACE] 1027 surfaces layered (344 materials)
+[SURFACE] 1072 surfaces layered (373 materials)
+CONNECTED EXTERIOR CHECK: source shop distribution east = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches parked_close_SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: usable source entry SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: inside closure SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: ordinary key input locks SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: ordinary key input unlocks SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: existing campaign reaches closed hours = true
+[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn
+CONNECTED EXTERIOR CHECK: authored night grilles are active = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_MODEL_LAUNDRY at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_SHOE_REBUILDING at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_KEYS_CUT at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_HARDWARE_PAINT at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_FUNERAL_PARLOUR at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PHOTO_SUPPLIES at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_RADIO_SERVICE at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_PAWNBROKER at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_NEWS_CIGARS at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_OTIS___SON at 168.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 0.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 10.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 20.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 30.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 40.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 50.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 60.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 70.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 80.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 90.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 100.0 = true
+CONNECTED EXTERIOR CHECK: grilles clear moving leaf SITE_SHOP_DOOR_LUNCHEONETTE at 168.0 = true
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_PAWNBROKER = true
+[HARUKIYA] AFTER_HOURS, 18 fixtures
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: actual closed grille contact SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: continuous return releases arcade geometry = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_PHOTO_SUPPLIES = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_RADIO_SERVICE = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_PAWNBROKER = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_NEWS_CIGARS = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_OTIS___SON = true
+CONNECTED EXTERIOR CHECK: operated leaf survives geometry retirement SITE_SHOP_DOOR_LUNCHEONETTE = true
+CONNECTED EXTERIOR CHECK: shared shop simulation remains valid = true
+V2 RADIO ACCESS: 91 waypoints; 0 failures

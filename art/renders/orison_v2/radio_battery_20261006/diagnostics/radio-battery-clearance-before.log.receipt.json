@@ -1,0 +1,44 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.11,
+  "exit_code": null,
+  "finished_utc": "2026-10-06T14:13:40Z",
+  "started_utc": "2026-10-06T14:10:40Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: The member \"RADIO_BATTERY_VIEWS\" already exists in parent class res://tests/orison_v2_radio_battery_test.gd.",
+   "ERROR: Failed to load script \"C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before.log.stderr",
+  "stderr_sha256": "de80c66e295c39fd55b2006f655fe384e8c336a608105d56cac677a7924120a5",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/RadioBatteryClearanceBefore.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-clearance-before-shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "b844f9b2430606d2588aa6bca283d8989602a7b0",
+  "repository_tree": "0f2a7fdebac42f7e14f4dcd9a7207a9f6825baa7",
+  "runtime_inputs_sha256": "7d68b93520add9717093df00286e96d280ef867c70defcdd589c7d7f9f7910ec",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

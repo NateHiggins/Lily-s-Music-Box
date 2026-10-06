@@ -59,3 +59,16 @@ The cabinet, accepted bench/apparatus/valve rack, walls, doors, speakers, aerial
 stock, counter, services, keys, saves and carrier retain their owners. Other
 coarse forms, utility/route checks, engineering capacity, human acceptance,
 whole-shop acceptance and V2 completion remain open.
+
+Verified production and neighboring checks, source-derived cabinet correction
+and retained final/diagnostic views are recorded in
+**design/V2_RADIO_BATTERY_2026-10-06.md**. That inert report grants no
+requirement promotion or human acceptance.
+
+Streaming reconstruction mounts the same seven funeral/radio adapters as
+startup. The shared retirement scan skips previously fitted meshes carrying
+their native material owner, avoiding repeated scans of unrelated native
+geometry. Two observed reconstruction cycles retain all seven actual models,
+retired source boundaries and identical visible/physical faces within the
+existing five-second readiness bound. Earlier generic residency checks did
+not establish that these seven models survived reload.

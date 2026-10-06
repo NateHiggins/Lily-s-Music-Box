@@ -1,0 +1,14 @@
+ERROR: fitted stock derives its X placement from the authored counter while retaining heights, relative stations and every non-placement field: storm_shop_radio_service_wet_cell0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_battery_details (res://tests/orison_v2_radio_battery_test.gd:116)
+       [3] _run (res://tests/orison_v2_radio_battery_test.gd:84)
+ERROR: fitted stock derives its X placement from the authored counter while retaining heights, relative stations and every non-placement field: storm_shop_radio_service_cell_cap3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_battery_details (res://tests/orison_v2_radio_battery_test.gd:116)
+       [3] _run (res://tests/orison_v2_radio_battery_test.gd:84)

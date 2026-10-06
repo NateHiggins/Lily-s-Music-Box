@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.07,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T13:46:42Z",
+  "started_utc": "2026-10-06T13:45:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-first.log.stderr",
+  "stderr_sha256": "66183b1aa8e4cca3724fd23186992b2caae659106724bb190a9d227ca11d7d77",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-first.log",
+  "stdout_sha256": "fb7a07e61fa0efeaa6bc1ff6457a31565da41c549d9c5caeaeef4794b2735f41"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioBatteryTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-battery-first-shots",
+ "source": {
+  "dirty_paths": 286,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/radio_apparatus.md",
+   " M art/blender/radio_bench.md",
+   " M art/blender/radio_stock.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_radio_apparatus_test.gd",
+   " M game/tests/orison_v2_radio_bench_test.gd",
+   " M game/tests/orison_v2_radio_stock_test.gd",
+   "?? art/blender/radio_battery.blend",
+   "?? art/blender/radio_battery.md",
+   "?? art/blender/radio_battery_construction.json",
+   "?? art/blender/scripts/build_radio_battery.py",
+   "?? art/blender/scripts/inspect_radio_battery.py",
+   "?? art/data/radio_battery/",
+   "?? game/assets/props/radio_battery.glb",
+   "?? game/data/orison_v2/radio_battery.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid"
+  ],
+  "repository_head": "dd516d7875645ad11d7561b50814221e85ba8c77",
+  "repository_tree": "e5cef0bbb6f4842fd3d9d40bc62ec59a9c81c834",
+  "runtime_inputs_sha256": "7d68b93520add9717093df00286e96d280ef867c70defcdd589c7d7f9f7910ec",
+  "test_path": "game/tests/orison_v2_radio_battery_test.gd",
+  "test_sha256": "7cfaa4e3a64f769b6ebfa4a50a5361711f1c66ad7d533a94612b3b6ef2435a08"
+ },
+ "windowed": true
+}
