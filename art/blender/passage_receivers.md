@@ -10,9 +10,13 @@ cells, preserving original catalogue order. The bar's existing installation
 and the authoritative catalogue, programme packages, controls and phosphor
 shader are retained.
 
-Graph binding runs after both passage and bar have registered their world
-frames. Resolving during passage setup selected a stale mouth for the laundry
-cabinet; the production test checks each final nearest binding.
+Passage marker mouths register at their actual fixture poses, retaining every
+non-placement field. Receiver binding then runs after both passage and bar
+have registered their world frames. The first transfer selected nearby mouths
+while passage mouths still occupied original coordinates. The corrected test
+uses each shop's independent semantic-owner roster and actual fixture poses,
+and requires the receiver to answer to its own shop. Teardown restores every
+original acoustic record exactly.
 
 Dormancy releases inactive receiving worlds before disabling their actor
 parent. It retains cabinet identity, card, variant, pose, graph binding and

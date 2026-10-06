@@ -6,6 +6,7 @@ var owned_nodes: Array[WeakRef] = []
 var owned_resources: Array[WeakRef] = []
 var owned_playbacks: Array[WeakRef] = []
 var exercised := false
+var original_graph: Dictionary = {}
 
 func check(ok: bool, label: String) -> void:
 	receiver_checks.append({"label":label,"ok":ok})
@@ -13,11 +14,13 @@ func check(ok: bool, label: String) -> void:
 
 func _run() -> void:
 	var started := Time.get_ticks_msec()
+	original_graph=AcousticGraphData.nodes.duplicate(true)
 	await super._run()
 	var nodes := _retained(owned_nodes)
 	var resources := _retained(owned_resources)
 	var playbacks := _retained(owned_playbacks)
 	check(nodes==0 and resources==0 and playbacks==0,"teardown releases receiving owners, board worlds, owned screen/interaction resources and captured audio playbacks")
+	check(AcousticGraphData.nodes==original_graph,"world teardown restores every original acoustic record without moving shared mouths twice")
 	_write_receiving_contract(started,nodes,resources,playbacks)
 	get_tree().quit(0 if failures.is_empty() else 1)
 
@@ -27,6 +30,7 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 	var catalog := ArcadeCatalog.load_catalog()
 	var order := catalog.spread()
 	var expected := {}
+	var registry: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/floor_01_cell_registry.json"))
 	var source_order := 0
 	for floor: Dictionary in passage.source_layout.floors:
 		for record: Dictionary in floor.get("furniture",[]):
@@ -53,8 +57,22 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 			and prop.position.is_equal_approx(GameBoot.b2g([float(at[0]),float(at[1]),spec.floor_z+float(record.get("z0",0.))]))
 			and is_equal_approx(prop.rotation.y,deg_to_rad(float(record.get("yaw",0)))+PI),
 			"original variant, chassis datum and yaw are retained: "+identity)
-		check(not prop.graph_node_id.is_empty() and prop.graph_node_id==row._nearest_graph_node(prop.global_position),
-			"receiver binds the nearest graph mouth in the registered world frame: "+identity)
+		var source_cell: Dictionary=registry.cells.filter(func(cell):return str(cell.resource_path).get_file()==str(record.batch)+".gltf")[0]
+		var nearest := "";var nearest_distance := 14.
+		for marker_id: String in source_cell.semantic_owners:
+			var marker_owner := passage._actors.get_node_or_null(marker_id) as FunctionalProp
+			if marker_owner==null or not original_graph.has(marker_id):continue
+			check(AcousticGraphData.node_pos(marker_id).is_equal_approx(marker_owner.global_position),
+				"authored shop graph mouth occupies its actual registered fixture: "+marker_id)
+			var original_record: Dictionary=original_graph[marker_id].duplicate(true)
+			var registered_record: Dictionary=AcousticGraphData.nodes[marker_id].duplicate(true)
+			original_record.erase("pos");registered_record.erase("pos")
+			check(registered_record==original_record,
+				"registered mouth retains original connections, delays, network and every non-placement field: "+marker_id)
+			var distance := marker_owner.global_position.distance_to(prop.global_position)
+			if distance<nearest_distance:nearest=marker_id;nearest_distance=distance
+		check(not nearest.is_empty() and prop.graph_node_id==nearest,
+			"receiver answers to its own authored shop's nearest actual fixture: "+identity)
 		var areas := prop.find_children("PrimaryInteraction","Area3D",true,false)
 		check(areas.size()==1 and areas[0].collision_layer==1 and areas[0].collision_mask==0,
 			"ordinary interaction has one nonblocking physics area: "+identity)
@@ -168,7 +186,7 @@ func _write_receiving_contract(started: int, nodes: int, resources: int, playbac
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":hash.finish().hex_encode(),
 			"repository_head":str(head_output[0]).strip_edges() if not head_output.is_empty() else "",
 			"runtime_inputs_sha256":str(digest_output[0]).strip_edges() if not digest_output.is_empty() else ""},
-		"contracts":{"production_composition":{"executed":exercised,"status":status},
+		"contracts":{"production_composition":{"executed":exercised,"status":status,"identities":["storm_shopcab_model_laundry0","storm_shopcab_photo_supplies0","storm_shopcab_radio_service0","storm_shopcab_pawnbroker0","storm_shopcab_news_cigars0","storm_shopcab_luncheonette0","storm_shopcab_luncheonette1"]},
 			"premature_action_denial":{"executed":exercised,"status":status,"scope":"Duplicate mounting and focused-parent retirement"},
 			"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},
 			"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":nodes,

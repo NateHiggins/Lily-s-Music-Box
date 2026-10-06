@@ -59,6 +59,7 @@ var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
 var receiving_row: Receivers
+var _acoustic_originals: Dictionary = {}
 
 static func cell_path(identity: String) -> String:
 	if identity == "passage":
@@ -283,6 +284,13 @@ func _mount_markers() -> void:
 			prop.name = identity
 			prop.position = GameBoot.b2g(marker.pos)
 			prop.rotation.y = deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
+			if prop is FunctionalProp and AcousticGraphData.nodes.has(identity):
+				prop.graph_node_id = identity
+				_acoustic_originals[identity] = AcousticGraphData.nodes[identity].duplicate(true)
+				var graph_record: Dictionary = AcousticGraphData.nodes[identity].duplicate(true)
+				var mouth := to_global(prop.position)
+				graph_record.pos = [mouth.x, -mouth.z, mouth.y]
+				AcousticGraphData.nodes[identity] = graph_record
 			_actors.add_child(prop)
 
 func _mount_counters() -> void:
@@ -337,6 +345,9 @@ func _mount_key_counter() -> bool:
 func shutdown() -> void:
 	if is_instance_valid(receiving_row):
 		receiving_row.shutdown()
+	for identity: String in _acoustic_originals:
+		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]
+	_acoustic_originals.clear()
 	if is_instance_valid(residency):
 		residency.shutdown()
 	if is_instance_valid(shop_service):
