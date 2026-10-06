@@ -1,0 +1,9 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _retail_detail_views (C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-probe.gd:24)
+   GDScript backtrace (most recent call first):
+       [0] _retail_detail_views (C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-probe.gd:24)
+       [1] _run (res://tests/orison_v2_radio_battery_test.gd:85)
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _run (res://tests/orison_v2_radio_battery_test.gd:87)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/orison_v2_radio_battery_test.gd:87)

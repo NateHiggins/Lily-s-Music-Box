@@ -1,0 +1,101 @@
+{
+ "evidence_class": "INERT",
+ "source": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\radio-receiving-spatial-full.json",
+ "source_sha256": "8822e9b401506e0e2c3158bcef6849fcf10121cade3bc84b0712ee50a4b63cef",
+ "scope": "Three individually inspected original source identity/floor/native-name dependencies. No new coordinate authority, manifest reset or requirement promotion.",
+ "records": [
+  {
+   "key": "22c58c6f54f1f44b",
+   "kind": "id_reference",
+   "token": "storm_shopcab_radio_service0",
+   "file": "game/data/orison_v2/radio_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_record/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8ac8488ed5b66c12",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_radio_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4501187225fbb6a2",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_radio_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    74
+   ],
+   "count": 1,
+   "context": [
+    "\"radio_receiving_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  }
+ ],
+ "decisions": {
+  "22c58c6f54f1f44b": "Exact original receiving assembler identity. The production adapter requires its entire immutable layout record and validates separately named complete imported owners; preserve this foreign key or explicitly regenerate its owner.",
+  "8ac8488ed5b66c12": "Original F01 source roster owns the passage chassis. The adapter validates batch, PASSAGE zone, exterior classification and source-derived hull placement before any retirement.",
+  "4501187225fbb6a2": "Native draw names retain a radio_receiving prefix while the radio_receiving_part metadata keeps each exact exported source name. Residency reconstructs the model and imported checks bind every physical draw. Regenerate this naming consumer with its model, never treat it as a room/fixture anchor."
+ }
+}

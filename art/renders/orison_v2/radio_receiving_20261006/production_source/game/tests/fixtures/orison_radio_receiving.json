@@ -1,0 +1,3277 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shopcab_radio_service0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -57.199999999999996
+      ],
+      "yaw": 270.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    }
+  ],
+  "original_primitives": [
+    {
+      "kind": "box",
+      "args": [
+        "chrome",
+        -0.33,
+        -0.36,
+        0.02,
+        0.33,
+        0.36,
+        1.72
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        -0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        -0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite",
+        0.27,
+        0.3,
+        0.0,
+        0.03,
+        0.025,
+        0.025,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.31,
+        -0.49,
+        0.88,
+        0.31,
+        -0.33999999999999997,
+        0.97
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "terracotta",
+        -0.17,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        -0.05000000000000002,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "enamel",
+        0.06999999999999998,
+        -0.425,
+        0.97,
+        0.985,
+        0.016,
+        0.016,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        -0.2,
+        -0.44999999999999996,
+        0.97,
+        1.05,
+        0.008,
+        0.008,
+        6
+      ],
+      "triangles": 24
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        -0.30000000000000004,
+        -0.38,
+        0.98,
+        0.30000000000000004,
+        -0.3,
+        1.42
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "screen",
+        -0.27,
+        -0.365,
+        1.02,
+        0.27,
+        -0.355,
+        1.38
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "milk_glass",
+        -0.31,
+        -0.39,
+        1.56,
+        0.31,
+        -0.31,
+        1.7
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "brass",
+        -0.09,
+        -0.372,
+        0.38,
+        0.09,
+        -0.36,
+        0.55
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "cyl",
+      "args": [
+        "bakelite_black",
+        0.0,
+        -0.38,
+        0.44,
+        0.455,
+        0.012,
+        0.012,
+        8
+      ],
+      "triangles": 32
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.3,
+        0.335,
+        0.24,
+        0.315
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.35,
+        0.335,
+        0.24,
+        0.365
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.4,
+        0.335,
+        0.24,
+        0.41500000000000004
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "box",
+      "args": [
+        "bakelite_black",
+        0.325,
+        0.06,
+        0.45,
+        0.335,
+        0.24,
+        0.465
+      ],
+      "triangles": 12
+    },
+    {
+      "kind": "hull",
+      "args": [
+        -0.39,
+        -0.5,
+        0.0,
+        0.39,
+        0.36,
+        1.72
+      ],
+      "triangles": 12
+    }
+  ],
+  "original_assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566",
+  "assemblies": [
+    {
+      "id": "storm_shopcab_radio_service0",
+      "kind": "period_receiving_chassis",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shopcab_radio_service0_FloorFoot0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0001468419252429876
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FloorFoot1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298754
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FloorFoot2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298757
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FloorFoot3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00014684192524298754
+    },
+    {
+      "name": "storm_shopcab_radio_service0_Bottom",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.014233549036962802
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CellTray",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.01662780929225251
+    },
+    {
+      "name": "storm_shopcab_radio_service0_LeftWall",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.03294019827520344
+    },
+    {
+      "name": "storm_shopcab_radio_service0_RearWall",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.02836309828644658
+    },
+    {
+      "name": "storm_shopcab_radio_service0_Crown",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.016609468984273446
+    },
+    {
+      "name": "storm_shopcab_radio_service0_RightFrameLower",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0008032615849017771
+    },
+    {
+      "name": "storm_shopcab_radio_service0_RightFrameUpper",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.01702884134897561
+    },
+    {
+      "name": "storm_shopcab_radio_service0_RightFrameFront",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0024757616122334496
+    },
+    {
+      "name": "storm_shopcab_radio_service0_RightFrameRear",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.002475761599765415
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ServiceDoor",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.008673013567839909
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ServiceHinge0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726656880627e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_HingeLeaf0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 1.670970270409491e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ServiceHinge1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 1.118726656880627e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_HingeLeaf1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 1.6709701989757517e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ServiceLatch",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 4.532330059736427e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_InsideSchematic",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "paper",
+      "volume_m3": 0.0003076776762027011
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramRail0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 2.3759759307614486e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramRail1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 2.3759759307614486e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215112657914077e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131732708697e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214691949796236e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997652804e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321517258567459e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365347000114e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520595845058e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321479674857719e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926521184e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216796606007794e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321560012561729e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904595e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214560732560144e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737093e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493707e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821665423047e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272966782e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321516915517663e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391169991077e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215198763565136e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975562123483e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321470820398227e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508032968909e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225383339106e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321448338691889e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215056250121115e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214723903688735e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214975469857756e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321519868103008e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391169989907e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155164923e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214790272965843e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642985513847e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32155944337373e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321456073256002e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214635767904727e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32156001256171e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642854540464e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321535593161622e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214786401479443e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215206070145298e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365444937265e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215172585680694e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997650153e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214696352145444e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151265750508e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve0_47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3213596108414126e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead00",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465846e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead01",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramGrid0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407484715483325e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521993266951e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32150552665112e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321467379955536e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935890956202e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452880875e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321431995521571e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215253038522156e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847835354e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321482006359302e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321680593711895e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215649860049372e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32145718216485e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457234910397e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321564377771165e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216802996048225e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321484351498027e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321483704129586e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32152153913475e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321431859471724e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321510679425227e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214956353040036e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214670862556273e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215065928410436e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321433360811432e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321459065962418e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215055270988747e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214672871326076e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214956260774383e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321510671171735e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214318594716117e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521539133582e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214837041295048e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215342637501294e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216419912940886e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321564454058291e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321457234910155e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214571821646027e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215650622920195e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216422276361407e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215319761962814e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214813847836164e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321525315021685e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214320053152823e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131452887045e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214935890953472e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214671989931872e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215065916686995e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve1_47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321370433113919e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047932295289896e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.887951877521911e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramGrid1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 5.1407480692210544e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215112657914077e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215056245643574e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214724831918017e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997652804e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321521977255328e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321439133337801e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321520595845058e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321476341544279e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214805926521184e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216796606007794e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617297e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109003893e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214639391460853e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215594433737097e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321679366493707e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214821665423043e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.32148211633922e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155176636e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183613174e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146294788557e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497556212348e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321469522476985e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215151277473952e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214225383339106e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214483386918895e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215131737186243e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214691021566954e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321497546985776e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215146212253696e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214365183612e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215169155164927e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214810816292727e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215384699115675e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3216429855138476e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321559443373729e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321463939146072e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214557109004026e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215600125617094e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321642854540465e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215355931616213e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214763415443733e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215206070145298e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214391431315167e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3215219772559566e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214952997650157e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.3214709331357866e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321508031796565e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramValve2_47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.321359610841412e-09
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 6.047951564465847e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramLead21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 3.8879642648346586e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_DiagramGrid2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 5.140748471548333e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveRack",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.006891911574742714
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveSocket0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992542826026
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveEnvelope0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894364361255
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveSocket1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.00019296992490346998
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveEnvelope1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894377383657
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveSocket2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0001929699257297226
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ValveEnvelope2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "milk_glass",
+      "volume_m3": 0.0005891894361293803
+    },
+    {
+      "name": "storm_shopcab_radio_service0_WetCell0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.009247143556425032
+    },
+    {
+      "name": "storm_shopcab_radio_service0_WetCellLid0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.001149744921899267
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CellTerminal0_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098899989738e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CellTerminal0_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "copper_aged",
+      "volume_m3": 5.1680988999897386e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_WetCell1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.00924714348210222
+    },
+    {
+      "name": "storm_shopcab_radio_service0_WetCellLid1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0011497449452491054
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CellTerminal1_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709845e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CellTerminal1_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "copper_aged",
+      "volume_m3": 5.168098567709844e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ControlDeck",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.008473888089865114
+    },
+    {
+      "name": "storm_shopcab_radio_service0_Button0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383626983968481e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_Button1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.4383628212949855e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_Button2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 1.438362684481774e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ExistingStick",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 1.6581120392411466e-05
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FrontLower",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.006400837969117042
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FrontUpper",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.001357367908565096
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FrontLeft",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00039714294759944635
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FrontRight",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0003971429668243617
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleCloth",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 0.0008254157538464648
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968561788654473
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856244281926
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.0001396856171439915
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleBar6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.00013968562517940517
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleRailBottom",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851670264644464
+    },
+    {
+      "name": "storm_shopcab_radio_service0_GrilleRailTop",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.00020851670335815818
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ScopeFascia",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite",
+      "volume_m3": 0.007333520523877625
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CircularScopeBezel",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.0019627801073509913
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ScopeCasing",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0006618243331741963
+    },
+    {
+      "name": "storm_shopcab_radio_service0_ScopeRear",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 0.001954962188140127
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CardBacking",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "enamel_appliance",
+      "volume_m3": 0.005738514055482409
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CardFrameLeft",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.0002877517138768967
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CardFrameRight",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.00028775171359933467
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CardFrameBottom",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.0003952717176242892
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CardFrameTop",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.0005932666946936955
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinPlate",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 0.000610533581806576
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinLatch",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 4.919636261090216e-06
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinScrew00",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632953e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinScrew01",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042591716440116e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinScrew10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 2.2042638125632956e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_CoinScrew11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "brass_dull",
+      "volume_m3": 2.204259171644012e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.13083797526448e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103088740742277e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047859277430927e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965770672822827e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.857718855968822e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.72482959603754e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.568592297320247e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696792896556e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.193105826924039e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978010994672082e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.74776173231292e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505033428329728e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252513743783943e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993137842970779e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729897254439369e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.465850665440004e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204115188102235e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782982316539e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699864969967678e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463213599170082e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.2404658974885643e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0339669322636997e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8456227963059523e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6769007599854796e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.528719300016727e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4014418054805985e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.294884468075585e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2084319385411874e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1411171015877215e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0919157403744947e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0597634733475756e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0439066701250266e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.043906670092889e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.059772450398586e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.091905336234971e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1411257639001137e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.208423635466309e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.2948936042485407e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.4014418042225e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.5287193073662196e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6769007600347875e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.84561724139231e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0339669214576716e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.240466655624644e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.463210298774567e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.699861974084196e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.947782517525316e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.204118778358192e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore48",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.46585173430528e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore49",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.729894224441934e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore50",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.993136151010814e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore51",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.252511880098144e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore52",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.505032081632219e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore53",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.747761727760265e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore54",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 6.978001870342208e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore55",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.193105823284104e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore56",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.390696789280879e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore57",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.56859266400375e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore58",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.724831997257067e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore59",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.85771528924582e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore60",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 7.965771561486819e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore61",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.047855885963461e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore62",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.103092458663854e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexCore63",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 8.130837971743353e-07
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6925334471998604e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.669471540932628e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.627926093885246e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.573998198711898e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.51148039375089e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.438959870617326e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.3495944945872454e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.235207250423199e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.091059432324529e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.920895412713622e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.737610013733076e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.559118285034716e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.40054849336143e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.266618637080449e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.1478805923824945e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.023211415167534e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.869579933101785e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.674911495559987e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.448021502902503e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.219007812287873e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.0275315497883196e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.904246375538668e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8551507538731627e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8563220410978625e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.861337713635574e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8221014436827424e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.715380027200419e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5580463079260777e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.399098250516147e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2922820667125834e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2703399024320393e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7502404117789947e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7812507178595147e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3132953116652578e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.2817454740547338e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.3397397977610556e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4753202274587873e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6466187973737426e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7984973328588757e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8911591653570887e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9219846030857255e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9245069976892598e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9475643338705342e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.029932084365851e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1845209610746776e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.39584173310035e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.6295308098617095e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.849118067956738e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_48",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.03213328628661e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_49",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.1772773813294517e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_50",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300605387453905e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_51",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.4242292695632505e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_52",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.564870002066997e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_53",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.726718903722899e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_54",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.9013714445509776e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_55",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.072872820600411e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_56",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.225484225608855e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_57",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.350123864002325e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_58",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.446393207688974e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_59",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.520637634211216e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_60",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.580387012182861e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_61",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.630036561098487e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_62",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.66890325726795e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid0_63",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6918298088423354e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_0",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.695484998907699e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_1",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.681577072507901e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_2",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.649698064040151e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_3",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5944216688553265e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_4",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.5132767421574555e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_5",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.409394698218032e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_6",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.2914286399231435e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_7",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.170190348866747e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_8",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.0529648882481756e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_9",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.938957819269645e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_10",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.818942551815791e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_11",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.678447923664344e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_12",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.505969013553352e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_13",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.300919659645229e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_14",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.077115874707831e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_15",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.8599746459716643e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_16",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.676358844862506e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_17",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.54208304319775e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_18",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.452706517356054e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_19",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.3828230520126296e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_20",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.295797067930776e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_21",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1619086406510693e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_22",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9768162874927305e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_23",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.768693541501203e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_24",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5865149765767324e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_25",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4747169894677046e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_26",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4520996468421208e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_27",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.503672375436594e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_28",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5849341921259204e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_29",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6387099928041082e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_30",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.623419054106229e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_31",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8853539696459232e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_32",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.8554502736350785e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_33",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.577406461853469e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_34",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.6500640497111756e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_35",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.647447185444226e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_36",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5869458132486017e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_37",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.5183264299698414e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_38",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.4970282010879707e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_39",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.558151813455544e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_40",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.7045222482415366e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_41",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 2.9069264899464778e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_42",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.1174184231271485e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_43",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.293399616831788e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_44",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.418012316711571e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_45",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.5051052001289565e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_46",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.587145465615165e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_47",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.696615762431668e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_48",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 3.851182110479916e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_49",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.0478172460870165e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_50",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.266950334292834e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_51",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.482254911890238e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_52",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.672678231843358e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_53",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.829872514597991e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_54",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 4.958546804139992e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_55",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.071094762301218e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_56",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.1799038508720496e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_57",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.290895244468461e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_58",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.401841837935596e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_59",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.504112426611498e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_60",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.588041875427338e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_61",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.647545244526048e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_62",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.6821980014395184e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexBraid1_63",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "fabric_warm",
+      "volume_m3": 5.696060310343875e-08
+    },
+    {
+      "name": "storm_shopcab_radio_service0_FlexGrommet",
+      "assembly": "storm_shopcab_radio_service0",
+      "key": "bakelite_black",
+      "volume_m3": 1.0787709518271339e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shopcab_radio_service0",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.15,
+        0.009999999999999995,
+        56.92999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_radio_service0",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.75,
+        0.009999999999999995,
+        56.92999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_radio_service0",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.15,
+        0.009999999999999995,
+        57.47
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    },
+    {
+      "assembly": "storm_shopcab_radio_service0",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.75,
+        0.009999999999999995,
+        57.47
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot axis on actual retained floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_radio_service0__bakelite",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "bakelite",
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite__service_panel",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite_black",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "bakelite_black",
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite_black__schematic_traces",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "bakelite_black",
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_radio_service0__brass_dull",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "brass_dull",
+      "triangles": 3204
+    },
+    {
+      "name": "storm_shopcab_radio_service0__brass_dull__service_latch",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "brass_dull",
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_radio_service0__copper_aged",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "copper_aged",
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_radio_service0__enamel_appliance",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "enamel_appliance",
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_radio_service0__fabric_warm",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "fabric_warm",
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_radio_service0__milk_glass",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "milk_glass",
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_radio_service0__paper",
+      "assembly": "storm_shopcab_radio_service0",
+      "cell": "shop_radio_service",
+      "key": "paper",
+      "triangles": 188
+    }
+  ],
+  "triangles": 38040,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/radio_receiving.glb",
+    "tolerance": 2e-05,
+    "source_record": {
+      "id": "storm_shopcab_radio_service0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -57.199999999999996
+      ],
+      "yaw": 270.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    "original_draws": [
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite",
+        "key": "bakelite",
+        "expected_triangles": 128,
+        "low": [
+          21.125,
+          0,
+          56.904998779296875
+        ],
+        "high": [
+          21.774999618530273,
+          0.029999999329447746,
+          57.494998931884766
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+        "key": "bakelite_black",
+        "expected_triangles": 128,
+        "low": [
+          20.959999084472656,
+          0.30000001192092896,
+          56.88999938964844
+        ],
+        "high": [
+          21.690000534057617,
+          1.4199999570846558,
+          57.53499984741211
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass",
+        "key": "brass",
+        "expected_triangles": 12,
+        "low": [
+          21.077999114990234,
+          0.3799999952316284,
+          57.11000061035156
+        ],
+        "high": [
+          21.09000015258789,
+          0.550000011920929,
+          57.290000915527344
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome",
+        "key": "chrome",
+        "expected_triangles": 12,
+        "low": [
+          21.09000015258789,
+          0.019999999552965164,
+          56.869998931884766
+        ],
+        "high": [
+          21.809999465942383,
+          1.7200000286102295,
+          57.529998779296875
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel",
+        "key": "enamel",
+        "expected_triangles": 64,
+        "low": [
+          21.009000778198242,
+          0.9700000286102295,
+          57.13399887084961
+        ],
+        "high": [
+          21.041000366210938,
+          0.9850000143051147,
+          57.2859992980957
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+        "key": "milk_glass",
+        "expected_triangles": 12,
+        "low": [
+          21.059999465942383,
+          1.559999942779541,
+          56.88999938964844
+        ],
+        "high": [
+          21.139999389648438,
+          1.7000000476837158,
+          57.5099983215332
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen",
+        "key": "screen",
+        "expected_triangles": 12,
+        "low": [
+          21.084999084472656,
+          1.0199999809265137,
+          56.93000030517578
+        ],
+        "high": [
+          21.094999313354492,
+          1.3799999952316284,
+          57.470001220703125
+        ]
+      },
+      {
+        "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta",
+        "key": "terracotta",
+        "expected_triangles": 32,
+        "low": [
+          21.009000778198242,
+          0.9700000286102295,
+          57.013999938964844
+        ],
+        "high": [
+          21.041000366210938,
+          0.9850000143051147,
+          57.04600143432617
+        ]
+      }
+    ],
+    "hull_name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull",
+    "raw_hull_name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly",
+    "hull_triangles": 12,
+    "hull_low": [
+      20.950000762939453,
+      0,
+      56.810001373291016
+    ],
+    "hull_high": [
+      21.809999465942383,
+      1.7200000286102295,
+      57.59000015258789
+    ],
+    "parts": [
+      {
+        "name": "storm_shopcab_radio_service0__bakelite",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 5092
+      },
+      {
+        "name": "storm_shopcab_radio_service0__bakelite__service_panel",
+        "key": "bakelite",
+        "catalog_key": "bakelite",
+        "tile": 0.35,
+        "triangles": 188
+      },
+      {
+        "name": "storm_shopcab_radio_service0__bakelite_black",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 3280
+      },
+      {
+        "name": "storm_shopcab_radio_service0__bakelite_black__schematic_traces",
+        "key": "bakelite_black",
+        "catalog_key": "bakelite_black",
+        "tile": 0.3,
+        "triangles": 5668
+      },
+      {
+        "name": "storm_shopcab_radio_service0__brass_dull",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 3204
+      },
+      {
+        "name": "storm_shopcab_radio_service0__brass_dull__service_latch",
+        "key": "brass_dull",
+        "catalog_key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 124
+      },
+      {
+        "name": "storm_shopcab_radio_service0__copper_aged",
+        "key": "copper_aged",
+        "catalog_key": "copper_aged",
+        "tile": 0.4,
+        "triangles": 368
+      },
+      {
+        "name": "storm_shopcab_radio_service0__enamel_appliance",
+        "key": "enamel_appliance",
+        "catalog_key": "enamel_appliance",
+        "tile": 0.72,
+        "triangles": 936
+      },
+      {
+        "name": "storm_shopcab_radio_service0__fabric_warm",
+        "key": "fabric_warm",
+        "catalog_key": "fabric_warm",
+        "tile": 0.7,
+        "triangles": 8636
+      },
+      {
+        "name": "storm_shopcab_radio_service0__milk_glass",
+        "key": "milk_glass",
+        "catalog_key": "milk_glass",
+        "tile": 0.5,
+        "triangles": 10356
+      },
+      {
+        "name": "storm_shopcab_radio_service0__paper",
+        "key": "paper",
+        "catalog_key": "paper",
+        "tile": 0.5,
+        "triangles": 188
+      }
+    ]
+  },
+  "asset_sha256": "3430a78a621c7aba367e22c9cc489bc9eec0fd775f6c52b0488e586d8dccec01",
+  "fitted_datums": {
+    "floor_top": 0.009999999999999995,
+    "maximum": 1.72,
+    "scope_centre_local": [
+      0,
+      1.2,
+      -0.386
+    ],
+    "scope_diameter": 0.36,
+    "bezel_inner_radius": 0.1808,
+    "service_panel_closed": true
+  },
+  "source_bindings": {
+    "art/data/radio_receiving/source_plan.json": "65f44f3b7745f111ca2a15146b9a1e87c4422ead53f886880cea42aeeaa34c99",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_radio_receiving.py": "bae936b2493812579cf795e543f39578fc851e4b8055564cf518c5c47635e5a5",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/radio_receiving.glb.import": "1cafd9f20458d6304327eab7d5105bf4691380374e2ebfb6f20257ff3d5719e0",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+    "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+    "art/blender/scripts/inspect_radio_receiving.py": "7e3ee24609f3c50819c0db2b570f4f21e4c67eb8f7e1f82d2de02fef3085ce17",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/radio_bench.glb": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
+    "game/data/orison_v2/radio_bench.json": "9b6f0fe4efaceec0021f497b0b13117a7bed0a3cbbdd51b52a422326ac04ecda",
+    "art/blender/radio_bench.blend": "3b24bffb7fe18fe757babbc2900d56da377c9eb15c9c18374c0c100d448c4307",
+    "game/assets/props/radio_apparatus.glb": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d",
+    "game/data/orison_v2/radio_apparatus.json": "6f1dd1866df7c25478c54019d112ec5f5068b7d7c9b5f1873e18fbc5f291bdc4",
+    "art/blender/radio_apparatus.blend": "b2ad3337a17357b71883c4660ebb345be9a30dc16f7758c39b9fe6ba98c629d4",
+    "game/assets/props/radio_stock.glb": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf",
+    "game/data/orison_v2/radio_stock.json": "a76029e79ea3637c15416faa7a1d1e0d9ca0cef3c485a99b241eff9b35a04dd6",
+    "art/blender/radio_stock.blend": "287e4988337c632769fd255ddbe23a1afc9d7bccee3bef6d3616fd98759328cd",
+    "game/assets/props/radio_battery.glb": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966",
+    "game/data/orison_v2/radio_battery.json": "d35a9df2dd923599c46ce660b6165052743027e9c7888e02f8dfa2f5940161b6",
+    "art/blender/radio_battery.blend": "75a903535b12ad6e1856975e2e8764bbd09ea4866b739e10be0fcf9c03862b75",
+    "game/assets/props/radio_wire.glb": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+    "game/data/orison_v2/radio_wire.json": "d4e0e32ebf9d9e4ac436539f8fe91909c2bef64e8dfdbf3b99a0a010ca3315ee",
+    "art/blender/radio_wire.blend": "a48e218d6073e9bc63a5af943f40ada04a5e2fd083da09f2f6b3b09b192fd95c",
+    "game/assets/props/radio_display.glb": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7",
+    "game/data/orison_v2/radio_display.json": "3627d57e25d112dcaf0f5d6e8888b53b8b6009288ff30057b2262e7de7d8bfbd",
+    "art/blender/radio_display.blend": "bd36f5ffdff2a0a1301220e662e826c52e145de9b3745ad09f065e6081d25b76"
+  },
+  "open_work": [
+    "Bible VIII.5.g governs the replacement of the original variant-2 chrome chassis: Bakelite carcass, circular brass bezel, braided cloth flex, passive valve rack behind hinged service stock, schematic inside the lid and wet cells in the base. No new operating, electrical or capacity authority.",
+    "The immutable original assembler and one layout record remain source authority for retirement. Preserve source position/yaw, variant, 1.72m maximum, 1.20m scope centre, 0.36m live picture quad and programme/card/genre-control owner. Feet seat on the actual source floor top (-0.05m + 0.06m = 0.01m); the hollow carcass and service stock are an explicit ADAPTATION.",
+    "Retire only the eight separately validated original decorative draws (400 triangles) and the exact 12-triangle hull owner. The broad hull query includes 80 unrelated cap/glass triangles and must never authorize retirement.",
+    "All finishes use existing catalogue keys and maps. The programme card lettering remains Label3D; no generated lettering, reference image or source glTF edits.",
+    "Closed positive connected stocks, joined assembly, actual floor contacts, strict metre UV charts, tangents, all assembled and accepted native context, rendered inspection, actual imported ownership, both reconstruction cycles and the ordinary Radio Access route remain required. This plan grants no native fit, runtime proof or human acceptance. Other six receiving chassis and modal hint clipping remain open."
+  ]
+}

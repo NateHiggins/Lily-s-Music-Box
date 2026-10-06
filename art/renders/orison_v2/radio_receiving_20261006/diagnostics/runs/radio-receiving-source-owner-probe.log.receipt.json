@@ -1,0 +1,46 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.11,
+  "exit_code": null,
+  "finished_utc": "2026-10-06T19:38:27Z",
+  "started_utc": "2026-10-06T19:35:27Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Cannot call method 'store_string' on a null value.",
+   "SCRIPT ERROR: Cannot call method 'store_string' on a null value."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-probe.log.stderr",
+  "stderr_sha256": "22bbc3379ca4e3cbc9801fb30f91a1859d762d89b6f50f3ee076af2db947a0c8",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-probe.log",
+  "stdout_sha256": "7ff0ae2016495c61ec6d172471989c124c824817197218165b814e11e9d1112d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/RadioReceivingSourceOwnerProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-probe-shots",
+ "source": {
+  "dirty_paths": 1,
+  "dirty_sample": [
+   "?? art/data/radio_receiving/"
+  ],
+  "repository_head": "118a5b323aeabd16f7be267fc6047fc105d89e02",
+  "repository_tree": "cbfb92c15b940dcf28d008586f8db6f6cbd5a44a",
+  "runtime_inputs_sha256": "a941678f669f15854889112158a8e3414633b7aaceb2e61ed0f0627d59f90c5d",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

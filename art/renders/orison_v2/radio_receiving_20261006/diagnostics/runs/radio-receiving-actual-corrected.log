@@ -1,0 +1,68 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 1154 surfaces layered (405 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=28191.776
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__bakelite_black valid_basis=true max_uv_excess=0.00000006053597 widest=1.00001615279929 vertices=5860 derivatives=true bad_derivatives=0 min_determinant=0.00001673090932 worst_dot=0.99999988079071
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__electrode_metal valid_basis=true max_uv_excess=0.00000008940697 widest=1.00015067250273 vertices=5012 derivatives=true bad_derivatives=0 min_determinant=0.00000011566076 worst_dot=0.99999988079071
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__glass_shell valid_basis=true max_uv_excess=0.00000013411045 widest=1.00002681150734 vertices=14148 derivatives=true bad_derivatives=0 min_determinant=0.00002143596311 worst_dot=0.99999988079071
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__series_wire valid_basis=true max_uv_excess=0.00000008079223 widest=1.00007094206773 vertices=3696 derivatives=true bad_derivatives=0 min_determinant=0.00000064774925 worst_dot=0.99999988079071
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__terminal_metal valid_basis=true max_uv_excess=0.00000002654269 widest=1.00002902750229 vertices=3530 derivatives=true bad_derivatives=0 min_determinant=0.00000010806252 worst_dot=0.99999988079071
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__timber valid_basis=true max_uv_excess=0.00000008073403 widest=1.0001597322226 vertices=10006 derivatives=true bad_derivatives=0 min_determinant=0.0000001156419 worst_dot=0.99999982118607
+CAP MAPPING: mesh=radio_battery_storm_shop_radio_service_battery_rack__wet_fill valid_basis=true max_uv_excess=0.00000007450581 widest=1.00001643418404 vertices=3856 derivatives=true bad_derivatives=0 min_determinant=0.00005324566529 worst_dot=0.99999988079071
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite tri=24 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998914, 0.000036, -0.046585) bitangent=(-0.012304, 0.0, 0.941348) determinant=0.0000014692089
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite tri=24 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998914, 0.000036, -0.046585) bitangent=(-0.012304, 0.0, 0.941348) determinant=0.0000014692089
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite tri=24 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998914, 0.000036, -0.046585) bitangent=(-0.012304, 0.0, 0.941348) determinant=0.0000014692089
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__bakelite valid_basis=true max_uv_excess=0.00005203741603 widest=1.05516855168486 vertices=11787 derivatives=false bad_derivatives=72 min_determinant=0.00000044605449 worst_dot=0.99785101413727
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__bakelite__service_panel valid_basis=true max_uv_excess=0.00001629744656 widest=1.0208262916225 vertices=494 derivatives=true bad_derivatives=0 min_determinant=0.00000044866465 worst_dot=0.99984645843506
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black tri=3810 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996819, 0.00004, -0.079691) bitangent=(-0.006998, 0.0, 0.979723) determinant=0.00000049126356
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black tri=3810 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996819, 0.00004, -0.079691) bitangent=(-0.006998, 0.0, 0.979723) determinant=0.00000049126356
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black tri=3810 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.996819, 0.00004, -0.079691) bitangent=(-0.006998, 0.0, 0.979723) determinant=0.00000049126356
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__bakelite_black valid_basis=true max_uv_excess=0.00002505723387 widest=1.02718105309013 vertices=6759 derivatives=false bad_derivatives=9 min_determinant=0.00000044947456 worst_dot=0.99633705615997
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black__schematic_traces tri=9 n=(-1.0, -0.000015, -0.000072) actual=(-0.000072, 0.000015, 1.0) expected=(-0.000073, 0.061739, 0.998092) bitangent=(0.0, -0.965681, -0.008622) determinant=0.00000004889444
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black__schematic_traces tri=9 n=(-1.0, -0.000015, -0.000072) actual=(-0.000072, 0.000015, 1.0) expected=(-0.000073, 0.061739, 0.998092) bitangent=(0.0, -0.965681, -0.008622) determinant=0.00000004889444
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__bakelite_black__schematic_traces tri=9 n=(-1.0, -0.000015, -0.000072) actual=(-0.000072, 0.000015, 1.0) expected=(-0.000073, 0.061739, 0.998092) bitangent=(0.0, -0.965681, -0.008622) determinant=0.00000004889444
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__bakelite_black__schematic_traces valid_basis=true max_uv_excess=0.00001703831367 widest=1.04558520290372 vertices=15737 derivatives=false bad_derivatives=807 min_determinant=0.00000004097649 worst_dot=0.99385005235672
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__brass_dull tri=3 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.995563, 0.000042, -0.094094) bitangent=(0.01342, 0.0, 0.975591) determinant=0.00000050454958
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__brass_dull tri=3 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.995563, 0.000042, -0.094094) bitangent=(0.01342, 0.0, 0.975591) determinant=0.00000050454958
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__brass_dull tri=3 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.995563, 0.000042, -0.094094) bitangent=(0.01342, 0.0, 0.975591) determinant=0.00000050454958
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__brass_dull valid_basis=true max_uv_excess=0.00004277378321 widest=1.08803879638462 vertices=6936 derivatives=false bad_derivatives=282 min_determinant=0.00000010510504 worst_dot=0.99454021453857
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__brass_dull__service_latch valid_basis=true max_uv_excess=0.0000107884407 widest=1.0048970868855 vertices=212 derivatives=true bad_derivatives=0 min_determinant=0.00000085212423 worst_dot=0.99978697299957
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__copper_aged valid_basis=true max_uv_excess=0.00001646298915 widest=1.00644368250284 vertices=644 derivatives=true bad_derivatives=0 min_determinant=0.00000107662436 worst_dot=0.99972492456436
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__enamel_appliance tri=2562 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998875, 0.000025, 0.047419) bitangent=(0.001202, 0.0, 0.969345) determinant=0.00000194069435
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__enamel_appliance tri=2562 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998875, 0.000025, 0.047419) bitangent=(0.001202, 0.0, 0.969345) determinant=0.00000194069435
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__enamel_appliance tri=2562 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998875, 0.000025, 0.047419) bitangent=(0.001202, 0.0, 0.969345) determinant=0.00000194069435
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__enamel_appliance valid_basis=true max_uv_excess=0.00002855039202 widest=1.02894416186238 vertices=2196 derivatives=false bad_derivatives=6 min_determinant=0.00000045821071 worst_dot=0.99887371063232
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__fabric_warm tri=57 n=(0.217777, -0.690001, -0.69027) actual=(-0.953648, 0.000053, -0.300924) expected=(-0.96265, -0.035287, -0.268439) bitangent=(-0.209736, -0.76622, 0.697096) determinant=0.0000002396019
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__fabric_warm tri=57 n=(0.217777, -0.690001, -0.69027) actual=(-0.953648, 0.000053, -0.300924) expected=(-0.96265, -0.035287, -0.268439) bitangent=(-0.209736, -0.76622, 0.697096) determinant=0.0000002396019
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__fabric_warm tri=57 n=(0.217777, -0.690001, -0.69027) actual=(-0.953648, 0.000053, -0.300924) expected=(-0.96265, -0.035287, -0.268439) bitangent=(-0.209736, -0.76622, 0.697096) determinant=0.0000002396019
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__fabric_warm valid_basis=true max_uv_excess=0.00004612933844 widest=1.07797028338116 vertices=23370 derivatives=false bad_derivatives=681 min_determinant=0.000000107454 worst_dot=0.99579977989197
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__milk_glass tri=15 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998234, 0.000023, 0.059412) bitangent=(0.017237, 0.0, 0.970717) determinant=0.00000051172947
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__milk_glass tri=15 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998234, 0.000023, 0.059412) bitangent=(0.017237, 0.0, 0.970717) determinant=0.00000051172947
+UV DERIVATIVE DIAGNOSTIC: radio_receiving_storm_shopcab_radio_service0__milk_glass tri=15 n=(-0.000031, -1.0, -0.000122) actual=(-1.0, 0.000031, -0.00003) expected=(-0.998234, 0.000023, 0.059412) bitangent=(0.017237, 0.0, 0.970717) determinant=0.00000051172947
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__milk_glass valid_basis=true max_uv_excess=0.00001980530214 widest=1.09358580272261 vertices=30140 derivatives=false bad_derivatives=735 min_determinant=0.0 worst_dot=-0.95709788799286
+CAP MAPPING: mesh=radio_receiving_storm_shopcab_radio_service0__paper valid_basis=true max_uv_excess=0.00001421931665 widest=1.03442648502496 vertices=526 derivatives=true bad_derivatives=0 min_determinant=0.00000007078052 worst_dot=0.99929255247116
+[HARUKIYA] OPEN, 18 fixtures
+RADIO BATTERY: checks=556 parts=7 triangles=20912 removed=132 supports=4 failures=17
+PASSAGE RECEIVING CONTRACT: FAIL checks=560 retained_nodes=0 retained_resources=0 retained_playbacks=0

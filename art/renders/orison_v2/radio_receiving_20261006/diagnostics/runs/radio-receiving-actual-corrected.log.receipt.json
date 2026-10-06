@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 56.71,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T20:09:42Z",
+  "started_utc": "2026-10-06T20:08:45Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "PASSAGE RECEIVING CONTRACT: FAIL checks=560 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-actual-corrected.log.stderr",
+  "stderr_sha256": "2cc9b779206c4a8677a50a117e395715fd03146751a3845cc7051f4e7f9b996a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-actual-corrected.log",
+  "stdout_sha256": "db177211161d0912badc9db70dcebea8a6410cc4f348e048f8dceb183dd09818"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioReceivingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-actual-corrected-shots",
+ "source": {
+  "dirty_paths": 281,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/radio_receiving.blend",
+   "?? art/blender/radio_receiving.md",
+   "?? art/blender/radio_receiving_construction.json",
+   "?? art/blender/scripts/build_radio_receiving.py",
+   "?? art/blender/scripts/inspect_radio_receiving.py",
+   "?? art/data/radio_receiving/",
+   "?? game/assets/props/radio_receiving.glb",
+   "?? game/data/orison_v2/radio_receiving.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid"
+  ],
+  "repository_head": "118a5b323aeabd16f7be267fc6047fc105d89e02",
+  "repository_tree": "cbfb92c15b940dcf28d008586f8db6f6cbd5a44a",
+  "runtime_inputs_sha256": "2425d424ab26c155f4a189380473ab4d1115e5ee5858daabbaec5a88ef2d1cfa",
+  "test_path": "game/tests/orison_v2_radio_receiving_test.gd",
+  "test_sha256": "a32e24c57fe2d53e985cd098d9470195e76cf7ab9e8cc010634b7d34c0a81fff"
+ },
+ "windowed": true
+}

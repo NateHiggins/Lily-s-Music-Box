@@ -1,0 +1,56 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.562  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\radio_receiving.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_radio_receiving.py:53: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+16:03:46 | INFO: Data are loaded, start creating Blender stuff
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+16:03:46 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+16:03:46 | INFO: glTF import finished in 0.13s
+00:07.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\chassis_front.png'
+00:08.859  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\chassis_side.png'
+00:10.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\chassis_rear.png'
+00:13.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\scope_aperture.png'
+00:16.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\floor_feet.png'
+00:18.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\braided_flex.png'
+00:21.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\closed_service_hatch.png'
+00:26.266  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\service_stock_open.png'
+00:30.391  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\base_wet_cells.png'
+00:34.891  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-receiving-native\inside_lid_schematic.png'
+RADIO RECEIVING NATIVE QA 417 closed connected stocks; 1 joined assembly; 4 retained floor contacts; 10 views
+
+Blender quit

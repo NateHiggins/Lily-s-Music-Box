@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_receiving.glb",
+  "tolerance": 2e-05,
+  "source_record": {
+    "id": "storm_shopcab_radio_service0",
+    "asm": "arcade_cab",
+    "at": [
+      21.45,
+      -57.199999999999996
+    ],
+    "yaw": 270.0,
+    "exterior": true,
+    "variant": 2,
+    "batch": "shop_radio_service",
+    "zone": "PASSAGE"
+  },
+  "original_draws": [
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite",
+      "key": "bakelite",
+      "expected_triangles": 128,
+      "low": [
+        21.125,
+        0,
+        56.904998779296875
+      ],
+      "high": [
+        21.774999618530273,
+        0.029999999329447746,
+        57.494998931884766
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+      "key": "bakelite_black",
+      "expected_triangles": 128,
+      "low": [
+        20.959999084472656,
+        0.30000001192092896,
+        56.88999938964844
+      ],
+      "high": [
+        21.690000534057617,
+        1.4199999570846558,
+        57.53499984741211
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass",
+      "key": "brass",
+      "expected_triangles": 12,
+      "low": [
+        21.077999114990234,
+        0.3799999952316284,
+        57.11000061035156
+      ],
+      "high": [
+        21.09000015258789,
+        0.550000011920929,
+        57.290000915527344
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome",
+      "key": "chrome",
+      "expected_triangles": 12,
+      "low": [
+        21.09000015258789,
+        0.019999999552965164,
+        56.869998931884766
+      ],
+      "high": [
+        21.809999465942383,
+        1.7200000286102295,
+        57.529998779296875
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel",
+      "key": "enamel",
+      "expected_triangles": 64,
+      "low": [
+        21.009000778198242,
+        0.9700000286102295,
+        57.13399887084961
+      ],
+      "high": [
+        21.041000366210938,
+        0.9850000143051147,
+        57.2859992980957
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+      "key": "milk_glass",
+      "expected_triangles": 12,
+      "low": [
+        21.059999465942383,
+        1.559999942779541,
+        56.88999938964844
+      ],
+      "high": [
+        21.139999389648438,
+        1.7000000476837158,
+        57.5099983215332
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen",
+      "key": "screen",
+      "expected_triangles": 12,
+      "low": [
+        21.084999084472656,
+        1.0199999809265137,
+        56.93000030517578
+      ],
+      "high": [
+        21.094999313354492,
+        1.3799999952316284,
+        57.470001220703125
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta",
+      "key": "terracotta",
+      "expected_triangles": 32,
+      "low": [
+        21.009000778198242,
+        0.9700000286102295,
+        57.013999938964844
+      ],
+      "high": [
+        21.041000366210938,
+        0.9850000143051147,
+        57.04600143432617
+      ]
+    }
+  ],
+  "hull_name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull",
+  "raw_hull_name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly",
+  "hull_triangles": 12,
+  "hull_low": [
+    20.950000762939453,
+    0,
+    56.810001373291016
+  ],
+  "hull_high": [
+    21.809999465942383,
+    1.7200000286102295,
+    57.59000015258789
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_radio_service0__bakelite",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite__service_panel",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite_black",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_radio_service0__bakelite_black__schematic_traces",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_radio_service0__brass_dull",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 3204
+    },
+    {
+      "name": "storm_shopcab_radio_service0__brass_dull__service_latch",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_radio_service0__copper_aged",
+      "key": "copper_aged",
+      "catalog_key": "copper_aged",
+      "tile": 0.4,
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_radio_service0__enamel_appliance",
+      "key": "enamel_appliance",
+      "catalog_key": "enamel_appliance",
+      "tile": 0.72,
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_radio_service0__fabric_warm",
+      "key": "fabric_warm",
+      "catalog_key": "fabric_warm",
+      "tile": 0.7,
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_radio_service0__milk_glass",
+      "key": "milk_glass",
+      "catalog_key": "milk_glass",
+      "tile": 0.5,
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_radio_service0__paper",
+      "key": "paper",
+      "catalog_key": "paper",
+      "tile": 0.5,
+      "triangles": 188
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 37.96,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T19:42:18Z",
+  "started_utc": "2026-10-06T19:41:40Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-corrected.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-corrected.log",
+  "stdout_sha256": "7f76bd70f19475aea3f80d85f6fbde8ebbd6541609da2770ad8a237f63b6f3ef"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/RadioReceivingSourceOwnerProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-receiving-source-owner-corrected-shots",
+ "source": {
+  "dirty_paths": 2,
+  "dirty_sample": [
+   "?? art/blender/scripts/build_radio_receiving.py",
+   "?? art/data/radio_receiving/"
+  ],
+  "repository_head": "118a5b323aeabd16f7be267fc6047fc105d89e02",
+  "repository_tree": "cbfb92c15b940dcf28d008586f8db6f6cbd5a44a",
+  "runtime_inputs_sha256": "a941678f669f15854889112158a8e3414633b7aaceb2e61ed0f0627d59f90c5d",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

@@ -45,3 +45,16 @@ The stable import UID uses full-precision meshes and disables generated LODs,
 matching the accepted Radio Service fittings. Default import compression changed
 small curved charts by up to 9.36% and introduced tangent derivative failures;
 the corrected import preserves every physical metre chart and tangent basis.
+
+Source **e069b1bc** passes the complete **48-gate/tools-test** comparison and
+**14** bound Godot runs against clean base **118a5b32**: native receiving
+**560 checks**, passage receiving **358 checks**, both reconstruction cycles,
+the actual **91-waypoint** Radio Access tour, doors, shop simulation, teardown,
+display, bar and the separate complete resident-key contract. All runs complete
+with zero script errors; native owned teardown retains **0 / 0 / 0**
+nodes/resources/playbacks. **77** final native/game/access/bar frames were
+directly inspected. Exact receipts and scoped diagnostic failures are retained
+under **art/renders/orison_v2/radio_receiving_20261006**. The test-written
+receiving observation leaves save/reconstruction unexecuted; only the separate
+complete key receipt refreshes its existing ledger authority. Report:
+**design/V2_RADIO_RECEIVING_2026-10-06.md**.

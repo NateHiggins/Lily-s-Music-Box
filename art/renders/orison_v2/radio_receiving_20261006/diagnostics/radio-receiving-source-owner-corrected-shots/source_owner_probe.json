@@ -1,0 +1,594 @@
+{
+	"collision_owners": [
+		{
+			"layer": 1,
+			"mask": 1,
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull",
+			"shapes": [
+				{
+					"class": "ConcavePolygonShape3D",
+					"disabled": false,
+					"path": "CollisionShape3D",
+					"triangles": 12
+				}
+			]
+		}
+	],
+	"drawings": [
+		{
+			"local_high": [
+				16.7399997711182,
+				2.71000003814697,
+				58.6399993896484
+			],
+			"local_low": [
+				15.4200000762939,
+				2.35999989509583,
+				55.7599983215332
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_awning_vinyl"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl",
+			"triangles": 24,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.7749996185303,
+				0.0299999993294477,
+				57.4949989318848
+			],
+			"local_low": [
+				21.125,
+				0.0,
+				56.9049987792969
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_bakelite_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite",
+			"triangles": 128,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.6900005340576,
+				1.41999983787537,
+				57.5349998474121
+			],
+			"local_low": [
+				20.9599990844727,
+				0.300000011920929,
+				56.8899993896484
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_bakelite_black"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+			"triangles": 128,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.0900001525879,
+				0.550000011920929,
+				57.2900009155273
+			],
+			"local_low": [
+				21.0779991149902,
+				0.379999995231628,
+				57.1100006103516
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_brass_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				16.9799995422363,
+				1.58000004291534,
+				57.3899993896484
+			],
+			"local_low": [
+				16.9519996643066,
+				1.32000005245209,
+				57.2099990844727
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_brass_bright"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.1200008392334,
+				1.02999997138977,
+				58.2799987792969
+			],
+			"local_low": [
+				17.3600006103516,
+				0.479999989271164,
+				55.7649993896484
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_brass_dull"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.8099994659424,
+				1.72000002861023,
+				57.5299987792969
+			],
+			"local_low": [
+				21.0900001525879,
+				0.0199999995529652,
+				56.8699989318848
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_chrome_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				26.8199996948242,
+				0.0100000016391277,
+				58.7000007629395
+			],
+			"local_low": [
+				24.2199993133545,
+				-0.0500000007450581,
+				55.7000007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_concrete_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.0410003662109,
+				0.985000014305115,
+				57.2859992980957
+			],
+			"local_low": [
+				21.0090007781982,
+				0.970000028610229,
+				57.1339988708496
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_enamel_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel",
+			"triangles": 64,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.9188003540039,
+				0.00401000026613474,
+				57.6924018859863
+			],
+			"local_low": [
+				20.8411998748779,
+				0.00400000018998981,
+				56.7075996398926
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_fx_shadow"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow",
+			"triangles": 2,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.9850006103516,
+				3.04999995231628,
+				58.6599998474121
+			],
+			"local_low": [
+				16.8600006103516,
+				0.550000011920929,
+				55.7400016784668
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_glassish"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish",
+			"triangles": 36,
+			"visible": true
+		},
+		{
+			"local_high": [
+				22.0,
+				0.0100000016391277,
+				58.7000007629395
+			],
+			"local_low": [
+				17.0,
+				-0.0500000007450581,
+				55.7000007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_linoleum_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				16.7399997711182,
+				2.63000011444092,
+				58.5999984741211
+			],
+			"local_low": [
+				15.4399995803833,
+				2.57999992370605,
+				55.810001373291
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_metal_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal",
+			"triangles": 24,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.1399993896484,
+				1.70000004768372,
+				57.5099983215332
+			],
+			"local_low": [
+				21.0599994659424,
+				1.55999994277954,
+				56.8899993896484
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_milk_glass"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				16.9850006103516,
+				2.08500003814697,
+				58.6599998474121
+			],
+			"local_low": [
+				16.8449993133545,
+				0.514999985694885,
+				57.1500015258789
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_nickel_plated"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated",
+			"triangles": 24,
+			"visible": true
+		},
+		{
+			"local_high": [
+				26.8199996948242,
+				3.54999995231628,
+				58.7000007629395
+			],
+			"local_low": [
+				17.0,
+				0.00999999977648258,
+				55.7000007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_plaster_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster",
+			"triangles": 84,
+			"visible": true
+		},
+		{
+			"local_high": [
+				22.0,
+				3.25999999046326,
+				58.7000007629395
+			],
+			"local_low": [
+				21.9400005340576,
+				0.00999999977648258,
+				55.7000007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_plaster_stained_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained",
+			"triangles": 48,
+			"visible": true
+		},
+		{
+			"local_high": [
+				17.5799999237061,
+				1.57000005245209,
+				58.5200004577637
+			],
+			"local_low": [
+				17.5400009155273,
+				0.419999986886978,
+				57.3199996948242
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_plywood_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.0949993133545,
+				1.37999999523163,
+				57.4700012207031
+			],
+			"local_low": [
+				21.0849990844727,
+				1.01999998092651,
+				56.9300003051758
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_screen"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				19.8400001525879,
+				1.37999999523163,
+				56.4599990844727
+			],
+			"local_low": [
+				19.5599994659424,
+				1.1599999666214,
+				56.4199981689453
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_screen"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				16.7999992370605,
+				3.00999999046326,
+				58.5800018310547
+			],
+			"local_low": [
+				16.7399997711182,
+				2.54999995231628,
+				55.8199996948242
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_stairwell_teal_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal",
+			"triangles": 12,
+			"visible": true
+		},
+		{
+			"local_high": [
+				21.0410003662109,
+				0.985000014305115,
+				57.0460014343262
+			],
+			"local_low": [
+				21.0090007781982,
+				0.970000028610229,
+				57.0139999389648
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_terracotta_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta",
+			"triangles": 32,
+			"visible": true
+		},
+		{
+			"local_high": [
+				22.0,
+				3.09999990463257,
+				58.189998626709
+			],
+			"local_low": [
+				21.9300003051758,
+				2.29999995231628,
+				56.2099990844727
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_trim_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim",
+			"triangles": 60,
+			"visible": true
+		},
+		{
+			"local_high": [
+				22.0,
+				1.10000002384186,
+				58.7000007629395
+			],
+			"local_low": [
+				17.0,
+				0.0500000007450581,
+				55.7000007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_wainscot_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot",
+			"triangles": 36,
+			"visible": true
+		},
+		{
+			"local_high": [
+				25.7399997711182,
+				4.19999980926514,
+				58.8600006103516
+			],
+			"local_low": [
+				16.5799999237061,
+				0.0,
+				55.5400009155273
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_wood_dark_b"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark",
+			"triangles": 132,
+			"visible": true
+		},
+		{
+			"local_high": [
+				17.1100006103516,
+				0.006010000128299,
+				58.0999984741211
+			],
+			"local_low": [
+				16.2099990844727,
+				0.00600000005215406,
+				56.9500007629395
+			],
+			"materials": [
+				{
+					"class": "StandardMaterial3D",
+					"name": "M_fx_scuff"
+				}
+			],
+			"name": "F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff",
+			"path": "F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff",
+			"triangles": 2,
+			"visible": true
+		}
+	],
+	"evidence_class": "INERT",
+	"scope": "Read-only actual imported node, surface and collision ownership inventory before native chassis replacement. No retirement, fit, operation or acceptance.",
+	"source_id": "storm_shopcab_radio_service0"
+}

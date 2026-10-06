@@ -212,7 +212,7 @@ Evidence class: **INERT**
 
 - ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
 
-**runtime receipts rejected (36):**
+**runtime receipts rejected (37):**
 
 - ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
 - ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
@@ -595,6 +595,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/radio_battery_20261006/runtime_authority_receipt.json` sha256 `4f384947823c0588...`
 - `art/renders/orison_v2/radio_bench_20261006/runtime_authority_receipt.json` sha256 `339aa1e482bd2f4f...`
 - `art/renders/orison_v2/radio_display_20261006/runtime_authority_receipt.json` sha256 `14023736ca666e33...`
+- `art/renders/orison_v2/radio_receiving_20261006/runtime_authority_receipt.json` sha256 `ac87e2947c32c849...`
 - `art/renders/orison_v2/radio_stock_20261006/runtime_authority_receipt.json` sha256 `d10b8a4762c99e8b...`
 - `art/renders/orison_v2/radio_wire_20261006/runtime_authority_receipt.json` sha256 `2966b80c068ea0d1...`
 - `design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md` sha256 `534567ba02295ef7...`
@@ -628,4 +629,4 @@ Evidence class: **INERT**
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
 - `game/tests/orison_v2_resident_key_route_test.gd` sha256 `b64bac7ebf7b7492...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `1dace4b38a233e1a...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `7d33492011412231...`

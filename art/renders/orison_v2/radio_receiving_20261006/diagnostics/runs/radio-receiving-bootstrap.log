@@ -1,0 +1,14 @@
+00:00.046  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_radio_receiving.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_radio_receiving.py", line 129, in <module>
+    floor_top=float(floor['z0'])+float(floor['h']);assert abs(floor_top-.05)<1e-12
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/art/blender/scripts/build_radio_receiving.py', exiting.
+
+Blender quit
