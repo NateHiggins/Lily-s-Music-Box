@@ -1,0 +1,37 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "c14a1eec682e2244ab5434a39c2e615ef56a941f9b008c093be240e4fec309a5",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_otis___son_mortar_HollowWorkedBowl",
+      "volume_m3": 0.004656472355938694
+    },
+    {
+      "name": "storm_shop_otis___son_pestle_TurnedGrindingEndAndGrip",
+      "volume_m3": 0.001190976340388152
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_otis___son_mortar",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "storm_shop_otis___son_pestle",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    }
+  ],
+  "source_boundary_stocks": 2,
+  "parts": 2,
+  "triangles": 4218,
+  "views": [
+    "composed_front.png",
+    "composed_rear.png",
+    "storm_shop_otis___son_mortar_front.png",
+    "storm_shop_otis___son_mortar_rear.png",
+    "storm_shop_otis___son_pestle_front.png",
+    "storm_shop_otis___son_pestle_rear.png"
+  ]
+}

@@ -1,0 +1,17 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-mortar-stage\art\blender\scripts\build_druggist_mortar.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-mortar-stage\art\blender\scripts\build_druggist_mortar.py", line 209, in <module>
+    n,u,values,smooth=turned_chart(points,origin)
+                      ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-mortar-stage\art\blender\scripts\build_druggist_mortar.py", line 184, in turned_chart
+    for a,b in [(0,1),(1,2),(2,0)]:assert abs(np.linalg.norm(values[b]-values[a])-np.linalg.norm(points[b]-points[a]))<.000004,(p.tolist(),values.tolist(),radius.tolist(),height.tolist(),a,b)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ([[23.36240005530417, -46.96918868660927, 1.172000050842762], [23.35654067983851, -46.97478484749794, 1.187000036071986], [23.356212615873666, -46.969795223474506, 1.172000050842762]], [[0.3002386104837224, 0.011937821734099394], [0.3157050874192308, 0.019101356193187674], [0.2999184180628574, 0.01814620277153964]], [0.09500142134055703, 0.09999898140950089, 0.09499858414510838], [1.172000050842762, 1.187000036071986, 1.172000050842762], 1, 2)
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+
+Error: script failed, file: 'tmp/v2-finish-review/druggist-mortar-stage/art/blender/scripts/build_druggist_mortar.py', exiting.
+
+Blender quit

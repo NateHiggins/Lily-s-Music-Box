@@ -1,0 +1,82 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Standing-capsule passive mortar/pestle observations. Medicine/poison custody, stock state, operating dispensing/fountain, continuous routes and independent services retain separate authority.",
+	"views": [
+		{
+			"feet": [
+				22.2999992370605,
+				0.0299999993294477,
+				46.8800010681152
+			],
+			"id": "mortar",
+			"image": "mortar.png",
+			"requested_feet": [
+				22.2999992370605,
+				0.0299999993294477,
+				46.8800010681152
+			],
+			"target": [
+				23.3500003814697,
+				1.38999998569489,
+				46.875
+			]
+		},
+		{
+			"feet": [
+				22.3500003814697,
+				0.0299999993294477,
+				47.2000007629395
+			],
+			"id": "bowl_mouth",
+			"image": "bowl_mouth.png",
+			"requested_feet": [
+				22.3500003814697,
+				0.0299999993294477,
+				47.2000007629395
+			],
+			"target": [
+				23.3500003814697,
+				1.25999999046326,
+				46.875
+			]
+		},
+		{
+			"feet": [
+				21.5,
+				0.0299999993294477,
+				46.9500007629395
+			],
+			"id": "retained_stock",
+			"image": "retained_stock.png",
+			"requested_feet": [
+				21.5,
+				0.0299999993294477,
+				46.9500007629395
+			],
+			"target": [
+				23.3999996185303,
+				1.50999999046326,
+				46.2799987792969
+			]
+		},
+		{
+			"feet": [
+				17.2999992370605,
+				0.0299999993294477,
+				45.6500015258789
+			],
+			"id": "shop_context",
+			"image": "shop_context.png",
+			"requested_feet": [
+				17.2999992370605,
+				0.0299999993294477,
+				45.6500015258789
+			],
+			"target": [
+				22.7999992370605,
+				1.54999995231628,
+				46.9000015258789
+			]
+		}
+	]
+}

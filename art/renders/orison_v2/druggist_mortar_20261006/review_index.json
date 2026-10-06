@@ -1,0 +1,543 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "3bdf792cc9f07aa83c3d4e7ddc0739b595cd8a00",
+  "base": "1119f6412c20c60a659a4cc6d4de6285c7fcf0ee",
+  "verification": "MERGE-CANDIDATE 3bdf792cc9f07aa83c3d4e7ddc0739b595cd8a00",
+  "source_records": 2,
+  "assemblies": 2,
+  "closed_stocks": 2,
+  "material_partitions": 2,
+  "triangles": 4218,
+  "source_supports": 2,
+  "removed_original_triangles": 24,
+  "native_views": 6,
+  "production_views": 4,
+  "direct_review": "All six final native views and four exact production frames reviewed. Smooth hollow marble bowl and separate upright pestle seat on the original top and bowl floor; stock shelf clearance remains. Native elevated views expose the inner floor; standing game views do not.",
+  "runtime_contract": "Current test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; executed scope only.",
+  "limits": [
+    "No human acceptance or whole-shop/V2 completion.",
+    "Standing views and sampled contacts establish no continuous route or engineering capacity.",
+    "Grinding, medicine/poison custody, dispensing and independent services retain separate owners.",
+    "Original stock ranks cross their bench and balance case; composed fitting remains open.",
+    "Captures, wrapper receipts and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/verification.json",
+      "source_sha256": "00c990fb6f2c228ae9757a2a2386e572d8f3fad268882a2bec87be85bbaee2de",
+      "sha256": "00c990fb6f2c228ae9757a2a2386e572d8f3fad268882a2bec87be85bbaee2de",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/1119f641-clean-board.json",
+      "source_sha256": "44d7ac8876fe9ae9352207851a828ceb758ff01da753e02eb78bd641828bebd7",
+      "sha256": "44d7ac8876fe9ae9352207851a828ceb758ff01da753e02eb78bd641828bebd7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/inspection.json",
+      "source_sha256": "9571dc2c19a785751c553cbd1c23faa287f5605af41ac5b7ea4847f3277dc004",
+      "sha256": "9571dc2c19a785751c553cbd1c23faa287f5605af41ac5b7ea4847f3277dc004",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/druggist_mortar_construction.json",
+      "source_sha256": "b79c77b41b48bcc90016f76790a06e5a2963ee743f6d15e190cc08592c6a1bea",
+      "sha256": "b79c77b41b48bcc90016f76790a06e5a2963ee743f6d15e190cc08592c6a1bea",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "3e6c494d70591ceeabfda0e5563a5c55e8f89015daa7095040083a8b97532409",
+      "sha256": "3e6c494d70591ceeabfda0e5563a5c55e8f89015daa7095040083a8b97532409",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/views.json",
+      "source_sha256": "9bd0b8a665e6edddc6126b0c299345b3fd6e63fd170a2c84ea576898b4facf4e",
+      "sha256": "9bd0b8a665e6edddc6126b0c299345b3fd6e63fd170a2c84ea576898b4facf4e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
+      "sha256": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "e48477b5d37a9d7cce6fdfe128c25ea6709ba3f90a39a90928bd48f3d79e83b4",
+      "sha256": "e48477b5d37a9d7cce6fdfe128c25ea6709ba3f90a39a90928bd48f3d79e83b4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/composed_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/composed_front.png",
+      "source_sha256": "30a3b8676b567290f71930f39114e888d72873ba9ea15714fe2bec06d3134542",
+      "sha256": "cb95e3ff125936739ba4b5a782f0e30db9337a11d5d299ad87b1836f2b67f02a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/composed_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/composed_rear.png",
+      "source_sha256": "12924cc6f273487dabf90b63195699c706f47a7a40b2a96a7a51de83daecca66",
+      "sha256": "400e5c637fec5ee04ed26df057fbe9881dd0fe9d485b9361b216a1b89dbc98b2",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_mortar_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/storm_shop_otis___son_mortar_front.png",
+      "source_sha256": "e7894fe60fa00fe054edd1347baf9544b90ad7f4ae18bd6aa13a9cb7e2171ed8",
+      "sha256": "fd6fea41a1fdce15ab55ab721fbdff8186c48959c7d80c38e81d047f491ac2e6",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_mortar_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/storm_shop_otis___son_mortar_rear.png",
+      "source_sha256": "58df3e3efd7d9c627b07744adab1c8ea0470745741b34025c5fe025567866e53",
+      "sha256": "e3448a24ce5cfb2e9a0c7f5f22820e5d6ce504ede4a7b7c83392e1ff6cc72f3f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_pestle_front.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/storm_shop_otis___son_pestle_front.png",
+      "source_sha256": "cf0fe4c13b334f5d1c67f586b1bf18a7af2e59b7e8777882e0c1a4a9ef9edbf3",
+      "sha256": "482bba2e1cba629aa7a002c914e7d725f717be0c3d382cf455b6102c46d981b3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_otis___son_pestle_rear.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-native/storm_shop_otis___son_pestle_rear.png",
+      "source_sha256": "5c25b4916156349bc993c8cfee552ff1664a0ec5200f8ebb7221508d41c163bb",
+      "sha256": "aafc5f5495eb2d7a210b5fe3428906d234143182f0d25c95d7d7bf2d6193eb05",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/bowl_mouth.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/bowl_mouth.png",
+      "source_sha256": "bf0ddb3bf951dc45a261fb7c6d76956f6658665db333e65f88d3f0ceb3ecfb42",
+      "sha256": "6efcab1e138bf88f34919419a3420860a523d068d225fdb0417a611c552bbd87",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/mortar.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/mortar.png",
+      "source_sha256": "aaf3b4c5ef5f01d0c6053174db9114d9e8d5519040ced5e7f260a15b56ab082c",
+      "sha256": "7aa4ec8adadd2350c4bbbb77820997a0923e46fa2dce553a2ea7e8444fa298ff",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/retained_stock.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/retained_stock.png",
+      "source_sha256": "24ec6e766c1771fff5606671dd18182cc7b2f25cf8450f89e3623f446cddc34d",
+      "sha256": "3b08876b18a18f2387294f5b1ec3baed3413a4a82d5f52bb69e60a9dd0f1000e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/shop_context.jpg",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed_shots/shop_context.png",
+      "source_sha256": "7a025c6edb2db4332331cf643fd58903ad36711ce03764f11ef502332edd5ffe",
+      "sha256": "209797faf9680d686dcd11ceed9f577e0bfdaf5b0e3282e22b4b70f2ad63f4ba",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "5f0739ca16a19e1758dd195d00e65582c3195618a3c22c34ea7cd10d6e9b8d25",
+      "copy": "Labelled contact-sheet JPEG derivative"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "de521e685934d7eca80249bf26bbfa03c8a11f2c7cdae8450904f6e15a102e57",
+      "copy": "Labelled contact-sheet JPEG derivative"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "49fd0af655170e38788bb29919d70e264a085f82ef8dcbf876ef50d078e9e8d2",
+      "sha256": "49fd0af655170e38788bb29919d70e264a085f82ef8dcbf876ef50d078e9e8d2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "4ea5abda7386216f281cfe8d6bc52573d319fef3eb2fe35506642edbd1ebcfa8",
+      "sha256": "4ea5abda7386216f281cfe8d6bc52573d319fef3eb2fe35506642edbd1ebcfa8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistMortarTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed.log",
+      "source_sha256": "bf7ea27308f994551d3e1a1f997dd4046536cd8fc4240afc444b1c4e762e15f8",
+      "sha256": "bf7ea27308f994551d3e1a1f997dd4046536cd8fc4240afc444b1c4e762e15f8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistMortarTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistMortarTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a4d8ede916e6626f3cf4dd57906190034e4232cdffb97d3f4cf8e424861f25f8",
+      "sha256": "a4d8ede916e6626f3cf4dd57906190034e4232cdffb97d3f4cf8e424861f25f8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistCounterTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistCounterTest_tscn_windowed.log",
+      "source_sha256": "14ca88b1ee0753e0c386bf1d21085b2afab504262dbe4f6886ad207518ee76a6",
+      "sha256": "14ca88b1ee0753e0c386bf1d21085b2afab504262dbe4f6886ad207518ee76a6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "b7e376a0274c0d73ea0c62c5d37bf50f2d71567d1b91ca6623829729308e7443",
+      "sha256": "b7e376a0274c0d73ea0c62c5d37bf50f2d71567d1b91ca6623829729308e7443",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+      "source_sha256": "98a91517ee138704e27997ea8a5c5e5a6e9dc098d6327b2816cbeb4150942690",
+      "sha256": "98a91517ee138704e27997ea8a5c5e5a6e9dc098d6327b2816cbeb4150942690",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "62ebc6ef9eb7c3b895a995e9755bc273775a230f701275e511daf34a92b66ab7",
+      "sha256": "62ebc6ef9eb7c3b895a995e9755bc273775a230f701275e511daf34a92b66ab7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "3999a30b695979584cb6bbd10e07bd617f705998784d8a530495ab4af9c5cf56",
+      "sha256": "3999a30b695979584cb6bbd10e07bd617f705998784d8a530495ab4af9c5cf56",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9ba8e7abe594fdee17e9c370016753d99f15eab5708425c50d970c9682231e97",
+      "sha256": "9ba8e7abe594fdee17e9c370016753d99f15eab5708425c50d970c9682231e97",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "349792b2fd34324f92667528ae542052b6848729c9cdfe8c88fb6a4499ecf15c",
+      "sha256": "349792b2fd34324f92667528ae542052b6848729c9cdfe8c88fb6a4499ecf15c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "1325940936d4af0c68d2f5c75c4f28579511562d390b26b9a52c7d7282ac873d",
+      "sha256": "1325940936d4af0c68d2f5c75c4f28579511562d390b26b9a52c7d7282ac873d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "95af2abc75a6b19ff26419ae2a15b71f1064e35477cfad657d83a1aa2825bc86",
+      "sha256": "95af2abc75a6b19ff26419ae2a15b71f1064e35477cfad657d83a1aa2825bc86",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "ba751bff3ed353bc6799722f4e760ecc3a9a1f38bf96c26b120aea3deeb0e230",
+      "sha256": "ba751bff3ed353bc6799722f4e760ecc3a9a1f38bf96c26b120aea3deeb0e230",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "7c10e8f555709c7c16fe5f5d42db44c41d1eeab43ca1419c3d4b4e32bfb11602",
+      "sha256": "7c10e8f555709c7c16fe5f5d42db44c41d1eeab43ca1419c3d4b4e32bfb11602",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "a98e3968be347ec170d4e51d2b1c572a6ae197ffb20ea57917a80fa64e0a56ba",
+      "sha256": "a98e3968be347ec170d4e51d2b1c572a6ae197ffb20ea57917a80fa64e0a56ba",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "036783da11295bde503e4a12d45a0ee6a5e3d277214cf61b5eeb2bc06a6a4f61",
+      "sha256": "036783da11295bde503e4a12d45a0ee6a5e3d277214cf61b5eeb2bc06a6a4f61",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-build.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-build.log",
+      "source_sha256": "591ff34577b481b032e09200e640706c1cee72627e367910bff7b2f8863db790",
+      "sha256": "591ff34577b481b032e09200e640706c1cee72627e367910bff7b2f8863db790",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-native.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-native.log",
+      "source_sha256": "f401ad6d1ca439b956aa222a1efbcb45e810955fedccd5100225bb57e746106e",
+      "sha256": "f401ad6d1ca439b956aa222a1efbcb45e810955fedccd5100225bb57e746106e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-build-corrected.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-build-corrected.log",
+      "source_sha256": "e4f8abd20e94518b3de97cfaa76075480e34704351d3f91a364ae56d8e50062c",
+      "sha256": "e4f8abd20e94518b3de97cfaa76075480e34704351d3f91a364ae56d8e50062c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-native-corrected.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-native-corrected.log",
+      "source_sha256": "1c663ce74dd6b7bf8204f718530ba7991e1fee4295c4fe9cdf7233e49c079251",
+      "sha256": "1c663ce74dd6b7bf8204f718530ba7991e1fee4295c4fe9cdf7233e49c079251",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-turned-build.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-turned-build.log",
+      "source_sha256": "86e86f4d0be9ec20748ce8344dc0c51b58ed14d4e4bb93e4ca4b0e30e7f7f5d6",
+      "sha256": "86e86f4d0be9ec20748ce8344dc0c51b58ed14d4e4bb93e4ca4b0e30e7f7f5d6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-chart-probe.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-chart-probe.log",
+      "source_sha256": "106e4ef6db93a78c94caf8064ff5c0bcb128eb1bf654a3b73630373a5b4ff8b5",
+      "sha256": "106e4ef6db93a78c94caf8064ff5c0bcb128eb1bf654a3b73630373a5b4ff8b5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-chart-build-corrected.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-chart-build-corrected.log",
+      "source_sha256": "49b09793ad19a1101d16913e99286a9e1dc2b1fd44e804b2231687e8d3b2d04b",
+      "sha256": "49b09793ad19a1101d16913e99286a9e1dc2b1fd44e804b2231687e8d3b2d04b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-stage-chart-native-corrected.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-stage-chart-native-corrected.log",
+      "source_sha256": "58d8ec5f4d2bf1c27d2dd8d1a1aecc7402e0c167275697f056373f9633b85f13",
+      "sha256": "58d8ec5f4d2bf1c27d2dd8d1a1aecc7402e0c167275697f056373f9633b85f13",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-canonical-build.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-canonical-build.log",
+      "source_sha256": "703019914cafa97d8eb3d4b563e3de6ac36e7277351f6db6e114917a117cff2a",
+      "sha256": "703019914cafa97d8eb3d4b563e3de6ac36e7277351f6db6e114917a117cff2a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-canonical-native.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-canonical-native.log",
+      "source_sha256": "42e1ffd8ea4d3c4cd99e77b3e6b15872de695519dee26d85542b70306b585e35",
+      "sha256": "42e1ffd8ea4d3c4cd99e77b3e6b15872de695519dee26d85542b70306b585e35",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-import1.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-import1.log",
+      "source_sha256": "7d7e0e63ab1140b8a8a323a7103051d5ce0df37e5779b6bc1dbd8b4f462bdcd4",
+      "sha256": "7d7e0e63ab1140b8a8a323a7103051d5ce0df37e5779b6bc1dbd8b4f462bdcd4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-import1.log.receipt.json",
+      "source_sha256": "43136b13f9aa65d953c8adb634821360c1ae22ebb8b3fef1dc5c570ccadc3efc",
+      "sha256": "43136b13f9aa65d953c8adb634821360c1ae22ebb8b3fef1dc5c570ccadc3efc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-import1.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-mortar-import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-import2.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-import2.log.receipt.json",
+      "source_sha256": "8b9d1a5f12bc87634ab14005537008f1bb9fe3732ab876fca83bb046421ca7fb",
+      "sha256": "8b9d1a5f12bc87634ab14005537008f1bb9fe3732ab876fca83bb046421ca7fb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-first-suite.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-first-suite.log",
+      "source_sha256": "fe44a49e45960e2d160fe4680635cfc88182c815ed3708ba0d3a8db1f11b135e",
+      "sha256": "fe44a49e45960e2d160fe4680635cfc88182c815ed3708ba0d3a8db1f11b135e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-first-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-first-suite.log.receipt.json",
+      "source_sha256": "5ec176da742c7ef985e09528f931c4ecdb9f0e14570590f0733a8c723800c243",
+      "sha256": "5ec176da742c7ef985e09528f931c4ecdb9f0e14570590f0733a8c723800c243",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-first-suite.log.stderr",
+      "source": "tmp/v2-finish-review/druggist-mortar-first-suite.log.stderr",
+      "source_sha256": "cdcab2d75a3bcf463dc9f7ea8c5e2ca241b6eed8f53b4f4e6bd08b3d684d130d",
+      "sha256": "cdcab2d75a3bcf463dc9f7ea8c5e2ca241b6eed8f53b4f4e6bd08b3d684d130d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-build.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-build.log",
+      "source_sha256": "5e98dbc3cbce05c0555c16a66248b8afe8bc77dc71bcd0eebfa3ae3e3c794f3d",
+      "sha256": "5e98dbc3cbce05c0555c16a66248b8afe8bc77dc71bcd0eebfa3ae3e3c794f3d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-native.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-native.log",
+      "source_sha256": "3d4b3073babc6a69be4d0561b314b3612b3bd9175b260d80fec933d006124492",
+      "sha256": "3d4b3073babc6a69be4d0561b314b3612b3bd9175b260d80fec933d006124492",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-import1.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-import1.log",
+      "source_sha256": "1104db59228309a6e8c92e9ecf81f481301c8076944142ad8740ccaba6008214",
+      "sha256": "1104db59228309a6e8c92e9ecf81f481301c8076944142ad8740ccaba6008214",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-import1.log.receipt.json",
+      "source_sha256": "20fa3a7f406a004a7efde2679c190a83f1494f852478b000af6cbcb0688ba212",
+      "sha256": "20fa3a7f406a004a7efde2679c190a83f1494f852478b000af6cbcb0688ba212",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-import2.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-import2.log.receipt.json",
+      "source_sha256": "ea7098605500910791344cf3c33f6a22fd625e61957aed42440aeff10e2abb0c",
+      "sha256": "ea7098605500910791344cf3c33f6a22fd625e61957aed42440aeff10e2abb0c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-suite.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-suite.log",
+      "source_sha256": "83e28cb4d8d6c142606e8c7e1ee278ae74c363e463a6183c80ba7729ce4c571f",
+      "sha256": "83e28cb4d8d6c142606e8c7e1ee278ae74c363e463a6183c80ba7729ce4c571f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-suite.log.receipt.json",
+      "source_sha256": "29551b49f894ce26cf185d8dddf4d2c475fb3565315a85dabf93646d7c13680f",
+      "sha256": "29551b49f894ce26cf185d8dddf4d2c475fb3565315a85dabf93646d7c13680f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-reader.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-cap-reader.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-cap-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-spatial-initial.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-spatial-initial.log",
+      "source_sha256": "9f20dcf75b73df831555ae76e13ab29b361085ca21a3b1fbcc2e255ef27068bd",
+      "sha256": "9f20dcf75b73df831555ae76e13ab29b361085ca21a3b1fbcc2e255ef27068bd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/druggist-mortar-spatial.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-spatial.log",
+      "source_sha256": "bbc0a7c8a61e69c562c48bcf8fd95fa4a159725444fadd09d70332f782f9fe3e",
+      "sha256": "bbc0a7c8a61e69c562c48bcf8fd95fa4a159725444fadd09d70332f782f9fe3e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/druggist-mortar-ledger-refresh.log",
+      "source_sha256": "6761d4abcdcc3022b61347cbcf6e589e02e826102846d096d2e6f9aa031ef151",
+      "sha256": "6761d4abcdcc3022b61347cbcf6e589e02e826102846d096d2e6f9aa031ef151",
+      "copy": "byte-identical"
+    }
+  ]
+}
