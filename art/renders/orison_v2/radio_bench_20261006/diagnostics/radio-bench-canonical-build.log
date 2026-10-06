@@ -1,0 +1,18 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_radio_bench.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "radio_bench.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:42:28 | INFO: Starting glTF 2.0 export
+07:42:28 | INFO: Extracting primitive: storm_shop_radio_service_bench__bench_frame
+07:42:28 | INFO: Primitives created: 1
+07:42:28 | INFO: Extracting primitive: storm_shop_radio_service_bench__bench_top
+07:42:28 | INFO: Primitives created: 1
+07:42:28 | INFO: Finished glTF 2.0 export in 0.01427769660949707 s
+
+RADIO BENCH 2 original records; 1 assemblies; 32 closed stocks; 2 parts; 6016 triangles; 9 floor/instrument contacts
+
+Blender quit

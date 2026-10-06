@@ -1,0 +1,52 @@
+00:00.046  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.546  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-stage\art\blender\radio_bench.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-stage\art\blender\scripts\inspect_radio_bench.py:52: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+07:37:14 | INFO: Data are loaded, start creating Blender stuff
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+07:37:14 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+07:37:14 | INFO: glTF import finished in 0.12s
+00:03.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\bench_front.png'
+00:05.140  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\bench_rear.png'
+00:07.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\side_leaf.png'
+00:09.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\side_leaf_bearings.png'
+00:11.687  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\foot_and_braces.png'
+00:13.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-native\worked_top.png'
+RADIO BENCH NATIVE QA 32 closed connected stocks; 1 joined assembly; 9 retained owner contacts; 6 views
+
+Blender quit

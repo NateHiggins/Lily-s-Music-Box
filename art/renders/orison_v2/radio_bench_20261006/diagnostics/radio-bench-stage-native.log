@@ -1,0 +1,12 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.531  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-stage\art\blender\radio_bench.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-bench-stage\art\blender\scripts\inspect_radio_bench.py", line 40, in <module>
+    assert len(seen)==len(stocks),(a['id'],'disconnected',sorted(set(adj)-seen))
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('storm_shop_radio_service_bench', 'disconnected', ['storm_shop_radio_service_bench_WorkedTopPlank2'])
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-bench-stage/art/blender/scripts/inspect_radio_bench.py', exiting.
+
+Blender quit

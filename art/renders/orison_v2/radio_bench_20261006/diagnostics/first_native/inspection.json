@@ -1,0 +1,1193 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "c210cbd712559b7b64506a35c1533e450b84b0afb70bf0a889edab558f01b5a7",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_radio_service_bench_FootPad0",
+      "volume_m3": 0.0002450216164763645
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg0",
+      "volume_m3": 0.0027077415885592175
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad1",
+      "volume_m3": 0.00024502161769877066
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg1",
+      "volume_m3": 0.0027077416721119664
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad2",
+      "volume_m3": 0.00024502161647636453
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg2",
+      "volume_m3": 0.0027077416721119664
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad3",
+      "volume_m3": 0.0002450216176987707
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg3",
+      "volume_m3": 0.002707741755664719
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad4",
+      "volume_m3": 0.0002450216164763645
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg4",
+      "volume_m3": 0.0027077415685955375
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad5",
+      "volume_m3": 0.00024502161647636453
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg5",
+      "volume_m3": 0.002707741667121046
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999",
+      "volume_m3": 0.004040669519065332
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.23-55.852",
+      "volume_m3": 0.004040669321218117
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.2319.245",
+      "volume_m3": 0.001118577629388924
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.2321.455",
+      "volume_m3": 0.0011185775747820693
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+      "volume_m3": 0.007280509655571606
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.86-55.852",
+      "volume_m3": 0.007280509290290053
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.8619.245",
+      "volume_m3": 0.0020155376993045673
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.8621.455",
+      "volume_m3": 0.0020155375984843016
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafApron-56.36",
+      "volume_m3": 0.0017647976589438368
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafLowBrace-56.36",
+      "volume_m3": 0.0008437895967033836
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafApron-55.92",
+      "volume_m3": 0.001764797579511616
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafLowBrace-55.92",
+      "volume_m3": 0.0008437895503107644
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat0",
+      "volume_m3": 0.0013574977438937296
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat1",
+      "volume_m3": 0.0013574977457423967
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat2",
+      "volume_m3": 0.0013574977457423967
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank0",
+      "volume_m3": 0.026233444609308477
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank1",
+      "volume_m3": 0.026089448367633945
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank2",
+      "volume_m3": 0.02608944836763395
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank3",
+      "volume_m3": 0.02623344465933945
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SignalGeneratorSideLeaf",
+      "volume_m3": 0.011638577779846199
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_bench_FootPad0",
+          "storm_shop_radio_service_bench_Leg0"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg0",
+          "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg0",
+          "storm_shop_radio_service_bench_CrossApron0.2319.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg0",
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg0",
+          "storm_shop_radio_service_bench_CrossApron0.8619.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg0",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_FootPad1",
+          "storm_shop_radio_service_bench_Leg1"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_CrossApron0.2321.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_CrossApron0.8621.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_WorktopBearingCleat2"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg1",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_FootPad2",
+          "storm_shop_radio_service_bench_Leg2"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_LongApron0.23-55.852"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_CrossApron0.2319.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_LongApron0.86-55.852"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_CrossApron0.8619.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_WorktopBearingCleat0"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg2",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_FootPad3",
+          "storm_shop_radio_service_bench_Leg3"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_LongApron0.23-55.852"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_CrossApron0.2321.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_LongApron0.86-55.852"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_CrossApron0.8621.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_WorktopBearingCleat2"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg3",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_FootPad4",
+          "storm_shop_radio_service_bench_Leg4"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg4",
+          "storm_shop_radio_service_bench_SideLeafApron-56.36"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg4",
+          "storm_shop_radio_service_bench_SideLeafLowBrace-56.36"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg4",
+          "storm_shop_radio_service_bench_SignalGeneratorSideLeaf"
+        ],
+        [
+          "storm_shop_radio_service_bench_FootPad5",
+          "storm_shop_radio_service_bench_Leg5"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg5",
+          "storm_shop_radio_service_bench_SideLeafApron-55.92"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg5",
+          "storm_shop_radio_service_bench_SideLeafLowBrace-55.92"
+        ],
+        [
+          "storm_shop_radio_service_bench_Leg5",
+          "storm_shop_radio_service_bench_SignalGeneratorSideLeaf"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999",
+          "storm_shop_radio_service_bench_CrossApron0.2319.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999",
+          "storm_shop_radio_service_bench_CrossApron0.2321.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.23-55.852",
+          "storm_shop_radio_service_bench_CrossApron0.2319.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.23-55.852",
+          "storm_shop_radio_service_bench_CrossApron0.2321.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.2319.245",
+          "storm_shop_radio_service_bench_SideLeafLowBrace-56.36"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.2319.245",
+          "storm_shop_radio_service_bench_SideLeafLowBrace-55.92"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_CrossApron0.8619.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_CrossApron0.8621.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_WorktopBearingCleat0"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_WorktopBearingCleat1"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_WorktopBearingCleat2"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_CrossApron0.8619.245"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_CrossApron0.8621.455"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_WorktopBearingCleat0"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_WorktopBearingCleat1"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_WorktopBearingCleat2"
+        ],
+        [
+          "storm_shop_radio_service_bench_LongApron0.86-55.852",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8619.245",
+          "storm_shop_radio_service_bench_SideLeafApron-56.36"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8619.245",
+          "storm_shop_radio_service_bench_SideLeafApron-55.92"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8619.245",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8619.245",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8621.455",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_CrossApron0.8621.455",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-56.36",
+          "storm_shop_radio_service_bench_WorktopBearingCleat0"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-56.36",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-56.36",
+          "storm_shop_radio_service_bench_WorkedTopPlank1"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-56.36",
+          "storm_shop_radio_service_bench_SignalGeneratorSideLeaf"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-55.92",
+          "storm_shop_radio_service_bench_WorktopBearingCleat0"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-55.92",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_SideLeafApron-55.92",
+          "storm_shop_radio_service_bench_SignalGeneratorSideLeaf"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat0",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat0",
+          "storm_shop_radio_service_bench_WorkedTopPlank1"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat0",
+          "storm_shop_radio_service_bench_WorkedTopPlank2"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat0",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat1",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat1",
+          "storm_shop_radio_service_bench_WorkedTopPlank1"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat1",
+          "storm_shop_radio_service_bench_WorkedTopPlank2"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat1",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat2",
+          "storm_shop_radio_service_bench_WorkedTopPlank0"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat2",
+          "storm_shop_radio_service_bench_WorkedTopPlank1"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat2",
+          "storm_shop_radio_service_bench_WorkedTopPlank2"
+        ],
+        [
+          "storm_shop_radio_service_bench_WorktopBearingCleat2",
+          "storm_shop_radio_service_bench_WorkedTopPlank3"
+        ]
+      ]
+    }
+  ],
+  "actual_native_support_samples": [
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "alignment bench foot on retained floor",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "worktop beneath original chassis",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "worktop beneath original scope",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    },
+    {
+      "label": "worktop beneath original signal_gen",
+      "assembly": "storm_shop_radio_service_bench",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_owner_support_samples": [
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "alignment bench foot on retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_chassis",
+      "label": "worktop beneath original chassis",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_scope",
+      "label": "worktop beneath original scope",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_signal_gen",
+      "label": "worktop beneath original signal_gen",
+      "distance_m": 0.0
+    }
+  ],
+  "source_boundary_stocks": 2,
+  "removed_original_triangles": 24,
+  "parts": 2,
+  "triangles": 6016,
+  "context_intersections": [],
+  "declared_contact_pairs": [
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 273,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 273,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 175,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 175,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 97,
+      "context_face": 10,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 97,
+      "context_face": 7,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 97,
+      "context_face": 4,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 97,
+      "context_face": 5,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 391,
+      "context_face": 9,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 391,
+      "context_face": 8,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 391,
+      "context_face": 6,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 391,
+      "context_face": 11,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 77,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col",
+      "native_face": 77,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 269,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 849,
+      "context_face": 6,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 849,
+      "context_face": 9,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 849,
+      "context_face": 8,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 849,
+      "context_face": 11,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 273,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 273,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 273,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 273,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 579,
+      "context_face": 5,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 579,
+      "context_face": 7,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 579,
+      "context_face": 4,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 579,
+      "context_face": 10,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 171,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 175,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 175,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 175,
+      "context_face": 6,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 175,
+      "context_face": 10,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 175,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 97,
+      "context_face": 19,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 97,
+      "context_face": 16,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 391,
+      "context_face": 21,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 391,
+      "context_face": 18,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 367,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 77,
+      "context_face": 1,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 77,
+      "context_face": 0,
+      "owners": [
+        "storm_shop_radio_service_chassis"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 77,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 362,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 264,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 264,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 44,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 142,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 130,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 240,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 228,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 730,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 640,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 68,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 550,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 326,
+      "context_face": 12,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 166,
+      "context_face": 13,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 939,
+      "context_face": 20,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 939,
+      "context_face": 23,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 489,
+      "context_face": 17,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_bench__bench_top",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+      "native_face": 489,
+      "context_face": 22,
+      "owners": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    }
+  ],
+  "uv_metrics": [
+    {
+      "part": "storm_shop_radio_service_bench__bench_frame",
+      "minimum_metres_per_uv": 0.9997890374274514,
+      "maximum_metres_per_uv": 1.0001410443662815,
+      "triangles": 5076
+    },
+    {
+      "part": "storm_shop_radio_service_bench__bench_top",
+      "minimum_metres_per_uv": 0.9998763828441448,
+      "maximum_metres_per_uv": 1.000154658193886,
+      "triangles": 940
+    }
+  ],
+  "views": [
+    {
+      "id": "bench_front",
+      "eye": [
+        22.4,
+        -59.0,
+        2.2
+      ],
+      "target": [
+        20.2,
+        -56.2,
+        0.52
+      ],
+      "file": "bench_front.png",
+      "scope": "isolated native alignment bench"
+    },
+    {
+      "id": "bench_rear",
+      "eye": [
+        17.4,
+        -53.5,
+        2.2
+      ],
+      "target": [
+        20.2,
+        -56.2,
+        0.52
+      ],
+      "file": "bench_rear.png",
+      "scope": "isolated native alignment bench"
+    },
+    {
+      "id": "side_leaf",
+      "eye": [
+        18.5,
+        -57.0,
+        1.55
+      ],
+      "target": [
+        19.02,
+        -56.15,
+        1.0
+      ],
+      "file": "side_leaf.png",
+      "scope": "isolated native alignment bench"
+    },
+    {
+      "id": "side_leaf_bearings",
+      "eye": [
+        18.4,
+        -57.0,
+        0.5
+      ],
+      "target": [
+        19.03,
+        -56.17,
+        0.7
+      ],
+      "file": "side_leaf_bearings.png",
+      "scope": "isolated native alignment bench"
+    },
+    {
+      "id": "foot_and_braces",
+      "eye": [
+        20.0,
+        -57.2,
+        0.35
+      ],
+      "target": [
+        20.0,
+        -56.4,
+        0.35
+      ],
+      "file": "foot_and_braces.png",
+      "scope": "isolated native alignment bench"
+    },
+    {
+      "id": "worked_top",
+      "eye": [
+        21.0,
+        -57.7,
+        2.0
+      ],
+      "target": [
+        20.3,
+        -56.15,
+        1.0
+      ],
+      "file": "worked_top.png",
+      "scope": "isolated native alignment bench"
+    }
+  ],
+  "limits": "Original source wall, door/handle and instruments retained; only triangle pairs separated by declared support planes admitted. No alignment operation, continuous route, engineering capacity or acceptance."
+}
