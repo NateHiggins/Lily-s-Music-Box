@@ -1,0 +1,733 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_radio_service_counter",
+      "rect": [
+        17.75,
+        -58.64999999999999,
+        18.35,
+        -57.199999999999996
+      ],
+      "z0": 0.05,
+      "h": 1.02,
+      "mat": "wood_dark",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_counter_top",
+      "rect": [
+        17.7,
+        -58.67999999999999,
+        18.4,
+        -57.16
+      ],
+      "z0": 1.07,
+      "h": 0.05,
+      "mat": "countertop",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_ledger",
+      "rect": [
+        17.92,
+        -57.379999999999995,
+        18.3,
+        -57.019999999999996
+      ],
+      "z0": 1.13,
+      "h": 0.05,
+      "mat": "paper",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_horn_mouth",
+      "rect": [
+        17.36,
+        -58.279999999999994,
+        17.74,
+        -57.779999999999994
+      ],
+      "z0": 0.48,
+      "h": 0.48,
+      "mat": "brass_dull",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_horn_throat",
+      "rect": [
+        17.45,
+        -57.85999999999999,
+        17.65,
+        -57.58
+      ],
+      "z0": 0.54,
+      "h": 0.22,
+      "mat": "brass_dull",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_cone_speaker",
+      "rect": [
+        17.59,
+        -57.519999999999996,
+        17.99,
+        -56.959999999999994
+      ],
+      "z0": 0.46,
+      "h": 0.58,
+      "mat": "fabric_warm",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_radio_service_counter",
+      "kind": "supported_counter_and_ledger",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_horn_mouth",
+      "kind": "passive_window_horn",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_cone_speaker",
+      "kind": "passive_window_cone",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.005525650184299716
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.00552565021895112
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost2",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.005525650149648311
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost3",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.005525650184299715
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.002954973488842826
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0029549734888428265
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.002954973592035978
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0029549735920359785
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0011524135850967613
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0011524135850967615
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.007498786864551429
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.007498786614271531
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel2",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.007498786899426844
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel0",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.008226613665386667
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel1",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.008226613285434526
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Countertop",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "countertop",
+      "volume_m3": 0.05205990343244379
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LedgerPad",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "wood_dark",
+      "volume_m3": 0.0016249375222092712
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Ledger",
+      "assembly": "storm_shop_radio_service_counter",
+      "key": "paper",
+      "volume_m3": 0.006839211433150088
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_FiniteHorn",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "key": "brass_dull",
+      "volume_m3": 0.0017168478954719306
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornLip",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "key": "brass_dull",
+      "volume_m3": 0.00030723819580464874
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornPlinth",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "key": "cast_iron",
+      "volume_m3": 0.000317573480740907
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornStay",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "key": "cast_iron",
+      "volume_m3": 0.00021238541194012637
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFrame",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0010456935626479147
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_FiniteTextileCone",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "key": "fabric_warm",
+      "volume_m3": 0.0006548371748771297
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConePlinth",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "key": "cast_iron",
+      "volume_m3": 0.0015369125890104603
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot0",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "key": "cast_iron",
+      "volume_m3": 6.701362029615823e-05
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot1",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "key": "cast_iron",
+      "volume_m3": 6.701362099143048e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.825,
+        0.009999999999999995,
+        58.51999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "counter post on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.825,
+        0.009999999999999995,
+        57.33
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "counter post on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        18.275000000000002,
+        0.009999999999999995,
+        58.51999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "counter post on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        18.275000000000002,
+        0.009999999999999995,
+        57.33
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "counter post on actual retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "point": [
+        17.459999999999997,
+        0.44,
+        58.269999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "horn foot on actual retained window plinth"
+    },
+    {
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "point": [
+        17.369999999999997,
+        0.44,
+        57.629999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cone foot on actual retained window plinth"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_radio_service_counter__countertop",
+      "assembly": "storm_shop_radio_service_counter",
+      "cell": "shop_radio_service",
+      "key": "countertop",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_radio_service_counter__paper",
+      "assembly": "storm_shop_radio_service_counter",
+      "cell": "shop_radio_service",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_radio_service_counter__wood_dark",
+      "assembly": "storm_shop_radio_service_counter",
+      "cell": "shop_radio_service",
+      "key": "wood_dark",
+      "triangles": 3384
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth__brass_dull",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "cell": "shop_radio_service",
+      "key": "brass_dull",
+      "triangles": 3072
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 440
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "cell": "shop_radio_service",
+      "key": "cast_iron",
+      "triangles": 1396
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker__fabric_warm",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "cell": "shop_radio_service",
+      "key": "fabric_warm",
+      "triangles": 1536
+    }
+  ],
+  "triangles": 10204,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/radio_display.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_radio_service",
+        "parts": [
+          {
+            "name": "storm_shop_radio_service_counter__countertop",
+            "key": "countertop",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_radio_service_counter__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_radio_service_counter__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_radio_service_horn_mouth__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_radio_service_horn_mouth__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "cast_iron"
+          },
+          {
+            "name": "storm_shop_radio_service_cone_speaker__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4,
+            "catalog_key": "cast_iron"
+          },
+          {
+            "name": "storm_shop_radio_service_cone_speaker__fabric_warm",
+            "key": "fabric_warm",
+            "tile": 0.7
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_radio_service_counter",
+            "key": "wood_dark",
+            "low": [
+              17.75,
+              0.05,
+              57.199999999999996
+            ],
+            "high": [
+              18.35,
+              1.07,
+              58.64999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_counter_top",
+            "key": "countertop",
+            "low": [
+              17.7,
+              1.07,
+              57.16
+            ],
+            "high": [
+              18.4,
+              1.12,
+              58.67999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_ledger",
+            "key": "paper",
+            "low": [
+              17.92,
+              1.13,
+              57.019999999999996
+            ],
+            "high": [
+              18.3,
+              1.18,
+              57.379999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_horn_mouth",
+            "key": "brass_dull",
+            "low": [
+              17.36,
+              0.48,
+              57.779999999999994
+            ],
+            "high": [
+              17.74,
+              0.96,
+              58.279999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_horn_throat",
+            "key": "brass_dull",
+            "low": [
+              17.45,
+              0.54,
+              57.58
+            ],
+            "high": [
+              17.65,
+              0.76,
+              57.85999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_cone_speaker",
+            "key": "fabric_warm",
+            "low": [
+              17.59,
+              0.46,
+              56.959999999999994
+            ],
+            "high": [
+              17.99,
+              1.04,
+              57.519999999999996
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7",
+  "source_bindings": {
+    "art/data/radio_display/source_plan.json": "8060f62bb545470044ffc12a4bfc08ad4584becfce1476bd61114a9b532fe71d",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_radio_display.py": "55391c3b82ba67f9941595948c666a49ab8a93fd82a10bff5b922c9992a5b76c",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/radio_display.glb.import": "356cdbbc23d892db73fa41d8c47f0837bca3bea1c22511919ece107979cc4b8e",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/countertop/material.json": "e7dd2b2c3ef5cec58cbdec8ecff588adfdb49bd24214babe40361e7dbe7699ab",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/cast_iron/material.json": "4e0684bd596f37118193b3961a9cf97790f1aa571414eeca779c06aa9514976e",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_ai_materials_countertop_b_albedo.png": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39",
+    "game/assets/building/textures/T_ai_materials_countertop_b_rough.png": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035",
+    "game/assets/building/textures/T_ai_materials_countertop_b_normal.png": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540",
+    "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+    "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+    "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "game/assets/building/textures/T_ai_materials_brass_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_rough.png": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d",
+    "game/assets/building/textures/T_ai_materials_brass_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png": "484a90a02635618082aa1444afd2e27ff0a3853a890800163a7303c7a3c38dcf",
+    "game/assets/building/textures/T_ai_materials_fabric_warm_b_rough.png": "97740a9982409865fb64e2023ce2ef4d4f21ef5792c77ac8724537b2b5f0fd58",
+    "game/assets/building/textures/T_ai_materials_fabric_warm_b_normal.png": "7f28053f076dd6df5f55714546af9909eff321fbebef7d5a45d32d54ddbfa437",
+    "game/assets/building/textures/T_ai_materials_cast_iron_albedo.png": "1da42ae7a87c9842f38c8222ef07f56dd79ce60e1fba3ce5e9ec0dc3e955f2f3",
+    "game/assets/building/textures/T_ai_materials_cast_iron_rough.png": "a2f31fa683810d0b852c5496407685f372f263459f9235eff76d21bc0ecb3049",
+    "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
+    "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+    "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+    "art/blender/scripts/inspect_radio_display.py": "fbaa52c0c3698fc61ee6fe004c5163bbcec024d9b22df9abadcd9c761b2b9b71",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "game/assets/props/radio_bench.glb": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
+    "game/data/orison_v2/radio_bench.json": "9b6f0fe4efaceec0021f497b0b13117a7bed0a3cbbdd51b52a422326ac04ecda",
+    "art/blender/radio_bench.blend": "3b24bffb7fe18fe757babbc2900d56da377c9eb15c9c18374c0c100d448c4307",
+    "game/assets/props/radio_apparatus.glb": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d",
+    "game/data/orison_v2/radio_apparatus.json": "6f1dd1866df7c25478c54019d112ec5f5068b7d7c9b5f1873e18fbc5f291bdc4",
+    "art/blender/radio_apparatus.blend": "b2ad3337a17357b71883c4660ebb345be9a30dc16f7758c39b9fe6ba98c629d4",
+    "game/assets/props/radio_stock.glb": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf",
+    "game/data/orison_v2/radio_stock.json": "a76029e79ea3637c15416faa7a1d1e0d9ca0cef3c485a99b241eff9b35a04dd6",
+    "art/blender/radio_stock.blend": "287e4988337c632769fd255ddbe23a1afc9d7bccee3bef6d3616fd98759328cd",
+    "game/assets/props/radio_battery.glb": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966",
+    "game/data/orison_v2/radio_battery.json": "d35a9df2dd923599c46ce660b6165052743027e9c7888e02f8dfa2f5940161b6",
+    "art/blender/radio_battery.blend": "75a903535b12ad6e1856975e2e8764bbd09ea4866b739e10be0fcf9c03862b75",
+    "game/assets/props/radio_wire.glb": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+    "game/data/orison_v2/radio_wire.json": "d4e0e32ebf9d9e4ac436539f8fe91909c2bef64e8dfdbf3b99a0a010ca3315ee",
+    "art/blender/radio_wire.blend": "a48e218d6073e9bc63a5af943f40ada04a5e2fd083da09f2f6b3b09b192fd95c"
+  },
+  "open_work": [
+    "Six original records remain immutable retirement bounds and hidden native boxes. The retained window plinth/backboard, cabinet, room, five accepted Radio Service models, actors and service/gameplay owners remain unchanged.",
+    "ADAPTATION: supported counter retains its original perimeter and 1.12m worktop height. Source-derived 32mm rear trim leaves 2mm retained wainscot clearance. Static millwork adds no interaction.",
+    "ADAPTATION: ledger front edge derives from countertop front edge, removing 140mm unsupported overhang. A pad bridges its original 10mm support gap; original height and 1.18m maximum remain.",
+    "ADAPTATION: speakers seat on the actual retained window plinth as the source author specifies for pavement display. Fitted positions derive from plinth edges and avoid the counter and backing. Horn 0.96m and cone-frame 1.04m original maxima remain. Finite passive horn and cone geometry changes no original retirement record, wall, door, service or gameplay authority.",
+    "Shipping wood-dark, countertop, paper, brass and fabric plus existing registered cast iron retain their owners. No new material key, map, lettering or shader.",
+    "Native manifold/connectivity, retained floor/plinth seats, conservative context, closed-leaf standing views, strict physical UV charts, rendered inspection, imported checks and ordinary-input access remain required. This ignored draft grants no acceptance. No driver specification, signal, current, capacity, new operation, illumination or carrier change."
+  ],
+  "fitted_datums": {
+    "rear_wainscot": {
+      "id": "storm_shop_radio_service_dw",
+      "rect": [
+        17.0,
+        -58.699999999999996,
+        22.0,
+        -58.64999999999999
+      ],
+      "z0": 0.05,
+      "h": 1.05,
+      "mat": "wainscot",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    "countertop_rear_y": -58.64799999999999,
+    "countertop_front_y": -57.16,
+    "countertop_top": 1.12,
+    "window_plinth": {
+      "id": "storm_shop_radio_service_window_plinth",
+      "rect": [
+        17.18,
+        -58.519999999999996,
+        17.54,
+        -57.31999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.39,
+      "mat": "wood_dark",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    "window_back": {
+      "id": "storm_shop_radio_service_window_back",
+      "rect": [
+        17.54,
+        -58.519999999999996,
+        17.58,
+        -57.31999999999999
+      ],
+      "z0": 0.42,
+      "h": 1.15,
+      "mat": "plywood",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    "horn_centre": [
+      17.24,
+      -58.269999999999996,
+      0.72
+    ],
+    "cone_centre": [
+      17.24,
+      -57.629999999999995,
+      0.75
+    ],
+    "ledger_translation_y": -0.14000000000000057,
+    "wall_clearance_m": 0.002
+  }
+}

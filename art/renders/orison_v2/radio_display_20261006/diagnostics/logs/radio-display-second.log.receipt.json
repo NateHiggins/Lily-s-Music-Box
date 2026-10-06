@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 53.86,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T17:14:57Z",
+  "started_utc": "2026-10-06T17:14:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-second.log.stderr",
+  "stderr_sha256": "dde9ce123ed6f7414d673ad75c42569853bbb0fc932b373c812b6a657741e9b0",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-second.log",
+  "stdout_sha256": "d1e9b2214af99b236a56fb4e4048c1798e8a6a75ef1a1a9e5951aa4b22102f0c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioDisplayTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-second-shots",
+ "source": {
+  "dirty_paths": 284,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_radio_access_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/radio_display.blend",
+   "?? art/blender/radio_display.md",
+   "?? art/blender/radio_display_construction.json",
+   "?? art/blender/scripts/build_radio_display.py",
+   "?? art/blender/scripts/inspect_radio_display.py",
+   "?? art/data/radio_display/",
+   "?? game/assets/props/radio_display.glb",
+   "?? game/data/orison_v2/radio_display.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid"
+  ],
+  "repository_head": "28fd1b6c68a4e87900487c205af161b77ad1aeb9",
+  "repository_tree": "620ab4748e1ef869187438851a4063c06ecc93fd",
+  "runtime_inputs_sha256": "3fa2df97068930b5d104c130127b8fae015488f1baf0f4830bd9636348569797",
+  "test_path": "game/tests/orison_v2_radio_display_test.gd",
+  "test_sha256": "93703dcfe8163fcf58cfae9729c6da79a2fe5f0890eeed66835a51adf53a09e7"
+ },
+ "windowed": true
+}

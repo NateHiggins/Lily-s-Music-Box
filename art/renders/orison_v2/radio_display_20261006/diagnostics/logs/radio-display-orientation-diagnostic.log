@@ -1,0 +1,20 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\scripts\build_radio_display.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\scripts\build_radio_display.py", line 151, in <module>
+    turned_x(identity+'_FiniteTextileCone',[front+.008,front+.105,front+.125,front+.132,front+.132,front+.125,front+.105,front+.011],[.270,.075,.016,.016,.010,.010,.069,.264],[(cone_y,cone_z)]*8,identity,'fabric_warm')
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\scripts\build_radio_display.py", line 108, in turned_x
+    return solid(name,verts,faces,identity,key)
+  File "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\scripts\build_radio_display.py", line 72, in solid
+    assert all(e.is_manifold for e in bm.edges) and volume>1e-12,name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: storm_shop_radio_service_counter_FiniteTextileCone
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+CLOSED STOCK DIAGNOSTIC storm_shop_radio_service_counter_FiniteTextileCone signed_volume_m3= -0.0002743384835262586 non_manifold_edges= 0
+
+Error: script failed, file: 'C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-stage/art/blender/scripts/build_radio_display.py', exiting.
+
+Blender quit

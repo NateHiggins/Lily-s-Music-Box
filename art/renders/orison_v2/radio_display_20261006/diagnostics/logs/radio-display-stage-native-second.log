@@ -1,0 +1,56 @@
+00:00.046  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.609  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\radio_display.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-stage\art\blender\scripts\inspect_radio_display.py:53: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+12:55:42 | INFO: Data are loaded, start creating Blender stuff
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+12:55:42 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+12:55:42 | INFO: glTF import finished in 0.12s
+00:05.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\stock_front.png'
+00:06.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\stock_rear.png'
+00:08.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\stock_side.png'
+00:10.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\floor_feet.png'
+00:14.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\horn_lip.png'
+00:17.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\finite_horn_throat.png'
+00:21.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\textile_cone.png'
+00:24.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\open_cone_profile.png'
+00:27.656  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\seated_ledger.png'
+00:31.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-display-native\display_bearings.png'
+RADIO DISPLAY NATIVE QA 29 closed connected stocks; 1 joined assembly; 4 retained owner contacts; 10 views
+
+Blender quit

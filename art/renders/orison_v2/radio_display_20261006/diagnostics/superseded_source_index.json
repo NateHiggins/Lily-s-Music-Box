@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "7ba0df945f4fb8454634dd76a971aac3cdbf0fc7",
+  "classification": "Superseded countertop placement; static/runtime verification is diagnostic and does not establish source-called-for pavement display.",
+  "files": [
+    {
+      "path": "art/data/radio_display/source_plan.json",
+      "sha256": "6e37e244d58e9383279173db0245f6f8a49275ffd489b9805f72585a1b354c5f"
+    },
+    {
+      "path": "art/blender/scripts/build_radio_display.py",
+      "sha256": "e2496680ff94fcde9f5649eaf4638ba7d8b37eb59e5ba5967e9a90921de71a21"
+    },
+    {
+      "path": "art/blender/scripts/inspect_radio_display.py",
+      "sha256": "a6cb1fd1f7f9ee3e041a7ae07263e2412c59e09a5aba6bb810b9dba0bae340c7"
+    },
+    {
+      "path": "art/blender/radio_display.blend",
+      "sha256": "4b811a137602e2ee87ae09c704fd7299f02054760f4908a5e6252ed2b85f7945"
+    },
+    {
+      "path": "art/blender/radio_display_construction.json",
+      "sha256": "02037f154b02361b817ad61e5a3b6a260d93f0be434dea6eeb1d0e1d476b03a7"
+    },
+    {
+      "path": "game/assets/props/radio_display.glb",
+      "sha256": "dd22eb1bfe9407649dd1e961e112969389db19f973e7b1369a284259a4e40b89"
+    },
+    {
+      "path": "game/assets/props/radio_display.glb.import",
+      "sha256": "356cdbbc23d892db73fa41d8c47f0837bca3bea1c22511919ece107979cc4b8e"
+    },
+    {
+      "path": "game/data/orison_v2/radio_display.json",
+      "sha256": "c27312b62c82b00e5717d0bfce709d5cf7ba10090900af48100f0e831455df8b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_display.json",
+      "sha256": "02037f154b02361b817ad61e5a3b6a260d93f0be434dea6eeb1d0e1d476b03a7"
+    },
+    {
+      "path": "game/tests/orison_v2_radio_display_test.gd",
+      "sha256": "738c39b38eb1d07f8c9f43992cf6fe71ab4adcebfeb46c223a655ef5fbd8bc98"
+    },
+    {
+      "path": "art/blender/radio_display.md",
+      "sha256": "d7efa50179c372104c3ce7a4949d985bbf56a255cddcd6d72af00a2493ab619b"
+    }
+  ]
+}

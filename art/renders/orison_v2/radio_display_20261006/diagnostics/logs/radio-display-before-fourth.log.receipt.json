@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.34,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T17:07:08Z",
+  "started_utc": "2026-10-06T17:06:18Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-before-fourth.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-before-fourth.log",
+  "stdout_sha256": "be20abc7f1b3324a1e5c70359319765d195d813235668eb933b4c72f71c18d9b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/RadioDisplayBefore.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-display-before-fourth-shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "28fd1b6c68a4e87900487c205af161b77ad1aeb9",
+  "repository_tree": "620ab4748e1ef869187438851a4063c06ecc93fd",
+  "runtime_inputs_sha256": "aadb713f45d95fff4d3c1b18ef46cea7e95ff5d79f1815abc9e63b7604b8bf8b",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

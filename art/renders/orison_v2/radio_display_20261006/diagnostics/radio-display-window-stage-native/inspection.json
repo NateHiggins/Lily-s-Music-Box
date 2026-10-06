@@ -1,0 +1,3426 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "a403d3418256ff1f51d1a5f0d9ccdc4333106885e782a14e4de7606052574c4f",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost0",
+      "volume_m3": 0.005525650184299716
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost1",
+      "volume_m3": 0.00552565021895112
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost2",
+      "volume_m3": 0.005525650149648311
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost3",
+      "volume_m3": 0.005525650184299715
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_0",
+      "volume_m3": 0.002954973488842826
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_1",
+      "volume_m3": 0.0029549734888428265
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_0",
+      "volume_m3": 0.002954973592035978
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_1",
+      "volume_m3": 0.0029549735920359785
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_0",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_1",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_0",
+      "volume_m3": 0.0011524135850967613
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_1",
+      "volume_m3": 0.0011524135850967615
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel0",
+      "volume_m3": 0.007498786864551429
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel1",
+      "volume_m3": 0.007498786614271531
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel2",
+      "volume_m3": 0.007498786899426844
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel0",
+      "volume_m3": 0.008226613665386667
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel1",
+      "volume_m3": 0.008226613285434526
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Countertop",
+      "volume_m3": 0.05205990343244379
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LedgerPad",
+      "volume_m3": 0.0016249375222092712
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Ledger",
+      "volume_m3": 0.006839211433150088
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_FiniteHorn",
+      "volume_m3": 0.0017168478954719306
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornLip",
+      "volume_m3": 0.00030723819580464874
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornPlinth",
+      "volume_m3": 0.000317573480740907
+    },
+    {
+      "name": "storm_shop_radio_service_horn_mouth_HornStay",
+      "volume_m3": 0.00021238541194012637
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFrame",
+      "volume_m3": 0.0010456935626479147
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_FiniteTextileCone",
+      "volume_m3": 0.0006548371748771297
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConePlinth",
+      "volume_m3": 0.0015369125890104603
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot0",
+      "volume_m3": 6.701362029615823e-05
+    },
+    {
+      "name": "storm_shop_radio_service_cone_speaker_ConeFoot1",
+      "volume_m3": 6.701362099143048e-05
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_LongRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_LongRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_LongRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_LongRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_LongRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_LongRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_LongRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_LongRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_0",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_Countertop",
+          "storm_shop_radio_service_counter_LedgerPad"
+        ],
+        [
+          "storm_shop_radio_service_counter_LedgerPad",
+          "storm_shop_radio_service_counter_Ledger"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_horn_mouth_FiniteHorn",
+          "storm_shop_radio_service_horn_mouth_HornLip"
+        ],
+        [
+          "storm_shop_radio_service_horn_mouth_FiniteHorn",
+          "storm_shop_radio_service_horn_mouth_HornStay"
+        ],
+        [
+          "storm_shop_radio_service_horn_mouth_HornPlinth",
+          "storm_shop_radio_service_horn_mouth_HornStay"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_cone_speaker_ConeFrame",
+          "storm_shop_radio_service_cone_speaker_FiniteTextileCone"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_ConeFrame",
+          "storm_shop_radio_service_cone_speaker_ConePlinth"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_ConeFrame",
+          "storm_shop_radio_service_cone_speaker_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_ConeFrame",
+          "storm_shop_radio_service_cone_speaker_ConeFoot1"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_FiniteTextileCone",
+          "storm_shop_radio_service_cone_speaker_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_FiniteTextileCone",
+          "storm_shop_radio_service_cone_speaker_ConeFoot1"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_ConePlinth",
+          "storm_shop_radio_service_cone_speaker_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_cone_speaker_ConePlinth",
+          "storm_shop_radio_service_cone_speaker_ConeFoot1"
+        ]
+      ]
+    }
+  ],
+  "actual_native_support_samples": [
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "horn foot on actual retained window plinth",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "distance_m": 0.0
+    },
+    {
+      "label": "cone foot on actual retained window plinth",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_owner_support_samples": [
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_window_plinth",
+      "label": "horn foot on actual retained window plinth",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_window_plinth",
+      "label": "cone foot on actual retained window plinth",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_stock_extents": [
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "actual_maximum": 1.1799999475479126,
+      "source_maximum": 1.18,
+      "placement": "Original counter/ledger datum or source-called-for retained window-plinth display."
+    },
+    {
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "actual_maximum": 0.9600000381469727,
+      "source_maximum": 0.96,
+      "placement": "Original counter/ledger datum or source-called-for retained window-plinth display."
+    },
+    {
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "actual_maximum": 1.0399999618530273,
+      "source_maximum": 1.04,
+      "placement": "Original counter/ledger datum or source-called-for retained window-plinth display."
+    }
+  ],
+  "actual_internal_bearings": [
+    {
+      "stock": "LedgerPad",
+      "datum": [
+        18.110000610351562,
+        -57.349998474121094,
+        1.1200000047683716
+      ],
+      "native_lower_distance_m": 0.0,
+      "countertop_upper_distance_m": 0.0
+    }
+  ],
+  "independent_display_pairs": 200,
+  "accepted_native_context_objects": 54,
+  "source_boundary_stocks": 6,
+  "removed_original_triangles": 72,
+  "parts": 7,
+  "triangles": 10204,
+  "context_intersections": [],
+  "declared_contact_pairs": [
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 319,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2091,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 359,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 350,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2082,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 303,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 312,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2087,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 355,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 298,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1911,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1910,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 163,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 107,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 154,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1902,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 116,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 159,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1907,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 102,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 221,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2000,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2001,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 261,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1992,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 205,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 252,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 260,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 214,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1997,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 257,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 200,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 25,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1821,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 65,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 9,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 56,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1820,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 18,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 64,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 61,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1817,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1812,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 4,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 358,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2090,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 123,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 162,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 240,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 64,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 177,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 63,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 239,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 2,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 178,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 237,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 61,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 238,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 62,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 179,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 3,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 4,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 180,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 5,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 58,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 234,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 235,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 59,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 236,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 60,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 181,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 6,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 183,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 182,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 54,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 230,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 229,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 53,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 228,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 52,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 56,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 232,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 55,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 231,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 233,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 57,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 7,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 184,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 8,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 185,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 9,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 186,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 10,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 11,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 187,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 12,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 188,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 189,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 13,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 227,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 51,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 15,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 191,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 190,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 14,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 50,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 226,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 49,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 225,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 48,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 224,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 223,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 47,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 46,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 222,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 221,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 45,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 220,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 44,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 218,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 43,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 219,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 42,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 41,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 217,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 40,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 216,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 215,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 39,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 38,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 214,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 213,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 37,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 36,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 212,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 34,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 210,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 35,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 211,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 33,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 209,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 208,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 207,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 206,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 205,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 29,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 32,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 31,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 30,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 202,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 195,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 20,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 21,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 22,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 23,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 26,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 201,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 27,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 204,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 28,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 203,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 16,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 192,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 18,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 193,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 194,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 17,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 19,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 196,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 197,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 198,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 200,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 199,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 25,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 24,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1154,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 448,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1091,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 385,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 447,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1092,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1153,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 386,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 445,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1151,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 446,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1152,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1093,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 387,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 388,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1094,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1150,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 444,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1149,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 443,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 390,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 389,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1095,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1096,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1147,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 441,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 442,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1148,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1146,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 440,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 440,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 439,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1145,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 391,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1097,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 392,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1098,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1099,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 393,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 394,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1100,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 434,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1140,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 433,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1139,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1138,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 432,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1137,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 437,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1143,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 438,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1144,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 436,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1142,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1141,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 435,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 431,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 430,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1136,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1135,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 429,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1101,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 395,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 396,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1102,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1103,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 397,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1104,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1109,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 403,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 398,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1105,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 399,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 400,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1106,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 401,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1107,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1108,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 402,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 428,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1134,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1133,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 427,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1132,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 426,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 425,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1131,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 424,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1130,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 423,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1129,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1128,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 422,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 421,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1127,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1126,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 420,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1125,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 419,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 419,
+      "context_face": 122,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 418,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1124,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1123,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 417,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1122,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 416,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1121,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 415,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 414,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1120,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 413,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1119,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 412,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 409,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 410,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1116,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1115,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1118,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1117,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 411,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 405,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1111,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1110,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1112,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 406,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 407,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1113,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 1114,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 408,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col",
+      "native_face": 404,
+      "context_face": 123,
+      "owners": [
+        "storm_shop_radio_service_window_plinth"
+      ]
+    }
+  ],
+  "uv_metrics": [
+    {
+      "part": "storm_shop_radio_service_counter__countertop",
+      "minimum_metres_per_uv": 0.9999203109793352,
+      "maximum_metres_per_uv": 1.0000722802507573,
+      "triangles": 188
+    },
+    {
+      "part": "storm_shop_radio_service_counter__paper",
+      "minimum_metres_per_uv": 0.99992839404227,
+      "maximum_metres_per_uv": 1.0000731579120663,
+      "triangles": 188
+    },
+    {
+      "part": "storm_shop_radio_service_counter__wood_dark",
+      "minimum_metres_per_uv": 0.999839274225824,
+      "maximum_metres_per_uv": 1.0001634968269075,
+      "triangles": 3384
+    },
+    {
+      "part": "storm_shop_radio_service_horn_mouth__brass_dull",
+      "minimum_metres_per_uv": 0.9999879210515588,
+      "maximum_metres_per_uv": 1.000014441637316,
+      "triangles": 3072
+    },
+    {
+      "part": "storm_shop_radio_service_horn_mouth__cast_iron",
+      "minimum_metres_per_uv": 0.9999870904244544,
+      "maximum_metres_per_uv": 1.0000191424656202,
+      "triangles": 440
+    },
+    {
+      "part": "storm_shop_radio_service_cone_speaker__cast_iron",
+      "minimum_metres_per_uv": 0.999961661188428,
+      "maximum_metres_per_uv": 1.0000411412071895,
+      "triangles": 1396
+    },
+    {
+      "part": "storm_shop_radio_service_cone_speaker__fabric_warm",
+      "minimum_metres_per_uv": 0.9999317686669003,
+      "maximum_metres_per_uv": 1.00006934530868,
+      "triangles": 1536
+    }
+  ],
+  "views": [
+    {
+      "id": "stock_front",
+      "eye": [
+        13.778826713562012,
+        -55.79390335083008,
+        3.467789649963379
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_front.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "stock_rear",
+      "eye": [
+        21.68238067626953,
+        -61.77201461791992,
+        3.196321964263916
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_rear.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "stock_side",
+      "eye": [
+        21.57134246826172,
+        -53.654144287109375,
+        3.0121960639953613
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_side.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "floor_feet",
+      "eye": [
+        14.727983474731445,
+        -54.84476089477539,
+        1.256942868232727
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        0.08
+      ],
+      "file": "floor_feet.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "horn_lip",
+      "eye": [
+        16.399999618530273,
+        -58.27000045776367,
+        0.8199999928474426
+      ],
+      "target": [
+        17.24,
+        -58.27,
+        0.72
+      ],
+      "file": "horn_lip.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "finite_horn_throat",
+      "eye": [
+        17.75,
+        -58.0,
+        0.949999988079071
+      ],
+      "target": [
+        17.43,
+        -58.27,
+        0.58
+      ],
+      "file": "finite_horn_throat.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "textile_cone",
+      "eye": [
+        16.399999618530273,
+        -57.630001068115234,
+        0.8799999952316284
+      ],
+      "target": [
+        17.24,
+        -57.63,
+        0.75
+      ],
+      "file": "textile_cone.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "open_cone_profile",
+      "eye": [
+        17.700000762939453,
+        -56.900001525878906,
+        1.149999976158142
+      ],
+      "target": [
+        17.33,
+        -57.63,
+        0.75
+      ],
+      "file": "open_cone_profile.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "seated_ledger",
+      "eye": [
+        17.399999618530273,
+        -56.79999923706055,
+        1.7000000476837158
+      ],
+      "target": [
+        18.1,
+        -57.35,
+        1.15
+      ],
+      "file": "seated_ledger.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "display_bearings",
+      "eye": [
+        16.600000381469727,
+        -57.400001525878906,
+        1.100000023841858
+      ],
+      "target": [
+        17.35,
+        -57.95,
+        0.44
+      ],
+      "file": "display_bearings.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    }
+  ],
+  "limits": "Original wall, door/handle, cabinet and actual accepted native fittings remain conservative context; only actual floor/window-plinth contact pairs admitted. The fitted counter supports its ledger; the unchanged window plinth supports finite passive horn/cone stock at original maxima. Door poses, imported rendering, ordinary access, signal operation, capacity and acceptance remain separate requirements."
+}

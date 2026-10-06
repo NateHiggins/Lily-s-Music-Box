@@ -1,0 +1,96 @@
+{
+	"capture_leaf_pose": {
+		"angle_radians": 1.74532926082611,
+		"id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+		"method": "existing npc_set_open diagnostic pose; no ordinary-input route claim",
+		"open": true
+	},
+	"evidence_class": "INERT",
+	"scope": "Same retained standing floor/capsule samples before and after native counter/display fitting. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity.",
+	"views": [
+		{
+			"feet": [
+				15.6,
+				0.03,
+				57.7
+			],
+			"id": "display_from_arcade",
+			"image": "display_from_arcade.png",
+			"target": [
+				18.05,
+				1.35,
+				57.98
+			]
+		},
+		{
+			"feet": [
+				15.6,
+				0.03,
+				57.7
+			],
+			"id": "horn_open_mouth",
+			"image": "horn_open_mouth.png",
+			"target": [
+				17.9,
+				1.42,
+				58.368
+			]
+		},
+		{
+			"feet": [
+				15.6,
+				0.03,
+				57.7
+			],
+			"id": "passive_textile_cone",
+			"image": "passive_textile_cone.png",
+			"target": [
+				17.9,
+				1.43,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				56.9
+			],
+			"id": "counter_floor_posts",
+			"image": "counter_floor_posts.png",
+			"target": [
+				17.98,
+				0.1,
+				57.36
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				56.9
+			],
+			"id": "native_display_bearings",
+			"image": "native_display_bearings.png",
+			"target": [
+				18.1,
+				1.12,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				56.9
+			],
+			"id": "seated_counter_ledger",
+			"image": "seated_counter_ledger.png",
+			"target": [
+				18.1,
+				1.16,
+				57.35
+			]
+		}
+	]
+}

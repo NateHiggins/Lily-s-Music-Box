@@ -47,7 +47,14 @@ closed-leaf diagnostic pose. Exterior observations turn the player torch
 off to avoid its direct reflection; original glazing stays physical.
 These samples establish no continuous route, sightline or ordinary-input
 door operation. The separate actual-player tour and both reconstruction
-cycles require this owner. Production verification remains required.
+cycles require this owner. The committed installation passes **179 checks**, the actual-player tour
+passes **91 waypoints**, and both native reconstruction cycles pass. Full
+in-place verification compares **48 gates/tools tests** without regression
+and completes **fifteen zero-exit wrapper runs**. All **83 final native,
+counter/window, neighboring Radio Service and access images** were directly
+reviewed. The evening display is dim; optical and lighting finish remains
+open. See the [dated report](../../design/V2_RADIO_DISPLAY_2026-10-06.md)
+and source-hashed review packet for exact scope and limits.
 
 An earlier countertop adaptation passed static and runtime checks but put
 the speakers behind the retained window backboard. Its verification,

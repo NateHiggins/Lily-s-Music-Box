@@ -1,0 +1,267 @@
+{
+ "evidence_class": "INERT",
+ "source": "tmp/v2-finish-review/radio-display-countertop-spatial-full.json",
+ "source_sha256": "a043a40f9e473c026d414628e9fa1fb949d3bd7f1bfd2bb476d665a4834578ab",
+ "source_bytes": 6348747,
+ "scope": "Six immutable original retirement owners and three existing test references: vestibule prefetch, actual diagnostic leaf owner and source counter identity. Every prior record and classification remains unchanged.",
+ "records": [
+  {
+   "key": "eb97002f20131d85",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_cone_speaker",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "42e79500f7ec993b",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_counter",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ccd84fcf59f72e8a",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_counter_top",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "92b0860b8b3fb689",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_horn_mouth",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1131e5157e233a96",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_horn_throat",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1189b79427b03c9b",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_ledger",
+   "file": "game/data/orison_v2/radio_display.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ebcb1bd4eed53950",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_radio_display_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f3eea53e8508bc77",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_RADIO_SERVICE",
+   "file": "game/tests/orison_v2_radio_display_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retail_detail_views"
+   ],
+   "lines": [
+    148,
+    159
+   ],
+   "count": 2,
+   "context": [
+    "var capture_door: DoorProp=world.passage_region.doors[\"SITE_SHOP_DOOR_RADIO_SERVICE\"]",
+    "FileAccess.open(OS.get_environment(\"SHOT_DIR\").path_join(\"views.json\"),FileAccess.WRITE).store_string(JSON.stringify({\"evidence_class\":\"INERT\",\"views\":observati"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "88e19eb7cac316cd",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_counter",
+   "file": "game/tests/orison_v2_radio_display_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_display_details"
+   ],
+   "lines": [
+    99
+   ],
+   "count": 1,
+   "context": [
+    "var identity: String=\"storm_shop_radio_service_counter\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  }
+ ]
+}

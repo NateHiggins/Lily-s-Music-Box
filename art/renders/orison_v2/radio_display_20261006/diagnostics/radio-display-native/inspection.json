@@ -1,0 +1,1082 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "4b811a137602e2ee87ae09c704fd7299f02054760f4908a5e6252ed2b85f7945",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost0",
+      "volume_m3": 0.005525650184299716
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost1",
+      "volume_m3": 0.00552565021895112
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost2",
+      "volume_m3": 0.005525650149648311
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FloorPost3",
+      "volume_m3": 0.005525650184299715
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_0",
+      "volume_m3": 0.002954973488842826
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail0_1",
+      "volume_m3": 0.0029549734888428265
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_0",
+      "volume_m3": 0.002954973592035978
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LongRail1_1",
+      "volume_m3": 0.0029549735920359785
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_0",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail0_1",
+      "volume_m3": 0.0011524135803909893
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_0",
+      "volume_m3": 0.0011524135850967613
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndRail1_1",
+      "volume_m3": 0.0011524135850967615
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel0",
+      "volume_m3": 0.007498786864551429
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel1",
+      "volume_m3": 0.007498786614271531
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FrontPanel2",
+      "volume_m3": 0.007498786899426844
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel0",
+      "volume_m3": 0.008226613665386667
+    },
+    {
+      "name": "storm_shop_radio_service_counter_EndPanel1",
+      "volume_m3": 0.008226613285434526
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Countertop",
+      "volume_m3": 0.05205990343244379
+    },
+    {
+      "name": "storm_shop_radio_service_counter_LedgerPad",
+      "volume_m3": 0.0016249375222092712
+    },
+    {
+      "name": "storm_shop_radio_service_counter_Ledger",
+      "volume_m3": 0.006839211433150088
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FiniteHorn",
+      "volume_m3": 0.002485109410474015
+    },
+    {
+      "name": "storm_shop_radio_service_counter_HornLip",
+      "volume_m3": 0.00031251658917124357
+    },
+    {
+      "name": "storm_shop_radio_service_counter_HornPlinth",
+      "volume_m3": 0.0004778628470218128
+    },
+    {
+      "name": "storm_shop_radio_service_counter_HornStay",
+      "volume_m3": 0.0002009669233704013
+    },
+    {
+      "name": "storm_shop_radio_service_counter_ConeFrame",
+      "volume_m3": 0.0010456939642872198
+    },
+    {
+      "name": "storm_shop_radio_service_counter_FiniteTextileCone",
+      "volume_m3": 0.000654836969788688
+    },
+    {
+      "name": "storm_shop_radio_service_counter_ConePlinth",
+      "volume_m3": 0.0014139593620325665
+    },
+    {
+      "name": "storm_shop_radio_service_counter_ConeFoot0",
+      "volume_m3": 5.355362085313835e-05
+    },
+    {
+      "name": "storm_shop_radio_service_counter_ConeFoot1",
+      "volume_m3": 5.355362064684439e-05
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_LongRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_LongRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost0",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_LongRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_LongRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost1",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_LongRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_LongRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost2",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_LongRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_LongRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FloorPost3",
+          "storm_shop_radio_service_counter_Countertop"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail0_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndRail0_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndRail1_0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndRail0_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndRail1_1"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_LongRail1_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_0",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_0",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_1",
+          "storm_shop_radio_service_counter_FrontPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail0_1",
+          "storm_shop_radio_service_counter_EndPanel0"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_0",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_0",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_1",
+          "storm_shop_radio_service_counter_FrontPanel2"
+        ],
+        [
+          "storm_shop_radio_service_counter_EndRail1_1",
+          "storm_shop_radio_service_counter_EndPanel1"
+        ],
+        [
+          "storm_shop_radio_service_counter_Countertop",
+          "storm_shop_radio_service_counter_LedgerPad"
+        ],
+        [
+          "storm_shop_radio_service_counter_Countertop",
+          "storm_shop_radio_service_counter_HornPlinth"
+        ],
+        [
+          "storm_shop_radio_service_counter_Countertop",
+          "storm_shop_radio_service_counter_ConePlinth"
+        ],
+        [
+          "storm_shop_radio_service_counter_LedgerPad",
+          "storm_shop_radio_service_counter_Ledger"
+        ],
+        [
+          "storm_shop_radio_service_counter_FiniteHorn",
+          "storm_shop_radio_service_counter_HornLip"
+        ],
+        [
+          "storm_shop_radio_service_counter_FiniteHorn",
+          "storm_shop_radio_service_counter_HornStay"
+        ],
+        [
+          "storm_shop_radio_service_counter_HornPlinth",
+          "storm_shop_radio_service_counter_HornStay"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConeFrame",
+          "storm_shop_radio_service_counter_FiniteTextileCone"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConeFrame",
+          "storm_shop_radio_service_counter_ConePlinth"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConeFrame",
+          "storm_shop_radio_service_counter_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConeFrame",
+          "storm_shop_radio_service_counter_ConeFoot1"
+        ],
+        [
+          "storm_shop_radio_service_counter_FiniteTextileCone",
+          "storm_shop_radio_service_counter_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_counter_FiniteTextileCone",
+          "storm_shop_radio_service_counter_ConeFoot1"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConePlinth",
+          "storm_shop_radio_service_counter_ConeFoot0"
+        ],
+        [
+          "storm_shop_radio_service_counter_ConePlinth",
+          "storm_shop_radio_service_counter_ConeFoot1"
+        ]
+      ]
+    }
+  ],
+  "actual_native_support_samples": [
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    },
+    {
+      "label": "counter post on actual retained floor",
+      "assembly": "storm_shop_radio_service_counter",
+      "distance_m": 9.313225746154785e-09
+    }
+  ],
+  "actual_owner_support_samples": [
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "counter post on actual retained floor",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_stock_extents": [
+    {
+      "assembly": "storm_shop_radio_service_counter",
+      "countertop_datum": 1.12,
+      "native_display_maximum": 1.71999990940094,
+      "placement": "Declared source-derived countertop display; original retirement bounds remain immutable."
+    }
+  ],
+  "actual_internal_bearings": [
+    {
+      "stock": "HornPlinth",
+      "datum": [
+        18.219999313354492,
+        -58.36800003051758,
+        1.1200000047683716
+      ],
+      "native_lower_distance_m": 0.0,
+      "countertop_upper_distance_m": 0.0
+    },
+    {
+      "stock": "ConePlinth",
+      "datum": [
+        17.915000915527344,
+        -57.79999923706055,
+        1.1200000047683716
+      ],
+      "native_lower_distance_m": 0.0,
+      "countertop_upper_distance_m": 0.0
+    },
+    {
+      "stock": "LedgerPad",
+      "datum": [
+        18.110000610351562,
+        -57.349998474121094,
+        1.1200000047683716
+      ],
+      "native_lower_distance_m": 0.0,
+      "countertop_upper_distance_m": 0.0
+    }
+  ],
+  "independent_display_pairs": 38,
+  "accepted_native_context_objects": 54,
+  "source_boundary_stocks": 6,
+  "removed_original_triangles": 72,
+  "parts": 6,
+  "triangles": 10204,
+  "context_intersections": [],
+  "declared_contact_pairs": [
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 319,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2091,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 359,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 350,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2082,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 303,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 312,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2087,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 355,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 298,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1911,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1910,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 163,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 107,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 154,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1902,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 116,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 159,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1907,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 102,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 221,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2000,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2001,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 261,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1992,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 205,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 252,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 260,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 214,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1997,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 257,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 200,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 25,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1821,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 65,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 9,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 56,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1820,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 18,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 64,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 61,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1817,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1812,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 4,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 358,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 2090,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 123,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_counter__wood_dark",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 162,
+      "context_face": 3,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    }
+  ],
+  "uv_metrics": [
+    {
+      "part": "storm_shop_radio_service_counter__brass_dull",
+      "minimum_metres_per_uv": 0.9999887816748603,
+      "maximum_metres_per_uv": 1.0000145881907856,
+      "triangles": 3072
+    },
+    {
+      "part": "storm_shop_radio_service_counter__cast_iron",
+      "minimum_metres_per_uv": 0.9999669249180455,
+      "maximum_metres_per_uv": 1.0000390048092578,
+      "triangles": 1836
+    },
+    {
+      "part": "storm_shop_radio_service_counter__countertop",
+      "minimum_metres_per_uv": 0.9999203109793352,
+      "maximum_metres_per_uv": 1.0000722802507573,
+      "triangles": 188
+    },
+    {
+      "part": "storm_shop_radio_service_counter__fabric_warm",
+      "minimum_metres_per_uv": 0.9999414923156297,
+      "maximum_metres_per_uv": 1.000077475739325,
+      "triangles": 1536
+    },
+    {
+      "part": "storm_shop_radio_service_counter__paper",
+      "minimum_metres_per_uv": 0.99992839404227,
+      "maximum_metres_per_uv": 1.0000731579120663,
+      "triangles": 188
+    },
+    {
+      "part": "storm_shop_radio_service_counter__wood_dark",
+      "minimum_metres_per_uv": 0.999839274225824,
+      "maximum_metres_per_uv": 1.0001634968269075,
+      "triangles": 3384
+    }
+  ],
+  "views": [
+    {
+      "id": "stock_front",
+      "eye": [
+        13.778826713562012,
+        -55.79390335083008,
+        3.467789649963379
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_front.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "stock_rear",
+      "eye": [
+        21.68238067626953,
+        -61.77201461791992,
+        3.196321964263916
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_rear.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "stock_side",
+      "eye": [
+        21.57134246826172,
+        -53.654144287109375,
+        3.0121960639953613
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        1.0
+      ],
+      "file": "stock_side.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "floor_feet",
+      "eye": [
+        14.727983474731445,
+        -54.84476089477539,
+        1.256942868232727
+      ],
+      "target": [
+        18.05,
+        -57.92,
+        0.08
+      ],
+      "file": "floor_feet.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "horn_lip",
+      "eye": [
+        17.100000381469727,
+        -58.400001525878906,
+        1.5
+      ],
+      "target": [
+        17.9,
+        -58.368,
+        1.42
+      ],
+      "file": "horn_lip.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "finite_horn_throat",
+      "eye": [
+        18.799999237060547,
+        -58.150001525878906,
+        1.7000000476837158
+      ],
+      "target": [
+        18.1,
+        -58.368,
+        1.42
+      ],
+      "file": "finite_horn_throat.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "textile_cone",
+      "eye": [
+        17.049999237060547,
+        -57.75,
+        1.5499999523162842
+      ],
+      "target": [
+        17.9,
+        -57.8,
+        1.43
+      ],
+      "file": "textile_cone.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "open_cone_profile",
+      "eye": [
+        18.600000381469727,
+        -57.0,
+        1.7999999523162842
+      ],
+      "target": [
+        18.02,
+        -57.8,
+        1.43
+      ],
+      "file": "open_cone_profile.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "seated_ledger",
+      "eye": [
+        17.399999618530273,
+        -56.79999923706055,
+        1.7000000476837158
+      ],
+      "target": [
+        18.1,
+        -57.35,
+        1.15
+      ],
+      "file": "seated_ledger.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    },
+    {
+      "id": "display_bearings",
+      "eye": [
+        17.0,
+        -57.0,
+        1.899999976158142
+      ],
+      "target": [
+        18.03,
+        -58.0,
+        1.12
+      ],
+      "file": "display_bearings.png",
+      "scope": "isolated native counter and passive horn/cone display"
+    }
+  ],
+  "limits": "Original wall, door/handle, cabinet and actual accepted native fittings remain conservative context; only actual floor contact pairs admitted. The source-derived countertop supports passive finite horn/cone stock and a seated ledger. Door poses, imported rendering, ordinary access, signal operation, capacity and acceptance remain separate requirements."
+}

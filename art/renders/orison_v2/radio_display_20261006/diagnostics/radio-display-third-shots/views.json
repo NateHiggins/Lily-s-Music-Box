@@ -1,0 +1,180 @@
+{
+	"capture_leaf_pose": {
+		"angle_radians": 1.74532926082611,
+		"id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+		"method": "existing npc_set_open diagnostic pose; no ordinary-input route claim",
+		"open": true
+	},
+	"evidence_class": "INERT",
+	"scope": "Six matched retained entry floor/capsule samples before and after fitting; six additional interior observations of installed stock. Entry views are partly obscured by the retained window backboard. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity.",
+	"views": [
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "display_from_entry",
+			"image": "display_from_entry.png",
+			"target": [
+				18.05,
+				1.35,
+				57.98
+			]
+		},
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "horn_open_mouth",
+			"image": "horn_open_mouth.png",
+			"target": [
+				17.9,
+				1.42,
+				58.368
+			]
+		},
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "passive_textile_cone",
+			"image": "passive_textile_cone.png",
+			"target": [
+				17.9,
+				1.43,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "counter_floor_posts",
+			"image": "counter_floor_posts.png",
+			"target": [
+				17.98,
+				0.1,
+				57.36
+			]
+		},
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "native_display_bearings",
+			"image": "native_display_bearings.png",
+			"target": [
+				18.1,
+				1.12,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				17.2,
+				0.03,
+				56.8
+			],
+			"id": "seated_counter_ledger",
+			"image": "seated_counter_ledger.png",
+			"target": [
+				18.1,
+				1.16,
+				57.35
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "display_from_entry_interior",
+			"image": "display_from_entry_interior.png",
+			"target": [
+				18.05,
+				1.35,
+				57.98
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "horn_open_mouth_interior",
+			"image": "horn_open_mouth_interior.png",
+			"target": [
+				17.9,
+				1.42,
+				58.368
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "passive_textile_cone_interior",
+			"image": "passive_textile_cone_interior.png",
+			"target": [
+				17.9,
+				1.43,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "counter_floor_posts_interior",
+			"image": "counter_floor_posts_interior.png",
+			"target": [
+				17.98,
+				0.1,
+				57.36
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "native_display_bearings_interior",
+			"image": "native_display_bearings_interior.png",
+			"target": [
+				18.1,
+				1.12,
+				57.8
+			]
+		},
+		{
+			"feet": [
+				17.5,
+				0.03,
+				56.8
+			],
+			"id": "seated_counter_ledger_interior",
+			"image": "seated_counter_ledger_interior.png",
+			"target": [
+				18.1,
+				1.16,
+				57.35
+			]
+		}
+	]
+}

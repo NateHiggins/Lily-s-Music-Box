@@ -1,0 +1,90 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Same retained standing floor/capsule samples before and after bench fitting. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity.",
+	"views": [
+		{
+			"feet": [
+				19.4,
+				0.03,
+				57.85
+			],
+			"id": "radio_room",
+			"image": "radio_room.png",
+			"target": [
+				20.25,
+				0.8,
+				56.14
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				57.5
+			],
+			"id": "alignment_bench",
+			"image": "alignment_bench.png",
+			"target": [
+				20.3,
+				0.65,
+				56.13
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				57.5
+			],
+			"id": "original_instruments",
+			"image": "original_instruments.png",
+			"target": [
+				20.1,
+				1.22,
+				56.12
+			]
+		},
+		{
+			"feet": [
+				19.4,
+				0.03,
+				56.95
+			],
+			"id": "side_leaf",
+			"image": "side_leaf.png",
+			"target": [
+				19.03,
+				1.0,
+				56.15
+			]
+		},
+		{
+			"feet": [
+				19.4,
+				0.03,
+				56.95
+			],
+			"id": "side_bearings",
+			"image": "side_bearings.png",
+			"target": [
+				19.03,
+				0.45,
+				56.15
+			]
+		},
+		{
+			"feet": [
+				19.45,
+				0.03,
+				57.5
+			],
+			"id": "back_edge",
+			"image": "back_edge.png",
+			"target": [
+				21.2,
+				1.01,
+				55.83
+			]
+		}
+	]
+}

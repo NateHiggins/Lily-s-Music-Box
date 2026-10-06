@@ -61,7 +61,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original funeral fixed curtain runs and ceiling-seated suspension | `art/blender/funeral_drapes.md` and `design/V2_FUNERAL_DRAPES_2026-10-06.md` |
 | Original funeral potted palms and supported laid wreaths | `art/blender/funeral_foliage.md` and `design/V2_FUNERAL_FOLIAGE_2026-10-06.md` |
 | Original Radio Service alignment bench and supported side leaf | `art/blender/radio_bench.md` and `design/V2_RADIO_BENCH_2026-10-06.md` |
-| Radio Service fitted counter, seated ledger and pavement-facing horn/cone window display | `art/blender/radio_display.md` |
+| Radio Service fitted counter, seated ledger and pavement-facing horn/cone window display | `art/blender/radio_display.md` and `design/V2_RADIO_DISPLAY_2026-10-06.md` |
 | Original Radio Service passive aerial-wire reels and supported iron ring | `art/blender/radio_wire.md` and `design/V2_RADIO_WIRE_2026-10-06.md` |
 | Source-owned Radio Service charging jars, fitted rack and cabinet clearance | `art/blender/radio_battery.md` and `design/V2_RADIO_BATTERY_2026-10-06.md` |
 | Original Radio Service four-level rack and fourteen seated stored valves | `art/blender/radio_stock.md` and `design/V2_RADIO_STOCK_2026-10-06.md` |
