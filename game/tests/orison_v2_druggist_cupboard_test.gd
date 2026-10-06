@@ -112,12 +112,20 @@ func _check_cupboard_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 		check(a.position.x>=float(rect[0])-.000003 and a.end.x<=float(rect[2])+.000003 and a.position.z>=-float(rect[3])-.000003 and a.end.z<=-float(rect[1])+.000003 and a.position.y>=.01-.000003 and a.end.y<=1.94+.000003,"actual case, inset pane and passive hardware remain inside the original case plan")
 		if part==prefix+"poison_cupboard__glassish":
 			panes+=1
-			check(absf(a.size.z-.006)<.000003 and absf(a.get_center().z-45.202)<.000003,"actual six-millimetre pane moves 28mm inside its original projection")
+			var local_bounds:=draw.mesh.get_aabb()
+			var thickness: float=(draw.transform.basis*Vector3(0.,0.,local_bounds.size.z)).length()
+			var centre_offset:=draw.transform.basis*local_bounds.get_center()
+			var centre_z: float=float(draw.transform.origin.z)+float(centre_offset.z)
+			print("CUPBOARD PANE MEASUREMENT: translated_aabb_width=",a.size.z," imported_local_width=",thickness," centre_z=",centre_z)
+			check(absf(thickness-.006)<.000003 and absf(centre_z-45.202)<.000003,"actual six-millimetre pane moves 28mm inside its original projection")
 			var glass:=draw.material_override as ShaderMaterial
 			check(glass!=null and glass.shader.resource_path=="res://shaders/lamp_glass_surface.gdshader" and is_equal_approx(float(glass.get_shader_parameter("surface_roughness")),.06),"fixed pane retains the existing architectural glass optical owner")
 		if part.ends_with("__glass_red") or part.ends_with("__glass_teal"):
 			bottles+=1
-			var identity:=part.split("__")[0];var row: Dictionary=originals[identity];var r: Array=row.rect
+			var identity:=part.trim_suffix("__glass_red").trim_suffix("__glass_teal")
+			check(originals.has(identity),"actual bottle partition resolves its complete retained source identity")
+			if not originals.has(identity):continue
+			var row: Dictionary=originals[identity];var r: Array=row.rect
 			check(absf(a.position.y-float(row.z0))<.000003 and absf(a.end.y-(float(row.z0)+.310))<.000003 and absf(a.size.x-.067)<.000003,"hollow bottle keeps its source seat and actual narrow round diameter")
 			check(absf(a.get_center().x-(float(r[0])+float(r[2]))*.5)<.000003 and absf(a.get_center().z+(float(r[1])+float(r[3]))*.5)<.000003,"original bottle centres remain inside the case")
 			check(draw.material_override==null and (draw.mesh.surface_get_material(0) as StandardMaterial3D).transparency==BaseMaterial3D.TRANSPARENCY_DISABLED,"bounded coloured bottle finish uses the registered opaque milk-glass maps")
