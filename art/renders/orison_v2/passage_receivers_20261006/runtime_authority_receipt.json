@@ -1,0 +1,269 @@
+{
+	"checks": [
+		{
+			"label": "physical apartment door exists: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches F02_DOOR_02_open",
+			"ok": true
+		},
+		{
+			"label": "apartment door opens through player input: F02_DOOR_02",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: resident_permission",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches resident_permission",
+			"ok": true
+		},
+		{
+			"label": "physical resident authorizes a spare while retaining original",
+			"ok": true
+		},
+		{
+			"label": "existing Keys Cut door retained",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches keys_cut_door",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches keys_cut_close",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches key_copy_counter",
+			"ok": true
+		},
+		{
+			"label": "ordinary counter input opens permission menu",
+			"ok": true
+		},
+		{
+			"label": "shop closing while menu is open refuses the copy",
+			"ok": true
+		},
+		{
+			"label": "ordinary focused copy input grants one authorized spare",
+			"ok": true
+		},
+		{
+			"label": "counter close releases movement and restores pointer",
+			"ok": true
+		},
+		{
+			"label": "second spare refused",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches keys_cut_exit",
+			"ok": true
+		},
+		{
+			"label": "actual V2 News Cigars starts unlocked",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: news_lock",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches news_lock",
+			"ok": true
+		},
+		{
+			"label": "keyboard input changes actual lock: news_lock",
+			"ok": true
+		},
+		{
+			"label": "actual key input locks News Cigars",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches news_locked_refusal",
+			"ok": true
+		},
+		{
+			"label": "locked shop refuses normal opening",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: news_unlock",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches news_unlock",
+			"ok": true
+		},
+		{
+			"label": "keyboard input changes actual lock: news_unlock",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches news_open",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches news_close_inside",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: news_lock_inside",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches news_lock_inside",
+			"ok": true
+		},
+		{
+			"label": "controller input changes actual lock: news_lock_inside",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: news_unlock_inside",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches news_unlock_inside",
+			"ok": true
+		},
+		{
+			"label": "touch input changes actual lock: news_unlock_inside",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches news_exit",
+			"ok": true
+		},
+		{
+			"label": "actual player ray/prompt reaches apartment_close",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: copied_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches copied_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "keyboard input changes actual lock: copied_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "copied spare controls real private leaf; originals retained",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: copied_apartment_unlock",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches copied_apartment_unlock",
+			"ok": true
+		},
+		{
+			"label": "keyboard input changes actual lock: copied_apartment_unlock",
+			"ok": true
+		},
+		{
+			"label": "copied spare unlocks same private leaf",
+			"ok": true
+		},
+		{
+			"label": "actual key prompt: saved_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "real key ray reaches saved_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "keyboard input changes actual lock: saved_apartment_lock",
+			"ok": true
+		},
+		{
+			"label": "actual isolated campaign storage writes copied key and lock",
+			"ok": true
+		},
+		{
+			"label": "saved campaign constructs a fresh production world",
+			"ok": true
+		},
+		{
+			"label": "fresh actual leaf restores saved lock, original, permission and copied spare",
+			"ok": true
+		},
+		{
+			"label": "both reconstructed worlds release runtime nodes, new key/door shapes and door voices",
+			"ok": true
+		},
+		{
+			"label": "contract records actual repository head",
+			"ok": true
+		},
+		{
+			"label": "contract records runtime input digest using existing authority",
+			"ok": true
+		},
+		{
+			"label": "runtime contract output opens",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"mina_vale",
+				"SITE_SHOP_DOOR_KEYS_CUT",
+				"AuthorizedKeyCopies",
+				"SITE_SHOP_DOOR_NEWS_CIGARS",
+				"F02_DOOR_02"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "New DoorProp and Keys Cut collision shapes; shared imported caches are outside this owner.",
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 164.06,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Resident permission, Keys Cut spare, hinged door locks and isolated save/reconstruction. No broader architecture or ledger completion claim.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "11875aa1dd5e5cf47de5f38923f2f4d38c730881",
+		"runtime_inputs_sha256": "a941678f669f15854889112158a8e3414633b7aaceb2e61ed0f0627d59f90c5d",
+		"test_path": "game/tests/orison_v2_resident_key_route_test.gd",
+		"test_sha256": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90"
+	},
+	"waypoints": 86
+}

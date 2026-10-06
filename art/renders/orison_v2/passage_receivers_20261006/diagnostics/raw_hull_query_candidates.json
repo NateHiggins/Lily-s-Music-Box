@@ -1,0 +1,214 @@
+{
+ "evidence_class": "INERT",
+ "scope": "Read-only raw glTF candidate retirement inventory for one original assembled chassis. No imported Godot quantization, fitted geometry, triangle retirement or engineering acceptance.",
+ "source_record": {
+  "id": "storm_shopcab_radio_service0",
+  "asm": "arcade_cab",
+  "at": [
+   21.45,
+   -57.199999999999996
+  ],
+  "yaw": 270.0,
+  "exterior": true,
+  "variant": 2,
+  "batch": "shop_radio_service",
+  "zone": "PASSAGE"
+ },
+ "derived_source_hull_godot": {
+  "low": [
+   20.95,
+   0.0,
+   56.809999999999995
+  ],
+  "high": [
+   21.81,
+   1.72,
+   57.589999999999996
+  ]
+ },
+ "inventory": [
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite",
+   "material": "M_bakelite_b",
+   "selected_triangles": 128,
+   "original_triangles": 128,
+   "selected_low": [
+    21.125,
+    0.0,
+    56.904998779296875
+   ],
+   "selected_high": [
+    21.774999618530273,
+    0.029999999329447746,
+    57.494998931884766
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black",
+   "material": "M_bakelite_black",
+   "selected_triangles": 128,
+   "original_triangles": 128,
+   "selected_low": [
+    20.959999084472656,
+    0.30000001192092896,
+    56.88999938964844
+   ],
+   "selected_high": [
+    21.690000534057617,
+    1.4199999570846558,
+    57.53499984741211
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col",
+   "material": "M_bakelite_black",
+   "selected_triangles": 40,
+   "original_triangles": 84,
+   "selected_low": [
+    21.389999389648438,
+    1.2699999809265137,
+    56.83000183105469
+   ],
+   "selected_high": [
+    21.610000610351562,
+    1.3300000429153442,
+    57.54999923706055
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass",
+   "material": "M_brass_b",
+   "selected_triangles": 12,
+   "original_triangles": 12,
+   "selected_low": [
+    21.077999114990234,
+    0.3799999952316284,
+    57.11000061035156
+   ],
+   "selected_high": [
+    21.09000015258789,
+    0.550000011920929,
+    57.290000915527344
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome",
+   "material": "M_chrome_b",
+   "selected_triangles": 12,
+   "original_triangles": 12,
+   "selected_low": [
+    21.09000015258789,
+    0.019999999552965164,
+    56.869998931884766
+   ],
+   "selected_high": [
+    21.809999465942383,
+    1.7200000286102295,
+    57.529998779296875
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel",
+   "material": "M_enamel_b",
+   "selected_triangles": 64,
+   "original_triangles": 64,
+   "selected_low": [
+    21.009000778198242,
+    0.9700000286102295,
+    57.13399887084961
+   ],
+   "selected_high": [
+    21.041000366210938,
+    0.9850000143051147,
+    57.2859992980957
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col",
+   "material": "M_glassish",
+   "selected_triangles": 40,
+   "original_triangles": 96,
+   "selected_low": [
+    21.360000610351562,
+    0.9399999976158142,
+    56.86000061035156
+   ],
+   "selected_high": [
+    21.639999389648438,
+    1.2599999904632568,
+    57.52000045776367
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly",
+   "material": "M_slab_b",
+   "selected_triangles": 12,
+   "original_triangles": 12,
+   "selected_low": [
+    20.950000762939453,
+    0.0,
+    56.810001373291016
+   ],
+   "selected_high": [
+    21.809999465942383,
+    1.7200000286102295,
+    57.59000015258789
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass",
+   "material": "M_milk_glass",
+   "selected_triangles": 12,
+   "original_triangles": 12,
+   "selected_low": [
+    21.059999465942383,
+    1.559999942779541,
+    56.88999938964844
+   ],
+   "selected_high": [
+    21.139999389648438,
+    1.7000000476837158,
+    57.5099983215332
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen",
+   "material": "M_screen",
+   "selected_triangles": 12,
+   "original_triangles": 12,
+   "selected_low": [
+    21.084999084472656,
+    1.0199999809265137,
+    56.93000030517578
+   ],
+   "selected_high": [
+    21.094999313354492,
+    1.3799999952316284,
+    57.470001220703125
+   ]
+  },
+  {
+   "node": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta",
+   "material": "M_terracotta_b",
+   "selected_triangles": 32,
+   "original_triangles": 32,
+   "selected_low": [
+    21.009000778198242,
+    0.9700000286102295,
+    57.013999938964844
+   ],
+   "selected_high": [
+    21.041000366210938,
+    0.9850000143051147,
+    57.04600143432617
+   ]
+  }
+ ],
+ "source_bindings": {
+  "art\\data\\building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+  "game\\assets\\building\\floor_01_cells\\shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+  "game\\assets\\building\\floor_01_cells\\shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+  "art\\blender\\scripts\\build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+  "game\\scripts\\props\\arcade_cabinet_prop.gd": "1cd3dc96b1875ace10e083a89de3d8b556eee0c6e5b7e5a2eddaddf5e08cce86"
+ }
+}

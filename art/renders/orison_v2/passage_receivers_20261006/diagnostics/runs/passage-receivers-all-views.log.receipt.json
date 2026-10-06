@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 47.94,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T18:49:44Z",
+  "started_utc": "2026-10-06T18:48:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "PASSAGE RECEIVING CONTRACT: FAIL checks=307 retained_nodes=0 retained_resources=0"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/passage-receivers-all-views.log.stderr",
+  "stderr_sha256": "c04034b15e100472241c3786f70a1c5d265ac8295b557070dfea5a8826670ebd",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/passage-receivers-all-views.log",
+  "stdout_sha256": "104a40099f75f3f6cf65f9899d1a1657cb16a1ed74558b66180d95bba6c8f193"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageReceiversTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/passage-receivers-all-views-shots",
+ "source": {
+  "dirty_paths": 272,
+  "dirty_sample": [
+   "M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/props/arcade_cabinet_prop.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid",
+   "?? game/scripts/building/orison_v2_completion_interiors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid"
+  ],
+  "repository_head": "2418a185edf53fdaaf19efcd377ad9693f0f468e",
+  "repository_tree": "d0e8a38bb81411e883f9d9f0aab6f85b5af53a30",
+  "runtime_inputs_sha256": "5cd446efeeac43f4babaefeaac3f3f6c1d30fa9ad5621e0368a60dec062b7370",
+  "test_path": "game/tests/orison_v2_passage_receivers_test.gd",
+  "test_sha256": "5a416a8e7ebff6c53ccdd928cdee30b38896ceeb0b7fac007b4408eaf22eb635"
+ },
+ "windowed": true
+}

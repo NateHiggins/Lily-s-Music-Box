@@ -1,0 +1,2850 @@
+{
+ "evidence_class": "INERT",
+ "production_candidate": "11875aa1dd5e5cf47de5f38923f2f4d38c730881",
+ "base": "2418a185edf53fdaaf19efcd377ad9693f0f468e",
+ "final_images_directly_reviewed": 63,
+ "scope": "Receiving ownership and executed keyboard/lifecycle checks only. Original chassis geometry and finishes remain. Floor/capsule captures grant no continuous shop entry route, sightline, native chassis fit or human acceptance. The scoped receiving observation explicitly leaves save/reconstruction unexecuted and is not a ledger-admitted runtime authority receipt.",
+ "runtime_authority": "Separate complete test-written resident-key contract, with permission/copy/lock denial/save/reconstruction/owned teardown in executed scope only.",
+ "ledger_before": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "ledger_after": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "files": [
+  {
+   "file": "production_verification.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/verification.json",
+   "source_sha256": "b2909e483e97b158a4d539795ad8c8fa17959a39ef00ed2d8bc60fd214a89f3d",
+   "sha256": "b2909e483e97b158a4d539795ad8c8fa17959a39ef00ed2d8bc60fd214a89f3d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "baseline_board.json",
+   "source": "tmp/v2-finish-review/2418a185-clean-board.json",
+   "source_sha256": "fb6002d7d5b9a8f7d8faf5d9d3d88be98470968e5cb6da170fad7b44b534c2dc",
+   "sha256": "fb6002d7d5b9a8f7d8faf5d9d3d88be98470968e5cb6da170fad7b44b534c2dc",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "receiving_observation_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "7abbf2332dbfec594e5b546a51907cc56045fad7416d13a4516d1745d1c3afed",
+   "sha256": "7abbf2332dbfec594e5b546a51907cc56045fad7416d13a4516d1745d1c3afed",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runtime_authority_receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "893598fc42cabd6f83b2ea26c67be99968dade07a73b4b9b45cbad17af085e62",
+   "sha256": "893598fc42cabd6f83b2ea26c67be99968dade07a73b4b9b45cbad17af085e62",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_first_four.json",
+   "source": "tmp/v2-finish-review/passage-receivers-spatial-reviewed.json",
+   "source_sha256": "c373f9f264e030cf25879e349ba954e37f9a5d5bb27a27075711f060f3178ac5",
+   "sha256": "c373f9f264e030cf25879e349ba954e37f9a5d5bb27a27075711f060f3178ac5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_receipt_seven.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-spatial-reviewed.json",
+   "source_sha256": "fc7ba4ba8045621571b8457a29d63e154dd1eb8d7c5119c680f9318c9514e78f",
+   "sha256": "fc7ba4ba8045621571b8457a29d63e154dd1eb8d7c5119c680f9318c9514e78f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "candidate_sheet_index.json",
+   "source": "tmp/v2-finish-review/passage-receivers-candidate-sheets.json",
+   "source_sha256": "9bcd235c91387362787623d6c1ad3cb057d4bb86764b763d3545444c25601e81",
+   "sha256": "9bcd235c91387362787623d6c1ad3cb057d4bb86764b763d3545444c25601e81",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/original_assembly_candidates.json",
+   "source": "tmp/v2-finish-review/radio-receiving-original-assembly.json",
+   "source_sha256": "0dd1f13df6e212b84d2ac45ff9522cf4fa28491270e720eab2d1e15d88f6c9e7",
+   "sha256": "0dd1f13df6e212b84d2ac45ff9522cf4fa28491270e720eab2d1e15d88f6c9e7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/raw_hull_query_candidates.json",
+   "source": "tmp/v2-finish-review/radio-receiving-source-triangles.json",
+   "source_sha256": "82e623619bcc16af82259ab5136d5b55c3fbe78cee4fb51b8931361b45c6ee6b",
+   "sha256": "82e623619bcc16af82259ab5136d5b55c3fbe78cee4fb51b8931361b45c6ee6b",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/import1.log",
+   "source_sha256": "388b7eea9debb70d4ef7db568ba03caaa5dca21b55a391ff8c1226600e68b255",
+   "sha256": "388b7eea9debb70d4ef7db568ba03caaa5dca21b55a391ff8c1226600e68b255",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/import1.log.receipt.json",
+   "source_sha256": "054b2f31335fb50d3d70b141626e0a6e88bc96e652b62ae7536f94c6a1efa25e",
+   "sha256": "054b2f31335fb50d3d70b141626e0a6e88bc96e652b62ae7536f94c6a1efa25e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/import1.log.stderr",
+   "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/import2.log.receipt.json",
+   "source_sha256": "6ee6aa47ca20286b1ac34a25b7042447db5aa430e71046e7be7b3f9ec58137ab",
+   "sha256": "6ee6aa47ca20286b1ac34a25b7042447db5aa430e71046e7be7b3f9ec58137ab",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/ArcadeTest_tscn.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/ArcadeTest_tscn.log",
+   "source_sha256": "9cbfcfd21bd610314050b7df99bceb081b2b00d22536fe660ae58f1b42f55708",
+   "sha256": "9cbfcfd21bd610314050b7df99bceb081b2b00d22536fe660ae58f1b42f55708",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/ArcadeTest_tscn.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/ArcadeTest_tscn.log.receipt.json",
+   "source_sha256": "e84980bbcba38716705265d78729896b3082c35f0536fdee33b35031559745cd",
+   "sha256": "e84980bbcba38716705265d78729896b3082c35f0536fdee33b35031559745cd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/ArcadeMemoryTest_tscn.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/ArcadeMemoryTest_tscn.log",
+   "source_sha256": "c6cbea4b0c8084463433c38f4ac93cd9dfe481cceee763e93a9016c902291b2c",
+   "sha256": "c6cbea4b0c8084463433c38f4ac93cd9dfe481cceee763e93a9016c902291b2c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/ArcadeMemoryTest_tscn.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/ArcadeMemoryTest_tscn.log.receipt.json",
+   "source_sha256": "a4799fd2cb0135c11c8263776e38b093181e665411dd9132bc295365969a9be0",
+   "sha256": "a4799fd2cb0135c11c8263776e38b093181e665411dd9132bc295365969a9be0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageReceiversTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed.log",
+   "source_sha256": "b8f203a883f33097b1cc94a9422728c5ef2a513539e3f705fe782f41120cccdd",
+   "sha256": "b8f203a883f33097b1cc94a9422728c5ef2a513539e3f705fe782f41120cccdd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageReceiversTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "749f660c91528e63da2b1eac32c1d44de2b62b333e24097436e545316d0e1344",
+   "sha256": "749f660c91528e63da2b1eac32c1d44de2b62b333e24097436e545316d0e1344",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source_sha256": "6477780b4b506c4a88ff12181f1289bc379bf488bb1211fd8de9208990ad4382",
+   "sha256": "6477780b4b506c4a88ff12181f1289bc379bf488bb1211fd8de9208990ad4382",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "70f6638e1dc0eddc809f51667aef1597c75fb1b560b009ebbe757cd238af0a13",
+   "sha256": "70f6638e1dc0eddc809f51667aef1597c75fb1b560b009ebbe757cd238af0a13",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2RadioAccessTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed.log",
+   "source_sha256": "af45f4624d95ab3e91f8906222c034aa8deccc6eb0e6228c945b2dd03e08110a",
+   "sha256": "af45f4624d95ab3e91f8906222c034aa8deccc6eb0e6228c945b2dd03e08110a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2RadioAccessTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "afeba038930c3cdb0e2ba956dcea86e572a8050a85fe992ed0a8932213bd91c6",
+   "sha256": "afeba038930c3cdb0e2ba956dcea86e572a8050a85fe992ed0a8932213bd91c6",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "source_sha256": "5e8f6e232e4dbd9dfc8a4e99892436337075456a6d8869a2ca9796c49a421af0",
+   "sha256": "5e8f6e232e4dbd9dfc8a4e99892436337075456a6d8869a2ca9796c49a421af0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "ec68359faa504b0edbdee36c34b478bb94114dbdd1fbf160b9897029e04f27db",
+   "sha256": "ec68359faa504b0edbdee36c34b478bb94114dbdd1fbf160b9897029e04f27db",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "3acb57d9c2c6f52a8e33673df2f4f9930695a8007032f129b20055227622d5a8",
+   "sha256": "3acb57d9c2c6f52a8e33673df2f4f9930695a8007032f129b20055227622d5a8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source_sha256": "d870e8d96dc1bc70f75d4820609363e35822133ed4f2f1a37994f2637ad3aa4b",
+   "sha256": "d870e8d96dc1bc70f75d4820609363e35822133ed4f2f1a37994f2637ad3aa4b",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "5a675dd42bf6954ba0ce50e1f985d553ba2dfaedfddffa799df103bfbdd2c2eb",
+   "sha256": "5a675dd42bf6954ba0ce50e1f985d553ba2dfaedfddffa799df103bfbdd2c2eb",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2RadioDisplayTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed.log",
+   "source_sha256": "a50d9fc000f08f89c1d8d8e0ce29bb5e1f560e45d8c679375f6e3690fcd9958e",
+   "sha256": "a50d9fc000f08f89c1d8d8e0ce29bb5e1f560e45d8c679375f6e3690fcd9958e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2RadioDisplayTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "4fdb772930268620e3740ce38addc8ce8d23e15f373548e16b963b66199ec93d",
+   "sha256": "4fdb772930268620e3740ce38addc8ce8d23e15f373548e16b963b66199ec93d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2BarRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log",
+   "source_sha256": "95fa318d7797d3562e1b1e43dfd0f03d2761688d4ee2aeb9e87bc6ff8cd9648d",
+   "sha256": "95fa318d7797d3562e1b1e43dfd0f03d2761688d4ee2aeb9e87bc6ff8cd9648d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "6cd0c10911a1d9663994e2f5e963cb2b20683d92f991b36bc27d133d817baa15",
+   "sha256": "6cd0c10911a1d9663994e2f5e963cb2b20683d92f991b36bc27d133d817baa15",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source_sha256": "c3ae7c3b64a79077a8d03dcf9f39d82a524663abd784ca9cb57e391f05ace415",
+   "sha256": "c3ae7c3b64a79077a8d03dcf9f39d82a524663abd784ca9cb57e391f05ace415",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "fe8db4fe8a281966884330118887f36563cce0f983330a63526d014824dc303c",
+   "sha256": "fe8db4fe8a281966884330118887f36563cce0f983330a63526d014824dc303c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/bar_red_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_red_door.png",
+   "source_sha256": "dd9b8fb9ba257ec016a15299857fe1ff59edc98a9b819619cdab1f2246281210",
+   "sha256": "cf4aaa5f85b40e7fb12845ed6a0d1784f6e21a742377120a4da963fb78d83e5d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/bar_room.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_room.png",
+   "source_sha256": "d290a064a402ffa86d64a145fe6a98cecf9431b12d3ada4c347b1165a09343c4",
+   "sha256": "cb85ec923c4d8e6ce77494d1912f29a6b38bdf85cda75d66a256ffcca1d7d1c5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/bar_street_entry.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_street_entry.png",
+   "source_sha256": "3ab939d91325d908b9870e3bb4b4d42cc438c33456f6c94d03ec0023aec91eed",
+   "sha256": "61b5376844bff5887a3016f44ec39ad9669a10c1e11c92bc39380e357b71976c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "69493fd3267e0898eec6331c07e6b15664fb766d5e4da2ffa7d9ed503bdcd605",
+   "sha256": "d71030a79bce214fa52e2f8d35f0f22b7404aa17c9a7b074d9740f91f1583340",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/pool_chalk.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_chalk.png",
+   "source_sha256": "7a5dd6b5e8f4e5b99da494d9e5435673af5461236634e793d5f657a8c7b9d0a2",
+   "sha256": "1ad82fead29108044e585e4f7bf46acb708190a1717024e67c5d984832f73ae7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/pool_inspection.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_inspection.png",
+   "source_sha256": "86fb06a7920fdf82c3adb9a7897acb4ba19aeb0c684a490c015665b1239db6ba",
+   "sha256": "6f5ec4997db5f8a249c95d1d7a6e16498b4c30f125907cf756db5108e1aa43b8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/pool_panel.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_panel.png",
+   "source_sha256": "150fd5b3b507a642f168caf3629ce38693aad67af0a0526e1372d6ae013f101f",
+   "sha256": "8aacbf666cd46e08ec155c2a2b570d74aeb53d4a185bd9459efb9001354af1c6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door.png",
+   "source_sha256": "5ff2db1c10177ce51c1881d3faf33278cd86557a5e0aa68004ba70b50bae128a",
+   "sha256": "f29d6130826dadca0ed24d4f1d65af3f89abb31af502c22114a871fd17dab290",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door_close.png",
+   "source_sha256": "5c4afeac5d15d7ebb07d7b7e738077fa05b68af2d65b4916aa0744b41c6c4019",
+   "sha256": "568e429adaba02720de73681b78ad7f1da6d668e09e1408c1c576510773ee8a1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_inside.png",
+   "source_sha256": "808ab060c0ca89c1d165ba7cdfab7bbab7f0b07231a9318479d3cd52a43a1b62",
+   "sha256": "80027d9cfbffc86531419e66f25ae27af3f4daf04ba406a7a249f22a5360701b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink.png",
+   "source_sha256": "d2cd05b097221b61132b1b183a045fbaa0975d61fa2934c7060b6f42ea1e9f38",
+   "sha256": "656e386b99e9c4e4f7b1dd3547581f9a051437f046cf44d1f19e7d5cc7112a87",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_mixed.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_mixed.png",
+   "source_sha256": "7d3b2156d126ef376839c1f7d247cd6bcdc2b1e9d486201c7e5bcbb0e5f66b04",
+   "sha256": "4feb80d091f34fb84ddbb76f8d2a7f9ccd58a011493b6a1d5f7f35bcaaf7098b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_off.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_off.png",
+   "source_sha256": "32804139db4173841de15f6f3720f54b04e3c12b0b0cb6133050a70e0b1776a5",
+   "sha256": "e145a74712af3cb77783d1da70a1aaa6f9d7338892dad1395b866260ae080806",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2BarRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "488953f88cc0d1a9d68fb419ee1283f343f23bff59c9c179d55ee7e303beb567",
+   "sha256": "488953f88cc0d1a9d68fb419ee1283f343f23bff59c9c179d55ee7e303beb567",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_play.png",
+   "source_sha256": "804cc15cacac0ce101611924d2d0c4de0b46d626e86375a2c19a761601c59171",
+   "sha256": "d8d9125cbf01a5254cd910f983b83ed439eaa3bd93974ff9b3af6d9acb6d77fb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_scope.png",
+   "source_sha256": "4487430c94585832bdde871fa1b1df71dc584687bffa5ad9662571f7dc066e40",
+   "sha256": "bd026f8fbf963c62281cbdf3b25b07be4201db878cf083dc1921c7c7d1e80ee7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_step_away.png",
+   "source_sha256": "ea225e7fb2a36796a07fa1bd4229dbc0badaf5c4d80c0301fd76650d5aca6c99",
+   "sha256": "c426683488534dda5d6608ef477df6f30d77ceed307104ecfe2ea193e9d616c9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "805a0097ad9267daa416ccd212dbfba7cc6fd45ebe6231326af0251177cdff23",
+   "sha256": "b59653de8cc86ac340082933b7672f8bb4377b74526da289278d9b51be19e6ee",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "4dcdcf57eb31b0a391c0592c7cb5a18ef90d8517407d271b41cd8cf63b71b7d8",
+   "sha256": "8b63c54f7833caf472623c4273faa4a7b5d4b6c4ed4db8087f5fb392ff4c6294",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "ab8bf03ecc7f3e9bfaed4840c2df1a432aebb1a7f22ae162a1064313e4ea1f33",
+   "sha256": "9305254ae0ddb4b9c2ab2ec486dcbdd90ad0ae1e84525989dfd9462db87d507d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "a178e5b9146b8cccbc12ae252139e1aeebebae65f00b1dcebc93ce5d93e2146d",
+   "sha256": "23b512e4c20de700955a170bae8ac4d00171f7b8b9e9c5d2004ae5f90ac65766",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "d61091c746529f5add76933f26f3764c386240b2e0b32a7e7ea78bda67e9cadf",
+   "sha256": "8c9f37054d3e1fe0444ee97ee066b02b99b37d36d83752f501b58c2ad94bce51",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "f4daa8768939df214cc036e945e528e3594b59e552d57bee84c514260367d2e4",
+   "sha256": "2d9890b52d18521de84c38076b5b82ecdd1f4466c7fa0d5c6caeab2fe7608d2b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "b4062bb3e96a4982eb204e15b4ce006ee571f09df5f3279fddf4ff95877fec90",
+   "sha256": "f3e5ba3e1994aacecc3885acf8c97044956e2a1d1998354e8973f4afb9bdf2ad",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "81db74a3701cc13bab0106e4962552dec5f00055e051e791fcdf72ebad37df3e",
+   "sha256": "81db74a3701cc13bab0106e4962552dec5f00055e051e791fcdf72ebad37df3e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageReceiversTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "7abbf2332dbfec594e5b546a51907cc56045fad7416d13a4516d1745d1c3afed",
+   "sha256": "7abbf2332dbfec594e5b546a51907cc56045fad7416d13a4516d1745d1c3afed",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.png",
+   "source_sha256": "b523e9060f8d624ef10a784337aefef5f5fe29a7d4d4dba0ecd20bb0d57d5bce",
+   "sha256": "60f61bd522b87f180399b6f9e65b0dadb8e53d67dd1d20f30ceab4ab6fe713e0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.png",
+   "source_sha256": "db38feb60fa225e40ca3faba1a6fa1f45a562c6e7c7b5f96f1081492682d0be2",
+   "sha256": "76d8fd3c084c3392bc05d92eea0504cb0107fe849d6503ed24a803c436665040",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.png",
+   "source_sha256": "2ad95c01c65351267576fce0f65ce2b9429a66659a36fd44e6d80597fdaa2b32",
+   "sha256": "69feae66758cf5e99704e2215d41a64477ab23b762630ba6b1dd3b415933cf27",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.png",
+   "source_sha256": "ce8ec609b110f80527b687628d77a6074c9e922713b5a7c28ca52a2f30926739",
+   "sha256": "be50e910f9d4169de54ded760e10c0a2b02452318358998a4712ba5bb4fb5d0b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.png",
+   "source_sha256": "4078a2cad3eba8fd6ad60b0d198fd01ce2adccf786fda72eea170fe9b3a3c93c",
+   "sha256": "5e1f241ce069c4138b22b0a3b81eca0494d101c2451b6eeb0b11179c7e78ecfa",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.png",
+   "source_sha256": "0188d3afa402a7c81082ccd2dc3b13ae0daeb64f1439d9989cd6fb5f72a7a3c0",
+   "sha256": "ce63011256a6c6cd15218613adf3e72cfdb6d895a4251dc4d183f160f8ea85ab",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "02ea568aedb0638be84a6ecc196e3f3fc5db89e06f9275c23b755b0c3ad39070",
+   "sha256": "e6ecc3f0332ae8e89532f453b61031a7c2153f5cb22425fdff8073101ac47bc1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.png",
+   "source_sha256": "82ccd9a4ad678b90c3977eea5af6d3e5f4a3619f7d1b4e9c762d04be7e627cb5",
+   "sha256": "297fa3920698dce1c4bb0ab27564f50504858311b0720250bb48bc14131bb202",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source_sha256": "13551776c476f9cb6205aee8414c5605267428212ab2edd8a24228e207a8fbbf",
+   "sha256": "13551776c476f9cb6205aee8414c5605267428212ab2edd8a24228e207a8fbbf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/continuous_reading_room_arrival.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/continuous_reading_room_arrival.png",
+   "source_sha256": "2bdd560d48b6938d515c656e4727d1eff076e9fbbacce7c9bca916e52051fe86",
+   "sha256": "db3f9a6ef7b6ec655e0c6a7185c6427105a11cf18844b6f3495ff97ae79270c4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_-1.0.png",
+   "source_sha256": "ebdd2be2ef4dd99d66a713956fd89e60295f4b571bbb0d0fe3fee59df1aa6a1b",
+   "sha256": "5a653c771cbd6584b241e3b98e18dfcf40ea872ec74bc1719d0f604385a6d11a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_1.0.png",
+   "source_sha256": "fd5992952d50434c183c91e79e50a30c08939b4d01becf0062d2e0178690a568",
+   "sha256": "a9ef26e4d6025ce4e9e30e6016dab1d37cb78963fa8a6f3bf41bde5d6354aaa7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_closing.png",
+   "source_sha256": "8d715a6dfaa564d653164b1c304cd6b766c554d3f729350bf147e1654bb005e8",
+   "sha256": "50b0e5ca0ad5181220260c33810849fb7e337ef3c552c01d2781eedbd7f46c73",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_opening.png",
+   "source_sha256": "d0e588000f9a5e55db39da79401f6121aa33d9122e5009dc2a043f3e70e408bc",
+   "sha256": "f5a948020784f71fb9584d5ad1622248ea65152debafab43828315392ecb055a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_-1.0.png",
+   "source_sha256": "3705b1947b99c817c03661a76b13c09c67fc196337c0865b9ca970178658d356",
+   "sha256": "6826eec4056c6bf008f992ce8f7d1953237134bb30fafb8fe086221dc4be9f4e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_1.0.png",
+   "source_sha256": "bc2c513eb392df1dd2855e1681857b540c449e0217c83bce78852239bee749a3",
+   "sha256": "93688a3a93b5015b60fb8be2ac6451443ebac559623bd5be441f90e440691880",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_-1.0.png",
+   "source_sha256": "b89cf10ddcc9e31b52ca62cb92d75e95b05bcb8bdf0c84a25615269169f5eaa4",
+   "sha256": "8b32158cb115aa1c5f5244636d7958c7704cf58541b860bc23fb700d13b57a57",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_1.0.png",
+   "source_sha256": "94a947b734c59ff7c05150a1b0577a16bb2919c1273072ae850ba972c567c73b",
+   "sha256": "ed81ddf1e43713bc9c2d02badd7cf9586266c31f4054758ba98967ce0375328d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_closing.png",
+   "source_sha256": "bc322e2bbfa9a5a299a014c025a76f8c589e78a3850ae3cdcf690f0b819f711f",
+   "sha256": "aa9e1674638ae0e75fa111461e24602d058a241310e4a5e6dd071696d3029e8c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_opening.png",
+   "source_sha256": "ed00ca3e8248f90de7ecd12e2b61aa524c47eae57b2141617c4ace0c487e1bd9",
+   "sha256": "13a821f58ec5f90e6606c80772de83eeafaf2b423ce05ca218fbf9dcb7ee517c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_-1.0.png",
+   "source_sha256": "c62b3c45bacfab3cdb2cd5ae048771479d408d231226d26534d0b671b1ca61cd",
+   "sha256": "7067d0e2828c50602912b40ce64a862683b71c715e058ed3ca5e67476bae13ff",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_1.0.png",
+   "source_sha256": "74ff19c91adad904931fb01928373263f6a477b468d995807fcb3bc4869cc8d4",
+   "sha256": "5f2f6d580c3b6b6e47dd88dc2269c176f18bb590fa3e9e386e80a7746c4d4183",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_-1.0.png",
+   "source_sha256": "8752a142e958cd5b4325e494e1038bc0dcf95ce5710d45ad9c3e16d8207ad199",
+   "sha256": "646a573cd93d7d7c6a33209ce76e9b441d0149ce39fb3858e8fa9f183a99732e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_1.0.png",
+   "source_sha256": "641679bb1ff9efdbd959c28e64fd3c6dbc2fc4a8ad9f01ce3fbb4cf4ed3980c2",
+   "sha256": "97ce4a510456862816d028f2ecbdff53dbf98986b5a7a0b956f244f23f768d82",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_closing.png",
+   "source_sha256": "0cee519c498c2c28f1edb664dff84b5a679478197644a696401ba3444849f687",
+   "sha256": "a8811901b7121965973ac4cab2fa0ee14d514ce9aff6dfc997f66711651e2360",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_opening.png",
+   "source_sha256": "3bab27fd61b520c6d994efa9582a1920e2e67fa7a2a5a0e011d06b0a40fa293d",
+   "sha256": "11b57766cf058b44bc265d792cdd89d728df396de88e9b8528ceb435a40f59b7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_-1.0.png",
+   "source_sha256": "00036d53c465d2812f1f932b8c21c735d512bf6da4dcd1b2de33a79dd2c3cb32",
+   "sha256": "d49acc091be457b61bea5e5b748f6e53b138e897ca9541ffcda539401e853d1e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_1.0.png",
+   "source_sha256": "84c47bb88b8da8d82dd27c9e49f23a09dc9f99edd45c8a346194805e4ac40416",
+   "sha256": "b9c65dc9e0cabe495f22da625820ac02336e262bd82b7bb427de9a86489977bf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "fb6b44e24b0f6529d88f6a79d3484831fd86def8e8f824f912dc408d481f19d5",
+   "sha256": "fcb2bbbd05e1c5231b613f04e98f3a151173d7e263c056676a4e3cef75c48ce2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2PublicDoorsTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/route.json",
+   "source_sha256": "e25aef5a97f179b90e306a102f15769feb2b818305fda7c1a8c6a086c2e85cc8",
+   "sha256": "e25aef5a97f179b90e306a102f15769feb2b818305fda7c1a8c6a086c2e85cc8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+   "source_sha256": "a96de256517c520210239fece70cb1f5b84e1a7fc464b8d3dae93e890409ee27",
+   "sha256": "acad1fb744cdc4bce42d715a9bd56ca313dbc8abdcaf35f1a33e664f0580a266",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+   "source_sha256": "56ecbf2c734ad3a389a59c490e83e68b80b8fb9fe6d7c01fff6bff0eb83ba786",
+   "sha256": "de687d6480f9a2581b1f5bc2ba86fc6dc1463ead5f1edb2f47997bfa6a36f71e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_OTIS___SON.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_OTIS___SON.png",
+   "source_sha256": "0e880084b42592b2c3cd7e4b9be2776603edf98bb5b194cca761dd2210d0521b",
+   "sha256": "2e3f6b0e540d1d92058537003fdd1997335708e6e982b5d697a03bcedfe3e569",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PAWNBROKER.png",
+   "source_sha256": "14182b4d895b222e100a0991a27bf3924463489c0963503380395f3634fbb68c",
+   "sha256": "1d04361c6759da356ff4396907cce5ba35cb16ac36e9f149dbb4de53d708cfa0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+   "source_sha256": "d5f15cdf9034252ff39d9a1647551765870a9c48c6e00ebbd4d189e80c3dfb02",
+   "sha256": "4413fe60f342a146b48c95e22bfd1116021ce954d46b1a0ce665dbd6b43b3898",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+   "source_sha256": "29aaa24d0c5efaf3d1a89caeef99f8e924cb7c7eb8f418b42bff44abd724e41f",
+   "sha256": "c1926fbf516637e550a6deaab1fee321c8b2bdf6be9a36c64a7d57bed6c1c411",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+   "source_sha256": "ba8151b005afad88800077e5033df75bba0fe43852e2a41fd063e09c42fb79af",
+   "sha256": "a99c8d92beaf7eb5879d22d575b4ec4edbf07a7f3328985d38610ab88286cd16",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+   "source_sha256": "458615851dd97a10283c50c5795dcab598ff833893fee59c0fb889cf40122a97",
+   "sha256": "b312b01fb9e36761944e635b6a8ab5d6e56eca78007287e4bfe10399779790ea",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_OTIS___SON.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_OTIS___SON.png",
+   "source_sha256": "14f6bb85ab7d1a39d9d8d0c4aaacb608fbb805514d3b56087c92e35b72f0fbf2",
+   "sha256": "4c160eaa92854598c8ed54d337aad79f0834f5b97b69e87a8e1ba0c6877e6b18",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PAWNBROKER.png",
+   "source_sha256": "02be71a1e8605856f42a1d7885676c6b76b3005800db49b77087d33ab5efc5ff",
+   "sha256": "8d60d37c22cfce9578a2908d7a4ab770346453a4e2ea46a5309935742399a178",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+   "source_sha256": "0a343b0e195dde2007729197d24ef11f21a3e742b1c08f6a8d8a9b467eea5e35",
+   "sha256": "d71237f3921b1d3fe86c9d19a64a637a06290e2465ae87f73554789e284971b9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+   "source_sha256": "b64cabf22735d84496540ed97e1fc9cfa1911cf303fef6c0bb957b67c5ac423a",
+   "sha256": "f0a259e2a6b3f6d2648727233066b83c5a3ff3b63b05d10219a23141b5fa88eb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+   "source_sha256": "4f4765ddfeef73971ee20d9ec49804328234543587a52aeba5d89f90232f4552",
+   "sha256": "53df4c49839b5077e4173724ffbfb77d9e2694ff0ab57a873dfe59db5c11ecb6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+   "source_sha256": "9b21a1da10630d762d33a8b7db332a92a0d1d79a3afa1b3eec60f2a6c0d10bf7",
+   "sha256": "e50fb9349e210bad33e206e622211c3223f9bcc91f4e4c0f422bbc7befc72bd4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.png",
+   "source_sha256": "95f3eed649078e50dcf28a9157746e1e51a3012f23e800b5513272a74584689e",
+   "sha256": "f146cfd79f3fb7733105132a9685434234d5850017e000df595c8d24019c3ddd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.png",
+   "source_sha256": "171f46772ca9c56dca716fb6967cc004843d04bb2c6df052607c5593cc7c4431",
+   "sha256": "c2bca7f6d8e0dc0d365825a94bac38a27b501df4aaa388e576674c23be1ee936",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+   "source_sha256": "f19ab20fe8615a3a15671db9f2a494911d6826f68802ddb021a37fa33b4cc882",
+   "sha256": "50217fdcb2841fc3b3c3fed2047a028678e181ed2c1aa9619ef42ca874497d9d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+   "source_sha256": "4e3a23e3794a9a5e6310809bdbc0dd7a4cfcff1b7b779e78cca5bb8cb09f6b67",
+   "sha256": "634471eb8293a0674d555022791601ac2231737e137203af7abe94680489a8a9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+   "source_sha256": "3515a91bd3423f25f0cd71c41b8f2c3cbf73dadea38a390c7b41fcbe492c4874",
+   "sha256": "3d599b3cad6967b36848c89e04826fefc30d274c8b77458f7fe38cedfd7742bf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+   "source_sha256": "edeef850a7ee699fff124cbe6521643736398c43a65d570fd009b9c77c18f489",
+   "sha256": "24609b754c310f919fa350d7e8f6ad9749c31133def6d45210307f8dac5c522f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+   "source_sha256": "c66e032541e49f08b025cc3bab07f6eb7da4189d56f9eeecab86428dccb93b1c",
+   "sha256": "2e807805a5c2849882a6dae15820bc5ec272225f15caf78b5a1a043e73750911",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+   "source_sha256": "42241a8bee8846eb7ed6dc2ce9574343c8fa7ba5ee6aabacad5a369fb0df1d73",
+   "sha256": "d79261045edf53236efccf6edbe77ec82a4cd62f7a6ab00636d402ed6a54c587",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+   "source_sha256": "cc0cc313736a20fbb76fbc50f37523512dd16410d360fbe1abaa148b8aca77f5",
+   "sha256": "f735f80cdd4482f453ca502fe379203a20a2af956931f2972d5d7b10c9d09071",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+   "source_sha256": "d30fac5b8cb503f390377b41393ac45eeae19e5984a1c591eba2da1ec68f89fb",
+   "sha256": "41637f7fc572794fc342b549daea67fbbd8ac8a15c37003431729ddd9f6f5b6f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "617e2ea900078d6863039c334b4870b3cdbf86790c99b46a4c0e14b8bf4194ab",
+   "sha256": "bc53a31f4f9a00fab2dd03c10f22fbf5dc7a493c03b89de51a277a470c7f6ab2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+   "source_sha256": "6e22d967bbdd10e101579a6cb5437575a0f87adb04fd67367e5b80fd86a2bfc4",
+   "sha256": "6a83f6c3e370112f9894f344d640b635ebc71b03b3a979ebfac30150e8a03678",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+   "source_sha256": "3d718b966340935f7183468eeded31ee3fb082ecbcf6979dd2d2930006981406",
+   "sha256": "b6e8a170df7f8ea3a9376963aa0702747421dbbddc5114116fe2e05050c6f92b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+   "source_sha256": "97b8ff5902469ed641469fd394b3d68e79d917a21c4512af7ed6de6ee5591eb5",
+   "sha256": "6b656e32f2b0359253199e6b303a8c237bc502e783423219cae5b253f456adf3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+   "source_sha256": "7fcae75b15d323dbb08c76e4db5c361577d218bfe566a1b70153a009b907eb99",
+   "sha256": "f9775c81d19ebad56698181ebfbd7afee3faba4325da8495d112fdd337093e1d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+   "source_sha256": "ffbf6f6d33a233796694da0e484b3524c3354bd737592815c296c783cc2e62b6",
+   "sha256": "b89695a897930298f5691cdd138d113862479dc77cae14036bb9aa1cd7855419",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+   "source_sha256": "d6bc5172ba7736606bacff207746a88b2e535eab2839ddd88a720093f037463d",
+   "sha256": "085fed051e3c24990ce76460daa45537980947aa9589fb3132a800f36c6d2085",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+   "source_sha256": "f1e96d4d5c52d3572e9bbcf02a79b0559be16a3a2d909a5ac92e6db2dd4da304",
+   "sha256": "d45518594f28c95905ad274b06a36534e88eab64867a2517d72ba14dde6af67f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+   "source_sha256": "e7ed1b3d5c73fbd02c809dafcd03bde115400b86f6cd4bb3ed8f3414397203d4",
+   "sha256": "9341ba269abcf8a68da22b3f898df6ed1f3d6308cb0a5e7cde81444aa539b2ae",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/radio_charging_work_bay_clean.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/radio_charging_work_bay_clean.png",
+   "source_sha256": "d4c4c1a018c5ae3372cb01e6ab4d1cd7521a7296976ec4313b829d3d894ec488",
+   "sha256": "2cd517f5777709643c2889ff10d5cce966c1b41e7fff627cc14ba06c473f8571",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioAccessTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/route.json",
+   "source_sha256": "b7c045f54b83be80699c959e08d885df40c4dc2de313679c0d1da9db16225698",
+   "sha256": "b7c045f54b83be80699c959e08d885df40c4dc2de313679c0d1da9db16225698",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/counter_floor_posts.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/counter_floor_posts.png",
+   "source_sha256": "2c3530fc7a4803c06951d9e58717fdf598c2924ccbe0ec54d9a5e9e1080b40a5",
+   "sha256": "5af14eed18bf2202bc0f4c3256b70d44d15efef7bf96a3b49355232f8289f73d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/passive_window_stock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/passive_window_stock.png",
+   "source_sha256": "43e0df8ee932026bb683f74620147c3060e560c63a4f7d2ac05a5bd60d32b75f",
+   "sha256": "802ea94c68c2214ff33c3df8ece7328cf8dc306f283ec7b12e88c6e01c6cca14",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/seated_counter_ledger.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/seated_counter_ledger.png",
+   "source_sha256": "0f89a32d44156a0ba79db839fc66735db8e5f2501ed47a8b99b5885a5b378f94",
+   "sha256": "58af317212fd71d12f9ffdedc1449f518b8538e414b67fa362b3dafda910b4cc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_cone_speaker.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_cone_speaker.png",
+   "source_sha256": "2f498729fa3a84113e476e3f3df99d174c6e516caaef1fa493566aa4957fa6a8",
+   "sha256": "10b70129a2b16c51fb60d10c47e9d3de516bf600366b047d21f0b854cbf27d54",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_horn_mouth.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_horn_mouth.png",
+   "source_sha256": "8b16cbd815b7984205f91ff89a1007c36210d7deec3b13a2b696b230ccf647b3",
+   "sha256": "14c2a1a41723a62e05c2d7ffedf07dafb4be0181752a5929de851d1d92bfb25b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_plinth_bearings.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_plinth_bearings.png",
+   "source_sha256": "6f5c9a48f517a03b98c1414ad4cd54ca6a19f86f845ee741db52f0bc8d9ddbe5",
+   "sha256": "8f0f7f769e41c2f299600f06c7726e00dcd9d9393229da784dfac52bf07757b8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "5f667cbf415a89d6fb184070692c6c21b7836735fac0c8cece0a1114d3d0326a",
+   "sha256": "5f667cbf415a89d6fb184070692c6c21b7836735fac0c8cece0a1114d3d0326a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2RadioDisplayTest_tscn_windowed_shots/views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/views.json",
+   "source_sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.png",
+   "source_sha256": "90784b206f34f09d0c26fd671bc2210ad707c37d668e1cac1937c24ed0ef8fb5",
+   "sha256": "c7defdb201a33af117c3ff7942114b3bd6fb7a900ca5e079fa65d8e2acfda892",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.png",
+   "source_sha256": "c4190dd764a1b9b38c57ae2405fc30018c2743ebcf2e65996a9bbf23db2766c8",
+   "sha256": "b0860e6e111766bded7d444bbcc2ecc9a9ea110f809490a459508edb5a1446e3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.png",
+   "source_sha256": "c1e1624faccf3e8bb298856826a26307a01592d87aba63b00e4470a67c8bf914",
+   "sha256": "317b225ca3a554e33a7bb6f1ee0ed7deab6105ebeb4ef1edd9da2ca70c9e4cbe",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.png",
+   "source_sha256": "7c863d67aa583ad5b2afc4c0605675ebb7cdc94011b0745b010cbe322b784dbc",
+   "sha256": "187a3a762d0ae034796023d82e4e50e29e4add9d8a059e0c1f4eeb914f513577",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.png",
+   "source_sha256": "7067296d36c8294f89ba0e64da77cbb83d2b785f2997395950b801ac29c81c8b",
+   "sha256": "9abbe751d1575d6786b7888ff6dd49c572aa994591f2e42c35315c761eb873e9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.png",
+   "source_sha256": "a6407345f038d50ce6ddb94f21cce28b559d05879b7f01c53b59b16e755009c5",
+   "sha256": "0fee74a9e426cf594a5b33e9b25b06cb9eb91081e0d91d795d82b7952a3f1fce",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.png",
+   "source_sha256": "dd4c8654e44542058a6b4de7ac9a1ea493ebb03e4dc792e682846b0fc66d1d08",
+   "sha256": "88837119a97aa0379f19d59130acb8b0e0dd8bef9b606659bc9482d8b3c61680",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.png",
+   "source_sha256": "f36e7f825b3f9b880fa4b3231bce35fe0a48fe6d3b77404547292997923d1961",
+   "sha256": "48b4c2082a5ea9fbf563ed1d6dd6dce9ad19823ef02b39610fee78fce90ccf8b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.png",
+   "source_sha256": "11812fbf52b375747e3068b1dcd1b2235050f3a060824a73133f51c10ecc800e",
+   "sha256": "f052ba273421b768e7410213283d9d2fa7a97cc3548024109fb496cfadcb7ea3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.png",
+   "source_sha256": "71b87034d01acbfe86cf3995d1c5e49ba36df7354bb1fa68a94e51b17818e0b0",
+   "sha256": "9fccbaf9a9723b131f17400464cfe166c65e5de2244b0284dcb9e33c24345678",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "622639de4eecaac6fe8759fd5c611de848d2651f8517c44a53925bfae335469f",
+   "sha256": "7eec06868dedca42410f556492097959faef75bae71be6ec67a8f6b8362fdf71",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.png",
+   "source_sha256": "2c37cb9b3f1c07a023a3057f9fa0af0956ee153176fffc4d02d5b469f7e6ae97",
+   "sha256": "9c87f0cb330b6406c9c5f4de4a28d6b043c72a6115762b1266a1bdaf81a03ca5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.png",
+   "source_sha256": "cf9dc3745ce9d560ee207fef316114bab2d6a7842f71bd2b04bf6b7349548996",
+   "sha256": "ee79d77485ff5f739a366aba2b56aa411ebed00b0e7ec33fd80aaeb55eec1dc6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.png",
+   "source_sha256": "91fc9658e9e52af8f011103629b57db5d258410da645ccad929dde3dd64d6181",
+   "sha256": "738828a3e1f35b1813227bda54810b22f02775e8f80e0940b4cf893b730d13b5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.png",
+   "source_sha256": "6637f2df4a75d49ce6440dc8ee2e012c7be6b1a2d10f92032bcaed4352f103a0",
+   "sha256": "5cdf636a9e3b122ce0e84b87911d23280243c2b21eb1e66a47e341520e62b7fd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.png",
+   "source_sha256": "2e85d47ceac4b97b60010b41986093122d0b298351750cd836fdbbac22305039",
+   "sha256": "b399ae43f79c2148814f491c9afff55d57c0b236cce6c68c69eb56a815f305fe",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.png",
+   "source_sha256": "d4947308e6af3b4a0b75ef63fbda19236d140f4e4155b71397469fa468f216b2",
+   "sha256": "061e1da996f9ca723eed647a427c19dee0fbc8608617017b50cd0e2a6677768a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.png",
+   "source_sha256": "f36a21344de0c097b295408855b809456f02ab91cbc3384e3de7a2b22b1d8b17",
+   "sha256": "8b9eba65c879574769476e28c0a20e893e6d0a7c324f02796c7221f002443c76",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.png",
+   "source_sha256": "20e1c27b0631ac4edf8fb38653d4219479af989db6fd259a34a2d19412206cbc",
+   "sha256": "b5de38085462b9638146c2919a7b78e69a59f6b675674944d3e64c3718b1c2fb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.png",
+   "source_sha256": "d239201420970243ec901e471ccfe438624ba83002ad2e185dd3e950883cffc1",
+   "sha256": "d918cedab3dff1680e35f5b739bcc5250a23b1026c2f87780a725ba03857bec4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.png",
+   "source_sha256": "0f47792728bc3f04ae3759f51f1967751a1c2a63b957238e67e536fab5683c2a",
+   "sha256": "37d07b646b451170a51d023463df94a6964bbde047aef487e7743759b1852372",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "77114dffe0c143e80454b62adcfecc910dd01bba199c224c971ff4e3aac85202",
+   "sha256": "77114dffe0c143e80454b62adcfecc910dd01bba199c224c971ff4e3aac85202",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-registered-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "893598fc42cabd6f83b2ea26c67be99968dade07a73b4b9b45cbad17af085e62",
+   "sha256": "893598fc42cabd6f83b2ea26c67be99968dade07a73b4b9b45cbad17af085e62",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/superseded_missing_access_scene_verification.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/verification.json",
+   "source_sha256": "92869e7434496d4d0acea93df732ae76822f17e1bc085351239a9ed70a36ebc2",
+   "sha256": "92869e7434496d4d0acea93df732ae76822f17e1bc085351239a9ed70a36ebc2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/ArcadeMemoryTest_tscn.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/ArcadeMemoryTest_tscn.log",
+   "source_sha256": "c6cbea4b0c8084463433c38f4ac93cd9dfe481cceee763e93a9016c902291b2c",
+   "sha256": "c6cbea4b0c8084463433c38f4ac93cd9dfe481cceee763e93a9016c902291b2c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/ArcadeMemoryTest_tscn.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/ArcadeMemoryTest_tscn.log.receipt.json",
+   "source_sha256": "8d71a9d9420db5cb0cec513e79326fcf5a666caa1e65117b2c2b2e7120f6e0c6",
+   "sha256": "8d71a9d9420db5cb0cec513e79326fcf5a666caa1e65117b2c2b2e7120f6e0c6",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/ArcadeTest_tscn.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/ArcadeTest_tscn.log",
+   "source_sha256": "9cbfcfd21bd610314050b7df99bceb081b2b00d22536fe660ae58f1b42f55708",
+   "sha256": "9cbfcfd21bd610314050b7df99bceb081b2b00d22536fe660ae58f1b42f55708",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/ArcadeTest_tscn.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/ArcadeTest_tscn.log.receipt.json",
+   "source_sha256": "551dd667c21cbe46cf9ce375557fd1eb6dde81469de4e5aaf58a115f35d593b3",
+   "sha256": "551dd667c21cbe46cf9ce375557fd1eb6dde81469de4e5aaf58a115f35d593b3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/import1.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/import1.log",
+   "source_sha256": "feaee6bc50ade6cb183cf1213a45f2ed821a73e0a2ce4aba9a81a52ac29614cd",
+   "sha256": "feaee6bc50ade6cb183cf1213a45f2ed821a73e0a2ce4aba9a81a52ac29614cd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/import1.log.receipt.json",
+   "source_sha256": "9700694af951efd4395022c1447f4b7169ce95ab119398a0af5fd021c593a51d",
+   "sha256": "9700694af951efd4395022c1447f4b7169ce95ab119398a0af5fd021c593a51d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/import1.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/import1.log.stderr",
+   "source_sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+   "sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/import2.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/import2.log.receipt.json",
+   "source_sha256": "249d225a0935566fe8a5045eb6399a1ba74981ac21417904ad1a6ba2d5d1fcbf",
+   "sha256": "249d225a0935566fe8a5045eb6399a1ba74981ac21417904ad1a6ba2d5d1fcbf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2BarRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log",
+   "source_sha256": "6898102b88bca532d22cc51889a66405c03a2440f8b5ab436071a6ece32ca30c",
+   "sha256": "6898102b88bca532d22cc51889a66405c03a2440f8b5ab436071a6ece32ca30c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "116fc644a2340ec0fc1177982ba6c490182941a155d0fabdf4a6593ad33151f5",
+   "sha256": "116fc644a2340ec0fc1177982ba6c490182941a155d0fabdf4a6593ad33151f5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageAccessTour_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageAccessTour_tscn_windowed.log",
+   "source_sha256": "e9bf8c6572911525bc407470a2e7bda1231d634a09b4d5f4d2a4bd112e889976",
+   "sha256": "e9bf8c6572911525bc407470a2e7bda1231d634a09b4d5f4d2a4bd112e889976",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageAccessTour_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageAccessTour_tscn_windowed.log.receipt.json",
+   "source_sha256": "2e5fba5fd768f208a42d8a6dd3e7dc8cafb785de8b830040852c15fae45c854d",
+   "sha256": "2e5fba5fd768f208a42d8a6dd3e7dc8cafb785de8b830040852c15fae45c854d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageAccessTour_tscn_windowed.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageAccessTour_tscn_windowed.log.stderr",
+   "source_sha256": "38522faef211be2014958f155a1b376826420d6f6ea591be67b6e4806fd899cf",
+   "sha256": "38522faef211be2014958f155a1b376826420d6f6ea591be67b6e4806fd899cf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source_sha256": "2260c55eb9c8f48b68ddcff1dc9955e148b72f83d566a9c2631cc655ab336f20",
+   "sha256": "2260c55eb9c8f48b68ddcff1dc9955e148b72f83d566a9c2631cc655ab336f20",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "28c7734116b797869159ece398334cd59eca732d3edab20bd8cbc2bcde1252dc",
+   "sha256": "28c7734116b797869159ece398334cd59eca732d3edab20bd8cbc2bcde1252dc",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageReceiversTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed.log",
+   "source_sha256": "52ef89acfafe20d02c6203b9287f51e349724f3572d59801c36adfae140974ad",
+   "sha256": "52ef89acfafe20d02c6203b9287f51e349724f3572d59801c36adfae140974ad",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageReceiversTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "e343e93883114fa7483a215e29f6842c0085b92b3d337674aa5f04cd806da003",
+   "sha256": "e343e93883114fa7483a215e29f6842c0085b92b3d337674aa5f04cd806da003",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source_sha256": "fb46a73ef41073ec538880912a8b3e7240f3bc39a8e815ba01c458203747d019",
+   "sha256": "fb46a73ef41073ec538880912a8b3e7240f3bc39a8e815ba01c458203747d019",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "53cf23ae1823db0aaa39e83d7a1a1edff36cce1a7a9e6140fc1c7abff72ecb52",
+   "sha256": "53cf23ae1823db0aaa39e83d7a1a1edff36cce1a7a9e6140fc1c7abff72ecb52",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "source_sha256": "50f21bcf775ac4bbe9f9202287a18008653f750e1b84d9a9b246e99996cacd80",
+   "sha256": "50f21bcf775ac4bbe9f9202287a18008653f750e1b84d9a9b246e99996cacd80",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "f375bd9081475bb513862793eeca3b7f01c938829a74e67ca2a5a11b69ced087",
+   "sha256": "f375bd9081475bb513862793eeca3b7f01c938829a74e67ca2a5a11b69ced087",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2RadioDisplayTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed.log",
+   "source_sha256": "30b1ab3677fa95a0d0bbc88d101a75d79fd0e9a0bbd2564f65859758ae4818dc",
+   "sha256": "30b1ab3677fa95a0d0bbc88d101a75d79fd0e9a0bbd2564f65859758ae4818dc",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2RadioDisplayTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "3568f58aae42bb812d3123ca805ef9c0e2f9532d01278c690847488174dbfec3",
+   "sha256": "3568f58aae42bb812d3123ca805ef9c0e2f9532d01278c690847488174dbfec3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source_sha256": "e310ba28f0b465271142a76704f8251d1aeac66040e8fd53896918877bbbc80c",
+   "sha256": "e310ba28f0b465271142a76704f8251d1aeac66040e8fd53896918877bbbc80c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "9559d3ff7859f67c3bfbda6e07edfc14a441646276475acbd745f29e5fa69281",
+   "sha256": "9559d3ff7859f67c3bfbda6e07edfc14a441646276475acbd745f29e5fa69281",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate_runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "6c3dbfe1c09f28c56355110cb1c76ae8b78f9e24210c2ef36d8bcc22abaae1d8",
+   "sha256": "6c3dbfe1c09f28c56355110cb1c76ae8b78f9e24210c2ef36d8bcc22abaae1d8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/bar_red_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_red_door.png",
+   "source_sha256": "059a36207959eca4b6384ffa53c953714d350f25ad4fede523712dd25608f164",
+   "sha256": "78e88604a810c2b953115bd8654e5109d362d390fa90e8e132fa69e035f24673",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/bar_room.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_room.png",
+   "source_sha256": "97c472e9a44de7db5511eab90f034acf4c753ad414b261ece5a49b7746091f26",
+   "sha256": "06ee4108caf3a4949aae13fefc6512978e0ccfe8c3b252ac82ee32231f68d5ee",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/bar_street_entry.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/bar_street_entry.png",
+   "source_sha256": "8344c0a1e2a81b6236629f72030ab5b72512ba9d261be9a57dfd05eec50cfe33",
+   "sha256": "61ec1bcbc9c74d98e52680b4acbda948332d8ca2b8bf0138752d253a45dfc0e0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "1d988bb088f60b97ba529ca768abb12520135d9a3e385feec9d331c24932b486",
+   "sha256": "377d0eefbd9f20f08609d8840f8ca60bc06a51b99fa2706b7c74f5b08dcf5257",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/pool_chalk.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_chalk.png",
+   "source_sha256": "bb16f7a0fdec1f26556b39a8a4bbce38ce376d7a537ece19f7a94304436a59f8",
+   "sha256": "318088f012f98aeaa037107c7fe91ef6dab4af2e5c6de0b9667e4851869e36a8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/pool_inspection.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_inspection.png",
+   "source_sha256": "908e3010be3c4e1fc1e9e66c0f16e98143a72097c288c2c015a05da5fbef9f93",
+   "sha256": "87a924b87eb2c785b711beb4863a458ba1725fd186268920d2a3224cec1707b8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/pool_panel.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/pool_panel.png",
+   "source_sha256": "40be4ff388aee373fc55b0a99ea769821d8cbda8db4618be4dd26fee110b1517",
+   "sha256": "1fde38b34a0b176da740ffb6d91b309b9ea28a6e362d5d4ab56233a73737c86f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door.png",
+   "source_sha256": "9fb9eb13e593c857219c63e7753897d1e1dfab0c3b1b5cf1fce94aac9cb6de1f",
+   "sha256": "8f3a65fe5eed26063fb50a1af8681d73b84da8dcfc651420fb2e0d548ae3cc62",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_door_close.png",
+   "source_sha256": "ea99a8cca3e2c9af2b45da61aebea611270a2d9003b3af074fd10450eb8780bf",
+   "sha256": "fdfc0c24422d0c638907ca276b26b84664d9cbd495eac25f7fdb7e14bfacd1f7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_inside.png",
+   "source_sha256": "8a0c0b400934258fcc4118c4c22b7becb67446495db32f583beca6f2c48aafcc",
+   "sha256": "a94ad78d0ff6268e345333786339c585eca7e4962fcc9c229d303d17a2970d8f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink.png",
+   "source_sha256": "6ba8764f5890b3fb9dc654fef40d33de1ef281f99a4fe940fb8418aa1f8268cb",
+   "sha256": "02c8fc8a4ff3034e319f43c69a0f8eb29aee54f78f86536979f3c5438fc48b6e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_mixed.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_mixed.png",
+   "source_sha256": "f8373b16c292304b3f5a69e043e014689481c061d57938dab429e0ac6c77bbaf",
+   "sha256": "2b3fb9cb3d812df7bc18f40a14afb164c0109514a1cdd2db429c9efecdb9da8b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_off.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/wc_sink_off.png",
+   "source_sha256": "7eae5f39fb7e0729021432624cdeb01fed88563f3b6c046f6d37ace83cb5f788",
+   "sha256": "a86e524f49af733311a6b5153a86c8a8c077bf16aa91fd47ff170570a1daacd1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2BarRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2BarRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "b43d56fd791686db1650a3bad863528e9b05a0f2d4cd6eec15d8c718eea73c7f",
+   "sha256": "b43d56fd791686db1650a3bad863528e9b05a0f2d4cd6eec15d8c718eea73c7f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_play.png",
+   "source_sha256": "139d353a35abcd96a592cc4c3e3143dd3a237b4478486dd89d24bc6ee2da617b",
+   "sha256": "7c548468a4d5a1dc848e9ae044ac5cc5e2a0da3bf49825ca0688695d5e33699d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_scope.png",
+   "source_sha256": "9f0365119ef1375e94988ee480baf87ae2b2f3bd3a47806391220468e1a929c3",
+   "sha256": "8ab3762a7c25b9de8a9764b9baf9aabf04db4476427ae0ce893a03b6b4b0df66",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/radio_receiving_step_away.png",
+   "source_sha256": "712606e8db17e86dd208b52254d44068eeadb4bf3ea5a9b546028d1eadef089d",
+   "sha256": "e7c08ed55228e75dea2b00b935951032702e9ece050a0805c4aeb2e78223f0fc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "ed54e73fde5e5ae33a7089172ad3d88eccc3472bebe1597da7febc5eb3b886cc",
+   "sha256": "91e8628b3e790e7819a9d51422b710d0ba0b993f5514ea33c24f05057b7fc4a0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "6f94106c0420b3380934ae673f94158afb126e30623ae4be8f42042b3f1a2870",
+   "sha256": "645b70c8893ba3026d937d355d998d2a3e94df9bb8c2ffecbbd0edc7cb55d3e8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "af5f35f8692eb2022d62dcf1956d9fe6d13c6ff424085a6d605aadc8b9426934",
+   "sha256": "aa1e8905fc61ce4ee50a193acdada65e424fed21cff847e06a4a25cfb851e82b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "41d4c09307f1c35d49ec332acb4e41e5da40b378a0b61d0059ecf88831ca44f0",
+   "sha256": "7496f60d16942102c37f340523558c18813552b90a29d77754ba09d0ed4f9979",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "5747deae6edfd7f2ffc814827704d4c6c32f717795ef6969eb13fc7e6b66fb60",
+   "sha256": "c1752367f1b339b79124385f9b44401b99c03ef2bc1192995acace8c75e207e4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "9bf6e1098097242a1e6be8f4f7ef6f86a47b04ac9a02d0123aae31d7b64c0ef7",
+   "sha256": "ec477bdea347e2aa62ee551ed25d21b41a519619b015e7c76573bf512f42a5c8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "a0c1c671f5a5a1f05a61261d23710e80b9cae001880666e115a2810e0c909d58",
+   "sha256": "a7f4e873eecd8a61aa34fbb20eb61976a2530ae0d56687169e7e5165883a405e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "9d7f729291369d5300465d69d652bee93b9b2cd697b4f2843684d1f74cf3dac8",
+   "sha256": "9d7f729291369d5300465d69d652bee93b9b2cd697b4f2843684d1f74cf3dac8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageReceiversTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageReceiversTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "a76f0cad969c730358c3e09f040787b913ec6ebc073945da0f448d8d1c7fe2f0",
+   "sha256": "a76f0cad969c730358c3e09f040787b913ec6ebc073945da0f448d8d1c7fe2f0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.png",
+   "source_sha256": "0196885e5e8b96eac825e4857a5770ddbf7813af00d6a9e28e2a8ad668de2087",
+   "sha256": "eb32f3c10bf51537cb7772d04e98220b95cb675aa25e15f34b7948591e2dbf55",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.png",
+   "source_sha256": "205365d93c37780fbf31797ef9cab944a6d5a5139d511f45b6298bc53a37565a",
+   "sha256": "6c548e6f9d07d1d988a02174c4637906601296dd18807c71787c3da0dfdf4f4e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.png",
+   "source_sha256": "0b6fcfa61aa5e7d3e7cb89f5ac82db639dca8107acaf9bb7a06c3b8019cf9e0f",
+   "sha256": "a11476239d277ebdb8d83a9986b35b497a8956a736bb50564849169a58f47764",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.png",
+   "source_sha256": "2ad5d4b8fefb5c02586cafcdc4b457b4ec94efbc7da977600a0abda62ae219f2",
+   "sha256": "936b67d9797a6ee657b104a75d71905e938f57ffd1e2812616539d149058e664",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.png",
+   "source_sha256": "f766b83ef9cc389853f91cfed7ed21abd4cdea440a58a58b1e6fba53f12b918e",
+   "sha256": "58d775e237043941f33ec12c2b060f5d22096a87cfc874cf7dd23fbf13dbe7de",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.png",
+   "source_sha256": "8252b6c67cd0b721e9dfbe348ae656088bf52eec05c82e90be4e144efc603129",
+   "sha256": "af10a6a9340421209fcf92df281dc72d84e7b7e59055cbf0b6e936bd5f29ab5d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "8e6923640326ad8c51ee9f66d4764baec6c47ef05e2f309d5bbd565abea7d0ed",
+   "sha256": "190d287fb7327fa8011531772ad9d7671ecc29499709944e5de21c533fff7804",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.png",
+   "source_sha256": "1a9c8807a9218f76a5a04b3dcb168ca0d43d4d2289e5c8be482065ec55f5e4b8",
+   "sha256": "9509b71f4e70c3c76916e4151d0ab435dbc8a75bb922b18331575eaaa97068da",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source_sha256": "badeb8d0ff87fed6fc159fdac56430683bb4d62fd10a276f9e0fa78db396da4c",
+   "sha256": "badeb8d0ff87fed6fc159fdac56430683bb4d62fd10a276f9e0fa78db396da4c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/continuous_reading_room_arrival.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/continuous_reading_room_arrival.png",
+   "source_sha256": "b4b51b894a1bdc80fed2f278dea9b87b9fcf2b6cced58b83b083d281260266f6",
+   "sha256": "2f5c6596f9fe9a326f02f1f37a2b6768b55d3bead008e63aa3e72b04b6c40857",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_-1.0.png",
+   "source_sha256": "6f8e207f2dc90b63bcb9724bf146d9eb0d6d1dc314772f5a1ea898c207d4950e",
+   "sha256": "41e38aa4f3a7a0a0dd6d0048b8500a6bec23fc3ec67669fb21876a1029372b52",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_closed_1.0.png",
+   "source_sha256": "cf1fb4068532cc104c74e9b3937f974b72e5d9d83244a7fdcb0e64b5dac6b5cb",
+   "sha256": "17cce5f78cef658912f970afc61aba0c07f84bb47e067763913d1a878ff4ffe1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_closing.png",
+   "source_sha256": "ff45b1814b23e2fc2a6742fabfda6fc9b30073ffbd0ce150fef46968c7dad513",
+   "sha256": "4fc5d91681e2f7ffef2a3ec5a064893f8ef453214144c8f515ebf00f92b3ea6c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_Leaf_opening.png",
+   "source_sha256": "8a1ae361b596f334347617439212cf269165cd737c9f1185fab0b3d7f37e9277",
+   "sha256": "200b9849766ae9bca8e5cabd20bec5b62f978e69668c1f83ab742583d29adad4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_-1.0.png",
+   "source_sha256": "19467d39fbc5851bbb2ef57ee636e6e54ebefe9745ec83d1b15cf2058b365ccd",
+   "sha256": "4ec1ed98cb5b305ba5585307a74b3b7b59bf19a7e490658607ec0c1df16a5096",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_MAIL_PACKAGE_DOOR_open_1.0.png",
+   "source_sha256": "5a3d7bcb6bf38b91e927eb71d424cdec8949b73ccee38f3cb2af4a03df26689d",
+   "sha256": "78912237d307376244c7375f7563a20a4be89216bcd17f06840bd76f6e67baf9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_-1.0.png",
+   "source_sha256": "ea016a841fbb6000af79bcb74fa26564725f8594afe7ee8ea6c4ae8ccf7d34ab",
+   "sha256": "8c78fe492aa3d5ac5463a78ad99c9b4980f19047365ed66e055b0369c3c7b06d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_closed_1.0.png",
+   "source_sha256": "3a8844ad93104a396efe55f8c9e320aae79f7dbb5623597b7913a0b8a625b339",
+   "sha256": "00cbe881f4f71443faadd4ba667de5e8b4005701a4b4be46d4c2ac9ec5f4d4af",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_closing.png",
+   "source_sha256": "bd6ca0e8e0d2b3a0b36e601e82e3cc1d8f727d2f780eb914ca908b9ff9eea981",
+   "sha256": "6e84b583c47a4b66183934a3cd4e07f71c7d4fd8a5ecdb11c3fef3eefc5a30cf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_Leaf_opening.png",
+   "source_sha256": "74b3c9737a8069800c807729d1d879de5f358a113b62967605f199accb4a61e1",
+   "sha256": "f576168c3982d7103e28b7d5544d15c0ccd4017271579c581435407368ff3d5a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_-1.0.png",
+   "source_sha256": "3f5a9c8fc1b838cafcd1165a3e311d1987a97a919cbc20ac450bd55734080e68",
+   "sha256": "6f539c12f8f1e51cff1122ed8dd1e60895a67d54d75259653427dc7fba229f7c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_PACKAGE_COMMON_DOOR_open_1.0.png",
+   "source_sha256": "67f6a25091863cbfa8475c2690ce84e0a50b265e99c0417d314fd183568e01f3",
+   "sha256": "0d218004c24e2d8295ad8e60dccc0f182996522b3df7e89f523fe5047bbea78e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_-1.0.png",
+   "source_sha256": "be15affd85b834cab262667732d2f8977efdd41897940f0c4a05b4ae91140201",
+   "sha256": "f0ce216747bb1c799b0597380d5d3e1e92fd9783417a40bcc37a8849cb6c05f2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_closed_1.0.png",
+   "source_sha256": "36a36c3a4ea28174cc8684055c7207c1dcd5b4ccb36deb17e92f564bb24e9c3c",
+   "sha256": "12d127b15b491808b77d213422c8e5fbd0aadacb62759b2d4abc5c2a38d0d8fe",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_closing.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_closing.png",
+   "source_sha256": "6a8837aee25b00005ba17dd587f14bbd4259454aadad8a05eac88826405808c9",
+   "sha256": "6bff5616903c4bf7c85ed28051b55e5cfc5c2195a4c92da44bc36da73982dabd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_opening.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_Leaf_opening.png",
+   "source_sha256": "0bb5f2cf8394ea94d92cfa59c5c4d497423883d099ee33dd2e363480f86cbeb5",
+   "sha256": "5ea66319762c37517729b9502fd96c5aee7390b31a3b9b6862496fc07f0a60cb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_-1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_-1.0.png",
+   "source_sha256": "5b949d6939eef38cc1953f5228c1cb639831cd3a696eb6966ba3b6d3e033bbd7",
+   "sha256": "eb9030e5c0bdcb7880e82fe9e188985398e88965f7775fcd29208f7cd50892cf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_1.0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/F01_WATCH_MAIL_DOOR_open_1.0.png",
+   "source_sha256": "b2aecde38290888435c4d3bd4eb68a19a38bd8c42cb0097200bfc47b830af7f5",
+   "sha256": "86d8882a40804e1ce2024353df209f3902f169c9e17d387a3c54c65dca450a34",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "363762bfa17c5a25d56b9a274cfefaff9bf2d212d7e40c41e4126b5783802bdd",
+   "sha256": "204b15909c21dd6b0a66fe816f40227cbfc681bec550874891dd87d0c6cf4d53",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2PublicDoorsTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed_shots/route.json",
+   "source_sha256": "43c3dbb43bf1b9b33f39b05475ea670a0da43b316b764fddbe9f4cec5e22261c",
+   "sha256": "43c3dbb43bf1b9b33f39b05475ea670a0da43b316b764fddbe9f4cec5e22261c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/counter_floor_posts.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/counter_floor_posts.png",
+   "source_sha256": "0a279a1eea99df1b5d8ee82ad62e0ad19a092d45fa3e0824421568c00b511705",
+   "sha256": "4374bf256e9bb3ed2be5626b1220bd018343128a272309cb744bc7322310f99c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/passive_window_stock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/passive_window_stock.png",
+   "source_sha256": "4b48cfbdfbcf97e1e0e6fce8f9437a465c984b24317ecb44634d8b91d82fc249",
+   "sha256": "fdfd59b808d27480dd3dd58dedfb43967d20e104d5ddbafc36dc24b1e2e4c33c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/seated_counter_ledger.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/seated_counter_ledger.png",
+   "source_sha256": "8da2cd79716d5d93d47304f719599004dc332d8b9a1e9b561049a54e064ed33a",
+   "sha256": "6d1bb697357af2c5e7083d3394d499f89362bfea809090e89f8896da8faf52fc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_cone_speaker.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_cone_speaker.png",
+   "source_sha256": "bf06de60872a9220a24351e9093557e4fb8c80b3b98571d14d17cc57065d6257",
+   "sha256": "4ee48cba905c49a8641b805e8c0253bf74abca82051f48a086f27765c396c40e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_horn_mouth.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_horn_mouth.png",
+   "source_sha256": "436528f51e5843d2b7d7862d3aea732d0dfde933a8825dd6e78f06426180d538",
+   "sha256": "fac0c1be34b2f9fde4c9c9aa6c5f44a6462055b8e181eed7ce5e303faabaf23d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_plinth_bearings.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/window_plinth_bearings.png",
+   "source_sha256": "4ff188d3a090622b6f4db2825d91ce2f9dc2f91a22f5f7d1613c8bea68e46a51",
+   "sha256": "cd069dfaab89a4653b3babe3e54672a2be71b591de4b944dbc44480a5d349d69",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "5f667cbf415a89d6fb184070692c6c21b7836735fac0c8cece0a1114d3d0326a",
+   "sha256": "5f667cbf415a89d6fb184070692c6c21b7836735fac0c8cece0a1114d3d0326a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2RadioDisplayTest_tscn_windowed_shots/views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2RadioDisplayTest_tscn_windowed_shots/views.json",
+   "source_sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.png",
+   "source_sha256": "6001c3a4118d9eb188f436e711c682a9a9f3be4ec2797b8a94d468ea5217904a",
+   "sha256": "61dfff8f6635109d95f9882fe7774027adaca080e7aa813daf8fe8d8ac8d88ae",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.png",
+   "source_sha256": "769f71ad92490e87ce099c596f923607601c48e9061cacf53714e4b41b8f35d0",
+   "sha256": "126e4dfcdf7fe2cecdcfe55ed5aa1408f93c0948bce42bf54c824534bae6489d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.png",
+   "source_sha256": "01d892885759bc8f1ec25bea7edccb16d09cc30047d1e9bfd48ce2aedd4cd0b4",
+   "sha256": "6cb054ef88de212b4438bf40460af5614042790611f3496bf6db2b591e7b81fa",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.png",
+   "source_sha256": "346699466c12bfe5a8c49c4c9f491837a866bdd70707e65eeba43f151fcd44fb",
+   "sha256": "bb136931685d7fe9994647dcf22604dd3b1ad81cd4745423380480a41ff9cf38",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.png",
+   "source_sha256": "cd219d93c07190182ac11d3934f92b513e834577800d9fbaf419ba136d5f86c1",
+   "sha256": "28e895557473d7c1fb932bd4408ea3f38c263daecabc17841337ccc6c43277bb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.png",
+   "source_sha256": "1a01a69d282bc7c578724532f93db904f75346c642c6b482f6860ce7d1139473",
+   "sha256": "be4047f8ea7f9e2da804f416557d610d54b482d0a1f70394f62b86c3573094d6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.png",
+   "source_sha256": "ca5ee414fb5413c667679cdbd51856bbc4c557b9e0967c69caab14792fb51ac3",
+   "sha256": "c6f4c970be9030731acd6d1ce500f468ca15939e524c5ae8d33ca586a523989b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.png",
+   "source_sha256": "1ab2855a4a83eb16f6e2dee740d2741831897614b1d330acbf6a59f8128a95b5",
+   "sha256": "b7a95f95529d5491d1cfa047260f27e185904a970e0abc37abc2766636efb56e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.png",
+   "source_sha256": "3f9cd21c58dac7ae08e116cc164fa22444ce5458ab7a98436f71c0d426b568d5",
+   "sha256": "8d79aa2769942fe7b3c26ed716a6b63c1605d708ed2819a4fa72a0d367b07ccc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.png",
+   "source_sha256": "3ddef1c34181eb113d730b9fe5a2d3a5a35d3415e7aa0879690d35d023902cf8",
+   "sha256": "3deffcb0ad8fc2abdb66ad0bf63bc49bb7d83130d817defbfd932813c81c6de3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "9c5fc4b5a4f4d286a73ffcf2bd7f79ad98633496e24b4ba25a16b0be8cfe6521",
+   "sha256": "115762cfa3dcc01b71cb996380b15cd67692042e902579a46f75d54567cfe901",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.png",
+   "source_sha256": "1801bd73b3cd9b0a2479ff635696f231fd7de8b329308da82b5112a0ff0434f8",
+   "sha256": "749715b286c15cbb67519ae8d1a47df933b0dd611f58b4deac6bf6a54d6caec6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.png",
+   "source_sha256": "b705f4aec6dbeba7a11b6ee1b1947540cef2afc3427628089f124675ed4d2d4f",
+   "sha256": "87fd7fe9eaa43ec6722e8fea50b9c5439f02b3fa3b286336fda1e459d76384bc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.png",
+   "source_sha256": "cc9b9f468144cb2f3ce871be49ef7367b2fef38b6c3311b665185f9d3c629cb3",
+   "sha256": "b051745d81626d44f09622155af74bf755ff8538ad82a011418ee2ed5f030805",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.png",
+   "source_sha256": "9c394a01aa62ac63a740d78c95057861e61a363d0b83fe71f81f21bc9b9aa670",
+   "sha256": "acb59b313fabb1fe4004cf656831311f0b937c56634fb231976789050c57bc43",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.png",
+   "source_sha256": "bc07ea9390688a6ed4c1c34bac9e537aa6c3311ae4eda1358ff3034b2c4642ff",
+   "sha256": "e2dbd82cc69ab067523ca34433d4d775187f618c87bc23195700f89c8d091983",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.png",
+   "source_sha256": "35189872c4604e3584dec6c5c22b0be687f742cd4b39253fb024de67b9cd9239",
+   "sha256": "d4f584efe7c1ef77937cad75c200f3f009ee1f24aa9946b370e5f60dd34f74bc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.png",
+   "source_sha256": "5c11cbfab0bd63181167e7d0fc67b027decf0fc8b467d95357f86b337bb89487",
+   "sha256": "d61423ac3bfd58f34e9b88e9cb5e7e4a631b90cfb7ad7060d3eb1f48bb4f743c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.png",
+   "source_sha256": "d21f2f57b3d788d4d7c786e3562b43a85fc61039b03dc6b00b4c066ba0deeab1",
+   "sha256": "cc6fb6b4a8188db6902bf8473964651b19f43f35b8175734065f2fc8186db991",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.png",
+   "source_sha256": "9cea29fba7725f4166fac9369f82dfc0363438963155d0b858a7891f4d905646",
+   "sha256": "865863b0ba84e5e3b64426e742abe127d5a669a6c4131bb113ba0eb8ca0f4ccf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.png",
+   "source_sha256": "52360374421c70d76d427a51a0c5b05fd43eb3cdabc0ecbec1493d88d964018a",
+   "sha256": "f90509b9690f9a7dc3d0749cb32b4436cf517d77a8629de57612cb5813b94b4e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "b53cfcd6870b6c25dd178420d416ac2e2ea7ff6cbb136675e13bace531357b47",
+   "sha256": "b53cfcd6870b6c25dd178420d416ac2e2ea7ff6cbb136675e13bace531357b47",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/first_candidate/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "e7e026b284c9671b7ffb6ae1a87b63e022522dc05c6be34fcc7d0df45f568849",
+   "sha256": "e7e026b284c9671b7ffb6ae1a87b63e022522dc05c6be34fcc7d0df45f568849",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/radio-cabinet-owner-before.log",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before.log",
+   "source_sha256": "ec98a88dd5cae2d0731329434da855b5707a832077930ca03803260e46cca3ee",
+   "sha256": "ec98a88dd5cae2d0731329434da855b5707a832077930ca03803260e46cca3ee",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/radio-cabinet-owner-before.log.receipt.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before.log.receipt.json",
+   "source_sha256": "5c98f3f9c4be26759d25e3460f96bf0dd0772fa7b5d178cb4aed6abc92de56b1",
+   "sha256": "5c98f3f9c4be26759d25e3460f96bf0dd0772fa7b5d178cb4aed6abc92de56b1",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/radio-cabinet-owner-before.log.stderr",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before.log.stderr",
+   "source_sha256": "5675afa666e54823aeb2fe2169b7ee48116872969a6a89d2bd8df1cabf3f3659",
+   "sha256": "5675afa666e54823aeb2fe2169b7ee48116872969a6a89d2bd8df1cabf3f3659",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-before-shots/radio_repair_cabinet_owner_before.jpg",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before-shots/radio_repair_cabinet_owner_before.png",
+   "source_sha256": "e68514ec8c194ee0e36c80022c8213529e8a3a405398eae63cec596c9e5d5860",
+   "sha256": "726fe43a8d7870b241a541b9fc01f1d7e5a88ce85e3f496469e7d00936593e27",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-before-shots/cabinet_owner.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before-shots/cabinet_owner.json",
+   "source_sha256": "26515dd4a67e51d05cf36e098e43755d2e4884a296a5787e8a22bc173f2e4a04",
+   "sha256": "26515dd4a67e51d05cf36e098e43755d2e4884a296a5787e8a22bc173f2e4a04",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-before-shots/fittings.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-before-shots/fittings.json",
+   "source_sha256": "eafc767792b6de125653cdc2aa38800bb6ecba3645792dec47ff54eeee8d4ef3",
+   "sha256": "eafc767792b6de125653cdc2aa38800bb6ecba3645792dec47ff54eeee8d4ef3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/radio-cabinet-owner-restored.log",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-restored.log",
+   "source_sha256": "0f9388bc267c0e43d7c3b42ee025bbfd20a145d47cde99ffcf0cfa1dd00bd5d0",
+   "sha256": "0f9388bc267c0e43d7c3b42ee025bbfd20a145d47cde99ffcf0cfa1dd00bd5d0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/radio-cabinet-owner-restored.log.receipt.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-restored.log.receipt.json",
+   "source_sha256": "7c649fae0b57f37469b08e2a8957e653937d74d8211f9600ea2cda1d7e5a85e8",
+   "sha256": "7c649fae0b57f37469b08e2a8957e653937d74d8211f9600ea2cda1d7e5a85e8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-restored-shots/radio_repair_cabinet_owner_before.jpg",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-restored-shots/radio_repair_cabinet_owner_before.png",
+   "source_sha256": "49c66cfba843984bd2ed1c9f980584ffdbec19e76f15227d7b47a5ef3f54f52a",
+   "sha256": "02b638fa3f1c6383a7c5f1adfe2380e99657a9e4195bc5bd28378cd6704bc433",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-restored-shots/cabinet_owner.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-restored-shots/cabinet_owner.json",
+   "source_sha256": "7731f54fcf1e25a23d06672febcdcd7ddc8c87f52a95b13f8d49ad63d2e61715",
+   "sha256": "7731f54fcf1e25a23d06672febcdcd7ddc8c87f52a95b13f8d49ad63d2e61715",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/radio-cabinet-owner-restored-shots/fittings.json",
+   "source": "tmp/v2-finish-review/radio-cabinet-owner-restored-shots/fittings.json",
+   "source_sha256": "7664e8f4038c81ef9a24e51a1f8823aecda00b7c0f23578f4154a0b779a6ba86",
+   "sha256": "7664e8f4038c81ef9a24e51a1f8823aecda00b7c0f23578f4154a0b779a6ba86",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-first.log",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-first.log",
+   "source_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-first.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-first.log.receipt.json",
+   "source_sha256": "958e6ebe1a447eaf2684b4afb2bad8e617610a0174de0e4a597441a534c5e1ff",
+   "sha256": "958e6ebe1a447eaf2684b4afb2bad8e617610a0174de0e4a597441a534c5e1ff",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-first.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-first.log.stderr",
+   "source_sha256": "06e6a5d5589603acf33fba2c72adecf3778bcb138e5abfc7d2516ea702f048c4",
+   "sha256": "06e6a5d5589603acf33fba2c72adecf3778bcb138e5abfc7d2516ea702f048c4",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-corrected.log",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected.log",
+   "source_sha256": "09b7b5520f161173a4d89a2a112fa1edc3bd7e7be407514a475ad147dd2a6413",
+   "sha256": "09b7b5520f161173a4d89a2a112fa1edc3bd7e7be407514a475ad147dd2a6413",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-corrected.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected.log.receipt.json",
+   "source_sha256": "74bb09e326d930ba4ff13f7b609570279fd02f2c8560607a5eaf7bdb6595f9ae",
+   "sha256": "74bb09e326d930ba4ff13f7b609570279fd02f2c8560607a5eaf7bdb6595f9ae",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-corrected.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected.log.stderr",
+   "source_sha256": "b6e61ca1b12d4c94a6211ab386a4b9ba8eb56055f37a2436d34253e708d99ebd",
+   "sha256": "b6e61ca1b12d4c94a6211ab386a4b9ba8eb56055f37a2436d34253e708d99ebd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-corrected-shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected-shots/radio_receiving_play.png",
+   "source_sha256": "271e863c7bffd9777f7435be314fd5565784afa1d44cf0a786ba733ab0c393f8",
+   "sha256": "ab01cf695104e74e6159051cdafa7532bb32d386e9a2b89d42d8c6fba22b40c7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-corrected-shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected-shots/radio_receiving_scope.png",
+   "source_sha256": "452e94a9f17bdfe277b2ef9c2a73365663ca82159165daf0ef583daaf608c583",
+   "sha256": "a1d436641ad02bf19464b13d78c18eb21c9216fcaf086adbca8106dbd74852a0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-corrected-shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected-shots/radio_receiving_step_away.png",
+   "source_sha256": "cf5ecae63bc47b2c47ba53e6e76b121f35e0b74f33741966aceb7a78060355fb",
+   "sha256": "1957937d63d353ee34cf3c99bf43204bac42264d7b0625839dc85a6e0e658c70",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-corrected-shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected-shots/fittings.json",
+   "source_sha256": "e076f9363737da793f361c76f8b60c47731a6467468ffcb892bd7bd1b106c8cd",
+   "sha256": "e076f9363737da793f361c76f8b60c47731a6467468ffcb892bd7bd1b106c8cd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-corrected-shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-corrected-shots/runtime_contract.json",
+   "source_sha256": "15e5aa5575962a11232ed54fe4d5e69603637fdfd8b1ea64e46966dfcab5bb2b",
+   "sha256": "15e5aa5575962a11232ed54fe4d5e69603637fdfd8b1ea64e46966dfcab5bb2b",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-bound.log",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound.log",
+   "source_sha256": "e32bcafe87562c27a4d82b5baeceb467cfa1b196f7a03cf71cc92fcc8954513c",
+   "sha256": "e32bcafe87562c27a4d82b5baeceb467cfa1b196f7a03cf71cc92fcc8954513c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-contract-bound.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound.log.receipt.json",
+   "source_sha256": "288d5ab5f69350e4ddaa184aa8198cbf25b8042eee39ecb039af7490715cde1a",
+   "sha256": "288d5ab5f69350e4ddaa184aa8198cbf25b8042eee39ecb039af7490715cde1a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-bound-shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound-shots/radio_receiving_play.png",
+   "source_sha256": "83faa6504db47b06bfabb03dba47a9e9f48e4fed1991d2207e226baf11f2436c",
+   "sha256": "c99d507a85e6a33591911e1cc1cb59c57f169fa6990973a77bedc5847670c53b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-bound-shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound-shots/radio_receiving_scope.png",
+   "source_sha256": "d7df98f2f56143dcdcf32a9500383ebbddc9412a7c5f414767f35ad15073fea3",
+   "sha256": "99bf573248f597890ed0733281f9d07bdfc8c40f858d2ce2ed1297e780641b81",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-bound-shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound-shots/radio_receiving_step_away.png",
+   "source_sha256": "9617e1018a67d22c75434617da36d629eedede484beee451c98520e042378cec",
+   "sha256": "06cb7dc63ed16bed73bc9b149cabacfcc29f622d84a54f63f6944a8917e6a61b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-bound-shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound-shots/fittings.json",
+   "source_sha256": "48d3c32798056ea1fd674529bb51e5621a6e870c4e358a44c538deadde0b8278",
+   "sha256": "48d3c32798056ea1fd674529bb51e5621a6e870c4e358a44c538deadde0b8278",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-contract-bound-shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-contract-bound-shots/runtime_contract.json",
+   "source_sha256": "303e9e5b4945aa932ee916022a9e4a3f93d99323626d4598f812bcf639b12607",
+   "sha256": "303e9e5b4945aa932ee916022a9e4a3f93d99323626d4598f812bcf639b12607",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-all-views.log",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views.log",
+   "source_sha256": "104a40099f75f3f6cf65f9899d1a1657cb16a1ed74558b66180d95bba6c8f193",
+   "sha256": "104a40099f75f3f6cf65f9899d1a1657cb16a1ed74558b66180d95bba6c8f193",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-all-views.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views.log.receipt.json",
+   "source_sha256": "db90b334c214a552f68de12fe768d9671b83b23472da6607f33c9cf3eefb3906",
+   "sha256": "db90b334c214a552f68de12fe768d9671b83b23472da6607f33c9cf3eefb3906",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-all-views.log.stderr",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views.log.stderr",
+   "source_sha256": "c04034b15e100472241c3786f70a1c5d265ac8295b557070dfea5a8826670ebd",
+   "sha256": "c04034b15e100472241c3786f70a1c5d265ac8295b557070dfea5a8826670ebd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/radio_receiving_play.png",
+   "source_sha256": "f667535164f36e84db3dda8d0a54701927dac63316dd23007c4daabab88c3cb8",
+   "sha256": "7d5fe5f5e51744e20562082b8350abfc39934b67c6a0a0047dca4cd3c03dcc61",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/radio_receiving_scope.png",
+   "source_sha256": "26132b4cb4ca1076126aa3a51502a25d1c65b4d95561c17d011db147dd872165",
+   "sha256": "e0637efea3a760d0ceb20b73d8f21282ad2a8c2c09b311b79a1a62a0023df394",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/radio_receiving_step_away.png",
+   "source_sha256": "02a5fb702cc64ad5c2afb1939cc356f547ff58b5fb191be58b40bab4f0534d3f",
+   "sha256": "b832f374c89b001113d02072734fe6245813d77b4a91e66e4b13293de69a3646",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "7439eebb523f5acb8d03a9ae365bb90c255a2f1b3f6c1cfcc67a24bb8f9a3f57",
+   "sha256": "e3dbea05a6922d4d63f755b97d926a062ea0bd8d749f8fa85953033f1eb0e3f0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "1e23129a398c8197573c47955613362f5b3be6a1211fd056c37ee1a4024963a4",
+   "sha256": "e02a9693f1fa2f925a447ce1cbaeab28d73ff742b44b9f9e4b31399c3488ec3e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "832da6533f188870365a95496a0750d18c80aa2c2ef3e8b0d8b3f9bdf9362e35",
+   "sha256": "4d4709cc8d7ebbae4c1c5065508b22531957cf988653e62eadbdec26b32640f5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "a48490d0cd5e3e3c4e555872637105abaa6cfd44d1dd0a2a1f0edbdd536702a3",
+   "sha256": "d4d90771613f96d3ae187e638817cd2b3e589f956e8cfdb043eb494392eaf538",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "9ae13085a9931b600978cd1f4cbff7218cb4deb0f6bc2b47c747a0235e3e09a4",
+   "sha256": "395c75a650010a089c03bdf9a7bf23ff5092be501838d71f2a9ba623fee5c2d1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/fittings.json",
+   "source_sha256": "65b360182648ec81afe948ddfc063e46cec085bddc108e7fab9cd03bfd58b506",
+   "sha256": "65b360182648ec81afe948ddfc063e46cec085bddc108e7fab9cd03bfd58b506",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/receiver_views.json",
+   "source_sha256": "b6fd64aee3108fda7e3226f5f089ccf76fccef99ab6a3ad5247e2dcfefd895ff",
+   "sha256": "b6fd64aee3108fda7e3226f5f089ccf76fccef99ab6a3ad5247e2dcfefd895ff",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-all-views-shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-all-views-shots/runtime_contract.json",
+   "source_sha256": "66f1ae8111550034cc4df43da8427652165634af4463d7b99ee0d8b0117e6a38",
+   "sha256": "66f1ae8111550034cc4df43da8427652165634af4463d7b99ee0d8b0117e6a38",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-oblique-views.log",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views.log",
+   "source_sha256": "d5b9be0fd72314df09c0c250aab7d6ba76d0e22ce9945795a8ce05a759868925",
+   "sha256": "d5b9be0fd72314df09c0c250aab7d6ba76d0e22ce9945795a8ce05a759868925",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-oblique-views.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views.log.receipt.json",
+   "source_sha256": "d7866e9fef6bce104fab8c41176b9d283c06332af3937c974c6ecc9274f13fe4",
+   "sha256": "d7866e9fef6bce104fab8c41176b9d283c06332af3937c974c6ecc9274f13fe4",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/radio_receiving_play.png",
+   "source_sha256": "7643792ec18a2e1671e9ab9c85e5818af345e9295e458d2a40f55a3776962fa8",
+   "sha256": "4b0ae93e016b9eb38c72fb804a8ede0dd01e483f0e4c87277e832d4ec607b2d3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/radio_receiving_scope.png",
+   "source_sha256": "4e63216cfa2e9f7dcbfc547d3d4d06b2bb3336f4781734d3471571301f41156f",
+   "sha256": "b284d594d1bb4519a165444fd5b5298e8ba4220fef7cacc13c9bcf7c392078d1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/radio_receiving_step_away.png",
+   "source_sha256": "5d2ef4f02b85b83cf51a1b781af194cf5e338660c1be4a29b05e4378d0df0140",
+   "sha256": "88e0536d518b21fe8932c24881a2aa4df231e99e96d3e8690d30d7ba281395db",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "2c6feb0abf0534229bc9a518bb1122b0013423597e7189a2fe369e47f1f827fb",
+   "sha256": "efb823aa02eb6a08581ee193abdfc25e2d1a809e2d574915ba4496f2833839cf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "732d0b8f6751ccf12939857db3159ddda22904219236dcf5826a21424e46938a",
+   "sha256": "371ee3d77f5c863b7fe2082ef834c58fea1c901d81561e5239da2cce92f2e36b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "afacccaf3942f5ece216bc0d39ccb78d5dc73845e6db4b35f518e9e7a7f944e1",
+   "sha256": "5032cd815aec480b2e8447a548ce8037b1d2020a9a1b7f049b808dcf81a03427",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "c76096dbaf1cf0f75db0ca824778fa696abe4ab0054c4c43b180b2d94ded59d2",
+   "sha256": "62058ef841e7286e88a879b6051cd85dfe621b6480d9c1de22822cdf5f9b7c73",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "8ef379a4efd9944aaf9c9fcfc07f6a7b882d88b5c126682b7ad1e140a7434d5d",
+   "sha256": "02bf246252f2197398ec71ad98040f408a484eee2ec1b3a1bcfdd50a91a48226",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "133824f365502b9431c056fa0711954c9d7f59f0db367d5faf6d2bf9a2f074ae",
+   "sha256": "0740da34bf4be4b310dcddcfd38b7aa287dba1503c4dcc8aac41336fc594d26c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "01ab06f832dbe8ea510686858c7f12a27beaea47cfb8ea4e2441e038fdd4cca7",
+   "sha256": "094e85f351a2ab8b40e098ec70f1959fefb16de23ed88957e008626331a291da",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/fittings.json",
+   "source_sha256": "9d7f729291369d5300465d69d652bee93b9b2cd697b4f2843684d1f74cf3dac8",
+   "sha256": "9d7f729291369d5300465d69d652bee93b9b2cd697b4f2843684d1f74cf3dac8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-oblique-views-shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-oblique-views-shots/runtime_contract.json",
+   "source_sha256": "cd561487a3dc9ec967d555f5575ec6e19df5868126a3c8c86ac0cd5e118ca4e4",
+   "sha256": "cd561487a3dc9ec967d555f5575ec6e19df5868126a3c8c86ac0cd5e118ca4e4",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-shop-graph.log",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph.log",
+   "source_sha256": "c2b8f561c4f9b6b41b595ab61a9efab49c53c5d3e4d84cd0fa5431b345c6c003",
+   "sha256": "c2b8f561c4f9b6b41b595ab61a9efab49c53c5d3e4d84cd0fa5431b345c6c003",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-shop-graph.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph.log.receipt.json",
+   "source_sha256": "f9d7921a316911064f88c7e2e95e05f1bb429476a0e3de9560e38202e9a1fd17",
+   "sha256": "f9d7921a316911064f88c7e2e95e05f1bb429476a0e3de9560e38202e9a1fd17",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/radio_receiving_play.png",
+   "source_sha256": "2f0e7a79773335d596ee5c574aba311eb43ed3815d7b446b57f1d26bdece1a52",
+   "sha256": "6881e900bb6bbbc63ab9a30a04821cd188ed956cd04c02da22cad523ad488022",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/radio_receiving_scope.png",
+   "source_sha256": "c5981db4457e6378d95a5d38f93fee5b63d40c031462cb141351f1a39b8a11c7",
+   "sha256": "5cfb63a0e43255bebf30c4d8b948b2f0a935eb6abd234541086a34b8b944370a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/radio_receiving_step_away.png",
+   "source_sha256": "4521b5a697389da98ce84b02d22cb58a932d7e4a533776ae15caeda33a916870",
+   "sha256": "1f9e1b1bca67cc3b09ef7928db12fd88ba4e4e78b9eace433c0d4b731ae440a6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "2f6016064cad2106112321cefa9a9e210780fbd4094c184ea7faa6867f2ae331",
+   "sha256": "0f17b87eba2d2c3e3a438045e2144021094780c32af3d4ec052f2a46563b7dbd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "c2b20201b0649b3e12b88a33681c485ef4911a82ce1d561220089c45aff5d977",
+   "sha256": "ac5cce0d44534de1fdbd2a870bed9bc637c5b432fb37c7e9ecd8a84c6e80e2f0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "b37ec788d3f3d083b31c9f0eab5a1a75f30d3cc55ead2e843806b0a72e237398",
+   "sha256": "5434890152e28133d7303c1debf55f524e1cc4a59401e99ebfe2178e701545cd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "249dcf7c087f249a5c30452c669a38abda994c53a1a59bed55547a9650b8ea33",
+   "sha256": "97577965253d44eb4ba279fef420ec5cef3f86e2146944a92c3cb032ccf38eeb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "e034b91349909088fa4fb7b83c8a7bde82cf2013cfe4aca0f2eaf68eef667127",
+   "sha256": "d6a72cf9ffbc618e26114a0a5faf3411d621bb83075e79a9ba2f380627525dbb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "f98e80e689490fb444b37d3f835b020a2dc2f2c4ff257cdb49fec76f4a642884",
+   "sha256": "22ae95955da608bec800c8523097ca82d14a8bff48023ab63e2ab66231656aed",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "49923decf7dcecab17233051efcfcc28988e8fc8e429e274e643bda631953270",
+   "sha256": "6b6c20ce943dab3b265e4bf9a12690cf748d14604de21fffe47ff78f136ed29f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/fittings.json",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/fittings.json",
+   "source_sha256": "a81655893278f5ceb95e394842c8490da78a26b87d3456e111cf333d29ac82d2",
+   "sha256": "a81655893278f5ceb95e394842c8490da78a26b87d3456e111cf333d29ac82d2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-shop-graph-shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/passage-receivers-shop-graph-shots/runtime_contract.json",
+   "source_sha256": "b947402931b163917d596350b08177dd22cfcf09744ee00b0f09f95a947fb586",
+   "sha256": "b947402931b163917d596350b08177dd22cfcf09744ee00b0f09f95a947fb586",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-residency.log",
+   "source": "tmp/v2-finish-review/passage-receivers-residency.log",
+   "source_sha256": "340e70f0638606201ab00d89e162e01d9f655f23b981589d37f748e362a35bcf",
+   "sha256": "340e70f0638606201ab00d89e162e01d9f655f23b981589d37f748e362a35bcf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/passage-receivers-residency.log.receipt.json",
+   "source": "tmp/v2-finish-review/passage-receivers-residency.log.receipt.json",
+   "source_sha256": "d0f4d98f7729b7952c897ae369440cfc89e5d8938cc8a0d4fb2def765fca6845",
+   "sha256": "d0f4d98f7729b7952c897ae369440cfc89e5d8938cc8a0d4fb2def765fca6845",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/handcart.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/handcart.png",
+   "source_sha256": "deca96635caee0d195870558fe796132c0bf519249134e0df34e11e5e0f14168",
+   "sha256": "e741755e94717028c18ac610e2166989155ede96be244799e717df9ca7da86ae",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/hardware_counter.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/hardware_counter.png",
+   "source_sha256": "cfce528c373b70f2cf590959270ab68f4b4ecd600bd4e7b54772fa3ed6916aa7",
+   "sha256": "1b3f83ca5b4dba909429d5e4c89200fd3f2d03fd70a0c48bbfea48682bf08799",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/hardware_counter_repeat.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/hardware_counter_repeat.png",
+   "source_sha256": "26cf116bacf7b0eceb94634aefe1bbb829729b0ea7ed2097689f65fac558c0c6",
+   "sha256": "f8eb0f875af8c13189db1c9973db5da8ba82b1786eafc2453df9bfb59f76b78b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/hardware_door.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/hardware_door.png",
+   "source_sha256": "5152c097572c57e42459924295c297c604e28c3b81a1fdceede98bed6254f2bc",
+   "sha256": "059849e747a577ff421d6972b1bada50dfa4418df2781c8d913a8d8908134c1d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/hardware_door_close.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/hardware_door_close.png",
+   "source_sha256": "402c5e3fb60abcbbecd2d34416a07cb563b175ee622146967d3a08bfd7143797",
+   "sha256": "b244f8e47e6c953f3589633214897f6b6e1c9e2eb650c014524d3ff02f9afb0d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/hardware_door_exit.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/hardware_door_exit.png",
+   "source_sha256": "db043f3022630db7fac93c827b90a4623e6e662130b43c2ce003a1038aefe7a0",
+   "sha256": "54ce25b8e539cefe7df4b0a46edef9d59aa3c4557aac094a26742db9a9890bf1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/last_position.png",
+   "source_sha256": "1c77ed6f6b00d89bda9e453bb496cfe10e6997633419857a1f847053305c17a3",
+   "sha256": "decea79c7b28054fd2ffd068d6b8968ed8c593327d6b88237e242bd559599dcd",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/nave.jpg",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/nave.png",
+   "source_sha256": "749df2a969abf44ecbc21464863bd567f59199e70aef919a1cb36508a749d528",
+   "sha256": "cf2def74ddcd643a7738c211cac8d8f8fdff8cdf05ebe17702aab907d56cea9b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/passage-receivers-residency-shots/route.json",
+   "source": "tmp/v2-finish-review/passage-receivers-residency-shots/route.json",
+   "source_sha256": "eaedc4e4099de499d72429f0c7de0de47ce872e064b3bb1bd03c6c5bcb3a3256",
+   "sha256": "eaedc4e4099de499d72429f0c7de0de47ce872e064b3bb1bd03c6c5bcb3a3256",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/.gitattributes",
+   "source": ".gitattributes",
+   "source_sha256": "079bf3415f8efc68dd24352723fde98c2669c8cfde649248cfc6a9105bef2c50",
+   "sha256": "079bf3415f8efc68dd24352723fde98c2669c8cfde649248cfc6a9105bef2c50",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_receivers.gd",
+   "source": "game/scripts/building/orison_v2_passage_receivers.gd",
+   "source_sha256": "6f65b594fc6b845a3d5e85dfe0fda7f11611cce3814143b9df9032cae4a196f3",
+   "sha256": "6f65b594fc6b845a3d5e85dfe0fda7f11611cce3814143b9df9032cae4a196f3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_region.gd",
+   "source": "game/scripts/building/orison_v2_passage_region.gd",
+   "source_sha256": "918c94dd854a8ac6071b90ea35d1c205bb967c33358bf4ffa6e3e41481a40177",
+   "sha256": "918c94dd854a8ac6071b90ea35d1c205bb967c33358bf4ffa6e3e41481a40177",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_residency.gd",
+   "source": "game/scripts/building/orison_v2_passage_residency.gd",
+   "source_sha256": "dc1c63dd4522a09c2f10950daf237a118511df794bdda1bc2f059d295cbcb375",
+   "sha256": "dc1c63dd4522a09c2f10950daf237a118511df794bdda1bc2f059d295cbcb375",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_runtime_root.gd",
+   "source": "game/scripts/building/orison_v2_runtime_root.gd",
+   "source_sha256": "9a6f773ce65ffaf0eb4bd3cc90421659c645d1f304ce04d5c2b6b154ceec4c51",
+   "sha256": "9a6f773ce65ffaf0eb4bd3cc90421659c645d1f304ce04d5c2b6b154ceec4c51",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/props/arcade_cabinet_prop.gd",
+   "source": "game/scripts/props/arcade_cabinet_prop.gd",
+   "source_sha256": "1cd3dc96b1875ace10e083a89de3d8b556eee0c6e5b7e5a2eddaddf5e08cce86",
+   "sha256": "1cd3dc96b1875ace10e083a89de3d8b556eee0c6e5b7e5a2eddaddf5e08cce86",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_passage_receivers_test.gd",
+   "source": "game/tests/orison_v2_passage_receivers_test.gd",
+   "source_sha256": "00ee592e7542878e1ec254760a667e3f52e2103205dcf1efe4b877ed77941fe9",
+   "sha256": "00ee592e7542878e1ec254760a667e3f52e2103205dcf1efe4b877ed77941fe9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/OrisonV2PassageReceiversTest.tscn",
+   "source": "game/tests/OrisonV2PassageReceiversTest.tscn",
+   "source_sha256": "f1c85b129da952cfa6f87227c0513174ee66a4a455b09eb89064e452b822679a",
+   "sha256": "f1c85b129da952cfa6f87227c0513174ee66a4a455b09eb89064e452b822679a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_passage_residency_test.gd",
+   "source": "game/tests/orison_v2_passage_residency_test.gd",
+   "source_sha256": "8ee6a90cc3b346f097a60a89a9b9312c07bcab859bf90d2a625f68cd9776c7ed",
+   "sha256": "8ee6a90cc3b346f097a60a89a9b9312c07bcab859bf90d2a625f68cd9776c7ed",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/passage_receivers.md",
+   "source": "art/blender/passage_receivers.md",
+   "source_sha256": "f46d69f08f067a22e9d9ca98c703401383c68aa6098e95e85c180a706e61150f",
+   "sha256": "f46d69f08f067a22e9d9ca98c703401383c68aa6098e95e85c180a706e61150f",
+   "copy": "byte-identical"
+  }
+ ]
+}

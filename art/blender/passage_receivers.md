@@ -43,3 +43,12 @@ hint is clipped in the 1280-by-720 diagnostic capture. Standing samples grant
 no continuous shop entry route, sightline or human acceptance. The scoped
 schema-2 test contract explicitly leaves save/reconstruction unexecuted and
 grants no ledger promotion or whole-building completion.
+
+Source **11875aa1** passes the canonical candidate verifier: all 48 gates/tools
+tests have zero regression, all 13 wrapper runs complete without script errors,
+and all 17 protected paths remain unchanged. The receiving test completes
+358 checks with zero retained owned nodes, resources or captured playbacks.
+The 63 directly inspected final images, exact receipts and separately complete
+resident-key authority are retained in
+**art/renders/orison_v2/passage_receivers_20261006**. See
+**design/V2_PASSAGE_RECEIVERS_2026-10-06.md** for scope and open findings.
