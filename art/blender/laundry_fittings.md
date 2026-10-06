@@ -83,3 +83,9 @@ frames were directly reviewed. Exact evidence and separately complete current
 key authority are retained under
 **art/renders/orison_v2/laundry_receiving_clearance_20261006**. Report:
 **design/V2_LAUNDRY_RECEIVING_CLEARANCE_2026-10-06.md**.
+
+The later native Laundry chassis retires only the exact original cabinet hull
+for its own physical stocks. The complete original triangle array and bounds
+remain the comparison envelope for this table/pad clearance. The earlier
+**611eb205** clearance review checked that hull while it was still active;
+the native chassis tests separately check its replacement physical stock.

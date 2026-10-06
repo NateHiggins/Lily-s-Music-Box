@@ -79,7 +79,8 @@ func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 	if hull==null:return
 	var shape:=hull.get_child(0) as CollisionShape3D
 	var faces: PackedVector3Array=(shape.shape as ConcavePolygonShape3D).get_faces()
-	check(faces.size()==36 and not shape.disabled and hull.collision_layer==1,"complete original twelve-triangle receiving hull stays active and intact")
+	check(faces.size()==36 and shape.disabled and hull.collision_layer==0 and hull.collision_mask==0,"complete original twelve-triangle receiving hull stays intact after exact native chassis retirement")
+	check(cell.has_node("LaundryReceiving") and cell.get_node("LaundryReceiving").get_meta("original_hull")==hull,"native receiving physical stock owns the retired source hull")
 	var low:=Vector3(INF,INF,INF);var high:=Vector3(-INF,-INF,-INF)
 	for vertex in faces:
 		var point:=cell.to_local(shape.to_global(vertex));low=low.min(point);high=high.max(point)
@@ -109,7 +110,7 @@ func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 		world.player.face_world_point(cell.to_global(_v(spec.target)));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(str(spec.id))
 	var directory:=OS.get_environment("SHOT_DIR")
-	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver hull. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
+	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver envelope, whose exact hull now retires for native receiving physical stock. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
 
 func _laundry_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var observations: Array=[]

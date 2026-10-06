@@ -283,6 +283,9 @@ func _stage_one() -> void:
 		if not region.RadioReceiving.mount_cell(cell,region.source_layout):
 			_fail("native period receiving chassis reload refused: "+identity)
 			return
+		if not region.LaundryReceiving.mount_cell(cell,region.source_layout):
+			_fail("native Laundry receiving chassis reload refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)
