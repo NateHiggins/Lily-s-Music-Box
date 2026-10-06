@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 46.12,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T06:40:40Z",
+  "started_utc": "2026-10-06T06:39:54Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid access to property or key 'storm_shop_otis' on a base object of type 'Dictionary'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-final-verified/godot/OrisonV2DruggistCupboardTest_tscn_windowed.log.stderr",
+  "stderr_sha256": "b1f986c0062f0421c20b56422869bfb8c4cb04de24f053dc90e6c5ac7d469b9c",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-final-verified/godot/OrisonV2DruggistCupboardTest_tscn_windowed.log",
+  "stdout_sha256": "67f2e8827ba437133454227cdf4c30866e7ea7e41a2e60046894549b9b1235e3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistCupboardTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\druggist-cupboard-final-verified\\godot\\OrisonV2DruggistCupboardTest_tscn_windowed_shots",
+ "source": {
+  "dirty_paths": 261,
+  "dirty_sample": [
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid",
+   "?? game/scripts/building/orison_v2_completion_interiors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_door_casings.gd.uid",
+   "?? game/scripts/building/orison_v2_elevator.gd.uid",
+   "?? game/scripts/building/orison_v2_exterior_masonry.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid"
+  ],
+  "repository_head": "338ccdd9e440033323db49a4da5aa4d789aaa0b3",
+  "repository_tree": "e97240956222abb29e3d50a1ee8c8edfb2d49af4",
+  "runtime_inputs_sha256": "6b0ea643561ca906360f4b1adf80905244bb0d417ff9928e9f97c93eb7490863",
+  "test_path": "game/tests/orison_v2_druggist_cupboard_test.gd",
+  "test_sha256": "2ff86317901e47382422b477f414c240e89c588c4a12ea4a253ccb2f1b1ecf1d"
+ },
+ "windowed": true
+}

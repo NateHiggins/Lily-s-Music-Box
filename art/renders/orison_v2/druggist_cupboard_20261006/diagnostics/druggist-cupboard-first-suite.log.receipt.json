@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 46.42,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T06:34:56Z",
+  "started_utc": "2026-10-06T06:34:09Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid access to property or key 'storm_shop_otis' on a base object of type 'Dictionary'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-first-suite.log.stderr",
+  "stderr_sha256": "b1f986c0062f0421c20b56422869bfb8c4cb04de24f053dc90e6c5ac7d469b9c",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-first-suite.log",
+  "stdout_sha256": "fb6b31ea42a9ec9de488a705c7aef7811affccb9721a141001f47bab9960ffcb"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistCupboardTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-first-shots",
+ "source": {
+  "dirty_paths": 279,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/druggist_cupboard.blend",
+   "?? art/blender/druggist_cupboard_construction.json",
+   "?? art/blender/scripts/build_druggist_cupboard.py",
+   "?? art/blender/scripts/inspect_druggist_cupboard.py",
+   "?? art/data/druggist_cupboard/",
+   "?? game/assets/props/druggist_cupboard.glb",
+   "?? game/data/orison_v2/druggist_cupboard.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid"
+  ],
+  "repository_head": "90bbcb9cd34affdc7edbd68247ac853ae598265e",
+  "repository_tree": "e6ffb641663715454e0d763377833da189fa5074",
+  "runtime_inputs_sha256": "6b0ea643561ca906360f4b1adf80905244bb0d417ff9928e9f97c93eb7490863",
+  "test_path": "game/tests/orison_v2_druggist_cupboard_test.gd",
+  "test_sha256": "2ff86317901e47382422b477f414c240e89c588c4a12ea4a253ccb2f1b1ecf1d"
+ },
+ "windowed": true
+}

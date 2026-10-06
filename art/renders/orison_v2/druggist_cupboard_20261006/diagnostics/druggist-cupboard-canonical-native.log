@@ -1,0 +1,16 @@
+00:00.031  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.375  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\druggist_cupboard.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_druggist_cupboard.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:03.562  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\composed_front.png'
+00:05.094  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\composed_rear.png'
+00:06.859  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison_cupboard_front.png'
+00:08.391  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison_cupboard_rear.png'
+00:09.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison0_front.png'
+00:11.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison0_rear.png'
+00:12.594  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison1_front.png'
+00:13.969  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-cupboard-native\storm_shop_otis___son_poison1_rear.png'
+DRUGGIST CUPBOARD NATIVE QA 116 closed connected stocks; 7 joined assemblies; 8 views
+
+Blender quit

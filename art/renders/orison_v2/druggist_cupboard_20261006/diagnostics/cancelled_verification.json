@@ -1,0 +1,35 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Cancel this owned candidate verification after the cupboard test logged an ID-parser script error despite exit zero. No completed full candidate verdict is claimed.",
+  "candidate": "338ccdd9e440033323db49a4da5aa4d789aaa0b3",
+  "processes": [
+    {
+      "ProcessId": 33244,
+      "Depth": 0,
+      "Name": "python.exe",
+      "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" tools/verify_candidate.py 338ccdd9e440033323db49a4da5aa4d789aaa0b3 --base 90bbcb9cd34affdc7edbd68247ac853ae598265e --in-place --baseline-board C:/PleaseRemainOnTheLine/tmp/v2-finish-review/90bbcb9c-clean-board.json --windowed-suite res://tests/OrisonV2DruggistCupboardTest.tscn --windowed-suite res://tests/OrisonV2DruggistDispensaryTest.tscn --windowed-suite res://tests/OrisonV2DruggistMortarTest.tscn --windowed-suite res://tests/OrisonV2DruggistCounterTest.tscn --windowed-suite res://tests/OrisonV2DruggistDrawersTest.tscn --windowed-suite res://tests/OrisonV2PassageLoadTeardownTest.tscn --windowed-suite res://tests/OrisonV2PublicDoorsTest.tscn --windowed-suite res://tests/OrisonV2ShopSimulationTest.tscn --windowed-long-suite res://tests/OrisonV2ResidentKeyRouteTest.tscn --windowed-long-suite res://tests/OrisonV2PassageResidencyTest.tscn --out C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-cupboard-final-verified",
+      "CreationDate": "2026-10-06T02:38:13.756552-04:00"
+    },
+    {
+      "ProcessId": 27604,
+      "Depth": 1,
+      "Name": "pwsh.exe",
+      "CommandLine": "pwsh -NoProfile -Command \"& 'C:\\PleaseRemainOnTheLine\\tools\\run_godot_serial.ps1' -ProjectPath 'C:\\PleaseRemainOnTheLine\\game' -LogPath 'C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\druggist-cupboard-final-verified\\godot\\OrisonV2DruggistDrawersTest_tscn_windowed.log' -Scene 'res://tests/OrisonV2DruggistDrawersTest.tscn' -TimeoutSeconds 180 -Windowed -ShotDir 'C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\druggist-cupboard-final-verified\\godot\\OrisonV2DruggistDrawersTest_tscn_windowed_shots'; exit $LASTEXITCODE\"",
+      "CreationDate": "2026-10-06T02:43:00.122868-04:00"
+    },
+    {
+      "ProcessId": 41948,
+      "Depth": 2,
+      "Name": "Godot_v4.7.1-stable_win64_console.exe",
+      "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine\\game res://tests/OrisonV2DruggistDrawersTest.tscn",
+      "CreationDate": "2026-10-06T02:43:00.588478-04:00"
+    },
+    {
+      "ProcessId": 28828,
+      "Depth": 3,
+      "Name": "Godot_v4.7.1-stable_win64.exe",
+      "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine\\game res://tests/OrisonV2DruggistDrawersTest.tscn",
+      "CreationDate": "2026-10-06T02:43:00.598049-04:00"
+    }
+  ]
+}
