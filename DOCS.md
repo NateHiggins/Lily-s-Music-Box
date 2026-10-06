@@ -47,7 +47,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original photographic counter, thin glass display chamber and seated ledger | `art/blender/photo_counter.md` and `design/V2_PHOTO_COUNTER_2026-10-05.md` |
 | Original photographic rear shelves and fifteen seated supply cartons | `art/blender/photo_stock.md` and `design/V2_PHOTO_STOCK_2026-10-05.md` |
 | Three original second-hand photographic enlargers and their supported high shelf | `art/blender/photo_enlargers.md` and `design/V2_PHOTO_ENLARGERS_2026-10-05.md` |
-| Original photographic trays, tanks, dryer, folded tripods and supported flash tins | `art/blender/photo_process.md` |
+| Original photographic trays, tanks, dryer, folded tripods and supported flash tins | `art/blender/photo_process.md` and `design/V2_PHOTO_PROCESS_2026-10-05.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

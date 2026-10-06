@@ -1,0 +1,605 @@
+{
+  "schema": "orison.visual-finish-review.v1",
+  "evidence_class": "INERT",
+  "candidate": "487558f0c4ff0f139d90979d6ffa44f39099614e",
+  "base": "35a8db910e1208c0e04816476eb54ffbb7c9ab29",
+  "verification": "MERGE-CANDIDATE 487558f0c4ff0f139d90979d6ffa44f39099614e",
+  "source_records": 16,
+  "assemblies": 13,
+  "closed_stocks": 130,
+  "material_partitions": 30,
+  "triangles": 24496,
+  "source_supports": 49,
+  "removed_original_triangles": 192,
+  "native_views": 26,
+  "production_views": 6,
+  "direct_review": "All 26 final native and six final clean production observations inspected at full size. Actual empty tray bowls, closed tanks, open dryer cavity and drum/vent gaps, four distinct folded tripods and four seated closed flash tins are visible. This is bounded passive fitting evidence.",
+  "runtime_contract": "Exact current test-written schema-2 resident permission/key-copy/save/denial/reconstruction receipt; executed scope only.",
+  "limits": [
+    "No human acceptance or whole-V2 completion.",
+    "Passive process fixtures only; chemicals, liquids, ignition, heat, electrical demand, driven controls and working photography remain separate duties.",
+    "Portraits, darkroom entrance/light, glass finish and continuous access remain open.",
+    "Wrapper receipts, captures and inert reports grant no runtime promotion."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/verification.json",
+      "source_sha256": "67add89074363eb22b31e328c496b7a50466e026cd0f8b083818b17ff96e33c3",
+      "sha256": "67add89074363eb22b31e328c496b7a50466e026cd0f8b083818b17ff96e33c3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/35a8db91-clean-board.json",
+      "source_sha256": "34be35be420c57d52c80e2c2b1b557938d93d0c002bd7fc01bd0d7151c14d711",
+      "sha256": "34be35be420c57d52c80e2c2b1b557938d93d0c002bd7fc01bd0d7151c14d711",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/photo-process-native/inspection.json",
+      "source_sha256": "f8c393ab7f004b86cca1c6c73118195b20bc8b9e2f4ebe2623d2142ed5733230",
+      "sha256": "f8c393ab7f004b86cca1c6c73118195b20bc8b9e2f4ebe2623d2142ed5733230",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/photo_process_construction.json",
+      "source_sha256": "70efdd1d4aa1d1f683d0934bc9e9c179a8bcfa3cdf4539677ff8e7a84c4411d2",
+      "sha256": "70efdd1d4aa1d1f683d0934bc9e9c179a8bcfa3cdf4539677ff8e7a84c4411d2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "fc606010cb141535d50b26dc97367eeef16bed403c392af0f8ab1cf8fd4634f3",
+      "sha256": "fc606010cb141535d50b26dc97367eeef16bed403c392af0f8ab1cf8fd4634f3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/views.json",
+      "source_sha256": "ad50734c7e02e92e0d1756dbebc6c3dfd2b28d472dd25cce91a745c3a362d2de",
+      "sha256": "ad50734c7e02e92e0d1756dbebc6c3dfd2b28d472dd25cce91a745c3a362d2de",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "9d6a80e7cef7a90382acecfe91d6fff6640e295fca6d351d81008739c007ea1c",
+      "sha256": "9d6a80e7cef7a90382acecfe91d6fff6640e295fca6d351d81008739c007ea1c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "6eec262ac328dd42f15ccbb5e256e7019770ac144fa733a78046336a7e25caad",
+      "sha256": "6eec262ac328dd42f15ccbb5e256e7019770ac144fa733a78046336a7e25caad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray0_front.png",
+      "source_sha256": "4ca928f4d409b64a2a7af8a036100bac1f2b1d5fd31137df47dd64b5fe6898cc",
+      "sha256": "73a3ca3431e81e0a4f59793947afb933996acd947ebb878104941e3dfec99fee",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray0_rear.png",
+      "source_sha256": "925f1f19c121de275b6fe58634afbe76589482e49a3a26f98b7c38d8134de19a",
+      "sha256": "da997c8e291fceb084078dea4bcdf3f36f30922a172c9c81be289ca23573d77b",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray1_front.png",
+      "source_sha256": "528844b83b95aef00509e2915dbbaa4298bbb2f4294d6119d394718768ee8b19",
+      "sha256": "8593dfb3d7bba35f07cb0e53a45de2304c544c5477a0cec488c047618763d430",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray1_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray1_rear.png",
+      "source_sha256": "37f8866838c898cbda00670e8d8e804dc6091fddba07e9e4d869cb04fa2b9902",
+      "sha256": "3a5881ee3e28a80df6835b3e80c411687051da120de53a07c1037a890b49a98e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray2_front.png",
+      "source_sha256": "20031d8cc793a450de8b18ecf7070ad2fcfd27281779f4bcff0ae223bc4335a4",
+      "sha256": "54b5c17eed814bfc50770010f32ceeab6fc857fd5bb2899b389d757de3ff5a07",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray2_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray2_rear.png",
+      "source_sha256": "fedbc9c1132c977441aeba95156751f1bc44412bd183871ed883009fc0f499b6",
+      "sha256": "c91df1a9a0a4612ab8e07b2ba6308d70734bcd53723f9628da3bb401dd23a715",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray3_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray3_front.png",
+      "source_sha256": "5cfef3d82a082eec08e3ddc36fef4adca620d84241acff4e8b87d82dd1c1d071",
+      "sha256": "e09fc2afb8012bbb86a8ba7d48226230b61b729d75a3f1ca4909fdf01a76001e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_dev_tray3_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_dev_tray3_rear.png",
+      "source_sha256": "4a5ea6034e7d33664eec507ed855bcc102bbee72c7ca99d76b9ba92237049ce1",
+      "sha256": "8d14e320ad585cfacd7c562c057936b260c242572845008d8eae67a33c9091a5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_flash_tin0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_flash_tin0_front.png",
+      "source_sha256": "2ffcc6d6a25392f39139dfde8903d7f7a7008778523cd9d528f4721d99f43b70",
+      "sha256": "afb7dd1f2277e077a7852f7bf4e6963c0b53d9dda6d06a4bfab8e13375453c4f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_flash_tin0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_flash_tin0_rear.png",
+      "source_sha256": "cfa695b8f937880cc41ac52f5df0eeb05a9628eb9e08c0f958dfa10d70730a29",
+      "sha256": "42096d071e9b1a59e684e6ba98290d9784accb02d29171e7bdd0d09e50e9c413",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_print_dryer_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_print_dryer_front.png",
+      "source_sha256": "e5afe1b756d57fc648bb2292dad28e9a146fd3b4fe0372b174d6ef8fe5851454",
+      "sha256": "0c98d3c232b9a884e80c595574ebb22cd102a05c38fdc095306c70a040f4b0a3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_print_dryer_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_print_dryer_rear.png",
+      "source_sha256": "f9e73abae002d60193b78d34cd7d74d2886cabee1c0e8dc3bb3255807ea07e3c",
+      "sha256": "c55a0318b2a0c6d5a12ce7597a524ee1205220abb41e03242231c7b846d5c4f5",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank0_front.png",
+      "source_sha256": "24a6f854d50e37a996f53bb69cb6e414a50c67ecec14cd3fda4fa371c8eb05bb",
+      "sha256": "b3a102f3ba3b57fc5b0d1783f8ed61714bcce70d07b1fad783bd8051be5ce296",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank0_rear.png",
+      "source_sha256": "4b12c0dfd30e2822838778effb9b4bf0b0564ed01ad0789b88e182619a38a72d",
+      "sha256": "79382ce5796b6fa6ca01e7826f66d6779837c9f1bc6b9955e1cc58f8bb615dfd",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank1_front.png",
+      "source_sha256": "d945f907c5795cd1cdcb52f5d86739249207324ea7e329a128907f3596e358f0",
+      "sha256": "b10e28fbae3267f6f4c686dc14a5d4d30a25a890b8ca184d6c2a9d46d8b4f71a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank1_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank1_rear.png",
+      "source_sha256": "71fbef024262d54a1776707935729bc6bdb35bf4753c86ccf192e0e7589b877c",
+      "sha256": "7047753d0454167124cc8f555f18be2aa2afc5623a66903ed2e48193c7f7add1",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank2_front.png",
+      "source_sha256": "3a21952f6faeb0c2b22c98b1081ea976a833ed815a1bd181d44182d12146e42b",
+      "sha256": "ed0614cfe67e74b202e658c282fc59e1764ee14308a2b589b7f3900641730b2f",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tank2_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tank2_rear.png",
+      "source_sha256": "fc929e16670a90178d357c09121fc25a8fe5eb9bedb6c3151745af9694b70e18",
+      "sha256": "511890bdd85ac9b82068e547003b5c0b08760bcc7db984c67c4286571aa7159e",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod0_front.png",
+      "source_sha256": "48260bbda1eaf40c1bc56bbd68064eb753fbba8a6e4e4586602d182b21c7416e",
+      "sha256": "19a782223d9b48b134c757082cd996dceda0d61d7ba626e39844703b16b63118",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod0_rear.png",
+      "source_sha256": "6bc1c375763e2ce259430fd102fa87e594db85a17035561908db4b9f8dd001e1",
+      "sha256": "1dff16f2d40814b58d1a4bddac6f4cd190eb10415327f179e3fa32352d971a87",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod1_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod1_front.png",
+      "source_sha256": "c90f1596753fbef7b457df885a2676fa6e40852c16be155a2878ae6063c65743",
+      "sha256": "d85be1e5e58512e774cb602ead3c2428f459e313dd75242284999bed57272e32",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod1_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod1_rear.png",
+      "source_sha256": "f821b4d024345eeced24b74bff1adb254ff1ca8cd7bf1f2e3195bf1a05d76cdb",
+      "sha256": "69ab9988c2bbcf6445cafd84b54421366fbb5a1545d88023a3335584f710cf92",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod2_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod2_front.png",
+      "source_sha256": "75fe34156f426ad50acd0fb9d96f8e9df9f5b56cd791e9c406470bf83f22a364",
+      "sha256": "a0cda8f21eb74f9931c742685dede5d8d0b826a47963cd77c7e2b9d7ee7b9a82",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod2_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod2_rear.png",
+      "source_sha256": "c9812b3198732985cd8ebdbe28001bf833adf681849edf6bde22af0d06a80561",
+      "sha256": "fd108b6a658d49b5c31cab609343e0018148d596df7ce19f24f579077e052f28",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod3_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod3_front.png",
+      "source_sha256": "e0335badb7a65329139b840e1a79548fae0b9228c21b3c01ebec302463541258",
+      "sha256": "c60f2ed74d40af1b1824147ed4b5d43cad3617bd4b2d48bb0f0f00cea6f4f5bf",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "native/storm_shop_photo_supplies_tripod3_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-native/storm_shop_photo_supplies_tripod3_rear.png",
+      "source_sha256": "06801c34fdc8d2b7d7aa998a7f506510c83b33f0cd88db2f88f8180b3401d6d8",
+      "sha256": "de3f78ab031828439a0b8134349d2f0fbb2d3d5d3e39bccbc331df2a398a4a7c",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/closed_tanks.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/closed_tanks.png",
+      "source_sha256": "572cd52d99ae018cef61828362d779f2b792aa0ead6a4eb7901c7c7cfbe478f8",
+      "sha256": "4dad2c8fe025630a0125fcd236786a12b607c6e60a70e33483977e7f6dfa9b52",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/developing_trays.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/developing_trays.png",
+      "source_sha256": "668c156cb35ea62dd92d7d8c327e89a4252ae5f38b953ef921d15d153829ced1",
+      "sha256": "c30bde0a1ea52b6301654f56b8741956591432dd19214e363c1d2262a3937396",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/flash_tins.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/flash_tins.png",
+      "source_sha256": "a3082f9d0330bc2da6d18a9e97b3cd2afbd7ea7b6ebf123b64c6bf2a372114f6",
+      "sha256": "43aa018c3816246983558723aadff30c75230ad5a0ba315b7c0fb136a08610df",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/folded_tripods.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/folded_tripods.png",
+      "source_sha256": "43bcb2dd1b27a91537906b2036216921c5c9d26ce259891e1fb9e9f2bd58e039",
+      "sha256": "0cb3d2b111c5f1dcdffbc09cce9bdc314fd8d6d9265084fdcc9dfddf4da9e3f3",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/print_dryer.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/print_dryer.png",
+      "source_sha256": "a4e1680e4d494e747123152967b0cb1e1cacc784ea144abfd7d3a1b891438c78",
+      "sha256": "2aa4e3399b61702f6ec280d4acced9e1786b733a12aa45b180c0ce8f436571ec",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "production/process_context.jpg",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed_shots/process_context.png",
+      "source_sha256": "758ac6300ad339eca442e5ec8b60580f98848908afa592c63329db7dd350bb9d",
+      "sha256": "0114cc2636c4abee6ecb869b32b4a5e0976523b67d911768e81f10b69720d682",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/tripod0_front.jpg",
+      "source": "tmp/v2-finish-review/photo-process-original-folds-native/storm_shop_photo_supplies_tripod0_front.png",
+      "source_sha256": "a3575490ca45900022b99ac649f8fc7c440a13095ed49ba0dbeb822409003cc1",
+      "sha256": "fb48625a772fb7e2305d0e07578ca4785618683f96e569a5d87a68aa63b73f3a",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/tripod0_rear.jpg",
+      "source": "tmp/v2-finish-review/photo-process-original-folds-native/storm_shop_photo_supplies_tripod0_rear.png",
+      "source_sha256": "4308d83150d344e0f104ede41713bcd38a31a6ae508e2eff20a63f3153e6796c",
+      "sha256": "de6a2715e9c6fa0fd5aa724df7049b7719973b2c26163f005ed310f2f8606e74",
+      "copy": "JPEG visual derivative"
+    },
+    {
+      "file": "before/original_process_blocks.jpg",
+      "source": "art/renders/orison_v2/photo_enlargers_20261005/production/shelf_supports.jpg",
+      "source_sha256": "e77a766092c8ce978bd52877dadeb29b579988d21db910e3f9e6b955a50a6933",
+      "sha256": "e77a766092c8ce978bd52877dadeb29b579988d21db910e3f9e6b955a50a6933",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_sheet.jpg",
+      "sha256": "c84ea8098a9c8f82ef72894e94ed4a7bf475c2db3a01d5a3c0bd7473320e3ee2",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "production_sheet.jpg",
+      "sha256": "6e8627cacd2837e3d899d3c2f8486bd1a73ce9d4c2e35184788ff2c77f4e136f",
+      "copy": "Labelled contact-sheet JPEG derivative of retained views"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "6775649a92d14379033da79fdc635b1aecb94c3c2f600e140ec2c0bf86337a61",
+      "sha256": "6775649a92d14379033da79fdc635b1aecb94c3c2f600e140ec2c0bf86337a61",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "2ec97b0eb7e3a8cd8246c7d9a4d6a97c8c942801ac660c01609bb5976943e6cc",
+      "sha256": "2ec97b0eb7e3a8cd8246c7d9a4d6a97c8c942801ac660c01609bb5976943e6cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoProcessTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed.log",
+      "source_sha256": "36c0c80aedfde03dd983d77a5cd5fdd4bc32062be6a6072dc7cc5433d2f50c4e",
+      "sha256": "36c0c80aedfde03dd983d77a5cd5fdd4bc32062be6a6072dc7cc5433d2f50c4e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoProcessTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoProcessTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "658e9783193cf471716827e3c0079238efc68abd9493b0da100dccf21e19f4e6",
+      "sha256": "658e9783193cf471716827e3c0079238efc68abd9493b0da100dccf21e19f4e6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoEnlargersTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoEnlargersTest_tscn_windowed.log",
+      "source_sha256": "4a7f676ad599fc4cd7724d4955ea8bd5d17a6d40124ba21c4a0876ca1dcd91aa",
+      "sha256": "4a7f676ad599fc4cd7724d4955ea8bd5d17a6d40124ba21c4a0876ca1dcd91aa",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoEnlargersTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoEnlargersTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "7f321f82e2b404eea2a2310d0d6087963c6fbb20edf48d69164ea9507bca5764",
+      "sha256": "7f321f82e2b404eea2a2310d0d6087963c6fbb20edf48d69164ea9507bca5764",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoStockTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed.log",
+      "source_sha256": "d8062156fa87323f94d27762960ee83474eb2d89e530b6d5452b25e272e603c4",
+      "sha256": "d8062156fa87323f94d27762960ee83474eb2d89e530b6d5452b25e272e603c4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoStockTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoStockTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "de99bd3a93d0ee701a07e81f73d6f549941fc486dc4edc58bf38e1a111aa17e4",
+      "sha256": "de99bd3a93d0ee701a07e81f73d6f549941fc486dc4edc58bf38e1a111aa17e4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCounterTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoCounterTest_tscn_windowed.log",
+      "source_sha256": "aeaa2d870583869be95694383a6b0b4691dea69aa4464026ae56fdf52338c1c3",
+      "sha256": "aeaa2d870583869be95694383a6b0b4691dea69aa4464026ae56fdf52338c1c3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCounterTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoCounterTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "0cebddf1b360fe3e5584eb018ca4768c2070e5198b46b1b433a14852deab7971",
+      "sha256": "0cebddf1b360fe3e5584eb018ca4768c2070e5198b46b1b433a14852deab7971",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+      "source_sha256": "2a478f54883f0cdbc8526441e5478c3214f0fc854f23590a8aea60d6e6f87bd1",
+      "sha256": "2a478f54883f0cdbc8526441e5478c3214f0fc854f23590a8aea60d6e6f87bd1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ee957adf2c9e9b17e04512148251ffd75f8a77d6a436a424f60495cb58e6a9fd",
+      "sha256": "ee957adf2c9e9b17e04512148251ffd75f8a77d6a436a424f60495cb58e6a9fd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "689346a8be6b30606573e1ca14ebbe9de88ddcde4e4ca835c921e647d3ea9589",
+      "sha256": "689346a8be6b30606573e1ca14ebbe9de88ddcde4e4ca835c921e647d3ea9589",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "a36152e2ed11b7610fdb9ed5250f5ac0f0f96d1b6a8526eea3261d83552ae24b",
+      "sha256": "a36152e2ed11b7610fdb9ed5250f5ac0f0f96d1b6a8526eea3261d83552ae24b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "6770730ffcbc9b26148e014407042ecc6c0f3a2c44ba098a2fa82ff25e75c4fb",
+      "sha256": "6770730ffcbc9b26148e014407042ecc6c0f3a2c44ba098a2fa82ff25e75c4fb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "030f96d511115e5ac4912873c0ba0eba344dde0880d994a071ed3b14c4baac23",
+      "sha256": "030f96d511115e5ac4912873c0ba0eba344dde0880d994a071ed3b14c4baac23",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "f3add96c8a8d89b4c52c7bf325b064baea563c35fbdbcb792109778bd1597a1a",
+      "sha256": "f3add96c8a8d89b4c52c7bf325b064baea563c35fbdbcb792109778bd1597a1a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "6fe9d5520e6e3111b881ea132ad1c0a792db74487e5a4c97b52bc43732724140",
+      "sha256": "6fe9d5520e6e3111b881ea132ad1c0a792db74487e5a4c97b52bc43732724140",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "0c7eb66138cd72b5d82e0a7542929b8d54bcf375b76fdcbed8c5df2d773ce464",
+      "sha256": "0c7eb66138cd72b5d82e0a7542929b8d54bcf375b76fdcbed8c5df2d773ce464",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "776020b1eccc9d9639cbe685a1cbc3abedfed5f0dd501165ed251eb9797234e9",
+      "sha256": "776020b1eccc9d9639cbe685a1cbc3abedfed5f0dd501165ed251eb9797234e9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "c2d75c1e60fb44d15e639ef394d1fce08440d13bb5db5b4d14ed52d1d0ad1102",
+      "sha256": "c2d75c1e60fb44d15e639ef394d1fce08440d13bb5db5b4d14ed52d1d0ad1102",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-stage-build.log",
+      "source": "tmp/v2-finish-review/photo-process-stage-build.log",
+      "source_sha256": "f8130e6017b37f1a34b639a1222b12e9313691f4f759fccc2730b114e24f68f8",
+      "sha256": "f8130e6017b37f1a34b639a1222b12e9313691f4f759fccc2730b114e24f68f8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-stage-native.log",
+      "source": "tmp/v2-finish-review/photo-process-stage-native.log",
+      "source_sha256": "8e2773f96878bb4c1304efd564af84f005ddd7c5e5a986ca5861dd36b703ab6e",
+      "sha256": "8e2773f96878bb4c1304efd564af84f005ddd7c5e5a986ca5861dd36b703ab6e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-folded-leg-build.log",
+      "source": "tmp/v2-finish-review/photo-process-folded-leg-build.log",
+      "source_sha256": "ed94ebf9e4d4cbfca9684b737ad415e42b998dfc3cab89caa024cb253e4df085",
+      "sha256": "ed94ebf9e4d4cbfca9684b737ad415e42b998dfc3cab89caa024cb253e4df085",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-folded-leg-native.log",
+      "source": "tmp/v2-finish-review/photo-process-folded-leg-native.log",
+      "source_sha256": "8c934f94bbafa79fdfa5d300e33c57f8bc7e70a620e643936861e18f0ec3c66e",
+      "sha256": "8c934f94bbafa79fdfa5d300e33c57f8bc7e70a620e643936861e18f0ec3c66e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-canonical-build.log",
+      "source": "tmp/v2-finish-review/photo-process-canonical-build.log",
+      "source_sha256": "e086488365d7b9b0de1a4514049f55f9061e80a7a00176ebf984fa3027695b46",
+      "sha256": "e086488365d7b9b0de1a4514049f55f9061e80a7a00176ebf984fa3027695b46",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-canonical-native.log",
+      "source": "tmp/v2-finish-review/photo-process-canonical-native.log",
+      "source_sha256": "5be057204499ad6501365ef92011cbb4d2c2d156452db4b89619b1b86eb99214",
+      "sha256": "5be057204499ad6501365ef92011cbb4d2c2d156452db4b89619b1b86eb99214",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-suite.log",
+      "source": "tmp/v2-finish-review/photo-process-suite.log",
+      "source_sha256": "001fcc3c7eac388311e23a1b0a4a2210597a13ed3d47f4557ec687ec16c493a3",
+      "sha256": "001fcc3c7eac388311e23a1b0a4a2210597a13ed3d47f4557ec687ec16c493a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-suite.log.receipt.json",
+      "source": "tmp/v2-finish-review/photo-process-suite.log.receipt.json",
+      "source_sha256": "b19c6fd4bec062ae9066fafff2265f1ddc0806b44e6624ce78892f1763749fc5",
+      "sha256": "b19c6fd4bec062ae9066fafff2265f1ddc0806b44e6624ce78892f1763749fc5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-reader.log",
+      "source": "tmp/v2-finish-review/photo-process-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/photo-process-spatial.log",
+      "source": "tmp/v2-finish-review/photo-process-spatial.log",
+      "source_sha256": "855344cca3d28f9937535317599db70113cfa85693c6d52bf96e6068b18f84d6",
+      "sha256": "855344cca3d28f9937535317599db70113cfa85693c6d52bf96e6068b18f84d6",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/photo-process-ledger-refresh.log",
+      "source_sha256": "beb2c31854f1b39087eba348dd0fa3f240a768d047255eb7c6afc2cae8d44750",
+      "sha256": "beb2c31854f1b39087eba348dd0fa3f240a768d047255eb7c6afc2cae8d44750",
+      "copy": "byte-identical"
+    }
+  ]
+}

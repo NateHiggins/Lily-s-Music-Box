@@ -1,0 +1,33 @@
+00:01.390  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_process.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_process.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:05.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray0_front.png'
+00:09.047  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray0_rear.png'
+00:12.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray1_front.png'
+00:16.468  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray1_rear.png'
+00:20.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray2_front.png'
+00:23.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray2_rear.png'
+00:27.656  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray3_front.png'
+00:31.359  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_dev_tray3_rear.png'
+00:35.343  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank0_front.png'
+00:39.281  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank0_rear.png'
+00:43.281  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank1_front.png'
+00:47.234  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank1_rear.png'
+00:51.265  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank2_front.png'
+00:55.140  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tank2_rear.png'
+01:02.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_print_dryer_front.png'
+01:07.312  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_print_dryer_rear.png'
+01:10.843  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod0_front.png'
+01:14.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod0_rear.png'
+01:17.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod1_front.png'
+01:21.359  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod1_rear.png'
+01:24.890  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod2_front.png'
+01:28.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod2_rear.png'
+01:31.922  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod3_front.png'
+01:35.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_tripod3_rear.png'
+01:39.859  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_flash_tin0_front.png'
+01:44.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-process-native\storm_shop_photo_supplies_flash_tin0_rear.png'
+PHOTO PROCESS NATIVE QA 130 closed connected stocks; 13 joined assemblies; 26 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

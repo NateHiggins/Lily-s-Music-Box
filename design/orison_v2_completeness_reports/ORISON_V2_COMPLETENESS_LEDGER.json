@@ -10106,6 +10106,12 @@
     ]
    },
    {
+    "file": "art/renders/orison_v2/photo_enlargers_20261005/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10116,7 +10122,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "69f18cd5cd3f1f03894d9203729b753161fdb8b3c22c5951a13556ffb642ac4e",
+  "tools/orison_spatial_dependency_manifest.json": "fe4c85e4961572c4044fea8b833fa14524d314a029e4d2c04f245c1537c59855",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
@@ -10170,8 +10176,9 @@
   "art/renders/orison_v2/news_fittings_20261005/runtime_authority_receipt.json": "49b1e38e56d2b7f4d98052606d89adbed0389953db766a7725cc57b467b405bb",
   "art/renders/orison_v2/photo_cameras_20261005/runtime_authority_receipt.json": "ea0f16fe152380214c36da2d9eaa67e16e8663afc16e623b2db828c853cce075",
   "art/renders/orison_v2/photo_counter_20261005/runtime_authority_receipt.json": "ad4ae5baf46989b37f0d57b5bb2c64d50b77339f64c4a389188e2deefec1565a",
-  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
   "art/renders/orison_v2/photo_enlargers_20261005/runtime_authority_receipt.json": "152b715cc3bf55cc46a0b31d238f5c45155853387ba2fc366f7ab45295eff23b",
+  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/photo_process_20261005/runtime_authority_receipt.json": "9d6a80e7cef7a90382acecfe91d6fff6640e295fca6d351d81008739c007ea1c",
   "art/renders/orison_v2/photo_stock_20261005/runtime_authority_receipt.json": "0fe76abab1724f14c3340014502e2b04145e30073bd13993a7166e8aceadf65a"
  }
 }
