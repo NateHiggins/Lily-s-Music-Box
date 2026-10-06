@@ -1,0 +1,195 @@
+orison v2 completeness ledger
+  requirements: 240
+  by_status: ABSENT=21, HUMAN_ACCEPTED=1, PROGRAMMED=119, RUNTIME_PROVEN=27, SHELL_ONLY=3, SPATIALLY_PROVEN=69
+  blockers_by_scope: FIRST_SLICE_TECHNICAL=7, GOLDEN_SHIFT_V2=8, FULL_BUILDING_STRUCTURAL=127, FULL_BUILDING_RUNTIME=42, PRODUCTION_CUTOVER=151, V1_RETIREMENT=153
+  v1_fallbacks: 2
+  heuristic_conclusions: 117
+  anchor_only_findings: 0
+  stale_checkpoint_ids: 1
+production-cutover blockers (first-slice blockers marked *):
+    region.street [PROGRAMMED]
+    region.construction_seam [ABSENT]
+    region.arcade_portal [ABSENT]
+    region.arcade_throat [ABSENT]
+    region.arcade_hall [ABSENT]
+    region.shops [PROGRAMMED]
+    f01.street_vestibule [SPATIALLY_PROVEN]
+    f01.lobby [SPATIALLY_PROVEN]
+    f01.watch_station [SPATIALLY_PROVEN]
+    f01.mail_telephone [PROGRAMMED]
+    f01.parcel_package [PROGRAMMED]
+    f01.common_room [PROGRAMMED]
+    f01.staff_restroom [SPATIALLY_PROVEN]
+  * ritual.F01_WATCHMAN_DETECTOR [SPATIALLY_PROVEN]
+  * ritual.F01_NIGHT_REGISTER [SPATIALLY_PROVEN]
+  * ritual.F01_SIGNAL_REGISTER [SPATIALLY_PROVEN]
+  * ritual.F01_TOUR_KEY_GUARD [SPATIALLY_PROVEN]
+    circ.F02.public_landing [SHELL_ONLY]
+    circ.F02.public_core [PROGRAMMED]
+    circ.F02.service_core [PROGRAMMED]
+    circ.F02.service_route [PROGRAMMED]
+    circ.F03.public_landing [SHELL_ONLY]
+    circ.F03.public_core [PROGRAMMED]
+    circ.F03.service_core [PROGRAMMED]
+    circ.F03.service_route [PROGRAMMED]
+    circ.F04.public_landing [SHELL_ONLY]
+    circ.F04.public_core [PROGRAMMED]
+    circ.F04.service_core [PROGRAMMED]
+    circ.F04.service_route [PROGRAMMED]
+    circ.F05.public_landing [PROGRAMMED]
+    circ.F05.public_core [PROGRAMMED]
+    circ.F05.service_core [PROGRAMMED]
+    circ.F05.service_route [PROGRAMMED]
+    circ.F06.public_landing [PROGRAMMED]
+    circ.F06.public_core [PROGRAMMED]
+    circ.F06.service_core [PROGRAMMED]
+    circ.F06.service_route [PROGRAMMED]
+    circ.F01.public_landing [ABSENT]
+    floor.F01 [PROGRAMMED]
+    floor.F02 [PROGRAMMED]
+    floor.F03 [PROGRAMMED]
+    floor.F04 [PROGRAMMED]
+    floor.F05 [PROGRAMMED]
+    floor.F06 [PROGRAMMED]
+    floor.ROOF [PROGRAMMED]
+    unit.2A [PROGRAMMED]
+    unit.2A.cooking [PROGRAMMED]
+    unit.2A.sanitary [PROGRAMMED]
+    unit.2A.sleep [PROGRAMMED]
+    unit.2A.storage [PROGRAMMED]
+    unit.2B.cooking [PROGRAMMED]
+    unit.2B.living [PROGRAMMED]
+    unit.2B.sanitary [PROGRAMMED]
+    unit.2B.sleep [PROGRAMMED]
+    unit.3A [PROGRAMMED]
+    unit.3A.cooking [PROGRAMMED]
+    unit.3A.entry [PROGRAMMED]
+    unit.3A.living [PROGRAMMED]
+    unit.3A.sanitary [PROGRAMMED]
+    unit.3A.sleep [PROGRAMMED]
+    unit.3A.storage [PROGRAMMED]
+    unit.3B [PROGRAMMED]
+    unit.3B.cooking [PROGRAMMED]
+    unit.3B.entry [PROGRAMMED]
+    unit.3B.living [PROGRAMMED]
+    unit.3B.sanitary [PROGRAMMED]
+    unit.3B.sleep [PROGRAMMED]
+    unit.3B.storage [PROGRAMMED]
+    unit.4A [PROGRAMMED]
+    unit.4A.cooking [PROGRAMMED]
+    unit.4A.entry [PROGRAMMED]
+    unit.4A.living [PROGRAMMED]
+    unit.4A.sanitary [PROGRAMMED]
+    unit.4A.sleep [PROGRAMMED]
+    unit.4A.storage [PROGRAMMED]
+    unit.4B [PROGRAMMED]
+    unit.4B.cooking [PROGRAMMED]
+    unit.4B.sanitary [PROGRAMMED]
+    unit.4B.storage [PROGRAMMED]
+    unit.5A [PROGRAMMED]
+    unit.5A.cooking [PROGRAMMED]
+    unit.5A.entry [ABSENT]
+    unit.5A.living [PROGRAMMED]
+    unit.5A.sanitary [PROGRAMMED]
+    unit.5A.sleep [PROGRAMMED]
+    unit.5A.storage [PROGRAMMED]
+    unit.5B [PROGRAMMED]
+    unit.5B.cooking [PROGRAMMED]
+    unit.5B.entry [ABSENT]
+    unit.5B.living [PROGRAMMED]
+    unit.5B.sanitary [PROGRAMMED]
+    unit.5B.sleep [PROGRAMMED]
+    unit.5B.storage [PROGRAMMED]
+    unit.5C [PROGRAMMED]
+    unit.5C.cooking [PROGRAMMED]
+    unit.5C.entry [ABSENT]
+    unit.5C.living [PROGRAMMED]
+    unit.5C.sanitary [PROGRAMMED]
+    unit.5C.sleep [PROGRAMMED]
+    unit.5C.storage [ABSENT]
+    unit.6A [PROGRAMMED]
+    unit.6A.cooking [PROGRAMMED]
+    unit.6A.entry [ABSENT]
+    unit.6A.living [PROGRAMMED]
+    unit.6A.sanitary [PROGRAMMED]
+    unit.6A.sleep [PROGRAMMED]
+    unit.6A.storage [PROGRAMMED]
+    unit.6B [PROGRAMMED]
+    unit.6B.cooking [PROGRAMMED]
+    unit.6B.entry [ABSENT]
+    unit.6B.living [PROGRAMMED]
+    unit.6B.sanitary [PROGRAMMED]
+    unit.6B.sleep [PROGRAMMED]
+    unit.6B.storage [PROGRAMMED]
+    unit.6C [PROGRAMMED]
+    unit.6C.cooking [PROGRAMMED]
+    unit.6C.entry [ABSENT]
+    unit.6C.living [PROGRAMMED]
+    unit.6C.sanitary [PROGRAMMED]
+    unit.6C.sleep [PROGRAMMED]
+    unit.6C.storage [ABSENT]
+    b1.coal_room [PROGRAMMED]
+    b1.electrical_room [PROGRAMMED]
+    b1.laundry [PROGRAMMED]
+    b1.maintenance_shop [PROGRAMMED]
+    b1.resident_storage [ABSENT]
+    roof.roof_bulkhead [PROGRAMMED]
+    roof.tank_machinery [ABSENT]
+    service.wet_stack [PROGRAMMED]
+    service.heat_stack [PROGRAMMED]
+    service.telephone_riser [PROGRAMMED]
+    service.passenger_lift [PROGRAMMED]
+    service.service_lift [PROGRAMMED]
+    service.electrical_riser [ABSENT]
+    service.fire_service [ABSENT]
+  * contract.B1_BOILER_01 [SPATIALLY_PROVEN]
+    contract.F01_LOBBY [SPATIALLY_PROVEN]
+    contract.F02_A_MAIN [SPATIALLY_PROVEN]
+  * contract.F02_B_RADIATOR_01 [SPATIALLY_PROVEN]
+    contract.F04_B_ALCOVE [PROGRAMMED]
+    contract.F04_B_BATH [PROGRAMMED]
+    contract.F04_B_CLOSET [PROGRAMMED]
+    contract.F04_B_KITCHEN [PROGRAMMED]
+    contract.F04_B_MAIN [SPATIALLY_PROVEN]
+    contract.F04_B_VESTIBULE [SPATIALLY_PROVEN]
+  * job.lena_radiator_round_2b [PROGRAMMED]
+    acoustic.v2_rederivation [PROGRAMMED]
+    save.unit_rect_facts [PROGRAMMED]
+    evidence.whole_building_stations [ABSENT]
+    human.whole_building_navigation [ABSENT]
+    golden.eleven_beats [ABSENT]
+stale checkpoint identifiers (1):
+  ! B1_PUBLIC_LANDING_E - checkpointed identifier absent from current v2 layout (design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md)
+runtime receipts rejected (29):
+  ! art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_carboys_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_counter_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_cupboard_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_dispensary_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_drawers_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/funeral_drapes_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/funeral_fittings_20261006/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/hardware_apparatus_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/hardware_drawers_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/hardware_stock_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/hardware_tools_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/lamp_surface_balance_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+  ! art/renders/orison_v2/locksmith_fittings_20261005/runtime_authority_receipt.json - runtime-input SHA-256 is stale
+queue:
+  M08E-f01-rituals-2b-b1: 4 outstanding
+  M08F-runtime-composition-of-m08e: 3 outstanding
+  M10-golden-shift-v2: 2 outstanding
+  M11-structural-floors: 40 outstanding
+  M12-apartments-by-case-dependency: 76 outstanding
+  M14-service-topology-and-acoustics: 8 outstanding
+  M15-whole-building-runtime-matrix: 12 outstanding
+  M16-whole-building-performance-navigation: 2 outstanding
+  M09-production-cutover-proposal: 151 outstanding
+  M17-v1-fallback-window: 1 outstanding
+  M18-v1-retirement: 153 outstanding

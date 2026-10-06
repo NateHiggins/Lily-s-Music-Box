@@ -11,14 +11,14 @@ identities, hidden poses, material ownership and unselected geometry remain.
 
 This is an explicit **ADAPTATION** of the original front service room.
 The source author calls the empty bier the room's hero. Its **0.72 by
-2.60 metre** deck retains its plan and **0.69–0.79 metre** datums and
+2.60 metre** deck retains its plan and **0.69â€“0.79 metre** datums and
 remains empty. Five worked planks have three-millimetre gaps. Two rails
 bear on the original trestle stations; splayed legs, low stretchers and
 floor pads replace solid trestle blocks. Bearing cleats bridge the
 original **20 millimetre** crown-to-deck gap. This geometry establishes
 contact, not an engineering load rating.
 
-The lectern keeps its original desk plan and **1.17–1.22 metre** datums.
+The lectern keeps its original desk plan and **1.17â€“1.22 metre** datums.
 A floor-seated base, upright and crown support that desk. The unlettered
 closed book retains its source plan, **1.22 metre** seat and **1.27 metre**
 maximum. Separate covers, spine and page block make its construction
@@ -49,7 +49,7 @@ geometry, not player access.
 
 Existing sixteen chairs, chapel benches, rear boundary, doors, hours,
 keys, saves and utilities retain their owners. No coffin, body, ritual,
-occupancy, chapel access or new operation is inferred. The current green
-plant blocks and coarse drape stocks remain visible unfinished fittings;
-their fabrication and broad material review remain open. This guide
+occupancy, chapel access or new operation is inferred. The fixed drapes and foliage now have separate native source owners,
+recorded in **funeral_drapes.md** and **funeral_foliage.md**. Broad material
+review, utilities and continuous routes remain open. This guide
 grants no human acceptance, whole-room acceptance or V2 completion.

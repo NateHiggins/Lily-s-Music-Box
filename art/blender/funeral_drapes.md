@@ -10,7 +10,7 @@ separate runs retain their original depth envelope and endpoints; the
 hidden poses and unselected source geometry remain.
 
 This explicit **ADAPTATION** replaces the disconnected coarse strips with
-continuous **two-millimetre** pleated cloth. The original **0.05–2.90 metre**
+continuous **two-millimetre** pleated cloth. The original **0.05â€“2.90 metre**
 body datums remain. Separate sewn headers and lower hems follow the actual
 folds; cloth tabs rise to **2.9225 metres** and enter the threaded iron rings.
 Two independent rails at **2.930 metres** bear those rings. Five hangers seat
@@ -23,7 +23,7 @@ Existing **fabric_warm** and **iron_blackened** catalogue maps retain their
 owners. A declared local oxblood tint changes only this cloth. Continuous
 front and rear charts follow the sheet's actual arc length; narrow edge caps
 use orthonormal face charts. Tangents derive from those UVs. Every triangle
-is independently checked against the **0.99–1.01** physical metric range.
+is independently checked against the **0.99â€“1.01** physical metric range.
 No new map, material key, shared shader, lettering or cutout is added.
 
 Rebuild with **build_funeral_drapes.py**, then inspect with
@@ -40,12 +40,14 @@ retained attributes and materials, actual imported chart derivatives,
 visible/physical face equality, original run endpoints, both sheet sides,
 declared support heights, ceiling plate and rail intersections, and the
 unobstructed intervening opening. Nine standing captures use exactly the
-before-view feet and targets. Existing plant blocks obstruct several details;
-native inspection and imported feature rays carry that limited evidence.
+before-view feet and targets. At the curtain candidate, original plant blocks obstructed several details;
+native inspection and imported feature rays carried that limited evidence.
+Their replacement and matching current room views have a separate source
+owner in **funeral_foliage.md**.
 Clear floor/capsule stations establish no continuous route or sightline.
 
 Sixteen chairs, chapel benches, rear boundary, lectern and empty bier retain
 their owners, as do doors, hours, keys, saves and utilities. Fixed drapes add
-no moving-curtain operation, ritual, occupancy or chapel access. Green plant
-blocks, other funeral fittings and broad materials/routes remain open. This
+no moving-curtain operation, ritual, occupancy or chapel access. Foliage has a separate native source owner; broad materials, utilities
+and continuous routes remain open. This
 guide grants no runtime proof, human acceptance or whole-room completion.

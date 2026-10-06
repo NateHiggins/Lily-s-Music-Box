@@ -59,7 +59,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original druggist unused soda fountain | `art/blender/druggist_fountain.md` and `design/V2_DRUGGIST_FOUNTAIN_2026-10-06.md` |
 | Original funeral parlour lectern and deliberately empty bier | `art/blender/funeral_fittings.md` and `design/V2_FUNERAL_FITTINGS_2026-10-06.md` |
 | Original funeral fixed curtain runs and ceiling-seated suspension | `art/blender/funeral_drapes.md` and `design/V2_FUNERAL_DRAPES_2026-10-06.md` |
-| Original funeral potted palms and supported laid wreaths | `art/blender/funeral_foliage.md` |
+| Original funeral potted palms and supported laid wreaths | `art/blender/funeral_foliage.md` and `design/V2_FUNERAL_FOLIAGE_2026-10-06.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

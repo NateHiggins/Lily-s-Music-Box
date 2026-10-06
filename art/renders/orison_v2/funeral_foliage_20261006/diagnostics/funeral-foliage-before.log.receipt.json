@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 55.03,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T10:58:00Z",
+  "started_utc": "2026-10-06T10:57:04Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-foliage-before.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-foliage-before.log",
+  "stdout_sha256": "095d80f7f6cecdbfe139c4b97b3c283f51d9ff3a7ae588fa112a28b7dff677d3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/FuneralFoliageBefore.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/funeral-foliage-before-shots",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "3c2b86a7b40395ec12a35e77e5e4459f045acd8b",
+  "repository_tree": "1f8e4f2bfa7d5a728af79f244e267e39546891da",
+  "runtime_inputs_sha256": "2b43c5c16ef7f657d906c4eb56f18a5bae130f433e76b2fb1348c8b06f6d1bad",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": true
+}

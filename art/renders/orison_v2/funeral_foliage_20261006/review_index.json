@@ -1,0 +1,1348 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "e63a993ab4c660083296beef3345b72bef1928bf",
+  "base": "3c2b86a7b40395ec12a35e77e5e4459f045acd8b",
+  "scope": {
+    "source_records": 8,
+    "assemblies": 4,
+    "closed_stocks": 742,
+    "material_partitions": 14,
+    "triangles": 96944,
+    "floor_contacts": 16,
+    "removed_original_triangles": 96,
+    "native_views": 14,
+    "production_views": 11,
+    "checks": 268
+  },
+  "review": "Fourteen final native and eleven exact candidate standing frames directly reviewed; before and after feet and targets are identical.",
+  "runtime_contract": "Test-written schema-2 resident permissions, copies, locked-door denial, save and reconstruction proof in executed scope only.",
+  "limits": [
+    "Matching floor/capsule observation stations establish no continuous route or sightline.",
+    "Native stock and retained floor contacts establish geometry, not engineering capacity.",
+    "Leaves are passive finite stocks; no growth, ritual, occupancy or chapel access is inferred.",
+    "Initial wreaths read as upright loops, palm leaf faces were sparse/edge-on, soil was above the rim and native framing clipped the feet. Final geometry uses laid rings, balanced fronds, rolled leaf faces and recessed soil; final framing includes the feet.",
+    "The first refined east canopy intersected the retained decorative rear door in 66 triangle pairs. Its depth was turned clear while keeping the pot station, door and collision tolerances.",
+    "Original brass maps read as bark on the two pots; the local registered aged-brass finish resolves that mismatch without changing retained surfaces or shared maps.",
+    "Initial missing-numpy inspector failed before rendering. Corrected inspection passes strict native metric/support/context checks.",
+    "Early frames, logs and receipts are diagnostics only.",
+    "No whole-room/human acceptance or V2 completion; captures, wrapper receipts and inert reports promote no requirements."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/verification.json",
+      "source_sha256": "057e9b8a527c772d1d8ae8de8dd5e46b9666f88712c4fa14b002e823e42dbddf",
+      "sha256": "057e9b8a527c772d1d8ae8de8dd5e46b9666f88712c4fa14b002e823e42dbddf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/3c2b86a7-clean-board.json",
+      "source_sha256": "28c01cab536e4924520122fc5f1864b577efb7b05a8bc9cc7dca44ca72b26b1b",
+      "sha256": "28c01cab536e4924520122fc5f1864b577efb7b05a8bc9cc7dca44ca72b26b1b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/inspection.json",
+      "source_sha256": "1a4790535041328c733f57feb7f83cb1d082bb2d31c4da6a34599d7afa99b7a0",
+      "sha256": "1a4790535041328c733f57feb7f83cb1d082bb2d31c4da6a34599d7afa99b7a0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/funeral_foliage_construction.json",
+      "source_sha256": "b88830edc2c381f99996d47b6d922ffc0822a76739dd7a1632dbfb4f21c021f4",
+      "sha256": "b88830edc2c381f99996d47b6d922ffc0822a76739dd7a1632dbfb4f21c021f4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+      "sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/views.json",
+      "source_sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "8cc5c8cbace9f70ecb0bf91eb09f750f33a78a5534c83912b60729867788b76b",
+      "sha256": "8cc5c8cbace9f70ecb0bf91eb09f750f33a78a5534c83912b60729867788b76b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "8370e298f8668ad2b70b60e4bc1d0da45b7c8d1de776816bc3a6fb0b6e72f537",
+      "sha256": "8370e298f8668ad2b70b60e4bc1d0da45b7c8d1de776816bc3a6fb0b6e72f537",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/spatial_reviewed.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-spatial-reviewed.json",
+      "source_sha256": "1d6feafc4a2ef627de33eefb889c91cb5bc0397f9f99542ac0797e8b81a107e3",
+      "sha256": "1d6feafc4a2ef627de33eefb889c91cb5bc0397f9f99542ac0797e8b81a107e3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before_views.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/views.json",
+      "source_sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_fittings.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/fittings.json",
+      "source_sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+      "sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_views.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/views.json",
+      "source_sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/source_context_intersections.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-source-context-diagnostic.json",
+      "source_sha256": "c5edf1b0d3138def01aa3741e0f4146a489c799e1bba0bbf6f0eb52d73fad823",
+      "sha256": "c5edf1b0d3138def01aa3741e0f4146a489c799e1bba0bbf6f0eb52d73fad823",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/palm2_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm2_front.png",
+      "source_sha256": "25ef27c4d83e3d28bb65ea00a2863eeb4d413df9a799a75b6503b40bc34bfce9",
+      "sha256": "7f2f14f13707783fe39ed7189bef0bcf8cceadbcab8ce880a32d659fee910f88",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm2_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm2_open_pot.png",
+      "source_sha256": "8b177558c6d1591d685e44cc4571fcbd833a6578fe4c34cd6d58f7ca377ffe3a",
+      "sha256": "282851124b282dc432dfacac843327bd72d7ad1d68cebb8fa1f03d53d0399546",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm2_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm2_pinnae.png",
+      "source_sha256": "94ad763692b49a44ec39faec8a1e26c345a7b3bb63449a67f1a473c86f4bc1d0",
+      "sha256": "1ceaca1673c1574a7bcc48ae4474d8c83c6ccafdacdf89a6e4bb710b2f0a7587",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm2_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm2_rear.png",
+      "source_sha256": "e24e5ef357710f8d6ffd119372c064d635240143734e3ef3002248bba8e490ae",
+      "sha256": "6a84f207260acfea0e94be4af9fef2f92158944cd988ed17eef3dfafd5ad4fb3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm3_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm3_front.png",
+      "source_sha256": "c6879c6a226b72ef099ab4c63ef53d6b39e049cfd65b4e09942b0cf69b352da1",
+      "sha256": "3405b6ce927b45dd8a354b54f10a47aa37e49e58d61a19811ee66c59d12c6b1a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm3_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm3_open_pot.png",
+      "source_sha256": "15d2487f0ea38b66b55b456d4a66e854f4786056c85bfebb78aa803622becfa5",
+      "sha256": "986fda8e7235e6aa5ba8c50ff5f21c34e1652cdf6864735549f816b551f3da81",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm3_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm3_pinnae.png",
+      "source_sha256": "0c19cfadaeecd63fd3c8a55038a1201e66dde5ce20f1b3a44d3606d697e0530d",
+      "sha256": "38ca1db82b83e69ba64b34e21b5ac8fce8d1f249bd2a6f448ceaedc791215bc4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/palm3_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/palm3_rear.png",
+      "source_sha256": "0965474fe7a9fa317a71a97535f719e62dbc0a78c72683de40b2143bb07afdd2",
+      "sha256": "524f986c6cca175bdd2970d4e65c2dd5acfa2a4d2af74cf3e7dbcfe355173a8a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath0_front.png",
+      "source_sha256": "4b8099fbe90d74405dae3da494aae418640e1dd196de04cff9867bdd8ae38b84",
+      "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath0_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath0_leaf_ring.png",
+      "source_sha256": "9f9eaf4d05ca967aff431957c5e81ea5916ce9a036663f653d5d1c83f09ed3c2",
+      "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath0_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath0_stand.png",
+      "source_sha256": "b79b2df24e999ed693c892f4b19752a91c040de01f2ca203295916daaa097dcc",
+      "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath1_front.png",
+      "source_sha256": "953629ab8341cb689989be98e34c8618c0aa8ca0feda6167637e87bb688fec4d",
+      "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath1_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath1_leaf_ring.png",
+      "source_sha256": "6465d47795c6911d7fc4867260548d466dc83f230b8e5acad03f4b3e9b815e8e",
+      "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/wreath1_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-native/wreath1_stand.png",
+      "source_sha256": "b337bc3ff59c8b18162cc3e2452c3019ab0e0f0869cd6240ce18f934a8661ae0",
+      "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/curtain_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/curtain_opening.png",
+      "source_sha256": "1da81e6d694cdadf98899d346e250bdce131c8eb95cefe666af199f7d9c14275",
+      "sha256": "ff204936f81925d1715c1edd2e99064f9a966fb0d24ba68414960572eb74726f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/east_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/east_fronds.png",
+      "source_sha256": "3fed4dc855ff4cd3bff04bed9d8d3dc261ef9e9ae375f95a0824fc60996727d2",
+      "sha256": "889b7520f24f6674c6a5d4990ce38827dcf6c4fabff80d1abe674902374234ee",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/east_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/east_palm.png",
+      "source_sha256": "2e8724d21625ad518297e562503d9af7e0e7f5799eaa56f0accff70f1ce546a0",
+      "sha256": "a9ebd0c24cf00409970fe34b45c3186d493f1845d769200b89d9bc5cba69ee3f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/east_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/east_pot.png",
+      "source_sha256": "2a317c6ccac9502c7bf5b2b4702da8f376e85f9f4618926dacf25e52d0af9003",
+      "sha256": "08b1b87f6976ef3267b4461203ac20229c6b6b582de47b13ca4f45ef59178546",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/east_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/east_wreath.png",
+      "source_sha256": "4e426a99eae314c13cda2221245d3a08f7efdac05e1754f7efa8ba8e1ac4ceb3",
+      "sha256": "9e3d2176566801807c036a99cae39a133d49e96ee7b55680e458486a3cc33af1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/foliage_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/foliage_room.png",
+      "source_sha256": "c8b403a566a6ef5afa3c8a44db5cf859740fd49489653da83965900b57eb0895",
+      "sha256": "4a3b2641c8ca260cba535ab88ff766415e7dc52ec439725e092649bf352126b3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/west_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/west_fronds.png",
+      "source_sha256": "3f3b1e03e625f83cfc61acad1b2671ff6a9b22bfcf03dbf029e9649456c04a6f",
+      "sha256": "aa5f2e3ad912f94b07f0b4b0d84127f1d6681511b5330c99318e01316336373b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/west_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/west_palm.png",
+      "source_sha256": "debb082f59097f576f7120c409016649d5bf0571dd4dc04692a20c96018e11c8",
+      "sha256": "8989b27c5ae399660979c1e3927c6932043aa956acc4745402fd17d0e8b52560",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/west_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/west_pot.png",
+      "source_sha256": "6de6dbfa843b901e63132493dd89fead1c649f30bdb6a4e35d430d74ef89e00a",
+      "sha256": "79010b3fba90077016962cb06807d579ab8ac8a6d69fc02ec16d5cf3e70686fb",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/west_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/west_wreath.png",
+      "source_sha256": "56d20a7de1869c40056f16d29bb7d1cc9b4633828366b7ba30383a9059590425",
+      "sha256": "3c02a320c0c71e34d1d5ea36bbe8b9b3b4d956939a02a7223b00c70da0e1806b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/wreath_gallery.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed_shots/wreath_gallery.png",
+      "source_sha256": "af57bc97dc64ac7bb4c6665950f36140bf1c57ef7af20a313e7bc4290773532b",
+      "sha256": "d38745fef484f87e34cda766773d14e0a0250304bd08743647fa6fcd18546c23",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "diagnostics/before/curtain_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/curtain_opening.png",
+      "source_sha256": "d44021b600485987c19592179f29dc752cd1bb269b429a7d693b893800a2edcd",
+      "sha256": "348f0ab4dbd758585e32a08aa6710c41a22802f7ddc40d8c9d0ac90012c0b4ef",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/east_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/east_fronds.png",
+      "source_sha256": "04fe4a2b36e8e4f395330d7867296b8234923ef5d173fb9e084e6693eaeb1e50",
+      "sha256": "0ebec48abd6e2113ec094681f2467003c2c56e2d6d7649080cfd30f03c87fd6c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/east_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/east_palm.png",
+      "source_sha256": "5c0e17681cfa59081120a7576fea87700b4bd75b0e9cbe6b7576d00e062e1866",
+      "sha256": "da80893b0b01ac855d68fe347f6306bdfed737290d2b1f91576712b8db2bf287",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/east_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/east_pot.png",
+      "source_sha256": "b1bd94905e9df4ff7a6732b5d78a04c724cccd4fcf768d6ca2b5706667952875",
+      "sha256": "baa4ddb82fa853e471f529cf1878e1a45c75d88cb27a0aa539992986a1458a12",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/east_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/east_wreath.png",
+      "source_sha256": "95d6af355774f7fbbb002b746d7d0a1906745c0b3a04397c42e33e7e9e0ff8a7",
+      "sha256": "194287349021f9490d31c30f79597e9e90228a54888552885596ce32d0b64995",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/foliage_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/foliage_room.png",
+      "source_sha256": "7e911b9a94bf37b465c569ed57bb1d88ba14af5fab6d62f0cf029ee69d3ff1cd",
+      "sha256": "ae275736ffb19f44524ce6d9225d0d6dede83f6b94757c5c05d5ff693a0e6594",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/west_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/west_fronds.png",
+      "source_sha256": "6a605906559200af031ac348295e3532101277e9af1c86b033b0fccf33fd89fe",
+      "sha256": "4e8e770df1e978205fb710b122ac47eb30b06ca38598b123cef3b4362c999d03",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/west_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/west_palm.png",
+      "source_sha256": "abea1b40f04461d3f1309e9c8e4a8df11b6644a91b757586ad8789f4e31c2850",
+      "sha256": "917c44e44d4b901266b0ef0ed4a971073482aa83058acdea869ceaa1dc1e75ad",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/west_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/west_pot.png",
+      "source_sha256": "7003b20fe1292a878d7da19dc95bf9d9e1826fb70611c731e2c404a882b9296b",
+      "sha256": "fa9311ee1f539b25721f13fe750bc96bdbc30f2abe5008ea1fe2b3b9ecde359a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/west_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/west_wreath.png",
+      "source_sha256": "4b313258caa24e17f25cd0847a76cb11493a6ea6ae6735de85ca0592836c87f3",
+      "sha256": "3e684c258773d0765b682b50fdd60e6580115b8b02e7c44eaa4ef87c0a546bf6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/wreath_gallery.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-before-shots/wreath_gallery.png",
+      "source_sha256": "e48348e77b0f6b6320c306efccf4a18736e4a7686158c37f3a742ea6476d9634",
+      "sha256": "4f5ffee66e4c02fa50d3406ca034da122e094f54e7ca78629532fec3d33deb38",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm2_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm2_front.png",
+      "source_sha256": "ab71efeadc17b4150991a1d7b43848020a97fd4236353a865c5e269a2e1f9a54",
+      "sha256": "c9cfcccbe17c264ef3b6a4916c92e4db4834f40510147d4f7c5ccd8627572d22",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm2_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm2_open_pot.png",
+      "source_sha256": "fe3711c5ae1c1737e79185a37101dbd9a0b9fa43c90616454a899fd426791c7a",
+      "sha256": "ab1ddca6956668b3b5ad8039b75533baaf6acae24ee8063454d1c7c1406ede90",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm2_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm2_pinnae.png",
+      "source_sha256": "e4c4234be395074598458812f31ceb3c4c4b65fd6938dbc3e0db307192431842",
+      "sha256": "522d4e6e1b73c75b876706b21f6f65bd73a27ffeac66f3137758dee6ad065c9b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm2_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm2_rear.png",
+      "source_sha256": "a346bc4a797681ab2d1af96411cb3f1c1ab12043a374150a3c546f25ffcf5068",
+      "sha256": "b65ddf71d0d55b61149e5fb9472096bcf3d63183d1c4ef62f74f79c191095a14",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm3_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm3_front.png",
+      "source_sha256": "f87431c1ac03c0684b33ec2d2f49f3caa6c495118afd285e36e0a8575356a264",
+      "sha256": "2e437c92204c01051e80ad63c2481acee4cdd406d7a22505cd8057fef87e77c1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm3_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm3_open_pot.png",
+      "source_sha256": "6f43f9304bb11fb0fc99a0efb2416b56a94869458063b0918f8dee9acaf02b74",
+      "sha256": "7abda200d177025248b58b3146ea5fb76438f7e7b80a5a5ae7ea98a4fbfacaf8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm3_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm3_pinnae.png",
+      "source_sha256": "cecae3545901c2b6b4d1480dc0a39ba5f96d7ae2fe04a6d85b860765394ed422",
+      "sha256": "3e27bf309c3175318b5041c98ce97bfce0eb2aa927f4db9529137261075988b9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/palm3_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/palm3_rear.png",
+      "source_sha256": "82216a82585fd43a04a81b09b54cb4f401dfd417df4831a9b05be4532215f2cb",
+      "sha256": "bc457963059756784dbe5b9aa2cd155d791cbdca7499c863a85e174c6ab33176",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath0_front.png",
+      "source_sha256": "8b614c8802e8e125bc134166169f364f4678b27b7b7672a07731ff26d6865d08",
+      "sha256": "801abfc4d563eb893512cc2994ad3d74d8241b4eea32d9c1c6ff0ccc6df5fc0b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath0_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath0_leaf_ring.png",
+      "source_sha256": "dcbea7ae7aabfab7828bb81a6a4cb31f03b5fe86a8255c9fca95f49001e71cf4",
+      "sha256": "c43c82b229e301147b954eb09e17793dce06305b3672fe9c2852340678740965",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath0_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath0_stand.png",
+      "source_sha256": "edbe31a22e1772bec4018f3cf01e52e05260a5721bdcd1fd8b23f7920d18f07b",
+      "sha256": "844c1e967d6624df347c8c521b2659a4af21514ab36ff75761b73fa976273b39",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath1_front.png",
+      "source_sha256": "c57450706e497a2138e0db0752d22bbaabfcbe65391a5070404fa07a40e72698",
+      "sha256": "0a0773ff2b9bf90dffecb1db2584facdabb304b0e4220357edda8f5e391f29fb",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath1_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath1_leaf_ring.png",
+      "source_sha256": "e652317a997e7c959dce90a23e1ea2cac5cbc3045d7dacb2fd96085870e9fa54",
+      "sha256": "a2eebb9f607b4dede6e600bf6191e462fbcdeb996b3ddb321b68da2bdab9ee25",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/wreath1_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/wreath1_stand.png",
+      "source_sha256": "9b2c4edde25cc63470c99b8b6e54b3eb60087c314c38066940bc0587d6fe4bd6",
+      "sha256": "06448223ddf654be2c69f14e53ce9a7b9c4d196539d330766bef300f6f5027de",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_native/inspection.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-native/inspection.json",
+      "source_sha256": "e7687c36d23c4fbe30a522f2e74dcf128f9e25c88424ea89246fee3121593e96",
+      "sha256": "e7687c36d23c4fbe30a522f2e74dcf128f9e25c88424ea89246fee3121593e96",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm2_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm2_front.png",
+      "source_sha256": "e72ae28145f68fd24093c8994787cb029143051f761e01c9090ee5227e9d340d",
+      "sha256": "b9b0a5fd5fda0592a76a867d7bb083abe8a7f603e6ab1ca399029e976e27d648",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm2_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm2_open_pot.png",
+      "source_sha256": "66e38a50b4f667623d82a2cedec066da65e7235ba602223b5cbefe04835cc5d8",
+      "sha256": "ccb7f24b833ee8b72d9b5341cf8335ac4689b97c130166d9817c88fe539f1f3a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm2_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm2_pinnae.png",
+      "source_sha256": "ccbebafd364906c0aea3295005edf6732c1c6a56c4952a5d42e9d6598faa1759",
+      "sha256": "3c613276eaca82cbc18ef8006f28a588bb00af2cd04b16852540a75fd2c17869",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm2_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm2_rear.png",
+      "source_sha256": "78dc13e2bed44d65413c996cd9505f169694fd4470e653bb8c31656995891ce2",
+      "sha256": "793af8c96806e462a2f56fd1746ccd153f9cf2876304e075cd364ec56cf0d102",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm3_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm3_front.png",
+      "source_sha256": "d38c40b2378e746a19c40644d3e8ce8281b8c361713dd9bdb9ace44320f9756a",
+      "sha256": "f10b26842a712e3974010627be1a63bccd2300ba6de071ad0c286f964dddee60",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm3_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm3_open_pot.png",
+      "source_sha256": "937943fc4af382778d118c6a309904acd94539452231ace08edf32ca22831797",
+      "sha256": "2471aa2adf8a026292869d6833023454b3cf4ff14b0e108a61a4cb0434dae211",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm3_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm3_pinnae.png",
+      "source_sha256": "efb4ea6c0c7efc2cf6e1e58e801848d08737891c0897f113ed58949deaaba07f",
+      "sha256": "b0796af9207d78847b3a97533f825c83cd2151207a1681c4f9e74e0bbdd3e8f1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/palm3_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/palm3_rear.png",
+      "source_sha256": "6772c1cc61937a19fbc4401aeb04f937e5c9205b455a73eab07293538d84a565",
+      "sha256": "63244eba6d9e8a6973db815b344472925d17b792aa1a898680536966a8c052d8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath0_front.png",
+      "source_sha256": "a32ac58c8431d91f411e62bf9e0c024e5ebb8fafa750f4d6359f89fc6d302eec",
+      "sha256": "c77b326d3fa921c952b4989d3311bbd38c21c6763de0344b9b5cb6489607ce79",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath0_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath0_leaf_ring.png",
+      "source_sha256": "387acbe49e2184f6e4391e56ff81ac40e5f7a69e08eccfa215b9886144f83169",
+      "sha256": "788a19c3712825f74fb56f00bf7862ad14bb1db9cb6c6e70e510feeb3bc896c8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath0_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath0_stand.png",
+      "source_sha256": "4da2b9e49888269dc1415c5add7b08c20e42f2f71d848509ef2b79d1fc5a3a7a",
+      "sha256": "f4db7534b2417c21d099091e921c8aa5bb4dd5631bce73db278cbb508a9a66a0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath1_front.png",
+      "source_sha256": "dafc3eaf15d702eda0a798c6b1cc87f973f16b1154d2569ec788342ff01ebd63",
+      "sha256": "c79e4cf4c364b8e245f2f386c4f0c088ad28e3d37754e9440e74c97e26c5ad12",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath1_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath1_leaf_ring.png",
+      "source_sha256": "b15a32edcaca3dbe5d4b1a91d42909be371512ff6bd003bef52f7a6a7946cc81",
+      "sha256": "dff9a322c8c85f5f9982a84607e74175988d5d6d0156a2679153160b90353a33",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/wreath1_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/wreath1_stand.png",
+      "source_sha256": "8b44c7099bdc5373f50f8a8d6948af8d303f6d90247df129f5018fc2155d0cf5",
+      "sha256": "d275ea4e9f9bf5cf830364313e136b7333ace17e882bd3e2cde6dc969732c8cc",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/door_clear_native/inspection.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native/inspection.json",
+      "source_sha256": "996b0d161df2d1e17d9928e2133da63fafead0449e834efae81b215f122f2ee8",
+      "sha256": "996b0d161df2d1e17d9928e2133da63fafead0449e834efae81b215f122f2ee8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/rolled_native/palm2_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm2_front.png",
+      "source_sha256": "2398fe9d2d3cb45df36f84b6461a82e06580fc88ae9e4c516ae2d6d47cfe1657",
+      "sha256": "9f65448f2cb5599139fcc8da5ba271c044e996b0b76ec3197ab52dbb5c5d997e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm2_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm2_open_pot.png",
+      "source_sha256": "3522ad165885662552b81838a166d3e83bf2011e05b8238b099b124555780aa0",
+      "sha256": "1ea79e00a17835c80dced6cedd57c903b289b1ea3eba680e1bdca93d4676ae16",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm2_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm2_pinnae.png",
+      "source_sha256": "46146168b951f0442abeb018b145f59216a34b57951e543829d69ddbfc3154de",
+      "sha256": "23c85940f9518344d87121b2d32af33d91b5d4e6cfea0f582325500f8b3041d6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm2_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm2_rear.png",
+      "source_sha256": "c1c2858cd8928088fb6254df6ec1d1020713e040b3516b5a1ea10fda1c3d44f3",
+      "sha256": "75cbc44bd9762c7eb03218a1fba0ae368f3d45ce65da6f6bc2aa9498e293b913",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm3_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm3_front.png",
+      "source_sha256": "b5d67bc24bbebc23f9400da7581fd781999ddfee78653e77cdf355149afd47b3",
+      "sha256": "ebf386469f2f659f2330729025b226cff8449f4db51a99b975c7aa3270f3cf4c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm3_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm3_open_pot.png",
+      "source_sha256": "ab7b731519776eafea73d3edad99d254962bd9e7c96a4d9711cb83dc946f2a8c",
+      "sha256": "0e84159c422e9fcf55a076efb24366eaa1705e6be3bf82a7e9966c19e0331430",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm3_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm3_pinnae.png",
+      "source_sha256": "431965159e4c2b5f532b03ff0422b62a52341434f2d4cf40bf70e010f1ecb862",
+      "sha256": "fe55ffc26811227ac0bb2ff2ec5753b35c094b93414b55c8c8cfa31fb926eefa",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/palm3_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/palm3_rear.png",
+      "source_sha256": "1680304c629539ffcea90dffe441298291c19b39af8ac326b3b4462d790650a3",
+      "sha256": "02d158f023645949cbbea62d695a1cdc176e7c98df7ce308ca0bb36e51405e0f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath0_front.png",
+      "source_sha256": "1aced629190145fc915d6c6adcc5180724c036e8b30bedbe14e97fe86f63d8db",
+      "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath0_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath0_leaf_ring.png",
+      "source_sha256": "b2272acfec682206a544cd030d5333415a6cdc5a1304a770db3f65a1757cd9b5",
+      "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath0_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath0_stand.png",
+      "source_sha256": "537124ac69eff80a5a14643a0a1b5315e430cf12ecc6306ee552a44f96b47157",
+      "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath1_front.png",
+      "source_sha256": "8301f86b9892448cad8e5739e3d5058a26f014c667fb3ec7e4b7844ee34da314",
+      "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath1_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath1_leaf_ring.png",
+      "source_sha256": "bc27f6a04dfc2e0ea283cb63bc1b7b9ab30dff74c760a86a461a791525001a99",
+      "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/wreath1_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/wreath1_stand.png",
+      "source_sha256": "8cd8051076b84625b1d728e5716ea07dacf0535aeac43405113cb070293e0e36",
+      "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/rolled_native/inspection.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native/inspection.json",
+      "source_sha256": "42916488ad7063577f7987c64d0590eab4117c645fbbf9e87fc9fe11effdcd39",
+      "sha256": "42916488ad7063577f7987c64d0590eab4117c645fbbf9e87fc9fe11effdcd39",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm2_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm2_front.png",
+      "source_sha256": "87beb3c62b0790a7908f6ac5ac567b1d3c60b4efaa4b7654294895b469aa597e",
+      "sha256": "7f2f14f13707783fe39ed7189bef0bcf8cceadbcab8ce880a32d659fee910f88",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm2_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm2_open_pot.png",
+      "source_sha256": "23081ba23cf9f07e26a663ba7a2efb0a642d6143282b35c0edb4fea0e3c7b2a5",
+      "sha256": "282851124b282dc432dfacac843327bd72d7ad1d68cebb8fa1f03d53d0399546",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm2_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm2_pinnae.png",
+      "source_sha256": "69547711e4a0a03d92037fd08733b8d7ddffcc43878942db2c637f7ea9748c64",
+      "sha256": "b44b314c2eb46fdbfb180a4293fb615e1bd0c7d769d00b8f0b34e31097f99e33",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm2_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm2_rear.png",
+      "source_sha256": "b049f110ee6715a360ff2f35cd55d47acd7e580330184e000adebfaaa6f24616",
+      "sha256": "6a84f207260acfea0e94be4af9fef2f92158944cd988ed17eef3dfafd5ad4fb3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm3_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm3_front.png",
+      "source_sha256": "bbe4c7197956f051555e70e35d5df3e757e3f147f853c94c8ea76a1a291309e7",
+      "sha256": "3405b6ce927b45dd8a354b54f10a47aa37e49e58d61a19811ee66c59d12c6b1a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm3_open_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm3_open_pot.png",
+      "source_sha256": "956248090783e9a27b62c13beb6a58d9b5bc10b7e8437032c98f83267f7859c5",
+      "sha256": "986fda8e7235e6aa5ba8c50ff5f21c34e1652cdf6864735549f816b551f3da81",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm3_pinnae.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm3_pinnae.png",
+      "source_sha256": "5cf30cf69e580f1041b39d360546525fc3ce2eb9c1f0e7fc2daed077736d3a60",
+      "sha256": "2732eb723383a76ae625b7ac3b3baff663a399e7db59a84fb048a2c145afe353",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/palm3_rear.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/palm3_rear.png",
+      "source_sha256": "050bd198a8ed14f2d95270018234162a9fe811f595f27e8660f3b270ed61eb59",
+      "sha256": "524f986c6cca175bdd2970d4e65c2dd5acfa2a4d2af74cf3e7dbcfe355173a8a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath0_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath0_front.png",
+      "source_sha256": "579ebbd921c440c6c3707f558789b1f623e1e821d39b5bdc324ecb787ce390cd",
+      "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath0_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath0_leaf_ring.png",
+      "source_sha256": "0274aee1a65283591c7b7bef4b338d9f0e561a4f1882c9f7c9362f1ac5b600ab",
+      "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath0_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath0_stand.png",
+      "source_sha256": "d667fdc81d830a7a836f6babe3965258cca9f287bf74e8d76d710f88f6557c0c",
+      "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath1_front.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath1_front.png",
+      "source_sha256": "b0bb9e01203c3b4e785e475e8ba0982ceec8ed0c5cc108d57d97c935861aea73",
+      "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath1_leaf_ring.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath1_leaf_ring.png",
+      "source_sha256": "c951493eeb15f40be6f32d1a1ddc3027a6132fceaed36c21f15f3509e7e7ea23",
+      "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/wreath1_stand.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/wreath1_stand.png",
+      "source_sha256": "4a74ee63df671112b141d9a418b4e003d8c1419e85a6da5603270651ad91847c",
+      "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/finished_stage_native/inspection.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-stage-native/inspection.json",
+      "source_sha256": "87488d2f3cf3b0c67ad1347c6f6c7a949a9d96585e3229fab8bfea822c643e82",
+      "sha256": "87488d2f3cf3b0c67ad1347c6f6c7a949a9d96585e3229fab8bfea822c643e82",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first_production/curtain_opening.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/curtain_opening.png",
+      "source_sha256": "f3830b8cec4a565431710c6f8945d67f7208c322b918f829bedaf0de0b860b8b",
+      "sha256": "b0083426a567498dc3c56b8a6c75112d5c096d78866d9e6e513042fb50a212cf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/east_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/east_fronds.png",
+      "source_sha256": "3932381dfaa0e2db1a82e0f38cd53bb46210be84df39f52e04e70a0a922bcd20",
+      "sha256": "f4c700f069ac4f927554674f0a706e91854ec9b6a9d3a73c8e630468092b4d84",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/east_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/east_palm.png",
+      "source_sha256": "07b8f1fc8232a527d96298e3002b2bb142b41a4c93c7b9291b77186db5427534",
+      "sha256": "26971f67caa4a278a44bb3b4474d402544bd62fc90847955976f9d261b96f89f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/east_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/east_pot.png",
+      "source_sha256": "be96d1be00f36b4f9e11344f58dc6679dffcfda1f22e04f1276fdb9c21e04a74",
+      "sha256": "1ff0fa00d76e2e8d078330929ae17eb7ee74ac1b907919294864fab2c076cc11",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/east_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/east_wreath.png",
+      "source_sha256": "dfac0b7ba9a8d25dca911be07fce76627310c6cf91c9baa0236cebf8007b209a",
+      "sha256": "b0e0c828b584d8c34f917d8c2a837337995b6c959c53ec2ebaeffab2f7822b13",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/foliage_room.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/foliage_room.png",
+      "source_sha256": "d0045edc2229548825127798d1d86158763b15e26d89b45d7e55a0a09d877437",
+      "sha256": "ab4021cc31e92722a95389235d306a7644e3343dac1f00b099266dba34e97bdc",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/west_fronds.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/west_fronds.png",
+      "source_sha256": "cebfca4d03747d64f5278e0d38050166cacaa7bfb7bd1e91c4521b107bd6ec09",
+      "sha256": "baf02f3cae262a063a6e35ccc755fa318f7d54cf8c72508886d2d0847195e3df",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/west_palm.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/west_palm.png",
+      "source_sha256": "cee825febf783e492e005d4f57cc67a9d5892b952ed688485f1a99e290d6932a",
+      "sha256": "3f5431f086bb56ed7ac4f4333c28568618a46e38f391a2ce1ec6989a0676d588",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/west_pot.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/west_pot.png",
+      "source_sha256": "3b9b0908c2154147f3083181dbabfdf4fee1f2d5c82e19e99d630313edfdcf3f",
+      "sha256": "123fba633b1e12b0dce657188d840406e8740e26e0163670eb17d645cf2dc77d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/west_wreath.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/west_wreath.png",
+      "source_sha256": "460bf908c5d62b630d564f7284cf6a7f9a71b06d5849312215de9bf5f08a0ec7",
+      "sha256": "ffe9100ee39c24950a05ebb4264cac9936b0229f7668220a87f009efd0e176e9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first_production/wreath_gallery.jpg",
+      "source": "tmp/v2-finish-review/funeral-foliage-first-shots/wreath_gallery.png",
+      "source_sha256": "354cdcb2672b4cd99e2614bc5acdfd97d8e71d0d1ea9aa558e7a5ea0c0cb2476",
+      "sha256": "3bf1dc0f5a59eb2526bbefdba346fdfda789109a1aa4780f9941dbc4ef2e612d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/funeral-foliage-before.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-before.log",
+      "source_sha256": "095d80f7f6cecdbfe139c4b97b3c283f51d9ff3a7ae588fa112a28b7dff677d3",
+      "sha256": "095d80f7f6cecdbfe139c4b97b3c283f51d9ff3a7ae588fa112a28b7dff677d3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-before.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-before.log.receipt.json",
+      "source_sha256": "4088a65e6c05cbefb1aead3de7727487aeba32508f044d2cf173b462aec1c125",
+      "sha256": "4088a65e6c05cbefb1aead3de7727487aeba32508f044d2cf173b462aec1c125",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-bound-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-bound-build.log",
+      "source_sha256": "f0fa4ce0085e67b78997538e24398a41d75832c4124bcbbd2d6c770aa80cc513",
+      "sha256": "f0fa4ce0085e67b78997538e24398a41d75832c4124bcbbd2d6c770aa80cc513",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-canonical-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-canonical-build.log",
+      "source_sha256": "183d6603c1e7df038fa85b56c933907f33b0384db289ad6ef546834fc19d1f1c",
+      "sha256": "183d6603c1e7df038fa85b56c933907f33b0384db289ad6ef546834fc19d1f1c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-canonical-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-canonical-native.log",
+      "source_sha256": "0711a9ddd1a2e0219abb8114f73d1ef52271492df31bc8819e48dabc93f3b565",
+      "sha256": "0711a9ddd1a2e0219abb8114f73d1ef52271492df31bc8819e48dabc93f3b565",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-context-diagnostic.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-context-diagnostic.log",
+      "source_sha256": "423daa82c6257fb538df67462661e2ac761a52dda32c2327a2fd87e3904d865a",
+      "sha256": "423daa82c6257fb538df67462661e2ac761a52dda32c2327a2fd87e3904d865a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-door-clear-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-build.log",
+      "source_sha256": "365c575a526b09cee07b922cb86c8b3284cfb9ef48a12c74be34ad2fcae9c0c4",
+      "sha256": "365c575a526b09cee07b922cb86c8b3284cfb9ef48a12c74be34ad2fcae9c0c4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-door-clear-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-door-clear-native.log",
+      "source_sha256": "d13f7c7e781b6d0bffbb615bdbf520063c0c8e947bcab704f2bce84b99825f42",
+      "sha256": "d13f7c7e781b6d0bffbb615bdbf520063c0c8e947bcab704f2bce84b99825f42",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-final-verify.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verify.log",
+      "source_sha256": "58939ebbda55abde193dc54a78c4ef747ab938d8f61dbdeaafff87b0a0213208",
+      "sha256": "58939ebbda55abde193dc54a78c4ef747ab938d8f61dbdeaafff87b0a0213208",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-finished-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-build.log",
+      "source_sha256": "a24fe22f5b7a8ef667f2747b06ac23a101532b029662f5a3487739e437302b82",
+      "sha256": "a24fe22f5b7a8ef667f2747b06ac23a101532b029662f5a3487739e437302b82",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-finished-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-finished-native.log",
+      "source_sha256": "48a161278fab8c07fc519a679b6db0eeea7470b31797e86b232ac1ad30f4c23a",
+      "sha256": "48a161278fab8c07fc519a679b6db0eeea7470b31797e86b232ac1ad30f4c23a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-first.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-first.log",
+      "source_sha256": "c080d3d1fe09e0da54d220a2ad33f25fe4406f6bd26d203c689ed9d32170fa6e",
+      "sha256": "c080d3d1fe09e0da54d220a2ad33f25fe4406f6bd26d203c689ed9d32170fa6e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-first.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-first.log.receipt.json",
+      "source_sha256": "6870721192e25742520d89efa3bb53c7b426fa209891614c98edb59ae107abdb",
+      "sha256": "6870721192e25742520d89efa3bb53c7b426fa209891614c98edb59ae107abdb",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-import-1.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-import-1.log",
+      "source_sha256": "70bac7c625c9922363483cdca18b5248825ba54d89e42cafcbb568609784e057",
+      "sha256": "70bac7c625c9922363483cdca18b5248825ba54d89e42cafcbb568609784e057",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-import-1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-import-1.log.receipt.json",
+      "source_sha256": "4d0fff5f59cdb7ff489c898ab129993b4da8cd6cdf1d4286841e8d7d8a2a3060",
+      "sha256": "4d0fff5f59cdb7ff489c898ab129993b4da8cd6cdf1d4286841e8d7d8a2a3060",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-import-1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-foliage-import-1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-import-2.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-import-2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-import-2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-import-2.log.receipt.json",
+      "source_sha256": "a659f4ad51b210838ce6cf24b864f2a10106b1f151e9a108186e42bacc47f11d",
+      "sha256": "a659f4ad51b210838ce6cf24b864f2a10106b1f151e9a108186e42bacc47f11d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-preboard.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-preboard.log",
+      "source_sha256": "2dbc6fe7a9030166147800d6886837858d9198834fd9b520fac83dc54dcb5a43",
+      "sha256": "2dbc6fe7a9030166147800d6886837858d9198834fd9b520fac83dc54dcb5a43",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-reader.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-refined-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-refined-build.log",
+      "source_sha256": "3529a8de1b391d1634d248d1f26caefccc4f3c399616308b3f071cf695eb4303",
+      "sha256": "3529a8de1b391d1634d248d1f26caefccc4f3c399616308b3f071cf695eb4303",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-refined-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-refined-native.log",
+      "source_sha256": "2944d7ac3c37fbc56a5a87861dc1ea0c825d11b0abca22ca37f1f4dff25b9945",
+      "sha256": "2944d7ac3c37fbc56a5a87861dc1ea0c825d11b0abca22ca37f1f4dff25b9945",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-rolled-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-build.log",
+      "source_sha256": "1a672b210aba5b4598f1a4699a592a22c92e19ca835ca303b52a45591b5a25d1",
+      "sha256": "1a672b210aba5b4598f1a4699a592a22c92e19ca835ca303b52a45591b5a25d1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-rolled-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-rolled-native.log",
+      "source_sha256": "e35a00118329e3600ff3f6d3b8b37f24070fbe87b018f9a84f9ee536582aad83",
+      "sha256": "e35a00118329e3600ff3f6d3b8b37f24070fbe87b018f9a84f9ee536582aad83",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-second-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-second-native.log",
+      "source_sha256": "ed53e7736ebfd7e44e91147b5e6a504aaced69f9ed51311d80e5352ec16b886f",
+      "sha256": "ed53e7736ebfd7e44e91147b5e6a504aaced69f9ed51311d80e5352ec16b886f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-stage-build.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-stage-build.log",
+      "source_sha256": "011a0f855367a0a9370f225c1144de534c795fac2de0205a27ff427672d9c422",
+      "sha256": "011a0f855367a0a9370f225c1144de534c795fac2de0205a27ff427672d9c422",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/funeral-foliage-stage-native.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-stage-native.log",
+      "source_sha256": "714deaf028d39a94d2f20332a8e15c730be03ae36994cf710440975e7f34cec5",
+      "sha256": "714deaf028d39a94d2f20332a8e15c730be03ae36994cf710440975e7f34cec5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "3d5bdd3934e60e4372ab689deaf7d17fbea619330d9415667770da4ceb0cbbed",
+      "sha256": "3d5bdd3934e60e4372ab689deaf7d17fbea619330d9415667770da4ceb0cbbed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "3d1e25da7c30168fc6674ad11a3a83a517741aea08b9054d3a60c581e23e4c9a",
+      "sha256": "3d1e25da7c30168fc6674ad11a3a83a517741aea08b9054d3a60c581e23e4c9a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFoliageTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed.log",
+      "source_sha256": "826f3343379e8433af4e915b212d3a0e310af5d1bd5cfcf900242b8e37d5eecf",
+      "sha256": "826f3343379e8433af4e915b212d3a0e310af5d1bd5cfcf900242b8e37d5eecf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFoliageTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFoliageTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bcabf1d3e987e41e5331292d163cbf773abd8fc143f98402fd46c3f76cabd4e2",
+      "sha256": "bcabf1d3e987e41e5331292d163cbf773abd8fc143f98402fd46c3f76cabd4e2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+      "source_sha256": "0f76236f6c4b930e956a8dea7f30e9b8f4706d7b7b1dc2c4f0ebe6d5691c7f90",
+      "sha256": "0f76236f6c4b930e956a8dea7f30e9b8f4706d7b7b1dc2c4f0ebe6d5691c7f90",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "846e8b34753b9d6c096c620196bd24e432c2a6f44c6b46fa62272a2705178007",
+      "sha256": "846e8b34753b9d6c096c620196bd24e432c2a6f44c6b46fa62272a2705178007",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+      "source_sha256": "f521874400bca22769b6868b291a3f96da9215e97aed94c9ac57fb4514290c09",
+      "sha256": "f521874400bca22769b6868b291a3f96da9215e97aed94c9ac57fb4514290c09",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "ada8a356a4972304c1f044a7dd1039e7beddc656a7a0ac7380284b5b0780fa39",
+      "sha256": "ada8a356a4972304c1f044a7dd1039e7beddc656a7a0ac7380284b5b0780fa39",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source_sha256": "bac7c56373f468898405f880990f5e6d42b52745b9fed713ac188b61c2e22562",
+      "sha256": "bac7c56373f468898405f880990f5e6d42b52745b9fed713ac188b61c2e22562",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "6cd7b918f01df1f2d4789cf3a73018276c24cf9d6c15ee6efd41ba4577dc22ea",
+      "sha256": "6cd7b918f01df1f2d4789cf3a73018276c24cf9d6c15ee6efd41ba4577dc22ea",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "0e3d88eb5774007efe9dc2a1c3c04274878aed3182f2e9db3025e8433581ebed",
+      "sha256": "0e3d88eb5774007efe9dc2a1c3c04274878aed3182f2e9db3025e8433581ebed",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "4aa3b29082fcccfc12460090c390bc047b4f466a51293175ab5817e06588501d",
+      "sha256": "4aa3b29082fcccfc12460090c390bc047b4f466a51293175ab5817e06588501d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "a886f3172da486d5a9c9ba43b481b56c337f2fb6be26bee934df824d21a5a71e",
+      "sha256": "a886f3172da486d5a9c9ba43b481b56c337f2fb6be26bee934df824d21a5a71e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9c48528116b2976e52adc00f60719052513d0b3938d7d0617876a2f2ac221b64",
+      "sha256": "9c48528116b2976e52adc00f60719052513d0b3938d7d0617876a2f2ac221b64",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "169c4ed5f6d312876e2b128e439a78d59e36da8806d9c66318a33ad76e31fd1d",
+      "sha256": "169c4ed5f6d312876e2b128e439a78d59e36da8806d9c66318a33ad76e31fd1d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "64b898796d510285a9013f9ac2ecb55256038079d08d70aeed8a4a399366e884",
+      "sha256": "64b898796d510285a9013f9ac2ecb55256038079d08d70aeed8a4a399366e884",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "d58fab1639f99847d42618f59676e59fd131889d063b7aa624525ca3d569ff22",
+      "sha256": "d58fab1639f99847d42618f59676e59fd131889d063b7aa624525ca3d569ff22",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "63e64e0647a0711bae4908899e15e15138c42d178575ccd313e2187a9d4f2dce",
+      "sha256": "63e64e0647a0711bae4908899e15e15138c42d178575ccd313e2187a9d4f2dce",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/funeral-foliage-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "25ad401459ee114690e9447f1ee1a37bb547cb4a3fb31de6706577152403943a",
+      "sha256": "25ad401459ee114690e9447f1ee1a37bb547cb4a3fb31de6706577152403943a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "ledger_refresh.log",
+      "source": "tmp/v2-finish-review/funeral-foliage-ledger-refresh.log",
+      "source_sha256": "16c01b8a99e56d3fcfb319bf12168a9603b59d0ae32bdf37857bee21adffac29",
+      "sha256": "16c01b8a99e56d3fcfb319bf12168a9603b59d0ae32bdf37857bee21adffac29",
+      "copy": "byte-identical"
+    }
+  ]
+}
