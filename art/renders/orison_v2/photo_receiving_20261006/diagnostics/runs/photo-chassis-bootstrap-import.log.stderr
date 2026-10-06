@@ -1,0 +1,22 @@
+ERROR: Could not create editor data directory: C:/Users/nate_/AppData/Roaming/Godot
+   at: EditorPaths (editor/file_system/editor_paths.cpp:201)
+ERROR: Could not create editor config directory: C:/Users/nate_/AppData/Roaming/Godot
+   at: EditorPaths (editor/file_system/editor_paths.cpp:216)
+ERROR: Could not create editor cache directory: C:/Users/nate_/AppData/Local/Godot
+   at: EditorPaths (editor/file_system/editor_paths.cpp:237)
+ERROR: Cannot open file 'C:/Users/nate_/AppData/Local/Godot/editor_doc_cache-4.7.res'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+ERROR: Failed loading resource: C:/Users/nate_/AppData/Local/Godot/editor_doc_cache-4.7.res.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Cannot open directory 'C:/Users/nate_/AppData/Roaming/Godot/feature_profiles'.
+   at: _update_profile_list (editor/settings/editor_feature_profile.cpp:392)
+ERROR: Cannot create file 'C:/Users/nate_/AppData/Local/Godot/editor_doc_cache-4.7.res'.
+   at: save (core/io/resource_format_binary.cpp:2117)
+ERROR: Cannot save editor help cache (C:/Users/nate_/AppData/Local/Godot/editor_doc_cache-4.7.res).
+   at: _gen_doc_thread (editor/doc/editor_help.cpp:3071)
+ERROR: Can't save resource to empty path. Provide non-empty path or a Resource with non-empty resource_path.
+   at: save (core/io/resource_saver.cpp:108)
+ERROR: Error saving editor settings to 
+   at: save (editor/settings/editor_settings.cpp:1525)

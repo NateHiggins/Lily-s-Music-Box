@@ -28,9 +28,3 @@ Actual game renders, ownership/input, reconstruction and zero owned teardown
 remain separate checks. This guide grants no ledger or human promotion.
 Four other receiving chassis, frontal access, light/darkroom, services and
 broader V2 acceptance remain open.
-
-Committed source **7a7427d9** passes the complete **48-gate/tools-test**
-comparison and **eight** bound Godot runs. All **10** native and **61** final
-production frames were directly reviewed. Retained evidence and the separate
-complete key authority: **art/renders/orison_v2/photo_receiving_20261006**.
-Report: **design/V2_PHOTO_RECEIVING_2026-10-06.md**.

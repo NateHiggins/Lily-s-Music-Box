@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/photo_receiving.glb",
+  "tolerance": 2e-05,
+  "source_record": {
+    "id": "storm_shopcab_photo_supplies0",
+    "asm": "arcade_cab",
+    "at": [
+      21.45,
+      -59.349999999999994
+    ],
+    "yaw": 360.0,
+    "exterior": true,
+    "variant": 2,
+    "batch": "shop_photo_supplies",
+    "zone": "PASSAGE"
+  },
+  "original_draws": [
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite",
+      "key": "bakelite",
+      "expected_triangles": 128,
+      "low": [
+        21.155000686645508,
+        0,
+        59.025001525878906
+      ],
+      "high": [
+        21.7450008392334,
+        0.029999999329447746,
+        59.67499923706055
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black",
+      "key": "bakelite_black",
+      "expected_triangles": 128,
+      "low": [
+        21.139999389648438,
+        0.30000001192092896,
+        59.11000061035156
+      ],
+      "high": [
+        21.78499984741211,
+        1.4199999570846558,
+        59.84000015258789
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass",
+      "key": "brass",
+      "expected_triangles": 12,
+      "low": [
+        21.360000610351562,
+        0.3799999952316284,
+        59.709999084472656
+      ],
+      "high": [
+        21.540000915527344,
+        0.550000011920929,
+        59.72200012207031
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_chrome",
+      "key": "chrome",
+      "expected_triangles": 12,
+      "low": [
+        21.1200008392334,
+        0.019999999552965164,
+        58.9900016784668
+      ],
+      "high": [
+        21.780000686645508,
+        1.7200000286102295,
+        59.709999084472656
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel",
+      "key": "enamel",
+      "expected_triangles": 64,
+      "low": [
+        21.384000778198242,
+        0.9700000286102295,
+        59.75899887084961
+      ],
+      "high": [
+        21.535999298095703,
+        0.9850000143051147,
+        59.79100036621094
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_milk_glass",
+      "key": "milk_glass",
+      "expected_triangles": 12,
+      "low": [
+        21.139999389648438,
+        1.559999942779541,
+        59.65999984741211
+      ],
+      "high": [
+        21.760000228881836,
+        1.7000000476837158,
+        59.7400016784668
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_screen",
+      "key": "screen",
+      "expected_triangles": 12,
+      "low": [
+        21.18000030517578,
+        1.0199999809265137,
+        59.70500183105469
+      ],
+      "high": [
+        21.719999313354492,
+        1.3799999952316284,
+        59.71500015258789
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_terracotta",
+      "key": "terracotta",
+      "expected_triangles": 32,
+      "low": [
+        21.263999938964844,
+        0.9700000286102295,
+        59.75899887084961
+      ],
+      "high": [
+        21.29599952697754,
+        0.9850000143051147,
+        59.79100036621094
+      ]
+    }
+  ],
+  "hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull",
+  "raw_hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly",
+  "hull_triangles": 12,
+  "hull_low": [
+    21.059999465942383,
+    0,
+    58.9900016784668
+  ],
+  "hull_high": [
+    21.84000015258789,
+    1.7200000286102295,
+    59.849998474121094
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite__service_panel",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite_black",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__bakelite_black__schematic_traces",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__brass_dull",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 3204
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__brass_dull__service_latch",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__copper_aged",
+      "key": "copper_aged",
+      "catalog_key": "copper_aged",
+      "tile": 0.4,
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__enamel_appliance",
+      "key": "enamel_appliance",
+      "catalog_key": "enamel_appliance",
+      "tile": 0.72,
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__fabric_warm",
+      "key": "fabric_warm",
+      "catalog_key": "fabric_warm",
+      "tile": 0.7,
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__milk_glass",
+      "key": "milk_glass",
+      "catalog_key": "milk_glass",
+      "tile": 0.5,
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_photo_supplies0__paper",
+      "key": "paper",
+      "catalog_key": "paper",
+      "tile": 0.5,
+      "triangles": 188
+    }
+  ]
+}

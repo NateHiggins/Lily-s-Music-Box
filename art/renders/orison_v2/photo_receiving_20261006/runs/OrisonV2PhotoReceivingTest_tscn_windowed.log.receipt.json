@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 64.93,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T22:32:53Z",
+  "started_utc": "2026-10-06T22:31:48Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PASSAGE RECEIVING CONTRACT: PASS checks=792 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-chassis-final-verified/godot/OrisonV2PhotoReceivingTest_tscn_windowed.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-chassis-final-verified/godot/OrisonV2PhotoReceivingTest_tscn_windowed.log",
+  "stdout_sha256": "28938518cbe5d5e51d63d63b6d9e93b353ada29c81c79a1ec5d0f2410e2c0981"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PhotoReceivingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\photo-chassis-final-verified\\godot\\OrisonV2PhotoReceivingTest_tscn_windowed_shots",
+ "source": {
+  "dirty_paths": 261,
+  "dirty_sample": [
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid",
+   "?? game/scripts/building/orison_v2_completion_interiors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_door_casings.gd.uid",
+   "?? game/scripts/building/orison_v2_elevator.gd.uid",
+   "?? game/scripts/building/orison_v2_exterior_masonry.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid"
+  ],
+  "repository_head": "7a7427d953aba13aea1ee7a1f28a1270bccd417e",
+  "repository_tree": "c408ed4a171b612d1ba90d9418af9dfd7535dff5",
+  "runtime_inputs_sha256": "dfbf65452e6fe3c2f00e17650dfdc8450f5818d9b5d6e222e74e82b9bb7f7bb2",
+  "test_path": "game/tests/orison_v2_photo_receiving_test.gd",
+  "test_sha256": "df717b7a87858fad393904f8115a7c79e50ff3b8b99ce851828ba8cac56c2b52"
+ },
+ "windowed": true
+}

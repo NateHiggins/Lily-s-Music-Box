@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 64.57,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T22:28:10Z",
+  "started_utc": "2026-10-06T22:27:06Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PASSAGE RECEIVING CONTRACT: PASS checks=792 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-chassis-actual.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-chassis-actual.log",
+  "stdout_sha256": "6e8492362a192d7b59b5fb87aac0b8cb0befd4cdb55f4ccc978b20baba151514"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PhotoReceivingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-chassis-actual-shots",
+ "source": {
+  "dirty_paths": 282,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/photo_process.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_photo_process_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/photo_receiving.blend",
+   "?? art/blender/photo_receiving.md",
+   "?? art/blender/photo_receiving_construction.json",
+   "?? art/blender/scripts/build_photo_receiving.py",
+   "?? art/blender/scripts/inspect_photo_receiving.py",
+   "?? art/data/photo_receiving/",
+   "?? game/assets/props/photo_receiving.glb",
+   "?? game/data/orison_v2/photo_receiving.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid"
+  ],
+  "repository_head": "a35415ba0be43974af6c6623bb4c094eca702fe4",
+  "repository_tree": "7ae433773d6d29503aac3411ca5e1044cf86f255",
+  "runtime_inputs_sha256": "dfbf65452e6fe3c2f00e17650dfdc8450f5818d9b5d6e222e74e82b9bb7f7bb2",
+  "test_path": "game/tests/orison_v2_photo_receiving_test.gd",
+  "test_sha256": "df717b7a87858fad393904f8115a7c79e50ff3b8b99ce851828ba8cac56c2b52"
+ },
+ "windowed": true
+}

@@ -1,0 +1,82 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Actual retained floor/capsule observations. Preferred side station selects the nearest clear floor sample if obstructed; no continuous route, service-hatch interaction, sightline or human acceptance.",
+	"views": [
+		{
+			"feet": [
+				20.3500003814697,
+				0.0299999993294477,
+				60.0999984741211
+			],
+			"id": "photo_chassis_front",
+			"image": "photo_chassis_front.png",
+			"requested_feet": [
+				20.35,
+				0.03,
+				60.1
+			],
+			"target": [
+				21.45,
+				1.2,
+				59.736
+			]
+		},
+		{
+			"feet": [
+				22.25,
+				0.0299999993294477,
+				59.9000015258789
+			],
+			"id": "photo_chassis_service_side",
+			"image": "photo_chassis_service_side.png",
+			"requested_feet": [
+				22.25,
+				0.03,
+				59.9
+			],
+			"target": [
+				21.776,
+				0.58,
+				59.35
+			]
+		},
+		{
+			"feet": [
+				22.25,
+				0.0299999993294477,
+				59.9000015258789
+			],
+			"id": "photo_chassis_floor_feet",
+			"image": "photo_chassis_floor_feet.png",
+			"requested_feet": [
+				22.25,
+				0.03,
+				59.9
+			],
+			"target": [
+				21.72,
+				0.05,
+				59.65
+			]
+		},
+		{
+			"feet": [
+				20.3500003814697,
+				0.0299999993294477,
+				60.0999984741211
+			],
+			"id": "photo_chassis_circular_scope",
+			"image": "photo_chassis_circular_scope.png",
+			"requested_feet": [
+				20.35,
+				0.03,
+				60.1
+			],
+			"target": [
+				21.45,
+				1.2,
+				59.736
+			]
+		}
+	]
+}
