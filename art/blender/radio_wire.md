@@ -42,7 +42,13 @@ and visible faces, eight actual floor seats, reel crowns, spindle/post bearings,
 finite copper stock and an open iron-ring centre. Six matched standing views
 sample floor/capsule clearance; they establish no continuous route or sightline.
 Strengthened residency and actual-player access tests require this native owner.
-Production verification and rendered inspection remain required.
+The committed installation passes **115 checks**, the actual-player tour
+passes **91 waypoints**, and both native reconstruction cycles pass. Full
+in-place verification compares **48 gates/tools tests** without regression
+and completes **fourteen zero-exit wrapper runs**. All **77 final native,
+wire/ring, neighboring Radio Service and access images** were directly
+reviewed. See the [dated report](../../design/V2_RADIO_WIRE_2026-10-06.md)
+and its linked source-hashed review packet for exact receipts and limits.
 
 Speakers, counter, cabinet, doors, hours, keys, saves, services and carrier
 behaviour retain their separate owners. Their remaining coarse forms and

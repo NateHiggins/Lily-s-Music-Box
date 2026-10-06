@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 112.11,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T16:16:05Z",
+  "started_utc": "2026-10-06T16:14:12Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-residency.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-residency.log",
+  "stdout_sha256": "b2bd2ef285f64b2b72a0a5cf1b8ff32f1d510fd455c8b20c3cf9137fcf455360"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-residency-shots",
+ "source": {
+  "dirty_paths": 24,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "A  art/blender/radio_wire.blend",
+   "A  art/blender/radio_wire.md",
+   "A  art/blender/radio_wire_construction.json",
+   "A  art/blender/scripts/build_radio_wire.py",
+   "A  art/blender/scripts/inspect_radio_wire.py",
+   "M  art/blender/v2_fabrication_coverage.md",
+   "A  art/data/radio_wire/source_plan.json",
+   "A  game/assets/props/radio_wire.glb",
+   "A  game/assets/props/radio_wire.glb.import",
+   "A  game/data/orison_v2/radio_wire.json",
+   "M  game/scripts/building/orison_v2_passage_region.gd",
+   "M  game/scripts/building/orison_v2_passage_residency.gd",
+   "A  game/scripts/building/orison_v2_radio_wire.gd",
+   "A  game/scripts/building/orison_v2_radio_wire.gd.uid",
+   "M  game/scripts/building/orison_v2_shop_seating.gd",
+   "A  game/tests/OrisonV2RadioWireTest.tscn",
+   "A  game/tests/fixtures/orison_radio_wire.json",
+   "M  game/tests/orison_v2_passage_residency_test.gd"
+  ],
+  "repository_head": "e74455760a4e383a20e25177f72565c231d66599",
+  "repository_tree": "e523ee4df8c0736d7683b36c30e95740362a63cc",
+  "runtime_inputs_sha256": "aadb713f45d95fff4d3c1b18ef46cea7e95ff5d79f1815abc9e63b7604b8bf8b",
+  "test_path": "game/tests/orison_v2_passage_residency_test.gd",
+  "test_sha256": "9af5e150c642a915b77e908136a89fcb5301dd73da0f1eba78845766365c3ac8"
+ },
+ "windowed": true
+}

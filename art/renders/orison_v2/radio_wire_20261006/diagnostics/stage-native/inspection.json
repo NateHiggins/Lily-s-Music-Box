@@ -1,0 +1,1433 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "8661e5968cee292525e2af6df14bb41d84d4c51a86e6243c027751ee71119960",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot0",
+      "volume_m3": 0.00021182162399937057
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot1",
+      "volume_m3": 0.00021182162335761127
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot2",
+      "volume_m3": 0.00021182162399937057
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FloorFoot3",
+      "volume_m3": 0.00021182162335761127
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_BaseBoard",
+      "volume_m3": 0.013709437816716165
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_EdgeRail0",
+      "volume_m3": 0.0011398895883637527
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_EdgeRail1",
+      "volume_m3": 0.0011398895883637525
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost0_0",
+      "volume_m3": 0.0004689536269933846
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost0_1",
+      "volume_m3": 0.0004689536235607488
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FixedSpindle0",
+      "volume_m3": 0.0003796015361621393
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelBarrel0",
+      "volume_m3": 0.005453273257256775
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange0_0",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange0_1",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_PassiveCopperDrum0",
+      "volume_m3": 0.006103037330861677
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding0",
+      "volume_m3": 0.0005078142332139296
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost1_0",
+      "volume_m3": 0.0004689536235607488
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_SpindlePost1_1",
+      "volume_m3": 0.00046895362356074886
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_FixedSpindle1",
+      "volume_m3": 0.0003796015361621393
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelBarrel1",
+      "volume_m3": 0.005453191997317611
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange1_0",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ReelFlange1_1",
+      "volume_m3": 0.0016708279058243792
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_PassiveCopperDrum1",
+      "volume_m3": 0.006103131207856813
+    },
+    {
+      "name": "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding1",
+      "volume_m3": 0.0005078142332139298
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot0",
+      "volume_m3": 0.0001353536157174451
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot1",
+      "volume_m3": 0.00013535361448485357
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot2",
+      "volume_m3": 0.00013535362265928373
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FloorFoot3",
+      "volume_m3": 0.00013535362142669217
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_LowerCradle",
+      "volume_m3": 0.004103130807107289
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring_FiniteIronRing",
+      "volume_m3": 0.019949524043460932
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_aerial_spools_FloorFoot0",
+          "storm_shop_radio_service_aerial_spools_BaseBoard"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FloorFoot1",
+          "storm_shop_radio_service_aerial_spools_BaseBoard"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FloorFoot2",
+          "storm_shop_radio_service_aerial_spools_BaseBoard"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FloorFoot3",
+          "storm_shop_radio_service_aerial_spools_BaseBoard"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_EdgeRail0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_EdgeRail1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_SpindlePost0_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_SpindlePost0_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_SpindlePost1_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_BaseBoard",
+          "storm_shop_radio_service_aerial_spools_SpindlePost1_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_SpindlePost0_0",
+          "storm_shop_radio_service_aerial_spools_FixedSpindle0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_SpindlePost0_1",
+          "storm_shop_radio_service_aerial_spools_FixedSpindle0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle0",
+          "storm_shop_radio_service_aerial_spools_ReelBarrel0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle0",
+          "storm_shop_radio_service_aerial_spools_ReelFlange0_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle0",
+          "storm_shop_radio_service_aerial_spools_ReelFlange0_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel0",
+          "storm_shop_radio_service_aerial_spools_ReelFlange0_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel0",
+          "storm_shop_radio_service_aerial_spools_ReelFlange0_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel0",
+          "storm_shop_radio_service_aerial_spools_PassiveCopperDrum0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_PassiveCopperDrum0",
+          "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_SpindlePost1_0",
+          "storm_shop_radio_service_aerial_spools_FixedSpindle1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_SpindlePost1_1",
+          "storm_shop_radio_service_aerial_spools_FixedSpindle1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle1",
+          "storm_shop_radio_service_aerial_spools_ReelBarrel1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle1",
+          "storm_shop_radio_service_aerial_spools_ReelFlange1_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_FixedSpindle1",
+          "storm_shop_radio_service_aerial_spools_ReelFlange1_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel1",
+          "storm_shop_radio_service_aerial_spools_ReelFlange1_0"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel1",
+          "storm_shop_radio_service_aerial_spools_ReelFlange1_1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_ReelBarrel1",
+          "storm_shop_radio_service_aerial_spools_PassiveCopperDrum1"
+        ],
+        [
+          "storm_shop_radio_service_aerial_spools_PassiveCopperDrum1",
+          "storm_shop_radio_service_aerial_spools_ClosedDisplayWinding1"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot0",
+          "storm_shop_radio_service_solder_ring_LowerCradle"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot0",
+          "storm_shop_radio_service_solder_ring_FiniteIronRing"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot1",
+          "storm_shop_radio_service_solder_ring_LowerCradle"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot1",
+          "storm_shop_radio_service_solder_ring_FiniteIronRing"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot2",
+          "storm_shop_radio_service_solder_ring_LowerCradle"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot2",
+          "storm_shop_radio_service_solder_ring_FiniteIronRing"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot3",
+          "storm_shop_radio_service_solder_ring_LowerCradle"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_FloorFoot3",
+          "storm_shop_radio_service_solder_ring_FiniteIronRing"
+        ],
+        [
+          "storm_shop_radio_service_solder_ring_LowerCradle",
+          "storm_shop_radio_service_solder_ring_FiniteIronRing"
+        ]
+      ]
+    }
+  ],
+  "actual_native_support_samples": [
+    {
+      "label": "aerial-stock foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "aerial-stock foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "aerial-stock foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "aerial-stock foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "iron-ring foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "iron-ring foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "iron-ring foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "distance_m": 1.862645149230957e-09
+    },
+    {
+      "label": "iron-ring foot on actual retained floor",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "distance_m": 1.862645149230957e-09
+    }
+  ],
+  "actual_owner_support_samples": [
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "aerial-stock foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "aerial-stock foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "aerial-stock foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "aerial-stock foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "iron-ring foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "iron-ring foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "iron-ring foot on actual retained floor",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_floor",
+      "label": "iron-ring foot on actual retained floor",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_stock_extents": [
+    {
+      "assembly": "storm_shop_radio_service_aerial_spools",
+      "source_maximum": 0.54,
+      "native_maximum": 0.5399999618530273,
+      "floor_extension": "declared feet bridge original 70mm gap"
+    },
+    {
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "source_maximum": 0.34,
+      "native_maximum": 0.3400000035762787,
+      "floor_extension": "declared feet bridge original 70mm gap"
+    }
+  ],
+  "accepted_native_context_objects": 50,
+  "source_boundary_stocks": 2,
+  "removed_original_triangles": 24,
+  "parts": 4,
+  "triangles": 30108,
+  "context_intersections": [],
+  "declared_contact_pairs": [
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 221,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3234,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3235,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 261,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 260,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 214,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3231,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 257,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 25,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3055,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 65,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 64,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3054,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 18,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 61,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3051,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 205,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 252,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3226,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 200,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 9,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3046,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 56,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 4,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 303,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3316,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 350,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 298,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 107,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 154,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3136,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 102,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 319,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3324,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 359,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3325,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 358,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 312,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 355,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3321,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 123,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3144,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 163,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3145,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 116,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 162,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 159,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_aerial_spools__timber",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 3141,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 221,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 260,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1780,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 261,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1781,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1772,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 205,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 252,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 214,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 257,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1777,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 200,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1600,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 64,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 18,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 25,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 61,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 65,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1601,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1592,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1597,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 9,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 56,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 4,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 319,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 358,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1870,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1871,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 359,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 303,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 312,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 355,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1867,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 350,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1862,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 298,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 123,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1691,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 163,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 107,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1690,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 162,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 116,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1687,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 154,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 159,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 1682,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    },
+    {
+      "native": "storm_shop_radio_service_solder_ring__cast_iron",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col",
+      "native_face": 102,
+      "context_face": 2,
+      "owners": [
+        "storm_shop_radio_service_floor"
+      ]
+    }
+  ],
+  "uv_metrics": [
+    {
+      "part": "storm_shop_radio_service_aerial_spools__cast_iron",
+      "minimum_metres_per_uv": 0.9999888345803465,
+      "maximum_metres_per_uv": 1.0000089796426588,
+      "triangles": 376
+    },
+    {
+      "part": "storm_shop_radio_service_aerial_spools__copper_aged",
+      "minimum_metres_per_uv": 0.9999770138388097,
+      "maximum_metres_per_uv": 1.0000185385921685,
+      "triangles": 20768
+    },
+    {
+      "part": "storm_shop_radio_service_aerial_spools__timber",
+      "minimum_metres_per_uv": 0.9999024154088165,
+      "maximum_metres_per_uv": 1.0001195347733691,
+      "triangles": 5908
+    },
+    {
+      "part": "storm_shop_radio_service_solder_ring__cast_iron",
+      "minimum_metres_per_uv": 0.9999504579341477,
+      "maximum_metres_per_uv": 1.0000441221231462,
+      "triangles": 3056
+    }
+  ],
+  "views": [
+    {
+      "id": "stock_front",
+      "eye": [
+        18.899999618530273,
+        -55.400001525878906,
+        1.399999976158142
+      ],
+      "target": [
+        20.52,
+        -57.2,
+        0.3
+      ],
+      "file": "stock_front.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "stock_rear",
+      "eye": [
+        22.5,
+        -59.29999923706055,
+        1.350000023841858
+      ],
+      "target": [
+        20.52,
+        -57.2,
+        0.3
+      ],
+      "file": "stock_rear.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "stock_side",
+      "eye": [
+        23.200000762939453,
+        -56.29999923706055,
+        1.2000000476837158
+      ],
+      "target": [
+        20.52,
+        -57.2,
+        0.3
+      ],
+      "file": "stock_side.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "floor_feet",
+      "eye": [
+        19.299999237060547,
+        -55.900001525878906,
+        0.5
+      ],
+      "target": [
+        20.52,
+        -57.2,
+        0.04
+      ],
+      "file": "floor_feet.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "two_closed_reels",
+      "eye": [
+        19.899999618530273,
+        -56.400001525878906,
+        0.8500000238418579
+      ],
+      "target": [
+        20.77,
+        -57.2,
+        0.38
+      ],
+      "file": "two_closed_reels.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "copper_winding",
+      "eye": [
+        20.350000381469727,
+        -56.75,
+        0.6499999761581421
+      ],
+      "target": [
+        20.77,
+        -57.06,
+        0.38
+      ],
+      "file": "copper_winding.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "fixed_spindle_bearing",
+      "eye": [
+        20.200000762939453,
+        -56.70000076293945,
+        0.5600000023841858
+      ],
+      "target": [
+        20.77,
+        -56.93,
+        0.38
+      ],
+      "file": "fixed_spindle_bearing.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "finite_iron_ring",
+      "eye": [
+        19.600000381469727,
+        -56.400001525878906,
+        0.8999999761581421
+      ],
+      "target": [
+        20.27,
+        -57.2,
+        0.24
+      ],
+      "file": "finite_iron_ring.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "open_ring_centre",
+      "eye": [
+        20.270000457763672,
+        -57.20000076293945,
+        1.25
+      ],
+      "target": [
+        20.27,
+        -57.2,
+        0.18
+      ],
+      "file": "open_ring_centre.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    },
+    {
+      "id": "native_floor_bearings",
+      "eye": [
+        20.0,
+        -56.5,
+        0.1599999964237213
+      ],
+      "target": [
+        20.52,
+        -57.2,
+        0.05
+      ],
+      "file": "native_floor_bearings.png",
+      "scope": "isolated native passive wire and iron-ring stock"
+    }
+  ],
+  "limits": "Original source wall, door/handle, cabinet and other stock remain conservative context; only actual floor contact pairs admitted. Finite reel, spindle and iron-ring stock establish passive geometry only; no live wire route, heater, fuel, temperature, electrical operation, capacity or acceptance."
+}

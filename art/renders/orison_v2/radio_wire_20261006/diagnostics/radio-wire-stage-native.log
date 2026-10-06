@@ -1,0 +1,56 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-stage\art\blender\radio_wire.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-stage\art\blender\scripts\inspect_radio_wire.py:53: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+11:21:17 | INFO: Data are loaded, start creating Blender stuff
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+11:21:17 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+11:21:17 | INFO: glTF import finished in 0.12s
+00:05.610  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\stock_front.png'
+00:07.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\stock_rear.png'
+00:08.860  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\stock_side.png'
+00:10.922  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\floor_feet.png'
+00:13.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\two_closed_reels.png'
+00:17.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\copper_winding.png'
+00:21.016  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\fixed_spindle_bearing.png'
+00:23.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\finite_iron_ring.png'
+00:26.110  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\open_ring_centre.png'
+00:28.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-native\native_floor_bearings.png'
+RADIO WIRE NATIVE QA 29 closed connected stocks; 2 joined assembly; 8 retained owner contacts; 10 views
+
+Blender quit

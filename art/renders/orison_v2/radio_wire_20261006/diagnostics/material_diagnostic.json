@@ -1,0 +1,13 @@
+{
+ "evidence_class": "INERT",
+ "source": "game/tests/fixtures/orison_radio_wire.json",
+ "retirement_material_owners": [
+  "cast_iron",
+  "copper_aged"
+ ],
+ "parts_without_material_owner": [
+  "storm_shop_radio_service_aerial_spools__timber"
+ ],
+ "first_run": "tmp/v2-finish-review/radio-wire-first.log.receipt.json",
+ "scope": "The adapter admits a source-retirement finish or a declared existing catalogue owner. The timber support adaptation has neither in this first fixture."
+}

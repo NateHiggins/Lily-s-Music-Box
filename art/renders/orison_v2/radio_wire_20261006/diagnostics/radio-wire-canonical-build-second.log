@@ -1,0 +1,22 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_radio_wire.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "radio_wire.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+12:07:01 | INFO: Starting glTF 2.0 export
+12:07:01 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__cast_iron
+12:07:01 | INFO: Primitives created: 1
+12:07:01 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__copper_aged
+12:07:01 | INFO: Primitives created: 1
+12:07:01 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__timber
+12:07:01 | INFO: Primitives created: 1
+12:07:01 | INFO: Extracting primitive: storm_shop_radio_service_solder_ring__cast_iron
+12:07:01 | INFO: Primitives created: 1
+12:07:02 | INFO: Finished glTF 2.0 export in 0.07330060005187988 s
+
+RADIO WIRE 2 original records; 2 assemblies; 29 closed stocks; 4 parts; 30108 triangles; 8 floor/instrument contacts
+
+Blender quit

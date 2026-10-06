@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 144.82,
+  "exit_code": 0,
+  "finished_utc": "2026-10-06T16:18:48Z",
+  "started_utc": "2026-10-06T16:16:23Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-access.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-access.log",
+  "stdout_sha256": "2c02a5784527ab67d4ee3f4fd3a222a10df429cbf1f8d50e8d4f2375af0bc9e0"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioAccessTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-access-shots",
+ "source": {
+  "dirty_paths": 24,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "A  art/blender/radio_wire.blend",
+   "A  art/blender/radio_wire.md",
+   "A  art/blender/radio_wire_construction.json",
+   "A  art/blender/scripts/build_radio_wire.py",
+   "A  art/blender/scripts/inspect_radio_wire.py",
+   "M  art/blender/v2_fabrication_coverage.md",
+   "A  art/data/radio_wire/source_plan.json",
+   "A  game/assets/props/radio_wire.glb",
+   "A  game/assets/props/radio_wire.glb.import",
+   "A  game/data/orison_v2/radio_wire.json",
+   "M  game/scripts/building/orison_v2_passage_region.gd",
+   "M  game/scripts/building/orison_v2_passage_residency.gd",
+   "A  game/scripts/building/orison_v2_radio_wire.gd",
+   "A  game/scripts/building/orison_v2_radio_wire.gd.uid",
+   "M  game/scripts/building/orison_v2_shop_seating.gd",
+   "A  game/tests/OrisonV2RadioWireTest.tscn",
+   "A  game/tests/fixtures/orison_radio_wire.json",
+   "M  game/tests/orison_v2_passage_residency_test.gd"
+  ],
+  "repository_head": "e74455760a4e383a20e25177f72565c231d66599",
+  "repository_tree": "e523ee4df8c0736d7683b36c30e95740362a63cc",
+  "runtime_inputs_sha256": "aadb713f45d95fff4d3c1b18ef46cea7e95ff5d79f1815abc9e63b7604b8bf8b",
+  "test_path": "game/tests/orison_v2_radio_access_test.gd",
+  "test_sha256": "9f6e97d1d8011607834628f67aaafa82b6a0296a606aee6aab7fb2b324e2fbfb"
+ },
+ "windowed": true
+}

@@ -1,0 +1,70 @@
+# Candidate verification - 2444915b6bea
+
+- candidate `2444915b6bea687fa63f258d3937e2ad698f6f47`
+- base `e74455760a4e383a20e25177f72565c231d66599`
+- merge-base `e74455760a4e383a20e25177f72565c231d66599`
+- verified 2026-10-06T16:21:57Z from verifier `2444915b6bea`
+
+| check | result |
+|---|---|
+| checkout mode | in-place |
+| checkout clean | yes |
+| gate board vs merge-base | 0 regressions, 0 improvements |
+| ledger before | {'FIRST_SLICE_TECHNICAL': 7, 'GOLDEN_SHIFT_V2': 8, 'FULL_BUILDING_STRUCTURAL': 127, 'FULL_BUILDING_RUNTIME': 42, 'PRODUCTION_CUTOVER': 151, 'V1_RETIREMENT': 153} |
+| ledger after | {'FIRST_SLICE_TECHNICAL': 7, 'GOLDEN_SHIFT_V2': 8, 'FULL_BUILDING_STRUCTURAL': 127, 'FULL_BUILDING_RUNTIME': 42, 'PRODUCTION_CUTOVER': 151, 'V1_RETIREMENT': 153} |
+| requirements_changed | [] |
+| protected | 17/17 unchanged vs merge-base; 0 authorized selector change(s) |
+| selector | v2 |
+| design doc lint errors | 0 |
+| gates changed by candidate | 1 |
+| godot (import) | exit 0 |
+| godot (import) | exit 0 |
+| godot res://tests/OrisonV2RadioWireTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2RadioBatteryTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2RadioStockTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2RadioApparatusTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2RadioBenchTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2ShopSeatingTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2PassageResidencyTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2RadioAccessTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2PublicDoorsTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2ShopSimulationTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2PassageLoadTeardownTest.tscn | exit 0, receipt binds |
+| godot res://tests/OrisonV2ResidentKeyRouteTest.tscn | exit 0, receipt binds |
+
+## Blocking reasons (0)
+
+- none
+
+## Needs human review (not blocking) (2)
+
+- candidate changes 1 gate file(s); read those diffs before trusting the board
+- Verified the clean canonical checkout; fresh-checkout import and autocrlf behavior are outside this in-place verification
+
+## Regressions (0)
+
+- none
+
+## Accepted regressions (0)
+
+- none
+
+## Improvements (0)
+
+- none
+
+## Report claims contradicted (0)
+
+- none
+
+## Design doc lint (0)
+
+- none
+
+## Gates changed by the candidate (1)
+
+- M tools/orison_spatial_dependency_manifest.json
+
+MERGE-CANDIDATE 2444915b6bea687fa63f258d3937e2ad698f6f47
+
+written to C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-wire-final-verified

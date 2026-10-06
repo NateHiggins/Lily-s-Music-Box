@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 26.59,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T16:01:47Z",
+  "started_utc": "2026-10-06T16:01:20Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-first.log.stderr",
+  "stderr_sha256": "f00091a36ed29745e035cdfc1438a77c23bf8d4746d2f0807c8efb838f86a5a9",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-first.log",
+  "stdout_sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioWireTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-wire-first-shots",
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_radio_access_test.gd",
+   "?? art/blender/radio_wire.blend",
+   "?? art/blender/radio_wire.md",
+   "?? art/blender/radio_wire_construction.json",
+   "?? art/blender/scripts/build_radio_wire.py",
+   "?? art/blender/scripts/inspect_radio_wire.py",
+   "?? art/data/radio_wire/",
+   "?? game/assets/props/radio_wire.glb",
+   "?? game/data/orison_v2/radio_wire.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "e74455760a4e383a20e25177f72565c231d66599",
+  "repository_tree": "e523ee4df8c0736d7683b36c30e95740362a63cc",
+  "runtime_inputs_sha256": "4945ccb268773e607d39788f242e81952ce65bb6a3c4dc0fdcbbadf319700ee2",
+  "test_path": "game/tests/orison_v2_radio_wire_test.gd",
+  "test_sha256": "046c2e9b83635e0932e66267a93b13f60bbd109af9599ee969bde1d22e008b34"
+ },
+ "windowed": true
+}

@@ -1,0 +1,1962 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "2444915b6bea687fa63f258d3937e2ad698f6f47",
+  "base": "e74455760a4e383a20e25177f72565c231d66599",
+  "scope": {
+    "source_records": 2,
+    "assemblies": 2,
+    "closed_stocks": 29,
+    "material_partitions": 4,
+    "triangles": 30108,
+    "floor_contacts": 8,
+    "removed_original_triangles": 24,
+    "native_views": 10,
+    "production_views": 6,
+    "neighbor_views": 27,
+    "access_views": 34,
+    "checks": 115
+  },
+  "review": "All 77 final native, exact candidate wire/ring, neighboring Radio Service and actual-player access images directly inspected. Six before/after feet and targets match.",
+  "runtime_contract": "Test-written schema-2 resident permissions, copies, locked-door denial, save and reconstruction in executed scope only.",
+  "limits": [
+    "Six exact standing floor/capsule samples establish no continuous route or sightline.",
+    "Eight floor bearings and fixed reel/spindle stock establish geometry only; no live aerial, current, capacity, unwinding interaction, heater, fuel, temperature or solder procedure is chosen.",
+    "Original records remain immutable; finite native surfaces and declared floor-gap bridges keep source footprints and maxima.",
+    "The first imported mount refused timber because the two source owners supply only copper and iron. The declared existing catalogue timber owner fixes the support material binding without changing shared policy or geometry.",
+    "Two initial before cameras were occluded by the retained cabinet despite floor/capsule clearance; revised before cameras match production exactly. The first frames remain diagnostic.",
+    "Speakers, counter, cabinet, Pawnbroker and Luncheonette coarse fittings and broad architecture/optical/utility findings remain open.",
+    "Captures and wrapper receipts grant no ledger promotions. Whole-shop acceptance, human acceptance and V2 completion remain separate."
+  ],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "files": [
+    {
+      "file": "production_verification.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/verification.json",
+      "source_sha256": "6fab99268c92d3c9ee8ffcd2d444582cb5b0398e964fc9f62c87ad2e722bbc4d",
+      "sha256": "6fab99268c92d3c9ee8ffcd2d444582cb5b0398e964fc9f62c87ad2e722bbc4d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "baseline_board.json",
+      "source": "tmp/v2-finish-review/e7445576-clean-board.json",
+      "source_sha256": "4b1b096982b4767761d4884503f2abb322aede7ecb885666314d856ca31a04ca",
+      "sha256": "4b1b096982b4767761d4884503f2abb322aede7ecb885666314d856ca31a04ca",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_inspection.json",
+      "source": "tmp/v2-finish-review/radio-wire-native/inspection.json",
+      "source_sha256": "df152c941deed9c200e4f7d97d2909428a36c81423100f317c5a9b2f3bacd67a",
+      "sha256": "df152c941deed9c200e4f7d97d2909428a36c81423100f317c5a9b2f3bacd67a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native_construction.json",
+      "source": "art/blender/radio_wire_construction.json",
+      "source_sha256": "db586c783d18ee2e4c69ffa859b6c68772fdbbe2a433633710060b6ad22afe20",
+      "sha256": "db586c783d18ee2e4c69ffa859b6c68772fdbbe2a433633710060b6ad22afe20",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/views.json",
+      "source_sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runtime_authority_receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+      "source_sha256": "2966b80c068ea0d1563391ac684206c8b2e2cdf84f09c6aa4b932416f6a13743",
+      "sha256": "2966b80c068ea0d1563391ac684206c8b2e2cdf84f09c6aa4b932416f6a13743",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "resident_key_route.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+      "source_sha256": "0d4bf840ce0c74e7bfc71b2d1cc43557fb98ccf2cbe5b62e46d27bc2fb869e60",
+      "sha256": "0d4bf840ce0c74e7bfc71b2d1cc43557fb98ccf2cbe5b62e46d27bc2fb869e60",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/spatial_reviewed.json",
+      "source": "tmp/v2-finish-review/radio-wire-spatial-reviewed.json",
+      "source_sha256": "956308377dc0c814589409a5329ae3da7290d606c2d893c8da797c23fbe84fbd",
+      "sha256": "956308377dc0c814589409a5329ae3da7290d606c2d893c8da797c23fbe84fbd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/material_diagnostic.json",
+      "source": "tmp/v2-finish-review/radio-wire-material-diagnostic.json",
+      "source_sha256": "c3136977bdc77920b72356599066d9ef405816965ed02db51231a7b2c253c29f",
+      "sha256": "c3136977bdc77920b72356599066d9ef405816965ed02db51231a7b2c253c29f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before_test.gd",
+      "source": "tmp/v2-finish-review/radio-wire-before.gd",
+      "source_sha256": "f8b5858fe8a08fd297cb3e1b47aea2eb684b89104f09cf4ab1923ce868f937d1",
+      "sha256": "f8b5858fe8a08fd297cb3e1b47aea2eb684b89104f09cf4ab1923ce868f937d1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "native/copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/copper_winding.png",
+      "source_sha256": "f0187fba6fc8bccc5707283e2424afe520fae93d4d24e911b8ae532e929c9d06",
+      "sha256": "67b5415fe68435b1460a6660cc678acc0482323c48938ccf350fdbd99b19d7b3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/finite_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/finite_iron_ring.png",
+      "source_sha256": "a2469c907dc6675d1398c9d16f511c60595d6d1b117895d6692a6e61f3f857ef",
+      "sha256": "2ddbc9d6d73c48c94f15ca944d7f43f7b7bb49ea8658e0fe78ec1ce8d80b19d8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/fixed_spindle_bearing.png",
+      "source_sha256": "dee4d4ff2bddc9678e6c9f580b3be974addcc4ab76663a3d4059dc3ada910d38",
+      "sha256": "28dea1bdaa48b33a3a19c97d6a9f431f1ede562f6eda6aae91c4cce8daca170c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/floor_feet.png",
+      "source_sha256": "afc5388d1e078cf08abf7951eff40ecb15f65f39cd95370ec71f160e84d7dfa1",
+      "sha256": "cf1cca02ea8b7cfd0d0fc9673f18dbaab3488e3b1448f116a6bccc09686cc740",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/native_floor_bearings.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/native_floor_bearings.png",
+      "source_sha256": "b9dfed6d8a5c857b813940fc9fecf9e84ee73770d48348aaa90659f2d7529930",
+      "sha256": "a216403a98539728e70c449634c4ece3f866efd49f6564d07f45ac2bde30ea58",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/open_ring_centre.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/open_ring_centre.png",
+      "source_sha256": "f901153a05036a464a5d33ed88199e1ddd4660bfe10509b015b8f018c1339569",
+      "sha256": "bee39ffa8f280769875f0cbe04a65fdd27daefb5809128490364d03afedeec2e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/stock_front.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/stock_front.png",
+      "source_sha256": "ac189cd102e893befa3b1e96f06a5ba8134f4db4fced1e62ebbbb41e86ab4fc9",
+      "sha256": "6eb44b98ca82a3eb66d153279f3f996408309af451faa60b83be0093e67ae071",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/stock_rear.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/stock_rear.png",
+      "source_sha256": "a755a18f5217993c53ee84c6eef4253b0b7f5bae5f21a83566b1addeab3b8341",
+      "sha256": "362dc35df938e864ea268d33c089ca2993d986ef04261310cf26d58265e52d93",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/stock_side.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/stock_side.png",
+      "source_sha256": "24b1b4d20ea2ce64e568e070554e4d2e65aff4f9b32c8a19d8a68079d0493ccf",
+      "sha256": "8af17e529d75ed8816f2b2162b6240bd2288ca83ecace0d0d7a3279e268a9cd0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/two_closed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-native/two_closed_reels.png",
+      "source_sha256": "36666877e92f9980930ebb7011c1710593f901f50960d26d58b031c27bf5282d",
+      "sha256": "cc1efbd7f40d2b1e33d693763c35c0bca5cefaea819be8fa14903cf3562e637f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "native/inspection.json",
+      "source": "tmp/v2-finish-review/radio-wire-native/inspection.json",
+      "source_sha256": "df152c941deed9c200e4f7d97d2909428a36c81423100f317c5a9b2f3bacd67a",
+      "sha256": "df152c941deed9c200e4f7d97d2909428a36c81423100f317c5a9b2f3bacd67a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production/finite_open_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/finite_open_iron_ring.png",
+      "source_sha256": "4b28e2443d4e9ab5028cec77959903028d1a228f61f51fad197d5f785fe68a19",
+      "sha256": "00ce4253d289a01e520159ce92ffd2946d936f3d804badcb99b99673e5f4cb6c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/fixed_spindle_bearing.png",
+      "source_sha256": "2fee7ee1cc94660610e8c74426523d8b1fcf9e9eaf0cd592114d0eab8e832827",
+      "sha256": "92930ef626fb6b491257f2b5e6dd7bbb756ea9bf202b08c410a3bfaf1be70267",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/passive_copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/passive_copper_winding.png",
+      "source_sha256": "6113a5650f26e5f45eb8a23555edae96dad3416b313815fdb1ed6f399d03871e",
+      "sha256": "22da654b99773cc238831a00d8996d2455986d57c0cea2ece08f9d839f063cfb",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/radio_wire_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/radio_wire_room.png",
+      "source_sha256": "66c5b6a2b6953bce545d43133186dcb75eaa84110db3777b18834da4ccbc33ed",
+      "sha256": "ee7a1bcc45f9b89917f376b2f3f7fb155677961f790e2c937f4b58528089f25f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/two_fixed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/two_fixed_reels.png",
+      "source_sha256": "e1481596cbcce39e46c8e42d7c3ce39f912e3e27e92fa32e48559e1f1e3f0ab1",
+      "sha256": "ab6bb4f0ba6586403fef18ae2a1f0cfa50f5fd92cb7951bf92b5ec1a543ebe88",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/wire_and_ring_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/wire_and_ring_floor_feet.png",
+      "source_sha256": "c90046bec0f29eac49abdcdd870f1eec8f86fd91694be113828195de2fa75e5a",
+      "sha256": "9e08cc15f5a8c072bb8bfc007fe02f8057069ba1d1f2e6394cda5e400631c47d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed_shots/views.json",
+      "source_sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioBattery/five_charging_jars.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/five_charging_jars.png",
+      "source_sha256": "b2fcf948a7e1dd0917b1dbeea4b9e15d7f274dccfa571f251a3e1d2182032db5",
+      "sha256": "22f04fbbc03bee4160ccd4c3513d6d468156317ac021264499bf8030c87454b0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/jar_and_cap_seat.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/jar_and_cap_seat.png",
+      "source_sha256": "713a544d4607154fcf6d029b9a6f66bb6f69335319422d801eec9c06b2388cf7",
+      "sha256": "72c0e115b62a80c3822f522042cf4bb1faff877d11c70847fac6e96749e1c14c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/passive_series_links.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/passive_series_links.png",
+      "source_sha256": "3b3afee605f76df05cda2d2144fb350ac34759aab3fc7148b63c30c1231cca78",
+      "sha256": "0d619f751e3790b0ac0a80a85c6136f453aad34bab589d286c1e13d639bd3c23",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/rack_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/rack_floor_feet.png",
+      "source_sha256": "4d057ab536d8537c4bc2a569c7cd3947bff181dba211500947a7ca9df134c1c0",
+      "sha256": "f46cfbc46decd4f2efb71036d70d8fea7fc0545347154f8853b09b21cb2f006c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/radio_battery_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/radio_battery_room.png",
+      "source_sha256": "39e21196ba2a7d686d23ccf333fa3652381d242a5e5389ee835ee54bd010e923",
+      "sha256": "bea39d2c3d5df2d4c18cdffc9106416f1a534b880f073a0bb8ae62699bf0dc10",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/retained_repair_cabinet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/retained_repair_cabinet.png",
+      "source_sha256": "97c3e83c49111d5c5f2a4cebcb164fe0c267a7e271a7ec2c51c19d73162b7a37",
+      "sha256": "712bad91ac52d513ad838c129c5839c62f017010f30e9f92045201152ba93b09",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBattery/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "0521b85cd1141c234694795fbe10d4b4262ecde90991bea9680d459815158f9b",
+      "sha256": "0521b85cd1141c234694795fbe10d4b4262ecde90991bea9680d459815158f9b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioBattery/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed_shots/views.json",
+      "source_sha256": "45246fe0469737b59277bd5406f828c8042ccd4057a8d4b48f0950befd76c80d",
+      "sha256": "45246fe0469737b59277bd5406f828c8042ccd4057a8d4b48f0950befd76c80d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioStock/empty_shelves.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/empty_shelves.png",
+      "source_sha256": "614e0da9eee5bad70b6123229c443ff2e97c92127fb161fcae931b631b2241c1",
+      "sha256": "c0bebaacee6bf3ceb7e3bdacd1962beb1cc9def8cdb790c22e065ed27c578653",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/left_valve_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/left_valve_bearing.png",
+      "source_sha256": "37e22369883d35436d13114e74498cd4e496b0de488fc46db606145455459ba7",
+      "sha256": "140c7c60057048a93e1750c054b65c8e55d39c252c12c96081cb493437f1a36e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/rack_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/rack_floor_feet.png",
+      "source_sha256": "fbe175ec12af3e4cb72d4ae3c61d08e502182e0b6dd29648805745f3d643c283",
+      "sha256": "fdf5b9b59d7ae5a75205aa9ea7af1a7e27a07125e4f2a0bec04d19beb5f7b6a2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/rack_front.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/rack_front.png",
+      "source_sha256": "49a5ecd805c81e5a8dfb06c3690cb382777c5efbedc7e6aa956d252aa8adad5e",
+      "sha256": "526fe6410ad446192ca5cbdc4609b6effd2b6181ea3093a491d0b9f1b180f15a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/radio_stock_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/radio_stock_room.png",
+      "source_sha256": "552b3fa658f458396bfbf615f709508efd58cb625eaf1ab9b119259b69ac9f91",
+      "sha256": "55ca16f808171b9a2d431d7257564b4f45bfa9753a64ed79d1f3e477e7035693",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/upper_valve_rank.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/upper_valve_rank.png",
+      "source_sha256": "1f1120a9bb0e4b587c0f92831e10541fc3164320f0cdbca2cf29f2cd2447aa94",
+      "sha256": "100588ea3e1d80d1e29044baca4d8f35331d5a658d97b91dc01b388f1466438d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioStock/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "6550b0292a729b17823380efac45318861a206ddb997e19ebc0d5734838b9fd3",
+      "sha256": "6550b0292a729b17823380efac45318861a206ddb997e19ebc0d5734838b9fd3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioStock/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed_shots/views.json",
+      "source_sha256": "b7b53e50d36b13b5eab9d26dffaa317fd9b056ad0fbaaf6892b069e773c2981e",
+      "sha256": "b7b53e50d36b13b5eab9d26dffaa317fd9b056ad0fbaaf6892b069e773c2981e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/alignment_bench.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/alignment_bench.png",
+      "source_sha256": "49155ca5ce21711bdc27709251fddd1fa0e176e1eb1f379ed1182cedfd5e20bd",
+      "sha256": "3ef3c58d01b71a0c44583ef42171f5da65202c4c3ec8b78c697de4bb89880b23",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/back_edge.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/back_edge.png",
+      "source_sha256": "5606af4c6827d72d7201d908597c665557bf760f5efbbae8379360a323b4fcd1",
+      "sha256": "4f8e4b4abd1ed8fe3ec62e27570e85cf782dff27217ae21ba5bc172cfcc08d28",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/generator_dial.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/generator_dial.png",
+      "source_sha256": "c52455f62071f9a662922948ff3c8014cf90eed94426b210a85083f009581a81",
+      "sha256": "0b657f703bad266766eea9c89e77c5821c5635394e35ca088de85f87d7e73887",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/original_instruments.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/original_instruments.png",
+      "source_sha256": "6a3e42f7d53344c4d4cf261a52747cd19acf6d1078d54ce0d4d95a7bbbe686c1",
+      "sha256": "1ac27f959d7b30b7d06db43096d6e8b1da12930e6eddf5515a7da1d8d022ab48",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/radio_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/radio_room.png",
+      "source_sha256": "e6f8b3555a6f1fa5254b9ecf8f779167fdf68f87e4a2df407c04701d67d70dab",
+      "sha256": "510a487bd1512d6ac3778627e8b441ce59a671f59f77b56118255abf9929d8c4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/scope_controls.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/scope_controls.png",
+      "source_sha256": "7335d2baa69b634554cafe708c6c3e1515dc284818f180f685a7e75352030251",
+      "sha256": "3298d786c9c02b2f80ac7bc38962bd7997bf5c0e973e86ed434cb84068fbe502",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/side_bearings.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/side_bearings.png",
+      "source_sha256": "d96bd9690eeda3ac3e517cf941d8ecaa1e092b436bbe0ee54da1607f87e14b47",
+      "sha256": "677df26fa249c05ab2424d880e23d5a12b0d8ef269529709b98bf14c2c74f69c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/side_leaf.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/side_leaf.png",
+      "source_sha256": "ac3024cbefbf692128912f38f4217fa7666be12e06e4068ca548dac292960bbf",
+      "sha256": "eca6fc03d979eca55490abb8098b69085cfb5ee2cd6d4ab586b3a12b21693066",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/valve_rank.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/valve_rank.png",
+      "source_sha256": "b57573ca35b490ee97b04f62bae46e2e0aa31484631aa3ecdc6c93fc7b134517",
+      "sha256": "a63e782ceec2689fe663432f993323e5b9dd9f14a81a19973ab17221dd9266ee",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "69c95b88b32c6e0048969b41bf8c84d04e42528574a45430b79304c21d5e1fcf",
+      "sha256": "69c95b88b32c6e0048969b41bf8c84d04e42528574a45430b79304c21d5e1fcf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioApparatus/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed_shots/views.json",
+      "source_sha256": "e1e73e3ebfdb3f897f2a85ead21da9a6c004f1274ae9f762858e58b3534015cd",
+      "sha256": "e1e73e3ebfdb3f897f2a85ead21da9a6c004f1274ae9f762858e58b3534015cd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioBench/alignment_bench.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/alignment_bench.png",
+      "source_sha256": "b02cf9ee0642bdf55b495a3a38d05c1eeec1256fc279c722da32f8e1b354b7cb",
+      "sha256": "41f9116aed2cc422f9ac241432d1060a008696732222dd1e1820b6367ded510f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/back_edge.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/back_edge.png",
+      "source_sha256": "d25167cb1a0b46662a4da2c28a02ae4f184bcd20091bb44a01b65c902aa74bc8",
+      "sha256": "a1b6e40f332d2067d2e8847e678c4bbb5853020c1a7dc4dbe90fccd0a5ac4822",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/original_instruments.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/original_instruments.png",
+      "source_sha256": "f28da9f6a05859909fbd392a4cea34854ef54b03e3d298d4137dfd76b507920e",
+      "sha256": "161d4530c30aaa7bf0a98d02823215f11711527a4bdee641e601d9b8cdceda2f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/radio_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/radio_room.png",
+      "source_sha256": "b7e4b5a52d90ce23fa192c139731a1060e10d4d9bfc7ab2ce45cb4b4357c6de3",
+      "sha256": "aae287d633e30f197fb98842f228a5886443a3fdcdde03faef66415557bcec91",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/side_bearings.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/side_bearings.png",
+      "source_sha256": "edf17988e832f95448e9ad04c2e9178bb14c55dc96e21bac7abfc9acb7f3c657",
+      "sha256": "c690edc1d163137cf300844970fce3f28c5937946f04d4258fdd1ec8d8e0a86c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/side_leaf.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/side_leaf.png",
+      "source_sha256": "2763d3575281354cce567905a0d7e4d60f63736378a88b322f7dc2e2c28c75ea",
+      "sha256": "1e44121fb68404e1aebbc5e8ed65ddd287f4972235f464a741583fd92fa2b61a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioBench/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/fittings.json",
+      "source_sha256": "1d81a8b94466dcc959fe52e263e6270e2cd8ab01fb7610809b56e4c03a4a74a2",
+      "sha256": "1d81a8b94466dcc959fe52e263e6270e2cd8ab01fb7610809b56e4c03a4a74a2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioBench/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed_shots/views.json",
+      "source_sha256": "58c07c846e08cc524255561b12488a28c931b3ba88cea43e4ae38a9f1dc74272",
+      "sha256": "58c07c846e08cc524255561b12488a28c931b3ba88cea43e4ae38a9f1dc74272",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "b5c9154585ce853d4e96ed9f04e440d499263ac5fe5025f9b0e515d516583763",
+      "sha256": "9db1668dea1fe3802342c389da8a171f8ff030abe51c89a19987b68621d62c4e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "0f660d0ddc83e570c58d52d30368a383385a234d55abab3796385ff028bc1a1a",
+      "sha256": "9b0f8923940692ce9f880db5e321240f43febc03ea727d023ed3bc22430c8be3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "109bf4950395a0141025687e2140998a78dc09b85571cb934eef18cbbbd41ae1",
+      "sha256": "1873c120f23d05b6237b021c1882fe72f2e35a6dd1d31b958c292c51315a7cfa",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "b124c17d147938c572bb793a81235ca1b5c7288fcc9ba342526021ed14bbece6",
+      "sha256": "58ceb9add3738d8d39c348780676757b460cfcd54710569e71d1584c02d77553",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "b487ce09f9bddb6a2c87ad1c13acc523baa5e5e8a7fc20d289ea8ab0ea5f0908",
+      "sha256": "a09d2b0c458a2754adefe192cdd17afa2d58a62867f0961bcc4726f2b72172f9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/entry_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/entry_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "5ec47c99870e48f3c6164696ac41c87fc99e7e458e0641088a71fabb93235d03",
+      "sha256": "224aa148f18e77716bf3d6f239acc20b76a763f09e44e58f29eeb08085aa3681",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "c6ec40ca813d2e057e5e8b9e15a354b6df5600f5863df5666b5a8de32fb2a43c",
+      "sha256": "5ff144b1061ae8717d7fe84f6a3cc5f726c5fe6a7646971042ede616e954020f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "a60ccd52654ace6762acd51bc2f4a8f154a6489a7b2fa29fe65431507d712803",
+      "sha256": "eddb02a3b883427eb66ad25ea788535fb84e290ead563e9f58768ac683dcb23e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "b593ef24e06e70e76fa0dc8fa7bbbf1b6a16d6a5aa3d5d007bb2769c48949e48",
+      "sha256": "577643c8fadc8871b8bcf48e8bb404d44a798aea43d1533055ff1fbd18bded96",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "aad3ff3480816035181f9f05b005ff4717d732bd18979132b60860ff109099fc",
+      "sha256": "c71492e7ced2225c2ff31cc2267e81d1fd89d9bca007d0801a0942f097f30936",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "59952c955ada8eb664a689b868bbe9219b0b9cffc9e2bd02812c2f763d1f3f1c",
+      "sha256": "37956e8c07c877ac2a341035bc2fc3dd22ac791a63f44540c3664d928d1505fd",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "cad2855fc2dffdc37f347e3b3f6b33991331afdadbca9953a62e4a5f76df3cea",
+      "sha256": "1b484b70f3abbeccb01d84c2e6a53fca8da7efba011532b47dc56a7952aabe92",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "b1fcf7012a2b6cf9a7c9b450d8ccd0c4cf7c121192430fc0b0ecad2c3d1338bc",
+      "sha256": "32fc7615f916c4b31a01a25eb736d54ce3baaabc65eb77829636c5c148a9af10",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "be520bc7637995cc4b74983230ec7d0dc83b6bc330b85d526121d9adbbf58b16",
+      "sha256": "4e93d0321a0e944d597cf78a434da2b54ed065f224b0cad49da223b6e150fcd8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "a5fac3d31abc1504434289244cf68ab949dcd368f78b44967c328bdd9917dfaa",
+      "sha256": "0e283f2ad632ddef09e26aaf0e678e61a5830f6c67c759eb162720a1ec5eedc0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "619e549cd2f45b84eb0e84bdfb6a54f377ba48bec080d4e36e156aeb9a8d7259",
+      "sha256": "476ffe571c09143c88cfa90ddea85dbd87c5d4b9bc935dff7ab43bae0225a024",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "a5764bb91688048f8045c60318e8e599db37042e8dba0d0aa93fe739a404735e",
+      "sha256": "fd7ec157a7f7bd212f12c175d2143b143bf537462515335c1d7a105253b75600",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "0f034c730cabdb8b30ea98b302a2debc0f6efd5affc2f53544e8dc6ca6bf9cc6",
+      "sha256": "1fadcbbc51248c355acedbbd7272df782fe3b13db4bf25eab241c0b49ec5d3bf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "32fc9fc921db769d3a74e9b4d4452f455eeb455b74210ff2a535317ff05c74e7",
+      "sha256": "1127754c8c52fdbf241ec36c7b10c5afdd41579240d2cf0b06826897f06c7d74",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+      "source_sha256": "22339f1fd2ed01786150c087def69f321b2efd0b37920832ec196e0c71eaade7",
+      "sha256": "fe4ecb6a073c0897eb9a53f1cdfecb0d236186be3043eee8b424934e4825c80c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+      "source_sha256": "5c00c3077af13aa2a242be4ba82e0d07fd1913da62c61a6364e110f9c5567ec8",
+      "sha256": "243777fea507d1ffb01d6dea44d5780bfa3aaaae6930b6d6b752e5d0200127bf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+      "source_sha256": "f61fb3e03e62c1d7371c9275210d8a0e93215069a1581b83156eebe7aefee2bb",
+      "sha256": "9e4cf788d4ce7cfd8d089bb3a9b56bf33b104579684dc0a95d9e0736f739bb5b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+      "source_sha256": "f5c85e020c27659f4c786b40c2e102c70100af6519da394e8632c48fe54bde1b",
+      "sha256": "ab2db6ea3e1be658b0edcb5ecf4203a5f68f6d8c5528a501ae588bc1038913cb",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+      "source_sha256": "4a10ef8aac9c50e7508b96b7b7f157b0a70504e3aaf741fa7aecfdf58d924f34",
+      "sha256": "2bbc52d1be56a952f28b05d0b55623512dcc95fd4a40d09e65707f92be1223d7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/last_position.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/last_position.png",
+      "source_sha256": "f8f21b1cc1810518b2abe94636eec4f9fe26b30fde45667314bb9cdd5d898868",
+      "sha256": "4057dec497913ec657f5cf075cbe3212598a068749d8a82eb168698f29fa2fe3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "44cd9f0244b44f1d32997b30c31a0633a6262b5c2bb56901033bb29bca5dfe0e",
+      "sha256": "3cd59e923bc62cb207d26350fbab908defe4968e1c50b6b1473bec8dc4a82378",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+      "source_sha256": "6075afeafcac1f4a4640f7d4882b666412ada4f02478e012d7c80431e55979e1",
+      "sha256": "4d02501ade79ca2755397da0dea7c577ef5d9fa9fe0b1c535c2986b4bb007498",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+      "source_sha256": "738155160f2cb58c26c6cf57f5443be762bb09ee10cac6b59d43513061580740",
+      "sha256": "1888a140e4de26b5990af5feac1b4872f34c073cc3362b288b1268b662772f88",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+      "source_sha256": "7b1a580f2418f109a2c26cd626589d3d338bf45ace37662ffec257f0d8dcb867",
+      "sha256": "c53b378a5c0f9827b65e618563fc63fca2e913aa473efe17e784e0193fe5cee5",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+      "source_sha256": "9a89b83dcd69d9f15f275bd4e682fe4343aa3ea969fb5b2abacd11aae17565a1",
+      "sha256": "8e58f8a0e2f138aea3c37d0bb99f6bc95c7a636a6d7ed61e5fc22c45b1a8c153",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+      "source_sha256": "3afc4fd1c1e17771d1ea8c33c50acf3d640b823e08edf153361189c26d3f55ea",
+      "sha256": "30fdce29b339afbff82fa6894cb5cb7c046f97b2e6a2daf1128f18ba006b43a5",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "16b95d83e99796a4066cdaa416232be51b467cda6e9b1e8560cfa67b9ca58893",
+      "sha256": "8cab735a1cc1e86f1ff03c3c298b5795ae4f3dfb058ffb956ed654f1f5b06f29",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "91bf5fe41c78b9fa9a366b381f28563b8fd056415fc6c8f1e207392e106728f5",
+      "sha256": "1456c3572e316f4dd73369bf32edf5298d54d76689f559a34bf925ae392d5bb4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/radio_charging_work_bay_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/radio_charging_work_bay_clean.png",
+      "source_sha256": "85a1ef5591667e9794b2f818c5a31ce449abb188ace8277b9b3cc8a4de7015c6",
+      "sha256": "8e637797ca3aa10f8cb9bb0e1c213105d2ab7a171826efd814ab55b001be54e1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": true
+    },
+    {
+      "file": "production_neighbors/RadioAccess/route.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed_shots/route.json",
+      "source_sha256": "e37a894d5e8a4532523fe281d472c9fa4b3a2712f0c0acd15f55e285b4c938e9",
+      "sha256": "e37a894d5e8a4532523fe281d472c9fa4b3a2712f0c0acd15f55e285b4c938e9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before/finite_open_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/finite_open_iron_ring.png",
+      "source_sha256": "48b151296a21a6735dec27d0bdbf7e67fafdf6d4b8deaabc74aebfb61e23a389",
+      "sha256": "238d3465cd17ae41a696e4f605e2a33ad09784ef934f88edc4dca3e4af83a55d",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/fixed_spindle_bearing.png",
+      "source_sha256": "64a37c65c2776608e70ab269139364ee31e5d01424b4df3aeb5ebcc696ec2144",
+      "sha256": "e79f491c6cf7136be1a70ba66a230004ecd4f7fccb4e9d2dc781c868a64c229b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/passive_copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/passive_copper_winding.png",
+      "source_sha256": "cfe8de598502f458c53a0553b58fcf0e5511862228c8b9f077d86cbfc26f3b33",
+      "sha256": "28468ba611fafed2cff89dff8c013ec300040d36995a404600a6ae0fed5f3402",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/radio_wire_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/radio_wire_room.png",
+      "source_sha256": "99f01103b1b15285b8c6c5a0e63934ec24cd98572c5e41d777cc2b2ad5b3b570",
+      "sha256": "414141ad6050a3471403633d500f24317ded59ec262a32bb00c2429278426262",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/two_fixed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/two_fixed_reels.png",
+      "source_sha256": "a63ca0ecd52536023ec5c3becd91644c61977702943da44ec1a4dd02d579b1a6",
+      "sha256": "6045b7f68654bf58a67f2dedf89c18b71ae94fec158bed6144267388a39fdc17",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/wire_and_ring_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/wire_and_ring_floor_feet.png",
+      "source_sha256": "a39f5c4386ee083edcdd2c38174dfd618e8761c469592456597dc770bb9065e2",
+      "sha256": "dd0b8a086293dec9e677637ad96a2ad33d9863a96548b0e46dd471a8b9380208",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/fittings.json",
+      "source_sha256": "161e92b96daab516175b1be77757b3142e52fd2d70c6a84b2993c064fcf004a3",
+      "sha256": "161e92b96daab516175b1be77757b3142e52fd2d70c6a84b2993c064fcf004a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-before-shots/views.json",
+      "source_sha256": "1caa88b5830b546efad30693326cbf2c890b110c4bd3428f811c2584f8d6fe03",
+      "sha256": "1caa88b5830b546efad30693326cbf2c890b110c4bd3428f811c2584f8d6fe03",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before-second/finite_open_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/finite_open_iron_ring.png",
+      "source_sha256": "7b5d533e1a0e9beeb2f4c2f570de14bbb0347660d15e213ff96d28c048dcbce6",
+      "sha256": "45215fabb97ff601b09c807c080d0be2ef5c123f8ebea2a025da6fb07260ffe0",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/fixed_spindle_bearing.png",
+      "source_sha256": "e8d9c8032258a6269e34e4fa7fa6a25b8de6ceeaa276c8109a71a7f522b7987e",
+      "sha256": "190a7f509ea1747a6a22ba2e380218428411271c9bb9e1ff5f6e8b72d55252d7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/passive_copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/passive_copper_winding.png",
+      "source_sha256": "2dc113205df4961e9b901647bbe530589e2109c0232eae857865abb4ec351f5b",
+      "sha256": "56aa1870f272cf8009661ca8082f9db0cbb4e2a21f8166ced3a4b6a9fc799347",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/radio_wire_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/radio_wire_room.png",
+      "source_sha256": "fed6996c8780df275a530398cb00a04eff23b192617e19161fda5eb363e97235",
+      "sha256": "096e4a6ca77340f6141c90e15c0f852c13680da9a74300cf895ea045f33803ea",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/two_fixed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/two_fixed_reels.png",
+      "source_sha256": "99632b80478963b28843ebc63f087a7937232e2b991fc7d21d1701b762198841",
+      "sha256": "c1f9fead64bd07cca564b29e8a4b4ca7096a5aca15041b3aaa2b34b3d70c4096",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/wire_and_ring_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/wire_and_ring_floor_feet.png",
+      "source_sha256": "84ac2a3152e59fc39ee79ce780533449628fe56932414e2a667709ad5c218a95",
+      "sha256": "3e1d39db27b20c2c2b166f97d452c29abb34f5bb484098e293febe169e267d3b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/before-second/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/fittings.json",
+      "source_sha256": "161e92b96daab516175b1be77757b3142e52fd2d70c6a84b2993c064fcf004a3",
+      "sha256": "161e92b96daab516175b1be77757b3142e52fd2d70c6a84b2993c064fcf004a3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/before-second/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-before-second-shots/views.json",
+      "source_sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/second/finite_open_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/finite_open_iron_ring.png",
+      "source_sha256": "1c014849f8d8e265c6615c43c7df5f51e61fad1ae2b0b0f0aabcf73f6d61506c",
+      "sha256": "11112f4ed311ed5da68fa467c934073ca6a8017ee9f2b4c7fe2f31a19ded1715",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/fixed_spindle_bearing.png",
+      "source_sha256": "f06a6f3f9262dd52d79db85a236b5307834153222077a7b722c7526f062f5d12",
+      "sha256": "10239640273873661b5bb9fae1471e2e5c8c2a36adb5cb364d968a4fa4d6a48b",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/passive_copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/passive_copper_winding.png",
+      "source_sha256": "a4cde11bb193a13738eb2c599e9013a91c8fe68325de83164d1596e956b57dba",
+      "sha256": "eeaf906705a6e68778af1b3849641bfd8289fd9d95e8ade6403b80d069e8064f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/radio_wire_room.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/radio_wire_room.png",
+      "source_sha256": "a6a22387f946ff4eb4d2ad5e348460b5ccda28b4e559b295591671fec29adc94",
+      "sha256": "91dc201ac21cce9df037d88bf3974d96ef2e727fc2c5676508195f44f458dd3a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/two_fixed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/two_fixed_reels.png",
+      "source_sha256": "797d6fcdf4bbb51c355318200864edbcd0f524856d4e17dab36615790bd81b00",
+      "sha256": "16ea091b4cf8e5b3bfa12ebf55ce39d8f1bc134ee4f3a5e8db70fd2d3a89901a",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/wire_and_ring_floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/wire_and_ring_floor_feet.png",
+      "source_sha256": "fc487eaa49191975a529df3f02c09e4f82ac8371d1e314db4b03fe3112e5ec83",
+      "sha256": "0b025ddb9299691380df26b2beb4b001f814ca4be08feda9b65ecf788bc7665e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/second/fittings.json",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/fittings.json",
+      "source_sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/second/views.json",
+      "source": "tmp/v2-finish-review/radio-wire-second-shots/views.json",
+      "source_sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/residency/handcart.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/handcart.png",
+      "source_sha256": "3a5a41aa943c854714ea5a56539885c6b8c2d25642d49f3e88a85ea471fdb066",
+      "sha256": "ddf6326b135670be1e6e9e99fbf38ef25f68754738e2ae22c23e6d5f75b98513",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/hardware_counter.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/hardware_counter.png",
+      "source_sha256": "3e0a4a15391c7cc1e19bf8c3b3e5e056104a2c52dbc28f88592592e36cf4b454",
+      "sha256": "ec3be29af2d5252bc179e70662253087e9663c68e6b2c57b05b5971131645009",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/hardware_counter_repeat.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/hardware_counter_repeat.png",
+      "source_sha256": "3bc8e70f182777f63528b3f84f9dacf935155a123a0bd0b744c7197db41f30d8",
+      "sha256": "efe3deb16d2567ea5f95dd60921641f341eadf720fd2ac1137518eb82fbeafb2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/hardware_door.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/hardware_door.png",
+      "source_sha256": "4d97d3b282511e906faf1f7271e158b40098a4e0b2f90dd8b37cdd91a809ebdb",
+      "sha256": "7c2fa51c94a2b8a1e0a5022f5d760afa3f9404aae97aceba4e198a20efc6d756",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/hardware_door_close.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/hardware_door_close.png",
+      "source_sha256": "d19b2636105e386caffe54769e02855c53932b7716d1c025e6348d16a0525484",
+      "sha256": "61964d1aebd08f5db6584b1c1a557407db8021876a198f49d0e86f86b013f47f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/hardware_door_exit.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/hardware_door_exit.png",
+      "source_sha256": "8844b518038e704fce41d8c4946bb7faa5b6e79b0a3e64affa2d59dd00e26023",
+      "sha256": "93881972a8578f27372eebc0b25152430d85c0325f1d5f944069f4ed966212b7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/last_position.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/last_position.png",
+      "source_sha256": "11993bbbf1a83c21e4c5931b6fbcdb588cfcbd6a181372113e109d7435f870b4",
+      "sha256": "d539caef60097ac81c7fc466d04dd004943c7793b985129b5b0b70df19f09329",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/nave.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/nave.png",
+      "source_sha256": "9cecbbf53d650382917e784ef603ec86a6805bb79539c615facf263cf6d3c997",
+      "sha256": "3b8baac3fac6c79e4c6cf1e2b05c1f24a2a206663546ccfbc978ace196411a5f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/residency/route.json",
+      "source": "tmp/v2-finish-review/radio-wire-residency-shots/route.json",
+      "source_sha256": "7415a099750d76431cad7615d721fdcf55343d007f11ca5f652b791429cf3cbe",
+      "sha256": "7415a099750d76431cad7615d721fdcf55343d007f11ca5f652b791429cf3cbe",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "fcd566266ef04a7b5cf96110265863c2a29a66fb50ae53f561fc63c278f91898",
+      "sha256": "b6ec8c8cddb8d095f17c66aa25b8da087617fdfd8616333ca6c2326cbb3c2f00",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "71a09e77cdcade266f13533cbdb2bb17b3f7c5eff0c7cf4663e4701f3b96c4dc",
+      "sha256": "255b1885e5a59306ee1a2a5c2376cab491d3d1548bfe3b4bc8afb5ac2d7165f8",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "af4f9916426e584f2ad0458ecf6e9ca507dc68e14d44dc4b48c9e02c5355f715",
+      "sha256": "f885487e884e0e1241dd3f8ea9a3f4b534056f9297faf13684edf71d8329e12c",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "1b0294d82c1978767b957ce56f34b19b62d3fc6e385990dc1de1aac83a48b4f3",
+      "sha256": "566a942f9fd482268ae5e5e5d3a9c0e3fae5a09a42b6f8e5d29992fffaf3bbad",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "deeeeb4e22b1140ca00823b1245c01a7e42aaa1b5b4da5601a039c65a2768f10",
+      "sha256": "1308d39c678ad625814225fd8aa7e20abdd99c1e119506f5532e5014f6ce0107",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/entry_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/entry_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "cad1534a79d452db141315559189d6ee9f7a71a16c15bc5d9a70825c8808039a",
+      "sha256": "2343ed8dd3a47c2f3ba435001d34936059c5f7eafc6d9aa793118b8c3b3f9851",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "3656fa79476b0a775673729b3b83bec3e03c6ace2ed9c871006d42a529953e84",
+      "sha256": "2c38289fef418a1edcbde40ff6dfddb5297c6f60091582d2ad3947f2895fd8a1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "015dfd7a2a65d69daa2bebfff3b02c584bd88504bc63921027d93a52533d97fb",
+      "sha256": "72555e4b38f45d7065f3cc44f490f7f52a96968861d31b5ea6a28443e7a07559",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "8db6f270e2b568d4eb4531c8d93e57d46b79481c4b79404de8b06f073d150ca4",
+      "sha256": "df06fe8a6808fe63470df1c82e61c9c831f5b3ff68f8f02bc09cc7f4c8256111",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "ab1cf23879f1729190cbe1a00f4fce5de1c3a3ac9515d99222e0ff394f9f7f11",
+      "sha256": "1a7f43eaa29bb62793eedcc62577e5fbb9c93a17af8b88a7c530b9817d3df8b1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "69f7f161ffbcdc6cde9c5dec476eb11893efa8d79fa9e909529f0db17749992c",
+      "sha256": "dd55e1cc5b7422e18e0c5c3703cc50a2e50f6de718fa2e40c20218135fb02911",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_close_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "ad1b4a56194826c29c42172380efac445b53d1614ab28e6603887c9789e26406",
+      "sha256": "37a8247ed160586dbf7ea6d9ae441c2d8a3972440f52688732d8f33f8b48b844",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "760b01a63296c87a2e5e7b2499d81726e03567aba69fb5dfae7a3d3138ccf9b9",
+      "sha256": "1f88f3a4ac3cc111e955747be7c0252adad2572641688e133ab02274d8a0dc76",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_NEWS_CIGARS.png",
+      "source_sha256": "b2b41fb87cf175a7b6a7f9ff2e440057871eff6850352bafd8744219057185c9",
+      "sha256": "ae39943743562d99451c77becb86d0152eeba628de5a009875f898d897eda212",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_OTIS___SON.png",
+      "source_sha256": "e04ef7146fbf191f882c4529fd1f9a7184be075ad6cc19dde768a6ea316214d6",
+      "sha256": "f44136f8c1ef47b736ead6dac05cf4ea26872b530d70818bb654176ca1237500",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_PAWNBROKER.png",
+      "source_sha256": "6a2f828d9bad81be48b01d5d1d6bb078129b587959d40a302372768939bcf701",
+      "sha256": "4178dd628c15043d0624b199807cf6e2ebb3ae35e29f8efca796b6c29ac83fbd",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_PHOTO_SUPPLIES.png",
+      "source_sha256": "f90648633b776afa3b7c0a573eacf5a1b360b697f2e01d764292054cbd073672",
+      "sha256": "14cb5fa86a4880d0787a81c4d6f6184fa24635a605f7f8172dd67fdcf5350fbb",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_reopen_SITE_SHOP_DOOR_RADIO_SERVICE.png",
+      "source_sha256": "ec69ef6def1ded87745b3155c7a3cbe7c4a3c2b8f18ec1db293afd5c513015f7",
+      "sha256": "ef7b4cf846766b202fb838f9ef53480bbeb7246b0ee0153d48b2d5f29c0704e5",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "e154b00c19dfcbdefb296032537e3ebc8a9cc9435cfd4e1157575aaf0237115a",
+      "sha256": "0fdca0d87155c1468351d599d49f6cc236203e888ced48aa3ebcd554a1d89976",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+      "source_sha256": "e156a508137872e0ceeef228ea03596dfd3c003f8a965814e1ed51cd237bb978",
+      "sha256": "68de2f76e3462375206aeb945b8de608719805ee73dbd608b62035d94d9b95b9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+      "source_sha256": "6f4353fb95c9357fd192094a9c5f495027c492f773805ee7e54b36d30dfbf153",
+      "sha256": "efc71ac9e2db8538078d96971410aac220b881d3dba86800e9c45f2094ba6bb6",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+      "source_sha256": "1901cc8b8356b1c05ca37da1449ea38f5a591a0fa56ed515992cbec67b33d210",
+      "sha256": "2fd3e9f230c7dcf840a9043455ec06733c2ac75caec641a28faefd8cb365fb80",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+      "source_sha256": "24ca2ddeac4b483e47fd9ca0d44684854d01e7e8c79f89b40bc438b3a3ae35a2",
+      "sha256": "fdbb22b323f768b0e76a88eb441b62698bedade79ad85685a4f6b5bff982c9be",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/inside_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+      "source_sha256": "56b6b0fd74b1eae746e94e2fde9f385ee37ba29445433acd7616fee73dad23dc",
+      "sha256": "5cc21671c4c39ea3f7a0960d2fa8cf70e84f58bebecd187dfc7ebd267257a8ea",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/last_position.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/last_position.png",
+      "source_sha256": "04aa0936fba91b687ab0ec77cb67b989c6b952dc28cf84dc83d3aec31f755ffd",
+      "sha256": "687ec6c686f11e0eec222f6e787bd6037f0aaddf9e455699751f40747e102af1",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "6ea46a17dff20dd0a6ce17483902d04931a457f0946058c186f0c7e3f66b1540",
+      "sha256": "8c66f9ef046c45f16236b694338907119e241f7ecd20f0b78ef4482f35a6eced",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_NEWS_CIGARS_clean.png",
+      "source_sha256": "7414c1e7652e3d10903468783653bfaa3c121e66f9bfda07b540847415d82f56",
+      "sha256": "383efe4bb658327d394a01be3389bf8fc59ef4af3cd6864a0f6dead87b493f82",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_OTIS___SON_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_OTIS___SON_clean.png",
+      "source_sha256": "7d9bfdb2808ce9c6392ed8dd683c57f508f7fcd1aa86e91c36329ffae2c5c3f3",
+      "sha256": "10d7a74074d4c0abbd69d8b3ac4574bc2cc4dd6ace457b77cd27285cd66be7a4",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_PAWNBROKER_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_PAWNBROKER_clean.png",
+      "source_sha256": "95a2b6cf80d54043b4c5788e379254eda91c3bf1098add347fcfe685a280a547",
+      "sha256": "4fe03f8c8d03c4d197944d78caa287ff74c59df3098bcdd843eec813814013fa",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_PHOTO_SUPPLIES_clean.png",
+      "source_sha256": "dc5b58babd8e620b6d2cb801e697b09368aba4f668508de92073f59c703486e5",
+      "sha256": "3af7f2c52c6c63e0f902f777798d7d21f915735694f274611657834cf0485cb9",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/night_SITE_SHOP_DOOR_RADIO_SERVICE_clean.png",
+      "source_sha256": "a268fcbbc1b29c9bd4706a9c81306a43eb817e77b04dea339afb5d29320e6d71",
+      "sha256": "dcf5ebe65187745977aba7181b04dd45151a220226b9cb73fe857ce0d6ad0397",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/parked_close_SITE_SHOP_DOOR_LUNCHEONETTE.png",
+      "source_sha256": "57a5d8f21561a43d8a1d33c0659c220f91fa287c7f426c13f4b30f9bf566bc90",
+      "sha256": "351976f0a3db4a08f0e4247992cc16929924969e924e194676e0710b53d3844f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/parked_SITE_SHOP_DOOR_LUNCHEONETTE_clean.png",
+      "source_sha256": "8ec8166211427ec27de2a0675c238d8d264f61e624ba3f2ce86b61a97408569b",
+      "sha256": "89008303d59d7a619b2bf6108f2583095028adfcd1447ec33005773d6936060f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/radio_charging_work_bay_clean.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/radio_charging_work_bay_clean.png",
+      "source_sha256": "651641bbba8844656309308aec44606b292e8f7685538a878f3ddc5e5f7ace1c",
+      "sha256": "565e8eca94fc94d5270db712c95e79f79a36cb1e7d7d0a20373235fac0b53398",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/access/route.json",
+      "source": "tmp/v2-finish-review/radio-wire-access-shots/route.json",
+      "source_sha256": "9f2be4ed0416d0779c51fa0b15320f87ff58b967890202dbb642d2f985979752",
+      "sha256": "9f2be4ed0416d0779c51fa0b15320f87ff58b967890202dbb642d2f985979752",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/stage-native/copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/copper_winding.png",
+      "source_sha256": "26c54f1e5ac4996306548c12696dfd8aee2cbd83c939312d8354c2ab32434458",
+      "sha256": "47248b3ef16d2216ad22eb23ea889d34ec9a4536c40886d8e098a6d9e3c1c9bf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/finite_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/finite_iron_ring.png",
+      "source_sha256": "a0bd660956266c3e1573733b556e9aaf8fa91f3c7de63d03a60955ff9c763167",
+      "sha256": "474431101174b1f740030b75e190e9c28977533ce2b2ed7b7b5c05819ef68bef",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/fixed_spindle_bearing.png",
+      "source_sha256": "07a11ef5c25835e59cf4efcfba6c3164077c76ceef0d51cc3b2278fe43ef0dea",
+      "sha256": "777635bf8573cf746f69d1da69911da70c9b161271b3eb4c4fdbe0ab198d834f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/floor_feet.png",
+      "source_sha256": "728c15e97b3acbd26fbf07a4d47011d5d73c903790b704733b6c9b9531c4bc68",
+      "sha256": "4c16ee2979607d6eb0df2f18e35ab2773d92a5ba282db003b222fef13ce94a72",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/native_floor_bearings.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/native_floor_bearings.png",
+      "source_sha256": "59ea60bd20ff975f79dc9152edd06d8b1e02444611ef0597622fa13d21576478",
+      "sha256": "d2ca9d8b817d02bc77fea43874bad39b3aca37cc88d12b35361bed4b5eb1e2b7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/open_ring_centre.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/open_ring_centre.png",
+      "source_sha256": "13216e9ba1e06d3b0b25cdf53659a08871ff34a7799b1ad06a11b3d57efc5da6",
+      "sha256": "278df6ac5466eff5d0e66d22e5cd93e347ad300822ff59f01805a138f374d311",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/stock_front.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/stock_front.png",
+      "source_sha256": "42fc14ec58508d8e63a36c4d62efddd785487df80b86baaeb15314f4b2587b6c",
+      "sha256": "37383e2c2f5a09b7b6a53993b706a55750a684d7d4e855c52898ab9ee1b3eea3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/stock_rear.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/stock_rear.png",
+      "source_sha256": "1e478ed53057c24ef936e4c16ef4b3567e2f2f4f3a1fb958fa5c030bbcdb7705",
+      "sha256": "0aac1e89d1c18d175b9fd98ee17ff7799fb05798ef0b771def378c339df714d2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/stock_side.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/stock_side.png",
+      "source_sha256": "558198f39c32c92428c06a0ee389dd883177f480333f7752872e066714ec4401",
+      "sha256": "80803db3d385aa528fad719dbaac170f49329ab7f1ee5239c89b18aee52d4825",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/two_closed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/two_closed_reels.png",
+      "source_sha256": "ef8b483993e18305433027592044213f4c70e11eeabcb0f1c9de416a33995dfc",
+      "sha256": "4b532bfbb499f52cd069d6b2d22d58441579fe986a0a9323ec72a45ec865bf0e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/stage-native/inspection.json",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native/inspection.json",
+      "source_sha256": "d7ff1b124a0ef30d6a0ce41ee734125aafb3107c3f73b6bbd72e2a8b4da19cdf",
+      "sha256": "d7ff1b124a0ef30d6a0ce41ee734125aafb3107c3f73b6bbd72e2a8b4da19cdf",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/first-canonical-native/copper_winding.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/copper_winding.png",
+      "source_sha256": "2e80c9a3b39e06fdfebf68112ac210bb8f0c580f3d270118762dfe8bca8d87bc",
+      "sha256": "47248b3ef16d2216ad22eb23ea889d34ec9a4536c40886d8e098a6d9e3c1c9bf",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/finite_iron_ring.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/finite_iron_ring.png",
+      "source_sha256": "9db405ce9ff7f2879a74157476bd832705b940a303c9cfe9bbb8c4fb9677f12b",
+      "sha256": "474431101174b1f740030b75e190e9c28977533ce2b2ed7b7b5c05819ef68bef",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/fixed_spindle_bearing.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/fixed_spindle_bearing.png",
+      "source_sha256": "f65f59d0c265f1bff9e27cb29eed5367ec61d615219f1d54f1fce5e3deda8417",
+      "sha256": "777635bf8573cf746f69d1da69911da70c9b161271b3eb4c4fdbe0ab198d834f",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/floor_feet.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/floor_feet.png",
+      "source_sha256": "056129c12893ab2ee5bdd39e230866c67ede36b1fd7ff3bd70cd0aa3ecddfbb4",
+      "sha256": "4c16ee2979607d6eb0df2f18e35ab2773d92a5ba282db003b222fef13ce94a72",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/native_floor_bearings.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/native_floor_bearings.png",
+      "source_sha256": "465e059ed7adf5197bb6ff93fb8597cb1bd4a4928349599bcd987458547b31b9",
+      "sha256": "d2ca9d8b817d02bc77fea43874bad39b3aca37cc88d12b35361bed4b5eb1e2b7",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/open_ring_centre.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/open_ring_centre.png",
+      "source_sha256": "9fb893dc5b6c3660ab643e2ecef2229524d261eba8e0d49e79a861e86f5911f5",
+      "sha256": "278df6ac5466eff5d0e66d22e5cd93e347ad300822ff59f01805a138f374d311",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/stock_front.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/stock_front.png",
+      "source_sha256": "a4dd374ed325623e2a06940be5ed72a0ed4756f7aa188d7b2c6f58ac4bf22c1a",
+      "sha256": "37383e2c2f5a09b7b6a53993b706a55750a684d7d4e855c52898ab9ee1b3eea3",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/stock_rear.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/stock_rear.png",
+      "source_sha256": "b98c3e182ee65733cbd2efb8f83dc692f62174ac916f52cd4a0c2c25954df3d1",
+      "sha256": "0aac1e89d1c18d175b9fd98ee17ff7799fb05798ef0b771def378c339df714d2",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/stock_side.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/stock_side.png",
+      "source_sha256": "d8ab967c0278f66b75e7278e893105bbbf8190af92f6262609888a3f2f7eab7a",
+      "sha256": "80803db3d385aa528fad719dbaac170f49329ab7f1ee5239c89b18aee52d4825",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/two_closed_reels.jpg",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/two_closed_reels.png",
+      "source_sha256": "a2961ad5cd7c5d4420122a2fb4c687b3e7fae8eb9d85060566e85eb8ea62b3a4",
+      "sha256": "4b532bfbb499f52cd069d6b2d22d58441579fe986a0a9323ec72a45ec865bf0e",
+      "copy": "JPEG visual derivative",
+      "final_visual_reviewed": false
+    },
+    {
+      "file": "diagnostics/first-canonical-native/inspection.json",
+      "source": "tmp/v2-finish-review/radio-wire-first-canonical-native/inspection.json",
+      "source_sha256": "585edd34c8ecd1d816bac5fd85e0ce56ce5018228e526e6cf715b802008df4cc",
+      "sha256": "585edd34c8ecd1d816bac5fd85e0ce56ce5018228e526e6cf715b802008df4cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-access.log",
+      "source": "tmp/v2-finish-review/radio-wire-access.log",
+      "source_sha256": "2c02a5784527ab67d4ee3f4fd3a222a10df429cbf1f8d50e8d4f2375af0bc9e0",
+      "sha256": "2c02a5784527ab67d4ee3f4fd3a222a10df429cbf1f8d50e8d4f2375af0bc9e0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-access.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-access.log.receipt.json",
+      "source_sha256": "4e7a887fdac8612394c960c04055387ada969cfc95757c6d52ffb435511fdbb0",
+      "sha256": "4e7a887fdac8612394c960c04055387ada969cfc95757c6d52ffb435511fdbb0",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-before-second.log",
+      "source": "tmp/v2-finish-review/radio-wire-before-second.log",
+      "source_sha256": "484cddd6bb0366f43a4b46613750585bc2bae868e3a895be4466f060e23fa45c",
+      "sha256": "484cddd6bb0366f43a4b46613750585bc2bae868e3a895be4466f060e23fa45c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-before-second.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-before-second.log.receipt.json",
+      "source_sha256": "b8295895164ab898f1ba66085f145a5e98087de93fbaaa52064ed9ff353a756f",
+      "sha256": "b8295895164ab898f1ba66085f145a5e98087de93fbaaa52064ed9ff353a756f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-before.log",
+      "source": "tmp/v2-finish-review/radio-wire-before.log",
+      "source_sha256": "7fdcef45fe736127f19002e4eb0e284327bfe4a1209931c69a69e23a3c8ca033",
+      "sha256": "7fdcef45fe736127f19002e4eb0e284327bfe4a1209931c69a69e23a3c8ca033",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-before.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-before.log.receipt.json",
+      "source_sha256": "0cdfe0729a57712ed8244f0451664271079f50bb26afdd393700604ad2625f0c",
+      "sha256": "0cdfe0729a57712ed8244f0451664271079f50bb26afdd393700604ad2625f0c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-canonical-build-second.log",
+      "source": "tmp/v2-finish-review/radio-wire-canonical-build-second.log",
+      "source_sha256": "f7078bad04f43d2495a48026ca952f65f6714794fd0e6f83fb324453d7cd0b1d",
+      "sha256": "f7078bad04f43d2495a48026ca952f65f6714794fd0e6f83fb324453d7cd0b1d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-canonical-build.log",
+      "source": "tmp/v2-finish-review/radio-wire-canonical-build.log",
+      "source_sha256": "0933eb63c08cc5da2ba26cbd0a05615a3975431607102efaa5f95e76fae9638f",
+      "sha256": "0933eb63c08cc5da2ba26cbd0a05615a3975431607102efaa5f95e76fae9638f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-canonical-native-second.log",
+      "source": "tmp/v2-finish-review/radio-wire-canonical-native-second.log",
+      "source_sha256": "4c6241b4c1a91693a25bb525a65848b2ebe76e05ceebbfd670fa954235d34585",
+      "sha256": "4c6241b4c1a91693a25bb525a65848b2ebe76e05ceebbfd670fa954235d34585",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-canonical-native.log",
+      "source": "tmp/v2-finish-review/radio-wire-canonical-native.log",
+      "source_sha256": "eb8cb8966ac3ea795678a840fb414772a9334cb5a58470b493e8db2edf926fd4",
+      "sha256": "eb8cb8966ac3ea795678a840fb414772a9334cb5a58470b493e8db2edf926fd4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-first.log",
+      "source": "tmp/v2-finish-review/radio-wire-first.log",
+      "source_sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-first.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-first.log.receipt.json",
+      "source_sha256": "186e78e7583ad2f9f3ce7985f5cc4fe3f5117144500b844de7a82db93df69a65",
+      "sha256": "186e78e7583ad2f9f3ce7985f5cc4fe3f5117144500b844de7a82db93df69a65",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-first.log.stderr",
+      "source": "tmp/v2-finish-review/radio-wire-first.log.stderr",
+      "source_sha256": "f00091a36ed29745e035cdfc1438a77c23bf8d4746d2f0807c8efb838f86a5a9",
+      "sha256": "f00091a36ed29745e035cdfc1438a77c23bf8d4746d2f0807c8efb838f86a5a9",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import1.log",
+      "source": "tmp/v2-finish-review/radio-wire-import1.log",
+      "source_sha256": "5d68347ca9d65123b6ce3c46098a5128dbb60f0ae8a15a38bc29a5f3c0f866d3",
+      "sha256": "5d68347ca9d65123b6ce3c46098a5128dbb60f0ae8a15a38bc29a5f3c0f866d3",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-import1.log.receipt.json",
+      "source_sha256": "3a57aef47c0ae5fed27de2d27baac4e632a4a7550c14297d9471f7d1cddb7892",
+      "sha256": "3a57aef47c0ae5fed27de2d27baac4e632a4a7550c14297d9471f7d1cddb7892",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import1.log.stderr",
+      "source": "tmp/v2-finish-review/radio-wire-import1.log.stderr",
+      "source_sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+      "sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import2.log",
+      "source": "tmp/v2-finish-review/radio-wire-import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-import2.log.receipt.json",
+      "source_sha256": "c89a9ef098601ced973ac4a4b65055003385b16f25e59e1dd23c7592eb6f5674",
+      "sha256": "c89a9ef098601ced973ac4a4b65055003385b16f25e59e1dd23c7592eb6f5674",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import3.log",
+      "source": "tmp/v2-finish-review/radio-wire-import3.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import3.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-import3.log.receipt.json",
+      "source_sha256": "82c36a617f2c989a013343a508dbe7a40f6c8cca6a98401c8eaa18e4fd0e64b1",
+      "sha256": "82c36a617f2c989a013343a508dbe7a40f6c8cca6a98401c8eaa18e4fd0e64b1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import4.log",
+      "source": "tmp/v2-finish-review/radio-wire-import4.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-import4.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-import4.log.receipt.json",
+      "source_sha256": "bc79339cc2f1fb3e43e316a844554d090695a7ff54b50b24198065c336ec7296",
+      "sha256": "bc79339cc2f1fb3e43e316a844554d090695a7ff54b50b24198065c336ec7296",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-reader-second.log",
+      "source": "tmp/v2-finish-review/radio-wire-reader-second.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-reader.log",
+      "source": "tmp/v2-finish-review/radio-wire-reader.log",
+      "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-residency.log",
+      "source": "tmp/v2-finish-review/radio-wire-residency.log",
+      "source_sha256": "b2bd2ef285f64b2b72a0a5cf1b8ff32f1d510fd455c8b20c3cf9137fcf455360",
+      "sha256": "b2bd2ef285f64b2b72a0a5cf1b8ff32f1d510fd455c8b20c3cf9137fcf455360",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-residency.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-residency.log.receipt.json",
+      "source_sha256": "5bab4063a12961a4afd502937b6e3c6c4268b6b9b9673ee7aae123d9e04520cd",
+      "sha256": "5bab4063a12961a4afd502937b6e3c6c4268b6b9b9673ee7aae123d9e04520cd",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-second.log",
+      "source": "tmp/v2-finish-review/radio-wire-second.log",
+      "source_sha256": "bb6b913c06b6593de75f261f87e05605a04395492706ad6ee73a113ee36efddc",
+      "sha256": "bb6b913c06b6593de75f261f87e05605a04395492706ad6ee73a113ee36efddc",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-second.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-second.log.receipt.json",
+      "source_sha256": "78bb17a41aa49f3dce5bd547afb57bc8a433b8e4aabcc1457d1fa7c7c273298b",
+      "sha256": "78bb17a41aa49f3dce5bd547afb57bc8a433b8e4aabcc1457d1fa7c7c273298b",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-spatial-check.log",
+      "source": "tmp/v2-finish-review/radio-wire-spatial-check.log",
+      "source_sha256": "2c0582e35098682566a3dba7fb26d899ad15ebefeba8c6f9b142c3734a89db57",
+      "sha256": "2c0582e35098682566a3dba7fb26d899ad15ebefeba8c6f9b142c3734a89db57",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-stage-build.log",
+      "source": "tmp/v2-finish-review/radio-wire-stage-build.log",
+      "source_sha256": "3e609bd52f4c03b2cc33eb493e6a7f6c2c7a9505a164f4e9845ff1222ed507f1",
+      "sha256": "3e609bd52f4c03b2cc33eb493e6a7f6c2c7a9505a164f4e9845ff1222ed507f1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-stage-native.log",
+      "source": "tmp/v2-finish-review/radio-wire-stage-native.log",
+      "source_sha256": "482cb9041ce7ffa9e4303a28eb60f58f675e6d3a4365e96f4826b9dd39268b91",
+      "sha256": "482cb9041ce7ffa9e4303a28eb60f58f675e6d3a4365e96f4826b9dd39268b91",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "diagnostics/radio-wire-verifier.log",
+      "source": "tmp/v2-finish-review/radio-wire-verifier.log",
+      "source_sha256": "6e620d10debd2b1773c44518989b58226ff9033ddf015c749d65d2280742488f",
+      "sha256": "6e620d10debd2b1773c44518989b58226ff9033ddf015c749d65d2280742488f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/import1.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/import1.log.receipt.json",
+      "source_sha256": "5b0196ca26f351f93de8fd7efb169466143599fa6516da994337a7f8a4d64da2",
+      "sha256": "5b0196ca26f351f93de8fd7efb169466143599fa6516da994337a7f8a4d64da2",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import1.log.stderr",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/import1.log.stderr",
+      "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/import2.log",
+      "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/import2.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/import2.log.receipt.json",
+      "source_sha256": "b41a58ee1175e0b4aa2942bb199d0fc6c861b9d22cf5a1f15a6a0fa7131bb492",
+      "sha256": "b41a58ee1175e0b4aa2942bb199d0fc6c861b9d22cf5a1f15a6a0fa7131bb492",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioWireTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed.log",
+      "source_sha256": "a4546c42180fcf59261f6f4260f76a80d11551b986d9eefd9992e877ab495876",
+      "sha256": "a4546c42180fcf59261f6f4260f76a80d11551b986d9eefd9992e877ab495876",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioWireTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioWireTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "815322d38bf95a2cde1213e4024b31a9796045a2be5289fe5aa308dd6da38d10",
+      "sha256": "815322d38bf95a2cde1213e4024b31a9796045a2be5289fe5aa308dd6da38d10",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioBatteryTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed.log",
+      "source_sha256": "4eb86615b6ec380acd28b0949cf75546b19ddbfb24c92fd6038aaf8475d77b7f",
+      "sha256": "4eb86615b6ec380acd28b0949cf75546b19ddbfb24c92fd6038aaf8475d77b7f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioBatteryTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBatteryTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "8bf2701fee46d8fb35031c5390a28b10e2c284655c3a5445418b23e202fb98ad",
+      "sha256": "8bf2701fee46d8fb35031c5390a28b10e2c284655c3a5445418b23e202fb98ad",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioStockTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed.log",
+      "source_sha256": "2ad82ca81e63a422c61fad08975c5924025c8da36649d43b74d73776f1dfbf5e",
+      "sha256": "2ad82ca81e63a422c61fad08975c5924025c8da36649d43b74d73776f1dfbf5e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioStockTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioStockTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "1b0876e4201a112c82519bb6e3dcae227841f4c106169b0763216367442d99ca",
+      "sha256": "1b0876e4201a112c82519bb6e3dcae227841f4c106169b0763216367442d99ca",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioApparatusTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed.log",
+      "source_sha256": "79dd8c2479d801d227910f64e01ebf20e3864f2464cd978a844a70fb38ea22e1",
+      "sha256": "79dd8c2479d801d227910f64e01ebf20e3864f2464cd978a844a70fb38ea22e1",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioApparatusTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioApparatusTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "bd5e8ea1969a61c8f50410a0da47eb232d757803a810a434726b87f2b9c4443e",
+      "sha256": "bd5e8ea1969a61c8f50410a0da47eb232d757803a810a434726b87f2b9c4443e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioBenchTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed.log",
+      "source_sha256": "9d93b1fbc9635a333d56020ba53c8ef34d8ac62b5aa3b7af156609fc8ea359a5",
+      "sha256": "9d93b1fbc9635a333d56020ba53c8ef34d8ac62b5aa3b7af156609fc8ea359a5",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioBenchTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioBenchTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "f2d7a6bae5ab0e361a06bb35e53979a64adf8392b39293eadde7dc756824bfb4",
+      "sha256": "f2d7a6bae5ab0e361a06bb35e53979a64adf8392b39293eadde7dc756824bfb4",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log",
+      "source_sha256": "263be9fc9557bd77a07174b3cc83910700159247451ee6251c04a176e7506d07",
+      "sha256": "263be9fc9557bd77a07174b3cc83910700159247451ee6251c04a176e7506d07",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "e5ced5fe2caff1fd598ad148f86547a373ea7d53c38ecc4b59f133a7b32a23f7",
+      "sha256": "e5ced5fe2caff1fd598ad148f86547a373ea7d53c38ecc4b59f133a7b32a23f7",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+      "source_sha256": "90f160a0538ebf81de98d46c141a0a076fa39d5f1dbe84be6993f20baec9299d",
+      "sha256": "90f160a0538ebf81de98d46c141a0a076fa39d5f1dbe84be6993f20baec9299d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "e931463cb8a746a2cd56758c797f8515c2cb8947954df76a6a1f2fe7fdc3c58c",
+      "sha256": "e931463cb8a746a2cd56758c797f8515c2cb8947954df76a6a1f2fe7fdc3c58c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioAccessTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed.log",
+      "source_sha256": "2f7bc6f3d2364007b6e4491154425e5d3eb2688f66a8c809d2237e2a71eabb7e",
+      "sha256": "2f7bc6f3d2364007b6e4491154425e5d3eb2688f66a8c809d2237e2a71eabb7e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2RadioAccessTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2RadioAccessTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "3677041e0139a120b8bbeca521acf8b262e082c802878f727fed7cf76d451e9e",
+      "sha256": "3677041e0139a120b8bbeca521acf8b262e082c802878f727fed7cf76d451e9e",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log",
+      "source_sha256": "c5a43dad8bc75d952b1ccea5a25ac2d801dc38c6966988203fd22a2e28001505",
+      "sha256": "c5a43dad8bc75d952b1ccea5a25ac2d801dc38c6966988203fd22a2e28001505",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "9353042939270f0dc6ee461631ff87053412fad5f2ce9d8b69237e37651825ba",
+      "sha256": "9353042939270f0dc6ee461631ff87053412fad5f2ce9d8b69237e37651825ba",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+      "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "e11e421d0666c774a9d12db0544b2d64277b01947d64be3b1bbde6717fda283d",
+      "sha256": "e11e421d0666c774a9d12db0544b2d64277b01947d64be3b1bbde6717fda283d",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+      "source_sha256": "3112d025c8559d5781295961fcded809b7943122926d5c68b6b2fce335a4b920",
+      "sha256": "3112d025c8559d5781295961fcded809b7943122926d5c68b6b2fce335a4b920",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "1d0b3fd769fe57a7b215fb4d69a007569f07a7fab08d5c9819a6738ca04adc6f",
+      "sha256": "1d0b3fd769fe57a7b215fb4d69a007569f07a7fab08d5c9819a6738ca04adc6f",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+      "source_sha256": "e24e8a204cb28b63502c94f6937d81b11487f7736ee5a510a9f8d8e972d5e16c",
+      "sha256": "e24e8a204cb28b63502c94f6937d81b11487f7736ee5a510a9f8d8e972d5e16c",
+      "copy": "byte-identical"
+    },
+    {
+      "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source": "tmp/v2-finish-review/radio-wire-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+      "source_sha256": "e743d78b7d918c7feb8338e54439c364b76ad66958a0dbbef367d559eb821df6",
+      "sha256": "e743d78b7d918c7feb8338e54439c364b76ad66958a0dbbef367d559eb821df6",
+      "copy": "byte-identical"
+    }
+  ]
+}
