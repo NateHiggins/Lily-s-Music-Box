@@ -1,0 +1,66 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\diner_receiving.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_diner_receiving.py:53: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+19:30:51 | INFO: Data are loaded, start creating Blender stuff
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_awning_vinyl-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_bright-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_concrete-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fx_shadow
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wainscot-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark-col
+19:30:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_wear_fx_scuff
+19:30:51 | INFO: glTF import finished in 0.15s
+00:06.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_chassis_front.png'
+00:07.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_chassis_side.png'
+00:09.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_chassis_rear.png'
+00:13.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_scope_aperture.png'
+00:15.687  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_floor_feet.png'
+00:18.656  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_braided_flex.png'
+00:21.469  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_closed_service_hatch.png'
+00:25.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_service_stock_open.png'
+00:29.469  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_base_wet_cells.png'
+00:33.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\tall_inside_lid_schematic.png'
+00:35.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_chassis_front.png'
+00:37.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_chassis_side.png'
+00:39.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_chassis_rear.png'
+00:42.141  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_scope_aperture.png'
+00:44.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_floor_feet.png'
+00:47.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_braided_flex.png'
+00:50.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_closed_service_hatch.png'
+00:53.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_service_stock_open.png'
+00:57.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_base_wet_cells.png'
+01:01.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\compact_inside_lid_schematic.png'
+01:03.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-chassis-native\pair_front.png'
+DINER RECEIVING NATIVE QA 839 closed connected stocks; 2 joined assembly; 8 retained floor contacts; 21 views
+
+Blender quit

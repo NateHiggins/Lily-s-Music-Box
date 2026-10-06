@@ -1,0 +1,436 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 7420,
+  "by_tier": {
+   "data": 4238,
+   "production": 970,
+   "scene": 5,
+   "test": 2207
+  },
+  "by_kind": {
+   "asset_path": 348,
+   "floor_reference": 376,
+   "generated_name": 105,
+   "id_candidate": 107,
+   "id_reference": 4746,
+   "layout_load": 30,
+   "manual_contract": 13,
+   "node_path": 266,
+   "plan_coordinate": 73,
+   "runtime_id": 264,
+   "unit_reference": 855,
+   "vector3_coordinate": 237
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 4238,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 370,
+   "RUNTIME_LOOKUP": 818,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 266,
+   "TEST_CONTRACT": 2207
+  },
+  "by_spatial": {
+   "ASSET_PATH": 348,
+   "CAMERA_STATION": 265,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 30,
+   "DISTANCE_THRESHOLD": 10,
+   "FLOOR_MEMBERSHIP": 387,
+   "RAW_GODOT_COORDINATE": 238,
+   "RAW_PLAN_COORDINATE": 76,
+   "ROOM_MEMBERSHIP": 681,
+   "SEMANTIC_ANCHOR": 4646,
+   "UNKNOWN_DYNAMIC": 108
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 107,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 4909,
+   "REGENERATE_CONSUMER": 138,
+   "REPLACE_WITH_NAMED_ANCHOR": 52,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 107,
+   "UPDATE_TEST_FIXTURE": 2101
+  },
+  "by_confidence": {
+   "HIGH": 379,
+   "LOW": 107,
+   "MEDIUM": 6934
+  }
+ },
+ "stats": {
+  "files_scanned": 1329,
+  "vector3_total": 5048,
+  "vector3_stats_only": 3949,
+  "b2g_derived": 333,
+  "gd_strings_seen": 90471
+ },
+ "drift": {
+  "new_failing": [
+   {
+    "key": "3c02afe1df4e2433",
+    "kind": "id_reference",
+    "token": "storm_shopcab_luncheonette0",
+    "file": "game/data/orison_v2/diner_receiving.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/source_records[0]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F01/furniture",
+    "target_exists": true
+   },
+   {
+    "key": "1b4603798c79d84c",
+    "kind": "id_reference",
+    "token": "storm_shopcab_luncheonette1",
+    "file": "game/data/orison_v2/diner_receiving.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/source_records[1]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F01/furniture",
+    "target_exists": true
+   },
+   {
+    "key": "cb586945f12a0186",
+    "kind": "floor_reference",
+    "token": "F01",
+    "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_cell"
+    ],
+    "lines": [
+     18
+    ],
+    "count": 1,
+    "context": [
+     "if floor.id != \"F01\": continue"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "RUNTIME_LOOKUP"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Production code looks up a layout id at runtime.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "c95cd7814d5a587f",
+    "kind": "generated_name",
+    "token": "mount_cell",
+    "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_cell"
+    ],
+    "lines": [
+     106
+    ],
+    "count": 1,
+    "context": [
+     "\"diner_receiving_\" + str(draw.name)"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "new_reported": [
+   {
+    "key": "97fed84a63dd7929",
+    "kind": "id_reference",
+    "token": "storm_shopcab_luncheonette0",
+    "file": "game/tests/orison_v2_diner_receiving_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_exercise_diner_receivers"
+    ],
+    "lines": [
+     104
+    ],
+    "count": 1,
+    "context": [
+     "{\"id\":\"storm_shopcab_luncheonette0\", \"title\":\"DO NOT ANSWER\", \"feet\":[18.15,.03,41.05], \"diameter\":.41, \"scope\":[0,1.345,-.386]},"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F01/furniture",
+    "target_exists": true
+   },
+   {
+    "key": "0235b6a05a8caf4b",
+    "kind": "id_reference",
+    "token": "storm_shopcab_luncheonette1",
+    "file": "game/tests/orison_v2_diner_receiving_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_exercise_diner_receivers"
+    ],
+    "lines": [
+     105
+    ],
+    "count": 1,
+    "context": [
+     "{\"id\":\"storm_shopcab_luncheonette1\", \"title\":\"OVERTIME\", \"feet\":[18.95,.03,40.95], \"diameter\":.28, \"scope\":[0,.98,-.326]}]:"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F01/furniture",
+    "target_exists": true
+   }
+  ],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "696ad76059d7e47b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/debug_in_pause_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     28
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DEBUG_ONLY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ec38c048df1ef0c7",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/dream_ecology_entry_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     14
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ba67dfc6fa3b9703",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_vertical_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     23
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "3bdade892942c01b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/zoo_teleport_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     34
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "6bc5eea6111d4f8f",
+    "kind": "vector3_coordinate",
+    "token": "_prepare_player_start",
+    "file": "game/tests/orison_v2_basement_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_prepare_player_start"
+    ],
+    "lines": [
+     7
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(4.4,-3.18,2.8))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "20288e5701dac9a2",
+    "kind": "generated_name",
+    "token": "mount_cell",
+    "file": "game/scripts/building/orison_v2_shop_seating.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_cell"
+    ],
+    "lines": [
+     62
+    ],
+    "count": 1,
+    "context": [
+     "\"F01_retail_seating_\"+str(draw.name)"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "fail"
+}

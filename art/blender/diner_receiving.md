@@ -42,3 +42,14 @@ feet; compact views are oblique. This proves no direct frontal/service or
 continuous route. Bound committed reconstruction/full-key checks remain
 required, and the scoped receiving contract leaves save/reconstruction
 **NOT_EXECUTED** without ledger authority.
+
+Committed source **6f120a2b** passes **seven** bound Godot runs.
+Its first board reports two new test references. Manifest-only correction
+**2ee94c67** appends them and passes the complete **48-gate/tools-test** comparison;
+both serialized correction imports prove identical runtime-input hashes. All **21** native, **30** corrected focused and
+**59** final production frames were directly reviewed. Pair scope/input and
+complete separate key authority are retained in
+**art/renders/orison_v2/diner_receiving_20261006**; report:
+**design/V2_DINER_RECEIVING_2026-10-06.md**. Preferred keyboard samples were
+obstructed; corrected measured clear samples pass. Oblique observations do
+not prove direct frontal/service or continuous access. V2 remains incomplete.

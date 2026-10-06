@@ -1,0 +1,186 @@
+{
+ "evidence_class": "INERT",
+ "manifest_before_lf_sha256": "9d4fa9881fb39a64f05d5a2dad63112e34ca290d6bc0e55a78530e25c7087641",
+ "manifest_after_lf_sha256": "15774cf3bb7419937a2e7d4ce5a047c144f7fb2c7c08bcaf584de207401cbc9c",
+ "records": [
+  {
+   "key": "3c02afe1df4e2433",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette0",
+   "file": "game/data/orison_v2/diner_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1b4603798c79d84c",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette1",
+   "file": "game/data/orison_v2/diner_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cb586945f12a0186",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c95cd7814d5a587f",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "\"diner_receiving_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  }
+ ],
+ "nonfailing_test_records_reviewed": [
+  {
+   "key": "97fed84a63dd7929",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette0",
+   "file": "game/tests/orison_v2_diner_receiving_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise_diner_receivers"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\":\"storm_shopcab_luncheonette0\", \"title\":\"DO NOT ANSWER\", \"feet\":[18.15,.03,41.05], \"diameter\":.41, \"scope\":[0,1.345,-.386]},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0235b6a05a8caf4b",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette1",
+   "file": "game/tests/orison_v2_diner_receiving_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise_diner_receivers"
+   ],
+   "lines": [
+    105
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\":\"storm_shopcab_luncheonette1\", \"title\":\"OVERTIME\", \"feet\":[18.95,.03,40.95], \"diameter\":.28, \"scope\":[0,.98,-.326]}]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  }
+ ],
+ "scope": "Exact two immutable Diner chassis records, original F01 membership and generated native partition naming. Four reviewed production/data dependencies append; every prior row and top-level field remains unchanged. Two nonfailing test references checked against original layout."
+}

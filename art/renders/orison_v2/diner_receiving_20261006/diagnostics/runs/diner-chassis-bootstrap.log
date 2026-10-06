@@ -1,0 +1,56 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_diner_receiving.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "diner_receiving.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:29:11 | INFO: Starting glTF 2.0 export
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__bakelite
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__bakelite__service_panel
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__bakelite_black
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__bakelite_black__schematic_traces
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__brass_dull
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__brass_dull__service_latch
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__copper_aged
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__enamel_appliance
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__fabric_warm
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__milk_glass
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette0__paper
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__bakelite
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__bakelite__service_panel
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__bakelite_black
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__bakelite_black__schematic_traces
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__brass_dull
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__brass_dull__service_latch
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__copper_aged
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__enamel_appliance
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__fabric_warm
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__milk_glass
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Extracting primitive: storm_shopcab_luncheonette1__paper
+19:29:11 | INFO: Primitives created: 1
+19:29:11 | INFO: Finished glTF 2.0 export in 0.16666746139526367 s
+
+DINER RECEIVING bootstrap exported editable native and glTF; import and rebuild before a bound fixture.

@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_receiving.glb",
+  "tolerance": 2e-05,
+  "source_records": [
+    {
+      "id": "storm_shopcab_luncheonette0",
+      "asm": "arcade_cab",
+      "at": [
+        18.15,
+        -39.75
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 1,
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shopcab_luncheonette1",
+      "asm": "arcade_cab",
+      "at": [
+        18.95,
+        -39.75
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 3,
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    }
+  ],
+  "original_draws": [
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite",
+      "key": "bakelite",
+      "expected_triangles": 256,
+      "low": [
+        17.854999542236328,
+        0,
+        39.42499923706055
+      ],
+      "high": [
+        19.21500015258789,
+        0.029999999329447746,
+        40.07500076293945
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black",
+      "key": "bakelite_black",
+      "expected_triangles": 256,
+      "low": [
+        17.84000015258789,
+        0.30000001192092896,
+        39.5099983215332
+      ],
+      "high": [
+        19.2549991607666,
+        1.590000033378601,
+        40.2400016784668
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass",
+      "key": "brass",
+      "expected_triangles": 24,
+      "low": [
+        18.059999465942383,
+        0.3799999952316284,
+        40.04999923706055
+      ],
+      "high": [
+        19.040000915527344,
+        0.550000011920929,
+        40.12200164794922
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool",
+      "key": "fabric_cool",
+      "expected_triangles": 12,
+      "low": [
+        17.81999969482422,
+        0.019999999552965164,
+        39.38999938964844
+      ],
+      "high": [
+        18.479999542236328,
+        1.6799999475479126,
+        40.11000061035156
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel",
+      "key": "enamel",
+      "expected_triangles": 140,
+      "low": [
+        18.083999633789062,
+        0.019999999552965164,
+        39.45000076293945
+      ],
+      "high": [
+        19.25,
+        1.4500000476837158,
+        40.191001892089844
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass",
+      "key": "milk_glass",
+      "expected_triangles": 12,
+      "low": [
+        17.770000457763672,
+        1.6799999475479126,
+        40.0099983215332
+      ],
+      "high": [
+        18.530000686645508,
+        1.899999976158142,
+        40.16999816894531
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen",
+      "key": "screen",
+      "expected_triangles": 24,
+      "low": [
+        17.8799991607666,
+        0.8399999737739563,
+        40.04499816894531
+      ],
+      "high": [
+        19.190000534057617,
+        1.5499999523162842,
+        40.1150016784668
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta",
+      "key": "terracotta",
+      "expected_triangles": 88,
+      "low": [
+        17.760000228881836,
+        0.550000011920929,
+        39.4900016784668
+      ],
+      "high": [
+        18.826000213623047,
+        1.7999999523162842,
+        40.191001892089844
+      ]
+    }
+  ],
+  "hull_name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull",
+  "raw_hull_name": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly",
+  "hull_triangles": 24,
+  "hull_low": [
+    17.760000228881836,
+    0,
+    39.38999938964844
+  ],
+  "hull_high": [
+    19.309999465942383,
+    1.899999976158142,
+    40.25
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_luncheonette0__bakelite",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 6220
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__bakelite__service_panel",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__bakelite_black",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__bakelite_black__schematic_traces",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__brass_dull",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 3956
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__brass_dull__service_latch",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__copper_aged",
+      "key": "copper_aged",
+      "catalog_key": "copper_aged",
+      "tile": 0.4,
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__enamel_appliance",
+      "key": "enamel_appliance",
+      "catalog_key": "enamel_appliance",
+      "tile": 0.72,
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__fabric_warm",
+      "key": "fabric_warm",
+      "catalog_key": "fabric_warm",
+      "tile": 0.7,
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__milk_glass",
+      "key": "milk_glass",
+      "catalog_key": "milk_glass",
+      "tile": 0.5,
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_luncheonette0__paper",
+      "key": "paper",
+      "catalog_key": "paper",
+      "tile": 0.5,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__bakelite",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 5092
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__bakelite__service_panel",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__bakelite_black",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__bakelite_black__schematic_traces",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__brass_dull",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 2452
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__brass_dull__service_latch",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__copper_aged",
+      "key": "copper_aged",
+      "catalog_key": "copper_aged",
+      "tile": 0.4,
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__enamel_appliance",
+      "key": "enamel_appliance",
+      "catalog_key": "enamel_appliance",
+      "tile": 0.72,
+      "triangles": 748
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__fabric_warm",
+      "key": "fabric_warm",
+      "catalog_key": "fabric_warm",
+      "tile": 0.7,
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__milk_glass",
+      "key": "milk_glass",
+      "catalog_key": "milk_glass",
+      "tile": 0.5,
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_luncheonette1__paper",
+      "key": "paper",
+      "catalog_key": "paper",
+      "tile": 0.5,
+      "triangles": 188
+    }
+  ]
+}
