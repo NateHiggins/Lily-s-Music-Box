@@ -1,0 +1,103 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 10,
+  "runtime_keys": [
+    "vinyl_oxblood",
+    "curtain_cloth",
+    "curtain_iron"
+  ],
+  "catalog_variants": {
+    "curtain_cloth": "fabric_warm",
+    "curtain_iron": "iron_blackened"
+  },
+  "material_aliases": {
+    "curtain_cloth": "fabric_warm",
+    "curtain_iron": "iron_blackened"
+  },
+  "material_tints": {
+    "curtain_cloth": [
+      0.43,
+      0.075,
+      0.065,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "fixed_drape_run",
+      "sources": [
+        "storm_shop_funeral_parlour_drape0",
+        "storm_shop_funeral_parlour_drape1"
+      ],
+      "envelope": [
+        4.13,
+        4.3,
+        -60.14571428571429,
+        -59.7,
+        0.05,
+        2.9
+      ],
+      "ceiling_points": [
+        [
+          4.215,
+          3.3,
+          60.07571428571429
+        ],
+        [
+          4.215,
+          3.3,
+          59.77
+        ]
+      ]
+    },
+    {
+      "kind": "fixed_drape_run",
+      "sources": [
+        "storm_shop_funeral_parlour_drape6",
+        "storm_shop_funeral_parlour_drape7",
+        "storm_shop_funeral_parlour_drape8",
+        "storm_shop_funeral_parlour_drape9",
+        "storm_shop_funeral_parlour_drape10",
+        "storm_shop_funeral_parlour_drape11",
+        "storm_shop_funeral_parlour_drape12",
+        "storm_shop_funeral_parlour_drape13"
+      ],
+      "envelope": [
+        4.13,
+        4.3,
+        -63.57428571428571,
+        -61.41428571428571,
+        0.05,
+        2.9
+      ],
+      "ceiling_points": [
+        [
+          4.215,
+          3.3,
+          63.50428571428571
+        ],
+        [
+          4.215,
+          3.3,
+          62.49428571428571
+        ],
+        [
+          4.215,
+          3.3,
+          61.48428571428571
+        ]
+      ]
+    }
+  ],
+  "probe": "art/data/funeral_drapes/ceiling_source_fit.json",
+  "probe_receipt": "art/data/funeral_drapes/ceiling_probe.receipt.json",
+  "open_work": [
+    "ADAPTATION: two thin fixed pleated cloth runs replace the ten original strip boxes while retaining their vertical datums, original run ranges and intervening rear opening.",
+    "Sewn header/hem, hanging tabs, threaded rings, two separate rails and five ceiling-seated hangers add explicit support; imported ceiling rays establish only the sampled geometric datum, not engineering capacity.",
+    "Existing fabric_warm and iron_blackened catalogue maps retain their owners; a declared local red tint changes only this cloth. No lettering, new bitmap, material key, shared shader or cutout is added.",
+    "The original seating, rear boundary, fitted lectern/empty bier, plants, doors, hours, keys, saves and utilities retain their owners. No moving-curtain, ritual, occupancy, chapel-access or new operation is inferred.",
+    "Native stocks, joins, unchanged opening, retained furniture context, actual ceiling contacts and metre charts require independent rendered inspection; imported runtime and standing views require their contract. This INERT plan grants no route, load capacity or acceptance."
+  ]
+}

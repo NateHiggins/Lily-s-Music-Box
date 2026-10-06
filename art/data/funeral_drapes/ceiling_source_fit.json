@@ -1,0 +1,103 @@
+{
+	"checks": 9,
+	"evidence_class": "INERT",
+	"failures": [],
+	"samples": [
+		{
+			"assembly": "storm_shop_funeral_parlour_drape0",
+			"collider": "/root/FuneralDrapesProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling/StaticBody3D",
+			"hit": [
+				4.21500015258789,
+				3.29999995231628,
+				60.0757141113281
+			],
+			"normal": [
+				0.0,
+				-1.0,
+				0.0
+			],
+			"requested": [
+				4.215,
+				3.3,
+				60.0757142857143
+			]
+		},
+		{
+			"assembly": "storm_shop_funeral_parlour_drape0",
+			"collider": "/root/FuneralDrapesProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling/StaticBody3D",
+			"hit": [
+				4.21500015258789,
+				3.29999995231628,
+				59.7699966430664
+			],
+			"normal": [
+				0.0,
+				-1.0,
+				0.0
+			],
+			"requested": [
+				4.215,
+				3.3,
+				59.77
+			]
+		},
+		{
+			"assembly": "storm_shop_funeral_parlour_drape6",
+			"collider": "/root/FuneralDrapesProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling/StaticBody3D",
+			"hit": [
+				4.21500015258789,
+				3.29999995231628,
+				63.504280090332
+			],
+			"normal": [
+				0.0,
+				-1.0,
+				0.0
+			],
+			"requested": [
+				4.215,
+				3.3,
+				63.5042857142857
+			]
+		},
+		{
+			"assembly": "storm_shop_funeral_parlour_drape6",
+			"collider": "/root/FuneralDrapesProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling/StaticBody3D",
+			"hit": [
+				4.21500015258789,
+				3.29999995231628,
+				62.4942855834961
+			],
+			"normal": [
+				0.0,
+				-1.0,
+				0.0
+			],
+			"requested": [
+				4.215,
+				3.3,
+				62.4942857142857
+			]
+		},
+		{
+			"assembly": "storm_shop_funeral_parlour_drape6",
+			"collider": "/root/FuneralDrapesProbe/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling/StaticBody3D",
+			"hit": [
+				4.21500015258789,
+				3.29999995231628,
+				61.4842834472656
+			],
+			"normal": [
+				0.0,
+				-1.0,
+				0.0
+			],
+			"requested": [
+				4.215,
+				3.3,
+				61.4842857142857
+			]
+		}
+	],
+	"scope": "Actual retained ceiling samples for an ignored curtain proposal; no construction, route, operation, load capacity or acceptance is established."
+}

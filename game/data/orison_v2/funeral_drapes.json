@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/funeral_drapes.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_funeral_parlour",
+      "parts": [
+        {
+          "name": "storm_shop_funeral_parlour_drape0__curtain_cloth",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm",
+          "tint": [
+            0.43,
+            0.075,
+            0.065,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_funeral_parlour_drape0__curtain_iron",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_funeral_parlour_drape6__curtain_cloth",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm",
+          "tint": [
+            0.43,
+            0.075,
+            0.065,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_funeral_parlour_drape6__curtain_iron",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_funeral_parlour_drape0",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            59.7
+          ],
+          "high": [
+            4.3,
+            2.9,
+            59.86
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape1",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            59.98571428571429
+          ],
+          "high": [
+            4.2299999999999995,
+            2.9,
+            60.14571428571429
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape6",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            61.41428571428571
+          ],
+          "high": [
+            4.3,
+            2.9,
+            61.574285714285715
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape7",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            61.7
+          ],
+          "high": [
+            4.2299999999999995,
+            2.9,
+            61.86
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape8",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            61.98571428571429
+          ],
+          "high": [
+            4.3,
+            2.9,
+            62.14571428571429
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape9",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            62.27142857142857
+          ],
+          "high": [
+            4.2299999999999995,
+            2.9,
+            62.43142857142857
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape10",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            62.55714285714286
+          ],
+          "high": [
+            4.3,
+            2.9,
+            62.71714285714286
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape11",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            62.84285714285714
+          ],
+          "high": [
+            4.2299999999999995,
+            2.9,
+            63.00285714285714
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape12",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            63.128571428571426
+          ],
+          "high": [
+            4.3,
+            2.9,
+            63.28857142857143
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_drape13",
+          "key": "vinyl_oxblood",
+          "low": [
+            4.13,
+            0.05,
+            63.41428571428571
+          ],
+          "high": [
+            4.2299999999999995,
+            2.9,
+            63.57428571428571
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

@@ -216612,6 +216612,374 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "827214a9b93f24a7",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape0",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "90c713a031247ac0",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape1",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8498c35136715ee5",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape10",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7f12a31f6138e46c",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape11",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "98d4162a44889571",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape12",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "210ef255dda3df19",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape13",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f707e4327fb2eb50",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape6",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2ccd8fb0c107b76b",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape7",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6488a6ff40d774c1",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape8",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7c6859beb0fb324d",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape9",
+   "file": "game/data/orison_v2/funeral_drapes.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cccbb5c0b2fb5625",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_funeral_drapes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2c9a23c8dfad34b1",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape0",
+   "file": "game/tests/orison_v2_funeral_drapes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_curtain_details"
+   ],
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"storm_shop_funeral_parlour_drape0\",\"storm_shop_funeral_parlour_drape6\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "79205e7b4bd9b9e4",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_drape6",
+   "file": "game/tests/orison_v2_funeral_drapes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_curtain_details"
+   ],
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"storm_shop_funeral_parlour_drape0\",\"storm_shop_funeral_parlour_drape6\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

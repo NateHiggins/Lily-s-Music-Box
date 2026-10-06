@@ -67,6 +67,9 @@ static func mount_druggist_dispensary(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_druggist_cupboard(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/druggist_cupboard.json","DruggistCupboard","F01_retail_druggist_cupboard_","druggist_cupboard_part")
 
+static func mount_funeral_drapes(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/funeral_drapes.json","FuneralDrapes","F01_retail_funeral_drapes_","funeral_drape_part")
+
 static func mount_funeral(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/funeral_fittings.json","FuneralFittings","F01_retail_funeral_","funeral_part")
 

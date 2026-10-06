@@ -745,3 +745,14 @@ game/scripts/building/orison_v2_funeral_fittings.gd -text
 game/tests/orison_v2_funeral_fittings_test.gd -text
 game/assets/props/funeral_fittings.glb.import -text
 art/renders/orison_v2/funeral_fittings_20261006/** -text
+
+art/data/funeral_drapes/** -text
+art/blender/scripts/build_funeral_drapes.py -text
+art/blender/scripts/inspect_funeral_drapes.py -text
+art/blender/funeral_drapes_construction.json -text
+game/data/orison_v2/funeral_drapes.json -text
+game/tests/fixtures/orison_funeral_drapes.json -text
+game/scripts/building/orison_v2_funeral_drapes.gd -text
+game/tests/orison_v2_funeral_drapes_test.gd -text
+game/assets/props/funeral_drapes.glb.import -text
+art/renders/orison_v2/funeral_drapes_20261006/** -text

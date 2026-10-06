@@ -1,0 +1,1384 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_funeral_parlour_drape0",
+      "rect": [
+        4.13,
+        -59.86,
+        4.3,
+        -59.7
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape1",
+      "rect": [
+        4.13,
+        -60.14571428571429,
+        4.2299999999999995,
+        -59.98571428571429
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape6",
+      "rect": [
+        4.13,
+        -61.574285714285715,
+        4.3,
+        -61.41428571428571
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape7",
+      "rect": [
+        4.13,
+        -61.86,
+        4.2299999999999995,
+        -61.7
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape8",
+      "rect": [
+        4.13,
+        -62.14571428571429,
+        4.3,
+        -61.98571428571429
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape9",
+      "rect": [
+        4.13,
+        -62.43142857142857,
+        4.2299999999999995,
+        -62.27142857142857
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape10",
+      "rect": [
+        4.13,
+        -62.71714285714286,
+        4.3,
+        -62.55714285714286
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape11",
+      "rect": [
+        4.13,
+        -63.00285714285714,
+        4.2299999999999995,
+        -62.84285714285714
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape12",
+      "rect": [
+        4.13,
+        -63.28857142857143,
+        4.3,
+        -63.128571428571426
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape13",
+      "rect": [
+        4.13,
+        -63.57428571428571,
+        4.2299999999999995,
+        -63.41428571428571
+      ],
+      "z0": 0.05,
+      "h": 2.85,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_funeral_parlour",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_funeral_parlour_drape0",
+      "kind": "fixed_drape_run",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      },
+      "envelope": [
+        4.13,
+        4.3,
+        -60.14571428571429,
+        -59.7,
+        0.05,
+        2.9
+      ],
+      "ceiling_points": [
+        [
+          4.215,
+          3.3,
+          60.07571428571429
+        ],
+        [
+          4.215,
+          3.3,
+          59.77
+        ]
+      ],
+      "sources": [
+        "storm_shop_funeral_parlour_drape0",
+        "storm_shop_funeral_parlour_drape1"
+      ]
+    },
+    {
+      "id": "storm_shop_funeral_parlour_drape6",
+      "kind": "fixed_drape_run",
+      "cell": "shop_funeral_parlour",
+      "floor": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      },
+      "envelope": [
+        4.13,
+        4.3,
+        -63.57428571428571,
+        -61.41428571428571,
+        0.05,
+        2.9
+      ],
+      "ceiling_points": [
+        [
+          4.215,
+          3.3,
+          63.50428571428571
+        ],
+        [
+          4.215,
+          3.3,
+          62.49428571428571
+        ],
+        [
+          4.215,
+          3.3,
+          61.48428571428571
+        ]
+      ],
+      "sources": [
+        "storm_shop_funeral_parlour_drape6",
+        "storm_shop_funeral_parlour_drape7",
+        "storm_shop_funeral_parlour_drape8",
+        "storm_shop_funeral_parlour_drape9",
+        "storm_shop_funeral_parlour_drape10",
+        "storm_shop_funeral_parlour_drape11",
+        "storm_shop_funeral_parlour_drape12",
+        "storm_shop_funeral_parlour_drape13"
+      ]
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_funeral_parlour_drape0_ClosedPleatedSheet",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 0.003636116551520098
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SewnHeader",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 4.2860630458691885e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_LowerHem",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 3.520694660095489e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_Rail",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 8.4653445682553e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_ThreadedRing0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333836e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SewnTab0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087787049468e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_ThreadedRing1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333773e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SewnTab1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_ThreadedRing2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577744582848957e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SewnTab2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingPlate0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 4.901370255754159e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SuspensionRod0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 2.882299323399718e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor0_0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085857e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead0_0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor0_1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085857e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead0_1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor0_2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead0_2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor0_3",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead0_3",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingPlate1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 4.901370255754159e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_SuspensionRod1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 2.882299323399718e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor1_0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead1_0",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor1_1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead1_1",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor1_2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead1_2",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_CeilingAnchor1_3",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0_AnchorHead1_3",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ClosedPleatedSheet",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 0.017782808456165203
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnHeader",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 0.0002096401173730471
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_LowerHem",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 0.00017220438287496003
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_Rail",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 0.0004287768353896346
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.657774488409145e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.1250875693508595e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.65777441417995e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.12508780550572e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.657774414179951e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.12508780550572e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333836e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087787049468e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing4",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333773e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab4",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing5",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577744582848957e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab5",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing6",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577744582849005e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab6",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing7",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.657774488409145e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab7",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.1250875693508595e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing8",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.65777441417995e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab8",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.12508780550572e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing9",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.657774414179951e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab9",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.12508780550572e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing10",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333836e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab10",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087787049468e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing11",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577745185333773e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab11",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing12",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577744582848957e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab12",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing13",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.6577744582849005e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab13",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.125087612954782e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_ThreadedRing14",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.657774488409145e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SewnTab14",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_cloth",
+      "volume_m3": 4.1250875693508595e-06
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingPlate0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.901370255754159e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SuspensionRod0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 2.882299323399718e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor0_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead0_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor0_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead0_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor0_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead0_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor0_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead0_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingPlate1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.901370255754159e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SuspensionRod1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 2.882299323399718e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor1_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead1_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor1_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.812271386708586e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead1_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.278445108604878e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor1_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead1_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor1_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead1_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingPlate2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 4.90137026458622e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_SuspensionRod2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 2.882299323399718e-05
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor2_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead2_0",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor2_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead2_1",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor2_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead2_2",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_CeilingAnchor2_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.8122713867085863e-07
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6_AnchorHead2_3",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "key": "curtain_iron",
+      "volume_m3": 1.2784451086048784e-07
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        60.10071428571429
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        60.05071428571429
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        60.10071428571429
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        60.05071428571429
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        59.795
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        59.745000000000005
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        59.795
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        59.745000000000005
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        63.529285714285706
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        63.47928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        63.529285714285706
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        63.47928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        62.51928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        62.46928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        62.51928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        62.46928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        61.50928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.1899999999999995,
+        3.3,
+        61.45928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        61.50928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    },
+    {
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "owner": "storm_shop_funeral_parlour_ceil",
+      "point": [
+        4.24,
+        3.3,
+        61.45928571428571
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "suspension plate on actual retained ceiling"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_funeral_parlour_drape0__curtain_cloth",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "cell": "shop_funeral_parlour",
+      "key": "curtain_cloth",
+      "triangles": 2976
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape0__curtain_iron",
+      "assembly": "storm_shop_funeral_parlour_drape0",
+      "cell": "shop_funeral_parlour",
+      "key": "curtain_iron",
+      "triangles": 7340
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6__curtain_cloth",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "cell": "shop_funeral_parlour",
+      "key": "curtain_cloth",
+      "triangles": 14448
+    },
+    {
+      "name": "storm_shop_funeral_parlour_drape6__curtain_iron",
+      "assembly": "storm_shop_funeral_parlour_drape6",
+      "cell": "shop_funeral_parlour",
+      "key": "curtain_iron",
+      "triangles": 27012
+    }
+  ],
+  "triangles": 51776,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/funeral_drapes.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_funeral_parlour",
+        "parts": [
+          {
+            "name": "storm_shop_funeral_parlour_drape0__curtain_cloth",
+            "key": "fabric_warm",
+            "tile": 0.7,
+            "catalog_key": "fabric_warm",
+            "tint": [
+              0.43,
+              0.075,
+              0.065,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_drape0__curtain_iron",
+            "key": "iron_blackened",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_funeral_parlour_drape6__curtain_cloth",
+            "key": "fabric_warm",
+            "tile": 0.7,
+            "catalog_key": "fabric_warm",
+            "tint": [
+              0.43,
+              0.075,
+              0.065,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_funeral_parlour_drape6__curtain_iron",
+            "key": "iron_blackened",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_funeral_parlour_drape0",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              59.7
+            ],
+            "high": [
+              4.3,
+              2.9,
+              59.86
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape1",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              59.98571428571429
+            ],
+            "high": [
+              4.2299999999999995,
+              2.9,
+              60.14571428571429
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape6",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              61.41428571428571
+            ],
+            "high": [
+              4.3,
+              2.9,
+              61.574285714285715
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape7",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              61.7
+            ],
+            "high": [
+              4.2299999999999995,
+              2.9,
+              61.86
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape8",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              61.98571428571429
+            ],
+            "high": [
+              4.3,
+              2.9,
+              62.14571428571429
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape9",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              62.27142857142857
+            ],
+            "high": [
+              4.2299999999999995,
+              2.9,
+              62.43142857142857
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape10",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              62.55714285714286
+            ],
+            "high": [
+              4.3,
+              2.9,
+              62.71714285714286
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape11",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              62.84285714285714
+            ],
+            "high": [
+              4.2299999999999995,
+              2.9,
+              63.00285714285714
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape12",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              63.128571428571426
+            ],
+            "high": [
+              4.3,
+              2.9,
+              63.28857142857143
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_funeral_parlour_drape13",
+            "key": "vinyl_oxblood",
+            "low": [
+              4.13,
+              0.05,
+              63.41428571428571
+            ],
+            "high": [
+              4.2299999999999995,
+              2.9,
+              63.57428571428571
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "d0c328fa87393c3c9bec5cd084d6ad8e77a40e4bd2a220534cb82ec73826a54b",
+  "source_bindings": {
+    "art/data/funeral_drapes/source_plan.json": "b28496461e6f906e3c5b439ac98f5303adf809005cde346e875b522bd4fccce3",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_funeral_drapes.py": "0c1ebc3a539a97876298a7db03181bb0e0a187e1ed19450720ed0b1e538bfb53",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/funeral_drapes.glb.import": "b8728de8118a255da55c36498302ee410b4f1a95cc5ce8696c4a7ed39f205aeb",
+    "art/textures/ai_materials/vinyl_oxblood_b/material.json": "6d7a9898677ab3dcf446956c2415d780e0c3feb9b07a4392331a8c8fed88ef30",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png": "b49268c6181b07a09a46f5aa44cb19a4b3d15eba7875beb990307be518db4fde",
+    "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_rough.png": "1190fc5c1d5e1c8ecc7465e1ca40e1f71a4d9fb6e15c647b2b0f3d71ed100d7f",
+    "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_normal.png": "afb2e8fa929114445585cd517ec829591d5b1603eb7b32f43c57a00295dabe5e",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf": "156126eccebb5136d505943080fd8ec7d25ec84880f3ab82d9e865cb0e238be8",
+    "game/assets/building/floor_01_cells/shop_funeral_parlour.bin": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+    "art/blender/scripts/inspect_funeral_drapes.py": "97523dd4119ef2a846a519e87da30cda6bec994468303cfa382f1920a1c5d7fd",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "art/data/funeral_drapes/ceiling_source_fit.json": "e694a6f39e4ebfcae1ba73bab9f7f678dfa9827956636a207ab3fee22a682e93",
+    "art/data/funeral_drapes/ceiling_probe.receipt.json": "2d307dd2b32535e40819d06a92a3769e415a0abb198d557499890aa3fbf66bc9",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "game/assets/props/funeral_fittings.glb": "1ff08377281c02f8ddd6f7f91376a3ae3560b01cd2dbbbc1697808dd57cad236",
+    "game/data/orison_v2/funeral_fittings.json": "154fc040f6d8eb5d85ebca27ee58b602d0c2f0f0812f67b02ae2f87faec2fd77"
+  },
+  "open_work": [
+    "ADAPTATION: two thin fixed pleated cloth runs replace the ten original strip boxes while retaining their vertical datums, original run ranges and intervening rear opening.",
+    "Sewn header/hem, hanging tabs, threaded rings, two separate rails and five ceiling-seated hangers add explicit support; imported ceiling rays establish only the sampled geometric datum, not engineering capacity.",
+    "Existing fabric_warm and iron_blackened catalogue maps retain their owners; a declared local red tint changes only this cloth. No lettering, new bitmap, material key, shared shader or cutout is added.",
+    "The original seating, rear boundary, fitted lectern/empty bier, plants, doors, hours, keys, saves and utilities retain their owners. No moving-curtain, ritual, occupancy, chapel-access or new operation is inferred.",
+    "Native stocks, joins, unchanged opening, retained furniture context, actual ceiling contacts and metre charts require independent rendered inspection; imported runtime and standing views require their contract. This INERT plan grants no route, load capacity or acceptance."
+  ]
+}
