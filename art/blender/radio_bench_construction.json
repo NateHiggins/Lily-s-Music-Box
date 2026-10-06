@@ -1,0 +1,493 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_radio_service_bench",
+      "rect": [
+        19.2,
+        -56.47999999999999,
+        21.5,
+        -55.74999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.9,
+      "mat": "timber",
+      "batch": "shop_radio_service",
+      "shop_role": "hero",
+      "hero": "radio",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_bench_top",
+      "rect": [
+        19.15,
+        -56.53999999999999,
+        21.55,
+        -55.71999999999999
+      ],
+      "z0": 0.95,
+      "h": 0.06,
+      "mat": "wood_dark",
+      "batch": "shop_radio_service",
+      "shop_role": "hero",
+      "hero": "radio",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_radio_service_bench",
+      "kind": "alignment_bench",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_radio_service_bench_FootPad0",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0002450216164763645
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg0",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0027077415885592175
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad1",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.00024502161769877066
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg1",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0027077416721119664
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad2",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.00024502161647636453
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg2",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0027077416721119664
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad3",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0002450216176987707
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg3",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.002707741755664719
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad4",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0002450216164763645
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg4",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0027077415685955375
+    },
+    {
+      "name": "storm_shop_radio_service_bench_FootPad5",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.00024502161647636453
+    },
+    {
+      "name": "storm_shop_radio_service_bench_Leg5",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.002707741667121046
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.23-56.43499999999999",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.004040669519065332
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.23-55.852",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.004040669321218117
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.2319.245",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.001118577629388924
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.2321.455",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0011185775747820693
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.86-56.43499999999999",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.007280509655571606
+    },
+    {
+      "name": "storm_shop_radio_service_bench_LongApron0.86-55.852",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.007280509290290053
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.8619.245",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0020155376993045673
+    },
+    {
+      "name": "storm_shop_radio_service_bench_CrossApron0.8621.455",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0020155375984843016
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafApron-56.36",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0017647976589438368
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafLowBrace-56.36",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0008437895967033836
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafApron-55.92",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.001764797579511616
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SideLeafLowBrace-55.92",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0008437895503107644
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat0",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0013574977438937296
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat1",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0013574977457423967
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorktopBearingCleat2",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_frame",
+      "volume_m3": 0.0013574977457423967
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank0",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_top",
+      "volume_m3": 0.026233444609308477
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank1",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_top",
+      "volume_m3": 0.026089448367633945
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank2",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_top",
+      "volume_m3": 0.02608944836763395
+    },
+    {
+      "name": "storm_shop_radio_service_bench_WorkedTopPlank3",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_top",
+      "volume_m3": 0.02623344465933945
+    },
+    {
+      "name": "storm_shop_radio_service_bench_SignalGeneratorSideLeaf",
+      "assembly": "storm_shop_radio_service_bench",
+      "key": "bench_top",
+      "volume_m3": 0.011638577779846199
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        19.245,
+        0.009999999999999995,
+        56.43499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.455,
+        0.009999999999999995,
+        56.43499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        19.245,
+        0.009999999999999995,
+        55.852
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        21.455,
+        0.009999999999999995,
+        55.852
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        18.835,
+        0.009999999999999995,
+        56.36
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        18.835,
+        0.009999999999999995,
+        55.92
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "alignment bench foot on retained floor"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_chassis",
+      "point": [
+        20.59,
+        1.01,
+        56.129999999999995
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "worktop beneath original chassis"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_scope",
+      "point": [
+        19.7,
+        1.01,
+        56.16
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "worktop beneath original scope"
+    },
+    {
+      "assembly": "storm_shop_radio_service_bench",
+      "owner": "storm_shop_radio_service_signal_gen",
+      "point": [
+        19.04,
+        1.01,
+        56.13999999999999
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "worktop beneath original signal_gen"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_radio_service_bench__bench_frame",
+      "assembly": "storm_shop_radio_service_bench",
+      "cell": "shop_radio_service",
+      "key": "bench_frame",
+      "triangles": 5076
+    },
+    {
+      "name": "storm_shop_radio_service_bench__bench_top",
+      "assembly": "storm_shop_radio_service_bench",
+      "cell": "shop_radio_service",
+      "key": "bench_top",
+      "triangles": 940
+    }
+  ],
+  "triangles": 6016,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/radio_bench.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_radio_service",
+        "parts": [
+          {
+            "name": "storm_shop_radio_service_bench__bench_frame",
+            "key": "timber",
+            "tile": 1.0
+          },
+          {
+            "name": "storm_shop_radio_service_bench__bench_top",
+            "key": "wood_dark",
+            "tile": 1.2
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_radio_service_bench",
+            "key": "timber",
+            "low": [
+              19.2,
+              0.05,
+              55.74999999999999
+            ],
+            "high": [
+              21.5,
+              0.9500000000000001,
+              56.47999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_bench_top",
+            "key": "wood_dark",
+            "low": [
+              19.15,
+              0.95,
+              55.71999999999999
+            ],
+            "high": [
+              21.55,
+              1.01,
+              56.53999999999999
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
+  "source_bindings": {
+    "art/data/radio_bench/source_plan.json": "7ea2916034989f1c0d4192d3e9c1aa5721419a0862ff8812b8d51160f949c432",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_radio_bench.py": "a164c4d4a124a340b72222980df4375e4ad9056bf811a76998265508c63d2731",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/radio_bench.glb.import": "c4131f4265c8b901a4307a802a374ec1cac88f3d44eace000b1acc96f4a4cfe2",
+    "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "game/assets/building/textures/T_ai_materials_timber_b_albedo.png": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+    "game/assets/building/textures/T_ai_materials_timber_b_rough.png": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+    "game/assets/building/textures/T_ai_materials_timber_b_normal.png": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+    "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+    "art/blender/scripts/inspect_radio_bench.py": "e1d91c7882e7ea1e933813bf0016a9d21ed5352ff7a4456057d24ee00459025d",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025"
+  },
+  "open_work": [
+    "Two immutable bench records retain identities, hidden poses and their original hero role. Original instruments, valves, stock, counter, speakers, cabinet and services remain separate owners.",
+    "ADAPTATION: six floor-seated timber feet and worked aprons replace the solid bench body; the original worktop height remains 1.01m. A narrow side leaf and two feet under the existing signal generator bridge its original 0.35m unsupported overhang without moving the instrument.",
+    "ADAPTATION: the back edge is fitted clear of the retained wainscot and decorative rear door, within the original worktop envelope. No original wall or door is cut or hidden.",
+    "Original shipping timber and dark wood maps remain. No new map, material key, shared shader, lettering or invented instrument operation.",
+    "Actual retained room/floor/instrument contacts, stock joins, strict metric charts and rendered review are required. This ignored preparation grants no runtime proof, route, alignment procedure, capacity or acceptance."
+  ]
+}

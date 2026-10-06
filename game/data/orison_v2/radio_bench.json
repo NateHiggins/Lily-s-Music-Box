@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_bench.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_bench__bench_frame",
+          "key": "timber",
+          "tile": 1.0
+        },
+        {
+          "name": "storm_shop_radio_service_bench__bench_top",
+          "key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_bench",
+          "key": "timber",
+          "low": [
+            19.2,
+            0.05,
+            55.74999999999999
+          ],
+          "high": [
+            21.5,
+            0.9500000000000001,
+            56.47999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_top",
+          "key": "wood_dark",
+          "low": [
+            19.15,
+            0.95,
+            55.71999999999999
+          ],
+          "high": [
+            21.55,
+            1.01,
+            56.53999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
