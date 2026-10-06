@@ -37,9 +37,3 @@ The original keyboard station **[18.55, 0.03, 53.70]** has an actual floor and
 clear standing capsule. The preferred service-side station is obstructed;
 the measured nearest clear point **[17.96, 0.03, 53.564]** views the cabinet
 from the front aisle. Direct side-service and continuous access remain open.
-
-Committed source **ec3903e0** passes the complete **48-gate/tools-test**
-comparison and **seven** bound Godot runs. All **10** native and **53** final
-production frames were directly reviewed. Retained evidence and the separate
-complete key authority: **art/renders/orison_v2/pawn_receiving_20261006**.
-Report: **design/V2_PAWN_RECEIVING_2026-10-06.md**.

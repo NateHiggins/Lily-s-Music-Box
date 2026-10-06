@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/pawn_receiving.glb",
+  "tolerance": 2e-05,
+  "source_record": {
+    "id": "storm_shopcab_pawnbroker0",
+    "asm": "arcade_cab",
+    "at": [
+      18.55,
+      -55.019999999999996
+    ],
+    "yaw": 180.0,
+    "exterior": true,
+    "variant": 1,
+    "batch": "shop_pawnbroker",
+    "zone": "PASSAGE"
+  },
+  "original_draws": [
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite",
+      "key": "bakelite",
+      "expected_triangles": 128,
+      "low": [
+        18.2549991607666,
+        0,
+        54.69499969482422
+      ],
+      "high": [
+        18.844999313354492,
+        0.029999999329447746,
+        55.345001220703125
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black",
+      "key": "bakelite_black",
+      "expected_triangles": 128,
+      "low": [
+        18.21500015258789,
+        0.30000001192092896,
+        54.529998779296875
+      ],
+      "high": [
+        18.860000610351562,
+        1.590000033378601,
+        55.2599983215332
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass",
+      "key": "brass",
+      "expected_triangles": 12,
+      "low": [
+        18.459999084472656,
+        0.3799999952316284,
+        54.64799880981445
+      ],
+      "high": [
+        18.639999389648438,
+        0.550000011920929,
+        54.65999984741211
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_cool",
+      "key": "fabric_cool",
+      "expected_triangles": 12,
+      "low": [
+        18.219999313354492,
+        0.019999999552965164,
+        54.65999984741211
+      ],
+      "high": [
+        18.8799991607666,
+        1.6799999475479126,
+        55.380001068115234
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel",
+      "key": "enamel",
+      "expected_triangles": 64,
+      "low": [
+        18.464000701904297,
+        1.059999942779541,
+        54.57899856567383
+      ],
+      "high": [
+        18.615999221801758,
+        1.0750000476837158,
+        54.611000061035156
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_milk_glass",
+      "key": "milk_glass",
+      "expected_triangles": 12,
+      "low": [
+        18.170000076293945,
+        1.6799999475479126,
+        54.599998474121094
+      ],
+      "high": [
+        18.93000030517578,
+        1.899999976158142,
+        54.7599983215332
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_screen",
+      "key": "screen",
+      "expected_triangles": 12,
+      "low": [
+        18.280000686645508,
+        1.1399999856948853,
+        54.654998779296875
+      ],
+      "high": [
+        18.81999969482422,
+        1.5499999523162842,
+        54.665000915527344
+      ]
+    },
+    {
+      "name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_terracotta",
+      "key": "terracotta",
+      "expected_triangles": 56,
+      "low": [
+        18.15999984741211,
+        0.550000011920929,
+        54.57899856567383
+      ],
+      "high": [
+        18.940000534057617,
+        1.7999999523162842,
+        55.279998779296875
+      ]
+    }
+  ],
+  "hull_name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull",
+  "raw_hull_name": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull-colonly",
+  "hull_triangles": 12,
+  "hull_low": [
+    18.15999984741211,
+    0,
+    54.52000045776367
+  ],
+  "hull_high": [
+    18.940000534057617,
+    1.899999976158142,
+    55.380001068115234
+  ],
+  "parts": [
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 6220
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite__service_panel",
+      "key": "bakelite",
+      "catalog_key": "bakelite",
+      "tile": 0.35,
+      "triangles": 188
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite_black",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 3280
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__bakelite_black__schematic_traces",
+      "key": "bakelite_black",
+      "catalog_key": "bakelite_black",
+      "tile": 0.3,
+      "triangles": 5668
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__brass_dull",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 3956
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__brass_dull__service_latch",
+      "key": "brass_dull",
+      "catalog_key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 124
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__copper_aged",
+      "key": "copper_aged",
+      "catalog_key": "copper_aged",
+      "tile": 0.4,
+      "triangles": 368
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__enamel_appliance",
+      "key": "enamel_appliance",
+      "catalog_key": "enamel_appliance",
+      "tile": 0.72,
+      "triangles": 936
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__fabric_warm",
+      "key": "fabric_warm",
+      "catalog_key": "fabric_warm",
+      "tile": 0.7,
+      "triangles": 8636
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__milk_glass",
+      "key": "milk_glass",
+      "catalog_key": "milk_glass",
+      "tile": 0.5,
+      "triangles": 10356
+    },
+    {
+      "name": "storm_shopcab_pawnbroker0__paper",
+      "key": "paper",
+      "catalog_key": "paper",
+      "tile": 0.5,
+      "triangles": 188
+    }
+  ]
+}

@@ -1,0 +1,1241 @@
+{
+ "evidence_class": "INERT",
+ "production_candidate": "ec3903e01e1baaa495ba3cbf89b47f977a6f3677",
+ "base": "d852b6fc98ee860e9dac7a20db8fb966fe91e676",
+ "final_images_directly_reviewed": 53,
+ "native_images_directly_reviewed": 10,
+ "scope": "Native Pawn chassis, exact source ownership, maps and physical stock. Ordinary TOWER OF ASH keyboard cycle and inherited Radio entry/exit execute. Standing observations grant no continuous access, passive hatch operation, service capacity or human acceptance. Scoped receiving contract leaves save/reconstruction NOT_EXECUTED and is not ledger authority.",
+ "runtime_authority": "Separate complete resident-key permission/copy/lock/save/reconstruction/owned-teardown scope only.",
+ "ledger_before": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "ledger_after": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "files": [
+  {
+   "file": "production_verification.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/verification.json",
+   "source_sha256": "6e38970429954e79afe4a691e4bf3b124d38699d78e9fc1226026ee5c49ad1b2",
+   "sha256": "6e38970429954e79afe4a691e4bf3b124d38699d78e9fc1226026ee5c49ad1b2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_verification.md",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/verification.md",
+   "source_sha256": "f0764966d0a6c57b98dc085e006d2727cf497c070e033364a49d14b79b692016",
+   "sha256": "f0764966d0a6c57b98dc085e006d2727cf497c070e033364a49d14b79b692016",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "baseline_board.json",
+   "source": "tmp/v2-finish-review/d852b6fc-clean-board.json",
+   "source_sha256": "b273aad99634b81daf4735d1dbed95e23921a65cefb65c72ecae2299edeeeef4",
+   "sha256": "b273aad99634b81daf4735d1dbed95e23921a65cefb65c72ecae2299edeeeef4",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "receiving_observation_contract.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "1010af8466ae120bde7a7d5cc92933023e8faed5304e30d665a21a8304780540",
+   "sha256": "1010af8466ae120bde7a7d5cc92933023e8faed5304e30d665a21a8304780540",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runtime_authority_receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "a84f9b02e936c87052f6b751af8b9d2087ef074275e2563066d3fa9258e9cac8",
+   "sha256": "a84f9b02e936c87052f6b751af8b9d2087ef074275e2563066d3fa9258e9cac8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "candidate_sheet_index.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-sheets.json",
+   "source_sha256": "078bcadd9bf80eb7be9cd947af94003f4012a8525614f53c17f92c3cf9d3c8ed",
+   "sha256": "078bcadd9bf80eb7be9cd947af94003f4012a8525614f53c17f92c3cf9d3c8ed",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "native_sheet_index.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-native-sheet-index.json",
+   "source_sha256": "f7dbba59f0ed8ebd25c2eeb175a460093ef8a418b6742629af7c02a49f41e708",
+   "sha256": "f7dbba59f0ed8ebd25c2eeb175a460093ef8a418b6742629af7c02a49f41e708",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_preflight.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-spatial.json",
+   "source_sha256": "9e0280fdad863bbd5e21e5f4dfc887ee3afbedce9242017496ba4ccf734bc920",
+   "sha256": "9e0280fdad863bbd5e21e5f4dfc887ee3afbedce9242017496ba4ccf734bc920",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_reviewed.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-spatial-reviewed.json",
+   "source_sha256": "9dbf50ba21068eb047c7f4e7df8ae3eb4b1113d5662c4b943a1f37d0fe0f7e54",
+   "sha256": "9dbf50ba21068eb047c7f4e7df8ae3eb4b1113d5662c4b943a1f37d0fe0f7e54",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_after.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-spatial-after.json",
+   "source_sha256": "f626d170068035636d57813eaa4f94c06886c9e9a33fe17111528b498f097f95",
+   "sha256": "f626d170068035636d57813eaa4f94c06886c9e9a33fe17111528b498f097f95",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "reader_preflight.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-reader.log",
+   "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/import1.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/import1.log.receipt.json",
+   "source_sha256": "d4fe406e21626d19d8b74501b0db83097b352836016d151a72de1a55b29d7c3a",
+   "sha256": "d4fe406e21626d19d8b74501b0db83097b352836016d151a72de1a55b29d7c3a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.stderr",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/import1.log.stderr",
+   "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/import2.log.receipt.json",
+   "source_sha256": "28ec939b28fffea55e8bedfce220a902155e521beb24772ce90ad3ec43effd0a",
+   "sha256": "28ec939b28fffea55e8bedfce220a902155e521beb24772ce90ad3ec43effd0a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PawnReceivingTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed.log",
+   "source_sha256": "b454a8f8c859ac46329c9d3e3d808c363ebe01a9463881e96f72ae8744880924",
+   "sha256": "b454a8f8c859ac46329c9d3e3d808c363ebe01a9463881e96f72ae8744880924",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PawnReceivingTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "61b0dcbc3b77609a04b9d7869d2fb8dddcf1d3536d68a8bae32ca3319b744a67",
+   "sha256": "61b0dcbc3b77609a04b9d7869d2fb8dddcf1d3536d68a8bae32ca3319b744a67",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source_sha256": "3244ad7c13bd8383ab757c0d7020b4a8df9e03946f9b987cb01cc846441d9a8a",
+   "sha256": "3244ad7c13bd8383ab757c0d7020b4a8df9e03946f9b987cb01cc846441d9a8a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "e6b248c8f47375880189d2ed2808c614b2d1242ce91397cc372e008908a867a1",
+   "sha256": "e6b248c8f47375880189d2ed2808c614b2d1242ce91397cc372e008908a867a1",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source_sha256": "676ac3808f070554854644f82e5c644dff2caa81647e32b4fb14b5f9c77566b9",
+   "sha256": "676ac3808f070554854644f82e5c644dff2caa81647e32b4fb14b5f9c77566b9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "54c30cb5758125b9d43917c8ca0a38087e0009ba637aee78048be3108569d8db",
+   "sha256": "54c30cb5758125b9d43917c8ca0a38087e0009ba637aee78048be3108569d8db",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "6c63ee096946f24568fa80159b123d329660a46fa7abeb414c0701059debc9e6",
+   "sha256": "6c63ee096946f24568fa80159b123d329660a46fa7abeb414c0701059debc9e6",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source_sha256": "b43eb646f3d43475405ddb4e46586eafd5423f9f12c4b8f1b8c456edbe8bad63",
+   "sha256": "b43eb646f3d43475405ddb4e46586eafd5423f9f12c4b8f1b8c456edbe8bad63",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "14551887957a67f74bbdc2d05061be970c366d91f3f4a641ef223d593053e0f2",
+   "sha256": "14551887957a67f74bbdc2d05061be970c366d91f3f4a641ef223d593053e0f2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.png",
+   "source_sha256": "03377a766778657da9e23e7141e5d5f9ebbdbd4e01509b2b7ab0333670700147",
+   "sha256": "2ed02856e61903728deb8d6b6afad6a12648ec84a7e2c54e5ecaf0c2923d94f3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.png",
+   "source_sha256": "a86082a17849f80682736b381ab86d8b78a2f7a5bc5e60d64dcf78272e554cfe",
+   "sha256": "9add93c5d0b27eb82d411fb930779eeb7e855f813d8bcc79b29a630089e11f5e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.png",
+   "source_sha256": "746a61b629a3873f0533c2df9bedfca9a21e2b6f8ae43f566964c56b7ce69816",
+   "sha256": "34a5f31ffcbf6fe8a1bf153e5d17a53b0488f2d4f83578b487a2a5720ba957d3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.png",
+   "source_sha256": "cbe7b25f56089e912b080ce475f46cf139245a5388b91459afab2c6ba36c4d3c",
+   "sha256": "57802cd1db324a739827cc0bbb126205d5540e185dd6071563bd0550052eba8f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.png",
+   "source_sha256": "65216f7fcda7ea7dd8ecf7562dd000ece6f8ec542b60731f6ca6dbf6824801b6",
+   "sha256": "202afe73aa6f46126d4603cee9c154fd77adb3d64cf68a1affe5fe12e014de42",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.png",
+   "source_sha256": "5fae8d39d1a2a144495e230384c79d535cb7f3ad7e66ec172ad71f8d50e29e7b",
+   "sha256": "92f68a469918ba9592154a38f8fe220606e0e1f2c645f502e7044de724a5fc99",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "7e4b140a19bac886525666b965a103c18154b24eee1aae89a9dcfe6dd86fcb03",
+   "sha256": "b0ca56354ffdd4cfe09d75ed15f70b470e7c3800989eb58d6c5abec171253937",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.png",
+   "source_sha256": "65ed0aa94cca41b68326aaea51a152788437ee1b95735ce5caced722e3b2cd03",
+   "sha256": "7c93d05e690a9e00d939b12f4c80c92f40005d2709d820b2f1b2c1fe25e36ef7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source_sha256": "186626f9896b044714543719d5e4607910c20e5a58d140db9e601ad72b2ed088",
+   "sha256": "186626f9896b044714543719d5e4607910c20e5a58d140db9e601ad72b2ed088",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_circular_scope.png",
+   "source_sha256": "f1cea2eadd9ca34936c23fb8c0037896eb29652fe03ae2f1cf440d6d7a27db21",
+   "sha256": "3c97ff1f73b87834a7518fa014d2b307a7ab6f7b689aacbd697516058446bd95",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_floor_feet.png",
+   "source_sha256": "b64d7b025d3d7c55b3cc39fa91dffe6f8f388456265ea533f1b369fe72f97214",
+   "sha256": "971862fc216bccccc9bebf2b21d267411169796ebd2abcb3a5357d257186aa12",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_front.png",
+   "source_sha256": "dc99f0a4e7609222c23fa8fff5848b9ed1371fdbbbd95a3bdaf68874ea07e423",
+   "sha256": "98f78653e96cea4cdd19d168c7cef3694ecaf9ef82778e7276e04a06b15b0754",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/chassis_service_side.png",
+   "source_sha256": "32728ca5e65b0c17a7109200ab574c568b862df60ddbd1ab6e5a6d69ab44ce13",
+   "sha256": "bab44f78be205ff4657127b5b527b2c03d74fff70192fc045c6ad54803249bf6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_circular_scope.png",
+   "source_sha256": "a9404bd4f29837192856219ff817152dbff133245a2b313a53620af19fc5d92e",
+   "sha256": "aebbdb868e36630218d7f80e106f623e9c07127569d191b105d3ca5cb49b4ffa",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_floor_feet.png",
+   "source_sha256": "4d4d0933294cc02de29333c18d0dc40b4c14a27bfaa330aa1faf44dfe595ff92",
+   "sha256": "6832f039edb1e61563b88efb0683ce772dce5bfbf217fa705873908a11abe05e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_front.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_front.png",
+   "source_sha256": "f27885e13649206f7a719ec79c26366db9d5b40a62aee8599db7d939cd462360",
+   "sha256": "1233dbc265d0b7fee778c95874db679a47d53c0ca570dec1118cefeaf4087a7c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_service_side.png",
+   "source_sha256": "56ad1cacd7c21a59d4f2fc3550517c700dfd11ace245388e8e415743dfba73f4",
+   "sha256": "8fa2209b84d2a182991b182359838e5de0c216b86f74b7277af251bc4a1bc784",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_receiving_play.png",
+   "source_sha256": "7bcbd018101f7d6148ddf512ca0c2c065472e60986d7042d5c70102e49bc7b3e",
+   "sha256": "75d3cc9704c7f1e9cfa4221cb4899c4967db6951bfe077859101dcb20c8935a9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_receiving_step_away.png",
+   "source_sha256": "81cb4af020473701cc52e4a81a607cd933f286f1b437764e24d533c525ef7888",
+   "sha256": "d6c4aa1fca4a54e2981210d2b7cb47e734e2a32f4b35085f0c4da6bd3e6565bb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_play.png",
+   "source_sha256": "916467ceb34ff82144cf88da3770495038da0cdfc0a0b35267a53ffbc34f074a",
+   "sha256": "5a1452a09890f2da8893fca51ff9bbf2f1d6440624f18d71546fb654c3c16825",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_scope.png",
+   "source_sha256": "1c09b9ebeb8d3f4b3930b35b4a3b49de7083383dc7b5cee30cbe61869ddf5001",
+   "sha256": "d11beb86f9270a3010ae25f80d3f86fc8848c793b9d14623185527a9f2b8a08d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/radio_receiving_step_away.png",
+   "source_sha256": "0a71d2b8474452e2ad9fde2b8ebfa8bb7920b1fbc2ddceb1b053723ada94d001",
+   "sha256": "b27a9ffef5790b029d3797173369797530d4ac322b896d6d7629caaad70c704f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "7196d682fdcf7c6ea571b895dd8b6a4316c83d09f5f54fd0aaeaa7a9d771bfdc",
+   "sha256": "48dfba649b225704072a7add06fe9ca478889665d74bd2eed750cca6c3153214",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "359e54df0cd995f265b2ea85a3e2e35a0192a2d28e1cb345dd93fdc3bc5111a7",
+   "sha256": "c23fdf8a7d4ec8eac1d3dce4979393f2b3d30b4bee19faf438825ecacca7782c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "6cc41c85c61c5ad2196584f505b1453fafd8c6fce538893189d4adaba08f56c2",
+   "sha256": "93a008a4b0634db79821971edead5df5e7829b1382afdc5706de8e6edd02d7ec",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "cbaf7fc65af9bb0524c0602b1d33b6d843c43afc9b26572fbff529875ff22c57",
+   "sha256": "81fee9debb28cdfbc0b34373aa6a18bb580c8ff5488038d73bbfd51f0d6aa694",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "4a58792cca807c84cbd90353a3190048e78a2413bf6b00097a0405e12f816bc8",
+   "sha256": "b174c01fc9bef42fbde35616d92abe197ab3c622ceffe6e2e36658b3eb777203",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "75acfa697f223993057eb965c1de1277ca3288d1f9ec54d8f8a5921469fa34e8",
+   "sha256": "97f347f951707e49653a7e9264b60d6f59428e8584e1546674933244eb992873",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "1db77ed3ddc682ecd1eba0f7cf21fec59e03b240b1a0418c5a3a1162af16fd21",
+   "sha256": "a003766c450a4c443a6c5f8b079f5e9f20c8444bad89a90d22ae86b767db971f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.png",
+   "source_sha256": "0d0331d3b3801b1640610d5813e20f620e728161cb053ecd833c269bbff75e52",
+   "sha256": "bc0f4d755e3f3dfed5e7f8336f71654b00f2a77578e8a88791b3404450477ac7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.png",
+   "source_sha256": "6c04cd7c590fb21479c97774b3e46bd2e5620936741648cdc3914be1551aaf60",
+   "sha256": "1fd5766c72b7398d31d3737d4a535d406210e09f4e90c776a9d504e09fdd32b3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_640x360.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_640x360.png",
+   "source_sha256": "00e77bdc71a552d2452ac4a27694f933b1c24a28dfc3203498633ccdc97fd234",
+   "sha256": "cb61b6e46edb506f7187e5cf4412da2fe440eb25cef8b22b834082e6881d5beb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.png",
+   "source_sha256": "619b0e5b296b1a48c2919b68e977a081f776cd11357097f526f85f14ff849eb8",
+   "sha256": "813ec1cb28de8edbd2db0a859aa4a2fec37fd9a2ad56d96441446ed454580131",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "dccaf798583e48fe3dbf081703477ef12348fa0b39f4043c474169b85fc588c7",
+   "sha256": "dccaf798583e48fe3dbf081703477ef12348fa0b39f4043c474169b85fc588c7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "source_sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/native_pawn_chassis.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/native_pawn_chassis.json",
+   "source_sha256": "57fe1864b39fecdd5225a3950d08f1c2fc25f21b91e2bb5894c58e4d1d576108",
+   "sha256": "57fe1864b39fecdd5225a3950d08f1c2fc25f21b91e2bb5894c58e4d1d576108",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "source_sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/pawn_chassis_views.json",
+   "source_sha256": "dcfbd3ecc09bb179477c3f044de1df079c55c38033237aa5f21a32470fd4c243",
+   "sha256": "dcfbd3ecc09bb179477c3f044de1df079c55c38033237aa5f21a32470fd4c243",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PawnReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2PawnReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "1010af8466ae120bde7a7d5cc92933023e8faed5304e30d665a21a8304780540",
+   "sha256": "1010af8466ae120bde7a7d5cc92933023e8faed5304e30d665a21a8304780540",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.png",
+   "source_sha256": "47d0064180edf1bdf9fef7caa1fdf31be9fddd0793386ecade1d95f362f3c199",
+   "sha256": "96da4337787a849289400feb10a61f807c5468fcbd2cf00fab85cc820e97cdca",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.png",
+   "source_sha256": "5fc5ff9e0999deb3eedcbfeb13cc14e5481a5ac2d26d7fc341a454fbab4dc204",
+   "sha256": "0fc26d2c4d803130880fbe9a1c90630268f315602f71afb7191852818cefc26a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.png",
+   "source_sha256": "17ec2b5e5a13f43affbd9b025b95cbb18b56a9ea8ff715a17221d753b74576d2",
+   "sha256": "dcd02e1a998b1529d1003d234a093ef5013b60f7614aa7cb2f6550518f1c86a0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.png",
+   "source_sha256": "2d6bdeeb5eeb9b8aa375bcd59dd89b8e942538006b27de5f757cfdc3432f86bd",
+   "sha256": "f492a82d1fc4b0f5aefa46833b16a0e010ab7db6d7a4d3e69e6ff7867a9127b9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.png",
+   "source_sha256": "0ff62a881bc726f73ee1420e5b5dfc6ca5a0c908eb562b83a193ee2977748e3a",
+   "sha256": "d63b8228bd4611af689c96e75cae3f01e179ae2a49cc637c9db9ba78892f9f21",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.png",
+   "source_sha256": "8ac7d5c31f26ed2b1fc39518c9a45470e442aef207282f2e2ccf56c1f183fc21",
+   "sha256": "e86e0958c51df58ecae09338d6631fe5658a92a8c75c188bf94f93a28672da7b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.png",
+   "source_sha256": "d904035e8bd9b2da7c16aa351a1759230d8494d9f435c6b8e2cf40b476c24708",
+   "sha256": "18e6737e12e81799aea6bdade3409598e060810355c53f6fda6503e33e74d2a9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.png",
+   "source_sha256": "219e2417dfbee5aa96e8cc0f7bb369e61c3f62d274fd4038f5a21b6211ed4a28",
+   "sha256": "d82265fbe4e653dd746987bcdea213ed92986c12a19b26060bcc55c26f6de823",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.png",
+   "source_sha256": "a9c31f58ee1ed03c90db39fe69dbaea69da5fdf4ec763890a226953842955f25",
+   "sha256": "dc000769b58c5d70547a381ee7321c290c0cc42fa22756e65e5954d04233e7ea",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.png",
+   "source_sha256": "2f2a9ee694cfcf264cbd9a5a22691457996aa5c282301040bc3958768cb0cdaa",
+   "sha256": "144549102c26fd859db483b5dcda5464f4a71f8cb546c21a51756400e90ce61f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "109a06140c1ae97647c00d5d32528c867749aa9302cfe3f3e0422d5e6ba903a4",
+   "sha256": "9e74af1811e76a21ea7c8fff83b84dad0833add5f110d13b9f55ec7e14181f1a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.png",
+   "source_sha256": "16591ac1e9896cc5298849f5e2ad36196144a7265bc642abc88f5493d3ace0c8",
+   "sha256": "1e25be08d12f16695731befc8c85ceb71c8e8d6f9d8b302f804fe2a52bfffa5a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.png",
+   "source_sha256": "5d7266a8b4dba35d508cadfa3b571931a5c5db1759604b395a600036d27171cb",
+   "sha256": "90c600eabfa80e524401c2578fdb60deef6056bb1c736b352c6f54972cb2ef95",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.png",
+   "source_sha256": "45e1e14366d252fb6bd252abd07e2527a87b3f846abfa5c9ac25eb1da2f96e24",
+   "sha256": "9663a416f033b7ca88e495974be7407e1a7cf6b087c4239289f1c7f5ee0a2632",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.png",
+   "source_sha256": "2e4fbc2dd7aa35fcba558e4a80c8c565972f3453c2ce567e3c8477862d88974e",
+   "sha256": "afe5b794fe34ae7429942bd017198dfba237b870740e7c47d8e80306193a470d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.png",
+   "source_sha256": "3f763d931101e4052491065d0ebf3febc0b486811839f09092441c662314ab95",
+   "sha256": "553106c6e307ffdb4595bd57aa6ce8515519523b247ddfef19971862a9eca577",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.png",
+   "source_sha256": "83ac196e92350a920881ee503ee45b5ebc2731060cc6c40a8b87b5e7856dbc73",
+   "sha256": "3ce44c1f1e7351153e3a3be4e966bc04a9b545e8633aa7aa879b986103ff226f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.png",
+   "source_sha256": "08787bc3ac60f3841ac113ec26ece80946246ceb19d0940c2d4018a1637c5a4e",
+   "sha256": "a47fd9de8c2668d5a64bb5b0d4155a5887eeac75b0bd0944e1a93d1fcf72fb10",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.png",
+   "source_sha256": "13b60cbff5622d210191a0eaf2a41070b87e593cfd9a2128a56962b192217c15",
+   "sha256": "6f731b2d387dab8932ff82961aa5d16eb725f648fcaf54e60adde02ce29d525e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.png",
+   "source_sha256": "fedf951a1700be017b24f944fcb6702e41240f2737df5be9d088ce110a2fa5c9",
+   "sha256": "8ab07cba8395c4ab33ad5709c5a3b686f33dc2d2df86b00832cad3e8af5ef45c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.png",
+   "source_sha256": "975c9fbf9490eb2fb399c4a29db8d1a655e5865fbdaddb5177e1626cb6c649a5",
+   "sha256": "31e215324420cc13c322a1f4140e5bd637b41c1e8e0089b8643f277989c110d8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "9f0e53e042bda671821e413fb9825494722ddd2dd7cc270307e84afb5116d092",
+   "sha256": "9f0e53e042bda671821e413fb9825494722ddd2dd7cc270307e84afb5116d092",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "a84f9b02e936c87052f6b751af8b9d2087ef074275e2563066d3fa9258e9cac8",
+   "sha256": "a84f9b02e936c87052f6b751af8b9d2087ef074275e2563066d3fa9258e9cac8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "native/base_wet_cells.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/base_wet_cells.png",
+   "source_sha256": "1058972a3147f8cafdbc17eb13710ead9e24c7e268c250734af975e6cfeb9b69",
+   "sha256": "fc0d319338c9cb0e5f216ffc791774888c21e1bbb5583b830987814efb74354a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/braided_flex.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/braided_flex.png",
+   "source_sha256": "5085408834cc757629f70f23def9ee5405766de53213010525f4a49abd9bd2ae",
+   "sha256": "29260625b6106100d632dcd92aecd0e870945292bffc3c6e82733502a3c89e2b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/chassis_front.png",
+   "source_sha256": "76c3ac72652134bdefcd2e0a357591c7867a4b905c4d9824e2cdd6c1ce1e3be4",
+   "sha256": "d7aaa386d8471ffeca0ffd3384833c7ae1374249698e831c1735b8b84901806a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_rear.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/chassis_rear.png",
+   "source_sha256": "9afc6e7da5a9fe6cc3dc1f5f9202a621b307e13e9024e7760aecaba7a5dfb61f",
+   "sha256": "7f827db42e38ed614402a0df0a5770af946f0cb64dd7bbc448e91a322d24e790",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_side.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/chassis_side.png",
+   "source_sha256": "2369963c9b5440244f08198e47f1e5df37c65347b84e552dc8d903cd811d04c8",
+   "sha256": "daa422fa458200f7c0a65ff2a1f013a20217aec81240d85a5c08366f68c25757",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/closed_service_hatch.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/closed_service_hatch.png",
+   "source_sha256": "461d2fdd678c79adfb75402842bae1d5f28a8fd3517dd10011f31aaf994179b3",
+   "sha256": "68f0c1e4fd2336dfe3f23b7212160707af18668307c01d48321001cf80a16d1d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/floor_feet.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/floor_feet.png",
+   "source_sha256": "c64185427994c85afea5dcb4288eb3be21fb4a96f043c6d520ae4716d86a801c",
+   "sha256": "6689926756f480e061f519dec2c3e538bd7459e53dd2d924f33a220e5d3df2f5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/inside_lid_schematic.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/inside_lid_schematic.png",
+   "source_sha256": "29626256466ca74e142cf01e56d70698a5a65f3e25321477ad229c859bc074cc",
+   "sha256": "a59d43408b189495b3c305125e5bd74f481b2ab220016d1621c58203aedc2c7d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/scope_aperture.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/scope_aperture.png",
+   "source_sha256": "5add2e80054c2210da06a5183e7995c4049e67e6a2921051d00260928325d1fc",
+   "sha256": "ac8608558091db2d6624310c35c4e0d75fc776863cdcb0e4350eff257c748f0e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/service_stock_open.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/service_stock_open.png",
+   "source_sha256": "6419340ca356edc9fd08e8bcea6719ae183a6af0acd00f2e5ff1cd2f8b7c6980",
+   "sha256": "ac190d2b7abfebd4f182a2acc41adf4656fa8a6ed7ef9927a33d352af4e0960a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/inspection.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-native/inspection.json",
+   "source_sha256": "f5983aa3f5c60b24e18743c7630b60e539825d02baf5bb23218984e2cdad0b67",
+   "sha256": "f5983aa3f5c60b24e18743c7630b60e539825d02baf5bb23218984e2cdad0b67",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/chassis_circular_scope.png",
+   "source_sha256": "9c4d832109f0b9a8942d6517ebab80a1b92bb6e923c274f765fb532a48222afe",
+   "sha256": "b9bd2d71872cf4d41efee7682a849c329392707e9cb1d0efe157daedf26f8a70",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/chassis_floor_feet.png",
+   "source_sha256": "10379f155ee3d7a61f5e3d5304e16deccd23a3b35abe2225d3947f7570525b2d",
+   "sha256": "78de2cb69a4c873757e4f63d2e145163b12a6c4254d86c58e5d712d7e809c7b7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/chassis_front.png",
+   "source_sha256": "f5a601a251ab389590c1d83e21b9302806aa792ab4db38659285155af8af76d4",
+   "sha256": "c902d346439618ec2e37caf87ec9f84b50c9ae88ea5b114c836b093b9d523153",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/chassis_service_side.png",
+   "source_sha256": "4cf615fab8d8e9357a23fe7af0925471a1b0fd1b9c7b472d15c7468e054d2bcd",
+   "sha256": "bbd941a19e003435f8d153d17b5e9ad70cb3fd304868394ee00a7ad6cc0a6c73",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_chassis_circular_scope.png",
+   "source_sha256": "eeecbb864828136cbda57aa828e698af5761f46359f2346c4e7d243649cf2a62",
+   "sha256": "d7e368986712b4c2c8ed042104df37b510879133052ed723977113e98c972645",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_chassis_floor_feet.png",
+   "source_sha256": "d788ef58b8713a4c1854d95046b749effca930c3ce68cce35dbff1bfc326dfc0",
+   "sha256": "9f2345bf02243542db76f4ee97832222b5c7d60b917d54d036cb226171cecf82",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_chassis_front.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_chassis_front.png",
+   "source_sha256": "8c8a4eb01c942d0e56d4a77b66bc4bc138d489eb3c38981ed1d41bae07cae227",
+   "sha256": "893b7c79aab855233e752c177f1f8daab31bd150746553bd1f5a80e8817828f9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_chassis_service_side.png",
+   "source_sha256": "9eb2ac3999a6f2c8759f20f302b4a4a4b59548fc949957e0b3145c22c2149de4",
+   "sha256": "dd32ddfa5fa3925932d530c810573be0926f024a02cbd7866b8baf20f23834ce",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_receiving_play.png",
+   "source_sha256": "c8d7f8f96cb6acaf9b14fd14bbd28fa9d8cc066d1e2522f825b496637b4123ef",
+   "sha256": "3e3e4becfe03df5deedf5350c28770b29c30e27b84718372f85e5b65fd680f78",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_receiving_step_away.png",
+   "source_sha256": "ee89690457282a2de0170c0716a4f950f608b857c4e40b6b019d806a63a05669",
+   "sha256": "2a0a51e95a33dd394873d1b4c9a0d48777eda9ec3799ae71f6a74d23bae564bf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/radio_receiving_play.png",
+   "source_sha256": "31ed071dcf04ce4052085f0d09acda813d22dcfc0bd2771e164f20e2b10afdae",
+   "sha256": "22d86cee01ae7ebe1960ac95604079262cfe7d9ce8b7638c4a976b7b633f1477",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/radio_receiving_scope.png",
+   "source_sha256": "99791ff3ec71981507bc2fe6f4b349966e56d7235e5e36e8d11d8cbd067e44e1",
+   "sha256": "0e4836de730f48bae113b42b4b310e0a2b4bf91b763a2c4d650b1794cb7d84f7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/radio_receiving_step_away.png",
+   "source_sha256": "ea5d3f70ab2aadcabac6b15fa44ea0fb233a64d85540e202d932ed04c65605ba",
+   "sha256": "efb4d20b9f5832d5bbfa3d778939386df0511d0efd500446eb87f40b70a54c9e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "4fcce07d9492a564f2db2944c2f17467bc033c39c1c10bcbb3137f6c963cdfc8",
+   "sha256": "7530afdce8f63a1f5d09cc597b33506854ee3e81ff35a3a1c9d564cfb22e69d6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "09bd3a898f84e911484cd79b9b6926c0ee081e2fe29a88c97e6f092db2dc1ba0",
+   "sha256": "be6b1c465eaf93762677503679254efa624fdeb12ae49369556c25de953ea23b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "2563246c097027ad8ca7b24fc90023afaf3a1d98c069af8f94d298cd4fcfb92f",
+   "sha256": "a1484b4fe8b79da4eb2794fab0144a27617424f61167f765a75415f78082cca1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "9643c1090c9afae57030c3769bea7961840e679b58f02733f6d80539c0e6b7b6",
+   "sha256": "927f7e4f8c0c5843d3df6d43cdb387cb0d0c6d96f86e1d1ba9fe8b0075f2f23b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "313e90f7f5cd326fc1a6808fa1db380f0b9284f0dbb87b93eb7d57d76c544312",
+   "sha256": "6a9747863556ff74d33b32cf266902209cb53810ae023d8f43f292ec479415e0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "9402e3e29a2ce6039ac9bb56c8ed49beb7277bb207a53587b3ab01f7de2a79fd",
+   "sha256": "00fcc4951831d246bad418eecf28f4410c6b521ab87d490b338226d21808a271",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "e9a61f2cdd0a7e68a1bc6c497d5cc095df7ae83197315131d77b8df286f5bdef",
+   "sha256": "36d72dc3840a3ef5a74c20481e0e8893eed74384706bdc2e88d166bb4e2a6ba8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiving_panel_1280x720.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiving_panel_1280x720.png",
+   "source_sha256": "a4b3c1105b091839ea128415bccb2a3b4ec231409ca244d4d60a8afebb9b81c0",
+   "sha256": "d9afbe40fa9d11f87bffc6b14f46a054ff0d08e644e32ea2d34a6266fa076209",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiving_panel_1920x1080.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiving_panel_1920x1080.png",
+   "source_sha256": "bcfcc6fa3179ef2b86dbfacf557aee9bc8745e660a6992945d3a348deb0300d4",
+   "sha256": "0e2a401e87c0c8539acdc1789424eba038d42cd83a9b9216a212e6314e5e415b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiving_panel_640x360.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiving_panel_640x360.png",
+   "source_sha256": "ac89d9b74c854d19b619674b216399179873f25fc3ca64665f2a953e37be6e2f",
+   "sha256": "bfd070fa6ff76856cf88e84663c93c9f230fce47bde7db7bfe8abde37d8a53c7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/receiving_panel_800x1000.jpg",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiving_panel_800x1000.png",
+   "source_sha256": "faacb42831c901fa1fd07b7931e6176da13e6ccf7e9c3f35259f392ba2f40e2a",
+   "sha256": "e0483c2bd38f65f48c9fd068d29a82b2bce9af712b533a1a14510baff0488136",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/focused_actual/fittings.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/fittings.json",
+   "source_sha256": "dccaf798583e48fe3dbf081703477ef12348fa0b39f4043c474169b85fc588c7",
+   "sha256": "dccaf798583e48fe3dbf081703477ef12348fa0b39f4043c474169b85fc588c7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/native_chassis.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/native_chassis.json",
+   "source_sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/native_pawn_chassis.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/native_pawn_chassis.json",
+   "source_sha256": "57fe1864b39fecdd5225a3950d08f1c2fc25f21b91e2bb5894c58e4d1d576108",
+   "sha256": "57fe1864b39fecdd5225a3950d08f1c2fc25f21b91e2bb5894c58e4d1d576108",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/panel_resize_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/panel_resize_views.json",
+   "source_sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/pawn_chassis_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/pawn_chassis_views.json",
+   "source_sha256": "dcfbd3ecc09bb179477c3f044de1df079c55c38033237aa5f21a32470fd4c243",
+   "sha256": "dcfbd3ecc09bb179477c3f044de1df079c55c38033237aa5f21a32470fd4c243",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/receiver_views.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/focused_actual/runtime_contract.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual-shots/runtime_contract.json",
+   "source_sha256": "70e085d6b04ec1ebe9437dcf024458f470c85a46cf629ffdabc5a2ec7b81214c",
+   "sha256": "70e085d6b04ec1ebe9437dcf024458f470c85a46cf629ffdabc5a2ec7b81214c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-bootstrap.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-bootstrap.log",
+   "source_sha256": "7f5d5727a2fa38b9e6d2c6543d8c5fd938a52a094c4cfea43f728039600aec45",
+   "sha256": "7f5d5727a2fa38b9e6d2c6543d8c5fd938a52a094c4cfea43f728039600aec45",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-bootstrap-import.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-bootstrap-import.log",
+   "source_sha256": "758debded36465ec9e58b4387770cd90956bffba8e16752d588a683c5c3e02f6",
+   "sha256": "758debded36465ec9e58b4387770cd90956bffba8e16752d588a683c5c3e02f6",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-bootstrap-import.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-bootstrap-import.log.receipt.json",
+   "source_sha256": "8e6b8d2975b6395d1fd75805d3661463058a2aa865376b06b415d549e8dfbbda",
+   "sha256": "8e6b8d2975b6395d1fd75805d3661463058a2aa865376b06b415d549e8dfbbda",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-bootstrap-import.log.stderr",
+   "source": "tmp/v2-finish-review/pawn-chassis-bootstrap-import.log.stderr",
+   "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-build.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-build.log",
+   "source_sha256": "ab2ffd9d9b985926d90a7bde11292bc59d2a94f1052acf803312b4dfcb38995d",
+   "sha256": "ab2ffd9d9b985926d90a7bde11292bc59d2a94f1052acf803312b4dfcb38995d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-native.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-native.log",
+   "source_sha256": "bfe6b336fcc5a370dff3ad63197ef99d82b187fdbc21033d5704d195ba9d96d0",
+   "sha256": "bfe6b336fcc5a370dff3ad63197ef99d82b187fdbc21033d5704d195ba9d96d0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-native-empty-context-diagnostic.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-native-empty-context-diagnostic.log",
+   "source_sha256": "df66ecf8b59966f8d7db9565774884f94c228fa6b64043514261815b620e6ab9",
+   "sha256": "df66ecf8b59966f8d7db9565774884f94c228fa6b64043514261815b620e6ab9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-import1.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-import1.log",
+   "source_sha256": "82325811a831965daf44c2f418e23c67a7181c1d46eb3b21b7cf79a929304259",
+   "sha256": "82325811a831965daf44c2f418e23c67a7181c1d46eb3b21b7cf79a929304259",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-import1.log.receipt.json",
+   "source_sha256": "bcffaf5c847c61c0a4e8293c40af923a1782331f8caef9a5685728cb357432af",
+   "sha256": "bcffaf5c847c61c0a4e8293c40af923a1782331f8caef9a5685728cb357432af",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-import2.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-import2.log.receipt.json",
+   "source_sha256": "7c9ea7f67ed2faff2ee98b36b9926644779791e3a0f6c519fbe0b42e8f8d3b5f",
+   "sha256": "7c9ea7f67ed2faff2ee98b36b9926644779791e3a0f6c519fbe0b42e8f8d3b5f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-actual.log",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual.log",
+   "source_sha256": "8cc30cd70b847c7b910c761d55d5e93ce17f0a830061cc62985ad185eaaca153",
+   "sha256": "8cc30cd70b847c7b910c761d55d5e93ce17f0a830061cc62985ad185eaaca153",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/pawn-chassis-actual.log.receipt.json",
+   "source": "tmp/v2-finish-review/pawn-chassis-actual.log.receipt.json",
+   "source_sha256": "e144983358ef459259affe120f02aa16596660d5738a0e87f3a836b71a7eb286",
+   "sha256": "e144983358ef459259affe120f02aa16596660d5738a0e87f3a836b71a7eb286",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/.gitattributes",
+   "source": ".gitattributes",
+   "source_sha256": "23835bb69beaedcadec25793047a8ccee243f15dc02d0e866d9aad8bad2e60d0",
+   "sha256": "23835bb69beaedcadec25793047a8ccee243f15dc02d0e866d9aad8bad2e60d0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/data/pawn_receiving/source_plan.json",
+   "source": "art/data/pawn_receiving/source_plan.json",
+   "source_sha256": "634b7d4ebaebc94caeaba65ea26b574f42dd433930d3f55b9a8c13964aa611a3",
+   "sha256": "634b7d4ebaebc94caeaba65ea26b574f42dd433930d3f55b9a8c13964aa611a3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/scripts/build_pawn_receiving.py",
+   "source": "art/blender/scripts/build_pawn_receiving.py",
+   "source_sha256": "e986ecbc9c87562ad71639003c93b3e1dc95478804ea33e81ecaa7662fd422aa",
+   "sha256": "e986ecbc9c87562ad71639003c93b3e1dc95478804ea33e81ecaa7662fd422aa",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/scripts/inspect_pawn_receiving.py",
+   "source": "art/blender/scripts/inspect_pawn_receiving.py",
+   "source_sha256": "daa7d02d3c52d5bc7d19e73f30929440654fd3d2198fbcfa8339cd71e2557d58",
+   "sha256": "daa7d02d3c52d5bc7d19e73f30929440654fd3d2198fbcfa8339cd71e2557d58",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/pawn_receiving_construction.json",
+   "source": "art/blender/pawn_receiving_construction.json",
+   "source_sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+   "sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/assets/props/pawn_receiving.glb.import",
+   "source": "game/assets/props/pawn_receiving.glb.import",
+   "source_sha256": "9009409b7fe6a1ed86b55754be1defaa5067210c0fbb6d7dd78d1060fe7d7c0d",
+   "sha256": "9009409b7fe6a1ed86b55754be1defaa5067210c0fbb6d7dd78d1060fe7d7c0d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/data/orison_v2/pawn_receiving.json",
+   "source": "game/data/orison_v2/pawn_receiving.json",
+   "source_sha256": "d594a6ce67e31d188518b0cc194d652c012df047772429006396bb9725885579",
+   "sha256": "d594a6ce67e31d188518b0cc194d652c012df047772429006396bb9725885579",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/fixtures/orison_pawn_receiving.json",
+   "source": "game/tests/fixtures/orison_pawn_receiving.json",
+   "source_sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+   "sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_pawn_receiving.gd",
+   "source": "game/scripts/building/orison_v2_pawn_receiving.gd",
+   "source_sha256": "2996e3ebb3a19673eca05680dc0e2ecdacd3e093413dfef1782a4d3336c177d3",
+   "sha256": "2996e3ebb3a19673eca05680dc0e2ecdacd3e093413dfef1782a4d3336c177d3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_pawn_receiving.gd.uid",
+   "source": "game/scripts/building/orison_v2_pawn_receiving.gd.uid",
+   "source_sha256": "ca12529a67cd5aa02d1613f2c255c256320419285000559d0f0ceafa88190ec8",
+   "sha256": "ca12529a67cd5aa02d1613f2c255c256320419285000559d0f0ceafa88190ec8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_region.gd",
+   "source": "game/scripts/building/orison_v2_passage_region.gd",
+   "source_sha256": "91c804c9f1dd1f5a07f0c01fa8d5cb4b6f55295d22b534aa1dc99cdaeca2b849",
+   "sha256": "91c804c9f1dd1f5a07f0c01fa8d5cb4b6f55295d22b534aa1dc99cdaeca2b849",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_residency.gd",
+   "source": "game/scripts/building/orison_v2_passage_residency.gd",
+   "source_sha256": "3cee72489a30b64e46315990cd09e71757d7cc47c4309c3486beff290f504513",
+   "sha256": "3cee72489a30b64e46315990cd09e71757d7cc47c4309c3486beff290f504513",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_pawn_receiving_test.gd",
+   "source": "game/tests/orison_v2_pawn_receiving_test.gd",
+   "source_sha256": "d0f064214951bb7f05eee5ffef5a8c7fd518b661922970dfa395c99f319fafe9",
+   "sha256": "d0f064214951bb7f05eee5ffef5a8c7fd518b661922970dfa395c99f319fafe9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_pawn_receiving_test.gd.uid",
+   "source": "game/tests/orison_v2_pawn_receiving_test.gd.uid",
+   "source_sha256": "b211d9c8950b40546081b740bf1ea41cf0bd187d43acfe3dc1516aa3db2a91b7",
+   "sha256": "b211d9c8950b40546081b740bf1ea41cf0bd187d43acfe3dc1516aa3db2a91b7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/OrisonV2PawnReceivingTest.tscn",
+   "source": "game/tests/OrisonV2PawnReceivingTest.tscn",
+   "source_sha256": "190fd91e066f12254f0c15b32250332e12ac019770bbfb1794575312b16fd114",
+   "sha256": "190fd91e066f12254f0c15b32250332e12ac019770bbfb1794575312b16fd114",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_passage_residency_test.gd",
+   "source": "game/tests/orison_v2_passage_residency_test.gd",
+   "source_sha256": "2f16a6307aac66de06d7fe7c2501a7f8fa9a6155504b59ff0b9a2b2eeed678fb",
+   "sha256": "2f16a6307aac66de06d7fe7c2501a7f8fa9a6155504b59ff0b9a2b2eeed678fb",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/pawn_receiving.md",
+   "source": "art/blender/pawn_receiving.md",
+   "source_sha256": "b4b3a370786506ce3f5cee074341f4390055869fc6fde8e41b814a1c2ec840e6",
+   "sha256": "b4b3a370786506ce3f5cee074341f4390055869fc6fde8e41b814a1c2ec840e6",
+   "copy": "byte-identical"
+  }
+ ]
+}
