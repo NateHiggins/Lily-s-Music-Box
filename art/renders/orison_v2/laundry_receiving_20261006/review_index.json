@@ -1,0 +1,1573 @@
+{
+ "evidence_class": "INERT",
+ "production_candidate": "0d096576dece2343d2f20411014fdf4bcf624770",
+ "base": "eb0a4261bc2f8905de02e54a9856b07448efa951",
+ "final_images_directly_reviewed": 91,
+ "native_images_directly_reviewed": 10,
+ "scope": "Native Laundry chassis, exact source ownership, maps and physical stock. Ordinary NIGHT MAIL keyboard cycle and inherited Radio entry/exit execute. Standing observations grant no continuous access, passive hatch operation, service capacity or human acceptance. Scoped receiving contract leaves save/reconstruction NOT_EXECUTED and is not ledger authority.",
+ "runtime_authority": "Separate complete resident-key permission/copy/lock/save/reconstruction/owned-teardown scope only.",
+ "ledger_before": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "ledger_after": {
+  "FIRST_SLICE_TECHNICAL": 7,
+  "GOLDEN_SHIFT_V2": 8,
+  "FULL_BUILDING_STRUCTURAL": 127,
+  "FULL_BUILDING_RUNTIME": 42,
+  "PRODUCTION_CUTOVER": 151,
+  "V1_RETIREMENT": 153
+ },
+ "files": [
+  {
+   "file": "production_verification.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/verification.json",
+   "source_sha256": "d818b30e22dd24a29e3db13a286d43038bb3d46a2fb664998c712b744542f07a",
+   "sha256": "d818b30e22dd24a29e3db13a286d43038bb3d46a2fb664998c712b744542f07a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_verification.md",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/verification.md",
+   "source_sha256": "30b41e8c8f1996fa7fff2325df39e6630ee8069b2a95d3e8c54bafa7715666b5",
+   "sha256": "30b41e8c8f1996fa7fff2325df39e6630ee8069b2a95d3e8c54bafa7715666b5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "baseline_board.json",
+   "source": "tmp/v2-finish-review/eb0a4261-clean-board.json",
+   "source_sha256": "e9ad7bac580d2c6631f5ea144dce87ca80eec1043e72285ff8cc7a874a827517",
+   "sha256": "e9ad7bac580d2c6631f5ea144dce87ca80eec1043e72285ff8cc7a874a827517",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "receiving_observation_contract.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runtime_authority_receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "8584adc25707a133ad841f671dbd84ea4847b7a1a59e3191d051bcde31e58f02",
+   "sha256": "8584adc25707a133ad841f671dbd84ea4847b7a1a59e3191d051bcde31e58f02",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "candidate_sheet_index.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-sheets.json",
+   "source_sha256": "8e8d2f79e5f447051b4898abcb565205eff94ae0b842b7b624225ea033d07520",
+   "sha256": "8e8d2f79e5f447051b4898abcb565205eff94ae0b842b7b624225ea033d07520",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "native_sheet_index.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-native-sheet-index.json",
+   "source_sha256": "fdcf5f5d1bacf416435fd7f36c9b6afd5ce5f523b11a6dad4711181238d809cd",
+   "sha256": "fdcf5f5d1bacf416435fd7f36c9b6afd5ce5f523b11a6dad4711181238d809cd",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_preflight.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-spatial.json",
+   "source_sha256": "820ad4d7450246e5a594d2772c41e5c6d4c11111d01a1b6743c94b8f4b33ea7a",
+   "sha256": "820ad4d7450246e5a594d2772c41e5c6d4c11111d01a1b6743c94b8f4b33ea7a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_reviewed.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-spatial-reviewed.json",
+   "source_sha256": "855471a864d0cf1c4ac6e783cfe412a2021ed5af1ec673ae117964de6080ad05",
+   "sha256": "855471a864d0cf1c4ac6e783cfe412a2021ed5af1ec673ae117964de6080ad05",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "spatial_after.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-spatial-after.json",
+   "source_sha256": "c7a8e166aa2db06d46fcf6fa5634875170bbf18dc00f4acec7cd310b51c02aba",
+   "sha256": "c7a8e166aa2db06d46fcf6fa5634875170bbf18dc00f4acec7cd310b51c02aba",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "reader_preflight.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-reader.log",
+   "source_sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/import1.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/import1.log.receipt.json",
+   "source_sha256": "4a5f42b1cc53b37d24dbdee7b98d2b449433c3f27336491a66238b1037b240a2",
+   "sha256": "4a5f42b1cc53b37d24dbdee7b98d2b449433c3f27336491a66238b1037b240a2",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import1.log.stderr",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/import1.log.stderr",
+   "source_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/import2.log.receipt.json",
+   "source_sha256": "206052e7be014fea14523868992b51afbe3f7a327014cddcc85c720ee4330738",
+   "sha256": "206052e7be014fea14523868992b51afbe3f7a327014cddcc85c720ee4330738",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryReceivingTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed.log",
+   "source_sha256": "4cb205dff31fcf9298657b78de47df856fdab0093517d7d93458f91d606fd898",
+   "sha256": "4cb205dff31fcf9298657b78de47df856fdab0093517d7d93458f91d606fd898",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryReceivingTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "5631a73b36fd16a929e44226d101b77a26dee9f5e19ad26123984eac6d740f3e",
+   "sha256": "5631a73b36fd16a929e44226d101b77a26dee9f5e19ad26123984eac6d740f3e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryFittingsTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed.log",
+   "source_sha256": "3aacee1810356625022103e24e315fe4189c328c041cfc35514494af45176399",
+   "sha256": "3aacee1810356625022103e24e315fe4189c328c041cfc35514494af45176399",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryFittingsTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "b168868eb61756f3216ca9fbb8db1922eb2089d73dd98ca68edc28ef1c7d0800",
+   "sha256": "b168868eb61756f3216ca9fbb8db1922eb2089d73dd98ca68edc28ef1c7d0800",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryApparatusTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed.log",
+   "source_sha256": "9ce385320777f86a3df3060ebf8aa8cd4dab83493ab6e671bf9ba6aebdf0b867",
+   "sha256": "9ce385320777f86a3df3060ebf8aa8cd4dab83493ab6e671bf9ba6aebdf0b867",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2LaundryApparatusTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "d4d0298c66a8c8248873465fc44a25c9a31cdd9269214ae3cb94b373bcf64d76",
+   "sha256": "d4d0298c66a8c8248873465fc44a25c9a31cdd9269214ae3cb94b373bcf64d76",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "source_sha256": "87c4096b670856a8d10b71fbd157555c6899adc4d7fab6c25db37e4901e54450",
+   "sha256": "87c4096b670856a8d10b71fbd157555c6899adc4d7fab6c25db37e4901e54450",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "fdd8ac84b975846a1ce5956bcf58fa1de40eb2e33fe3ad7caf17dbdff5ed5ed7",
+   "sha256": "fdd8ac84b975846a1ce5956bcf58fa1de40eb2e33fe3ad7caf17dbdff5ed5ed7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "source_sha256": "5f3b9c9c404482e24e0290b60f7470894d2fe20c2bf508d43470cf47838090b1",
+   "sha256": "5f3b9c9c404482e24e0290b60f7470894d2fe20c2bf508d43470cf47838090b1",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "0943f60b3df60361c9f07006bda8be09024a4f18db253e7e9c436e83a3c752b9",
+   "sha256": "0943f60b3df60361c9f07006bda8be09024a4f18db253e7e9c436e83a3c752b9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "source_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "4b5c06c53b2ef51c71045661aa3696994cae51e19560c8b9f799f6eaf8cfed7d",
+   "sha256": "4b5c06c53b2ef51c71045661aa3696994cae51e19560c8b9f799f6eaf8cfed7d",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "source_sha256": "f48eef7e75e0c527b0c31bae34bdc2d594b57c7adf2ca81e50122c95a5ccf42e",
+   "sha256": "f48eef7e75e0c527b0c31bae34bdc2d594b57c7adf2ca81e50122c95a5ccf42e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "source_sha256": "5e4d7ebd074544fccc243561cc1395f194ad53c6de529070e2703b74ff5269d3",
+   "sha256": "5e4d7ebd074544fccc243561cc1395f194ad53c6de529070e2703b74ff5269d3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "da61b1feb831c4262c7b8909143303bb16555fd29485783dc390ee35a3738b62",
+   "sha256": "c8f81c8dfc12069db0ca04781a4e356b35ee158a4a1b331976e338e0b516700c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.png",
+   "source_sha256": "e13139c62fe619ffa9541a88f12f8bef77b1d14a0a3375e42945f83aee742164",
+   "sha256": "291aa8ac89caabc3294b043b56912255f7ba0c7e63ca07d21e9ab8805008c28c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "8389d2a8749052840316e10a1831e18147b75034f2752acfde2701f146cbea25",
+   "sha256": "81bb396ce6f4fdd9c5a6d129f7ff35f4a8f33f894ca37dbdd528f86548a88da2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.png",
+   "source_sha256": "0ba795c7cb3109fccc3526eae74eb06f10334128810223eb128e3f64e889822b",
+   "sha256": "bd34344d8b4b662a6fac0766092c68830a0716ce228b9e65400fea9034de43f8",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "8bd305280ac8e946c70aa528aadb1cedd3286976745a83b8f20b91882a3ae0b0",
+   "sha256": "dbbfb662c68aa8274ab1be038edf1b9d1d9deaf2448eaf6021c9e898099c5d95",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.png",
+   "source_sha256": "b1320c823595eb8ad4daaef18320d414af1af6598657fdc836ad37ea5b594358",
+   "sha256": "51d637f9179359086622dd79b29d50fdfaf4159712d61ff0e950afe226a4742e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_fitted.png",
+   "source_sha256": "f8f9e094819380f94d433f800c96a93590446c207802c5548ce411e0b536ff02",
+   "sha256": "571f4a7d72230b72de2b676a473b1d3e5b3cdec97cf9df415f4d756125380e6a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_original.png",
+   "source_sha256": "d300a3a002a2726b394019f73826721b5c5d098ee95422e4c8b854d029edf437",
+   "sha256": "37f39fe4acc227d0ec8effce010ae839dceddd83e6ea5a919308c967957824f1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_fitted.png",
+   "source_sha256": "4419dc70f7254d1bb4da05b43bf8fb1b7afee48f3b66c00376a74b44636f7049",
+   "sha256": "166532d2f54a11a9d72d02dd6c8ab8729fc1a543d4e37f6f88b87fec132671f7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_original.png",
+   "source_sha256": "568fd31ff6bb7961cfda6823e7c984ea18b883d37b0538f25c91350097e4b98a",
+   "sha256": "168a15f547022e200001f2a382d4376a3302a2573dfca67704c9c872509aacb3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.png",
+   "source_sha256": "7639db864eb1d8a098cfdfb7607c97832d04c9703b1a554ffaa63f6b44ea2f5f",
+   "sha256": "e237c6d0993784d1e695f94008a9bde5dc2b7a93eed84dcf04dbea2c693c31bf",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.png",
+   "source_sha256": "0127cbc844f232caf6975e29d4dccfc7d7c853cb7e2ab067b33b1f7739be0fd8",
+   "sha256": "7f802a71400be48ee958b2c4598deb69222c3741b86aaba0c4383bd3dbd9f3ad",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.png",
+   "source_sha256": "d2d019bad4b28004d42a88dca0b1fc14ac65fe3371ed3dd40afb0f0ede40af71",
+   "sha256": "f5eba0704c1348467a2208622d2db3b3421093b244cce05124039c5faad8f5b4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.png",
+   "source_sha256": "0ae8a5f4de7f15a13a40f0e63c4be719137f4887993028287f879415f61fe3e4",
+   "sha256": "e85ef4cdad3a7e6abcc2db8a123650106d5c007b6ca061dd3b93a36ec6c965b9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_fitted.png",
+   "source_sha256": "ff157892c7cf657eafd7f34d21015968204a0e1a457e5a79bb7160c4ba411557",
+   "sha256": "eb7aee23d26731307906666d04d8358f0fcfc310c47cba131e0fc9f7e8beeb3d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_original.png",
+   "source_sha256": "ba66e7d92ee3ea0c3d603eb82025c9574f95454751c1ff98bcaa5ac11b391bf4",
+   "sha256": "29e5885989d5c4eeb2215b5ffd71f61c0e2f4ce962d25f04273772f4eff99166",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_fitted.png",
+   "source_sha256": "628ff1d94c778953520c407b402d1fb12c04073b8021b25d3c017f5b27efc17f",
+   "sha256": "163a279dce2cc15a60fa4180d3c2b9d49f3ea4606545f0c771bbfc5e48ad5ada",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_original.png",
+   "source_sha256": "c8529952ca9871e55903645bdcffebac91d8b2f3c25dcb932ba23d68ba8ecbe3",
+   "sha256": "e59d446c5e05658282e9f4e897ab5b01dbc88b28ceb12e16d94e4f2d1f54a324",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_fitted.png",
+   "source_sha256": "03e8453c485fc03121e8a30654f28a96e83364b8648f9194e60ce3bf1667ea00",
+   "sha256": "d53c43c1aec42779553120a29db5d38172ae034afee36d46bd459a480f18b05c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_original.png",
+   "source_sha256": "37f00b834993c2bc3da2f7120cf8b0c15569a67dc07cfa1e52b4e2e01cfdfc3e",
+   "sha256": "37694effc0c8e874ba9aaf401d896c7d3726515b2228c2e0db1afa324c329b0d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_fitted.png",
+   "source_sha256": "594d25310f1085a5317729635122a95b0860cf79b76b8d04d8b7e1c104291f26",
+   "sha256": "12578bbf95806c7abc03f67752862ef9f51affeac94bfe396d2569c6e0fca8d2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_original.png",
+   "source_sha256": "b76bf1d250e03c1eed15e4ae36871ab519f19cab56fd87bf86a07f32ccc75e52",
+   "sha256": "563d163b46381472b8a533281e18188a963afbde097551b8f9e51c2fed42f6d2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/laundry-inspection.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryApparatusTest_tscn_windowed_shots/laundry-inspection.json",
+   "source_sha256": "575ff507cd2aa0665bd61f929bec752d8ac3157f2995ce99238d66e1f9df0359",
+   "sha256": "575ff507cd2aa0665bd61f929bec752d8ac3157f2995ce99238d66e1f9df0359",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_front.png",
+   "source_sha256": "f14275c8b7542fa9fd0bbbc7276614d393508dda6834605beb6cdf7ac4a93bf0",
+   "sha256": "38a0a2d435b0349d60b3111d9df9be50f3000d2005fac600117a60a0f39d9dc3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_table_supports.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_table_supports.png",
+   "source_sha256": "73898c1c9fee24a176936c9a7ef0cd5c3cb33af286f1bd34a83906feb8fc76bd",
+   "sha256": "5d895ca420e28829e1e3a6af8652eb6b7f4ba42f4aa9e52b8ba7e06067413b07",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "4404cbe3692fc53f387d6f91d0b23db7e6c9f10b565c770c1bbd150cd858e440",
+   "sha256": "8e7739a78e7a74b99345d31f48e90655eaa17311a694be10c9074e2c56fff7f1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.png",
+   "source_sha256": "fa1db14e23aa2f3be1596f00d0a5b112b16a87e55e9e5fbe78b5839061a1f676",
+   "sha256": "13a1a3d150b742ffac490c3d51f90ea6d83b83a3698aa234177a8b2d19327059",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "6e680ac0beb0e5363870090156881b878ddf63711b7662a3f546b7240c9fe3dd",
+   "sha256": "858bcfce87ba02bbb150f07a0bee624d3b1c774ab26d5ba34cbc5a2407caadf5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.png",
+   "source_sha256": "7ed1c7235f5b1d9c0b13aee43e5ee9c8428eeeb0ca93e6721fc3af6295f6db70",
+   "sha256": "6de6b6ea40fe47169f1cde34d592cf2dfde32c9c11367375aafc6073aed15985",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.png",
+   "source_sha256": "c50d8e056d8f75a7ee39d702a5498b27e1a9ce2a66ca46bd206528eba044d874",
+   "sha256": "4406ab22d27b603ffadeb0adfb49aa90b1ef767ed7dad764a0b4650de907358a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.png",
+   "source_sha256": "d2475144186de44ca077f20996296555c0caabba546a576101ad56aead5bca51",
+   "sha256": "4b822b6b3917e9a1576ddc9b6deed36bb74def4ab191e47b019caa9a9b4609c3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.png",
+   "source_sha256": "2708dc66dfa118aecc4f870deb21744f172d73533aed580c9c2fda556e525d27",
+   "sha256": "be213f16045d7eb0a2a622535ae3e1e17b9f66e80de140bb1672e53478b97a02",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.png",
+   "source_sha256": "bd9c789294e34a3f01c30f8bfbd820c056c680be0110a8c4cff6e84ffaf67029",
+   "sha256": "066eae4803e1103948e7af2bac755355bc9035bd691197fe8a6be1a0134a8cb4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.png",
+   "source_sha256": "96460cc88721b34cbf456a5adeb5d7d6c20784bc78fc20f3b7b9eba5fb87ef28",
+   "sha256": "9d9bce64c272fa08f8521c1a591ad9717cea2cb9622f463240e21080021a66ec",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.png",
+   "source_sha256": "b8ab9205c7c64dffc4b4608e523f0da8dba6aa13afdf97b8c625705bdad382c1",
+   "sha256": "2d9891e77a968f93959b601105ee22cd9a76223e3319961a889250d3b7e0b7bb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_fitted.png",
+   "source_sha256": "c1ee3ae9f78199c87e1b3c447096fe91549b434c6a6ee6757693152600af4271",
+   "sha256": "005a08b7f60f77861d688e47e0b57afa418ad57d0e6c504fdea8eaa4a4c7bb90",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_original.png",
+   "source_sha256": "d6212dc1001fea261a6849a89d0efc62830502d69737daa87aa5f7a0b527b1f3",
+   "sha256": "1fd9b26d16cb56927ce97ca6049b68fa857b227e90cb32a240b24e080674019d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_fitted.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_fitted.png",
+   "source_sha256": "6407cde2fc963a72cfa9c976c12c209501f07c833a183538de8912654ef5c92c",
+   "sha256": "0d1d7ac56149a12a2f473511e084e78c26d7e074c10222546152788d770f12e3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_original.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_original.png",
+   "source_sha256": "e0f8cca04b8650062b3beccbb3220f6d4e2bac4036f370fc579069359a39dcbe",
+   "sha256": "1ad5c3ca9c317d50fea24bf6bd228ea504a65543004a030b4f7c06e5f9b32019",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry-inspection.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry-inspection.json",
+   "source_sha256": "e0f49aa87ef84db16afcd826619bc1c9490ea68288813dbb7e1a245faa3a3fe5",
+   "sha256": "e0f49aa87ef84db16afcd826619bc1c9490ea68288813dbb7e1a245faa3a3fe5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/receiving_clearance.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryFittingsTest_tscn_windowed_shots/receiving_clearance.json",
+   "source_sha256": "97a1b81c43c5232070bda3446d9e8126582e573afc71e4385db83f33504c6cfe",
+   "sha256": "97a1b81c43c5232070bda3446d9e8126582e573afc71e4385db83f33504c6cfe",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_circular_scope.png",
+   "source_sha256": "7259c2c68edebfe0622aa51a365ea6a58f16b5a880f657cf3e7eafa8ee704a8b",
+   "sha256": "ba949adf58b2fc5e846077f5466a38f92dbc4133e17b3f67a5b8ffde1791513e",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_floor_feet.png",
+   "source_sha256": "1750b7edfcc82f25106d1cc7195ee48982cd5cb905418d70a8c4be37f9a60c73",
+   "sha256": "ec9e1ef6d00e9f457be858e5ca631cd4d16f4b2bdd97bf3cdecbe2a820c409c4",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_front.png",
+   "source_sha256": "4655147a674456d1f732d43894a8255f5f703d10a03cff3f91fa52f3eb8ad9a3",
+   "sha256": "d1a34ce1a8ab1106011d84883b2d9335d16b43b5da6d6ed5e4d13a70e55f9991",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_service_side.png",
+   "source_sha256": "b170c6a9657aed3fdf1375e022b5d15907eebec10d2562c21e933ad6c8b1ae41",
+   "sha256": "11b51a47cb9fc4ac9867f85ae69623470e1721d70687ca71fa979a7fd4c201e2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_circular_scope.png",
+   "source_sha256": "c9af392b6bc1dde90532c7e2f8e326424736eef7847c64d420a15f07f3eda0d6",
+   "sha256": "1522e27b065822abca89c93363a2e52ae748c7cb9feb37aa9c0f780f35df6969",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_floor_feet.png",
+   "source_sha256": "ad20c45c632f1c6f08ba9c23b32451a3640fad07efc5f8d834465869506d417b",
+   "sha256": "c2c2d8afe97ae1963755e47d465ffcb1791ae25c5307c76b60869879d9e12f4f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_front.png",
+   "source_sha256": "423ce641b5babb7b580972ae8eef7343c1654f98d105358c9a262729e21bc036",
+   "sha256": "61852bbaf7ecbe8a917d949407b2b4731e99e7a3bd1e8d7052db74a547ef962a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_service_side.png",
+   "source_sha256": "68af7953b9c015d323714352e437b9b139c27acf77f1b9c02f3087270799d5ea",
+   "sha256": "b333805fae625776c9f3ac6f4b9c3e4ac6b96afd3c49c7022e2ca01e99150f8f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_play.png",
+   "source_sha256": "a8f4d351b155837ef5782ba0fb219ef7bf614bcac876948648b0d267c450697d",
+   "sha256": "503d6eca8b1ac06f1386f2a8b4fbf8dde62b4ebe55d2d32d4a1ac00d130dd168",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_step_away.png",
+   "source_sha256": "b54f010e05562475d0f8264bab7549cdf61c7f2d362240bb1de3a10302616a57",
+   "sha256": "74f06ab9b8616ff7a60050d1c90d19adce2e3ec1a179a4c633b20b3ac09e03fc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_play.png",
+   "source_sha256": "1d3a9c6734c45152b5daa161f23a4bee5aa8cc6a0dc8f57ec74420a1d7e9c0a6",
+   "sha256": "1c70ba60a2a231392ce01ee5dea0837966a2dc1e645ddf5c5be30801b3b15d4d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_scope.png",
+   "source_sha256": "67c7091f7da93afccf55ff268ed5feec4739cc6f5bc2d7ecda42ff776da0915d",
+   "sha256": "3331fa8b2830ab62dc7920fd3aa3568f78e60b9e43acb77db9fe252b8f18d013",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_step_away.png",
+   "source_sha256": "25511569789ff28c26c4a600f0301b2705bc72c5c215372aa5ef32bd2588e93b",
+   "sha256": "1eed84c9b38c3c71975785ee2d10ff0556c0771fb5545c7017ca6d3b50e0e733",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "00369726257d4e76a3dc908dfea138bfd24bb769253ce7024a2459c99b306cff",
+   "sha256": "2e736a71065994783abae4e973ab688dcd91528a9c8f3886962aef7a2f18c316",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "3e10e4996cbef19b4b08a3c93ec88db0de26fa9465f6cf24516f8ab3c112c928",
+   "sha256": "92ee3b4a43628ca822163013da54637f1e2c953da87c9bfb5ce00bad1a4f2601",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "b4fc3d0424c91332e5f72ecf2a98d3fcd886bf071d7de125754f850d33e39994",
+   "sha256": "b1ac2f79d4ca74b9524971c57ad6ac14fde275604ced9a117f1390b24ff3b503",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "368aa0724642e030edbe09932a30b255c720667038c8e3ef08897ebb716bfd6d",
+   "sha256": "b2570d3b70890859ad5a56e4dbd2164fa50b0fe55db35cb57ecf6b62652912c0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "a86dace968dad43242752ccaa1510b48acf49be1fc46bd2400a6b1accdeac688",
+   "sha256": "072efa4d662deced3c7b0e914d48d9bde5651ff5025642a9451cd17a08fcfcb5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "78b57ef791f16a3462180ebcf7a741412976ac5714ccb1822301e26281d9588a",
+   "sha256": "c0f3668d2e7bb060bfac780fed4830548f83cc77dc36af9332d3a1da96e4c85c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "4190b7cee4bdb6f92fd7b3d6651e45f272aafdb139f2de91f3d1565da1adbf24",
+   "sha256": "544e0fb9a8505df92fe479b8ee53eec9d27a5e9473ee2e4e3096eb1ba3c15faa",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.png",
+   "source_sha256": "20d373091468fc588abc78ace4617fd940095631566ff47c790d73e080d90e95",
+   "sha256": "aa633af98185f8618e57a8a4364ca4e84431a322d70ed2bcfb6f8f6790148e99",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.png",
+   "source_sha256": "ccf4959a392fb6f0821ab05053c5d4713ee2530a1aa04b440ba1d5e13647b9d8",
+   "sha256": "3c6a9315087fc9a5d0189699fc73623f95bb6a03d93d87a7ad63b5efcc8d14af",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_640x360.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_640x360.png",
+   "source_sha256": "9eba0d9b99c36a76c1c0164b7737ee0dfbb774c78ed6c896a74583130f93888f",
+   "sha256": "b9f0bc2c6ac4d4ce5ec08aa32ce07b3f83ace45b920d0d25a6208d257a7c0433",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.png",
+   "source_sha256": "48479e9fedaf1ba85a3130d2554f88dc5a58d122dace5be50b085ca10a587743",
+   "sha256": "89caf55b98be4b16dc45b004cf4c17bea8bf2a25af080d88fe2f23713420f2e3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/fittings.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/fittings.json",
+   "source_sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "source_sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_laundry_chassis.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_laundry_chassis.json",
+   "source_sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "source_sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2LaundryReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.png",
+   "source_sha256": "d2a3662b7f6dd2ba8e6cfdf102293395118b2f9d0b19bcbb2674c862d2a50db7",
+   "sha256": "866993a209f310bb1434ae3a12c5a69b0e7cd3f28c736b7593c34086b3e4d02a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.png",
+   "source_sha256": "c5b133d164f3270c24eb08b4bc95654be0e321ebb818380b934132830534528c",
+   "sha256": "9a8ffb59250e9932bda412bd40dcb719105edd44b69b24ce1f5c19aa209b3cbe",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.png",
+   "source_sha256": "3fb49e42cd393f56acd2a732a2832eb91de63508fe0d55bb8bcc78dbf6f8c78b",
+   "sha256": "c197cae2272407f51d767bf8b99b300c4f920181a5ae18b482f79b50af564e63",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.png",
+   "source_sha256": "d16057eccd2ca3aeb0ff1c0f80ac6a8b7e2f79d2c65777dcf6997311999928b9",
+   "sha256": "1ce8ac9eec3ee28c68f2ee69f980dc566ce3d4e87653ad4e16b782c8a0300e20",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.png",
+   "source_sha256": "b8956cd752fcab25ffdf08093d47c998c4d1eb5c835190aa23ed4d519d555f35",
+   "sha256": "4b046836a845d8a687c70b464523a865487d81f37164bee3ab0189bf9840eff3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.png",
+   "source_sha256": "7d0d8c1feb1e414cb00bacf949f2b0a40a886f68da8dbc29ec7dfd4dc8c088af",
+   "sha256": "968d6b279937e4907ebe836f59b926059c38e136b1e567ef164d5256ccfde9c9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "0b4dea8beb0629e54a08dbf5efca559d04121a9388dcdfe46bfb6b3831727643",
+   "sha256": "a87e5abbceb7d87174b4140acef7d90548ae15a653f36b17c3c280bddb034bfc",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.png",
+   "source_sha256": "5aca9af151866bb9532ec5df3418ef9e7c3f801b6eb848318c8349e92174ee40",
+   "sha256": "89919adc256d6f1bd89ff2710216223b6ae256a9fe7d640eec3c4d81a33810e1",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "source_sha256": "38c3422493ccc3364abe28445a7ae03458245e73a13e70d51adbda3691a29fa9",
+   "sha256": "38c3422493ccc3364abe28445a7ae03458245e73a13e70d51adbda3691a29fa9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.png",
+   "source_sha256": "2281f5ee0eccc19f07ab7c587a3a162686467d70cb35bd6cd1df2b992f2e8904",
+   "sha256": "e7750d9a7e02c415fe15b8f5550140d157b3f7f33fe0136606f28980d2f753d7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.png",
+   "source_sha256": "3bb8a3cada710dc2892bdabc48cc50a8e22f592db7ce29d48d16286753519335",
+   "sha256": "570a75f933b58507684a63045730e4e562d1abf19e1186dd2bd27a8f7852f91b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.png",
+   "source_sha256": "ed4a9b0ce6f1bef10e7febe565bde04281dff603601f44bd0aa2f5ffbd25effe",
+   "sha256": "6a6e79c0a62575acedeb91bc2e9d77888ce0a50889e4a70c1c6079489fcff676",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.png",
+   "source_sha256": "74554132f35d4dd99d433c929733dcc3ba1b47e6ac605695c600c82d742a09b7",
+   "sha256": "86c6e5a4798fcd5df4f4bb55d897b517df65ee564eb097646f6e5effcd7f501a",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.png",
+   "source_sha256": "6a03e42fc749421e0cc31e750ea3cdadcdbbaf43c8051ff65b75a96f38bdc5ea",
+   "sha256": "c0e69f83988cfcdcc34c6e1ba7d388664444e3884c3be86f201db556232fefb3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.png",
+   "source_sha256": "fe635548a04ca0528ae39862c539f44dcf5c6ce4e18aad0d204179f00a5b4d42",
+   "sha256": "6b48964e42bfc481bceeaaf3f999168da80b7c289c343528b5807e04b9e60e7f",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.png",
+   "source_sha256": "b0d62a3281ad369564cbeeee4a0cfb9c4ee5c10cf1653e55554b8880bc58d6f6",
+   "sha256": "0f0bdc530f31279b886ffd373baf4d6dbbc1d348dab051d07eaf1e8d5c01d91d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.png",
+   "source_sha256": "dcba8df568c6fc1397945961b11a3a64ca2ef1a752f9eef2ccd9f33e4eab291a",
+   "sha256": "32faddf7710430257f8c4a0d1c3ebdc7c1ae11d41d2b988edbbdf5a17cad8d90",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.png",
+   "source_sha256": "7a11abdf1b390d54674dedbe7eb39b0665cab55d5bcd58dd1f53972970761ede",
+   "sha256": "e89abff6a2640e91da601d8d50997cadf9bc3be199ca32908581e398afb58786",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.png",
+   "source_sha256": "7b60cc58760ae11602c1e3fb9635f171d9644429c37cb13e002cda4f7d01c2e0",
+   "sha256": "69d9bd615f0d8daa3bf95afc64f53fba9bd2abc259659e78f1cdc60dae5052ec",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.png",
+   "source_sha256": "d0c505e9c612476a80691bd2cae7a3deeb0c0e69b45034c66ec0c1f0128a4857",
+   "sha256": "2322773d8dea1f686dd52a847a096d86a37a61037024e9282419dac9267bf043",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.png",
+   "source_sha256": "5d285ad5d6ad10ee4bf2a4cbaea4907777d42a2e7686d1edd196a11d1eaf4fb4",
+   "sha256": "0a830c9b66df6eee6b427289237afcc2ebd452f688615cb049734b9dfbdb4467",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.png",
+   "source_sha256": "dbc82621fbcca7ab6e44527ba9371b60357658530be41b027f97bd3d5da60b72",
+   "sha256": "1af4d1f9555eb05e02fe9a15b8defea07a08e02a1fe43a13494074663125cc18",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.png",
+   "source_sha256": "14452f53cc30e99dbb3d52d1151cb19e002f16a4beb02de42aecd91c5d24472e",
+   "sha256": "f0047ffa89002b7d8c7fb043ab979c94f5132a1e0082ec1c9622df0d87f0d00c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.png",
+   "source_sha256": "9701f811bf12855364dddcd9cc4f0d63df96f00faf68cc2681063a728e5c3b9d",
+   "sha256": "60e83a782834ba5ba16f140c43b5c02702b0b34eea0b32e156f3dd96027db414",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.png",
+   "source_sha256": "cbc955d183440d05d1cca7f3f7629007c435eea0a585a5d253b800c7b997d0c4",
+   "sha256": "328486ddd7b0bda97e24afa9f4c0b9121c1d195679d3cbca73d003cdad80eaee",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.png",
+   "source_sha256": "87cf52bfb17eabdc112444ede485fc5f68b8bb16219bec2d1d0c4325b0a84548",
+   "sha256": "f9537ba4452304169c0ff1e73c5c1f6c030ed6cc09c3c359f4888ae8535569d0",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.png",
+   "source_sha256": "0e5008b0a5ab7dddeb49b529bfc3409c287c76428bbb7524c596fd94c96fa354",
+   "sha256": "edb1a187ad812e73ddc621e3917d9b1d89146eae8b4a1b4842402125acaed68b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.png",
+   "source_sha256": "d82f2808f3d2c7691fb65e71deb68ead4846225b936fc676656d1262a039d41d",
+   "sha256": "1c9b419bd64f1d569cc309c1ec4ad562ec260d00154cbdd3c40245de2e9bbd86",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.png",
+   "source_sha256": "be7d6744ec969050036fbb003c5fd4e0e5ab62bf68fa1a66f8afcdbc37f7ddbf",
+   "sha256": "1f9c3d36ed83c8cd8309fa45ec6f0200b11d0d3016fa957edc5a244c8d4e2a58",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.png",
+   "source_sha256": "4f4fde80ef1a9558fa9ab909bb2373fa8b23e32280060b75f034c8c366261a34",
+   "sha256": "143983a40d982341bf681bcf0cbcdf342b686612cbc646512b8e0737ddf1fccb",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "source_sha256": "f9bbf3e0f7203f1fcba951da733e6129de6445e37de2136f19f15db564a8581a",
+   "sha256": "f9bbf3e0f7203f1fcba951da733e6129de6445e37de2136f19f15db564a8581a",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-final-verified/godot/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "source_sha256": "8584adc25707a133ad841f671dbd84ea4847b7a1a59e3191d051bcde31e58f02",
+   "sha256": "8584adc25707a133ad841f671dbd84ea4847b7a1a59e3191d051bcde31e58f02",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "native/base_wet_cells.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/base_wet_cells.png",
+   "source_sha256": "1828176a9a064be72bb16ea535e9d91432b4da135374a86496fe899c612481b1",
+   "sha256": "b83dc5d0ebd8a9a8b5db5e8e4a08aa807e275d10d638fd029a9fc21924ad2d3b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/braided_flex.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/braided_flex.png",
+   "source_sha256": "b215b80607c40e86bb9c76ee4d2e10a78f9a1d13f0d2dea1b702ad87178d9707",
+   "sha256": "d9bf97f32d24eee0ac47310299e8fefd3a610946936ae640cd7085973aad5233",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/chassis_front.png",
+   "source_sha256": "4973c299a484ee552c95140fbb6ad6a8f61f949b4162fbc5dca1bf6c2a59cd6c",
+   "sha256": "3aa85532e2df4a7cbbcd1060fab825e0f5ef9c5e8649beecdf2f8eae650c6425",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_rear.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/chassis_rear.png",
+   "source_sha256": "d209ac286b90e3ea0f1a074143ae525dbfffb68027150594b5e68bbe7f9bf022",
+   "sha256": "460a761eefa69675b6f3b668f679ef801749bc14b372f42783ea1d9943a69794",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/chassis_side.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/chassis_side.png",
+   "source_sha256": "145ff4a42cb84a776204de43d46183b2e7d030808cf0cd9f2c0c782ee4c4c3d5",
+   "sha256": "5d9ed7eb9cfa3cbf8cbba2ece99fc29bdfe98a25005281dd32b034729602e735",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/closed_service_hatch.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/closed_service_hatch.png",
+   "source_sha256": "086e40c806d21016e43d2971939eeb8071b243d36f2ba08a022ff955c50d272f",
+   "sha256": "d03ebbe6736794fc354dc669468ab86eaf8aeca03b769e339ca102559bd95319",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/floor_feet.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/floor_feet.png",
+   "source_sha256": "440f910f57063f5fcf15d25b6334f1d44b0ae799df6efc8e892886cb1f9205d6",
+   "sha256": "ef16c3913344bb2820fe8b0fdf55d3232e5f3bd5be98eda3f5445f8dc33d1e3b",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/inside_lid_schematic.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/inside_lid_schematic.png",
+   "source_sha256": "b441ebe030e7d62db999905aa002a33051e7284e444eddea4527b749e63843b1",
+   "sha256": "a50333c0e0e5f697a2d5deb169ade5216864cfd6383fa6baf8a1c7e0fbfc68aa",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/scope_aperture.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/scope_aperture.png",
+   "source_sha256": "0759e41b253a3d18553c4623ca64bda24efdffc947b1baeed0b43e836e3d2ad6",
+   "sha256": "0972116a31153b6055e4916ef80afbc4a2bec96b3f6f631fbdcca8a6c05f8d35",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/service_stock_open.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/service_stock_open.png",
+   "source_sha256": "d78ef52af95cc2451590b60d780c16aed9894d96a66d8bc033f47bb9a5745520",
+   "sha256": "b2584a9dbbf6de2e484389f04b2858d6f2c930c2c88976f47de49e1a1eeae9ee",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": true
+  },
+  {
+   "file": "native/inspection.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-native/inspection.json",
+   "source_sha256": "f47787b37ef70dd0cb010dd406c5bc0695beea433c16db34e733b0098427959f",
+   "sha256": "f47787b37ef70dd0cb010dd406c5bc0695beea433c16db34e733b0098427959f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/chassis_circular_scope.png",
+   "source_sha256": "b7c6475ce16233e7c38ad964d664f44a5f5e3ef75132dcd0d1358d5cda54a7fc",
+   "sha256": "215c79ce57e6139214f9575edec3464d5f1ba148a30ed71f603ffb510be088f6",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/chassis_floor_feet.png",
+   "source_sha256": "7ce251a8740f03cac531bc30d9c8809a5e68b53e8331b25f5f34d5856aa21e69",
+   "sha256": "85ecd2cd05e3298c53cc228c2113d61db0916a92b9ddc92d3734523962dc587c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/chassis_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/chassis_front.png",
+   "source_sha256": "0393bb71e316b556ae07057816048a1328c83cf509fe47b864cda887bf40e420",
+   "sha256": "43777af3bbde555958d75f6e779bb070c7aee9bb121c0ddf1365a63cfdae595d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/chassis_service_side.png",
+   "source_sha256": "13c215eb0c89dbc74a3dd89d89f5edee613a611dc392d0c05ec9f15a920a0493",
+   "sha256": "f3cd6956da384ea8d414ff21d2bb2728d5f7880ab74c7a7d11b5bcc7dedf9491",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_chassis_circular_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_chassis_circular_scope.png",
+   "source_sha256": "7a45083313c0282b2a434e81ea763d7cfedd28b81c8ad6242cdddd3d9ce41701",
+   "sha256": "1ee90f378bb0786cd06c8de318f8412a227203190efb207b6b55e64e5f40c354",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_chassis_floor_feet.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_chassis_floor_feet.png",
+   "source_sha256": "daecd7aa5db910909deb765354cbbab0d62f105392a65b06e712ce4ac6c02a62",
+   "sha256": "785a425208166f3a61bd82d3d2e07dda608cc84e5a7650122f5623431a6f5917",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_chassis_front.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_chassis_front.png",
+   "source_sha256": "5590faa1abf014cbf608f4dcc82c2a5b3ce94584c42135cdf383613658a424f2",
+   "sha256": "fbe537aac2fdaea6ef849e8c464788a136737b6e1d8b69bd315985d122f5f81c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_chassis_service_side.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_chassis_service_side.png",
+   "source_sha256": "e02b801a6e52e1edc7205c694df539e6f471c8c9c94f8683a60d9ecaf8b0616d",
+   "sha256": "f73e193260e5b5f5489af66ba478fb4e02732a467a9da8e3a32e847223d85ef9",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_receiving_play.png",
+   "source_sha256": "d448460e8caba21c7c8eb1979fc8754cbcf13877754404afe0489f4a2bb7eb5d",
+   "sha256": "c23da592492196040b0e8863fce724fb76f0528e529d10ad422ff68b2c253d3c",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/laundry_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/laundry_receiving_step_away.png",
+   "source_sha256": "dcac21558daa1e14be990e5280d6026cdb7a1948c483cb6b5f5c34c42dfcd4e7",
+   "sha256": "ec8184b0dbbebf50ddd5e000cb4ed664d85bd0a0ae48c338f7039db79269411d",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/radio_receiving_play.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/radio_receiving_play.png",
+   "source_sha256": "04e8124217ac3f99be70f5737e93f81b26c43dfcf1de58bccd99f7a18e15728c",
+   "sha256": "b791ab03db3ad703254f4e6d97808c465db4edf60192cf94d02fcfc66d3441a2",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/radio_receiving_scope.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/radio_receiving_scope.png",
+   "source_sha256": "627de286c8e21c83615befffbf1d47b42e5eb39f88ecae3105c56510a0b0bd2c",
+   "sha256": "b92320c62a1a202baec5e53c62e096e9ba8f2947b8c18e94e97d9239b36caa11",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/radio_receiving_step_away.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/radio_receiving_step_away.png",
+   "source_sha256": "38c373444307d2267cbbf724782a6b725dc98649633aa605c9b0122a8c0a493b",
+   "sha256": "97b3199fed69e2ac4246e6c3f96744092f602c1dad0982bf9b0a923e83c57d87",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_luncheonette0.png",
+   "source_sha256": "693cee61a7c1b8bde179522b712473dc313b2c3ad218c20a28a89a9af45ac167",
+   "sha256": "e8cd387d389ca6b9bf737116bce89f52c922757dc1387293900fa044401c4760",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_luncheonette1.png",
+   "source_sha256": "e1cfb9fd3bae75cf919f8c2091b1056bf192349229691bb2ebe14b90d6d66286",
+   "sha256": "05b3632c4ca7f06195dedc0135faa5ff1fa019f9e2af5e133b8ed1b69c2263a5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_model_laundry0.png",
+   "source_sha256": "cbc353990376eea8d134a7dc930e2fe63edb42621eefaeb5186ad7912983db15",
+   "sha256": "7c5213f10f970419e9097b6f56176da3270ff830c878a522e32c81c115b91430",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_news_cigars0.png",
+   "source_sha256": "b02f413615dfe47f9320b67468b2bd99793c6a4d976d059ce5abf5fe881defee",
+   "sha256": "427f53fa861dd1b9189e0ef8dd45b763d5d0e0a38a8ee1f49baa86ccbc5cefac",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_pawnbroker0.png",
+   "source_sha256": "4947eca36abb90f5e891d71aec65f11a7386107d048a46facda443771465319f",
+   "sha256": "3ee1f9d76a569ff18f8f28277f00a676e93a5963ed161815bd1fe27dd269e3ee",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_photo_supplies0.png",
+   "source_sha256": "bd23f9786826b4ab3d7babfed78e670e4472a4129af72193fa151147a03b90bb",
+   "sha256": "75b712022edf5f2db8f670961db49963139ec965faf33ed7b9fb759c64b4dd29",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_Arcade_storm_shopcab_radio_service0.png",
+   "source_sha256": "26978a0c3e7c59b286677c4461de174653e9062cd5301d03b7f49d5425cb7a2e",
+   "sha256": "4af0f9d55be8f30fc4f969125b94eb48edd4116d612b162a45ef792e5d611db5",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiving_panel_1280x720.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiving_panel_1280x720.png",
+   "source_sha256": "e8ae4cee9d0dad3602d154d52a9b265fecadbacb7a90c10991ad71df201c4f00",
+   "sha256": "7bef2dde005de3dffcf11a5b50595e3ffc74156a2ba37372660019f13c0b5ff3",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiving_panel_1920x1080.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiving_panel_1920x1080.png",
+   "source_sha256": "c7bef5cfdfe4267a94cc513449f692b62741ce7da683aef75448f0f4c3b78708",
+   "sha256": "fd753e8b7bca7c247719cca6a02a60b1f9972f090d28657beaa11187b2895df7",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiving_panel_640x360.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiving_panel_640x360.png",
+   "source_sha256": "2baa048dd0bbb54e4ed9155d1a01d9dbbdf2ccd0f34dc2c611ea2912d79be2b5",
+   "sha256": "3c1560c479c96a9b0096287315fdd4a8d439f2e268e1b4133186697c3075d3ec",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/receiving_panel_800x1000.jpg",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiving_panel_800x1000.png",
+   "source_sha256": "5e6cdf42d7da7325b519bb49dfc1ef4e69e76c498bd3084fd1a8fa1016a91a0c",
+   "sha256": "11b9294039b7c938cf4e281a35322e7a0e576cde4805c2ac37f3779b57697355",
+   "copy": "JPEG visual derivative",
+   "final_visual_reviewed": false
+  },
+  {
+   "file": "diagnostics/actual/fittings.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/fittings.json",
+   "source_sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/native_chassis.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/native_chassis.json",
+   "source_sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/native_laundry_chassis.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/native_laundry_chassis.json",
+   "source_sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/panel_resize_views.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/panel_resize_views.json",
+   "source_sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/receiver_views.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/receiver_views.json",
+   "source_sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/actual/runtime_contract.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual-shots/runtime_contract.json",
+   "source_sha256": "fc0d5d3f7a010fa0f17f69a3fc45f8449dd63bc23513a97530b0ed2eda8016df",
+   "sha256": "fc0d5d3f7a010fa0f17f69a3fc45f8449dd63bc23513a97530b0ed2eda8016df",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-bootstrap.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-bootstrap.log",
+   "source_sha256": "88f498a99a648569abdb11c6a9e175168fd3659b77f93ba0e45738ff15cffbed",
+   "sha256": "88f498a99a648569abdb11c6a9e175168fd3659b77f93ba0e45738ff15cffbed",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-bootstrap-import.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-bootstrap-import.log",
+   "source_sha256": "9cbf49670692317b2e72038065ca0941a9ebf3cd906ce6232d088daf9ce77052",
+   "sha256": "9cbf49670692317b2e72038065ca0941a9ebf3cd906ce6232d088daf9ce77052",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-bootstrap-import.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-bootstrap-import.log.receipt.json",
+   "source_sha256": "fb0af6b41f78ee53dda42baeba7a6ad857396a15302351118eb3dff4b3b1cb83",
+   "sha256": "fb0af6b41f78ee53dda42baeba7a6ad857396a15302351118eb3dff4b3b1cb83",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-build.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-build.log",
+   "source_sha256": "f8f5ec44dfb79d94f281658c73c946d9c44befdc40cffe39db1b83c9c1e465d9",
+   "sha256": "f8f5ec44dfb79d94f281658c73c946d9c44befdc40cffe39db1b83c9c1e465d9",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-native.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-native.log",
+   "source_sha256": "6cd717dd57c0e02f521b40e20272e8de015ca7143a3673e15689e6297c03765e",
+   "sha256": "6cd717dd57c0e02f521b40e20272e8de015ca7143a3673e15689e6297c03765e",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-import1.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-import1.log",
+   "source_sha256": "39e1ab65fd4879033a2d90e6052f9be6ed8528422e2d64373eb70f44a193b021",
+   "sha256": "39e1ab65fd4879033a2d90e6052f9be6ed8528422e2d64373eb70f44a193b021",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-import1.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-import1.log.receipt.json",
+   "source_sha256": "588fa94d10be0f3c4cdbcd054a61cc402bd0439c63eef13f22d6b8d3d96918a6",
+   "sha256": "588fa94d10be0f3c4cdbcd054a61cc402bd0439c63eef13f22d6b8d3d96918a6",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-import2.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-import2.log",
+   "source_sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-import2.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-import2.log.receipt.json",
+   "source_sha256": "8b9cf77122332681bc08a31b3d9b9cede0b92aea364ded9b155c41551fd73fcf",
+   "sha256": "8b9cf77122332681bc08a31b3d9b9cede0b92aea364ded9b155c41551fd73fcf",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-actual.log",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual.log",
+   "source_sha256": "dfe270e7660037a3f55cf429a798fda662cd8bbc3b7188f604cde3eec1edf516",
+   "sha256": "dfe270e7660037a3f55cf429a798fda662cd8bbc3b7188f604cde3eec1edf516",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "diagnostics/runs/laundry-chassis-actual.log.receipt.json",
+   "source": "tmp/v2-finish-review/laundry-chassis-actual.log.receipt.json",
+   "source_sha256": "aa68c5888c51c44e766f1101afacf5067855f4e989fd312b7298c0a428a58ef5",
+   "sha256": "aa68c5888c51c44e766f1101afacf5067855f4e989fd312b7298c0a428a58ef5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/.gitattributes",
+   "source": ".gitattributes",
+   "source_sha256": "f3e57add65cf5327903f55a7ff765cf1700689b66823782b8ce93b398e21841c",
+   "sha256": "f3e57add65cf5327903f55a7ff765cf1700689b66823782b8ce93b398e21841c",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/data/laundry_receiving/source_plan.json",
+   "source": "art/data/laundry_receiving/source_plan.json",
+   "source_sha256": "62d2776e370ae6ec3de7553e99e5d04ed8d53fa721594c7b063f300aed39a310",
+   "sha256": "62d2776e370ae6ec3de7553e99e5d04ed8d53fa721594c7b063f300aed39a310",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/scripts/build_laundry_receiving.py",
+   "source": "art/blender/scripts/build_laundry_receiving.py",
+   "source_sha256": "2f850342fcfbcdcfb6b36b26c7dd07ab3170c1b47aec707b368bdc17ebc570b3",
+   "sha256": "2f850342fcfbcdcfb6b36b26c7dd07ab3170c1b47aec707b368bdc17ebc570b3",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/scripts/inspect_laundry_receiving.py",
+   "source": "art/blender/scripts/inspect_laundry_receiving.py",
+   "source_sha256": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+   "sha256": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/laundry_receiving_construction.json",
+   "source": "art/blender/laundry_receiving_construction.json",
+   "source_sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/assets/props/laundry_receiving.glb.import",
+   "source": "game/assets/props/laundry_receiving.glb.import",
+   "source_sha256": "974e915551557c9bfe265d3716ab412a83ec0fbfae0489dd6ca48e2fcdfe14d8",
+   "sha256": "974e915551557c9bfe265d3716ab412a83ec0fbfae0489dd6ca48e2fcdfe14d8",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/data/orison_v2/laundry_receiving.json",
+   "source": "game/data/orison_v2/laundry_receiving.json",
+   "source_sha256": "93c71d17bb32859c011b7b176e29a1edda395503761459deb2539cb9ae3cfdda",
+   "sha256": "93c71d17bb32859c011b7b176e29a1edda395503761459deb2539cb9ae3cfdda",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/fixtures/orison_laundry_receiving.json",
+   "source": "game/tests/fixtures/orison_laundry_receiving.json",
+   "source_sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_laundry_receiving.gd",
+   "source": "game/scripts/building/orison_v2_laundry_receiving.gd",
+   "source_sha256": "3a8637b6a36adb17e4ee033b8b7c9fd98d489f887f2d67095e9765cccb24348f",
+   "sha256": "3a8637b6a36adb17e4ee033b8b7c9fd98d489f887f2d67095e9765cccb24348f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_laundry_receiving.gd.uid",
+   "source": "game/scripts/building/orison_v2_laundry_receiving.gd.uid",
+   "source_sha256": "33bad5d18514aecc846ab85d07772f7cafab8002b87a889fa26580ac4fa98add",
+   "sha256": "33bad5d18514aecc846ab85d07772f7cafab8002b87a889fa26580ac4fa98add",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_region.gd",
+   "source": "game/scripts/building/orison_v2_passage_region.gd",
+   "source_sha256": "267dd4917c10513d54e599ac3552bef82e1e9c98c60fb8067267110e4e0fce97",
+   "sha256": "267dd4917c10513d54e599ac3552bef82e1e9c98c60fb8067267110e4e0fce97",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/scripts/building/orison_v2_passage_residency.gd",
+   "source": "game/scripts/building/orison_v2_passage_residency.gd",
+   "source_sha256": "d29a1cb61c6a376bbaf43b2c23938164116d8cf201bd1ac766ea0b636fc75d6f",
+   "sha256": "d29a1cb61c6a376bbaf43b2c23938164116d8cf201bd1ac766ea0b636fc75d6f",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_laundry_receiving_test.gd",
+   "source": "game/tests/orison_v2_laundry_receiving_test.gd",
+   "source_sha256": "d280b589b04db9c394d457e3d9248b29451370be7d37a52b98a83e8b501a9f8b",
+   "sha256": "d280b589b04db9c394d457e3d9248b29451370be7d37a52b98a83e8b501a9f8b",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_laundry_receiving_test.gd.uid",
+   "source": "game/tests/orison_v2_laundry_receiving_test.gd.uid",
+   "source_sha256": "23d7944caff0c91244861ef35d8540cf9ad0f1c3943541b68a959397303455ad",
+   "sha256": "23d7944caff0c91244861ef35d8540cf9ad0f1c3943541b68a959397303455ad",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/OrisonV2LaundryReceivingTest.tscn",
+   "source": "game/tests/OrisonV2LaundryReceivingTest.tscn",
+   "source_sha256": "d46dd6a3b2eb5edddadfb6802c98b8b33460f9384bd8d3355acb691b8ff915a1",
+   "sha256": "d46dd6a3b2eb5edddadfb6802c98b8b33460f9384bd8d3355acb691b8ff915a1",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/game/tests/orison_v2_laundry_fittings_test.gd",
+   "source": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "source_sha256": "183b56e27b2134b5e2af44dc4a2155c4146b54ad4be38c5147b4574956d489c5",
+   "sha256": "183b56e27b2134b5e2af44dc4a2155c4146b54ad4be38c5147b4574956d489c5",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/laundry_receiving.md",
+   "source": "art/blender/laundry_receiving.md",
+   "source_sha256": "8f825fd1d6bf8cc55117db9ee40ef70b0d79b29a8baf8dc3999bc2b602ff15b7",
+   "sha256": "8f825fd1d6bf8cc55117db9ee40ef70b0d79b29a8baf8dc3999bc2b602ff15b7",
+   "copy": "byte-identical"
+  },
+  {
+   "file": "production_source/art/blender/laundry_fittings.md",
+   "source": "art/blender/laundry_fittings.md",
+   "source_sha256": "edd3a2080023b9a407c808ed62958beb12208ee9fc187edb0214dd7009644c57",
+   "sha256": "edd3a2080023b9a407c808ed62958beb12208ee9fc187edb0214dd7009644c57",
+   "copy": "byte-identical"
+  }
+ ]
+}

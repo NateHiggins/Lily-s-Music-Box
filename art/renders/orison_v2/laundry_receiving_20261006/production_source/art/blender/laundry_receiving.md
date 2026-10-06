@@ -39,9 +39,3 @@ ordinary NIGHT MAIL E/Escape, inherited Radio input and **0 / 0 / 0** owned
 teardown. Its save/reconstruction scope remains **NOT_EXECUTED**. Committed
 candidate verification, current key authority and retained review follow
 separately; these diagnostic observations grant no ledger promotion.
-
-Committed source **0d096576** passes the complete **48-gate/tools-test**
-comparison and **nine** bound Godot runs. All **10** native and **91** final
-production frames were directly reviewed. Retained evidence and the separate
-complete key authority: **art/renders/orison_v2/laundry_receiving_20261006**.
-Report: **design/V2_LAUNDRY_RECEIVING_2026-10-06.md**.
