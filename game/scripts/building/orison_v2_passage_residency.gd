@@ -94,6 +94,11 @@ func _physics_process(_delta: float) -> void:
 	_update_wanted(player.global_position)
 
 func _update_wanted(world_position: Vector3) -> void:
+	# A focused programme owns its board even if another camera moves. Retiring
+	# its parent would suspend gameplay under the panel's hands.
+	if region.receiving_row != null and region.receiving_row.has_focused_panel():
+		_wanted = true
+		return
 	var local := frame.to_local(world_position)
 	var section_frame := region.get_parent() as Node3D
 	if _dormant_box.has_point(local):

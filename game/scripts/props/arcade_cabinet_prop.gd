@@ -485,6 +485,18 @@ func _playing() -> bool:
 	return _panel_ui != null and is_instance_valid(_panel_ui)
 
 
+## A streamed room can retire before the distance timer expires. Keep the
+## cabinet's identity, card and infection, but release its inactive programme.
+## A focused panel owns the board until the player steps away.
+func suspend_receiving() -> bool:
+	if _playing(): return false
+	_live = false
+	_away = 0.0
+	if machine != null: machine.unload()
+	if _glow != null: _glow.light_energy = 0.0
+	return true
+
+
 func interact_prompt() -> String:
 	if cabinet.is_empty():
 		return ""

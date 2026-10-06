@@ -833,3 +833,10 @@ game/scripts/building/orison_v2_radio_display.gd -text
 game/tests/orison_v2_radio_display_test.gd -text
 game/assets/props/radio_display.glb.import -text
 art/renders/orison_v2/radio_display_20261006/** -text
+
+# Receiving transfer tests and retained exact receipts.
+game/scripts/building/orison_v2_passage_receivers.gd -text
+game/scripts/props/arcade_cabinet_prop.gd -text
+game/tests/orison_v2_passage_residency_test.gd -text
+game/tests/orison_v2_passage_receivers_test.gd -text
+art/renders/orison_v2/passage_receivers_20261006/** -text

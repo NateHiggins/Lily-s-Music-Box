@@ -34,6 +34,7 @@ const RadioStock := preload("res://scripts/building/orison_v2_radio_stock.gd")
 const RadioBattery := preload("res://scripts/building/orison_v2_radio_battery.gd")
 const RadioWire := preload("res://scripts/building/orison_v2_radio_wire.gd")
 const RadioDisplay := preload("res://scripts/building/orison_v2_radio_display.gd")
+const Receivers := preload("res://scripts/building/orison_v2_passage_receivers.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -57,6 +58,7 @@ var _counter_ids: Array[String] = []
 var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
+var receiving_row: Receivers
 
 static func cell_path(identity: String) -> String:
 	if identity == "passage":
@@ -201,6 +203,12 @@ func _ready() -> void:
 	_actors.name = "PassageActors"
 	add_child(_actors)
 	_mount_markers()
+	receiving_row = Receivers.new()
+	receiving_row.name = "PassageReceivingRow"
+	_actors.add_child(receiving_row)
+	if not receiving_row.mount(source_layout, _actors, CELLS):
+		_fail("source-owned passage receivers refused")
+		return
 	finish = Finish.new()
 	_actors.add_child(finish)
 	finish.build(source_layout)
@@ -327,6 +335,8 @@ func _mount_key_counter() -> bool:
 	return true
 
 func shutdown() -> void:
+	if is_instance_valid(receiving_row):
+		receiving_row.shutdown()
 	if is_instance_valid(residency):
 		residency.shutdown()
 	if is_instance_valid(shop_service):
@@ -359,6 +369,7 @@ func suspend_geometry() -> WeakRef:
 	finish.hours_director.set_passage_active(false)
 	for cart: PassagePushcart in finish.pushcarts:
 		cart.set_passage_active(false)
+	receiving_row.suspend()
 	_actors.visible = false
 	_actors.process_mode = Node.PROCESS_MODE_DISABLED
 	var retired: WeakRef = weakref(_geometry_root)

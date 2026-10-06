@@ -593,6 +593,8 @@ func _compose_exterior() -> bool:
 	add_child(bar_region)
 	if bar_region.startup_failed:
 		return false
+	if not passage_region.receiving_row.bind_registered_graph():
+		return false
 	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
 	city_shells.name = "CityShells"
 	add_child(city_shells)

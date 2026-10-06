@@ -219076,6 +219076,127 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "c76ed509f813f69c",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_passage_receivers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) != \"F01\" or str(furniture.get(\"batch\", \"\")) not in batches: continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "13ed16399d805dc5",
+   "kind": "generated_name",
+   "token": "mount",
+   "file": "game/scripts/building/orison_v2_passage_receivers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "\"Arcade_\" + identity"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b842837e364ec7b6",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_passage_receivers_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retail_detail_views"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id)==\"F01\" and str(record.get(\"batch\",\"\")) in passage.CELLS:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "779158a8244666c2",
+   "kind": "generated_name",
+   "token": "_retail_detail_views",
+   "file": "game/tests/orison_v2_passage_receivers_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retail_detail_views"
+   ],
+   "lines": [
+    46
+   ],
+   "count": 1,
+   "context": [
+    "=\"Arcade_\"+identity,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -3,6 +3,7 @@ extends "res://tests/orison_v2_passage_route_test.gd"
 var _moved_cart: PassagePushcart
 var _initial_cart_position: Vector3
 var _surface_signature: Dictionary = {}
+var _receiver_signature: Dictionary = {}
 
 func _init() -> void:
 	route_label = "V2 PASSAGE RESIDENCY"
@@ -11,6 +12,8 @@ func _capture(identity: String, target: Vector3) -> void:
 	await super._capture(identity, target)
 	if identity != "nave": return
 	if not _check_specialist_fittings():return
+	_receiver_signature = _receiver_values()
+	if not _require(_receiver_signature.size()==7,"all seven passage receiving actors exist before reconstruction"):return
 	_check_ceiling_detail()
 	_surface_signature = _surface_values()
 	_moved_cart = world.passage_region.finish.pushcarts[0]
@@ -45,6 +48,12 @@ func _route() -> void:
 	if not _require(world.shop_service.counter("hardware_paint") == null
 			and _moved_cart.freeze and _moved_cart.collision_layer == 0,
 			"dormancy unregisters counter and suspends cart physics"): return
+	if not _require(_receiver_values()==_receiver_signature,
+			"dormancy preserves receiver identities, cards, variants and graph bindings"):return
+	for receiver: ArcadeCabinetProp in passage.receiving_row.cabinets:
+		if not _require(not receiver.machine.is_booted() and receiver.machine.package==null
+				and receiver.machine.render_target_update_mode==SubViewport.UPDATE_DISABLED,
+				"dormancy releases inactive receiving world: "+str(receiver.name)):return
 	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:
 		if not await _walk(point): return
 	var started := Time.get_ticks_msec()
@@ -56,6 +65,8 @@ func _route() -> void:
 			and resumed.load_cycles >= 2 and resumed.unload_cycles >= 2,
 			"vestibule prefetch reconstructs a second geometry cycle"): return
 	if not _check_specialist_fittings():return
+	_require(_receiver_values()==_receiver_signature,
+			"geometry reconstruction preserves the same seven receiving owners")
 	_require(door.get_instance_id() == door_id and door.open == door_open
 			and _moved_cart.get_instance_id() == cart_id
 			and _moved_cart.global_position.distance_to(cart_position) < 0.03
@@ -68,6 +79,15 @@ func _route() -> void:
 	_require(not _surface_signature.is_empty() and _surface_values() == _surface_signature,
 			"all shader values and texture paths survive geometry reconstruction")
 	_check_ceiling_detail()
+
+func _receiver_values() -> Dictionary:
+	var result := {}
+	for receiver: ArcadeCabinetProp in world.passage_region.receiving_row.cabinets:
+		result[str(receiver.name)]={"instance":receiver.get_instance_id(),
+			"card":receiver.cabinet.duplicate(true),"variant":receiver.variant,
+			"graph":receiver.graph_node_id,"pose":receiver.transform,
+			"infection":receiver._infection}
+	return result
 
 func _check_specialist_fittings() -> bool:
 	# Both observed reconstruction cycles must carry the same native owners
