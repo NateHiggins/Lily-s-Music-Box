@@ -51,3 +51,9 @@ cabinet, doors, hours, keys, saves and services retain their owners. Their
 coarse forms and material mismatches remain open. No alignment procedure,
 instrument operation, carrier change, route, capacity, human acceptance or
 whole-shop completion is inferred.
+
+The subsequent instrument fitting is documented separately in
+**art/blender/radio_apparatus.md** and
+**design/V2_RADIO_APPARATUS_2026-10-06.md**. Its native cases and valves now
+occupy the preserved stations; the bench retains the worktop datum and
+physical instrument bearings verified here.

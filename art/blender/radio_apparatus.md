@@ -60,3 +60,7 @@ counter, doors, keys, saves, hours, services and carrier behaviour retain
 their separate owners. Their coarse forms and material mismatches remain
 open. No instrument operation, engineering capacity, human acceptance,
 whole-shop completion or V2 completion is inferred.
+
+Verified production checks and retained final/diagnostic views are recorded
+in **design/V2_RADIO_APPARATUS_2026-10-06.md**. That inert report grants no
+requirement promotion or human acceptance.

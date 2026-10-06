@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 53.73,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T12:27:50Z",
+  "started_utc": "2026-10-06T12:26:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-apparatus-first.log.stderr",
+  "stderr_sha256": "f52fbc0d4a42edfb60ce57c180666d5eedb48c22cfbc367257651c061152ae47",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-apparatus-first.log",
+  "stdout_sha256": "d912748d5ebcdc3c7905dd6a1700688b80a9fc8e6993bca74ebaf585f7424955"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2RadioApparatusTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/radio-apparatus-first-shots",
+ "source": {
+  "dirty_paths": 278,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   "?? art/blender/radio_apparatus.blend",
+   "?? art/blender/radio_apparatus.md",
+   "?? art/blender/radio_apparatus_construction.json",
+   "?? art/blender/scripts/build_radio_apparatus.py",
+   "?? art/blender/scripts/inspect_radio_apparatus.py",
+   "?? art/data/radio_apparatus/",
+   "?? game/assets/props/radio_apparatus.glb",
+   "?? game/data/orison_v2/radio_apparatus.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid"
+  ],
+  "repository_head": "45d8375e0fe38fae7dc1439b660255387d170084",
+  "repository_tree": "89be4bb14d65d2c7997274f1a467ad0443d5fbe5",
+  "runtime_inputs_sha256": "6ad400e2d9a683fb2776dec0c9ee0ca2ad31424c0d033af59cbf567b5a1445ab",
+  "test_path": "game/tests/orison_v2_radio_apparatus_test.gd",
+  "test_sha256": "1682cf797ac349dab7fb06050e481ff319f98d6e2c0c6282247852f5b7d8954b"
+ },
+ "windowed": true
+}

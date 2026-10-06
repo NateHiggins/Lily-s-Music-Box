@@ -1,0 +1,38 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\radio-apparatus-stage\art\blender\scripts\build_radio_apparatus.py:48: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "radio_apparatus.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+08:18:46 | INFO: Starting glTF 2.0 export
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_chassis__case_bakelite
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_chassis__chassis_metal
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_chassis__control_bakelite
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_chassis__control_nickel
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_chassis__valve_opal
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_scope__control_bakelite
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_scope__control_nickel
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_scope__scope_case
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_signal_gen__case_bakelite
+08:18:46 | INFO: Primitives created: 1
+08:18:46 | INFO: Extracting primitive: storm_shop_radio_service_signal_gen__control_bakelite
+08:18:47 | INFO: Primitives created: 1
+08:18:47 | INFO: Extracting primitive: storm_shop_radio_service_signal_gen__control_nickel
+08:18:47 | INFO: Primitives created: 1
+08:18:47 | INFO: Extracting primitive: storm_shop_radio_service_signal_gen__scope_case
+08:18:47 | INFO: Primitives created: 1
+08:18:47 | INFO: Finished glTF 2.0 export in 0.05689263343811035 s
+
+RADIO APPARATUS 8 original records; 3 assemblies; 97 closed stocks; 12 parts; 24128 triangles; 12 floor/instrument contacts
+
+Blender quit

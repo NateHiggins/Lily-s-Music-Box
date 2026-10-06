@@ -1,0 +1,2305 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "636882fdf048b575b6b4bced64efe8b00d5dbf6a3c346cf2e9ac9a306a07a615",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_radio_service_chassis_BottomPan",
+      "volume_m3": 0.006691293653383713
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_FrontPanel",
+      "volume_m3": 0.003678941595297448
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_SidePanel0",
+      "volume_m3": 0.0020275654990117606
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_SidePanel1",
+      "volume_m3": 0.0020275654990117606
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveDeck",
+      "volume_m3": 0.007575689532122911
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TransformerFoot0",
+      "volume_m3": 0.0005070696212765
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TransformerCase0",
+      "volume_m3": 0.002092502916167668
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TransformerFoot1",
+      "volume_m3": 0.0005070696078246504
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TransformerCase1",
+      "volume_m3": 0.002092502835705128
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl0_Stem",
+      "volume_m3": 8.845874355845051e-06
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl0_Grip",
+      "volume_m3": 6.58563647669072e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl0_Cap",
+      "volume_m3": 4.09493674912581e-06
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl1_Stem",
+      "volume_m3": 8.845874355845051e-06
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl1_Grip",
+      "volume_m3": 6.58563647669072e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_TuningControl1_Cap",
+      "volume_m3": 4.09493674912581e-06
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveSocket0",
+      "volume_m3": 9.867610021548068e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_OpalValve0",
+      "volume_m3": 0.0006569124457569841
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveSocket1",
+      "volume_m3": 9.867610021548068e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_OpalValve1",
+      "volume_m3": 0.0006569124390985919
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveSocket2",
+      "volume_m3": 9.867610021548068e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_OpalValve2",
+      "volume_m3": 0.0006569124409358717
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveSocket3",
+      "volume_m3": 9.867610021548068e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_OpalValve3",
+      "volume_m3": 0.0006569124467607975
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_ValveSocket4",
+      "volume_m3": 9.867610021548068e-05
+    },
+    {
+      "name": "storm_shop_radio_service_chassis_OpalValve4",
+      "volume_m3": 0.0006569124456883978
+    },
+    {
+      "name": "storm_shop_radio_service_scope_BottomPan",
+      "volume_m3": 0.005195853672662525
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Roof",
+      "volume_m3": 0.0036307398569458806
+    },
+    {
+      "name": "storm_shop_radio_service_scope_RearPanel",
+      "volume_m3": 0.002528277759288976
+    },
+    {
+      "name": "storm_shop_radio_service_scope_RightSide",
+      "volume_m3": 0.0026294775358943643
+    },
+    {
+      "name": "storm_shop_radio_service_scope_VentEnd0",
+      "volume_m3": 0.00013626869695750784
+    },
+    {
+      "name": "storm_shop_radio_service_scope_VentEnd1",
+      "volume_m3": 0.00013626869695750776
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat0",
+      "volume_m3": 0.00013251669449283857
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat1",
+      "volume_m3": 0.00013251669449283857
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat2",
+      "volume_m3": 0.00013251669386642707
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat3",
+      "volume_m3": 0.00013251669449283857
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat4",
+      "volume_m3": 0.00013251669449283854
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat5",
+      "volume_m3": 0.00013251669637207302
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat6",
+      "volume_m3": 0.00013251669574566155
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat7",
+      "volume_m3": 0.00013251669574566155
+    },
+    {
+      "name": "storm_shop_radio_service_scope_SideVentSlat8",
+      "volume_m3": 0.00013251669386642705
+    },
+    {
+      "name": "storm_shop_radio_service_scope_FrontSurround0",
+      "volume_m3": 0.0007237536129066513
+    },
+    {
+      "name": "storm_shop_radio_service_scope_FrontSurround1",
+      "volume_m3": 0.0007237536220941928
+    },
+    {
+      "name": "storm_shop_radio_service_scope_FrontSurround2",
+      "volume_m3": 0.0006282336165793017
+    },
+    {
+      "name": "storm_shop_radio_service_scope_FrontSurround3",
+      "volume_m3": 0.00029255362176764505
+    },
+    {
+      "name": "storm_shop_radio_service_scope_ScreenRim0",
+      "volume_m3": 0.00011250470127815393
+    },
+    {
+      "name": "storm_shop_radio_service_scope_ScreenRim1",
+      "volume_m3": 0.00011250470164101862
+    },
+    {
+      "name": "storm_shop_radio_service_scope_ScreenRim2",
+      "volume_m3": 0.00013126470094582273
+    },
+    {
+      "name": "storm_shop_radio_service_scope_ScreenRim3",
+      "volume_m3": 0.0001312647005320311
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control0_Stem",
+      "volume_m3": 5.564402805025015e-06
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control0_Grip",
+      "volume_m3": 4.143189289840948e-05
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control0_Cap",
+      "volume_m3": 2.575745694368553e-06
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control1_Stem",
+      "volume_m3": 5.564402805025015e-06
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control1_Grip",
+      "volume_m3": 4.143189289840948e-05
+    },
+    {
+      "name": "storm_shop_radio_service_scope_Control1_Cap",
+      "volume_m3": 2.575745694368553e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_BottomPan",
+      "volume_m3": 0.004987933860994492
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Roof",
+      "volume_m3": 0.003485319968732507
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RearPanel",
+      "volume_m3": 0.0020817176256989296
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Side0",
+      "volume_m3": 0.002255317645498286
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Side1",
+      "volume_m3": 0.0022553175583623713
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_FacePlate",
+      "volume_m3": 0.0024953015258513903
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+      "volume_m3": 8.491914903628608e-05
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_BlankDial",
+      "volume_m3": 0.00014210614052614925
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex0",
+      "volume_m3": 4.128870157230069e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex1",
+      "volume_m3": 4.1286406939067266e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex2",
+      "volume_m3": 4.1293116141705166e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex3",
+      "volume_m3": 4.130290253562263e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex4",
+      "volume_m3": 4.1293116141705166e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex5",
+      "volume_m3": 4.1286406939067266e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex6",
+      "volume_m3": 4.128870157230069e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex7",
+      "volume_m3": 4.12868169027969e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex8",
+      "volume_m3": 4.129382684577021e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex9",
+      "volume_m3": 4.1302081926417045e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex10",
+      "volume_m3": 4.129382684577021e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_RaisedIndex11",
+      "volume_m3": 4.12868169027969e-08
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_FixedDialPointer",
+      "volume_m3": 3.857326256132692e-07
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_PointerBoss",
+      "volume_m3": 1.398372266418757e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control0_Stem",
+      "volume_m3": 5.090983555722239e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control0_Grip",
+      "volume_m3": 3.790122302792763e-05
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control0_Cap",
+      "volume_m3": 2.3567397115925592e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control1_Stem",
+      "volume_m3": 5.090983555722239e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control1_Grip",
+      "volume_m3": 3.790122302792763e-05
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control1_Cap",
+      "volume_m3": 2.3567397115925592e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control2_Stem",
+      "volume_m3": 5.090983555722239e-06
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control2_Grip",
+      "volume_m3": 3.790122302792763e-05
+    },
+    {
+      "name": "storm_shop_radio_service_signal_gen_Control2_Cap",
+      "volume_m3": 2.3567397115925592e-06
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_radio_service_chassis",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_chassis_BottomPan",
+          "storm_shop_radio_service_chassis_FrontPanel"
+        ],
+        [
+          "storm_shop_radio_service_chassis_BottomPan",
+          "storm_shop_radio_service_chassis_SidePanel0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_BottomPan",
+          "storm_shop_radio_service_chassis_SidePanel1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_BottomPan",
+          "storm_shop_radio_service_chassis_TransformerFoot0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_BottomPan",
+          "storm_shop_radio_service_chassis_TransformerFoot1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_SidePanel0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_SidePanel1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_ValveDeck"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_TuningControl0_Stem"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_TuningControl0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_TuningControl1_Stem"
+        ],
+        [
+          "storm_shop_radio_service_chassis_FrontPanel",
+          "storm_shop_radio_service_chassis_TuningControl1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_chassis_SidePanel0",
+          "storm_shop_radio_service_chassis_ValveDeck"
+        ],
+        [
+          "storm_shop_radio_service_chassis_SidePanel1",
+          "storm_shop_radio_service_chassis_ValveDeck"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveDeck",
+          "storm_shop_radio_service_chassis_ValveSocket0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveDeck",
+          "storm_shop_radio_service_chassis_ValveSocket1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveDeck",
+          "storm_shop_radio_service_chassis_ValveSocket2"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveDeck",
+          "storm_shop_radio_service_chassis_ValveSocket3"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveDeck",
+          "storm_shop_radio_service_chassis_ValveSocket4"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TransformerFoot0",
+          "storm_shop_radio_service_chassis_TransformerCase0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TransformerFoot1",
+          "storm_shop_radio_service_chassis_TransformerCase1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TuningControl0_Stem",
+          "storm_shop_radio_service_chassis_TuningControl0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TuningControl0_Grip",
+          "storm_shop_radio_service_chassis_TuningControl0_Cap"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TuningControl1_Stem",
+          "storm_shop_radio_service_chassis_TuningControl1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_chassis_TuningControl1_Grip",
+          "storm_shop_radio_service_chassis_TuningControl1_Cap"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveSocket0",
+          "storm_shop_radio_service_chassis_OpalValve0"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveSocket1",
+          "storm_shop_radio_service_chassis_OpalValve1"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveSocket2",
+          "storm_shop_radio_service_chassis_OpalValve2"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveSocket3",
+          "storm_shop_radio_service_chassis_OpalValve3"
+        ],
+        [
+          "storm_shop_radio_service_chassis_ValveSocket4",
+          "storm_shop_radio_service_chassis_OpalValve4"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_scope",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_RearPanel"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_RightSide"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_VentEnd0"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_VentEnd1"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_FrontSurround0"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_FrontSurround1"
+        ],
+        [
+          "storm_shop_radio_service_scope_BottomPan",
+          "storm_shop_radio_service_scope_FrontSurround2"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_RearPanel"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_RightSide"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_VentEnd0"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_VentEnd1"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_SideVentSlat8"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_FrontSurround0"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_FrontSurround1"
+        ],
+        [
+          "storm_shop_radio_service_scope_Roof",
+          "storm_shop_radio_service_scope_FrontSurround3"
+        ],
+        [
+          "storm_shop_radio_service_scope_RearPanel",
+          "storm_shop_radio_service_scope_RightSide"
+        ],
+        [
+          "storm_shop_radio_service_scope_RearPanel",
+          "storm_shop_radio_service_scope_VentEnd1"
+        ],
+        [
+          "storm_shop_radio_service_scope_RightSide",
+          "storm_shop_radio_service_scope_FrontSurround1"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat0"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat1"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat2"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat3"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat4"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat5"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat6"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat7"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_SideVentSlat8"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd0",
+          "storm_shop_radio_service_scope_FrontSurround0"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat0"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat1"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat2"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat3"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat4"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat5"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat6"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat7"
+        ],
+        [
+          "storm_shop_radio_service_scope_VentEnd1",
+          "storm_shop_radio_service_scope_SideVentSlat8"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_ScreenRim0"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_ScreenRim2"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_ScreenRim3"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_Control0_Stem"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_Control0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround0",
+          "storm_shop_radio_service_scope_Control0_Cap"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_ScreenRim1"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_ScreenRim2"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_ScreenRim3"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_Control1_Stem"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_Control1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround1",
+          "storm_shop_radio_service_scope_Control1_Cap"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_ScreenRim0"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_ScreenRim1"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_ScreenRim2"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_Control0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_Control0_Cap"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_Control1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround2",
+          "storm_shop_radio_service_scope_Control1_Cap"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround3",
+          "storm_shop_radio_service_scope_ScreenRim0"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround3",
+          "storm_shop_radio_service_scope_ScreenRim1"
+        ],
+        [
+          "storm_shop_radio_service_scope_FrontSurround3",
+          "storm_shop_radio_service_scope_ScreenRim3"
+        ],
+        [
+          "storm_shop_radio_service_scope_Control0_Stem",
+          "storm_shop_radio_service_scope_Control0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_Control0_Grip",
+          "storm_shop_radio_service_scope_Control0_Cap"
+        ],
+        [
+          "storm_shop_radio_service_scope_Control1_Stem",
+          "storm_shop_radio_service_scope_Control1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_scope_Control1_Grip",
+          "storm_shop_radio_service_scope_Control1_Cap"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_signal_gen",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_signal_gen_BottomPan",
+          "storm_shop_radio_service_signal_gen_RearPanel"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_BottomPan",
+          "storm_shop_radio_service_signal_gen_Side0"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_BottomPan",
+          "storm_shop_radio_service_signal_gen_Side1"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_BottomPan",
+          "storm_shop_radio_service_signal_gen_FacePlate"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Roof",
+          "storm_shop_radio_service_signal_gen_RearPanel"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Roof",
+          "storm_shop_radio_service_signal_gen_Side0"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Roof",
+          "storm_shop_radio_service_signal_gen_Side1"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Roof",
+          "storm_shop_radio_service_signal_gen_FacePlate"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_RearPanel",
+          "storm_shop_radio_service_signal_gen_Side0"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_RearPanel",
+          "storm_shop_radio_service_signal_gen_Side1"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Side0",
+          "storm_shop_radio_service_signal_gen_FacePlate"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Side1",
+          "storm_shop_radio_service_signal_gen_FacePlate"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_BlankDial"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control0_Stem"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control1_Stem"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control2_Stem"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FacePlate",
+          "storm_shop_radio_service_signal_gen_Control2_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_BlankDial"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex0"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex1"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex2"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex3"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex4"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex5"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex6"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex7"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex8"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex9"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex10"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_UnletteredDialRim",
+          "storm_shop_radio_service_signal_gen_RaisedIndex11"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_BlankDial",
+          "storm_shop_radio_service_signal_gen_FixedDialPointer"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_BlankDial",
+          "storm_shop_radio_service_signal_gen_PointerBoss"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_FixedDialPointer",
+          "storm_shop_radio_service_signal_gen_PointerBoss"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control0_Stem",
+          "storm_shop_radio_service_signal_gen_Control0_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control0_Grip",
+          "storm_shop_radio_service_signal_gen_Control0_Cap"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control1_Stem",
+          "storm_shop_radio_service_signal_gen_Control1_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control1_Grip",
+          "storm_shop_radio_service_signal_gen_Control1_Cap"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control2_Stem",
+          "storm_shop_radio_service_signal_gen_Control2_Grip"
+        ],
+        [
+          "storm_shop_radio_service_signal_gen_Control2_Grip",
+          "storm_shop_radio_service_signal_gen_Control2_Cap"
+        ]
+      ]
+    }
+  ],
+  "actual_native_support_samples": [
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_chassis",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_chassis",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_chassis",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_chassis",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_scope",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_scope",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_scope",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_scope",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_signal_gen",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_signal_gen",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_signal_gen",
+      "distance_m": 0.0
+    },
+    {
+      "label": "original instrument bottom on retained native bench",
+      "assembly": "storm_shop_radio_service_signal_gen",
+      "distance_m": 0.0
+    }
+  ],
+  "actual_owner_support_samples": [
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    },
+    {
+      "owner": "storm_shop_radio_service_bench_top",
+      "native_part": "storm_shop_radio_service_bench__bench_top",
+      "label": "original instrument bottom on retained native bench",
+      "distance_m": 0.0
+    }
+  ],
+  "source_boundary_stocks": 8,
+  "removed_original_triangles": 96,
+  "retired_accepted_bench_source_boxes": 2,
+  "retained_native_context_parts": 2,
+  "retained_literal_scope_face": {
+    "id": "storm_shop_radio_service_scope_face",
+    "rect": [
+      19.56,
+      -56.459999999999994,
+      19.84,
+      -56.419999999999995
+    ],
+    "z0": 1.16,
+    "h": 0.22,
+    "mat": "screen",
+    "batch": "shop_radio_service",
+    "shop_role": "hero",
+    "hero": "radio",
+    "zone": "PASSAGE"
+  },
+  "parts": 12,
+  "triangles": 16400,
+  "context_intersections": [],
+  "declared_contact_pairs": [
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 449,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 9,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 25,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 195,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 759,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 669,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 293,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 477,
+      "context_face": 273,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 477,
+      "context_face": 175,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 477,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 440,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 64,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 56,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 448,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 273,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 175,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 18,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 61,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 445,
+      "context_face": 849,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_chassis__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 4,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 8,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 9,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 5,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 4,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 0,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 192,
+      "context_face": 1,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 636,
+      "context_face": 9,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 636,
+      "context_face": 3,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 359,
+      "context_face": 2,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 359,
+      "context_face": 3,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 269,
+      "context_face": 1,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 705,
+      "context_face": 1,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 264,
+      "context_face": 0,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 264,
+      "context_face": 1,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 95,
+      "context_face": 8,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 95,
+      "context_face": 0,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 95,
+      "context_face": 3,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 547,
+      "context_face": 8,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 547,
+      "context_face": 9,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__control_nickel",
+      "context": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col",
+      "native_face": 547,
+      "context_face": 3,
+      "owner_record": "storm_shop_radio_service_scope_face"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1633,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 9,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1577,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1593,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3359,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 56,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 56,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1624,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1624,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3350,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3358,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1632,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1910,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1586,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1629,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3355,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1572,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1675,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1691,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3449,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1731,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1731,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1722,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1730,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3448,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3440,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1670,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1684,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3445,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1727,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1495,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3269,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1535,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1479,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3268,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1534,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3260,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1526,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 3265,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1474,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 4,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1488,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1531,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 25,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 64,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 18,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1918,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 61,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 195,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 759,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 669,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 293,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 273,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 175,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1915,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1919,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1947,
+      "context_face": 273,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1947,
+      "context_face": 175,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_scope__scope_case",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 1947,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 64,
+      "context_face": 939,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 546,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 18,
+      "context_face": 939,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 25,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 547,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 543,
+      "context_face": 939,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 269,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 273,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 175,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 367,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 362,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 264,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 142,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 240,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 228,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 730,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 640,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 326,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 575,
+      "context_face": 166,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 171,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 77,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 44,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 130,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 68,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 550,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 93,
+      "context_face": 166,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 195,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 579,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 759,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 669,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 293,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 65,
+      "context_face": 391,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 61,
+      "context_face": 489,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 538,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 9,
+      "context_face": 97,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 56,
+      "context_face": 489,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    },
+    {
+      "native": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "context": "storm_shop_radio_service_bench__bench_top",
+      "native_face": 4,
+      "context_face": 489,
+      "owner_part": "storm_shop_radio_service_bench__bench_top"
+    }
+  ],
+  "uv_metrics": [
+    {
+      "part": "storm_shop_radio_service_chassis__case_bakelite",
+      "minimum_metres_per_uv": 0.9999666651356319,
+      "maximum_metres_per_uv": 1.0000441554619237,
+      "triangles": 752
+    },
+    {
+      "part": "storm_shop_radio_service_chassis__chassis_metal",
+      "minimum_metres_per_uv": 0.9999678263956596,
+      "maximum_metres_per_uv": 1.0000284378080313,
+      "triangles": 940
+    },
+    {
+      "part": "storm_shop_radio_service_chassis__control_bakelite",
+      "minimum_metres_per_uv": 0.9999850103680874,
+      "maximum_metres_per_uv": 1.0000394558749766,
+      "triangles": 1692
+    },
+    {
+      "part": "storm_shop_radio_service_chassis__control_nickel",
+      "minimum_metres_per_uv": 0.999988001423655,
+      "maximum_metres_per_uv": 1.0000152450765585,
+      "triangles": 248
+    },
+    {
+      "part": "storm_shop_radio_service_chassis__valve_opal",
+      "minimum_metres_per_uv": 0.9997710050253678,
+      "maximum_metres_per_uv": 1.0002070885000414,
+      "triangles": 3340
+    },
+    {
+      "part": "storm_shop_radio_service_scope__control_bakelite",
+      "minimum_metres_per_uv": 0.9999809572172148,
+      "maximum_metres_per_uv": 1.0000277127630068,
+      "triangles": 752
+    },
+    {
+      "part": "storm_shop_radio_service_scope__control_nickel",
+      "minimum_metres_per_uv": 0.9999405554043816,
+      "maximum_metres_per_uv": 1.000082021905077,
+      "triangles": 1000
+    },
+    {
+      "part": "storm_shop_radio_service_scope__scope_case",
+      "minimum_metres_per_uv": 0.9998423011675898,
+      "maximum_metres_per_uv": 1.00020380014135,
+      "triangles": 3572
+    },
+    {
+      "part": "storm_shop_radio_service_signal_gen__case_bakelite",
+      "minimum_metres_per_uv": 0.9999673017297024,
+      "maximum_metres_per_uv": 1.0000391686432561,
+      "triangles": 940
+    },
+    {
+      "part": "storm_shop_radio_service_signal_gen__control_bakelite",
+      "minimum_metres_per_uv": 0.9999623659115919,
+      "maximum_metres_per_uv": 1.0000493568940072,
+      "triangles": 1316
+    },
+    {
+      "part": "storm_shop_radio_service_signal_gen__control_nickel",
+      "minimum_metres_per_uv": 0.9998662265510506,
+      "maximum_metres_per_uv": 1.0001749339142791,
+      "triangles": 1660
+    },
+    {
+      "part": "storm_shop_radio_service_signal_gen__scope_case",
+      "minimum_metres_per_uv": 0.9999435420936652,
+      "maximum_metres_per_uv": 1.0000636503408267,
+      "triangles": 188
+    }
+  ],
+  "views": [
+    {
+      "id": "instruments_front",
+      "eye": [
+        21.4,
+        -58.6,
+        2.0
+      ],
+      "target": [
+        20.0,
+        -56.17,
+        1.28
+      ],
+      "file": "instruments_front.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "instruments_rear",
+      "eye": [
+        18.3,
+        -54.5,
+        1.9
+      ],
+      "target": [
+        20.0,
+        -56.17,
+        1.28
+      ],
+      "file": "instruments_rear.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "open_set_front",
+      "eye": [
+        21.45,
+        -57.5,
+        1.65
+      ],
+      "target": [
+        20.59,
+        -56.13,
+        1.3
+      ],
+      "file": "open_set_front.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "open_set_rear",
+      "eye": [
+        20.6,
+        -54.8,
+        1.48
+      ],
+      "target": [
+        20.59,
+        -56.13,
+        1.24
+      ],
+      "file": "open_set_rear.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "seated_opal_valves",
+      "eye": [
+        21.2,
+        -56.8,
+        1.95
+      ],
+      "target": [
+        20.745,
+        -56.13,
+        1.47
+      ],
+      "file": "seated_opal_valves.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "scope_face",
+      "eye": [
+        19.7,
+        -57.55,
+        1.5
+      ],
+      "target": [
+        19.7,
+        -56.24,
+        1.25
+      ],
+      "file": "scope_face.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "scope_vents",
+      "eye": [
+        18.85,
+        -56.85,
+        1.5
+      ],
+      "target": [
+        19.7,
+        -56.15,
+        1.25
+      ],
+      "file": "scope_vents.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "signal_generator",
+      "eye": [
+        19.04,
+        -57.55,
+        1.46
+      ],
+      "target": [
+        19.04,
+        -56.14,
+        1.22
+      ],
+      "file": "signal_generator.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "generator_case",
+      "eye": [
+        18.25,
+        -55.35,
+        1.6
+      ],
+      "target": [
+        19.04,
+        -56.14,
+        1.22
+      ],
+      "file": "generator_case.png",
+      "scope": "isolated native instruments"
+    },
+    {
+      "id": "instrument_bottoms",
+      "eye": [
+        20.0,
+        -57.3,
+        0.55
+      ],
+      "target": [
+        20.0,
+        -56.17,
+        1.015
+      ],
+      "file": "instrument_bottoms.png",
+      "scope": "isolated native instruments"
+    }
+  ],
+  "limits": "Original source wall, door/handle, accepted bench, literal scope face and other stock retained; only pairs separated by the actual bench bearing datum or exact display boundary admitted. Blank screens and fixed controls establish no alignment, signal, operation, continuous route, capacity or acceptance."
+}
