@@ -220053,6 +220053,66 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "97fed84a63dd7929",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette0",
+   "file": "game/tests/orison_v2_diner_receiving_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise_diner_receivers"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\":\"storm_shopcab_luncheonette0\", \"title\":\"DO NOT ANSWER\", \"feet\":[17.84,.03,40.90], \"diameter\":.41, \"scope\":[0,1.345,-.386]},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0235b6a05a8caf4b",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette1",
+   "file": "game/tests/orison_v2_diner_receiving_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise_diner_receivers"
+   ],
+   "lines": [
+    105
+   ],
+   "count": 1,
+   "context": [
+    "{\"id\":\"storm_shopcab_luncheonette1\", \"title\":\"OVERTIME\", \"feet\":[19.80,.03,40.30], \"diameter\":.28, \"scope\":[0,.98,-.326]}]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }
