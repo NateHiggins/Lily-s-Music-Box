@@ -29,6 +29,7 @@ const FuneralFittings := preload("res://scripts/building/orison_v2_funeral_fitti
 const FuneralDrapes := preload("res://scripts/building/orison_v2_funeral_drapes.gd")
 const FuneralFoliage := preload("res://scripts/building/orison_v2_funeral_foliage.gd")
 const RadioBench := preload("res://scripts/building/orison_v2_radio_bench.gd")
+const RadioApparatus := preload("res://scripts/building/orison_v2_radio_apparatus.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -175,6 +176,9 @@ func _ready() -> void:
 			return
 		if not RadioBench.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native radio alignment bench refused: "+identity)
+			return
+		if not RadioApparatus.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native radio test instruments refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

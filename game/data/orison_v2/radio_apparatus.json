@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_apparatus.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_chassis__case_bakelite",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__chassis_metal",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "tint": [
+            0.7,
+            0.73,
+            0.71,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__control_bakelite",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__control_nickel",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated"
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__valve_opal",
+          "key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_scope__control_bakelite",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_scope__control_nickel",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated"
+        },
+        {
+          "name": "storm_shop_radio_service_scope__scope_case",
+          "key": "appliance",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.32,
+            0.38,
+            0.34,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_radio_service_signal_gen__case_bakelite",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_signal_gen__control_bakelite",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_radio_service_signal_gen__control_nickel",
+          "key": "bakelite_black",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated"
+        },
+        {
+          "name": "storm_shop_radio_service_signal_gen__scope_case",
+          "key": "appliance",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.32,
+            0.38,
+            0.34,
+            1
+          ]
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_chassis",
+          "key": "bakelite_black",
+          "low": [
+            20.28,
+            1.01,
+            55.85999999999999
+          ],
+          "high": [
+            20.9,
+            1.35,
+            56.39999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_valve0",
+          "key": "milk_glass",
+          "low": [
+            20.69,
+            1.36,
+            56.279999999999994
+          ],
+          "high": [
+            20.8,
+            1.58,
+            56.349999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_valve1",
+          "key": "milk_glass",
+          "low": [
+            20.69,
+            1.36,
+            56.17999999999999
+          ],
+          "high": [
+            20.8,
+            1.58,
+            56.24999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_valve2",
+          "key": "milk_glass",
+          "low": [
+            20.69,
+            1.36,
+            56.08
+          ],
+          "high": [
+            20.8,
+            1.58,
+            56.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_valve3",
+          "key": "milk_glass",
+          "low": [
+            20.69,
+            1.36,
+            55.97999999999999
+          ],
+          "high": [
+            20.8,
+            1.58,
+            56.05
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_bench_valve4",
+          "key": "milk_glass",
+          "low": [
+            20.69,
+            1.36,
+            55.879999999999995
+          ],
+          "high": [
+            20.8,
+            1.58,
+            55.949999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_scope",
+          "key": "appliance",
+          "low": [
+            19.45,
+            1.01,
+            55.89999999999999
+          ],
+          "high": [
+            19.95,
+            1.45,
+            56.419999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_signal_gen",
+          "key": "bakelite_black",
+          "low": [
+            18.8,
+            1.01,
+            55.879999999999995
+          ],
+          "high": [
+            19.28,
+            1.3900000000000001,
+            56.39999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

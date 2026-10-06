@@ -1,0 +1,77 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 8,
+  "runtime_keys": [
+    "bakelite_black",
+    "appliance",
+    "milk_glass",
+    "case_bakelite",
+    "chassis_metal",
+    "scope_case",
+    "control_bakelite",
+    "control_nickel",
+    "valve_opal"
+  ],
+  "catalog_variants": {
+    "chassis_metal": "nickel_plated",
+    "scope_case": "enamel_appliance",
+    "control_nickel": "nickel_plated"
+  },
+  "material_aliases": {
+    "case_bakelite": "bakelite_black",
+    "chassis_metal": "bakelite_black",
+    "scope_case": "appliance",
+    "control_bakelite": "bakelite_black",
+    "control_nickel": "bakelite_black",
+    "valve_opal": "milk_glass"
+  },
+  "material_tints": {
+    "scope_case": [
+      0.32,
+      0.38,
+      0.34,
+      1
+    ],
+    "chassis_metal": [
+      0.7,
+      0.73,
+      0.71,
+      1
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "open_back_set",
+      "sources": [
+        "storm_shop_radio_service_chassis",
+        "storm_shop_radio_service_bench_valve0",
+        "storm_shop_radio_service_bench_valve1",
+        "storm_shop_radio_service_bench_valve2",
+        "storm_shop_radio_service_bench_valve3",
+        "storm_shop_radio_service_bench_valve4"
+      ]
+    },
+    {
+      "kind": "scope",
+      "sources": [
+        "storm_shop_radio_service_scope"
+      ]
+    },
+    {
+      "kind": "signal_generator",
+      "sources": [
+        "storm_shop_radio_service_signal_gen"
+      ]
+    }
+  ],
+  "open_work": [
+    "Eight immutable source records keep their original identities, hidden poses, hero roles, plans and body/valve maxima. The source author explicitly calls for a set with its back off, a scope and a signal generator in this signal trade.",
+    "ADAPTATION: connected positive enclosure panels, open-back chassis stock, seated opal valves and passive knobs replace coarse boxes. The original plain-colour scope face retains its source mesh and material; a rim seats around its outside edges and projects 1mm ahead. No new lettering, signal, illumination, tuning authority or instrument operation is inferred.",
+    "ADAPTATION: valve sockets bridge the existing 10mm gap to the original chassis crown. Every original instrument bottom stays at the existing 1.01m worktop datum.",
+    "Local registered enamel_appliance and nickel_plated variants use the existing catalogue. Original unselected material owners and shared maps/shaders remain.",
+    "The accepted native bench is retained as conservative contact/context authority. Other shop stock, battery rack, speakers, counter, cabinet, services, carrier behavior and routes remain separate owners.",
+    "Native volumes, stock joins, exact source replacement, retained bench contacts/context, strict metric UVs and rendered review remain required. This ignored preparation grants no runtime proof or acceptance."
+  ]
+}
