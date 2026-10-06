@@ -227,6 +227,9 @@ func _stage_one() -> void:
 		if not region.PhotoGlazing.mount_cell(cell,region.source_layout):
 			_fail("native fixed photographic glazing reload refused: "+identity)
 			return
+		if not region.DruggistDrawers.mount_cell(cell,region.source_layout):
+			_fail("native druggist drawer/counter reload fit refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)
