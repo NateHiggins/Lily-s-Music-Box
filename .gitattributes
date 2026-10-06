@@ -822,3 +822,14 @@ game/scripts/building/orison_v2_radio_wire.gd -text
 game/tests/orison_v2_radio_wire_test.gd -text
 game/assets/props/radio_wire.glb.import -text
 art/renders/orison_v2/radio_wire_20261006/** -text
+
+art/data/radio_display/** -text
+art/blender/scripts/build_radio_display.py -text
+art/blender/scripts/inspect_radio_display.py -text
+art/blender/radio_display_construction.json -text
+game/data/orison_v2/radio_display.json -text
+game/tests/fixtures/orison_radio_display.json -text
+game/scripts/building/orison_v2_radio_display.gd -text
+game/tests/orison_v2_radio_display_test.gd -text
+game/assets/props/radio_display.glb.import -text
+art/renders/orison_v2/radio_display_20261006/** -text

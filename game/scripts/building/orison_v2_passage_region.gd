@@ -33,6 +33,7 @@ const RadioApparatus := preload("res://scripts/building/orison_v2_radio_apparatu
 const RadioStock := preload("res://scripts/building/orison_v2_radio_stock.gd")
 const RadioBattery := preload("res://scripts/building/orison_v2_radio_battery.gd")
 const RadioWire := preload("res://scripts/building/orison_v2_radio_wire.gd")
+const RadioDisplay := preload("res://scripts/building/orison_v2_radio_display.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -191,6 +192,9 @@ func _ready() -> void:
 			return
 		if not RadioWire.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native passive wire/ring stock refused: "+identity)
+			return
+		if not RadioDisplay.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native fitted counter/display refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

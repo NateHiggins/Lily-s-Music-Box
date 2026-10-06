@@ -272,6 +272,9 @@ func _stage_one() -> void:
 		if not region.RadioWire.mount_cell(cell,region.source_layout):
 			_fail("native passive wire/ring stock reload refused: "+identity)
 			return
+		if not region.RadioDisplay.mount_cell(cell,region.source_layout):
+			_fail("native fitted counter/display reload refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

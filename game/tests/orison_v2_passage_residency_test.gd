@@ -80,7 +80,8 @@ func _check_specialist_fittings() -> bool:
 		["shop_radio_service","RadioApparatus","radio_apparatus"],
 		["shop_radio_service","RadioStock","radio_stock"],
 		["shop_radio_service","RadioBattery","radio_battery"],
-		["shop_radio_service","RadioWire","radio_wire"]]:
+		["shop_radio_service","RadioWire","radio_wire"],
+		["shop_radio_service","RadioDisplay","radio_display"]]:
 		var cell: Node3D=world.passage_region.cell_nodes[spec[0]]
 		var model:=cell.get_node_or_null(str(spec[1])) as Node3D
 		if not _require(model!=null,"reloaded native owner exists: "+str(spec[1])):return false

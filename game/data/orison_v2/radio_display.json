@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/radio_display.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_counter__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_counter__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4,
+          "catalog_key": "cast_iron"
+        },
+        {
+          "name": "storm_shop_radio_service_counter__countertop",
+          "key": "countertop",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_radio_service_counter__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7
+        },
+        {
+          "name": "storm_shop_radio_service_counter__paper",
+          "key": "paper",
+          "tile": 0.5
+        },
+        {
+          "name": "storm_shop_radio_service_counter__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_counter",
+          "key": "wood_dark",
+          "low": [
+            17.75,
+            0.05,
+            57.199999999999996
+          ],
+          "high": [
+            18.35,
+            1.07,
+            58.64999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_counter_top",
+          "key": "countertop",
+          "low": [
+            17.7,
+            1.07,
+            57.16
+          ],
+          "high": [
+            18.4,
+            1.12,
+            58.67999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_ledger",
+          "key": "paper",
+          "low": [
+            17.92,
+            1.13,
+            57.019999999999996
+          ],
+          "high": [
+            18.3,
+            1.18,
+            57.379999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_horn_mouth",
+          "key": "brass_dull",
+          "low": [
+            17.36,
+            0.48,
+            57.779999999999994
+          ],
+          "high": [
+            17.74,
+            0.96,
+            58.279999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_horn_throat",
+          "key": "brass_dull",
+          "low": [
+            17.45,
+            0.54,
+            57.58
+          ],
+          "high": [
+            17.65,
+            0.76,
+            57.85999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_cone_speaker",
+          "key": "fabric_warm",
+          "low": [
+            17.59,
+            0.46,
+            56.959999999999994
+          ],
+          "high": [
+            17.99,
+            1.04,
+            57.519999999999996
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
