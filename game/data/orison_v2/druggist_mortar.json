@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/druggist_mortar.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_mortar__marble_lobby",
+          "key": "marble_lobby",
+          "tile": 1.5
+        },
+        {
+          "name": "storm_shop_otis___son_pestle__marble_lobby",
+          "key": "marble_lobby",
+          "tile": 1.5
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_mortar",
+          "key": "marble_lobby",
+          "low": [
+            23.18,
+            1.18,
+            46.67
+          ],
+          "high": [
+            23.52,
+            1.48,
+            47.01
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_pestle",
+          "key": "marble_lobby",
+          "low": [
+            23.08,
+            1.42,
+            46.78999999999999
+          ],
+          "high": [
+            23.56,
+            1.54,
+            46.89
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

@@ -20,6 +20,7 @@ const PhotoPortraits := preload("res://scripts/building/orison_v2_photo_portrait
 const PhotoGlazing := preload("res://scripts/building/orison_v2_photo_glazing.gd")
 const DruggistDrawers := preload("res://scripts/building/orison_v2_druggist_drawers.gd")
 const DruggistCounter := preload("res://scripts/building/orison_v2_druggist_counter.gd")
+const DruggistMortar := preload("res://scripts/building/orison_v2_druggist_mortar.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
@@ -139,6 +140,9 @@ func _ready() -> void:
 			return
 		if not DruggistCounter.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native druggist counter objects refused: "+identity)
+			return
+		if not DruggistMortar.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native druggist marble objects refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()

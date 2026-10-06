@@ -52,6 +52,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original photographic fixed glazing and declared local counter optics | `art/blender/photo_glazing.md` and `design/V2_PHOTO_GLAZING_2026-10-05.md` |
 | Original Otis & Son counter and supported 54-drawer cabinet | `art/blender/druggist_drawers.md` and `design/V2_DRUGGIST_DRAWERS_2026-10-06.md` |
 | Original druggist telephone and ledger, seated clear of the fitted drawer bank | `art/blender/druggist_counter.md` and `design/V2_DRUGGIST_COUNTER_2026-10-06.md` |
+| Original druggist marble mortar and pestle, seated clear of retained stock | `art/blender/druggist_mortar.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

@@ -1,0 +1,222 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_otis___son_mortar",
+      "rect": [
+        23.18,
+        -47.01,
+        23.52,
+        -46.67
+      ],
+      "z0": 1.18,
+      "h": 0.3,
+      "mat": "marble_lobby",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_otis___son_pestle",
+      "rect": [
+        23.08,
+        -46.89,
+        23.56,
+        -46.78999999999999
+      ],
+      "z0": 1.42,
+      "h": 0.12,
+      "mat": "marble_lobby",
+      "batch": "shop_otis___son",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_otis___son_mortar",
+      "kind": "mortar",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_otis___son_pestle",
+      "kind": "pestle",
+      "cell": "shop_otis_son",
+      "floor": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_otis___son_mortar_HollowWorkedBowl",
+      "assembly": "storm_shop_otis___son_mortar",
+      "key": "marble_lobby",
+      "volume_m3": 0.004656472355938694
+    },
+    {
+      "name": "storm_shop_otis___son_pestle_TurnedGrindingEndAndGrip",
+      "assembly": "storm_shop_otis___son_pestle",
+      "key": "marble_lobby",
+      "volume_m3": 0.001190976340388152
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_otis___son_mortar",
+      "owner": "storm_shop_otis___son_disp_top",
+      "point": [
+        23.35,
+        1.1600000000000001,
+        46.875
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "mortar base seated on retained original dispensary top"
+    },
+    {
+      "assembly": "storm_shop_otis___son_pestle",
+      "owner": "storm_shop_otis___son_mortar",
+      "point": [
+        23.35,
+        1.1900000000000002,
+        46.875
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pestle grinding end seated on actual inner mortar base"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_otis___son_mortar__marble_lobby",
+      "assembly": "storm_shop_otis___son_mortar",
+      "cell": "shop_otis_son",
+      "key": "marble_lobby",
+      "triangles": 2300
+    },
+    {
+      "name": "storm_shop_otis___son_pestle__marble_lobby",
+      "assembly": "storm_shop_otis___son_pestle",
+      "cell": "shop_otis_son",
+      "key": "marble_lobby",
+      "triangles": 1918
+    }
+  ],
+  "triangles": 4218,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/druggist_mortar.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_otis_son",
+        "parts": [
+          {
+            "name": "storm_shop_otis___son_mortar__marble_lobby",
+            "key": "marble_lobby",
+            "tile": 1.5
+          },
+          {
+            "name": "storm_shop_otis___son_pestle__marble_lobby",
+            "key": "marble_lobby",
+            "tile": 1.5
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_otis___son_mortar",
+            "key": "marble_lobby",
+            "low": [
+              23.18,
+              1.18,
+              46.67
+            ],
+            "high": [
+              23.52,
+              1.48,
+              47.01
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_otis___son_pestle",
+            "key": "marble_lobby",
+            "low": [
+              23.08,
+              1.42,
+              46.78999999999999
+            ],
+            "high": [
+              23.56,
+              1.54,
+              46.89
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "0c69f1f4d3514453dec6720ea2880676eff9a8db309f1d09134ca50b4204baae",
+  "source_bindings": {
+    "art/data/druggist_mortar/source_plan.json": "eb585ef086c79fa4d629609aef6712a84dd7e5023e11e114a03e91e98fa32c66",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_druggist_mortar.py": "0f650aa923e6cd415a49716a0f0231965b7033f1c7f687ec59296df29888b1ad",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/druggist_mortar.glb.import": "727b8adcb410cda493e088d5f085575785b836599129e6aa3e099abfefdbedbc",
+    "art/textures/ai_materials/marble_lobby_b/material.json": "b373def49a421619f9e32f2ac9a6b2edc5d51dd850af73f3b6dfa74d3f62d929",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_rough.png": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_normal.png": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_otis_son.gltf": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+    "game/assets/building/floor_01_cells/shop_otis_son.bin": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+    "art/blender/scripts/inspect_druggist_mortar.py": "b6400ee2d5560483fe9bd7a08753e26d0bb0fb20a8e4d09f956c5ef66faa6a88"
+  },
+  "open_work": [
+    "The original marble material and source identities remain. The bowl seats at the original dispensary-top datum 1.16m instead of floating 20mm above it; its original X centre stays, its Y centre moves 35mm back, and its 0.32m diameter leaves 15mm clearance from the unchanged stock-shelf boundary.",
+    "The hollow bowl has an actual 30mm base and 20mm lip. The separate turned pestle rests upright with its flat grinding end on that inner base; this is an explicit rest-pose adaptation from the horizontal reference box, not a new control or grinding action.",
+    "The bench, balance case and three stock ranks still overlap one another in the original source and require a subsequent composed fitting. Medicine/poison custody, grinding, dispensing, independent services and continuous routes retain separate authority."
+  ]
+}
