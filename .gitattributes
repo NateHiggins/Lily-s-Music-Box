@@ -840,3 +840,14 @@ game/scripts/props/arcade_cabinet_prop.gd -text
 game/tests/orison_v2_passage_residency_test.gd -text
 game/tests/orison_v2_passage_receivers_test.gd -text
 art/renders/orison_v2/passage_receivers_20261006/** -text
+
+art/data/radio_receiving/** -text
+art/blender/scripts/build_radio_receiving.py -text
+art/blender/scripts/inspect_radio_receiving.py -text
+art/blender/radio_receiving_construction.json -text
+game/data/orison_v2/radio_receiving.json -text
+game/tests/fixtures/orison_radio_receiving.json -text
+game/scripts/building/orison_v2_radio_receiving.gd -text
+game/tests/orison_v2_radio_receiving_test.gd -text
+game/assets/props/radio_receiving.glb.import -text
+art/renders/orison_v2/radio_receiving_20261006/** -text
