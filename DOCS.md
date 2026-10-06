@@ -44,7 +44,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original Hardware/Paint bins, open coupling stock, window stand and service counter | `art/blender/hardware_stock.md` |
 | Original Hardware/Paint glass stand, seven tools with one empty silhouette, and leaning ladder | `art/blender/hardware_tools.md` and `design/V2_HARDWARE_TOOLS_2026-10-05.md` |
 | Three original expensive photographic cameras and their supported window stand | `art/blender/photo_cameras.md` and `design/V2_PHOTO_CAMERA_DISPLAY_2026-10-05.md` |
-| Original photographic counter, thin glass display chamber and seated ledger | `art/blender/photo_counter.md` |
+| Original photographic counter, thin glass display chamber and seated ledger | `art/blender/photo_counter.md` and `design/V2_PHOTO_COUNTER_2026-10-05.md` |
 | Source-owned bodega stock, display case, icebox, practicals and preserved depletion | `art/blender/bodega_fittings.md` |
 | Source-fitted Orison front entrance, glazed oak leaf, original marquee and seated neon blade | `art/blender/front_facade.md` |
 | Verified front-door routes, arrival correction, ledger refresh and retained street views | `design/V2_FRONT_FACADE_PROGRESS_2026-10-05.md` |

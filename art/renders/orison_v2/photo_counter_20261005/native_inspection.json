@@ -1,0 +1,561 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "f234607b8c07c97d3cf26f278d9ba869a9add0d260ef21a994764854a62b5022",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+      "volume_m3": 0.0032286179165313
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+      "volume_m3": 0.003228874983157758
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+      "volume_m3": 0.0032286179165313
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+      "volume_m3": 0.003228874983157758
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongPanel17.953",
+      "volume_m3": 0.034262668727184614
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+      "volume_m3": 0.0026346374571616796
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+      "volume_m3": 0.002634638930548163
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongPanel18.628",
+      "volume_m3": 0.03425922909750452
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail18.6280.114",
+      "volume_m3": 0.0026346374571616796
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LongRail18.6280.989",
+      "volume_m3": 0.0026346389305481627
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999",
+      "volume_m3": 0.01074849100943323
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114",
+      "volume_m3": 0.0008441089615244964
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989",
+      "volume_m3": 0.0008441094335928818
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996",
+      "volume_m3": 0.010746332805595563
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114",
+      "volume_m3": 0.0008441089615244964
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989",
+      "volume_m3": 0.0008441094335928818
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_DisplayFloor",
+      "volume_m3": 0.032091133265892094
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998",
+      "volume_m3": 0.0029247485714308068
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedLongPane18.644",
+      "volume_m3": 0.0029261433013170394
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999",
+      "volume_m3": 0.0008972680318797553
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlazedEndPane-60.306",
+      "volume_m3": 0.0008981242036659003
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapLong17.95",
+      "volume_m3": 0.0007370134313051543
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapLong18.634",
+      "volume_m3": 0.0007370134313051543
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999",
+      "volume_m3": 0.0002457050170383262
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995",
+      "volume_m3": 0.0002457050170383262
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_CountertopCore",
+      "volume_m3": 0.0662690662984511
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_ThinBrassTop",
+      "volume_m3": 0.005231567557238366
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Pages",
+      "volume_m3": 0.006136175108202192
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Cover1.45",
+      "volume_m3": 0.00043179563740057916
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Cover1.497",
+      "volume_m3": 0.0004318128035212047
+    },
+    {
+      "name": "storm_shop_photo_supplies_ledger_Spine",
+      "volume_m3": 9.923439404730587e-05
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_photo_supplies_counter",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongPanel17.953"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-62.37499999999999",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongPanel17.953"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-60.306"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost17.974999999999998-60.324999999999996",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongPanel18.628"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlazedLongPane18.644"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-62.37499999999999",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongPanel18.628"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlazedLongPane18.644"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-60.306"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CornerPost18.625-60.324999999999996",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel17.953",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel17.953",
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel17.953",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel17.953",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.114",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail17.9530.989",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel18.628",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel18.628",
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel18.628",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongPanel18.628",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail18.6280.114",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail18.6280.114",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_LongRail18.6280.989",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndPanel-62.39699999999999",
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndRail-62.396999999999990.989",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.114"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndPanel-60.321999999999996",
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_EndRail-60.3219999999999960.989",
+          "storm_shop_photo_supplies_counter_DisplayFloor"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_DisplayFloor",
+          "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_DisplayFloor",
+          "storm_shop_photo_supplies_counter_GlazedLongPane18.644"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_DisplayFloor",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_DisplayFloor",
+          "storm_shop_photo_supplies_counter_GlazedEndPane-60.306"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998",
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedLongPane17.951999999999998",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedLongPane18.644",
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedLongPane18.644",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedEndPane-62.39799999999999",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedEndPane-60.306",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlazedEndPane-60.306",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong17.95",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634",
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapLong18.634",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapEnd-62.39999999999999",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_GlassCapEnd-60.315999999999995",
+          "storm_shop_photo_supplies_counter_CountertopCore"
+        ],
+        [
+          "storm_shop_photo_supplies_counter_CountertopCore",
+          "storm_shop_photo_supplies_counter_ThinBrassTop"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_ledger",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_photo_supplies_ledger_Pages",
+          "storm_shop_photo_supplies_ledger_Cover1.45"
+        ],
+        [
+          "storm_shop_photo_supplies_ledger_Pages",
+          "storm_shop_photo_supplies_ledger_Cover1.497"
+        ],
+        [
+          "storm_shop_photo_supplies_ledger_Pages",
+          "storm_shop_photo_supplies_ledger_Spine"
+        ],
+        [
+          "storm_shop_photo_supplies_ledger_Cover1.45",
+          "storm_shop_photo_supplies_ledger_Spine"
+        ],
+        [
+          "storm_shop_photo_supplies_ledger_Cover1.497",
+          "storm_shop_photo_supplies_ledger_Spine"
+        ]
+      ]
+    }
+  ],
+  "source_boundary_stocks": 4,
+  "parts": 5,
+  "triangles": 5124,
+  "views": [
+    "storm_shop_photo_supplies_counter_front.png",
+    "storm_shop_photo_supplies_counter_rear.png",
+    "storm_shop_photo_supplies_ledger_front.png",
+    "storm_shop_photo_supplies_ledger_rear.png"
+  ]
+}

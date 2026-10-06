@@ -1,0 +1,11 @@
+00:01.344  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-stage\art\blender\photo_counter.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-stage\art\blender\scripts\inspect_photo_counter.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:09.047  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-native\storm_shop_photo_supplies_counter_front.png'
+00:15.641  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-native\storm_shop_photo_supplies_counter_rear.png'
+00:19.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-native\storm_shop_photo_supplies_ledger_front.png'
+00:24.016  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-counter-native\storm_shop_photo_supplies_ledger_rear.png'
+PHOTO COUNTER NATIVE QA 31 closed connected stocks; 2 joined assemblies; 4 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
