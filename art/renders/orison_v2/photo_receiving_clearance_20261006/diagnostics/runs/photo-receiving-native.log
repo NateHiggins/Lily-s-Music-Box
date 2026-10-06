@@ -1,0 +1,72 @@
+00:01.250  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_process.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_process.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:02.968  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray0_front.png'
+00:04.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray0_rear.png'
+00:05.812  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray1_front.png'
+00:07.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray1_rear.png'
+00:08.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray2_front.png'
+00:09.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray2_rear.png'
+00:11.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray3_front.png'
+00:12.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_dev_tray3_rear.png'
+00:14.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank0_front.png'
+00:15.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank0_rear.png'
+00:17.062  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank1_front.png'
+00:18.468  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank1_rear.png'
+00:19.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank2_front.png'
+00:21.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tank2_rear.png'
+00:23.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_print_dryer_front.png'
+00:25.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_print_dryer_rear.png'
+00:26.734  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod0_front.png'
+00:28.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod0_rear.png'
+00:29.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod1_front.png'
+00:30.922  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod1_rear.png'
+00:32.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod2_front.png'
+00:33.734  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod2_rear.png'
+00:35.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod3_front.png'
+00:36.390  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_tripod3_rear.png'
+00:37.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_flash_tin0_front.png'
+00:39.484  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\storm_shop_photo_supplies_flash_tin0_rear.png'
+18:05:27 | INFO: Data are loaded, start creating Blender stuff
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_awning_vinyl-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_ochre-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_teal-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_bright-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_dull-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_cast_iron-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_chrome
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_concrete-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_felt_violet-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_fx_shadow
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_glassish-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_lacquer_red-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_linoleum-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_metal-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_milk_glass
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_nickel_plated-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_paper-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plywood-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_screen
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_terracotta
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_trim-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wainscot-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark-col
+18:05:27 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_wear_fx_scuff
+18:05:27 | INFO: glTF import finished in 0.10s
+00:46.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\receiver_dryer_scope.png'
+00:52.500  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\photo-receiving-native\receiver_dryer_supports.png'
+PHOTO PROCESS NATIVE QA 130 closed connected stocks; 13 joined assemblies; 28 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

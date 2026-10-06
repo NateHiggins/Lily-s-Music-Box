@@ -1,0 +1,42 @@
+{
+ "evidence_class": "INERT",
+ "base_commit": "21fd52ebf27d06326b3c3ac6f020e8b7b8bce193",
+ "before_sha256": "8c68eed60d8d4ad968f7c95658867c4e837413589e34ab3fdbea86038d31212c",
+ "after_sha256": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032",
+ "partitions": 30,
+ "changed": [
+  "storm_shop_photo_supplies_print_dryer__enamel_finish",
+  "storm_shop_photo_supplies_print_dryer__iron",
+  "storm_shop_photo_supplies_print_dryer__nickel_plated"
+ ],
+ "unchanged": {
+  "storm_shop_photo_supplies_dev_tray0__enamel_finish": "71778b33e7fc669e85de7807c9e06713754cfbfe7fc4c39d7cc815b6957ed810",
+  "storm_shop_photo_supplies_dev_tray0__iron": "6e3fc679cda04b6ea27f327af0d91411ade71b7e33bbb90179b0e91586a456c0",
+  "storm_shop_photo_supplies_dev_tray1__enamel_finish": "d62f993a398d49af7457c789733618685771bba061ab7f5e9836f73621f3d885",
+  "storm_shop_photo_supplies_dev_tray1__iron": "7fed6c6b8493b6b23d6af4db493a597cb9d8661fb3457238a1f36350245d3725",
+  "storm_shop_photo_supplies_dev_tray2__enamel_finish": "4b05b8e2d29c20f81e33f59e2117c3c3def665eb55e5f1ab3c0702c40ad502c6",
+  "storm_shop_photo_supplies_dev_tray2__iron": "d4072dabd53dada1e718a4c1832e4d4b9a7f1aff57717f675816304c6c119a84",
+  "storm_shop_photo_supplies_dev_tray3__enamel_finish": "fdb185caa9a7b9867bc59c44518d32b73f427b9d4370145db81e5e688ebcb51f",
+  "storm_shop_photo_supplies_dev_tray3__iron": "8fd35c3dbd60eaf2e6fbcecb1a7773d34a84909cb3b783c076c2cc5f3c8726a0",
+  "storm_shop_photo_supplies_flash_tin0__tin": "fccc45894251c8032a564564b220b1732f8a8aa8d9dd64e2bb0322cd7cf5b143",
+  "storm_shop_photo_supplies_flash_tin0__wood": "888e13ca13a1a63c081b86b2f1f558fde5b9353d0c621115e2605aabc574b6c3",
+  "storm_shop_photo_supplies_tank0__dark": "fc43ab4c46e4cabdf2d6b997121328ccda61e6c7acda34cb9fe97602de369af4",
+  "storm_shop_photo_supplies_tank0__iron": "d7850dbd6f5d85faa107105aecd78f5dd341f8a003eff56f278f99a27f813d38",
+  "storm_shop_photo_supplies_tank0__nickel_plated": "4b0f84e63093e54f4ceca8f66527c7a94e84ff168c3b8f77d5e583327a581297",
+  "storm_shop_photo_supplies_tank1__dark": "7c64e2dc62b966405d1504b90e478f56569843bdb56250f65164d10fd3179f90",
+  "storm_shop_photo_supplies_tank1__iron": "5a27f4550a31959946b416714bb07d528d47c4851f0c217f5768f43667d2c802",
+  "storm_shop_photo_supplies_tank1__nickel_plated": "f824002d0d845fd3f41159844077f4acb95e3c2609988485f65b81e5fd294770",
+  "storm_shop_photo_supplies_tank2__dark": "11573351d572a361ceda01b3f0bbdb14db6f3a58fb61c3b9f4c4dc0f6f9bb875",
+  "storm_shop_photo_supplies_tank2__iron": "f8f79c1860c1a5fcc1f26d67f278480163f12323879b723f358069e79865e76d",
+  "storm_shop_photo_supplies_tank2__nickel_plated": "b81460f5970c5999cbaa7d4b0744b0251ce639cb3aa2a1256c68d4cb9ef737fe",
+  "storm_shop_photo_supplies_tripod0__iron": "5ad5aad242a70577e3f26b5245a52fb50cb83c35975724e7e5b84420fbfbcafd",
+  "storm_shop_photo_supplies_tripod0__wood": "e998591333762d6ca22f60074db7e6000ffd051d22b9b86b881e5b9fac51aa42",
+  "storm_shop_photo_supplies_tripod1__iron": "21d10b3ca9e849cbf41ef5f9ee5c483974c4068b964572d63fbe7ea7a1ba1437",
+  "storm_shop_photo_supplies_tripod1__wood": "c987c88230c87a07e7da3f4efc9753b48088ec9b6603797aee5cc765f3ad38b6",
+  "storm_shop_photo_supplies_tripod2__iron": "00ec8559de8936a1e70e03646dedf6910f755702fa775adc3768e11d3224dc89",
+  "storm_shop_photo_supplies_tripod2__wood": "ef70afc5813bce366868b078a3d8e13a835eb6739b31e51d6f224218eaaebde0",
+  "storm_shop_photo_supplies_tripod3__iron": "ca21ffa2fc7c566834deeefbfbeac77cc7a6ca0119ce0a609f93d0a006f3781a",
+  "storm_shop_photo_supplies_tripod3__wood": "3a79939c2b9fba394a017c98ce8a9ba6696627c0c65eff660c527c6fc27f8064"
+ },
+ "scope": "Actual serialized glTF positions, normals, texture coordinates, tangents, indices and node transforms compare byte-for-byte by accessor values. Exactly three dryer partitions change; all 27 others retain their arrays and transforms. This is inert geometry evidence, not runtime or service authority."
+}

@@ -112,6 +112,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | September 29 boiler fixes, verified commits, full-pass exceptions and continuation | `design/V2_FABRICATION_HANDOFF_2026-09-29.md` |
 | Full V2 geometry work index, coverage decisions and pending material families | `art/blender/v2_fabrication_coverage.md` |
 | Original shop chairs, chapel benches and soda-counter stools | `art/blender/shop_seating.md` |
+| Photo Supplies passive print dryer clear of the complete original receiving hull | `design/V2_PHOTO_RECEIVING_CLEARANCE_2026-10-06.md` |
 | Model Laundry native period receiving cabinet and ordinary NIGHT MAIL input | `design/V2_LAUNDRY_RECEIVING_2026-10-06.md` |
 | Model Laundry ironing furniture clear of its intact original receiving hull | `design/V2_LAUNDRY_RECEIVING_CLEARANCE_2026-10-06.md` |
 | Wrapped hand-laundry parcels, hung shirts, supported rail and ironing furniture | `art/blender/laundry_fittings.md` |

@@ -1,0 +1,38 @@
+{
+ "evidence_class": "INERT",
+ "manifest_before_lf_sha256": "76cad83fccc3400b615b90b0392d40288926e548be9cb4995340368ecfbed9d1",
+ "manifest_after_lf_sha256": "06cb0fb0edcf6d4ea3ff00e146bda98d5bd83d6e89e721a987789fa44d5ce9fc",
+ "records": [
+  {
+   "key": "246e574f4b30a5b4",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_photo_process_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_receiving_clearance_views"
+   ],
+   "lines": [
+    153
+   ],
+   "count": 1,
+   "context": [
+    "var floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)==\"F01\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  }
+ ],
+ "decision": "Append only the reviewed F01 floor-membership dependency used to validate the complete original cabinet/dryer records against the source floor. It resolves to the existing floor and V2 blockout. Future explicit layout changes must regenerate this test fixture. All prior rows stay exact; no blanket manifest update, geometry relocation or acceptance is granted."
+}

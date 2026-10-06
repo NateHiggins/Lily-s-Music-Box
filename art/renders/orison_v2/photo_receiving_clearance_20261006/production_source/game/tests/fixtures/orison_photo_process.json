@@ -1,0 +1,2753 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "fitted_receiver_clearance": {
+    "source_record": {
+      "id": "storm_shopcab_photo_supplies0",
+      "asm": "arcade_cab",
+      "at": [
+        21.45,
+        -59.349999999999994
+      ],
+      "yaw": 360.0,
+      "exterior": true,
+      "variant": 2,
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    "dryer_source_record": {
+      "id": "storm_shop_photo_supplies_print_dryer",
+      "rect": [
+        21.08,
+        -60.31999999999999,
+        21.84,
+        -59.67999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.9,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    "raw_hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly",
+    "hull_name": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull",
+    "hull_low_b": [
+      21.06,
+      -59.849999999999994,
+      0.0
+    ],
+    "hull_high_b": [
+      21.84,
+      -58.989999999999995,
+      1.72
+    ],
+    "clearance_m": 0.03,
+    "dryer_north_y": -59.879999999999995,
+    "source_dryer_length_m": 0.6400000000000006,
+    "fitted_dryer_length_m": 0.4399999999999977,
+    "assembler_function_sha256": "693d6c7f1bbd5c7d3b3ac365c76efd2a6b760ac35d179e737623a678aa3f5566"
+  },
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_dev_tray0",
+      "rect": [
+        21.72,
+        -62.11999999999999,
+        21.98,
+        -61.21999999999999
+      ],
+      "z0": 0.08,
+      "h": 0.045,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray1",
+      "rect": [
+        21.38,
+        -62.11999999999999,
+        21.64,
+        -61.21999999999999
+      ],
+      "z0": 0.18,
+      "h": 0.045,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray2",
+      "rect": [
+        21.04,
+        -62.11999999999999,
+        21.3,
+        -61.21999999999999
+      ],
+      "z0": 0.28,
+      "h": 0.045,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray3",
+      "rect": [
+        20.7,
+        -62.11999999999999,
+        20.96,
+        -61.21999999999999
+      ],
+      "z0": 0.38000000000000006,
+      "h": 0.045,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank0",
+      "rect": [
+        21.66,
+        -61.059999999999995,
+        21.96,
+        -60.839999999999996
+      ],
+      "z0": 0.08,
+      "h": 0.58,
+      "mat": "nickel_plated",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank1",
+      "rect": [
+        21.66,
+        -60.75999999999999,
+        21.96,
+        -60.53999999999999
+      ],
+      "z0": 0.08,
+      "h": 0.58,
+      "mat": "nickel_plated",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank2",
+      "rect": [
+        21.66,
+        -60.459999999999994,
+        21.96,
+        -60.239999999999995
+      ],
+      "z0": 0.08,
+      "h": 0.58,
+      "mat": "nickel_plated",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_print_dryer",
+      "rect": [
+        21.08,
+        -60.31999999999999,
+        21.84,
+        -59.67999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.9,
+      "mat": "enamel",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod0",
+      "rect": [
+        20.22,
+        -59.48,
+        20.88,
+        -59.42999999999999
+      ],
+      "z0": 0.05,
+      "h": 1.72,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod1",
+      "rect": [
+        20.22,
+        -59.379999999999995,
+        20.88,
+        -59.33
+      ],
+      "z0": 0.05,
+      "h": 1.72,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod2",
+      "rect": [
+        20.22,
+        -59.279999999999994,
+        20.88,
+        -59.23
+      ],
+      "z0": 0.05,
+      "h": 1.72,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod3",
+      "rect": [
+        20.22,
+        -59.17999999999999,
+        20.88,
+        -59.129999999999995
+      ],
+      "z0": 0.05,
+      "h": 1.72,
+      "mat": "timber",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_flash_tin0",
+      "rect": [
+        22.3,
+        -63.379999999999995,
+        22.58,
+        -63.199999999999996
+      ],
+      "z0": 0.46,
+      "h": 0.24,
+      "mat": "metal",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_flash_tin1",
+      "rect": [
+        22.3,
+        -63.13999999999999,
+        22.58,
+        -62.959999999999994
+      ],
+      "z0": 0.46,
+      "h": 0.24,
+      "mat": "metal",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_flash_tin2",
+      "rect": [
+        22.3,
+        -62.89999999999999,
+        22.58,
+        -62.71999999999999
+      ],
+      "z0": 0.46,
+      "h": 0.24,
+      "mat": "metal",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_flash_tin3",
+      "rect": [
+        22.3,
+        -62.66,
+        22.58,
+        -62.48
+      ],
+      "z0": 0.46,
+      "h": 0.24,
+      "mat": "metal",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_dev_tray0",
+      "kind": "tray",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray1",
+      "kind": "tray",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray2",
+      "kind": "tray",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_dev_tray3",
+      "kind": "tray",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank0",
+      "kind": "tank",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank1",
+      "kind": "tank",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tank2",
+      "kind": "tank",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_print_dryer",
+      "kind": "dryer",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod0",
+      "kind": "tripod",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod1",
+      "kind": "tripod",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod2",
+      "kind": "tripod",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_tripod3",
+      "kind": "tripod",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_flash_tin0",
+      "kind": "flash",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_BowlBottom",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "enamel_finish",
+      "volume_m3": 0.000934836311177926
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_WestRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015031646487300958
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_EastRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024436939831552
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_SouthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "enamel_finish",
+      "volume_m3": 4.2350218628162475e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_NorthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "enamel_finish",
+      "volume_m3": 4.2350218628162475e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_Leg21.744999999999997-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 4.135098839971799e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_Leg21.744999999999997-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 4.135098839971798e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_Leg21.955000000000002-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 4.134769464749134e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_Leg21.955000000000002-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 4.134769464749135e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_CrossTie-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 8.957691934946365e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0_CrossTie-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "key": "iron",
+      "volume_m3": 8.957691934946365e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_BowlBottom",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "enamel_finish",
+      "volume_m3": 0.000934834568141793
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_WestRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015031643778720002
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_EastRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024434232529567
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_SouthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "enamel_finish",
+      "volume_m3": 4.235021106511028e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_NorthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "enamel_finish",
+      "volume_m3": 4.235021106511028e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_Leg21.404999999999998-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 9.884721540169443e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_Leg21.404999999999998-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 9.884721540169442e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_Leg21.615000000000002-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 9.884721540169443e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_Leg21.615000000000002-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 9.884721540169442e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_CrossTie-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 8.957756614665085e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1_CrossTie-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "key": "iron",
+      "volume_m3": 8.957756614665087e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_BowlBottom",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "enamel_finish",
+      "volume_m3": 0.0009348311906490922
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_WestRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024434232529567
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_EastRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024434232529567
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_SouthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "enamel_finish",
+      "volume_m3": 4.235052941627114e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_NorthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "enamel_finish",
+      "volume_m3": 4.235052941627114e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_Leg21.064999999999998-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 0.0001563434426810656
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_Leg21.064999999999998-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 0.00015634344268106558
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_Leg21.275000000000002-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 0.0001563434426810656
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_Leg21.275000000000002-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 0.00015634344268106558
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_CrossTie-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 8.957764981102019e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2_CrossTie-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "key": "iron",
+      "volume_m3": 8.957764981102019e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_BowlBottom",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "enamel_finish",
+      "volume_m3": 0.0009348311906490922
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_WestRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024444983619735
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_EastRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "enamel_finish",
+      "volume_m3": 0.00015024444983619735
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_SouthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "enamel_finish",
+      "volume_m3": 4.235055965406825e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_NorthRim",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "enamel_finish",
+      "volume_m3": 4.235055965406825e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_Leg20.724999999999998-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 0.0002138396680012312
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_Leg20.724999999999998-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 0.0002138396680012312
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_Leg20.935000000000002-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 0.0002138396680012312
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_Leg20.935000000000002-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 0.0002138396680012312
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_CrossTie-62.09499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 8.957764981102019e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3_CrossTie-61.24499999999999",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "key": "iron",
+      "volume_m3": 8.957764981102019e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_TankShell",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "nickel_plated",
+      "volume_m3": 0.003900438836028002
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_ClosedLid",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005373168990672997
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_RecessedGrip",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "dark",
+      "volume_m3": 1.991283520052331e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_Foot0",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_Foot1",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0_Foot2",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_TankShell",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "nickel_plated",
+      "volume_m3": 0.0039004702225264387
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_ClosedLid",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005373200305774263
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_RecessedGrip",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "dark",
+      "volume_m3": 1.991539868159635e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_Foot0",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_Foot1",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1_Foot2",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_TankShell",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "nickel_plated",
+      "volume_m3": 0.0039004702225446204
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_ClosedLid",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005373200305483224
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_RecessedGrip",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "dark",
+      "volume_m3": 1.991539868159635e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_Foot0",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_Foot1",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2_Foot2",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "key": "iron",
+      "volume_m3": 3.326285958549571e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Bottom",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "enamel_finish",
+      "volume_m3": 0.004676745211309673
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Top",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "enamel_finish",
+      "volume_m3": 0.004676743965591011
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Left",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "enamel_finish",
+      "volume_m3": 0.009314015959924283
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Right",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "enamel_finish",
+      "volume_m3": 0.009314015959924283
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Back",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "enamel_finish",
+      "volume_m3": 0.0050965959149573085
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Axle",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 0.0004288133636286356
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_PassiveDrum",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "nickel_plated",
+      "volume_m3": 0.0489301484821145
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar0",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar1",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar2",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5848386622798468e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar3",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar4",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar5",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar6",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar7",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5848386622798468e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar8",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5848386622798468e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar9",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar10",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_VentBar11",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 1.5853464424226465e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.11-60.28999999999999",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 4.361910607976371e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.11-59.91",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 4.3613872382759867e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.81-60.28999999999999",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 4.361910607976371e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer_Foot21.81-59.91",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "key": "iron",
+      "volume_m3": 4.3613872382759867e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FoldedLeg0",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "wood",
+      "volume_m3": 0.00035835779308047213
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FloorShoe0",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FoldedLeg1",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "wood",
+      "volume_m3": 0.0003516871720197848
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FloorShoe1",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FoldedLeg2",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "wood",
+      "volume_m3": 0.00034627253546633534
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_FloorShoe2",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_JoinedClamp",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "iron",
+      "volume_m3": 7.715775990397409e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0_MiddleStrap",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "key": "iron",
+      "volume_m3": 0.000245967064125301
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FoldedLeg0",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "wood",
+      "volume_m3": 0.00035835779308047213
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FloorShoe0",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FoldedLeg1",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "wood",
+      "volume_m3": 0.0003516871720197848
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FloorShoe1",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FoldedLeg2",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "wood",
+      "volume_m3": 0.00034627253546633534
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_FloorShoe2",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_JoinedClamp",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "iron",
+      "volume_m3": 7.715135489036819e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1_MiddleStrap",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "key": "iron",
+      "volume_m3": 0.000245967064125301
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FoldedLeg0",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "wood",
+      "volume_m3": 0.00035835779308047213
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FloorShoe0",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FoldedLeg1",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "wood",
+      "volume_m3": 0.0003516871720197848
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FloorShoe1",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FoldedLeg2",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "wood",
+      "volume_m3": 0.00034627253546633534
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_FloorShoe2",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_JoinedClamp",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "iron",
+      "volume_m3": 7.715775990397409e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2_MiddleStrap",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "key": "iron",
+      "volume_m3": 0.000245967064125301
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FoldedLeg0",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "wood",
+      "volume_m3": 0.00035835779308047213
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FloorShoe0",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FoldedLeg1",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "wood",
+      "volume_m3": 0.0003516871720197848
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FloorShoe1",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FoldedLeg2",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "wood",
+      "volume_m3": 0.00034627253546633534
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_FloorShoe2",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "iron",
+      "volume_m3": 1.4596002255073261e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_JoinedClamp",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "iron",
+      "volume_m3": 7.715775990397412e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3_MiddleStrap",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "key": "iron",
+      "volume_m3": 0.000245967064125301
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_LowDeck",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "wood",
+      "volume_m3": 0.006337561045620305
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_StandPost22.31-63.37",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "wood",
+      "volume_m3": 0.00033596667920487186
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_StandPost22.31-62.489999999999995",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "wood",
+      "volume_m3": 0.00033596667920487186
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_StandPost22.57-63.37",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "wood",
+      "volume_m3": 0.00033596667920487186
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_StandPost22.57-62.489999999999995",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "wood",
+      "volume_m3": 0.00033596667920487186
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_TinBody",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.005017855958959437
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0_SeamedCap",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.0002622372147633728
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin1_TinBody",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.005017872400868525
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin1_SeamedCap",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.00026223744849554774
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin2_TinBody",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.005017834991179437
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin2_SeamedCap",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.0002622372599542126
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin3_TinBody",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.005017848891318518
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin3_SeamedCap",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "key": "tin",
+      "volume_m3": 0.00026223869884335924
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.744999999999997,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.744999999999997,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.955000000000002,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.955000000000002,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.404999999999998,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.404999999999998,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.615000000000002,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.615000000000002,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.064999999999998,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.064999999999998,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.275000000000002,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.275000000000002,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.724999999999998,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.724999999999998,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.935000000000002,
+        0.009999999999999995,
+        62.09499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.935000000000002,
+        0.009999999999999995,
+        61.24499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "developing tray actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.883000000000003,
+        0.009999999999999995,
+        60.949999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        60.88678014552373
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        61.01321985447626
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.883000000000003,
+        0.009999999999999995,
+        60.64999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        60.586780145523726
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        60.71321985447626
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.883000000000003,
+        0.009999999999999995,
+        60.349999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        60.28678014552373
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.773500000000002,
+        0.009999999999999995,
+        60.41321985447626
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "closed developing tank actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.11,
+        0.009999999999999995,
+        60.28999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "passive print dryer actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.11,
+        0.009999999999999995,
+        59.91
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "passive print dryer actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.81,
+        0.009999999999999995,
+        60.28999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "passive print dryer actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        21.81,
+        0.009999999999999995,
+        59.91
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "passive print dryer actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.255,
+        0.009999999999999995,
+        59.467999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.365,
+        0.009999999999999995,
+        59.455999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.474999999999998,
+        0.009999999999999995,
+        59.443999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.255,
+        0.009999999999999995,
+        59.367999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.365,
+        0.009999999999999995,
+        59.355999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.474999999999998,
+        0.009999999999999995,
+        59.343999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.255,
+        0.009999999999999995,
+        59.267999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.365,
+        0.009999999999999995,
+        59.25599999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.474999999999998,
+        0.009999999999999995,
+        59.24399999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.255,
+        0.009999999999999995,
+        59.16799999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.365,
+        0.009999999999999995,
+        59.15599999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        20.474999999999998,
+        0.009999999999999995,
+        59.14399999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded tripod actual floor shoe"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.31,
+        0.009999999999999995,
+        63.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "low flash-tin stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.31,
+        0.009999999999999995,
+        62.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "low flash-tin stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.57,
+        0.009999999999999995,
+        63.37
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "low flash-tin stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.57,
+        0.009999999999999995,
+        62.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "low flash-tin stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_flash_tin0_LowDeck",
+      "point": [
+        22.439999999999998,
+        0.46,
+        63.28999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original flash tin seated on joined low stand"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_flash_tin0_LowDeck",
+      "point": [
+        22.439999999999998,
+        0.46,
+        63.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original flash tin seated on joined low stand"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_flash_tin0_LowDeck",
+      "point": [
+        22.439999999999998,
+        0.46,
+        62.80999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original flash tin seated on joined low stand"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "owner": "storm_shop_photo_supplies_flash_tin0_LowDeck",
+      "point": [
+        22.439999999999998,
+        0.46,
+        62.56999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original flash tin seated on joined low stand"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0__enamel_finish",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_finish",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray0__iron",
+      "assembly": "storm_shop_photo_supplies_dev_tray0",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 1128
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1__enamel_finish",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_finish",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray1__iron",
+      "assembly": "storm_shop_photo_supplies_dev_tray1",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 1128
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2__enamel_finish",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_finish",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray2__iron",
+      "assembly": "storm_shop_photo_supplies_dev_tray2",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 1128
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3__enamel_finish",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_finish",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_dev_tray3__iron",
+      "assembly": "storm_shop_photo_supplies_dev_tray3",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 1128
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0__dark",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0__iron",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 372
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank0__nickel_plated",
+      "assembly": "storm_shop_photo_supplies_tank0",
+      "cell": "shop_photo_supplies",
+      "key": "nickel_plated",
+      "triangles": 960
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1__dark",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1__iron",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 372
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank1__nickel_plated",
+      "assembly": "storm_shop_photo_supplies_tank1",
+      "cell": "shop_photo_supplies",
+      "key": "nickel_plated",
+      "triangles": 960
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2__dark",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "cell": "shop_photo_supplies",
+      "key": "dark",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2__iron",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 372
+    },
+    {
+      "name": "storm_shop_photo_supplies_tank2__nickel_plated",
+      "assembly": "storm_shop_photo_supplies_tank2",
+      "cell": "shop_photo_supplies",
+      "key": "nickel_plated",
+      "triangles": 960
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer__enamel_finish",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "cell": "shop_photo_supplies",
+      "key": "enamel_finish",
+      "triangles": 940
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer__iron",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 3132
+    },
+    {
+      "name": "storm_shop_photo_supplies_print_dryer__nickel_plated",
+      "assembly": "storm_shop_photo_supplies_print_dryer",
+      "cell": "shop_photo_supplies",
+      "key": "nickel_plated",
+      "triangles": 252
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0__iron",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 652
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod0__wood",
+      "assembly": "storm_shop_photo_supplies_tripod0",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 276
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1__iron",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 652
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod1__wood",
+      "assembly": "storm_shop_photo_supplies_tripod1",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 276
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2__iron",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 652
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod2__wood",
+      "assembly": "storm_shop_photo_supplies_tripod2",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 276
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3__iron",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "cell": "shop_photo_supplies",
+      "key": "iron",
+      "triangles": 652
+    },
+    {
+      "name": "storm_shop_photo_supplies_tripod3__wood",
+      "assembly": "storm_shop_photo_supplies_tripod3",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 276
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0__tin",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "cell": "shop_photo_supplies",
+      "key": "tin",
+      "triangles": 2688
+    },
+    {
+      "name": "storm_shop_photo_supplies_flash_tin0__wood",
+      "assembly": "storm_shop_photo_supplies_flash_tin0",
+      "cell": "shop_photo_supplies",
+      "key": "wood",
+      "triangles": 940
+    }
+  ],
+  "triangles": 24496,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_process.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_dev_tray0__enamel_finish",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray0__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray1__enamel_finish",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray1__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray2__enamel_finish",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray2__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray3__enamel_finish",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dev_tray3__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank0__dark",
+            "key": "metal",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank0__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank0__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank1__dark",
+            "key": "metal",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank1__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank1__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank2__dark",
+            "key": "metal",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank2__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tank2__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_photo_supplies_print_dryer__enamel_finish",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance"
+          },
+          {
+            "name": "storm_shop_photo_supplies_print_dryer__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_print_dryer__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod0__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod0__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod1__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod1__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod2__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod2__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod3__iron",
+            "key": "metal",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_tripod3__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_flash_tin0__tin",
+            "key": "metal",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner"
+          },
+          {
+            "name": "storm_shop_photo_supplies_flash_tin0__wood",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_dev_tray0",
+            "key": "enamel",
+            "low": [
+              21.72,
+              0.08,
+              61.21999999999999
+            ],
+            "high": [
+              21.98,
+              0.125,
+              62.11999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_dev_tray1",
+            "key": "enamel",
+            "low": [
+              21.38,
+              0.18,
+              61.21999999999999
+            ],
+            "high": [
+              21.64,
+              0.22499999999999998,
+              62.11999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_dev_tray2",
+            "key": "enamel",
+            "low": [
+              21.04,
+              0.28,
+              61.21999999999999
+            ],
+            "high": [
+              21.3,
+              0.325,
+              62.11999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_dev_tray3",
+            "key": "enamel",
+            "low": [
+              20.7,
+              0.38000000000000006,
+              61.21999999999999
+            ],
+            "high": [
+              20.96,
+              0.42500000000000004,
+              62.11999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tank0",
+            "key": "nickel_plated",
+            "low": [
+              21.66,
+              0.08,
+              60.839999999999996
+            ],
+            "high": [
+              21.96,
+              0.6599999999999999,
+              61.059999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tank1",
+            "key": "nickel_plated",
+            "low": [
+              21.66,
+              0.08,
+              60.53999999999999
+            ],
+            "high": [
+              21.96,
+              0.6599999999999999,
+              60.75999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tank2",
+            "key": "nickel_plated",
+            "low": [
+              21.66,
+              0.08,
+              60.239999999999995
+            ],
+            "high": [
+              21.96,
+              0.6599999999999999,
+              60.459999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_print_dryer",
+            "key": "enamel",
+            "low": [
+              21.08,
+              0.05,
+              59.67999999999999
+            ],
+            "high": [
+              21.84,
+              0.9500000000000001,
+              60.31999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tripod0",
+            "key": "timber",
+            "low": [
+              20.22,
+              0.05,
+              59.42999999999999
+            ],
+            "high": [
+              20.88,
+              1.77,
+              59.48
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tripod1",
+            "key": "timber",
+            "low": [
+              20.22,
+              0.05,
+              59.33
+            ],
+            "high": [
+              20.88,
+              1.77,
+              59.379999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tripod2",
+            "key": "timber",
+            "low": [
+              20.22,
+              0.05,
+              59.23
+            ],
+            "high": [
+              20.88,
+              1.77,
+              59.279999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_tripod3",
+            "key": "timber",
+            "low": [
+              20.22,
+              0.05,
+              59.129999999999995
+            ],
+            "high": [
+              20.88,
+              1.77,
+              59.17999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_flash_tin0",
+            "key": "metal",
+            "low": [
+              22.3,
+              0.46,
+              63.199999999999996
+            ],
+            "high": [
+              22.58,
+              0.7,
+              63.379999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_flash_tin1",
+            "key": "metal",
+            "low": [
+              22.3,
+              0.46,
+              62.959999999999994
+            ],
+            "high": [
+              22.58,
+              0.7,
+              63.13999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_flash_tin2",
+            "key": "metal",
+            "low": [
+              22.3,
+              0.46,
+              62.71999999999999
+            ],
+            "high": [
+              22.58,
+              0.7,
+              62.89999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_flash_tin3",
+            "key": "metal",
+            "low": [
+              22.3,
+              0.46,
+              62.48
+            ],
+            "high": [
+              22.58,
+              0.7,
+              62.66
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032",
+  "source_bindings": {
+    "art/data/photo_process/source_plan.json": "e3395a8121c028f08445b9f36e77ca2141399537fac89cb1d8d44a703f3f9db5",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/blender/scripts/build_photo_process.py": "4b9b32f89fff7b7797c048a42203708709ab686c11e58628ce6f7fc48381ec05",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_process.glb.import": "2c03d6337e28dc1484e22a79537835dc0a207d7ad6e64b914b8d1752b8800f47",
+    "art/textures/ai_materials/enamel/material.json": "6e3e01aa44ccc4fa33708e3ef6345c5cac11b16a8c9bee6cedf093bce77e0190",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
+    "art/textures/ai_materials/metal/material.json": "068d94125da30962359281c99868ebf22999f50e10397310a878e70af43fbc13",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/zinc_liner/material.json": "caf3516c0f220772a27d9ae1cd53bee2f188eb297f9947c856c6c38774be1d7c",
+    "game/assets/building/textures/T_ai_materials_enamel_b_albedo.png": "e630f3697fdb8b91928e6587fdf85d969dcbeefe95985ca35243cabd5b00022f",
+    "game/assets/building/textures/T_ai_materials_enamel_b_rough.png": "7ccff5f5a38ebac117104a98593f2b4925f6fdf3a3fa8c9b5d38d7c61adc96ca",
+    "game/assets/building/textures/T_ai_materials_enamel_b_normal.png": "167b2236c1b175da053dc0e7445a394b95add74da2c1e1c80aa8fa0a50a74063",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_timber_b_albedo.png": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+    "game/assets/building/textures/T_ai_materials_timber_b_rough.png": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+    "game/assets/building/textures/T_ai_materials_timber_b_normal.png": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+    "game/assets/building/textures/T_ai_materials_metal_b_albedo.png": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
+    "game/assets/building/textures/T_ai_materials_metal_b_rough.png": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
+    "game/assets/building/textures/T_ai_materials_metal_b_normal.png": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_albedo.png": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_rough.png": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_normal.png": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_process.py": "32a2dd0b802debd26de1735ebe23efb699eed430ac9b299c45f516112c1f648f"
+  },
+  "open_work": [
+    "Four empty developing trays retain source plans and lower/top datums. Their actual open bowls and four floor-bearing legs replace unsupported steps; no chemical liquid or processing operation is added.",
+    "Three closed passive developing tanks retain original centres and .08/.66m envelope; small feet reach the .01m floor. The print dryer retains its .05/.95m body envelope, now an open-front shell with a seated drum, axle, slatted lower vent and floor feet. No heat, drive or electrical demand is added.",
+    "Four folded timber tripods retain original narrow plans and upper envelopes, with joined clamps and three floor shoes apiece. Four closed flash tins retain original centres and .46/.70m envelopes, now seated on a short joined timber stock stand beneath the original high shelf. No chemical content or ignition/control behavior is added.",
+    "Local registered enamel_appliance, wood_dark, iron_blackened, bakelite_black and zinc_liner finishes keep shared maps unchanged. Original shipping enamel, nickel, timber and metal remain on hidden source references. Portraits, darkroom entrance/light, glass finish, operating process, continuous access and independent services remain open.",
+    "Fit the north end of the passive print dryer 30mm south of the complete original variant-2 receiver hull. Derive that limit from the original assembler, reseat its north feet and shorten shell/axle/drum/slat spacing together. Retain every original source rectangle and receiver pose/programme. This local fit grants no live photography, services, continuous entry or human acceptance."
+  ]
+}
