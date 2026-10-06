@@ -891,3 +891,11 @@ game/scripts/building/orison_v2_pawn_receiving.gd -text
 game/tests/orison_v2_pawn_receiving_test.gd -text
 game/assets/props/pawn_receiving.glb.import -text
 art/renders/orison_v2/pawn_receiving_20261006/** -text
+
+# Hash-bound native Diner receiving construction, exports and review packet.
+art/data/diner_receiving/source_plan.json -text
+art/blender/diner_receiving_construction.json -text
+game/data/orison_v2/diner_receiving.json -text
+game/tests/fixtures/orison_diner_receiving.json -text
+game/assets/props/diner_receiving.glb.import -text
+art/renders/orison_v2/diner_receiving_20261006/** -text

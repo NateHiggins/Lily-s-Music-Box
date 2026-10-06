@@ -180,6 +180,22 @@ func _check_specialist_fittings() -> bool:
 	for draw: MeshInstance3D in pawn_receiving_draws:
 		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
 		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed pawn_receiving physical faces match visible faces: " + str(draw.name)): return false
+	var diner_cell: Node3D = world.passage_region.cell_nodes.shop_luncheonette
+	var diner_receiving := diner_cell.get_node_or_null("DinerReceiving") as Node3D
+	if not _require(diner_receiving != null, "reconstructed native diner_receiving chassis exists"): return false
+	var diner_receiving_fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_diner_receiving.json"))
+	if not _require(FileAccess.get_sha256(str(diner_receiving_fixture.runtime.asset)) == diner_receiving_fixture.asset_sha256, "reconstructed diner_receiving chassis binds its native export"): return false
+	var diner_receiving_retired: Dictionary = diner_receiving.get_meta("removed_triangles")
+	for source_draw: Dictionary in diner_receiving_fixture.runtime.original_draws:
+		var original := diner_cell.get_node(str(source_draw.name)) as MeshInstance3D
+		if not _require(not original.visible and int(diner_receiving_retired.get(source_draw.name, -1)) == int(source_draw.expected_triangles), "reconstructed assembled source draw stays retired: " + str(source_draw.name)): return false
+	var diner_old_hull := diner_receiving.get_meta("original_hull") as StaticBody3D
+	if not _require(diner_old_hull.collision_layer == 0 and diner_old_hull.collision_mask == 0 and diner_old_hull.get_child(0).disabled and int(diner_receiving_retired.get(diner_receiving_fixture.runtime.hull_name, -1)) == 24, "reconstructed exact source hull remains disabled"): return false
+	var diner_receiving_draws := diner_receiving.find_children("*", "MeshInstance3D", true, false)
+	if not _require(diner_receiving_draws.size() == diner_receiving_fixture.parts.size(), "reconstructed native diner_receiving partitions remain complete"): return false
+	for draw: MeshInstance3D in diner_receiving_draws:
+		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
+		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed diner_receiving physical faces match visible faces: " + str(draw.name)): return false
 	return true
 
 func _check_ceiling_detail() -> void:

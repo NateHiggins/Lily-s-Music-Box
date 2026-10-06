@@ -219937,6 +219937,122 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "3c02afe1df4e2433",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette0",
+   "file": "game/data/orison_v2/diner_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1b4603798c79d84c",
+   "kind": "id_reference",
+   "token": "storm_shopcab_luncheonette1",
+   "file": "game/data/orison_v2/diner_receiving.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cb586945f12a0186",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c95cd7814d5a587f",
+   "kind": "generated_name",
+   "token": "mount_cell",
+   "file": "game/scripts/building/orison_v2_diner_receiving.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "\"diner_receiving_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
