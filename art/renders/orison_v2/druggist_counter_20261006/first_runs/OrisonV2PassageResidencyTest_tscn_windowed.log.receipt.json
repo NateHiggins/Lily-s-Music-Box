@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 117.87,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T05:07:34Z",
+  "started_utc": "2026-10-06T05:05:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-counter-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.stderr",
+  "stderr_sha256": "25a2edeea8c1b9873885ec25a0120c8dd03306a66e4069c9781e41565639d72a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-counter-final-verified/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+  "stdout_sha256": "b4207fbc4cdc208ee4f3d41b54b9cde20e938a03e5ec58321d99660507df197e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\druggist-counter-final-verified\\godot\\OrisonV2PassageResidencyTest_tscn_windowed_shots",
+ "source": {
+  "dirty_paths": 261,
+  "dirty_sample": [
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_coal_delivery.gd.uid",
+   "?? game/scripts/building/orison_v2_completion_interiors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_doors.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_fittings.gd.uid",
+   "?? game/scripts/building/orison_v2_domestic_furniture.gd.uid",
+   "?? game/scripts/building/orison_v2_door_casings.gd.uid",
+   "?? game/scripts/building/orison_v2_elevator.gd.uid",
+   "?? game/scripts/building/orison_v2_exterior_masonry.gd.uid",
+   "?? game/scripts/building/orison_v2_heating.gd.uid"
+  ],
+  "repository_head": "4bb068b0b597b0555c29c1abb85653522d134e65",
+  "repository_tree": "2a3a4fb2924284c546e45eaf76b5799b178c0726",
+  "runtime_inputs_sha256": "b738ec522d95dd3ebec5d1a8bcc0a63b4812f5743a0a265df53b2900fb899b92",
+  "test_path": "game/tests/orison_v2_passage_residency_test.gd",
+  "test_sha256": "56f74dcf187273450c9459bcba116e1f4d5900a5edf89ec812c631baa2d76dd1"
+ },
+ "windowed": true
+}

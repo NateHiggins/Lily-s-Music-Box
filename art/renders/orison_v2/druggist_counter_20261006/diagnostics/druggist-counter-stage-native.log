@@ -1,0 +1,11 @@
+00:01.406  blend            | Read blend: "C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-stage\art\blender\druggist_counter.blend"
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-stage\art\blender\scripts\inspect_druggist_counter.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:05.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-native\storm_shop_otis___son_telephone_front.png'
+00:09.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-native\storm_shop_otis___son_telephone_rear.png'
+00:13.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-native\storm_shop_otis___son_ledger_front.png'
+00:17.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-native\storm_shop_otis___son_ledger_rear.png'
+DRUGGIST COUNTER NATIVE QA 21 closed connected stocks; 2 joined assemblies; 4 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

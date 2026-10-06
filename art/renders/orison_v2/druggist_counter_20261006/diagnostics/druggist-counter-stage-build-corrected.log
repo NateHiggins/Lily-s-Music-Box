@@ -1,0 +1,21 @@
+C:\PleaseRemainOnTheLine\tmp\v2-finish-review\druggist-counter-stage\art\blender\scripts\build_druggist_counter.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\nate_\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "druggist_counter.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+00:27:26 | INFO: Starting glTF 2.0 export
+00:27:26 | INFO: Extracting primitive: storm_shop_otis___son_ledger__book_ochre
+00:27:26 | INFO: Primitives created: 1
+00:27:26 | INFO: Extracting primitive: storm_shop_otis___son_ledger__paper
+00:27:26 | INFO: Primitives created: 1
+00:27:26 | INFO: Extracting primitive: storm_shop_otis___son_telephone__bakelite_black
+00:27:26 | INFO: Primitives created: 1
+00:27:26 | INFO: Extracting primitive: storm_shop_otis___son_telephone__brass_dull
+00:27:26 | INFO: Primitives created: 1
+00:27:26 | INFO: Finished glTF 2.0 export in 0.015881776809692383 s
+
+DRUGGIST COUNTER 2 original records; 2 assemblies; 21 closed stocks; 4 parts; 6500 triangles; 5 foot contacts
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

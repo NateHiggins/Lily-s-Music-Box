@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 50.67,
+  "exit_code": 1,
+  "finished_utc": "2026-10-06T04:45:28Z",
+  "started_utc": "2026-10-06T04:44:37Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-counter-triangle-probe-suite.log.stderr",
+  "stderr_sha256": "8d250b127c2e599384cc0ef18cd66eb15f968ab462efe6fab2cbfa92cebd1c3e",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-counter-triangle-probe-suite.log",
+  "stdout_sha256": "1b0180c839719b02dc7c58b97f773ef1b85f3508e38be1fddc09dd49f38a9648"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DruggistCounterTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/druggist-counter-triangle-probe-shots",
+ "source": {
+  "dirty_paths": 282,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/druggist_counter.blend",
+   "?? art/blender/druggist_counter.md",
+   "?? art/blender/druggist_counter_construction.json",
+   "?? art/blender/scripts/build_druggist_counter.py",
+   "?? art/blender/scripts/inspect_druggist_counter.py",
+   "?? art/data/druggist_counter/",
+   "?? game/assets/props/druggist_counter.glb",
+   "?? game/data/orison_v2/druggist_counter.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid"
+  ],
+  "repository_head": "9f4511b724d6311927a24b068f073eb7ec4a7e4b",
+  "repository_tree": "1174a611062257bb83c8abd6cff56dc314ebb3a8",
+  "runtime_inputs_sha256": "b738ec522d95dd3ebec5d1a8bcc0a63b4812f5743a0a265df53b2900fb899b92",
+  "test_path": "game/tests/orison_v2_druggist_counter_test.gd",
+  "test_sha256": "e17793a463105ded426b34bc36cf7e7d31b26c96d26244a9139cbcb20b0bc95d"
+ },
+ "windowed": true
+}

@@ -1,0 +1,225 @@
+{
+  "evidence_class": "INERT",
+  "native_sha256": "aeb6c09add51c0941317533509f9a6786e9ecfa2c216977edc524e9f9bb6986c",
+  "closed_volumes": [
+    {
+      "name": "storm_shop_otis___son_telephone_Base",
+      "volume_m3": 0.0014739000113779793
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.008-47.971999999999994",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.008-47.867999999999995",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.151999999999997-47.971999999999994",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Foot19.151999999999997-47.867999999999995",
+      "volume_m3": 1.1647420400639694e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_Stem",
+      "volume_m3": 0.00035084427358337417
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.1600000000000001",
+      "volume_m3": 4.8719230546973025e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.365",
+      "volume_m3": 2.541184421032787e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_StemCollar1.413",
+      "volume_m3": 2.541184421032787e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_OpenTransmitter",
+      "volume_m3": 0.00010516780004844281
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_ReceiverHook",
+      "volume_m3": 4.699329536941508e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_HookReturn",
+      "volume_m3": 1.9580833511695377e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_OpenReceiver",
+      "volume_m3": 6.130155046817305e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_ReceiverCord",
+      "volume_m3": 9.391015377614492e-06
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_PerforatedRotaryRing",
+      "volume_m3": 5.5308285940300686e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_DialCentre",
+      "volume_m3": 2.8193171490137336e-05
+    },
+    {
+      "name": "storm_shop_otis___son_telephone_FingerStop",
+      "volume_m3": 1.3531351914369827e-06
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_LowerCardCover",
+      "volume_m3": 0.00042169420646266984
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_ClosedPageStack",
+      "volume_m3": 0.004031146666335272
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_UpperCardCover",
+      "volume_m3": 0.00042169420646266984
+    },
+    {
+      "name": "storm_shop_otis___son_ledger_BoundSpine",
+      "volume_m3": 9.079578629091171e-05
+    }
+  ],
+  "assembly_stock_joins": [
+    {
+      "assembly": "storm_shop_otis___son_telephone",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_Foot19.008-47.971999999999994"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_Foot19.008-47.867999999999995"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_Foot19.151999999999997-47.971999999999994"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_Foot19.151999999999997-47.867999999999995"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_Stem"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_StemCollar1.1600000000000001"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_PerforatedRotaryRing"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_DialCentre"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Base",
+          "storm_shop_otis___son_telephone_FingerStop"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_StemCollar1.1600000000000001"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_StemCollar1.365"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_StemCollar1.413"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_OpenTransmitter"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_ReceiverHook"
+        ],
+        [
+          "storm_shop_otis___son_telephone_Stem",
+          "storm_shop_otis___son_telephone_ReceiverCord"
+        ],
+        [
+          "storm_shop_otis___son_telephone_StemCollar1.413",
+          "storm_shop_otis___son_telephone_OpenTransmitter"
+        ],
+        [
+          "storm_shop_otis___son_telephone_StemCollar1.413",
+          "storm_shop_otis___son_telephone_ReceiverHook"
+        ],
+        [
+          "storm_shop_otis___son_telephone_OpenTransmitter",
+          "storm_shop_otis___son_telephone_ReceiverHook"
+        ],
+        [
+          "storm_shop_otis___son_telephone_ReceiverHook",
+          "storm_shop_otis___son_telephone_HookReturn"
+        ],
+        [
+          "storm_shop_otis___son_telephone_ReceiverHook",
+          "storm_shop_otis___son_telephone_OpenReceiver"
+        ],
+        [
+          "storm_shop_otis___son_telephone_HookReturn",
+          "storm_shop_otis___son_telephone_OpenReceiver"
+        ],
+        [
+          "storm_shop_otis___son_telephone_OpenReceiver",
+          "storm_shop_otis___son_telephone_ReceiverCord"
+        ],
+        [
+          "storm_shop_otis___son_telephone_PerforatedRotaryRing",
+          "storm_shop_otis___son_telephone_FingerStop"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_otis___son_ledger",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_otis___son_ledger_LowerCardCover",
+          "storm_shop_otis___son_ledger_ClosedPageStack"
+        ],
+        [
+          "storm_shop_otis___son_ledger_LowerCardCover",
+          "storm_shop_otis___son_ledger_BoundSpine"
+        ],
+        [
+          "storm_shop_otis___son_ledger_ClosedPageStack",
+          "storm_shop_otis___son_ledger_UpperCardCover"
+        ],
+        [
+          "storm_shop_otis___son_ledger_ClosedPageStack",
+          "storm_shop_otis___son_ledger_BoundSpine"
+        ],
+        [
+          "storm_shop_otis___son_ledger_UpperCardCover",
+          "storm_shop_otis___son_ledger_BoundSpine"
+        ]
+      ]
+    }
+  ],
+  "source_boundary_stocks": 2,
+  "parts": 4,
+  "triangles": 6596,
+  "views": [
+    "storm_shop_otis___son_telephone_front.png",
+    "storm_shop_otis___son_telephone_rear.png",
+    "storm_shop_otis___son_ledger_front.png",
+    "storm_shop_otis___son_ledger_rear.png"
+  ]
+}

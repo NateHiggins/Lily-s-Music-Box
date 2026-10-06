@@ -1,0 +1,101 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Standing-capsule passive telephone/ledger observations. Medicine/poison custody, stock state, operating dispensing/fountain, continuous routes and independent services retain separate authority.",
+	"views": [
+		{
+			"feet": [
+				19.0799999237061,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"id": "telephone",
+			"image": "telephone.png",
+			"requested_feet": [
+				19.0799999237061,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"target": [
+				19.0799999237061,
+				1.36000001430511,
+				47.9199981689453
+			]
+		},
+		{
+			"feet": [
+				18.7199993133545,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"id": "rotary_dial",
+			"image": "rotary_dial.png",
+			"requested_feet": [
+				18.7199993133545,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"target": [
+				19.0799999237061,
+				1.1599999666214,
+				47.8800010681152
+			]
+		},
+		{
+			"feet": [
+				19.7800006866455,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"id": "ledger",
+			"image": "ledger.png",
+			"requested_feet": [
+				19.7800006866455,
+				0.0299999993294477,
+				47.0499992370605
+			],
+			"target": [
+				19.7800006866455,
+				1.13999998569489,
+				47.9300003051758
+			]
+		},
+		{
+			"feet": [
+				21.7999992370605,
+				0.0299999993294477,
+				47.0
+			],
+			"id": "counter_context",
+			"image": "counter_context.png",
+			"requested_feet": [
+				21.7999992370605,
+				0.0299999993294477,
+				47.0
+			],
+			"target": [
+				19.5499992370605,
+				1.36000001430511,
+				48.0
+			]
+		},
+		{
+			"feet": [
+				17.2999992370605,
+				0.0299999993294477,
+				45.6500015258789
+			],
+			"id": "shop_context",
+			"image": "shop_context.png",
+			"requested_feet": [
+				17.2999992370605,
+				0.0299999993294477,
+				45.6500015258789
+			],
+			"target": [
+				20.3999996185303,
+				1.55999994277954,
+				48.0999984741211
+			]
+		}
+	]
+}
