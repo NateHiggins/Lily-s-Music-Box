@@ -1,0 +1,121 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 14,
+  "runtime_keys": [
+    "wood_dark",
+    "glassish",
+    "book_teal",
+    "lacquer_red",
+    "fabric_green",
+    "book_ochre",
+    "fill0",
+    "fill1",
+    "fill2",
+    "fill3",
+    "glassish_shell",
+    "glassish_stopper",
+    "plywood"
+  ],
+  "catalog_variants": {
+    "fill0": "milk_glass",
+    "fill1": "milk_glass",
+    "fill2": "milk_glass",
+    "fill3": "milk_glass",
+    "glassish_stopper": "milk_glass"
+  },
+  "material_aliases": {
+    "fill0": "milk_glass",
+    "fill1": "milk_glass",
+    "fill2": "milk_glass",
+    "fill3": "milk_glass",
+    "glassish_shell": "glassish",
+    "glassish_stopper": "glassish"
+  },
+  "material_tints": {
+    "fill0": [
+      0.08,
+      0.4,
+      0.36,
+      1
+    ],
+    "fill1": [
+      0.65,
+      0.07,
+      0.045,
+      1
+    ],
+    "fill2": [
+      0.15,
+      0.45,
+      0.08,
+      1
+    ],
+    "fill3": [
+      0.7,
+      0.38,
+      0.035,
+      1
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "carboy",
+      "index": 0,
+      "sources": [
+        "storm_shop_otis___son_carboy0",
+        "storm_shop_otis___son_carboy_ped0",
+        "storm_shop_otis___son_carboy_stop0"
+      ]
+    },
+    {
+      "kind": "carboy",
+      "index": 1,
+      "sources": [
+        "storm_shop_otis___son_carboy1",
+        "storm_shop_otis___son_carboy_ped1",
+        "storm_shop_otis___son_carboy_stop1"
+      ]
+    },
+    {
+      "kind": "carboy",
+      "index": 2,
+      "sources": [
+        "storm_shop_otis___son_carboy2",
+        "storm_shop_otis___son_carboy_ped2",
+        "storm_shop_otis___son_carboy_stop2"
+      ]
+    },
+    {
+      "kind": "carboy",
+      "index": 3,
+      "sources": [
+        "storm_shop_otis___son_carboy3",
+        "storm_shop_otis___son_carboy_ped3",
+        "storm_shop_otis___son_carboy_stop3"
+      ]
+    },
+    {
+      "kind": "display_plinth",
+      "sources": [
+        "storm_shop_otis___son_window_plinth"
+      ]
+    },
+    {
+      "kind": "display_back",
+      "sources": [
+        "storm_shop_otis___son_window_back"
+      ]
+    }
+  ],
+  "open_work": [
+    "The original window plinth intersects pedestal solids and the original window backing cuts through the vessel bodies and hides their necks from the shop. Preserve both exact hidden source records. Fabricate the plinth as a front fascia, end cheeks and four floor feet, leaving the original hero positions free. Frame the backing on two floor-seated end stiles at X17.67..17.70 outside pedestal ends. Its panel keeps the original Y span and 1.57m top but moves to X17.655..17.695 and rises to 0.625m, fifteen millimetres behind the maximum bottle radius and five millimetres above the pedestal seats. These are furniture adaptations, with no structural or service cutouts.",
+    "Four original hero carboys, pedestal and stopper records remain in their original display bay. Original body centres, 0.62m base, 0.72m body height and 1.56m maximum stopper height remain.",
+    "Four actual feet per pedestal bridge its original 0.05m base to the 0.01m floor. A bounded 20mm wood seat bridges the original 0.60m pedestal top to the unchanged 0.62m body base.",
+    "Transparent mapped glass surrounds bounded opaque display-fill volumes with the original four colour roles. Existing milk_glass maps and declared local tints replace visible book/fabric/lacquer atlases. No liquid transmission, level simulation, chemistry or medical operation is claimed.",
+    "Only clear shell partitions use the unchanged existing Glazing/public optical shader at local 0.06 roughness. Original mapped source surfaces remain on their runtime meshes. The editable native preview follows the same no-diffuse Fresnel constants; hidden original glass retains its source maps and literal tint/alpha. Four coincident light-only haze receivers use the existing carried-lamp owner with the actual 12mm shell-wall thickness; they add no physical geometry.",
+    "Original stopper poses and clear source finish remain hidden. Fabricated stoppers use the existing opaque milk_glass catalogue finish as an explicit opal-glass adaptation; their 20mm insertion and original 1.56m maximum height remain. Source geometry, actual cavities, seats, joins and player-lamp appearance must pass before review retention.",
+    "Fountain, custody/dispensing, independent services, engineering capacity and continuous routes retain separate owners. This inert source plan grants no runtime proof or human acceptance."
+  ]
+}

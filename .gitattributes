@@ -712,3 +712,14 @@ game/scripts/building/orison_v2_druggist_cupboard.gd -text
 game/tests/orison_v2_druggist_cupboard_test.gd -text
 game/assets/props/druggist_cupboard.glb.import -text
 art/renders/orison_v2/druggist_cupboard_20261006/** -text
+
+art/data/druggist_carboys/** -text
+art/blender/scripts/build_druggist_carboys.py -text
+art/blender/scripts/inspect_druggist_carboys.py -text
+art/blender/druggist_carboys_construction.json -text
+game/data/orison_v2/druggist_carboys.json -text
+game/tests/fixtures/orison_druggist_carboys.json -text
+game/scripts/building/orison_v2_druggist_carboys.gd -text
+game/tests/orison_v2_druggist_carboys_test.gd -text
+game/assets/props/druggist_carboys.glb.import -text
+art/renders/orison_v2/druggist_carboys_20261006/** -text
