@@ -206,6 +206,9 @@ func _stage_one() -> void:
 		if not region.HardwareTools.mount_cell(cell,region.source_layout):
 			_fail("native hardware tools reload fit refused: "+identity)
 			return
+		if not region.PhotoCameras.mount_cell(cell,region.source_layout):
+			_fail("native photography display reload fit refused: "+identity)
+			return
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

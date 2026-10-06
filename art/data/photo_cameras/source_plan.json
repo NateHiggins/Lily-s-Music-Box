@@ -1,0 +1,55 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 8,
+  "runtime_keys": [
+    "timber",
+    "wood_dark",
+    "plywood",
+    "bakelite_black",
+    "brass_dull"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark",
+    "brass_dull": "brass"
+  },
+  "material_aliases": {
+    "timber": "wood_dark"
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "display",
+      "sources": [
+        "storm_shop_photo_supplies_window_plinth",
+        "storm_shop_photo_supplies_window_back"
+      ]
+    },
+    {
+      "kind": "camera0",
+      "sources": [
+        "storm_shop_photo_supplies_camera_body0",
+        "storm_shop_photo_supplies_camera_lens0"
+      ]
+    },
+    {
+      "kind": "camera1",
+      "sources": [
+        "storm_shop_photo_supplies_camera_body1",
+        "storm_shop_photo_supplies_camera_lens1"
+      ]
+    },
+    {
+      "kind": "camera2",
+      "sources": [
+        "storm_shop_photo_supplies_camera_body2",
+        "storm_shop_photo_supplies_camera_lens2"
+      ]
+    }
+  ],
+  "open_work": [
+    "The original window stand gains joined floor-bearing feet and a .48m upper deck, seating the three original .48m camera bodies. Its back moves .20m inward and its deck extends to x17.76 to clear the original camera bodies that intersected the old back. The deck raise is .04m; hidden source references retain poses.",
+    "Three passive silhouettes become a bellows folding camera, rigid box camera and second bellows press body, as the source comment specifies. Original centres, source camera base and lens front datums remain. Recessed dark lens faces, small knobs, folded beds and a carry grip are fabrication details, not new controls or inventory.",
+    "Original storefront glazing and locks retain their own authority; no additional glass-case locking, photography operation, darkroom access, service continuity or capacity is asserted."
+  ]
+}

@@ -1,0 +1,889 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_window_plinth",
+      "rect": [
+        17.18,
+        -62.279999999999994,
+        17.54,
+        -59.07999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.39,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_window_back",
+      "rect": [
+        17.54,
+        -62.279999999999994,
+        17.58,
+        -59.07999999999999
+      ],
+      "z0": 0.42,
+      "h": 1.15,
+      "mat": "plywood",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body0",
+      "rect": [
+        17.36,
+        -62.07999999999999,
+        17.7,
+        -61.66
+      ],
+      "z0": 0.48,
+      "h": 0.42,
+      "mat": "bakelite_black",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_lens0",
+      "rect": [
+        17.24,
+        -61.949999999999996,
+        17.34,
+        -61.78999999999999
+      ],
+      "z0": 0.58,
+      "h": 0.17,
+      "mat": "brass_dull",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body1",
+      "rect": [
+        17.36,
+        -61.39999999999999,
+        17.7,
+        -60.98
+      ],
+      "z0": 0.48,
+      "h": 0.42,
+      "mat": "bakelite_black",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_lens1",
+      "rect": [
+        17.24,
+        -61.269999999999996,
+        17.34,
+        -61.10999999999999
+      ],
+      "z0": 0.58,
+      "h": 0.17,
+      "mat": "brass_dull",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body2",
+      "rect": [
+        17.36,
+        -60.71999999999999,
+        17.7,
+        -60.3
+      ],
+      "z0": 0.48,
+      "h": 0.42,
+      "mat": "bakelite_black",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_lens2",
+      "rect": [
+        17.24,
+        -60.589999999999996,
+        17.34,
+        -60.42999999999999
+      ],
+      "z0": 0.58,
+      "h": 0.17,
+      "mat": "brass_dull",
+      "batch": "shop_photo_supplies",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_window_plinth",
+      "kind": "display",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body0",
+      "kind": "camera0",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body1",
+      "kind": "camera1",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_camera_body2",
+      "kind": "camera2",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_Foot17.207-62.245",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0011859287015231453
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_Foot17.207-59.11499999999999",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0011859287015231453
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_Foot17.733-62.245",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0011859287015231453
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_Foot17.733-59.11499999999999",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0011859287015231453
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_CameraDeck",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.05937665619353511
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_LongApron17.18",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.012607548500700649
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_LongApron17.726000000000003",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.012607548500700649
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_EndApron-62.279999999999994",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0022846399326783644
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_EndApron-59.11399999999999",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.00228438329514617
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_PlyBack",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "plywood",
+      "volume_m3": 0.14361479514365558
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_BackStile-62.279999999999994",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0018098980170592812
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_BackStile-59.11199999999999",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.0018098980170592812
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth_BackCap",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "key": "timber",
+      "volume_m3": 0.004156820605380135
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_SeatedBase",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 0.003350152976913283
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_RearBody",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 0.007048290000167749
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_FoldedBellows",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 0.0337228607120573
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_LensBoard",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 0.002124236363799215
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_FoldingBed",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 0.004689531555730311
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_BedStay-62.00599999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 8.030275877085588e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_BedStay-61.73399999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 8.027189846126846e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_LensBarrel",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 0.0008751372738917832
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_RecessedLens",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 8.188126881838183e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_TopPost-62.03999999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_TopPost-61.699999999999996",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_CarryGrip",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "bakelite_black",
+      "volume_m3": 7.535000480101569e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0_WindingKnob",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "key": "brass_dull",
+      "volume_m3": 2.253713769519855e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_SeatedBase",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "bakelite_black",
+      "volume_m3": 0.003350152976913283
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_BoxBody",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "bakelite_black",
+      "volume_m3": 0.05710184069843181
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_FrontPanel",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "bakelite_black",
+      "volume_m3": 0.0017466800747040735
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_LensBarrel",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "brass_dull",
+      "volume_m3": 0.0008751277193788183
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_RecessedLens",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "bakelite_black",
+      "volume_m3": 8.188158170501727e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_TopPost-61.35999999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_TopPost-61.019999999999996",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_CarryGrip",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "bakelite_black",
+      "volume_m3": 7.535000480101569e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1_WindingKnob",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "key": "brass_dull",
+      "volume_m3": 2.253713769519855e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_SeatedBase",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 0.003350184623537239
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_RearBody",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 0.007048290000167749
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_FoldedBellows",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 0.0337228635803102
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_LensBoard",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 0.002124236363799215
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_FoldingBed",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 0.004689531555730311
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_BedStay-60.645999999999994",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 8.030275877085588e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_BedStay-60.37399999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 8.030275877085588e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_LensBarrel",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 0.0008751342838158281
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_RecessedLens",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 8.188158170501727e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_TopPost-60.67999999999999",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_TopPost-60.339999999999996",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 4.025091797318394e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_CarryGrip",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 7.534957505870321e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_WindingKnob",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 2.253713769519855e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_ViewfinderFoot",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "brass_dull",
+      "volume_m3": 7.987528736844018e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2_Viewfinder",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "key": "bakelite_black",
+      "volume_m3": 0.00020006824521387917
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.207,
+        0.009999999999999995,
+        62.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "window-stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.207,
+        0.009999999999999995,
+        59.11499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "window-stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.733,
+        0.009999999999999995,
+        62.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "window-stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        17.733,
+        0.009999999999999995,
+        59.11499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "window-stand actual floor bearing"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "owner": "storm_shop_photo_supplies_window_plinth",
+      "point": [
+        17.53,
+        0.48,
+        61.86999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "camera base on fitted .48m deck"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "owner": "storm_shop_photo_supplies_window_plinth",
+      "point": [
+        17.53,
+        0.48,
+        61.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "camera base on fitted .48m deck"
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "owner": "storm_shop_photo_supplies_window_plinth",
+      "point": [
+        17.53,
+        0.48,
+        60.50999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "camera base on fitted .48m deck"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_window_plinth__plywood",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "cell": "shop_photo_supplies",
+      "key": "plywood",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_window_plinth__timber",
+      "assembly": "storm_shop_photo_supplies_window_plinth",
+      "cell": "shop_photo_supplies",
+      "key": "timber",
+      "triangles": 2256
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0__bakelite_black",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite_black",
+      "triangles": 1012
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body0__brass_dull",
+      "assembly": "storm_shop_photo_supplies_camera_body0",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 1640
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1__bakelite_black",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite_black",
+      "triangles": 816
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body1__brass_dull",
+      "assembly": "storm_shop_photo_supplies_camera_body1",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 1076
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2__bakelite_black",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "cell": "shop_photo_supplies",
+      "key": "bakelite_black",
+      "triangles": 1200
+    },
+    {
+      "name": "storm_shop_photo_supplies_camera_body2__brass_dull",
+      "assembly": "storm_shop_photo_supplies_camera_body2",
+      "cell": "shop_photo_supplies",
+      "key": "brass_dull",
+      "triangles": 1828
+    }
+  ],
+  "triangles": 10016,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_cameras.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_window_plinth__plywood",
+            "key": "plywood",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_photo_supplies_window_plinth__timber",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body0__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body0__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body1__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body1__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body2__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3
+          },
+          {
+            "name": "storm_shop_photo_supplies_camera_body2__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_window_plinth",
+            "key": "wood_dark",
+            "low": [
+              17.18,
+              0.05,
+              59.07999999999999
+            ],
+            "high": [
+              17.54,
+              0.44,
+              62.279999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_window_back",
+            "key": "plywood",
+            "low": [
+              17.54,
+              0.42,
+              59.07999999999999
+            ],
+            "high": [
+              17.58,
+              1.5699999999999998,
+              62.279999999999994
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_body0",
+            "key": "bakelite_black",
+            "low": [
+              17.36,
+              0.48,
+              61.66
+            ],
+            "high": [
+              17.7,
+              0.8999999999999999,
+              62.07999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_lens0",
+            "key": "brass_dull",
+            "low": [
+              17.24,
+              0.58,
+              61.78999999999999
+            ],
+            "high": [
+              17.34,
+              0.75,
+              61.949999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_body1",
+            "key": "bakelite_black",
+            "low": [
+              17.36,
+              0.48,
+              60.98
+            ],
+            "high": [
+              17.7,
+              0.8999999999999999,
+              61.39999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_lens1",
+            "key": "brass_dull",
+            "low": [
+              17.24,
+              0.58,
+              61.10999999999999
+            ],
+            "high": [
+              17.34,
+              0.75,
+              61.269999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_body2",
+            "key": "bakelite_black",
+            "low": [
+              17.36,
+              0.48,
+              60.3
+            ],
+            "high": [
+              17.7,
+              0.8999999999999999,
+              60.71999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_camera_lens2",
+            "key": "brass_dull",
+            "low": [
+              17.24,
+              0.58,
+              60.42999999999999
+            ],
+            "high": [
+              17.34,
+              0.75,
+              60.589999999999996
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "796c35815a286732d25fecf73790fd2ed3a187c8b835461880dab85a3b305baf",
+  "source_bindings": {
+    "art/data/photo_cameras/source_plan.json": "8ac065cc9911f413126c2254cbb7cdba6889530d30bdef3ac4b99d8a6fa369d5",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_cameras.py": "f8c8e7c019b4ef09b2b2db6e03491008054b77f5269f79382b96392656415ea0",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_cameras.glb.import": "6431db2934540852fb2d517e8eb5924103701bd061d8cb802c55a5c40805e2c4",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
+    "art/textures/ai_materials/plywood_b/material.json": "f6f8a51ee4d71783b341a7f0656f1609a480343e830b159294b347cb00a3c7ca",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_ai_materials_plywood_b_albedo.png": "36882fc86ea733afa983931e35117300f415e824b9e0dcea8551fa6aa7067cd6",
+    "game/assets/building/textures/T_ai_materials_plywood_b_rough.png": "12becd9c689d93afdddc1975366fc5ad51df774c0dfe8b2a0d6587642cc9b499",
+    "game/assets/building/textures/T_ai_materials_plywood_b_normal.png": "6f1fe61fcadf8edd594c5fd42bf110a4411d50dcf8cdd94acbb656288bd90216",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "art/blender/scripts/inspect_photo_cameras.py": "ca39a5fd0d7667362c390cd0ed6dbbf11c2ab338e7812e8121c0c051ab7f5164"
+  },
+  "open_work": [
+    "The original window stand gains joined floor-bearing feet and a .48m upper deck, seating the three original .48m camera bodies. Its back moves .20m inward and its deck extends to x17.76 to clear the original camera bodies that intersected the old back. The deck raise is .04m; hidden source references retain poses.",
+    "Three passive silhouettes become a bellows folding camera, rigid box camera and second bellows press body, as the source comment specifies. Original centres, source camera base and lens front datums remain. Recessed dark lens faces, small knobs, folded beds and a carry grip are fabrication details, not new controls or inventory.",
+    "Original storefront glazing and locks retain their own authority; no additional glass-case locking, photography operation, darkroom access, service continuity or capacity is asserted."
+  ]
+}

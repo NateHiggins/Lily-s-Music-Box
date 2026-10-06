@@ -579,3 +579,14 @@ game/scripts/building/orison_v2_hardware_tools.gd -text
 game/tests/orison_v2_hardware_tools_test.gd -text
 game/assets/props/hardware_tools.glb.import -text
 art/renders/orison_v2/hardware_tools_20261005/** -text
+
+art/data/photo_cameras/** -text
+art/blender/scripts/build_photo_cameras.py -text
+art/blender/scripts/inspect_photo_cameras.py -text
+art/blender/photo_cameras_construction.json -text
+game/data/orison_v2/photo_cameras.json -text
+game/tests/fixtures/orison_photo_cameras.json -text
+game/scripts/building/orison_v2_photo_cameras.gd -text
+game/tests/orison_v2_photo_cameras_test.gd -text
+game/assets/props/photo_cameras.glb.import -text
+art/renders/orison_v2/photo_cameras_20261005/** -text
