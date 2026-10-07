@@ -1,0 +1,275 @@
+{
+  "evidence_class": "INERT",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_laundry_fittings.py",
+      "source_sha256": "7e758290599cafab787a5f08373385a351b0e8b2f29f2263787955f99ccdf398",
+      "instrumented_sha256": "ffab8811aaec98443d4aa7a4a61b2f1a435cfddfc36bca55785ccdd600f9894f",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings",
+      "rendered_views": [
+        "storm_shop_model_laundry_parcel0_0_front.png",
+        "storm_shop_model_laundry_parcel0_0_rear.png",
+        "storm_shop_model_laundry_parcel4_7_front.png",
+        "storm_shop_model_laundry_parcel4_7_rear.png",
+        "storm_shop_model_laundry_iron_table_front.png",
+        "storm_shop_model_laundry_iron_table_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_model_laundry_shirt0_front.png",
+        "storm_shop_model_laundry_shirt0_rear.png",
+        "storm_shop_model_laundry_shirt8_front.png",
+        "storm_shop_model_laundry_shirt8_rear.png",
+        "storm_shop_model_laundry_rail_front.png",
+        "storm_shop_model_laundry_rail_rear.png",
+        "receiver_table_front.png",
+        "receiver_table_supports.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 12.186
+    },
+    {
+      "script": "art/blender/scripts/inspect_hardware_stock.py",
+      "source_sha256": "7603669557a0007bcaad89cdbaa0895334782d05890411b601697a0abcc06d00",
+      "instrumented_sha256": "8d4b90cbce0711da8ece6eef7129b5829e1a2f82907211ba9a581647da9817ee",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/hardware_stock",
+      "rendered_views": [
+        "storm_shop_hardware_paint_bin_e0_front.png",
+        "storm_shop_hardware_paint_bin_e0_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_hardware_paint_bin_w0_front.png",
+        "storm_shop_hardware_paint_bin_w0_rear.png",
+        "storm_shop_hardware_paint_counter_front.png",
+        "storm_shop_hardware_paint_counter_rear.png",
+        "storm_shop_hardware_paint_window_plinth_front.png",
+        "storm_shop_hardware_paint_window_plinth_rear.png",
+        "storm_shop_hardware_paint_stock_w0_front.png",
+        "storm_shop_hardware_paint_stock_w0_rear.png",
+        "storm_shop_hardware_paint_stock_w1_front.png",
+        "storm_shop_hardware_paint_stock_w1_rear.png",
+        "storm_shop_hardware_paint_stock_w2_front.png",
+        "storm_shop_hardware_paint_stock_w2_rear.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 4.808
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_fittings.py",
+      "source_sha256": "c6771ea73e1120eb33b468973a006fadc2ff981490763c47c46d02a5402563a2",
+      "instrumented_sha256": "290356375bd6f091026fde76cf6ce6b74f7d0a88feb653c22dba864d30572723",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/news_fittings",
+      "rendered_views": [
+        "storm_shop_news_cigars_counter_front.png",
+        "storm_shop_news_cigars_counter_rear.png",
+        "storm_shop_news_cigars_stool_front.png",
+        "storm_shop_news_cigars_stool_rear.png",
+        "storm_shop_news_cigars_chair_hollow_front.png",
+        "storm_shop_news_cigars_chair_hollow_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_news_cigars_rack0_front.png",
+        "storm_shop_news_cigars_rack0_rear.png",
+        "storm_shop_news_cigars_service_hatch_front.png",
+        "storm_shop_news_cigars_service_hatch_rear.png",
+        "storm_shop_news_cigars_cigars_front.png",
+        "storm_shop_news_cigars_cigars_rear.png",
+        "storm_shop_news_cigars_shelf0_front.png",
+        "storm_shop_news_cigars_shelf0_rear.png",
+        "storm_shop_news_cigars_candy_jar0_front.png",
+        "storm_shop_news_cigars_candy_jar0_rear.png",
+        "storm_shop_news_cigars_candy_jar1_front.png",
+        "storm_shop_news_cigars_candy_jar1_rear.png",
+        "storm_shop_news_cigars_candy_jar2_front.png",
+        "storm_shop_news_cigars_candy_jar2_rear.png",
+        "storm_shop_news_cigars_candy_jar3_front.png",
+        "storm_shop_news_cigars_candy_jar3_rear.png",
+        "storm_shop_news_cigars_pipe_rack_front.png",
+        "storm_shop_news_cigars_pipe_rack_rear.png",
+        "storm_shop_news_cigars_punchboard_front.png",
+        "storm_shop_news_cigars_punchboard_rear.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 10.619
+    },
+    {
+      "script": "art/blender/scripts/inspect_locksmith_fittings.py",
+      "source_sha256": "1a592097c88e32e2cfe91a73f5780062096a9f587ab5f958a4c4c2eef7cdd5df",
+      "instrumented_sha256": "b14451d2349e3bc487bbd1f75d61472b879a41693dcae0de7c1787713da91813",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/locksmith_fittings",
+      "rendered_views": [
+        "storm_shop_keys_cut_safe_front.png",
+        "storm_shop_keys_cut_safe_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_keys_cut_board_front.png",
+        "storm_shop_keys_cut_board_rear.png",
+        "storm_shop_keys_cut_cutter_bench_front.png",
+        "storm_shop_keys_cut_cutter_bench_rear.png",
+        "storm_shop_keys_cut_cutter_front.png",
+        "storm_shop_keys_cut_cutter_rear.png",
+        "storm_shop_keys_cut_counter_front.png",
+        "storm_shop_keys_cut_counter_rear.png",
+        "storm_shop_keys_cut_lock_cloth_front.png",
+        "storm_shop_keys_cut_lock_cloth_rear.png",
+        "storm_shop_keys_cut_padlock_rail_front.png",
+        "storm_shop_keys_cut_padlock_rail_rear.png",
+        "storm_shop_keys_cut_step_rail0_front.png",
+        "storm_shop_keys_cut_step_rail0_rear.png",
+        "storm_shop_keys_cut_window_plinth_front.png",
+        "storm_shop_keys_cut_window_plinth_rear.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 5.383
+    },
+    {
+      "script": "art/blender/scripts/inspect_druggist_cupboard.py",
+      "source_sha256": "f0f5b51777849b55eca42a9c110623fc37a4346bfbfcc671129076dfd374006c",
+      "instrumented_sha256": "d22d8601c560de0c12b5c57a225276990052029f8447a373e0d270d182d20cfd",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/druggist_cupboard",
+      "rendered_views": [
+        "storm_shop_otis___son_poison_cupboard_front.png",
+        "storm_shop_otis___son_poison_cupboard_rear.png"
+      ],
+      "skipped_views": [
+        "composed_front.png",
+        "composed_rear.png",
+        "storm_shop_otis___son_poison0_front.png",
+        "storm_shop_otis___son_poison0_rear.png",
+        "storm_shop_otis___son_poison1_front.png",
+        "storm_shop_otis___son_poison1_rear.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 3.692
+    },
+    {
+      "script": "art/blender/scripts/inspect_cobbler_fittings.py",
+      "source_sha256": "f4905cf3fa64b0eb7217890eedb95809369fdf7d8d098038e590ee8d41ed4921",
+      "instrumented_sha256": "f4744380cedc7b5bea1b365564310fee61541e0e912c6b946eae69369e30a8e4",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/cobbler_fittings",
+      "rendered_views": [
+        "storm_shop_shoe_rebuilding_dust_felt_front.png",
+        "storm_shop_shoe_rebuilding_dust_felt_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_shoe_rebuilding_window_plinth_front.png",
+        "storm_shop_shoe_rebuilding_window_plinth_rear.png",
+        "storm_shop_shoe_rebuilding_bench_front.png",
+        "storm_shop_shoe_rebuilding_bench_rear.png",
+        "storm_shop_shoe_rebuilding_finisher_front.png",
+        "storm_shop_shoe_rebuilding_finisher_rear.png",
+        "storm_shop_shoe_rebuilding_rack0_front.png",
+        "storm_shop_shoe_rebuilding_rack0_rear.png",
+        "storm_shop_shoe_rebuilding_counter_front.png",
+        "storm_shop_shoe_rebuilding_counter_rear.png",
+        "storm_shop_shoe_rebuilding_outsole_stand_front.png",
+        "storm_shop_shoe_rebuilding_outsole_stand_rear.png",
+        "storm_shop_shoe_rebuilding_patcher_treadle_front.png",
+        "storm_shop_shoe_rebuilding_patcher_treadle_rear.png",
+        "storm_shop_shoe_rebuilding_last_rack_front.png",
+        "storm_shop_shoe_rebuilding_last_rack_rear.png",
+        "storm_shop_shoe_rebuilding_sole_stack_front.png",
+        "storm_shop_shoe_rebuilding_sole_stack_rear.png",
+        "storm_shop_shoe_rebuilding_waiting_seat_front.png",
+        "storm_shop_shoe_rebuilding_waiting_seat_rear.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 4.212
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "1b9cfd5cfb0e7624931c5bd8c4b07211ad1ba7c8e1e24938be81f128d34d1b8f",
+      "instrumented_sha256": "c805355a9485ff02e94bb38706aa04d4240ea510fcecfcb0cb2da33f1ae6a3b4",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/shop_joinery",
+      "rendered_views": [
+        "shop_hardware_paint_door.png",
+        "shop_hardware_paint_context.png",
+        "shop_keys_cut_door.png",
+        "shop_keys_cut_context.png",
+        "shop_model_laundry_door.png",
+        "shop_model_laundry_context.png",
+        "shop_news_cigars_door.png",
+        "shop_news_cigars_context.png",
+        "shop_otis_son_door.png",
+        "shop_otis_son_context.png",
+        "shop_radio_service_door.png",
+        "shop_radio_service_context.png",
+        "shop_shoe_rebuilding_door.png",
+        "shop_shoe_rebuilding_context.png"
+      ],
+      "skipped_views": [
+        "shop_funeral_parlour_door.png",
+        "shop_funeral_parlour_context.png",
+        "shop_funeral_parlour_window_back.png",
+        "shop_funeral_parlour_empty_window.png",
+        "shop_luncheonette_door.png",
+        "shop_luncheonette_context.png",
+        "shop_pawnbroker_door.png",
+        "shop_pawnbroker_context.png",
+        "shop_photo_supplies_door.png",
+        "shop_photo_supplies_context.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 101.359
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "source_sha256": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48",
+      "instrumented_sha256": "b65894372ac3b89efbd50562b06446ae6fe0dbdbf68fe373dcf2178ecd91fb9d",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/laundry_trade",
+      "rendered_views": [
+        "parcel_wall.png"
+      ],
+      "skipped_views": [
+        "room.png",
+        "rack.png",
+        "ticket_rail.png",
+        "counter.png",
+        "window.png",
+        "bench.png",
+        "ledger_pencil.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 11.035
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_receiving.py",
+      "source_sha256": "d51894b096c69c7dfa5d452391aa0e3a664e9be7a23bc23278810eb7f8baf181",
+      "instrumented_sha256": "c817b4422028bae0d8b188fc42deec5a7e991d07124d08f30ffe2ca33be4152e",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-final-native/news_receiving",
+      "rendered_views": [
+        "chassis_front.png"
+      ],
+      "skipped_views": [
+        "chassis_side.png",
+        "chassis_rear.png",
+        "scope_aperture.png",
+        "floor_feet.png",
+        "braided_flex.png",
+        "closed_service_hatch.png",
+        "service_stock_open.png",
+        "base_wet_cells.png",
+        "inside_lid_schematic.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 4.847
+    }
+  ]
+}

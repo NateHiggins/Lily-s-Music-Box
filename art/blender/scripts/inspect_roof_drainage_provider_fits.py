@@ -12,7 +12,7 @@ providers={};bindings={}
 for owner,kind in [('Ground','orison_ground'),('FrontPavement','front_pavement'),('ServiceAlley','alley_groundworks')]:
  native=R/'art/blender'/(kind+'.blend');meta=R/'art/blender'/(kind+'_construction.json');report=json.loads(meta.read_bytes());names=[q.get('id',q.get('name')) for q in report['parts']]
  with bpy.data.libraries.load(str(native),link=False) as (available,target):target.objects=[n for n in names if n in available.objects]
- for obj in target.objects:bpy.context.scene.collection.objects.link(obj)
+ for obj in target.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update()
  bpy.context.view_layer.update();trees=[]
  for obj in target.objects:
   points=[obj.matrix_world@v.co for v in obj.data.vertices];obj.data.calc_loop_triangles();triangles=[tuple(p.vertices) for p in obj.data.loop_triangles]

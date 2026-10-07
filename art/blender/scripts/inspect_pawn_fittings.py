@@ -60,7 +60,7 @@ for family in ['pawn_clocks','pawn_display']:
  fixture=json.loads((r/f'game/tests/fixtures/orison_{family}.json').read_text(encoding='utf-8'));retirement_rows+=fixture['original_records']
  with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
  for obj in dst.objects:
-  bpy.context.scene.collection.objects.link(obj);obj.hide_render=False;accepted.append(obj)
+  bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();obj.hide_render=False;accepted.append(obj)
 counts={row['id']:0 for row in retirement_rows}
 for old in context:
  bm=bmesh.new();bm.from_mesh(old.data);remove=[]

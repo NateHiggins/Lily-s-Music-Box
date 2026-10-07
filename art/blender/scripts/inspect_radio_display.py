@@ -121,7 +121,7 @@ for stem in ['radio_bench','radio_apparatus','radio_stock','radio_battery','radi
  fixture=json.loads((r/f'game/tests/fixtures/orison_{stem}.json').read_text(encoding='utf-8'));retirement_rows.extend(fixture['original_records'])
  with bpy.data.libraries.load(str(r/f'art/blender/{stem}.blend'),link=False) as (library,loaded):loaded.objects=[name for name in library.objects if '__' in name]
  for obj in loaded.objects:
-  bpy.context.scene.collection.objects.link(obj);assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
+  bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
 accepted_retired={row['id']:0 for row in retirement_rows}
 for old in context:
  bm=bmesh.new();bm.from_mesh(old.data);remove=[]

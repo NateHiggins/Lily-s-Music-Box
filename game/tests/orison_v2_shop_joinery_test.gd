@@ -130,7 +130,7 @@ func _check_joinery_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 			var middle: float=(float(r[0])+float(r[2]))*.5
 			var panel_x: float=(float(r[0])+.107+middle-.020)*.5
 			var knob: Dictionary=fixture.original_records.filter(func(row):return row.id==str(assembly.id).trim_suffix("_door")+"_knob")[0]
-			var knob_z: float=float(knob.z0)+float(knob.h)*.5
+			var knob_z: float=float(knob.z0)+float(knob.h)*.5+float(assembly.get("knob_height_offset_m",0.))
 			var panel_height: float=(knob_z+.0325+float(source.z0)+float(source.h)-.11)*.5
 			var panel_at:=Vector3(panel_x,panel_height,-face)
 			var rail_at:=Vector3(panel_x,knob_z,-face)

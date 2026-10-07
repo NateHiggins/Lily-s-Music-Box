@@ -43,7 +43,7 @@ body=next(q for q in json.loads((R/'game/data/orison_v2_blockout.json').read_byt
 leg_contacts=[];seal_contacts=[];rivet_clearances=[]
 source_objects={obj.name:obj for obj in target.objects}
 for obj in target.objects:
- bpy.context.scene.collection.objects.link(obj);obj.location+=origin
+ bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();obj.location+=origin
 bpy.context.view_layer.update()
 for row in report['tank_boots']:
  obj=source_objects[row['source_stock']]
@@ -77,13 +77,13 @@ for row in report['fan_curbs']:
  with bpy.data.libraries.load(str(R/'art/blender/roof_ventilator.blend'),link=False) as (available,target):target.objects=[n for n in available.objects if not n.startswith(('Rotor','GravitySlat'))]
  for obj in target.objects:
   if obj is None:continue
-  fan_context.objects.link(obj);p=b(row['center'])+Vector((0,0,row['machine_offset_y']));obj.location=p+obj.location;obj.rotation_euler.z=-row['yaw']
+  fan_context.objects.link(obj);bpy.context.view_layer.update();p=b(row['center'])+Vector((0,0,row['machine_offset_y']));obj.location=p+obj.location;obj.rotation_euler.z=-row['yaw']
 with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_falls.blend'),link=False) as (available,target):target.objects=[n for n in available.objects if '__Field_' in n]
-for obj in target.objects:bpy.context.scene.collection.objects.link(obj)
+for obj in target.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update()
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1440;scene.render.resolution_y=1080;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
-sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
-cam_data=bpy.data.cameras.new('DiagnosticCamera');cam=bpy.data.objects.new('DiagnosticCamera',cam_data);scene.collection.objects.link(cam);scene.camera=cam;cam_data.lens=42;cam_data.clip_start=.01
+sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+cam_data=bpy.data.cameras.new('DiagnosticCamera');cam=bpy.data.objects.new('DiagnosticCamera',cam_data);scene.collection.objects.link(cam);bpy.context.view_layer.update();scene.camera=cam;cam_data.lens=42;cam_data.clip_start=.01
 views=[]
 for row in report['fan_curbs']:
  x,y,z=row['center'];views.append((row['id'],[x+1,20.2,z-.9],[x,row['weather_terminal_y']-.05,z]))

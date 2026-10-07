@@ -4413,25 +4413,25 @@
       "name": "storm_shop_keys_cut_safe_Bottom",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.012727230958814586
+      "volume_m3": 0.011090037522364371
     },
     {
       "name": "storm_shop_keys_cut_safe_Side6.35",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.015538695644500692
+      "volume_m3": 0.013539673876796658
     },
     {
       "name": "storm_shop_keys_cut_safe_Side7.028",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.015538695644500692
+      "volume_m3": 0.013539673876796658
     },
     {
-      "name": "storm_shop_keys_cut_safe_End-53.82",
+      "name": "storm_shop_keys_cut_safe_End-53.73",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.014560741443606163
+      "volume_m3": 0.014560741443606164
     },
     {
       "name": "storm_shop_keys_cut_safe_End-53.142",
@@ -4443,19 +4443,19 @@
       "name": "storm_shop_keys_cut_safe_SafeRoof",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.010729227114514262
+      "volume_m3": 0.009346459634078085
     },
     {
       "name": "storm_shop_keys_cut_safe_RecessedDoor",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.013902495329720068
+      "volume_m3": 0.011897692285815829
     },
     {
-      "name": "storm_shop_keys_cut_safe_DoorFrame-53.788000000000004",
+      "name": "storm_shop_keys_cut_safe_DoorFrame-53.698",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.0012398864262502267
+      "volume_m3": 0.001240058823884733
     },
     {
       "name": "storm_shop_keys_cut_safe_DoorFrame-53.152",
@@ -4467,13 +4467,13 @@
       "name": "storm_shop_keys_cut_safe_DoorCross0.096",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.0006801420706110556
+      "volume_m3": 0.0005866328441101306
     },
     {
       "name": "storm_shop_keys_cut_safe_DoorCross1.0750000000000002",
       "assembly": "storm_shop_keys_cut_safe",
       "key": "cast_iron",
-      "volume_m3": 0.0006801420706110556
+      "volume_m3": 0.0005866328441101307
     },
     {
       "name": "storm_shop_keys_cut_safe_DialRim",
@@ -5641,7 +5641,7 @@
       "point": [
         6.38,
         0.01,
-        53.79
+        53.699999999999996
       ],
       "direction": [
         0,
@@ -5656,7 +5656,7 @@
       "point": [
         7.02,
         0.01,
-        53.79
+        53.699999999999996
       ],
       "direction": [
         0,
@@ -8348,11 +8348,11 @@
       }
     ]
   },
-  "asset_sha256": "3821de0263afdb8aa231f82374b629b193206d60533beab30c7d6c5898cefb45",
+  "asset_sha256": "ac37de64795969094124a36a5a86cb364faf6660e998c097bb09972c9a3d1d1f",
   "source_bindings": {
-    "art/data/locksmith_fittings/source_plan.json": "1b4ee660fb7acbac78290f9b873818e7fa117d34c81d6519cd977f7fb50f7ad0",
+    "art/data/locksmith_fittings/source_plan.json": "fa700ca2d92385d026a3aed195971a80e0f5c71fa38a9756136b08c61d30d701",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_locksmith_fittings.py": "67422188380f9a9b1f4dd9e19236302973e80d14d028123e464a0e04789bd4ea",
+    "art/blender/scripts/build_locksmith_fittings.py": "0b6ff3ecac3eb7c126d1ca84b76102d8b42cd75c2cb4aae53c356fd630bc6039",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -8417,5 +8417,5 @@
     "game/assets/building/floor_01_cells/shop_keys_cut.bin": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f",
     "art/blender/scripts/inspect_locksmith_fittings.py": "1a592097c88e32e2cfe91a73f5780062096a9f587ab5f958a4c4c2eef7cdd5df"
   },
-  "open_work": "Live machinery motion, electrical supply and utility capacity are not established by native visual fittings. Original rear-store shelving/crates, facade and architecture retain their source; rear stock and shop-family apparatus beyond Keys Cut remain in the geometry queue. Resident key permission, copies, locks, saves and opening hours retain existing production owners."
+  "open_work": "Live machinery motion, electrical supply and utility capacity are not established by native visual fittings. Original rear-store shelving/crates, facade and architecture retain their source; rear stock and shop-family apparatus beyond Keys Cut remain in the geometry queue. Resident key permission, copies, locks, saves and opening hours retain existing production owners.\nThe safe case is shortened 90mm at its back-door end (+Y at its minimum Y). The existing front plane, dial, handle centres and upper datum remain; floor feet follow the fitted case. No safe interaction or ownership is added."
 }

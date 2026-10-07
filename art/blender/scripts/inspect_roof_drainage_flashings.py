@@ -11,7 +11,7 @@ context=bpy.data.collections.new('ReadOnlyFieldAndPorts');bpy.context.scene.coll
 for path,selector in [(R/'art/blender/roof_drainage_falls.blend',lambda n:'__Membrane' in n or '__Field_' in n),(R/'art/blender/roof_drainage_ports.blend',lambda n:True)]:
  with bpy.data.libraries.load(str(path),link=False) as (available,chosen):chosen.objects=[n for n in available.objects if selector(n)]
  for obj in chosen.objects:
-  if obj is not None:context.objects.link(obj)
+  if obj is not None:context.objects.link(obj);bpy.context.view_layer.update()
 membranes=[o for o in context.objects if o.type=='MESH' and o.name.endswith('__Membrane')]
 # Query only upward backing faces with exact BVH intersections. Blender's BVH
 # epsilon displaced hits near thin triangles. Record a 2 micron seam probe
@@ -50,8 +50,8 @@ for port in ports:
    air.append({'id':port['id'],'offset':[lateral,height],'length':port['channel_length']+.03})
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1280;scene.render.resolution_y=960;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
-sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
-camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);scene.camera=camera;camera_data.lens=35;camera_data.clip_start=.01
+sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=35;camera_data.clip_start=.01
 renders=[]
 for name,at,target in [('west_outlet',(-14.8,-.05,19.95),(-15.525,-.5,19.28)),('north_outlet',(10.5,-10.8,19.95),(11,-11.525,19.28)),('public_corner',(-3.1,-4.7,19.95),(-2.27,-3.92,19.5))]:
  camera.location=at;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True);renders.append(name+'.png')

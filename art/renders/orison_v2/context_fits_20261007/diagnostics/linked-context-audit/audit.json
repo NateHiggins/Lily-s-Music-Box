@@ -1,0 +1,261 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Instrumented geometry-only triage; no new renders, source edits, exports, runtime proof or acceptance.",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_diner_apparatus.py",
+      "source_sha256": "360636bdc4587ff54883f60a7ceefb6ff492624c475755c79b9661e6c96fc938",
+      "instrumented_sha256": "01c50aec4cea03d94b4e1827081cf58760c42d2ca1551b7cb79c207406cee2b0",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_apparatus",
+      "status": "PASS",
+      "elapsed_s": 4.76
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_backbar.py",
+      "source_sha256": "6cafcba3df3c1c4f8c770ee76d2bd4715c6bc931520730eb7c0f251003d0f425",
+      "instrumented_sha256": "59513ce42807f57dbb5a5a1aebe7aa1636e2c1608f973f7c98db5fa22f88cb01",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_backbar",
+      "status": "PASS",
+      "elapsed_s": 1.192
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_counter.py",
+      "source_sha256": "57f56815dffcc58161ca78a406285bdf10a260e1faf26b715b5231096bcf1a5d",
+      "instrumented_sha256": "f8a8208473d73c0e174869653939a89e0e0190671a9fbfa29b59b4bc0108e42c",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_counter",
+      "status": "PASS",
+      "elapsed_s": 1.167
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_overhead.py",
+      "source_sha256": "fcb8ff134c367def8a1b3d619873f978367bf003ce1cfaccd1a829c2bc3c64a9",
+      "instrumented_sha256": "d0c5e98301d146cde21224ce0a2445fc37358c4991b856339698d4ece1e933d4",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_overhead",
+      "status": "PASS",
+      "elapsed_s": 1.439
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_receiving.py",
+      "source_sha256": "2a5687727520dbaa59f4c721080ea8630e2a184a9bc430779cce7bc951c4183b",
+      "instrumented_sha256": "bfaa8950c732edacc9a286e06a8ede6768804a7c0f3895c760c9131c29e39050",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_receiving",
+      "status": "PASS",
+      "elapsed_s": 4.013
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_till.py",
+      "source_sha256": "a0bb275af191b149878f8fb010fe4f08bb5e8f60246a0ec023bc19f85afbfdbe",
+      "instrumented_sha256": "7de7639307fb38536eae9bd020ee2255fc40416a869e8ec51d837e5948f7de1f",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_till",
+      "status": "PASS",
+      "elapsed_s": 2.19
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_urns.py",
+      "source_sha256": "303d07eb6f070d4f73361daf0bee1d3f8b80b64b68a2296911f6209439ed08b6",
+      "instrumented_sha256": "1d208e9273ba1b7ca7b5aec7fbc608c80def758f093bf9f5d77f7f7a66a5fc96",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/diner_urns",
+      "status": "PASS",
+      "elapsed_s": 2.356
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_receiving.py",
+      "source_sha256": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+      "instrumented_sha256": "7b58b3c459793cce4edcc1c2c1de1d2900fe41c9e304861f8ae340126a3d9a18",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/laundry_receiving",
+      "status": "PASS",
+      "elapsed_s": 6.97
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "source_sha256": "666e649a73b93b27077b0acc210e2992c55447c4404efbd17c7bfb1a5e11ebdd",
+      "instrumented_sha256": "d69ffc240e88b56eef890d472b6c576a028cd1be8e1ddc48da09f19d4e20a091",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/laundry_trade",
+      "status": "FAIL",
+      "error": "[['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen']]",
+      "elapsed_s": 2.291
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_receiving.py",
+      "source_sha256": "c35c1e6e9d0a7be1a9d333b672e2f0f1f3304702dd6cfc2121350b9ff1b74f9f",
+      "instrumented_sha256": "a02261fe034eb7290e67e407d0f78985111509674ad42fc22b6b5d90cfee23d2",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/news_receiving",
+      "status": "FAIL",
+      "error": "('intersection with accepted native fitting', 'storm_shopcab_news_cigars0__bakelite', 'storm_shop_news_cigars_stool__wood_dark')",
+      "elapsed_s": 1.169
+    },
+    {
+      "script": "art/blender/scripts/inspect_orison_ground.py",
+      "status": "UNSUPPORTED",
+      "error": "No explicit top-level out assignment; review this inspector separately"
+    },
+    {
+      "script": "art/blender/scripts/inspect_pawn_fittings.py",
+      "source_sha256": "4ccfe6530855ee8a96917f2530449ee62087a1bdb1081d161000484115c6692b",
+      "instrumented_sha256": "f48721f21dce1a728573d334ee2489935290258a2d1ee6f5d578b0ed90eac69d",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/pawn_fittings",
+      "status": "PASS",
+      "elapsed_s": 2.75
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_receiving.py",
+      "source_sha256": "70a41856cf7a7fbdba112e208fa414d1de14a17d5ee487319031a253eb4a5c74",
+      "instrumented_sha256": "e2d13b38d6d71556e9e48df89ef5b0a10fa12ee45df79b3397f87c8185f16bd3",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/photo_receiving",
+      "status": "PASS",
+      "elapsed_s": 5.585
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_display.py",
+      "source_sha256": "fbaa52c0c3698fc61ee6fe004c5163bbcec024d9b22df9abadcd9c761b2b9b71",
+      "instrumented_sha256": "4568a2052dd5405b44cb0f323ad4ca464b9f3878107bc9f567f43b37ffe19397",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/radio_display",
+      "status": "PASS",
+      "elapsed_s": 1.935
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_receiving.py",
+      "source_sha256": "7e3ee24609f3c50819c0db2b570f4f21e4c67eb8f7e1f82d2de02fef3085ce17",
+      "instrumented_sha256": "701a90ffa958d3a34d9e6fa93fe274922b16099c429ffe3ec7662f2c87209574",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/radio_receiving",
+      "status": "PASS",
+      "elapsed_s": 4.622
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_wire.py",
+      "source_sha256": "f7d0ca01a918536b9c2b1a4615792ed852d8c547c3d125fafedf529e5b1fb148",
+      "instrumented_sha256": "41dea0e10444a77fe11bda483a50a0ab3c5c8d411f150af6bdc032fab93f0cde",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/radio_wire",
+      "status": "PASS",
+      "elapsed_s": 2.264
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py",
+      "status": "UNSUPPORTED",
+      "error": "No explicit top-level out assignment; review this inspector separately"
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_door_weather.py",
+      "source_sha256": "9be4900cec95cb5cdf5fd37085bd1acd3c3852f7aa38d4d367fdb76a96935651",
+      "instrumented_sha256": "b07b306e55e90fef586666ca53bb91e2f89c10f2636edde9d9c61c7126207f33",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_door_weather",
+      "status": "PASS",
+      "elapsed_s": 0.519
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_flashings.py",
+      "source_sha256": "510a9db7fc3c678da4eead4f5f7c9de18d20eef4bf189ab7144992198c3e8bee",
+      "instrumented_sha256": "d61c8a3aa95d0b1e0269078cb4a806918b5d660f178c7e08b7e322cff477649d",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_flashings",
+      "status": "PASS",
+      "elapsed_s": 1.231
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_leaders.py",
+      "source_sha256": "a1a368a1ebd70d3c9c5c49ddefffe5473d42c41031db88ff1a22ffb714823236",
+      "instrumented_sha256": "20555146fa9ee95dc8dd45dcc83a71bf8a49a90f3d7c9d152c7b104bf943b7e2",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_leaders",
+      "status": "PASS",
+      "elapsed_s": 0.568
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_plant_weather.py",
+      "source_sha256": "9bc4308804d5ba2a7131524450d0f043f73d1c0652ceb3e2b6061c4a4474ecc2",
+      "instrumented_sha256": "0ba4df437a749aaefbb1d9c1c77eb106efb0dd25442717dce441dfbc56568750",
+      "linked_update_sites": 5,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_plant_weather",
+      "status": "PASS",
+      "elapsed_s": 0.967
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_provider_fits.py",
+      "source_sha256": "202bc3b831fe25f927a57d358b4d8967cd286e6c2f6f4bee361c0dc0b0a0aef6",
+      "instrumented_sha256": "de68d2c4145c595e9e809e3ab8be9ac0d33ae58e25fd03e73c510bba8d9dd345",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_provider_fits",
+      "status": "FAIL",
+      "error": "[Errno 13] Permission denied: 'C:\\\\PleaseRemainOnTheLine\\\\tmp\\\\v2-finish-review\\\\linked-context-audit\\\\roof_drainage_provider_fits'",
+      "elapsed_s": 60.888
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_retained_clearance.py",
+      "source_sha256": "066533400495642606ba32e16a0f0602c9490ace4c76412f9b2318899ac6abdd",
+      "instrumented_sha256": "5b78a74bcdeb5392fe6d58d4bb67f49f05108757f0de777a7ecc154ca69e2a5e",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_retained_clearance",
+      "status": "FAIL",
+      "error": "[Errno 13] Permission denied: 'C:\\\\PleaseRemainOnTheLine\\\\tmp\\\\v2-finish-review\\\\linked-context-audit\\\\roof_drainage_retained_clearance'",
+      "elapsed_s": 22.859
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_rolls.py",
+      "source_sha256": "acb19ecf7998b72beb9371266441c940db31f635b589f2a5468c5b7c87a74952",
+      "instrumented_sha256": "c36248f1a41777ba394345ba12dc0be569d0b14b73d0398499619ec5c5bac0de",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/roof_drainage_rolls",
+      "status": "PASS",
+      "elapsed_s": 1.006
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py",
+      "source_sha256": "9d587cb64ad1b32d366829b9428449785e9dead6754a402a0bcfe0ea2447c369",
+      "instrumented_sha256": "cc59ff2c8f9f98f186d6bbfc7246f4623642f9b11352c791d4eb263c34525371",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/shop_clerestories",
+      "status": "PASS",
+      "elapsed_s": 31.148
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "7709c6c1355247c9996f05f9eaf789421aedf1c46a7b61fd3be0225eeb60b77a",
+      "instrumented_sha256": "b9704a238fb679c16a32ede090ec271339cc2acd6eb6c44cb390eb049f293d42",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit/shop_joinery",
+      "status": "FAIL",
+      "error": "('shop_hardware_paint', [['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange']])",
+      "elapsed_s": 8.657
+    }
+  ]
+}

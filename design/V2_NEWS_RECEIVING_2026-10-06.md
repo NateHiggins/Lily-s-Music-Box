@@ -48,3 +48,9 @@ Three other passage receiving chassis remain open. The original stool and narrow
 No owner decision is needed for continued local construction. Earlier exact Cobbler publication approval remains pending after automatic approval review; later commits were not pushed under the Keys Cut approval.
 
 MERGE-CANDIDATE **3bc3e624b5dbb1e3c450762cc992344fe324d8d2**
+
+## Later native-context correction
+
+The linked-mesh transform audit in **V2_CONTEXT_FITS_2026-10-07.md**
+supersedes this report's native-context clearance claim. Its corrected fit and
+new checks are recorded separately; the original run receipts above remain historical.

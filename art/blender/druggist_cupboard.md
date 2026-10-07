@@ -62,3 +62,9 @@ retaining review evidence. Captures and this guide grant no acceptance.
 Poison custody, clinical/dispensing operations, carboys and fountain,
 independent services, engineering capacity, continuous routes and broad
 shop/V2 acceptance retain separate owners and remain open.
+
+## Corrected composed fit, 2026-10-07
+
+The cupboard rear edge is shortened 60mm to clear the closed door knob. Its glazed front, bottles, bottle centres, shelf seats and neighboring dispensary clearance remain fixed.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

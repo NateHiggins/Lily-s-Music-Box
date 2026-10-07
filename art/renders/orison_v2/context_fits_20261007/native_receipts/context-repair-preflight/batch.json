@@ -1,0 +1,137 @@
+{
+  "evidence_class": "INERT",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_laundry_fittings.py",
+      "source_sha256": "7e758290599cafab787a5f08373385a351b0e8b2f29f2263787955f99ccdf398",
+      "instrumented_sha256": "5a7dd2eef815daa4385d6c99c9ac346fca39cd8831dfc2c1ec336fd799098262",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 2,
+      "output": "tmp/v2-finish-review/context-repair-preflight/laundry_fittings",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 1.083
+    },
+    {
+      "script": "art/blender/scripts/inspect_hardware_stock.py",
+      "source_sha256": "7603669557a0007bcaad89cdbaa0895334782d05890411b601697a0abcc06d00",
+      "instrumented_sha256": "ccc6f599a0e7fc7f2394f54c88b3e07715ed518dd776b7c7e2fae76261bc14b9",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/hardware_stock",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 1.15
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_fittings.py",
+      "source_sha256": "c6771ea73e1120eb33b468973a006fadc2ff981490763c47c46d02a5402563a2",
+      "instrumented_sha256": "39ceaa1d084b063605e4a79d3c869526424f8220af6a374a1c9d261701cebf87",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/news_fittings",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 0.559
+    },
+    {
+      "script": "art/blender/scripts/inspect_locksmith_fittings.py",
+      "source_sha256": "1a592097c88e32e2cfe91a73f5780062096a9f587ab5f958a4c4c2eef7cdd5df",
+      "instrumented_sha256": "df052b758d34167cb241487d61cfe3f41abf5e68fa0fbe370e42f2b0d42d1217",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/locksmith_fittings",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 0.976
+    },
+    {
+      "script": "art/blender/scripts/inspect_druggist_cupboard.py",
+      "source_sha256": "f0f5b51777849b55eca42a9c110623fc37a4346bfbfcc671129076dfd374006c",
+      "instrumented_sha256": "d83e0227f0db344babe0b62b6279b038ef70a66886774e573a532243e16f15a4",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/druggist_cupboard",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 0.31
+    },
+    {
+      "script": "art/blender/scripts/inspect_cobbler_fittings.py",
+      "source_sha256": "f4905cf3fa64b0eb7217890eedb95809369fdf7d8d098038e590ee8d41ed4921",
+      "instrumented_sha256": "db61d6cedf051f113f5c139e39423e3d9e52881b80ae876270b49c374af81645",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/cobbler_fittings",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 0.978
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "1b9cfd5cfb0e7624931c5bd8c4b07211ad1ba7c8e1e24938be81f128d34d1b8f",
+      "instrumented_sha256": "4ddc949f50dddd1c04c81b0527d28309bd8d5a7c960988a3b281275ac9e2f472",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/shop_joinery",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 37.401
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py",
+      "source_sha256": "9d587cb64ad1b32d366829b9428449785e9dead6754a402a0bcfe0ea2447c369",
+      "instrumented_sha256": "cc59ff2c8f9f98f186d6bbfc7246f4623642f9b11352c791d4eb263c34525371",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/shop_clerestories",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 30.437
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "source_sha256": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48",
+      "instrumented_sha256": "c3745696135ca447a163db77f9e68e7cdbe4b22e9e65af2a4119aa4f3885eec6",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/laundry_trade",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 2.357
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_receiving.py",
+      "source_sha256": "9beb3dd5ef815f689ae535d82e210964562ca23d10287c39f1784ad936fee18c",
+      "instrumented_sha256": "9de16b456526c2d8a40c28a5396dec93204d336480dd6b8785e666d1f3c32470",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/laundry_receiving",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 6.756
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_receiving.py",
+      "source_sha256": "d51894b096c69c7dfa5d452391aa0e3a664e9be7a23bc23278810eb7f8baf181",
+      "instrumented_sha256": "ede97ac7ce712f63c5735c795a626f2f3ba72ce790efa17627dce6ecc03bc33d",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-preflight/news_receiving",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 2.845
+    }
+  ]
+}

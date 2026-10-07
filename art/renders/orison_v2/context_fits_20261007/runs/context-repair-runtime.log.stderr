@@ -1,0 +1,42 @@
+ERROR: fitted support contact: tool-board spacer on fitted east-case post / storm_shop_hardware_paint_bin_e0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_hardware_tools_test.gd:89)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_shop_joinery_test.gd:104)
+       [5] _joinery_views (res://tests/orison_v2_shop_joinery_test.gd:186)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: fitted support contact: tool-board spacer on fitted east-case post / storm_shop_hardware_paint_bin_e0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_hardware_tools_test.gd:89)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_shop_joinery_test.gd:104)
+       [5] _joinery_views (res://tests/orison_v2_shop_joinery_test.gd:186)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: fitted support contact: tool-board spacer on fitted east-case post / storm_shop_hardware_paint_bin_e0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_hardware_tools_test.gd:89)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_shop_joinery_test.gd:104)
+       [5] _joinery_views (res://tests/orison_v2_shop_joinery_test.gd:186)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: fitted support contact: tool-board spacer on fitted east-case post / storm_shop_hardware_paint_bin_e0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_hardware_tools_test.gd:89)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:85)
+       [4] validate_in_world (res://tests/orison_v2_shop_joinery_test.gd:104)
+       [5] _joinery_views (res://tests/orison_v2_shop_joinery_test.gd:186)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

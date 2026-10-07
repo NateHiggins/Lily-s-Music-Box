@@ -106,7 +106,8 @@
     "Eleven original closed back-of-house doors receive floor-seated frames, six inset panels, hinges, turned knobs and roses. SHOP_INTERIOR_BUILD_GUIDE section II.4 explicitly leaves back rooms unmodelled. No opening, passage, lock or interaction is introduced.",
     "Original door widths, upper datum and knob centres remain. Frames reach 55mm in front of the retained wainscot, 30mm beyond the original flat leaf; the turned knob reaches 102mm in front of that wall, 47mm beyond its source box. No hidden wall intersection is accepted. A threshold fills the original 40mm floor gap.",
     "The funeral parlour original empty window plinth gains six floor feet, inset lower panels and a framed plywood back; its top datum and deliberately empty display remain.",
-    "All non-visual owners and original source records remain. Clerestories, architecture, shop operation, routes and independent services remain separate."
+    "All non-visual owners and original source records remain. Clerestories, architecture, shop operation, routes and independent services remain separate.",
+    "Corrected linked-context checks require the Radio Service knob and its lock rail 50mm higher than the original decorative knob, clearing the retained bench surface. Ten other knob centres remain. The door stays closed and noninteractive; no opening or access is implied."
   ],
   "context_families": [
     "cobbler_fittings",
@@ -161,5 +162,8 @@
   ],
   "cell_aliases": {
     "shop_otis___son": "shop_otis_son"
+  },
+  "knob_height_offsets_m": {
+    "shop_radio_service": 0.05
   }
 }

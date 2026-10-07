@@ -2,6 +2,10 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"cobbler_fittings": preload("res://tests/orison_v2_cobbler_fittings_test.gd"),
+	"druggist_cupboard": preload("res://tests/orison_v2_druggist_cupboard_test.gd"),
+	"locksmith_fittings": preload("res://tests/orison_v2_locksmith_fittings_test.gd"),
+	"news_fittings": preload("res://tests/orison_v2_news_fittings_test.gd"),
 	"shop_clerestories": preload("res://tests/orison_v2_shop_clerestories_test.gd"),
 	"shop_joinery": preload("res://tests/orison_v2_shop_joinery_test.gd"),
 	"diner_counter": preload("res://tests/orison_v2_diner_counter_test.gd"),
@@ -19,6 +23,8 @@ const MODULES := {
 	"pawn_fittings": preload("res://tests/orison_v2_pawn_fittings_test.gd"),
 	"pawn_clocks": preload("res://tests/orison_v2_pawn_clocks_test.gd"),
 	"pawn_display": preload("res://tests/orison_v2_pawn_display_test.gd"),
+	# This module exercises a real purchase after the other geometry validators.
+	"hardware_stock": preload("res://tests/orison_v2_hardware_stock_test.gd"),
 }
 
 func _run() -> void:

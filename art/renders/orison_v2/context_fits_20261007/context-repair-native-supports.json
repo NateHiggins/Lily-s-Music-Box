@@ -1,0 +1,1486 @@
+{
+  "evidence_class": "INERT",
+  "changed_families": [
+    "laundry_fittings",
+    "hardware_stock",
+    "news_fittings",
+    "locksmith_fittings",
+    "druggist_cupboard",
+    "cobbler_fittings",
+    "shop_joinery",
+    "hardware_tools"
+  ],
+  "bindings": {
+    "game/tests/fixtures/orison_laundry_fittings.json": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0",
+    "art/blender/laundry_fittings.blend": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822",
+    "art/data/laundry_fittings/source_plan.json": "e50a1316eab3c55622ebf49c5e2dda110fe63f882fc9f814797bb7149928d3c6",
+    "game/tests/fixtures/orison_hardware_stock.json": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32",
+    "art/blender/hardware_stock.blend": "099a6bd0baa821252336cde3fffc3bed8e9ca0c452e7e3e9a9f0c9b747063d91",
+    "art/data/hardware_stock/source_plan.json": "fa7b7f2d4dbb3e53d769e9f3953e9e199a8c6b6bbf298ddb133fbb895c5a61cb",
+    "game/tests/fixtures/orison_news_fittings.json": "70d70cf87b7e1c0ba8ccdc13cb647cf3896ccde2457f330742df4a63ae5b7cab",
+    "art/blender/news_fittings.blend": "78d2f1f572e744f725df30475ed3d9821a0ed30cbeee21e9e83559c3e074ba85",
+    "art/data/news_fittings/source_plan.json": "9a810a0d1d92984bcb7db6989f04eef950936a845ab798d0b19542f349afb2a3",
+    "game/tests/fixtures/orison_locksmith_fittings.json": "5066e9de18bcef9a3984919d837bedf446d64d955a7c97efe6f69c3ee7f60559",
+    "art/blender/locksmith_fittings.blend": "18bfebe85aaea1e638985d3c0dd64ca1ac87bc98e9591f4548f430ccbbd76ba0",
+    "art/data/locksmith_fittings/source_plan.json": "fa700ca2d92385d026a3aed195971a80e0f5c71fa38a9756136b08c61d30d701",
+    "game/tests/fixtures/orison_druggist_cupboard.json": "4d96856d922a7725b62db6b363b70710ac5ea65154f97e908bfb41fe035d6364",
+    "art/blender/druggist_cupboard.blend": "c68469472e9f67197c331ff5367bcfa8d9c88ffdafb5c260ee7c00316221ce73",
+    "art/data/druggist_cupboard/source_plan.json": "d5523820f2c2255c87cd81ccb92bc59059ca407cecf23b33c963b55b3abaf7d6",
+    "game/tests/fixtures/orison_cobbler_fittings.json": "a0d3f886a80b61e577ef080fb7c02dda80997f3bcc4870bf42030def78c3585a",
+    "art/blender/cobbler_fittings.blend": "baa8af099cade62e63627b1b50d5457ee5cdfc7632758571ec5304e4f18f7ed0",
+    "art/data/cobbler_fittings/source_plan.json": "f779a02a4d5dadda44812d0663db4d8f2c0902e1fc4a46b506b27a7397e013b0",
+    "game/tests/fixtures/orison_shop_joinery.json": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7",
+    "art/blender/shop_joinery.blend": "22e3de65c32fab32d4acb3d428a08a7a5e731c38ca241a5864aff26b8cc3982f",
+    "art/data/shop_joinery/source_plan.json": "c84840edaa06020318b218ba3e222d5a58921ccd74933681fcf44119d5cf16a1",
+    "game/tests/fixtures/orison_hardware_tools.json": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833",
+    "art/blender/hardware_tools.blend": "6925d2bffc41b90b9f2f7d63a83a978c9c4cdc098194553ebacea0b51d101d45",
+    "art/data/hardware_tools/source_plan.json": "6e53e0808ffe799fe2a143c686fa8003efd340a13eb2ddeddc03a910d7a93057",
+    "game/tests/fixtures/orison_shop_clerestories.json": "425b523890be677213cbdeeba491be31b759939bbed90e456105f40f23223a4d"
+  },
+  "checks": [
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_bench",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.67,
+        0.018000000000000002,
+        45.68
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_bench",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        8.53,
+        0.018000000000000002,
+        45.68
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_bench",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.67,
+        0.018000000000000002,
+        45.02
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_bench",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        8.53,
+        0.018000000000000002,
+        45.02
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_finisher",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        6.109999999999999,
+        0.018000000000000002,
+        46.98
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_finisher",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.61,
+        0.018000000000000002,
+        46.98
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_finisher",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        6.109999999999999,
+        0.018000000000000002,
+        45.92
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_finisher",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.61,
+        0.018000000000000002,
+        45.92
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_rack0",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "shoe rack foot",
+      "point": [
+        6.155,
+        0.018000000000000002,
+        49.905
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_rack0",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "shoe rack foot",
+      "point": [
+        8.674999999999999,
+        0.018000000000000002,
+        49.905
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.49,
+        0.018000000000000002,
+        47.59
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.99,
+        0.018000000000000002,
+        47.59
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.49,
+        0.018000000000000002,
+        47.15
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.99,
+        0.018000000000000002,
+        47.15
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.510000000000001,
+        0.018000000000000002,
+        48.45
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.949999999999999,
+        0.018000000000000002,
+        48.45
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.510000000000001,
+        0.018000000000000002,
+        48.02
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        5.949999999999999,
+        0.018000000000000002,
+        48.02
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_last_rack",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        6.88,
+        0.018000000000000002,
+        49.53
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_last_rack",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        9.03,
+        0.018000000000000002,
+        49.53
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_last_rack",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        6.88,
+        0.018000000000000002,
+        49.27
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_last_rack",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        9.03,
+        0.018000000000000002,
+        49.27
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_sole_stack",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "sole-stock base",
+      "point": [
+        6.52,
+        0.018000000000000002,
+        48.09
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        8.82,
+        0.018000000000000002,
+        50.13
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "cobbler_fittings",
+      "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+      "owner": "storm_shop_shoe_rebuilding_dust_felt",
+      "native_owner_family": "cobbler_fittings",
+      "label": "fitted foot",
+      "point": [
+        8.82,
+        0.018000000000000002,
+        49.95
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison0",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        22.575,
+        0.66,
+        45.019999999999996
+      ],
+      "distance_m": 5.960464477539063e-08,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison1",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        22.665,
+        1.04,
+        45.019999999999996
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison2",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        22.755,
+        0.66,
+        45.019999999999996
+      ],
+      "distance_m": 5.960464477539063e-08,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison3",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        22.845000000000002,
+        1.04,
+        45.019999999999996
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison4",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        22.935,
+        0.66,
+        45.019999999999996
+      ],
+      "distance_m": 5.960464477539063e-08,
+      "passed": true
+    },
+    {
+      "consumer_family": "druggist_cupboard",
+      "assembly": "storm_shop_otis___son_poison5",
+      "owner": "storm_shop_otis___son_poison_cupboard",
+      "native_owner_family": "druggist_cupboard",
+      "label": "bottle on actual cupboard shelf at retained seat",
+      "point": [
+        23.025000000000002,
+        1.04,
+        45.019999999999996
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w0",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w1",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w2",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w3",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w4",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w5",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w6",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w7",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w8",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w9",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w10",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w11",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w12",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w13",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w14",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w15",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w16",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w17",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e0",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e1",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e2",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e3",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e4",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e5",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e6",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e7",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e8",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e9",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e10",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e11",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e12",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e13",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e14",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e15",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e16",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e17",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.646,
+        1.82,
+        58.786
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.646,
+        2.2,
+        58.786
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.359999999999999,
+        1.82,
+        58.786
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.359999999999999,
+        2.2,
+        58.786
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_ladder_r0",
+      "owner": "storm_shop_hardware_paint_bin_e5",
+      "native_owner_family": "hardware_stock",
+      "label": "ladder back bears on fitted east-case shelf front",
+      "point": [
+        8.02,
+        2.43,
+        58.78
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_ladder_r0",
+      "owner": "storm_shop_hardware_paint_bin_e5",
+      "native_owner_family": "hardware_stock",
+      "label": "ladder back bears on fitted east-case shelf front",
+      "point": [
+        8.42,
+        2.43,
+        58.78
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_iron_pad",
+      "owner": "storm_shop_model_laundry_iron_table",
+      "native_owner_family": "laundry_fittings",
+      "label": "padded top on timber table",
+      "point": [
+        6.07,
+        0.88,
+        44.125
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_sleeve_board",
+      "owner": "storm_shop_model_laundry_iron_pad",
+      "native_owner_family": "laundry_fittings",
+      "label": "sleeve board tongue enters pad",
+      "point": [
+        5.359999999999999,
+        0.923,
+        43.660000000000004
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt0",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        39.85
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt1",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        40.3875
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt2",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        40.925
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt3",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        41.462500000000006
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt4",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        42.0
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt5",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        42.53750000000001
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt6",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        43.075
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt7",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        43.6125
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "laundry_fittings",
+      "assembly": "storm_shop_model_laundry_shirt8",
+      "owner": "storm_shop_model_laundry_rail",
+      "native_owner_family": "laundry_fittings",
+      "label": "hanger wraps tubular rail",
+      "point": [
+        8.31,
+        2.07,
+        44.150000000000006
+      ],
+      "distance_m": 9.5367431640625e-07,
+      "passed": true
+    },
+    {
+      "consumer_family": "locksmith_fittings",
+      "assembly": "storm_shop_keys_cut_cutter",
+      "owner": "storm_shop_keys_cut_cutter_bench",
+      "native_owner_family": "locksmith_fittings",
+      "label": "cutting machine foot on retained-height bench",
+      "point": [
+        7.1049999999999995,
+        0.95,
+        51.105000000000004
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "locksmith_fittings",
+      "assembly": "storm_shop_keys_cut_cutter",
+      "owner": "storm_shop_keys_cut_cutter_bench",
+      "native_owner_family": "locksmith_fittings",
+      "label": "cutting machine foot on retained-height bench",
+      "point": [
+        7.1049999999999995,
+        0.95,
+        50.655
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "locksmith_fittings",
+      "assembly": "storm_shop_keys_cut_cutter",
+      "owner": "storm_shop_keys_cut_cutter_bench",
+      "native_owner_family": "locksmith_fittings",
+      "label": "cutting machine foot on retained-height bench",
+      "point": [
+        7.6450000000000005,
+        0.95,
+        51.105000000000004
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "locksmith_fittings",
+      "assembly": "storm_shop_keys_cut_cutter",
+      "owner": "storm_shop_keys_cut_cutter_bench",
+      "native_owner_family": "locksmith_fittings",
+      "label": "cutting machine foot on retained-height bench",
+      "point": [
+        7.6450000000000005,
+        0.95,
+        50.655
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_cigars",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "cigar cabinet on transaction top",
+      "point": [
+        19.375,
+        1.15,
+        49.16
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_candy_jar0",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "candy jar on transaction top",
+      "point": [
+        17.96,
+        1.15,
+        49.30999999999999
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_candy_jar1",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "candy jar on transaction top",
+      "point": [
+        17.96,
+        1.15,
+        49.05999999999999
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_candy_jar2",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "candy jar on transaction top",
+      "point": [
+        18.299999999999997,
+        1.15,
+        49.30999999999999
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_candy_jar3",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "candy jar on transaction top",
+      "point": [
+        18.299999999999997,
+        1.15,
+        49.05999999999999
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_punchboard",
+      "owner": "storm_shop_news_cigars_counter_top",
+      "native_owner_family": "news_fittings",
+      "label": "punchboard on transaction top",
+      "point": [
+        18.665,
+        1.15,
+        49.16
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_stool",
+      "owner": "storm_shop_news_cigars_chair_hollow",
+      "native_owner_family": "news_fittings",
+      "label": "stool foot on original wear-cover datum",
+      "point": [
+        19.08,
+        0.019,
+        49.989999999999995
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_stool",
+      "owner": "storm_shop_news_cigars_chair_hollow",
+      "native_owner_family": "news_fittings",
+      "label": "stool foot on original wear-cover datum",
+      "point": [
+        19.08,
+        0.019,
+        49.709999999999994
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_stool",
+      "owner": "storm_shop_news_cigars_chair_hollow",
+      "native_owner_family": "news_fittings",
+      "label": "stool foot on original wear-cover datum",
+      "point": [
+        19.36,
+        0.019,
+        49.989999999999995
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "news_fittings",
+      "assembly": "storm_shop_news_cigars_stool",
+      "owner": "storm_shop_news_cigars_chair_hollow",
+      "native_owner_family": "news_fittings",
+      "label": "stool foot on original wear-cover datum",
+      "point": [
+        19.36,
+        0.019,
+        49.709999999999994
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "shop_clerestories",
+      "assembly": "storm_shop_keys_cut_borrowed_sill",
+      "owner": "storm_shop_keys_cut_board",
+      "native_owner_family": "locksmith_fittings",
+      "label": "reciprocal accepted bearing: key board wall spacer",
+      "point": [
+        6.06,
+        1.4,
+        53.400000000000006
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "shop_clerestories",
+      "assembly": "storm_shop_keys_cut_borrowed_sill",
+      "owner": "storm_shop_keys_cut_board",
+      "native_owner_family": "locksmith_fittings",
+      "label": "reciprocal accepted bearing: key board wall spacer",
+      "point": [
+        6.06,
+        1.4,
+        51.0
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "shop_clerestories",
+      "assembly": "storm_shop_keys_cut_borrowed_sill",
+      "owner": "storm_shop_keys_cut_board",
+      "native_owner_family": "locksmith_fittings",
+      "label": "reciprocal accepted bearing: key board wall spacer",
+      "point": [
+        6.06,
+        2.2,
+        53.400000000000006
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "shop_clerestories",
+      "assembly": "storm_shop_keys_cut_borrowed_sill",
+      "owner": "storm_shop_keys_cut_board",
+      "native_owner_family": "locksmith_fittings",
+      "label": "reciprocal accepted bearing: key board wall spacer",
+      "point": [
+        6.06,
+        2.2,
+        51.0
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "shop_clerestories",
+      "assembly": "storm_shop_keys_cut_borrowed_sill",
+      "owner": "storm_shop_keys_cut_board",
+      "native_owner_family": "locksmith_fittings",
+      "label": "sash stop meets accepted key-board back",
+      "point": [
+        6.07,
+        2.6,
+        53.341
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "scope": "Actual owner-side native bearing only, 30 micrometre bound. No floor/source owners, reciprocal embedded fixings, gameplay or runtime acceptance."
+}

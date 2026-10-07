@@ -1,0 +1,267 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Instrumented geometry-only triage; no new renders, source edits, exports, runtime proof or acceptance.",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_diner_apparatus.py",
+      "source_sha256": "9e519efe1c6d985757258ff6a828f48788f5bab75f863434ac0347e506a15ba7",
+      "instrumented_sha256": "8af7f8ab4a49c16f22d2f425a82ce41233872069abbd8ca366cc26a4cf1f0e55",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_apparatus",
+      "status": "PASS",
+      "elapsed_s": 3.749
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_backbar.py",
+      "source_sha256": "6fbdd1749aa7382571942c4b251e7ba8a7cb13f3d669bf533d3a139a754cbee8",
+      "instrumented_sha256": "b932e92581ea0339002b5a1a336f66ff8971b2529d2b4e8acad3fcca83188eee",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_backbar",
+      "status": "PASS",
+      "elapsed_s": 1.209
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_counter.py",
+      "source_sha256": "8d52093f0dec9d6e40f3fc6d55c655fdc5a060fb9032c1c3adb5387ac98eb571",
+      "instrumented_sha256": "c76eed2c6d820bd5fa5fc7c99c7aaabffd203674fdf66a007a8fe888850c027f",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_counter",
+      "status": "PASS",
+      "elapsed_s": 1.193
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_overhead.py",
+      "source_sha256": "f946db9ccb2185e4f0d69c927093ccef21a72638ef480d649ea26be3077b483f",
+      "instrumented_sha256": "37d42e29d3884cdd6e33617143265b1a76c0aa5b9b4bfa63c4c11c1e786ff460",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_overhead",
+      "status": "PASS",
+      "elapsed_s": 1.411
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_receiving.py",
+      "source_sha256": "bc160c2bc08c47bf6df8334108d130d6a4fdec20e74469a9ad3ef5e30775345f",
+      "instrumented_sha256": "f92b70bbbd9788437886693b50525fe36268ef90e42f89ba21b1419f1bf43060",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_receiving",
+      "status": "PASS",
+      "elapsed_s": 3.888
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_till.py",
+      "source_sha256": "dc31195575d94b94642aebc593a3fac0ffa0bc4b889be6a63f38ecc8c050bd57",
+      "instrumented_sha256": "74877eb4841f59d1e66a31186047c5e5acbec0782a33d0dd77fa67f719782cde",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_till",
+      "status": "PASS",
+      "elapsed_s": 2.258
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_urns.py",
+      "source_sha256": "485b6469d73f7186ebf8252b5998f1b05778c4c282aec2a0a25136e2f853e9f4",
+      "instrumented_sha256": "19743fb10f73509f5ad90ffcfe1df4f482f5a365ec6095ba71afda7a1450f5aa",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/diner_urns",
+      "status": "PASS",
+      "elapsed_s": 2.362
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_receiving.py",
+      "source_sha256": "9beb3dd5ef815f689ae535d82e210964562ca23d10287c39f1784ad936fee18c",
+      "instrumented_sha256": "9de16b456526c2d8a40c28a5396dec93204d336480dd6b8785e666d1f3c32470",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/laundry_receiving",
+      "status": "PASS",
+      "elapsed_s": 6.743
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "source_sha256": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48",
+      "instrumented_sha256": "c3745696135ca447a163db77f9e68e7cdbe4b22e9e65af2a4119aa4f3885eec6",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/laundry_trade",
+      "status": "PASS",
+      "elapsed_s": 2.336
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_receiving.py",
+      "source_sha256": "d51894b096c69c7dfa5d452391aa0e3a664e9be7a23bc23278810eb7f8baf181",
+      "instrumented_sha256": "ede97ac7ce712f63c5735c795a626f2f3ba72ce790efa17627dce6ecc03bc33d",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/news_receiving",
+      "status": "PASS",
+      "elapsed_s": 2.828
+    },
+    {
+      "script": "art/blender/scripts/inspect_orison_ground.py",
+      "source_sha256": "4e081e5e767c0082d2c4bdb9271be05c744e6574a9b21d9b782d30002fe45fbc",
+      "instrumented_sha256": "9eaced480cbcad39f6602cfdb37a353f65791f0c021f563906d6823aefbd8c42",
+      "linked_update_sites": 2,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/orison_ground",
+      "status": "PASS",
+      "elapsed_s": 1.043
+    },
+    {
+      "script": "art/blender/scripts/inspect_pawn_fittings.py",
+      "source_sha256": "976e480143a15de1a60e81bb3a23a0ccd53925a944ecc7b609d7fbe3fb9a5925",
+      "instrumented_sha256": "998629bc2cd58e07101f93737071e5398516f74aa79f2c76af16d7e1a97b36a4",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/pawn_fittings",
+      "status": "PASS",
+      "elapsed_s": 2.836
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_receiving.py",
+      "source_sha256": "96bea4baf4718637bd3612bfbd16cedb31c6f3583964fbdc8900f2dfb9ac4ef8",
+      "instrumented_sha256": "762fae614b8e14e577aa6d033feb8b381b5e3665972bd4ba19bc5a0b41c98446",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/photo_receiving",
+      "status": "PASS",
+      "elapsed_s": 5.469
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_display.py",
+      "source_sha256": "863700786f46e38f5c9bff413efaa79d9693c19a2c7c5717b81224ad53cc5a72",
+      "instrumented_sha256": "a8ca6086560cc0b36f4e0dfa9ed16878afdfe41ebadf1d90bbcad104334c2053",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/radio_display",
+      "status": "PASS",
+      "elapsed_s": 1.835
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_receiving.py",
+      "source_sha256": "accf079ded7e91d0c894cc9ac527a29c56d8d79819d979b97592cbd81e483f4e",
+      "instrumented_sha256": "5c97a2e0d9c5a2cd8ef9d6c1273c69e0e954db2c8757ce20afaf99ab848c7884",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/radio_receiving",
+      "status": "PASS",
+      "elapsed_s": 4.591
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_wire.py",
+      "source_sha256": "8d448ad9668c6952baa385b4c489aefc5fa3a246d6616379c20c4c2565380b2a",
+      "instrumented_sha256": "b6339abd9df4576f2ca1df0a00f5972b82feb06f802293b74896d3e71c5c1149",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/radio_wire",
+      "status": "PASS",
+      "elapsed_s": 2.26
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py",
+      "source_sha256": "a408c413edb86b786cb0d82b48a6ca612e083fd4780e1ad99115dedba4fe22af",
+      "instrumented_sha256": "96bb384ce866fb538dacea5b2409cf270a508208855d7402e1cfb32044325a69",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_bulkhead_weather",
+      "status": "PASS",
+      "elapsed_s": 0.855
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_door_weather.py",
+      "source_sha256": "367dcc3c2509d52ad923b64663155f07811b7eb308bf2702fd86886229711fae",
+      "instrumented_sha256": "d6604a978dc2df3ef6d3198579a0a3a38bd0b46ae7d962e727e9dfbad230b3c1",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_door_weather",
+      "status": "PASS",
+      "elapsed_s": 0.491
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_flashings.py",
+      "source_sha256": "1a90cbe5b904fa1e2cd6b83443e158059aee518188d347de86c16c4cfdcf5d18",
+      "instrumented_sha256": "5c72ccf51c2fe8cd02d2ff9d366c6f9928594e18917877d9064c27b716bac057",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_flashings",
+      "status": "PASS",
+      "elapsed_s": 1.165
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_leaders.py",
+      "source_sha256": "280897c9e1b690f6fd1f30ded2f122bdfedf359ea0a5d522af4dbf0f3bfbafac",
+      "instrumented_sha256": "031cf5b79aca05251ae757014bda9234256aa9f8d1f28b359f885e77ca797e97",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_leaders",
+      "status": "PASS",
+      "elapsed_s": 0.56
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_plant_weather.py",
+      "source_sha256": "39889859fda2d0ee0cddc0c8c68b14644e8e5f13d55bfa42440bf3529a1440f9",
+      "instrumented_sha256": "23aa00d3c66310467cce2aca39da5773589a2bc375d220874ac5367ec1daacb8",
+      "linked_update_sites": 5,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_plant_weather",
+      "status": "PASS",
+      "elapsed_s": 0.895
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_provider_fits.py",
+      "source_sha256": "32b3fb3f244a90144358d395489d9bcccf4a18fb920f46c54e25ba7134420252",
+      "instrumented_sha256": "eb6340b4e7c379b4b953eabfe9cf708a27f4bef5dccec0b5f86f65e03485f952",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_provider_fits",
+      "status": "PASS",
+      "elapsed_s": 60.313
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_retained_clearance.py",
+      "source_sha256": "f6950aaa4415632d3c4b2c3c1d2be67c4780b9acd24bbc69c80f7c5289c3c6b4",
+      "instrumented_sha256": "db0f63bbb87f5e8ff0dd555fe4365c7e768f62336222d33f86eef26359e143ab",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_retained_clearance",
+      "status": "PASS",
+      "elapsed_s": 22.788
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_rolls.py",
+      "source_sha256": "6a5426a3d0db05a6d1a6e2ea0bb33f6db9d9aff9b016632629cec463f8df3c90",
+      "instrumented_sha256": "16dece92ed3a585e5239c6b2088907a7660d3bb33f84844e934a1ce79887a99a",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/roof_drainage_rolls",
+      "status": "PASS",
+      "elapsed_s": 0.98
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py",
+      "source_sha256": "9d587cb64ad1b32d366829b9428449785e9dead6754a402a0bcfe0ea2447c369",
+      "instrumented_sha256": "cc59ff2c8f9f98f186d6bbfc7246f4623642f9b11352c791d4eb263c34525371",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/shop_clerestories",
+      "status": "PASS",
+      "elapsed_s": 30.402
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "3caf7104a188ce470ba8e2659215efec9e500b398742e574fb0fe7e0d434639b",
+      "instrumented_sha256": "bad13d9b0e837e6b6e0852b80a8bb967bda7ab1762a940aba59e5422f1e7fe62",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-3/shop_joinery",
+      "status": "FAIL",
+      "error": "('shop_keys_cut', [['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron'], ['storm_shop_keys_cut_boh_door__brass_dull', 'storm_shop_keys_cut_safe__cast_iron']])",
+      "elapsed_s": 10.029
+    }
+  ]
+}

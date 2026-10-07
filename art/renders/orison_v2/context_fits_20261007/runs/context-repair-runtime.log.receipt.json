@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 142.81,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T17:28:15Z",
+  "started_utc": "2026-10-07T17:25:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/context-repair-runtime.log.stderr",
+  "stderr_sha256": "918429631c26f1c574e8e39d5338a43ced1365fd514113f88c85504d425d562d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/context-repair-runtime.log",
+  "stdout_sha256": "c7ba421780dbc5bf84deee75d5c28b3c28ecdb15391cd7655ecbbc1e4dc4fe6a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/context-repair-runtime-shots",
+ "source": {
+  "dirty_paths": 378,
+  "dirty_sample": [
+   "M art/blender/cobbler_fittings.blend",
+   " M art/blender/cobbler_fittings_construction.json",
+   " M art/blender/diner_apparatus_construction.json",
+   " M art/blender/diner_backbar_construction.json",
+   " M art/blender/diner_counter_construction.json",
+   " M art/blender/diner_overhead_construction.json",
+   " M art/blender/diner_receiving_construction.json",
+   " M art/blender/diner_till_construction.json",
+   " M art/blender/diner_urns_construction.json",
+   " M art/blender/druggist_carboys_construction.json",
+   " M art/blender/druggist_cupboard.blend",
+   " M art/blender/druggist_cupboard_construction.json",
+   " M art/blender/hardware_stock.blend",
+   " M art/blender/hardware_stock_construction.json",
+   " M art/blender/laundry_fittings.blend",
+   " M art/blender/laundry_fittings_construction.json",
+   " M art/blender/laundry_receiving_construction.json",
+   " M art/blender/laundry_trade_construction.json",
+   " M art/blender/locksmith_fittings.blend",
+   " M art/blender/locksmith_fittings_construction.json"
+  ],
+  "repository_head": "7c4df91286e7e192fe28149e9d6edf2632770434",
+  "repository_tree": "b82146eb5f151bf5506fc78f42ad189fc110b305",
+  "runtime_inputs_sha256": "73866dc0fd55e40598d3958857a6e6843fd0c069947f5ce7744fa2e267df3308",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "46102ed820289e8b65d0dcc076967768cc00c2c87e788be1a75c9e12d95042f3"
+ },
+ "windowed": true
+}

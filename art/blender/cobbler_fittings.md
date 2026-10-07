@@ -69,3 +69,9 @@ collision uses installed triangles without a retained native scene cache.
 Rear-store access, live machinery, utility
 continuity/capacity and the remaining arcade trades remain open work. This
 guide and its renders grant no ledger or human acceptance.
+
+## Corrected composed fit, 2026-10-07
+
+The south edge of the finite floor deposit ends 10mm before its original boundary to clear the closed door case. Thickness, original middle split, other boundaries and finish stay fixed.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

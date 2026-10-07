@@ -1,0 +1,101 @@
+{
+	"evidence_class": "INERT",
+	"scope": "Standing-capsule passive Diner counter/kickplate/ledger observations; food/drink service, purchases, utility continuity/capacity, continuous routes and human acceptance remain separate.",
+	"views": [
+		{
+			"feet": [
+				17.7999992370605,
+				0.0299999993294477,
+				41.2999992370605
+			],
+			"id": "counter_customer",
+			"image": "counter_customer.png",
+			"requested_feet": [
+				17.7999992370605,
+				0.0299999993294477,
+				41.2999992370605
+			],
+			"target": [
+				19.25,
+				0.709999978542328,
+				42.0
+			]
+		},
+		{
+			"feet": [
+				20.1499996185303,
+				0.0299999993294477,
+				41.2999992370605
+			],
+			"id": "counter_service",
+			"image": "counter_service.png",
+			"requested_feet": [
+				20.1499996185303,
+				0.0299999993294477,
+				41.2999992370605
+			],
+			"target": [
+				19.25,
+				0.709999978542328,
+				42.0
+			]
+		},
+		{
+			"feet": [
+				18.0499992370605,
+				0.0299999993294477,
+				40.4500007629395
+			],
+			"id": "folded_kick",
+			"image": "folded_kick.png",
+			"requested_feet": [
+				18.0499992370605,
+				0.0299999993294477,
+				40.4500007629395
+			],
+			"target": [
+				18.8600006103516,
+				0.0900000035762787,
+				41.0
+			]
+		},
+		{
+			"feet": [
+				20.1200008392334,
+				0.0299999993294477,
+				41.7999992370605
+			],
+			"id": "ledger",
+			"image": "ledger.png",
+			"requested_feet": [
+				20.1200008392334,
+				0.0299999993294477,
+				41.7999992370605
+			],
+			"target": [
+				19.3199996948242,
+				1.14499998092651,
+				41.7999992370605
+			]
+		},
+		{
+			"feet": [
+				19.7999992370605,
+				0.0299999993294477,
+				40.2999992370605
+			],
+			"id": "shop_context",
+			"image": "shop_context.png",
+			"requested_feet": [
+				19.7999992370605,
+				0.0299999993294477,
+				40.2999992370605
+			],
+			"target": [
+				19.25,
+				0.790000021457672,
+				42.4000015258789
+			]
+		}
+	]
+}

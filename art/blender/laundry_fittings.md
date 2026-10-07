@@ -89,3 +89,9 @@ for its own physical stocks. The complete original triangle array and bounds
 remain the comparison envelope for this table/pad clearance. The earlier
 **611eb205** clearance review checked that hull while it was still active;
 the native chassis tests separately check its replacement physical stock.
+
+## Corrected composed fit, 2026-10-07
+
+Forty ties now put their outside radius on the shelf plane. The ironing pad south edge is 30mm shorter, clear of the closed door case; the working height and supporting table stay fixed.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

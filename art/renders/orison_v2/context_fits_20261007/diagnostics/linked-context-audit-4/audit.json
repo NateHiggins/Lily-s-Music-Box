@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Instrumented native QA with explicit output redirection. Only rendered_views are new images; inspector view lists may include skipped views. No source edits, exports, runtime proof or acceptance.",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "91d1da6923eb8b38c6063bae7789f5f4dbeac936d36eef091ba446be0f4471f7",
+      "instrumented_sha256": "e01b2c00ac11b2928d72c68bab3453067ba270c9c48e67bf89767a7e209d8de2",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-4/shop_joinery",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "FAIL",
+      "error": "[{'cell': 'shop_keys_cut', 'native': 'storm_shop_keys_cut_boh_door__brass_dull', 'context': 'storm_shop_keys_cut_safe__cast_iron'}, {'cell': 'shop_keys_cut', 'native': 'storm_shop_keys_cut_boh_door__wood_dark', 'context': 'storm_shop_keys_cut_safe__cast_iron'}, {'cell': 'shop_keys_cut', 'native': 'storm_shop_keys_cut_boh_door__wood_dark', 'context': 'storm_shop_keys_cut_safe__metal'}, {'cell': 'shop_model_laundry', 'native': 'storm_shop_model_laundry_boh_door__wood_dark', 'context': 'storm_shop_model_laundry_iron_pad__linen'}, {'cell': 'shop_news_cigars', 'native': 'storm_shop_news_cigars_boh_door__wood_dark', 'context': 'storm_shop_news_cigars_counter__countertop'}, {'cell': 'shop_otis_son', 'native': 'storm_shop_otis___son_boh_door__brass_dull', 'context': 'storm_shop_otis___son_poison_cupboard__wood_dark'}, {'cell': 'shop_radio_service', 'native': 'storm_shop_radio_service_boh_door__brass_dull', 'context': 'storm_shop_radio_service_bench__bench_top'}, {'cell': 'shop_shoe_rebuilding', 'native': 'storm_shop_shoe_rebuilding_boh_door__wood_dark', 'context': 'storm_shop_shoe_rebuilding_dust_felt__soot__south'}]",
+      "elapsed_s": 36.428
+    }
+  ]
+}

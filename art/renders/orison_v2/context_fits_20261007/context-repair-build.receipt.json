@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_laundry_fittings.py",
+      "elapsed_s": 9.131
+    },
+    {
+      "script": "art/blender/scripts/build_news_fittings.py",
+      "elapsed_s": 5.011
+    },
+    {
+      "script": "art/blender/scripts/build_hardware_stock.py",
+      "elapsed_s": 19.987
+    }
+  ]
+}

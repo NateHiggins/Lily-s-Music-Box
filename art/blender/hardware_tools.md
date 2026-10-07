@@ -71,3 +71,9 @@ nonarchitectural fitting records. This is source geometry coverage; it grants
 no human acceptance, whole-shop operational acceptance or whole-V2 completion.
 Weighing/agitation, powered tools, ladder plot behavior, continuous shop/rear
 routes and independent utility continuity/capacity remain open.
+
+## Corrected composed fit, 2026-10-07
+
+The four tool-board spacers derive their X positions from the first two actual east-rack posts. The Hardware stock fixture is now an explicit build dependency. The board and seven tools keep their original fitted poses.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

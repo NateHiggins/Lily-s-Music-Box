@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,10 +28,15 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion=world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_druggist_cupboard.json"))
 	var installed: bool=passage.cell_nodes.has("shop_otis_son") and passage.cell_nodes.shop_otis_son.has_node("DruggistCupboard")
 	check(installed,"actual retained druggist cell and drawer fitting exist before their contracts")
-	if not installed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if not installed:return {"checks":checks,"parts":0,"triangles":0,"removed":0,"supports":0,"failures":failures.duplicate()}
 	check(FileAccess.get_sha256("res://assets/props/druggist_cupboard.glb")==fixture.asset_sha256,"installed mesh binds the native cupboard export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
@@ -85,7 +96,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("DRUGGIST CUPBOARD: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("druggist_cupboard_part",""))==part)
@@ -168,6 +179,7 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		check(_city_clear_station(world,cell.to_global(selected)),"actual floor-supported cupboard observation: "+str(view[0]))
 		world.player.global_position=cell.to_global(selected);world.player.velocity=Vector3.ZERO
 		world.player.face_world_point(cell.to_global(view[2]));world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(view[0])
+		if capture_enabled:
+			await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png"})
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule cupboard and dispensary observations. Closed leaf and passive lock plate have no new access/poison-custody or medical owner. Operating fountain, continuous routes and independent services retain separate authority."},"\t"))

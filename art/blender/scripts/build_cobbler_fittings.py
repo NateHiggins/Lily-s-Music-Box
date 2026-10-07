@@ -269,9 +269,9 @@ for item in assemblies:
   box(identity+'_Seat',(x0,y0,.48),(x1,y1,.53),identity,'wood_dark',.006)
   for yy in [y0+.04,y1-.06]:box(identity+f'_Rail{yy}',(x0+.045,yy,.25),(x1-.045,yy+.02,.29),identity,'wood_dark')
  elif kind=='dust_field':
-  # The retained deposit keeps its exact finite stock, source datum and
-  # outside faces. An outer-face split bounds each native draw below 5 m.
-  ys=[y0,(y0+y1)*.5,y1];verts=[(xx,yy,zz) for zz in [z,z+row['h']] for yy in ys for xx in [x0,x1]]
+  # Stop the finite deposit 10mm short of its old south edge to clear the
+  # new door case. Keep the original middle split, datum and other edges.
+  ys=[y0+.010,(y0+y1)*.5,y1];verts=[(xx,yy,zz) for zz in [z,z+row['h']] for yy in ys for xx in [x0,x1]]
   faces=[]
   for j in range(2):
    a=j*2;faces.extend([(a,a+2,a+3,a+1),(a+6,a+7,a+9,a+8),(a,a+6,a+8,a+2),(a+1,a+3,a+9,a+7)])

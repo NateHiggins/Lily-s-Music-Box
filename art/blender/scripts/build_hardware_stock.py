@@ -135,22 +135,30 @@ prefix="storm_shop_hardware_paint_"
 # Original bins identify stock positions; new cases carry their actual shelves.
 def bounds(row):
  x0,y0,x1,y1=row['rect'];return x0,y0,x1,y1,row['z0'],row['z0']+row['h']
+def rack_span(row):
+ x0,_,x1,_=row['rect'];x0+=.20;x1+=.20
+ if '_bin_e' in row['id']:x0=max(x0,rows[prefix+'boh_door']['rect'][2]+.040)
+ return x0,x1
 for item in assemblies:
  identity=item['id'];kind=item['kind'];row=item['body'];x0,y0,x1,y1,z0,z1=bounds(row);ground=floor['z0']+floor['h']
  if kind=='rack':
-  x0+=.20;x1+=.20;upper=max(r['z0']+r['h'] for r in item['members'])
+  x0,x1=rack_span(row);upper=max(r['z0']+r['h'] for r in item['members'])
   for xx in [x0+.026,(x0+x1)*.5,x1-.026]:
    for yy in [y0+.028,y1-.028]:
     box(identity+'_CasePost'+str(xx)+str(yy),(xx-.022,yy-.022,ground),(xx+.022,yy+.022,upper),identity,'timber',.002)
     support(identity,floor['id'],(xx,yy,ground),(0,0,1),'rack floor bearing')
   for shelf in item['members']:
-   sx0,sy0,sx1,sy1,sz0,sz1=bounds(shelf);sx0+=.20;sx1+=.20
+   sx0,sy0,sx1,sy1,sz0,sz1=bounds(shelf);sx0,sx1=rack_span(shelf)
    box(shelf['id']+'_Shelf',(sx0,sy0,sz0),(sx1,sy1,sz1),identity,'timber',.003)
    for yy in [sy0+.018,sy1-.032]:box(shelf['id']+'_ReturnedEdge'+str(yy),(sx0,yy,sz0-.055),(sx1,yy+.014,sz0+.004),identity,'timber',.001)
   for xx in [x0+.029,x1-.029]:
    rod(identity+'_SideBrace'+str(xx),(xx,y0+.025,.14),(xx,y1-.025,upper-.025),.009,identity,'metal')
  elif kind in ['orange_stock','brass_stock','nail_stock']:
-  x0+=.20;x1+=.20;cx=(x0+x1)/2;cy=(y0+y1)/2;key='safety_orange' if kind=='orange_stock' else 'timber'
+  x0+=.20;x1+=.20
+  if '_stock_e' in identity:
+   shelf=rows[prefix+'bin_e0'];a,b=rack_span(shelf);old_a=shelf['rect'][0]+.20
+   center=(x0+x1)*.5;shift=a+(center-old_a)*(b-a)/(b-old_a)-center;x0+=shift;x1+=shift
+  cx=(x0+x1)/2;cy=(y0+y1)/2;key='safety_orange' if kind=='orange_stock' else 'timber'
   box(identity+'_TrayBase',(x0,y0,z0),(x1,y1,z0+.012),identity,key,.001)
   for xx in [x0,x1-.012]:box(identity+'_TraySide'+str(xx),(xx,y0,z0+.009),(xx+.012,y1,z0+.12),identity,key,.001)
   for yy in [y0,y1-.012]:box(identity+'_TrayEnd'+str(yy),(x0,yy,z0+.009),(x1,yy+.012,z0+.055),identity,key,.001)

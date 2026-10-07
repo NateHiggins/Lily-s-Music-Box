@@ -144,6 +144,8 @@ prefix="storm_shop_otis___son_"
 for item,group in zip(assemblies,plan['groups']):
  identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect']
  if item['kind']=='cupboard':
+  # Return the rear edge clear of the fitted closed-door knob; front and bottles stay fixed.
+  y1-=.060
   base=row['z0'];top=base+row['h']
   for i,(xx,yy) in enumerate([(x0+.05,y0+.05),(x1-.05,y0+.05),(x0+.05,y1-.05),(x1-.05,y1-.05)]):
    box(identity+'_FloorFoot'+str(i),(xx-.025,yy-.025,.01),(xx+.025,yy+.025,base+.010),identity,'wood_dark',.002)

@@ -1,0 +1,101 @@
+{
+  "evidence_class": "INERT",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_hardware_tools.py",
+      "source_sha256": "327e0843a328b8a2dfcb4e3221a607ba4e2ecf3b9760954c5251106d24f5a429",
+      "instrumented_sha256": "dc1c118a1f11c116f017eeb003490b39e8d5856cb4160528daf921cafea99036",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 2,
+      "output": "tmp/v2-finish-review/context-repair-native-last/preflight/hardware_tools",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 0.284
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "a0c7495a396e767e62995071ba6097ce80f00bf07e6381e2624da69974996a5c",
+      "instrumented_sha256": "1b487152914179c72417a7c65d1adf4260346c44c35681444725157be399ff5a",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-native-last/preflight/shop_joinery",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 36.81
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py",
+      "source_sha256": "9d587cb64ad1b32d366829b9428449785e9dead6754a402a0bcfe0ea2447c369",
+      "instrumented_sha256": "cc59ff2c8f9f98f186d6bbfc7246f4623642f9b11352c791d4eb263c34525371",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/context-repair-native-last/preflight/shop_clerestories",
+      "rendered_views": [],
+      "skipped_views": [],
+      "status": "PASS",
+      "elapsed_s": 30.074
+    },
+    {
+      "script": "art/blender/scripts/inspect_hardware_tools.py",
+      "source_sha256": "327e0843a328b8a2dfcb4e3221a607ba4e2ecf3b9760954c5251106d24f5a429",
+      "instrumented_sha256": "284b51911fe7b43d5078f5ff1a5d2ab5cdc0baf727fc857d4099d4219ecf7fb1",
+      "linked_update_sites": 0,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-native-last/hardware_tools",
+      "rendered_views": [
+        "storm_shop_hardware_paint_tool_board_front.png",
+        "storm_shop_hardware_paint_tool_board_rear.png"
+      ],
+      "skipped_views": [
+        "storm_shop_hardware_paint_glass_rack_front.png",
+        "storm_shop_hardware_paint_glass_rack_rear.png",
+        "storm_shop_hardware_paint_ladder_r0_front.png",
+        "storm_shop_hardware_paint_ladder_r0_rear.png",
+        "tool_forms_detail.png",
+        "empty_tool_slot_detail.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 3.424
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "a0c7495a396e767e62995071ba6097ce80f00bf07e6381e2624da69974996a5c",
+      "instrumented_sha256": "34214403420fbe30b26ca9ae3388bdc807524c173ec6207a5a1c50f45238ffc3",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/context-repair-native-last/shop_joinery",
+      "rendered_views": [
+        "shop_hardware_paint_door.png",
+        "shop_hardware_paint_context.png",
+        "shop_news_cigars_door.png",
+        "shop_news_cigars_context.png"
+      ],
+      "skipped_views": [
+        "shop_funeral_parlour_door.png",
+        "shop_funeral_parlour_context.png",
+        "shop_funeral_parlour_window_back.png",
+        "shop_funeral_parlour_empty_window.png",
+        "shop_keys_cut_door.png",
+        "shop_keys_cut_context.png",
+        "shop_luncheonette_door.png",
+        "shop_luncheonette_context.png",
+        "shop_model_laundry_door.png",
+        "shop_model_laundry_context.png",
+        "shop_otis_son_door.png",
+        "shop_otis_son_context.png",
+        "shop_pawnbroker_door.png",
+        "shop_pawnbroker_context.png",
+        "shop_photo_supplies_door.png",
+        "shop_photo_supplies_context.png",
+        "shop_radio_service_door.png",
+        "shop_radio_service_context.png",
+        "shop_shoe_rebuilding_door.png",
+        "shop_shoe_rebuilding_context.png"
+      ],
+      "status": "PASS",
+      "elapsed_s": 57.656
+    }
+  ]
+}

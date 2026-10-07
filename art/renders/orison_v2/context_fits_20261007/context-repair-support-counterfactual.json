@@ -1,0 +1,668 @@
+{
+  "evidence_class": "INERT",
+  "changed_families": [
+    "hardware_stock"
+  ],
+  "bindings": {
+    "game/tests/fixtures/orison_hardware_stock.json": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32",
+    "art/blender/hardware_stock.blend": "099a6bd0baa821252336cde3fffc3bed8e9ca0c452e7e3e9a9f0c9b747063d91",
+    "art/data/hardware_stock/source_plan.json": "fa7b7f2d4dbb3e53d769e9f3953e9e199a8c6b6bbf298ddb133fbb895c5a61cb",
+    "game/tests/fixtures/orison_hardware_tools.json": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac"
+  },
+  "checks": [
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w0",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w1",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w2",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w3",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w4",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w5",
+      "owner": "storm_shop_hardware_paint_bin_w0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        0.26,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w6",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w7",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w8",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w9",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w10",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w11",
+      "owner": "storm_shop_hardware_paint_bin_w1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        0.7,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w12",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.49,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w13",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.11,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w14",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.73,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w15",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.3500000000000005,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w16",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.969999999999999,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_w17",
+      "owner": "storm_shop_hardware_paint_bin_w2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.59,
+        1.1400000000000001,
+        54.385000000000005
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e0",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e1",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e2",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e3",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e4",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e5",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        0.26,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e6",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e7",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e8",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e9",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e10",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e11",
+      "owner": "storm_shop_hardware_paint_bin_e1",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        0.7,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e12",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        5.8787692307692305,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e13",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.432,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e14",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        6.985230769230769,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e15",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        7.538461538461539,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e16",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.091692307692307,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_stock",
+      "assembly": "storm_shop_hardware_paint_stock_e17",
+      "owner": "storm_shop_hardware_paint_bin_e2",
+      "native_owner_family": "hardware_stock",
+      "label": "stock tray on original shelf datum",
+      "point": [
+        8.644923076923076,
+        1.1400000000000001,
+        59.015
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.226,
+        1.82,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.226,
+        2.2,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.15,
+        1.82,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.15,
+        2.2,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_ladder_r0",
+      "owner": "storm_shop_hardware_paint_bin_e5",
+      "native_owner_family": "hardware_stock",
+      "label": "ladder back bears on fitted east-case shelf front",
+      "point": [
+        8.02,
+        2.43,
+        58.78
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_ladder_r0",
+      "owner": "storm_shop_hardware_paint_bin_e5",
+      "native_owner_family": "hardware_stock",
+      "label": "ladder back bears on fitted east-case shelf front",
+      "point": [
+        8.42,
+        2.43,
+        58.78
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    }
+  ],
+  "failures": [
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.226,
+        1.82,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        5.226,
+        2.2,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.15,
+        1.82,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    },
+    {
+      "consumer_family": "hardware_tools",
+      "assembly": "storm_shop_hardware_paint_tool_board",
+      "owner": "storm_shop_hardware_paint_bin_e0",
+      "native_owner_family": "hardware_stock",
+      "label": "tool-board spacer on fitted east-case post",
+      "point": [
+        7.15,
+        2.2,
+        58.786
+      ],
+      "distance_m": null,
+      "passed": false
+    }
+  ],
+  "scope": "Actual owner-side native bearing only, 30 micrometre bound. No floor/source owners, reciprocal embedded fixings, gameplay or runtime acceptance.",
+  "counterfactual": {
+    "baseline": "7c4df91286e7e192fe28149e9d6edf2632770434",
+    "in_memory_fixture_override": "game/tests/fixtures/orison_hardware_tools.json",
+    "fixture_sha256": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+    "expected_failures": 4,
+    "source_files_modified": false
+  }
+}

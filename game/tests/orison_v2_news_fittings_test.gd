@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,6 +28,11 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted news geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion=world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_news_fittings.json"))
 	check(FileAccess.get_sha256("res://assets/props/news_fittings.glb")==fixture.asset_sha256,"installed mesh binds the native news export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
@@ -82,7 +93,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("NEWS FITTINGS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("news_part",""))==part)
@@ -120,7 +131,7 @@ func _check_news_cavities(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 func _news_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_news_cigars
 	var r: Array=fixture.assemblies[0].floor.rect;var observations: Array=[]
-	for view: Array in [["service_hatch",Vector3(16.5,.03,49.15),Vector3(17.19,1.3,49.15)],["counter",Vector3(17.8,.03,49.95),Vector3(18.6,1.28,49.15)],["cigar_case",Vector3(18.9,.03,49.94),Vector3(19.35,1.44,49.1)],["candy_jars",Vector3(17.65,.03,49.9),Vector3(18.1,1.38,49.18)],["paper_rack",Vector3(18.0,.03,49.85),Vector3(18.86,.95,50.65)],["pipe_rack",Vector3(17.75,.03,49.85),Vector3(17.76,1.39,50.70)],["rear_shelves",Vector3(19.9,.03,49.42),Vector3(20.81,1.4,49.7)],["punchboard",Vector3(18.55,.03,49.98),Vector3(18.66,1.22,49.15)],["fitted_stool",Vector3(18.8,.03,49.8),Vector3(19.6,.45,49.85)]]:
+	for view: Array in [["service_hatch",Vector3(16.5,.03,49.15),Vector3(17.19,1.3,49.15)],["counter",Vector3(17.8,.03,49.95),Vector3(18.6,1.28,49.15)],["cigar_case",Vector3(18.9,.03,49.94),Vector3(19.35,1.44,49.1)],["candy_jars",Vector3(17.65,.03,49.9),Vector3(18.1,1.38,49.18)],["paper_rack",Vector3(18.0,.03,49.85),Vector3(18.86,.95,50.65)],["pipe_rack",Vector3(17.75,.03,49.85),Vector3(17.76,1.39,50.70)],["rear_shelves",Vector3(19.9,.03,49.42),Vector3(20.81,1.4,49.7)],["punchboard",Vector3(18.55,.03,49.98),Vector3(18.66,1.22,49.15)],["fitted_stool",Vector3(18.4,.03,49.8),Vector3(19.2,.45,49.85)]]:
 		var preferred: Vector3=view[1];var selected:=preferred;var distance:=INF
 		if not _city_clear_station(world,cell.to_global(preferred)):
 			for u in range(1,25):
@@ -131,6 +142,7 @@ func _news_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 		check(_city_clear_station(world,cell.to_global(selected)),"actual floor-supported capsule station: "+str(view[0]))
 		world.player.global_position=cell.to_global(selected);world.player.velocity=Vector3.ZERO
 		world.player.face_world_point(cell.to_global(view[2]));world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(view[0])
+		if capture_enabled:
+			await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png"})
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule detail observations; continuous access and shop service behavior retain their separate authority."},"\t"))

@@ -41,13 +41,13 @@ for kind in ['public','service']:
  assert toe_vertices and abs(min(toe_vertices)-manifest['leader_y'][0])<.000005,(kind,min(toe_vertices),manifest['leader_y'][0])
  scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1440;scene.render.resolution_y=1080;scene.render.resolution_percentage=100
  scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
- sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
- camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
+ sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+ camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
  x,z=manifest['gutter_x'],manifest['outlet_z'];y=manifest['leader_y'][0]
  # Add the actual fitted field as context without saving diagnostic edits.
  with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_falls.blend'),link=False) as (source,target):target.objects=[name for name in source.objects if '__Field_' in name]
  for obj in target.objects:
-  if obj is not None:scene.collection.objects.link(obj)
+  if obj is not None:scene.collection.objects.link(obj);bpy.context.view_layer.update()
  renders=[]
  for name,eye,at in [('toe',(x+.6,y+.30,z-.5),(x,y-.015,z)),('upper',(x+.6,22.6,z+.6),(x,22.2,z))]:
   camera.location=b(eye);camera.rotation_euler=(b(at)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(O/(kind+'_'+name+'.png'));bpy.ops.render.render(write_still=True);renders.append(kind+'_'+name+'.png')

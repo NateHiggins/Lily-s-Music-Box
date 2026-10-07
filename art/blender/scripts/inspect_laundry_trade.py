@@ -63,7 +63,7 @@ for family in ['laundry_fittings','laundry_apparatus','shop_seating']:
  with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if n in wanted]
  assert len(dst.objects)==len(wanted),(family,len(dst.objects),len(wanted))
  for obj in dst.objects:
-  bpy.context.scene.collection.objects.link(obj);obj.hide_render=False;accepted.append(obj)
+  bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();obj.hide_render=False;accepted.append(obj)
 counts={row['id']:0 for row in retirement_rows}
 for old in context:
  bm=bmesh.new();bm.from_mesh(old.data);remove=[]

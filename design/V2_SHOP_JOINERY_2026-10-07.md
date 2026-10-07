@@ -76,3 +76,9 @@ grant no runtime-contract proof, requirement promotion or whole-V2 acceptance.
 Rear clerestories, useful rear connections, services, routes, broad material
 calibration and human acceptance remain open. No owner decision is needed
 to continue this visual pass.
+
+## Later native-context correction
+
+The linked-mesh transform audit in **V2_CONTEXT_FITS_2026-10-07.md**
+supersedes this report's native-context clearance claim. Its corrected fit and
+new checks are recorded separately; the original run receipts above remain historical.

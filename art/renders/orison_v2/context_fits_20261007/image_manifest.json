@@ -1,0 +1,785 @@
+{
+  "evidence_class": "INERT",
+  "images": [
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/cobbler_fittings/storm_shop_shoe_rebuilding_dust_felt_front.png",
+      "source_sha256": "a4d44f080fc30aa7c3ad88f2ad0d2dcbd90390519135d2add6e84314fc26ff00",
+      "retained": "native/cobbler_fittings/storm_shop_shoe_rebuilding_dust_felt_front.jpg",
+      "retained_sha256": "0ecaed05c61c826abff40afaa0b8c92a7ee4316ed27345c88692d460bbe92ba2",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/cobbler_fittings/storm_shop_shoe_rebuilding_dust_felt_rear.png",
+      "source_sha256": "ae289feb275f132ddd35d52e69313b31b2f3567cf433bea2307d36ef1d949ff1",
+      "retained": "native/cobbler_fittings/storm_shop_shoe_rebuilding_dust_felt_rear.jpg",
+      "retained_sha256": "b18b8c97b600ea672309d951ebf4bff9ba3015979b7cf2a156e060f4015e6364",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/druggist_cupboard/storm_shop_otis___son_poison_cupboard_front.png",
+      "source_sha256": "3981c7e2db95051fe4003b374c6186f388387a2d0cc0e1721c314b134988815c",
+      "retained": "native/druggist_cupboard/storm_shop_otis___son_poison_cupboard_front.jpg",
+      "retained_sha256": "8ef87aa7ae83f906709160a1ffeea69658c354cca9d35904d637e61a0918c4ab",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/druggist_cupboard/storm_shop_otis___son_poison_cupboard_rear.png",
+      "source_sha256": "2836a13f0cd6169cfd9eb267602b5d034adf8eb9100e35116e63f6b2eac30951",
+      "retained": "native/druggist_cupboard/storm_shop_otis___son_poison_cupboard_rear.jpg",
+      "retained_sha256": "bc1d9ff93a103b6807a69ef4e0d1a072b32a214db3aacbd13acca52e397deab4",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/hardware_stock/storm_shop_hardware_paint_bin_e0_front.png",
+      "source_sha256": "8de6476894c1d74f981e868c942c65d181298db8e2c72354e6d186651c84af9c",
+      "retained": "native/hardware_stock/storm_shop_hardware_paint_bin_e0_front.jpg",
+      "retained_sha256": "2691e4e08ca08334e103bb49bc1ce322f6d33dfea391859398602abce21eabbd",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/hardware_stock/storm_shop_hardware_paint_bin_e0_rear.png",
+      "source_sha256": "41f27432e7cc7adc51e020bdf6a9f5f8f47cda77e0177cd4be590fe1f8e76d4d",
+      "retained": "native/hardware_stock/storm_shop_hardware_paint_bin_e0_rear.jpg",
+      "retained_sha256": "9ea0a81ac3325a72478770344951b7a78d5918e37fec0696a9e43f7e00861d93",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/hardware_tools/storm_shop_hardware_paint_tool_board_front.png",
+      "source_sha256": "f6e2a1faa59ff81fa3f95bc47eb4d6a55370865c092a00799b29cb536fae46e4",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_tool_board_front.jpg",
+      "retained_sha256": "231d0ca00167e998110d9ddf542446c40441396d9eb3e40ac3a26ace5f75b497",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/hardware_tools/storm_shop_hardware_paint_tool_board_rear.png",
+      "source_sha256": "ead9640f60931a1cbaac82622e69e7cfcaa77e51e3c02d9cd3fdb6614935ade5",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_tool_board_rear.jpg",
+      "retained_sha256": "5890ee90a6e80cc4253f581b90dbd3097cf8f4227ba8d62d9cd86030458c10fc",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_iron_table_front.png",
+      "source_sha256": "73ee15b525e13c518c53dddcfa5668c7f1a2af240103beb305dc9a6fcfaff9fe",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_iron_table_front.jpg",
+      "retained_sha256": "a34015176c925d4c7ee7376421382d0edb8b171073ed9e1b3ff59151e6bc6ca6",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_iron_table_rear.png",
+      "source_sha256": "45825898897ecf8421aa1f785cac4e03e3dfb53ebab7253681da0e809d5798fa",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_iron_table_rear.jpg",
+      "retained_sha256": "d256feac805c85a4c7c8fbf1a246a461f289be898e30c89e652dc9e8939a5c3b",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_parcel0_0_front.png",
+      "source_sha256": "1e0726243c866e42b5fe118b6a24aeacededa3136325eaf4f31c7313ee67a667",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_parcel0_0_front.jpg",
+      "retained_sha256": "8b2e0258323403d11add8a416add62e36348ad62c8019ff842d72603f0eac439",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_parcel0_0_rear.png",
+      "source_sha256": "0e41a4e418803708b8dab216d3be6e7e645fa1a81c4e7bfd22bcfdc027f97136",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_parcel0_0_rear.jpg",
+      "retained_sha256": "d6313998f07c8d187873d1ebd444a148c858d8f2debb751e114d57cb0f389ff4",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_parcel4_7_front.png",
+      "source_sha256": "c1c713ee4d6a3a96d169bfa71549c9e5beced1588289a07bdad9106afb9d8556",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_parcel4_7_front.jpg",
+      "retained_sha256": "ff5f2d9390114fbd237dc8270fe27b663ab4ee2b6e8a00c8a4ded139212768e6",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_fittings/storm_shop_model_laundry_parcel4_7_rear.png",
+      "source_sha256": "d9709eb4cb06f8eea9a98867df63a1aff199cfe10a835ac443b33f77b49cda3c",
+      "retained": "native/laundry_fittings/storm_shop_model_laundry_parcel4_7_rear.jpg",
+      "retained_sha256": "26d2481c45318e5c87a3cdf85c9562de9eaa01f85d15c9dcddfe01c35cefd6d4",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/laundry_trade/parcel_wall.png",
+      "source_sha256": "a9d5a8b8f2126a92a07888939fb124e3b7a4cfda62e0ddfbb6e08becb0854150",
+      "retained": "native/laundry_trade/parcel_wall.jpg",
+      "retained_sha256": "3d8d956c46dace80e4bf853d4807f313dbebe8e9f437185e461a07c878a64347",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/locksmith_fittings/storm_shop_keys_cut_safe_front.png",
+      "source_sha256": "310a8b2da4b263baa98244c70965766dc74b11225eb70ad4c46d224fdf42dae7",
+      "retained": "native/locksmith_fittings/storm_shop_keys_cut_safe_front.jpg",
+      "retained_sha256": "89be080c5565d753b8ca3a868890fc6f98f5e9450f98db4bd903c7a5bbbaf5bb",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/locksmith_fittings/storm_shop_keys_cut_safe_rear.png",
+      "source_sha256": "ab65105869f1013903252e325ebdab69722fc7251062d7c49685e465dbee308f",
+      "retained": "native/locksmith_fittings/storm_shop_keys_cut_safe_rear.jpg",
+      "retained_sha256": "0eb36002a11d4e9440d467ee27c1637ef011b7f67d551f5b9d710a0b8b5016e8",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_chair_hollow_front.png",
+      "source_sha256": "977b5b221e77787b0bd63ac255842e2f3cc2979277d320cecb2918ecc5e74b60",
+      "retained": "native/news_fittings/storm_shop_news_cigars_chair_hollow_front.jpg",
+      "retained_sha256": "9fc0d761903195c07d574b25b0e754139c60ebd3cc8a047d191d5dbce6e95342",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_chair_hollow_rear.png",
+      "source_sha256": "e798303821e74a480e427406fcaa6c93fa5c451ccaeb4defe394635c0fab577c",
+      "retained": "native/news_fittings/storm_shop_news_cigars_chair_hollow_rear.jpg",
+      "retained_sha256": "792d174f1c3d20b2676d1a6be4873849db8288b66d61abaf1f5e3a773163c504",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_counter_front.png",
+      "source_sha256": "c59de092ae2cfbdc165e717152a813e9ad00d96dfe3da7b6f30bd9f8d1debb7d",
+      "retained": "native/news_fittings/storm_shop_news_cigars_counter_front.jpg",
+      "retained_sha256": "a2298720726b0c17f87f6385fde0e6ee2a1531a82d370025d314af0d954f7b41",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_counter_rear.png",
+      "source_sha256": "b1efbf36f8dbd3cf47da7c1469a8520e3f5daa08689eb292913b30a35e5c05ee",
+      "retained": "native/news_fittings/storm_shop_news_cigars_counter_rear.jpg",
+      "retained_sha256": "ac66c66c278d2a447bc8748b1c6c856c2370d6c4a11ce509bffb63ee69aca266",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_stool_front.png",
+      "source_sha256": "0e4516f66ca7356c1a7dfb36e41d7c53fee0b070dd6c8400e524120fa36b0d97",
+      "retained": "native/news_fittings/storm_shop_news_cigars_stool_front.jpg",
+      "retained_sha256": "8661df7c221c3e287c1dc6c5df53b2c1cdb0c44ccc6c1892218012f1c74a969d",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_fittings/storm_shop_news_cigars_stool_rear.png",
+      "source_sha256": "78ce0fa3e65ee1a93cb12c8ab5a86c98df75f9a11b5605864bb30e5acb719e72",
+      "retained": "native/news_fittings/storm_shop_news_cigars_stool_rear.jpg",
+      "retained_sha256": "924d755ea3e360c0defb96fc082882f4ea534161119534fd04d40a8cf945d860",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/news_receiving/chassis_front.png",
+      "source_sha256": "bbea51c2e757877026ca8317eeafdb3b0f1b91b41b3de6af9773edce7fab6846",
+      "retained": "native/news_receiving/chassis_front.jpg",
+      "retained_sha256": "817e19c769f853886b13095192a75879bda3f135e2c1e1fffa722d86774affd9",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/shop_joinery/shop_hardware_paint_context.png",
+      "source_sha256": "ceb3088d50d45447ace625f4fbb0a426346954e3e8ad392ad1723633d4c2bac6",
+      "retained": "native/shop_joinery/shop_hardware_paint_context.jpg",
+      "retained_sha256": "8110f043faba8e64f7e339934ed1fa296525bcadf5423f3680c045b9a8fe6f9c",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/shop_joinery/shop_hardware_paint_door.png",
+      "source_sha256": "345d510a36609af32f667ae8c241ed49cd1ac73c21ea85de8b1cb9730be58556",
+      "retained": "native/shop_joinery/shop_hardware_paint_door.jpg",
+      "retained_sha256": "0eec64f180f0101f1edf3e9d4cd793224269a0317c583e645ca28caa34d0952d",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_keys_cut_context.png",
+      "source_sha256": "1c6a0a166c5c17f9bd83c9e9f529d12b760935d3c190a5c1942d2491a36ce092",
+      "retained": "native/shop_joinery/shop_keys_cut_context.jpg",
+      "retained_sha256": "014a9e64f8ecec3899b949e0178c18ba3270070c53dc55d316399d2d3905b8b4",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_keys_cut_door.png",
+      "source_sha256": "68521244df849b835334adf29052190e77e3c878a4e515c9e03715c29831a012",
+      "retained": "native/shop_joinery/shop_keys_cut_door.jpg",
+      "retained_sha256": "53282b0d178e75024c9b96bfa52c049ec2d957cb25d2f0df658e20f587661f0e",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_model_laundry_context.png",
+      "source_sha256": "5c2ceaaee9b8683ad77f44dbbfa1f9803c1e1c9dce0076c7f872ee44a8eae5c8",
+      "retained": "native/shop_joinery/shop_model_laundry_context.jpg",
+      "retained_sha256": "bc1fb784e400ee40fd921ccc5a4d179d6d25246961c296c7c619d837f0a911d8",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_model_laundry_door.png",
+      "source_sha256": "9e4d509678f0eb0af682352a1994c86b3a5be151c8a2f55158611c1e61a43854",
+      "retained": "native/shop_joinery/shop_model_laundry_door.jpg",
+      "retained_sha256": "d819204ccd6c00cf3d8220e9a751fd5138af5c3403884e3bacfab4795487c4e9",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/shop_joinery/shop_news_cigars_context.png",
+      "source_sha256": "52c7b5fc5069ce396aae17f8db49722000fe7262734cd972d2f8f4518df47924",
+      "retained": "native/shop_joinery/shop_news_cigars_context.jpg",
+      "retained_sha256": "558cba7f931faf54a0f63e097766fa7ede392d0e7bd3c9a33d85b4fa88a28e42",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-native-last/shop_joinery/shop_news_cigars_door.png",
+      "source_sha256": "b1d42dce05343a2ce6812d140fd20f121a41f71b3711c0ad5589bf9edb1d92cf",
+      "retained": "native/shop_joinery/shop_news_cigars_door.jpg",
+      "retained_sha256": "8e86f15926a038a5098505c673473169b09340e104592c283eca83986979ebd4",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_otis_son_context.png",
+      "source_sha256": "306427fb367ee91947fcfbdb9d1a09a36036e73b6aa9202ed5418ac3ee013688",
+      "retained": "native/shop_joinery/shop_otis_son_context.jpg",
+      "retained_sha256": "69d5f4fd7500d6ba28416e451836c91b97430f94c7d0cf683d5b835e5709a450",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_otis_son_door.png",
+      "source_sha256": "ee2b04595901c410ae2fc56f4a515c0727ddc41ca592c12d6fcd7e5847bf9b32",
+      "retained": "native/shop_joinery/shop_otis_son_door.jpg",
+      "retained_sha256": "213b441f94a0e4efad8fb7b68ce5f75e8d137b830e411624440344b5e0c6b1f7",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_radio_service_context.png",
+      "source_sha256": "3283a9eb89287e8ea8de6bde0244c6bb5392ee61d187e3d33091c2437fffe702",
+      "retained": "native/shop_joinery/shop_radio_service_context.jpg",
+      "retained_sha256": "d45204b60d44ea1916c12de9a1be2600ac126e1081fa65981b10586c3a7855b8",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_radio_service_door.png",
+      "source_sha256": "d884b45a3d337b59e0e531460fc5fec9e9b1e1d9ed9859635f845e12f1d18b54",
+      "retained": "native/shop_joinery/shop_radio_service_door.jpg",
+      "retained_sha256": "5a1bad53469696b9e7a84ac4a333f505dd81c9df733287d1fbeef3d26e6d4b73",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_shoe_rebuilding_context.png",
+      "source_sha256": "2cd04bc23dac08b1d4fc01f110e8bcba365fd1253a8ca0bfc53af65ca977d370",
+      "retained": "native/shop_joinery/shop_shoe_rebuilding_context.jpg",
+      "retained_sha256": "368c9f5468097ec8f39ece654c4276fe6ed0c456db50982cbc78401173387251",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-native/shop_joinery/shop_shoe_rebuilding_door.png",
+      "source_sha256": "190e9bd0f932f8b258aaf99341002db2c7bd7ddcb8e2dadfc48c656414c463b6",
+      "retained": "native/shop_joinery/shop_shoe_rebuilding_door.jpg",
+      "retained_sha256": "5949e245c6cadb4b014867f9c0030725dd065c2b169357041a1aba5324cd0c5f",
+      "phase": "final native"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/bench.png",
+      "source_sha256": "0530f26ce2f1acf499a4061d828eea666ea975507cc8b810512bc3ba28926712",
+      "retained": "runtime/cobbler_fittings/bench.jpg",
+      "retained_sha256": "063f05d7fdd679b006571bea878c9e66d318e602322d94b54b00ca035be0f33e",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/counter.png",
+      "source_sha256": "818e5d985df5e8314fa65a8ec212f7cba9e4e1ebbb4b2340f4598c75de00fe21",
+      "retained": "runtime/cobbler_fittings/counter.jpg",
+      "retained_sha256": "f861ebcc77788082e5b7d17ffef7f893c347548930b99f87f059d402a77f8cf3",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/finisher.png",
+      "source_sha256": "3c5112bf22cf24a55d416e523a89d444936c81fbea9fe4eaf367b108d6fcda3e",
+      "retained": "runtime/cobbler_fittings/finisher.jpg",
+      "retained_sha256": "6d1953418da907729a52d7634c5a60937dacc315aec7018faa23dc6ff3bb492c",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/floor_dust.png",
+      "source_sha256": "fd407ec7ce48677e97efe857dd9678db1d739fdfc9d55015810c5c520d1323bd",
+      "retained": "runtime/cobbler_fittings/floor_dust.jpg",
+      "retained_sha256": "87630c479cfc0fe49a6a156be9e4988346917fd96cec5300027cb378efb613bb",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/last_rack.png",
+      "source_sha256": "cc91448cc9b1ffb0bdbb840652238f989881191ecd4d64c38a080fac2655c71c",
+      "retained": "runtime/cobbler_fittings/last_rack.jpg",
+      "retained_sha256": "7ac11ef5d4677cd4f97c9163460b9e2934c2c2078c6b0a2075b70e31dfccc7a6",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/rear_door.png",
+      "source_sha256": "cef6e130ac7e23bbe30d383ce027888e38cf9123232dd193e0645df1c49bff1a",
+      "retained": "runtime/cobbler_fittings/rear_door.jpg",
+      "retained_sha256": "7c3987dd99185df8f54526aae77e7b96a8fe1d1e5aa36ae763a3bd1c8f617e25",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/sewing.png",
+      "source_sha256": "3ca2e1f9d99c0ea3d099708522de8c0eb6334d77be2968830666be876b5d4e2a",
+      "retained": "runtime/cobbler_fittings/sewing.jpg",
+      "retained_sha256": "38984c5fd546596c51695d40df8da1fc19350ea4df304547f55273a1334d0799",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/shoe_rack.png",
+      "source_sha256": "5d10bc52e403bedd7ea367b9f389316556dcc8fc55e4d39ff9141d9f713499ba",
+      "retained": "runtime/cobbler_fittings/shoe_rack.jpg",
+      "retained_sha256": "9633c4e6d5c7f886cb20a058885504bdba7e0a2980a404f83af3afd2a591b2ad",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/waiting_seat.png",
+      "source_sha256": "83b63aac1c905293907477fd2b2a8f7ed8ce5bc99e9553203ad6be2eb9e757ce",
+      "retained": "runtime/cobbler_fittings/waiting_seat.jpg",
+      "retained_sha256": "b15fe3075a21773a79f08c059bb8a661f7e6ed4933abee7e574a9a1bf299f2bc",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/cobbler_fittings/window_cabinet.png",
+      "source_sha256": "c985d41f04c7588f47fd12f1c81077941a4802702b22aef2929a8aa23a6f034b",
+      "retained": "runtime/cobbler_fittings/window_cabinet.jpg",
+      "retained_sha256": "f9b3a4972bee6055e61733005358efae8d2abff7ded95be0152b24e9d0541b8f",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/bench_clearance.png",
+      "source_sha256": "ecccc52aff355e705b1c9f8563c9a75b239644de43a69a73baadf85ecbb45994",
+      "retained": "runtime/druggist_cupboard/bench_clearance.jpg",
+      "retained_sha256": "8e5c26873775e9f5a3631e760e463000e0fc6c277c8c65c7b426fcc22877c8bd",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/bottle_ribs.png",
+      "source_sha256": "fc9a2248df157a5778e9ccfd672cd09b4f437ea7834afa0cd0b0a952bd54e7f0",
+      "retained": "runtime/druggist_cupboard/bottle_ribs.jpg",
+      "retained_sha256": "beca81b04ab4201d21a574e148c147b72dcdf2c2c9db3f9b38722eae9c805fab",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/cupboard.png",
+      "source_sha256": "661fc2ed27d8d34db25fd9a4403b1dbd5fe01a1e20c60a83a9dd4657a5a722da",
+      "retained": "runtime/druggist_cupboard/cupboard.jpg",
+      "retained_sha256": "d3c28739eb3d0f7eaef9698ef482f80773d1e7723f18d4601cee11a57d7d1c27",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/cupboard_feet.png",
+      "source_sha256": "8d9784c3a2b98f18ecb3765e90b0d3d07d1b7d55eb0f628fe99a0fd62386a4cd",
+      "retained": "runtime/druggist_cupboard/cupboard_feet.jpg",
+      "retained_sha256": "2db0d90a340dbacfb28c2ff5a0e319c6071a9b31ca69592a4798e6583821ab35",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/dispensary_context.png",
+      "source_sha256": "3ac7c39fff0fa8cdae82536128b2d67460eec6443fa5aab159e2d134ef46714d",
+      "retained": "runtime/druggist_cupboard/dispensary_context.jpg",
+      "retained_sha256": "3bec06b91a425e54e242ca3bccc7ebf5a6de469f6b38d47ac7250de73b7d4bb8",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/druggist_cupboard/shop_context.png",
+      "source_sha256": "72ba4af35631f6d613dbdda9990e16797c9b1ef9baff0a6e31045f6fc2707990",
+      "retained": "runtime/druggist_cupboard/shop_context.jpg",
+      "retained_sha256": "3a505b4d27de6b98e0beaf4e8af42971cda210ecc48f2424a93481982520d91e",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/brass_stock.png",
+      "source_sha256": "d53ff43d74dd9b081b97ca3675a1512b1234e738cbad6bb64a50583b4c57f53e",
+      "retained": "runtime/hardware_stock/brass_stock.jpg",
+      "retained_sha256": "eb9f953e3f95e552084f814e49ce481f54174671918fc68226bd6e093a3483e1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/east_rack.png",
+      "source_sha256": "059c51355ac86dbe8088d41845dba5a0bc75a41a4f16458144f8627bf57b14f5",
+      "retained": "runtime/hardware_stock/east_rack.jpg",
+      "retained_sha256": "4f859fee5b5e7e6bd09abbe8114eba1a3e3e6966f7ce1c5e7e27a91bea4af2be",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/ledger.png",
+      "source_sha256": "9f34f1c02066e8130003d8a5934d34f0e9c4217f832a8d134e2844688b42c976",
+      "retained": "runtime/hardware_stock/ledger.jpg",
+      "retained_sha256": "3df68b32d492ce0a9e6f5847c835e8defc0d1dc3253438c7904d83bcb7b0974d",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/service_counter.png",
+      "source_sha256": "a8855933ecbcd37f963501e0ad21b55257acc5936660c94f451728131c0ced58",
+      "retained": "runtime/hardware_stock/service_counter.jpg",
+      "retained_sha256": "9340969286326694887b4dad70a86a57a4c2286117a477e9dd2419854a2dadd1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/west_rack.png",
+      "source_sha256": "6995c7810b639ec6f2fc41e6ad50f9ba2d43f1b971c22b3dca37d80649b8b626",
+      "retained": "runtime/hardware_stock/west_rack.jpg",
+      "retained_sha256": "de82d97a9035d42ba906a2d306de0ee415329c81120c75c3a5b31bbaf5dec3f7",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/hardware_stock/window_stand.png",
+      "source_sha256": "38e59a0c5258909605a5f2002e70f0936108f3433f29d67e2582d539458c243e",
+      "retained": "runtime/hardware_stock/window_stand.jpg",
+      "retained_sha256": "8db6417a37569ca35186dbb63d97077fda48ab3d11612ccad0073df23eb9a493",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/laundry_receiver_front.png",
+      "source_sha256": "b371a916978b15f51dc4001c4003b27b6b5596d2ffee2f7cecc7a79001f689bc",
+      "retained": "runtime/laundry_fittings/laundry_receiver_front.jpg",
+      "retained_sha256": "f29438f37a6b76c23a4bc18ae26201bafe24c05587833d663a9dcd487b4bb362",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/laundry_receiver_table_supports.png",
+      "source_sha256": "db433a23aadf4a397037d7b1dfa862e3a5469a394937d683896d2864adde62a5",
+      "retained": "runtime/laundry_fittings/laundry_receiver_table_supports.jpg",
+      "retained_sha256": "70ddea7c281ba43e6e49bc29384acd62b5f2ba994fe5e6d7ca1089eacbc049e1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.png",
+      "source_sha256": "1246ab466e0646b98e8b8bf4fdaf5b488f6e6d25dc33779acd0d98ef1452be7f",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.jpg",
+      "retained_sha256": "eb02e12a0cf888f0f3791224fd5b8ee35196d1c8f4ca8eecc3113bb8e22bc43b",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN0_MODEL_LAUNDRY_original.png",
+      "source_sha256": "7d437ee3edd2dcaafa30add5316ed903b8f520369f22677f8fe7b02d7bc0670d",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN0_MODEL_LAUNDRY_original.jpg",
+      "retained_sha256": "019f292e058a4efe46d1518424161a93b631715952d0763ee738de5e4a059939",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.png",
+      "source_sha256": "69f13727947c9703e579da29203cd85609b16a5b28b557a2283bf7ca36d546f3",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.jpg",
+      "retained_sha256": "ca72071f4f93896edb8e302e1ce75e031f37c3a789dc534d0277c8920700130f",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN1_MODEL_LAUNDRY_original.png",
+      "source_sha256": "5faa678e24329c78206414718eb53193e9ed93ab293e5a5a17339ce185270834",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN1_MODEL_LAUNDRY_original.jpg",
+      "retained_sha256": "2033c0d9a4459101e393f62693a85afb55af6eaf1e1e7d4a02909f39c0eebaf7",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.png",
+      "source_sha256": "bd4895e02f94f116e73462eab1bd29bf4b27e90ac762be73e14d9640a3312af3",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.jpg",
+      "retained_sha256": "e11010e69858f4f6502f8c56298162c0d0ab41159f218509a1f0d20e3a7082a4",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/SITE_SHOP_IN2_MODEL_LAUNDRY_original.png",
+      "source_sha256": "9a1bd30ca8f78e217dc20a0754b2c7aaa6d819bf4c536c03d1e4e663a6d3aee3",
+      "retained": "runtime/laundry_fittings/SITE_SHOP_IN2_MODEL_LAUNDRY_original.jpg",
+      "retained_sha256": "de5dfc5083bb8fa951cc1393fa6d45bba88c2fcb71266cd4f0f3a377ccc716a3",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_floor_0_fitted.png",
+      "source_sha256": "38c48affa2b66b478c7c54b284a061f7e8066d5d011ea7141c5b653c63a75469",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_floor_0_fitted.jpg",
+      "retained_sha256": "1cafd353622ce15561724ae2a935abb4d1fdfcdc6f33986545d7ef56586d0281",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_floor_0_original.png",
+      "source_sha256": "4eb150bc3335da412f889bbeec65b513c744b65d26e92ca8e63790c31c9e7a68",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_floor_0_original.jpg",
+      "retained_sha256": "2cd02dda2e18b1510381e172083195feb6727074dd042a9097dcb6053ad49201",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_floor_1_fitted.png",
+      "source_sha256": "3bed918b53b9b74d0ab61b856c41e96352f4d066a01f4c8527c76fe077b48b03",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_floor_1_fitted.jpg",
+      "retained_sha256": "29785c3f5717ecfa2978b9ed7c6854f5a4f57dd58698bb04738ca4942cb8fd30",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_floor_1_original.png",
+      "source_sha256": "7facb4db3b0c67aa37d0eb9e908a7131656815eb2fa99c1f9bc21c646642eb0f",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_floor_1_original.jpg",
+      "retained_sha256": "defb4c36d71cb43986419a43147e460d443cea931da9faaca8891ddcacd8e5a1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_shirt0_detail_fitted.png",
+      "source_sha256": "84addd070481a84232d6a7b770cc64af25be96ddaac3013b65c1234fe6989651",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_shirt0_detail_fitted.jpg",
+      "retained_sha256": "f1e8b9ddde4c8cb8ab8c63dd474777bda4c7cd82c314f2a94fc5323f4537f729",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_shirt0_detail_original.png",
+      "source_sha256": "1849b97bf786f2f0e5828d7d4a4dc6fd2052732c54a65b07def9ce4949d5055f",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_shirt0_detail_original.jpg",
+      "retained_sha256": "64b83f570260ad070164d3a9220c990d3878ba3113a50b23e5509b811384dc38",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_shirt8_detail_fitted.png",
+      "source_sha256": "befc487226fa8dcf87cbad8140435c9adbaf44037af3fd1c5c0f0f2b0cbd306e",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_shirt8_detail_fitted.jpg",
+      "retained_sha256": "46e6b25ae3e4caabbf7411d70640909ef61209c383c2a43ed3b0b2188f8ef19e",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/laundry_fittings/storm_shop_model_laundry_shirt8_detail_original.png",
+      "source_sha256": "36cb8c28c8ee510503af2d67846c71ce18bc17d305827cbef7638144c63895fb",
+      "retained": "runtime/laundry_fittings/storm_shop_model_laundry_shirt8_detail_original.jpg",
+      "retained_sha256": "b8e07a94d5b595ce5ecb3a07ccb2fd5cfa6e2e5cb5b0c4461c8adb6a1a375b9e",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/copy_counter.png",
+      "source_sha256": "fa562557f1ac7618d4c68f03ef01d44be7d066f4a2acbb566305c43a7cda377d",
+      "retained": "runtime/locksmith_fittings/copy_counter.jpg",
+      "retained_sha256": "2a8b1404136d1576d8edfde8cee25bcad173f2be19121e7f3a6c1431baf19107",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/cutter_bench.png",
+      "source_sha256": "ca312f9e0a7c52b58797d23a435ea5fe52ee27ba89086bfaf9c6d9ecc1b1166f",
+      "retained": "runtime/locksmith_fittings/cutter_bench.jpg",
+      "retained_sha256": "3de9193f65adce3c1a7bee37a0208b506dc9097772ed21d338bf6dfb56115e07",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/folded_ladder.png",
+      "source_sha256": "74cda6489568ed05c2554ec8a4524f4cb56cc9548afdb8dbcf47370318b3e002",
+      "retained": "runtime/locksmith_fittings/folded_ladder.jpg",
+      "retained_sha256": "3e64f64f5c012c18d0df6cf122d4b94003f96e28875ac4721f960f5e0f9aa126",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/key_board.png",
+      "source_sha256": "ffc741aeb0a3332b313a4522b6b7554026cce5bd84b0255257da71fbe8c1eae0",
+      "retained": "runtime/locksmith_fittings/key_board.jpg",
+      "retained_sha256": "314d9460c551dc7a060c45613a6c3db9375b44f0a44acb7086c2e9a72e13395f",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/loose_locks.png",
+      "source_sha256": "6b8e9ecf7f494c08734031b8979d0fe2c3a98accee2bbbe661db9eb7d7a16eac",
+      "retained": "runtime/locksmith_fittings/loose_locks.jpg",
+      "retained_sha256": "24068211055fc9acd4517639a7ec2607da41551a15d128a5c5c5c16bc73b7849",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/safe_and_padlocks.png",
+      "source_sha256": "600446a30b8ac680e8587b0d979a2ce56f1cd5eed075ea66f8ad392870f5aefc",
+      "retained": "runtime/locksmith_fittings/safe_and_padlocks.jpg",
+      "retained_sha256": "5a50683aaee4a4ac258a61b28e28940bb19b239a2bafdd275f7fc5da5bae06ae",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/locksmith_fittings/window_cabinet.png",
+      "source_sha256": "cae41d797e318bcf5f0c2fbd3b9c932c333ebc48bfe8f5a40268dd3de1396d62",
+      "retained": "runtime/locksmith_fittings/window_cabinet.jpg",
+      "retained_sha256": "dde02b1a7a1f9daccd02e4d72c80f8a818893761d3d066227eb1e5bc1c961ad1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/candy_jars.png",
+      "source_sha256": "195957fae3be7e65aa42d0c3c9b2776cdc557f739f4d1e9654625cdfaa0b3510",
+      "retained": "runtime/news_fittings/candy_jars.jpg",
+      "retained_sha256": "bd2c129e39f90071f0dc35fa80e246e4ad99d43f91fa4a7f9837661f2c2ed68b",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/cigar_case.png",
+      "source_sha256": "0f98429e16a4b8e2f98f3ff50939b5e2395399cc431af4b50947cb850693161a",
+      "retained": "runtime/news_fittings/cigar_case.jpg",
+      "retained_sha256": "da849ca4eab252b367060449bfe77dbd56f9e107dce37bd3635e1bcc5c5bcbc8",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/counter.png",
+      "source_sha256": "09a3c3ed2a18ecd4e2c9e2c125bbb2a2f968956e652c9eef95e2c6cea477c599",
+      "retained": "runtime/news_fittings/counter.jpg",
+      "retained_sha256": "6fd53cb7d3d02b7fffa5f77b2847e3b0e85b8f0baf2fc533c5b34e4f3849a7e6",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/fitted_stool.png",
+      "source_sha256": "f750ce860a48943f01f4c9fbb5d21527e609d17cf95f19e6babfdf94ebaa4915",
+      "retained": "runtime/news_fittings/fitted_stool.jpg",
+      "retained_sha256": "2b69592f00ec7b09714acb7f9d12b7e2a8e737c70b43e248ece98d0d6b962832",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/paper_rack.png",
+      "source_sha256": "3f0443c3fc2df3f02c61f0a1c5e7a9dc869c43611a8ebde3568daa58849d7bd7",
+      "retained": "runtime/news_fittings/paper_rack.jpg",
+      "retained_sha256": "388b56174174c79dcf0cf395f5e4178244c7bfe3519a3b959110f96bc77ad6eb",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/pipe_rack.png",
+      "source_sha256": "ab9ce39b2d6f3e7882266bfe29fcda8def4cdca6c3eac6de0c4d9708c8d52f93",
+      "retained": "runtime/news_fittings/pipe_rack.jpg",
+      "retained_sha256": "88d2498e1ee412a2fff56341ab2fbcee440d361f02e03bb3c18cc66627457a3a",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/punchboard.png",
+      "source_sha256": "5c56d0ab5895a1860a3030e9277b3b76c523f172ee1f105a41f1318751c1fca4",
+      "retained": "runtime/news_fittings/punchboard.jpg",
+      "retained_sha256": "1a169052e6cb4a6ad52103d1cee33a55779df67e602b013b379f40bda15e9af9",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/rear_shelves.png",
+      "source_sha256": "78b051cef9042f7e260071aa01edc4e45f2d24ce2e5539d57be237304855a32b",
+      "retained": "runtime/news_fittings/rear_shelves.jpg",
+      "retained_sha256": "418b68a67fb8c8a4ef55786b5f0b7ae6914c04a345058a3b1ce1b9341dd2940f",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/news_fittings/service_hatch.png",
+      "source_sha256": "358df94da5e011a95065c190b6de86ef5ead66519304ee5ab0b28a10ccdd66d5",
+      "retained": "runtime/news_fittings/service_hatch.jpg",
+      "retained_sha256": "2d8246cdcc14a0768a400107355bdaece511a4a55d4f1ab307b21770fdee26c1",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_funeral_parlour_closed_door.png",
+      "source_sha256": "b34264540727d564b5e4615be35c334e351311ca1dc5d8ca362ed0666603efea",
+      "retained": "runtime/shop_joinery/shop_funeral_parlour_closed_door.jpg",
+      "retained_sha256": "dfb978da18e24b24728fd798a550cd2ecd885aa7ddf499dc480422f35c5e6d6f",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_funeral_parlour_window.png",
+      "source_sha256": "870b8c786a1ce23a3701c90a7bdb7f334de19a8fe3b2f0fdc5f38962e12a7e58",
+      "retained": "runtime/shop_joinery/shop_funeral_parlour_window.jpg",
+      "retained_sha256": "1f409b9738268616739acbb43aba689fecc3775744e2ad74793a94d32966a79a",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_hardware_paint_closed_door.png",
+      "source_sha256": "5fb606be146fdb4063b350b1ab96cdd4e837902207e491b91e0c371c68fca301",
+      "retained": "runtime/shop_joinery/shop_hardware_paint_closed_door.jpg",
+      "retained_sha256": "f5bfbbff93c16e3172e700fc9f7c7ea2b3cc479eee6d8c31c8619d4efe4ddf23",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_keys_cut_closed_door.png",
+      "source_sha256": "15ac9129b1fbe3ada8e2e4426c9eb9649cd4eaae385fad3c81c458b992ccc066",
+      "retained": "runtime/shop_joinery/shop_keys_cut_closed_door.jpg",
+      "retained_sha256": "cdb5d91e3a752f9bf06ed10ff2792ef2e3d084bf212f3da13a3d8d683a5024c9",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_luncheonette_closed_door.png",
+      "source_sha256": "946a704e053da92d4b7c734fd6cb0e61cc9e4a0bcbf1b40bb929cd6d258bcbbd",
+      "retained": "runtime/shop_joinery/shop_luncheonette_closed_door.jpg",
+      "retained_sha256": "ffb29a39dad8c70e2aab17bd80e9a7c13be754c7551e8867209a3b8fa758a3a8",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_model_laundry_closed_door.png",
+      "source_sha256": "3e347ff905cc60625986849d8bf5c28b0d9fff8359253398bf0afdf55c8f2a7b",
+      "retained": "runtime/shop_joinery/shop_model_laundry_closed_door.jpg",
+      "retained_sha256": "581b790902bd616c0f2c405d44c2cade2c57abd664935a84db81b7abf6e89fe4",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_news_cigars_closed_door.png",
+      "source_sha256": "3c7e779974e7c01a327c3157debd0c480fae45b7a27a16fe15710b5adbb7346a",
+      "retained": "runtime/shop_joinery/shop_news_cigars_closed_door.jpg",
+      "retained_sha256": "9e165035f41f0d50c99006d533034f6ac8428b62799906fdb870529d1bd719f5",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_otis_son_closed_door.png",
+      "source_sha256": "a84c24bc77342f71ced3144518bccaeac0d7af254ade2715a6c85d878a368ccf",
+      "retained": "runtime/shop_joinery/shop_otis_son_closed_door.jpg",
+      "retained_sha256": "7cf90df1dd44b50bafd5c9ad347d55b6ac9bbc531f229852da9febc4f1bfcd95",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_pawnbroker_closed_door.png",
+      "source_sha256": "1ac80c06b17715adc102501d8a31731b4d791e27ccd7eaf44c33e07cb87d3646",
+      "retained": "runtime/shop_joinery/shop_pawnbroker_closed_door.jpg",
+      "retained_sha256": "5b9a99076df239b3ed531c3f404b55e270a195611cc594d91141e9b27a9dc9f6",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_photo_supplies_closed_door.png",
+      "source_sha256": "22ba32b9d9bbbd91f9cd3f3bec51d3d142620075515d9ea864fa1417addc27be",
+      "retained": "runtime/shop_joinery/shop_photo_supplies_closed_door.jpg",
+      "retained_sha256": "7d3fcfaf22ddfd06c029c89b80dfc2e96f9c6d0732f70c21ba8cd7df7db97e3a",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_radio_service_closed_door.png",
+      "source_sha256": "8d5669216c32e296cce2c7219fb5ce25569604c2e29b81d4be35ee5894cba32d",
+      "retained": "runtime/shop_joinery/shop_radio_service_closed_door.jpg",
+      "retained_sha256": "753bbbe4ec37512570331a7ac40c21560874da3d89916b61af5d2b457c90d809",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-runtime-shots/shop_joinery/shop_shoe_rebuilding_closed_door.png",
+      "source_sha256": "bda11fba318023474e3318b81f213b8eb935b857557e13f8d7243ade5386404f",
+      "retained": "runtime/shop_joinery/shop_shoe_rebuilding_closed_door.jpg",
+      "retained_sha256": "acd101e740b6cba54b3220fb5e3a99b1409d6d5d3d4a29d73262baab7d158d2d",
+      "phase": "initial runtime; captured modules passed; four failures in uncaptured hardware_tools"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/east_stock.png",
+      "source_sha256": "69aac20a263d68dc53c6b7d405e5e001376a24f7e53a4d59d9b18dff3ce14acf",
+      "retained": "runtime/hardware_tools/east_stock.jpg",
+      "retained_sha256": "148eb54d2b0cfc96915108688499d8f8767adb06e0f937bd4ff8d775e452f048",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/empty_tool_slot.png",
+      "source_sha256": "1d169bc8a66ccb9261bfbde680c08fb3587bfa887e35e545fa2849b062ab9870",
+      "retained": "runtime/hardware_tools/empty_tool_slot.jpg",
+      "retained_sha256": "162770b02fc1b51823efb4faf1efd80c1d2bb1ae25bda5901c6b53237683dffb",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/glass_cutter.png",
+      "source_sha256": "d6b0869f58dfb4cb34c566cc79a971889685466991a8828487ba8e622559c64f",
+      "retained": "runtime/hardware_tools/glass_cutter.jpg",
+      "retained_sha256": "e85d157c99973bbfe9e92346d6f6b35d8ccf136fc07595f2431f569f6bd26694",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/glass_stand.png",
+      "source_sha256": "abaac8eb0cae425b3a4989097ba77c4fedef694d40498bcfbfd74e4476ca2b4b",
+      "retained": "runtime/hardware_tools/glass_stand.jpg",
+      "retained_sha256": "a1fd418a7e21c26cadf8a07f7b004137c6f2b7bba242a470d7d31772486ad2ff",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/ladder.png",
+      "source_sha256": "832f8cfdefadbb86c619a8e29d0d9bbcdf9fcba7c728824b1bff00f2cfc3553c",
+      "retained": "runtime/hardware_tools/ladder.jpg",
+      "retained_sha256": "751aa961e239627a19de562a5b4fba890a5a1d02d3e375f78de04e318ea2bfa4",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/shop_context.png",
+      "source_sha256": "54be2d0a1733d48015e39a83a508ee29b1239c727a2806fe9607561d8ace21b1",
+      "retained": "runtime/hardware_tools/shop_context.jpg",
+      "retained_sha256": "a5af98d51783dde327f1dae329ce8194ddd255c43599739e7059a6833d9adead",
+      "phase": "final runtime; all 22 modules passed"
+    },
+    {
+      "source": "tmp/v2-finish-review/context-repair-final-runtime-shots/hardware_tools/tool_board.png",
+      "source_sha256": "d37972ceffe170d1c3fdda4c05ace48e693e4b35cad9457d4ac10d877d8b5058",
+      "retained": "runtime/hardware_tools/tool_board.jpg",
+      "retained_sha256": "b7f53c60c0a2a3ecd114091c967f5689ffa98a91112a0ff835b9a2dfd38f8ccc",
+      "phase": "final runtime; all 22 modules passed"
+    }
+  ],
+  "native_views": 38,
+  "runtime_views": 73,
+  "scope": "Selected actual fit views; original source counterparts in paired Laundry captures remain labelled original. Initial captured runtime modules passed; final shared batch passes every module. Earlier camera/framing and diagnostic failures are not acceptance."
+}

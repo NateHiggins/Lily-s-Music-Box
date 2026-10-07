@@ -174,7 +174,11 @@ for item in assemblies:
   box(identity+'_Panel',(x0,rear,bottom),(x1,front,top),identity,'plywood',.001)
   for xx in [x0,x1-.034]:box(identity+'_SideFrame'+str(xx),(xx,rear-.006,bottom),(xx+.034,front+.010,top),identity,'timber',.002)
   for zz in [bottom,top-.034]:box(identity+'_EndFrame'+str(zz),(x0,rear-.006,zz),(x1,front+.010,zz+.034),identity,'timber',.002)
-  for xx in [5.226,7.15]:
+  rack_support_path=ROOT/'game/tests/fixtures/orison_hardware_stock.json'
+  rack_support=json.loads(rack_support_path.read_text(encoding='utf-8'))
+  post_x=sorted({float(c['point'][0]) for c in rack_support['contacts'] if c['assembly']==prefix+'bin_e0'})
+  assert len(post_x)==3,'tool board requires the three fitted east rack posts'
+  for xx in post_x[:2]:
    for zz in [1.82,2.20]:
     box(identity+'_CaseSpacer'+str(xx)+str(zz),(xx-.017,-58.786,zz-.017),(xx+.017,rear+.001,zz+.017),identity,'timber',.001)
     support(identity,prefix+'bin_e0',(xx,-58.786,zz),(0,1,0),'tool-board spacer on fitted east-case post')
@@ -290,6 +294,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
 runtime={'schema_version':1,'asset':'res://assets/props/hardware_tools.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/hardware_tools.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/hardware_tools.glb.import',*material_definitions]
+bindings.append(rack_support_path)
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/tools/build_iron_blackened.py',ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/f'art/textures/procedural/iron_blackened/{name}.png' for name in ['albedo','roughness','normal','height'])

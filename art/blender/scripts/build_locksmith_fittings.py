@@ -215,7 +215,9 @@ for item in assemblies:
   for xx in [x0+.055,x1-.055]:
    for yy in [y0+.055,y1-.055]:support(identity,'storm_shop_keys_cut_cutter_bench',(xx,yy,.95),(0,0,1),'cutting machine foot on retained-height bench')
  elif kind=='safe':
-  cabinet(identity,row,'cast_iron',z+row['h'])
+  # Shorten the closed case at the back-door end; keep the dial and service face.
+  y0+=.090
+  cabinet(identity,{**row,'rect':[x0,y0,x1,y1]},'cast_iron',z+row['h'])
   box(identity+'_SafeRoof',(x0,y0,z+row['h']-.022),(x1,y1,z+row['h']),identity,'cast_iron',.006)
   # The original dial was behind the safe. Seat its fitted counterpart on
   # the visible door; keep the original record and safe identity in the plan.

@@ -1395,7 +1395,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712138759429018
+      "volume_m3": 0.0007712138759399467
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_1_Lace0",
@@ -1467,7 +1467,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712138354281916
+      "volume_m3": 0.0007712138354281914
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Lace0",
@@ -1575,7 +1575,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair3_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712129079458469
+      "volume_m3": 0.0007712129079558747
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair3_-1_Lace0",
@@ -2115,7 +2115,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair10_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712133870803507
+      "volume_m3": 0.0007712133870773956
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair10_1_Lace0",
@@ -3363,7 +3363,7 @@
       "name": "storm_shop_shoe_rebuilding_dust_felt_Dust",
       "assembly": "storm_shop_shoe_rebuilding_dust_felt",
       "key": "soot",
-      "volume_m3": 0.12979199526405055
+      "volume_m3": 0.1295423419894765
     }
   ],
   "contacts": [
@@ -5333,11 +5333,11 @@
       }
     ]
   },
-  "asset_sha256": "e1bee76bcb10aba1d88d72e2232f12d5aa44151e848a66ef30eed8f2038b07d7",
+  "asset_sha256": "3e65a3f089a84d459144f2f849d5b074651faffd68750b4e6d03e3c3bd5c72ef",
   "source_bindings": {
-    "art/data/cobbler_fittings/source_plan.json": "3d44b78c79140f8fd13cf47f2a3d8dbcd8afbbb9fc58136199056f67ec1e71af",
+    "art/data/cobbler_fittings/source_plan.json": "f779a02a4d5dadda44812d0663db4d8f2c0902e1fc4a46b506b27a7397e013b0",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_cobbler_fittings.py": "80bd35783fc2150e1c97516d9ae03fe5669c613a880df379423ad69f2121d851",
+    "art/blender/scripts/build_cobbler_fittings.py": "e022ec57fee201fb566f130ad143094957f982d28c48bd9948c62544de4dcc81",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -5401,6 +5401,7 @@
   "open_work": [
     "Passive machinery: live motion, drive and utilities remain open.",
     "Rear store, independent service continuity/capacity require separate checks.",
-    "Human/whole-V2 acceptance and remaining arcade trades remain open."
+    "Human/whole-V2 acceptance and remaining arcade trades remain open.",
+    "The finite dust stock stops 10mm short of its original south edge to clear the closed back-door casing. Original thickness, north edge and material remain."
   ]
 }

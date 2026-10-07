@@ -47,3 +47,9 @@ checks every cell's correct part count and collision ownership after reload.
 
 Rear clerestories, darkroom/chapel connections, services and routes remain
 separate work. This batch does not make the unmodelled back rooms accessible.
+
+## Corrected composed fit, 2026-10-07
+
+Corrected linked-mesh context checks supersede the earlier clearance claim. Neighboring furniture edges are now fitted. The Radio Service knob and lock rail sit 50mm above their source decorative datum, clear of the original bench; ten other knob centres remain. These closed doors still grant no opening, rear route or interaction.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

@@ -889,7 +889,7 @@
       "name": "storm_shop_news_cigars_counter_Top",
       "assembly": "storm_shop_news_cigars_counter",
       "key": "countertop",
-      "volume_m3": 0.08602748478312339
+      "volume_m3": 0.08422764225038694
     },
     {
       "name": "storm_shop_news_cigars_counter_DrawerBody",
@@ -2047,40 +2047,40 @@
       "name": "storm_shop_news_cigars_stool_Seat",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
-      "volume_m3": 0.006035245850441174
+      "volume_m3": 0.006035247140727285
     },
     {
-      "name": "storm_shop_news_cigars_stool_Leg19.479999999999997-49.989999999999995",
+      "name": "storm_shop_news_cigars_stool_Leg19.08-49.989999999999995",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
-      "volume_m3": 0.0006424008311521368
+      "volume_m3": 0.0006424082805465202
     },
     {
-      "name": "storm_shop_news_cigars_stool_Leg19.479999999999997-49.709999999999994",
+      "name": "storm_shop_news_cigars_stool_Leg19.08-49.709999999999994",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
-      "volume_m3": 0.0006424021289233291
+      "volume_m3": 0.0006424095792429717
     },
     {
-      "name": "storm_shop_news_cigars_stool_Leg19.759999999999998-49.989999999999995",
+      "name": "storm_shop_news_cigars_stool_Leg19.36-49.989999999999995",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
-      "volume_m3": 0.0006424025564332288
+      "volume_m3": 0.0006423958098344551
     },
     {
-      "name": "storm_shop_news_cigars_stool_Leg19.759999999999998-49.709999999999994",
+      "name": "storm_shop_news_cigars_stool_Leg19.36-49.709999999999994",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
-      "volume_m3": 0.0006424038552412451
+      "volume_m3": 0.0006423971085672867
     },
     {
-      "name": "storm_shop_news_cigars_stool_CrossY19.479999999999997",
+      "name": "storm_shop_news_cigars_stool_CrossY19.08",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
       "volume_m3": 7.35840092312473e-05
     },
     {
-      "name": "storm_shop_news_cigars_stool_CrossY19.759999999999998",
+      "name": "storm_shop_news_cigars_stool_CrossY19.36",
       "assembly": "storm_shop_news_cigars_stool",
       "key": "wood_dark",
       "volume_m3": 7.35840092312473e-05
@@ -2409,7 +2409,7 @@
       "assembly": "storm_shop_news_cigars_stool",
       "owner": "storm_shop_news_cigars_chair_hollow",
       "point": [
-        19.479999999999997,
+        19.08,
         0.019,
         49.989999999999995
       ],
@@ -2424,7 +2424,7 @@
       "assembly": "storm_shop_news_cigars_stool",
       "owner": "storm_shop_news_cigars_chair_hollow",
       "point": [
-        19.479999999999997,
+        19.08,
         0.019,
         49.709999999999994
       ],
@@ -2439,7 +2439,7 @@
       "assembly": "storm_shop_news_cigars_stool",
       "owner": "storm_shop_news_cigars_chair_hollow",
       "point": [
-        19.759999999999998,
+        19.36,
         0.019,
         49.989999999999995
       ],
@@ -2454,7 +2454,7 @@
       "assembly": "storm_shop_news_cigars_stool",
       "owner": "storm_shop_news_cigars_chair_hollow",
       "point": [
-        19.759999999999998,
+        19.36,
         0.019,
         49.709999999999994
       ],
@@ -2469,7 +2469,7 @@
       "assembly": "storm_shop_news_cigars_chair_hollow",
       "owner": "storm_shop_news_cigars_floor",
       "point": [
-        19.61,
+        19.21,
         0.01,
         49.849999999999994
       ],
@@ -3560,11 +3560,11 @@
       }
     ]
   },
-  "asset_sha256": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+  "asset_sha256": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f",
   "source_bindings": {
-    "art/data/news_fittings/source_plan.json": "0e97990ea7d95bcf8942d7c32037a4fad71552d1205c34c367eef17e4e5a8139",
+    "art/data/news_fittings/source_plan.json": "9a810a0d1d92984bcb7db6989f04eef950936a845ab798d0b19542f349afb2a3",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_news_fittings.py": "61d3ae071c6885b946da3f217b00a7d74abf8d157dafd6ec5ae65239e54cf06e",
+    "art/blender/scripts/build_news_fittings.py": "d540dc4dc3e4f6c03709e48ca334c4e4298740a4bd862af9fb395f4f18bd39c5",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -3620,6 +3620,7 @@
     "Fitted ledger width/position and punchboard width/position clear overlapping source jars without changing source references.",
     "Container glass retains original color/alpha/maps with a local plain-alpha adaptation; original source windows retain their depth-prepass owner.",
     "Worn cover retains its upper datum with a two-millimetre floor seat beneath it; stool seat height and source references remain.",
-    "The pipe display shifts 2.4 metres toward the front in the clear wall bay; its original arm-height datum and hidden source poses remain."
+    "The pipe display shifts 2.4 metres toward the front in the clear wall bay; its original arm-height datum and hidden source poses remain.",
+    "The passive stool and floor wear cover shift 0.40m toward -X to clear the unchanged optional receiving chassis. The counter worktop ends at x=19.90m, 20mm before the closed door casing. Source references, counter interaction and receiving presence policy remain."
   ]
 }

@@ -43,6 +43,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Model Laundry parcel shelves, ticket wire and transaction furniture | `art/blender/laundry_trade.md` |
 | Nine-family slender-stock grain repair and proven reuse of unchanged dependencies | `design/V2_WOOD_GRAIN_2026-10-07.md` |
 | Eleven fitted closed shop back doors and the empty funeral window stand | `art/blender/shop_joinery.md` and `design/V2_SHOP_JOINERY_2026-10-07.md` |
+| Corrected linked native context, fitted furniture edges and dependent support checks | `design/V2_CONTEXT_FITS_2026-10-07.md` |
 | Original high-level shop glazing, split sash members and rebated plaster | `art/blender/shop_clerestories.md` |
 | Fitted Keys Cut board, passive machinery, supported display and unchanged copying authority | `art/blender/locksmith_fittings.md` and `design/V2_LOCKSMITH_FITTINGS_2026-10-05.md` |
 | Fitted cobbler machines, open paired shoes, fine dust finish and sampled rear approach | `art/blender/cobbler_fittings.md` and `design/V2_COBBLER_FITTINGS_2026-10-05.md` |

@@ -63,3 +63,9 @@ ladder keep their existing owners and remain in the detail queue. Continuous
 shop/rear access and independent utility continuity/capacity remain open.
 Passive visual stock grants no new purchasable inventory, operational shop
 acceptance or whole-V2 completeness.
+
+## Corrected composed fit, 2026-10-07
+
+The east rack starts at x=5.62m, 40mm beyond the closed door case, while its far end remains x=9.10m. Original stock identities and tray sizes remain; their centres redistribute within the shorter rack. Row heights and inventory authority are unchanged.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

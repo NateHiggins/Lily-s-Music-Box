@@ -79,7 +79,8 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **laundry_apparatus**, **laundry_trade**, **diner_counter**, **diner_till**,
 **hardware_tools**, **photo_cameras**, **photo_counter**, **photo_stock**,
 **photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
-**shop_clerestories**. The original
+**shop_clerestories**, **hardware_stock**, **news_fittings**,
+**locksmith_fittings**, **druggist_cupboard** and **cobbler_fittings**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
@@ -150,3 +151,33 @@ rebuilt just because a context hash changed. Refresh only explicitly reviewed
 dependency hashes, retain the comparison and keep prior proofs’ dates/scope.
 Unexpected source drift still requires investigation. The bounded example is
 **art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py**.
+
+## Linked context and fitted edges
+
+Update Blender's view layer immediately after linking accepted native objects,
+before building any world-space BVH. A loaded object's unevaluated transform
+can otherwise hide real collisions. The existing linked inspectors now do this.
+**audit_linked_native_context.py** runs those inspectors in one process, redirects
+outputs into a fresh tmp directory and disables renders by default. Its JSON
+records every PASS/FAIL; a zero process exit alone is not a passing audit.
+Use **--render --view REGEX** only after the affected preflight passes. Only
+**rendered_views** are new images; original inspector view lists include skipped
+images. Instrumentation and redirected receipts remain INERT native QA.
+
+The joinery inspector collects intersections across all eleven shops before
+failing. Fix the complete list in one geometry batch, then repeat affected
+preflights and selected renders. Compare canonical physical triangles when
+checking unaffected parts: harmless export triangle order changes must not be
+mistaken for surface changes. Never waive a real penetration to make a batch pass.
+
+The Hardware validator retains its real purchase/input regression and runs
+last in the default 22-module world. Capture suppression keeps geometry and
+standing-station checks active. Metadata-only binding refreshes need no import.
+
+Before import, run **audit_native_support_dependents.py** with every changed
+family. It resolves grouped source identities and checks consumer bearing
+points against the actual native replacement surfaces, with a 30-micrometre
+bound. This catches attachments left behind when a provider moves or shrinks.
+Its JSON retains hashes, every sample and failures; it grants no runtime proof.
+The support audit regression deliberately replays the four old Hardware
+spacer points against the fitted rack and requires all four to fail.

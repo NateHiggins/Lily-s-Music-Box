@@ -67,3 +67,9 @@ and saved state retain their owners. Native closed-stock checks and production
 tests are separate from runtime-contract and human acceptance evidence.
 Rear-store operation, continuous access and independent utility continuity
 and capacity remain open work.
+
+## Corrected composed fit, 2026-10-07
+
+The stool and wear cover move 0.40m toward -X, clear of the unchanged optional receiver. The counter top ends at x=19.90m, 20mm before the closed door case. The purchase area and source references stay fixed.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

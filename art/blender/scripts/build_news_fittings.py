@@ -149,6 +149,7 @@ for item in assemblies:
  identity=item['id'];kind=item['kind'];row=item['body'];members=item['members'];x0,y0,x1,y1,z0,z1=at_source(row)
  if kind=='counter':
   top=next(r for r in members if r['id'].endswith('_counter_top'));tx0,ty0,tx1,ty1,tz0,tz1=at_source(top)
+  tx1=min(tx1,19.90) # Keep a 20mm end clearance from the closed back-door case.
   for x in [x0+.045,x1-.045]:
    for y in [y0+.045,y1-.045]:
     box(identity+f'_Foot{x}{y}',(x-.024,y-.024,.01),(x+.024,y+.024,z0+.075),identity,'wood_dark',.003)
@@ -248,6 +249,7 @@ for item in assemblies:
   bm=bmesh.new();bm.from_mesh(board.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7);bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=1e-8);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(board.data);bm.free()
   support(identity,rows['storm_shop_news_cigars_counter_top']['id'],((x0+x1)/2,(y0+y1)/2,base),(0,0,1),'punchboard on transaction top')
  elif kind=='proprietor_stool':
+  x0-=.40;x1-=.40
   cx=(x0+x1)/2;cy=(y0+y1)/2;base=.019;seat=z1-.040
   vessel(identity+'_Seat',cx,cy,seat,[(0,0),(.203,0),(.223,.009),(.223,.031),(.211,.040),(0,.040)],identity,'wood_dark')
   for x in [cx-.140,cx+.140]:
@@ -257,6 +259,7 @@ for item in assemblies:
   for x in [cx-.140,cx+.140]:rod(identity+'_CrossY'+str(x),(x,cy-.145,.22),(x,cy+.145,.22),.009,identity,'wood_dark')
   for y in [cy-.140,cy+.140]:rod(identity+'_CrossX'+str(y),(cx-.145,y,.28),(cx+.145,y,.28),.009,identity,'wood_dark')
  elif kind=='worn_cover':
+  x0-=.40;x1-=.40
   box(identity+'_FloorSeatedCover',(x0,y0,.01),(x1,y1,z1),identity,'soot',0)
   support(identity,floor['id'],((x0+x1)/2,(y0+y1)/2,.01),(0,0,1),'wear-cover floor seat')
  else:raise AssertionError(kind)

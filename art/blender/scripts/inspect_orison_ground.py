@@ -104,11 +104,11 @@ scene.world.use_nodes = True
 scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.65, .73, .85, 1)
 scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .55
 light_data = bpy.data.lights.new('InspectionSun', 'SUN'); light_data.energy = 3
-light = bpy.data.objects.new('InspectionSun', light_data); scene.collection.objects.link(light)
+light = bpy.data.objects.new('InspectionSun', light_data); scene.collection.objects.link(light);bpy.context.view_layer.update()
 light.rotation_euler = (.4, -.5, -.6)
 camera_data = bpy.data.cameras.new('InspectionCamera')
 camera = bpy.data.objects.new('InspectionCamera', camera_data)
-scene.collection.objects.link(camera); scene.camera = camera
+scene.collection.objects.link(camera);bpy.context.view_layer.update(); scene.camera = camera
 camera_data.type = 'ORTHO'; camera_data.ortho_scale = 245
 camera.location = (-150, 145, 140)
 camera.rotation_euler = (Vector((0, 20, -.4)) - camera.location).to_track_quat('-Z', 'Y').to_euler()

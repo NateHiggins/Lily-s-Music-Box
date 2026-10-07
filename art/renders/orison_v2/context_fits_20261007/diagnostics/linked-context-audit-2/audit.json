@@ -1,0 +1,79 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Instrumented geometry-only triage; no new renders, source edits, exports, runtime proof or acceptance.",
+  "results": [
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "source_sha256": "666e649a73b93b27077b0acc210e2992c55447c4404efbd17c7bfb1a5e11ebdd",
+      "instrumented_sha256": "d69ffc240e88b56eef890d472b6c576a028cd1be8e1ddc48da09f19d4e20a091",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/laundry_trade",
+      "status": "FAIL",
+      "error": "[['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen'], ['context', 'storm_shop_model_laundry_parcel_shelf0__timber', 'storm_shop_model_laundry_parcel4_7__linen']]",
+      "elapsed_s": 5.495
+    },
+    {
+      "script": "art/blender/scripts/inspect_news_receiving.py",
+      "source_sha256": "c35c1e6e9d0a7be1a9d333b672e2f0f1f3304702dd6cfc2121350b9ff1b74f9f",
+      "instrumented_sha256": "a02261fe034eb7290e67e407d0f78985111509674ad42fc22b6b5d90cfee23d2",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/news_receiving",
+      "status": "FAIL",
+      "error": "('intersection with accepted native fitting', 'storm_shopcab_news_cigars0__bakelite', 'storm_shop_news_cigars_stool__wood_dark')",
+      "elapsed_s": 2.548
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_joinery.py",
+      "source_sha256": "7709c6c1355247c9996f05f9eaf789421aedf1c46a7b61fd3be0225eeb60b77a",
+      "instrumented_sha256": "b9704a238fb679c16a32ede090ec271339cc2acd6eb6c44cb390eb049f293d42",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/shop_joinery",
+      "status": "FAIL",
+      "error": "('shop_hardware_paint', [['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange'], ['storm_shop_hardware_paint_boh_door__wood_dark', 'storm_shop_hardware_paint_stock_e6__safety_orange']])",
+      "elapsed_s": 10.466
+    },
+    {
+      "script": "art/blender/scripts/inspect_orison_ground.py",
+      "source_sha256": "a71babb7e90f44254b6cd0c296369fa8766910488bb52bc94ac4ef6cff790df6",
+      "instrumented_sha256": "053a7cd196288cad94012ebd8f7df645b8240dbf7c883b24acc6c09356c8ee73",
+      "linked_update_sites": 2,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/orison_ground",
+      "status": "PASS",
+      "elapsed_s": 1.075
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_bulkhead_weather.py",
+      "source_sha256": "76d313a0d516c17b0a127755fa2d94c1b08bb10dc9e02c3df1c4475433255d2e",
+      "instrumented_sha256": "ea8a09d2420b9884d21601f5da9fef6304335d0d2e23de261701ccc0f6de5a24",
+      "linked_update_sites": 3,
+      "disabled_render_sites": 1,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/roof_drainage_bulkhead_weather",
+      "status": "PASS",
+      "elapsed_s": 0.965
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_provider_fits.py",
+      "source_sha256": "202bc3b831fe25f927a57d358b4d8967cd286e6c2f6f4bee361c0dc0b0a0aef6",
+      "instrumented_sha256": "de68d2c4145c595e9e809e3ab8be9ac0d33ae58e25fd03e73c510bba8d9dd345",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/roof_drainage_provider_fits",
+      "status": "PASS",
+      "elapsed_s": 60.187
+    },
+    {
+      "script": "art/blender/scripts/inspect_roof_drainage_retained_clearance.py",
+      "source_sha256": "066533400495642606ba32e16a0f0602c9490ace4c76412f9b2318899ac6abdd",
+      "instrumented_sha256": "5b78a74bcdeb5392fe6d58d4bb67f49f05108757f0de777a7ecc154ca69e2a5e",
+      "linked_update_sites": 1,
+      "disabled_render_sites": 0,
+      "output": "tmp/v2-finish-review/linked-context-audit-2/roof_drainage_retained_clearance",
+      "status": "PASS",
+      "elapsed_s": 22.588
+    }
+  ]
+}

@@ -83,7 +83,7 @@ for stem,prefix in [('shop_seating','storm_shop_luncheonette_stool'),('diner_rec
  if stem=='shop_seating':
   runtime=json.loads((r/f'game/data/orison_v2/{stem}.json').read_text(encoding='utf-8'));ids={row['id'] for cell in runtime['cells'] if cell['id']=='shop_luncheonette' for row in cell['replace']};retirement_rows.extend(row for row in fixture['original_records'] if row['id'] in ids)
  with bpy.data.libraries.load(str(r/f'art/blender/{stem}.blend'),link=False) as (library,loaded):loaded.objects=[name for name in library.objects if '__' in name and name.startswith(prefix)]
- for obj in loaded.objects:bpy.context.scene.collection.objects.link(obj);assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
+ for obj in loaded.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
 bpy.context.view_layer.update()
 counts={row['id']:0 for row in retirement_rows}
 for old in context:

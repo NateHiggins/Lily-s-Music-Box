@@ -7,7 +7,7 @@ R=next(path for path in Path(__file__).resolve().parents if (path/'game/project.
 bpy.ops.wm.read_factory_settings(use_empty=True)
 def load(native,names,owner):
  with bpy.data.libraries.load(str(native),link=False) as (available,target):target.objects=[n for n in names if n in available.objects]
- for obj in target.objects:bpy.context.scene.collection.objects.link(obj)
+ for obj in target.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update()
  bpy.context.view_layer.update();result=[]
  for obj in target.objects:
   if obj.type!='MESH':continue

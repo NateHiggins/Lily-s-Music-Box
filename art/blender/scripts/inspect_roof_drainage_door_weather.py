@@ -36,11 +36,11 @@ for spec in report['door_pans']:
   if part['owner'] not in [spec['moving_owner'],spec['fixed_owner']]:continue
   obj=bpy.data.objects[part['name']];obj.matrix_world=__import__('mathutils').Matrix.Translation(base)@rotation@__import__('mathutils').Matrix.Translation(Vector((-width/2,-spec['fitted_leaf_normal_offset_m'],0)))@obj.matrix_world
 with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_falls.blend'),link=False) as (available,target):target.objects=[n for n in available.objects if '__Field_' in n or n.endswith('__CurbBacking')]
-for obj in target.objects:bpy.context.scene.collection.objects.link(obj)
+for obj in target.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update()
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1440;scene.render.resolution_y=1080;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
-sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
-camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
+sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
 renders=[]
 for spec in report['door_pans']:
  ident=spec['id'];a,bz,c,d=spec['curb_rect'];top=spec['curb_top_y']

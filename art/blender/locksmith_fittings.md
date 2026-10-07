@@ -72,3 +72,9 @@ The clean production review and exact receipts are retained in
 **art/renders/orison_v2/locksmith_fittings_20261005/**. The bounded report is
 **design/V2_LOCKSMITH_FITTINGS_2026-10-05.md**; it records the clean 892-check
 fittings result, resident-key contract, passage reload and full static board.
+
+## Corrected composed fit, 2026-10-07
+
+The safe is shortened 90mm at its minimum-Y end to clear the closed door case and knob. Its front plane, dial, handle and upper datum stay fixed. Its floor feet follow the shorter shell; it gains no interaction.
+
+See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.

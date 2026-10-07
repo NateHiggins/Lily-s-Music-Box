@@ -1,0 +1,2427 @@
+{
+  "evidence_class": "INERT",
+  "baseline": "7c4df91286e7e192fe28149e9d6edf2632770434",
+  "scope": "Changed native context or inspector provenance only. No reuse of context acceptance; affected inspectors are rerun.",
+  "updates": [
+    {
+      "report": "art/blender/diner_apparatus_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_apparatus.py",
+          "before": "360636bdc4587ff54883f60a7ceefb6ff492624c475755c79b9661e6c96fc938",
+          "after": "9e519efe1c6d985757258ff6a828f48788f5bab75f863434ac0347e506a15ba7"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_backbar_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_backbar.py",
+          "before": "6cafcba3df3c1c4f8c770ee76d2bd4715c6bc931520730eb7c0f251003d0f425",
+          "after": "6fbdd1749aa7382571942c4b251e7ba8a7cb13f3d669bf533d3a139a754cbee8"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_counter_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_counter.py",
+          "before": "57f56815dffcc58161ca78a406285bdf10a260e1faf26b715b5231096bcf1a5d",
+          "after": "8d52093f0dec9d6e40f3fc6d55c655fdc5a060fb9032c1c3adb5387ac98eb571"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_overhead.py",
+          "before": "fcb8ff134c367def8a1b3d619873f978367bf003ce1cfaccd1a829c2bc3c64a9",
+          "after": "f946db9ccb2185e4f0d69c927093ccef21a72638ef480d649ea26be3077b483f"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_receiving.py",
+          "before": "2a5687727520dbaa59f4c721080ea8630e2a184a9bc430779cce7bc951c4183b",
+          "after": "bc160c2bc08c47bf6df8334108d130d6a4fdec20e74469a9ad3ef5e30775345f"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_till_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_till.py",
+          "before": "a0bb275af191b149878f8fb010fe4f08bb5e8f60246a0ec023bc19f85afbfdbe",
+          "after": "dc31195575d94b94642aebc593a3fac0ffa0bc4b889be6a63f38ecc8c050bd57"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_urns_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_urns.py",
+          "before": "303d07eb6f070d4f73361daf0bee1d3f8b80b64b68a2296911f6209439ed08b6",
+          "after": "485b6469d73f7186ebf8252b5998f1b05778c4c282aec2a0a25136e2f853e9f4"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_laundry_receiving.py",
+          "before": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+          "after": "9beb3dd5ef815f689ae535d82e210964562ca23d10287c39f1784ad936fee18c"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_trade_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_laundry_trade.py",
+          "before": "666e649a73b93b27077b0acc210e2992c55447c4404efbd17c7bfb1a5e11ebdd",
+          "after": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/news_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_news_receiving.py",
+          "before": "c35c1e6e9d0a7be1a9d333b672e2f0f1f3304702dd6cfc2121350b9ff1b74f9f",
+          "after": "d51894b096c69c7dfa5d452391aa0e3a664e9be7a23bc23278810eb7f8baf181"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/pawn_fittings_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_pawn_fittings.py",
+          "before": "4ccfe6530855ee8a96917f2530449ee62087a1bdb1081d161000484115c6692b",
+          "after": "976e480143a15de1a60e81bb3a23a0ccd53925a944ecc7b609d7fbe3fb9a5925"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/photo_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_photo_receiving.py",
+          "before": "70a41856cf7a7fbdba112e208fa414d1de14a17d5ee487319031a253eb4a5c74",
+          "after": "96bea4baf4718637bd3612bfbd16cedb31c6f3583964fbdc8900f2dfb9ac4ef8"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/radio_display_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_display.py",
+          "before": "fbaa52c0c3698fc61ee6fe004c5163bbcec024d9b22df9abadcd9c761b2b9b71",
+          "after": "863700786f46e38f5c9bff413efaa79d9693c19a2c7c5717b81224ad53cc5a72"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/radio_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_receiving.py",
+          "before": "7e3ee24609f3c50819c0db2b570f4f21e4c67eb8f7e1f82d2de02fef3085ce17",
+          "after": "accf079ded7e91d0c894cc9ac527a29c56d8d79819d979b97592cbd81e483f4e"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/radio_wire_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_wire.py",
+          "before": "f7d0ca01a918536b9c2b1a4615792ed852d8c547c3d125fafedf529e5b1fb148",
+          "after": "8d448ad9668c6952baa385b4c489aefc5fa3a246d6616379c20c4c2565380b2a"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "a558dab2d79ff02f02323485d66ec1c1f6b2c53879cc31d1fe13e1f76446c684",
+          "after": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04"
+        },
+        {
+          "path": "game/assets/props/hardware_stock.glb",
+          "before": "fa857f1577335fab12b0c75cf9159e54c268f04f19434c61afd2f7ada115ff01",
+          "after": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "eadb916a7ecbb7ee59c61b811a7652f107f057d75a48cea03826e400e6211619",
+          "after": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+          "after": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "7709c6c1355247c9996f05f9eaf789421aedf1c46a7b61fd3be0225eeb60b77a",
+          "after": "3caf7104a188ce470ba8e2659215efec9e500b398742e574fb0fe7e0d434639b"
+        },
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "a558dab2d79ff02f02323485d66ec1c1f6b2c53879cc31d1fe13e1f76446c684",
+          "after": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04"
+        },
+        {
+          "path": "game/assets/props/hardware_stock.glb",
+          "before": "fa857f1577335fab12b0c75cf9159e54c268f04f19434c61afd2f7ada115ff01",
+          "after": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "eadb916a7ecbb7ee59c61b811a7652f107f057d75a48cea03826e400e6211619",
+          "after": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+          "after": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_apparatus.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_apparatus.py",
+          "before": "360636bdc4587ff54883f60a7ceefb6ff492624c475755c79b9661e6c96fc938",
+          "after": "9e519efe1c6d985757258ff6a828f48788f5bab75f863434ac0347e506a15ba7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_backbar.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_backbar.py",
+          "before": "6cafcba3df3c1c4f8c770ee76d2bd4715c6bc931520730eb7c0f251003d0f425",
+          "after": "6fbdd1749aa7382571942c4b251e7ba8a7cb13f3d669bf533d3a139a754cbee8"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_counter.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_counter.py",
+          "before": "57f56815dffcc58161ca78a406285bdf10a260e1faf26b715b5231096bcf1a5d",
+          "after": "8d52093f0dec9d6e40f3fc6d55c655fdc5a060fb9032c1c3adb5387ac98eb571"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_overhead.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_overhead.py",
+          "before": "fcb8ff134c367def8a1b3d619873f978367bf003ce1cfaccd1a829c2bc3c64a9",
+          "after": "f946db9ccb2185e4f0d69c927093ccef21a72638ef480d649ea26be3077b483f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_receiving.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_receiving.py",
+          "before": "2a5687727520dbaa59f4c721080ea8630e2a184a9bc430779cce7bc951c4183b",
+          "after": "bc160c2bc08c47bf6df8334108d130d6a4fdec20e74469a9ad3ef5e30775345f"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_till.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_till.py",
+          "before": "a0bb275af191b149878f8fb010fe4f08bb5e8f60246a0ec023bc19f85afbfdbe",
+          "after": "dc31195575d94b94642aebc593a3fac0ffa0bc4b889be6a63f38ecc8c050bd57"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_urns.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_diner_urns.py",
+          "before": "303d07eb6f070d4f73361daf0bee1d3f8b80b64b68a2296911f6209439ed08b6",
+          "after": "485b6469d73f7186ebf8252b5998f1b05778c4c282aec2a0a25136e2f853e9f4"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_laundry_receiving.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_laundry_receiving.py",
+          "before": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+          "after": "9beb3dd5ef815f689ae535d82e210964562ca23d10287c39f1784ad936fee18c"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_laundry_trade.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_laundry_trade.py",
+          "before": "666e649a73b93b27077b0acc210e2992c55447c4404efbd17c7bfb1a5e11ebdd",
+          "after": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_news_receiving.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_news_receiving.py",
+          "before": "c35c1e6e9d0a7be1a9d333b672e2f0f1f3304702dd6cfc2121350b9ff1b74f9f",
+          "after": "d51894b096c69c7dfa5d452391aa0e3a664e9be7a23bc23278810eb7f8baf181"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_pawn_fittings.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_pawn_fittings.py",
+          "before": "4ccfe6530855ee8a96917f2530449ee62087a1bdb1081d161000484115c6692b",
+          "after": "976e480143a15de1a60e81bb3a23a0ccd53925a944ecc7b609d7fbe3fb9a5925"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_photo_receiving.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_photo_receiving.py",
+          "before": "70a41856cf7a7fbdba112e208fa414d1de14a17d5ee487319031a253eb4a5c74",
+          "after": "96bea4baf4718637bd3612bfbd16cedb31c6f3583964fbdc8900f2dfb9ac4ef8"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_radio_display.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_display.py",
+          "before": "fbaa52c0c3698fc61ee6fe004c5163bbcec024d9b22df9abadcd9c761b2b9b71",
+          "after": "863700786f46e38f5c9bff413efaa79d9693c19a2c7c5717b81224ad53cc5a72"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_radio_receiving.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_receiving.py",
+          "before": "7e3ee24609f3c50819c0db2b570f4f21e4c67eb8f7e1f82d2de02fef3085ce17",
+          "after": "accf079ded7e91d0c894cc9ac527a29c56d8d79819d979b97592cbd81e483f4e"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_radio_wire.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_radio_wire.py",
+          "before": "f7d0ca01a918536b9c2b1a4615792ed852d8c547c3d125fafedf529e5b1fb148",
+          "after": "8d448ad9668c6952baa385b4c489aefc5fa3a246d6616379c20c4c2565380b2a"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "2bc04bc201fe9df3a025bd2d33d678089b3652311eef1a5bb438d4324a8039fe",
+          "after": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "a558dab2d79ff02f02323485d66ec1c1f6b2c53879cc31d1fe13e1f76446c684",
+          "after": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04"
+        },
+        {
+          "path": "game/assets/props/hardware_stock.glb",
+          "before": "fa857f1577335fab12b0c75cf9159e54c268f04f19434c61afd2f7ada115ff01",
+          "after": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "eadb916a7ecbb7ee59c61b811a7652f107f057d75a48cea03826e400e6211619",
+          "after": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+          "after": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+          "after": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "a939c609946eeecce6aeb99122e8cd8eb5b8a87617de3dd01899cd7ce2dcad8e",
+          "after": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11"
+        },
+        {
+          "path": "game/tests/fixtures/orison_pawn_fittings.json",
+          "before": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+          "after": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_photo_receiving.json",
+          "before": "05131fb97c338dcbe5b4941e13f93eeb94168316bb0f8fa48b73d20824c7828f",
+          "after": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_display.json",
+          "before": "9b664f38366bf874e87d85dbbdc1309618ccd839a870d7711ff2f84a51e469cb",
+          "after": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_receiving.json",
+          "before": "2fec63f70e3880586e75a4fbb7c31839cbd0126b37c6fbfad2437aa0f4f298c4",
+          "after": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_wire.json",
+          "before": "19cad59d679348dd81837d6d91c938691d2cc0be1caad37c4078b8788536ba90",
+          "after": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "7709c6c1355247c9996f05f9eaf789421aedf1c46a7b61fd3be0225eeb60b77a",
+          "after": "3caf7104a188ce470ba8e2659215efec9e500b398742e574fb0fe7e0d434639b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "2bc04bc201fe9df3a025bd2d33d678089b3652311eef1a5bb438d4324a8039fe",
+          "after": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "a558dab2d79ff02f02323485d66ec1c1f6b2c53879cc31d1fe13e1f76446c684",
+          "after": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04"
+        },
+        {
+          "path": "game/assets/props/hardware_stock.glb",
+          "before": "fa857f1577335fab12b0c75cf9159e54c268f04f19434c61afd2f7ada115ff01",
+          "after": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "eadb916a7ecbb7ee59c61b811a7652f107f057d75a48cea03826e400e6211619",
+          "after": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "213c7d31b0c3853173ff241f5e59afff0408c99300663551adcbaea228284ced",
+          "after": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "4b993d2691a73e03fc3344f140156238a0cd871227e0308a7c36391f23da18c8",
+          "after": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+          "after": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+          "after": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "fe7abb57381168294a56e9f36ba732c0f2cdd0c75424e1b3c2722820be2b0b95",
+          "after": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "6b8b69cd20116baf53eaf919f22e4cffae557ebf1db841535a3d58ef543033f0",
+          "after": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+          "after": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "a939c609946eeecce6aeb99122e8cd8eb5b8a87617de3dd01899cd7ce2dcad8e",
+          "after": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11"
+        },
+        {
+          "path": "game/tests/fixtures/orison_pawn_fittings.json",
+          "before": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+          "after": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_photo_receiving.json",
+          "before": "05131fb97c338dcbe5b4941e13f93eeb94168316bb0f8fa48b73d20824c7828f",
+          "after": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_display.json",
+          "before": "9b664f38366bf874e87d85dbbdc1309618ccd839a870d7711ff2f84a51e469cb",
+          "after": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_receiving.json",
+          "before": "2fec63f70e3880586e75a4fbb7c31839cbd0126b37c6fbfad2437aa0f4f298c4",
+          "after": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_wire.json",
+          "before": "19cad59d679348dd81837d6d91c938691d2cc0be1caad37c4078b8788536ba90",
+          "after": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_apparatus_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_backbar_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_counter_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_till_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_urns_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_trade_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "2bc04bc201fe9df3a025bd2d33d678089b3652311eef1a5bb438d4324a8039fe",
+          "after": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+          "after": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "a939c609946eeecce6aeb99122e8cd8eb5b8a87617de3dd01899cd7ce2dcad8e",
+          "after": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11"
+        },
+        {
+          "path": "game/tests/fixtures/orison_pawn_fittings.json",
+          "before": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+          "after": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_photo_receiving.json",
+          "before": "05131fb97c338dcbe5b4941e13f93eeb94168316bb0f8fa48b73d20824c7828f",
+          "after": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_display.json",
+          "before": "9b664f38366bf874e87d85dbbdc1309618ccd839a870d7711ff2f84a51e469cb",
+          "after": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_receiving.json",
+          "before": "2fec63f70e3880586e75a4fbb7c31839cbd0126b37c6fbfad2437aa0f4f298c4",
+          "after": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_wire.json",
+          "before": "19cad59d679348dd81837d6d91c938691d2cc0be1caad37c4078b8788536ba90",
+          "after": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "ea2a134a91ba97c94a955c9316e474362a6c226e6de09e368d9f8021ba02eb96",
+          "after": "6ae5ca8cef2bdd503afaa3fa6a18445c039fae78ec2f0872ad0716aa5493f152"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d",
+          "after": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "2bc04bc201fe9df3a025bd2d33d678089b3652311eef1a5bb438d4324a8039fe",
+          "after": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+          "after": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+          "after": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "a939c609946eeecce6aeb99122e8cd8eb5b8a87617de3dd01899cd7ce2dcad8e",
+          "after": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11"
+        },
+        {
+          "path": "game/tests/fixtures/orison_pawn_fittings.json",
+          "before": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+          "after": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_photo_receiving.json",
+          "before": "05131fb97c338dcbe5b4941e13f93eeb94168316bb0f8fa48b73d20824c7828f",
+          "after": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_display.json",
+          "before": "9b664f38366bf874e87d85dbbdc1309618ccd839a870d7711ff2f84a51e469cb",
+          "after": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_receiving.json",
+          "before": "2fec63f70e3880586e75a4fbb7c31839cbd0126b37c6fbfad2437aa0f4f298c4",
+          "after": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327"
+        },
+        {
+          "path": "game/tests/fixtures/orison_radio_wire.json",
+          "before": "19cad59d679348dd81837d6d91c938691d2cc0be1caad37c4078b8788536ba90",
+          "after": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_apparatus.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8",
+          "after": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_backbar.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+          "after": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_counter.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_overhead.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_receiving.json",
+          "before": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+          "after": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+          "after": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e",
+          "after": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_till.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_urns.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec",
+          "after": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "ea2a134a91ba97c94a955c9316e474362a6c226e6de09e368d9f8021ba02eb96",
+          "after": "6ae5ca8cef2bdd503afaa3fa6a18445c039fae78ec2f0872ad0716aa5493f152"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec",
+          "after": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_apparatus_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_backbar_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_till_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_urns_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec",
+          "after": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "6ae5ca8cef2bdd503afaa3fa6a18445c039fae78ec2f0872ad0716aa5493f152",
+          "after": "a77ddc0882f4bf642d56e7ee2707a400b884cad2c442eaa202beec9d8fa2c2fc"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "c2a1a8ec4f015e8eb0647c65ce3214692142ea690962e5e92526bb393bfd898a",
+          "after": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "3f6e2363c3c17207a7b08b09415d7a76d1c93690666de69ed9733c54879aecec",
+          "after": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_apparatus.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "864d7e7157eef3d6ed411add3ea2aae2bd3701a5eff35a1a6437bc34ba87054b",
+          "after": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_backbar.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "f77c9c28307b80f48d10cbb49cdbf1554a2299bb46c13610bb2a28600f639493",
+          "after": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_overhead.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "49cf4a0d6da38881f1a7a4272b97c18def0be7848b5e6fd8c1d0c8a02c1cc123",
+          "after": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "13924755b865744d4302368767257f0882189a040ddce32006a667bc6d1d66c5",
+          "after": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_urns.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5",
+          "after": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "6ae5ca8cef2bdd503afaa3fa6a18445c039fae78ec2f0872ad0716aa5493f152",
+          "after": "a77ddc0882f4bf642d56e7ee2707a400b884cad2c442eaa202beec9d8fa2c2fc"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5",
+          "after": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_apparatus_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_urns_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5",
+          "after": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "a77ddc0882f4bf642d56e7ee2707a400b884cad2c442eaa202beec9d8fa2c2fc",
+          "after": "0f0e73f8ce22b7144524533ecb158826d4dcd58b597761e3e3ea6f2e044c855e"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "b6a18cdbc26df00c855152d9969e0a65f736cfe39123bff0659edfb8a4f39c9c",
+          "after": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "25f4c961a1ff80a88d3a31ac0b7414d97194c66af484499afc43f6d8d2a643d5",
+          "after": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_apparatus.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "08bc7c94bf87f0e5d7963f9e6c3ac3bc35448a57da56b7a0e0e97db0a72f6122",
+          "after": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_diner_overhead.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "5cc970a267b8de3f69686633b0bde0f9ec083b112a27bf72831201a0753ec977",
+          "after": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309",
+          "after": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "a77ddc0882f4bf642d56e7ee2707a400b884cad2c442eaa202beec9d8fa2c2fc",
+          "after": "0f0e73f8ce22b7144524533ecb158826d4dcd58b597761e3e3ea6f2e044c855e"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309",
+          "after": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309",
+          "after": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "0f0e73f8ce22b7144524533ecb158826d4dcd58b597761e3e3ea6f2e044c855e",
+          "after": "bbf18a0bf23c412f8d0c20cbdce5c3de91e76cbbabb4a47fac358908ae75f8fd"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "3cf13f1fb0d5e83673f5c3aef0265627a4afa8fe4b9612b34071056334e06a6d",
+          "after": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_overhead.json",
+          "before": "949237ac755adec16c31d91ce13d40be13b0cbe1405df496064a13290b283309",
+          "after": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "0f0e73f8ce22b7144524533ecb158826d4dcd58b597761e3e3ea6f2e044c855e",
+          "after": "bbf18a0bf23c412f8d0c20cbdce5c3de91e76cbbabb4a47fac358908ae75f8fd"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "3caf7104a188ce470ba8e2659215efec9e500b398742e574fb0fe7e0d434639b",
+          "after": "91d1da6923eb8b38c6063bae7789f5f4dbeac936d36eef091ba446be0f4471f7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "3caf7104a188ce470ba8e2659215efec9e500b398742e574fb0fe7e0d434639b",
+          "after": "91d1da6923eb8b38c6063bae7789f5f4dbeac936d36eef091ba446be0f4471f7"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "bbf18a0bf23c412f8d0c20cbdce5c3de91e76cbbabb4a47fac358908ae75f8fd",
+          "after": "d4bde1cfbc6a21cb0d592d0442362ec36b133290462df4ffacd3106648396f0c"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "bbf18a0bf23c412f8d0c20cbdce5c3de91e76cbbabb4a47fac358908ae75f8fd",
+          "after": "d4bde1cfbc6a21cb0d592d0442362ec36b133290462df4ffacd3106648396f0c"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/druggist_carboys_construction.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/druggist_cupboard.glb",
+          "before": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+          "after": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_trade_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc",
+          "after": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/news_receiving_construction.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38",
+          "after": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215",
+          "after": "78d2f1f572e744f725df30475ed3d9821a0ed30cbeee21e9e83559c3e074ba85"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/cobbler_fittings.blend",
+          "before": "187efcfdca40f2129bcaf2d10bfcf54a9a15c7919abd58ef8cc4beeada2ec0b9",
+          "after": "baa8af099cade62e63627b1b50d5457ee5cdfc7632758571ec5304e4f18f7ed0"
+        },
+        {
+          "path": "game/assets/props/cobbler_fittings.glb",
+          "before": "e1bee76bcb10aba1d88d72e2232f12d5aa44151e848a66ef30eed8f2038b07d7",
+          "after": "3e65a3f089a84d459144f2f849d5b074651faffd68750b4e6d03e3c3bd5c72ef"
+        },
+        {
+          "path": "game/tests/fixtures/orison_cobbler_fittings.json",
+          "before": "8a3ce4f50046db8bba799696a31ef2c558249920af93dd172772053f1a8bf33f",
+          "after": "a0d3f886a80b61e577ef080fb7c02dda80997f3bcc4870bf42030def78c3585a"
+        },
+        {
+          "path": "art/blender/druggist_cupboard.blend",
+          "before": "2bae66a2e63fdacfd7f771e6dcb1a1c25dd95359d9a91cf133d9182fed428ec4",
+          "after": "c68469472e9f67197c331ff5367bcfa8d9c88ffdafb5c260ee7c00316221ce73"
+        },
+        {
+          "path": "game/assets/props/druggist_cupboard.glb",
+          "before": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+          "after": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_druggist_cupboard.json",
+          "before": "b6820a007b56b4dbfa35003c600fa279ab5b7351ad122640a7de2d2ed8b9ede7",
+          "after": "4d96856d922a7725b62db6b363b70710ac5ea65154f97e908bfb41fe035d6364"
+        },
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04",
+          "after": "099a6bd0baa821252336cde3fffc3bed8e9ca0c452e7e3e9a9f0c9b747063d91"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326",
+          "after": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc",
+          "after": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0"
+        },
+        {
+          "path": "art/blender/locksmith_fittings.blend",
+          "before": "5fb6e0b4de946be092ed4137dd62d276f3bbddd1b2f1e902b45d494cf751c867",
+          "after": "18bfebe85aaea1e638985d3c0dd64ca1ac87bc98e9591f4548f430ccbbd76ba0"
+        },
+        {
+          "path": "game/assets/props/locksmith_fittings.glb",
+          "before": "3821de0263afdb8aa231f82374b629b193206d60533beab30c7d6c5898cefb45",
+          "after": "ac37de64795969094124a36a5a86cb364faf6660e998c097bb09972c9a3d1d1f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_locksmith_fittings.json",
+          "before": "09ae769bf0bd61b9f38bfd1dd1d4c7f6f7d3fd64b33f4c2744ebacfe20fade4f",
+          "after": "5066e9de18bcef9a3984919d837bedf446d64d955a7c97efe6f69c3ee7f60559"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215",
+          "after": "78d2f1f572e744f725df30475ed3d9821a0ed30cbeee21e9e83559c3e074ba85"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38",
+          "after": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2",
+          "after": "70d70cf87b7e1c0ba8ccdc13cb647cf3896ccde2457f330742df4a63ae5b7cab"
+        },
+        {
+          "path": "art/blender/shop_joinery.blend",
+          "before": "39252905ecd608bf0adc8396eabd11408c17899c3fdabbd5aaa9219ecd655a46",
+          "after": "22e3de65c32fab32d4acb3d428a08a7a5e731c38ca241a5864aff26b8cc3982f"
+        },
+        {
+          "path": "game/assets/props/shop_joinery.glb",
+          "before": "197976746243b4eb792391cc6b5d8485e6ac94fdc764e781c168223e4b6332d9",
+          "after": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "d4bde1cfbc6a21cb0d592d0442362ec36b133290462df4ffacd3106648396f0c",
+          "after": "130b95df0c57912a9fd972d486f31477a8e46917a42ac7486e6f55931b56a9b1"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_druggist_carboys.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/druggist_cupboard.glb",
+          "before": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+          "after": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_laundry_receiving.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_laundry_trade.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc",
+          "after": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_news_receiving.json",
+      "bindings": [
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38",
+          "after": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215",
+          "after": "78d2f1f572e744f725df30475ed3d9821a0ed30cbeee21e9e83559c3e074ba85"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "art/blender/cobbler_fittings.blend",
+          "before": "187efcfdca40f2129bcaf2d10bfcf54a9a15c7919abd58ef8cc4beeada2ec0b9",
+          "after": "baa8af099cade62e63627b1b50d5457ee5cdfc7632758571ec5304e4f18f7ed0"
+        },
+        {
+          "path": "game/assets/props/cobbler_fittings.glb",
+          "before": "e1bee76bcb10aba1d88d72e2232f12d5aa44151e848a66ef30eed8f2038b07d7",
+          "after": "3e65a3f089a84d459144f2f849d5b074651faffd68750b4e6d03e3c3bd5c72ef"
+        },
+        {
+          "path": "game/tests/fixtures/orison_cobbler_fittings.json",
+          "before": "8a3ce4f50046db8bba799696a31ef2c558249920af93dd172772053f1a8bf33f",
+          "after": "a0d3f886a80b61e577ef080fb7c02dda80997f3bcc4870bf42030def78c3585a"
+        },
+        {
+          "path": "game/tests/fixtures/orison_druggist_carboys.json",
+          "before": "9968c3058687c42ddd2bebe655de190d2d18c76f78a5ae95deea0bf7bc8c07d0",
+          "after": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6"
+        },
+        {
+          "path": "art/blender/druggist_cupboard.blend",
+          "before": "2bae66a2e63fdacfd7f771e6dcb1a1c25dd95359d9a91cf133d9182fed428ec4",
+          "after": "c68469472e9f67197c331ff5367bcfa8d9c88ffdafb5c260ee7c00316221ce73"
+        },
+        {
+          "path": "game/assets/props/druggist_cupboard.glb",
+          "before": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+          "after": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+        },
+        {
+          "path": "game/tests/fixtures/orison_druggist_cupboard.json",
+          "before": "b6820a007b56b4dbfa35003c600fa279ab5b7351ad122640a7de2d2ed8b9ede7",
+          "after": "4d96856d922a7725b62db6b363b70710ac5ea65154f97e908bfb41fe035d6364"
+        },
+        {
+          "path": "art/blender/hardware_stock.blend",
+          "before": "46db91ab69b607e764274f22cceb6887852535e499d9a6fd2a854382885d7a04",
+          "after": "099a6bd0baa821252336cde3fffc3bed8e9ca0c452e7e3e9a9f0c9b747063d91"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_stock.json",
+          "before": "33b03f11928e5ae3a8f7daf9c84047187482eb5f37c75e459b7f94a7715f3326",
+          "after": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32"
+        },
+        {
+          "path": "art/blender/laundry_fittings.blend",
+          "before": "96f4061df13e4f55f4304df0e81e5864e143d909663e0d09661f43ae200a8b57",
+          "after": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822"
+        },
+        {
+          "path": "game/assets/props/laundry_fittings.glb",
+          "before": "c4e9c7c3a2dd33ce73cce2f3ee633e07b762e1e60f09414636e118972fccca66",
+          "after": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_fittings.json",
+          "before": "299b11cad8daeb1b2e7ba84ad655b699acb1625228fe36518d2d1356f20096dc",
+          "after": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406",
+          "after": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54"
+        },
+        {
+          "path": "art/blender/locksmith_fittings.blend",
+          "before": "5fb6e0b4de946be092ed4137dd62d276f3bbddd1b2f1e902b45d494cf751c867",
+          "after": "18bfebe85aaea1e638985d3c0dd64ca1ac87bc98e9591f4548f430ccbbd76ba0"
+        },
+        {
+          "path": "game/assets/props/locksmith_fittings.glb",
+          "before": "3821de0263afdb8aa231f82374b629b193206d60533beab30c7d6c5898cefb45",
+          "after": "ac37de64795969094124a36a5a86cb364faf6660e998c097bb09972c9a3d1d1f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_locksmith_fittings.json",
+          "before": "09ae769bf0bd61b9f38bfd1dd1d4c7f6f7d3fd64b33f4c2744ebacfe20fade4f",
+          "after": "5066e9de18bcef9a3984919d837bedf446d64d955a7c97efe6f69c3ee7f60559"
+        },
+        {
+          "path": "art/blender/news_fittings.blend",
+          "before": "f262a8824f652340f834a83140829e9d339cc9ef13b9c159a0c85e9ce62fb215",
+          "after": "78d2f1f572e744f725df30475ed3d9821a0ed30cbeee21e9e83559c3e074ba85"
+        },
+        {
+          "path": "game/assets/props/news_fittings.glb",
+          "before": "fa455f45d12545ab1c5e248034f07a241fe28f4811c10ab0b78c755958d9de38",
+          "after": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_fittings.json",
+          "before": "8418a5f9e792ade7671a054991c9eff2a5538ed8da67d3bc94be294c6c35d1e2",
+          "after": "70d70cf87b7e1c0ba8ccdc13cb647cf3896ccde2457f330742df4a63ae5b7cab"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11",
+          "after": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224"
+        },
+        {
+          "path": "art/blender/shop_joinery.blend",
+          "before": "39252905ecd608bf0adc8396eabd11408c17899c3fdabbd5aaa9219ecd655a46",
+          "after": "22e3de65c32fab32d4acb3d428a08a7a5e731c38ca241a5864aff26b8cc3982f"
+        },
+        {
+          "path": "game/assets/props/shop_joinery.glb",
+          "before": "197976746243b4eb792391cc6b5d8485e6ac94fdc764e781c168223e4b6332d9",
+          "after": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "d4bde1cfbc6a21cb0d592d0442362ec36b133290462df4ffacd3106648396f0c",
+          "after": "130b95df0c57912a9fd972d486f31477a8e46917a42ac7486e6f55931b56a9b1"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_druggist_carboys.json",
+          "before": "9968c3058687c42ddd2bebe655de190d2d18c76f78a5ae95deea0bf7bc8c07d0",
+          "after": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406",
+          "after": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11",
+          "after": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/laundry_trade_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_druggist_carboys.json",
+          "before": "9968c3058687c42ddd2bebe655de190d2d18c76f78a5ae95deea0bf7bc8c07d0",
+          "after": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406",
+          "after": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11",
+          "after": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224"
+        },
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "130b95df0c57912a9fd972d486f31477a8e46917a42ac7486e6f55931b56a9b1",
+          "after": "546dd59b6938683616152b470c819455f7d20154e264e2ce3fdfa94384c90589"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_druggist_carboys.json",
+          "before": "9968c3058687c42ddd2bebe655de190d2d18c76f78a5ae95deea0bf7bc8c07d0",
+          "after": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_receiving.json",
+          "before": "687220ec552194986345774d0a4088adff7453a4f63012302c6d73a680b17337",
+          "after": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee"
+        },
+        {
+          "path": "game/tests/fixtures/orison_laundry_trade.json",
+          "before": "3666aafc73e64bd031fdb8c24ca032769dc779638cd3085d3752f64f0c169406",
+          "after": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_news_receiving.json",
+          "before": "7819b36125c61bcd497fe8d0f92bff4214df2276d7011d318cece7e4e19bde11",
+          "after": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "130b95df0c57912a9fd972d486f31477a8e46917a42ac7486e6f55931b56a9b1",
+          "after": "546dd59b6938683616152b470c819455f7d20154e264e2ce3fdfa94384c90589"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/hardware_tools.blend",
+          "before": "2ce5a669baae9262aeb3fd7caa2d4b160c1ff828fe750fd824f4d42b723bf46b",
+          "after": "6925d2bffc41b90b9f2f7d63a83a978c9c4cdc098194553ebacea0b51d101d45"
+        },
+        {
+          "path": "game/assets/props/hardware_tools.glb",
+          "before": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
+          "after": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_tools.json",
+          "before": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+          "after": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "1b9cfd5cfb0e7624931c5bd8c4b07211ad1ba7c8e1e24938be81f128d34d1b8f",
+          "after": "a0c7495a396e767e62995071ba6097ce80f00bf07e6381e2624da69974996a5c"
+        },
+        {
+          "path": "art/blender/hardware_tools.blend",
+          "before": "2ce5a669baae9262aeb3fd7caa2d4b160c1ff828fe750fd824f4d42b723bf46b",
+          "after": "6925d2bffc41b90b9f2f7d63a83a978c9c4cdc098194553ebacea0b51d101d45"
+        },
+        {
+          "path": "game/assets/props/hardware_tools.glb",
+          "before": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
+          "after": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_tools.json",
+          "before": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+          "after": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "art/blender/hardware_tools.blend",
+          "before": "2ce5a669baae9262aeb3fd7caa2d4b160c1ff828fe750fd824f4d42b723bf46b",
+          "after": "6925d2bffc41b90b9f2f7d63a83a978c9c4cdc098194553ebacea0b51d101d45"
+        },
+        {
+          "path": "game/assets/props/hardware_tools.glb",
+          "before": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
+          "after": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_tools.json",
+          "before": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+          "after": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_joinery.json",
+      "bindings": [
+        {
+          "path": "art/blender/scripts/inspect_shop_joinery.py",
+          "before": "1b9cfd5cfb0e7624931c5bd8c4b07211ad1ba7c8e1e24938be81f128d34d1b8f",
+          "after": "a0c7495a396e767e62995071ba6097ce80f00bf07e6381e2624da69974996a5c"
+        },
+        {
+          "path": "art/blender/hardware_tools.blend",
+          "before": "2ce5a669baae9262aeb3fd7caa2d4b160c1ff828fe750fd824f4d42b723bf46b",
+          "after": "6925d2bffc41b90b9f2f7d63a83a978c9c4cdc098194553ebacea0b51d101d45"
+        },
+        {
+          "path": "game/assets/props/hardware_tools.glb",
+          "before": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
+          "after": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+        },
+        {
+          "path": "game/tests/fixtures/orison_hardware_tools.json",
+          "before": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+          "after": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833"
+        }
+      ]
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "546dd59b6938683616152b470c819455f7d20154e264e2ce3fdfa94384c90589",
+          "after": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7"
+        }
+      ]
+    },
+    {
+      "report": "game/tests/fixtures/orison_shop_clerestories.json",
+      "bindings": [
+        {
+          "path": "game/tests/fixtures/orison_shop_joinery.json",
+          "before": "546dd59b6938683616152b470c819455f7d20154e264e2ce3fdfa94384c90589",
+          "after": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7"
+        }
+      ]
+    }
+  ]
+}

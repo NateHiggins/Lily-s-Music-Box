@@ -1,0 +1,34 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_laundry_fittings.py",
+      "elapsed_s": 8.643
+    },
+    {
+      "script": "art/blender/scripts/build_news_fittings.py",
+      "elapsed_s": 4.953
+    },
+    {
+      "script": "art/blender/scripts/build_hardware_stock.py",
+      "elapsed_s": 20.059
+    },
+    {
+      "script": "art/blender/scripts/build_locksmith_fittings.py",
+      "elapsed_s": 11.763
+    },
+    {
+      "script": "art/blender/scripts/build_druggist_cupboard.py",
+      "elapsed_s": 3.214
+    },
+    {
+      "script": "art/blender/scripts/build_cobbler_fittings.py",
+      "elapsed_s": 15.06
+    },
+    {
+      "script": "art/blender/scripts/build_shop_joinery.py",
+      "elapsed_s": 19.428
+    }
+  ]
+}

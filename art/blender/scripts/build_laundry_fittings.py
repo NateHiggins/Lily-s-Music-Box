@@ -147,6 +147,7 @@ for item in assemblies:
  if kind in ['iron_table','iron_pad']:
   fitted=table_right if kind=='iron_table' else pad_right;assert x0<fitted<x1
   x1=fitted;x=(x0+x1)*.5
+  if kind=='iron_pad':y0+=.030;y=(y0+y1)*.5
  if kind=='parcel':
   shelf=rows['storm_shop_model_laundry_parcel_shelf'+identity.split('_parcel')[1].split('_')[0]];bottom=shelf['z0']+shelf['h']
   box(identity+'_WrappedBundle',(x0,y0,bottom),(x1,y1,top),identity,row['mat'],.018)
@@ -157,7 +158,8 @@ for item in assemblies:
    box(identity+f'_FoldSeam{end}',(x0+.012,yy-.001,z+.024),(x1-.012,yy+.001,z+.027),identity,row['mat'],.0004)
   for yy in [y-.115,y+.115]:
    rr=.012;path=[]
-   for cx,cz,start in [(x1-rr,top-rr,0),(x0+rr,top-rr,90),(x0+rr,bottom+rr,180),(x1-rr,bottom+rr,270)]:
+   # Seat the underside of the 1.2mm-radius tie on the shelf, not its centreline.
+   for cx,cz,start in [(x1-rr,top-rr,0),(x0+rr,top-rr,90),(x0+rr,bottom+rr+.0012,180),(x1-rr,bottom+rr+.0012,270)]:
     for angle in range(start,start+91,15):a=math.radians(angle);path.append((cx+rr*math.cos(a),yy,cz+rr*math.sin(a)))
    curved_wire(identity+f'_String{yy:.3f}',path+[path[0]],.0012,identity,'linen')
   support(identity,shelf['id'],(x,y,bottom),(0,0,1),'parcel shelf bearing')

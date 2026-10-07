@@ -124,7 +124,7 @@ for stem in ['shop_seating']:
  with bpy.data.libraries.load(str(r/f'art/blender/{stem}.blend'),link=False) as (library,loaded):
   loaded.objects=[name for name in library.objects if '__' in name and name.startswith('storm_shop_luncheonette_stool')]
  for obj in loaded.objects:
-  bpy.context.scene.collection.objects.link(obj);assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
+  bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();assert obj.type=='MESH' and not obj.hide_render;accepted.append(obj)
 accepted_retired={row['id']:0 for row in retirement_rows}
 for old in context:
  bm=bmesh.new();bm.from_mesh(old.data);remove=[]

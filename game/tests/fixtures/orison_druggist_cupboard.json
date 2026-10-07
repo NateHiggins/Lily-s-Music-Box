@@ -351,43 +351,43 @@
       "name": "storm_shop_otis___son_poison_cupboard_FloorFoot2",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.0005487336358101344
+      "volume_m3": 0.0005487336317459262
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_FloorFoot3",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.0005487336099095439
+      "volume_m3": 0.0005487336058453357
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_SeatedPlinth",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.016794273736206917
+      "volume_m3": 0.015114513586116205
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_Side0",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.03426275755198838
+      "volume_m3": 0.030835797282608907
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_Side1",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.03426275754039739
+      "volume_m3": 0.030835797271323455
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_Back",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.025457545966042504
+      "volume_m3": 0.025457547154712844
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_Crown",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.016794273750425914
+      "volume_m3": 0.01511451359972407
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_FrontPanel0",
@@ -435,13 +435,13 @@
       "name": "storm_shop_otis___son_poison_cupboard_BottleShelf0",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.012766651699580363
+      "volume_m3": 0.011398711660704164
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_BottleShelf1",
       "assembly": "storm_shop_otis___son_poison_cupboard",
       "key": "wood_dark",
-      "volume_m3": 0.01276665170461442
+      "volume_m3": 0.01139871166550912
     },
     {
       "name": "storm_shop_otis___son_poison_cupboard_HingeLeaf0",
@@ -1069,7 +1069,7 @@
       "point": [
         22.43,
         0.01,
-        44.669999999999995
+        44.73
       ],
       "direction": [
         0,
@@ -1084,7 +1084,7 @@
       "point": [
         23.13,
         0.01,
-        44.669999999999995
+        44.73
       ],
       "direction": [
         0,
@@ -1828,11 +1828,11 @@
       }
     ]
   },
-  "asset_sha256": "55fdaca0a42b64a6c83faab1bd2550cd1abb45b0d6579a46882432b7e9cbe871",
+  "asset_sha256": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7",
   "source_bindings": {
-    "art/data/druggist_cupboard/source_plan.json": "127dbf0934b5e3e930d3373194be7007835fbfe0290eeaf3013c2119d60fda0e",
+    "art/data/druggist_cupboard/source_plan.json": "d5523820f2c2255c87cd81ccb92bc59059ca407cecf23b33c963b55b3abaf7d6",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_druggist_cupboard.py": "f4aec314a45c9ed7e0a20e4c9f5ee71c390e937cbe5dd273bc2636ba98fea40d",
+    "art/blender/scripts/build_druggist_cupboard.py": "53da96c3d565b505c880d3a704f772a3fc477d3cc7e92a8471dfe983b7c3e79e",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
@@ -1884,6 +1884,7 @@
     "The retained 0.8 by 0.6 metre case plan and 1.94m top stay. Four floor-seated feet carry its original 0.22m base. Two actual shelves support the original alternating bottle seats at 0.66/1.04m.",
     "The original projecting 60mm glass slab becomes one 6mm pane centred at Yn -45.202m, 28mm inward; fixed frame and passive hardware remain inside the original case plan and clear the adjacent notched bench by at least 10mm.",
     "Six original red/teal bodies and corresponding rib identities become narrow hollow coloured glass bodies, twelve physical tactile ribs each, separate wood stoppers and blank fine-porcelain plates. Existing milk_glass charts and bounded local opaque tints replace visible lacquer/book atlases; every hidden original pose remains.",
-    "The closed leaf, hinge and lock plate are passive fabrication. Cupboard access, poison custody, dispensing and medical operations require their explicit gameplay owners. Carboys/fountain, independent services and continuous routes remain separate work."
+    "The closed leaf, hinge and lock plate are passive fabrication. Cupboard access, poison custody, dispensing and medical operations require their explicit gameplay owners. Carboys/fountain, independent services and continuous routes remain separate work.",
+    "The cupboard rear edge ends 60mm before its original maximum Y to clear the back-door knob. The glazed front, all six bottles, their centres/heights and shelf seats remain fixed. No access or poison-custody authority changes."
   ]
 }

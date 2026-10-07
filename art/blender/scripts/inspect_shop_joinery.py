@@ -58,7 +58,7 @@ scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
 before=set(bpy.context.scene.objects);bpy.ops.import_scene.gltf(filepath=str(r/'game/assets/building/floor_01_cells/passage.gltf'))
 passage=[o for o in bpy.context.scene.objects if o not in before and o.type=='MESH']
 for obj in passage:obj.hide_render=True
-all_contacts=[];all_counts={};all_allowed=[];views=[];contexts=[];assembled_retirements={}
+all_contacts=[];all_counts={};all_allowed=[];all_errors=[];views=[];contexts=[];assembled_retirements={}
 
 def retire(context,records):
  counts={row['id']:0 for row in records};by_material={}
@@ -121,7 +121,7 @@ for cell in f['runtime']['cells']:
    if row.get('batch')==floor['batch'] and 'mat' in row:retirements[row['id']]=row
   with bpy.data.libraries.load(str(r/f'art/blender/{family}.blend'),link=False) as (src,dst):dst.objects=[name for name in src.objects if name in wanted]
   assert len(dst.objects)==len(wanted),(identity,family,'missing accepted native partitions')
-  for obj in dst.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=False;accepted.append(obj)
+  for obj in dst.objects:bpy.context.scene.collection.objects.link(obj);bpy.context.view_layer.update();obj.hide_render=False;accepted.append(obj)
  counts=retire(context,list(retirements.values()));all_counts.update(counts)
  relevant=local_draws+context+accepted+passage;actual={obj:actual_tree(obj) for obj in relevant if obj.data.polygons}
  contacts=[c for c in f['contacts'] if any(part['name'].startswith(c['assembly']+'__') for part in cell['parts'])]
@@ -151,16 +151,17 @@ for cell in f['runtime']['cells']:
     if ok:allowed.append([obj.name,other.name])
     else:errors.append([obj.name,other.name])
  if errors:(out/(identity+'_intersections.json')).write_text(json.dumps(sorted({tuple(x) for x in errors}),indent=2)+'\n',encoding='utf-8')
- assert not errors,(identity,errors[:12])
- all_allowed.extend(allowed);contexts.append({'cell':identity,'accepted_parts':len(accepted),'retired_source_records':len(counts),'unresolved_intersections':0})
+ all_errors.extend({'cell':identity,'native':left,'context':right} for left,right in sorted({tuple(x) for x in errors}))
+ all_allowed.extend(allowed);contexts.append({'cell':identity,'accepted_parts':len(accepted),'retired_source_records':len(counts),'unresolved_intersections':len({tuple(x) for x in errors})})
  bpy.ops.object.light_add(type='AREA',location=((q[0]+q[2])/2,(q[1]+q[3])/2,3.15));light=bpy.context.object;light.data.energy=650;light.data.shape='DISK';light.data.size=4
- for assembly in [a for a in f['assemblies'] if a['cell']==identity]:
+ for assembly in [a for a in f['assemblies'] if a['cell']==identity and not errors]:
   row=rows[assembly['id']];rect=row['rect'];cx=(rect[0]+rect[2])/2;cy=(rect[1]+rect[3])/2
   if assembly['kind']=='closed_door':
    sign=1 if cy<(q[1]+q[3])/2 else -1
    render(identity+'_door',(cx+.90,cy+sign*3.0,1.65),(cx,cy,1.08),assembly['id'])
    inward_x=1 if cx<(q[0]+q[2])/2 else -1
-   render(identity+'_context',(cx+inward_x*1.40,cy+sign*2.65,1.65),(cx,cy,1.15),room=True)
+   eye=(18.20,-50.10,1.70) if identity=='shop_news_cigars' else (cx+inward_x*1.40,cy+sign*2.65,1.65)
+   render(identity+'_context',eye,(cx,cy,1.15),room=True)
   else:
    render(identity+'_window_back',(cx-2.,cy-1.2,1.6),(cx,cy,.80),assembly['id'])
    render(identity+'_empty_window',(cx+2.,cy-1.2,1.6),(cx,cy,.70),assembly['id'])
@@ -168,5 +169,6 @@ for cell in f['runtime']['cells']:
  for obj in context+accepted:bpy.data.objects.remove(obj,do_unlink=True)
  for obj in passage:obj.hide_render=True
 
+assert not all_errors,all_errors
 (out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_stocks':len(volumes),'assemblies':joins,'contacts':all_contacts,'uv':uv_metrics,'source_triangle_retirement':all_counts,'assembled_retirements':assembled_retirements,'allowed_contact_pairs':sorted({tuple(x) for x in all_allowed}),'contexts':contexts,'views':views,'scope':'Closed door/frame and empty window display geometry only; backs remain unmodelled and non-interactive. Accepted receivers are included as conservative restoration context; production cabinet presence retains its existing owner.'},indent=2)+'\n',encoding='utf-8')
 print('SHOP JOINERY NATIVE:',len(volumes),'closed stocks;',len(joins),'joined assemblies;',len(all_contacts),'bearings;',len(views),'views')

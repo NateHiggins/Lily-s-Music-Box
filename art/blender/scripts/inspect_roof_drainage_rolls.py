@@ -9,7 +9,7 @@ report=json.loads((O/'roof_membrane_construction.json').read_bytes());native=O/'
 context=bpy.data.collections.new('ReadOnlyField');bpy.context.scene.collection.children.link(context)
 with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_falls.blend'),link=False) as (available,target):target.objects=[name for name in available.objects if name.endswith('__Membrane')]
 for obj in target.objects:
- if obj is not None:context.objects.link(obj);obj.hide_render=True
+ if obj is not None:context.objects.link(obj);bpy.context.view_layer.update();obj.hide_render=True
 trees={o.name.split('__')[0]:BVHTree.FromPolygons([v.co for v in o.data.vertices],[tuple(p.vertices) for p in o.data.polygons if p.normal.z>.999],all_triangles=False) for o in target.objects};origins={o.name.split('__')[0]:tuple(o.location) for o in target.objects}
 def backing(owner,point):
  pivot=origins[owner]
@@ -34,8 +34,8 @@ for part in report['parts']:
  tint=obj.data.color_attributes['SeamTint'];unique=sorted(set(round(float(v.color[0]),5) for v in tint.data));assert all(any(abs(v-q)<.00001 for q in [1.,report['recipe']['bond_tint']]) for v in unique);colours.append({'part':obj.name,'span_m':span,'native_linear_tints':unique})
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1440;scene.render.resolution_y=1080;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
-sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
-camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);scene.camera=camera;camera_data.lens=35;camera_data.clip_start=.01
+sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=35;camera_data.clip_start=.01
 renders=[]
 for name,eye,at in [('west_field',(-12.,1.,21.),(-10.,0.,19.35)),('bond_close',(-10.2,-.1,19.9),(-10.,-1.,19.35)),('north_divide',(4.2,-6.5,20.7),(6.,-8.5,19.4))]:
  camera.location=eye;camera.rotation_euler=(Vector(at)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True);renders.append(name+'.png')

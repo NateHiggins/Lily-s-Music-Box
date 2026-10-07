@@ -78,3 +78,9 @@ or human acceptance is claimed. Strong lamp/normal response and broader finish
 calibration remain. Continue remaining rear-shop joinery and the final material
 pass; dynamic flap/ticket operations and independent services remain separate
 unfinished requirements. No owner decision is required for this visual batch.
+
+## Later native-context correction
+
+The linked-mesh transform audit in **V2_CONTEXT_FITS_2026-10-07.md**
+supersedes this report's native-context clearance claim. Its corrected fit and
+new checks are recorded separately; the original run receipts above remain historical.

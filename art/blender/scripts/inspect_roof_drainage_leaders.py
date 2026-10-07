@@ -51,12 +51,12 @@ for part in report['parts']:
  parts.append({'name':obj.name,'span_m':span,'vertices':len(obj.data.vertices),'faces':len(obj.data.polygons)})
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE';scene.render.resolution_x=1440;scene.render.resolution_y=1080;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.25,.25,.25,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.7
-sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);sun.rotation_euler=(.4,-.3,.4)
-camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
+sun_data=bpy.data.lights.new('DiagnosticSun','SUN');sun_data.energy=2.;sun=bpy.data.objects.new('DiagnosticSun',sun_data);scene.collection.objects.link(sun);bpy.context.view_layer.update();sun.rotation_euler=(.4,-.3,.4)
+camera_data=bpy.data.cameras.new('DiagnosticCamera');camera=bpy.data.objects.new('DiagnosticCamera',camera_data);scene.collection.objects.link(camera);bpy.context.view_layer.update();scene.camera=camera;camera_data.lens=42;camera_data.clip_start=.01
 # Retained ports provide geometry context; this inspector never saves it.
 with bpy.data.libraries.load(str(R/'art/blender/roof_drainage_ports.blend'),link=False) as (source,target):target.objects=[name for name in source.objects if '__Channel' in name or '__Bed' in name]
 for obj in target.objects:
- if obj is not None:scene.collection.objects.link(obj)
+ if obj is not None:scene.collection.objects.link(obj);bpy.context.view_layer.update()
 renders=[]
 for name,eye,at in [('east_hopper',(17.1,19.6,-6.9),(16.1,19.05,-7.5)),('north_offset',(12.2,19.1,13.6),(11.,18.35,11.4)),('north_bracket',(11.65,19.45,12.65),(11.,18.85,11.3)),('west_clamp',(-16.8,10.,1.0),(-16.02,9.45,.5))]:
  camera.location=b(eye);camera.rotation_euler=(b(at)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True);renders.append(name+'.png')
