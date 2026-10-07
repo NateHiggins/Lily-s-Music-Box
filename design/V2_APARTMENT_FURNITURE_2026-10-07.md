@@ -70,4 +70,13 @@ images were overwritten; raw failed-run logs are retained. V2 is incomplete.
 Evidence: [packet](../art/renders/orison_v2/apartment_furniture_20261007/image_manifest.json).
 All entries are INERT geometry/visual QA. Decision needed from owner: none.
 
-BLOCKED pending static candidate verification
+Verified source **a21433930444064d7636c97f3ceff2f22bc3efba** has exactly tree
+**c15b1ce93fa708be7dcae62a177a5071b5266e2a**, matching candidate
+**9bd294bea9afa05bc5a3ced5c21ab5c4d404c5b9**. The cached complete baseline
+**1c319e582f57bc9a505093f1a89146c78562756e** was reused without repeated
+Godot launches. All 49 gates, including 42 tools tests, report zero regressions;
+all 17 protected paths match and ledger counts remain unchanged. The verifier
+removed its temporary checkout. The only gate-file change appends 103 spatial
+consumer records, with all prior records preserved.
+
+MERGE-CANDIDATE a21433930444064d7636c97f3ceff2f22bc3efba
