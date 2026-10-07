@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_urns.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_urn0__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.25
+        },
+        {
+          "name": "storm_shop_luncheonette_urn0__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_luncheonette_urn0__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_luncheonette_urn1__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.25
+        },
+        {
+          "name": "storm_shop_luncheonette_urn1__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_luncheonette_urn1__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_luncheonette_piecase__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.25
+        },
+        {
+          "name": "storm_shop_luncheonette_piecase__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_luncheonette_piecase__timber",
+          "key": "timber",
+          "tile": 1.0,
+          "catalog_key": "timber"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_urn0",
+          "key": "nickel_plated",
+          "low": [
+            22.64,
+            1.02,
+            43.25999999999999
+          ],
+          "high": [
+            22.98,
+            1.76,
+            43.63999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn0_lid",
+          "key": "nickel_plated",
+          "low": [
+            22.6,
+            1.77,
+            43.21999999999999
+          ],
+          "high": [
+            23.02,
+            1.85,
+            43.67999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn0_tap",
+          "key": "brass_dull",
+          "low": [
+            22.38,
+            1.25,
+            43.36999999999999
+          ],
+          "high": [
+            22.64,
+            1.37,
+            43.52999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn0_gauge",
+          "key": "glassish",
+          "low": [
+            22.45,
+            1.28,
+            43.269999999999996
+          ],
+          "high": [
+            22.63,
+            1.62,
+            43.31999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn1",
+          "key": "nickel_plated",
+          "low": [
+            22.64,
+            1.02,
+            42.639999999999986
+          ],
+          "high": [
+            22.98,
+            1.76,
+            43.019999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn1_lid",
+          "key": "nickel_plated",
+          "low": [
+            22.6,
+            1.77,
+            42.599999999999994
+          ],
+          "high": [
+            23.02,
+            1.85,
+            43.05999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn1_tap",
+          "key": "brass_dull",
+          "low": [
+            22.38,
+            1.25,
+            42.74999999999999
+          ],
+          "high": [
+            22.64,
+            1.37,
+            42.90999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_urn1_gauge",
+          "key": "glassish",
+          "low": [
+            22.45,
+            1.28,
+            42.64999999999999
+          ],
+          "high": [
+            22.63,
+            1.62,
+            42.69999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_piecase",
+          "key": "glassish",
+          "low": [
+            22.58,
+            1.02,
+            39.75
+          ],
+          "high": [
+            23.0,
+            1.48,
+            40.65
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

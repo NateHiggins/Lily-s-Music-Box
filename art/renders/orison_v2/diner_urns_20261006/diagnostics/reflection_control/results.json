@@ -1,0 +1,37 @@
+{
+ "evidence_class": "INERT",
+ "scope": "Minimal isolated Forward+ scene with one box, camera and solid world background; no Orison/autoload/cabinet code. Single UPDATE_ONCE ReflectionProbe present only in probe case; removed after 24 frames, then 12 frames flushed before quit. These are wrapper diagnostics without runtime/ledger authority.",
+ "engine": "4.7.1.stable.official.a13da4feb",
+ "sources": {
+  "project.godot": "9632f764ddc1660387f0d8e465806bf0be77240dc8102e0203c33abb2f8c0011",
+  "Control.tscn": "70323e102b2ccf08869b6b47b7550b5b14d5730c9e52e8d110ae918b422f3958",
+  "control.gd": "9fe0950c1078b9b3a60b124d74f69976ebc3ff47ec76450bbb6dc6447256bf2d"
+ },
+ "runs": [
+  {
+   "probe": false,
+   "texture_rids_reported": 0,
+   "stdout": "tmp/v2-finish-review/reflection-control-none.log",
+   "stderr": "tmp/v2-finish-review/reflection-control-none.log.stderr",
+   "receipt": "tmp/v2-finish-review/reflection-control-none.log.receipt.json",
+   "stdout_sha256": "e6da6f672466d6ea9891439428612295e6d6081c9418441cc7b2b75df540ee61",
+   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "receipt_sha256": "d26af95e418a7f77cd6c03d8064775e84b1fa623791c8674b2ff0a7ec4bc82f8"
+  },
+  {
+   "probe": true,
+   "texture_rids_reported": 7,
+   "stdout": "tmp/v2-finish-review/reflection-control-probe.log",
+   "stderr": "tmp/v2-finish-review/reflection-control-probe.log.stderr",
+   "receipt": "tmp/v2-finish-review/reflection-control-probe.log.receipt.json",
+   "stdout_sha256": "c77cc5aa328ae328178df6a53aa434d63a285212b98304ec7b850974b4278b64",
+   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "receipt_sha256": "58e248cad2465392fc331619edd46ae370bd6b811ca50a1ceee8837c8527c541"
+  }
+ ],
+ "comparison": {
+  "without_probe_texture_rids": 0,
+  "retired_probe_texture_rids": 7
+ },
+ "upstream": "https://github.com/godotengine/godot/issues/122498"
+}
