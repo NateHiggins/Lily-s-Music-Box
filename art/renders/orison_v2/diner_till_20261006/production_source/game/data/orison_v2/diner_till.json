@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_till.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_register__bakelite_black",
+          "key": "bakelite_black",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_luncheonette_register__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_luncheonette_register__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_luncheonette_register__timber",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_luncheonette_cigar_case__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull"
+        },
+        {
+          "name": "storm_shop_luncheonette_cigar_case__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_luncheonette_cigar_case__timber",
+          "key": "timber",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_register",
+          "key": "nickel_plated",
+          "low": [
+            19.03,
+            1.13,
+            40.9
+          ],
+          "high": [
+            19.53,
+            1.5499999999999998,
+            41.36
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_cigar_case",
+          "key": "glassish",
+          "low": [
+            18.95,
+            1.13,
+            43.11999999999999
+          ],
+          "high": [
+            19.55,
+            1.47,
+            43.81999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_luncheonette_register",
+      "rect": [
+        19.03,
+        -41.36,
+        19.53,
+        -40.9
+      ],
+      "z0": 1.13,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_cigar_case",
+      "rect": [
+        18.95,
+        -43.81999999999999,
+        19.55,
+        -43.11999999999999
+      ],
+      "z0": 1.13,
+      "h": 0.34,
+      "mat": "glassish",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_luncheonette_register",
+      "kind": "register",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_luncheonette_cigar_case",
+      "kind": "cigar_case",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_luncheonette_register_BottomPlate",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "timber",
+      "volume_m3": 0.0019666970229625935
+    },
+    {
+      "name": "storm_shop_luncheonette_register_Foot-0.19000000000000042-0.21",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 4.420820226809175e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_Foot-0.190000000000000420.21",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 4.420833032472718e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_Foot0.19000000000000042-0.21",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 4.4207707154575306e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_Foot0.190000000000000420.21",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 4.420783521120141e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_ClosedDrawerFace",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0003343645341757166
+    },
+    {
+      "name": "storm_shop_luncheonette_register_DrawerBack",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005174006642701586
+    },
+    {
+      "name": "storm_shop_luncheonette_register_LowerSide-0.22700000000000042",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005945874367219191
+    },
+    {
+      "name": "storm_shop_luncheonette_register_LowerSide0.21600000000000041",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005947924319099285
+    },
+    {
+      "name": "storm_shop_luncheonette_register_DrawerTop",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0020004863764845823
+    },
+    {
+      "name": "storm_shop_luncheonette_register_SlopedKeyBed",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.014175795298875304
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3679752056555406e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.34353684496642e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368299972089528e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343447525869045e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3684510102548335e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.3434689388796785e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.367975205656408e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343536844966962e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3682999720894197e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343396056067317e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3684510102541694e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.34346893887892e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.367975205655771e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343536844966556e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368299972087075e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343396056066884e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem0_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3684510102550368e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey0_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343468938878161e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.36798062988886e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343558585392286e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3683053199264564e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343469266295625e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368456510884123e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343490744786567e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.367980629887952e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.3435585853918795e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3683053199247353e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343417861974179e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3684565108850718e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343490744787841e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3679806298887785e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343558585391961e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.36830531992586e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343417861976185e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem1_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368456510885248e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey1_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343490744787597e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3679754386496388e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.34365095859412e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3683000504454155e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_1",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343561605571743e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368451164150298e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_2",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343583084348833e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3679754386496388e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_3",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.34365095859412e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3683000504454155e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_4",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343510200571695e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368451164150298e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_5",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343583084348833e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3679754386496388e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_6",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.34365095859412e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.3683000504454155e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_7",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343510200571695e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_KeyStem2_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 2.368451164150298e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankKey2_8",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 6.343583084348833e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_register_RaisedBack",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.001356502453488358
+    },
+    {
+      "name": "storm_shop_luncheonette_register_RaisedSide-0.22700000000000042",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005329702641255797
+    },
+    {
+      "name": "storm_shop_luncheonette_register_RaisedSide0.21600000000000041",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005331541941754753
+    },
+    {
+      "name": "storm_shop_luncheonette_register_IndicatorBack",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "bakelite_black",
+      "volume_m3": 0.0007306241172915969
+    },
+    {
+      "name": "storm_shop_luncheonette_register_Crown",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 0.0018363102747623917
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankIndicator-0.155",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 1.4202524798804725e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankIndicator-0.0775",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 1.4202541410970071e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankIndicator0.0",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 1.420265240663412e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankIndicator0.0775",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 1.4201842638064214e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_BlankIndicator0.155",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "nickel_plated",
+      "volume_m3": 1.4201842642241428e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_DrawerHandleRail",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 1.714149198828803e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_register_DrawerHandleSeat-0.076",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 1.5669089592680336e-07
+    },
+    {
+      "name": "storm_shop_luncheonette_register_DrawerHandleSeat0.076",
+      "assembly": "storm_shop_luncheonette_register",
+      "key": "brass_dull",
+      "volume_m3": 1.5669536239154482e-07
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_Post18.962-43.80799999999999",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "timber",
+      "volume_m3": 0.0001689978462380579
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_Post18.962-43.13199999999999",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "timber",
+      "volume_m3": 0.00016902721473871924
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_Post19.538-43.80799999999999",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "timber",
+      "volume_m3": 0.0001689978462380579
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_Post19.538-43.13199999999999",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "timber",
+      "volume_m3": 0.00016902721473871924
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_DisplayFloor",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "timber",
+      "volume_m3": 0.004976943154761913
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongPane18.951",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "glassish",
+      "volume_m3": 0.0008236198908530929
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongPane19.545",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "glassish",
+      "volume_m3": 0.0008236198908530929
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndPane-43.818999999999996",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "glassish",
+      "volume_m3": 0.0006991641262887958
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndPane-43.12499999999999",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "glassish",
+      "volume_m3": 0.0006991641262887958
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_GlassLid",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "glassish",
+      "volume_m3": 0.0014784283096860949
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongFrame18.9511.1340000000000001",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00036889054916600697
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongFrame19.5261.1340000000000001",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00036889054916600697
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndFrame-43.8189999999999961.1340000000000001",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00031601045324514886
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndFrame-43.143999999999991.1340000000000001",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.0003160629186890233
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongFrame18.9511.447",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00036889054916600697
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_LongFrame19.5261.447",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00036889054916600697
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndFrame-43.8189999999999961.447",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.00031601045324514886
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case_EndFrame-43.143999999999991.447",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "key": "brass_dull",
+      "volume_m3": 0.0003160629186890233
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_luncheonette_register",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.490000000000002,
+        1.12,
+        41.31999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "register foot on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_register",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.07,
+        1.12,
+        41.31999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "register foot on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_register",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.490000000000002,
+        1.12,
+        40.94
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "register foot on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_register",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.07,
+        1.12,
+        40.94
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "register foot on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        18.962,
+        1.12,
+        43.80799999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "display post on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        18.962,
+        1.12,
+        43.13199999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "display post on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.538,
+        1.12,
+        43.80799999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "display post on actual fitted serving sheet"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.538,
+        1.12,
+        43.13199999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "display post on actual fitted serving sheet"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_luncheonette_register__bakelite_black",
+      "assembly": "storm_shop_luncheonette_register",
+      "cell": "shop_luncheonette",
+      "key": "bakelite_black",
+      "triangles": 6016
+    },
+    {
+      "name": "storm_shop_luncheonette_register__brass_dull",
+      "assembly": "storm_shop_luncheonette_register",
+      "cell": "shop_luncheonette",
+      "key": "brass_dull",
+      "triangles": 5640
+    },
+    {
+      "name": "storm_shop_luncheonette_register__nickel_plated",
+      "assembly": "storm_shop_luncheonette_register",
+      "cell": "shop_luncheonette",
+      "key": "nickel_plated",
+      "triangles": 2644
+    },
+    {
+      "name": "storm_shop_luncheonette_register__timber",
+      "assembly": "storm_shop_luncheonette_register",
+      "cell": "shop_luncheonette",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case__brass_dull",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "cell": "shop_luncheonette",
+      "key": "brass_dull",
+      "triangles": 1504
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case__glassish",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "cell": "shop_luncheonette",
+      "key": "glassish",
+      "triangles": 60
+    },
+    {
+      "name": "storm_shop_luncheonette_cigar_case__timber",
+      "assembly": "storm_shop_luncheonette_cigar_case",
+      "cell": "shop_luncheonette",
+      "key": "timber",
+      "triangles": 940
+    }
+  ],
+  "triangles": 16992,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/diner_till.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_luncheonette",
+        "parts": [
+          {
+            "name": "storm_shop_luncheonette_register__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
+            "name": "storm_shop_luncheonette_register__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass_dull"
+          },
+          {
+            "name": "storm_shop_luncheonette_register__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_luncheonette_register__timber",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_luncheonette_cigar_case__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass_dull"
+          },
+          {
+            "name": "storm_shop_luncheonette_cigar_case__glassish",
+            "key": "glassish",
+            "tile": 1.6,
+            "plain_alpha": true
+          },
+          {
+            "name": "storm_shop_luncheonette_cigar_case__timber",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_luncheonette_register",
+            "key": "nickel_plated",
+            "low": [
+              19.03,
+              1.13,
+              40.9
+            ],
+            "high": [
+              19.53,
+              1.5499999999999998,
+              41.36
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_cigar_case",
+            "key": "glassish",
+            "low": [
+              18.95,
+              1.13,
+              43.11999999999999
+            ],
+            "high": [
+              19.55,
+              1.47,
+              43.81999999999999
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+  "source_bindings": {
+    "art/data/diner_till/source_plan.json": "4a3d0572c426f5f2a865f107f680ebd49b876f0ac4555030e1a1a9e425a2a599",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_diner_till.py": "9045374837d6ad955733e18d5f345323782020ed4b13a8cb05d8ad1a91b3fcd9",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/diner_till.glb.import": "214cdbeeeccaeee15d3fa728f6b7f8d46c9fce72f768712547c8607cfafa44be",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+    "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+    "art/blender/scripts/inspect_diner_till.py": "f2ef2dda5c9c5bde8b898c526dbf71ce58d60681abf0423efbc3de0972f76797",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/diner_receiving.blend": "9b6d17c79ebe9aa8e6d10d57b7467632396da8d973e3111f888eee78b152ec68",
+    "game/assets/props/diner_receiving.glb": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f",
+    "game/tests/fixtures/orison_diner_receiving.json": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+    "game/data/orison_v2/diner_receiving.json": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa",
+    "art/blender/diner_counter.blend": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+    "game/assets/props/diner_counter.glb": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+    "game/tests/fixtures/orison_diner_counter.json": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+    "game/data/orison_v2/diner_counter.json": "8e7085cececed1e6d9f23fd4c3c951d5f58e14eeeac84397751ef85474479ec2"
+  },
+  "open_work": [
+    "Two immutable source records retain their plan envelopes and original upper datums. Four register feet and four display posts fill the former .01m gap onto the actual fitted 1.12m serving sheet. Original hidden source poses remain unchanged.",
+    "The passive mechanical register faces the existing clerk side of the counter. Joined case panels, sloped key bed, unlettered Bakelite keys, closed cash-drawer face and blank mechanical indicator slots replace the solid plated box. No illumination, payment, till operation, inventory, new programme or service authority.",
+    "The display replaces its solid glass block with closed 4mm panes inside the original envelope, a joined timber/brass frame and genuinely empty chamber. Original shipping tint/maps/culling remain; bounded local plain-alpha blending follows the existing display-case optical adaptation. No invented tobacco stock, opening, locks or purchasing.",
+    "Accepted native counter/ledger, eight stools and two receivers keep their exact meshes and nonvisual authority. Physical support/clearance and sampled observations grant no continuous route, utility capacity or human acceptance."
+  ]
+}

@@ -10028,6 +10028,12 @@
     ]
    },
    {
+    "file": "art/renders/orison_v2/diner_counter_20261006/runtime_authority_receipt.json",
+    "reasons": [
+     "runtime-input SHA-256 is stale"
+    ]
+   },
+   {
     "file": "art/renders/orison_v2/diner_receiving_20261006/runtime_authority_receipt.json",
     "reasons": [
      "runtime-input SHA-256 is stale"
@@ -10296,7 +10302,7 @@
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
   "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "d61a2c49a845c7bea41619da81c7853dffada1d70ad2ebb02eea2e0d44713f05",
+  "tools/orison_spatial_dependency_manifest.json": "a6fcbaab6ff81d84595b633eccf3990ff7d6574269b00018ab9137393ff6f1ad",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
@@ -10337,9 +10343,10 @@
   "art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json": "472c33b61fc3cc5c92837ad5efcba15142d8a80a6aa524505170978f02aa8815",
   "art/renders/orison_v2/building_surface_finish_20261005/runtime_authority_receipt.json": "b792e5efd1fb801809a7146bb6dd340e3f66f6ea5d29cbed09d80bdcba3a6243",
   "art/renders/orison_v2/cobbler_fittings_20261005/runtime_authority_receipt.json": "f4116ede94c5262f3d03cd2658d2d060e9f27151e09d620edb738c0a64969469",
-  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
   "art/renders/orison_v2/diner_counter_20261006/runtime_authority_receipt.json": "b8b1ec60dde7d44e88bde9caa74cbedbb6d5f9ea6b22ee3eaf78ee34956eff6d",
   "art/renders/orison_v2/diner_receiving_20261006/runtime_authority_receipt.json": "9d644088e27341fcc0ae8eb261869a1dc4181408f36c86f8aa5e4d573f074298",
+  "game/tests/orison_v2_resident_key_route_test.gd": "b64bac7ebf7b749222d75cf95260cdd4e9706a841c6b68e26d141a88ff52eb90",
+  "art/renders/orison_v2/diner_till_20261006/runtime_authority_receipt.json": "da9145300cab64fee4490197f048a400c7a4f8f46147daf956280a9cde7ac18b",
   "art/renders/orison_v2/druggist_carboys_20261006/runtime_authority_receipt.json": "e04c770bebdd0a49801e2a69df2f26a519b8b5dc95261973ea8c31f55274d29f",
   "art/renders/orison_v2/druggist_counter_20261006/runtime_authority_receipt.json": "298a7ba4b60a9ca032b92504cc23624c67d2c7f0c3f89c80e9fda871527dc81c",
   "art/renders/orison_v2/druggist_cupboard_20261006/runtime_authority_receipt.json": "8764884ee63b1fffcfb07855cb91496eac7a19e65f09cb4c0da86708a0090a38",

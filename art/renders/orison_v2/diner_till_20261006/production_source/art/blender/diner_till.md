@@ -42,7 +42,8 @@ were directly reviewed. **OrisonV2DinerTillTest** passes **143** checks for
 source retention, imported maps/collision faces, support, thin inner/outer
 glazing, empty display/drawer chambers and the unchanged register maximum.
 All six requested standing observation stations are clear. These samples
-do not prove continuous service routes. Full committed verification is recorded below.
+do not prove continuous service routes. Full committed verification remains
+required before this fitting is accepted as a production candidate.
 
 The initial native diagnostic assumed coplanar BVH pairs must exist;
 the actual owner-ray check then exposed stale linked-object transforms.
@@ -51,11 +52,3 @@ remain diagnostic evidence. Existing strong lamp glare remains a separate
 optical concern. Diner back bar/urns/shelves, pie case, griddle, fountain/
 pumps, mixer, menu and fan still need fitting. Food/drink operation,
 utilities, continuous routes and human acceptance remain open.
-
-Committed source **ff21d436** passes the complete **48-gate/tools-test** comparison
-and **nine** bound Godot runs with zero regressions. All **nine** native,
-**six** focused and **70** final production frames were directly reviewed.
-The exact source, actual observations, reconstruction, receivers, counter
-and separate full key authority are retained in
-**art/renders/orison_v2/diner_till_20261006**; report:
-**design/V2_DINER_TILL_2026-10-06.md**. V2 remains incomplete.
