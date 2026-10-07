@@ -13,7 +13,7 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	var shapes:=glazing.find_children("*","CollisionShape3D",true,false)
 	if shapes.size()!=1 or shapes[0].shape is not ConcavePolygonShape3D:return false
 	var faces: PackedVector3Array=shapes[0].shape.get_faces();var pose:=glazing.transform;var disabled: bool=shapes[0].disabled
-	if not ShopSeating.mount_records(cell,layout,"res://data/orison_v2/pawn_clocks.json","PawnClocks","F01_retail_pawn_clocks_","pawn_clocks_part","",{"glassish":mat}):return false
+	if not ShopSeating.mount_pawn_clocks(cell,layout,{"glassish":mat}):return false
 	if glazing.mesh!=original or glazing.transform!=pose or shapes[0].disabled!=disabled or shapes[0].shape.get_faces()!=faces:return false
 	cell.get_node("PawnClocks").set_meta("borrowed_glazing_owner",{"draw":glazing,"mesh":original,"faces":faces,"pose":pose,"disabled":disabled,"material":mat})
 	return true
